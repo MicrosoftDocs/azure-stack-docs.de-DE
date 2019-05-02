@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation für Azure Stack-Partner
+metadata:
+  document_id: null
+  title: 'Dokumentation für Azure Stack-Partner: Tutorials, API-Referenz'
+  description: 'Hier erfahren Sie, wie Sie Ihre Hardware zum Hosten von Azure Stack überprüfen. Validation-as-a-Service ist ein nativer Azure-Dienst, der für Lösungspartner konzipiert wurde, die zusammen mit Microsoft Azure Stack-Angebote entwickeln.'
+  services: azure-stack
+  author: mattbriggs
+  manager: femila
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/25/2018
+  ms.author: mabrigg
+  ms.reviewer: johnhas
+abstract:
+  description: 'Sie können mit Validation-as-a-Service Ihre Hardware für die Verwendung mit Azure Stack überprüfen. Bei dem Dienst handelt es sich um einen nativen Azure-Dienst, der für Lösungspartner konzipiert wurde, die zusammen mit Microsoft Azure Stack-Angebote entwickeln.'
+sections:
+  - title: Fünfminütiger Schnellstart
+    items:
+      - type: paragraph
+        text: 'Hier erfahren Sie, wie Sie das Validation-as-a-Service-Portal zum Planen von Tests für Ihre Hardware verwenden.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/i_account-management.svg
+            text: Planen des ersten Tests mithilfe des Validation-as-a-Service-Portals
+            href: azure-stack-vaas-schedule-test-pass.md
+  - title: Schritt-für-Schritt-Tutorials
+    items:
+      - type: paragraph
+        text: 'Hier erfahren Sie, wie Sie Ihre Azure Stack-Hardware überprüfen.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">Überprüfen einer neuen Azure Stack-Lösung</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">Überprüfen von OEM-Paketen</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Überprüfen der Softwareupdates von Microsoft</a>
