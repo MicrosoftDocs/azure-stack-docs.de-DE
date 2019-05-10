@@ -3,8 +3,8 @@ title: Horizontales Hochskalieren von Workerrollen in App Services – Azure Sta
 description: Ausführliche Anleitung zum Skalieren von Azure Stack App Services
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: jeffgilb
+manager: femila
 editor: ''
 ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2010
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 05/06/2019
+ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 839fa7fe8374f1f85b019178d4c3fe53f7137372
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: d693a7f6a5cbe7d818dedcc664cc8846bcebc11c
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64308736"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172474"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App Service in Azure Stack: Hinzufügen von weiterer Infrastruktur oder von Workerrollen
 
@@ -114,5 +113,3 @@ Um die Rollen „Management“, „Front-End“ oder „Herausgeber“ horizonta
 ### <a name="next-steps"></a>Nächste Schritte
 
 [Konfigurieren von Bereitstellungsquellen](azure-stack-app-service-configure-deployment-sources.md)
-
-<!-- Update_Description: wording update -->
