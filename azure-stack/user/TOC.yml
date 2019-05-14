@@ -1,0 +1,259 @@
+- name: Benutzerdokumentation zu Azure Stack
+  href: index.yml
+- name: Übersicht
+  items:
+    - name: Wichtige Aspekte
+      href: azure-stack-considerations.md
+- name: Schnellstarts
+  expanded: true
+  items:
+    - name: Erstellen einer Windows-VM – Portal
+      href: azure-stack-quick-windows-portal.md
+    - name: Erstellen einer Windows-VM – PowerShell
+      href: azure-stack-quick-create-vm-windows-powershell.md
+    - name: Erstellen einer Windows-VM – CLI
+      href: azure-stack-quick-create-vm-windows-cli.md
+    - name: Erstellen einer Linux-VM – Portal
+      href: azure-stack-quick-linux-portal.md
+    - name: Erstellen einer Linux-VM – PowerShell
+      href: azure-stack-quick-create-vm-linux-powershell.md
+    - name: Erstellen einer Linux-VM – CLI
+      href: azure-stack-quick-create-vm-linux-cli.md
+- name: Lernprogramme
+  items:
+    - name: Häufige Aufgaben
+      items:
+        - name: Abonnieren von Angeboten
+          href: azure-stack-subscribe-services.md
+        - name: Erstellen eines virtuellen Computers über eine Vorlage
+          href: azure-stack-create-vm-template.md
+    - name: Hybrid Cloud-Apps
+      href: azure-stack-hybrid-cloud-patterns.md
+      items:
+        - name: Bereitstellen von Apps in Azure und Azure Stack
+          href: azure-stack-solution-pipeline.md
+        - name: Konfigurieren einer Hybrid Cloud-Identität
+          href: azure-stack-solution-hybrid-identity.md
+        - name: Konfigurieren der Hybrid Cloud-Konnektivität
+          href: azure-stack-solution-hybrid-connectivity.md
+        - name: Erstellen einer bereitgestellten Lösung für die Datenanalyse
+          href: azure-stack-solution-staged-data-analytics.md
+        - name: Erstellen von cloudübergreifenden Skalierungslösungen mit Azure
+          href: azure-stack-solution-cloud-burst.md
+        - name: Erstellen einer geografisch verteilten App-Lösung
+          href: azure-stack-solution-geo-distributed.md
+        - name: Bereitstellen einer Hybrid Cloud-Lösung
+          href: azure-stack-solution-hybrid-cloud.md
+- name: Anleitungen
+  items:
+    - name: Verwenden des Portals für Azure Stack
+      href: azure-stack-use-portal.md
+    - name: Verbinden mit PowerShell
+      href: azure-stack-powershell-configure-user.md
+    - name: Verwenden der Azure Stack-API
+      href: azure-stack-rest-api-use.md
+    - name: Sicherheit und Compliance
+      items:
+        - name: Verwenden der rollenbasierten Zugriffssteuerung
+          href: azure-stack-manage-permissions.md
+        - name: Verwenden von Dienstprinzipalen
+          href: Azure-stack-create-service-principals.md
+    - name: Verwenden von Diensten
+      items:
+        - name: Compute
+          items:
+            - name: Übersicht
+              href: azure-stack-compute-overview.md
+            - name: VM-Aspekte
+              href: azure-stack-vm-considerations.md
+            - name: VM-Größen
+              href: azure-stack-vm-sizes.md
+            - name: Verwalten von VM-Datenträgern
+              href: azure-stack-manage-vm-disks.md
+            - name: Überlegungen zu verwalteten Datenträgern
+              href: azure-stack-managed-disk-considerations.md
+            - name: Schützen von virtuellen Computern
+              href: azure-stack-manage-vm-protect.md
+            - name: VM-Update und -Verwaltung
+              href: vm-update-management.md
+            - name: Überlegungen zu SQL Server-VMs
+              href: azure-stack-sql-server-vm-considerations.md
+        - name: Storage
+          items:
+            - name: Übersicht
+              href: azure-stack-storage-overview.md
+            - name: Speicheraspekt
+              href: azure-stack-acs-differences.md
+            - name: Speicherentwicklungstools
+              href: azure-stack-storage-dev.md
+            - name: Datenübertragungstools
+              href: azure-stack-storage-transfer.md
+            - name: Herstellen einer Verbindung mit dem Storage-Explorer
+              href: azure-stack-storage-connect-se.md
+        - name: Netzwerk
+          items:
+            - name: Übersicht
+              href: azure-stack-network-overview.md
+            - name: Überlegungen zum Netzwerkbetrieb
+              href: azure-stack-network-differences.md
+            - name: VPN-Gateways
+              items:
+                - name: Herstellen einer Verbindung mithilfe von VPN
+                  href: azure-stack-connect-vpn.md
+                - name: Informationen zu VPN-Gateways
+                  href: azure-stack-vpn-gateway-about-vpn-gateways.md
+                - name: Konfigurieren von IPsec-/IKE-Verbindungsrichtlinien
+                  href: azure-stack-vpn-s2s.md
+                - name: Einstellungen von VPN-Gateways
+                  href: azure-stack-vpn-gateway-settings.md
+            - name: iDNS für Azure Stack
+              href: azure-stack-understanding-dns.md
+            - name: DNS in Azure Stack
+              href: azure-stack-dns.md
+        - name: Key Vault
+          items:
+            - name: Übersicht
+              href: azure-stack-key-vault-intro.md
+            - name: Verwalten mit dem Portal
+              href: azure-stack-key-vault-manage-portal.md
+            - name: Verwalten mit PowerShell
+              href: azure-stack-key-vault-manage-powershell.md
+            - name: Erstellen eines virtuellen Computers mit einem Geheimnis
+              href: azure-stack-key-vault-deploy-vm-with-secret.md
+            - name: Erstellen eines virtuellen Computers mit einem Zertifikat
+              href: azure-stack-key-vault-push-secret-into-vm.md
+            - name: Speichern von Anmeldeinformationen in Key Vault
+              href: azure-stack-key-vault-store-credentials.md
+            - name: Key Vault-Beispiel-App
+              href: azure-stack-key-vault-sample-app.md
+        - name: Azure Monitor
+          href: azure-stack-metrics-azure-data.md
+          items:
+            - name: Unterstützte Metriken
+              href: azure-stack-metrics-supported.md
+            - name: Nutzen von Azure-Überwachungsdaten
+              href: azure-stack-metrics-monitor.md
+        - name: Lösungsvorlagen
+          items:
+            - name: Bereitstellen von Ethereum
+              href: azure-stack-ethereum.md
+            - name: Bereitstellen eines Service Fabric-Clusters
+              href: azure-stack-solution-template-service-fabric-cluster.md
+            - name: Bereitstellen eines Kubernetes-Clusters
+              href: azure-stack-solution-template-kubernetes-deploy.md
+              items:
+                - name: Bereitstellen von Kubernetes mit Azure AD
+                  href: azure-stack-solution-template-kubernetes-azuread.md
+                - name: Bereitstellen von Kubernetes mit AD FS
+                  href: azure-stack-solution-template-kubernetes-adfs.md
+                - name: Aktivieren des Kubernetes-Dashboards
+                  href: azure-stack-solution-template-kubernetes-dashboard.md
+                - name: Problembehandlung für Kubernetes-Cluster
+                  href: azure-stack-solution-template-kubernetes-trouble.md
+            - name: Bereitstellen von Cognitive Services
+              href: azure-stack-solution-template-cognitive-services.md
+    - name: Erstellen von Apps
+      items:
+        - name: Entwickeln für Azure Stack
+          href: azure-stack-developer.md
+        - name: Einrichten der Entwicklungsumgebung
+          href: azure-stack-dev-start.md
+          items:
+            - name: Übersicht über Azure Stack PowerShell
+              href: azure-stack-powershell-overview.md
+            - name: Installieren von Azure Stack-PowerShell
+              href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              maintainContext: true
+            - name: Verbinden mit PowerShell
+              href: azure-stack-powershell-configure-user.md
+            - name: Herunterladen der Azure Stack-Tools
+              href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              maintainContext: true
+            - name: Ausführen von PowerShell mithilfe von Docker
+              href: azure-stack-powershell-user-docker.md
+            - name: Installieren von Visual Studio
+              href: azure-stack-install-visual-studio.md
+            - name: Verwenden eines öffentlichen SSH-Schlüssels
+              href: azure-stack-dev-start-howto-ssh-public-key.md
+            - name: Bereitstellen eines virtuellen Linux-Computers für eine Web-App
+              href: azure-stack-dev-start-howto-deploy-linux.md
+            - name: Verwenden von API-Versionsprofilen
+              href: azure-stack-version-profiles.md
+              items:
+                - name: .NET
+                  href: azure-stack-version-profiles-net.md
+                - name: Java
+                  href: azure-stack-version-profiles-java.md
+                - name: Azure-Befehlszeilenschnittstelle
+                  href: azure-stack-version-profiles-azurecli2.md
+                - name: Go
+                  href: azure-stack-version-profiles-go.md
+                - name: Ruby
+                  href: azure-stack-version-profiles-ruby.md
+                - name: Python
+                  href: azure-stack-version-profiles-python.md
+                - name: Von Profilen unterstützte Ressourcenanbieter-APIs
+                  href: azure-stack-profiles-azure-resource-manager-versions.md
+        - name: Häufige Bereitstellungen für Azure Stack
+          href: azure-stack-dev-start-deploy-app.md
+          items:
+            - name: 'Bereitstellen von .NET Core (C#) auf einem virtuellen Computer'
+              href: azure-stack-dev-start-howto-vm-dotnet.md
+            - name: Bereitstellen von Java auf einem virtuellen Computer
+              href: azure-stack-dev-start-howto-vm-java.md
+            - name: Bereitstellen von Go auf einem virtuellen Computer
+              href: azure-stack-dev-start-howto-vm-go.md
+            - name: Bereitstellen von Ruby auf einem virtuellen Computer
+              href: azure-stack-dev-start-howto-vm-ruby.md
+            - name: Bereitstellen von Python auf einem virtuellen Computer
+              href: azure-stack-dev-start-howto-vm-python.md
+            - name: Bereitstellen von NodeJS auf einem virtuellen Computer
+              href: azure-stack-dev-start-howto-vm-nodejs.md
+        - name: Verwenden des Azure Stack-Richtlinienmoduls
+          href: azure-stack-policy-module.md
+        - name: Verwenden von Vorlagen
+          items:
+            - name: Vorlagenübersicht
+              href: azure-stack-arm-templates.md
+            - name: Überlegungen zu Vorlagen
+              href: azure-stack-develop-templates.md
+            - name: Überprüfen von Vorlagen
+              href: azure-stack-validate-templates.md
+            - name: Bereitstellen über das Portal
+              href: azure-stack-deploy-template-portal.md
+            - name: Bereitstellen mit PowerShell
+              href: azure-stack-deploy-template-powershell.md
+            - name: Bereitstellen mit dem CLI
+              href: azure-stack-deploy-template-command-line.md
+            - name: Bereitstellen mit Visual Studio 2013
+              href: azure-stack-deploy-template-visual-studio.md
+    - name: Aktivieren eines Cloud-Dienstanbieters
+      href: azure-stack-csp-enable-billing-usage-tracking.md
+- name: Verweis
+  items:
+    - name: Azure Stack PowerShell
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
+    - name: Azure Stack-REST-API-Browser
+      href: /rest/api/
+    - name: Azure Stack-Befehlszeilenschnittstelle
+      href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
+- name: Verwandte Themen
+  items:
+    - name: Dokumentation für Azure Stack-Bediener
+      href: /azure-stack/operator/
+    - name: ASDK-Dokumentation
+      href: /azure-stack/asdk/
+- name: Ressourcen
+  items:
+    - name: Roadmap für Azure Stack
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: MSDN-Forum für Azure Stack
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Feedback zur Azure Stack-Dokumentation
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
+    - name: Preisinformationen
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-stack'
+    - name: Training und Zertifizierung
+      href: /azure-stack/operator/azure-stack-train-and-cert
