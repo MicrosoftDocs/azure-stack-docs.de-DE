@@ -4,12 +4,12 @@ ms.service: azure-stack
 ms.topic: include
 ms.date: 10/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: e147cb56fce315dfa545fce6f17df48bd75b98f9
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 686dbcdca75d4b9ecfdf146a51f8779b45aed6ef
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64992200"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617751"
 ---
 Melden Sie sich beim Verwaltungsportal an:
 - Bei einer integrierten Systembereitstellung variiert die Portaladresse basierend auf der Region und dem externen Domänennamen Ihrer Lösung. Sie weist das Format https://adminportal.&lt;*Region*&gt;.&lt;*FQDN*&gt; auf.

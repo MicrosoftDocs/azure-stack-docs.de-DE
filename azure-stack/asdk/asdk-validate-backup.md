@@ -2,22 +2,21 @@
 title: Überprüfen einer Azure Stack-Sicherung mit dem ASDK | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie eine Azure Stack-Sicherung für integrierte Systeme mit dem ASDK überprüfen.
 services: azure-stack
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-origin.date: 02/15/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 02/15/2019
+ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 02/15/2019
-ms.openlocfilehash: b2f85366ed9d5f3b526549b220fe6b55f5e6c13f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 6d300c54044f2eb22eac8efe6f9434660d0b6fb8
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64308976"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617317"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Verwenden des ASDK zum Überprüfen der Azure Stack-Sicherung
 Nach der Bereitstellung von Azure Stack und von Benutzerressourcen wie Angeboten, Plänen, Kontingenten und Abonnements sollten Sie [Azure Stack-Infrastruktursicherung aktivieren](../operator/azure-stack-backup-enable-backup-console.md). Das Planen und Ausführen regelmäßiger Infrastruktursicherungen stellt sicher, dass Daten zur Infrastrukturverwaltung nicht verloren gehen, wenn ein Hardware- oder Dienstausfall auftritt.

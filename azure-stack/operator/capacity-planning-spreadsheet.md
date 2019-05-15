@@ -3,7 +3,7 @@ title: Kapazitätsplanungstabelle für Azure Stack | Microsoft-Dokumentation
 description: Informationen zur Kapazitätsplanungstabelle für Azure Stack-Bereitstellungen.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: prchint
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: da0740cd416af26f3e9c284c2ff405d6e06ffcb7
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 1756499b7736c309b07856bf5edfba45f3c0e11a
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172635"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618873"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Der Azure Stack-Kapazitätsplaner ist eine Kalkulationstabelle, die für die Ressourcenplanung von Azure Stack verwendet wird. Der Kapazitätsplaner bietet Ihnen die Möglichkeit, verschiedene Zuordnungen von Computeressourcen zu entwerfen und herauszufinden, wie diese für eine Auswahl von Hardwareangeboten passen würden. Detaillierte Anweisungen für die Verwendung der Azure Stack-Berechnung finden Sie unten.

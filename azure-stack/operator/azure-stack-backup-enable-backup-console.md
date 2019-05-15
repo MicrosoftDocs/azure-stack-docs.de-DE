@@ -3,7 +3,7 @@ title: Aktivieren der Sicherung für Azure Stack über das Verwaltungsportal | M
 description: Aktivieren Sie den Dienst für die Infrastruktursicherung über das Verwaltungsportal, sodass Azure Stack bei einem Fehler wiederhergestellt werden kann.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 829516e145e56ca9e0409494052f64f5cc059fc8
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: adda9ec9052c11e412c7bd251482e1e3a5c09223
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309414"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618180"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Aktivieren der Sicherung für Azure Stack über das Verwaltungsportal
 Aktivieren Sie den Infrastructure Backup-Dienst über das Verwaltungsportal, sodass Azure Stack Infrastruktursicherungen generieren kann. Mit diesen Sicherungen kann der Hardwarepartner bei einem [schwerwiegenden Fehler](./azure-stack-backup-recover-data.md) Ihre Umgebung mittels einer Cloudwiederherstellung wiederherstellen. Die Cloudwiederherstellung soll sicherstellen, dass die Anbieter und Benutzer sich nach Abschluss der Wiederherstellung wieder im Portal anmelden können. Auf diese Weise können Benutzer ihre Abonnements wiederherstellen, einschließlich RBAC-Berechtigungen (Role-Based Access Control) und -Rollen, ursprünglichen Plänen, Angeboten und zuvor definierten Compute-, Speicher-, Netzwerkkontingenten und Key Vault-Geheimnissen.

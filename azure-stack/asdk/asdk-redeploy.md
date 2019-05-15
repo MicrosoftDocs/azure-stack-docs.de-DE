@@ -3,7 +3,7 @@ title: Erneutes Bereitstellen des Azure Stack Development Kits (ASDK) | Microsof
 description: In diesem Artikel erfahren Sie, wie Sie das ASDK neu installieren.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.custom: ''
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 2ebb7c702eeb2c7f04f61f6bbc79aa0edaf8a860
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 0658943a36673df4658b6f1951ed7992996aba41
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307470"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617478"
 ---
 # <a name="redeploy-the-asdk"></a>Erneutes Bereitstellen des ASDK
 In diesem Artikel erfahren Sie, wie Sie das Azure Stack Development Kit (ASDK) in einer produktionsfremden Umgebung neu bereitstellen. Da für das ASDK keine Upgrades unterstützt werden, müssen Sie es vollständig neu bereitstellen, um zu einer neueren Version zu wechseln. Darüber hinaus können Sie das ASDK jederzeit neu bereitstellen, wenn Sie wieder von vorn beginnen möchten.

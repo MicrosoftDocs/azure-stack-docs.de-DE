@@ -3,7 +3,7 @@ title: Grundlagen des Azure Stack Development Kits | Microsoft-Dokumentation
 description: Dieser Artikel beschreibt die grundlegenden Verwaltungsaufgaben des Azure Stack Development Kits (ASDK).
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/19/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 4dc4f1696266234d5aaaa14f27fbf4a0ba458108
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ab88d8bb2821fc73e0e97e7a3473d7416c38e6f7
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64306228"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617380"
 ---
 # <a name="asdk-administration-basics"></a>Grundlagen zur Verwaltung des ASDK 
 Wenn Sie mit der Verwaltung des Azure Stack Development Kits (ASDK) noch nicht vertraut sind, gibt es verschiedene Aspekte, die Sie kennen müssen. Dieser Leitfaden bietet eine Übersicht über Ihre Rolle als Azure Stack-Bediener in der Evaluierungsumgebung und erläutert, wie Sie dafür sorgen, dass Ihre Testbenutzer schnell produktiv arbeiten können.

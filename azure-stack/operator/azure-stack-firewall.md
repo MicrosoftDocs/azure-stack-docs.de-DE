@@ -3,8 +3,8 @@ title: Azure Stack-Firewallplanung für integrierte Azure Stack-Systeme | Micros
 description: Informationen zu Überlegungen der Azure Stack-Firewall für mit Azure verbundene Bereitstellungen von Azure Stack-Systemen mit mehreren Knoten.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 02/12/2019
+ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 023201d221ee5d7ec884c6a760407e8da8340d3f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: a98f89866fd7679a0d6ce7c6ecb40d7e8e8b51e7
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309990"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618682"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack-Firewallintegration
 Es empfiehlt sich, Azure Stack mit einem Firewallgerät zu schützen. Firewalls können bei der Verteidigung vor Dingen wie DDoS-Angriffen (Denial of Service), bei der Angriffserkennung sowie der Inhaltsuntersuchung helfen. Sie können allerdings auch zu einem Durchsatzengpass für Azure-Speicherdienste wie Blobs, Tabellen und Warteschlangen werden.

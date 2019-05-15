@@ -3,8 +3,8 @@ title: Grundlagen zur Verwaltung von Azure Stack | Microsoft-Dokumentation
 description: Erfahren Sie alles, was Sie über die Verwaltung von Azure Stack wissen müssen.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
@@ -12,16 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 02/12/2019
+ms.author: mabrigg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 8449770d7fa3d42afa8aad790878b29c95be773e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 83c4295c5f14cb89122aca096b7e90cfd44d8d4a
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307338"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618600"
 ---
 # <a name="azure-stack-administration-basics"></a>Grundlagen zur Verwaltung von Azure Stack
 Wenn Sie nicht mit der Azure Stack-Verwaltung vertraut sind, gibt es verschiedene Punkte, die Ihnen bekannt sein müssen. Dieser Artikel enthält einen Überblick über Ihre Rolle als Azure Stack-Betreiber sowie Informationen, die Sie Ihren Benutzern bereitstellen müssen, damit diese rasch Produktivitätssteigerungen erzielen können.

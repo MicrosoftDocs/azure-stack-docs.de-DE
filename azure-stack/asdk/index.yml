@@ -6,14 +6,14 @@ metadata:
   title: 'Dokumentation zum Azure Stack Development Kit: Tutorials, API-Referenz'
   description: Informationen zum Bereitstellen und Verwenden des Azure Stack Development Kits
   services: azure-stack
-  author: jeffgilb
+  author: mattbriggs
   manager: femila
   ms.service: azure-stack
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/13/2018
-  ms.author: jeffgilb
+  ms.author: mabrigg
 abstract:
   description: 'Das Azure Stack Development Kit (ASDK) ist eine Bereitstellung von Azure Stack mit einem Knoten, die Sie kostenlos herunterladen und verwenden können. Das ASDK stellt eine Nicht-Produktionsumgebung bereit, in der Sie anhand von mit Azure konsistenten APIs und Tools Azure Stack evaluieren und moderne Anwendungen entwickeln können. <br/><br/>Wenn Sie ein Azure Stack-Betreiber sind, der die Infrastruktur integrierter Systeme verwaltet und Dienste anbietet, hilft Ihnen die <a href="/azure-stack/operator">Dokumentation für Betreiber</a> weiter.<br/><br/>Wenn Sie ein Azure Stack-Benutzer sind, der Dienste verwendet oder Apps für Azure Stack erstellt, helfen Ihnen die Informationen in unserer <a href="/azure-stack/user">Dokumentation für Benutzer</a> weiter.'
 sections:

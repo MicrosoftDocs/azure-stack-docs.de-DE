@@ -3,7 +3,7 @@ title: Update und Verwaltung virtueller Computer mit Azure Stack | Microsoft-Dok
 description: Erfahren Sie, wie Sie Azure Monitor für VMs für Updateverwaltung, Änderungs- und Bestandsnachverfolgung in Azure Automation zur Verwaltung von virtuellen Windows- und Linux-Computern verwenden, die in Azure Stack bereitgestellt werden.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: cb8258c0f837d0e70ba87a26246f055b0efe5c00
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 6726e8ff261565691e2e9e3c01827e8e056db139
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311514"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618819"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Update und Verwaltung virtueller Computer mit Azure Stack
 Sie können die folgenden Funktionen der Azure Automation-Lösung verwenden, um virtuelle Windows- und Linux-Computer zu verwalten, die mit Azure Stack bereitgestellt werden:

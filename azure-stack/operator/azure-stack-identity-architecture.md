@@ -3,26 +3,25 @@ title: Identitätsarchitektur für Azure Stack | Microsoft-Dokumentation
 description: Hier finden Sie Informationen zur Identitätsarchitektur, die Sie mit Azure Stack verwenden können.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: PatAltimore
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/11/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.topic: conceptual
+ms.date: 05/09/2019
+ms.author: patricka
 ms.reviewer: fiseraci
-ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 9ae8a55d04c34ec65d964927fd25c3bc01adeae4
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: e09451c1bf49a2de075388f555cb7b80e70db63f
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310026"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532312"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Identitätsarchitektur für Azure Stack
 
@@ -42,7 +41,7 @@ Die Wahl des Identitätsanbieters schränkt unter Umständen Ihre Optionen ein �
 |Unterstützung von Tools wie Azure-Befehlszeilenschnittstelle, Visual Studio und PowerShell  |Ja |Ja|
 |Erstellen von Dienstprinzipalen über das Azure-Portal     |Ja |Nein |
 |Erstellen von Dienstprinzipalen mit Zertifikaten      |Ja |Ja|
-|Erstellen von Dienstprinzipalen mit Geheimnissen (Schlüsseln)    |Ja |Nein |
+|Erstellen von Dienstprinzipalen mit Geheimnissen (Schlüsseln)    |Ja |Ja|
 |Anwendungen können den Graph-Dienst verwenden           |Ja |Nein |
 |Anwendungen können einen Identitätsanbieter zum Anmelden verwenden |Ja |Ja. Für Anwendungen muss ein Verbund mit lokalen AD FS-Instanzen eingerichtet werden. |
 
@@ -101,4 +100,3 @@ Merkmale dieser Topologie:
 ## <a name="next-steps"></a>Nächste Schritte
 - [Übersicht über Identitäten](azure-stack-identity-overview.md)   
 - [Azure Stack-Datencenterintegration: Identität](azure-stack-integrate-identity.md)
-<!-- Update_Description: link update -->

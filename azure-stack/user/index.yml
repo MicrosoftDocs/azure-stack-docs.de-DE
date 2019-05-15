@@ -6,14 +6,14 @@ metadata:
   title: 'Dokumentation für Azure Stack – Tutorials, API-Referenz'
   description: 'Es wird beschrieben, wie Sie Azure Stack-Dienste verwenden und Apps für Azure Stack erstellen.'
   services: azure-stack
-  author: jeffgilb
+  author: mattbriggs
   manager: femila
   ms.service: azure-stack
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 10/16/2018
-  ms.author: jeffgilb
+  ms.author: mabrigg
 abstract:
   description: 'Azure Stack ist eine Hybrid Cloud-Plattform, mit der Sie Azure-Dienste aus dem Rechenzentrum Ihres Unternehmens oder Ihres Service Providers verwenden können. Als Entwickler können Sie Apps in Azure Stack erstellen. Anschließend können Sie diese Apps in Azure Stack bzw. Azure bereitstellen, oder Sie können echte Hybrid-Apps erstellen, für die die Konnektivität zwischen einer Azure Stack-Cloud und Azure genutzt wird. Erfahren Sie, wie Sie mit unseren Schnellstarts und Tutorials Ressourcen erstellen und Apps bereitstellen.<br/><br/>Wenn Sie ein Azure Stack-Betreiber sind, der die Infrastruktur verwaltet und Dienste anbietet, hilft Ihnen die <a href="/azure-stack/operator">Dokumentation für Betreiber</a> weiter.<br/><br/>Wenn Sie als Azure Stack-Bediener das Azure Stack Development Kit (ASDK) verwenden möchten, können Sie eine kostenlose Azure Stack-Bereitstellung mit einem Knoten herunterladen. Weitere Informationen finden Sie in der <a href="/azure-stack/asdk">ASDK-Dokumentation</a>.'
 sections:
