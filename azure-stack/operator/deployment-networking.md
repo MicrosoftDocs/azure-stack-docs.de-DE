@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 8cc4ba5aa7861143c0ee2c48ba3c93206930eada
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 20ec9e6ea8831e6667a282074ba28b16da3180f9
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984510"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618983"
 ---
 # <a name="about-deployment-network-traffic"></a>Informationen zum Netzwerkdatenverkehr bei der Bereitstellung
 Für eine erfolgreiche Bereitstellung ist es wichtig, den Netzwerkdatenverkehr bei der Azure Stack-Bereitstellung einschätzen zu können. In diesem Artikel wird der erwartete Netzwerkdatenverkehr während des Bereitstellungsvorgangs beschrieben, sodass Sie eine Vorstellung davon bekommen, was zu erwarten ist.
