@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 05/08/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: a0f01a70be83a556dfa0f8839711c2de1e7c688e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/08/2019
+ms.openlocfilehash: 69eb6e676fb8c134e0184d4df7df95ba0c75e854
+ms.sourcegitcommit: 879165a66ff80f1463b6bb46e2245684224a9b92
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311364"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473867"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit Azure CLI in Azure Stack
 
@@ -81,69 +81,20 @@ Sie können einen öffentlich zugänglichen Endpunkt einrichten, der eine VM-Ali
 
 ### <a name="install-or-upgrade-cli"></a>Installieren oder Aktualisieren der CLI
 
-Melden Sie sich an Ihrer Entwicklungsarbeitsstation an und installieren die CLI. Azure Stack erfordert Version 2.0 oder höher der Azure CLI. Für die neueste Version der API-Profile ist eine aktuelle Version der CLI erforderlich.  Mit den im Artikel [Installieren der Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) beschriebenen Schritten können Sie die CLI installieren. Öffnen Sie ein Terminal oder ein Eingabeaufforderungsfenster, und führen Sie den folgenden Befehl aus, um zu überprüfen, ob die Installation erfolgreich war:
+Melden Sie sich an Ihrer Entwicklungsarbeitsstation an und installieren die CLI. Azure Stack erfordert Version 2.0 oder höher der Azure CLI. Für die neueste Version der API-Profile ist eine aktuelle Version der CLI erforderlich.  Mit den im Artikel [Installieren der Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) beschriebenen Schritten können Sie die CLI installieren. 
 
-```shell
-az --version
-```
+1. Öffnen Sie ein Terminal oder ein Eingabeaufforderungsfenster, und führen Sie den folgenden Befehl aus, um zu überprüfen, ob die Installation erfolgreich war:
 
-Daraufhin sollten die Version der Azure-CLI und die anderen abhängigen Bibliotheken angezeigt werden, die auf Ihrem Computer installiert sind.
-
-### <a name="install-python-on-windows"></a>Installieren von Python unter Windows
-
-1. Installieren Sie [Python 3 auf Ihrem System](https://www.python.org/downloads/).
-
-2. Aktualisieren Sie PIP. PIP ist ein Paket-Manager für Python. Öffnen Sie eine Befehlseingabeaufforderung oder eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und geben Sie den folgenden Befehl ein:
-
-    ```powershell  
-    python -m pip install --upgrade pip
+    ```shell
+    az --version
     ```
 
-3. Installieren Sie das Modul **certifi**. Bei [certifi](https://pypi.org/project/certifi/) handelt es sich um ein Modul und eine Sammlung mit Stammzertifikaten zum Überprüfen der Vertrauenswürdigkeit von SSL-Zertifikaten, während die Identität von TLS-Hosts überprüft wird. Öffnen Sie eine Eingabeaufforderung oder eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und geben Sie den folgenden Befehl ein:
+    Daraufhin sollten die Version der Azure-CLI und die anderen abhängigen Bibliotheken angezeigt werden, die auf Ihrem Computer installiert sind.
 
-    ```powershell
-    pip install certifi
-    ```
+    ![Azure CLI am Python-Speicherort von Azure Stack](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
 
-### <a name="install-python-on-linux"></a>Installieren von Python unter Linux
+2. Notieren Sie sich den Python-Speicherort der CLI. Wenn Sie das ASDK ausführen, benötigen Sie diesen Speicherort zum Hinzufügen Ihres Zertifikat.
 
-1. Für das Ubuntu 16.04-Image sind standardmäßig Python 2.7 und Python 3.5 vorinstalliert. Sie können Ihre Version von Python 3 überprüfen, indem Sie den folgenden Befehl ausführen:
-
-    ```bash  
-    python3 --version
-    ```
-
-2. Aktualisieren Sie PIP. PIP ist ein Paket-Manager für Python. Öffnen Sie eine Befehlseingabeaufforderung oder eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und geben Sie den folgenden Befehl ein:
-
-    ```bash  
-    sudo -H pip3 install --upgrade pip
-    ```
-
-3. Installieren Sie das Modul **certifi**. Bei [certifi](https://pypi.org/project/certifi/) handelt es sich um eine Sammlung mit Stammzertifikaten zum Überprüfen der Vertrauenswürdigkeit von SSL-Zertifikaten, während die Identität von TLS-Hosts überprüft wird. Öffnen Sie eine Befehlseingabeaufforderung oder eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und geben Sie den folgenden Befehl ein:
-
-    ```bash
-    pip3 install certifi
-    ```
-
-### <a name="install-python-on-macos"></a>Installieren von Python unter macOS
-
-1. Installieren Sie [Python 3 auf Ihrem System](https://www.python.org/downloads/). Für Python 3.7-Releases stellt Python.org zwei Downloadoptionen für binäre Installationsprogramme bereit. Die Standardvariante ist nur für 64 Bit geeignet und kann unter macOS 10.9 (Mavericks) und neueren Systemen verwendet werden. Überprüfen Sie Ihre Python-Version, indem Sie das Terminal öffnen und den folgenden Befehl eingeben:
-
-    ```bash  
-    python3 --version
-    ```
-
-2. Aktualisieren Sie PIP. PIP ist ein Paket-Manager für Python. Öffnen Sie eine Befehlseingabeaufforderung oder eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und geben Sie den folgenden Befehl ein:
-
-    ```bash  
-    sudo -H pip3 install --upgrade pip
-    ```
-
-3. Installieren Sie das Modul **certifi**. Bei [certifi](https://pypi.org/project/certifi/) handelt es sich um ein Modul und eine Sammlung mit Stammzertifikaten zum Überprüfen der Vertrauenswürdigkeit von SSL-Zertifikaten, während die Identität von TLS-Hosts überprüft wird. Öffnen Sie eine Eingabeaufforderung oder eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und geben Sie den folgenden Befehl ein:
-
-    ```bash
-    pip3 install certifi
-    ```
 
 ## <a name="windows-azure-ad"></a>Windows (Azure AD)
 
@@ -153,15 +104,20 @@ In diesem Abschnitt wird die Einrichtung der CLI Schritt für Schritt beschriebe
 
 Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat auf Ihrem Remotecomputer als vertrauenswürdig einstufen. Für die integrierten Systeme ist dies nicht erforderlich.
 
-Zum Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als vertrauenswürdig fügen Sie es an das vorhandene Python-Zertifikat an.
+Zum Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als vertrauenswürdig fügen Sie es für die mit der Azure CLI installierte Python-Version an das vorhandene Python-Zertifikat an. Möglicherweise führen Sie Ihre eigene Instanz von Python aus. Die Azure CLI enthält eine eigene Version von Python.
 
-1. Suchen Sie den Speicherort des Zertifikats auf Ihrem Computer. Der Speicherort kann je nachdem, wo Sie Python installiert haben, variieren. Öffnen Sie eine Befehlseingabeaufforderung oder eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und geben Sie den folgenden Befehl ein:
+1. Suchen Sie den Speicherort des Zertifikats auf Ihrem Computer.  Sie finden den Speicherort durch Ausführen des Befehls `az --version`.
+
+2. Navigieren Sie zu dem Ordner, der Ihre CLI-Python-Anwendung enthält. Diese Version von Python sollten Sie ausführen. Wenn Sie Python in Ihrem Systempfad eingerichtet haben, wird Ihre eigene Version von Python ausgeführt. Stattdessen sollten Sie die von der CLI verwendete Version ausführen und Ihr Zertifikat dieser Version hinzufügen. Beispiel: Angenommen, Ihre CLI-Python-Instanz befindet sich in`C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`.
+
+    Verwenden Sie die folgenden Befehle:
 
     ```powershell  
-      python -c "import certifi; print(certifi.where())"
+    cd "c:\pathtoyourcliversionofpython"
+    .\python -c "import certifi; print(certifi.where())"
     ```
 
-    Notieren Sie sich den Speicherort des Zertifikats. Beispiel: `~/lib/python3.5/site-packages/certifi/cacert.pem`. Der Pfad hängt davon ab, welches BS Sie verwenden und welche Python-Version installiert ist.
+    Notieren Sie sich den Speicherort des Zertifikats. Beispiel: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`. Ihr bestimmter Pfad hängt von Ihrem Betriebssystem und Ihrer CLI-Installation ab.
 
 2. Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack als vertrauenswürdig ein, indem Sie es an das vorhandene Python-Zertifikat anfügen.
 
@@ -212,7 +168,7 @@ Zum Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als v
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
     | Resource Manager-Endpunkt | https://management.local.azurestack.external | Der **ResourceManagerUrl**-Wert im Azure Stack Development Kit (ASDK) lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Rufen Sie die erforderlichen Metadaten wie folgt ab: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
     | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
-    | Keyvalut-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
+    | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
     | VM-Image-Aliasdokument: Endpunkt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Der URI des Dokuments, in dem die VM-Image-Aliase enthalten sind. Weitere Informationen finden Sie unter [Einrichten des Endpunkts der VM-Aliase](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -228,7 +184,7 @@ Zum Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als v
 1. Aktualisieren Sie Ihre Umgebungskonfiguration so, dass das spezifische API-Versionsprofil für Azure Stack verwendet wird. Führen Sie den folgenden Befehl aus, um die Konfiguration zu aktualisieren:
 
     ```azurecli
-    az cloud update --profile 2018-03-01-hybrid
+    az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
@@ -332,7 +288,7 @@ Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat a
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
     | Resource Manager-Endpunkt | https://management.local.azurestack.external | Der **ResourceManagerUrl**-Wert im Azure Stack Development Kit (ASDK) lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Rufen Sie die erforderlichen Metadaten wie folgt ab: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
     | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
-    | Keyvalut-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
+    | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
     | VM-Image-Aliasdokument: Endpunkt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Der URI des Dokuments, in dem die VM-Image-Aliase enthalten sind. Weitere Informationen finden Sie unter [Einrichten des Endpunkts der VM-Aliase](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -408,7 +364,7 @@ Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat a
 
 Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack als vertrauenswürdig ein, indem Sie es an das vorhandene Python-Zertifikat anfügen.
 
-1. Suchen Sie den Speicherort des Zertifikats auf Ihrem Computer. Der Speicherort kann je nachdem, wo Sie Python installiert haben, variieren. Es müssen die [Module pip und certifi installiert](#install-python-on-linux) sein. Sie können den folgenden Python-Befehl über die Bash-Aufforderung verwenden:
+1. Suchen Sie den Speicherort des Zertifikats auf Ihrem Computer. Der Speicherort kann je nachdem, wo Sie Python installiert haben, variieren. Die Module „pip“ und „certifi“ müssen installiert sein. Sie können den folgenden Python-Befehl über die Bash-Aufforderung verwenden:
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
@@ -448,7 +404,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack herzu
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
     | Resource Manager-Endpunkt | https://management.local.azurestack.external | Der **ResourceManagerUrl**-Wert im Azure Stack Development Kit (ASDK) lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Rufen Sie die erforderlichen Metadaten wie folgt ab: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
     | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
-    | Keyvalut-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
+    | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
     | VM-Image-Aliasdokument: Endpunkt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Der URI des Dokuments, in dem die VM-Image-Aliase enthalten sind. Weitere Informationen finden Sie unter [Einrichten des Endpunkts der VM-Aliase](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -519,7 +475,7 @@ Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat a
 
 Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack als vertrauenswürdig ein, indem Sie es an das vorhandene Python-Zertifikat anfügen.
 
-1. Suchen Sie den Speicherort des Zertifikats auf Ihrem Computer. Der Speicherort kann je nachdem, wo Sie Python installiert haben, variieren. Es müssen die [Module pip und certifi installiert](#install-python-on-linux) sein. Sie können den folgenden Python-Befehl über die Bash-Aufforderung verwenden:
+1. Suchen Sie den Speicherort des Zertifikats auf Ihrem Computer. Der Speicherort kann je nachdem, wo Sie Python installiert haben, variieren. Die Module „pip“ und „certifi“ müssen installiert sein. Sie können den folgenden Python-Befehl über die Bash-Aufforderung verwenden:
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
@@ -559,7 +515,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack herzu
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
     | Resource Manager-Endpunkt | https://management.local.azurestack.external | Der **ResourceManagerUrl**-Wert im Azure Stack Development Kit (ASDK) lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Rufen Sie die erforderlichen Metadaten wie folgt ab: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
     | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
-    | Keyvalut-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
+    | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
     | VM-Image-Aliasdokument: Endpunkt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Der URI des Dokuments, in dem die VM-Image-Aliase enthalten sind. Weitere Informationen finden Sie unter [Einrichten des Endpunkts der VM-Aliase](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  

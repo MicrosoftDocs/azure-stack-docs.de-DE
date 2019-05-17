@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 124dc554e18f6d387a3e41d37809d43276094879
-ms.sourcegitcommit: 0d8ccf2a32b08ab9bcbe13d54c7c3dce2379757f
+ms.openlocfilehash: 147e6b7555d67b562b44102bfd022e954a87e0ae
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64490124"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521218"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Anwenden von Updates in Azure Stack
 
@@ -68,14 +68,14 @@ Wenn Sie eine integrierte Systemversion 1807 oder höher verwenden, müssen Sie 
 
 Wenn ein Microsoft- oder OEM-Updatepaket für Azure Stack verfügbar ist, laden Sie das Paket an einen Speicherort herunter, auf den von Azure Stack aus zugegriffen werden kann. Überprüfen Sie den Paketinhalt. Ein Updatepaket besteht in der Regel aus folgenden Dateien:
 
-- Eine selbstextrahierende `<PackageName>.exe`-Datei. Diese Datei enthält die Nutzlast für das Update, beispielsweise das aktuelle kumulative Update für Windows Server.
+- Eine selbstextrahierende `<PackageName>.zip`-Datei. Diese Datei enthält die Nutzlast für das Update, beispielsweise das aktuelle kumulative Update für Windows Server.
 
-- Entsprechende `<PackageName>.bin`-Dateien. Diese Dateien dienen zum Komprimieren der Nutzlast, die der Datei *Paketname.exe* zugeordnet ist.
+- Entsprechende `<PackageName>.bin`-Dateien. Diese Dateien dienen zum Komprimieren der Nutzlast, die der Datei *Paketname.zip* zugeordnet ist.
 
 - Eine `Metadata.xml`-Datei. Diese Datei enthält wichtige Informationen zum Update, etwa Herausgeber, Name, Voraussetzungen, Größe und Supportpfad-URL.
 
 > [!IMPORTANT]  
-> Nachdem das Updatepaket für Azure Stack 1901 angewendet wurde, ändert sich das Paketformat für Azure Stack-Updatepakete von EXE, BIN(s) und XML in ZIP(s) und XML. Azure Stack-Betreiber, die verbundene Zeitstempel besitzen, sind davon nicht betroffen. Azure Stack-Betreiber, die getrennt sind, importieren einfach die XML- und ZIP-Dateien, indem sie denselben Prozess wie unten beschrieben verwenden.
+> Nachdem das Updatepaket für Azure Stack 1901 angewendet wurde, ändert sich das Paketformat für Azure Stack-Updatepakete von ZIP, BIN(s) und XML in ZIP(s) und XML. Azure Stack-Betreiber, die verbundene Zeitstempel besitzen, sind davon nicht betroffen. Azure Stack-Betreiber, die getrennt sind, importieren einfach die XML- und ZIP-Dateien, indem sie denselben Prozess wie unten beschrieben verwenden.
 
 ## <a name="import-and-install-updates"></a>Importieren und Installieren von Updates
 
@@ -102,13 +102,14 @@ Das folgende Verfahren zeigt, wie Updatepakete im Administratorportal importiert
  
     ![Hier sehen Sie, wie Sie die Paketdateien hochladen.](media/azure-stack-apply-updates/ApplyUpdates5.png)
 
-6. Klicken Sie unter **Blob hochladen** auf das Ordnersymbol, navigieren Sie zur EXE-Datei des Updatepakets, und klicken Sie dann im Explorer-Fenster auf **Öffnen**.
+6. Klicken Sie unter **Blob hochladen** auf das Ordnersymbol, navigieren Sie zur ZIP-Datei des Updatepakets, und klicken Sie dann im Explorer-Fenster auf **Öffnen**.
   
 7. Klicken Sie unter **Blob hochladen** auf **Hochladen**.
   
     ![Hier sehen Sie, wo die einzelnen Paketdateien hochgeladen werden.](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Wiederholen Sie die Schritte 6 und 7 für die Dateien *Paketname.bin* und „Metadata.xml“. Falls die Datei „Supplemental Notice.txt“ enthalten ist, importieren Sie sie nicht.
+8. Wiederholen Sie die Schritte 6 und 7 für die Dateien *Paketname.bin* und „Metadata.xml“. Falls die Datei „Supplemental Notice.txt“ enthalten ist, importieren Sie sie nicht. Beachten Sie, dass die Dateien ab 1901 das ZIP-Format anstelle von BIN und ZIP aufweisen – importieren Sie die XML-Datei weiterhin wie gewohnt.
+
 9. Anschließend können Sie die Benachrichtigungen (Glockensymbol in der oberen rechten Ecke des Portals) überprüfen. In den Benachrichtigungen sollte angegeben sein, dass der Upload abgeschlossen ist.
 10. Kehren Sie zur Kachel „Aktualisieren“ auf dem Dashboard zurück. Auf der Kachel sollte angegeben sein, dass ein Update verfügbar ist. Klicken Sie auf die Kachel, um das neu hinzugefügte Updatepaket zu überprüfen.
 11. Um das Update zu installieren, wählen Sie das als **Bereit** markierte Paket aus. Klicken Sie dann entweder mit der rechten Maustaste auf das Paket, und wählen Sie **Jetzt aktualisieren**, oder klicken Sie im oberen Bereich auf die Aktion **Jetzt aktualisieren**.

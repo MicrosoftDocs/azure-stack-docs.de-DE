@@ -2,26 +2,28 @@
 title: Integration des Azure Stack-Datencenters – DNS
 description: Erfahren Sie, wie Sie das Azure Stack-DNS in Ihr Datencenter-DNS integrieren.
 services: azure-stack
-author: jeffgilb
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.date: 05/09/2019
+ms.author: mabrigg
 ms.reviewer: wfayed
-ms.lastreviewed: 10/15/2018
+ms.lastreviewed: 05/09/2019
 keywords: ''
-ms.openlocfilehash: e14fa6c172fcf579acf28bc8f3ea20f34148b90c
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: bf1aed6c8140f0c0753f49195082dfd71737868a
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985284"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618667"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integration des Azure Stack-Datencenters – DNS
+
 Für den Zugriff auf Azure Stack-Endpunkte ((**portal**, **adminportal**, **management**, **adminmanagement** usw.) von außerhalb von Azure Stack müssen Sie die Azure Stack-DNS-Dienste in die DNS-Server integrieren, die die DNS-Zonen hosten, die Sie in Azure Stack verwenden möchten.
 
 ## <a name="azure-stack-dns-namespace"></a>DNS-Namespace von Azure Stack
+
 Sie müssen einige wichtige Informationen über das DNS zur Verfügung stellen, wenn Sie Azure Stack bereitstellen.
 
 
@@ -51,6 +53,19 @@ Folgende Bedingungen sind erforderlich, um diesen DNS-Beispielnamespace für ein
 
 Damit Sie die DNS-Namen für Azure Stack-Endpunkte und -Instanzen von außerhalb von Azure Stack auflösen können, müssen Sie die DNS-Server integrieren, die die externen DNS-Zonen für Azure Stack hosten sowie die DNS-Server, die die übergeordnete Zone hosten, die Sie verwenden möchten.
 
+### <a name="dns-name-labels"></a>DNS-Namensbezeichnungen
+
+Azure Stack unterstützt das Hinzufügen einer DNS-Namensbezeichnung zu einer öffentlichen IP-Adresse, um eine Namensauflösung für öffentliche IP-Adressen zu ermöglichen. Benutzer können dies als bequeme Möglichkeit nutzen, um in Azure Stack gehostete Anwendungen und Dienste anhand des Namens zu erreichen. Die DNS-Namensbezeichnung verwendet einen etwas anderen Namespace als die Infrastrukturendpunkte. Gemäß dem vorherigen Beispiel-Namespace sieht der Namespace für DNS-Namensbezeichnungen wie folgt aus:
+
+`*.east.cloudapp.cloud.fabrikam.com`
+
+Wenn ein Mandant daher den Wert **Myapp** im Feld für die DNS-Namensbezeichnung einer öffentlichen IP-Adresse angibt, wird auf dem externen DNS-Server von Azure Stack ein A-Eintrag für **myapp** in der Zone **east.cloudapp.cloud.fabrikam.com** erstellt. Daraus ergibt sich der folgende voll qualifizierte Domänenname:
+
+`myapp.east.cloudapp.cloud.fabrikam.com`
+
+Wenn Sie diese Funktionalität nutzen und diesen Namespace verwenden möchten, müssen Sie die DNS-Server, die die externe DNS-Zone für Azure Stack hosten, in die DNS-Server integrieren, die die übergeordnete Zone hosten, die Sie ebenfalls verwenden möchten. Dies ist ein anderer Namespace als der für die Azure Stack-Dienstendpunkte verwendete Namespace. Daher müssen Sie eine zusätzliche Delegierung oder Regel für bedingte Weiterleitung erstellen.
+
+Weitere Informationen zur Funktionsweise der DNS-Namensbezeichnung finden Sie unter [Verwenden von DNS in Azure Stack](../user/azure-stack-dns.md).
 
 ## <a name="resolution-and-delegation"></a>Auflösung und Delegierung
 

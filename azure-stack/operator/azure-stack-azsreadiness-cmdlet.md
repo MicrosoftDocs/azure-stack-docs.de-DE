@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/30/2018
+ms.date: 05/09/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 03efa5e8e0dbb3ec29748383914d3d0361bc124b
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: 1f8d7573d9d3da54ddb5fa7aae85ba15d1db4c3c
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986156"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521254"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Referenz zum Cmdlet „Start-AzsReadinessChecker“
 
@@ -209,7 +209,7 @@ $PaaSCertificates = @{
     'PaaSFTPCert' = @{'pfxPath' = '<Path to FTP PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
     'PaaSSSOCert' = @{'pfxPath' = '<Path to SSO PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
 }
-Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates - RegionName east -FQDN azurestack.contoso.com
+Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com
 ```
 
 In diesem Beispiel wird eine Hashtabelle mit Pfaden und Kennwörtern für jedes PaaS-Zertifikat erstellt. Zertifikate können weggelassen werden. `Start-AzsReadinessChecker` prüft, ob die einzelnen PFX-Pfade vorhanden sind, und überprüft sie anhand der Region **east** und des externen FQDN **azurestack.contoso.com**.
@@ -241,7 +241,7 @@ In diesem Beispiel werden aus Sicherheitsgründen die Kontoanmeldeinformationen 
 
 ### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Beispiel: Überprüfen der Azure-Identität mit Bereitstellungsdaten (Bereitstellungsunterstützung)
 
-```PowerSHell
+```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
@@ -278,7 +278,7 @@ Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx
 
 In diesem Beispiel wird aus Sicherheitsgründen das PFX-Kennwort benötigt. Die Datei „Ssl.pfx“ wird in den Zertifikatspeicher des lokalen Computers importiert, mit dem gleichen Kennwort wieder exportiert und als „Ssl_new.pfx“ gespeichert. Diese Vorgehensweise wird verwendet, wenn die Zertifikatüberprüfung festgestellt hat, dass ein privater Schlüssel nicht über den Attributsatz **Lokaler Computer** verfügt, die Zertifikatkette unterbrochen ist, irrelevante Zertifikate in der PFX-Datei enthalten sind oder die Zertifikatkette eine falsche Reihenfolge aufweist.
 
-### <a name="example-view-validation-report-deployment-support"></a>Beispiel: Anzeigen des Überprüfungsberichts (Bereitstellungsunterstützung)
+### <a name="example-view-validation-report-deployment-and-support"></a>Beispiel: Anzeigen des Überprüfungsberichts (Bereitstellung und Unterstützung)
 
 ```powershell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json

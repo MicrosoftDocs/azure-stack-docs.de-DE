@@ -16,12 +16,12 @@ ms.date: 04/12/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: b2e3944be7a7d5322683d21cca7e558020a82d7e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fa1cdc4937e75a8d87a6faa16048a800b62e79be
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64312696"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521312"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Für Azure Stack verfügbare Azure Marketplace-Elemente
 
@@ -55,7 +55,7 @@ Microsoft Azure Stack unterstützt die folgenden virtuellen Computer und Lösung
 |  | Name des Elements | BESCHREIBUNG | Herausgeber |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Lösungen der Extraklasse für Unternehmen, die einfach zu implementieren, wirtschaftlich, anwendungs- und benutzerorientiert sind. Diese Images werden regelmäßig mit den neuesten Patches aktualisiert. **Wichtige Information: Images, die vor dem 18. Januar 2018 heruntergeladen wurden, müssen gelöscht und durch die neuesten Versionen ersetzt werden.** | Microsoft |
-| ![Testversion von SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Testversion von SharePoint Server 2013](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Testversion von Microsoft SharePoint Server 2013 unter Windows Server 2012 Datacenter und Visual Studio 2017 Community Edition | Microsoft |
+| ![Testversion von SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Testversion von SharePoint Server 2013](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Testversion von Microsoft SharePoint Server 2013 unter Windows Server 2012 Datacenter und Visual Studio 2019 Community Edition | Microsoft |
 | ![Testversion von SharePoint Server 2016](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Testversion von SharePoint Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Testversion von Microsoft SharePoint Server 2016 unter Windows Server 2016 Datacenter | Microsoft |
 | ![SQL Server 2014 SP2 unter Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 unter Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2)
 ) | SQL Server 2014 Service Pack 2. **Erforderlicher Download:** SQL-IaaS-Erweiterung. | Microsoft |

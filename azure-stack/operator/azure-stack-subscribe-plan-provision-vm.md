@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2019
-ms.author: efemmano
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: b0dba609acd7b12cdb95c1ec3e40ad906674244d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.date: 05/10/2019
+ms.author: sethm
+ms.lastreviewed: 05/10/2019
+ms.openlocfilehash: 792589eabf13b9aca493e230f7e3e93cfab21736
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984773"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532367"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Erstellen von Abonnements für Angebote in Azure Stack
 
@@ -92,11 +92,11 @@ Als Benutzer können Sie sich beim Benutzerportal anmelden, um öffentliche Ange
 
 Wenn ein Angebot einen Add-On-Plan enthält, können Sie diesen Plan jederzeit zu Ihrem Abonnement hinzufügen.  
 
-1. Klicken Sie im Benutzerportal auf **Alle Dienste**. Klicken Sie als Nächstes unter der Kategorie **ALLGEMEIN** auf **Abonnements**, und wählen Sie dann das zu ändernde Abonnement aus. Sofern Add-On-Pläne verfügbar sind, ist **+Plan hinzufügen** aktiv, und es ist eine Kachel für **Add-On-Pläne** vorhanden. 
+1. Klicken Sie im Benutzerportal auf **Alle Dienste**. Klicken Sie als Nächstes unter der Kategorie **ALLGEMEIN** auf **Abonnements**, und wählen Sie dann das zu ändernde Abonnement aus. Sofern Add-On-Pläne verfügbar sind, ist **+ Plan hinzufügen** aktiv, und es ist eine Kachel für **Add-On-Pläne** vorhanden.
 
-   Ist **+Plan hinzufügen** nicht aktiv, gibt es keine Add-On-Pläne für das mit diesem Abonnement verknüpfte Angebot.
+   Ist **+ Plan hinzufügen** nicht aktiv, gibt es keine Add-On-Pläne für das mit diesem Abonnement verknüpfte Angebot.
 
-1. Klicken Sie auf **+Plan hinzufügen** oder auf die Kachel **Add-On-Pläne**. Wählen Sie unter **Add-On-Pläne** den Plan aus, den Sie hinzufügen möchten.
+1. Klicken Sie auf **+ Plan hinzufügen** oder auf die Kachel **Add-On-Pläne**. Wählen Sie unter **Add-On-Pläne** den Plan aus, den Sie hinzufügen möchten.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
