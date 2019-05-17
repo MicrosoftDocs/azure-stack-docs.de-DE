@@ -14,12 +14,12 @@ ms.date: 04/20/2019
 ms.author: mabrigg
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: ab775e89d22099b5448115e63e05284df60df7a9
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 90a3b35675a8197694d04395f51ef85f7a8fee14
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309666"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617969"
 ---
 # <a name="validate-azure-stack-system-state"></a>Überprüfen des Azure Stack-Systemstatus
 
