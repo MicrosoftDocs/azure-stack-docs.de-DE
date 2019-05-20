@@ -17,12 +17,12 @@ ms.author: mabrigg
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 382fc49caf12a578584c8680edb30a321e82ea00
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f8206c658170a16e517e64a328d188c015b9e394
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985049"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618071"
 ---
 # <a name="azure-stack-overview"></a>Übersicht über Azure Stack
 
