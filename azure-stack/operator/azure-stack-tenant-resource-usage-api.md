@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 745b22310dcd2231c5bb823bd58daffa6c323d59
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 2378bef2457b29271f048ec213ccf4b79454dd95
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984938"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782206"
 ---
 # <a name="tenant-resource-usage-api"></a>Ressourcennutzungs-API für Mandanten
 

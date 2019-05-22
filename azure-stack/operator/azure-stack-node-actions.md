@@ -3,25 +3,24 @@ title: Knotenaktionen für Skalierungseinheiten in Azure Stack | Microsoft-Dokum
 description: Erfahren Sie, wie Sie den Knotenstatus anzeigen und die Knotenaktionen für das Ein- und Ausschalten, das Deaktivieren und das Fortsetzen in einem in Azure Stack integrierten System verwenden.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 01/22/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 05/16/2019
+ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: cd7e66961a0b9a80150a3d3e132efd29485cdb66
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fa0292419a228fcf9bbfef2bbfc2503f4ba5a702
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307866"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782335"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Knotenaktionen für Skalierungseinheiten in Azure Stack
 
@@ -86,7 +85,7 @@ Diese Aktion wird normalerweise verwendet, wenn ein Knoten nicht mehr reagiert u
 
 Um die Beenden-Aktion auszuführen, öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus:
 
-```PowerShell  
+```powershell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -100,7 +99,7 @@ Die Aktion **Starten** schaltet den Knoten ein. Dies entspricht dem Drücken des
  
 Um die Starten-Aktion auszuführen, öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus:
 
-```PowerShell  
+```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -119,7 +118,7 @@ Diese Aktion wird in der Regel für den Austausch von Teilen im Betrieb, z.B. be
 
 Um die Entladen-Aktion auszuführen, öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus:
 
-```PowerShell  
+```powershell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -131,7 +130,7 @@ Die Aktion **Fortsetzen** setzt einen entladenen Knoten fort und markiert ihn f�
 
 Um die Fortsetzen-Aktion auszuführen, öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus:
 
-```PowerShell  
+```powershell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -150,7 +149,7 @@ Beim Ausführen der Reparaturaktion müssen Sie die BMC-IP-Adresse angeben.
 
 Um die Reparieren-Aktion auszuführen, öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus:
 
-  ```PowerShell
+  ```powershell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
@@ -164,7 +163,7 @@ Sollte beim Herunterfahren ein Fehler auftreten, führen Sie vor dem Herunterfah
 
 Öffnen Sie zum Herunterfahren eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus:
 
-  ```PowerShell
+  ```powershell
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 

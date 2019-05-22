@@ -7,17 +7,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 37ff24258b12c9b042c7b0dc5a113a62d1d1ec60
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 2c0997599b8da1f77f61e0953eb56f834f718efb
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477361"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782831"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Schnellstart: Erstellen eines virtuellen Linux-Servers mit dem Azure Stack-Portal
 
@@ -49,7 +49,7 @@ Sie können einen virtuellen Computer mit Ubuntu Server 16.04 LTS über das Azur
 
 Für die Schritte in diesem Artikel benötigen Sie ein SSH-Schlüsselpaar. Falls Sie bereits über ein SSH-Schlüsselpaar verfügen, können Sie diesen Schritt überspringen.
 
-1. Navigieren Sie zum PuTTY-Installationsordner (der Standardspeicherort ist ```C:\Program Files\PuTTY```), und führen Sie ```puttygen.exe``` aus.
+1. Navigieren Sie zum PuTTY-Installationsordner (der Standardspeicherort ist `C:\Program Files\PuTTY`), und führen Sie `puttygen.exe` aus.
 2. Vergewissern Sie sich im Fenster „PuTTY Key Generator“, dass **Type of key to generate** auf **RSA** und die **Number of bits in a generated key** auf **2048** festgelegt ist. Klicken Sie abschließend auf **Generate** (Generieren).
 
    ![PuTTY Key Generator: Konfiguration](media/azure-stack-quick-linux-portal/Putty01.PNG)
@@ -106,7 +106,7 @@ Melden Sie sich beim Azure Stack-Portal an. Die Adresse des Azure Stack-Portals 
    ![Herstellen der Verbindung mit dem virtuellen Computer](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. Scrollen Sie im Bereich mit den **Kategorien**nach oben, und klicken Sie auf **Session** (Sitzung).
-5. Fügen Sie im Feld **Host Name (or IP address)** (Hostname (oder IP-Adresse)) die Verbindungszeichenfolge aus dem Azure Stack-Portal ein. In diesem Beispiel ist dies ```asadmin@192.168.102.34```.
+5. Fügen Sie im Feld **Host Name (or IP address)** (Hostname (oder IP-Adresse)) die Verbindungszeichenfolge aus dem Azure Stack-Portal ein. In diesem Beispiel ist dies `asadmin@192.168.102.34`.
 
    ![PuTTY-Konfiguration: Verbindungszeichenfolge](media/azure-stack-quick-linux-portal/Putty04.PNG)
 
@@ -145,7 +145,7 @@ Mit einer Netzwerksicherheitsgruppe (NSG) wird eingehender und ausgehender Daten
 
 Nachdem NGINX installiert und der Port 80 auf dem virtuellen Computer geöffnet wurde, können Sie über die öffentliche IP-Adresse des virtuellen Computers auf den Webserver zugreifen. (Die öffentliche IP-Adresse wird auf der Übersichtsseite des virtuellen Computers angezeigt.)
 
-Öffnen Sie einen Webbrowser, und gehen Sie zu ```http://<public IP address>```.
+Öffnen Sie einen Webbrowser, und gehen Sie zu `http://<public IP address>`.
 
 ![Willkommensseite des NGINX-Webservers](media/azure-stack-quick-linux-portal/linux-05.PNG)
 

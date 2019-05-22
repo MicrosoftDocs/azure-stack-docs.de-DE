@@ -3,24 +3,23 @@ title: Überwachen von Integrität und Warnungen in Azure Stack | Microsoft-Doku
 description: Erfahren Sie, wie die Integrität und Warnungen in Azure Stack überwacht werden.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/18/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 05/16/2019
+ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 3e37b8f45d7068586d20b9c4b3ccdabb017d0416
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 4763025917172e3b8acaeb1ad748410e65143864
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309570"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782514"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Überwachen von Integrität und Warnungen in Azure Stack
 
@@ -96,5 +95,3 @@ Nachdem die Infrastrukturrolleninstanz wieder online geschaltet wurde, wird dies
 [Verwalten von Updates in Azure Stack](azure-stack-updates.md)
 
 [Region management in Azure Stack](azure-stack-region-management.md) (Regionsverwaltung in Azure Stack)
-
-<!-- Update_Description: wording update -->

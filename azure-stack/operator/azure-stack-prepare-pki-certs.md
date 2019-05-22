@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 8008b42567a95b609941e1dabff08b76aa1af3e9
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 682a5ce693bd9f184fd73a322ab9ed29c2d90fae
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984987"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782500"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Vorbereiten von Azure Stack-PKI-Zertifikaten für die Verwendung bei der Bereitstellung oder Rotation
 

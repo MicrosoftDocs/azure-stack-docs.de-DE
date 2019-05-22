@@ -14,12 +14,12 @@ ms.date: 04/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 3fc50d068eb07d7da2d55d855b2ea8ea758ca6b1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 3860f8dcc99f3505fe2f838e75f5e8f09b78aefe
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311148"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855377"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Gewähren des Anwendungszugriffs auf Azure Stack-Ressourcen durch Erstellen von Dienstprinzipalen
 
@@ -68,6 +68,8 @@ So erstellen Sie einen Dienstprinzipal für Ihre Anwendung
 3. Geben Sie einen Namen ein.
 4. Wählen Sie die **unterstützten Kontotypen** aus.
 5.  Fügen Sie einen URI für die Anwendung hinzu. Wählen Sie als Typ für die zu erstellende Anwendung **Web** aus. Wählen Sie nach dem Festlegen der Werte **Registrieren** aus.
+
+Sie haben einen Dienstprinzipal für Ihre Anwendung erstellt.
 
 ### <a name="get-credentials"></a>Abrufen von Anmeldeinformationen
 

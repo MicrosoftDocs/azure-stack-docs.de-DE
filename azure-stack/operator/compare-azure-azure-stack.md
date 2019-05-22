@@ -17,12 +17,12 @@ ms.author: mabrigg
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 768d4bd9ad2d70878e9794b1ba315559e76884df
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 20199e927498d0590ae32f68eb02b0a47c8c2b3e
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618755"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782285"
 ---
 # <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>Unterschiede zwischen der globalen Azure-Infrastruktur, Azure Stack und Azure Stack HCI
 
@@ -59,7 +59,6 @@ Zusätzlich zu den oben beschriebenen Ressourcenanbietern sind noch zusätzliche
 
 - Service Fabric
 - Kubernetes Container Service
-- IoT Hub und Event Hubs
 - Ethereum-Blockchain
 - Cloud Foundry
 

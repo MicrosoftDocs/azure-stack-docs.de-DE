@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: e51dd3a467bcba9eaf36fc729e37780cf7b626dd
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3ca7624627ff02cc3ef230a510038f2db5ff5247
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985087"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782308"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack-PKI-Zertifikatanforderungen
 
@@ -118,4 +118,3 @@ Erfahren Sie mehr zum [Generieren von PKI-Zertifikaten für die Azure Stack-Bere
 
 ## <a name="next-steps"></a>Nächste Schritte
 [Identitätsintegration](azure-stack-integrate-identity.md)
-

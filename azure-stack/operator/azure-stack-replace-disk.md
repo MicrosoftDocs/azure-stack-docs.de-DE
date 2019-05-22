@@ -12,15 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
+ms.reviewer: thoroet
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 893f3ef3f6b7d98d781d05982d243d44ada1411e
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 797e49f82938888776b2685ab44add281b730943
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984735"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782414"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Ersetzen eines physischen Datenträgers in Azure Stack
 
@@ -35,7 +36,7 @@ Die tatsächlichen Schritte zum Austausch von Datenträgern variieren und hänge
 ## <a name="review-disk-alert-information"></a>Überprüfen von Datenträger-Warnungsinformationen
 Wenn ein Datenträger ausfällt, teilt Ihnen eine Warnung mit, dass die Konnektivität mit einem physischen Datenträger verloren gegangen ist.
 
- ![Warnung, die den Verlust der Konnektivität mit einem physischen Datenträger anzeigt](media/azure-stack-replace-disk/DiskAlert.png)
+![Warnung, die den Verlust der Konnektivität mit einem physischen Datenträger anzeigt](media/azure-stack-replace-disk/DiskAlert.png)
 
 Wenn Sie die Warnung öffnen, informiert Sie die Warnungsbeschreibung über den Skalierungseinheitsknoten und das exakte physische Einschubfach für den Datenträger, den Sie ersetzen müssen. Azure Stack hilft Ihnen darüber hinaus, den fehlerhaften Datenträger mithilfe von LED-Anzeigefunktionen zu identifizieren.
 
