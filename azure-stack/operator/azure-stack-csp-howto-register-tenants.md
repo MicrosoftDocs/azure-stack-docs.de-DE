@@ -3,25 +3,24 @@ title: Hinzufügen von Mandanten für Nutzung und Abrechnung zu Azure Stack | Mi
 description: Die erforderlichen Schritte fügen Azure Stack einen Endbenutzer hinzu, der von einem Cloud-Dienstanbieter (CSP) verwaltet wird.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 05/07/2019
+ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 8e177944a5f57c9475287325b705fac34ec513c0
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 5f03b80b871d3df467bc52b735432ce5568a3ad8
+ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307824"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212303"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Hinzufügen von Mandanten für Nutzung und Abrechnung zu Azure Stack
 
@@ -33,20 +32,22 @@ CSPs bieten Dienste häufig mehreren Endkunden (Mandanten) in ihrer Azure Stack-
 
 Die folgende Abbildung zeigt die Schritte, die ein CSP befolgen muss, um einem neuen Kunden die Verwendung von Azure Stack zu ermöglichen und die Nutzungsnachverfolgung für den Kunden einzurichten. Durch Hinzufügen des Endkunden sind Sie auch in der Lage, Ressourcen in Azure Stack zu verwalten. Sie können zwischen zwei Optionen zur Verwaltung ihrer Ressourcen wählen:
 
-1. Sie können den Endkunden verwalten und dem Endkunden Anmeldeinformationen für das lokale Azure Stack-Abonnement bereitstellen.  
-2. Alternativ kann der Endkunde mit seinem Abonnement lokal arbeiten und den CSP als Gast mit Besitzerberechtigungen hinzufügen.  
+- Sie können den Endkunden verwalten und dem Endkunden Anmeldeinformationen für das lokale Azure Stack-Abonnement bereitstellen.  
+- Alternativ kann der Endkunde mit seinem Abonnement lokal arbeiten und den CSP als Gast mit Besitzerberechtigungen hinzufügen.  
 
-## <a name="steps-to-add-an-end-customer"></a>Schritte zum Hinzufügen eines Endkunden
+## <a name="add-an-end-customer"></a>Hinzufügen eines Endkunden
+
+Führen Sie die folgenden Schritte aus, um einen Endkunden wie in der folgenden Abbildung dargestellt hinzuzufügen:
 
 ![Einrichten des Cloud-Dienstanbieters für die Nutzungsnachverfolgung und zum Verwalten des Endkundenkontos](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ### <a name="create-a-new-customer-in-partner-center"></a>Erstellen eines neuen Kunden im Partner Center
 
-Erstellen Sie im Partner Center ein neues Azure-Abonnement für den Kunden. Anweisungen hierzu finden Sie unter [Neuen Kunden hinzufügen](https://msdn.microsoft.com/partner-center/add-a-new-customer).
+Erstellen Sie im Partner Center ein neues Azure-Abonnement für den Kunden. Anweisungen hierzu finden Sie unter [Neuen Kunden hinzufügen](/partner-center/add-a-new-customer).
 
 ### <a name="create-an-azure-subscription-for-the-end-customer"></a>Erstellen eines Azure-Abonnements für den Endkunden
 
-Nachdem Sie einen Datensatz Ihres Kunden im Partner Center erstellt haben, können Sie ihm Abonnements zu Produkten im Katalog verkaufen. Anweisungen hierzu finden Sie unter [Erstellen eines neuen Abonnements](https://msdn.microsoft.com/partner-center/create-a-new-subscription).
+Nachdem Sie einen Datensatz Ihres Kunden im Partner Center erstellt haben, können Sie ihm Abonnements zu Produkten im Katalog verkaufen. Anweisungen hierzu finden Sie unter [Erstellen eines neuen Abonnements](/partner-center/create-a-new-subscription).
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>Erstellen eines Gastbenutzers im Endkundenverzeichnis
 
@@ -57,10 +58,10 @@ Wenn der Endkunde sein eigenes Konto verwaltet, erstellen Sie einen Gastbenutzer
 Aktualisieren Sie Ihre Registrierung mit dem Abonnement des neuen Kunden. Azure meldet die Nutzung des Kunden mithilfe der Kundenidentität aus dem Partner Center. So wird sichergestellt, dass die Nutzung jedes Kunden unter dem individuellen CSP-Abonnement des Kunden gemeldet wird. Dies erleichtert die Nachverfolgung der Nutzung durch den Benutzer und die Abrechnung.
 
 > [!NOTE]  
-> Um diesen Schritt ausführen zu können, müssen Sie [Azure Stack registriert](azure-stack-registration.md ) haben.
+> Um diesen Schritt ausführen zu können, müssen Sie [Azure Stack registriert](azure-stack-registration.md) haben.
 
 1. Öffnen Sie Windows PowerShell mit einer Eingabeaufforderung mit erhöhten Rechten, und führen Sie Folgendes aus:  
-    `Add-AzureRmAccount -EnvironmentName AzureChinaCloud`
+    `Add-AzureRmAccount`
 2. Geben Sie Ihre Azure-Anmeldeinformationen ein.
 3. Führen Sie in der PowerShell-Sitzung Folgendes aus:
 

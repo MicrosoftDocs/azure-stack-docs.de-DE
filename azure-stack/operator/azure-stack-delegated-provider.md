@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 68ba971ada087bed31a65db037963b601953f1c6
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 476ffeaf7712e5cee22befbc822545382f808de5
+ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309564"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65386623"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegieren von Angeboten in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Als Azure Stack-Bediener möchten Sie häufig andere Personen in die Lage versetzen, Benutzer zu registrieren und Abonnements zu erstellen. Als Dienstanbieter z.B. müssen Sie Ihren Vertriebspartnern ermöglichen können, in Ihrem Auftrag Kunden zu registrieren und diese zu verwalten. Wenn Sie einer zentralen IT-Gruppe in einem Unternehmen angehören, sollten Sie in Betracht ziehen, die Benutzerregistrierung an einen anderen IT-Mitarbeiter zu delegieren.
+Als Azure Stack-Bediener kann es sein, dass Sie andere Personen in die Lage versetzen möchten, Benutzer zu registrieren und Abonnements zu erstellen. Als Dienstanbieter z.B. müssen Sie Ihren Vertriebspartnern ermöglichen können, in Ihrem Auftrag Kunden zu registrieren und diese zu verwalten. Wenn Sie einer zentralen IT-Gruppe in einem Unternehmen angehören, sollten Sie in Betracht ziehen, die Benutzerregistrierung an einen anderen IT-Mitarbeiter zu delegieren.
 
 Durch die Delegierung ist es einfacher, mehr Benutzer zu erreichen und zu verwalten, als Sie selbst handhaben können, wie in der folgenden Abbildung dargestellt:
 
@@ -34,9 +34,7 @@ Durch die Delegierung ist es einfacher, mehr Benutzer zu erreichen und zu verwal
 
 Der delegierte Anbieter verwaltet ein Angebot (delegiertes Angebot), und Endkunden erhalten Abonnements im Rahmen dieses Angebots ohne Beteiligung des Systemadministrators.
 
-## <a name="understand-delegation-roles-and-steps"></a>Grundlegendes zu Rollen und Schritten bei der Delegierung
-
-### <a name="delegation-roles"></a>Delegierungsrollen
+## <a name="delegation-roles"></a>Delegierungsrollen
 
 Die folgenden Rollen sind Teil der Delegierung:
 
@@ -46,7 +44,7 @@ Die folgenden Rollen sind Teil der Delegierung:
 
 * *Benutzer* registrieren sich für die Angebote und verwenden sie, um ihre Workloads zu verwalten, virtuelle Computer zu erstellen, Daten zu speichern usw.
 
-### <a name="delegation-steps"></a>Delegierungsschritte
+## <a name="delegation-steps"></a>Delegierungsschritte
 
 Das Einrichten einer Delegierung umfasst zwei grundlegende Schritte:
 
@@ -58,7 +56,7 @@ Die nachstehende Abbildung zeigt die Schritte zum Einrichten der Delegierung:
 
 ![Erstellen des delegierten Anbieters und seine Aktivierung zum Registrieren von Benutzern](media/azure-stack-delegated-provider/image2.png)
 
-#### <a name="delegated-provider-requirements"></a>Anforderungen an delegierte Anbieter
+### <a name="delegated-provider-requirements"></a>Anforderungen an delegierte Anbieter
 
 Um als delegierter Anbieter zu fungieren, stellt ein Benutzer eine Beziehung zum Hauptanbieter her, indem er ein Abonnement erstellt. Der delegierte Anbieter wird durch das Abonnement als der Anbieter identifiziert, der das Recht besitzt, im Auftrag des Hauptanbieters delegierte Angebote zu präsentieren.
 

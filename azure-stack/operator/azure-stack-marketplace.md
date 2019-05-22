@@ -3,8 +3,8 @@ title: Veröffentlichen von benutzerdefinierten Marketplace-Elementen in Azure S
 description: Erfahren Sie, wie Sie als Azure Stack-Betreiber ein benutzerdefiniertes Marketplace-Element in Azure Stack veröffentlichen.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2019
-ms.date: 02/18/2019
-ms.author: v-jay
+ms.date: 05/07/2019
+ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 6c1750e6a523828400b3d06d4e1c22fb34f8273f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 70a1e1223accda5dfb273372da486588fb030afc
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307602"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172760"
 ---
 # <a name="azure-stack-marketplace-overview"></a>Der Azure Stack-Marketplace – Übersicht
 
@@ -37,7 +36,7 @@ Als Azure Stack-Betreiber entscheiden Sie, welche Elemente Sie zum Marketplace h
 
 Um den Marketplace zu öffnen, wählen Sie im Administratorportal **+Ressource erstellen** aus.
 
-![Marketplace](media/azure-stack-publish-custom-marketplace-item/image1.png)
+![Marketplace](media/azure-stack-marketplace/marketplace1.png)
 
 ## <a name="marketplace-items"></a>Marketplace-Elemente
 
@@ -49,7 +48,7 @@ Jedes Marketplace-Element verfügt über:
 * Metadaten wie Zeichenfolgen, Symbole und andere Marketingmaterialien
 * Formatierungsinformationen zum Anzeigen des Elements im Portal
 
-Jedes im Marketplace veröffentlichte Element verwendet das Azure Gallery Package-Format (AZPKG). Fügen Sie Bereitstellungs- oder Laufzeitressourcen (wie Code, ZIP-Dateien mit Software oder VM-Images) separat zu Azure Stack hinzu, nicht als Teil des Marketplace-Elements.
+Jedes im Marketplace veröffentlichte Element verwendet das Azure Gallery Package-Format (AZPKG). Fügen Sie Azure Stack Bereitstellungs- oder Laufzeitressourcen (Code, ZIP-Dateien mit Software oder VM-Images) separat und nicht als Teil des Marketplace-Elements hinzu.
 
 Ab Version 1803 konvertiert Azure Stack Images in platzsparende Dateien, wenn sie von Azure herunterladen werden, oder wenn Sie benutzerdefinierte Images hochladen. Mit diesem Vorgang dauert das Hinzufügen eines Images zwar länger, es wird jedoch Speicherplatz gespart, und die Bereitstellung dieser Images wird beschleunigt. Die Konvertierung erfolgt nur für neue Images. Vorhandene Images werden nicht geändert.
 
@@ -57,5 +56,3 @@ Ab Version 1803 konvertiert Azure Stack Images in platzsparende Dateien, wenn si
 
 * [Herunterladen von Marketplace-Elementen](azure-stack-download-azure-marketplace-item.md)  
 * [Erstellen und Veröffentlichen eines Marketplace-Elements](azure-stack-create-and-publish-marketplace-item.md)
-
-<!-- Update_Description: wording update -->
