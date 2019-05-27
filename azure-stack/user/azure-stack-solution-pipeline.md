@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 44a510b8110bacbb51b987a0393f1bc04c594fcd
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3b98714a6cbc3601f98d5f9dfcb26edb5182cfa4
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985763"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521240"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Bereitstellen von Apps in Azure und Azure Stack
 
@@ -94,7 +94,7 @@ In diesem Tutorial wird davon ausgegangen, dass Sie bereits über Grundkenntniss
 ### <a name="developer-tool-requirements"></a>Anforderung an Entwicklertools
 
 * Erstellen Sie einen [Azure DevOps Services-Arbeitsbereich](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces). Bei der Anmeldung wird ein Projekt namens **MyFirstProject** erstellt.
-* [Installieren Sie Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio), und [melden Sie sich an Azure DevOps Services an](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+* [Installieren Sie Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio), und [melden Sie sich bei Azure DevOps Services an](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Stellen Sie eine Verbindung mit Ihrem Projekt her, und [klonen Sie es lokal](https://www.visualstudio.com/docs/git/gitquickstart).
 
   > [!Note]

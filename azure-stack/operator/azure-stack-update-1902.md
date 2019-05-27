@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: a220bdef3a1243510bf7d9ace5991cd638c93f28
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.openlocfilehash: 3a59470075e7903f354646be5c6ddb9fb0e5b301
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65387138"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532336"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack-Update 1902
 
@@ -167,6 +167,8 @@ Dieses Update installiert die folgenden Sicherheitsupdates:
 Weitere Informationen zu diesen Sicherheitsrisiken finden Sie unter den obigen Links oder im Microsoft Knowledge Base-Artikel [4487006](https://support.microsoft.com/en-us/help/4487006).
 
 ## <a name="known-issues-with-the-update-process"></a>Bekannte Probleme mit dem Updateprozess
+
+- Wenn Sie versuchen, ein Azure Stack-Update auszuführen, gibt der Status des Updates möglicherweise einen Fehler aus und wird in **PreparationFailed** geändert. Der Grund dafür ist, dass der Updateressourcenanbieter (Update Resource Provider, URP) die Dateien aus dem Speichercontainer nicht ordnungsgemäß auf eine Infrastrukturfreigabe zur Verarbeitung übertragen kann. Ab Version 1901 (1.1901.0.95) können Sie dieses Problem umgehen, indem Sie auf **Jetzt aktualisieren** (nicht **Fortsetzen**) klicken. Der URP bereinigt dann die Dateien aus dem vorherigen Versuch und startet den Download erneut.
 
 - Wenn Sie [Test-AzureStack](azure-stack-diagnostic-test.md) ausführen, wird eine Warnmeldung des Baseboard-Verwaltungscontrollers (BMC) angezeigt. Sie können diese Warnung problemlos ignorieren.
 

@@ -384,14 +384,18 @@
           href: azure-stack-backup-best-practices.md
         - name: Referenz zur Sicherung
           href: azure-stack-backup-reference.md
-    - name: Problembehandlung
+    - name: Hier erhalten Sie Hilfe
       items:
-        - name: Bekannte Probleme
-          href: azure-stack-troubleshooting.md
-        - name: Diagnose in Azure Stack
-          href: azure-stack-diagnostics.md
-        - name: Validierung für Azure Stack
-          href: azure-stack-diagnostic-test.md
+        - name: Hilfe und Support
+          href: azure-stack-help-and-support.md
+        - name: Problembehandlung
+          items:
+            - name: Bekannte Probleme
+              href: azure-stack-troubleshooting.md
+            - name: Diagnose in Azure Stack
+              href: azure-stack-diagnostics.md
+            - name: Validierung für Azure Stack
+              href: azure-stack-diagnostic-test.md
 - name: Verweis
   items:
     - name: Azure Stack PowerShell

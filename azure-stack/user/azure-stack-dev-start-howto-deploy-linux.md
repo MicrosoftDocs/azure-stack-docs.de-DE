@@ -9,205 +9,171 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 7662b696ce25cdb70f34824984f4d1ce14d88c69
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 61d9f21f35edf1a0e8ebf61c81580c4d53218970
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64482350"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617672"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack"></a>Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack
 
-Sie können eine einfache Linux-VM mit dem Ubuntu-Image im Marketplace erstellen und bereitstellen, um eine Web-App zu hosten, die mit einem Webframework erstellt wurde. Diese VM kann Web-Apps mithilfe folgender Komponenten und Elemente hosten:
+Sie können einen einfachen virtuellen Linux-Computer mit dem Ubuntu-Image im Azure Marketplace erstellen und bereitstellen, um eine Web-App zu hosten, die Sie mit einem Webframework erstellt haben. 
 
-- **Python**. Häufige Python-Webframeworks wie Flask, Bottle und Django.
-- **Go**. Häufige GO-Frameworks wie Revel, Martini, Gocraft/Web und Gorilla. 
-- **Ruby**. Sie können Ruby on Rails als Framework zum Bereitstellen Ihrer Ruby-Web-Apps einrichten. 
-- **Java**. Java kann zum Entwickeln von Web-Apps verwendet werden, die auf einem Apache Tomcat-Server gehostet werden. Sie können Tomcat auf Linux installieren und Ihre Java-WAR-Dateien direkt auf dem Server bereitstellen. 
+Dieser virtuelle Computer kann Web-Apps mithilfe folgender Komponenten hosten:
 
-Nutzen Sie die Anleitungen in diesem Artikel, um beliebige Web-Apps, Frameworks und Back-End-Technologien einzurichten und zu betreiben, die das Linux-Betriebssystem verwenden. Mit Azure Stack verwalten Sie Ihre Infrastruktur, und mit den Verwaltungstools der von Ihnen verwendeten Technologie führen Sie Wartungsaufgaben für Ihre App aus.
+- **Python**: Häufige Python-Webframeworks wie Flask, Bottle und Django.
+- **Go**: Häufige GO-Frameworks wie Revel, Martini, Gocraft/Web und Gorilla. 
+- **Ruby**: Richten Sie Ruby on Rails als Framework zum Bereitstellen Ihrer Ruby-Web-Apps ein. 
+- **Java**: Verwenden Sie Java zum Entwickeln von Web-Apps, die Sie auf einem Apache Tomcat-Server veröffentlichen. Sie können Tomcat auf Linux installieren und Ihre Java-WAR-Dateien dann direkt auf dem Server bereitstellen. 
+
+Lesen Sie die Anleitungen in diesem Artikel, um beliebige Web-Apps, Frameworks und Back-End-Technologien einzurichten und auszuführen, die das Linux-Betriebssystem verwenden. Mit Azure Stack verwalten Sie Ihre Infrastruktur, und mit den Verwaltungstools der von Ihnen verwendeten Technologie führen Sie Wartungsaufgaben für Ihre App aus.
 
 ## <a name="deploy-a-linux-vm-for-a-web-app"></a>Bereitstellen einer Linux-VM für eine Web-App
 
-Sie erstellen einen geheimen Schlüssel, verwenden das Basisimage der Linux-VM, geben die spezifischen Attribute der VM an und erstellen dann die VM. Wenn die VM erstellt wurde, öffnen Sie die Ports, die Sie benötigen, damit Sie mit der VM arbeiten können und damit die VM Ihre App hosten kann. Sie erstellen auch den DNS-Namen. Schließlich stellen Sie eine Verbindung mit der VM her, und aktualisieren den Computer mithilfe von „apt-get“. Wenn Sie diesen Artikel durchgearbeitet haben, verfügen Sie über eine VM in Ihrer Azure Stack-Instanz, die auf das Hosten Ihrer Web-App vorbereitet ist.
+Sie erstellen in diesem Prozess einen geheimen Schlüssel, verwenden das Basisimage der Linux-VM, geben die spezifischen Attribute der VM an und erstellen dann die VM. Nachdem Sie den virtuellen Computer erstellt haben, öffnen Sie die Ports, die zum Arbeiten mit dem virtuellen Computer und für den virtuellen Computer zum Hosten Ihrer App erforderlich sind. Als Nächstes erstellen Sie den DNS-Namen. Dann stellen Sie eine Verbindung mit dem virtuellen Computer her und aktualisieren den Computer mithilfe von „apt-get“. Nachdem Sie den Vorgang abgeschlossen haben, benötigen Sie einen virtuellen Computer in Ihrer Azure Stack-Instanz, der zum Hosten Ihrer Web-App bereit ist.
 
-Sie können direkt mit den Anleitungen beginnen oder erst sicherstellen, dass alle Voraussetzungen erfüllt sind.
+Stellen Sie zu Beginn sicher, dass alle erforderlichen Komponenten vorhanden sind.
 
-## <a name="prerequisites-and-considerations"></a>Voraussetzungen und Überlegungen
+## <a name="prerequisites"></a>Voraussetzungen
 
-- Sie benötigen ein Azure Stack-Abonnement.
-- Das Abonnement benötigt Zugriff auf das Image **Ubuntu Server 16.04 LTS**. Sie können eine höhere Version dieses Images verwenden, die vorliegenden Anleitungen wurden aber für 16.04 LTS konzipiert. Wenn Sie nicht über dieses Image verfügen, wenden Sie sich an Ihren Cloudbetreiber, damit das Image in Ihrem Azure Stack Marketplace bereitgestellt wird.
+- Ein Azure Stack-Abonnement mit Zugriff auf das Ubuntu Server 16.04 LTS-Image. Sie können eine höhere Version dieses Images verwenden, die vorliegenden Anleitungen wurden aber für 16.04 LTS konzipiert. Wenn Sie nicht über dieses Image verfügen, wenden Sie sich an Ihren Cloudbetreiber, damit das Image in Ihrem Azure Stack Marketplace bereitgestellt wird.
 
-<!-- Azure Stack specific considerations
+## <a name="deploy-the-vm-by-using-the-portal"></a>Bereitstellen des virtuellen Computers über das Portal
 
-### Authentication
-
-Azure Stack works with two identity management services, Azure Active Directory (Azure AD) and Active Directory Federated Services (AD FS).  This section addresses how this procedure will work with either version.
-
-### Connectivity
-
-Azure Stack can be run in connected to completely disconnected scenarios. This section addresses considerations about the use case in relation to connectivity.
-
-### Azure Stack Development Kit and Integrated Systems
-
-While the two version of the product are the same product both version behave differently. Call out considerations about either version. 
-
-### Azure Stack version
-
-Place any version specific calls outs. The procedure will contain steps for the latest version. This section will contain call outs for previous version that are still supported. -->
-
-## <a name="deploy-vm-using-the-portal"></a>Bereitstellen der VM über das Portal
-
-Erstellen Sie mithilfe einer App wie z.B. PuTTY einen öffentlichen SSH-Schlüssel für Ihren Server. Greifen Sie auf Ihr Azure Stack-Portal zu, und fügen Sie den Ubuntu-Server hinzu. Richten Sie Ihr Netzwerk und Ihren DNS-Eintrag ein. Stellen Sie eine Verbindung mit Ihrem Server her, um ein Update durchzuführen.
+Führen Sie zum Bereitstellen des virtuellen Computers die Anweisungen in den folgenden Abschnitten aus.
 
 ### <a name="create-your-vm"></a>Erstellen Ihres virtuellen Computers
 
-1. Erstellen Sie einen öffentlichen SSH-Schlüssel für Ihren Server. Weitere Informationen finden Sie unter [Verwenden eines öffentlichen SSH-Schlüssels](azure-stack-dev-start-howto-ssh-public-key.md).
-2. Öffnen Sie Ihr Azure Stack-Portal.
-3. Wählen Sie **Ressource erstellen** > **Compute** > **Ubuntu Server 16.04 LTS** aus.
+1. Erstellen Sie einen öffentlichen SSH-Schlüssel (Secure Shell) für Ihren Server. Weitere Informationen finden Sie unter [Verwenden eines öffentlichen SSH-Schlüssels](azure-stack-dev-start-howto-ssh-public-key.md).
+1. Wählen Sie im Azure Stack-Portal **Ressource erstellen** > **Compute** > **Ubuntu Server 16.04 LTS** aus.
 
     ![Bereitstellen einer Web-App auf einer Azure Stack-VM](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
 
-4. Gehen Sie auf dem Blatt **Virtuellen Computer erstellen** unter **1. Grundeinstellungen konfigurieren** folgendermaßen vor:
-    1. Geben Sie den **Namen Ihrer VM** ein.
-    1. Wählen Sie den **VM-Datenträgertyp** aus: **SSD Premium** oder **HDD Standard**.
-    1. Geben Sie Ihren **Benutzernamen** ein.
-    1. Wählen Sie **Öffentlicher SSH-Schlüssel** als **Authentifizierungstyp** aus.
-    1. Rufen Sie den öffentlichen SSH-Schlüssel ab, den Sie erstellt haben. Öffnen Sie den Schlüssel in einem Text-Editor. Kopieren Sie den Schlüssel, und fügen Sie ihn in das Feld **Öffentlicher SSH-Schlüssel** ein. Schließen Sie den Text von `---- BEGIN SSH2 PUBLIC KEY ----` bis `---- END SSH2 PUBLIC KEY ----` ein. Fügen Sie den gesamten Textblock in das Schlüsselfeld ein:
-       ```text  
-            ---- BEGIN SSH2 PUBLIC KEY ----
-            Comment: "rsa-key-20190207"
-            <Your key block>
-            ---- END SSH2 PUBLIC KEY ----```
-    1. Select your Azure Stack subscription.
-    1. Create a new **Resource group** or use an existing depending on how you want to organize the resources for your app.
-    1. Select your location. The ASDK is usually in a **local** region. The location will depend on your Azure Stack.
-1. For **2. Size** type:
-    - Select the size of data and RAM for your VM that is available in your Azure Stack.
-    - You can either browse the list or filter for the size of your VM by **Compute type**, **CPUs**, and storage space.
-    - Prices presented are estimates in your local currency that include only Azure infrastructure costs and any discounts for the subscription and location. The prices don't include any applicable software costs. Recommended sizes are determined by the publisher of the selected image based on hardware and software requirements.
-    - Using a standard disk rather than a premium disk could impact operating system performance.
+4. Gehen Sie im Bereich **Erstellen eines virtuellen Computers** für **1. Grundeinstellungen konfigurieren** folgendermaßen vor:
 
-1. in **3. Configure optional** features type:
-    1. For **High availability,** you can select an availability set. To provide redundancy to your application, you can group two or more virtual machines in an availability set. This configuration ensures that during a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. The availability set of a virtual machine can't be changed after it is created.
-    1. For **Storage** select **Premium disks (SSD)** or **Standard disks (HDD)**. Premium disks (SSD) are backed by solid-state drives and offer consistent, low-latency performance. They provide the best balance between price and performance, and are ideal for I/O-intensive applications and production workloads. Standard disks (HDD) are backed by magnetic drives and are preferable for applications where data is accessed infrequently. Zone- redundant disks are backed by Zone redundant storage (ZRS) that replicates your data across multiple zones and are available even if a single zone is down. 
-    1. You can select **Use managed disks**. Enable this feature to have Azure automatically manage the availability of disks to provide data redundancy and fault tolerance, without creating and managing storage accounts on your own. Managed disks may not be available in all regions. For more information, see [Introduction to Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
-    1. Select **virtual network** to configure your network. Virtual networks are logically isolated from each other in Azure. You can configure their IP address ranges, subnets, route tables, gateways, and security settings, much like a traditional network in your data center. Virtual machines in the same virtual network can access each other by default. 
-    1. Select **subnet** to configure your subnet. A subnet is a range of IP addresses in your virtual network, which can be used to isolate virtual machines from each other or from the Internet. 
-    1. Select **Public IP address** to configure access to your VM or services running on your VM. Use a public IP address if you want to communicate with the virtual machine from outside the virtual network. 
-    1. Select **Network Security Group**, **Basic, or **Advanced**. Set rules that allow or deny network traffic to the VM 
-    1. Select **public inbound ports** to set access for common or custom protocols to your VM. The service specifies the destination protocol and port range for this rule. You can choose a predefined service, like RDP or SSH, or provide a custom port range.  
-        For the  web server, you are going to want to HTTP (80), HTTPS (443), and SSH (22) open. If you plan on managing the machine with an RDP connection, open port 3389.
-    1. Select **Extensions** if you would like to add Extension to your VM. Extensions add new features, like configuration management or antivirus protection, to your virtual machine using extensions. 
-    1. Disable or enable **Monitoring**. Capture serial console output and screenshots of the virtual machine running on a host to help diagnose startup issues. 
-    1. Select **diagnostics storage account** to specify the storage account holding your metrics. Metrics are written to a storage account so you can analyze them with your own tools. . 
-    1. Select **OK**.
-1. Review **4. Summary**:
-    - The portal validates your settings.
-    - You can download the Azure Resource Manager template for your VM if you would like to reuse your settings with an Azure Resource Manager workflow.
-    - Press **OK** when the validation has passed. The deployment of the VM takes several minutes.
+    a. Geben Sie den **Namen Ihres virtuellen Computers** ein.
 
-### Specify the open ports and DNS name
+    b. Wählen Sie als **VM-Datenträgertyp** entweder **SSD Premium** (für Premium-Datenträger [SSD]) oder **HDD Standard** (für Standard-Datenträger [HDD]) aus.
 
-You will want to make your web app accessible to users on your network by opening the ports used to connect to the machine and adding a friendly DNS name such as `mywebapp.local.cloudapp.azurestack.external` that users can use in their web browsers.
+    c. Geben Sie Ihren **Benutzernamen** ein.
 
-#### Open inbound ports
+    d. Wählen Sie **Öffentlicher SSH-Schlüssel** als **Authentifizierungstyp** aus.
 
-You can modify the destination protocol and port range for predefined service, like RDP or SSH or provide a custom port range. For example, you may want to work with the port range of your web framework. GO, for instance, communicates on port 3000.
+    e. Rufen Sie den öffentlichen SSH-Schlüssel ab, den Sie erstellt haben. Öffnen Sie den Schlüssel in einem Text-Editor. Kopieren Sie den Schlüssel, und fügen Sie ihn in das Feld **Öffentlicher SSH-Schlüssel** ein. Schließen Sie den Text von `---- BEGIN SSH2 PUBLIC KEY ----` bis `---- END SSH2 PUBLIC KEY ----` ein. Fügen Sie den gesamten Textblock in das Schlüsselfeld ein:
 
-1. Open the Azure Stack portal for your tenant.
-1. Find your VM. You may have pinned the VM to your dashboard, or you can search for the VM in the **Search resources** box.
-1. Select **Networking** in your VM blade.
-1. Select **Add inbound port** rule to open a port.
-1. For Source, leave the default to **Any**.
-1. For Source port range, leave the wildcard (*).
-1. For Destination port range, add the port you would like to open, such as `3000`.
-1. For **Protocol** leave **Any**.
-1. For **Action** set to **Allow**.
-1. For **Priority** leave for the default.
-1. Type a **Name** and **Description** to help you remember why the port is open.
-1. Select **Add**.
+    ```text  
+    ---- BEGIN SSH2 PUBLIC KEY ----
+    Comment: "rsa-key-20190207"
+    <Your key block>
+    ---- END SSH2 PUBLIC KEY ----
+    ```
 
-#### Add a DNS name for your server
+    f. Wählen Sie das Abonnement für Ihre Azure Stack-Instanz aus.
 
-In addition, you can create a DNS name for your server, and then users can connect to your web site using a URL.
+    g. Erstellen Sie eine neue Ressourcengruppe, oder verwenden Sie eine vorhandene Ressourcengruppe – je nachdem, wie Sie Ressourcen für Ihre App organisieren möchten.
 
-1. Open the Azure Stack portal for your tenant.
-1. Find your VM. You may have pinned the VM to your dashboard, or you can search for the VM in the **Search resources** box.
-1. Select **Overview**.
-1. Select **Configure** under VM.
-1. Select **Dynamic** for **Assignment**.
-1. Type the DNS name label such as `mywebapp` so that your full URL will be: `mywebapp.local.cloudapp.azurestack.external` (for an ASDK app).
+    h. Wählen Sie Ihren Standort aus. Das Azure Stack Development Kit (ASDK) befindet sich in der Regel in einer *lokalen* Region. Der Standort hängt von Ihrer Azure Stack-Instanz ab.
+1. Geben Sie für **2. Größe** Folgendes ein:
+    - Wählen Sie die Größe der Daten und den Arbeitsspeicher für Ihren virtuellen Computer aus, der in Ihrer Azure Stack-Instanz verfügbar ist.
+    - Sie können die Liste durchsuchen oder nach der Größe Ihres virtuellen Computers filtern, indem Sie **Computetyp**, **CPUs** und **Speicherplatz** auswählen.
+    
+    > [!NOTE]
+    > - Bei den angezeigten Preisen handelt es sich um Schätzungen in Ihrer lokalen Währung. Sie umfassen nur Azure-Infrastrukturkosten und anwendbare Rabatte für das Abonnement und den Standort. In den Preisen sind keine Kosten für Software enthalten. 
+    > - Die empfohlene Größen werden durch den Herausgeber des ausgewählten Images festgelegt und basieren auf Hardware- und Softwareanforderungen.
+    > - Wenn Sie anstelle von Premium-Datenträgern (SSD) Standard-Datenträger (HDD) verwenden, verschlechtert sich möglicherweise die Leistung des Betriebssystems.
 
-### Connect via SSH to update your VM
+1. Geben Sie unter **3. Optionale Features konfigurieren** Folgendes ein:
 
-1. On the same network as your Azure Stack, open your SSH client. For more information, see [How to use an SSH public key](azure-stack-dev-start-howto-ssh-public-key.md).
-1. Type:
+    a. Wählen Sie unter **Hochverfügbarkeit** eine Verfügbarkeitsgruppe. Um Redundanz für Ihre Anwendung zu gewährleisten, gruppieren Sie zwei oder mehr virtuelle Computer in einer Verfügbarkeitsgruppe. Durch diese Konfiguration wird sichergestellt, dass während eines geplanten oder ungeplanten Wartungsereignisses mindestens ein virtueller Computer verfügbar ist und die durch das Azure Service-Level Agreement (SLA) zugesicherte Verfügbarkeit von 99,95 % eingehalten wird. Die Verfügbarkeitsgruppe eines virtuellen Computers kann nach dem Erstellen nicht mehr geändert werden.
+
+    b. Wählen Sie als **Speicher** die Option **Premium-Datenträger (SSD)** oder **Standard-Datenträger (HDD)** aus. Premium-Datenträger (SSD) basieren auf Solid State Drives und bieten konsistente Leistung mit geringen Wartezeiten. Sie bieten das beste Preis-Leistungs-Verhältnis und eignen sich ideal für E/A-intensive Anwendungen und Produktionsworkloads. Standard-Datenträger basieren auf magnetischen Laufwerken und werden für Anwendungen bevorzugt, in denen nur selten auf Daten zugegriffen wird. Zonenredundante Datenträger basieren auf zonenredundantem Speicher (ZRS), der Ihre Daten in mehreren Zonen repliziert, und sind auch dann verfügbar, wenn eine einzelne Zone ausfällt. 
+
+    c. Wählen Sie **Verwaltete Datenträger verwenden**. Wenn Sie dieses Feature aktivieren, wird die Verfügbarkeit von Datenträgern von Azure automatisch verwaltet. Sie profitieren von Datenredundanz und Fehlertoleranz, ohne selbst Speicherkonten erstellen und verwalten zu müssen. Verwaltete Datenträger sind möglicherweise nicht in allen Regionen verfügbar. Weitere Informationen finden Sie unter [Einführung in verwaltete Azure-Datenträger](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+
+    d. Klicken Sie auf **Virtuelles Netzwerk**, um Ihr Netzwerk zu konfigurieren. Virtuelle Netzwerke sind in Azure logisch voneinander isoliert. Sie können ihre IP-Adressbereiche, Subnetze, Routingtabellen, Gateways und Sicherheitseinstellungen wie bei einem herkömmlichen Netzwerk in Ihrem Rechenzentrum konfigurieren. Virtuelle Computer im gleichen virtuellen Netzwerk können standardmäßig aufeinander zugreifen. 
+
+    e. Wählen Sie zum Konfigurieren Ihres Subnetzes **Subnetz**. Ein Subnetz ist ein Bereich von IP-Adressen in Ihrem virtuellen Netzwerk. Sie können ein Subnetz verwenden, um virtuelle Computer voneinander oder vom Internet zu isolieren. 
+
+    f. Wählen Sie **öffentliche IP-Adresse** aus, um den Zugriff auf Ihren virtuellen Computer oder auf die auf Ihrem virtuellen Computer ausgeführten Dienste zu konfigurieren. Verwenden Sie eine öffentliche IP-Adresse, um von außerhalb des virtuellen Netzwerks mit einem virtuellen Computer zu kommunizieren. 
+
+    g. Wählen Sie unter **Netzwerksicherheitsgruppe** die Option **Einfach** oder **Erweitert**. Legen Sie die Regeln fest, mit denen der Netzwerkdatenverkehr an den virtuellen Computer zugelassen oder verweigert wird. 
+
+    h. Wählen Sie **Öffentliche Eingangsports**, um den Zugriff allgemeiner oder benutzerdefinierter Protokolle auf Ihren virtuellen Computer festzulegen. Der Dienst gibt das Zielprotokoll und den Portbereich für diese Regel an. Sie können einen vordefinierten Dienst wie RDP oder SSH wählen oder einen benutzerdefinierten Portbereich angeben. 
+        Verwenden Sie für den Webserver HTTP (80), HTTPS (443) und SSH (22). Wenn Sie den Computer über eine RDP-Verbindung verwalten möchten, öffnen Sie Port 3389.
+
+    i. Wählen Sie **Erweiterungen** aus, um Erweiterungen auf Ihren virtuellen Computer hinzuzufügen. Mit Erweiterungen fügen Sie Ihrem virtuellen Computer neue Features wie z. B. Konfigurationsverwaltung oder Virenschutz hinzu. 
+
+    j. Aktivieren oder deaktivieren Sie die **Überwachung**. Zum Diagnostizieren von Startproblemen können Sie mit der Überwachung die Ausgabe der seriellen Konsole und Screenshots von auf einem Host ausgeführten virtuellen Computern erfassen. 
+
+    k. Um das Speicherkonto anzugeben, die Ihre Metriken enthält, wählen Sie **Diagnosespeicherkonto**. Metriken werden in ein Speicherkonto geschrieben, sodass Sie sie mit Ihren eigenen Tools analysieren können. 
+
+    l. Klicken Sie auf **OK**.
+
+1. Überprüfen Sie **4. Zusammenfassung**:
+    - Das Portal überprüft Ihre Einstellungen.
+    - Wenn Sie Ihre Einstellungen mit einem Azure Resource Manager-Workflow wiederverwenden möchten, können Sie die Azure Resource Manager-Vorlage für Ihren virtuellen Computer herunterladen.
+    - Wählen Sie nach erfolgreicher Überprüfung **OK** aus. Die Bereitstellung des virtuellen Computers dauert einige Minuten.
+
+### <a name="specify-the-open-ports-and-dns-name"></a>Festlegen von offenen Ports und DNS-Namen
+
+Wenn Sie Benutzern in Ihrem Netzwerk Ihre Web-App zur Verfügung stellen möchten, öffnen Sie die zum Herstellen einer Verbindung mit dem Computer verwendeten Ports und fügen einen benutzerfreundlichen DNS-Namen wie *mywebapp.local.cloudapp.azurestack.external* hinzu, den Benutzer in ihren Webbrowsern verwenden können.
+
+#### <a name="open-inbound-ports"></a>Öffnen von eingehenden Ports
+
+Sie können das Zielprotokoll und den Portbereich für einen vordefinierten Dienst wie RDP oder SSH ändern oder einen benutzerdefinierten Portbereich angeben. Beispielsweise möchten Sie mit dem Portbereich Ihres Webframeworks arbeiten. GO kommuniziert beispielsweise über Port 3000.
+
+1. Öffnen Sie das Azure Stack-Portal für Ihren Mandanten.
+
+1. Suchen Sie Ihren virtuellen Computer. Möglicherweise haben Sie den virtuellen Computer an Ihr Dashboard angeheftet. Sie können auch über das Feld **Ressourcen suchen** danach suchen.
+
+1. Wählen Sie im Bereich für Ihre virtuellen Computer **Netzwerk** aus.
+
+1. Wählen Sie **Regel für eingehenden Port hinzufügen** aus, um einen Port zu öffnen.
+
+1. Übernehmen Sie für **Quelle** den Standardwert **Alle**.
+
+1. Lassen Sie unter **Quellportbereich** das Platzhalterzeichen (*) stehen.
+
+1. Fügen Sie unter **Zielportbereich** den Port hinzu, den Sie öffnen möchten. Beispiel: **3000**.
+
+1. Übernehmen Sie für **Protokoll** den Standardwert **Alle**.
+
+1. Wählen Sie für **Aktion** die Option **Zulassen** aus.
+
+1. Übernehmen Sie für **Priorität** den Standardwert.
+
+1. Geben Sie einen **Namen** und eine **Beschreibung** ein. So können Sie sich erinnern, warum der Port geöffnet ist.
+
+1. Wählen Sie **Hinzufügen**.
+
+#### <a name="add-a-dns-name-for-your-server"></a>Hinzufügen eines DNS-Namens für Ihren Server
+
+Darüber hinaus können Sie einen DNS-Namen für Ihren Server erstellen, sodass Benutzer mithilfe einer URL eine Verbindung mit Ihrer Website herstellen können.
+
+1. Öffnen Sie das Azure Stack-Portal für Ihren Mandanten.
+
+1. Suchen Sie Ihren virtuellen Computer. Möglicherweise haben Sie den virtuellen Computer an Ihr Dashboard angeheftet. Sie können auch über das Feld **Ressourcen suchen** danach suchen.
+
+1. Wählen Sie **Übersicht**.
+
+1. Wählen Sie unter **VM** die Option **Konfigurieren** aus.
+
+1. Wählen Sie für unter **Zuweisung** die Option **Dynamisch** aus.
+
+1. Geben Sie einen DNS-Namen wie **mywebapp** ein. Ihre vollständige URL lautet dann *mywebapp.local.cloudapp.azurestack.external* (für eine ASDK-App).
+
+### <a name="connect-via-ssh-to-update-your-vm"></a>Herstellen einer Verbindung über SSH zum Aktualisieren des virtuellen Computers
+
+1. Öffnen Sie Ihren SSH-Client im gleichen Netzwerk wie Ihre Azure Stack-Instanz. Weitere Informationen finden Sie unter [Verwenden eines öffentlichen SSH-Schlüssels](azure-stack-dev-start-howto-ssh-public-key.md).
+
+1. Geben Sie die folgenden Befehle ein:
+
     ```bash  
         sudo apt-get update
         sudo apt-get -y upgrade
     ```
 
-<!--
-
-## Deploy VM using the PowerShell
-
-Include a sentence or two to explain only what is needed to complete the procedure.
-
-1. Step one of the procedures.
-
-    | Parameter | Example | Description |
-    | --- | --- | --- |
-    | item      | "dog"   | Describe what it is and where to find the information. |
-
-2. Step two of the procedure
-
-    ```PowerShell  
-    verb-command -item "dog"
-    ```
-
-3. Step three of the procedures.
-
-    ```PowerShell  
-    verb-command -item "dog"
-    ```
-
-4. Step four of the procedures.
-
-    ```PowerShell  
-    verb-command -item "dog"
-    ```
-
-## Deploy VM using the CLI
-
-Include a sentence or two to explain only what is needed to complete the procedure.
-
-1. Step one of the procedures.
-
-    | Parameter | Example | Description |
-    | --- | --- | --- |
-    | item      | "dog"   | Describe what it is and where to find the information. |
-
-2. Step two of the procedure
-
-    ```CLI  
-    verb-command -item "dog"
-    ```
-
-3. Step three of the procedures.
-
-    ```CLI  
-    verb-command -item "dog"
-    ```
-
-4. Step four of the procedures.
-
-    ```CLI  
-    verb-command -item "dog"
-    ```
-
--->
-
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zum [Entwickeln für Azure Stack](azure-stack-dev-start.md)
+Erfahren Sie mehr über das [Einrichten einer Entwicklungsumgebung in Azure Stack](azure-stack-dev-start.md).
