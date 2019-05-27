@@ -9,18 +9,16 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: b41c64d64a2c2abe6d1f145f11c2d4d84686b207
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 14baf5d5ca411e7c32cbfcf4a6138193a2215b0a
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617701"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783085"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>Bereitstellen einer C#-Web-App (ASP.NET) auf einem virtuellen Computer in Azure Stack
 
 Sie können einen virtuellen Computer erstellen, um Ihre C#-Web-App (ASP.NET) in Azure Stack zu hosten. In diesem Artikel erfahren Sie, wie Sie den Server einrichten, ihn zum Hosten Ihrer C#-Web-App (ASP.NET) konfigurieren und dann die App direkt in Visual Studio bereitstellen.
-
-C# ist eine Allzweck-Programmiersprache, die auf mehreren Paradigmen basiert und verschiedene Programmierungsdisziplinen in sich vereint: starke Typisierung, lexikalische Struktur, imperativ, deklarativ, funktional, generisch, objektorientiert und komponentenorientiert. Sehen Sie sich den [Leitfaden für C#](https://docs.microsoft.com/dotnet/csharp/) an, um die Programmiersprache C# zu erlernen und weitere Ressourcen für C# zu finden.
 
 In diesem Artikel wird eine C# 6.0-App mit ASP.NET Core 2.2 auf einem Windows 2016-Server verwendet.
 
@@ -59,10 +57,11 @@ In diesem Artikel wird eine C# 6.0-App mit ASP.NET Core 2.2 auf einem Windows�
 
     | Port | Protocol | BESCHREIBUNG |
     | --- | --- | --- |
-    | 80 | HTTP | Das Hypertext Transfer-Protokoll (HTTP) ist ein Anwendungsprotokoll für verteilte, zusammenarbeitsorientierte Hypermedia-Informationssysteme. Clients stellen die Verbindung zu Ihrer Web-App entweder über die öffentliche IP-Adresse oder über den DNS-Namen Ihrer VM her. |
-    | 443 | HTTPS | Das Hypertext Transfer-Protokoll Secure (HTTPS) ist eine Erweiterung des Hypertext Transfer-Protokolls (HTTP). Es wird zur sicheren Kommunikation in einem Computernetzwerk verwendet. Clients stellen die Verbindung zu Ihrer Web-App entweder über die öffentliche IP-Adresse oder über den DNS-Namen Ihrer VM her. |
-    | 22 | SSH | Secure Shell (SSH) ist ein kryptografisches Netzwerkprotokoll für den sicheren Betrieb von Netzwerkdiensten in einem nicht gesicherten Netzwerk. Sie verwenden diese Verbindung mit einem SSH-Client, um den virtuellen Computer zu konfigurieren und die App bereitzustellen. |
-    | 3389 | RDP | Optional. Über das Remotedesktopprotokoll (RDP) kann eine Remotedesktopverbindung eine grafische Benutzeroberfläche auf Ihrem Computer verwenden.   |
+    | 80 | HTTP | Das Hypertext Transfer-Protokoll (HTTP) wird zum Bereitstellen von Webseiten über Server verwendet. Clients stellen eine Verbindung per HTTP über einen DNS-Namen oder eine IP-Adresse her. |
+    | 443 | HTTPS | Das Hypertext Transfer-Protokoll Secure (HTTPS) ist eine sichere Version von HTTP, für die ein Sicherheitszertifikat benötigt wird und die die verschlüsselte Übertragung von Informationen ermöglicht.  |
+    | 22 | SSH | Secure Shell (SSH) ist ein verschlüsseltes Netzwerkprotokoll für die sichere Kommunikation. Sie verwenden diese Verbindung mit einem SSH-Client, um die VM zu konfigurieren und die App bereitzustellen. |
+    | 3389 | RDP | Optional. Das Remotedesktopprotokoll ermöglicht eine Remotedesktopverbindung, um eine grafische Benutzeroberfläche auf Ihrem Computer zu verwenden.   |
+    | 8080 | Benutzerdefiniert | Der Standardport für den Apache Tomcat-Dienst ist 8080. Auf einem Produktionsserver sollten Sie den Datenverkehr über die Ports 80 und 443 leiten. |
 
     Führen Sie für jeden Port Folgendes aus:
 
@@ -131,7 +130,7 @@ Erstellen Sie ein Veröffentlichungsziel für Ihre VM in Azure Stack.
 1. Wählen Sie **Veröffentlichen**.
 1. Rufen Sie Ihren neuen Server auf. Die ausgeführte Webanwendung sollte angezeigt werden.
 
-    ```HTTP  
+    ```http  
         mywebapp.local.cloudapp.azurestack.external
     ```
 
@@ -139,3 +138,4 @@ Erstellen Sie ein Veröffentlichungsziel für Ihre VM in Azure Stack.
 
 - Erfahren Sie mehr über das [Einrichten einer Entwicklungsumgebung in Azure Stack](azure-stack-dev-start.md).
 - Weitere Informationen zu [häufigen Bereitstellungen für Azure Stack als IaaS](azure-stack-dev-start-deploy-app.md)
+- Sehen Sie sich den [Leitfaden für C#](https://docs.microsoft.com/dotnet/csharp/) an, um die Programmiersprache C# zu erlernen und auf weitere Ressourcen für C# zuzugreifen.

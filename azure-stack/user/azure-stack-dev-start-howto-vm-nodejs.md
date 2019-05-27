@@ -9,55 +9,54 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: bebf3b349a994379d5f54bd387533b8d4a63ccdd
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 4fcf76b8f4950fa7ca919d57281c5662b31e96f6
+ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64482290"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65838307"
 ---
-# <a name="how-to-deploy-a-nodejs-web-app-to-a-vm-in-azure-stack"></a>Bereitstellen einer Node.js-Web-App auf einer VM in Azure Stack
+# <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack"></a>Bereitstellen einer Node.js-Web-App auf einer VM in Azure Stack
 
-Sie können eine VM erstellen, um Ihre Node.js-Web-App in Azure Stack zu hosten. In diesem Artikel finden Sie die Schritte, die Sie ausführen müssen, um einen Server einzurichten, den Server für das Hosten Ihrer Node.js-Web-App zu konfigurieren und dann Ihre App bereitzustellen.
-
-Node.js ist eine JavaScript-Runtime, die auf der JavaScript-Engine V8 von Chrome aufbaut. Als asynchrone, ereignisgesteuerte JavaScript-Runtime ist Node.js auf die Erstellung skalierbarer Netzwerkanwendungen ausgelegt. Besuchen Sie die Website [Nodejs.org](https://nodejs.org), um die Programmiersprache Node.js zu erlernen und weitere Ressourcen für Node.js zu finden.
+Sie können einen virtuellen Computer erstellen, um Ihre Node.js-Web-App in Azure Stack zu hosten. In diesem Artikel richten Sie einen Server ein, konfigurieren den Server zum Hosten Ihrer Node.js-Web-App und stellen die App dann unter Azure Stack bereit.
 
 ## <a name="create-a-vm"></a>Erstellen einer VM
 
-1. Legen Sie das Setup Ihrer VM in Azure Stack fest. Führen Sie die Schritte unter [Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack](azure-stack-dev-start-howto-deploy-linux.md) aus.
+1. Richten Sie Ihre VM in Azure Stack ein, indem Sie die Anleitung unter [Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack](azure-stack-dev-start-howto-deploy-linux.md) befolgen.
 
-2. Stellen Sie auf dem Blatt für das VM-Netzwerk sicher, dass auf die folgenden Ports zugegriffen werden kann:
+2. Stellen Sie im Bereich für das VM-Netzwerk sicher, dass auf die folgenden Ports zugegriffen werden kann:
 
     | Port | Protocol | BESCHREIBUNG |
     | --- | --- | --- |
-    | 80 | HTTP | Das Hypertext Transfer-Protokoll (HTTP) ist ein Anwendungsprotokoll für verteilte, zusammenarbeitsorientierte Hypermedia-Informationssysteme. Clients stellen die Verbindung zu Ihrer Web-App entweder über die öffentliche IP-Adresse oder über den DNS-Namen Ihrer VM her. |
-    | 443 | HTTPS | Das Hypertext Transfer-Protokoll Secure (HTTPS) ist eine Erweiterung des Hypertext Transfer-Protokolls (HTTP). Es wird zur sicheren Kommunikation in einem Computernetzwerk verwendet. Clients stellen die Verbindung zu Ihrer Web-App entweder über die öffentliche IP-Adresse oder über den DNS-Namen Ihrer VM her. |
-    | 22 | SSH | Secure Shell (SSH) ist ein kryptografisches Netzwerkprotokoll für den sicheren Betrieb von Netzwerkdiensten in einem nicht gesicherten Netzwerk. Sie verwenden diese Verbindung mit einem SSH-Client, um die VM zu konfigurieren und die App bereitzustellen. |
-    | 3389 | RDP | Optional. Das Remotedesktopprotokoll ermöglicht eine Remotedesktopverbindung, um eine grafische Benutzeroberfläche auf Ihrem Computer zu verwenden.   |
-    | 1337 | Benutzerdefiniert | Port 1337 wird von Node.js verwendet. Auf einem Produktionsserver sollten Sie den Datenverkehr über die Ports 80 und 443 leiten. |
+    | 80 | HTTP | Das Hypertext Transfer-Protokoll (HTTP) wird zum Bereitstellen von Webseiten über Server verwendet. Clients stellen eine Verbindung per HTTP über einen DNS-Namen oder eine IP-Adresse her. |
+    | 443 | HTTPS | Das Hypertext Transfer-Protokoll Secure (HTTPS) ist eine sichere Version von HTTP, für die ein Sicherheitszertifikat benötigt wird und die die verschlüsselte Übertragung von Informationen ermöglicht. |
+    | 22 | SSH | Secure Shell (SSH) ist ein verschlüsseltes Netzwerkprotokoll für die sichere Kommunikation. Sie verwenden diese Verbindung mit einem SSH-Client, um den virtuellen Computer zu konfigurieren und die App bereitzustellen. |
+    | 3389 | RDP | Optional. Über das Remotedesktopprotokoll (RDP) kann für eine Remotedesktopverbindung eine grafische Benutzeroberfläche auf Ihrem Computer verwendet werden.   |
+    | 1337 | Benutzerdefiniert | Der Port, der von Node.js verwendet wird. Auf einem Produktionsserver leiten Sie den Datenverkehr über die Ports 80 und 443. |
 
 ## <a name="install-node"></a>Installieren von Node.js
 
-1. Stellen Sie mit Ihrem SSH-Client eine Verbindung mit Ihrem virtuellen Computer her. Anleitungen finden Sie unter [Herstellen einer Verbindung über SSH mit PuTTY](azure-stack-dev-start-howto-ssh-public-key.md#connect-via-ssh-with-putty).
-1. Geben Sie an der Bash-Eingabeaufforderung auf Ihrer VM folgende Befehle ein:
+1. Stellen Sie mit Ihrem SSH-Client eine Verbindung mit Ihrem virtuellen Computer her. Anleitungen finden Sie unter [Herstellen einer Verbindung über SSH mit PuTTY](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
+
+1. Geben Sie an der Bash-Eingabeaufforderung auf Ihrer VM den folgenden Befehl ein:
 
     ```bash  
       sudo apt install nodejs-legacy
     ```
 
-2. Installieren Sie NPM. [NPM](https://www.npmjs.com/) ist ein Paket-Manager für Node.js-Pakete oder -Module. Geben Sie in der gleichen SSH-Sitzung die folgenden Befehle auf Ihrer VM ein:
+2. Führen Sie die [Installation von npm](https://www.npmjs.com/) durch. Dies ist ein Paket-Manager für Node.js-Pakete oder -Module. Geben Sie bei bestehender Verbindung mit Ihrer VM in derselben SSH-Sitzung den folgenden Befehl ein:
 
     ```bash  
        go version
     ```
 
-3. Installieren Sie Git. [Git](https://git-scm.com) ist ein weit verbreitetes System für Versionskontrolle und Quellcodeverwaltung (Source Code Management, SCM). Geben Sie in der gleichen SSH-Sitzung die folgenden Befehle auf Ihrer VM ein:
+3. Führen Sie die [Installation von Git](https://git-scm.com) durch. Hierbei handelt es sich um ein weit verbreitetes System für die Versionskontrolle und Quellcodeverwaltung (Source Code Management, SCM). Geben Sie bei bestehender Verbindung mit Ihrer VM in derselben SSH-Sitzung den folgenden Befehl ein:
 
     ```bash  
        sudo apt-get -y install git
     ```
 
-3. Überprüfen Sie die Installation. Geben Sie in der gleichen SSH-Sitzung die folgenden Befehle auf Ihrer VM ein:
+3. Überprüfen Sie die Installation. Geben Sie bei bestehender Verbindung mit Ihrer VM in derselben SSH-Sitzung den folgenden Befehl ein:
 
     ```bash  
        node -v
@@ -65,7 +64,7 @@ Node.js ist eine JavaScript-Runtime, die auf der JavaScript-Engine V8 von Chrome
 
 ## <a name="deploy-and-run-the-app"></a>Bereitstellen und Ausführen der App
 
-1. Richten Sie Ihr Git-Repository auf der VM ein. Geben Sie in der gleichen SSH-Sitzung die folgenden Befehle auf Ihrer VM ein:
+1. Richten Sie Ihr Git-Repository auf der VM ein. Geben Sie bei bestehender Verbindung mit Ihrer VM in derselben SSH-Sitzung die folgenden Befehle ein:
 
     ```bash  
        git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
@@ -74,13 +73,13 @@ Node.js ist eine JavaScript-Runtime, die auf der JavaScript-Engine V8 von Chrome
         npm start
     ```
 
-2. Starten Sie die App. Geben Sie in der gleichen SSH-Sitzung den folgenden Befehl auf Ihrer VM ein:
+2. Starten Sie die App. Geben Sie bei bestehender Verbindung mit Ihrer VM in derselben SSH-Sitzung den folgenden Befehl ein:
 
     ```bash  
        sudo node app.js
     ```
 
-3.  Navigieren Sie jetzt zu Ihrem neuen Server – die ausgeführte Webanwendung sollte zu sehen sein.
+3. Navigieren Sie zu Ihrem neuen Server. Die ausgeführte Webanwendung sollte angezeigt werden.
 
     ```HTTP  
        http://yourhostname.cloudapp.net:1337
@@ -90,3 +89,4 @@ Node.js ist eine JavaScript-Runtime, die auf der JavaScript-Engine V8 von Chrome
 
 - Weitere Informationen zum [Entwickeln für Azure Stack](azure-stack-dev-start.md)
 - Weitere Informationen zu [häufigen Bereitstellungen für Azure Stack als IaaS](azure-stack-dev-start-deploy-app.md)
+- Besuchen Sie die Website [Nodejs.org](https://nodejs.org), um die Programmiersprache Node.js zu erlernen und weitere Ressourcen für Node.js zu finden.

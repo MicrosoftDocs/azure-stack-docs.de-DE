@@ -16,13 +16,13 @@ ms.date: 03/29/2019
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.custom: ''
-ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: f8206c658170a16e517e64a328d188c015b9e394
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 05/14/2019
+ms.openlocfilehash: b98be2ae02e65fea9356f35f2d2554e57dfb5628
+ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618071"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65706286"
 ---
 # <a name="azure-stack-overview"></a>Übersicht über Azure Stack
 
@@ -76,17 +76,17 @@ Sie können Azure Stack entweder mit dem Internet (und mit Azure) **verbunden**
 > Weitere Informationen finden Sie in den Überlegungen zu [verbundenen](azure-stack-connected-deployment.md) und [nicht verbundenen](azure-stack-disconnected-deployment.md) Bereitstellungsmodellen. 
 
 ### <a name="identity-provider"></a>Identitätsanbieter 
-Azure Stack verwendet zum Einrichten von Azure Stack-Identitäten entweder Azure Active Directory (Azure AD) oder Active Directory-Verbunddienste (AD FS) als Identitätsanbieter. 
+Azure Stack verwendet entweder Azure Active Directory (Azure AD) oder Active Directory-Verbunddienste (AD FS), um Identitäten bereitzustellen. Azure AD ist der cloudbasierte, mehrinstanzenfähige Identitätsanbieter von Microsoft. Für die meisten Hybridszenarien mit Bereitstellungen mit Internetverbindung wird Azure AD als Identitätsspeicher verwendet. 
+
+Für getrennte Bereitstellungen von Azure Stack müssen Sie Active Directory-Verbunddienste (AD FS) verwenden. Azure Stack-Ressourcenanbieter und andere Anwendungen funktionieren mit AD FS oder Azure AD auf ähnliche Weise. Azure Stack umfasst eine eigene Active Directory-Instanz und eine Active Directory Graph-API.
 
 > [!IMPORTANT]
-> Dies ist eine überaus wichtige Entscheidung! Die Auswahl von Azure AD oder AD FS als Identitätsanbieter ist eine einmalige Entscheidung, die Sie zum Zeitpunkt der Bereitstellung treffen müssen. Sie können diese Einstellung später nicht mehr ändern, ohne das gesamte System erneut bereitzustellen.
-
-Azure AD ist der cloudbasierte, mehrinstanzenfähige Identitätsanbieter von Microsoft. Für die meisten Hybridszenarien mit Bereitstellungen mit Internetverbindung wird Azure AD als Identitätsspeicher verwendet. Sie können jedoch Active Directory-Verbunddienste (AD FS) für nicht verbundene Bereitstellungen von Azure Stack verwenden. Azure Stack-Ressourcenanbieter und andere Anwendungen verwenden AD FS ähnlich wie Azure AD. Azure Stack umfasst eine eigene Active Directory-Instanz und eine Active Directory Graph-API. 
+> Sie können den Identitätsanbieter nach der Bereitstellung nicht mehr ändern. Sie müssen Azure Stack erneut bereitstellen, um einen anderen Identitätsanbieter zu verwenden.
 
 > Weitere Informationen und Überlegungen zur Azure Stack-Identität finden Sie unter [Übersicht über die Identität für Azure Stack](azure-stack-identity-overview.md).
 
 ## <a name="how-is-azure-stack-managed"></a>Wie wird Azure Stack verwaltet?
-Nachdem Azure Stack als integriertes System oder ASDK-Installation bereitgestellt wurde, sind das Verwaltungsportal, das Benutzerportal und PowerShell die Hauptmethoden der Interaktion mit Azure Stack. Alle Azure Stack-Portale basieren jeweils auf separaten Azure Resource Manager-Instanzen. Ein **Azure Stack-Bediener** verwendet das Verwaltungsportal, um Azure Stack zu verwalten und Aufgaben wie das Erstellen von Mandantenangeboten, Sicherstellen der Integrität und Überwachen des Status des integrierten Systems auszuführen. Das Benutzerportal (auch als „Mandantenportal“ bezeichnet) bietet eine Self-Service-Benutzeroberfläche für die Nutzung von Cloudressourcen wie virtuelle Computer, Speicherkonten und Web-Apps. 
+Sie können Azure Stack über das Verwaltungsportal, das Benutzerportal oder mit [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) verwalten. Alle Azure Stack-Portale basieren jeweils auf separaten Azure Resource Manager-Instanzen. Ein **Azure Stack-Bediener** verwendet das Verwaltungsportal, um Azure Stack zu verwalten und Aufgaben wie das Erstellen von Mandantenangeboten, Sicherstellen der Integrität und Überwachen des Status des integrierten Systems auszuführen. Das Benutzerportal (auch als „Mandantenportal“ bezeichnet) verfügt über eine Self-Service-Benutzeroberfläche für die Nutzung von Cloudressourcen, z. B. virtuellen Computern, Speicherkonten und Web-Apps. 
 
 > Weitere Informationen zum Verwalten von Azure Stack über das Verwaltungsportal finden Sie unter [Schnellstart: Verwenden des Azure Stack-Verwaltungsportals](azure-stack-manage-portals.md).
 
@@ -102,17 +102,17 @@ Wenn Azure Stack konfiguriert ist, nutzt ein **Azure Stack-Benutzer** (auch al
 Ressourcenanbieter sind Webdienste, die die Grundlage für alle IaaS- und PaaS-Dienste von Azure Stack bilden. Azure Resource Manager nutzt verschiedene Ressourcenanbieter, um den Zugriff auf Dienste zu ermöglichen. Mit diesen Ressourcenanbietern können Sie die zugehörigen Ressourcen konfigurieren und steuern. Dienstadministratoren können auch neue benutzerdefinierte Ressourcenanbieter hinzufügen. 
 
 ### <a name="foundational-resource-providers"></a>Grundlegende Ressourcenanbieter 
-Es gibt drei grundlegende IaaS-Ressourcenanbieter (Infrastructure-as-a-Service): Compute-, Netzwerk- und Speicherressourcenanbieter.
+Es gibt drei grundlegende IaaS-Ressourcenanbieter (Infrastructure-as-a-Service): 
 
-- **Computeressourcenanbieter**. Mit dem Computeressourcenanbieter können Azure Stack-Mandanten eigene VMs erstellen. Der Computeressourcenanbieter bietet die Möglichkeit, VMs und VM-Erweiterungen zu erstellen. Der Erweiterungsdienst für virtuelle Computer unterstützt die Bereitstellung von IaaS-Funktionen für virtuelle Computer mit Windows und Linux.  Beispielsweise können Sie den Computeressourcenanbieter zum Bereitstellen einer Linux-VM verwenden und während der Bereitstellung Bash-Skripts ausführen, um die VM zu konfigurieren.
+- **Computeressourcenanbieter**. Mit dem Computeressourcenanbieter können Azure Stack-Mandanten eigene VMs erstellen. Der Computeressourcenanbieter bietet die Möglichkeit, VMs und VM-Erweiterungen zu erstellen. Der Erweiterungsdienst für virtuelle Computer unterstützt die Bereitstellung von IaaS-Funktionen für virtuelle Computer mit Windows und Linux. Beispielsweise können Sie den Computeressourcenanbieter zum Bereitstellen einer Linux-VM verwenden und während der Bereitstellung Bash-Skripts ausführen, um die VM zu konfigurieren.
 - **Netzwerkressourcenanbieter**. Der Netzwerkressourcenanbieter bietet eine Reihe von Features für Software-Defined Networking (SDN) und Netzwerkfunktionsvirtualisierung (Network Function Virtualization, NFV) für die private Cloud. Mit dem Netzwerkressourcenanbieter können Sie Ressourcen wie Software-Lastenausgleichsmodule, öffentliche IP-Adressen, Netzwerksicherheitsgruppen und virtuelle Netzwerke erstellen.
-- **Speicherressourcenanbieter**. Der Speicherressourcenanbieter bietet vier mit Azure konsistente Speicherdienste: [Blob](https://docs.microsoft.com/azure/storage/common/storage-introduction#blob-storage), [Warteschlange](https://docs.microsoft.com/azure/storage/common/storage-introduction#queue-storage), [Tabelle](https://docs.microsoft.com/azure/storage/common/storage-introduction#table-storage) und KeyVault-Kontoverwaltung mit Funktionen zur Verwaltung und Überwachung von Geheimnissen (z. B. Kennwörter und Zertifikate). Der Speicherressourcenanbieter bietet außerdem einen Speichercloud-Verwaltungsdienst, um die Dienstanbieterverwaltung von Speicherdiensten zu vereinfachen, die mit Azure konsistent sind. Azure Storage bietet die Flexibilität zum Speichern und Abrufen großer Mengen von unstrukturierten Daten, z.B. Dokumente und Mediendateien mit Azure-Blobs und strukturierte NoSQL-basierte Daten mit Azure-Tabellen. 
+- **Speicherressourcenanbieter**. Der Speicherressourcenanbieter umfasst vier mit Azure konsistente Speicherdienste: [Blob](https://docs.microsoft.com/azure/storage/common/storage-introduction#blob-storage), [Warteschlange](https://docs.microsoft.com/azure/storage/common/storage-introduction#queue-storage), [Tabelle](https://docs.microsoft.com/azure/storage/common/storage-introduction#table-storage) und [Key Vault](https://docs.microsoft.com/azure/key-vault/)-Kontoverwaltung mit Funktionen zur Verwaltung und Überwachung von Geheimnissen (z. B. Kennwörter und Zertifikate). Der Speicherressourcenanbieter bietet außerdem einen Speichercloud-Verwaltungsdienst, um die Dienstanbieterverwaltung von Speicherdiensten zu vereinfachen, die mit Azure konsistent sind. Azure Storage bietet die Flexibilität zum Speichern und Abrufen großer Mengen von unstrukturierten Daten, z.B. Dokumente und Mediendateien mit Azure-Blobs und strukturierte NoSQL-basierte Daten mit Azure-Tabellen. 
 
 ### <a name="optional-resource-providers"></a>Optionale Ressourcenanbieter
-Es gibt drei optionale PaaS-Ressourcenanbieter (Platform-as-a-Service), die Sie bereitstellen und mit Azure Stack verwenden können: App Service-, SQL Server- und MySQL-Server-Ressourcenanbieter.
+Es gibt drei optionale PaaS-Ressourcenanbieter (Platform-as-a-Service), die Sie bereitstellen und mit Azure Stack verwenden können: 
 
 - **App Service**. [Azure App Service in Azure Stack](azure-stack-app-service-overview.md) ist ein PaaS-Angebot von Microsoft Azure, das für Azure Stack verfügbar ist. Mit diesem Dienst können Ihre internen oder externen Kunden Web-, API- und Azure Functions-Anwendungen für beliebige Plattformen oder Geräte erstellen. 
-- **SQL Server**. Verwenden Sie den [SQL Server-Ressourcenanbieter](azure-stack-sql-resource-provider.md), um SQL-Datenbanken als Dienst in Azure Stack anzubieten. Nachdem Sie den Ressourcenanbieter installiert und mit mindestens einer SQL Server-Instanz verbunden haben, können Sie und Ihre Benutzer Datenbanken für cloudnative Apps, Websites, die SQL verwenden, und andere Workloads mit SQL erstellen.
+- **SQL Server**. Verwenden Sie den [SQL Server-Ressourcenanbieter](azure-stack-sql-resource-provider.md), um SQL-Datenbanken als Dienst in Azure Stack anzubieten. Nachdem Sie den Ressourcenanbieter installiert und mit mindestens einer SQL Server-Instanz verbunden haben, können Sie und Ihre Benutzer Datenbanken für cloudnative Apps, Websites mit SQL-Nutzung und andere Workloads mit SQL erstellen.
 - **MySQL-Server**. Verwenden Sie den [MySQL-Server-Ressourcenanbieter](azure-stack-mysql-resource-provider-deploy.md), um MySQL-Datenbanken als Azure Stack-Dienst verfügbar zu machen. Der MySQL Server-Ressourcenanbieter wird als Dienst auf einem virtuellen Windows Server 2016 Server Core-Computer ausgeführt.
 
 ## <a name="providing-high-availability"></a>Bereitstellen von Hochverfügbarkeit
@@ -132,7 +132,7 @@ Die rollenbasierte Zugriffssteuerung von Azure Stack umfasst drei grundlegende 
 > Weitere Informationen finden Sie unter [Verwalten der rollenbasierten Zugriffssteuerung](azure-stack-manage-permissions.md). 
 
 ## <a name="reporting-usage-data"></a>Melden von Nutzungsdaten
-Microsoft Azure Stack erfasst und aggregiert Nutzungsdaten für sämtliche Ressourcenanbieter und übermittelt sie an Azure für die Verarbeitung durch Azure Commerce. Die in Azure Stack gesammelten Nutzungsdaten können über eine REST-API angezeigt werden. Es gibt eine mit Azure übereinstimmende Mandanten-API sowie APIs für Anbieter und delegierte Anbieter, mit denen die Nutzungsdaten für alle Mandantenabonnements abgerufen werden können. Diese Daten können in ein externes Tool oder einen Dienst integriert oder für die Abrechnung oder verbrauchsbasierte Kostenzuteilung verwendet werden. Sobald die Nutzungsdaten von Azure Commerce verarbeitet wurden, können sie im Azure-Abrechnungsportal angezeigt werden.
+Azure Stack erfasst und aggregiert Nutzungsdaten für sämtliche Ressourcenanbieter und übermittelt sie zur Verarbeitung durch Azure Commerce an Azure. Die in Azure Stack gesammelten Nutzungsdaten können über eine REST-API angezeigt werden. Es gibt eine mit Azure übereinstimmende Mandanten-API sowie APIs für Anbieter und delegierte Anbieter, mit denen die Nutzungsdaten für alle Mandantenabonnements abgerufen werden können. Diese Daten können in ein externes Tool oder einen Dienst integriert oder für die Abrechnung oder verbrauchsbasierte Kostenzuteilung verwendet werden. Sobald die Nutzungsdaten von Azure Commerce verarbeitet wurden, können sie im Azure-Abrechnungsportal angezeigt werden.
 
 > Erfahren Sie mehr über das [Melden von Azure Stack-Nutzungsdaten an Azure](azure-stack-usage-reporting.md).
 

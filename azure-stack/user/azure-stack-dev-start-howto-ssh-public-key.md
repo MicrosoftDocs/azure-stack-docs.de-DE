@@ -9,41 +9,46 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 0f4133052022963e1ed0457dd479a00bcc5bb749
-ms.sourcegitcommit: 0d8ccf2a32b08ab9bcbe13d54c7c3dce2379757f
+ms.openlocfilehash: c0b55579c5103c7bb1073546243dbfcc0b700b4a
+ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64490060"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65838388"
 ---
-# <a name="how-to-use-an-ssh-public-key"></a>Verwenden eines öffentlichen SSH-Schlüssels
+# <a name="use-an-ssh-public-key"></a>Verwenden eines öffentlichen SSH-Schlüssels
 
-Möglicherweise müssen Sie ein Paar aus einem öffentlichem SSH-Schlüssel und einem privaten Schlüssel erstellen, um eine offene SSH-Verbindung zwischen Ihrem Entwicklungscomputer und der Server-VM in Azure Stack herzustellen, die Ihre Web-App hostet. In diesem Artikel werden die Schritte erläutert, die erforderlich sind, um Ihre Schlüssel abzurufen und diese Schlüssel zum Herstellen einer Verbindung mit Ihrem Server zu verwenden. Sie können einen SSH-Client verwenden, um eine Bash-Eingabeaufforderung auf dem Linux-Server zu öffnen. Sie können auch einen SFTP-Client verwenden, um Dateien auf den und vom Server zu verschieben.
+Zur Verwendung einer offenen SSH-Verbindung zwischen Ihrem Entwicklungscomputer und der Server-VM auf Ihrer Azure Stack-Instanz, auf der Ihre Web-App gehostet wird, müssen Sie unter Umständen ein öffentlich-privates SSH-Schlüsselpaar (Secure Shell) erstellen. 
+
+In diesem Artikel erstellen Sie Ihre Schlüssel und verwenden diese dann, um eine Verbindung mit Ihrem Server herzustellen. Sie können einen SSH-Client verwenden, um eine Bash-Eingabeaufforderung auf dem Linux-Server zu öffnen. Sie können auch einen SFTP-Client (Secure FTP) verwenden, um Dateien auf den und vom Server zu verschieben.
 
 ## <a name="create-an-ssh-public-key-on-windows"></a>Erstellen eines öffentlichen SSH-Schlüssels auf Windows
 
-In diesem Abschnitt verwenden Sie den Schlüsselgenerator von PuTTY, um ein Paar aus einem öffentlichem SSH-Schlüssel und einem privaten Schlüssel zu erstellen, das beim Erstellen einer sicheren Verbindung mit Linux-Computern in Ihrer Azure Stack-Instanz verwendet wird. PuTTY ist eine kostenlose Implementierung von SSH und Telnet für Windows- und Unix-Plattformen und bietet einen `xterm`-Terminalemulator.
+In diesem Abschnitt verwenden Sie den Schlüsselgenerator von PuTTY, um ein öffentlich-privates SSH-Schlüsselpaar zu erstellen, das Sie beim Erstellen einer sicheren Verbindung mit Linux-Computern auf Ihrer Azure Stack-Instanz verwenden. Bei PuTTY handelt es sich um einen kostenlosen Terminalemulator, mit dem Sie per SSH und Telnet eine Verbindung mit einem Server herstellen können.
 
 1. [Laden Sie PuTTY für Windows herunter, und installieren Sie es](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
 1. Öffnen Sie den PuTTY-Schlüsselgenerator.
 
-1. Legen Sie die **Parameter** auf **RSA** fest.
+    ![PuTTY-Schlüsselgenerator mit leerem Schlüsselfeld](media/azure-stack-dev-start-howto-ssh-public-key/001-putty-key-gen-start.png)
 
-1. Legen Sie die Anzahl von Bits in einem generierten Schlüssel auf `2048` fest.  
+1. Wählen Sie unter **Parameters** (Parameter) die Option **RSA**.
 
-    ![Verwenden von PuTTY zum Generieren eines öffentlichen SSH-Schlüssels](media/azure-stack-dev-start-howto-ssh-public-key/001-putty-key-gen-start.png)
+1. Geben Sie im Feld **Number of bits in a generated key** (Anzahl von Bits in einem generierten Schlüssel) den Wert **2048** ein.  
 
-1. Wählen Sie **Generieren** aus. Generieren Sie im Bereich **Schlüssel** einige beliebige Zeichen, indem Sie den Cursor über den leeren Bereich bewegen.
+1. Wählen Sie **Generieren** aus.
 
-1. Fügen Sie eine **Schlüsselpassphrase** hinzu, und bestätigen Sie diese im Feld **Bestätigen**. Notieren Sie sich die Passphrase.
-    ![Verwenden von PuTTY zum Generieren eines öffentlichen SSH-Schlüssels](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-key-gen-result.png)
+1. Generieren Sie im Bereich **Schlüssel** einige zufällige Zeichen, indem Sie den Cursor über den leeren Bereich bewegen.
 
-1. Wählen Sie **Öffentlichen Schlüssel speichern** aus, und speichern Sie den Schlüssel an einem Speicherort, an dem Sie darauf zugreifen können.
+    ![PuTTY-Schlüsselgenerator mit ausgefülltem Schlüsselfeld](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-key-gen-result.png)
 
-1. Wählen Sie **Privaten Schlüssel speichern** aus, und speichern Sie den Schlüssel an einem Speicherort, an dem Sie darauf zugreifen können. Denken Sie daran, dass dieser Schlüssel zum öffentlichen Schlüssel gehört.
+1. Geben Sie eine **Schlüsselpassphrase** ein, und bestätigen Sie diese im Feld **Passphrase bestätigen**. Notieren Sie sich die Passphrase zur späteren Verwendung.
 
-Ihr öffentlicher Schlüssel befindet sich in der Textdatei, die Sie gespeichert haben. Wenn Sie die Datei öffnen, sieht der Text darin etwa folgendermaßen aus:
+1. Wählen Sie **Save public key** (Öffentlichen Schlüssel speichern), und speichern Sie den Schlüssel an einem Speicherort, auf den Sie Zugriff haben.
+
+1. Wählen Sie **Save private key** (Privaten Schlüssel speichern), und speichern Sie den Schlüssel an einem Speicherort, auf den Sie Zugriff haben. Beachten Sie, dass dieser Schlüssel zum öffentlichen Schlüssel gehört.
+
+Ihr öffentlicher Schlüssel befindet sich in der Textdatei, die Sie gespeichert haben. Der Text sieht dann wie folgt aus:
 
 ```text  
 ---- BEGIN SSH2 PUBLIC KEY ----
@@ -57,49 +62,41 @@ BvpmONCSR3YnyUtgWV27N6zC7U1OBdmv7TN6M7g01uOYQKI/GQ==
 ---- END SSH2 PUBLIC KEY ----
 ```
 
-Bei der Verwendung des öffentlichen Schlüssels kopieren Sie den gesamten Inhalt des Textfelds und fügen ihn als Wert ein, wenn eine Anwendung zur Eingabe des Schlüssels auffordert.
+Wenn eine Anwendung den Schlüssel anfordert, können Sie den gesamten Inhalt der Textdatei kopieren und einfügen.
 
-<!-- 
-## Create an SSH public key on Linux
+## <a name="connect-with-ssh-by-using-putty"></a>Herstellen einer SSH-Verbindung mithilfe von PuTTY
 
-ToDo: I need to write this section.
-
--->
-## <a name="connect-with-ssh-using-putty"></a>Herstellen einer SSH-Verbindung mithilfe von PuTTY
-
-Wenn Sie PuTTY installiert haben, verfügen Sie sowohl über den Schlüsselgenerator als auch über einen SSH-Client. Öffnen Sie den SSH-Client von PuTTY, und konfigurieren Sie Ihre Verbindungswerte und Ihren SSH-Schlüssel. Falls Sie im gleichen Netzwerk arbeiten, in dem sich Ihre Azure Stack-Instanz befindet, stellen Sie eine Verbindung mit Ihrer VM her.
+Nach der Installation von PuTTY verfügen Sie sowohl über den PuTTY-Schlüsselgenerator als auch über einen SSH-Client. In diesem Abschnitt öffnen Sie den SSH-Client und PuTTY und konfigurieren Ihre Verbindungswerte und den SSH-Schlüssel. Stellen Sie eine Verbindung mit Ihrem virtuellen Computer her, wenn Sie sich in demselben Netzwerk befinden.
 
 Bevor Sie die Verbindung herstellen, benötigen Sie Folgendes:
 - PuTTY.
 - Die IP-Adresse und der Benutzername für den Linux-Computer in Ihrer Azure Stack-Instanz, die einen öffentlichen SSH-Schlüssel als Authentifizierungstyp verwendet.
-- Port 22 muss für den Computer geöffnet sein.
+- Port 22 muss für den Computer geöffnet sein.
 - Der öffentliche SSH-Schlüssel, den Sie beim Erstellen des Computers verwendet haben.
-- Ihr Clientcomputer, auf dem PuTTY ausgeführt wird, muss sich im gleichen Netzwerk befinden wie Ihre Azure Stack-Instanz.
-
-### <a name="connect-via-ssh-with-putty"></a>Herstellen Verbindung über SSH mithilfe von PuTTY
+- Der Clientcomputer, auf dem PuTTY ausgeführt wird, muss sich in demselben Netzwerk wie Ihre Azure Stack-Instanz befinden.
 
 1. Öffnen Sie PuTTY.
 
-    ![Verwenden von PuTTY zum Herstellen einer Verbindung](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-connect.png)
+    ![PuTTY-Konfigurationsbereich](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-connect.png)
 
-2. Fügen Sie den Benutzernamen und die öffentliche IP-Adresse des Computers hinzu. Beispielsweise `username@192.XXX.XXX.XX` als **Hostname**. 
-3. Überprüfen Sie, ob **Port** `22` angegeben und der **Verbindungstyp** auf `SSH` festgelegt ist.
-4. Erweitern Sie **SSH** > **Auth** in der Struktur **Kategorie**.
+2. Geben Sie im Feld **Hostname (oder IP-Adresse)** den Benutzernamen und die öffentliche IP-Adresse des Computers ein (z. B. **username@192.XXX.XXX.XX**). 
+3. Vergewissern Sie sich, dass für **Port** die Zahl**22** angegeben und als **Verbindungstyp** die Option **SSH** ausgewählt ist.
+4. Erweitern Sie in der Struktur **Kategorie** die Punkte **SSH** und **Auth**.
 
-    ![Privater SSH-Schlüssel](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)
+    ![PuTTY-Konfigurationsbereich: Privater SSH-Schlüssel](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)
 
-5. Wählen Sie **Durchsuchen** aus, und suchen Sie die Datei mit Ihrem privaten Schlüssel (Dateiname.ppk) des Paars aus öffentlichem und privatem Schlüssel.
-6. Wählen Sie in der Struktur „Kategorie“ den Eintrag „Sitzung“ aus.
+5. Wählen Sie neben dem Feld **Private key file for authentication** (Datei mit privatem Schlüssel für die Authentifizierung) die Option **Durchsuchen**, und suchen Sie für Ihr öffentlich-privates Schlüsselpaar dann nach der Datei mit dem privaten Schlüssel (*\<Dateiname>.ppk*).
+6. Wählen Sie in der Struktur **Kategorie** die Option **Sitzung**.
 
-    ![Öffentlicher SSH-Schlüssel mit privatem Schlüssel](media/azure-stack-dev-start-howto-ssh-public-key/003-puTTY-save-session.png)
+    ![PuTTY-Konfigurationsbereich: Feld „Saved Sessions“ (Gespeicherte Sitzungen)](media/azure-stack-dev-start-howto-ssh-public-key/003-puTTY-save-session.png)
 
-7. Geben Sie unter **Gespeicherte Sitzungen** einen Namen für die Sitzung ein, und klicken Sie auf **Speichern**.
-8. Wählen Sie den Namen der Sitzung aus, und klicken Sie auf **Laden**.
+7. Geben Sie unter **Saved Sessions** (Gespeicherte Sitzungen) einen Namen für die Sitzung ein, und wählen Sie dann die Option **Speichern**.
+8. Wählen Sie in der Liste **Saved Sessions** (Gespeicherte Sitzungen) den Namen Ihrer Sitzung und dann die Option **Laden** aus.
 9. Wählen Sie **Open**(Öffnen). Die SSH-Sitzung wird geöffnet.
 
 ## <a name="connect-with-sftp-with-filezilla"></a>Herstellen einer SFTP-Verbindung über FileZilla
 
-Sie können FileZilla als FTP-Client verwenden, der SFTP unterstützt, um Dateien auf Ihren und aus Ihrem Linux-Computer zu verschieben. FileZilla kann unter Windows 10, Linux und macOS ausgeführt werden. Der FileZilla-Client unterstützt FTP sowie FTP über TLS (FTPS) und SFTP. Es handelt sich um eine Open-Source-Software, die im Rahmen der GNU General Public License kostenlos erhältlich ist.
+Zum Verschieben von Dateien für Ihren Linux-Computer können Sie FileZilla nutzen. Dies ist ein FTP-Client, für den Secure FTP (SFTP) unterstützt wird. FileZilla kann unter Windows 10, Linux und macOS ausgeführt werden. Der FileZilla-Client unterstützt FTP, FTP über TLS (FTPS) und SFTP. Es handelt sich um eine Open-Source-Software, die im Rahmen der GNU General Public License kostenlos erhältlich ist.
 
 ### <a name="set-your-connection"></a>Einrichten der Verbindung
 
@@ -107,27 +104,27 @@ Sie können FileZilla als FTP-Client verwenden, der SFTP unterstützt, um Dateie
 1. Öffnen Sie FileZilla.
 1. Klicken Sie auf **Datei** > **Servermanager**.
 
-    ![Öffentlicher SSH-Schlüssel mit privatem Schlüssel](media/azure-stack-dev-start-howto-ssh-public-key/005-filezilla-file-manager.png)
+    ![Bereich „FileZilla Site Manager“](media/azure-stack-dev-start-howto-ssh-public-key/005-filezilla-file-manager.png)
 
-1. Wählen Sie **SFTP - SSH File Transfer Protocol** als **Protokoll** aus.
-1. Fügen Sie die öffentliche IP-Adresse Ihres Computers in das Feld **Server** ein.
-1. Wählen Sie **Normal** als **Verbindungsart** aus.
-1. Fügen Sie Ihren Benutzernamen und das zugehörige Kennwort hinzu.
+1. Wählen Sie in der Dropdownliste **Protokoll** die Option **SFTP – SSH File Transfer Protocol**.
+1. Geben Sie im Feld **Host** die öffentliche IP-Adresse für Ihren Computer ein.
+1. Wählen Sie im Feld **Anmeldetyp** die Option **Normal**.
+1. Geben Sie Ihren Benutzernamen und Ihr Kennwort ein.
 1. Klicken Sie auf **OK**.
 1. Wählen Sie **Bearbeiten** > **Einstellungen** aus.
 
-    ![Öffentlicher SSH-Schlüssel mit privatem Schlüssel](media/azure-stack-dev-start-howto-ssh-public-key/006-filezilla-add-private-key.png)
+    ![FileZilla-Einstellungsbereich](media/azure-stack-dev-start-howto-ssh-public-key/006-filezilla-add-private-key.png)
 
-1. Erweitern Sie den Eintrag **Verbindung** in der Struktur **Seite auswählen**. Wählen Sie **SFTP** aus.
-1. Wählen Sie **Schlüsseldatei hinzufügen** aus, und fügen Sie Ihren privaten Schlüssel hin, z.B. „Dateiname.ppk“.
+1. Erweitern Sie in der Struktur **Seite auswählen** die Option **Verbindung**, und wählen Sie **SFTP**.
+1. Wählen Sie **Add key file** (Schlüsseldatei hinzufügen), und geben Sie dann Ihre Datei mit dem privaten Schlüssel ein (z. B. *\<Dateiname>.ppk*).
 1. Klicken Sie auf **OK**.
 
 ### <a name="open-your-connection"></a>Öffnen der Verbindung
 
 1. Öffnen Sie FileZilla.
 1. Klicken Sie auf **Datei** > **Servermanager**.
-1. Wählen Sie den Namen Ihres Servers aus, und klicken Sie auf **Verbinden**.
+1. Wählen Sie den Namen Ihres Servers aus, und klicken Sie dann auf **Verbinden**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zum [Entwickeln für Azure Stack](azure-stack-dev-start.md)
+Erfahren Sie mehr über das [Einrichten einer Entwicklungsumgebung in Azure Stack](azure-stack-dev-start.md).

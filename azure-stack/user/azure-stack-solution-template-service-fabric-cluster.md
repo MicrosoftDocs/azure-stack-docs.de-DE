@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 29adea1cb8c07acc309ef7aae2856b9a14759de3
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: b35368804423a4647b84000d95adf41ee5fe09b2
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985889"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712461"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Bereitstellen eines Service Fabric-Clusters in Azure Stack
 
@@ -28,21 +28,22 @@ Verwenden Sie das Element **Service Fabric-Cluster** aus dem Azure Marketplace, 
 
 Weitere Informationen zur Verwendung von Service Fabric finden Sie in der Azure-Dokumentation unter [Übersicht über Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) und [Szenarien für die Clustersicherheit in Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
 
-Der Service Fabric-Cluster in Azure Stack verwendet nicht den Ressourcenanbieter „Microsoft.ServiceFabric“. In Azure Stack ist der Service Fabric-Cluster stattdessen eine VM-Skalierungsgruppe mit vorinstallierter Software, die Desired State Configuration (DSC) nutzt.
+Für den Service Fabric-Cluster in Azure Stack wird der Ressourcenanbieter „Microsoft.ServiceFabric“ nicht verwendet. In Azure Stack ist der Service Fabric-Cluster stattdessen eine VM-Skalierungsgruppe mit vorinstallierter Software, für die [Desired State Configuration (DSC)](https://docs.microsoft.com/powershell/dsc/overview/overview) genutzt wird.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Folgendes ist für die Bereitstellung des Service Fabric-Clusters erforderlich:
 1. **Clusterzertifikat**  
-   Dies ist das X.509-Serverzertifikat, dass Sie Key Vault beim Bereitstellen von Service Fabric hinzufügen. 
+   Dies ist das X.509-Serverzertifikat, das Sie Key Vault beim Bereitstellen von Service Fabric hinzufügen. 
    - Der **CN** dieses Zertifikats muss mit dem vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) des von Ihnen erstellten Service Fabric-Clusters übereinstimmen. 
    - Das Zertifikat muss im PFX-Format vorliegen, da sowohl der öffentliche als auch der private Schlüssel benötigt werden. 
      Informationen zum Erstellen dieses serverseitigen Zertifikats finden Sie unter [Szenarien für die Clustersicherheit in Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
 
      > [!NOTE]  
-     > Anstelle des x.509-Serverzertifikats können Sie zu Testzwecken ein selbstsigniertes Zertifikat verwenden. Selbstsignierte Zertifikate müssen nicht mit dem FQDN des Clusters übereinstimmen.
+     > Anstelle des X.509-Serverzertifikats können Sie zu Testzwecken auch ein selbstsigniertes Zertifikat verwenden. Selbstsignierte Zertifikate müssen nicht mit dem FQDN des Clusters übereinstimmen.
 
-1. **Clientzertifikat des Administrators:** Hierbei handelt es sich um das Zertifikat, das der Client für die Authentifizierung beim Service Fabric-Cluster verwendet. Dies kann ein selbstsigniertes Zertifikat sein. Informationen zum Erstellen dieses Clientzertifikats finden Sie unter [Szenarien für die Clustersicherheit in Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
+1. **Clientzertifikat des Administrators**  
+   Hierbei handelt es sich um das Zertifikat, das der Client für die Authentifizierung beim Service Fabric-Cluster verwendet. Dies kann ein selbstsigniertes Zertifikat sein. Informationen zum Erstellen dieses Clientzertifikats finden Sie unter [Szenarien für die Clustersicherheit in Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
 
 1. **Die folgenden Elemente müssen im Azure Stack-Marketplace verfügbar sein:**
     - **Windows Server 2016**: Die Vorlage verwendet das Windows Server 2016-Image zum Erstellen des Clusters.  
@@ -139,8 +140,8 @@ Weitere Informationen finden Sie unter [Verwalten von Key Vault in Azure Stack m
 
    Geben Sie unter *Admin Client Certificate Thumbprint* (Fingerabdruck des Administratorclientzertifikats) den Fingerabdruck des *Clientzertifikats des Administrators* ein. (Siehe [Voraussetzungen](#prerequisites).)
    
-   - Quellschlüsseltresor:  Geben Sie die gesamte Zeichenfolge der Key Vault-ID (*keyVault id*) aus den Skriptergebnissen an. 
-   - Cluster Certificate URL (Clusterzertifikat-URL): Geben Sie die gesamte URL der Geheimnis-ID (*Secret Id*) aus den Skriptergebnissen an. 
+   - Quellschlüsseltresor:  Geben Sie die gesamte Zeichenfolge `keyVault id` aus den Skriptergebnissen an. 
+   - Cluster Certificate URL (Clusterzertifikat-URL): Geben Sie die gesamte URL unter `Secret Id` aus den Skriptergebnissen an. 
    - Cluster Certificate thumbprint (Clusterzertifikatfingerabdruck): Geben Sie den *Clusterzertifikatfingerabdruck* aus den Skriptergebnissen an.
    - Admin Client Certificate Thumbprints (Fingerabdrücke des Administratorclientzertifikats): Geben Sie den *Fingerabdruck des Administratorclientzertifikats* an, der unter „Voraussetzungen“ erstellt wurde. 
 
@@ -157,14 +158,14 @@ Sie können auf den Service Fabric-Cluster entweder über Service Fabric Explore
 
 
 ### <a name="use-service-fabric-explorer"></a>Verwenden von Service Fabric Explorer
-1.  Überprüfen Sie, ob der Webbrowser auf Ihr Administratorclientzertifikat zugreifen und sich beim Service Fabric-Cluster authentifizieren kann.  
+1.  Stellen Sie sicher, dass der Browser auf Ihr Administratorclientzertifikat zugreifen und sich beim Service Fabric-Cluster authentifizieren kann.  
 
     a. Öffnen Sie Internet Explorer, und navigieren Sie zu **Internetoptionen** > **Inhalte** > **Zertifikate**.
   
     b. Klicken Sie unter „Zertifikate“ auf **Importieren**, um den *Zertifikatimport-Assistenten* zu starten, und klicken Sie dann auf **Weiter**. Klicken Sie auf der Seite *Zu importierende Datei* auf **Durchsuchen**, und wählen Sie das **Administratorclientzertifikat** aus, das Sie in der Azure Resource Manager-Vorlage angegeben haben.
         
        > [!NOTE]  
-       > Dieses Zertifikat ist nicht das Clusterzertifikat, das zuvor zu KeyVault hinzugefügt wurde.  
+       > Dieses Zertifikat ist nicht das Clusterzertifikat, das zuvor Key Vault hinzugefügt wurde.  
 
     c. Stellen Sie sicher, dass in der Dropdownliste für Erweiterungen des Datei-Explorer-Fensters die Option „Privater Informationsaustausch“ ausgewählt ist.  
 
@@ -184,8 +185,8 @@ Sie können auf den Service Fabric-Cluster entweder über Service Fabric Explore
 
 1. Sehen Sie sich die Ergebnisse der Vorlagenbereitstellung an, um die URL für Service Fabric Explorer und den Clientverbindungsendpunkt zu ermitteln.
 
-1. Navigieren Sie im Browser zu https://*FQDN*:19080. Ersetzen Sie *FQDN* durch den FQDN Ihres Service Fabric-Clusters aus Schritt 2.   
-   Wenn Sie ein selbstsigniertes Zertifikat verwendet haben, erhalten Sie eine Warnung, dass die Verbindung nicht sicher ist. Klicken Sie zum Aufrufen der Website auf **Weitere Informationen** und dann auf **Webseite trotzdem laden**. 
+1. Navigieren Sie im Browser zu <https://*FQDN*:19080>. Ersetzen Sie *FQDN* durch den FQDN Ihres Service Fabric-Clusters aus Schritt 2.   
+   Wenn Sie ein selbstsigniertes Zertifikat verwendet haben, erhalten Sie eine Warnung, dass die Verbindung nicht sicher ist. Wählen Sie zum Aufrufen der Website **Weitere Informationen** und dann **Webseite trotzdem laden**. 
 
 1. Für die Authentifizierung bei der Website müssen Sie ein Zertifikat auswählen. Klicken Sie auf **More choices** (Weitere Optionen), wählen Sie das entsprechende Zertifikat aus, und klicken Sie dann auf **OK**, um eine Verbindung mit Service Fabric Explorer herzustellen. 
 
@@ -193,7 +194,7 @@ Sie können auf den Service Fabric-Cluster entweder über Service Fabric Explore
 
 
 
-## <a name="use-service-fabric-powershell"></a>Verwenden von Service Fabric PowerShell
+### <a name="use-service-fabric-powershell"></a>Verwenden von Service Fabric PowerShell
 
 1. Installieren Sie das *Microsoft Azure Service Fabric SDK* aus [Vorbereiten Ihrer Entwicklungsumgebung unter Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) in der Azure Service Fabric-Dokumentation.  
 
