@@ -1,6 +1,6 @@
 ---
-title: Problembehandlung bei der Bereitstellung von Kubernetes in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Probleme bei der Bereitstellung von Kubernetes in Azure Stack behandeln können.
+title: Problembehandlung bei der Bereitstellung von Kubernetes in Azure Stack | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Probleme bei der Bereitstellung von Kubernetes in Azure Stack beheben können.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,12 +14,12 @@ ms.author: mabrigg
 ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 2d4176ceaf1651539a248928faf2034376a8b97a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 0e02489bc9750183754b27887fa701d1dd1a8567
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310986"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712431"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Problembehandlung bei der Bereitstellung von Kubernetes in Azure Stack
 
@@ -28,11 +28,11 @@ ms.locfileid: "64310986"
 > [!Note]  
 > Kubernetes in Azure Stack befindet sich in der Vorschauphase. Das Szenario mit nicht verbundenem Azure Stack wird von der Preview zurzeit nicht unterstützt.
 
-Der folgende Artikel beschäftigt sich mit der Problembehandlung Ihres Kubernetes-Clusters. Sie können die Bereitstellungswarnung untersuchen und den Status Ihrer Bereitstellung anhand der für die Bereitstellung erforderlichen Elemente überprüfen. Sie müssen möglicherweise die Bereitstellungsprotokolle von Azure Stack oder den Linux-VMs erfassen, die Kubernetes hosten. Darüber hinaus müssen Sie möglicherweise mit Ihrem Azure Stack-Administrator zusammenarbeiten, um Protokolle von einem Verwaltungsendpunkt abzurufen.
+In diesem Artikel wird erläutert, wie Sie Probleme mit Ihrem Kubernetes-Cluster beheben. Um mit der Problembehandlung zu beginnen, überprüfen Sie zunächst die für die Bereitstellung erforderlichen Elemente. Sie müssen möglicherweise die Bereitstellungsprotokolle von Azure Stack oder den Linux-VMs erfassen, die Kubernetes hosten. Wenden Sie sich an Ihren Azure Stack-Administrator, um Protokolle von einem Verwaltungsendpunkt abzurufen.
 
 ## <a name="overview-of-kubernetes-deployment"></a>Übersicht über die Kubernetes-Bereitstellung
 
-Bevor Sie sich mit der Problembehandlung Ihres Clusters beginnen, möchten Sie vielleicht den Bereitstellungsprozess des Azure Stack Kubernetes-Clusters überprüfen. Die Bereitstellung verwendet eine Azure Resource Manager-Lösungsvorlage, um die virtuellen Computer zu erstellen, und installiert die ACS-Engine für Ihren Cluster.
+Gehen Sie noch einmal den Bereitstellungsprozess für Azure Stack-Kubernetes-Cluster durch, bevor Sie mit der Problembehandlung für Ihren Cluster beginnen. Bei der Bereitstellung wird eine Azure Resource Manager-Lösungsvorlage verwendet, um die VMs zu erstellen und die AKS-Engine (Azure Kubernetes Service) für Ihren Cluster zu installieren.
 
 ### <a name="kubernetes-deployment-workflow"></a>Workflow der Kubernetes-Bereitstellung
 
@@ -56,8 +56,8 @@ Die folgende Abbildung zeigt den allgemeinen Ablauf der Bereitstellung des Clust
     -  Führen Sie das benutzerdefinierte DVM-Skript aus. Das Skript führt folgende Aufgaben aus:
         1. Ruft den Katalogendpunkt aus dem Azure Resource Manager-Metadatenendpunkt ab.
         2. Ruft die Active Directory-Ressourcen-ID aus dem Azure Resource Manager-Metadatenendpunkt ab.
-        3. Lädt das API-Modell für die ACS-Engine.
-        4. Stellt die ACS-Engine für den Kubernetes-Cluster bereit und speichert das Azure Stack-Cloudprofil in `/etc/kubernetes/azurestackcloud.json`.
+        3. Lädt das API-Modell für die AKS-Engine.
+        4. Stellt die AKS-Engine im Kubernetes-Cluster bereit und speichert das Azure Stack-Cloudprofil in `/etc/kubernetes/azurestackcloud.json`.
 3. Erstellen Sie die Master-VMs.
 
 4. Laden Sie die benutzerdefinierten Skripterweiterungen herunter, und führen Sie sie aus.
@@ -81,9 +81,9 @@ Die folgende Abbildung zeigt den allgemeinen Ablauf der Bereitstellung des Clust
     - Richtet den **Kubelet**-Dienst ein.
     - Tritt dem Kubernetes-Cluster bei.
 
-## <a name="steps-for-troubleshooting"></a>Schritte zur Problembehandlung
+## <a name="steps-to-troubleshoot-kubernetes"></a>Schritte zum Behandeln von Problemen mit Kubernetes
 
-Sie können Protokolle auf den virtuellen Computern erfassen, die Ihren Kubernetes-Cluster unterstützen. Sie können auch das Bereitstellungsprotokoll überprüfen. Möglicherweise müssen Sie sich auch an Ihren Azure Stack-Administrator wenden, um die von Ihnen verwendete Version von Azure Stack zu überprüfen und Protokolle von Azure Stack im Zusammenhang mit Ihrer Bereitstellung abzurufen.
+Sie können auf den VMs, die Ihren Kubernetes-Cluster unterstützen, Bereitstellungsprotokolle sammeln und diese überprüfen. Wenden Sie sich an den Azure Stack-Administrator, um die erforderliche Azure Stack-Version zu überprüfen und mit Ihrer Bereitstellung zusammenhängende Protokolle aus Azure Stack abzurufen.
 
 1. Überprüfen Sie den [Bereitstellungsstatus](#review-deployment-status), und rufen Sie die Protokolle vom Masterknoten in Ihrem Kubernetes-Cluster ab.
 2. Stellen Sie sicher, dass Sie die neueste Version von Azure Stack verwenden. Wenn Sie sich nicht sicher sind, welche Version Sie verwenden sind, wenden Sie sich an den Azure Stack-Administrator.
@@ -94,7 +94,7 @@ Sie können Protokolle auf den virtuellen Computern erfassen, die Ihren Kubernet
 4.  Wenn der virtuelle Computer **OK** ist, untersuchen Sie die DVM. Wenn für die DVM eine Fehlermeldung vorliegt, sind die folgenden Ursachen möglich:
 
     - Der öffentliche Schlüssel ist möglicherweise ungültig. Überprüfen Sie den Schlüssel, den Sie erstellt haben.  
-    - Sie müssen sich an Ihren Azure Stack-Administrator wenden, um die Protokolle für Azure Stack mit den privilegierten Endpunkten abzurufen. Weitere Informationen finden Sie unter [Azure Stack-Diagnosetools](../operator/azure-stack-diagnostics.md).
+    - Wenden Sie sich an den Azure Stack-Administrator, um die Protokolle für Azure Stack mit den privilegierten Endpunkten abzurufen. Weitere Informationen finden Sie unter [Azure Stack-Diagnosetools](../operator/azure-stack-diagnostics.md).
 5. Wenn Sie Fragen zu Ihrer Bereitstellung haben, können Sie diese im [Azure Stack-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) stellen bzw. ermitteln, ob jemand die Frage dort bereits beantwortet hat. 
 
 ## <a name="review-deployment-status"></a>Überprüfen des Bereitstellungsstatus
@@ -105,7 +105,7 @@ Sie können den Bereitstellungsstatus überprüfen, wenn Sie Ihren Kubernetes-Cl
 2. Wählen Sie **Ressourcengruppen** aus, und wählen Sie dann den Namen der Ressourcengruppe aus, die beim Bereitstellen des Kubernetes-Clusters verwendet wurde.
 3. Wählen Sie **Bereitstellungen** und dann den **Bereitstellungsnamen** aus.
 
-    ![Problembehandlung](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
+    ![Problembehandlung für Kubernetes: Auswählen der Bereitstellung](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
 
 4.  Sehen Sie sich das Problembehandlungsfenster an. Jede bereitgestellte Ressource stellt die folgenden Informationen zur Verfügung.
     
@@ -121,11 +121,11 @@ Sie können den Bereitstellungsstatus überprüfen, wenn Sie Ihren Kubernetes-Cl
 
 ## <a name="review-deployment-logs"></a>Überprüfen der Bereitstellungsprotokolle
 
-Falls die im Azure Stack-Portal verfügbaren Informationen nicht ausreichen, um einen Bereitstellungsfehler zu beheben, besteht der nächste Schritt darin, die Clusterprotokolldateien zu überprüfen. Um die Bereitstellungsprotokolle manuell abzurufen, müssen Sie in der Regel eine Verbindung mit einer der Master-VMs des Clusters herstellen. Eine einfachere alternative Methode ist das Herunterladen und Ausführen des folgenden [Bash-Skripts](https://aka.ms/AzsK8sLogCollectorScript), das vom Azure Stack-Team bereitgestellt wurde. Das Skript stellt eine Verbindung mit der Bereitstellungs-VM (Deployment VM, DVM) und den VMs im Cluster her, sammelt relevante System- und Clusterprotokolldateien und lädt diese wieder auf Ihre Arbeitsstation herunter.
+Falls die im Azure Stack-Portal verfügbaren Informationen nicht ausreichen, um einen Bereitstellungsfehler zu beheben, besteht der nächste Schritt darin, die Clusterprotokolldateien zu überprüfen. Um die Bereitstellungsprotokolle manuell abzurufen, müssen Sie in der Regel eine Verbindung mit einer der Master-VMs des Clusters herstellen. Eine einfachere alternative Methode ist das Herunterladen und Ausführen des folgenden [Bash-Skripts](https://aka.ms/AzsK8sLogCollectorScript), das vom Azure Stack-Team bereitgestellt wurde. Das Skript stellt eine Verbindung mit der Bereitstellungs-VM (Deployment VM, DVM) und den VMs im Cluster her, sammelt relevante System- und Clusterprotokolldateien und lädt diese wieder auf Ihre Arbeitsstation herunter.
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
-Sie benötigen eine Bash-Eingabeaufforderung auf dem Computer, den Sie zur Verwaltung von Azure Stack verwenden. Auf einem Windows-Computer können Sie [Git für Windows](https://git-scm.com/downloads) installieren, um eine Bash-Eingabeaufforderung zu erhalten. Suchen Sie nach der Installation im Startmenü nach _Git Bash_.
+Sie benötigen eine Bash-Eingabeaufforderung auf dem Computer, den Sie zur Verwaltung von Azure Stack verwenden. Auf einem Windows-Computer können Sie [Git für Windows](https://git-scm.com/downloads) installieren, um eine Bash-Eingabeaufforderung zu erhalten. Suchen Sie nach der Installation im Startmenü nach _Git Bash_.
 
 ### <a name="retrieving-the-logs"></a>Abrufen der Protokolle
 
@@ -150,7 +150,7 @@ Gehen Sie wie folgt vor, um die Clusterprotokolldateien zu sammeln und herunterz
     | -h, --help  | Informationen zur Verwendung des Befehls anzeigen. | |
     | -i, --identity-file | Die Datei mit dem privaten RSA-Schlüssel, die beim Erstellen des Kubernetes-Clusters an das Marketplace-Element übergeben wird. Diese Datei ist erforderlich, um eine Remoteverbindung mit den Kubernetes-Knoten herzustellen. | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
     | -m, --master-host   | Die öffentliche IP-Adresse oder der vollqualifizierte Domänenname (FQDN) eines Kubernetes-Masterknotens. Der Name der VM beginnt mit `k8s-master-`. | IP: 192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
-    | -u, --user          | Der Benutzername, der beim Erstellen des Kubernetes-Clusters an das Marketplace-Element übergeben wird. Der Benutzername ist erforderlich, um eine Remoteverbindung mit den Kubernetes-Knoten herzustellen. | azureuser (Standardwert) |
+    | -u, --user          | Der Benutzername, der beim Erstellen des Kubernetes-Clusters an das Marketplace-Element übergeben wird. Diese Datei ist erforderlich, um eine Remoteverbindung mit den Kubernetes-Knoten herzustellen. | azureuser (Standardwert) |
 
 
    Wenn Sie Ihre Parameterwerte hinzufügen, könnte der Befehl wie folgt aussehen:

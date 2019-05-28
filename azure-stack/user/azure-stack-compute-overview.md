@@ -6,16 +6,16 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 01/05/2019
+ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 88aabfc6ba054bc78612e6fa6f59b50fd1b4df76
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 33a7522994c23e20dddf587c2374c24e664e3171
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310074"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941151"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Einführung in virtuelle Azure Stack-Computer
 
@@ -27,18 +27,15 @@ Ein virtueller Azure Stack-Computer bietet die Flexibilität der Virtualisierung
 
 Virtuelle Azure Stack-Computer können auf unterschiedliche Weise genutzt werden. Beispiel: 
 
-- **Entwickeln und Testen**  
-    Mit virtuellen Azure Stack-Computern können Sie einen Computer mit speziellen Konfigurationen erstellen, die zum Programmieren und Testen einer Anwendung erforderlich sind.
+- **Entwickeln und Testen**: Mit virtuellen Azure Stack-Computern können Sie einen Computer mit speziellen Konfigurationen erstellen, die zum Programmieren und Testen einer Anwendung erforderlich sind.
 
-- **Anwendungen in der Cloud**  
-    Da die Nutzung Ihrer Anwendung Schwankungen unterliegen kann, ist es unter Umständen wirtschaftlich sinnvoll, sie auf einem virtuellen Computer in Azure Stack auszuführen. Sie bezahlen für zusätzliche virtuelle Computer, wenn Sie sie benötigen, und fahren sie andernfalls einfach herunter.
+- **Anwendungen in der Cloud**: Da die Nutzung Ihrer Anwendung Schwankungen unterliegen kann, ist es unter Umständen wirtschaftlich sinnvoll, sie auf einem virtuellen Computer in Azure Stack auszuführen. Sie bezahlen für zusätzliche virtuelle Computer, wenn Sie sie benötigen, und fahren sie andernfalls einfach herunter.
 
-- **Erweitertes Datencenter**  
-    Virtuelle Computer in einem virtuellen Azure Stack-Netzwerk lassen sich mit dem Netzwerk Ihrer Organisation oder mit Azure verbinden.
+- **Erweitertes Datencenter**: Virtuelle Computer in einem virtuellen Azure Stack-Netzwerk lassen sich mit dem Netzwerk Ihrer Organisation oder mit Azure verbinden.
 
 Die virtuellen Computer, die von Ihrer Anwendung genutzt werden, können zur Erfüllung Ihrer Anforderungen zentral oder horizontal hochskaliert werden.
 
-## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Was muss ich vor dem Erstellen eines virtuellen Computers berücksichtigen?
+## <a name="before-creating-a-vm"></a>Vor dem Erstellen einer VM
 
 Beim Einrichten einer Anwendungsinfrastruktur in Azure Stack müssen immer Designaspekte berücksichtigt werden. Stellen Sie daher vor der Erstellung Ihrer Infrastruktur Überlegungen zu folgenden VM-Aspekten an:
 
@@ -82,14 +79,11 @@ Sie können ein eigenes Image hochladen und verwenden. In diesem Fall werden Her
 Mit VM-Erweiterungen können Sie den Funktionsumfang Ihres virtuellen Computers mittels Konfiguration nach der Bereitstellung sowie mittels automatisierter Aufgaben erweitern.
 Mit Erweiterungen können folgende allgemeine Aufgaben umgesetzt werden:
 
-- **Ausführen benutzerdefinierter Skripts**  
-    Die Erweiterung für benutzerdefinierte Skripts unterstützt Sie beim Konfigurieren von Workloads auf dem virtuellen Computer, indem beim Bereitstellen des virtuellen Computers Ihr Skript ausgeführt wird.
+- **Ausführen benutzerdefinierter Skripts**: Die Erweiterung für benutzerdefinierte Skripts unterstützt Sie beim Konfigurieren von Workloads auf dem virtuellen Computer, indem beim Bereitstellen des virtuellen Computers Ihr Skript ausgeführt wird.
 
-- **Bereitstellen und Verwalten von Konfigurationen**  
-    Die PowerShell-Erweiterung zum Konfigurieren des gewünschten Zustands (Desired State Configuration, DSC) unterstützt Sie beim Einrichten der Konfiguration des gewünschten Zustands auf einem virtuellen Computer, um Konfigurationen und Umgebungen zu verwalten.
+- **Bereitstellen und Verwalten von Konfigurationen**: Die PowerShell-Erweiterung zum Konfigurieren des gewünschten Zustands (Desired State Configuration, DSC) unterstützt Sie beim Einrichten der Konfiguration des gewünschten Zustands auf einem virtuellen Computer, um Konfigurationen und Umgebungen zu verwalten.
 
-- **Sammeln von Diagnosedaten**  
-    Die Azure-Diagnoseerweiterung unterstützt Sie dabei, den virtuellen Computer für die Sammlung von Diagnosedaten zu konfigurieren, die zum Überwachen der Integrität Ihrer Anwendung verwendet werden können.
+- **Sammeln von Diagnosedaten**: Die Azure-Diagnoseerweiterung unterstützt Sie dabei, den virtuellen Computer für die Sammlung von Diagnosedaten zu konfigurieren, die zum Überwachen der Integrität Ihrer Anwendung verwendet werden können.
 
 ### <a name="related-resources"></a>Zugehörige Ressourcen
 
@@ -98,7 +92,7 @@ Die Ressourcen in der folgenden Tabelle werden vom virtuellen Computer verwendet
 |Resource|Erforderlich|BESCHREIBUNG|
 |---------|---------|---------|
 |Ressourcengruppe|Ja|Der virtuelle Computer muss sich in einer Ressourcengruppe befinden.|
-|Speicherkonto|Nein |Bei Verwendung von Managed Disks benötigt der virtuelle Computer das Speicherkonto nicht, um die virtuellen Festplatten zu speichern. <br>Bei Verwendung von nicht verwalteten Datenträgern benötigt der virtuelle Computer das Speicherkonto, um die virtuellen Festplatten zu speichern.|
+|Speicherkonto|Nein |Bei Verwendung verwalteter Datenträger benötigt die VM das Speicherkonto nicht, um die virtuellen Festplatten zu speichern. <br>Bei Verwendung von nicht verwalteten Datenträgern benötigt der virtuelle Computer das Speicherkonto, um die virtuellen Festplatten zu speichern.|
 |Virtuelles Netzwerk|Ja|Der virtuelle Computer muss einem virtuellen Netzwerk angehören.|
 |Öffentliche IP-Adresse|Nein |Für den Remotezugriff kann dem virtuellen Computer eine öffentliche IP-Adresse zugewiesen werden.|
 |Netzwerkschnittstelle|Ja|Der virtuelle Computer benötigt die Netzwerkschnittstelle für die Kommunikation im Netzwerk.|
@@ -130,7 +124,7 @@ Die folgende Tabelle zeigt einige der Methoden, mit denen Sie Informationen zu e
 
 |Methode|BESCHREIBUNG|
 |---------|---------|
-|Azure Stack-Portal|Klicken Sie im Hubmenü auf „Virtuelle Computer“, und wählen Sie dann in der Liste den gewünschten virtuellen Computer aus. Auf der Seite des virtuellen Computers finden Sie Übersichtsinformationen, Einstellungswerte und Überwachungsmetriken.|
+|Azure Stack-Portal|Klicken Sie im Hub-Menü auf **Virtual Machines**, und wählen Sie dann in der Liste den gewünschten virtuellen Computer aus. Auf der Seite des virtuellen Computers finden Sie Übersichtsinformationen, Einstellungswerte und Überwachungsmetriken.|
 |Azure PowerShell|Die Verwaltung von virtuellen Computern erfolgt in Azure und Azure Stack auf die gleiche Weise. Weitere Informationen zur Verwendung von PowerShell finden Sie im folgenden Azure-Thema:<br>[Erstellen und Verwalten von virtuellen Windows-Computern mit dem Azure PowerShell-Modul](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
 |Client-SDKs|Die Verwendung von C# zur Verwaltung von virtuellen Computern erfolgt in Azure und Azure Stack auf die gleiche Weise. Weitere Informationen finden Sie im folgenden Azure-Thema:<br>[Erstellen und Verwalten von virtuellen Windows-Computern in Azure mithilfe von C#](/azure/virtual-machines/windows/csharp)|
 

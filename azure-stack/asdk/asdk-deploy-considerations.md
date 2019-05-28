@@ -12,33 +12,36 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2018
+ms.date: 05/13/2019
 ms.author: mabrigg
 ms.reviewer: misainat
-ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 3a5b506cdb7441ef60d4731718cafa8aa267c078
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.lastreviewed: 05/13/2019
+ms.openlocfilehash: 9cb349ec19edd493ca994b406b9311fe27bed242
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172433"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712240"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Überlegungen zur Planung der Azure Stack-Bereitstellung
+
 Stellen Sie vor der Bereitstellung des Azure Stack Development Kits (ASDK) sicher, dass der Development Kit-Hostcomputer die in diesem Artikel beschriebenen Anforderungen erfüllt.
 
-
 ## <a name="hardware"></a>Hardware
+
 | Komponente | Minimum | Empfohlen |
 | --- | --- | --- |
 | Laufwerke: Betriebssystem |1 Betriebssystem-Datenträger mit mindestens 200GB verfügbarem Speicherplatz für die Systempartition (SSD oder HDD) |1 Betriebssystem-Datenträger mit mindestens 200 GB verfügbarem Speicherplatz für die Systempartition (SSD oder HDD) |
 | Laufwerke: Allgemeine Development Kit-Daten<sup>*</sup>  |4 Datenträger. Jeder Datenträger stellt eine Kapazität von mindestens 240GB bereit (SSD oder HDD). Alle verfügbaren Datenträger werden verwendet. |4 Datenträger. Jeder Datenträger stellt eine Kapazität von mindestens 400GB bereit (SSD oder HDD). Alle verfügbaren Datenträger werden verwendet. |
 | Compute: CPU |Dual-Socket: 16 physische Kerne (gesamt) |Dual-Socket: 20 physische Kerne (gesamt) |
-| Compute: Arbeitsspeicher |192GB RAM |256GB RAM |
+| Compute: Arbeitsspeicher |192 GB RAM |256 GB RAM |
 | Compute: BIOS |Hyper-V aktiviert (mit SLAT-Unterstützung) |Hyper-V aktiviert (mit SLAT-Unterstützung) |
 | Netzwerk: NIC |Windows Server 2012 R2-Zertifizierung. Keine speziellen Features erforderlich |Windows Server 2012 R2-Zertifizierung. Keine speziellen Features erforderlich |
 | HW-Logo-Zertifizierung |[Certified for Windows Server 2012 R2 (Zertifiziert für Windows Server 2012 R2)](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2016 (Zertifiziert für Windows Server 2016)](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> Sie benötigen mehr als diese empfohlene Kapazität, wenn Sie viele [Marketplace-Elemente](../operator/azure-stack-create-and-publish-marketplace-item.md) aus Azure hinzufügen möchten.
+
+### <a name="hardware-notes"></a>Hinweise zur Hardware
 
 **Konfiguration der Datenträgerlaufwerke**: Alle Datenlaufwerke müssen den gleichen Typ (SAS, SATA oder NVMe) und die gleiche Kapazität aufweisen. Wenn SAS-Laufwerke verwendet werden, müssen diese über einen einzelnen Pfad angefügt werden (MPIO, Multipfad-Unterstützung wird nicht bereitgestellt).
 
@@ -63,6 +66,22 @@ Stellen Sie vor der Bereitstellung des Azure Stack Development Kits (ASDK) siche
 **Beispiel-HBAs**: LSI 9207-8i, LSI-9300-8i oder LSI-9265-8i im Pass-Through-Modus
 
 OEM-Beispielkonfigurationen sind verfügbar.
+
+### <a name="storage-resiliency-for-the-asdk"></a>Speicherresilienz für das ASDK
+
+Das ASDK ist ein System mit einem einzelnen Knoten und daher nicht zum Überprüfen der Produktionsredundanz eines integrierten Azure Stack-Systems ausgelegt. Sie können jedoch die zugrunde liegende Speicherredundanz des ASDK erhöhen, indem Sie eine optimale Kombination von Festplatten- und SSD-Laufwerken verwenden. Sie können anstelle einer einfachen Resilienzkonfiguration (vergleichbar mit RAID0) eine Zwei-Wege-Spiegelungskonfiguration bereitstellen (vergleichbar mit RAID1). Verwenden Sie einen geeigneten Typ sowie eine ausreichende Kapazität und Anzahl von Laufwerken für die zugrunde liegende Konfiguration „Direkte Speicherplätze“.
+
+So verwenden Sie eine Zwei-Wege-Spiegelungskonfiguration zum Gewährleisten der Speicherresilienz:
+
+- Mehr als 2 Terabyte Festplattenlaufwerk-Kapazität im System.
+- Wenn Sie keine SSDs in Ihrem ASDK haben, benötigen Sie für eine Zwei-Wege-Spiegelungskonfiguration mindestens acht Festplattenlaufwerke.
+- Wenn Sie SSDs in Ihrem ASDK und Festplattenlaufwerke haben, benötigen Sie mindestens fünf Festplattenlaufwerke. Allerdings werden sechs Festplattenlaufwerke empfohlen. Für sechs Festplattenlaufwerke empfiehlt es sich auch, mindestens drei entsprechende SSDs im System bereitzustellen, damit ein Cachedatenträger (SSD) für zwei Kapazitätslaufwerke (Festplattenlaufwerk) verfügbar ist.
+
+Beispiel für eine Zwei-Wege-Spiegelungskonfiguration:
+
+- Acht Festplattenlaufwerke
+- Drei SSDs/sechs Festplattenlaufwerke
+- Vier SSDs/acht Festplattenlaufwerke
 
 ## <a name="operating-system"></a>Betriebssystem
 |  | **Anforderungen** |
@@ -126,4 +145,7 @@ Azure Stack benötigt entweder direkten Zugriff auf das Internet oder über eine
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-[Herunterladen des ASDK-Bereitstellungspakets](asdk-download.md)
+
+- [Herunterladen des ASDK-Bereitstellungspakets](asdk-download.md)
+- Weitere Informationen zu direkten Speicherplätzen finden Sie unter [Direkte Speicherplätze – Übersicht](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
+

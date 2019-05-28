@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 05/17/2019
 ms.author: sethm
-ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 8d6548ada50a25350f622d7bc7460005f4abc401
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/17/2019
+ms.openlocfilehash: 1bb07c1725d5c8ed81ec4b8ccc546a4d41dc64e0
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64308838"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855315"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Bereitstellen des Anwendungszugriffs auf Azure Stack
 
@@ -52,8 +52,10 @@ Wenn Sie Azure Stack mit Azure Active Directory (Azure AD) als Identitätsverwal
 In diesem Abschnitt erstellen Sie eine Anwendung (Dienstprinzipal) in Azure AD, die Ihre Anwendung repräsentiert.
 
 1. Melden Sie sich über das [Azure-Portal](https://portal.azure.com) bei Ihrem Azure-Konto an.
-2. Wählen Sie **Azure Active Directory** > **App-Registrierungen** > **Registrierung einer neuen Anwendung** aus.
-3. Geben Sie einen Namen und eine URL für die Anwendung an. Wählen Sie als Typ für die zu erstellende Anwendung entweder **Web-App/API** oder **Nativ** aus. Wählen Sie nach dem Festlegen der Werte **Erstellen** aus.
+2. Wählen Sie **Azure Active Directory** > **App-Registrierungen** > **Neue Registrierung** aus.
+3. Geben Sie einen Namen und eine URL für die Anwendung an. 
+4. Wählen Sie die **unterstützten Kontotypen** aus.
+5.  Fügen Sie einen URI für die Anwendung hinzu. Wählen Sie als Typ für die zu erstellende Anwendung **Web** aus. Wählen Sie nach dem Festlegen der Werte **Registrieren** aus.
 
 Sie haben einen Dienstprinzipal für Ihre Anwendung erstellt.
 
@@ -61,18 +63,17 @@ Sie haben einen Dienstprinzipal für Ihre Anwendung erstellt.
 
 Beim programmgesteuerten Anmelden verwenden Sie die ID für Ihre Anwendung und einen Authentifizierungsschlüssel für eine Web-App/API. Führen Sie die folgenden Schritte aus, um diese Werte abzurufen:
 
-1. Wählen Sie in Active Directory unter **App Registrierungen** Ihre Anwendung aus.
+1. Klicken Sie auf **Azure Active Directory** > **App-Registrierungen**. Wählen Sie Ihre Anwendung aus.
 
 2. Kopieren Sie die **Anwendungs-ID**, und speichern Sie sie in Ihrem Anwendungscode. Die Anwendungen im Abschnitt „Beispielanwendungen“ verweisen auf diesen Wert als Client-ID.
 
-     ![Client-ID](./media/azure-stack-create-service-principal/image12.png)
-3. Klicken Sie zum Generieren eines Authentifizierungsschlüssels für eine Web-App/API auf **Einstellungen** > **Schlüssel**. 
+3. Klicken Sie zum Generieren eines Authentifizierungsschlüssels für eine Web-App/API auf **Zertifikate & Geheimnisse**. Wählen Sie **Neuer geheimer Clientschlüssel**.
 
-4. Geben Sie eine Beschreibung des Schlüssels und eine Dauer für den Schlüssel ein. Wählen Sie dann die Option **Schließen**.
+4. Geben Sie eine Beschreibung des Schlüssels und eine Dauer für den Schlüssel ein. Wählen Sie anschließend **Hinzufügen** aus.
 
 Nach dem Speichern des Schlüssels wird der Wert des Schlüssels angezeigt. Kopieren Sie diesen Wert in Editor oder an einen anderen temporären Speicherort, damit Sie den Schlüssel später abrufen können. Sie geben den Schlüsselwert zusammen mit der Anwendungs-ID ein, um die Anmeldung als Anwendung durchzuführen. Speichern Sie die Schlüsselwert an einem Ort, von dem Ihre Anwendung ihn abrufen kann.
 
-![Gespeicherter Schlüssel](./media/azure-stack-create-service-principal/image15.png)
+![Gespeicherter Schlüssel](./media/azure-stack-create-service-principal/create-service-principal-in-azure-stack-secret.png)
 
 Nach Abschluss des Vorgangs können Sie Ihrer Anwendung eine Rolle zuweisen.
 

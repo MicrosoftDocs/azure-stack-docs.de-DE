@@ -3,25 +3,24 @@ title: Informationen zum VPN-Gateway für Azure Stack | Microsoft-Dokumentation
 description: Hier finden Sie Informationen zu VPN-Gateways, die Sie mit Azure Stack verwenden, sowie zu deren Konfiguration.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/15/2019
-ms.date: 03/04/2019
-ms.author: v-jay
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 83d5215049976b67d22e29c2e4b75ec63a505b36
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.topic: conceptual
+ms.date: 05/21/2019
+ms.author: sethm
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 03aea7833e59d3262fc54e71d3d5409b5b95c488
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311424"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991294"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Informationen zum VPN-Gateway für Azure Stack
 
@@ -35,14 +34,15 @@ Der gewünschte Gatewaytyp wird beim Erstellen eines Gateways für virtuelle Net
 
 Jedes virtuelle Netzwerk kann über zwei Gateways für virtuelle Netzwerke, aber nur über eins von jedem Typ verfügen. Abhängig von den gewählten Einstellungen können Sie ggf. mehrere Verbindungen mit einem einzelnen VPN-Gateway erstellen. Ein Beispiel ist eine Verbindungskonfiguration mit mehreren Standorten.
 
-Bevor Sie VPN Gateways für Azure Stack erstellen und konfigurieren, sollten Sie die [Überlegungen zu Azure Stack-Netzwerken](azure-stack-network-differences.md) lesen, um zu erfahren, wie Konfigurationen für Azure Stack sich von Azure unterscheiden.
+Bevor Sie VPN-Gateways für Azure Stack erstellen und konfigurieren, sollten Sie die [Überlegungen zu Azure Stack-Netzwerken](azure-stack-network-differences.md) lesen, um zu erfahren, wie Konfigurationen für Azure Stack sich von Azure unterscheiden.
 
 >[!NOTE]
 >In Azure muss der Bandbreitendurchsatz für die ausgewählte VPN Gateway-SKU auf alle Verbindungen aufgeteilt werden, die mit dem Gateway hergestellt wurden. In Azure Stack wird der Bandbreitenwert jedoch für die VPN Gateway-SKU auf jede Verbindungsressource angewendet, die mit dem Gateway verbunden ist.
 >
 > Beispiel: 
+>
 > * In Azure bietet die VPN Gateway-SKU „Basic“ eine aggregierte Durchsatzkapazität von etwa 100 Mbit/s. Wenn Sie zwei Verbindungen mit diesem VPN Gateway erstellen und eine dieser Verbindungen eine Bandbreite von 50 Mbit/s beansprucht, stehen für die andere Verbindung noch 50 Mbit/s zur Verfügung.
-> * In Azure Stack wird *jeder* Verbindung mit der VPN Gateway-SKU „Basic“ ein Durchsatz von 100 Mbit/s zugeteilt.
+> * In Azure Stack wird **jeder Verbindung** mit der VPN-Gateway-SKU „Basic“ ein Durchsatz von 100 Mbit/s zugeordnet.
 
 ## <a name="configuring-a-vpn-gateway"></a>Konfigurieren eines VPN-Gateways
 
@@ -52,7 +52,7 @@ Eine VPN Gateway-Verbindung basiert auf mehreren, mit spezifischen Einstellungen
 
 Die Einstellungen, die Sie für die einzelnen Ressourcen auswählen, sind für die erfolgreiche Herstellung einer Verbindung entscheidend.
 
-Informationen zu einzelnen Ressourcen und Einstellungen für VPN Gateway finden Sie unter [VPN-Gatewaykonfigurationseinstellungen für Azure Stack](azure-stack-vpn-gateway-settings.md). In diesem Artikel erfahren Sie mehr über:
+Informationen zu einzelnen Ressourcen und Einstellungen für VPN Gateway finden Sie unter [VPN-Gatewaykonfigurationseinstellungen für Azure Stack](azure-stack-vpn-gateway-settings.md). Dieser Artikel hilft Ihnen bei Folgendem:
 
 * Gatewaytypen, VPN-Typen und Verbindungstypen.
 * Gatewaysubnetze, lokale Netzwerkgateways und andere Ressourceneinstellungen, die Sie berücksichtigen sollten.
@@ -108,21 +108,21 @@ Beachten Sie bei der Auswahl der SKU Folgendes:
 
 In der folgenden Tabelle sind die Gatewaytypen und der geschätzte zusammengefasste Durchsatz nach Gateway-SKU angegeben:
 
-|   | VPN-Gatewaydurchsatz *(1)* | Max. IPsec-Tunnel für das VPN-Gateway *(2)* |
+|| VPN-Gatewaydurchsatz *(1)* | Max. IPsec-Tunnel für das VPN-Gateway *(2)* |
 |-------|-------|-------|
-|**Basic-SKU** ***(3)***    | 100 MBit/s  | 20    |
-|**Standard-SKU**       | 100 MBit/s  | 20    |
-|**High-Performance-SKU** | 200 MBit/s    | 10    |
+|**Basic-SKU** ***(3)*** | 100 MBit/s | 20 |
+|**Standard-SKU** | 100 MBit/s | 20 |
+|**High-Performance-SKU** | 200 MBit/s | 10 |
 
 **Anmerkungen zur Tabelle:**
 
-*Hinweis (1)*: Der VPN-Durchsatz ist kein garantierter Durchsatz für standortübergreifende Verbindungen über das Internet. Hierbei wird der maximal mögliche Durchsatz gemessen.  
-*Hinweis (2)*: Bei der maximalen Tunnelanzahl handelt es sich um die Summe pro Azure Stack-Bereitstellung für alle Abonnements.  
-*Hinweis (3)*: BGP-Routing wird von der Basic-SKU nicht unterstützt.
+*Hinweis (1)* : Der VPN-Durchsatz ist kein garantierter Durchsatz für standortübergreifende Verbindungen über das Internet. Hierbei wird der maximal mögliche Durchsatz gemessen.  
+*Hinweis (2)* : Bei der maximalen Tunnelanzahl handelt es sich um die Summe pro Azure Stack-Bereitstellung für alle Abonnements.  
+*Hinweis (3)* : BGP-Routing wird von der Basic-SKU nicht unterstützt.
 
 >[!NOTE]
 >Zwischen zwei Azure Stack-Bereitstellungen kann nur eine Site-to-Site-VPN-Verbindung hergestellt werden. Der Grund: Wegen einer Einschränkung ist für die Plattform nur eine einzelne VPN-Verbindung mit der gleichen IP-Adresse zulässig. Da Azure Stack das mehrinstanzenfähige Gateway nutzt, das eine öffentliche IP für alle VPN-Gateways im Azure Stack-System verwendet, kann zwischen zwei Azure Stack-Systemen nur eine VPN-Verbindung hergestellt werden. Diese Einschränkung gilt auch für das Herstellen mehrerer Site-to-Site-VPN-Verbindungen mit einem beliebigen VPN-Gateway, das eine einzige IP-Adresse nutzt. Azure Stack lässt nicht zu, dass mehrere Ressourcen des lokalen Netzwerkgateways mit der gleichen IP-Adresse erstellt werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[VPN-Gatewaykonfigurationseinstellungen für Azure Stack](azure-stack-vpn-gateway-settings.md)
+* [VPN-Gatewaykonfigurationseinstellungen für Azure Stack](azure-stack-vpn-gateway-settings.md)

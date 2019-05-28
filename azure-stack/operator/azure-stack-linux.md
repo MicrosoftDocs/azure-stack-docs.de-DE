@@ -1,6 +1,6 @@
 ---
 title: Hinzufügen von Linux-Images zu Azure Stack
-description: Hier erfahren Sie, wie Sie Linux-Images zu Azure Stack hinzufügen.
+description: Erfahren Sie, wie Sie Linux-Images zu Azure Stack hinzufügen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 2f7f0c55f02fd99a419619d878be8300d7326303
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 40a60c5207494ae70ccdfd051c8a223493b704c5
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309648"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991109"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Hinzufügen von Linux-Images zu Azure Stack
 
@@ -30,16 +30,17 @@ Sie können virtuelle Linux-Computer in Azure Stack bereitstellen, indem Sie ein
 
 ## <a name="marketplace-management"></a>Marketplace-Verwaltung
 
-Die Verfahren zum Herunterladen von Linux-Images aus dem Azure Marketplace werden im Artikel [Herunterladen von Marketplace-Elementen von Azure in Azure Stack](azure-stack-download-azure-marketplace-item.md) beschrieben. Wählen Sie die Linux-Images aus, die Sie Benutzern in Azure Stack zur Verfügung stellen möchten. 
+Die Verfahren zum Herunterladen von Linux-Images aus dem Azure Marketplace werden im Artikel [Herunterladen von Marketplace-Elementen von Azure in Azure Stack](azure-stack-download-azure-marketplace-item.md) beschrieben. Wählen Sie die Linux-Images aus, die Sie Benutzern in Azure Stack zur Verfügung stellen möchten.
 
-Beachten Sie, dass diese Images regelmäßig aktualisiert werden. Überprüfen Sie daher immer wieder die Marketplace-Verwaltung, um auf dem neuesten Stand zu bleiben.
+Diese Images werden regelmäßig aktualisiert. Überprüfen Sie daher immer wieder die Marketplace-Verwaltung, um auf dem neuesten Stand zu bleiben.
 
 ## <a name="prepare-your-own-image"></a>Vorbereiten eines eigenen Image
 
-Laden Sie nach Möglichkeit die Images herunter, die über die Marketplace-Verwaltung verfügbar sind, da diese für Azure Stack konzipiert und getestet wurden.
+Laden Sie nach Möglichkeit die Images herunter, die über die Marketplace-Verwaltung verfügbar sind. Diese Images wurden für Azure Stack vorbereitet und getestet.
 
 ### <a name="azure-linux-agent"></a>Azure Linux-Agent
-Der Azure Linux-Agent (in der Regel `WALinuxAgent` oder `walinuxagent`) ist erforderlich, aber nicht alle Versionen des Agents können mit Azure Stack verwendet werden. Versionen zwischen 2.2.20 und 2.2.35 werden in Azure Stack nicht unterstützt. Um die neuesten Agent-Versionen über 2.2.35 zu verwenden, installieren Sie den Hotfix 1901 bzw. 1902, oder aktualisieren Sie Azure Stack auf die Version 1903 (oder höher). Beachten Sie, dass [cloud-init](https://cloud-init.io/) derzeit nicht für Azure Stack unterstützt wird.
+
+Der Azure Linux-Agent (in der Regel `WALinuxAgent` oder `walinuxagent`) ist erforderlich, es können aber nicht alle Versionen des Agents mit Azure Stack verwendet werden. Versionen zwischen 2.2.20 und 2.2.35 werden in Azure Stack nicht unterstützt. Um die aktuellen Agent-Versionen über 2.2.35 zu verwenden, installieren Sie den Hotfix 1901 bzw. 1902, oder aktualisieren Sie Azure Stack auf die Version 1903 (oder höher). Beachten Sie, dass [cloud-init](https://cloud-init.io/) derzeit nicht für Azure Stack unterstützt wird.
 
 | Azure Stack-Build | Azure Linux-Agent-Build |
 | ------------- | ------------- |
@@ -66,7 +67,5 @@ Nachdem Sie das Image zum Marketplace hinzugefügt haben, wird ein Marketplace-E
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen finden Sie in den folgenden Artikeln:
-
-- [Herunterladen von Marketplace-Elementen von Azure in Azure Stack](azure-stack-download-azure-marketplace-item.md)
-- [Der Azure Stack-Marketplace – Übersicht](azure-stack-marketplace.md)
+* [Herunterladen von Marketplace-Elementen von Azure in Azure Stack](azure-stack-download-azure-marketplace-item.md)
+* [Der Azure Stack-Marketplace – Übersicht](azure-stack-marketplace.md)

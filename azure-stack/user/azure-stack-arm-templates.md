@@ -16,12 +16,12 @@ ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: b2f2427f7dcf9265f379995f1e854c382e24a9c7
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fb39928b50e6cce35d5c35c33a95fc2c6b82c160
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310080"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941133"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Verwenden von Azure-Ressourcen-Manager-Vorlagen in Azure Stack
 
@@ -33,16 +33,17 @@ Diese Vorlagen können mit dem Microsoft Azure Stack-Portal, PowerShell, über d
 
 Die folgenden Schnellstartvorlagen sind auf [GitHub](https://aka.ms/azurestackgithub)verfügbar:
 
+
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Bereitstellen von SharePoint Server (Bereitstellung ohne Hochverfügbarkeit)
 
-Verwenden Sie die PowerShell DSC-Erweiterung, um eine [SharePoint Server 2013-Farm zu erstellen](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha), die folgende Ressourcen enthält:
+Verwenden Sie die PowerShell-Erweiterung für [Desired State Configuration](https://docs.microsoft.com/powershell/dsc/overview/overview) (DSC), um eine [SharePoint Server 2013-Farm zu erstellen](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha), die folgende Ressourcen enthält:
 
 * Ein virtuelles Netzwerk
 * Drei Speicherkonten
 * Zwei externe Load Balancer
 * Einen virtuellen Computer (VM), der als Domänencontroller für eine neue Gesamtstruktur mit einer einzelnen Domäne konfiguriert ist
 * Einen virtuellen Computer, der als eigenständiger Server für SQL Server 2014 konfiguriert ist
-* Eine VM, die als SharePoint Server 2013-Farm mit einem Computer konfiguriert ist
+* Eine VM, die als SharePoint Server 2013-Farm mit einem Computer konfiguriert ist
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>Bereitstellen von AD (Bereitstellung ohne Hochverfügbarkeit)
 
@@ -77,9 +78,11 @@ Verwenden Sie die PowerShell DSC-Erweiterung, um einen vorhandenen lokalen Konfi
 
 ## <a name="cancel-a-running-template-deployment"></a>Abbrechen der Bereitstellung einer Vorlage
 
-Verwenden Sie zum Abbrechen der Ausführung einer Vorlagenbereitstellung das PowerShell-Cmdlet [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment).
+Verwenden Sie zum Abbrechen der Ausführung einer Vorlagenbereitstellung das PowerShell-[Cmdlet](https://docs.microsoft.com/powershell/developer/cmdlet/cmdlet-overview) [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Bereitstellen von Vorlagen mit dem Portal](azure-stack-deploy-template-portal.md)
-* [Übersicht über den Azure-Ressourcen-Manager](/azure/azure-resource-manager/resource-group-overview)
+* [Bereitstellen von Vorlagen mit PowerShell](azure-stack-deploy-template-powershell.md)
+* [Bereitstellen von Vorlagen mithilfe von Visual Studio](azure-stack-deploy-template-visual-studio.md)
+* [Übersicht über den Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

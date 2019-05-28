@@ -1,5 +1,5 @@
 ---
-title: Azure Stack-Versionshinweise – Bekannte Probleme in 1904 | Microsoft-Dokumentation
+title: 'Azure Stack 1904: Bekannte Probleme | Microsoft-Dokumentation'
 description: Enthält Informationen zu bekannten Problemen in Azure Stack 1904.
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 782e0aaea0eadddae24795616aaba6053b728134
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.lastreviewed: 05/15/2019
+ms.openlocfilehash: 52279a7498e253771e16e66e0c5025b9afd4494d
+ms.sourcegitcommit: 442bd62d1dfbc1597592d7285aba1453298261ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65387169"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969839"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904: Bekannte Probleme
 
@@ -30,14 +30,14 @@ In diesem Artikel werden die bekannten Probleme in Version 1904 von Azure Stack
 > [!IMPORTANT]  
 > Lesen Sie diesen Abschnitt, bevor Sie das Update anwenden.
 
-## <a name="portal"></a>Portal
-
-### <a name="add-on-plans"></a>Add-On-Pläne
+## <a name="update-process"></a>Updateprozess
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Pläne, die einem Benutzerabonnement als Add-On-Plan hinzugefügt wurden, können nicht gelöscht werden, auch wenn Sie den Plan aus dem Benutzerabonnement entfernen. Der Plan ist so lange vorhanden, bis die Abonnements gelöscht werden, die auf den Add-On-Plan verweisen.
-- Abhilfe: Keine Lösung.
+- Ursache: Wenn Sie versuchen, ein Azure Stack-Update zu installieren, wird für den Status des Updates möglicherweise ein Fehler ausgegeben und der Zustand in **PreparationFailed** geändert. Der Grund dafür ist, dass der Updateressourcenanbieter (Update Resource Provider, URP) die Dateien aus dem Speichercontainer nicht ordnungsgemäß auf eine Infrastrukturfreigabe zur Verarbeitung übertragen kann.
+- Abhilfe: Ab Version 1901 (1.1901.0.95) können Sie dieses Problem umgehen, indem Sie auf **Jetzt aktualisieren** (nicht **Fortsetzen**) klicken. Der URP bereinigt dann die Dateien aus dem vorherigen Versuch und startet den Download erneut.
 - Häufigkeit: Common
+
+## <a name="portal"></a>Portal
 
 ### <a name="administrative-subscriptions"></a>Verwaltungsabonnements
 
@@ -62,9 +62,23 @@ In diesem Artikel werden die bekannten Probleme in Version 1904 von Azure Stack
 
 ### <a name="marketplace-management"></a>Marketplace-Verwaltung
 
-- Geltungsbereich: Dieses Problem gilt für 1904.
-- Ursache: Der Marketplace-Verwaltungsbildschirm ist nicht sichtbar, wenn Sie sich am Administratorportal anmelden.
+- Geltungsbereich: Dies ist ein neues Problem in Version 1904.
+- Ursache: Der Marketplace-Verwaltungsbildschirm ist nicht sichtbar, wenn Sie sich beim Administratorportal anmelden.
 - Abhilfe: Aktualisieren Sie den Browser.
+- Häufigkeit: Zeitweilig
+
+### <a name="marketplace-management"></a>Marketplace-Verwaltung
+
+- Geltungsbereich: Dieses Problem gilt für 1904.
+- Ursache: Wenn Sie im Administratorportal auf der Registerkarte für die Marketplace-Verwaltung Ergebnisse auf dem Blatt **Add from Azure** (Aus Azure hinzufügen) filtern, werden möglicherweise falsche gefilterte Ergebnisse angezeigt. 
+- Abhilfe: Sortieren Sie Ergebnisse nach der Spalte „Name“. Die Ergebnisse werden dann korrigiert. 
+- Häufigkeit: Zeitweilig
+
+### <a name="marketplace-management"></a>Marketplace-Verwaltung
+
+- Geltungsbereich: Dieses Problem gilt für 1904.
+- Ursache: Wenn Sie im Administratorportal Ergebnisse in der Marketplace-Verwaltung filtern, werden in der Dropdownliste „Herausgeber“ doppelte Herausgebernamen angezeigt. 
+- Abhilfe: Wählen Sie alle doppelten Namen aus, um die korrekte Liste aller Marketplace-Produkte anzuzeigen, die unter dem jeweiligen Herausgeber verfügbar sind. 
 - Häufigkeit: Zeitweilig
 
 ### <a name="upload-blob"></a>Blob hochladen
@@ -82,17 +96,17 @@ In diesem Artikel werden die bekannten Probleme in Version 1904 von Azure Stack
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Wenn Sie im Benutzerportal versuchen, einen **Back-End-Pool** einem **Load Balancer** hinzuzufügen, wird für den Vorgang eine Fehlermeldung der Art **Fehler beim Aktualisieren des Lastenausgleichs...** angezeigt.
-- Abhilfe: Verwenden Sie PowerShell, die CLI oder eine Resource Manager-Vorlage, um den Back-End-Pool einer Lastenausgleichsressource zuzuordnen.
+- Abhilfe: Verwenden Sie PowerShell, die Befehlszeilenschnittstelle (Command Line Interface, CLI) oder eine Azure Resource Manager-Vorlage, um den Back-End-Pool einer Lastenausgleichsressource zuzuordnen.
 - Häufigkeit: Common
 
-#### <a name="create-inbound-nat"></a>Erstellen von NAT-Eingangsregeln
+#### <a name="create-inbound-nat"></a>Erstellen von NAT-Regeln für eingehenden Datenverkehr
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Wenn Sie im Benutzerportal versuchen, eine **NAT-Regel für eingehenden Datenverkehr** für einen **Load Balancer** hinzuzufügen, wird für den Vorgang eine Fehlermeldung der Art **Fehler beim Aktualisieren des Lastenausgleichs...** angezeigt.
-- Abhilfe: Verwenden Sie PowerShell, die CLI oder eine Resource Manager-Vorlage, um den Back-End-Pool einer Lastenausgleichsressource zuzuordnen.
+- Abhilfe: Verwenden Sie PowerShell, die Befehlszeilenschnittstelle (Command Line Interface, CLI) oder eine Azure Resource Manager-Vorlage, um den Back-End-Pool einer Lastenausgleichsressource zuzuordnen.
 - Häufigkeit: Common
 
-#### <a name="create-load-balancer"></a>Erstellen oder Aktualisieren eines Lastenausgleichs
+#### <a name="create-load-balancer"></a>Erstellen eines Load Balancers
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Im Benutzerportal wird im Fenster **Lastenausgleich erstellen** eine Option zum Erstellen einer Lastenausgleichs-SKU vom Typ **Standard** angezeigt. Diese Option wird in Azure Stack nicht unterstützt.
@@ -103,7 +117,7 @@ In diesem Artikel werden die bekannten Probleme in Version 1904 von Azure Stack
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Im Benutzerportal wird im Fenster **Öffentliche IP-Adresse erstellen** eine Option zum Erstellen einer SKU vom Typ **Standard** angezeigt. Die SKU **Standard** wird in Azure Stack nicht unterstützt.
-- Abhilfe: Verwenden Sie für die öffentliche IP-Adresse stattdessen die SKU vom Typ „Basic“.
+- Abhilfe: Verwenden Sie für öffentliche IP-Adressen stattdessen die SKU **Basic**.
 - Häufigkeit: Common
 
 ## <a name="compute"></a>Compute
@@ -111,7 +125,7 @@ In diesem Artikel werden die bekannten Probleme in Version 1904 von Azure Stack
 ### <a name="vm-boot-diagnostics"></a>VM-Startdiagnose
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Wenn Sie einen neuen virtuellen Windows-Computer erstellen, wird möglicherweise der folgende Fehler angezeigt: **Fehler beim Starten des virtuellen Computers „vm-name“. Fehler Fehler beim Aktualisieren der Einstellungen für die serielle Ausgabe für den virtuellen Computer „vm-name“**.
+- Ursache: Wenn Sie einen neuen virtuellen Windows-Computer erstellen, wird möglicherweise der folgende Fehler angezeigt: **Fehler beim Starten des virtuellen Computers „vm-name“. Fehler Fehler beim Aktualisieren der Einstellungen für die serielle Ausgabe für den virtuellen Computer „vm-name“** .
 Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer aktivieren, aber Ihr Startdiagnose-Speicherkonto löschen.
 - Abhilfe: Erstellen Sie das Speicherkonto unter dem zuvor verwendeten Namen neu.
 - Häufigkeit: Common
@@ -139,19 +153,22 @@ Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer a
 - Abhilfe: Verwenden Sie VM-Zugriff für die Linux-Erweiterung, um SSH-Schlüssel nach der Bereitstellung zu implementieren, oder verwenden Sie die kennwortbasierte Authentifizierung.
 - Häufigkeit: Common
 
-## <a name="infrastructure-backup"></a>Infrastructure Backup
-
-<!--Bug 3615401 - scheduler config lost; new issue in YYMM;  hectorl-->
-Nach dem Aktivieren automatischer Sicherungen wechselt der Planungsdienst unerwartet in den deaktivierten Zustand. Der Sicherungscontrollerdienst erkennt, dass automatische Sicherungen deaktiviert sind und löst eine Warnung im Administratorportal aus. Diese Warnung wird erwartet, wenn automatische Sicherungen deaktiviert sind.
+### <a name="compute-host-agent-alert"></a>Warnung zum Computehost-Agent
 
 - Geltungsbereich: Dies ist ein neues Problem in Version 1904.
-- Ursache: Dieses Problem tritt aufgrund eines Fehlers im Dienst auf, der zum Verlust der Planerkonfiguration führt. Dieser Fehler ändert weder den Speicherort noch den Benutzernamen, das Kennwort oder den Verschlüsselungsschlüssel.
-- Abhilfe: Um dieses Problem zu beheben, öffnen Sie das Blatt mit den Einstellungen des Sicherungscontrollers im Infrastructure Backup-Ressourcenanbieter, und wählen Sie **Automatische Sicherungen aktivieren** aus. Stellen Sie sicher, dass Sie die gewünschte Häufigkeit und den Aufbewahrungszeitraum festlegen.
-- Häufigkeit: Niedrig
+- Ursache: Nach dem Neustarten eines Knotens in der Skalierungseinheit wird eine Warnung zum **Computehost-Agent** angezeigt. Durch den Neustart wird die Standardstarteinstellung für den Computehost-Agent-Dienst geändert.
+- Abhilfe:
+  - Diese Warnung kann ignoriert werden. Wenn der Agent nicht reagiert, hat dies keine Auswirkungen auf Bediener- und Benutzervorgänge oder Benutzeranwendungen. Die Warnung wird nach 24 Stunden erneut angezeigt, wenn sie manuell geschlossen wird.
+  - Der Microsoft-Support kann das Problem durch Ändern der Starteinstellung für den Dienst beheben. Dazu müssen Sie ein Supportticket öffnen. Wenn der Knoten wieder neu gestartet wird, wird eine neue Warnung angezeigt.
+- Häufigkeit: Common
+
+## <a name="app-service"></a>App Service
+
+- Mandanten müssen den Speicherressourcenanbieter vor dem Erstellen ihrer ersten Azure-Funktion im Abonnement registrieren.
+- Einige Benutzeroberflächen im Mandantenportal sind aufgrund einer Inkompatibilität mit dem Portalframework in 1903 fehlerhaft, z. B. die Benutzeroberfläche für Bereitstellungsslots, Tests in der Produktion und Websiteerweiterungen. Verwenden Sie das [Azure App Service PowerShell-Modul](/azure/app-service/deploy-staging-slots#automate-with-powershell) oder die [Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest), um dieses Problem zu umgehen. Die Portalumgebung wird im bevorstehenden Release von Azure App Service unter Azure Stack 1.6 (Update 6) wiederhergestellt.
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
-<!-- ## App Service -->
 <!-- ## Usage -->
 <!-- ### Identity -->
 <!-- ### Marketplace -->

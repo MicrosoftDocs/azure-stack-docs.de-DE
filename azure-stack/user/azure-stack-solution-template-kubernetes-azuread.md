@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/17/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6e4402be7108f242e1d285ebe91dfece744f0805
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/17/2019
+ms.openlocfilehash: 62626240c59c9f78c0b0d21553e8c6ffeb0367a0
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311598"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855388"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Bereitstellen von Kubernetes in Azure Stack mithilfe von Azure Active Directory
 
@@ -61,25 +61,21 @@ Richten Sie einen Dienstprinzipal in Azure AD ein. Der Dienstprinzipal verschaff
 
 1. Erstellen Sie eine Azure AD-Anwendung.
 
-    a. Wählen Sie **Azure Active Directory** > **+ App-Registrierungen** > **Registrierung einer neuen Anwendung** aus.
-
-    b. Geben Sie unter **Name** einen Namen für die Anwendung ein.
-
-    c. Wählen Sie **Web-App/API** aus.
-
-    d. Geben Sie `http://localhost` als **Anmelde-URL** ein.
-
-    c. Klicken Sie auf **Create**.
+    a. Melden Sie sich über das [Azure-Portal](https://portal.azure.com) bei Ihrem Azure-Konto an.  
+    b. Wählen Sie **Azure Active Directory** > **App-Registrierungen** > **Neue Registrierung** aus.  
+    c. Geben Sie einen Namen und eine URL für die Anwendung an.  
+    d. Wählen Sie die **unterstützten Kontotypen** aus.  
+    e.  Fügen Sie `http://localhost` für den URI für die Anwendung hinzu. Wählen Sie als Typ für die zu erstellende Anwendung **Web** aus. Wählen Sie nach dem Festlegen der Werte **Registrieren** aus.
 
 1. Notieren Sie den Wert der **Anwendungs-ID**. Sie benötigen die ID bei der Clustererstellung. Die ID wird als **Client-ID des Dienstprinzipals** bezeichnet.
 
-1. Wählen Sie **Einstellungen** > **Schlüssel** aus.
+1. Wählen Sie auf dem Blatt für den Dienstprinzipal **Neuer geheimer Clientschlüssel** aus. Wählen Sie **Einstellungen** > **Schlüssel** aus. Sie müssen einen Authentifizierungsschlüssel für den Dienstprinzipal generieren.
 
     a. Geben Sie die **Beschreibung** ein.
 
     b. Wählen Sie unter **Gültig bis** die Option **Läuft nie ab** aus.
 
-    c. Wählen Sie **Speichern**aus. Notieren Sie sich die Schlüsselzeichenfolge. Sie benötigen die Schlüsselzeichenfolge bei der Clustererstellung. Der Schlüssel wird als **Clientgeheimnis des Dienstprinzipals** bezeichnet.
+    c. Wählen Sie **Hinzufügen**. Notieren Sie sich die Schlüsselzeichenfolge. Sie benötigen die Schlüsselzeichenfolge bei der Clustererstellung. Der Schlüssel wird als **Clientgeheimnis des Dienstprinzipals** bezeichnet.
 
 ## <a name="give-the-service-principal-access"></a>Erteilen des Zugriffs für den Dienstprinzipal
 

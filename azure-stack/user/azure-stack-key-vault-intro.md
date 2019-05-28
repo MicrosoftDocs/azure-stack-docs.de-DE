@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/05/2019
+ms.date: 05/21/2019
 ms.author: sethm
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 87c93f77011082d3e43b1c7d238999441f1b90c1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 0167fd89e7bc9b17ff5b950a4ed5f12c368f1f8f
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310332"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991267"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Einführung in Key Vault in Azure Stack
 
@@ -50,7 +50,7 @@ Jeder Benutzer mit einem Azure Stack-Abonnement kann Schlüsseltresore erstellen
 
 Der Betreiber kann Entwicklern Uniform Resource Identifiers (URIs) zur Verfügung stellen, die sie in ihren Anwendungen aufrufen können. Darüber hinaus kann der Betreiber Sicherheitsadministratoren Protokollinformationen zur Schlüsselverwendung zur Verfügung stellen.
 
-Entwickler können die Schlüssel außerdem durch Verwendung von APIs direkt verwalten. Weitere Informationen finden Sie im Key Vault-Entwicklerhandbuch.
+Entwickler können die Schlüssel außerdem durch Verwendung von APIs direkt verwalten. Weitere Informationen finden Sie im [Entwicklerhandbuch zu Azure-Schlüsseltresor](/azure/key-vault/key-vault-developers-guide).
 
 ## <a name="scenarios"></a>Szenarien
 
@@ -78,4 +78,3 @@ Die folgenden Szenarien veranschaulichen, wie Entwickler und Sicherheitsadminist
 
 * [Verwalten von Key Vault in Azure Stack über das Portal](azure-stack-key-vault-manage-portal.md)  
 * [Verwalten von Key Vault in Azure Stack mithilfe von PowerShell](azure-stack-key-vault-manage-powershell.md)
-

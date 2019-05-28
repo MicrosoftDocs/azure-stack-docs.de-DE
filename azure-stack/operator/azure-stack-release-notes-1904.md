@@ -1,5 +1,5 @@
 ---
-title: Azure Stack-Update 1904 | Microsoft-Dokumentation
+title: Versionshinweise zu Azure Stack 1904 | Microsoft-Dokumentation
 description: Erfahren Sie, welche Neuerungen im Update 1904 für integrierte Azure Stack-Systeme enthalten sind, welche bekannten Probleme es gibt und wo das Update heruntergeladen werden kann.
 services: azure-stack
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: 6d1170727f8dccca98d68f2363a44b2c1cc2d210
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 99906760e51c87a7403eabfb94a64b74b999aab5
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172556"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941177"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack-Update 1904
 
@@ -114,6 +114,8 @@ Die Buildnummer des Azure Stack-Updates 1904 ist **1.1904.0.36**.
 
 - Es wurde ein Update auf Version 2.2.38.0 des Azure Linux-Agents durchgeführt. Aufgrund dieser Unterstützung können Kunden einheitliche Linux-Images zwischen Azure und Azure Stack nutzen.
 
+- Änderungen an den Updateprotokollen im Bedienerportal. Anforderungen zum Abrufen der Protokolle für erfolgreiche Updates sind nicht mehr verfügbar. Protokolle für fehlerhafte Updates sind weiterhin zum Download verfügbar, da sie zur Diagnose verwendet werden können.
+
 ### <a name="fixes"></a>Fehlerbehebungen
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
@@ -149,6 +151,8 @@ Die Buildnummer des Azure Stack-Updates 1904 ist **1.1904.0.36**.
 - Es wurde ein Problem behoben, bei dem Folgendes aufgetreten ist: Wenn einem Benutzer die Rolle „Mitwirkender“ für ein Abonnement zugewiesen wurde, aber nicht explizit Leseberechtigungen, wurde beim Versuch, eine Änderung einer Ressource zu speichern, der Fehler **...Client „somelogonaccount@domain.com“ mit der Objekt-ID „{GUID}“ hat keine Berechtigung zum Ausführen der Aktion...** generiert.
 
 - Es wurde ein Problem behoben, bei dem der Marketplace-Verwaltungsbildschirm leer war, wenn das Offlinesyndikationstool zum Hochladen von Images verwendet wurde und für ein oder mehrere Images die Symbol-URI(s) gefehlt haben.
+
+- Es wurde ein Problem behoben, aufgrund dessen Produkte, bei deren Download ein Fehler aufgetreten ist, nicht aus der Marketplace-Verwaltung gelöscht werden konnten.
 
 ### <a name="security-updates"></a>Sicherheitsupdates
 

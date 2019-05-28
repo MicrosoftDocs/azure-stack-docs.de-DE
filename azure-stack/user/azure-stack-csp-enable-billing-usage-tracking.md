@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2019
+ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 8ed4822d7ee74572e9562191ab89d1035a56b188
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/20/2019
+ms.openlocfilehash: 209a0da31d4bd5b519771f68f4bddcbb833284fa
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310404"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941213"
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>Wie Sie einem Cloud-Dienstanbieter ermöglichen, Ihr Azure Stack-Abonnement zu verwalten
 
@@ -38,7 +38,7 @@ Wenn Sie Azure Stack mit einem Cloud-Dienstanbieter (Cloud Service Provider, CSP
 
 Fügen Sie den CSP Ihrem Abonnement als **Benutzer** hinzu.
 
-1. Fügen Sie Ihren CSP als Gastbenutzer mit der Benutzerrolle Ihrem Mandantenverzeichnis hinzu. Die Schritte zum Hinzufügen eines Benutzers finden Sie unter [Hinzufügen neuer Benutzer in Azure Active Directory](/azure/active-directory/add-users-azure-active-directory).
+1. Fügen Sie Ihren CSP als Gastbenutzer mit der Rolle **Benutzer** Ihrem Mandantenverzeichnis hinzu. Die Schritte zum Hinzufügen eines Benutzers finden Sie unter [Hinzufügen neuer Benutzer in Azure Active Directory](/azure/active-directory/add-users-azure-active-directory).
 2. Der CSP erstellt das lokale Azure Stack-Abonnement für Sie. Sie können mit der Verwendung von Azure Stack beginnen.
 3. Ihr CSP sollte eine Ressource in Ihrem Abonnement erstellen, um sicherzustellen, dass er auch Ihre Ressourcen verwalten kann. Zum Beispiel müsste das [Erstellen eines virtuellen Windows-Computers mit dem Azure Stack-Portal](azure-stack-quick-windows-portal.md) möglich sein.
 

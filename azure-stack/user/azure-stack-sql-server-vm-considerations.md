@@ -1,5 +1,5 @@
 ---
-title: Verwenden von bewährten SQL Server-Methoden zur Leistungssteigerung in virtuellen Azure Stack-Computern | Microsoft-Dokumentation
+title: Bewährte SQL Server-Methoden zum Optimieren der Leistung in Azure Stack | Microsoft-Dokumentation
 description: Dieser Artikel enthält bewährte Methoden für SQL Server, um die Leistung zu steigern und SQL-Server in Azure Stack-VMs zu optimieren.
 services: azure-stack
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 77e7e994e382e5e359ba133ccc9e5a9b35a74153
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 628e7bcb994c92bd00425b4ba11a45ebd1ff8f54
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985580"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712349"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Bewährte SQL Server-Methoden zum Optimieren der Leistung in Azure Stack
 
-Dieser Artikel enthält bewährte SQL Server-Methoden zur Optimierung von SQL Server und zur Leistungsverbesserung in virtuellen Microsoft Azure Stack-Computern. Verwenden Sie beim Ausführen von SQL Server auf virtuellen Azure Stack-Computern die gleichen Optionen zur Optimierung der Datenbankleistung, die für SQL Server in einer lokalen Serverumgebung gelten. Die Leistung einer relationalen Datenbank in einer Azure Stack-Cloud hängt von vielen Faktoren ab. Dazu gehören die Größe der Familie eines virtuellen Computers und die Konfiguration der Datenträger.
+Dieser Artikel enthält bewährte SQL Server-Methoden zur Optimierung von SQL Server und zur Leistungsverbesserung in virtuellen Microsoft Azure Stack-Computern. Verwenden Sie beim Ausführen von SQL Server auf virtuellen Azure Stack-Computern die gleichen Optionen zur Optimierung der Datenbankleistung, die für SQL Server in einer lokalen Serverumgebung gelten. Die Leistung einer relationalen Datenbank in einer Azure Stack-Cloud hängt von vielen Faktoren ab, z. B. der Größe der Familie einer VM und der Konfiguration der Datenträger.
 
 Wenn Sie SQL Server-Images erstellen, [empfiehlt sich die Bereitstellung der virtuellen Computer im Azure Stack-Portal](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Laden Sie im Azure Stack-Administratorportal die SQL-IaaS-Erweiterung unter „Marketplace Management“ (Marketplace-Verwaltung) und Ihre Auswahl an virtuellen Festplatten (VHDs) für virtuelle SQL-Computer herunter. Dazu gehören SQL2014SP2, SQL2016SP1 und SQL2017.
 
@@ -51,7 +51,7 @@ Hier eine Prüfliste für die optimale Leistung von SQL Server auf virtuellen Az
 |Featurespezifisch|Führen Sie Sicherungen direkt in Blob Storage durch (sofern dies von der verwendeten SQL Server-Version unterstützt wird).|
 |||
 
-Weitere Informationen dazu, *wie* und *warum* diese Optimierungen vorgenommen werden, finden Sie in den Details und den Leitfäden in den folgenden Abschnitten.
+Weitere Informationen dazu, *wie* und *warum* diese Optimierungen vorgenommen werden, finden Sie in den Details und Leitfäden in den folgenden Abschnitten.
 
 ## <a name="virtual-machine-size-guidance"></a>Leitfaden zur VM-Größe
 
@@ -61,7 +61,7 @@ Für leistungsabhängige Anwendungen empfiehlt sich die Verwendung der folgenden
 
 - **SQL Server Standard Edition und Web Edition:** DS2 oder höher
 
-In Azure Stack besteht kein Unterschied bei der Leistung zwischen den Familien der virtuellen Computer der Serien DS und DS_v2.
+In Azure Stack besteht bei der Leistung kein Unterschied zwischen den VM-Familien DS und DS_v2.
 
 ## <a name="storage-guidance"></a>Leitfaden für Speicher
 
@@ -72,15 +72,15 @@ Der Durchsatz der Datenträger wird ausschließlich basierend auf der Serie der 
 > [!NOTE]  
 > Wählen Sie für Produktionsworkloads einen virtuellen Computer der Serie DS oder DSv2 aus, um die maximal möglichen IOPS auf dem Betriebssystemdatenträger und den Datenträgern für Daten bereitzustellen.
 
-Wenn Sie ein Speicherkonto in Azure Stack erstellen, hat die Option für die Georeplikation keine Auswirkungen, da diese Funktion in Azure Stack nicht verfügbar ist.
+Wenn Sie ein Speicherkonto in Azure Stack erstellen, hat die Option für die Georeplikation keine Auswirkungen, da diese Funktion in Azure Stack nicht verfügbar ist.
 
 ## <a name="disks-guidance"></a>Leitfaden für Datenträger
 
 Es gibt drei Haupttypen von Datenträgern auf einem virtuellen Azure Stack-Computer:
 
-- **Betriebssystemdatenträger:** Wenn Sie einen virtuellen Azure Stack-Computer erstellen, fügt die Plattform mindestens einen Datenträger (mit der Bezeichnung Laufwerk **C:**) als Betriebssystem-Datenträger zum virtuellen Computer hinzu. Bei diesem Datenträger handelt es sich um eine VHD, die als Seitenblob gespeichert wird.
+- **Betriebssystemdatenträger:** Wenn Sie einen virtuellen Azure Stack-Computer erstellen, fügt die Plattform mindestens einen Datenträger (mit der Bezeichnung Laufwerk **C:** ) als Betriebssystem-Datenträger zum virtuellen Computer hinzu. Bei diesem Datenträger handelt es sich um eine VHD, die als Seitenblob gespeichert wird.
 
-- **Temporärer Datenträger:** Virtuelle Azure Stack-Computer enthalten einen weiteren Datenträger, der als temporärer Datenträger bezeichnet wird (Laufwerk **D:**). Dies ist ein Datenträger für temporären Speicherbereich auf dem Knoten.
+- **Temporärer Datenträger:** Virtuelle Azure Stack-Computer enthalten einen weiteren Datenträger, der als temporärer Datenträger bezeichnet wird (Laufwerk **D:** ). Dies ist ein Datenträger für temporären Speicherbereich auf dem Knoten.
 
 - **Datenträger für Daten:** Sie können dem virtuellen Computer weitere Datenträger für Daten hinzufügen. Diese werden als Seitenblobs im Speicher gespeichert.
 
@@ -92,13 +92,13 @@ Ein Betriebssystem-Datenträger ist eine virtuelle Festplatte, die Sie als aktiv
 
 ### <a name="temporary-disk"></a>Temporärer Datenträger
 
-Das als Laufwerk **D:** bezeichnete temporäre Speicherlaufwerk wird nicht beibehalten. Speichern Sie auf Laufwerk **D:** keine Daten, die nicht verloren gehen sollen, z.B. die Datenbankdateien oder Transaktionsprotokolldateien für Ihre Benutzer.
+Das temporäre Speicherlaufwerk **D** ist nicht persistent. Speichern Sie auf Laufwerk **D** keine Daten, die nicht verloren gehen dürfen. Dazu zählen die Datenbankdateien und Transaktionsprotokolldateien für Ihre Benutzer.
 
 Es empfiehlt sich, TempDB auf einem Datenträger für Daten zu speichern, da jeder Datenträger maximal bis zu 2.300 IOPS pro Datenträger bereitstellt.
 
 ### <a name="data-disks"></a>Datenträger
 
-- **Verwenden von Datenträgern für Daten- und Protokolldateien:** Wenn Sie kein Datenträgerstriping verwenden, sollten Sie zwei Datenträger eines virtuellen Computers verwenden, der Storage Premium unterstützt, wobei sich auf einem Datenträger die Protokolldateien und auf dem anderen die Daten- und TempDB-Dateien befinden. Jeder Datenträger bietet abhängig von der Familie der virtuellen Computer bestimmte IOPS- und Bandbreitenwerte (MBit/s), wie unter [In Azure Stack unterstützte VM-Größen](azure-stack-vm-sizes.md) beschrieben. Wenn Sie eine Datenträgerstriping-Technik (beispielsweise Speicherplätze) verwenden, platzieren Sie alle Daten- und Protokolldateien auf demselben Laufwerk (einschließlich TempDB). Diese Konfiguration ermöglicht die für SQL Server maximal verfügbare Anzahl von IOPS, unabhängig davon, welche Datei diese zu einem bestimmten Zeitpunkt nutzt.
+- **Verwenden von Datenträgern für Daten- und Protokolldateien:** Wenn Sie kein Datenträgerstriping verwenden, sollten Sie zwei Datenträger einer VM verwenden, die Storage Premium unterstützt. Dabei enthält ein Datenträger die Protokolldateien und der andere die Daten- und TempDB-Dateien. Jeder Datenträger bietet abhängig von der Familie der virtuellen Computer bestimmte IOPS- und Bandbreitenwerte (MBit/s), wie unter [In Azure Stack unterstützte VM-Größen](azure-stack-vm-sizes.md) beschrieben. Wenn Sie eine Datenträgerstriping-Technik (beispielsweise Speicherplätze) verwenden, speichern Sie alle Daten- und Protokolldateien auf demselben Laufwerk (einschließlich TempDB). Diese Konfiguration ermöglicht die für SQL Server maximal verfügbare Anzahl von IOPS, unabhängig davon, welche Datei diese zu einem bestimmten Zeitpunkt nutzt.
 
 > [!NOTE]  
 > Beim Bereitstellen eines virtuellen SQL Server-Computers im Portal haben Sie die Möglichkeit, Ihre Speicherkonfiguration zu bearbeiten. Je nach Konfiguration werden in Azure Stack ein oder mehrere Datenträger konfiguriert. Mehrere Datenträger werden in einem einzelnen Speicherpool zusammengefasst. Daten- und Protokolldateien befinden sich in dieser Konfiguration zusammen.
@@ -121,8 +121,8 @@ Es empfiehlt sich, TempDB auf einem Datenträger für Daten zu speichern, da jed
        ```
 
 - Bestimmen Sie auf Basis der erwarteten Auslastung die Anzahl der jedem Speicherpool zugeordneten Datenträger. Bedenken Sie, dass verschiedene VM-Größen unterschiedlich viele angefügte Datenträger für Daten unterstützen. Weitere Informationen finden Sie unter [In Azure Stack unterstützte VM-Größen](azure-stack-vm-sizes.md).
-- Um die maximal möglichen IOPS für Datenträger zu erzielen, wird empfohlen, die maximale Anzahl von Datenträgern hinzuzufügen, die durch die [VM-Größe](azure-stack-vm-sizes.md) unterstützt werden, und Datenträgerstriping zu verwenden.
-- **Größe der NTFS-Zuordnungseinheiten:** Beim Formatieren des Datenträgers für Daten empfiehlt es sich, als Größe der Zuordnungseinheiten für Daten- und Protokolldateien sowie für TempDB einen Wert von 64 KB zu verwenden.
+- Um die maximal möglichen IOPS für Datenträger zu erzielen, wird empfohlen, die von der [VM-Größe](azure-stack-vm-sizes.md) unterstützte maximale Anzahl von Datenträgern hinzuzufügen und Datenträgerstriping zu verwenden.
+- **Größe der NTFS-Zuordnungseinheiten:** Beim Formatieren des Datenträgers empfehlen wir, als Größe der Zuordnungseinheiten für Daten- und Protokolldateien sowie für TempDB-Dateien einen Wert von 64 KB zu verwenden.
 - **Methoden für die Datenträgerverwaltung:** Beenden Sie den SQL Server-Dienst, wenn Sie einen Datenträger für Daten entfernen. Ändern Sie zudem nicht die Cacheeinstellungen auf den Datenträgern, da dadurch keine Leistungssteigerungen erzielt werden.
 
 > [!WARNING]  
@@ -130,10 +130,10 @@ Es empfiehlt sich, TempDB auf einem Datenträger für Daten zu speichern, da jed
 
 ## <a name="io-guidance"></a>E/A-Leitfaden
 
-- Erwägen Sie die Aktivierung der sofortigen Dateiinitialisierung, um die für die anfängliche Dateizuordnung erforderliche Zeit zu verringern. Um die sofortige Dateiinitialisierung nutzen zu können, gewähren Sie dem SQL Server-Dienstkonto (MSSQLSERVER) die Berechtigung **SE_MANAGE_VOLUME_NAME**, und fügen Sie sie der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzu. Wenn Sie ein SQL Server-Plattformimage für Azure verwenden, wird das Standarddienstkonto (**NT Service\MSSQLSERVER**) nicht der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzugefügt. Anders ausgedrückt: Die sofortige Dateiinitialisierung wird in einem SQL Server Azure-Plattformimages nicht aktiviert. Starten Sie den SQL Server-Dienst neu, nachdem Sie das SQL Server-Dienstkonto der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzugefügt haben. Möglicherweise sind bei Verwendung dieses Features bestimmte Sicherheitsaspekte zu berücksichtigen. Weitere Informationen finden Sie unter [Datenbankdatei-Initialisierung](https://msdn.microsoft.com/library/ms175935.aspx).
-- **Automatische Vergrößerung** ist eine Behelfslösung für unerwartetes Wachstum. Führen Sie die tägliche Verwaltung Ihres Daten- und Protokolldateiwachstums nicht durch automatische Vergrößerung. Wenn die automatische Vergrößerung verwendet wird, vergrößern Sie die Datei vorab mit dem Switch **Größe**.
+- Erwägen Sie die Aktivierung der sofortigen Dateiinitialisierung, um die für die anfängliche Dateizuordnung erforderliche Zeit zu verringern. Um die sofortige Dateiinitialisierung nutzen zu können, gewähren Sie dem SQL Server-Dienstkonto (MSSQLSERVER) die Berechtigung **SE_MANAGE_VOLUME_NAME**, und fügen Sie sie der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzu. Wenn Sie ein SQL Server-Plattformimage für Azure verwenden, wird das Standarddienstkonto (**NT Service\MSSQLSERVER**) nicht der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzugefügt. Anders ausgedrückt: Die sofortige Dateiinitialisierung wird in einem SQL Server-Azure-Plattformimage nicht aktiviert. Starten Sie den SQL Server-Dienst neu, nachdem Sie das SQL Server-Dienstkonto der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzugefügt haben. Möglicherweise sind bei Verwendung dieses Features bestimmte Sicherheitsaspekte zu berücksichtigen. Weitere Informationen finden Sie unter [Datenbankdatei-Initialisierung](https://msdn.microsoft.com/library/ms175935.aspx).
+- **Automatische Vergrößerung** ist eine Behelfslösung für unerwartetes Wachstum. Führen Sie die tägliche Verwaltung Ihres Daten- und Protokolldateiwachstums nicht mit automatischer Vergrößerung durch. Wenn die automatische Vergrößerung verwendet wird, vergrößern Sie die Datei vorab mit dem Switch **Größe**.
 - Stellen Sie sicher, dass **Automatische Verkleinerung** deaktiviert ist, um unnötigen Mehraufwand zu vermeiden, der sich negativ auf die Leistung auswirken kann.
-- Richten Sie standardmäßige Dateispeicherorte für Sicherungen und Datenbanken ein. Verwenden Sie die Empfehlungen in diesem Artikel, und nehmen Sie die Änderungen im Fenster mit den Servereigenschaften vor. Eine Anleitung finden Sie unter [Anzeigen oder Ändern der Standardspeicherorte für Daten- und Protokolldateien (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx). Im folgenden Screenshot ist dargestellt, wo diese Änderungen vorgenommen werden:
+- Richten Sie standardmäßige Dateispeicherorte für Sicherungen und Datenbanken ein. Verwenden Sie die Empfehlungen in diesem Artikel, und nehmen Sie die Änderungen im Fenster mit den Servereigenschaften vor. Eine Anleitung finden Sie unter [Anzeigen oder Ändern der Standardspeicherorte für Daten- und Protokolldateien (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx). Der folgende Screenshot zeigt, wo diese Änderungen vorgenommen werden:
 
     > ![Anzeigen oder Ändern der Standardspeicherorte](./media/sql-server-vm-considerations/image1.png)
 
@@ -145,13 +145,12 @@ Es empfiehlt sich, TempDB auf einem Datenträger für Daten zu speichern, da jed
 
 Für manche Bereitstellungen können durch Verwendung erweiterter Konfigurationsmethoden zusätzliche Leistungsvorteile erzielt werden. In der folgenden Liste sind einige SQL Server-Features zusammengestellt, mit denen Sie eine bessere Leistung erzielen können:
 
-- **Sicherung in Azure** **Storage:** Wenn Sie Sicherungen für SQL Server durchführen, der auf virtuellen Azure Stack-Computern durchgeführt wird, können Sie die SQL Server-Sicherung über URLs verwenden. Dieses Feature steht ab SQL Server 2012 SP1 CU2 zur Verfügung und wird für Sicherungen auf die angefügten Datenträgern für Daten empfohlen.
+- **Sicherung in Azure** **Storage:** Wenn Sie Sicherungen für eine auf Azure Stack-VMs ausgeführte SQL Server-Instanz erstellen, können Sie die SQL Server-Sicherung über URLs verwenden. Dieses Feature steht ab SQL Server 2012 SP1 CU2 zur Verfügung und wird für Sicherungen auf die angefügten Datenträgern für Daten empfohlen.
 
-    Befolgen Sie bei Sicherungen oder Wiederherstellungen mithilfe von Azure Storage die Empfehlungen unter [SQL Server-URL-Sicherung – bewährte Methoden und Problembehandlung](https://msdn.microsoft.com/library/jj919149.aspx) und [Wiederherstellen von in Microsoft Azure gespeicherten Sicherungen](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). Darüber hinaus können Sie diese Sicherungen mit [automatisierten Sicherungen für SQL Server auf virtuellen Azure-Computern](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)automatisieren.
+    Befolgen Sie beim Sichern oder Wiederherstellen mithilfe von Azure Storage die Empfehlungen unter [SQL Server-URL-Sicherung – bewährte Methoden und Problembehandlung](https://msdn.microsoft.com/library/jj919149.aspx) und [Wiederherstellen von in Microsoft Azure gespeicherten Sicherungen](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). Darüber hinaus können Sie diese Sicherungen mit [automatisierten Sicherungen für SQL Server auf virtuellen Azure-Computern](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)automatisieren.
 
--   **Sicherung im Azure Stack-Speicher:** Sie können Sicherungen im Azure Stack-Speicher auf ähnliche Weise durchführen wie Sicherungen in Azure Storage. Wenn Sie eine Sicherung in SQL Server Management Studio (SSMS) erstellen, müssen Sie die Konfigurationsinformationen manuell eingeben. SSMS können Sie nicht verwenden, um den Speichercontainer oder die Shared Access Signature zu erstellen. Mit SSMS kann nur eine Verbindung mit Azure-Abonnements, jedoch nicht mit Azure Stack-Abonnements hergestellt werden. Stattdessen müssen Sie das Speicherkonto, den Container und die Shared Access Signature im Azure Stack-Portal oder über PowerShell erstellen.
+-   **Sicherung im Azure Stack-Speicher:** Sie können Sicherungen im Azure Stack-Speicher auf ähnliche Weise durchführen wie Sicherungen in Azure Storage. Wenn Sie eine Sicherung in SQL Server Management Studio (SSMS) erstellen, müssen Sie die Konfigurationsinformationen manuell eingeben. SSMS kann nicht verwendet werden, um den Speichercontainer oder die Shared Access Signature zu erstellen. Mit SSMS kann nur eine Verbindung mit Azure-Abonnements, jedoch nicht mit Azure Stack-Abonnements hergestellt werden. Stattdessen müssen Sie das Speicherkonto, den Container und die Shared Access Signature im Azure Stack-Portal oder über PowerShell erstellen.
 
-    Angeben der Informationen im Dialogfeld für die SQL Server-Sicherung:
 
     ![SQL Server-Sicherung](./media/sql-server-vm-considerations/image3.png)
 
