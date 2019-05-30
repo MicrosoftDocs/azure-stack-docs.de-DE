@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: ca0dd74a08ce1abe454cb497a2569aae0b958d7c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 367053882e9e44ba983d5df552929c65222fcafc
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311502"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197347"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Bereitstellen von Kubernetes in Azure Stack mithilfe von Active Directory-Verbunddienste
 
@@ -83,7 +83,7 @@ Falls Sie als Identitätslösung AD FS verwenden, müssen Sie mit Ihrem Azure St
        | KeyVault-Name | Der Name des Tresors.<br> RegEx-Muster: `^[a-zA-Z0-9-]{3,24}$` |
        | Ressourcengruppenstandort | Der Standort der Ressourcengruppe. Dies ist die Region, die Sie für die Azure Stack-Installation auswählen. |
 
-   - Öffnen Sie PowerShell mit einer Eingabeaufforderung mit erhöhten Rechten, und [stellen Sie eine Verbindung mit Azure Stack her](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Führen Sie das folgende Skript mit den passenden Parameterwerten aus:
+   - Öffnen Sie PowerShell mit einer Eingabeaufforderung mit erhöhten Rechten, und [stellen Sie eine Verbindung mit Azure Stack her](azure-stack-powershell-configure-user.md#connect-to-azure-stack-with-ad-fs). Führen Sie das folgende Skript mit den passenden Parameterwerten aus:
 
    ```powershell  
        $armEndpoint="<Azure Resource Manager Endpoint>"
@@ -124,7 +124,7 @@ Falls Sie als Identitätslösung AD FS verwenden, müssen Sie mit Ihrem Azure St
        | Azure Resource Manager Endpoint | Der Endpunkt im Azure Stack Development Kit (ASDK) lautet: `https://management.local.azurestack.external/`.<br>Der Endpunkt in integrierten Systemen lautet: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`. |
        | Ihre Abonnement-ID | Mit der [Abonnement-ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) greifen Sie in Azure Stack auf Angebote zu. |
 
-   - Öffnen Sie PowerShell mit einer Eingabeaufforderung mit erhöhten Rechten, und [stellen Sie eine Verbindung mit Azure Stack her](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Führen Sie das folgende Skript mit den passenden Parameterwerten aus:
+   - Öffnen Sie PowerShell mit einer Eingabeaufforderung mit erhöhten Rechten, und [stellen Sie eine Verbindung mit Azure Stack her](azure-stack-powershell-configure-user.md#connect-to-azure-stack-with-ad-fs). Führen Sie das folgende Skript mit den passenden Parameterwerten aus:
 
     ```powershell
         

@@ -3,7 +3,7 @@ title: Verfügbarmachen von Web- und API-Apps für Ihre Azure Stack-Benutzer | M
 description: Tutorial zum Installieren des App Service-Ressourcenanbieters und zum Erstellen von Angeboten, die es Ihren Azure Stack-Benutzern ermöglichen, Web- und API-Apps zu erstellen
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: anwestg
 ms.custom: mvc
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 9954e351ecd584925d264d0c8c5e8fb8e2507192
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: fbf6993447f22a354c61102b9e670c8f1188f48d
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618657"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268092"
 ---
 # <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>Tutorial: Verfügbarmachen von Web- und API-Apps für Ihre Azure Stack-Benutzer
 
@@ -68,7 +68,7 @@ In diesem Beispiel wird ein DNN-System für die Verwaltung von Plattforminhalten
 
 ### <a name="create-a-sql-database"></a>Erstellen einer SQL-Datenbank
 
-1. Klicken Sie auf **+** > **Daten und Speicher** > **SQL-Datenbank**.
+1. Klicken Sie auf **+**  > **Daten und Speicher** > **SQL-Datenbank**.
 2. Übernehmen Sie mit Ausnahme der folgenden Felder die Standardwerte:
 
     - **Datenbankname**: DNNdb
@@ -82,7 +82,7 @@ In diesem Beispiel wird ein DNN-System für die Verwaltung von Plattforminhalten
 
 ### <a name="create-a-dnn-app"></a>Erstellen einer DNN-App
 
-1. Klicken Sie auf **+** > **See all (Alle anzeigen)** > **DNN Platform preview (Vorschauversion der DNN-Plattform)** > **Erstellen**.
+1. Klicken Sie auf **+**  > **See all (Alle anzeigen)**  > **DNN Platform preview (Vorschauversion der DNN-Plattform)**  > **Erstellen**.
 2. Geben Sie *DNNapp* unter **App-Name** ein, und wählen Sie **TestAppServiceOffer** unter **Abonnement** aus.
 3. Klicken Sie auf **Erforderliche Einstellungen konfigurieren** > **Neu erstellen**, und geben Sie einen Namen für den **App Service-Plan** ein.
 4. Klicken Sie auf **Tarif** > **F1 Free** > **Auswählen** > **OK**.

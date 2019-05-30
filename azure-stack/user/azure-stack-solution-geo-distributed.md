@@ -3,7 +3,7 @@ title: Erstellen einer geografisch verteilten App-Lösung mit Azure und Azure St
 description: Es wird beschrieben, wie Sie eine geografisch verteilte App-Lösung mit Azure und Azure Stack erstellen.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 81dfc9c7571bc191582425962d1e7b37c2ed05cd
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: eee89c90113187b51418801a46720f49e07fa533
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63449164"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252118"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutorial: Erstellen einer geografisch verteilten App-Lösung mit Azure und Azure Stack
 
@@ -319,7 +319,7 @@ Nach dem Hinzufügen des CNAME-Eintrags sieht die Seite mit den DNS-Einträgen w
 
 4. Wählen Sie im linken Navigationsbereich der App-Seite im Azure-Portal die Option **Benutzerdefinierte Domänen**.
 
-5. Wählen Sie das **+**-Symbol neben der Option **Hostnamen hinzufügen**.
+5. Wählen Sie das **+** -Symbol neben der Option **Hostnamen hinzufügen**.
 
 1. Geben Sie den vollqualifizierten Domänennamen ein, z.B. `www.northwindcloud.com`.
 
@@ -409,7 +409,7 @@ Um ein benutzerdefiniertes SSL-Zertifikat an die Web-App zu binden, muss der [Ap
 
 #### <a name="check-the-pricing-tier"></a>Überprüfen des Tarifs
 
-1.  Scrollen Sie im linken Navigationsbereich auf der Seite mit der Web-App zum Abschnitt **Einstellungen**, und wählen Sie **Zentral hochskalieren (App Service-Plan)**.
+1.  Scrollen Sie im linken Navigationsbereich auf der Seite mit der Web-App zum Abschnitt **Einstellungen**, und wählen Sie **Zentral hochskalieren (App Service-Plan)** .
 
     ![Menü „Zentral hochskalieren“](media/azure-stack-solution-geo-distributed/image34.png)
 
@@ -507,7 +507,7 @@ Wenn der Upload des Zertifikats in App Service abgeschlossen ist, wird es auf de
 
 1.  Wählen Sie auf der Seite **SSL-Bindung hinzufügen** aus den Dropdownlisten den Domänennamen, der geschützt werden soll, sowie das zu verwendende Zertifikat aus.
 
-2.  Wählen Sie unter **SSL-Typ** aus, ob SSL auf der [**Servernamensanzeige (Server Name Indication, SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication) oder der IP basieren soll.
+2.  Wählen Sie unter **SSL-Typ** aus, ob SSL auf der [**Servernamensanzeige (Server Name Indication, SNI)** ](https://en.wikipedia.org/wiki/Server_Name_Indication) oder der IP basieren soll.
 
 -   **SNI-basiertes SSL**: Ggf. können mehrere SNI-basierte SSL-Bindungen hinzugefügt werden. Bei dieser Option können mehrere zur selben IP-Adresse zugehörige Domänen durch mehrere SSL-Zertifikate geschützt werden. Die meisten modernen Browser (einschließlich Internet Explorer, Chrome, Firefox und Opera) unterstützen SNI (ausführlichere Informationen zur Browserunterstützung finden Sie unter [Servernamensanzeige](https://wikipedia.org/wiki/Server_Name_Indication)).
 

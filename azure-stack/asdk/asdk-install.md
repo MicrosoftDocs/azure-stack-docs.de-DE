@@ -3,7 +3,7 @@ title: Installieren des Azure Stack Development Kits (ASDK) | Microsoft-Dokument
 description: In diesem Artikel wird die Installation des Azure Stack Development Kits (ASDK) beschrieben.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: c14b55379bfad08cbb604b8f27b45a125741a241
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 277b2e8c86cda65167a734d0e5775ec1748ef219
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617407"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267642"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installieren des Azure Stack Development Kits (ASDK)
 Nachdem Sie den [ASDK-Hostcomputer vorbereitet](asdk-prepare-host.md) haben, kann das ASDK mit den folgenden Schritten in diesem Artikel im Image „CloudBuilder.vhdx“ bereitgestellt werden.
@@ -34,7 +34,7 @@ Die Schritte in diesem Artikel zeigen, wie das ASDK mit einer grafischen Benutze
 
 
 1. Nachdem der Hostcomputer im Image „CloudBuilder.vhdx“ erfolgreich gestartet wurde, können Sie sich mit den Administratoranmeldeinformationen anmelden, die Sie bei der [Vorbereitung des Development Kit-Hostcomputers](asdk-prepare-host.md) für die ASDK-Installation angegeben haben. Diese sollten mit den Anmeldeinformationen für den lokalen Administrator des Development Kit-Hosts identisch sein.
-2. Öffnen Sie eine PowerShell-Konsole mit erhöhten Rechten, und führen Sie das PowerShell-Skript „**&lt;Laufwerkbuchstabe>\AzureStack_Installer\asdk-installer.ps1**“ aus. Beachten Sie, dass sich das Skript jetzt eventuell auf einem anderen Laufwerk als „C:\“ im Image „CloudBuilder.vhdx“ befindet. Klicken Sie auf **Installieren**.
+2. Öffnen Sie eine PowerShell-Konsole mit erhöhten Rechten, und führen Sie das PowerShell-Skript „ **&lt;Laufwerkbuchstabe>\AzureStack_Installer\asdk-installer.ps1**“ aus. Beachten Sie, dass sich das Skript jetzt eventuell auf einem anderen Laufwerk als „C:\“ im Image „CloudBuilder.vhdx“ befindet. Klicken Sie auf **Installieren**.
 
     ![](media/asdk-install/1.PNG) 
 
@@ -73,7 +73,7 @@ Die Schritte in diesem Artikel zeigen, wie das ASDK mit einer grafischen Benutze
 
 8. Wenn Sie eine Azure AD-Bereitstellung durchführen, werden Sie einige Minuten nach dem Start des Setupvorgangs zum Eingeben der Anmeldeinformationen Ihres globalen Administratorkontos für Azure AD aufgefordert.
 
-9. Der Bereitstellungsprozess nimmt einige Stunden in Anspruch, und während dieses Zeitraums wird der Hostcomputer automatisch einmal neu gestartet. Falls Sie den Status der Bereitstellung überwachen möchten, können Sie sich als „azurestack\AzureStackAdmin“ anmelden, nachdem der Development Kit-Host neu gestartet wurde. Wenn die Bereitstellung erfolgreich verlaufen ist, zeigt die PowerShell-Konsole folgende Meldung an: **ABGESCHLOSSEN: Aktion „Bereitstellung“**. 
+9. Der Bereitstellungsprozess nimmt einige Stunden in Anspruch, und während dieses Zeitraums wird der Hostcomputer automatisch einmal neu gestartet. Falls Sie den Status der Bereitstellung überwachen möchten, können Sie sich als „azurestack\AzureStackAdmin“ anmelden, nachdem der Development Kit-Host neu gestartet wurde. Wenn die Bereitstellung erfolgreich verlaufen ist, zeigt die PowerShell-Konsole folgende Meldung an: **ABGESCHLOSSEN: Aktion „Bereitstellung“** . 
     > [!IMPORTANT]
     > Wenn Sie sich als lokaler Administrator anmelden, nachdem der Computer der Domäne „azurestack“ beigetreten ist, wird der Bereitstellungsstatus nicht angezeigt. Führen Sie die Bereitstellung nicht erneut aus, sondern melden Sie sich stattdessen als „azurestack\AzureStackAdmin“ an, um zu überprüfen, ob sie ausgeführt wird.
 

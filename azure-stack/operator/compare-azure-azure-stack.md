@@ -3,7 +3,7 @@ title: Vergleich zwischen Azure Stack und der globalen Azure-Infrastruktur | Mi
 description: Es wird beschrieben, wie Azure und die Familie der Azure Stack-Dienste von Microsoft in einer Azure-Infrastruktur bereitgestellt werden.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 05/03/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 20199e927498d0590ae32f68eb02b0a47c8c2b3e
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: eefe72aaf3e82c80d26a2963e0d8b4b921d9acf6
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782285"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267543"
 ---
 # <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>Unterschiede zwischen der globalen Azure-Infrastruktur, Azure Stack und Azure Stack HCI
 

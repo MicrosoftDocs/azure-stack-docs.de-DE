@@ -3,7 +3,7 @@ title: Sichern von App Service in Azure Stack | Microsoft-Dokumentation
 description: Ausführliche Anleitung zum Sichern von App Service in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
-ms.author: mabrigg
-ms.reviewer: apwestgarth
+ms.author: anwestg
+ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: dff128ad86de23aae0bf8fe4848d256510a80d85
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 8e8e866efe8de4d4c5d116339edbe81082c6545e
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618333"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269267"
 ---
 # <a name="back-up-app-service-on-azure-stack"></a>Sichern von App Service in Azure Stack
 

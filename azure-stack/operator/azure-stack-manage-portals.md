@@ -3,7 +3,7 @@ title: Verwenden des Verwaltungsportals in Azure Stack | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie als Azure Stack-Bediener das Verwaltungsportal verwenden.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 02/25/2019
-ms.openlocfilehash: 71932642d8c44d2043fe185eab3ebda25be7bb3f
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: b6863a86a5307375ea13f67c349da9f87b797fe5
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618614"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268452"
 ---
 # <a name="quickstart-use-the-azure-stack-administration-portal"></a>Schnellstart: Verwenden des Azure Stack-Verwaltungsportals
 

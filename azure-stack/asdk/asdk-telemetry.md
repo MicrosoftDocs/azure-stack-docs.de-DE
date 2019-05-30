@@ -3,7 +3,7 @@ title: Azure Stack-Telemetriedaten | Microsoft-Dokumentation
 description: Hier erfahren Sie, wie Sie Azure Stack-Telemetrieeinstellungen mithilfe von PowerShell konfigurieren.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 78ca05eb15570022e6eb25a7023d91c5ff8b817f
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 24948fb53ed4c5bdbbe0490f581daff7c66c33bc
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617345"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267434"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack-Telemetriedaten
 
@@ -81,9 +81,9 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 Die Telemetrieebenen sind kumulativ und in vier Ebenen (0–3) unterteilt:
 
-**0 (Sicherheit)**. Nur Sicherheitsdaten. Informationen, die zur Gewährleistung der Betriebssystemsicherheit benötigt werden – beispielsweise Daten zu den Einstellungen der Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ und Windows Defender-Daten. Auf dieser Ebene werden keine Azure Stack-spezifischen Telemetriedaten ausgegeben.
+**0 (Sicherheit)** . Nur Sicherheitsdaten. Informationen, die zur Gewährleistung der Betriebssystemsicherheit benötigt werden – beispielsweise Daten zu den Einstellungen der Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ und Windows Defender-Daten. Auf dieser Ebene werden keine Azure Stack-spezifischen Telemetriedaten ausgegeben.
 
-**1 (Standard)**. Sicherheitsdaten sowie grundlegende Integritäts- und Qualitätsdaten. Grundlegende Geräteinformationen wie qualitätsbezogene Daten, App-Kompatibilität, App-Nutzungsdaten und Daten der Sicherheitsebene. Wenn Sie die Telemetrieebene auf „Standard“ festlegen, wird die Azure Stack-Telemetrie aktiviert. Auf dieser Ebene werden unter anderem folgende Ebene erfasst:
+**1 (Standard)** . Sicherheitsdaten sowie grundlegende Integritäts- und Qualitätsdaten. Grundlegende Geräteinformationen wie qualitätsbezogene Daten, App-Kompatibilität, App-Nutzungsdaten und Daten der Sicherheitsebene. Wenn Sie die Telemetrieebene auf „Standard“ festlegen, wird die Azure Stack-Telemetrie aktiviert. Auf dieser Ebene werden unter anderem folgende Ebene erfasst:
 
 - **Grundlegende Geräteinformationen** zum Nachvollziehen der Arten und Konfigurationen nativer und virtualisierter Windows Server 2016-Instanzen im Ökosystem. Hierzu zählen unter anderem folgende Informationen:
   - Computerattribute wie OEM und Modell
@@ -94,9 +94,9 @@ Die Telemetrieebenen sind kumulativ und in vier Ebenen (0–3) unterteilt:
 - **Qualitätsbezogene Informationen**, die Microsoft einen grundlegenden Einblick in die Leistung von Azure Stack geben. Ein Beispiel wäre etwa die Anzahl kritischer Warnungen für eine bestimmte Hardwarekonfiguration.
 - **Kompatibilitätsdaten**, die Aufschluss darüber geben, welche Ressourcenanbieter in einem System und auf einem virtuellen Computer installiert sind und die Identifizierung möglicher Kompatibilitätsprobleme ermöglichen.
 
-**2 (Erweitert)**. Zusätzliche Informationen, etwa zur Verwendung und Leistung des Betriebssystems und anderer Azure Stack-Dienste, sowie erweiterte Zuverlässigkeitsdaten und Daten der Ebenen „Standard“ und „Sicherheit“.
+**2 (Erweitert)** . Zusätzliche Informationen, etwa zur Verwendung und Leistung des Betriebssystems und anderer Azure Stack-Dienste, sowie erweiterte Zuverlässigkeitsdaten und Daten der Ebenen „Standard“ und „Sicherheit“.
 
-**3 (Vollständig)**. Alle Daten, die zum Identifizieren und Beheben von Problemen benötigt werden oder dabei hilfreich sind, sowie Daten der Ebenen **Sicherheit**, **Standard**, und **Erweitert**.
+**3 (Vollständig)** . Alle Daten, die zum Identifizieren und Beheben von Problemen benötigt werden oder dabei hilfreich sind, sowie Daten der Ebenen **Sicherheit**, **Standard**, und **Erweitert**.
 
 > [!NOTE]
 > Standardmäßig wird die erweiterte Telemetrieebene (2) verwendet.

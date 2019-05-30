@@ -3,7 +3,7 @@ title: Erstellen von cloudübergreifenden Skalierungslösungen mit Azure | Micro
 description: Es wird beschrieben, wie Sie cloudübergreifende Skalierungslösungen mit Azure erstellen.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a82912b3acf18ce3be206e33da752bf8a03a4858
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: adbe1eba6c5d852466288ddf41c803072d4cd098
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63448714"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252080"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Tutorial 4: Erstellen von cloudübergreifenden Skalierungslösungen mit Azure
 
@@ -304,7 +304,7 @@ Die Erstellung einer Releasedefinition ist der letzte Schritt im Anwendungsbuild
 
 1.  Melden Sie sich an Azure Pipelines an, und navigieren Sie für das Projekt zu **Build und Release**.
 
-2.  Klicken Sie auf der Registerkarte **Releases** auf **[ + ]**, und wählen Sie dann **Releasedefinition erstellen**.
+2.  Klicken Sie auf der Registerkarte **Releases** auf **[ + ]** , und wählen Sie dann **Releasedefinition erstellen**.
 
 3.  Klicken Sie unter **Vorlage auswählen** auf **Azure App Service-Bereitstellung** und dann auf **Anwenden**.
 

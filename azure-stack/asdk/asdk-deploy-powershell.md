@@ -3,7 +3,7 @@ title: Bereitstellen von Azure Stack – PowerShell | Microsoft-Dokumentation
 description: In diesem Artikel installieren Sie das ASDK mithilfe von PowerShell über die Befehlszeile.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.custom: ''
 ms.date: 05/06/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 05a3d0a88f4852395942d58ac798d2eb06a1d766
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 4a32631441760db715443b8979e2769b55258fcf
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617559"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267167"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Bereitstellen des ASDK über die Befehlszeile
 Das ASDK ist eine Test- und Entwicklungsumgebung, die sie zum Evaluieren und Demonstrieren von Azure Stack-Funktionen und -Diensten bereitstellen können. Zur Einrichtung der Umgebung müssen Sie die Umgebungshardware vorbereiten und einige Skripts ausführen. (Dies nimmt mehrere Stunden in Anspruch.) Anschließend können Sie sich beim Administrator- und Benutzerportal anmelden und Azure Stack verwenden.
@@ -32,7 +32,7 @@ Bereiten Sie den Development Kit-Hostcomputer vor. Planen Sie die Hardware, die 
 
 Vergewissern Sie sich vor der ASDK-Bereitstellung, dass Hardware, Betriebssystem, Konto und Netzwerkkonfigurationen Ihres geplanten Development Kit-Hostcomputers die Mindestanforderungen für die ASDK-Installation erfüllen.
 
-Die Überlegungen zur Bereitstellungsplanung für das ASDK finden Sie **[hier](asdk-deploy-considerations.md)**.
+Die Überlegungen zur Bereitstellungsplanung für das ASDK finden Sie **[hier](asdk-deploy-considerations.md)** .
 
 > [!TIP]
 > Mit dem [Tool zur Überprüfung von Bereitstellungsanforderungen für Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) können Sie sich nach der Installation des Betriebssystems auf dem Development Kit-Hostcomputer vergewissern, dass die Hardware die Anforderungen erfüllt.
@@ -106,7 +106,7 @@ Führen Sie die folgenden PowerShell-Befehle aus (indem Sie einfach den Paramete
 
 Bei AD FS-Bereitstellungen wird der standardmäßige Stampverzeichnisdienst als Identitätsanbieter verwendet. Das Standardkonto für die Anmeldung ist azurestackadmin@azurestack.local, und das Kennwort ist auf den Wert festgelegt, den sie für die PowerShell-Setupbefehle angegeben haben.
 
-Der Bereitstellungsprozess kann einige Stunden dauern, und während dieses Zeitraums wird das System automatisch einmal neu gestartet. Wenn die Bereitstellung erfolgreich verlaufen ist, zeigt die PowerShell-Konsole folgende Meldung an: **ABGESCHLOSSEN: Aktion „Bereitstellung“**. Wenn die Bereitstellung nicht erfolgreich ist, können Sie versuchen, das Skript erneut auszuführen, indem Sie den Parameter „-rerun“ verwenden. Alternativ dazu können Sie [ASDK auch ganz neu bereitstellen](asdk-redeploy.md).
+Der Bereitstellungsprozess kann einige Stunden dauern, und während dieses Zeitraums wird das System automatisch einmal neu gestartet. Wenn die Bereitstellung erfolgreich verlaufen ist, zeigt die PowerShell-Konsole folgende Meldung an: **ABGESCHLOSSEN: Aktion „Bereitstellung“** . Wenn die Bereitstellung nicht erfolgreich ist, können Sie versuchen, das Skript erneut auszuführen, indem Sie den Parameter „-rerun“ verwenden. Alternativ dazu können Sie [ASDK auch ganz neu bereitstellen](asdk-redeploy.md).
 
 > [!IMPORTANT]
 > Wenn Sie den Bereitstellungsstatus nach dem Neustart des ASDK-Hosts überwachen möchten, müssen Sie sich als „AzureStack\AzureStackAdmin“ anmelden. Der Bereitstellungsstatus wird nicht angezeigt, wenn Sie sich nach dem Neustart des Hostcomputers (und dem Beitritt zur Domäne „azurestack.local“) als lokaler Administrator anmelden. Führen Sie die Bereitstellung nicht erneut durch, sondern melden Sie sich als „AzureStack\AzureStackAdmin“ mit dem gleichen Kennwort wie der lokale Administrator an, um zu überprüfen, ob das Setup ausgeführt wird.

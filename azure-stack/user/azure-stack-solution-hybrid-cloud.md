@@ -3,7 +3,7 @@ title: Bereitstellen einer Hybrid Cloud mit Azure und Azure Stack | Microsoft-Do
 description: Es wird beschrieben, wie Sie eine Hybrid Cloud mit Azure und Azure Stack bereitstellen.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 4a77221ac9fcb365966435ed828ab743dd8e1034
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 7a599d3fdc68c6c41565111498108a202d8b3472
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985824"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252061"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Tutorial: Bereitstellen einer Hybrid Cloud-Lösung mit Azure und Azure Stack
 
@@ -109,7 +109,7 @@ Vergewissern Sie sich zunächst, dass die folgenden Anforderungen erfüllt sind 
      ![Optionale Features konfigurieren](media/azure-stack-solution-hybrid-cloud/image4.png)
 
 1. Konfigurieren Sie unter **SQL Server-Einstellungen** die folgenden Einstellungen:
-   - Wählen Sie unter **SQL-Konnektivität** die Option **Öffentlich (Internet)**.
+   - Wählen Sie unter **SQL-Konnektivität** die Option **Öffentlich (Internet)** .
    - Behalten Sie für **Port** den Standardwert **1433** bei.
    - Wählen Sie unter **SQL-Authentifizierung** die Option **Aktivieren**.
 
@@ -301,7 +301,7 @@ Wenn Sie Ihre Web-App in einer App Service-Umgebung erstellen, beginnt sie mit e
 
 ### <a name="enable-automatic-scale-out"></a>Aktivieren des automatischen horizontalen Hochskalierens
 
-1. Suchen Sie in Azure nach dem App Service-Plan für die Standorte, die Sie horizontal hochskalieren möchten, und wählen Sie dann die Option **Horizontal hochskalieren (App Service-Plan)**.
+1. Suchen Sie in Azure nach dem App Service-Plan für die Standorte, die Sie horizontal hochskalieren möchten, und wählen Sie dann die Option **Horizontal hochskalieren (App Service-Plan)** .
 
     ![Horizontales Skalieren](media/azure-stack-solution-hybrid-cloud/image16.png)
 
@@ -447,8 +447,8 @@ Sie verwenden diese Ansicht, um eine Warnung für das horizontale Hochskalieren 
 
 ### <a name="create-the-scale-out-alert"></a>Erstellen der Warnung für das horizontale Hochskalieren
 
-1. Wählen Sie unter **KONFIGURIEREN** die Option **Warnungen (klassisch)**.
-2. Wählen Sie **Metrikwarnung hinzufügen (klassisch)**.
+1. Wählen Sie unter **KONFIGURIEREN** die Option **Warnungen (klassisch)** .
+2. Wählen Sie **Metrikwarnung hinzufügen (klassisch)** .
 3. Konfigurieren Sie unter **Regel hinzufügen** Folgendes:
 
    - Geben Sie unter **Name** den Namen **Burst into Azure Cloud** ein.
@@ -468,8 +468,8 @@ Sie verwenden diese Ansicht, um eine Warnung für das horizontale Hochskalieren 
 
 ### <a name="create-the-scale-in-alert"></a>Erstellen der Warnung für das horizontale Herunterskalieren
 
-1. Wählen Sie unter **KONFIGURIEREN** die Option **Warnungen (klassisch)**.
-2. Wählen Sie **Metrikwarnung hinzufügen (klassisch)**.
+1. Wählen Sie unter **KONFIGURIEREN** die Option **Warnungen (klassisch)** .
+2. Wählen Sie **Metrikwarnung hinzufügen (klassisch)** .
 3. Konfigurieren Sie unter **Regel hinzufügen** Folgendes:
 
    - Geben Sie unter **Name** den Namen **Scale back into Azure Stack** ein.

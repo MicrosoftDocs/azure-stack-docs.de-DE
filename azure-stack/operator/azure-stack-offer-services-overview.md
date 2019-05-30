@@ -3,7 +3,7 @@ title: Anbieten von Diensten in Azure Stack | Microsoft-Dokumentation
 description: Als Cloudbetreiber können Sie Dienste für Ihre Benutzer anbieten.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: BryanLa
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 18451de91427242986a824fab968d11f6a3fd734
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: a85f7398e492a2d49c2f6c1b686f2e15042b0444
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618507"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268372"
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Übersicht über das Anbieten von Diensten in Azure Stack
 

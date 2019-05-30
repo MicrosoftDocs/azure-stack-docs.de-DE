@@ -10,12 +10,12 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 47c619b1f490f4e4d3498a7c83501f24e96c77b4
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.openlocfilehash: 6fb879dc49197b52133750d65aadf96b601bda69
+ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532292"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66043233"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack-Datencenterintegration: Identität
 
@@ -348,10 +348,8 @@ Wenn für eines der Cmdlets ein Fehler auftritt, können Sie zusätzliche Protok
 2. Führen Sie dann das folgende Cmdlet aus:
 
    ```powershell  
-   Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE
+   Get-AzureStackLog -OutputPath \\myworkstation\AzureStackLogs -FilterByRole ECE
    ```
 
-
-## <a name="next-steps"></a>Nächste Schritte
 
 [Integrieren einer externen Überwachungslösung in Azure Stack](azure-stack-integrate-monitor.md)

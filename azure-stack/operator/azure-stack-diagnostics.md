@@ -2,21 +2,21 @@
 title: Diagnose in Azure Stack
 description: Es wird beschrieben, wie Sie Protokolldateien für die Diagnose in Azure Stack sammeln.
 services: azure-stack
-author: mattbriggs
+author: justinha
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
 ms.date: 04/30/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: c2f552035fdffebbb24fbd64e5c416179853c51e
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: bc5710e0994480d7aa8b0496509ad2755bc9c9ac
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618045"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268624"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack-Diagnosetools
 

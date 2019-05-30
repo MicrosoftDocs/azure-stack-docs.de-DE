@@ -3,7 +3,7 @@ title: Konfigurieren der Hybrid Cloud-Konnektivität mit Azure und Azure Stack |
 description: Hier erfahren Sie, wie Sie die Hybrid Cloud-Konnektivität mit Azure und Azure Stack konfigurieren.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 845bc2a04fe3153d0385a75445b28b51264c6b6b
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 00f7c3b990e9930571ace8adec9a33d0c9105be6
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63448168"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252034"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Tutorial: Konfigurieren der Hybrid Cloud-Konnektivität mit Azure und Azure Stack
 
@@ -147,7 +147,7 @@ Navigieren Sie im  [Azure-Portal](https://portal.azure.com/) zum virtuellen Res
 
 Führen Sie die folgenden Schritte aus, um in Azure ein Gateway für virtuelle Netzwerke zu erstellen.
 
-1. Wählen Sie im Portal auf der linken Seite die Option **+** , und geben Sie im Suchfeld als Suchbegriff „Gateway für virtuelle Netzwerke“ ein.
+1. Wählen Sie im Portal auf der linken Seite die Option **+**  , und geben Sie im Suchfeld als Suchbegriff „Gateway für virtuelle Netzwerke“ ein.
 2. Wählen Sie in  **Ergebnisse** die Option  **Gateway für virtuelle Netzwerke** aus.
 3. Wählen Sie unter **Gateway für virtuelle Netzwerke** die Option  **Erstellen** aus, um die Seite  **Gateway für virtuelle Netzwerke erstellen**  zu öffnen.
 4. Geben Sie unter **Gateway für virtuelle Netzwerke erstellen** die Werte für Ihr Netzwerkgateway an, wie unter **Beispielwerte für Tutorial** gezeigt, und geben Sie dann die folgenden weiteren Werte an:
