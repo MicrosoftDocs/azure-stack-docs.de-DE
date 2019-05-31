@@ -1,6 +1,6 @@
 ---
-title: Grundlegendes zu den wichtigsten Unterschieden zwischen Azure und Azure Stack beim Verwenden von Diensten und Erstellen von Apps | Microsoft-Dokumentation
-description: Wissenswertes zur Verwendung von Diensten sowie zur Erstellung von Apps für Azure Stack.
+title: Unterschiede zwischen Azure Stack und Azure beim Verwenden von Diensten und Erstellen von Apps | Microsoft-Dokumentation
+description: Enthält grundlegende Informationen zu den Unterschieden zwischen Azure und Azure Stack beim Verwenden von Diensten und Erstellen von Apps.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.topic: overview
 ms.date: 04/08/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 3c3e00358efd582b5a6f1ddb0f1ae3634fe577c7
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9fcf27c8ebbde86e775b54eda593b25fcd03979c
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64312879"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197286"
 ---
-# <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Wichtige Aspekte: Verwenden von Diensten oder Erstellen von Apps für Azure Stack
+# <a name="differences-between-azure-stack-and-azure-when-using-services-and-building-apps"></a>Unterschiede zwischen Azure Stack und Azure beim Verwenden von Diensten und Erstellen von Apps
 
-Machen Sie sich vor der Verwendung von Diensten oder der Erstellung von Apps für Azure Stack mit den Unterschieden zwischen Azure Stack und Azure vertraut. Dieser Artikel geht auf wichtige Aspekte der Verwendung von Azure Stack als Hybrid Cloud-Entwicklungsumgebung ein.
+Machen Sie sich vor der Verwendung von Diensten oder der Erstellung von Apps für Azure Stack mit den Unterschieden zwischen Azure Stack und Azure vertraut. In diesem Artikel wird auf verschiedene Features und wichtige Aspekte der Verwendung von Azure Stack als Hybrid Cloud-Entwicklungsumgebung eingegangen.
 
 ## <a name="overview"></a>Übersicht
 
@@ -32,7 +32,7 @@ Azure Stack ist eine Hybrid Cloud-Plattform, mit der Sie Azure-Dienste aus dem 
 
 Ihr Azure Stack-Betreiber teilt Ihnen mit, welche Dienste für Sie verfügbar sind und wie Sie Support erhalten. Diese Dienste sind jeweils über die angepassten Pläne und Angebote erhältlich.
 
-Für den technischen Inhalt von Azure wird davon ausgegangen, dass Apps nicht für Azure Stack, sondern für einen Azure-Dienst entwickelt werden. Für die Erstellung und Bereitstellung von Apps für Azure Stack müssen Sie einige wichtige Unterschiede kennen, z.B.:
+Beim technischen Inhalt von Azure wird davon ausgegangen, dass Apps nicht für Azure Stack, sondern für einen Azure-Dienst entwickelt werden. Für die Erstellung und Bereitstellung von Apps für Azure Stack müssen Sie einige wichtige Unterschiede kennen, z.B.:
 
 * Azure Stack stellt eine Teilmenge dieser Dienste und Features bereit, die in Azure verfügbar sind.
 * Ihr Unternehmen oder Service Provider kann auswählen, welche Dienste angeboten werden sollen. Die verfügbaren Optionen schließen unter Umständen benutzerdefinierte Dienste oder Anwendungen mit ein. Sie enthalten unter Umständen eine eigene angepasste Dokumentation.
@@ -57,7 +57,7 @@ In der folgenden Tabelle sind die allgemeinen Unterschiede zwischen Azure Stack 
 |Unterstützte Namespaces, Ressourcentypen und API-Versionen | Aktuelle Versionen (oder frühere Versionen, die noch nicht als veraltet eingestuft sind). | Azure Stack unterstützt bestimmte Versionen. Informationen hierzu finden Sie im Abschnitt [Versionsanforderungen](#version-requirements) dieses Artikels.
 | | |
 
-*Wenn Sie Azure Stack-Betreiber sind, finden Sie weitere Informationen unter [Using the administrator portal](../operator/azure-stack-manage-portals.md) (Verwenden des Administratorportals) und [Azure Stack administration basics](../operator/azure-stack-manage-basics.md) (Grundlagen zur Verwaltung von Azure Stack).
+*Wenn Sie Azure Stack-Betreiber sind, helfen Ihnen die Informationen unter [Using the administrator portal](../operator/azure-stack-manage-portals.md) (Verwenden des Administratorportals) und [Azure Stack administration basics](../operator/azure-stack-manage-basics.md) (Grundlagen zur Verwaltung von Azure Stack) weiter.
 
 ## <a name="helpful-tools-and-best-practices"></a>Hilfreiche Tools und bewährte Methoden
 
@@ -79,7 +79,7 @@ Verwenden Sie [API-Versionsprofile](azure-stack-version-profiles.md), damit sich
 > [!NOTE]
 > Wenn Sie das Azure Stack Development Kit nutzen und über Administratorzugriff verfügen, können Sie den Azure Stack-Build ermitteln, indem Sie im Abschnitt [Bestimmen der aktuellen Version](../operator/azure-stack-updates.md#determine-the-current-version) die entsprechenden Schritte ausführen.
 
-Führen Sie für die anderen APIs den folgenden PowerShell-Befehl aus, um die Namespaces, Ressourcentypen und API-Versionen auszugeben, die in Ihrem Azure Stack-Abonnement unterstützt werden. Beachten Sie, dass auf Eigenschaftsebene trotzdem noch Unterschiede bestehen können. Damit dieser Befehl funktioniert, müssen Sie PowerShell für eine Azure Stack-Umgebung bereits [installiert](../operator/azure-stack-powershell-install.md) und [konfiguriert](azure-stack-powershell-configure-user.md) haben. Sie müssen auch über ein Abonnement für ein Azure Stack-Angebot verfügen.
+Führen Sie für die anderen APIs den folgenden PowerShell-Befehl aus, um die Namespaces, Ressourcentypen und API-Versionen auszugeben, die in Ihrem Azure Stack-Abonnement unterstützt werden (unter Umständen bestehen auf Eigenschaftsebene noch Unterschiede). Damit dieser Befehl funktioniert, müssen Sie PowerShell für eine Azure Stack-Umgebung bereits [installiert](../operator/azure-stack-powershell-install.md) und [konfiguriert](azure-stack-powershell-configure-user.md) haben. Sie müssen auch über ein Abonnement für ein Azure Stack-Angebot verfügen.
 
 ```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
@@ -92,6 +92,6 @@ Beispielausgabe (gekürzt): ![Beispielausgabe für den Befehl „Get-AzureRmReso
 
 Ausführlichere Informationen zu den Unterschieden auf Dienstebene finden Sie unter:
 
-* [Aspekte von virtuellen Computern in Azure Stack](azure-stack-vm-considerations.md)
+* [Überlegungen zur Verwendung von virtuellen Computern in Azure Stack](azure-stack-vm-considerations.md)
 * [Azure Stack-Speicher: Unterschiede und Überlegungen](azure-stack-acs-differences.md)
 * [Überlegungen zu Azure Stack-Netzwerken](azure-stack-network-differences.md)
