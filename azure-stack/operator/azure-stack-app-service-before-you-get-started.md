@@ -3,7 +3,7 @@ title: Vor der Bereitstellung von App Service in Azure Stack | Microsoft-Dokumen
 description: Vor der Bereitstellung von App Service in Azure Stack auszuführende Schritte
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: BryanLa
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 05/28/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 9b9e624abb23ef5c1bd0ae80e2338fdc0b1469ab
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: bb9d49c7feebc03f0f2f5bbaca084e9141f601e9
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618268"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269200"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Vor den ersten Schritten mit App Service in Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "65618268"
 Bevor Sie Azure App Service in Azure Stack bereitstellen, müssen die erforderlichen vorbereitenden Schritte in diesem Artikel ausgeführt werden.
 
 > [!IMPORTANT]
-> Wenden Sie das Update 1901 auf Ihr integriertes Azure Stack-System an, oder stellen Sie das aktuelle Azure Stack Development Kit (ASDK) bereit, bevor Sie Azure App Service 1.5 bereitstellen.
+> Wenden Sie das Update 1904 auf Ihr integriertes Azure Stack-System an, oder stellen Sie das aktuelle Azure Stack Development Kit (ASDK) bereit, bevor Sie Azure App Service 1.6 bereitstellen.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Herunterladen des Installationsprogramms und der Hilfsskripts
 
@@ -196,6 +196,9 @@ Ab sofort ist eine [Schnellstartvorlage für eine Referenzarchitektur](https://g
 >[!IMPORTANT]
 > Wenn Sie App Service in einem vorhandenen virtuellen Netzwerk bereitstellen möchten, muss der Dateiserver in einem anderen Subnetz als App Service bereitgestellt werden.
 
+>[!NOTE]
+> Wenn Sie sich für die Bereitstellung eines Dateiservers mit einer der oben erwähnten Schnellstartvorlagen entschieden haben, können Sie diesen Abschnitt überspringen, da die Dateiserver im Rahmen der Vorlagenbereitstellung konfiguriert werden.
+
 #### <a name="provision-groups-and-accounts-in-active-directory"></a>Bereitstellen von Gruppen und Konten in Active Directory
 
 1. Erstellen Sie die folgenden globalen Active Directory-Sicherheitsgruppen:
@@ -296,6 +299,9 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 ## <a name="prepare-the-sql-server-instance"></a>Vorbereiten der SQL Server-Instanz
 
+>[!NOTE]
+> Wenn Sie sich für die Bereitstellung der Schnellstartvorlage für hochverfügbare Dateiserver und SQL Server entschieden haben, können Sie diesen Abschnitt überspringen, da SQL Server mit der Vorlage in einer Konfiguration für Hochverfügbarkeit bereitgestellt und konfiguriert wird.
+
 Für die Hosting- und Messdatenbanken von Azure App Service in Azure Stack müssen Sie eine SQL Server-Instanz für die App Service-Datenbanken vorbereiten.
 
 Für Azure Stack Development Kit-Bereitstellungen können Sie SQL Server Express 2014 SP2 oder höher verwenden.
@@ -306,7 +312,7 @@ Auf die SQL Server-Instanz für Azure App Service in Azure Stack muss von allen 
 
 > [!NOTE]
 > Einige Images für SQL-IaaS-VMs sind über das Marketplace-Verwaltungsfeature verfügbar. Achten Sie darauf, immer die neueste Version der SQL-IaaS-Erweiterung herunterzuladen, bevor Sie einen virtuellen Computer mit einem Marketplace-Artikel bereitstellen. Die SQL-Images sind mit den in Azure verfügbaren SQL-VMs identisch. Für virtuelle SQL-Computer, die mit diesen Images erstellt werden, stellen die IaaS-Erweiterung und die zugehörigen Portalerweiterungen Features wie das automatische Patchen und Sicherungsfunktionen bereit.
-> 
+>
 > Sie können für alle SQL Server-Rollen eine Standardinstanz oder eine benannte Instanz verwenden. Wenn Sie eine benannte Instanz verwenden, sollten Sie den SQL Server-Browserdienst manuell starten und Port 1434 öffnen.
 
 Das App Service-Installationsprogramm überprüft, ob für die SQL Server-Instanz die Datenbankeigenständigkeit aktiviert ist. Führen Sie die folgenden SQL-Befehle aus, um die Datenbankeigenständigkeit für die SQL Server-Instanz zu aktivieren, die als Host für die App Service-Datenbanken fungiert:

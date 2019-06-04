@@ -3,7 +3,7 @@ title: Bewährte SQL Server-Methoden zum Optimieren der Leistung in Azure Stac
 description: Dieser Artikel enthält bewährte Methoden für SQL Server, um die Leistung zu steigern und SQL-Server in Azure Stack-VMs zu optimieren.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,39 +13,39 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 628e7bcb994c92bd00425b4ba11a45ebd1ff8f54
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: deed8e358c339e5a55cf2928002b9c0e6910f0d4
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712349"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269418"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Bewährte SQL Server-Methoden zum Optimieren der Leistung in Azure Stack
 
-Dieser Artikel enthält bewährte SQL Server-Methoden zur Optimierung von SQL Server und zur Leistungsverbesserung in virtuellen Microsoft Azure Stack-Computern. Verwenden Sie beim Ausführen von SQL Server auf virtuellen Azure Stack-Computern die gleichen Optionen zur Optimierung der Datenbankleistung, die für SQL Server in einer lokalen Serverumgebung gelten. Die Leistung einer relationalen Datenbank in einer Azure Stack-Cloud hängt von vielen Faktoren ab, z. B. der Größe der Familie einer VM und der Konfiguration der Datenträger.
+Dieser Artikel enthält bewährte SQL Server-Methoden zur Optimierung von SQL Server und zur Leistungsverbesserung in virtuellen Microsoft Azure Stack-Computern (VMs). Verwenden Sie beim Ausführen von SQL Server auf Azure Stack-VMs die gleichen Optionen zur Optimierung der Datenbankleistung, die für SQL Server in einer lokalen Serverumgebung gelten. Die Leistung einer relationalen Datenbank in einer Azure Stack-Cloud hängt von vielen Faktoren ab, z. B. der Größe der Familie einer VM und der Konfiguration der Datenträger.
 
-Wenn Sie SQL Server-Images erstellen, [empfiehlt sich die Bereitstellung der virtuellen Computer im Azure Stack-Portal](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Laden Sie im Azure Stack-Administratorportal die SQL-IaaS-Erweiterung unter „Marketplace Management“ (Marketplace-Verwaltung) und Ihre Auswahl an virtuellen Festplatten (VHDs) für virtuelle SQL-Computer herunter. Dazu gehören SQL2014SP2, SQL2016SP1 und SQL2017.
-
-> [!NOTE]  
-> Während im Artikel die Bereitstellung eines virtuellen SQL Server-Computers mit dem globalen Azure-Portal beschrieben wird, gelten die Anweisungen auch für Azure Stack mit folgenden Unterschieden: SSD ist nicht verfügbar für den Betriebssystemdatenträger, verwaltete Datenträger sind nicht verfügbar, und es gibt kleinere Unterschiede bei der Speicherkonfiguration.
-
-Schwerpunkt dieses Artikels ist die *bestmögliche* Leistung für SQL Server auf virtuellen Azure Stack-Computern. Wenn Ihre Workload weniger anspruchsvoll ist, sind möglicherweise nicht alle empfohlenen Optimierungen erforderlich. Berücksichtigen Sie bei der Evaluierung dieser Empfehlungen Ihre Leistungsanforderungen und Workloadmuster.
+Wenn Sie SQL Server-Images erstellen, [empfiehlt sich die Bereitstellung der virtuellen Computer im Azure Stack-Portal](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Laden Sie im Azure Stack-Verwaltungsportal die SQL-IaaS-Erweiterung unter „Marketplace Management“ (Marketplace-Verwaltung) und Ihre Auswahl an virtuellen Festplatten (VHDs) für SQL-VMs herunter. Dazu gehören SQL2014SP2, SQL2016SP1 und SQL2017.
 
 > [!NOTE]  
-> Einen Leitfaden zur Leistung für SQL Server auf virtuellen Azure-Computern finden Sie in [diesem Artikel](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
+> Im Artikel wird zwar die Bereitstellung einer SQL Server-VM mit dem globalen Azure-Portal beschrieben, aber die Anweisungen gelten auch für Azure Stack. Es sollten nur die folgenden Unterschiede beachtet werden: SSD ist nicht für den Betriebssystem-Datenträger verfügbar, verwaltete Datenträger sind nicht verfügbar, und es gibt kleinere Unterschiede bei der Speicherkonfiguration.
+
+Schwerpunkt dieses Artikels ist die *bestmögliche* Leistung für SQL Server auf Azure Stack-VMs. Wenn Ihre Workload weniger anspruchsvoll ist, sind möglicherweise nicht alle empfohlenen Optimierungen erforderlich. Berücksichtigen Sie bei der Evaluierung dieser Empfehlungen Ihre Leistungsanforderungen und Workloadmuster.
+
+> [!NOTE]  
+> Einen Leitfaden zur Leistung für SQL Server auf Azure-VMs finden Sie in [diesem Artikel](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 
 ## <a name="checklist-for-sql-server-best-practices"></a>Checkliste für bewährte SQL Server-Methoden
 
-Hier eine Prüfliste für die optimale Leistung von SQL Server auf virtuellen Azure Stack-Computern:
+Hier ist eine Prüfliste für die optimale Leistung von SQL Server auf Azure Stack-VMs angegeben:
 
 
 |Bereich|Optimierungen|
 |-----|-----|
 |Größe des virtuellen Computers |[DS3](azure-stack-vm-sizes.md) oder höher für SQL Server Enterprise Edition<br><br>[DS2](azure-stack-vm-sizes.md) oder höher für SQL Server Standard Edition und Web Edition|
-|Storage |Verwenden Sie eine Familie virtueller Computer, die [Storage Premium](azure-stack-acs-differences.md) unterstützt.|
+|Storage |Verwenden Sie eine VM-Familie, die [Storage Premium](azure-stack-acs-differences.md) unterstützt.|
 |Datenträger |Verwenden Sie mindestens zwei Datenträger (einen für Protokolldateien und einen für Datendateien und TempDB), und wählen Sie die Größe der Datenträger entsprechend Ihren Kapazitätsanforderungen aus. Legen Sie die standardmäßigen Datendateispeicherorte für diese Datenträger während der Installation von SQL Server fest.<br><br>Vermeiden Sie die Verwendung von Betriebssystem- oder temporären Datenträgern für die Datenbankspeicherung oder Protokollierung.<br>Erstellen Sie unter Verwendung von Speicherplätzen ein Stripeset mehrerer Azure-Datenträger, um einen höheren E/A-Durchsatz zu erzielen.<br><br>Formatieren Sie mit dokumentierten Zuordnungsgrößen.|
 |E/A|Aktivieren Sie die sofortige Dateiinitialisierung für Datendateien.<br><br>Begrenzen Sie die automatische Vergrößerung für die Datenbanken in angemessen kleinen festen Schritten (64 MB bis 256 MB).<br><br>Deaktivieren Sie die automatische Verkleinerung der Datenbank.<br><br>Richten Sie die standardmäßigen Speicherorte für Sicherungsdateien und Datenbankdateien auf Datenträgern und nicht auf dem Betriebssystemdatenträger ein.<br><br>Aktivieren Sie gesperrte Seiten.<br><br>Wenden Sie SQL Server Service Packs und kumulative Updates an.|
 |Featurespezifisch|Führen Sie Sicherungen direkt in Blob Storage durch (sofern dies von der verwendeten SQL Server-Version unterstützt wird).|
@@ -53,9 +53,9 @@ Hier eine Prüfliste für die optimale Leistung von SQL Server auf virtuellen Az
 
 Weitere Informationen dazu, *wie* und *warum* diese Optimierungen vorgenommen werden, finden Sie in den Details und Leitfäden in den folgenden Abschnitten.
 
-## <a name="virtual-machine-size-guidance"></a>Leitfaden zur VM-Größe
+## <a name="vm-size-guidance"></a>Leitfaden für die Größe virtueller Computer
 
-Für leistungsabhängige Anwendungen empfiehlt sich die Verwendung der folgenden [Größen für virtuelle Computer](azure-stack-vm-sizes.md):
+Für leistungsabhängige Anwendungen empfiehlt sich die Verwendung der folgenden [VM-Größen](azure-stack-vm-sizes.md):
 
 - **SQL Server Enterprise Edition**: DS3 oder höher
 
@@ -65,24 +65,24 @@ In Azure Stack besteht bei der Leistung kein Unterschied zwischen den VM-Famili
 
 ## <a name="storage-guidance"></a>Leitfaden für Speicher
 
-Virtuelle Computer der Serie DS (und der Serie DSv2) in Azure Stack bieten den maximalen Durchsatz (IOPS) für Betriebssystemdatenträger und Datenträger für Daten. Ein virtueller Computer der Serie DS oder DSv2 bietet bis zu 1.000 IOPS für den Betriebssystemdatenträger und bis zu 2.300 IOPS pro Datenträger, unabhängig vom Typ oder der Größe des ausgewählten Datenträgers.
+VMs der Serie DS (und der Serie DSv2) in Azure Stack bieten den maximalen Durchsatz (IOPS) für Betriebssystem-Datenträger und Datenträger für Daten. Eine VM der Serie DS oder DSv2 bietet bis zu 1.000 IOPS für den Betriebssystem-Datenträger und bis zu 2.300 IOPS pro Datenträger für Daten – unabhängig vom Typ oder der Größe des ausgewählten Datenträgers.
 
-Der Durchsatz der Datenträger wird ausschließlich basierend auf der Serie der Familie der virtuellen Computer bestimmt. Informationen zum Ermitteln des Durchsatzes der Datenträger pro Serie der Familie der virtuellen Computer [finden Sie in diesem Artikel](azure-stack-vm-sizes.md).
+Der Durchsatz der Datenträger wird ausschließlich anhand der Serie der VM-Familie bestimmt. Informationen zum Ermitteln des Durchsatzes der Datenträger pro Serie der VM-Familie finden Sie in [diesem Artikel](azure-stack-vm-sizes.md).
 
 > [!NOTE]  
-> Wählen Sie für Produktionsworkloads einen virtuellen Computer der Serie DS oder DSv2 aus, um die maximal möglichen IOPS auf dem Betriebssystemdatenträger und den Datenträgern für Daten bereitzustellen.
+> Wählen Sie für Produktionsworkloads eine VM der Serie DS oder DSv2 aus, um die maximal möglichen IOPS auf dem Betriebssystem-Datenträger und den Datenträgern für Daten bereitzustellen.
 
 Wenn Sie ein Speicherkonto in Azure Stack erstellen, hat die Option für die Georeplikation keine Auswirkungen, da diese Funktion in Azure Stack nicht verfügbar ist.
 
 ## <a name="disks-guidance"></a>Leitfaden für Datenträger
 
-Es gibt drei Haupttypen von Datenträgern auf einem virtuellen Azure Stack-Computer:
+Es gibt drei Haupttypen von Datenträgern auf einer Azure Stack-VM:
 
-- **Betriebssystemdatenträger:** Wenn Sie einen virtuellen Azure Stack-Computer erstellen, fügt die Plattform mindestens einen Datenträger (mit der Bezeichnung Laufwerk **C:** ) als Betriebssystem-Datenträger zum virtuellen Computer hinzu. Bei diesem Datenträger handelt es sich um eine VHD, die als Seitenblob gespeichert wird.
+- **Betriebssystemdatenträger:** Wenn Sie eine Azure Stack-VM erstellen, fügt die Plattform der VM mindestens einen Datenträger (mit der Bezeichnung Laufwerk **C:** ) für das Betriebssystem hinzu. Bei diesem Datenträger handelt es sich um eine VHD, die als Seitenblob gespeichert wird.
 
-- **Temporärer Datenträger:** Virtuelle Azure Stack-Computer enthalten einen weiteren Datenträger, der als temporärer Datenträger bezeichnet wird (Laufwerk **D:** ). Dies ist ein Datenträger für temporären Speicherbereich auf dem Knoten.
+- **Temporärer Datenträger:** Azure Stack-VMs enthalten einen weiteren Datenträger, der als temporärer Datenträger bezeichnet wird (Laufwerk **D:** ). Dies ist ein Datenträger für temporären Speicherbereich auf dem Knoten.
 
-- **Datenträger für Daten:** Sie können dem virtuellen Computer weitere Datenträger für Daten hinzufügen. Diese werden als Seitenblobs im Speicher gespeichert.
+- **Datenträger für Daten:** Sie können der VM weitere Datenträger für Daten hinzufügen. Diese werden als Seitenblobs im Speicher gespeichert.
 
 In den folgenden Abschnitten werden Empfehlungen zur Verwendung dieser unterschiedlichen Datenträger erläutert.
 
@@ -98,12 +98,12 @@ Es empfiehlt sich, TempDB auf einem Datenträger für Daten zu speichern, da jed
 
 ### <a name="data-disks"></a>Datenträger
 
-- **Verwenden von Datenträgern für Daten- und Protokolldateien:** Wenn Sie kein Datenträgerstriping verwenden, sollten Sie zwei Datenträger einer VM verwenden, die Storage Premium unterstützt. Dabei enthält ein Datenträger die Protokolldateien und der andere die Daten- und TempDB-Dateien. Jeder Datenträger bietet abhängig von der Familie der virtuellen Computer bestimmte IOPS- und Bandbreitenwerte (MBit/s), wie unter [In Azure Stack unterstützte VM-Größen](azure-stack-vm-sizes.md) beschrieben. Wenn Sie eine Datenträgerstriping-Technik (beispielsweise Speicherplätze) verwenden, speichern Sie alle Daten- und Protokolldateien auf demselben Laufwerk (einschließlich TempDB). Diese Konfiguration ermöglicht die für SQL Server maximal verfügbare Anzahl von IOPS, unabhängig davon, welche Datei diese zu einem bestimmten Zeitpunkt nutzt.
+- **Verwenden von Datenträgern für Daten- und Protokolldateien:** Wenn Sie kein Datenträgerstriping nutzen, sollten Sie zwei Datenträger einer VM verwenden, die Storage Premium unterstützt. Dabei enthält ein Datenträger die Protokolldateien und der andere die Daten- und TempDB-Dateien. Jeder Datenträger bietet abhängig von der VM-Familie bestimmte IOPS- und Bandbreitenwerte (MBit/s), wie unter [In Azure Stack unterstützte VM-Größen](azure-stack-vm-sizes.md) beschrieben. Wenn Sie eine Datenträgerstriping-Technik (beispielsweise Speicherplätze) verwenden, speichern Sie alle Daten- und Protokolldateien auf demselben Laufwerk (einschließlich TempDB). Diese Konfiguration ermöglicht die für SQL Server maximal verfügbare Anzahl von IOPS, unabhängig davon, welche Datei diese zu einem bestimmten Zeitpunkt nutzt.
 
 > [!NOTE]  
-> Beim Bereitstellen eines virtuellen SQL Server-Computers im Portal haben Sie die Möglichkeit, Ihre Speicherkonfiguration zu bearbeiten. Je nach Konfiguration werden in Azure Stack ein oder mehrere Datenträger konfiguriert. Mehrere Datenträger werden in einem einzelnen Speicherpool zusammengefasst. Daten- und Protokolldateien befinden sich in dieser Konfiguration zusammen.
+> Beim Bereitstellen einer SQL Server-VM im Portal haben Sie die Möglichkeit, Ihre Speicherkonfiguration zu bearbeiten. Je nach Konfiguration werden in Azure Stack ein oder mehrere Datenträger konfiguriert. Mehrere Datenträger werden in einem einzelnen Speicherpool zusammengefasst. Daten- und Protokolldateien befinden sich in dieser Konfiguration zusammen.
 
-- **Datenträgerstriping:** Für einen höheren Durchsatz können Sie zusätzliche Datenträger für Daten hinzufügen und Datenträgerstriping verwenden. Um die Anzahl der Datenträger zu ermitteln, müssen Sie die Anzahl der IOPS und die Bandbreite analysieren, die für die Protokolldateien und für Ihre Daten und die TempDB-Dateien erforderlich sind. Beachten Sie, dass IOPS-Limits pro Datenträger basierend auf der Serie der Familie der virtuellen Computer und nicht basierend auf der Größe der virtuellen Computer gelten. Limits für die Netzwerkbandbreite basieren dagegen auf der Größe der virtuellen Computer. Weitere Details finden Sie in den Tabellen unter [In Azure Stack unterstützte VM-Größen](azure-stack-vm-sizes.md). Verwenden Sie die folgenden Richtlinien:
+- **Datenträgerstriping:** Für einen höheren Durchsatz können Sie zusätzliche Datenträger für Daten hinzufügen und Datenträgerstriping verwenden. Um die Anzahl der Datenträger zu ermitteln, müssen Sie die Anzahl der IOPS und die Bandbreite analysieren, die für die Protokolldateien und für Ihre Daten und die TempDB-Dateien erforderlich sind. Beachten Sie, dass IOPS-Grenzwerte pro Datenträger basierend auf der Serie der VM-Familie gelten – nicht basierend auf der VM-Größe. Limits für die Netzwerkbandbreite basieren dagegen auf der VM-Größe. Weitere Details finden Sie in den Tabellen unter [In Azure Stack unterstützte VM-Größen](azure-stack-vm-sizes.md). Verwenden Sie die folgenden Richtlinien:
 
   - Verwenden Sie [Speicherplätze](https://technet.microsoft.com/library/hh831739.aspx) für Windows 2012 und höher entsprechend den folgenden Richtlinien:
 
@@ -147,7 +147,7 @@ Für manche Bereitstellungen können durch Verwendung erweiterter Konfigurations
 
 - **Sicherung in Azure** **Storage:** Wenn Sie Sicherungen für eine auf Azure Stack-VMs ausgeführte SQL Server-Instanz erstellen, können Sie die SQL Server-Sicherung über URLs verwenden. Dieses Feature steht ab SQL Server 2012 SP1 CU2 zur Verfügung und wird für Sicherungen auf die angefügten Datenträgern für Daten empfohlen.
 
-    Befolgen Sie beim Sichern oder Wiederherstellen mithilfe von Azure Storage die Empfehlungen unter [SQL Server-URL-Sicherung – bewährte Methoden und Problembehandlung](https://msdn.microsoft.com/library/jj919149.aspx) und [Wiederherstellen von in Microsoft Azure gespeicherten Sicherungen](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). Darüber hinaus können Sie diese Sicherungen mit [automatisierten Sicherungen für SQL Server auf virtuellen Azure-Computern](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)automatisieren.
+    Befolgen Sie beim Sichern oder Wiederherstellen mithilfe von Azure Storage die Empfehlungen unter [SQL Server-URL-Sicherung – bewährte Methoden und Problembehandlung](https://msdn.microsoft.com/library/jj919149.aspx) und [Wiederherstellen von in Microsoft Azure gespeicherten Sicherungen](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). Darüber hinaus können Sie diese Sicherungen automatisieren, indem Sie die Informationen unter [Automatisierte Sicherung für SQL Server 2014-VMs (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup) verwenden.
 
 -   **Sicherung im Azure Stack-Speicher:** Sie können Sicherungen im Azure Stack-Speicher auf ähnliche Weise durchführen wie Sicherungen in Azure Storage. Wenn Sie eine Sicherung in SQL Server Management Studio (SSMS) erstellen, müssen Sie die Konfigurationsinformationen manuell eingeben. SSMS kann nicht verwendet werden, um den Speichercontainer oder die Shared Access Signature zu erstellen. Mit SSMS kann nur eine Verbindung mit Azure-Abonnements, jedoch nicht mit Azure Stack-Abonnements hergestellt werden. Stattdessen müssen Sie das Speicherkonto, den Container und die Shared Access Signature im Azure Stack-Portal oder über PowerShell erstellen.
 

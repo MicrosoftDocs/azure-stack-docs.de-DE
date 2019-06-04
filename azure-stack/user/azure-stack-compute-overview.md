@@ -1,6 +1,6 @@
 ---
-title: Einführung in virtuelle Azure Stack-Computer
-description: Erfahren Sie mehr über virtuelle Azure Stack-Computer.
+title: Einführung in Azure Stack-VMs | Microsoft-Dokumentation
+description: Enthält Informationen zu Azure Stack-VMs.
 services: azure-stack
 author: sethmanheim
 manager: femila
@@ -10,28 +10,28 @@ ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 33a7522994c23e20dddf587c2374c24e664e3171
-ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
+ms.openlocfilehash: f5086dcae534656cea4ef1addacae3f5acdcb2d6
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65941151"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197381"
 ---
-# <a name="introduction-to-azure-stack-virtual-machines"></a>Einführung in virtuelle Azure Stack-Computer
+# <a name="introduction-to-azure-stack-vms"></a>Einführung in Azure Stack-VMs
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Azure Stack verfügt über virtuelle Computer als Option für bedarfsgesteuerte, skalierbare Computingressourcen. Sie können virtuelle Computer verwenden, wenn Sie mehr Kontrolle über Ihre Computingumgebung benötigen. Lesen Sie vor dem Erstellen Ihres ersten virtuellen Computers die Informationen in diesem Artikel.
+Azure Stack verfügt über virtuelle Computer (VMs) als Option für bedarfsgesteuerte und skalierbare Computingressourcen. Sie können virtuelle Computer verwenden, wenn Sie mehr Kontrolle über Ihre Computingumgebung benötigen. Lesen Sie vor dem Erstellen Ihres ersten virtuellen Computers die Informationen in diesem Artikel.
 
-Ein virtueller Azure Stack-Computer bietet die Flexibilität der Virtualisierung, ohne dass Sie Cluster oder einzelne Computer verwalten müssen. Der virtuelle Computer muss allerdings weiterhin verwaltet werden – beispielsweise durch Konfigurieren, Patchen und Verwalten der darauf ausgeführten Software.
+Ein virtueller Azure Stack-Computer bietet die Flexibilität der Virtualisierung, ohne dass Sie Cluster oder einzelne Computer verwalten müssen. Der virtuelle Computer muss allerdings weiterhin gewartet werden, z. B. durch das Konfigurieren, Patchen und Verwalten der darauf ausgeführten Software.
 
-Virtuelle Azure Stack-Computer können auf unterschiedliche Weise genutzt werden. Beispiel: 
+Sie können Azure Stack-VMs auf mehrere Arten verwenden. Beispiel:
 
 - **Entwickeln und Testen**: Mit virtuellen Azure Stack-Computern können Sie einen Computer mit speziellen Konfigurationen erstellen, die zum Programmieren und Testen einer Anwendung erforderlich sind.
 
 - **Anwendungen in der Cloud**: Da die Nutzung Ihrer Anwendung Schwankungen unterliegen kann, ist es unter Umständen wirtschaftlich sinnvoll, sie auf einem virtuellen Computer in Azure Stack auszuführen. Sie bezahlen für zusätzliche virtuelle Computer, wenn Sie sie benötigen, und fahren sie andernfalls einfach herunter.
 
-- **Erweitertes Datencenter**: Virtuelle Computer in einem virtuellen Azure Stack-Netzwerk lassen sich mit dem Netzwerk Ihrer Organisation oder mit Azure verbinden.
+- **Erweitertes Datencenter**: VMs in einem virtuellen Azure Stack-Netzwerk lassen sich mit dem Netzwerk Ihrer Organisation oder mit Azure verbinden.
 
 Die virtuellen Computer, die von Ihrer Anwendung genutzt werden, können zur Erfüllung Ihrer Anforderungen zentral oder horizontal hochskaliert werden.
 
@@ -48,13 +48,13 @@ Beim Einrichten einer Anwendungsinfrastruktur in Azure Stack müssen immer Desig
 
 ### <a name="naming"></a>Benennung
 
-Einem virtuellen Computer wird ein Name zugewiesen, und es wird im Betriebssystem ein Computername konfiguriert. Der Name eines virtuellen Computers kann bis zu 15 Zeichen lang sein.
+Einer VM wird ein Name zugewiesen, und im Betriebssystem wird dafür ein Computername konfiguriert. Der Name eines virtuellen Computers kann bis zu 15 Zeichen lang sein.
 
-Wenn Sie den Betriebssystem-Datenträger mithilfe von Azure Stack erstellen, sind der Computername und der Name des virtuellen Computers identisch. Wenn Sie ein eigenes Image hochladen und verwenden, das ein vorab konfiguriertes Betriebssystem enthält, und auf dessen Grundlage einen virtuellen Computer erstellen, können die Namen unterschiedlich sein. Beim Hochladen einer eigenen Imagedatei besteht die empfohlene bewährte Methode darin, für den Computernamen im Betriebssystem und für den Namen des virtuellen Computers den gleichen Namen zu verwenden.
+Wenn Sie den Betriebssystem-Datenträger mithilfe von Azure Stack erstellen, sind der Computername und der Name der VM identisch. Falls Sie ein eigenes Image hochladen und verwenden, das ein vorab konfiguriertes Betriebssystem enthält, und auf dessen Grundlage eine VM erstellen, können die Namen unterschiedlich sein. Beim Hochladen einer eigenen Imagedatei besteht die empfohlene bewährte Methode darin, für den Computernamen im Betriebssystem und für den Namen der VM eine identische Zeichenfolge zu verwenden.
 
 ### <a name="vm-size"></a>Größe des virtuellen Computers
 
-Die Größe des virtuellen Computers richtet sich nach der Workload, die Sie ausführen möchten. Von der gewählten Größe hängen Faktoren wie Rechenleistung, Arbeitsspeicher und Speicherplatz ab. Azure Stack verfügt über viele verschiedene Größen zur Unterstützung vieler Verwendungsarten.
+Die Größe des virtuellen Computers richtet sich nach der Workload, die Sie ausführen möchten. Von der gewählten Größe hängen Faktoren wie Rechenleistung, Arbeitsspeicher und Speicherplatz ab. Azure Stack verfügt über unterschiedliche Arten von Größen zur Unterstützung vieler Verwendungsarten.
 
 ### <a name="vm-limits"></a>Grenzwerte für virtuelle Computer
 
@@ -62,7 +62,7 @@ Für Ihr Abonnement gelten standardmäßig bestimmte Kontingentgrenzen, die die 
 
 ### <a name="operating-system-disks-and-images"></a>Betriebssystem-Datenträger und Images
 
-Virtuelle Computer verwenden virtuelle Festplatten (VHDs), um ihr Betriebssystem (OS) und die Daten zu speichern. VHDs werden auch für die Images verwendet, die Sie auswählen können, um ein Betriebssystem zu installieren. Azure Stack bietet einen Marketplace für verschiedene Versionen und Arten von Betriebssystemen. Marketplace-Images werden anhand von Herausgeber, Angebot, SKU und Version (üblicherweise die **aktuelle** Version) identifiziert.
+Betriebssystem (Operating System, OS) und Daten werden bei VMs auf virtuellen Festplatten (Virtual Hard Disks, VHDs) gespeichert. VHDs werden auch für die Images verwendet, die Sie auswählen, um ein Betriebssystem zu installieren. Azure Stack bietet einen Marketplace für verschiedene Versionen und Arten von Betriebssystemen. Marketplace-Images werden anhand von Herausgeber, Angebot, SKU und Version identifiziert (üblicherweise wird die aktuelle Version mit **latest** gekennzeichnet).
 
 In der folgenden Tabelle ist angegeben, wie Sie die Informationen zu einem Image finden:
 
@@ -92,11 +92,11 @@ Die Ressourcen in der folgenden Tabelle werden vom virtuellen Computer verwendet
 |Resource|Erforderlich|BESCHREIBUNG|
 |---------|---------|---------|
 |Ressourcengruppe|Ja|Der virtuelle Computer muss sich in einer Ressourcengruppe befinden.|
-|Speicherkonto|Nein |Bei Verwendung verwalteter Datenträger benötigt die VM das Speicherkonto nicht, um die virtuellen Festplatten zu speichern. <br>Bei Verwendung von nicht verwalteten Datenträgern benötigt der virtuelle Computer das Speicherkonto, um die virtuellen Festplatten zu speichern.|
+|Speicherkonto|Nein|Bei Verwendung verwalteter Datenträger benötigt die VM das Speicherkonto nicht, um die virtuellen Festplatten zu speichern. <br>Bei Verwendung von nicht verwalteten Datenträgern benötigt der virtuelle Computer das Speicherkonto, um die virtuellen Festplatten zu speichern.|
 |Virtuelles Netzwerk|Ja|Der virtuelle Computer muss einem virtuellen Netzwerk angehören.|
-|Öffentliche IP-Adresse|Nein |Für den Remotezugriff kann dem virtuellen Computer eine öffentliche IP-Adresse zugewiesen werden.|
+|Öffentliche IP-Adresse|Nein|Für den Remotezugriff kann dem virtuellen Computer eine öffentliche IP-Adresse zugewiesen werden.|
 |Netzwerkschnittstelle|Ja|Der virtuelle Computer benötigt die Netzwerkschnittstelle für die Kommunikation im Netzwerk.|
-|Datenträger|Nein |Der virtuelle Computer kann Datenträger enthalten, um die Speicherkapazität zu erhöhen.|
+|Datenträger|Nein|Der virtuelle Computer kann Datenträger enthalten, um die Speicherkapazität zu erhöhen.|
 
 ## <a name="create-your-first-vm"></a>Erstellen Ihres ersten virtuellen Computers
 
@@ -104,14 +104,14 @@ Zum Erstellen eines virtuellen Computers stehen Ihnen mehrere Möglichkeiten zur
 
 |Methode|Artikel|
 |---------|---------|
-|Azure Stack-Portal|Erstellen eines virtuellen Windows-Computers im Azure Stack-Portal<br>[Erstellen eines virtuellen Linux-Computers im Azure Stack-Portal](azure-stack-quick-linux-portal.md)|
-|Vorlagen|Azure Stack-Schnellstartvorlagen befinden sich hier:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates)|
-|PowerShell|[Erstellen eines virtuellen Windows-Computers mithilfe von PowerShell in Azure Stack](azure-stack-quick-create-vm-windows-powershell.md)<br>[Erstellen eines virtuellen Linux-Computers mithilfe von PowerShell in Azure Stack](azure-stack-quick-create-vm-linux-powershell.md)|
-|Befehlszeilenschnittstelle (CLI)|[Erstellen eines virtuellen Windows-Computers mithilfe der Befehlszeilenschnittstelle in Azure Stack](azure-stack-quick-create-vm-windows-cli.md)<br>[Erstellen eines virtuellen Linux-Computers mithilfe der Befehlszeilenschnittstelle in Azure Stack](azure-stack-quick-create-vm-linux-cli.md)|
+|Azure Stack-Portal|Erstellen einer Windows-VM mit dem Azure Stack-Portal<br>[Erstellen einer Linux-VM mit dem Azure Stack-Portal](azure-stack-quick-linux-portal.md)|
+|Vorlagen|Azure Stack-Schnellstartvorlagen befinden sich hier:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStarvirtualt-Templates)|
+|PowerShell|[Erstellen einer Windows-VM in Azure Stack mit PowerShell](azure-stack-quick-create-vm-windows-powershell.md)<br>[Erstellen einer Linux-VM in Azure Stack mit PowerShell](azure-stack-quick-create-vm-linux-powershell.md)|
+|Befehlszeilenschnittstelle (CLI)|[Erstellen einer Windows-VM in Azure Stack mit der CLI](azure-stack-quick-create-vm-windows-cli.md)<br>[Erstellen einer Linux-VM in Azure Stack mit der CLI](azure-stack-quick-create-vm-linux-cli.md)|
 
 ## <a name="manage-your-vm"></a>Verwalten Ihres virtuellen Computers
 
-Sie können virtuelle Computer über ein browserbasiertes Portal, über Befehlszeilentools mit Skriptunterstützung oder direkt über APIs verwalten. Zu den typischen Verwaltungsaufgaben zählen unter anderem folgende:
+Sie können virtuelle Computer über ein browserbasiertes Portal, über Befehlszeilentools mit Skriptunterstützung oder direkt über APIs verwalten. Zu den typischen Verwaltungsaufgaben zählen unter anderem:
 
 - Abrufen von Informationen zu einem virtuellen Computer
 - Herstellen einer Verbindung mit einem virtuellen Computer
@@ -134,4 +134,4 @@ Sie können die Schaltfläche **Verbinden** im Azure Stack-Portal verwenden, um 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Überlegungen zu virtuellen Computern in Azure Stack](azure-stack-vm-considerations.md)
+- [Überlegungen zur Verwendung von virtuellen Computern in Azure Stack](azure-stack-vm-considerations.md)

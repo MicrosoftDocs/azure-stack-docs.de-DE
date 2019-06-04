@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 55db30efd648c76938d71bc2067c7c68e6693f88
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 672528f05a4fb3214e9a97e78922eeb12739c44f
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712340"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269540"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Bereitstellen von Kubernetes für die Verwendung von Containern in Azure Stack
 
@@ -33,7 +33,7 @@ Sie können die Schritte in diesem Artikel befolgen, um die Ressourcen für Kube
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes und Container
 
-Sie können Kubernetes mithilfe von Azure Resource Manager-Vorlagen, die von der AKS-Engine (Azure Kubernetes Service) generiert wurden, in Azure Stack installieren. [Kubernetes](https://kubernetes.io) ist ein Open Source-System für die Automatisierung der Bereitstellung, Skalierung und Verwaltung von Anwendungen in Containern. Ein [Container](https://www.docker.com/what-container) befindet sich in einem Image. Das Containerimage ähnelt einer VM. Im Gegensatz zu einem virtuellen Computer enthält der Containe jedoch nur die Ressourcen, die er zum Ausführen einer Anwendung benötigt, etwa den Code, die Runtime zum Ausführen des Codes, bestimmte Bibliotheken und Einstellungen.
+Sie können Kubernetes mithilfe von Azure Resource Manager-Vorlagen, die von der AKS-Engine (Azure Kubernetes Service) generiert wurden, in Azure Stack installieren. [Kubernetes](https://kubernetes.io) ist ein Open Source-System für die Automatisierung der Bereitstellung, Skalierung und Verwaltung von Anwendungen in Containern. Ein [Container](https://www.docker.com/what-container) befindet sich in einem Image. Das Containerimage ähnelt einem virtuellen Computer (VM). Im Gegensatz zu einer VM enthält der Container aber nur die Ressourcen, die er zum Ausführen einer Anwendung benötigt, z. B. den Code, die Runtime zum Ausführen des Codes, bestimmte Bibliotheken und Einstellungen.
 
 Sie können Kubernetes für Folgendes verwenden:
 

@@ -15,12 +15,12 @@ ms.date: 05/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 38a7398b157ad74f7f8849a3fa84b0cee82b80ad
-ms.sourcegitcommit: 95576d0cd780f3a200b2e98b6e9f031f5172f8c0
+ms.openlocfilehash: 9d05a218b9a93b19cdc694c49bde281dab1f91e9
+ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65814929"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66042955"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installieren von PowerShell für Azure Stack
 
@@ -101,9 +101,8 @@ Führen Sie zum Installieren dieser Module auf der Entwicklungsarbeitsstation da
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
     Install-Module -Name AzureRM.BootStrapper
-    
+
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Get-AzureRmProfile -Update
     Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
     Install-Module -Name AzureStack -RequiredVersion 1.7.2
     ```
@@ -119,11 +118,11 @@ Führen Sie zum Installieren dieser Module auf der Entwicklungsarbeitsstation da
 
     > [!Note]  
     > - Die Azure Stack-Modulversion 1.7.1 ist ein Breaking Change-Release. Informationen zum Migrieren von Azure Stack 1.6.0 finden Sie im [Migrationsleitfaden](https://aka.ms/azspshmigration171).
-    > - Die AzureRm-Modulversion 2.4.0 enthält einen Breaking Change für das Cmdlet „Remove-AzureRmStorageAccount“. Von diesem Cmdlet wird die Angabe des Parameters „-Force“ erwartet, um das Speicherkonto ohne Bestätigung zu entfernen.
-    > - Zum Installieren der Module für Azure Stack-Versionen ab 1901 brauchen Sie **AzureRM.Bootstrapper** nicht zu installieren.
+    > - Die AzureRM-Modulversion 2.4.0 enthält einen Breaking Change für das Cmdlet „Remove-AzureRmStorageAccount“. Von diesem Cmdlet wird die Angabe des Parameters „-Force“ erwartet, um das Speicherkonto ohne Bestätigung zu entfernen.
+    > - Zum Installieren der Module für Azure Stack-Versionen ab 1901 brauchen Sie **AzureRM.BootStrapper** nicht zu installieren.
     > - Installieren Sie das 2018-03-01-Hybridprofil nicht zusätzlich zur Verwendung der oben genannten AzureRM-Module für Azure Stack-Versionen ab 1901.
 
-- Für Azure Stack-Version 1811 installieren Sie das Profil mit **AzureRM.Bootstrapper**, zusätzlich zu den in den Cmdlets angegebenen Versionen:
+- Für Azure Stack-Version 1811 installieren Sie das Profil mit **AzureRM.BootStrapper** zusätzlich zu den in den Cmdlets angegebenen Versionen:
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -143,7 +142,7 @@ Um die zusätzlichen Speicherfunktionen (im Abschnitt „Verbunden“ erwähnt) 
 # Install the Azure.Storage module version 4.5.0
 Install-Module -Name Azure.Storage -RequiredVersion 4.5.0 -Force -AllowClobber
 
-# Install the AzureRm.Storage module version 5.0.4
+# Install the AzureRM.Storage module version 5.0.4
 Install-Module -Name AzureRM.Storage -RequiredVersion 5.0.4 -Force -AllowClobber
 
 # Remove incompatible storage module installed by AzureRM.Storage
@@ -240,7 +239,7 @@ Um die zusätzlichen Speicherfunktionen (im Abschnitt „Verbunden“ erwähnt) 
 ```powershell
 $Path = "<Path that is used to save the packages>"
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azure.Storage -Path $Path -Force -RequiredVersion 4.5.0
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM.Storage -Path $Path -Force -RequiredVersion 5.0.4
 ```
 
 ### <a name="add-your-packages-to-your-workstation"></a>Hinzufügen Ihrer Paketen auf Ihrer Arbeitsstation

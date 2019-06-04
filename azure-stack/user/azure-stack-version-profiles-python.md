@@ -3,7 +3,7 @@ title: Verwenden von API-Versionsprofilen mit Python in Azure Stack | Microsoft-
 description: Hier erfahren Sie mehr zur Verwendung von API-Versionsprofilen mit Python in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
@@ -11,16 +11,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: ee5906e825af59e3b67792e8370cc5d26901ff2b
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 98014cfa015f839e1801ffae95d08f3cbd00c986
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782594"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269496"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit Python in Azure Stack
 
@@ -32,8 +32,10 @@ Das Python SDK unterstützt API-Versionsprofile für unterschiedliche Cloudplatt
 
 - **Neueste**  
     Dieses Profil ist auf die aktuellen API-Versionen für alle Dienstanbieter auf der Azure Platform ausgerichtet.
-- **2018-03-01-hybrid**     
+- **2019-03-01-hybrid**  
     Dieses Profil ist auf die aktuellen API-Versionen für alle Ressourcenanbieter auf der Azure Stack-Plattform ausgerichtet.
+- **2018-03-01-hybrid**  
+    Dieses Profil ist auf die kompatibelsten API-Versionen für alle Ressourcenanbieter auf der Azure Stack-Plattform ausgerichtet.
 - **2017-03-09-profile**  
     Dieses Profil ist auf die API-Versionen mit der höchsten Kompatibilität der von Azure Stack unterstützten Ressourcenanbieter ausgerichtet.
 
@@ -117,7 +119,7 @@ Folgende Codebeispiele sind u. a. für Azure Stack mit dem Python SDK verfügbar
 
 - [Manage Resources and Resource Groups](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/) (Verwalten von Ressourcen und Ressourcengruppen)
 - [Manage Storage Account](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/) (Verwalten eines Speicherkontos)
-- [Manage Virtual Machines](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/) (Verwalten von VMs)
+- [Manage Virtual Machines](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/) (Verwalten von VMs) (Beispiel mit „2019-03-01-hybrid“ für die aktuellsten API-Versionen, die von Azure Stack unterstützt werden.)
 
 ## <a name="python-manage-virtual-machine-sample"></a>Python-Beispiel für die Verwaltung von VMs
 
@@ -138,7 +140,7 @@ Mit dem folgenden Codebeispiel können Sie allgemeine Verwaltungsaufgaben für V
 - Auflisten von virtuellen Computern
 - Löschen eines virtuellen Computers
 
-Den Code zum Ausführen dieser Vorgänge finden Sie in der **run_example()**-Funktion im Python-Skript **example.py** im GitHub-Repository [Hybrid-Compute-Python-Manage-VM](https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM).
+Den Code zum Ausführen dieser Vorgänge finden Sie in der **run_example()** -Funktion im Python-Skript **example.py** im GitHub-Repository [Hybrid-Compute-Python-Manage-VM](https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM).
 
 Jeder Vorgang ist deutlich mit einem Kommentar und einer Druckfunktion gekennzeichnet. Die Beispiele befinden sich nicht unbedingt in der Reihenfolge, die in der obigen Liste angezeigt wird.
 

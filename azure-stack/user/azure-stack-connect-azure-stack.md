@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: ee1314c26e0c30e64c3cb43af44d56a66911c1ff
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 8b7a9e58fd4d4d8c3a05fea60c79ff47a519bf8c
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783069"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197365"
 ---
 # <a name="connect-to-azure-stack"></a>Herstellen einer Verbindung mit Azure Stack
 
@@ -41,7 +41,7 @@ Bei einer Remotedesktopverbindung kann ein einzelner gleichzeitiger Benutzer das
 
 ## <a name="connect-to-azure-stack-with-vpn"></a>Herstellen einer Verbindung mit Azure Stack per VPN
 
-Sie können eine VPN-Verbindung vom Typ „Geteilter Tunnel“ mit einem Azure Stack Development Kit herstellen. Über die VPN-Verbindung können Sie auf das Administratorportal, das Benutzerportal und lokal installierte Tools wie z.B. Visual Studio und PowerShell zugreifen, um Azure Stack-Ressourcen zu verwalten. Die VPN-Konnektivität wird sowohl für Bereitstellungen auf AAD-Basis (Azure Active Directory) als auch auf AD FS-Basis (Active Directory-Verbunddienste) unterstützt. Mit VPN-Verbindungen können mehrere Clients gleichzeitig eine Verbindung mit Azure Stack herstellen. 
+Sie können eine VPN-Verbindung vom Typ „Geteilter Tunnel“ mit einem Azure Stack Development Kit herstellen. Über die VPN-Verbindung können Sie auf das Administratorportal, das Benutzerportal und lokal installierte Tools wie Visual Studio und PowerShell zugreifen, um Azure Stack-Ressourcen zu verwalten. Die VPN-Konnektivität wird sowohl für Bereitstellungen auf AAD-Basis (Azure Active Directory) als auch auf AD FS-Basis (Active Directory-Verbunddienste) unterstützt. Mit VPN-Verbindungen können mehrere Clients gleichzeitig eine Verbindung mit Azure Stack herstellen. 
 
 > [!NOTE] 
 > Diese VPN-Verbindung stellt keine Konnektivität mit VMs der Azure Stack-Infrastruktur bereit. 
@@ -84,7 +84,7 @@ Add-AzsVpnConnection `
 
 ```
 
-Wenn die Einrichtung erfolgreich ist, sollte in Ihrer Liste mit den VPN-Verbindungen der Eintrag **azurestack** enthalten sein.
+Wenn die Einrichtung erfolgreich ist, wird in Ihrer Liste mit den VPN-Verbindungen der Eintrag `azurestack` angezeigt.
 
 ![Netzwerkverbindungen](media/azure-stack-connect-azure-stack/image3.png)  
 
@@ -99,13 +99,13 @@ Stellen Sie eine Verbindung mit der Azure Stack-Instanz her, indem Sie eines der
     -Password $Password
   ```
 
-  Stufen Sie den Azure Stack-Host bei entsprechender Aufforderung als vertrauenswürdig ein, und installieren Sie das Zertifikat über **AzureStackCertificateAuthority** im Zertifikatspeicher Ihres lokalen Computers. (Die Aufforderung wird unter Umständen hinter dem Fenster mit der PowerShell-Sitzung angezeigt.) 
+  Stufen Sie den Azure Stack-Host bei entsprechender Aufforderung als vertrauenswürdig ein, und installieren Sie das Zertifikat über **AzureStackCertificateAuthority** im Zertifikatspeicher Ihres lokalen Computers. Die Aufforderung wird unter Umständen hinter dem Fenster mit der PowerShell-Sitzung angezeigt. 
 
-* Öffnen Sie für Ihren lokalen Computer **Netzwerkeinstellungen** > **VPN**, und klicken Sie auf **azurestack** > **connect**. Geben Sie an der Eingabeaufforderung für die Anmeldung den Benutzernamen (AzureStack\AzureStackAdmin) und das Kennwort ein.
+* Navigieren Sie auf Ihrem lokalen Computer zu **Netzwerkeinstellungen** > **VPN**, und wählen Sie `azurestack` > **Verbinden**. Geben Sie an der Eingabeaufforderung für die Anmeldung den Benutzernamen (AzureStack\AzureStackAdmin) und das Kennwort ein.
 
 ### <a name="test-the-vpn-connectivity"></a>Testen der VPN-Konnektivität
 
-Öffnen Sie zum Testen der Portalverbindung einen Internetbrowser, und navigieren Sie zum Benutzerportal (https://portal.local.azurestack.external/). Melden Sie sich an, und erstellen Sie Ressourcen.  
+Öffnen Sie zum Testen der Portalverbindung einen Browser, und navigieren Sie zum Benutzerportal (https://portal.local.azurestack.external/). Melden Sie sich an, und erstellen Sie anschließend Ressourcen.  
 
 ## <a name="next-steps"></a>Nächste Schritte
 

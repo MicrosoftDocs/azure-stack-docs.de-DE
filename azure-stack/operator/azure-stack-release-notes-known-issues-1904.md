@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/15/2019
-ms.openlocfilehash: 52279a7498e253771e16e66e0c5025b9afd4494d
-ms.sourcegitcommit: 442bd62d1dfbc1597592d7285aba1453298261ce
+ms.lastreviewed: 05/28/2019
+ms.openlocfilehash: 9ebbdb19335db4f0c31d68c726f7b8c211d0f2e2
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969839"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268328"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904: Bekannte Probleme
 
@@ -60,6 +60,13 @@ In diesem Artikel werden die bekannten Probleme in Version 1904 von Azure Stack
 - Abhilfe: Verwenden Sie [PowerShell zum Überprüfen der Berechtigungen](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Häufigkeit: Common
 
+
+### <a name="docker-extension"></a>Docker-Erweiterung
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn Sie im Administrator- oder Benutzerportal nach „Docker“ suchen, wird das Element nicht richtig zurückgegeben. Es ist in Azure Stack nicht verfügbar. Wenn Sie versuchen, sie zu erstellen, wird ein Blatt mit einem Fehlerhinweis angezeigt.
+- Abhilfe: Keine Lösung.
+- Häufigkeit: Common
+
 ### <a name="marketplace-management"></a>Marketplace-Verwaltung
 
 - Geltungsbereich: Dies ist ein neues Problem in Version 1904.
@@ -70,16 +77,23 @@ In diesem Artikel werden die bekannten Probleme in Version 1904 von Azure Stack
 ### <a name="marketplace-management"></a>Marketplace-Verwaltung
 
 - Geltungsbereich: Dieses Problem gilt für 1904.
-- Ursache: Wenn Sie im Administratorportal auf der Registerkarte für die Marketplace-Verwaltung Ergebnisse auf dem Blatt **Add from Azure** (Aus Azure hinzufügen) filtern, werden möglicherweise falsche gefilterte Ergebnisse angezeigt. 
-- Abhilfe: Sortieren Sie Ergebnisse nach der Spalte „Name“. Die Ergebnisse werden dann korrigiert. 
+- Ursache: Wenn Sie im Administratorportal auf der Registerkarte für die Marketplace-Verwaltung Ergebnisse auf dem Blatt **Add from Azure** (Aus Azure hinzufügen) filtern, werden möglicherweise falsche gefilterte Ergebnisse angezeigt.
+- Abhilfe: Sortieren Sie Ergebnisse nach der Spalte „Name“. Die Ergebnisse werden dann korrigiert.
 - Häufigkeit: Zeitweilig
 
 ### <a name="marketplace-management"></a>Marketplace-Verwaltung
 
 - Geltungsbereich: Dieses Problem gilt für 1904.
 - Ursache: Wenn Sie im Administratorportal Ergebnisse in der Marketplace-Verwaltung filtern, werden in der Dropdownliste „Herausgeber“ doppelte Herausgebernamen angezeigt. 
-- Abhilfe: Wählen Sie alle doppelten Namen aus, um die korrekte Liste aller Marketplace-Produkte anzuzeigen, die unter dem jeweiligen Herausgeber verfügbar sind. 
+- Abhilfe: Wählen Sie alle doppelten Namen aus, um die korrekte Liste aller Marketplace-Produkte anzuzeigen, die unter dem jeweiligen Herausgeber verfügbar sind.
 - Häufigkeit: Zeitweilig
+
+### <a name="docker-extension"></a>Docker-Erweiterung
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn Sie im Administrator- oder Benutzerportal nach **Docker** suchen, wird das Element nicht richtig zurückgegeben. Es ist in Azure Stack nicht verfügbar. Wenn Sie versuchen, es zu erstellen, wird ein Fehler angezeigt.
+- Abhilfe: Keine Lösung.
+- Häufigkeit: Common
 
 ### <a name="upload-blob"></a>Blob hochladen
 
@@ -156,11 +170,37 @@ Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer a
 ### <a name="compute-host-agent-alert"></a>Warnung zum Computehost-Agent
 
 - Geltungsbereich: Dies ist ein neues Problem in Version 1904.
-- Ursache: Nach dem Neustarten eines Knotens in der Skalierungseinheit wird eine Warnung zum **Computehost-Agent** angezeigt. Durch den Neustart wird die Standardstarteinstellung für den Computehost-Agent-Dienst geändert.
+- Ursache: Nach dem Neustarten eines Knotens in der Skalierungseinheit wird eine Warnung zum **Computehost-Agent** angezeigt. Durch den Neustart wird die Standardstarteinstellung für den Computehost-Agent-Dienst geändert. Diese Warnung sieht in etwa wie im folgenden Beispiel aus:
+
+   ```shell
+   NAME  
+   Compute Host Agent is not responding to calls.
+   SEVERITY  
+   Warning
+   STATE  
+   Active
+   CREATED TIME  
+   5/16/2019, 10:08:23 AM
+   UPDATED TIME  
+   5/22/2019, 12:27:27 PM
+   COMPONENT  
+   M#####-NODE02
+   DESCRIPTION  
+   Could not communicate with the Compute Host Agent running on node: M#####-NODE02
+   REMEDIATION  
+   Please disable Compute Host Agent feature flag and collect logs for further diagnosis.
+   ```
+
 - Abhilfe:
   - Diese Warnung kann ignoriert werden. Wenn der Agent nicht reagiert, hat dies keine Auswirkungen auf Bediener- und Benutzervorgänge oder Benutzeranwendungen. Die Warnung wird nach 24 Stunden erneut angezeigt, wenn sie manuell geschlossen wird.
-  - Der Microsoft-Support kann das Problem durch Ändern der Starteinstellung für den Dienst beheben. Dazu müssen Sie ein Supportticket öffnen. Wenn der Knoten wieder neu gestartet wird, wird eine neue Warnung angezeigt.
+  - Das Problem wurde im letzten [Azure Stack-Hotfix für 1904](https://support.microsoft.com/help/4505688) behoben.
 - Häufigkeit: Common
+
+## <a name="storage"></a>Storage
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) wird in Azure Stack nicht unterstützt und führt zur Erstellung eines Datenträgers mit der ID **$null**. Dies ist der Grund, warum Sie für die VM keine Vorgänge, z. B. das Starten und Beenden, durchführen können. Der Datenträger wird nicht auf der Benutzeroberfläche und auch nicht über die API angezeigt. Die VM kann an diesem Punkt nicht repariert werden, sodass sie gelöscht werden muss.
+- Abhilfe: Befolgen Sie die [Anleitung zum Konvertieren in verwaltete Datenträger](../user/azure-stack-managed-disk-considerations.md#convert-to-managed-disks), um Ihre Datenträger richtig zu konvertieren.
 
 ## <a name="app-service"></a>App Service
 
