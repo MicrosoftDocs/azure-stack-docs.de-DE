@@ -3,7 +3,7 @@ title: Hinzufügen neuer Azure Stack-Mandantenkonten in Azure Active Directory |
 description: Sie müssen nach dem Bereitstellen des Microsoft Azure Stack Development Kits mindestens ein Mandantenbenutzerkonto erstellen, damit Sie das Mandantenportal durchsuchen können.
 services: azure-stack
 documentationcenter: ''
-author: patricka
+author: PatAltimore
 manager: femila
 editor: ''
 ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 05/20/2019
 ms.author: patricka
-ms.reviewer: unknown
+ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 52fb4074a476cb907f02628933b83d82b6ee4984
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 83a927cd0198798b4b1beaf8b84ed0b7ad2a11a0
+ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985758"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66043112"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Hinzufügen neuer Azure Stack-Mandantenkonten in Azure Active Directory
 
@@ -61,10 +61,17 @@ Sie benötigen ein Azure-Abonnement, um das Azure-Portal verwenden zu können.
 Falls Sie kein Azure-Abonnement besitzen, können Sie ein Mandantenbenutzerkonto nicht mithilfe des Azure-Portals hinzufügen. In diesem Fall können Sie stattdessen das Azure Active Directory-Modul für Windows PowerShell verwenden.
 
 > [!NOTE]
-> Wenn Sie ein Microsoft-Konto (Live ID) zum Bereitstellen des Azure Stack Development Kits verwenden, können Sie ein Mandantenkonto nicht mithilfe von AAD PowerShell erstellen. 
+> Wenn Sie ein Microsoft-Konto zum Bereitstellen des Azure Stack Development Kits verwenden, können Sie ein Mandantenkonto nicht mithilfe von Azure AD PowerShell erstellen. 
 
-1. Installieren Sie den [Microsoft Online Services-Anmelde-Assistenten für IT-Experten RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
-2. Installieren Sie das [Azure Active Directory-Modul für Windows PowerShell (64-Bit-Version)](https://go.microsoft.com/fwlink/p/?linkid=236297), und öffnen Sie es.
+1. Installieren Sie die **64-Bit**-Version des [Microsoft Online Services-Anmelde-Assistenten für IT-Experten RTW](https://go.microsoft.com/fwlink/p/?LinkId=286152).
+
+2. Installieren Sie das Microsoft Azure Active Directory-Modul für Windows PowerShell mit diesen Schritten:
+
+    - Öffnen Sie eine Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten (Ausführung von Windows PowerShell als Administrator).
+    - Führen Sie den Befehl **Install-Module MSOnline** aus.
+    - Wählen Sie **Y**, und drücken Sie die **EINGABETASTE**, wenn Sie zum Installieren des NuGet-Anbieters aufgefordert werden.
+    - Wählen Sie **Y**, und drücken Sie die **EINGABETASTE**, wenn Sie zum Installieren des Moduls aus PSGallery aufgefordert werden.
+
 3. Führen Sie die folgenden Cmdlets aus:
 
     ```powershell

@@ -15,22 +15,22 @@ ms.date: 04/04/2019
 ms.author: mabrigg
 ms.lastreviewed: 04/04/2019
 ms.reviewer: justini
-ms.openlocfilehash: c0727ef3f55cba86bbb8c9953007256906852ccb
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 64ccb5ec0b24202aa847d5114ba35ae20af44cc8
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984609"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268027"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Übersicht zum Verwalten von Updates in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme*
 
-Microsoft-Updatepakete für integrierte Azure Stack-Systeme werden in der Regel um den vierten Dienstag jedes Monats herausgegeben. Informieren Sie sich bei Ihrem Originalgerätehersteller (Original Equipment Manufacturer, OEM) nach dem jeweiligen Benachrichtigungsprozess, um sicherzustellen, dass die Updatebenachrichtigungen Ihre Organisation erreichen. Sie können auch in dieser Dokumentationsbibliothek unter **Übersicht** > **Anmerkungen zu dieser Version** überprüfen, ob Informationen zu Releases vorliegen, die aktiv unterstützt werden. 
+Microsoft-Updatepakete für integrierte Azure Stack-Systeme werden in der Regel jeden Monat herausgegeben. Informieren Sie sich bei Ihrem Originalgerätehersteller (Original Equipment Manufacturer, OEM) nach dem jeweiligen Benachrichtigungsprozess, um sicherzustellen, dass die Updatebenachrichtigungen Ihre Organisation erreichen. Sie können auch in dieser Dokumentationsbibliothek unter **Übersicht** > **Anmerkungen zu dieser Version** überprüfen, ob Informationen zu Releases vorliegen, die aktiv unterstützt werden. 
 
-Jedes Release von Microsoft-Softwareupdates ist in einem einzelnen Updatepaket gebündelt. Als Azure Stack-Operator können Sie über das Administratorportal diese Updatepakete importieren, installieren und ihren Installationsstatus überwachen. 
+Jedes Release von Microsoft-Softwareupdates ist in einem einzelnen Updatepaket gebündelt. Als Azure Stack-Betreiber können Sie über das Azure Stack-Verwaltungsportal Updatepakete importieren und installieren und ihren Installationsstatus überwachen.
 
-Ihr OEM-Anbieter veröffentlicht auch Updates, z. B. Treiber- und Firmwareupdates. Diese Updates werden zwar als separate Pakete vom Anbieter bereitgestellt, doch sie werden auf die gleiche Weise importiert, installiert und verwaltet wie Updatepakete von Microsoft.
+Ihr OEM-Anbieter veröffentlicht auch Updates, z. B. Treiber- und Firmwareupdates. Diese Updates werden zwar als separate Pakete vom Anbieter bereitgestellt, aber einige davon werden auf die gleiche Weise wie Updatepakete von Microsoft importiert, installiert und verwaltet.
 
 Um den Support für Ihr System aufrechtzuerhalten, müssen Sie sicherstellen, dass Azure Stack stets bis zu einer bestimmten Version aktualisiert ist. Machen Sie sich unbedingt mit der [Azure Stack servicing policy](azure-stack-servicing-policy.md) (Azure Stack-Wartungsrichtlinie) vertraut.
 
@@ -46,6 +46,8 @@ Bei der Installation der Updates können Sie den allgemeinen Status anzeigen, w�
 ## <a name="plan-for-updates"></a>Planen für Updates
 
 Es wird dringend empfohlen, dass Sie die Benutzer über alle Wartungsvorgänge unterrichten und normale Wartungsfenster möglichst außerhalb der Geschäftszeiten planen. Wartungsvorgänge können sowohl Mandantenworkloads als auch Portalvorgänge beeinträchtigen.
+
+Bei der Planung für Ihr Wartungsfenster ist es wichtig, den spezifischen Typ des von Microsoft herausgegebenen Updatepakets zu prüfen. Hierauf wird auch im entsprechenden Versionshinweis hingewiesen. Neben einem gelegentlichen Hotfix verfügt jedes Updatepaket über einen entsprechenden Typ (**Vollständig** oder **Express**). Mit vollständigen Updatepaketen werden die Betriebssysteme des physischen Hosts in der Skalierungseinheit aktualisiert, und es ist ein längeres Wartungsfenster erforderlich. Express-Updatepakete sind dagegen bereichsbezogen und führen keine Aktualisierung der zugrunde liegenden Betriebssysteme des physischen Hosts durch.
 
 - Bevor Sie mit der Installation dieses Updates beginnen, führen Sie [Test-AzureStack](azure-stack-diagnostic-test.md) mit den folgenden Parametern aus, um den Status von Azure Stack zu überprüfen und alle gefundenen operativen Probleme (einschließlich aller Warnungen und Fehler) zu beheben. Überprüfen Sie auch aktive Warnungen, und lösen Sie solche auf, die eine Aktion erfordern.  
 
