@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: ea316ebdba51ea80fcd02382023ccb46447a8cc0
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 0e1f379b651d022b2c698777a7d8708ff33bf76f
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984829"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469155"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Ersetzen einer Hardwarekomponente auf einem Azure Stack-Skalierungseinheitenknoten
 
@@ -70,7 +70,7 @@ Die folgenden Schritte ermöglichen eine allgemeine Übersicht über den Kompone
 4. Ersetzen Sie die beschädigte Hardwarekomponente. Ob der OEM-Hardwareanbieter den Austausch von Komponenten durchführt, kann auf Basis Ihres Supportvertrags variieren.  
 5. Aktualisieren Sie die Firmware. Befolgen Sie den anbieterspezifischen Aktualisierungsprozess für die Firmware mithilfe des Lebenszyklushosts der Hardware, um sicherzustellen, dass auf die ausgetauschte Hardwarekomponente die genehmigte Firmwareebene angewendet wird. Ob der OEM-Hardwareanbieter diesen Schritt durchführt, kann auf Basis Ihres Supportvertrags variieren.  
 6. Verwenden Sie die Aktion [Reparieren](azure-stack-node-actions.md#scale-unit-node-actions), um den Skalierungseinheitenknoten wieder in die Skalierungseinheit zu versetzen.
-7. Verwenden Sie den privilegierten Endpunkt, um den [Status der Reparatur des virtuellen Datenträgers zu überprüfen](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Bei neuen Datenlaufwerken kann ein vollständiger Speicherreparaturauftrag je nach Systemlast und genutztem Speicherplatz mehrere Stunden dauern.
+7. Verwenden Sie den privilegierten Endpunkt, um den [Status der Reparatur des virtuellen Datenträgers zu überprüfen](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). Bei neuen Datenlaufwerken kann ein vollständiger Speicherreparaturauftrag je nach Systemlast und genutztem Speicherplatz mehrere Stunden dauern.
 8. Überprüfen Sie nach Abschluss der Reparaturaktion, ob alle aktiven Warnungen automatisch geschlossen wurden.
 
 ## <a name="next-steps"></a>Nächste Schritte
