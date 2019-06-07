@@ -419,6 +419,8 @@
       href: /azure-stack/asdk/
 - name: Ressourcen
   items:
+    - name: Training und Zertifizierung
+      href: azure-stack-train-and-cert.md
     - name: Roadmap für Azure Stack
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
     - name: MSDN-Forum für Azure Stack
@@ -429,5 +431,3 @@
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
-    - name: Training und Zertifizierung
-      href: azure-stack-train-and-cert.md
