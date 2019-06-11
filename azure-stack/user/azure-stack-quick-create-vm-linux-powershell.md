@@ -1,6 +1,6 @@
 ---
-title: Erstellen eines virtuellen Linux-Computers in Azure Stack mit PowerShell | Microsoft-Dokumentation
-description: Es wird beschrieben, wie Sie in Azure Stack mit PowerShell einen virtuellen Linux-Computer erstellen.
+title: Erstellen eines virtuellen Linux-Computers mit PowerShell in Azure Stack | Microsoft-Dokumentation
+description: Erstellen Sie mit PowerShell einen virtuellen Linux-Computer in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,41 +15,39 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 4e60b2f2df2aae9cf27bdec41c6492ad3ff04fb3
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 5302ef65ab7132c29361f1a2a489282ce9f216d8
+ms.sourcegitcommit: 2ee75ded704e8cfb900d9ac302d269c54a5dd9a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269587"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66394388"
 ---
-# <a name="quickstart-create-a-linux-server-vm-using-powershell-in-azure-stack"></a>Schnellstart: Erstellen eines virtuellen Linux-Servers in Azure Stack mit PowerShell
+# <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack"></a>Schnellstart: Erstellen eines virtuellen Linux-Servers mit PowerShell in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Sie können einen virtuellen Computer (VM) mit Ubuntu Server 16.04 LTS mithilfe von Azure Stack PowerShell erstellen. Befolgen Sie die Schritte in diesem Artikel zum Erstellen und Verwenden eines virtuellen Computers.  In diesem Artikel führen Sie auch die folgenden Schritte aus:
+Sie können einen virtuellen Computer (VM) mit Ubuntu Server 16.04 LTS mithilfe von Azure Stack PowerShell erstellen. In diesem Artikel erstellen und verwenden Sie einen virtuellen Computer. In diesem Artikel erhalten Sie außerdem Informationen zu den folgenden Schritten:
 
 * Herstellen der Verbindung mit dem virtuellen Computer über einen Remoteclient
-* Installieren des NGINX-Webservers und Anzeigen der Standardstartseite
+* Installieren eines NGINX-Webservers und Anzeigen der Standardstartseite
 * Bereinigen nicht mehr benötigter Ressourcen
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* **Ein Linux-Image im Azure Stack-Marketplace**
+* Ein Linux-Image im Azure Stack-Marketplace Im Azure Stack-Marketplace ist nicht standardmäßig ein Linux-Image enthalten. Bitten Sie den Azure Stack-Bediener, das benötigte Image „Ubuntu Server 16.04 LTS“ bereitzustellen. Hierzu kann der Operator die Anweisungen unter [Herunterladen von Marketplace-Elementen von Azure in Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md) befolgen.
 
-   Ein Linux-Image ist standardmäßig nicht im Azure Stack-Marketplace enthalten. Bitten Sie den Azure Stack-Operator, das benötigte Image **Ubuntu Server 16.04 LTS** bereitzustellen. Hierzu kann der Operator die Schritte des Artikels [Herunterladen von Marketplace-Elementen von Azure in Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md) ausführen.
+* Azure Stack erfordert für die Ressourcenerstellung und -verwaltung eine spezifische Version der Azure CLI. 
+  * Wenn Sie PowerShell nicht für Azure Stack konfiguriert haben, lesen Sie die Informationen unter [Installieren von PowerShell für Azure Stack](../operator/azure-stack-powershell-install.md). 
+  * Bei der Einrichtung von Azure Stack PowerShell stellen Sie eine Verbindung mit Ihrer Azure Stack-Umgebung her. Anweisungen dazu finden Sie unter [Herstellen einer Verbindung mit Azure Stack über PowerShell als Benutzer](azure-stack-powershell-configure-user.md).
 
-* Azure Stack erfordert eine spezifische Version von Azure PowerShell, um die Ressourcen zu erstellen und zu verwalten. Wenn Sie PowerShell nicht für Azure Stack konfiguriert haben, führen Sie die Schritte zum [Installieren](../operator/azure-stack-powershell-install.md) von PowerShell aus.
-
-* Bei der Einrichtung von Azure Stack PowerShell müssen Sie eine Verbindung mit Ihrer Azure Stack-Umgebung herstellen. Anleitungen dazu finden Sie unter [Herstellen einer Verbindung mit Azure Stack über PowerShell als Benutzer](azure-stack-powershell-configure-user.md).
-
-* Ein öffentlicher SSH-Schlüssel mit dem Namen „id_rsa.pub“ im SSH-Verzeichnis Ihres Windows-Benutzerprofils. Ausführliche Informationen zum Erstellen von SSH-Schlüsseln finden Sie unter [Verwenden eines öffentlichen SSH-Schlüssels](azure-stack-dev-start-howto-ssh-public-key.md).
+* Ein öffentlicher SSH-Schlüssel (Secure Shell) mit dem Namen *id_rsa.pub* im SSH-Verzeichnis ( *.ssh*) Ihres Windows-Benutzerprofils. Ausführliche Informationen zum Erstellen von SSH-Schlüsseln finden Sie unter [Verwenden eines öffentlichen SSH-Schlüssels](azure-stack-dev-start-howto-ssh-public-key.md).
 
 ## <a name="create-a-resource-group"></a>Erstellen einer Ressourcengruppe
 
-Eine Ressourcengruppe ist ein logischer Container, in dem Sie Azure Stack-Ressourcen bereitstellen und verwalten können. Führen Sie im Development Kit oder im integrierten Azure Stack-System den folgenden Codeblock aus, um eine Ressourcengruppe zu erstellen. 
+Eine Ressourcengruppe ist ein logischer Container, in dem Sie Azure Stack-Ressourcen bereitstellen und verwalten können. Führen Sie im Azure Stack Development Kit (ASDK) oder im integrierten Azure Stack-System den folgenden Codeblock aus, um eine Ressourcengruppe zu erstellen: 
 
 > [!NOTE]
-> Allen Variablen in den Codebeispielen sind Werte zugewiesen. Sie können bei Bedarf aber auch neue Werte zuweisen.
+> Allen Variablen in den folgenden Codebeispielen wurden Werte zugewiesen. Sie können jedoch Ihre eigenen Werte zuweisen.
 
 ```powershell  
 # Create variables to store the location and resource group names.
@@ -63,7 +61,7 @@ New-AzureRmResourceGroup `
 
 ## <a name="create-storage-resources"></a>Erstellen von Speicherressourcen
 
-Erstellen Sie ein Speicherkonto und dann einen Speichercontainer zum Speichern des Ubuntu Server 16.04 LTS-Images.
+Erstellen Sie ein Speicherkonto und dann einen Speichercontainer für das Ubuntu Server 16.04 LTS-Image.
 
 ```powershell  
 # Create variables to store the storage account name and the storage account SKU information
@@ -154,10 +152,10 @@ $nic = New-AzureRmNetworkInterface `
 
 ## <a name="create-a-vm"></a>Erstellen einer VM
 
-Erstellen Sie eine Konfiguration für den virtuellen Computer. Diese Konfiguration umfasst die Einstellungen, die beim Bereitstellen der VM verwendet werden. Beispiel: Benutzeranmeldeinformationen, Größe und VM-Image.
+Erstellen Sie eine Konfiguration für den virtuellen Computer. Diese Konfiguration beinhaltet die Einstellungen, die beim Bereitstellen des virtuellen Computers verwendet werden sollen (etwa Benutzeranmeldeinformationen, Größe und VM-Image).
 
 ```powershell
-# Define a credential object.
+# Define a credential object
 $UserName='demouser'
 $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ($UserName, $securePassword)
@@ -182,7 +180,7 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Skus "16.04-LTS" `
   -Version "latest"
 
-# Sets the operating system disk properties on a VM.
+# Set the operating system disk properties on a VM
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -CreateOption FromImage | `
@@ -190,23 +188,22 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
   -StorageAccountName $StorageAccountName -Enable |`
   Add-AzureRmVMNetworkInterface -Id $nic.Id
 
-
-# Configure SSH Keys
+# Configure SSH keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 
-# Adds the SSH Key to the VM
+# Add the SSH key to the VM
 Add-AzureRmVMSshPublicKey -VM $VirtualMachine `
  -KeyData $sshPublicKey `
  -Path "/home/azureuser/.ssh/authorized_keys"
 
-# Create the VM.
+# Create the VM
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
  -Location $location `
   -VM $VirtualMachine
 ```
 
-## <a name="quick-create-vm---full-script"></a>VM-Schnellerstellung: Vollständiges Skript
+## <a name="vm-quick-create-full-script"></a>VM-Schnellerfassung: Vollständiges Skript
 
 > [!NOTE]
 > Das Skript besteht im Wesentlichen aus dem zusammengeführten obigen Code. Allerdings enthält es anstelle eines SSH-Schlüssels ein Kennwort für die Authentifizierung.
@@ -215,12 +212,12 @@ New-AzureRmVM `
 ## Create a resource group
 
 <#
-A resource group is a logical container where you can deploy and manage Azure Stack resources. From your development kit or the Azure Stack integrated system, run the following code block to create a resource group. Values are assigned for all the variables in this document, you can use these values or assign new values.
+A resource group is a logical container where you can deploy and manage Azure Stack resources. From your development kit or the Azure Stack integrated system, run the following code block to create a resource group. Though we've assigned values for all the variables in this article, you can use these values or assign new ones.
 #>
 
-# Edit your variables here if required
+# Edit your variables, if required
 
-# Create variables to store the location and resource group names.
+# Create variables to store the location and resource group names
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
 
@@ -228,7 +225,7 @@ $ResourceGroupName = "myResourceGroup"
 $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
 
-# Create variables to store the network security group and rules names.
+# Create variables to store the network security group and rules names
 $nsgName = "myNetworkSecurityGroup"
 $nsgRuleSSHName = "myNetworkSecurityGroupRuleSSH"
 $nsgRuleWebName = "myNetworkSecurityGroupRuleWeb"
@@ -236,16 +233,16 @@ $nsgRuleWebName = "myNetworkSecurityGroupRuleWeb"
 # Create variable for VM password
 $VMPassword = 'Password123!'
 
-# End of Variables - no need to edit anything past that point to deploy a single VM
+# End of variables - no need to edit anything past that point to deploy a single VM
 
-# Create Resource Group
+# Create a resource group
 New-AzureRmResourceGroup `
   -Name $ResourceGroupName `
   -Location $location
 
 ## Create storage resources
 
-# Create a storage account and then create a storage container for the Ubuntu Server 16.04 LTS image.
+# Create a storage account, and then create a storage container for the Ubuntu Server 16.04 LTS image
 
 # Create a new storage account
 $StorageAccount = New-AzureRMStorageAccount `
@@ -267,7 +264,7 @@ $container = New-AzureStorageContainer `
 
 ## Create networking resources
 
-# Create a virtual network, subnet, and a public IP address. These resources are used to provide network connectivity to the VM.
+# Create a virtual network, a subnet, and a public IP address, resources that are used provide network connectivity to the VM
 
 # Create a subnet configuration
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -329,7 +326,7 @@ $nic = New-AzureRmNetworkInterface `
 Create a VM configuration. This configuration includes the settings used when deploying the VM. For example: user credentials, size, and the VM image.
 #>
 
-# Define a credential object.
+# Define a credential object
 $UserName='demouser'
 $securePassword = ConvertTo-SecureString $VMPassword -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ($UserName, $securePassword)
@@ -360,7 +357,7 @@ $osDiskUri = '{0}vhds/{1}-{2}.vhd' -f `
   $vmName.ToLower(), `
   $osDiskName
 
-# Sets the operating system disk properties on a VM.
+# Set the operating system disk properties on a VM
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -Name $osDiskName `
@@ -368,7 +365,7 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
   -CreateOption FromImage | `
   Add-AzureRmVMNetworkInterface -Id $nic.Id
 
-# Create the VM.
+# Create the VM
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
  -Location $location `
@@ -377,13 +374,13 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-vm"></a>Herstellen der Verbindung zur VM
 
-Konfigurieren Sie nach der Bereitstellung der VM eine SSH-Verbindung für die VM. Verwenden Sie den Befehl [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress), um die öffentliche IP-Adresse der VM abzurufen.
+Konfigurieren Sie nach der Bereitstellung des virtuellen Computers eine SSH-Verbindung für ihn. Verwenden Sie den Befehl [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress), um die öffentliche IP-Adresse des virtuellen Computers abzurufen:
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Verwenden Sie auf einem Clientsystem mit SSH-Installation den folgenden Befehl, um die Verbindung mit der VM herzustellen. Wenn Sie unter Windows arbeiten, können Sie [PuTTY](https://www.putty.org/) zum Herstellen der Verbindung verwenden.
+Verwenden Sie auf einem Clientsystem mit SSH-Installation den folgenden Befehl, um die Verbindung mit der VM herzustellen. Unter Windows können Sie [PuTTY](https://www.putty.org/) zum Herstellen der Verbindung verwenden.
 
 ```
 ssh <Public IP Address>
@@ -407,13 +404,13 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Anzeigen der NGINX-Willkommensseite
 
-Nachdem NGINX installiert und Port 80 auf der VM geöffnet wurde, können Sie über die öffentliche IP-Adresse der VM auf den Webserver zugreifen. Öffnen Sie einen Webbrowser, und navigieren Sie zu ```http://<public IP address>```.
+Nachdem der NGINX-Webserver installiert und Port 80 auf dem virtuellen Computer geöffnet wurde, können Sie über die öffentliche IP-Adresse des virtuellen Computers auf den Webserver zugreifen. Öffnen Sie einen Webbrowser, und navigieren Sie zu ```http://<public IP address>```.
 
 ![Willkommensseite des NGINX-Webservers](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Bereinigen Sie die Ressourcen, die Sie nicht mehr benötigen. Sie können den Befehl [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) verwenden, um diese Ressourcen zu entfernen. Um die Ressourcengruppe und alle dazugehörigen Ressourcen zu löschen, führen Sie den folgenden Befehl aus:
+Sie können die nicht mehr benötigten Ressourcen mit dem Befehl [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) bereinigen. Um die Ressourcengruppe und alle dazugehörigen Ressourcen zu löschen, führen Sie den folgenden Befehl aus:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -421,4 +418,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In dieser Schnellstartanleitung haben Sie einen einfachen virtuellen Linux-Server bereitgestellt. Weitere Informationen zu Azure Stack-VMs finden Sie unter [Überlegungen zur Verwendung von virtuellen Computern in Azure Stack](azure-stack-vm-considerations.md).
+In dieser Schnellstartanleitung haben Sie einen einfachen virtuellen Linux-Server bereitgestellt. Weitere Informationen zu virtuellen Azure Stack-Computern finden Sie unter [Features von Azure Stack-VMs](azure-stack-vm-considerations.md).

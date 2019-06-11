@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: b39eaf4365f74e59c6dd60db67fdadf1162cb91d
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 3719019ebdbc6edad17c523a937d77d4f11bb02a
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268140"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469217"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Tutorial: Verfügbarmachen von virtuellen Computern für Ihre Azure Stack-Benutzer
 
@@ -41,7 +41,7 @@ Dienste werden in Azure Stack mithilfe von Abonnements, Angeboten und Plänen f�
 
 ![Abonnements, Angebote und Pläne](media/azure-stack-key-features/image4.png)
 
-Weitere Informationen finden Sie unter [Wichtige Features und Konzepte in Azure Stack](azure-stack-overview.md).
+Weitere Informationen finden Sie unter [Übersicht über Pläne, Angebote, Kontingente und Abonnements](azure-stack-plan-offer-quota-overview.md).
 
 ## <a name="create-an-offer"></a>Erstellen von Angeboten
 
