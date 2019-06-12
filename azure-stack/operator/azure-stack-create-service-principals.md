@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 05/17/2019
 ms.author: patricka
 ms.lastreviewed: 05/17/2019
-ms.openlocfilehash: 57c5547c37fee58b37f8386983d43556ed0fd515
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b08d2b59653b099b0cd0a314347ea2667fa42ca8
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268793"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691299"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Bereitstellen des Anwendungszugriffs auf Azure Stack
 
@@ -45,7 +45,7 @@ Nachdem Sie den Dienstprinzipal erstellt haben, können Sie einige Schritte ausf
 
 ## <a name="manage-service-principal-for-azure-ad"></a>Verwalten des Dienstprinzipals für Azure AD
 
-Wenn Sie Azure Stack mit Azure Active Directory (Azure AD) als Identitätsverwaltungsdienst bereitgestellt haben, können Sie Dienstprinzipale genauso wie für Azure erstellen. In diesem Abschnitt erfahren Sie, wie die Schritte über das Portal ausgeführt werden. Vergewissern Sie sich vor Beginn, dass Sie über die [erforderlichen Azure AD-Berechtigungen]((/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) verfügen.
+Wenn Sie Azure Stack mit Azure Active Directory (Azure AD) als Identitätsverwaltungsdienst bereitgestellt haben, können Sie Dienstprinzipale genauso wie für Azure erstellen. In diesem Abschnitt erfahren Sie, wie die Schritte über das Portal ausgeführt werden. Vergewissern Sie sich vorher, ob Sie über die [erforderlichen Azure AD-Berechtigungen](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) verfügen.
 
 ### <a name="create-service-principal"></a>Erstellen eines Dienstprinzipals
 
@@ -181,7 +181,7 @@ Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter 
 
 2. Nach Abschluss der Automatisierung zeigt es die für die Verwendung des SPN erforderlichen Details an. Es wird empfohlen, die Ausgabe zur späteren Verwendung zu speichern.
 
-   Beispiel: 
+   Beispiel:
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -362,7 +362,7 @@ Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter 
 
 ## <a name="assign-a-role"></a>Zuweisen einer Rolle
 
-Um auf Ressourcen in Ihrem Abonnement zuzugreifen, müssen Sie die Anwendung einer Rolle zuweisen. Entscheiden Sie, welche Rolle die geeigneten Berechtigungen für die Anwendung darstellt. Informationen zu verfügbaren Rollen finden Sie unter [RBAC: Integrierte Rollen]((/azure/role-based-access-control/built-in-roles).
+Um auf Ressourcen in Ihrem Abonnement zuzugreifen, müssen Sie die Anwendung einer Rolle zuweisen. Entscheiden Sie, welche Rolle die geeigneten Berechtigungen für die Anwendung darstellt. Informationen zu verfügbaren Rollen finden Sie unter [RBAC: Integrierte Rollen](/azure/role-based-access-control/built-in-roles).
 
 Sie können den Umfang auf Abonnement-, Ressourcengruppen- oder Ressourcenebene festlegen. Berechtigungen werden von niedrigeren Ebenen mit geringerem Umfang geerbt. Wenn z.B. der Leserolle für eine Ressourcengruppe eine Anwendung hinzugefügt wird, kann diese Rolle die Ressourcengruppe und alle darin enthaltenen Ressourcen lesen.
 

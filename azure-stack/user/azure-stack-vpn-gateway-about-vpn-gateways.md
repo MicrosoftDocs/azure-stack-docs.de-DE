@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 03aea7833e59d3262fc54e71d3d5409b5b95c488
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: a8fe96d645d9277003e17144089a91e0722d0088
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991294"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836836"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Informationen zum VPN-Gateway für Azure Stack
 
@@ -39,7 +39,7 @@ Bevor Sie VPN-Gateways für Azure Stack erstellen und konfigurieren, sollten Si
 >[!NOTE]
 >In Azure muss der Bandbreitendurchsatz für die ausgewählte VPN Gateway-SKU auf alle Verbindungen aufgeteilt werden, die mit dem Gateway hergestellt wurden. In Azure Stack wird der Bandbreitenwert jedoch für die VPN Gateway-SKU auf jede Verbindungsressource angewendet, die mit dem Gateway verbunden ist.
 >
-> Beispiel: 
+> Beispiel:
 >
 > * In Azure bietet die VPN Gateway-SKU „Basic“ eine aggregierte Durchsatzkapazität von etwa 100 Mbit/s. Wenn Sie zwei Verbindungen mit diesem VPN Gateway erstellen und eine dieser Verbindungen eine Bandbreite von 50 Mbit/s beansprucht, stehen für die andere Verbindung noch 50 Mbit/s zur Verfügung.
 > * In Azure Stack wird **jeder Verbindung** mit der VPN-Gateway-SKU „Basic“ ein Durchsatz von 100 Mbit/s zugeordnet.
@@ -102,7 +102,6 @@ Beachten Sie bei der Auswahl der SKU Folgendes:
 * Richtlinienbasierte Gateways werden von Azure Stack nicht unterstützt.
 * Border Gateway Protocol (BGP) wird in der Basic-SKU nicht unterstützt.
 * Die gemeinsame Verwendung von VPN Gateway und ExpressRoute wird in Azure Stack nicht unterstützt.
-* Aktiv-Aktiv-S2S-VPN-Gatewayverbindungen können nur in der SKU „Hochleistung“ konfiguriert werden.
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Voraussichtlicher aggregierter Durchsatz nach SKU
 

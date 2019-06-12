@@ -14,12 +14,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: a039830e01b85ec5e8d9c66a0c815a38d9c694f8
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 8f8d7ee82890788f60266f671bcc4041795c075e
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985729"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691642"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Herstellen einer Verbindung zwischen Azure Stack und Azure mithilfe von Azure ExpressRoute
 
@@ -33,7 +33,7 @@ Sie können diesen Artikel als Tutorial nutzen und mithilfe der Beispiele die gl
 
 Mit Azure ExpressRoute können Sie Ihre lokalen Netzwerke über eine von einem Konnektivitätsanbieter bereitgestellte private Verbindung auf die Microsoft Cloud ausdehnen. Bei ExpressRoute handelt es sich nicht um eine VPN-Verbindung über das öffentliche Internet.
 
-Weitere Informationen zu Azure ExpressRoute finden Sie unter [ExpressRoute-Übersicht]((/azure/expressroute/expressroute-introduction).
+Weitere Informationen zu Azure ExpressRoute finden Sie unter [ExpressRoute-Übersicht](/azure/expressroute/expressroute-introduction).
 
 ### <a name="assumptions"></a>Annahmen
 
@@ -47,7 +47,7 @@ In diesem Artikel wird Folgendes vorausgesetzt:
 
 Für die Verbindungsherstellung zwischen Azure Stack und Azure mithilfe von ExpressRoute gelten die folgenden Anforderungen:
 
-* Eine bereitgestellte [ExpressRoute-Verbindung]((/azure/expressroute/expressroute-circuit-peerings) über einen [Konnektivitätsanbieter]((/azure/expressroute/expressroute-locations).
+* Eine bereitgestellte [ExpressRoute-Verbindung](/azure/expressroute/expressroute-circuit-peerings) über einen [Konnektivitätsanbieter](/azure/expressroute/expressroute-locations).
 * Ein Azure-Abonnement zum Erstellen einer ExpressRoute-Verbindung und von VNets in Azure.
 * Ein Router, der Folgendes unterstützt:
   * Site-to-Site-VPN-Verbindungen zwischen seiner LAN-Schnittstelle und dem mehrinstanzenfähigen Azure Stack-Gateway
@@ -324,22 +324,22 @@ Weitere Informationen zum Erstellen virtueller Netzwerke in Azure finden Sie unt
 
 ### <a name="configure-an-expressroute-circuit"></a>Konfigurieren einer ExpressRoute-Verbindung
 
-1. Überprüfen Sie die ExpressRoute-Voraussetzungen unter [Voraussetzungen und Checkliste für ExpressRoute]((/azure/expressroute/expressroute-prerequisites).
+1. Überprüfen Sie die ExpressRoute-Voraussetzungen unter [Voraussetzungen und Checkliste für ExpressRoute](/azure/expressroute/expressroute-prerequisites).
 
-1. Führen Sie die Schritte unter [Erstellen und Ändern einer ExpressRoute-Verbindung]((/azure/expressroute/expressroute-howto-circuit-portal-resource-manager) aus, um mit Ihrem Azure-Abonnement eine ExpressRoute-Verbindung zu erstellen.
+1. Führen Sie die Schritte unter [Erstellen und Ändern einer ExpressRoute-Verbindung](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager) aus, um mit Ihrem Azure-Abonnement eine ExpressRoute-Verbindung zu erstellen.
 
    >[!NOTE]
    >Geben Sie für Ihren Dienst den Dienstschlüssel für Ihre Verbindung an, damit die ExpressRoute-Verbindung an diesem Ende eingerichtet werden kann.
 
-1. Führen Sie die Schritte unter [Erstellen und Ändern des Peerings für eine ExpressRoute-Verbindung]((/azure/expressroute/expressroute-howto-routing-portal-resource-manager) aus, um das private Peering für die ExpressRoute-Verbindung zu konfigurieren.
+1. Führen Sie die Schritte unter [Erstellen und Ändern des Peerings für eine ExpressRoute-Verbindung](/azure/expressroute/expressroute-howto-routing-portal-resource-manager) aus, um das private Peering für die ExpressRoute-Verbindung zu konfigurieren.
 
 ### <a name="create-the-virtual-network-gateway"></a>Erstellen des Gateways für das lokale Netzwerk
 
-Führen Sie die Schritte unter [Konfigurieren eines Gateways für ein virtuelles Netzwerk für ExpressRoute mit PowerShell]((/azure/expressroute/expressroute-howto-add-gateway-resource-manager) aus, um ein Gateway des virtuellen Netzwerks für ExpressRoute im Hub-VNET zu erstellen.
+Führen Sie die Schritte unter [Konfigurieren eines Gateways für ein virtuelles Netzwerk für ExpressRoute mit PowerShell](/azure/expressroute/expressroute-howto-add-gateway-resource-manager) aus, um ein Gateway des virtuellen Netzwerks für ExpressRoute im Hub-VNET zu erstellen.
 
 ### <a name="create-the-connection"></a>Erstellen der Verbindung
 
-Führen Sie die Schritte unter [Verbinden eines virtuellen Netzwerks mit einer ExpressRoute-Verbindung]((/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager) aus, um die ExpressRoute-Verbindung mit dem Hub-VNET zu verknüpfen.
+Führen Sie die Schritte unter [Verbinden eines virtuellen Netzwerks mit einer ExpressRoute-Verbindung](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager) aus, um die ExpressRoute-Verbindung mit dem Hub-VNET zu verknüpfen.
 
 ### <a name="peer-the-vnets"></a>Verknüpfen der VNETs per Peering
 

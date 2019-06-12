@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 6d930c99890f8cf0be7b2a47199772c58a10b34d
-ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
+ms.openlocfilehash: aac9bb8edce4b15d3d058cdb3b6cc6e23aa58493
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66411482"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66835006"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Konfigurationsaufgaben nach der Installation des ASDK
 
@@ -146,28 +146,6 @@ Die Tests dauern einige Minuten. Wenn die Installation erfolgreich war, sieht di
 ![Test-AzureStack](media/asdk-post-deploy/test-azurestack.png)
 
 Wenn ein Fehler aufgetreten ist, führen Sie die Schritte zur Problembehandlung aus, um Hilfe zu erhalten.
-
-## <a name="reset-the-password-expiration-policy"></a>Zurücksetzen der Kennwortablaufrichtlinie
-
-Führen Sie nach dem Bereitstellen des ASDK die unten angegebenen Schritte aus, um sicherzustellen, dass das Kennwort für den Development Kit-Host nicht vor dem Ende des Evaluierungszeitraums abläuft.
-
-### <a name="to-change-the-password-expiration-policy-from-powershell"></a>So ändern Sie die Kennwortablaufrichtlinie in Powershell
-
-Führen Sie diesen Befehl über eine PowerShell-Konsole mit erhöhten Rechten aus:
-
-```powershell
-Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local
-```
-
-### <a name="to-change-the-password-expiration-policy-manually"></a>So ändern Sie die Kennwortablaufrichtlinie manuell
-
-1. Öffnen Sie auf dem Development Kit-Host die **Gruppenrichtlinien-Verwaltungskonsole** (GPMC.MMC), und navigieren Sie zu **Gruppenrichtlinienverwaltung** - **Gesamtstruktur: azurestack.local** - **Domänen** - **azurestack.local**.
-2. Klicken Sie mit der rechten Maustaste auf **Standarddomänenrichtlinie**, und klicken Sie auf **Bearbeiten**.
-3. Navigieren Sie im Gruppenrichtlinienverwaltungs-Editor zu **Computerkonfiguration** - **Richtlinien** - **Windows-Einstellungen** - **Sicherheitseinstellungen** - **Kontorichtlinien** - **Kennwortrichtlinie**.
-4. Doppelklicken Sie im rechten Bereich auf **Maximales Kennwortalter**.
-5. Ändern Sie im Dialogfeld **Maximales Kennwortalter – Eigenschaften** den Wert **Kennwort läuft ab in** zu **180**, und klicken Sie auf **OK**.
-
-![Gruppenrichtlinien-Verwaltungskonsole](media/asdk-post-deploy/gpmc.png)
 
 ## <a name="enable-multi-tenancy"></a>Aktivieren der Mehrinstanzenfähigkeit
 

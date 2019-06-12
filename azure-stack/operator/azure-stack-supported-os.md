@@ -16,12 +16,12 @@ ms.date: 02/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 69a0a9f84e0c4a5d0cb51eb8d48b3c9ca88b9cfc
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: aca2517a49936296f73c34392ab4c5439909872f
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477344"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748968"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Für Azure Stack unterstützte Gastbetriebssysteme
 
@@ -34,6 +34,7 @@ Azure Stack unterstützt die Windows-Gastbetriebssysteme aus der folgenden Tabel
 | Betriebssystem | BESCHREIBUNG | Im Marketplace verfügbar |
 | --- | --- | --- |
 | Windows Server, Version 1709 | 64 Bit | Core mit Containern |
+| Windows Server 2019 | 64 Bit |  Datacenter, Datacenter Core, Datacenter mit Containern |
 | Windows Server 2016 | 64 Bit |  Datacenter, Datacenter Core, Datacenter mit Containern |
 | Windows Server 2012 R2 | 64 Bit |  Datacenter |
 | Windows Server 2012 | 64 Bit |  Datacenter |
@@ -60,12 +61,13 @@ Die im Marketplace verfügbaren Linux-Distributionen enthalten den erforderliche
 | Distribution | BESCHREIBUNG | Herausgeber | Marketplace |
 | --- | --- | --- | --- |
 | 6.9 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
-| 7.4 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
+| 7.5 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
+| 7.3 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
 | ClearLinux | 64 Bit | ClearLinux.org | Ja |
 | Container Linux |  64 Bit | CoreOS | Stable |
 | Debian 8 „Jessie“ | 64 Bit | credativ |  Ja |
 | Debian 9 „Stretch“ | 64 Bit | credativ | Ja |
-| Red Hat Enterprise Linux 7.1 (und höher) | 64 Bit | Red Hat |Verwendung eigener Images (Bring Your Own Image, BYOI) |
+| Red Hat Enterprise Linux 7.1 (und höher) | 64 Bit | Red Hat | Verwendung eigener Images (Bring Your Own Image, BYOI) |
 | SLES 11SP4 | 64 Bit | SUSE | Ja |
 | SLES 12SP3 | 64 Bit | SUSE | Ja |
 | Ubuntu 14.04-LTS | 64 Bit | Canonical | Ja |
