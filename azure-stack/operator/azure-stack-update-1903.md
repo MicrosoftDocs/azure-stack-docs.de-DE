@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 972b47e5c8787d41d918544f220e082b9ac2d69d
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 7f335a6ad59d6f27c8e402863849d21c87f1cee2
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506288"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748896"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack-Update 1903
 
@@ -167,7 +167,7 @@ Im Folgenden werden bekannte Probleme nach der Installation zu dieser Buildversi
    Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer aktivieren, aber Ihr Startdiagnose-Speicherkonto löschen. Um dieses Problem zu umgehen, erstellen Sie das Speicherkonto erneut mit demselben Namen wie zuvor.
 
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
-- Die Benutzeroberfläche zum Erstellen von Virtual Machine Scale Sets bietet „CentOS 7.2-basiert“ als Option für die Bereitstellung an. Da dieses Image in Azure Stack nicht verfügbar ist, wählen Sie entweder ein anderes Betriebssystem für Ihre Bereitstellung aus, oder verwenden Sie eine Azure Resource Manager-Vorlage mit einem anderen CentOS-Image, das vor der Bereitstellung vom Operator aus dem Marketplace heruntergeladen wurde.
+- Die Benutzeroberfläche zum Erstellen von Virtual Machine Scale Sets bietet „CentOS 7.2-basiert“ als Option für die Bereitstellung an. Da dieses Image im Azure Stack-Marketplace nicht verfügbar ist, wählen Sie entweder ein anderes Betriebssystem für Ihre Bereitstellung aus, oder verwenden Sie eine Azure Resource Manager-Vorlage mit einem anderen CentOS-Image, das vor der Bereitstellung vom Bediener aus dem Marketplace heruntergeladen wurde.
 
 <!-- TBD - IS ASDK -->
 - Nach dem Anwenden des Updates 1903 können beim Bereitstellen von VMs mit Managed Disks die folgenden Probleme auftreten:
