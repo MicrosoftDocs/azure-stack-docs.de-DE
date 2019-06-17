@@ -3,8 +3,8 @@ title: Erstellen von Plänen in Azure Stack | Microsoft-Dokumentation
 description: Erstellen Sie als Cloudadministrator einen Plan, mit dem Abonnenten virtuelle Computer bereitstellen können.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
@@ -12,23 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/07/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 85c6fd58108653ba4876d8aa7802d5674ae1336c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/11/2019
+ms.openlocfilehash: b120346d489f676919cb05863f81db9bfb102634
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311238"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836982"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Erstellen von Plänen in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-[Pläne](azure-stack-overview.md) sind Gruppen mit mindestens einem Dienst und den dazugehörigen Kontingenten. Als Anbieter können Sie Pläne erstellen und Ihren Benutzern anbieten. Benutzer abonnieren daraufhin Ihre Angebote, um die darin enthaltenen Pläne, Dienste und Kontingente zu verwenden. In diesem Beispiel wird veranschaulicht, wie Sie einen Plan erstellen, der die Compute-, Netzwerk- und Speicherressourcenanbieter enthält. Mit diesem Plan erhalten Abonnenten die Möglichkeit, virtuelle Computer bereitzustellen.
+[Azure Stack-Pläne](azure-stack-overview.md) sind Gruppen mit mindestens einem Dienst und den zugehörigen Kontingenten. Als Anbieter können Sie Pläne erstellen und Ihren Benutzern anbieten. Benutzer abonnieren daraufhin Ihre Angebote, um die darin enthaltenen Pläne, Dienste und Kontingente zu verwenden. In diesem Beispiel wird veranschaulicht, wie Sie einen Plan erstellen, der die Compute-, Netzwerk- und Speicherressourcenanbieter enthält. Mit diesem Plan erhalten Abonnenten die Möglichkeit, virtuelle Computer bereitzustellen.
 
 ## <a name="create-a-plan-1902-and-later"></a>Erstellen von Plänen (ab 1902)
 
@@ -48,11 +47,11 @@ ms.locfileid: "64311238"
 
    ![Angeben der Ressourcengruppe](media/azure-stack-create-plan/resource-group.png)
 
-5. Wählen Sie die Registerkarte **Dienste** aus, und aktivieren Sie die Kontrollkästchen für **Microsoft.Compute**, **Microsoft.Network** und **Microsoft.Storage**.
+5. Wählen Sie die Registerkarte **Dienste**, oder klicken Sie auf die Schaltfläche **Weiter: Dienste >** , und aktivieren Sie anschließend jeweils das Kontrollkästchen für **Microsoft.Compute**, **Microsoft.Network** und **Microsoft.Storage**.
   
    ![Auswählen von Diensten](media/azure-stack-create-plan/services.png)
 
-6. Wählen Sie die Registerkarte **Kontingente** aus. Wählen Sie neben **Microsoft.Storage** entweder das Standardkontingent aus dem Dropdownfeld aus, oder wählen Sie **Neu erstellen** aus, um ein angepasstes Kontingent zu erstellen.
+6. Wählen Sie die Registerkarte **Kontingente**, oder klicken Sie auf die Schaltfläche **Weiter: Kontingente >** . Wählen Sie neben **Microsoft.Storage** entweder das Standardkontingent aus dem Dropdownfeld aus, oder wählen Sie **Neu erstellen** aus, um ein angepasstes Kontingent zu erstellen.
   
    ![Kontingente](media/azure-stack-create-plan/quotas.png)
 
@@ -70,13 +69,13 @@ ms.locfileid: "64311238"
 
 10. Wenn Sie so weit sind, wählen Sie **Erstellen** aus, um den Plan zu erstellen.
 
-11. Wählen Sie zum Anzeigen des neuen Plans die Option **Pläne** aus, suchen Sie nach dem Plan, und wählen Sie seinen Namen aus. Wenn Ihre Liste mit den Ressourcen sehr lang ist, können Sie die Option **Suche** verwenden, um anhand des Namens nach Ihrem Plan zu suchen.
+11. Klicken Sie zum Anzeigen des neuen Plans links auf **Alle Dienste**, und wählen Sie **Pläne**. Suchen Sie dann nach dem Plan, und wählen Sie seinen Namen aus. Wenn Ihre Liste mit den Ressourcen sehr lang ist, können Sie die Option **Suche** verwenden, um anhand des Namens nach Ihrem Plan zu suchen.
 
 ## <a name="create-a-plan-1901-and-earlier"></a>Erstellen von Plänen (bis 1901)
 
 1. Melden Sie sich beim [Azure Stack-Administratorportal](https://adminportal.local.azurestack.external) an.
 
-2. Klicken Sie zum Erstellen von Plänen und Angeboten, die Benutzer abonnieren können, auf **+ Ressource erstellen** > **Angebote + Pläne** > **Plan**.
+2. Wählen Sie zum Erstellen von Plänen und Angeboten, die Benutzer abonnieren können, die Optionen **+ Neu**, **Angebote + Pläne** und **Plan**.
   
    ![Auswählen eines Plans](media/azure-stack-create-plan/select-plan1901.png)
 
@@ -92,7 +91,7 @@ ms.locfileid: "64311238"
   
    ![Auswählen von Diensten](media/azure-stack-create-plan/services1901.png)
 
-6. Klicken Sie auf **Kontingente** > **Microsoft.Storage (lokal)**, und wählen Sie entweder das Standardkontingent aus, oder klicken Sie auf **Neues Kontingent erstellen**, um ein angepasstes Kontingent zu erstellen.
+6. Klicken Sie auf **Kontingente** > **Microsoft.Storage (lokal)** , und wählen Sie entweder das Standardkontingent aus, oder klicken Sie auf **Neues Kontingent erstellen**, um ein angepasstes Kontingent zu erstellen.
   
    ![Kontingente](media/azure-stack-create-plan/quotas1901.png)
 
@@ -119,5 +118,3 @@ ms.locfileid: "64311238"
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Erstellen von Angeboten](azure-stack-create-offer.md)
-
-<!-- Update_Description: wording update -->
