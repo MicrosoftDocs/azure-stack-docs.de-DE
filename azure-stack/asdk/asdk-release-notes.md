@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 05/01/2019
-ms.openlocfilehash: 935f144ebbb40da66ac43fc8e9d5dfc7c3e3d0b6
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/30/2019
+ms.openlocfilehash: 8de4447cd30204d0d4e1611afd057a75dc7688da
+ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983596"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428682"
 ---
 # <a name="asdk-release-notes"></a>Versionshinweise zum ASDK
 
@@ -37,6 +37,15 @@ Abonnieren Sie den [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](http
 - Eine Liste der neuen Funktionen in diesem Release finden Sie [in diesem Abschnitt](../operator/azure-stack-release-notes-1904.md#whats-in-this-update) der Anmerkungen zu dieser Version für Azure Stack.
 
 ### <a name="fixed-and-known-issues"></a>Behobene und bekannte Probleme
+
+- Aufgrund einer Zeitüberschreitung für den Dienstprinzipal beim Ausführen des Registrierungsskripts müssen Sie das PowerShell-Skript **RegisterWithAzure.psm1** bearbeiten, damit die [ASDK-Registrierung](asdk-register.md) erfolgreich ist. Gehen Sie wie folgt vor:
+
+  1. Öffnen Sie auf dem ASDK-Hostcomputer die Datei **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** in einem Editor mit erhöhten Rechten.
+  2. Fügen Sie in Zeile 1249 am Ende den Parameter `-TimeoutInSeconds 1800` hinzu. Dies ist erforderlich, weil beim Ausführen des Registrierungsskripts eine Zeitüberschreitung für einen Dienstprinzipal auftritt. Zeile 1249 sollte jetzt wie folgt aussehen:
+
+     ```powershell
+      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
+      ```
 
 - Das [hier](#known-issues) erkannte VPN-Verbindungsproblem in Version 1902 wurde behoben.
 

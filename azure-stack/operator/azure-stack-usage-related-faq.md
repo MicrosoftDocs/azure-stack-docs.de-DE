@@ -11,22 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 52613c394d7a1caeef42a85f1dd4d5b645f5e8e4
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 6a5ef529d2eabf8039be1da6c53da907c0b7aaaf
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267937"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459047"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Häufig gestellte Fragen zur Azure Stack-Nutzungs-API
 
 In diesem Artikel werden einige häufig gestellte Fragen zur Azure Stack-Nutzungs-API beantwortet.
 
 ## <a name="what-meter-ids-can-i-see"></a>Welche Verbrauchseinheits-IDs kann ich sehen?
+
 Der Verbrauch wird für die folgenden Ressourcenanbieter gemeldet:
 
 ### <a name="network"></a>Netzwerk
@@ -76,7 +77,7 @@ Der Verbrauch wird für die folgenden Ressourcenanbieter gemeldet:
 **ID der Verbrauchseinheit**: 1B8C1DEC-EE42-414B-AA36-6229CF199370  
 **Name der Verbrauchseinheit**: TableDataTransOut  
 **Einheit:** Ausgehende Daten in GB  
-**Hinweise**: Ausgang von Tabellenspeicherdienst-Daten in GB  
+**Hinweise**: Ausgehende Tabellenspeicherdienst-Daten in GB
   
 **ID der Verbrauchseinheit**: 43DAF82B-4618-444A-B994-40C23F7CD438  
 **Name der Verbrauchseinheit**: BlobTransactions  
@@ -108,7 +109,7 @@ Der Verbrauch wird für die folgenden Ressourcenanbieter gemeldet:
 **Einheit:** Ausgehende Daten in GB  
 **Hinweise**: Ausgang von Warteschlangendienstdaten in GB  
 
-### <a name="compute"></a>Compute 
+### <a name="compute"></a>Compute
   
 **ID der Verbrauchseinheit**: FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **Name der Verbrauchseinheit**: Base VM Size Hours  
@@ -385,23 +386,25 @@ Der Verbrauch wird für die folgenden Ressourcenanbieter gemeldet:
 **Einheit:** GB  
 **Hinweise**: Gesamtanzahl der eingehenden Anforderungsantwortbytes + Gesamtanzahl der ausgehenden Anforderungsantwortbytes + Gesamtanzahl der eingehenden FTP-Anforderungsantwortbytes + Gesamtanzahl der eingehenden Web Deploy-Anforderungsantwortbytes  
   
-
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Wie unterscheiden sich die Azure Stack-Nutzungs-APIs von der [Azure-Nutzungs-API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (aktuell in der öffentlichen Vorschau)?
+
 * Die Nutzungs-API für Mandanten stimmt in den meisten Punkten mit der Azure-API überein. Der einzige Unterschied besteht darin, dass das Flag *showDetails* aktuell in Azure Stack nicht unterstützt wird.
 * Die Nutzungs-API für Anbieter gibt es nur in Azure Stack.
-* Die [RateCard-API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) ist zwar in Azure verfügbar, aber noch nicht in Azure Stack.
+* Die [RateCard-API](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) ist zwar in Azure verfügbar, aber noch nicht in Azure Stack.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>Was ist der Unterschied zwischen der Nutzungszeit und der gemeldeten Zeit?
+
 Nutzungsdatenberichte haben zwei Hauptzeitwerte:
 
 * **Gemeldete Zeit**. Der Zeitpunkt, zu dem das Nutzungsereignis im Nutzungssystem begonnen hat
 * **Nutzungszeit**. Der Zeitpunkt, an dem die Azure Stack-Ressource verwendet wurde
 
-Möglicherweise besteht für ein spezifisches Nutzungsereignis eine Diskrepanz zwischen der Nutzungszeit und der gemeldeten Zeit. Die Verzögerung kann in jeder Umgebung mehrere Stunden betragen.
+Unter Umständen besteht für ein spezifisches Nutzungsereignis eine Diskrepanz zwischen der Nutzungszeit und der gemeldeten Zeit. Die Verzögerung kann in jeder Umgebung mehrere Stunden betragen.
 
 Aktuell können Sie nur nach *gemeldeter Zeit* abfragen.
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>Fehlercodes der Nutzungs-API und deren Bedeutungen
+
 | **HTTP-Statuscode** | **Fehlercode** | **Beschreibung** |
 | --- | --- | --- |
 | 400/Bad Request |*NoApiVersion* |Der Abfrageparameter der *API-Version* fehlt. |
@@ -417,8 +420,7 @@ Aktuell können Sie nur nach *gemeldeter Zeit* abfragen.
 Aktive und beendete virtuelle Computer generieren Nutzungsdaten. Um die Generierung von Nutzungsdaten zu beenden, ist genau wie bei Azure eine Aufhebung der Zuordnung erforderlich. Sollte das Portal nicht verfügbar sein und der Computeressourcenanbieter weiterhin ausgeführt werden, werden weiter Nutzungsdaten ausgegeben.
 
 ## <a name="next-steps"></a>Nächste Schritte
-[Kundenabrechnung und verbrauchsbasierte Kostenzuteilung in Azure Stack](azure-stack-billing-and-chargeback.md)
 
-[Ressourcennutzungs-API für Anbieter](azure-stack-provider-resource-api.md)
-
-[Ressourcennutzungs-API für Mandanten](azure-stack-tenant-resource-usage-api.md)
+* [Kundenabrechnung und verbrauchsbasierte Kostenzuteilung in Azure Stack](azure-stack-billing-and-chargeback.md)
+* [Ressourcennutzungs-API für Anbieter](azure-stack-provider-resource-api.md)
+* [Ressourcennutzungs-API für Mandanten](azure-stack-tenant-resource-usage-api.md)

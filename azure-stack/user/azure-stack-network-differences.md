@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 05/16/2019
+ms.date: 06/04/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 841e30367ded29e10c28573056f4a70361e28a9e
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: de39645d1414fc852b98036e7071befcf5262cb1
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782569"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469188"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Überlegungen zu Azure Stack-Netzwerken
 
@@ -33,7 +33,7 @@ Dieser Artikel enthält eine Übersicht über die besonderen Überlegungen für 
 | DNS | Mehrinstanzenfähiges DNS | Unterstützt | Noch nicht unterstützt |
 |  | DNS-AAAA-Datensätze | Unterstützt | Nicht unterstützt |
 |  | DNS-Zonen pro Abonnement | 100 (Standard)<br>Kann auf Anforderung erhöht werden | 100 |
-|  | DNS-Datensätze pro Zone | 5000 (Standard)<br>Kann auf Anforderung erhöht werden | 5.000 |
+|  | DNS-Datensätze pro Zone | 5000 (Standard)<br>Kann auf Anforderung erhöht werden | 5\.000 |
 |  | Namenserver für die Zonendelegierung | Azure bietet vier Namenserver für jede erstellte Benutzerzone (Mandantenzone). | Azure Stack bietet zwei Namenserver für jede erstellte Benutzerzone (Mandantenzone). |
 | Virtual Network | Peering in virtuellen Netzwerken | Verbinden von zwei virtuellen Netzwerken in derselben Region über das Azure-Backbonenetzwerk | Noch nicht unterstützt |
 |  | IPv6-Adressen | Sie können eine IPv6-Adresse als Teil der [Netzwerkschnittstellenkonfiguration](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions) zuweisen. | Es wird nur IPv4 unterstützt. |
@@ -68,6 +68,7 @@ Dieser Artikel enthält eine Übersicht über die besonderen Überlegungen für 
 |  | Anwendungssicherheitsgruppen | Unterstützt | Noch nicht unterstützt. |
 |  | Interne DNS-Namensbezeichnung | Unterstützt | Noch nicht unterstützt. |
 |  | Version der privaten IP-Adresse | IPv6 und IPv4 werden unterstützt. | Es wird nur IPv4 unterstützt. |
+|  | Statische MAC-Adresse | Nicht unterstützt | Nicht unterstützt. Für jedes Azure Stack-System wird derselbe MAC-Adresspool verwendet. |
 | Network Watcher | Überwachungsfunktionen für Network Watcher-Mandantennetzwerk | Unterstützt | Noch nicht unterstützt. |
 | CDN | Content Delivery Network-Profile | Unterstützt | Noch nicht unterstützt. |
 | Anwendungsgateway | Lastenausgleich auf Schicht 7 | Unterstützt | Noch nicht unterstützt. |

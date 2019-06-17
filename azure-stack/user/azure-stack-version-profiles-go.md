@@ -14,12 +14,12 @@ ms.date: 05/26/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 6f9136cb92851d10deac3455b054fe3c18cb891e
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 4a7e36fda318c1987a39427c5ef1f5e5e307d1b6
+ms.sourcegitcommit: d04a93e913ff069e17f6d56811681804a6422b58
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269355"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66373015"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit Go in Azure Stack
 
@@ -32,10 +32,10 @@ Ein Profil ist eine Kombination aus verschiedenen Ressourcentypen mit unterschie
 - Stabilität für Ihre Anwendung durch Festlegung auf bestimmte API-Versionen
 - Kompatibilität für Ihre Anwendung mit Azure Stack und regionalen Azure-Datencentern
 
-Im Go SDK sind Profile unter dem Pfad „profiles“ verfügbar. Ihre Version ist im Format **JJJJ-MM-TT** angegeben. Derzeit ist die neueste Profilversion der Azure Stack-API **2018-03-01**. Zum Importieren eines bestimmten Diensts aus einem Profil importieren Sie sein entsprechendes Moduls aus dem Profil. Beispielsweise importieren Sie den Dienst **Compute** aus dem Profil **2018-03-01** mit dem folgenden Code:
+Im Go SDK sind Profile unter dem Pfad „profiles“ verfügbar. Ihre Version ist im Format **JJJJ-MM-TT** angegeben. Derzeit ist die neueste Profilversion der Azure Stack-API **2019-03-01**. Zum Importieren eines bestimmten Diensts aus einem Profil importieren Sie sein entsprechendes Moduls aus dem Profil. Beispielsweise importieren Sie den Dienst **Compute** aus dem Profil **2019-03-01** mit dem folgenden Code:
 
 ```go
-import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/compute/mgmt/compute"
+import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
 ```
 
 ## <a name="install-azure-sdk-for-go"></a>Installieren des Azure SDK für Go
@@ -88,11 +88,11 @@ So führen Sie ein Beispiel für Go-Code in Azure Stack aus
 
 4. Erstellen Sie einen Dienstprinzipal mit dem Bereich **Abonnement** und der Rolle **Besitzer**. Speichern Sie die ID und das Geheimnis des Dienstprinzipals. Informationen zum Erstellen eines Dienstprinzipals für Azure Stack finden Sie unter [Erstellen eines Dienstprinzipals](azure-stack-create-service-principals.md). Ihre Azure Stack-Umgebung ist nun eingerichtet.
 
-5. Importieren Sie ein Dienstmodul aus dem Go SDK-Profil in Ihren Code. Die aktuelle Version des Azure Stack-Profils ist **2018-03-01**. Verwenden Sie zum Importieren eines Netzwerkmoduls aus dem Profiltyp **2018-03-01** den folgenden Code:
+5. Importieren Sie ein Dienstmodul aus dem Go SDK-Profil in Ihren Code. Die aktuelle Version des Azure Stack-Profils ist **2019-03-01**. Verwenden Sie zum Importieren eines Netzwerkmoduls aus dem Profiltyp **2019-03-01** den folgenden Code:
 
    ```go
    package main
-    import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
+    import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
    ```
 
 6. Erstellen und authentifizieren Sie in Ihrer Funktion einen Client mit einem Funktionsaufruf für **neue** Clients. Sie können den folgenden Code zum Erstellen eines Clients für virtuelle Netzwerke verwenden:  
@@ -100,7 +100,7 @@ So führen Sie ein Beispiel für Go-Code in Azure Stack aus
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
 
    func main() {
       vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
@@ -116,7 +116,7 @@ So führen Sie ein Beispiel für Go-Code in Azure Stack aus
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
    func main() {
    vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
    vnetClient .Authorizer = autorest.NewBearerAuthorizer(token)
@@ -193,7 +193,7 @@ Dies ist ein Beispiel für Go-Code zum Erstellen eines virtuellen Netzwerks in A
    import (
        "context"
        "fmt"
-       "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
+       "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
        "github.com/Azure/go-autorest/autorest"
        "github.com/Azure/go-autorest/autorest/adal"
        "github.com/Azure/go-autorest/autorest/to"
@@ -239,7 +239,7 @@ Dies ist ein Beispiel für Go-Code zum Erstellen eines virtuellen Netzwerks in A
    import (
       "context"
       "fmt"
-      "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
+      "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
       "github.com/Azure/go-autorest/autorest"
       "github.com/Azure/go-autorest/autorest/adal"
       "github.com/Azure/go-autorest/autorest/to"
@@ -292,14 +292,17 @@ Dies ist ein Beispiel für Go-Code zum Erstellen eines virtuellen Netzwerks in A
                   },
               },
           })
-      err := future.WaitForCompletion(context.Background(), vnetClient.Client)
+      err := future.WaitForCompletionRef(context.Background(), vnetClient.Client)
       if err != nil {
           fmt.Printf(err.Error())
           return
       }
    }
    ```
-
+Unter anderem sind bei Verwendung des Go SDK folgende Codebeispiele für Azure Stack verfügbar:
+- [Erstellen eines virtuellen Computers](https://github.com/Azure-Samples/Hybrid-Compute-Go-Create-VM)
+- [Speicherdatenebene](https://github.com/Azure-Samples/Hybrid-Storage-Go-Dataplane)
+- [Verwenden von Managed Disks](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks) (Beispiel mit „2019-03-01-hybrid“ für die aktuellsten API-Versionen, die von Azure Stack unterstützt werden)
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Installieren von PowerShell für Azure Stack](../operator/azure-stack-powershell-install.md)

@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: unknown
-ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: 93541cd02c3d4110e008e5f3f7011f53be897475
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 06/03/2019
+ms.openlocfilehash: d50eb52de39c789498928a7b5e2227998872b937
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986235"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66458964"
 ---
 # <a name="add-azure-stack-users-in-ad-fs"></a>Hinzufügen von Azure Stack-Benutzern in AD FS
-Sie können das Snap-In **Active Directory-Benutzer und -Computer** zum Hinzufügen weiterer Benutzer zu einer Azure Stack-Umgebung verwenden und dabei AD FS als Identitätsanbieter nutzen.
+Sie können das Snap-In **Active Directory-Benutzer und -Computer** zum Hinzufügen weiterer Benutzer zu einer Azure Stack-Umgebung verwenden und dabei AD FS als Identitätsanbieter nutzen.
 
 ## <a name="add-windows-server-active-directory-users"></a>Hinzufügen von Windows Server Active Directory-Benutzern
 > [!TIP]

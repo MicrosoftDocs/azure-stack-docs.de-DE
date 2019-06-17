@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 06/04/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 797e49f82938888776b2685ab44add281b730943
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: bfe18e0aa59f81f614ae00057b2c1f287b1257da
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782414"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469287"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Ersetzen eines physischen Datenträgers in Azure Stack
 
@@ -50,10 +50,37 @@ Befolgen Sie die FRU-Anweisungen des OEM-Hardwareanbieters beim tatsächlichen A
 Um die Verwendung eines nicht unterstützten Datenträgers in einem integrierten System zu verhindern, blockiert das System Datenträger, die von Ihrem Anbieter nicht unterstützt werden. Wenn Sie versuchen, einen nicht unterstützten Datenträger zu verwenden, teilt Ihnen eine neue Warnung mit, dass ein Datenträger aufgrund eines nicht unterstützten Modells oder nicht unterstützter Firmware isoliert wurde.
 
 Nachdem Sie den Datenträger ersetzt haben, ermittelt Azure Stack automatisch den neuen Datenträger und startet die Reparatur des virtuellen Datenträgers.
+
+## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-powershell"></a>Überprüfen des Status der Reparatur von virtuellen Datenträgern mit Azure Stack PowerShell
+
+Nachdem Sie den Datenträger ausgetauscht haben, können Sie den Integritätsstatus des virtuellen Datenträgers und den Verlauf des Reparaturauftrags mit Azure Stack PowerShell überwachen.
+
+1. Überprüfen Sie, ob Sie Azure Stack PowerShell installiert haben. Weitere Informationen finden Sie unter [Installieren von PowerShell für Azure Stack](azure-stack-powershell-install.md).
+2. Stellen Sie als Operator eine Verbindung mit Azure Stack über PowerShell her. Weitere Informationen finden Sie unter [Herstellen einer Verbindung mit Azure Stack über PowerShell als Operator](azure-stack-powershell-configure-admin.md).
+3. Führen Sie die folgenden Cmdlets aus, um die Integrität des virtuellen Datenträgers und den Reparaturstatus zu überprüfen:
+    ```powershell  
+    $scaleunit=Get-AzsScaleUnit
+    $StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
+    Get-AzsVolume -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Select-Object VolumeLabel, OperationalStatus, RepairStatus
+    ```
+
+    ![Integrität von Azure Stack-Volumes](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
+
+4. Überprüfen Sie den Status des Azure Stack-Systems. Eine Anleitung finden Sie unter [Überprüfen des Azure Stack-Systemstatus](azure-stack-diagnostic-test.md).
+5. Optional können Sie den folgenden Befehl ausführen, um den Status des ausgetauschten physischen Datenträgers zu überprüfen.
+
+```powershell  
+$scaleunit=Get-AzsScaleUnit
+$StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
+
+Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
+```
+
+![Ausgetauschter physischer Datenträger in Azure Stack](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
+
+## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>Überprüfen des Reparaturstatus für den virtuellen Datenträger über den privilegierten Endpunkt
  
-## <a name="check-the-status-of-virtual-disk-repair"></a>Überprüfen des Status der Reparatur des virtuellen Datenträgers
- 
- Nachdem Sie den Datenträger ersetzt haben, können Sie den Integritätsstatus des virtuellen Datenträgers und den Verlauf des Reparaturauftrags mithilfe des privilegierten Endpunkts überwachen. Führen Sie diese Schritte auf einem beliebigen Computer aus, der über Netzwerkkonnektivität mit dem privilegierten Endpunkt verfügt.
+Nachdem Sie den Datenträger ersetzt haben, können Sie den Integritätsstatus des virtuellen Datenträgers und den Verlauf des Reparaturauftrags mithilfe des privilegierten Endpunkts überwachen. Führen Sie diese Schritte auf einem beliebigen Computer aus, der über Netzwerkkonnektivität mit dem privilegierten Endpunkt verfügt.
 
 1. Öffnen Sie eine Windows PowerShell-Sitzung, und stellen Sie eine Verbindung mit dem privilegierten Endpunkt her.
     ```powershell
@@ -74,7 +101,10 @@ Nachdem Sie den Datenträger ersetzt haben, ermittelt Azure Stack automatisch de
     ```
       ![PowerShell-Ausgabe des Get-StorageJob-Befehls](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
-## <a name="troubleshoot-virtual-disk-repair"></a>Problembehandlung bei der Reparatur des virtuellen Datenträgers
+4. Überprüfen Sie den Status des Azure Stack-Systems. Eine Anleitung finden Sie unter [Überprüfen des Azure Stack-Systemstatus](azure-stack-diagnostic-test.md).
+
+
+## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>Durchführen der Problembehandlung für die Reparatur des virtuellen Datenträgers über den virtuellen Endpunkt
 
 Wenn der Auftrag zur Reparatur des virtuellen Datenträgers hängen bleibt, führen Sie den folgenden Befehl aus, um den Auftrag neu zu starten:
   ```powershell

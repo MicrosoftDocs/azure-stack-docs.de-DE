@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/28/2019
-ms.openlocfilehash: 9ebbdb19335db4f0c31d68c726f7b8c211d0f2e2
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 05/31/2019
+ms.openlocfilehash: 9b92e6e2e059f4b57742248672751111b504136c
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268328"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469134"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904: Bekannte Probleme
 
@@ -43,7 +43,7 @@ In diesem Artikel werden die bekannten Probleme in Version 1904 von Azure Stack
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Die beiden Verwaltungsabonnements, die in Version 1804 eingeführt wurden, sollten nicht verwendet werden. Die Abonnementtypen sind **Messungsabonnement** und **Verbrauchsabonnement**.
-- Abhilfe: Diese Abonnements werden ab Version 1905 gesperrt und später gelöscht. Wenn Sie unter diesen beiden Abonnements Ressourcen ausführen, müssen Sie sie unter Benutzerabonnements mit einer Version vor 1905 neu erstellen.
+- Abhilfe: Diese Abonnements werden ab Version 1906 gesperrt und später gelöscht. Wenn Sie unter diesen beiden Abonnements Ressourcen ausführen, müssen Sie sie unter Benutzerabonnements mit einer Version vor 1906 neu erstellen.
 - Häufigkeit: Common
 
 ### <a name="subscription-resources"></a>Abonnementressourcen
@@ -60,10 +60,10 @@ In diesem Artikel werden die bekannten Probleme in Version 1904 von Azure Stack
 - Abhilfe: Verwenden Sie [PowerShell zum Überprüfen der Berechtigungen](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Häufigkeit: Common
 
-
 ### <a name="docker-extension"></a>Docker-Erweiterung
+
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Wenn Sie im Administrator- oder Benutzerportal nach „Docker“ suchen, wird das Element nicht richtig zurückgegeben. Es ist in Azure Stack nicht verfügbar. Wenn Sie versuchen, sie zu erstellen, wird ein Blatt mit einem Fehlerhinweis angezeigt.
+- Ursache: Wenn Sie im Administrator- oder Benutzerportal nach **Docker** suchen, wird das Element nicht richtig zurückgegeben. Sie ist in Azure Stack nicht verfügbar. Wenn Sie versuchen, es zu erstellen, wird ein Fehler angezeigt.
 - Abhilfe: Keine Lösung.
 - Häufigkeit: Common
 
@@ -91,7 +91,7 @@ In diesem Artikel werden die bekannten Probleme in Version 1904 von Azure Stack
 ### <a name="docker-extension"></a>Docker-Erweiterung
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Wenn Sie im Administrator- oder Benutzerportal nach **Docker** suchen, wird das Element nicht richtig zurückgegeben. Es ist in Azure Stack nicht verfügbar. Wenn Sie versuchen, es zu erstellen, wird ein Fehler angezeigt.
+- Ursache: Wenn Sie im Administrator- oder Benutzerportal nach **Docker** suchen, wird das Element nicht richtig zurückgegeben. Sie ist in Azure Stack nicht verfügbar. Wenn Sie versuchen, es zu erstellen, wird ein Fehler angezeigt.
 - Abhilfe: Keine Lösung.
 - Häufigkeit: Common
 
@@ -149,7 +149,7 @@ Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer a
 #### <a name="centos"></a>CentOS
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Die Benutzeroberfläche zum Erstellen von VM-Skalierungsgruppen bietet „CentOS 7.2-basiert“ als Option für die Bereitstellung an. CentOS 7.2 ist in Azure Stack nicht verfügbar.
+- Ursache: Auf der Benutzeroberfläche zum Erstellen von VM-Skalierungsgruppen wird „CentOS 7.2-basiert“ als Option für die Bereitstellung angeboten. CentOS 7.2 ist in Azure Stack nicht verfügbar.
 - Abhilfe: Wählen Sie entweder ein anderes Betriebssystem für Ihre Bereitstellung aus, oder verwenden Sie eine Azure Resource Manager-Vorlage mit einem anderen CentOS-Image, das vor der Bereitstellung vom Bediener aus dem Marketplace heruntergeladen wurde.
 - Häufigkeit: Common
 
@@ -159,6 +159,12 @@ Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer a
 - Ursache: Sie können eine Skalierungsgruppe nicht über das Blatt **VM-Skalierungsgruppen** entfernen.
 - Abhilfe: Wählen Sie die Skalierungsgruppe aus, die Sie entfernen möchten, und klicken Sie dann im Bereich **Übersicht** auf die Schaltfläche **Löschen**.
 - Häufigkeit: Common
+
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Erstellungsfehler beim Patchen und Aktualisieren in Azure Stack-Umgebungen mit vier Knoten
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Bei der Erstellung von VMs in einer Verfügbarkeitsgruppe mit drei Fehlerdomänen und der Erstellung einer Instanz einer VM-Skalierungsgruppe tritt während des Updatevorgangs in einer Azure Stack-Umgebung mit vier Knoten der Fehler **FabricVmPlacementErrorUnsupportedFaultDomainSize** auf.
+- Abhilfe: Sie können einzelne VMs in einer Verfügbarkeitsgruppe mit zwei Fehlerdomänen erfolgreich durchführen. Die Erstellung der Skalierungsgruppeninstanz ist während des Updatevorgangs in einer Azure Stack-Umgebung mit vier Knoten aber immer noch nicht verfügbar.
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu-SSH-Zugriff
 
@@ -196,6 +202,12 @@ Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer a
   - Das Problem wurde im letzten [Azure Stack-Hotfix für 1904](https://support.microsoft.com/help/4505688) behoben.
 - Häufigkeit: Common
 
+### <a name="virtual-machine-scale-set-instance-view"></a>Ansicht der Instanz einer VM-Skalierungsgruppe
+
+- Geltungsbereich: Dieses Problem betrifft die Versionen 1904 und 1905.
+- Ursache: Das Blatt mit der Instanzansicht einer Skalierungsgruppe im Azure Stack-Portal unter **Dashboard** > **VM-Skalierungsgruppen** > **AnyScaleSet – Instanzen** > **AnyScaleSetInstance** kann nicht geladen werden.
+- Abhilfe: Es gibt derzeit keine Abhilfe, und wir arbeiten an der Behebung des Fehlers. Verwenden Sie bis dahin das CLI-Cmdlet `az vmss get-instance-view`, um die Instanzansicht einer VM-Skalierungsgruppe abzurufen.
+
 ## <a name="storage"></a>Storage
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
@@ -205,7 +217,7 @@ Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer a
 ## <a name="app-service"></a>App Service
 
 - Mandanten müssen den Speicherressourcenanbieter vor dem Erstellen ihrer ersten Azure-Funktion im Abonnement registrieren.
-- Einige Benutzeroberflächen im Mandantenportal sind aufgrund einer Inkompatibilität mit dem Portalframework in 1903 fehlerhaft, z. B. die Benutzeroberfläche für Bereitstellungsslots, Tests in der Produktion und Websiteerweiterungen. Verwenden Sie das [Azure App Service PowerShell-Modul](/azure/app-service/deploy-staging-slots#automate-with-powershell) oder die [Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest), um dieses Problem zu umgehen. Die Portalumgebung wird im bevorstehenden Release von Azure App Service unter Azure Stack 1.6 (Update 6) wiederhergestellt.
+- Einige Benutzeroberflächen im Mandantenportal sind aufgrund einer Inkompatibilität mit dem Portalframework in 1903 fehlerhaft, z. B. die Benutzeroberfläche für Bereitstellungsslots, Tests in der Produktion und Websiteerweiterungen. Verwenden Sie das [Azure App Service PowerShell-Modul](/azure/app-service/deploy-staging-slots#automate-with-powershell) oder die [Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest), um dieses Problem zu umgehen. Die Portalumgebung wird wiederhergestellt, indem für Ihre Bereitstellung von [Azure App Service unter Azure Stack ein Update auf Version 1.6 (Update 6) durchgeführt wird](azure-stack-app-service-release-notes-update-six.md).
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

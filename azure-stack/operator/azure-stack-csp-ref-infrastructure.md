@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: ca474c9addeec3b3b6fcaad8db55bc40a148bb8f
-ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
+ms.openlocfilehash: d6f77483730c9609ad9750da9b11f62de2874ff2
+ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506104"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453441"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Nutzungsberichtsinfrastruktur für Cloud-Dienstanbieter
 
@@ -34,7 +34,7 @@ Es gibt zwischen Azure Stack und Azure einige Unterschiede in der Art, wie Preis
 
 Sie können sich über die in Commerce verwendeten Azure Stack-Zähler und deren Preise auf die gleiche Weise wie im Fall von Azure-Diensten im Partner Center informieren:
 
-1. Wechseln Sie im Partner Center zu **Dashboardmenü** > **Preise und Angebote**.
+1. Navigieren Sie in Partner Center zum **Dashboardmenü**, und wählen Sie dann die Optionen **Verkaufen** und **Preise und Angebote**.
 2. Wählen Sie unter **Nutzungsbasierte Dienste** die Option **Aktuell** aus.
 3. Öffnen Sie das Arbeitsblatt **Azure in globaler CSP-Preisliste** .
 4. Filtern Sie nach **Region = Azure Stack**.

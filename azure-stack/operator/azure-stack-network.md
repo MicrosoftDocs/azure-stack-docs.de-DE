@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/04/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: a839faa7ec5a93a506ad967f3449ee1788f1a21a
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: e9c373ebaa6452c57acad866c66c8b3d5ab0c5ed
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618492"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469175"
 ---
 # <a name="network-connectivity"></a>Netzwerkverbindung
 Dieser Artikel enthält Informationen zur Netzwerkinfrastruktur von Azure Stack, die Sie bei der Entscheidung unterstützen, wie Sie Azure Stack am besten in Ihre bestehende Netzwerkumgebung integrieren können. 
@@ -30,7 +30,7 @@ Dieser Artikel enthält Informationen zur Netzwerkinfrastruktur von Azure Stack,
 > Zum Auflösen von externen DNS-Namen von Azure Stack (beispielsweise „www\.bing.com“) müssen Sie DNS-Server für die Weiterleitung von DNS-Anforderungen bereitstellen. Weitere Informationen zu DNS-Anforderungen für Azure Stack finden Sie unter [Azure Stack-Rechenzentrumsintegration: DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Entwurf des physischen Netzwerks
-Die Azure Stack-Lösung benötigt eine zuverlässige und hoch verfügbare physische Infrastruktur, um ihren Betrieb und ihre Dienste zu unterstützen. Uplinks zwischen TOR-Switches und Borderswitches sind auf SFP+- SFP28-Medien und auf Geschwindigkeiten von 1 Gbit/s, 10 Gbit/s oder 25 Gbit/s beschränkt. Angaben zur Verfügbarkeit erhalten Sie bei Ihrem OEM-Hardwarehersteller (Original Equipment Manufacturer). In der folgenden Abbildung wird unser empfohlener Entwurf dargestellt:
+Die Azure Stack-Lösung benötigt eine zuverlässige und hoch verfügbare physische Infrastruktur, um ihren Betrieb und ihre Dienste zu unterstützen. Uplinks zwischen TOR-Switches und Borderswitches sind auf SFP+- oder SFP28-Medien und auf Geschwindigkeiten von 1 GBit/s, 10 GBit/s oder 25 GBit/s beschränkt. Angaben zur Verfügbarkeit erhalten Sie bei Ihrem OEM-Hardwarehersteller (Original Equipment Manufacturer). In der folgenden Abbildung wird unser empfohlener Entwurf dargestellt:
 
 ![Empfohlener Entwurf des Azure Stack-Netzwerks](media/azure-stack-network/recommended-design.png)
 
@@ -63,7 +63,7 @@ Der HLH hostet auch den virtuellen Bereitstellungscomputer (Deployment VM, DVM).
 Dieses Netzwerk vom Typ „/24“ (254 Host-IP-Adressen) ist für die Azure Stack-Region privat (reicht also nicht über die Grenzswitches der Azure Stack-Region hinaus) und in zwei Subnetze aufgeteilt:
 
 - **Speichernetzwerk**. Ein Netzwerk des Typs „/25“ (126 Host-IP-Adressen), das zur Unterstützung der Verwendung von „Direkte Speicherplätze“ und Server Message Block-Speicherdatenverkehr (SMB) sowie der Livemigration virtueller Computer verwendet wird. 
-- **Internes VIP-Netzwerk (Virtuelle IP-Adresse)**. Ein Netzwerk des Typs „/25“, das ausschließlich internen VIPs für den softwaregestützten Lastenausgleich vorbehalten ist.
+- **Internes VIP-Netzwerk (Virtuelle IP-Adresse)** . Ein Netzwerk des Typs „/25“, das ausschließlich internen VIPs für den softwaregestützten Lastenausgleich vorbehalten ist.
 
 ### <a name="azure-stack-infrastructure-network"></a>Azure Stack-Infrastrukturnetzwerk
 Dieses Netzwerk des Typs „/24“ ist internen Azure Stack-Komponenten zugeordnet, damit diese untereinander kommunizieren und Daten austauschen können. Dieses Subnetz erfordert routingfähige IP-Adressen, bleibt aber durch Verwendung von Zugriffssteuerungslisten (ACLs) für die Lösung privat. Es wird nicht erwartet, dass ein Routing über die Border-Switches erfolgt. Eine Ausnahme bildet ein kleiner Bereich der Größe eines Netzwerks des Typs „/27“, der von einigen dieser Dienste genutzt wird, wenn sie Zugriff auf externe Ressourcen und/oder das Internet benötigen. 
@@ -78,12 +78,28 @@ Dieses Netzwerk des Typs „/26“ ist das Subnetz, das die routingfähigen Punk
 Dieses Netzwerk des Typs „/29“ (6 Host-IP-Adressen) dient zum Verbinden der Verwaltungsports der Switches. Sie erlaubt einen Out-of-band-Zugriff für Bereitstellung, Verwaltung und Problembehandlung. Sie wird anhand des oben erwähnten Switchinfrastrukturnetzwerks berechnet.
 
 ## <a name="publish-azure-stack-services"></a>Veröffentlichen von Azure Stack-Diensten
-Sie müssen Azure Stack-Dienste für Benutzer zur Verfügung stellen, die sich außerhalb von Azure Stack befinden. Azure Stack richtet für die eigenen Infrastrukturrollen verschiedene Endpunkte ein. Diesen Endpunkte werden VIPs aus dem öffentlichen IP-Adressenpool zugewiesen. Für jeden Endpunkt in der externen DNS-Zone, die zum Zeitpunkt der Bereitstellung angegeben wurde, wird ein DNS-Eintrag erstellt. Dem Benutzerportal wird z. B. der DNS-Hosteintrag „portal.*&lt;region>.&lt;fqdn>*“ zugewiesen.
+Sie müssen Azure Stack-Dienste für Benutzer zur Verfügung stellen, die sich außerhalb von Azure Stack befinden. Azure Stack richtet für die eigenen Infrastrukturrollen verschiedene Endpunkte ein. Diesen Endpunkte werden VIPs aus dem öffentlichen IP-Adressenpool zugewiesen. Für jeden Endpunkt in der externen DNS-Zone, die zum Zeitpunkt der Bereitstellung angegeben wurde, wird ein DNS-Eintrag erstellt. Dem Benutzerportal wird z. B. der DNS-Hosteintrag „portal. *&lt;region>.&lt;fqdn>* “ zugewiesen.
 
 ### <a name="ports-and-urls"></a>Ports und URLs
 Damit Sie Azure Stack-Dienste (wie Portale, Azure Resource Manager, DNS, usw.) für externe Netzwerke zur Verfügung stellen können, müssen Sie für diese Endpunkte den eingehenden Datenverkehr für bestimmte URLs, Ports und Protokolle zulassen.
  
 In einer Bereitstellung mit einem Uplink zwischen einem transparenten Proxy und einem herkömmlichen Proxyserver müssen sowohl für die [eingehende](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) als auch die [ausgehende](azure-stack-integrate-endpoints.md#ports-and-urls-outbound) Kommunikation bestimmte Ports und URLs zugelassen werden. Dazu gehören Ports und URLs für Identität, der Marketplace, Patch und Update, Registrierung und Nutzungsdaten.
+
+### <a name="mac-address-pool"></a>MAC-Adresspool
+
+Für Azure Stack wird ein statischer MAC-Adresspool genutzt, um MAC-Adressen automatisch zu generieren und virtuellen Computern zuzuweisen.
+Dieser MAC-Adresspool wird während der Bereitstellung automatisch generiert und umfasst den folgenden Bereich:
+
+- StartMacAddress: 00-1D-D8-B7-00-00
+- EndMacAddress: 00-1D-D8-F4-FF-FF
+
+> [!Note]  
+> Dieser MAC-Adresspool ist für jedes Azure Stack-System gleich und nicht konfigurierbar.
+
+Je nachdem, wie für die virtuellen Netzwerke eine Verbindung mit vorhandenen Unternehmensnetzwerken hergestellt wird, kommt es ggf. zu doppelten MAC-Adressen von virtuellen Computern.
+
+Weitere Informationen zur Nutzung des MAC-Adresspools erhalten Sie über das Cmdlet [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) im PowerShell-Modul für Azure Stack-Administratoren.
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 [Netzwerkkonnektivität über Border-Geräte](azure-stack-border-connectivity.md)

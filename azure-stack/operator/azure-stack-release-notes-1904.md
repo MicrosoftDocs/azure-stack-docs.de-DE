@@ -1,6 +1,6 @@
 ---
 title: Versionshinweise zu Azure Stack 1904 | Microsoft-Dokumentation
-description: Erfahren Sie, welche Neuerungen im Update 1904 für integrierte Azure Stack-Systeme enthalten sind, welche bekannten Probleme es gibt und wo das Update heruntergeladen werden kann.
+description: Erfahren Sie, welche Neuerungen im Update 1904 für integrierte Azure Stack-Systeme enthalten sind, welche bekannten Probleme es gibt und wo das Update und archivierte Azure Stack-Versionshinweise heruntergeladen werden können.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 05/22/2019
-ms.openlocfilehash: 3bb69c9817eaa12f2a6fab0f20bc79f510a3c251
-ms.sourcegitcommit: 9f5157ce6b938d190ef9df5a2df4342266ca5545
+ms.lastreviewed: 05/30/2019
+ms.openlocfilehash: 8d9603184e824bff5efc2536b3c4a89fdd87d685
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66174355"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506352"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack-Update 1904
 
@@ -34,6 +34,10 @@ In diesem Artikel wird der Inhalt des Updatepakets 1904 beschrieben. Das Update
 
 > [!IMPORTANT]  
 > Dieses Updatepaket gilt nur für integrierte Azure Stack-Systeme. Wenden Sie dieses Updatepaket nicht auf das Azure Stack Development Kit an.
+
+## <a name="archived-release-notes"></a>Archivierte Versionshinweise
+
+Sie können [ältere Versionen der Azure Stack-Versionshinweise im TechNet-Katalog](http://aka.ms/azsarchivedrelnotes) anzeigen. Diese archivierten Versionshinweise werden nur zu Referenzzwecken bereitgestellt und bedeuten nicht, dass Support für diese Versionen geleistet wird. Weitere Hilfe erhalten Sie beim Microsoft-Kundensupport (Microsoft Customer Support Services, CSS).
 
 ## <a name="build-reference"></a>Buildreferenz
 
@@ -208,4 +212,4 @@ Für Kunden mit Systemen, die über das Infrastrukturnetzwerk auf das Internet z
 - Informationen zur Anwendung von Updates mit Azure Stack finden Sie unter [Anwenden von Updates in Azure Stack](azure-stack-apply-updates.md).
 - Informationen zur Wartungsrichtlinie für integrierte Azure Stack-Systeme und dazu, wie Sie vorgehen müssen, um den unterstützten Zustand des Systems aufrechtzuerhalten, finden Sie unter [Azure Stack-Wartungsrichtlinie](azure-stack-servicing-policy.md).  
 - Informationen zum Überwachen und Fortsetzen von Updates mithilfe des privilegierten Endpunkts (PEP) finden Sie unter [Überwachen von Änderungen in Azure Stack mithilfe des privilegierten Endpunkts](azure-stack-monitor-update.md).  
-- Nehmen Sie an der Umfrage teil, um uns [Feedback zu den Versionshinweisen](https://forms.microsoft.com) zu geben.
+

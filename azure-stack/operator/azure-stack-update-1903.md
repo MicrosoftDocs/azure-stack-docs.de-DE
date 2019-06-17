@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 5e0b19e753380c519704f9b2064ff56245004896
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 972b47e5c8787d41d918544f220e082b9ac2d69d
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712329"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506288"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack-Update 1903
 
@@ -32,9 +32,17 @@ Dieser Artikel beschreibt den Inhalt des Updatepakets 1903. Das Update enthält
 > [!IMPORTANT]
 > Dieses Updatepaket gilt nur für integrierte Azure Stack-Systeme. Wenden Sie dieses Updatepaket nicht auf das Azure Stack Development Kit an.
 
+## <a name="archived-release-notes"></a>Archivierte Versionshinweise
+
+Sie können [ältere Versionen der Azure Stack-Versionshinweise im TechNet-Katalog](http://aka.ms/azsarchivedrelnotes) anzeigen. Diese archivierten Versionshinweise werden nur zu Referenzzwecken bereitgestellt und bedeuten nicht, dass Support für diese Versionen geleistet wird. Weitere Hilfe erhalten Sie beim Microsoft-Kundensupport (Microsoft Customer Support Services, CSS).
+
 ## <a name="build-reference"></a>Buildreferenz
 
 Die Buildnummer des Azure Stack-Updates 1903 ist **1.1903.0.35**.
+
+### <a name="update-type"></a>Updatetyp
+
+Der Azure Stack 1903-Update-Buildtyp lautet **Express**. Weitere Informationen zu Update-Buildtypen finden Sie im Artikel [Verwalten von Updates in Azure Stack](azure-stack-updates.md). Die zu erwartende Dauer bis zum Abschluss von Update 1903 beträgt ca. 16 Stunden, aber die genauen Zeiten können variieren. Dieser Näherungswert der Laufzeit ist spezifisch für das Update 1903 und sollte nicht auf andere Azure Stack-Updates übertragen werden.
 
 > [!IMPORTANT]
 > Die Nutzlast 1903 umfasst kein ASDK-Release.
@@ -56,8 +64,6 @@ Azure Stack-Hotfixes gelten nur für integrierte Azure Stack-Systeme. Versuchen 
 - **1903**: [KB 4500638 – Azure Stack-Hotfix 1.1903.2.39](https://support.microsoft.com/help/4500638)
 
 ## <a name="improvements"></a>Verbesserungen
-
-- Die Nutzlast von Update 1903 umfasst eine Aktualisierung der Komponenten von Azure Stack, die nicht das zugrunde liegende Betriebssystem zum Hosten von Azure Stack enthalten. So wird ermöglicht, dass bestimmte Updates bereichsbezogen durchgeführt werden können. Das Ergebnis ist, dass die zu erwartende Dauer bis zum Abschluss von Update 1903 reduziert wird (ca. 16 Stunden, aber die genauen Zeiten können variieren). Diese Laufzeitverringerung gilt spezifisch für das Update 1903. Nachfolgende Updates können ggf. Aktualisierungen des Betriebssystems umfassen, sodass sich andere Laufzeiten ergeben. Für zukünftige Updates wird ein ähnlicher Hinweis zur erwarteten Updatedauer bereitgestellt. Dies richtet sich jeweils nach der Nutzlast.
 
 - Es wurde ein Netzwerkfehler behoben, durch den verhindert wurde, dass Änderungen des Werts **Leerlauftimeout (Minuten)** für eine **Öffentliche IP-Adresse** wirksam wurden. Bisher wurden Änderungen dieses Werts ignoriert, damit unabhängig von allen Änderungen, die Sie durchgeführt haben, immer der Standardwert „4 Minuten“ verwendet wurde. Mit dieser Einstellung wird gesteuert, wie viele Minuten eine TCP-Verbindung geöffnet bleiben soll, ohne dass Clients Keep-Alive-Meldungen senden müssen. Beachten Sie hierbei Folgendes: Dieser Fehler hat sich nur auf öffentliche IP-Adressen der Instanzebene und nicht auf öffentliche IP-Adressen ausgewirkt, die einem Lastenausgleich zugewiesen waren.
 
@@ -188,6 +194,8 @@ Im Folgenden werden bekannte Probleme nach der Installation zu dieser Buildversi
 
 - Sie können eine Skalierungsgruppe nicht über das Blatt **VM-Skalierungsgruppen** entfernen. Wählen Sie zur Problemumgehung die Skalierungsgruppe aus, die Sie entfernen möchten, und klicken Sie dann im Bereich **Übersicht** auf die Schaltfläche **Löschen**.
 
+- Bei der Erstellung von VMs in einer Verfügbarkeitsgruppe mit drei Fehlerdomänen und der Erstellung einer Instanz einer VM-Skalierungsgruppe tritt während des Updatevorgangs in einer Azure Stack-Umgebung mit vier Knoten der Fehler **FabricVmPlacementErrorUnsupportedFaultDomainSize** auf. Sie können einzelne VMs in einer Verfügbarkeitsgruppe mit zwei Fehlerdomänen erfolgreich durchführen. Die Erstellung der Skalierungsgruppeninstanz ist während des Updatevorgangs in einer Azure Stack-Umgebung mit vier Knoten aber immer noch nicht verfügbar.
+
 ### <a name="networking"></a>Netzwerk
 
 <!-- 3239127 - IS, ASDK -->
@@ -217,7 +225,7 @@ Im Folgenden werden bekannte Probleme nach der Installation zu dieser Buildversi
 
 <!-- 2352906 - IS ASDK -->
 - Mandanten müssen den Speicherressourcenanbieter vor dem Erstellen ihrer ersten Azure-Funktion im Abonnement registrieren.
-- Einige Benutzeroberflächen im Mandantenportal sind aufgrund einer Inkompatibilität mit dem Portalframework in 1903 fehlerhaft, z. B. die Benutzeroberfläche für Bereitstellungsslots, Tests in der Produktion und Websiteerweiterungen. Verwenden Sie das [Azure App Service PowerShell](/azure/app-service/deploy-staging-slots#automate-with-powershell)-Modul oder die [Azure-Befehlszeilenschnittstelle](/cli/azure/webapp/deployment/slot?view=azure-cli-latest), um dieses Problem zu umgehen. Die Portalumgebung wird im bevorstehenden Release von Azure App Service unter Azure Stack 1.6 (Update 6) wiederhergestellt.
+- Einige Benutzeroberflächen im Mandantenportal sind aufgrund einer Inkompatibilität mit dem Portalframework in 1903 fehlerhaft, z. B. die Benutzeroberfläche für Bereitstellungsslots, Tests in der Produktion und Websiteerweiterungen. Verwenden Sie das [Azure App Service PowerShell-Modul](/azure/app-service/deploy-staging-slots#automate-with-powershell) oder die [Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest), um dieses Problem zu umgehen. Die Portalumgebung wird im bevorstehenden Release von Azure App Service unter Azure Stack 1.6 (Update 6) wiederhergestellt.
 
 <!-- ### Usage -->
 

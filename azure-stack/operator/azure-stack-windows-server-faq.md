@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 3f177ea0c261771b67e6434215df67211452b767
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ffb58392075521b81d9b0cd71928ac0db680991f
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307248"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459074"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Häufig gestellte Fragen zum Azure Stack-Marketplace für Windows Server
 
@@ -32,7 +32,7 @@ In diesem Artikel werden einige häufig gestellte Fragen zu Windows Server-Image
 
 Finden Sie zunächst heraus, ob Azure Resource Manager-Vorlagen auf bestimmte Versionen verweisen. Wenn dies der Fall ist, aktualisieren Sie diese Vorlagen, oder behalten Sie die älteren Imageversionen bei. Empfohlen wird, die **Version mit der Bezeichnung „latest“** zu verwenden.
 
-Falls Virtual Machine Scale Sets auf eine bestimmte Version verweist, sollten Sie dann überlegen, ob diese später skaliert werden, und entscheiden, ob Sie ältere Versionen beibehalten möchten. Wenn keine dieser Bedingungen zutrifft, löschen Sie vor dem Herunterladen der neueren Images die älteren Images im Marketplace. Verwenden Sie hierfür Marketplace Management, falls das ursprüngliche Image auf diese Weise heruntergeladen wurde. Laden Sie dann die neuere Version herunter.
+Falls VM-Skalierungsgruppen auf eine bestimmte Version verweisen, sollten Sie dann überlegen, ob diese später skaliert werden, und entscheiden, ob Sie ältere Versionen beibehalten möchten. Löschen Sie vor dem Herunterladen der neueren Images die älteren Images im Marketplace, wenn keine dieser Bedingungen zutrifft. Verwenden Sie zum Löschen die Marketplace-Verwaltung, falls das ursprüngliche Image auf diese Weise heruntergeladen wurde. Laden Sie dann die neuere Version herunter.
 
 ### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Welche Lizenzierungsoptionen sind für Windows Server-Marketplace-Images in Azure Stack verfügbar?
 
@@ -40,14 +40,14 @@ Microsoft bietet zwei Versionen von Windows Server-Images über den Azure Stack-
 
 - **Nutzungsbasierte Bezahlung**: Diese Images führen die Windows-Verbrauchseinheiten zum vollen Preis aus.
    Zielgruppe: Enterprise Agreement-Kunden (EA), die das *Nutzungsabrechnungsmodell* verwenden, sowie CSPs, die nicht die SPLA-Lizenzierung verwenden möchten.
-- **BYOL (Bring-Your-Own-License, Verwendung Ihrer eigenen Lizenz)**: Diese Images führen grundlegende Verbrauchseinheiten aus.
+- **BYOL (Bring-Your-Own-License, Verwendung Ihrer eigenen Lizenz)** : Diese Images führen grundlegende Verbrauchseinheiten aus.
    Zielgruppe: EA-Kunden mit einer Windows Server-Lizenz, und CSPs, die die SPLA-Lizenzierung verwenden.
 
 Der Azure-Hybridnutzungsvorteil (Azure Hybrid Use Benefit, AHUB) wird in Azure Stack nicht unterstützt. Kunden, die ihre Lizenz über das „Kapazitätsmodell“ bezogen haben, müssen das BYOL-Image verwenden. Wenn Sie das Azure Stack Development Kit (ASDK) testen, können Sie eine dieser Optionen verwenden.
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>Was geschieht, wenn ich die falsche Version für meine Mandanten/Benutzer heruntergeladen habe?
 
-Löschen Sie die falsche Version zuerst über Marketplace Management. Warten Sie, bis der Vorgang abgeschlossen ist (achten Sie auf die Benachrichtigungen für den Abschluss, nicht auf das Blatt „Marketplace Management“). Laden Sie dann die richtige Version herunter.
+Löschen Sie die falsche Version zuerst über Marketplace Management. Warten Sie, bis der Vorgang abgeschlossen ist (achten Sie auf die Benachrichtigungen für den Abschluss, nicht auf das Blatt **Marketplace Management**). Laden Sie dann die richtige Version herunter.
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Was geschieht, wenn mein Benutzer fälschlicherweise das Kontrollkästchen „Ich besitze eine Lizenz“ in den vorherigen Windows-Builds aktiviert hat, obwohl er keine Lizenz besitzt?
 
@@ -70,7 +70,7 @@ Sie können **licenseType: Windows_Server** in einer Azure Resource Manager-Vorl
 Um einen virtuellen Windows Server-Computer in Azure Stack zu aktivieren, müssen die folgenden Bedingungen erfüllt sein:
 
 - Der OEM hat den entsprechenden BIOS-Marker in jedem Hostsystem in Azure Stack festgelegt.
-- Windows Server 2012 R2 und Windows Server 2016 müssen die [automatische Aktivierung virtueller Computer](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) verwenden. Der Schlüsselverwaltungsdienst (Key Management Service, KMS) und andere Aktivierungsdienste werden nicht in Azure Stack unterstützt.
+- Windows Server 2012 R2 und Windows Server 2016 müssen die [automatische Aktivierung virtueller Computer](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) verwenden. Der Schlüsselverwaltungsdienst (Key Management Service, KMS) und andere Aktivierungsdienste werden nicht in Azure Stack unterstützt.
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Wie kann ich sicherstellen, dass mein virtueller Computer aktiviert ist?
 
@@ -90,7 +90,7 @@ Führen Sie den folgenden Befehl in einer Eingabeaufforderung mit erhöhten Rech
 slmgr /ipk <AVMA key>
 ```
 
-Die für das Image zu verwendenden Schlüssel werden im Artikel [Automatische Aktivierung virtueller Computer](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) aufgeführt.
+Die für das Image zu verwendenden Schlüssel werden im Artikel [Automatische Aktivierung virtueller Computer](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) aufgeführt.
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>Ich erstelle meine eigenen Windows Server-Images. Wie kann ich sicherstellen, dass diese AVMA verwenden?
 
@@ -106,7 +106,7 @@ Wenden Sie sich an Ihren Hardwareanbieter, um sicherzustellen, dass die richtige
 
 ### <a name="what-about-earlier-versions-of-windows-server"></a>Was ist mit früheren Versionen von Windows Server?
 
-[Automatische Aktivierung virtueller Computer](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) wird nicht älteren Versionen von Windows Server unterstützt. Sie müssen die VMs manuell aktivieren.
+[Automatische Aktivierung virtueller Computer](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) wird nicht älteren Versionen von Windows Server unterstützt. Sie müssen die virtuellen Computer manuell aktivieren.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
