@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 8d9603184e824bff5efc2536b3c4a89fdd87d685
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 31f2df0b5c7598c678daff8abe34a40b4e08d590
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506352"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691603"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack-Update 1904
 
@@ -43,6 +43,10 @@ Sie können [ältere Versionen der Azure Stack-Versionshinweise im TechNet-Katal
 
 Die Buildnummer des Azure Stack-Updates 1904 ist **1.1904.0.36**.
 
+### <a name="update-type"></a>Updatetyp
+
+Der Buildtyp des Azure Stack 1904-Updates lautet **Express**. Weitere Informationen zu Update-Buildtypen finden Sie im Artikel [Verwalten von Updates in Azure Stack](azure-stack-updates.md). Das Update 1904 dauert etwa 16 Stunden, die genauen Zeiten können jedoch variieren. Dieser Näherungswert der Laufzeit ist spezifisch für das Update 1904 und nicht auf andere Azure Stack-Updates übertragbar.
+
 ## <a name="whats-in-this-update"></a>Inhalt des Updates
 
 <!-- The current theme (if any) of this release. -->
@@ -52,8 +56,6 @@ Die Buildnummer des Azure Stack-Updates 1904 ist **1.1904.0.36**.
 ### <a name="improvements"></a>Verbesserungen
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
-
-- Die Nutzlast von Update 1904 umfasst eine Aktualisierung der Komponenten von Azure Stack, die nicht das zugrunde liegende Betriebssystem zum Hosten von Azure Stack enthalten. So wird ermöglicht, dass bestimmte Updates bereichsbezogen durchgeführt werden können. Das Ergebnis ist, dass die zu erwartende Dauer bis zum Abschluss von Update 1904 reduziert wird (ca. 16 Stunden, aber die genauen Zeiten können variieren). Diese Verringerung der Laufzeit ähnelt der Zeiteinsparung bei Update 1903. Nachfolgende Updates können aber auch Updates des Betriebssystems enthalten, sodass es zu anderen Laufzeiten kommt. Für zukünftige Updates wird ein ähnlicher Hinweis zur erwarteten Updatedauer bereitgestellt. Dies richtet sich jeweils nach der Nutzlast.
 
 - In 1904 wurden signifikante Verbesserungen am SDN-Stapel (Software-Defined Networking) vorgenommen. Dank dieser Maßnahmen wird die allgemeine Wartung und Zuverlässigkeit des SDN-Stapels in Azure Stack vereinfacht bzw. verbessert.
 

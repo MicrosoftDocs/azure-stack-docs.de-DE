@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 4a69ece2b97fca13a87819dce6e02e8971121944
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 53b33c7eb0dc71a65113ef8807de1c5b3c3c4c80
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506303"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691388"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack-Update 1902
 
@@ -63,7 +63,7 @@ Azure Stack-Hotfixes gelten nur für integrierte Azure Stack-Systeme. Versuchen 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 > [!IMPORTANT]
-> Sie können 1902 direkt aus dem Release [1.1901.0.95 oder 1.1901.0.99](azure-stack-update-1901.md#build-reference) installieren, ohne zuvor den Hotfix 1901 zu installieren. Wenn Sie jedoch den älteren Hotfix **1901.2.103** installiert haben, müssen Sie den neueren [Hotfix 1901.3.105](https://support.microsoft.com/help/4495662) installieren, bevor Sie mit 1902 fortfahren.
+> Sie können 1902 direkt auf der Grundlage des Release **1.1901.0.95** oder **1.1901.0.99** installieren, ohne zuvor einen 1901-Hotfix zu installieren. Wenn Sie jedoch den älteren Hotfix **1901.2.103** installiert haben, müssen Sie den neueren [Hotfix 1901.3.105](https://support.microsoft.com/help/4495662) installieren, bevor Sie mit 1902 fortfahren.
 
 - Bevor Sie mit der Installation dieses Updates beginnen, führen Sie [Test-AzureStack](azure-stack-diagnostic-test.md) mit den folgenden Parametern aus, um den Status von Azure Stack zu überprüfen und alle gefundenen operativen Probleme (einschließlich aller Warnungen und Fehler) zu beheben. Überprüfen Sie auch aktive Warnungen, und führen Sie die Behebung für Einträge durch, für die eine Aktion erforderlich ist:
 

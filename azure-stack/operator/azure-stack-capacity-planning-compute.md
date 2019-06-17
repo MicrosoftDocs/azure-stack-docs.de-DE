@@ -16,23 +16,25 @@ ms.date: 05/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: e549413798ffc3c06c95bfbcf50ab4929ffeaf63
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: 6afaca6e9bad806f432cf56b79dca5881bb76455
+ms.sourcegitcommit: fbd6a7fed4f064113647540329a768347a6cf261
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66461095"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810218"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack-Compute
 
-Die für Azure Stack unterstützten [VM-Größen](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) stellen eine Teilmenge der in Azure unterstützten VM-Größen dar. Azure erzwingt Ressourcengrenzwerte auf verschiedene Arten, um einen übermäßigen Ressourcenverbrauch (auf dem lokalen Server und auf der Dienstebene) zu vermeiden. Wenn keine Einschränkungen für die Nutzung durch Mandanten gelten würden, würde die Mandantenerfahrung beeinträchtigt, wenn andere Mandanten Ressourcen übermäßig nutzen. Für ausgehenden Netzwerkdatenverkehr des virtuellen Computers gelten Bandbreitenobergrenzen für Azure Stack, die mit den Azure-Einschränkungen übereinstimmen. Für Speicherressourcen wurden für Azure Stack Speicher-IOPS-Grenzwerte implementiert, um den allgemeinen übermäßigen Ressourcenverbrauch durch Mandanten für Speicherzugriff zu vermeiden.
+Die für Azure Stack unterstützten [VM-Größen](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) stellen eine Teilmenge der in Azure unterstützten VM-Größen dar. Azure erzwingt Ressourcengrenzwerte auf verschiedene Arten, um einen übermäßigen Ressourcenverbrauch (auf dem lokalen Server und auf der Dienstebene) zu vermeiden. Wenn keine Einschränkungen für die Nutzung durch Mandanten gelten würden, würde die Mandantenerfahrung beeinträchtigt, wenn andere Mandanten Ressourcen übermäßig nutzen. Für ausgehenden Netzwerkdatenverkehr des virtuellen Computers gelten Bandbreitenobergrenzen für Azure Stack, die mit den Azure-Einschränkungen übereinstimmen. Für Speicherressourcen in Azure Stack werden Speicher-IOPS-Grenzwerte verwendet, um beim Speicherzugriff grundsätzlich einen übermäßigen Ressourcenverbrauch durch Mandanten zu vermeiden.
 
 >[!IMPORTANT]
 >Mit dem [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) wird die IOPS-Leistung nicht berücksichtigt oder garantiert.
 
 ## <a name="vm-placement"></a>VM-Platzierung
 
-In Azure Stack wird die Platzierung von virtuellen Mandantencomputern für die verfügbaren Hosts automatisch vom Platzierungsmodul durchgeführt. Die einzigen beiden Aspekte, die beim Platzieren von VMs berücksichtigt werden müssen, sind: Ist auf dem Host für diesen VM-Typ genügend Arbeitsspeicher vorhanden, und sind die VMs Teil einer [Verfügbarkeitsgruppe](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability), oder handelt es sich um [VM-Skalierungsgruppen](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)?  
+Die Azure Stack-Platzierungsengine verteilt Mandanten-VMs auf die verfügbaren Hosts.
+
+Bei der Platzierung virtueller Computer werden von Azure Stack zwei Aspekte berücksichtigt. Erstens: Steht auf dem Host genügend Arbeitsspeicher für den VM-Typ zur Verfügung? Zweitens: Gehören die virtuellen Computer zu einer [Verfügbarkeitsgruppe](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability), oder handelt es sich bei Ihnen um [VM-Skalierungsgruppen](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)?
 
 Zur Erreichung von Hochverfügbarkeit für ein Produktionssystem mit mehreren VMs in Azure Stack werden die VMs in einer Verfügbarkeitsgruppe angeordnet, um sie auf mehrere Fehlerdomänen zu verteilen. Die Definition einer Fehlerdomäne in einer Verfügbarkeitsgruppe ist ein einzelner Knoten in der Skalierungseinheit. Azure Stack unterstützt die Verwendung einer Verfügbarkeitsgruppe mit maximal drei Fehlerdomänen, um Konsistenz mit Azure zu erzielen. In einer Verfügbarkeitsgruppe angeordnete VMs werden physisch voneinander isoliert, indem sie so gleichmäßig wie möglich auf mehrere Fehlerdomänen, also Azure Stack-Hosts, verteilt werden. Bei einem Hardwarefehler werden VMs aus der betroffenen Fehlerdomäne in anderen Fehlerdomänen neu gestartet. Dies sind nach Möglichkeit aber Fehlerdomänen, die von den anderen VMs in derselben Verfügbarkeitsgruppe getrennt sind. Nachdem der Host wieder in den Onlinezustand versetzt wurde, wird für die VMs ein neuer Ausgleichsvorgang durchgeführt, um die Hochverfügbarkeit sicherzustellen.  
 
@@ -50,12 +52,14 @@ Sie können im Verwaltungsportal ein Kreisdiagramm anzeigen, mit dem der freie u
 
 ![Kapazität des physischen Arbeitsspeichers](media/azure-stack-capacity-planning/physical-memory-capacity.png)
 
-Der verwendete Arbeitsspeicher besteht aus mehreren Komponenten. Die folgenden Komponenten verbrauchen den Arbeitsspeicher, der im Kreisdiagramm im entsprechenden Abschnitt angegeben ist.  
+Der verwendete Arbeitsspeicher besteht aus mehreren Komponenten. Die folgenden Komponenten beanspruchen den Arbeitsspeicher, der im entsprechenden Abschnitt des Kreisdiagramms angegeben ist:  
 
-- Nutzung des Hostbetriebssystems bzw. Reserve: Dies ist der Arbeitsspeicher, der vom Betriebssystem auf dem Host, von Auslagerungstabellen des virtuellen Arbeitsspeichers, unter dem Hostbetriebssystem ausgeführten Prozessen und dem Arbeitsspeichercache von „Direkte Speicherplätze“ genutzt wird. 
-- Infrastrukturdienste: Dies sind die Infrastruktur-VMs, aus denen Azure Stack besteht. Ab Version 1902 von Azure Stack sind dies 31 VMs mit 242 GB + (4 GB · Anz. von Knoten). Diese interne Dienststruktur ermöglicht die zukünftige Einführung neuer Infrastrukturdienste im Rahmen ihrer Entwicklung.
-- Resilienzreserve: Azure Stack reserviert einen Teil des Arbeitsspeichers, um die Mandantenverfügbarkeit während des Ausfalls eines einzelnen Hosts und beim Patchen und Aktualisieren sicherzustellen und so die erfolgreiche Livemigration von VMs zu ermöglichen. 
-- Mandanten-VMs: Dies sind die virtuellen Mandantencomputer, die von Azure Stack-Benutzern erstellt werden. Zusätzlich zur Ausführung von VMs wird Arbeitsspeicher von allen VMs verbraucht, die im Fabric angeordnet sind. Dies bedeutet, dass VMs mit dem Status **Wird erstellt** oder **Fehler** oder über den Gast heruntergefahrene VMs Arbeitsspeicher verbrauchen. VMs, die beendet wurden und deren Zuordnung mit der entsprechenden Option aufgehoben wurde, verbrauchen aber keinen Arbeitsspeicher von Azure Stack mehr. 
+ -  Nutzung des Hostbetriebssystems bzw. Reserve: Dies ist der Arbeitsspeicher, der vom Betriebssystem auf dem Host, von Auslagerungstabellen des virtuellen Arbeitsspeichers, unter dem Hostbetriebssystem ausgeführten Prozessen und dem Arbeitsspeichercache von „Direkte Speicherplätze“ genutzt wird. Dieser Wert kann schwanken, da er von dem Arbeitsspeicher abhängt, der von den verschiedenen, auf dem Host ausgeführten Hyper-V-Prozessen beansprucht wird.
+ - Infrastrukturdienste: Dies sind die Infrastruktur-VMs, aus denen Azure Stack besteht. Ab der Releaseversion 1904 von Azure Stack sind dies ~31 virtuelle Computer, die 242 GB (+ 4 GB pro Knoten) beanspruchen. Wir arbeiten weiter an der Verbesserung der Skalierbarkeit und Resilienz unserer Infrastrukturdienste, weshalb sich die Arbeitsspeicherverwendung dieser Komponente noch ändern kann.
+ - Resilienzreserve: Azure Stack reserviert einen Teil des Arbeitsspeichers, um die Mandantenverfügbarkeit während des Ausfalls eines einzelnen Hosts und beim Patchen und Aktualisieren sicherzustellen und so die erfolgreiche Livemigration von VMs zu ermöglichen.
+ - Mandanten-VMs: Dies sind die virtuellen Mandantencomputer, die von Azure Stack-Benutzern erstellt werden. Zusätzlich zur Ausführung von VMs wird Arbeitsspeicher von allen VMs verbraucht, die im Fabric angeordnet sind. Das bedeutet, dass virtuelle Computer mit dem Zustand „Wird erstellt“ oder „Fehler“ sowie virtuelle Computer, die über den Gast heruntergefahren werden, Arbeitsspeicher beanspruchen. Virtuelle Computer, deren Zuordnung mithilfe der entsprechenden Option über das Portal/mit PowerShell/über die Befehlszeilenschnittstelle aufgehoben wurde, beanspruchen allerdings keinen Arbeitsspeicher von Azure Stack mehr.
+ - Add-On-Ressourcenanbieter: Virtuelle Computer, die für die Add-On-Ressourcenanbieter bereitgestellt wurden (etwa SQL, MySQL, App Service usw).
+
 
 Die beste Möglichkeit, den Arbeitsspeicherverbrauch im Portal zu verstehen, ist die Nutzung des [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner). Hiermit können Sie die Auswirkungen der unterschiedlichen Workloads verfolgen. Die folgende Berechnung wird auch vom Planner verwendet.
 
@@ -78,6 +82,23 @@ Diese Berechnung ergibt den insgesamt verfügbaren Arbeitsspeicher, der für die
 
 
 Der Wert V (größter virtueller Computer in der Skalierungseinheit) basiert dynamisch auf der VM-Speichergröße des größten Mandanten. Der größte Wert für den virtuellen Computer kann beispielsweise 7 GB oder 112 GB oder jede andere unterstützte VM-Speichergröße in der Azure Stack-Lösung sein. Wenn die größte VM im Azure Stack-Fabric geändert wird, führt dies zu einer Erhöhung der Resilienzreserve und auch zu einer Erhöhung des Arbeitsspeichers der VM selbst. 
+
+## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
+
+F: Von meinem Mandanten wurde ein neuer virtueller Computer bereitgestellt. Wie lange dauert es, bis die verbleibende Kapazität im Funktionsdiagramm des Verwaltungsportals angezeigt wird?
+A: Das Kapazitätsblatt wird alle 15 Minuten aktualisiert.
+
+F: Meine Kapazität schwankt, obwohl sich die Anzahl bereitgestellter virtueller Computer in meiner Azure Stack-Instanz nicht geändert hat. Warum ist das so?
+A: Der verfügbare Arbeitsspeicher für die VM-Platzierung ist von verschiedenen Faktoren abhängig – unter anderem von der Reserve des Hostbetriebssystems. Der Wert hängt davon ab, wie viel Arbeitsspeicher von den verschiedenen, auf dem Host ausgeführten Hyper-V-Prozessen beansprucht wird, was kein konstanter Wert ist.
+
+F: In welchem Zustand müssen sich Mandanten-VMs befinden, damit sie Arbeitsspeicher beanspruchen?
+A: Zusätzlich zur Ausführung von VMs wird Arbeitsspeicher von allen VMs verbraucht, die im Fabric angeordnet sind. Das bedeutet, dass virtuelle Computer mit dem Zustand „Wird erstellt“ oder „Fehler“ sowie virtuelle Computer, die über den Gast heruntergefahren werden, Arbeitsspeicher beanspruchen (im Gegensatz zu virtuellen Computern, deren Zuordnung mithilfe der entsprechenden Option über das Portal/mit PowerShell/über die Befehlszeilenschnittstelle aufgehoben wurde).
+
+
+F: Ich verfüge über eine Azure Stack-Instanz mit vier Hosts. Mein Mandant umfasst drei virtuelle Computer, die jeweils 56 GB RAM (D5_v2) beanspruchen. Nachdem die Größe eines der virtuellen Computer in 112 GB RAM (D14_v2) geändert wurde, wurde beim verfügbaren Arbeitsspeicher auf dem Kapazitätsblatt des Dashboards eine Spitzenauslastung von 168 GB gemeldet. Bei der späteren Änderung der Größe der anderen beiden virtuellen Computer von „D5_v2“ in „D14_v2“ wurde dagegen nur ein RAM-Zuwachs von jeweils 56 GB verzeichnet. Woran liegt das?
+
+A: Der verfügbare Arbeitsspeicher ist eine Funktion der von Azure Stack verwalteten Resilienzreserve. Die Resilienzreserve ist eine Funktion der größten VM-Größe im Azure Stack-Bereich. Zu Beginn lag der Arbeitsspeicherwert des größten virtuellen Computers bei 56 GB. Nach Änderung der Größe des virtuellen Computers lag der Arbeitsspeicherwert des größten virtuellen Computers bei 112 GB. Dadurch hat sich nicht nur der von dieser Mandanten-VM beanspruchte Arbeitsspeicher erhöht, sondern auch die Resilienzreserve. Dies führte zu einem Anstieg von 56 GB (Arbeitsspeichererhöhung um 56 GB auf 112 GB für die Mandanten-VM) plus 112 GB Arbeitsspeichererhöhung für die Resilienzreserve. Bei der späteren Größenänderung für die anderen virtuellen Computer lag die Größe des größten virtuellen Computers weiterhin bei 112 GB, sodass keine weitere Erhöhung der Resilienzreserve erforderlich war. Somit entsprach der Anstieg bei der Arbeitsspeichernutzung lediglich der Arbeitsspeichererhöhung für die Mandanten-VM (56 GB). 
+
 
 > [!NOTE]
 > Die Kapazitätsplanungsanforderungen für Netzwerke sind minimal, da nur die Größe der öffentlichen virtuellen IP-Adresse (VIP) konfigurierbar ist. Informationen zur Vorgehensweise beim Hinzufügen weiterer öffentlicher IP-Adressen zu Azure Stack finden Sie unter [Hinzufügen öffentlicher IP-Adressen](azure-stack-add-ips.md).

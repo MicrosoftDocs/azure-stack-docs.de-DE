@@ -7,16 +7,16 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 2cca789487803124e1a7b24efa199d7f68760fb6
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.openlocfilehash: 98aae8378e4bd516181cae95b153e6ee445ce4bf
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453412"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691993"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Bereitstellen von VM-Skalierungsgruppen in Azure Stack
 
@@ -36,7 +36,7 @@ In Azure Stack unterstützen VM-Skalierungsgruppen keine automatische Skalierung
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * **Marketplace**: Registrieren Sie Azure Stack global für Azure, um Marketplace-Elemente verfügbar zu machen. Befolgen Sie die Anleitung unter [Registrieren von Azure Stack in Azure](azure-stack-registration.md).
-* **Betriebssystemimage**: Bevor eine VM-Skalierungsgruppe erstellt werden kann, müssen Sie die VM-Images, die darin verwendet werden sollen, aus dem [Azure Stack-Marketplace](azure-stack-download-azure-marketplace-item.md) herunterladen. Die Images müssen bereits vorhanden sein, bevor ein Benutzer eine neue VMSS erstellen kann.
+* **Betriebssystemimage**: Bevor eine VM-Skalierungsgruppe erstellt werden kann, müssen Sie die VM-Images, die darin verwendet werden sollen, aus dem [Azure Stack-Marketplace](azure-stack-download-azure-marketplace-item.md) herunterladen. Die Images müssen bereits vorhanden sein, damit ein Benutzer eine neue Skalierungsgruppe erstellen kann.
 
 ## <a name="use-the-azure-stack-portal"></a>Verwenden des Azure Stack-Portals
 

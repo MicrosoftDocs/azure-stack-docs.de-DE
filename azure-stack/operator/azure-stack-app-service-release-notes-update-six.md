@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: d280ffacf9cb74c519857ebafc907debc915ec21
-ms.sourcegitcommit: 85367001c332ed53fba0d2294eae3c06e8578070
+ms.openlocfilehash: d3464681463cfb66a368210beed79d5ef4c28739
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307834"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828318"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service in Azure Stack: Versionshinweise zu Update 6
 
@@ -102,6 +102,16 @@ Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk u
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack betreiben
 
 Lesen Sie die Dokumentation in den [Versionshinweisen zum Azure Stack-Update 1904](azure-stack-release-notes-1904.md).
+
+### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>Bekannte Probleme für Mandanten, die Anwendungen in Azure App Service in Azure Stack bereitstellen
+
+- Bereitstellungscenter abgeblendet
+
+Mandanten können das Bereitstellungscenter noch nicht nutzen. Dieses Feature wurde Ende 2018 in der Public Cloud veröffentlicht.  Mandanten können weiterhin die standardmäßigen Bereitstellungsmethoden (FTP, Web Deploy, Git usw.) über das Portal, über die Befehlszeilenschnittstelle und über PowerShell verwenden.
+
+- Bereitstellungsoptionen der (klassischen) Benutzeroberfläche sowie Portaloptionen für Bereitstellungsanmeldeinformationen nicht verfügbar
+
+Um zu den Bereitstellungsoptionen und den Anmeldeinformationen für die Bereitstellung zu gelangen, müssen Mandanten unter Verwendung des folgenden URL-Formats auf das Portal zugreifen und anschließend wie gewohnt zu ihren Anwendungen navigieren: https://portal.&lt ;*Region*&gt;.&lt;*FQDN*&gt; /?websitesExtension_oldvsts=true. ([https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) für ASDK).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
