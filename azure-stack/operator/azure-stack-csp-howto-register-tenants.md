@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 06/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 5f03b80b871d3df467bc52b735432ce5568a3ad8
-ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
+ms.lastreviewed: 06/07/2019
+ms.openlocfilehash: edc6fc17e426e5e391eb61d510097101ddcfce58
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212303"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828340"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Hinzufügen von Mandanten für Nutzung und Abrechnung zu Azure Stack
 
@@ -51,7 +51,7 @@ Nachdem Sie einen Datensatz Ihres Kunden im Partner Center erstellt haben, könn
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>Erstellen eines Gastbenutzers im Endkundenverzeichnis
 
-Wenn der Endkunde sein eigenes Konto verwaltet, erstellen Sie einen Gastbenutzer in seinem Verzeichnis, an den Sie die Informationen senden. Der Endbenutzer fügt dann den Gast hinzu und erhöht die Gastberechtigung für das Azure Stack-CSP-Konto auf **Besitzer**.
+Standardmäßig haben Sie als CSP keinen Zugriff auf das Azure Stack-Abonnement des Endkunden. Falls Ihr Kunde möchte, dass seine Ressourcen von Ihnen verwaltet werden, kann er Ihr Konto als Besitzer/Mitwirkender seinem Azure Stack-Abonnement hinzufügen. Hierfür muss der Kunde Ihr Konto seinem AAD-Mandanten als Gastbenutzer hinzufügen. Wir empfehlen Ihnen, ein anderes Konto als Ihr Azure CSP-Konto zum Verwalten des Azure Stack-Abonnements Ihres Kunden zu verwenden. So stellen Sie sicher, dass Sie den Zugriff auf das Azure-Abonnement Ihres Kunden nicht verlieren.
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>Aktualisieren der Registrierung mit dem Endkundenabonnement
 

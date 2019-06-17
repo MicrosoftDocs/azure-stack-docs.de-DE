@@ -14,12 +14,12 @@ ms.date: 04/20/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 3ec925406ad3553c0beb073d39d84ae20f5bc472
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: f95dcf44c2d9d30bc6ba40facbecff97ff26bf49
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268646"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836688"
 ---
 # <a name="validate-azure-stack-system-state"></a>Überprüfen des Azure Stack-Systemstatus
 
@@ -48,13 +48,9 @@ Wie bereits erwähnt, wird das Überprüfungstool über den PEP ausgeführt. Jed
 
    Weitere Informationen finden Sie in den Abschnitten [Überlegungen zu Parametern](azure-stack-diagnostic-test.md#parameter-considerations) und [Beispiele für Anwendungsfälle](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Wenn Tests **FAIL** melden, führen Sie Folgendes aus:
+3. Führen Sie `Get-AzureStackLog` aus, wenn für Tests **FAIL** (FEHLER) gemeldet wird. Eine Anleitung zu einem integrierten System finden Sie unter [So führen Sie „Get-AzureStackLog“ in integrierten Azure Stack-Systemen aus](/azure-stack-diagnostics#to-run-get-azurestacklog-on-azure-stack-integrated-systems) oder im ASDK unter [Ausführen von Get-AzureStackLog in einem System mit dem Azure Stack Development Kit (ASDK)](/azure-stack-diagnostics#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
-   ```powershell
-   Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath "<path>" -OutputShareCredential $cred
-   ```
-
-   Das Cmdlet sammelt Protokolle, die von Test-AzureStack generiert wurden. Weitere Informationen zu Diagnoseprotokollen finden Sie unter [Azure Stack-Diagnosetools](azure-stack-diagnostics.md). Sie sollten keine Protokolle sammeln und sich nicht an CSS wenden, wenn bei Tests **WARN** gemeldet wird.
+   Das Cmdlet sammelt Protokolle, die von Test-AzureStack generiert wurden. Sie sollten keine Protokolle sammeln und sich nicht an CSS wenden, wenn bei Tests **WARN** gemeldet wird.
 
 4. Wenn Sie durch den CSS angewiesen wurden, das Überprüfungstool auszuführen, wird der CSS-Vertreter die von Ihnen gesammelten Protokolle anfordern, um die Behebung Ihres Problems fortsetzen zu können.
 

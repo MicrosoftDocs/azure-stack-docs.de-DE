@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
-ms.lastreviewed: 02/25/2019
-ms.openlocfilehash: b6863a86a5307375ea13f67c349da9f87b797fe5
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 06/07/2019
+ms.openlocfilehash: cb57d43306b69c3698441b9bb7b01c0c292bd704
+ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268452"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66821753"
 ---
 # <a name="quickstart-use-the-azure-stack-administration-portal"></a>Schnellstart: Verwenden des Azure Stack-Verwaltungsportals
 
@@ -86,7 +86,7 @@ Klicken Sie oben rechts im Administratorportal auf das Symbol „Hilfe und Suppo
 
 ### <a name="quick-access-to-help-and-support"></a>Schneller Zugriff auf Hilfe und Support
 
-Wenn Sie oben rechts im Administratorportal auf das Symbol „Hilfe und Support“ (Fragezeichen) klicken und dann **Neue Supportanfrage** auswählen, geschieht Folgendes:
+Wenn Sie oben rechts im Administratorportal auf das Symbol „Hilfe“ (Fragezeichen) und dann auf **Hilfe und Support** und unter **Support** auf **Neue Supportanfrage** klicken, geschieht Folgendes:
 
 - Bei Verwendung eines integrierten Systems wird mit dieser Aktion eine Website geöffnet, auf der Sie direkt ein Supportticket beim Microsoft-Kundensupport (Microsoft Customer Support Services, CSS) öffnen können. Informationen dazu, wann Sie den Microsoft-Support und wann den Support des OEM-Hardwareanbieters kontaktieren sollten, finden Sie unter [Supportquellen](azure-stack-manage-basics.md#where-to-get-support).
 - Bei Verwendung des ASDK wird mit dieser Aktion direkt die [Website mit den Azure Stack-Foren](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack) geöffnet. Diese Foren werden regelmäßig überprüft. Da das ASDK eine Evaluierungsumgebung ist, wird über Microsoft CSS kein offizieller Support angeboten.

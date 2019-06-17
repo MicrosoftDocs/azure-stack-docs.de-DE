@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2019
-ms.author: PatAltimore
+ms.date: 06/10/2019
+ms.author: patricka
 ms.reviewer: chengwei
-ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: e0b62c9f9519e1b77211327c4f9b48d4b53cf99a
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 9da7ced492a86cb97a1b90a2224383d834073423
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985869"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828351"
 ---
 # <a name="azure-stack-log-and-customer-data-handling"></a>Azure Stack-Protokoll und Behandlung von Kundendaten 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*  
 
-In dem Umfang, in dem Microsoft ein Prozessor oder Subprozessor personenbezogener Daten im Zusammenhang mit Azure Stack ist, geht Microsoft für alle Kunden, in Kraft tretend am 25. Mai 2018, die in (a) „Processing of Personal Data; GDPR (Verarbeitung von persönlichen Daten; DSGVO“ im Abschnitt „Data Protection Terms (Datenschutzbestimmungen))“ der [Online Services Terms (Onlinenutzungsbedingungen)](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.microsoftvolumelicensing.com%2FDocumentSearch.aspx%3FMode%3D3%26DocumentTypeId%3D31&data=02%7C01%7Ccomartin%40microsoft.com%7Ce2ce478261764c79c3f308d68df01136%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636852459551078818&sdata=cpWsfZTBHpqEFr50DWQOryq342U8shgeFgMXVPQz5ug%3D&reserved=0) und (b) der „European Union General Data Protection Regulation Terms (Allgemeine Datenschutzbestimmungen der Europäischen Union)“ in Anhang 4 der [Online Services Terms (Onlinenutzungsbedingungen)](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.microsoftvolumelicensing.com%2FDocumentSearch.aspx%3FMode%3D3%26DocumentTypeId%3D31&data=02%7C01%7Ccomartin%40microsoft.com%7Ce2ce478261764c79c3f308d68df01136%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636852459551088813&sdata=bv1CBiaCnYmjiv6S0dFCbWEd4fNCkPBjBwgylNa%2FNt0%3D&reserved=0) enthaltenen Verpflichtungen ein. 
+In dem Umfang, in dem Microsoft ein Prozessor oder Subprozessor personenbezogener Daten im Zusammenhang mit Azure Stack ist, geht Microsoft für alle Kunden, in Kraft tretend am 25. Mai 2018, die in (a) „Processing of Personal Data; GDPR (Verarbeitung von persönlichen Daten; DSGVO“ im Abschnitt „Data Protection Terms (Datenschutzbestimmungen))“ der [Online Services Terms (Onlinenutzungsbedingungen)](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) und (b) der „European Union General Data Protection Regulation Terms (Allgemeine Datenschutzbestimmungen der Europäischen Union)“ in Anhang 4 der [Online Services Terms (Onlinenutzungsbedingungen)](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) enthaltenen Verpflichtungen ein. 
 
 Für Azure Stack im Rechenzentrum des Kunden ist Microsoft ausschließlich Data Controller der Daten, die gemeinsam mit Microsoft über [Diagnose](azure-stack-diagnostics.md), [Telemetrie](azure-stack-telemetry.md), und [Abrechnung](azure-stack-usage-reporting.md) genutzt werden.  
 
 ## <a name="data-access-controls"></a>Datenzugriffssteuerung 
-Microsoft-Mitarbeiter, die mit der Untersuchung eines bestimmten Supportfalls beauftragt sind, erhalten Lesezugriff auf die verschlüsselten Daten. Microsoft-Mitarbeiter haben auch Zugriff auf Tools, die verwendet werden können, um Daten ggf. zu löschen. Jeder Zugriff auf Kundendaten wird überwacht und protokolliert.  
+Microsoft-Mitarbeiter, die mit der Untersuchung eines bestimmten Supportfalls beauftragt sind, erhalten Lesezugriff auf die verschlüsselten Daten. Microsoft-Mitarbeiter haben bei Bedarf ebenfalls Zugriff auf Tools zum Löschen der Daten. Jeder Zugriff auf Kundendaten wird überwacht und protokolliert.  
 
 Datenzugriffssteuerung:
 1.  Daten werden nur für bis zu 90 Tage nach dem Schließen des Falls gespeichert.
@@ -43,7 +43,7 @@ Datenzugriffssteuerung:
 Wie bereits erwähnt, unterstützt Microsoft bei Bedarf Datenlöschung pro Kundenanforderung. Kunden können anfordern, dass unsere Supportmitarbeiter alle ihre Protokolle für einen bestimmten Fall zu einem beliebigen, vom Kunden ausgewählten Zeitpunkt löschen, bevor die Daten dauerhaft gelöscht werden.  
 
 ### <a name="does-microsoft-notify-customers-when-the-data-is-deleted"></a>Benachrichtigt Microsoft Kunden, wenn die Daten gelöscht werden?
-Für die automatisierte Datenlöschaktion (90 Tage nach dem Schließen des Falls) wenden wir uns nicht proaktiv an Kunden und unterrichten sie nicht über die Löschung. 
+Für die automatisierte Datenlöschaktion (90 Tage nach dem Schließen des Falls) wenden wir uns nicht proaktiv an Kunden und unterrichten sie nicht über die Löschung. 
 
 Für die bedarfsgesteuerte Datenlöschaktion haben Microsoft-Supportmitarbeiter Zugriff auf das Tool, wo sie das Löschen der Daten bei Bedarf initiieren können, und sie können Kunden dies nach Abschluss telefonisch bestätigen.
 

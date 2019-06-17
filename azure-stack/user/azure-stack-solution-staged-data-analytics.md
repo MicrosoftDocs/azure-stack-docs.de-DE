@@ -1,6 +1,6 @@
 ---
 title: Erstellen einer bereitgestellten Lösung für die Datenanalyse mit Azure und Azure Stack | Microsoft-Dokumentation
-description: Es wird beschrieben, wie Sie eine bereitgestellte Lösung für die Datenanalyse mit Azure und Azure Stack erstellen.
+description: Es wird beschrieben, wie Sie mit Azure und Azure Stack eine bereitgestellte Lösung für die Datenanalyse erstellen.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -15,18 +15,18 @@ ms.date: 04/15/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 9359c1393229709fc77ee08216a80a26de9135dc
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: a10f034e05e97942a6c20d019d0d1930f49f8c81
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252011"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691462"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutorial: Erstellen einer gestaffelten Lösung für die Datenanalyse mit Azure und Azure Stack 
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Es wird beschrieben, wie Sie sowohl lokale als auch öffentliche Cloudumgebungen verwenden, um die Anforderungen von Unternehmen mit mehreren Einrichtungen bzw. Gebäuden zu erfüllen. Azure Stack stellt eine schnelle, sichere und flexible Lösung zum Sammeln, Verarbeiten, Speichern und Verteilen von lokalen Daten und Remotedaten dar. Dies gilt besonders, wenn sich die Anforderungen in Bezug auf Sicherheit, Vertraulichkeit, Unternehmensrichtlinien und Bestimmungen zwischen Standorten und Benutzern ggf. unterscheiden.
+Es wird beschrieben, wie Sie sowohl lokale als auch öffentliche Cloudumgebungen verwenden, um die Anforderungen von Unternehmen mit mehreren Einrichtungen bzw. Gebäuden zu erfüllen. Mit Azure Stack wird eine schnelle, sichere und flexible Lösung zum Erfassen, Verarbeiten, Speichern und Verteilen von lokalen Daten und Remotedaten bereitgestellt. Dies ist wichtig, wenn sich die Anforderungen in den Bereichen Sicherheit, Vertraulichkeit, Unternehmensrichtlinie und gesetzliche Bestimmungen für Standorte und Benutzer ggf. unterscheiden.
 
 Hierbei sammeln Ihre Kunden Daten, die gleich nach der Erfassung analysiert werden müssen, damit schnelle Entscheidungen getroffen werden können. Häufig wird diese Datensammlung ohne Internetzugriff durchgeführt. Nachdem die Konnektivität hergestellt wurde, müssen Sie ggf. eine ressourcenintensive Analyse der Daten durchführen, um weitere Erkenntnisse zu gewinnen. Sie können Daten auch dann analysieren, wenn die Nutzung einer öffentlichen Cloud zu lange dauert oder diese nicht verfügbar ist.
 
@@ -42,17 +42,17 @@ In diesem Tutorial erstellen Sie eine Beispielumgebung, die Folgendes ermöglich
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack ist eine Erweiterung von Azure. Mit Azure Stack holen Sie sich die Agilität und Innovation von Cloud Computing in Ihre lokale Umgebung. Sie erhalten die einzige Hybrid Cloud, mit der Sie Hybrid-Apps überall entwickeln und bereitstellen können.  
+> Microsoft Azure Stack ist eine Erweiterung von Azure. Mit Azure Stack holen Sie sich die Agilität und Innovation des Cloud Computing in Ihre lokale Umgebung. Sie erhalten die einzige Hybrid Cloud, mit der Sie Hybrid-Apps überall entwickeln und bereitstellen können.  
 > 
-> Im Whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Überlegungen zum Entwurf für Hybridanwendungen) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybridanwendungen, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
+> Im Whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Entwurfsüberlegungen für Hybridanwendungen) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybridanwendungen, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Es sind einige Vorbereitungsschritte erforderlich, um diese Lösung zu erstellen:
 
--   Installierte und funktionierende Azure Stack-Instanz (weitere Informationen finden Sie hier: [Übersicht über Azure Stack](azure-stack-storage-overview.md)
+-   Eine installierte und betriebsbereite Azure Stack-Instanz. Weitere Informationen finden Sie im Artikel mit der [Übersicht über Azure Stack](azure-stack-storage-overview.md).
 
--   Ein Azure-Abonnement. (Erstellen Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).)
+-   Ein Azure-Abonnement. Sie können ein [kostenloses Konto erstellen](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 -   Laden Sie den [Microsoft Azure Storage-Explorer](https://storageexplorer.com/) herunter, und installieren Sie ihn.
 
@@ -104,7 +104,7 @@ Das Speicherkonto und der Blobcontainer enthalten alle Originaldaten, die von lo
 
 4.  Wählen Sie **Erstellen**, um das Speicherkonto zu erstellen.
 
-    ![Alt text](media/azure-stack-solution-staged-data-analytics/image1.png)
+    ![Erstellen eines Speicherkontos in Azure Stack](media/azure-stack-solution-staged-data-analytics/image1.png)
 
 5.  Wählen Sie nach der Erstellung den Namen des Speicherkontos aus.
 
@@ -112,7 +112,7 @@ Das Speicherkonto und der Blobcontainer enthalten alle Originaldaten, die von lo
 
 7.  Wählen Sie oben auf dem Blatt **+ Container** und dann **Container** aus.
 
-    ![Alt text](media/azure-stack-solution-staged-data-analytics/image2.png)
+    ![Auswählen eines Containers in Azure Stack](media/azure-stack-solution-staged-data-analytics/image2.png)
 
 8.  Name: **Beliebig**
 
@@ -130,7 +130,7 @@ Erstellen Sie eine neue Azure Stack-Funktion, um bereinigte Daten aus Azure Stac
 2. Wählen Sie **Alle Dienste** aus.
 3. Wählen Sie in der Gruppe **Web und mobil** die Option **Funktionen-Apps**.
 
-4.  Erstellen Sie die Funktions-App, indem Sie die in der Tabelle unter der Abbildung angegebenen Einstellungen verwenden.
+4.  Erstellen Sie die Funktions-App, indem Sie die in der folgenden Tabelle angegebenen Einstellungen verwenden:
 
     | Einstellung | Empfohlener Wert | BESCHREIBUNG |
     | ---- | ---- | ---- |
@@ -153,25 +153,25 @@ Erstellen Sie eine neue Azure Stack-Funktion, um bereinigte Daten aus Azure Stac
 
 6.  Wählen Sie oben rechts im Portal das Benachrichtigungssymbol aus, und achten Sie auf die Meldung **Bereitstellung erfolgreich**.
 
-    ![Definieren neuer Funktions-App-Einstellungen](media/azure-stack-solution-staged-data-analytics/image7.png)
+    ![Bereitstellung erfolgreich: Neue Funktion](media/azure-stack-solution-staged-data-analytics/image7.png)
 
 7.  Wählen Sie **Zu Ressource wechseln**, um die neue Funktions-App anzuzeigen.
 
-![Die Funktionen-App wurde erfolgreich erstellt.](media/azure-stack-solution-staged-data-analytics/image8.png)
+![Anzeigen der neuen Funktions-App](media/azure-stack-solution-staged-data-analytics/image8.png)
 
 ### <a name="add-a-function-to-the-azure-stack-function-app"></a>Hinzufügen einer Funktion zur Azure Stack-Funktions-App
 
 1.  Erstellen Sie eine neue Funktion, indem Sie auf **Funktionen** und dann auf die Schaltfläche **+ Neue Funktion** klicken.
 
-    ![Alt text](media/azure-stack-solution-staged-data-analytics/image3.png)
+    ![Erstellen einer neuen Funktion](media/azure-stack-solution-staged-data-analytics/image3.png)
 
 2.  Wählen Sie **Zeitgebertrigger**.
 
-    ![Alt text](media/azure-stack-solution-staged-data-analytics/image4.png)
+    ![Zeitgebertrigger für die neue Funktion](media/azure-stack-solution-staged-data-analytics/image4.png)
 
-3.  Wählen Sie **C\#** als Sprache und den Namen der Funktion aus: `upload-to-azure`  Legen Sie den Zeitplan auf `0 0 * * * *` fest, das ist in der CRON-Schreibweise einmal pro Stunde.
+3.  Wählen Sie **C\#** als Sprache aus, und geben Sie der Funktion den folgenden Namen: `upload-to-azure`.  Legen Sie den Zeitplan auf `0 0 * * * *` fest (in der CRON-Schreibweise einmal pro Stunde).
 
-    ![Alt text](media/azure-stack-solution-staged-data-analytics/image5.png)
+    ![Neue Funktionseinstellungen](media/azure-stack-solution-staged-data-analytics/image5.png)
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Erstellen einer Funktion, die durch Blob Storage ausgelöst wird
 
@@ -233,9 +233,9 @@ Nutzen Sie die oben beschriebenen Schritte und Einstellungen, um ein anderes Spe
 
 4.  Wählen Sie **OK**.
 
-    ![Alt text](media/azure-stack-solution-staged-data-analytics/image14.png)
+    ![Speicherwarteschlange](media/azure-stack-solution-staged-data-analytics/image14.png)
 
-    ![Alt text](media/azure-stack-solution-staged-data-analytics/image15.png)
+    ![Hinzufügen eines Namens zur neuen Speicherwarteschlange](media/azure-stack-solution-staged-data-analytics/image15.png)
 
 ## <a name="create-a-queue-triggered-function"></a>Erstellen einer Funktion mit Auslösung per Warteschlange
 

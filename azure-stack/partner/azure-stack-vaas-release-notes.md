@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 06/10/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: eefd39c751bdbd9ed9c8f3b9112fee1ddbffb9a0
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 9360e8e5f4db14fbebba2642ed11ca2e3830bdf1
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310098"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828401"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Versionshinweise zu Validation-as-a-Service
 
@@ -29,18 +29,25 @@ Dieser Artikel enthält die Versionshinweise zu Validation-as-a-Service in Azure
 
 ## <a name="version-405"></a>Version 4.0.5
 
-17. Januar 2019
+7\. Juni 2019
+
+- Das Cloud-Simulationsmodul im Paketvalidierungsworkflow wurde aktualisiert, um die Dauer der Validierung zu verkürzen:  
+    Laufzeit: Reduzierung auf 6 Stunden  
+    Version: 5.1.13.0 -> 5.1.22.0  
+
+
+17\. Januar 2019
 
 - Festplattenidentifikationstest aktualisiert, um Inkonsistenzen im Speicherpool zu beheben. Version: 5.1.14.0 -> 5.1.15.0
 - Monatliche Aktualisierungsüberprüfung für Azure Stack aktualisiert, um Inkonsistenzen bei der Software- und Inhaltsvalidierung zu beheben. Version: 5.1.14.0 -> 5.1.17.0
-- Überprüfung für OEM-Erweiterungspaket aktualisiert, um die notwendigen Prüfungen vor dem Azure Stack-Aktualisierungsschritt durchzuführen. Version: 5.1.14.0 -> 5.1.16.0
+- Überprüfung für OEM-Erweiterungspaket wurde aktualisiert, um die notwendigen Prüfungen vor dem Azure Stack-Aktualisierungsschritt durchzuführen. Version: 5.1.14.0 -> 5.1.16.0
 - Interne Fehlerkorrekturen
 
 ## <a name="version-402"></a>Version 4.0.2
 
-7. Januar 2019
+7\. Januar 2019
 
-Wenn Sie den Workflow für die monatliche Updateüberprüfung für Azure Stack ausführe, und die Version für Ihr OEM-Updatepaket nicht 1810 oder höher ist, erhalten Sie einen Fehler, sobald Sie zum Schritt für das OEM-Update gelangen. Dies ist ein Fehler. Eine Korrektur wird derzeit entwickelt. Die Schritte zur Behebung sehen wie folgt aus:
+Wenn Sie den Workflow für die monatliche Updateüberprüfung für Azure Stack ausführen und die Version für Ihr OEM-Updatepaket nicht 1810 oder höher ist, erhalten Sie einen Fehler, sobald Sie zum Schritt für das OEM-Update gelangen. Dies ist ein Fehler. Wir arbeiten derzeit an der Behebung des Fehlers. Schritte zur Behebung:
 
 1. Führen Sie das OEM-Update wie gewohnt aus.
 2. Führen Sie nach der erfolgreichen Anwendung des Pakets „Test-AzureStack“ aus, und speichern Sie die Ausgabe.
@@ -49,13 +56,13 @@ Wenn Sie den Workflow für die monatliche Updateüberprüfung für Azure Stack a
 
 ## <a name="version-402"></a>Version 4.0.2
 
-30. November 2018
+30\. November 2018
 
 - Interne Fehlerkorrekturen
 
 ## <a name="version-401"></a>Version 4.0.1
 
-8. Oktober 2018
+8\. Oktober 2018
 
 - Voraussetzungen für VaaS
 
@@ -72,7 +79,7 @@ Wenn Sie den Workflow für die monatliche Updateüberprüfung für Azure Stack a
 
 ## <a name="version-400"></a>Version 4.0.0
 
-29. August 2018
+29\. August 2018
 
 - Voraussetzungen für VaaS und VHD-Updates
 

@@ -16,12 +16,12 @@ ms.date: 05/02/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c4c77cc08b1452c34ca7eba123a38b9d20001645
-ms.sourcegitcommit: 20becab55ac2bd4b7a974ed3928238412a22a4a6
+ms.openlocfilehash: bcf499b0b3e7cd58d4b938b4be64c19eecf649e2
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030537"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691493"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack-Wartungsrichtlinie
 
@@ -53,10 +53,10 @@ Die Dokumentation zur Planung und Verwaltung von Updates sowie zur Ermittlung Ih
 
 Informationen zu einem bestimmten Update und darüber, wie sie es herunterladen, finden Sie in den Versionshinweisen zu diesem Update:
 
+- [Azure Stack-Update 1905](azure-stack-release-notes-1905.md)
 - [Azure Stack-Update 1904](azure-stack-release-notes-1904.md)
 - [Azure Stack-Update 1903](azure-stack-update-1903.md)
 - [Azure Stack-Update 1902](azure-stack-update-1902.md)
-- [Azure Stack-Update 1901](azure-stack-update-1901.md)
 
 ## <a name="hotfixes"></a>Hotfixes
 

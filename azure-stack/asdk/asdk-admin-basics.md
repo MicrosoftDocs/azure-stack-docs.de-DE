@@ -16,12 +16,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: cff86ea851b2be030faf0c42a91fed60ac17634d
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: a375cc83410214f56eb38f676bf45cf529641972
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267023"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691099"
 ---
 # <a name="asdk-administration-basics"></a>Grundlagen zur Verwaltung des ASDK 
 Wenn Sie mit der Verwaltung des Azure Stack Development Kits (ASDK) noch nicht vertraut sind, gibt es verschiedene Aspekte, die Sie kennen müssen. Dieser Leitfaden bietet eine Übersicht über Ihre Rolle als Azure Stack-Bediener in der Evaluierungsumgebung und erläutert, wie Sie dafür sorgen, dass Ihre Testbenutzer schnell produktiv arbeiten können.
@@ -60,7 +60,9 @@ Neben der Bereitstellung von Diensten müssen Sie alle regulären Aufgaben eines
 - Ersetzen fehlerhafter Hardware für den Development Kit-Hostcomputer 
 
 ## <a name="where-to-get-support"></a>Supportquellen
-Die einzige Supportoption für das Development Kit besteht darin, Fragen im [Microsoft Azure Stack-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) zu stellen. Wenn Sie oben rechts im Administratorportal auf das Hilfe- und Supportsymbol (Fragezeichen) und dann auf **Neue Supportanfrage** klicken, wird die Forenwebsite direkt geöffnet. Diese Foren werden regelmäßig überprüft. 
+Fragen rund um den Support für das Azure Stack Development Kit (ASDK) können Sie im [Azure Stack-MSDN-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) stellen. 
+
+Sie können oben rechts im Administratorportal auf **Hilfe** (Fragezeichen) und dann auf **Hilfe und Support** klicken, um die **Übersicht** mit einem Link zum Forum zu öffnen. MSDN-Foren werden regelmäßig überprüft.  
 
 > [!IMPORTANT]
 > Da das ASDK eine Evaluierungsumgebung ist, wird über den Microsoft-Kundensupport kein offizieller Support angeboten.

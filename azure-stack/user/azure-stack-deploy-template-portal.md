@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen von Vorlagen über das Portal in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mit dem Azure Stack-Portal Vorlagen bereitstellen.
+title: Bereitstellen einer Vorlage über das Portal in Azure Stack | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie mit dem Azure Stack-Portal eine Vorlage bereitstellen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,14 +16,14 @@ ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 6e848af9049c7f105e6a31fdef8dc03308bd276a
-ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
+ms.openlocfilehash: 8f61667351a6d22094d5f8a0ba39348cc92549a8
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212476"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692017"
 ---
-# <a name="deploy-templates-using-the-azure-stack-portal"></a>Bereitstellen von Vorlagen mit dem Azure Stack-Portal
+# <a name="deploy-a-template-using-the-portal-in-azure-stack"></a>Bereitstellen einer Vorlage über das Portal in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -33,31 +33,31 @@ Sie können das Portal zum Bereitstellen von Azure Resource Manager-Vorlagen (AR
 
 1. Melden Sie sich am Portal an, und wählen Sie **+Ressource erstellen** und dann **Benutzerdefiniert** aus.
 
-   ![Erstellen](media/azure-stack-deploy-template-portal/template-deploy1.png)
+   ![Erstellen einer Ressource im Azure Stack-Portal](media/azure-stack-deploy-template-portal/template-deploy1.png)
 
 1. Wählen Sie **Vorlagenbereitstellung** aus.
 
-   ![Bereitstellen der Vorlage](media/azure-stack-deploy-template-portal/template-deploy2.png)
+   ![Bereitstellen der Vorlage im Azure Stack-Portal](media/azure-stack-deploy-template-portal/template-deploy2.png)
 
 1. Wählen Sie **Vorlage bearbeiten**, und fügen Sie Ihren JSON-Vorlagencode in das Codefenster ein. Wählen Sie **Speichern** aus.
 
-   ![Bearbeiten der Vorlage](media/azure-stack-deploy-template-portal/template-deploy3.png)
+   ![Bearbeiten der Vorlage im Azure Stack-Portal](media/azure-stack-deploy-template-portal/template-deploy3.png)
 
 1. Wählen Sie **Parameter bearbeiten**, geben Sie Werte für die angezeigten Parameter an, und wählen Sie dann **OK**.
 
-   ![Parameter bearbeiten](media/azure-stack-deploy-template-portal/template-deploy4.png)
+   ![Bearbeiten von Parametern im Azure Stack-Portal](media/azure-stack-deploy-template-portal/template-deploy4.png)
 
 1. Wählen Sie **Abonnement** aus. Wählen Sie das Abonnement, das Sie verwenden möchten, und wählen Sie dann **OK**.
 
-   ![Abonnement](media/azure-stack-deploy-template-portal/template-deploy5.png)
+   ![Auswählen des Abonnements im Azure Stack-Portal](media/azure-stack-deploy-template-portal/template-deploy5.png)
 
 1. Wählen Sie **Ressourcengruppe** aus. Wählen Sie eine vorhandene Ressourcengruppe aus, oder erstellen Sie eine neue Ressourcengruppe. Wählen Sie dann **OK**.
 
-   ![Ressourcengruppe](media/azure-stack-deploy-template-portal/template-deploy6.png)
+   ![Auswählen der Ressourcengruppe im Azure Stack-Portal](media/azure-stack-deploy-template-portal/template-deploy6.png)
 
 1. Klicken Sie auf **Erstellen**. Eine neue Kachel auf dem Dashboard verfolgt den Fortschritt Ihrer Vorlagenbereitstellung.
 
-   ![Erstellen der Vorlage](media/azure-stack-deploy-template-portal/template-deploy7.png)
+   ![Erstellen einer Vorlage im Azure Stack-Portal](media/azure-stack-deploy-template-portal/template-deploy7.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -11,37 +11,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
-ms.lastreviewed: 02/13/2019
-ms.openlocfilehash: 09a75b7aad3d0a9a919883641d8dc901353a5048
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 50c15403ec4bf41f7513af30d2dca53310d45298
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251911"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828258"
 ---
-# <a name="create-a-registration-role-for-azure-stack"></a>Erstellen einer Registrierungsrolle für Azure Stack
+# <a name="create-a-custom-role-for-azure-stack-registration"></a>Erstellen einer benutzerdefinierten Rolle für die Azure Stack-Registrierung
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-Für Szenarien, in denen Sie keine Besitzerberechtigungen im Azure-Abonnement gewähren möchten, können Sie eine benutzerdefinierte Rolle erstellen, um einem Benutzerkonto Berechtigungen zum Registrieren Ihrer Azure Stack-Instanz zu gewähren.
 
 > [!WARNING]
 > Dies ist keine Sicherheitsstatusfunktion. Wenden Sie sie in Szenarien an, in denen Sie Einschränkungen benötigen, um versehentliche Änderungen am Azure-Abonnement zu verhindern. Wenn einem Benutzer die Rechte für diese benutzerdefinierte Rolle delegiert werden, hat der Benutzer die Rechte zum Bearbeiten von Berechtigungen und zum Erhöhen von Rechten. Weisen Sie sie daher nur Benutzern zu, denen Sie für die benutzerdefinierte Rolle vertrauen.
 
-Beim Registrieren von Azure Stack erfordert das Registrierungskonto die folgenden Berechtigungen für Azure Active Directory und das Azure-Abonnement:
+Während der Azure Stack-Registrierung müssen Sie sich mit einem Azure Active Directory-Konto anmelden. Für das Konto werden die folgenden Berechtigungen für Azure Active Directory und das Azure-Abonnement benötigt:
 
 * **Berechtigungen zur Anwendungsregistrierung in Ihrem Azure Active Directory-Mandanten:** Administratoren haben Anwendungsregistrierungsberechtigungen. Die Berechtigung für Benutzer ist eine globale Einstellung für alle Benutzer im Mandanten. Informationen zum Anzeigen oder Ändern der Einstellung finden Sie unter [Erstellen einer Azure AD-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
     Die Einstellung *Benutzer kann Anwendungen registrieren* muss auf **Ja** festgelegt sein, damit Sie ein Benutzerkonto zum Registrieren von Azure Stack aktivieren können. Wenn die App-Registrierungseinstellung auf **Nein** festgelegt ist, können Sie kein Benutzerkonto verwenden, sondern müssen stattdessen ein globales Administratorkonto zum Registrieren von Azure Stack verwenden.
 
-* **Ein Satz ausreichender Azure-Abonnementberechtigungen:** Benutzer in der Gruppe „Besitzer“ verfügen über ausreichende Berechtigungen. Für andere Konten können Sie den Berechtigungssatz festlegen, indem Sie eine benutzerdefinierte Rolle zuweisen, wie in den folgenden Abschnitten beschrieben.
+* **Ein Satz ausreichender Azure-Abonnementberechtigungen:** Benutzer, die über die Rolle „Besitzer“ verfügen, haben ausreichende Berechtigungen. Für andere Konten können Sie den Berechtigungssatz festlegen, indem Sie eine benutzerdefinierte Rolle zuweisen, wie in den folgenden Abschnitten beschrieben.
+
+Anstatt ein Konto zu verwenden, das unter dem Azure-Abonnement über Berechtigungen vom Typ „Besitzer“ verfügt, können Sie eine benutzerdefinierte Rolle erstellen, um einem weniger privilegierten Benutzerkonto Berechtigungen zuzuweisen. Dieses Konto kann dann verwendet werden, um Ihre Azure Stack-Instanz zu registrieren.
 
 ## <a name="create-a-custom-role-using-powershell"></a>Erstellen einer benutzerdefinierten Rolle mithilfe von PowerShell
 
-Um eine benutzerdefinierte Rolle zu erstellen, benötigen Sie die `Microsoft.Authorization/roleDefinitions/write`-Berechtigung für alle `AssignableScopes`, wie z.B. [Besitzer](/azure/role-based-access-control/built-in-roles#owner) oder [Benutzerzugriffsadministrator](/azure/role-based-access-control/built-in-roles#user-access-administrator). Verwenden Sie die folgende JSON-Vorlage, um das Definieren der benutzerdefinierten Rolle zu vereinfachen. Die Vorlage erstellt eine benutzerdefinierte Rolle, die den erforderlichen Lese- und Schreibzugriff für die Azure Stack-Registrierung ermöglicht.
+Um eine benutzerdefinierte Rolle zu erstellen, benötigen Sie die `Microsoft.Authorization/roleDefinitions/write`-Berechtigung für alle `AssignableScopes`, wie z.B. [Besitzer](/azure/role-based-access-control/built-in-roles#owner) oder [Benutzerzugriffsadministrator](/azure/role-based-access-control/built-in-roles#user-access-administrator). Verwenden Sie die folgende JSON-Vorlage, um die Erstellung der benutzerdefinierten Rolle zu vereinfachen. Die Vorlage erstellt eine benutzerdefinierte Rolle, die den erforderlichen Lese- und Schreibzugriff für die Azure Stack-Registrierung ermöglicht.
 
 1. Erstellen Sie eine JSON-Datei. Beispiel: `C:\CustomRoles\registrationrole.json`
 2. Fügen Sie der Datei den folgenden JSON-Code hinzu. Ersetzen Sie `<SubscriptionID>` durch Ihre Azure-Abonnement-ID.
@@ -76,7 +76,7 @@ Um eine benutzerdefinierte Rolle zu erstellen, benötigen Sie die `Microsoft.Aut
     Connect-AzureRmAccount
     ```
 
-4. Verwenden Sie zum Hinzufügen der Rolle zum Abonnement **New-AzureRmRoleDefinition**, und geben Sie dabei die JSON-Vorlagendatei an.
+4. Verwenden Sie **New-AzureRmRoleDefinition** zum Erstellen der benutzerdefinierten Rolle, indem Sie die JSON-Vorlagendatei angeben.
 
     ``` azurepowershell
     New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\registrationrole.json"
@@ -84,7 +84,7 @@ Um eine benutzerdefinierte Rolle zu erstellen, benötigen Sie die `Microsoft.Aut
 
 ## <a name="assign-a-user-to-registration-role"></a>Zuweisen eines Benutzers zur Registrierungsrolle
 
-Nachdem die benutzerdefinierte Rolle für die Registrierung erstellt wurde, weisen Sie der Rolle Benutzer zu, die Azure Stack-Registrierungen durchführen sollen.
+Nachdem die benutzerdefinierte Rolle für die Registrierung erstellt wurde, können Sie die Rolle dem Benutzerkonto zuweisen, das zum Registrieren von Azure Stack verwendet wird.
 
 1. Melden Sie sich mit einem Konto mit ausreichenden Berechtigungen beim Azure-Abonnement an, und delegieren Sie Rechte wie [Besitzer](/azure/role-based-access-control/built-in-roles#owner) oder [Benutzerzugriffsadministrator](/azure/role-based-access-control/built-in-roles#user-access-administrator).
 2. Wählen Sie in **Abonnements** die Option **Zugriffssteuerung (IAM) > Rollenzuweisung hinzufügen** aus.

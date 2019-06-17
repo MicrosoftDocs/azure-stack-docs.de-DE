@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: f37eb580dd9a1276587e6ad731952661ad4ddf0b
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 99f995941c4e7b09af70dff9391aeceb9a59844d
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986215"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691936"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Ändern des Besitzers für ein Azure Stack-Benutzerabonnement
 
@@ -42,7 +42,7 @@ Einem Abonnement sind zwei Arten von *Besitzern* zugewiesen:
 Führen Sie das folgende Skript aus, um den Abrechnungsbesitzer eines Benutzerabonnements zu ändern. Der für die Skriptausführung verwendete Computer muss eine Verbindung mit Azure Stack herstellen und mindestens Version 1.3.0 des Azure Stack PowerShell-Moduls ausführen. Weitere Informationen finden Sie unter [Installieren von Azure Stack PowerShell](azure-stack-powershell-install.md).
 
 >[!NOTE]
->In einer mehrinstanzenfähigen Azure Stack-Instanz muss sich der neue Besitzer im gleichen Verzeichnis befinden wie der aktuelle Besitzer. Wenn Sie die Besitzerrolle für das Abonnement einem Benutzer zuweisen möchten, der sich in einem anderen Verzeichnis befindet, müssen Sie zuerst [den Benutzer als Gast in Ihr Verzeichnis einladen]((/azure/active-directory/b2b/add-users-administrator).
+>In einer mehrinstanzenfähigen Azure Stack-Instanz muss sich der neue Besitzer im gleichen Verzeichnis befinden wie der aktuelle Besitzer. Wenn Sie die Besitzerrolle für das Abonnement einem Benutzer zuweisen möchten, der sich in einem anderen Verzeichnis befindet, müssen Sie zuerst den [Benutzer als Gast in Ihr Verzeichnis einladen](/azure/active-directory/b2b/add-users-administrator).
 
 Ersetzen Sie vor der Skriptausführung die folgenden Werte im Skript:
 

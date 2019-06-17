@@ -1,6 +1,6 @@
 ---
-title: Tutorial zum Erstellen einer Azure Stack-VM mit einer Vorlage | Microsoft-Dokumentation
-description: Hier wird beschrieben, wie Sie das ASDK zum Erstellen eines virtuellen Computers mit einer vordefinierten Vorlage und einer benutzerdefinierten GitHub-Vorlage verwenden.
+title: Erstellen eines virtuellen Computers mit einer Communityvorlage | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie das ASDK (Azure Stack Development Kit) zum Erstellen eines virtuellen Computers mit einer vordefinierten Vorlage und einer benutzerdefinierten GitHub-Vorlage verwenden.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -13,18 +13,18 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: a663a5c45c542ac4bfa19266c73066f8e41ba5d8
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: d82cdb1cccd52cc5e4c11571d85914be3f79a74e
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63448594"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691573"
 ---
-# <a name="tutorial-create-a-vm-using-a-community-template"></a>Tutorial: Erstellen einer VM mit einer Communityvorlage
+# <a name="tutorial-create-a-vm-using-a-community-template"></a>Tutorial: Erstellen eines virtuellen Computers mit einer Communityvorlage
 
 Als Azure Stack-Bediener oder -Benutzer können Sie einen virtuellen Computer (Virtual Machine, VM) erstellen, indem Sie [benutzerdefinierte GitHub-Schnellstartvorlagen](https://github.com/Azure/AzureStack-QuickStart-Templates) verwenden, anstatt eine Vorlage manuell über den Azure Stack-Marketplace bereitzustellen.
 
@@ -37,7 +37,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
 ## <a name="azure-stack-quickstart-templates"></a>Azure Stack-Schnellstartvorlagen
 
-Azure Stack-Schnellstartvorlagen werden auf GitHub im [öffentlichen Repository für Azure Stack-Schnellstartvorlagen](https://github.com/Azure/AzureStack-QuickStart-Templates) gespeichert. Dieses Repository enthält Azure Resource Manager-Bereitstellungsvorlagen, die mit dem Microsoft Azure Stack Development Kit (ASDK) getestet wurden. Sie können sie verwenden, um Ihnen das Auswerten von Azure Stack und Verwenden der ASDK-Umgebung zu vereinfachen.
+Azure Stack-Schnellstartvorlagen werden auf GitHub im [globalen Repository für Azure Stack-Schnellstartvorlagen](https://github.com/Azure/AzureStack-QuickStart-Templates) gespeichert. Dieses Repository enthält Azure Resource Manager-Bereitstellungsvorlagen, die mit dem Microsoft Azure Stack Development Kit (ASDK) getestet wurden. Sie können sie verwenden, um Ihnen das Auswerten von Azure Stack und Verwenden der ASDK-Umgebung zu vereinfachen.
 
 Im Laufe der Zeit haben viele GitHub-Benutzer einen Beitrag zum Repository geleistet, wodurch eine Sammlung mit mehr als 400 Bereitstellungsvorlagen entstanden ist. Dieses Repository ist ein hervorragender Ausgangspunkt, um ein besseres Verständnis zu entwickeln, wie Sie verschiedene Arten von Umgebungen in Azure Stack bereitstellen können.
 
@@ -48,12 +48,12 @@ Wenn Sie Azure Resource Manager-Vorlagen für GitHub beitragen möchten, stellen
 
 ## <a name="create-a-vm-using-a-custom-github-template"></a>Erstellen einer VM mit einer benutzerdefinierten GitHub-Vorlage
 
-In diesem Beispieltutorial wird die Azure Stack-Schnellstartvorlage [101-vm-linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) verwendet, um einen virtuellen Ubuntu 16.04-Computer unter Azure Stack bereitzustellen, auf dem Minikube zum Verwalten eines Kubernetes-Clusters ausgeführt wird.
+In diesem Beispieltutorial wird die Azure Stack-Schnellstartvorlage [101-vm-linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) verwendet, um einen virtuellen Ubuntu 16.04-Computer unter Azure Stack bereitzustellen, auf dem Minikube zum Verwalten eines Kubernetes-Clusters ausgeführt wird.
 
-Minikube ist ein Tool, mit dem die lokale Ausführung von Kubernetes leicht möglich ist. Minikube führt einen Kubernetes-Cluster mit nur einem Knoten auf einer VM aus, wodurch Sie Kubernetes ausprobieren oder damit tägliche Entwicklungsarbeiten leisten können. Das Tool unterstützt einen einfachen Kubernetes-Cluster mit einem Knoten, der auf einer Linux-VM ausgeführt wird. Minikube ist die schnellste und einfachste Möglichkeit zum Ausführen eines voll funktionsfähigen Kubernetes-Clusters. Entwickler können hiermit ihre Bereitstellungen von Kubernetes-basierten Anwendungen auf ihren lokalen Computern entwickeln und testen. Im Hinblick auf die Architektur führt die Minikube-VM sowohl Master- als auch Agent-Knotenkomponenten lokal aus:
+Minikube ist ein Tool, mit dem die lokale Ausführung von Kubernetes leicht möglich ist. Minikube führt einen Kubernetes-Cluster mit nur einem Knoten auf einer VM aus, wodurch Sie Kubernetes ausprobieren oder damit tägliche Entwicklungsarbeiten leisten können. Das Tool unterstützt einen einfachen Kubernetes-Cluster mit einem Knoten, der auf einer Linux-VM ausgeführt wird. Minikube ist die schnellste und einfachste Möglichkeit zum Ausführen eines voll funktionsfähigen Kubernetes-Clusters. Entwickler können hiermit ihre Bereitstellungen von Kubernetes-basierten Anwendungen auf ihren lokalen Computern entwickeln und testen. Im Hinblick auf die Architektur führt der virtuelle Minikube-Computer sowohl Master- als auch Agent-Knotenkomponenten lokal aus:
 
 * Masterknotenkomponenten (etwa API-Server, Scheduler und [etcd-Server](https://coreos.com/etcd/)) werden in einem einzelnen Linux-Prozess namens **LocalKube** ausgeführt.
-* Agent-Knotenkomponenten werden in Docker-Containern ausgeführt, wie dies auch auf einem normalen Agent-Knoten der Fall wäre. Aus Sicht der Anwendungsbereitstellung besteht kein Unterschied darin, ob die Anwendung auf einem Minikube oder in einem regulären Kubernetes-Cluster bereitgestellt wird.
+* Agent-Knotenkomponenten werden in Docker-Containern ausgeführt, wie dies auch auf einem normalen Agent-Knoten der Fall wäre. Aus Sicht der Anwendungsbereitstellung besteht kein Unterschied darin, ob die Anwendung in einem Minikube-Cluster oder einem regulären Kubernetes-Cluster bereitgestellt wird.
 
 Mit dieser Vorlage werden die folgenden Komponenten installiert:
 
@@ -87,11 +87,11 @@ Mit dieser Vorlage werden die folgenden Komponenten installiert:
 
     ![Vorlage speichern](media/azure-stack-create-vm-template/5.PNG)
 
-6. Wählen Sie **Parameter** aus, füllen Sie je nach Bedarf die verfügbaren Felder aus (bzw. ändern Sie sie), und klicken Sie anschließend auf **OK**. Wählen Sie das gewünschte Abonnement aus, erstellen oder wählen Sie einen vorhandenen Ressourcengruppennamen, und klicken Sie dann auf **Erstellen**, um die Vorlagenbereitstellung zu initiieren.
+6. Wählen Sie **Parameter** aus, füllen Sie je nach Bedarf die verfügbaren Felder aus (bzw. ändern Sie sie), und klicken Sie anschließend auf **OK**.
 
     ![Parameter](media/azure-stack-create-vm-template/6.PNG)
 
-7. Wählen Sie das gewünschte Abonnement aus, erstellen oder wählen Sie einen vorhandenen Ressourcengruppennamen, und klicken Sie dann auf **Erstellen**, um die Vorlagenbereitstellung zu initiieren.
+7. Wählen Sie das gewünschte Abonnement aus, und erstellen oder wählen Sie einen vorhandenen Ressourcengruppennamen. Wählen Sie dann **Erstellen** aus, um die Vorlagenbereitstellung zu starten.
 
     ![Auswählen eines Abonnements](media/azure-stack-create-vm-template/7.PNG)
 
@@ -124,11 +124,11 @@ Nachdem der virtuelle Linux-Computer nun erfolgreich erstellt wurde, können Sie
 
     ![Ausführung von Befehlen](media/azure-stack-create-vm-template/11.PNG)
 
-4. Öffnen Sie den Webbrowser, und rufen Sie die Adresse des Kubernetes-Dashboards auf. Herzlichen Glückwunsch! Sie verfügen nun über eine voll funktionsfähige Kubernetes-Installation mit Minikube.
+4. Öffnen Sie einen Browser, und rufen Sie die Adresse des Kubernetes-Dashboards auf. Herzlichen Glückwunsch! Sie verfügen nun über eine voll funktionsfähige Kubernetes-Installation mit Minikube.
 
     ![Dashboard](media/azure-stack-create-vm-template/12.PNG)
 
-5. Navigieren Sie zum Bereitstellen einer Beispielanwendung zur offiziellen Seite mit der Kubernetes-Dokumentation, und überspringen Sie den Abschnitt „Create Minikube Cluster“ (Minikube-Cluster erstellen), da Sie diesen bereits in einem vorherigen Schritt erstellt haben. Fahren Sie mit dem Abschnitt „Create your Node.js application“ (Node.js-Anwendung erstellen) unter https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/ fort.
+5. Navigieren Sie zum Bereitstellen einer Beispielanwendung zur offiziellen Seite mit der Kubernetes-Dokumentation, und überspringen Sie den Abschnitt „Create Minikube Cluster“ (Minikube-Cluster erstellen), da Sie diesen bereits erstellt haben. Fahren Sie mit dem Abschnitt „Create your Node.js application“ (Node.js-Anwendung erstellen) unter https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/ fort.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

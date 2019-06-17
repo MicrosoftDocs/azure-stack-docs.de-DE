@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/07/2019
+ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 087c3b95f96600f6ff0cf14ab0fb8618046b86d7
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/11/2019
+ms.openlocfilehash: a2bb84cef5c24cd84653092a34dea7f0e20b624e
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311730"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836913"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Erstellen von Angeboten in Azure Stack
 
@@ -34,11 +34,11 @@ ms.locfileid: "64311730"
 
 2. Auf den Registerkarten der Benutzeroberfläche können Sie den Angebotsnamen definieren und vorhandene Basispläne und Add-On-Pläne hinzufügen oder neue erstellen. Außerdem können Sie vor der tatsächlichen Erstellung des Angebots noch einmal die Angebotsdetails überprüfen.
 
-   Geben Sie auf der Registerkarte **Grundlagen** unter **Neues Angebot** einen Wert für **Anzeigename** und **Ressourcenname** ein, und wählen Sie anschließend unter **Ressourcengruppe** die Option **Neu erstellen** oder **Vorhandenes Element verwenden** aus. Der Anzeigename ist der verständliche Anzeigename des Angebots. Dieser Anzeigename ist die einzige Angebotsinformation, die Benutzern beim Abonnieren eines Angebots im Benutzerportal angezeigt wird. Verwenden Sie einen aussagekräftigen Namen, der Aufschluss darüber gibt, was das Angebot umfasst. Nur der Administrator kann den Ressourcennamen anzeigen. Es handelt sich um den Namen, mit dem Administratoren das Angebot als Azure-Ressourcen-Manager-Ressource bearbeiten. Auf dieser Registerkarte können Sie das Angebot veröffentlichen oder die Standardkonfiguration als privates Angebot beibehalten. Sie können den [Öffentlichkeitsstatus des Angebots auch später noch ändern](#change-the-state-of-an-offer).
+   Geben Sie auf der Registerkarte **Grundlagen** einen Wert für **Anzeigename** und **Ressourcenname** ein, und wählen Sie anschließend unter **Ressourcenname** die Option **Neu erstellen** oder **Vorhandenes Element verwenden**. Der Anzeigename ist der verständliche Anzeigename des Angebots. Dieser Anzeigename ist die einzige Angebotsinformation, die Benutzern beim Abonnieren eines Angebots im Benutzerportal angezeigt wird. Verwenden Sie einen aussagekräftigen Namen, der Aufschluss darüber gibt, was das Angebot umfasst. Nur der Administrator kann den Ressourcennamen anzeigen. Es handelt sich um den Namen, mit dem Administratoren das Angebot als Azure-Ressourcen-Manager-Ressource bearbeiten. Auf dieser Registerkarte können Sie das Angebot veröffentlichen oder die Standardkonfiguration als privates Angebot beibehalten. Sie können den [Öffentlichkeitsstatus des Angebots auch später noch ändern](#change-the-state-of-an-offer).
 
    ![Neues Angebot](media/azure-stack-create-offer/new-offer.png)
   
-3. Wählen Sie die Registerkarte **Basispläne** aus. Wählen Sie die Pläne aus, die Sie in das Angebot einschließen möchten.
+3. Wählen Sie die Registerkarte **Basispläne**, oder klicken Sie auf die Schaltfläche **Weiter: Basispläne >** . Wählen Sie die Pläne aus, die Sie in das Angebot einschließen möchten.
 
    ![Auswählen des Plans](media/azure-stack-create-offer/select-plan.png)
 
@@ -67,7 +67,7 @@ Der Zustand eines Angebots kann auf zwei Arten geändert werden:
 
    ![Ändern des Status](media/azure-stack-create-offer/change-state.png)
 
-2. Wählen Sie unter **Alle Ressourcen** den Namen des Angebots aus. Wählen Sie **Angebotseinstellungen** aus. Wählen Sie den gewünschten Zustand (beispielsweise **Öffentlich**) und anschließend **Speichern** aus.
+2. Wählen Sie die Option **Angebotseinstellungen**. Wählen Sie den gewünschten Zustand (beispielsweise **Öffentlich**) und anschließend **Speichern** aus.
 
    ![Auswählen von „Status der Barrierefreiheit“](media/azure-stack-create-offer/offer-settings.png)
 

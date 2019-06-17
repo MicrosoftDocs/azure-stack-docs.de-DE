@@ -3,8 +3,8 @@ title: Verwalten von Key Vault in Azure Stack über das Portal | Microsoft Docs
 description: Hier erfahren Sie, wie Sie Key Vault in Azure Stack mithilfe des Portals verwalten.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: D4300668-461F-45F6-BF3B-33B502C39D17
 ms.service: azure-stack
@@ -12,18 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/04/2019
-ms.date: 02/18/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: bc73e80acddaac8676b4cb47c0b9ced2467cdc44
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 57a23dc63c72657c19a92fa8f69e029be7f12f60
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311292"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836843"
 ---
-# <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Verwalten von Key Vault in Azure Stack über das Portal
+# <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Verwalten von Key Vault in Azure Stack über das Portal
 
 Sie können Key Vault in Azure Stack über das Azure Stack-Portal verwalten. In diesem Artikel wird beschrieben, wie Sie einen Schlüsseltresor in Azure Stack erstellen und verwalten.
 
@@ -55,7 +54,7 @@ Sie müssen ein Angebot abonnieren, das den Azure Key Vault-Dienst umfasst.
 
 ## <a name="manage-keys-and-secrets"></a>Verwalten von Schlüsseln und Geheimnissen
 
-Gehen Sie nach dem Erstellen eines Tresors wie folgt vor, um Schlüssel und Geheimnisse innerhalb des Tresors zu erstellen und zu verwalten.
+Gehen Sie nach dem Erstellen eines Schlüsseltresors wie folgt vor, um Schlüssel und Geheimnisse innerhalb des Tresors zu erstellen und zu verwalten.
 
 ### <a name="create-a-key"></a>Erstellen eines Schlüssels
 

@@ -1,10 +1,10 @@
 ---
-title: Bereitstellen von Vorlagen mithilfe von PowerShell in Azure Stack | Microsoft-Dokumentation
-description: Stellen Sie eine Vorlage in Azure Stack mithilfe von PowerShell bereit.
+title: Bereitstellen einer Vorlage mithilfe von PowerShell in Azure Stack | Microsoft-Dokumentation
+description: Stellen Sie eine Vorlage mithilfe von PowerShell in Azure Stack bereit.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
@@ -12,19 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/08/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 04/08/2019
+ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9c1df99557293030dc0b1c0693b0bbc517a3f0ff
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: be325c41023c859ee70b8ee932673db75f41ec4b
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310356"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691440"
 ---
-# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Bereitstellen einer Vorlage in Azure Stack mithilfe von PowerShell
+# <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Bereitstellen einer Vorlage mithilfe von PowerShell in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -70,4 +69,4 @@ In diesem Beispiel werden **AzureRM**-PowerShell-Cmdlets und eine auf GitHub ges
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Bereitstellen von Vorlagen mithilfe von Visual Studio](azure-stack-deploy-template-visual-studio.md)
+- [Bereitstellen einer Vorlage mit Visual Studio](azure-stack-deploy-template-visual-studio.md)
