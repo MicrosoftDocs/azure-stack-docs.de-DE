@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/16/2018
+  ms.date: 06/17/2019
   ms.author: mabrigg
 abstract:
   description: 'Microsoft Azure Stack ist eine Hybrid Cloud-Plattform, mit der Sie Azure-Dienste aus Ihrem Datencenter bereitstellen können. In unseren Schnellstarts und Tutorials erfahren Sie, wie Sie die Infrastruktur für integrierte Azure Stack-Systeme verwalten und Dienste anbieten.<br/><br/>Wenn Sie ein Azure Stack-Benutzer sind, der Dienste verwendet oder Apps für Azure Stack erstellt, helfen Ihnen die Informationen in unserer <a href="/azure-stack/user">Dokumentation für Benutzer</a> weiter.<br/><br/>Wenn Sie als Azure Stack-Bediener das Azure Stack Development Kit (ASDK) verwenden möchten, können Sie eine kostenlose Azure Stack-Bereitstellung mit einem Knoten herunterladen. Weitere Informationen finden Sie in der <a href="/azure-stack/asdk">ASDK-Dokumentation</a>.'
@@ -20,14 +20,14 @@ sections:
   - title: Schnellstart
     items:
       - type: paragraph
-        text: 'Richten Sie Ihre Hardware ein, und stellen Sie das Azure Stack Development Kit bereit.'
+        text: 'Hier erfahren Sie, wie Sie das Verwaltungsportal für tägliche Verwaltungsaufgaben verwenden.'
       - type: list
         style: icon48
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            text: Bereitstellen des Azure Stack Development Kits
-            href: ../asdk/asdk-download.md
+            text: Verwenden des Azure Stack-Verwaltungsportals
+            href: azure-stack-manage-portals.md
   - title: Schritt-für-Schritt-Tutorials
     items:
       - type: paragraph
