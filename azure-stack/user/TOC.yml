@@ -50,8 +50,6 @@
       href: azure-stack-use-portal.md
     - name: Verbinden mit PowerShell
       href: azure-stack-powershell-configure-user.md
-    - name: Verwenden der Azure Stack-API
-      href: azure-stack-rest-api-use.md
     - name: Sicherheit und Compliance
       items:
         - name: Verwenden der rollenbasierten Zugriffssteuerung
@@ -152,36 +150,36 @@
                   href: azure-stack-solution-template-kubernetes-trouble.md
             - name: Bereitstellen von Cognitive Services
               href: azure-stack-solution-template-cognitive-services.md
-    - name: Erstellen von Apps
+    - name: Verwenden von Azure Stack Resource Manager
       items:
-        - name: Entwickeln für Azure Stack
-          href: azure-stack-developer.md
-        - name: Einrichten der Entwicklungsumgebung
-          href: azure-stack-dev-start.md
+        - name: Konfigurieren Ihres Clients
           items:
-            - name: Übersicht über Azure Stack PowerShell
-              href: azure-stack-powershell-overview.md
-            - name: Installieren von Azure Stack-PowerShell
-              href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
-              maintainContext: true
-            - name: Verbinden mit PowerShell
-              href: azure-stack-powershell-configure-user.md
-            - name: Herunterladen der Azure Stack-Tools
-              href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
-              maintainContext: true
-            - name: Ausführen von PowerShell mithilfe von Docker
-              href: azure-stack-powershell-user-docker.md
-            - name: Herstellen einer Verbindung mithilfe der Azure-Kontoerweiterung
-              href: azure-stack-dev-start-vscode-azure.md
-            - name: Installieren von Visual Studio
-              href: azure-stack-install-visual-studio.md
-            - name: Verwenden eines öffentlichen SSH-Schlüssels
-              href: azure-stack-dev-start-howto-ssh-public-key.md
-            - name: Bereitstellen eines virtuellen Linux-Computers für eine Web-App
-              href: azure-stack-dev-start-howto-deploy-linux.md
-            - name: Verwenden von API-Versionsprofilen
-              href: azure-stack-version-profiles.md
+            - name: Azure SDK-Clients
+              href: azure-stack-dev-start.md
+            - name: Azure Stack PowerShell-Client
               items:
+                - name: Übersicht über Azure Stack PowerShell
+                  href: azure-stack-powershell-overview.md
+                - name: Installieren von Azure Stack-PowerShell
+                  href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  maintainContext: true
+                - name: Verbinden mit PowerShell
+                  href: azure-stack-powershell-configure-user.md
+                - name: Herunterladen der Azure Stack-Tools
+                  href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  maintainContext: true
+                - name: Ausführen von PowerShell mithilfe von Docker
+                  href: azure-stack-powershell-user-docker.md
+            - name: Visual Studio Code-Client
+              href: azure-stack-dev-start-vscode-azure.md
+            - name: Visual Studio-Client
+              href: azure-stack-install-visual-studio.md
+            - name: Secure Shell-Client
+              href: azure-stack-dev-start-howto-ssh-public-key.md
+            - name: Verwenden von API-Versionsprofilen
+              items:
+                - name: Übersicht
+                  href: azure-stack-version-profiles.md
                 - name: .NET
                   href: azure-stack-version-profiles-net.md
                 - name: Java
@@ -196,21 +194,24 @@
                   href: azure-stack-version-profiles-python.md
                 - name: Von Profilen unterstützte Ressourcenanbieter-APIs
                   href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: Häufige Bereitstellungen für Azure Stack
-          href: azure-stack-dev-start-deploy-app.md
+        - name: Bereitstellen eines virtuellen Computers und einer Web-App
           items:
-            - name: 'Bereitstellen von .NET Core (C#) auf einem virtuellen Computer'
+            - name: 'Bereitstellen einer C#-Web-App auf einem virtuellen Windows-Computer'
               href: azure-stack-dev-start-howto-vm-dotnet.md
-            - name: Bereitstellen von Java auf einem virtuellen Computer
-              href: azure-stack-dev-start-howto-vm-java.md
-            - name: Bereitstellen von Go auf einem virtuellen Computer
-              href: azure-stack-dev-start-howto-vm-go.md
-            - name: Bereitstellen von Ruby auf einem virtuellen Computer
-              href: azure-stack-dev-start-howto-vm-ruby.md
-            - name: Bereitstellen von Python auf einem virtuellen Computer
-              href: azure-stack-dev-start-howto-vm-python.md
-            - name: Bereitstellen von NodeJS auf einem virtuellen Computer
-              href: azure-stack-dev-start-howto-vm-nodejs.md
+            - name: Bereitstellen einer Web-App auf einem virtuellen Linux-Computer
+              items:
+                - name: Bereitstellen einer Linux-VM für eine Web-App
+                  href: azure-stack-dev-start-howto-deploy-linux.md
+                - name: Bereitstellen einer Java-Web-App
+                  href: azure-stack-dev-start-howto-vm-java.md
+                - name: Bereitstellen einer Go-Web-App
+                  href: azure-stack-dev-start-howto-vm-go.md
+                - name: Bereitstellen einer Ruby-Web-App
+                  href: azure-stack-dev-start-howto-vm-ruby.md
+                - name: Bereitstellen einer Python-Web-App
+                  href: azure-stack-dev-start-howto-vm-python.md
+                - name: Bereitstellen einer NodeJS-Web-App
+                  href: azure-stack-dev-start-howto-vm-nodejs.md
         - name: Verwenden des Azure Stack-Richtlinienmoduls
           href: azure-stack-policy-module.md
         - name: Verwenden von Vorlagen
@@ -219,6 +220,8 @@
               href: azure-stack-arm-templates.md
             - name: Überlegungen zu Vorlagen
               href: azure-stack-develop-templates.md
+            - name: Entwickeln von Vorlagen in Azure
+              href: azure-stack-developer.md
             - name: Überprüfen von Vorlagen
               href: azure-stack-validate-templates.md
             - name: Bereitstellen über das Portal
@@ -229,6 +232,8 @@
               href: azure-stack-deploy-template-command-line.md
             - name: Bereitstellen mit Visual Studio 2013
               href: azure-stack-deploy-template-visual-studio.md
+        - name: Zugreifen auf Ressource mithilfe von REST
+          href: azure-stack-rest-api-use.md
     - name: Aktivieren eines Cloud-Dienstanbieters
       href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Verweis
