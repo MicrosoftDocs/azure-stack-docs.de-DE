@@ -27,7 +27,7 @@
           href: azure-stack-subscribe-services.md
         - name: Erstellen eines virtuellen Computers über eine Vorlage
           href: azure-stack-create-vm-template.md
-    - name: Hybrid Cloud-Apps
+    - name: Übersicht über Hybrid Cloud-Apps
       href: azure-stack-hybrid-cloud-patterns.md
       items:
         - name: Bereitstellen von Apps in Azure und Azure Stack
@@ -36,26 +36,30 @@
           href: azure-stack-solution-hybrid-identity.md
         - name: Konfigurieren der Hybrid Cloud-Konnektivität
           href: azure-stack-solution-hybrid-connectivity.md
-        - name: Erstellen einer bereitgestellten Lösung für die Datenanalyse
-          href: azure-stack-solution-staged-data-analytics.md
         - name: Erstellen von cloudübergreifenden Skalierungslösungen mit Azure
           href: azure-stack-solution-cloud-burst.md
         - name: Erstellen einer geografisch verteilten App-Lösung
           href: azure-stack-solution-geo-distributed.md
         - name: Bereitstellen einer Hybrid Cloud-Lösung
           href: azure-stack-solution-hybrid-cloud.md
+        - name: Bereitstellen der gestaffelten Datenanalyse
+          href: azure-stack-solution-staged-data.md
+        - name: Bereitstellen von MongoDB mit Hochverfügbarkeit
+          href: azure-stack-solution-mongodb-ha.md
+        - name: Bereitstellen von SQL Server 2016 mit Hochverfügbarkeit
+          href: azure-stack-solution-sql-ha.md
 - name: Anleitungen
   items:
     - name: Verwenden des Portals für Azure Stack
       href: azure-stack-use-portal.md
     - name: Verbinden mit PowerShell
       href: azure-stack-powershell-configure-user.md
-    - name: Sicherheit und Compliance
+    - name: 'Sicherheit, Konformität und Identität'
       items:
         - name: Verwenden der rollenbasierten Zugriffssteuerung
           href: azure-stack-manage-permissions.md
-        - name: Verwenden von Dienstprinzipalen
-          href: Azure-stack-create-service-principals.md
+        - name: Verwenden einer App-Identität für den Ressourcenzugriff
+          href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
     - name: Verwenden von Diensten
       items:
         - name: Compute

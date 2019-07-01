@@ -15,7 +15,13 @@
         - name: Checkliste für die Anwendung von Updates
           href: azure-stack-release-notes-checklist.md
         - name: Sicherheitsupdates
-          href: azure-stack-release-notes-security-updates-1905.md
+          href: azure-stack-release-notes-security-updates-1906.md
+        - name: Update 1906
+          items:
+            - name: Versionshinweise
+              href: azure-stack-release-notes-1906.md
+            - name: Bekannte Probleme
+              href: azure-stack-release-notes-known-issues-1906.md
         - name: Update 1905
           items:
             - name: Versionshinweise
@@ -30,8 +36,6 @@
               href: azure-stack-release-notes-known-issues-1904.md
         - name: Update 1903
           href: azure-stack-update-1903.md
-        - name: Update 1902
-          href: azure-stack-update-1902.md
 - name: Schnellstarts
   expanded: true
   items:
@@ -201,6 +205,8 @@
       items:
         - name: Sicherheitsübersicht
           href: azure-stack-security-foundations.md
+        - name: Konfigurieren der Sicherheit
+          href: azure-stack-security-configuration.md
         - name: Identity
           items:
             - name: Übersicht über Identitäten
@@ -213,7 +219,7 @@
               href: azure-stack-add-new-user-aad.md
             - name: Hinzufügen von Benutzern für AD FS
               href: azure-stack-add-users-adfs.md
-            - name: Erstellen von Dienstprinzipalen
+            - name: Verwenden einer App-Identität für den Ressourcenzugriff
               href: Azure-stack-create-service-principals.md
             - name: Aktivieren der Mehrinstanzenfähigkeit
               href: azure-stack-enable-multitenancy.md
@@ -368,7 +374,7 @@
           items:
             - name: Nutzungsdatenberichte
               href: azure-stack-usage-reporting.md
-            - name: Nutzungsberichtsinfrastruktur für Cloud-Dienstanbieter
+            - name: Infrastruktur für Nutzungsberichte
               href: azure-stack-csp-ref-infrastructure.md
             - name: Anbieternutzungs-API
               href: azure-stack-provider-resource-api.md
@@ -376,6 +382,12 @@
               href: azure-stack-tenant-resource-usage-api.md
             - name: FAQ zur Nutzung
               href: azure-stack-usage-related-faq.md
+            - name: Behandeln von Problemen bei der Nutzung
+              items:
+                - name: Verbindungsfehler bei der Nutzung
+                  href: azure-stack-usage-issues.md
+                - name: Fehlercodes für die Nutzungsregistrierung
+                  href: azure-stack-registration-errors.md
     - name: Sichern von Azure Stack
       href: azure-stack-backup-infrastructure-backup.md
       items:
@@ -386,9 +398,9 @@
         - name: Sichern von Azure Stack
           href: azure-stack-backup-back-up-azure-stack.md
         - name: Sichern von Dateien und Anwendungen in Azure Stack
-          href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+          href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Replizieren virtueller Azure Stack-Computer in Azure
-          href: /azure/site-recovery/azure-stack-site-recovery?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+          href: /azure/site-recovery/azure-stack-site-recovery?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Wiederherstellen nach schwerwiegendem Datenverlust
           href: azure-stack-backup-recover-data.md
         - name: Best Practices für die Sicherung
