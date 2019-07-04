@@ -3,24 +3,23 @@ title: Verwenden des Azure Stack-Portals | Microsoft-Dokumentation
 description: Informationen zum Zugriff auf das Benutzerportal in Azure Stack und zu dessen Verwendung.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/25/2019
-ms.date: 03/18/2019
-ms.author: v-jay
+ms.date: 06/13/2019
+ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 28b8971b61ff09346b2a2f89cd5ea8ae04e44079
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: dd68364585fd1d204713c5a014b141f4450a1d45
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311586"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131551"
 ---
 # <a name="use-the-azure-stack-portal"></a>Verwenden des Azure Stack-Portals
 
@@ -80,5 +79,3 @@ Bei Verwendung des Azure Stack Development Kit können Sie nur das [Azure Stack-
 ## <a name="next-steps"></a>Nächste Schritte
 
 [Wichtige Aspekte: Verwenden von Diensten oder Erstellen von Apps für Azure Stack](azure-stack-considerations.md)
-
-<!-- Update_Description: wording update -->

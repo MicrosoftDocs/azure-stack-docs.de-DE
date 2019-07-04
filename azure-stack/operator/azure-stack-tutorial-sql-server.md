@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: justinha
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: cc3af256adbcea8e6055b237945dc2286762437e
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 7198b48eef8ceb2cd802fb81e8ab835f4e254e04
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267998"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308446"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Tutorial: Verfügbarmachen von SQL-Datenbanken für Ihre Azure Stack-Benutzer
 
@@ -57,7 +57,7 @@ Da Sie den SQL Server-Ressourcenanbieter nun bereitgestellt und ein Angebot erst
 
 ### <a name="subscribe-to-the-offer"></a>Abonnieren des Angebots
 
-1. Melden Sie sich als Mandant beim Azure Stack-Portal (https://portal.local.azurestack.external)) an.
+1. Melden Sie sich als Mandant beim Azure Stack-Portal (https://portal.local.azurestack.external) ) an.
 2. Klicken Sie auf **Abonnement erwerben**, und geben Sie dann unter **Anzeigename** die Zeichenfolge **TestSQLServerSubscription** ein.
 3. Klicken Sie auf **Angebot auswählen** > **TestSQLServerOffer** > **Erstellen**.
 4. Klicken Sie auf **Alle Dienste** > **Abonnements** > **TestSQLServerSubscription** > **Ressourcenanbieter**.

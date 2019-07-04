@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 7a2ba164c5d35bc1f5b52d3ff68c18b7b3e47dcd
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 56dbc301c87e819b241d9dd6e801544df4afa152
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618940"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131196"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Hinzufügen zusätzlicher Knoten zu Skalierungseinheiten in Azure Stack
 
@@ -121,7 +121,7 @@ Der Status für Skalierungseinheit und Skalierungseinheitknoten kann mit PowerSh
 |Beendet               |Der Knoten ist nicht verfügbar.|
 |Wird hinzugefügt                |Der Knoten wird aktiv zur Skalierungseinheit hinzugefügt.|
 |Wird repariert             |Der Knoten wird aktiv repariert.|
-|Wartung            |Der Knoten wurde angehalten, und es wird kein aktiver Benutzerworkload ausgeführt. |
+|Wartung           |Der Knoten wurde angehalten, und es wird kein aktiver Benutzerworkload ausgeführt. |
 |Korrektur erforderlich  |Ein Fehler wurde ermittelt, der eine Reparatur des Knotens erfordert.|
 
 

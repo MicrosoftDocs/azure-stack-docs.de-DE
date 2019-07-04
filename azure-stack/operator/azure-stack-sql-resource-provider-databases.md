@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 2b177f14fc787c05c0a7c1f654e8bcfaf8638b93
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: a8ebc50be9b1c3e1eaae491b6d8f8916f900e500
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618186"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308459"
 ---
 # <a name="create-sql-databases"></a>Erstellen von SQL-Datenbanken
 
@@ -69,7 +69,7 @@ Die folgende Bildschirmaufnahme zeigt, wie Sie den Status der Datenbank in SQL A
 
 ![Always On-Datenbankstatus](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
 
-Always On-Datenbanken sollten als synchronisiert und für alle SQL-Instanzen verfügbar dargestellt und in den Verfügbarkeitsgruppen angezeigt werden. In der vorherigen Bildschirmaufnahme heißt das Beispiel für die Datenbank „newdb1“ und ihr Status lautet **newdb1 (synchronisiert)**.
+Always On-Datenbanken sollten als synchronisiert und für alle SQL-Instanzen verfügbar dargestellt und in den Verfügbarkeitsgruppen angezeigt werden. In der vorherigen Bildschirmaufnahme heißt das Beispiel für die Datenbank „newdb1“ und ihr Status lautet **newdb1 (synchronisiert)** .
 
 ### <a name="delete-an-alwayson-database"></a>Löschen einer Always On-Datenbank
 

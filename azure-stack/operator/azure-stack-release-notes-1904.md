@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 31f2df0b5c7598c678daff8abe34a40b4e08d590
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: d3a50288464b81104ddd1dd032f93128fde43eae
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691603"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152513"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack-Update 1904
 
@@ -75,8 +75,6 @@ Der Buildtyp des Azure Stack 1904-Updates lautet **Express**. Weitere Informati
 
 <!-- this applies to bug 3725384 and bug #4225643 -->
 - Das Volume für syslog-Nachrichten wurde verbessert. Nicht erforderliche Ereignisse werden herausgefiltert, und es wird ein Konfigurationsparameter angegeben, um den gewünschten Schweregrad für weitergeleitete Nachrichten auszuwählen. Weitere Informationen zum Konfigurieren des Schweregrads finden Sie unter [Integration des Azure Stack-Datencenters: syslog-Weiterleitung](azure-stack-integrate-security.md).
-
-- Ab Update 1904 werden für die Azure Stack-Infrastruktur zusätzlich „12 GB + (4 GB · Anzahl von Azure Stack-Hosts)“ benötigt. Dies bedeutet Folgendes: Bei einem Stempel mit vier Knoten ergibt sich ein zusätzlicher Kapazitätsverbrauch von 28 GB (12 GB + 4 GB · 4), der in der Kapazitätsanzeige des Azure Stack-Administratorportals angegeben wird. Ihr Update auf Version 1904 sollte auch dann erfolgreich sein, wenn durch den zusätzlichen Speicherbedarf die Kapazität des Azure Stack-Stempels überschritten wird. Falls die Speicherauslastung des Azure Stack-Stempels NACH Abschluss des Updates überschritten wird, wird eine Warnung zu diesem Zustand angezeigt, und es sind Lösungsschritte zum Aufheben der Zuordnung einiger VMs angegeben.
 
 <!--this applied to Bug 1473487 -->
 - Dem Cmdlet **Get-AzureStackLog** wurde eine neue Funktion hinzugefügt, indem der zusätzliche Parameter `-OutputSASUri` bereitgestellt wurde. Sie können jetzt Azure Stack-Protokolle aus Ihrer Umgebung erfassen und im angegebenen Azure Storage-Blobcontainer speichern. Weitere Informationen finden Sie unter [Azure Stack-Diagnose](azure-stack-diagnostics.md#examples).

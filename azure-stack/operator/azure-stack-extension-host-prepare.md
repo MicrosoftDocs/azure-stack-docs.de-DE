@@ -3,21 +3,20 @@ title: Vorbereiten auf den Erweiterungshost für Azure Stack | Microsoft-Dokumen
 description: Hier erfahren Sie, wie Sie Vorbereitungen für den Erweiterungshost treffen, der über ein zukünftiges Azure Stack-Updatepaket automatisch aktiviert wird.
 services: azure-stack
 keywords: ''
-author: WenJason
-ms.author: v-jay
-origin.date: 03/07/2019
-ms.date: 04/29/2019
+author: mattbriggs
+ms.author: mabrigg
+ms.date: 06/13/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
-manager: digimobile
+manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 23f91454027b3073498ef3c1b4a388cca0c88bab
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ab508956ddcc57baa04c74710ea485c07cc20416
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307080"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131154"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Vorbereiten auf den Erweiterungshost für Azure Stack
 
@@ -128,7 +127,7 @@ Verwenden Sie für die folgenden Schritte einen Computer, der eine Verbindung mi
 > Dieser Schritt ist nicht erforderlich, wenn Sie die DNS-Zonendelegierung für die DNS-Integration verwenden.
 Wenn einzelne A-Datensätze des Hosts zum Veröffentlichen von Azure Stack-Endpunkten konfiguriert wurden, müssen Sie zwei zusätzliche A-Datensätze für den Host erstellen:
 
-| IP | Hostname | Type |
+| IP | Hostname | type |
 |----|------------------------------|------|
 | \<IP> | *.Adminhosting.\<Region>.\<FQDN> | Eine Datei |
 | \<IP> | *.Hosting.\<Region>.\<FQDN> | Eine Datei |
