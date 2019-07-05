@@ -1,6 +1,6 @@
 ---
-title: Konfigurieren einer Hybrid Cloud-Identität mit Azure- und Azure Stack-Anwendungen | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie eine Hybrid Cloud-Identität mit Azure- und Azure Stack-Anwendungen konfigurieren.
+title: Konfigurieren einer Hybrid Cloud-Identität mit Azure- und Azure Stack-Apps | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie eine Hybrid Cloud-Identität mit Azure- und Azure Stack-Apps konfigurieren.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -11,29 +11,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 06/26/2019
 ms.author: bryanla
 ms.reviewer: anajod
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: ed85055c04e068ad614a406caf113555601bd620
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.lastreviewed: 06/26/2019
+ms.openlocfilehash: 074d971c1f951797b5dc2d53a62eef56d0b7249f
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252049"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492323"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Tutorial: Konfigurieren einer Hybrid Cloud-Identität für Azure- und Azure Stack-Anwendungen
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Hier erfahren Sie, wie Sie eine Hybrid Cloud-Identität für Ihre Azure- und Azure Stack-Anwendungen konfigurieren.
+Hier erfahren Sie, wie Sie eine Hybrid Cloud-Identität für Ihre Azure- und Azure Stack-Apps konfigurieren.
 
-Der Zugriff auf Ihre Anwendungen in globalen Azure- und Azure Stack-Instanzen kann auf zwei Arten gewährt werden.
+Der Zugriff auf Ihre Apps in globalen Azure- und Azure Stack-Instanzen kann auf zwei Arten gewährt werden.
 
  * Wenn Azure Stack über eine ständige Internetverbindung verfügt, können Sie Azure Active Directory (Azure AD) verwenden.
  * Wenn Azure Stack über keine Internetverbindung verfügt, können Sie Azure Directory-Verbunddienste (AD FS) verwenden.
 
-Dienstprinzipale werden verwendet, um den Zugriff auf Ihre Azure Stack-Anwendungen zum Zweck der Bereitstellung oder Konfiguration über Azure Resource Manager in Azure Stack zu gewähren.
+Dienstprinzipale werden verwendet, um den Zugriff auf Ihre Azure Stack-Apps zur Bereitstellung oder Konfiguration über Azure Resource Manager in Azure Stack zu gewähren.
 
 In diesem Tutorial erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht:
 
@@ -45,18 +45,18 @@ Sie benötigen Azure Stack-Bedienerberechtigungen für die Schritte in diesem Tu
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack ist eine Erweiterung von Azure. Mit Azure Stack holen Sie sich die Agilität und Innovation von Cloud Computing in Ihre lokale Umgebung. Sie erhalten die einzige Hybrid Cloud, mit der Sie Hybrid-Apps überall entwickeln und bereitstellen können.  
+> Microsoft Azure Stack ist eine Erweiterung von Azure. Mit Azure Stack holen Sie sich die Agilität und Innovation von Cloud Computing in Ihre lokale Umgebung, indem Sie die einzige Hybrid Cloud aktivieren, mit der Sie Hybrid-Apps überall entwickeln und bereitstellen können.  
 > 
 > Im Whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Entwurfsüberlegungen für Hybridanwendungen) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybridanwendungen, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
 
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Erstellen eines Dienstprinzipals für Azure AD über das Portal
 
-Wenn Sie Azure Stack mit Azure AD als Identitätsspeicher bereitgestellt haben, können Sie Dienstprinzipale genauso wie für Azure erstellen. Im Artikel [Gewähren des Anwendungszugriffs auf Azure Stack-Ressourcen durch Erstellen von Dienstprinzipalen](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) erfahren Sie, wie die Schritte über das Portal ausgeführt werden. Vergewissern Sie sich vorher, ob Sie über die [erforderlichen Azure AD-Berechtigungen](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) verfügen.
+Wenn Sie Azure Stack mit Azure AD als Identitätsspeicher bereitgestellt haben, können Sie Dienstprinzipale genauso wie für Azure erstellen. Im Artikel [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-service-principal) erfahren Sie, wie die Schritte über das Portal ausgeführt werden. Vergewissern Sie sich vorher, dass Sie über die [erforderlichen Azure AD-Berechtigungen](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) verfügen.
 
 ## <a name="create-a-service-principal-for-ad-fs-using-powershell"></a>Erstellen eines Dienstprinzipals für AD FS mithilfe von PowerShell
 
-Wenn Sie Azure Stack mit AD FS bereitgestellt haben, können Sie PowerShell verwenden, um einen Dienstprinzipal zu erstellen, eine Rolle für den Zugriff zuzuweisen und die Anmeldung über PowerShell mit dieser Identität durchzuführen. Im Abschnitt [Erstellen eines Dienstprinzipals für AD FS](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs) wird gezeigt, wie Sie die erforderlichen Schritte mithilfe von PowerShell ausführen.
+Wenn Sie Azure Stack mit AD FS bereitgestellt haben, können Sie PowerShell verwenden, um einen Dienstprinzipal zu erstellen, eine Rolle für den Zugriff zuzuweisen und die Anmeldung über PowerShell mit dieser Identität durchzuführen. Im Artikel [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal) erfahren Sie, wie Sie die erforderlichen Schritte mithilfe von PowerShell ausführen.
 
 ## <a name="using-the-azure-stack-api"></a>Verwenden der Azure Stack-API
 
@@ -68,7 +68,7 @@ In der Schnellstartanleitung zum [Einrichten von PowerShell in Azure Stack](../o
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
-Eine mit Azure Active Directory verbundene Azure Stack-Installation mit einem Abonnement, auf das Sie zugreifen können. Sollten Sie über keine Azure Stack-Installation verfügen, sehen Sie sich die Anleitung zum Einrichten eines [Azure Stack Development Kits](../asdk/asdk-install.md) an.
+Sie benötigen eine mit Azure Active Directory verbundene Azure Stack-Installation mit einem Abonnement, auf das Sie zugreifen können. Sollten Sie über keine Azure Stack-Installation verfügen, sehen Sie sich die Anleitung zum Einrichten eines [Azure Stack Development Kits](../asdk/asdk-install.md) an.
 
 #### <a name="connect-to-azure-stack-using-code"></a>Herstellen einer Verbindung mit Azure Stack mithilfe von Code
 
