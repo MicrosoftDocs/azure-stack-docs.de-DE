@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 9b92e6e2e059f4b57742248672751111b504136c
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: f25bc769e7461c21e40017d6413cfbe35186441b
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469134"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419589"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904: Bekannte Probleme
 
@@ -43,7 +43,7 @@ In diesem Artikel werden die bekannten Probleme in Version 1904 von Azure Stack
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Die beiden Verwaltungsabonnements, die in Version 1804 eingeführt wurden, sollten nicht verwendet werden. Die Abonnementtypen sind **Messungsabonnement** und **Verbrauchsabonnement**.
-- Abhilfe: Diese Abonnements werden ab Version 1906 gesperrt und später gelöscht. Wenn Sie unter diesen beiden Abonnements Ressourcen ausführen, müssen Sie sie unter Benutzerabonnements mit einer Version vor 1906 neu erstellen.
+- Abhilfe: Wenn Sie unter diesen beiden Abonnements Ressourcen ausführen, erstellen Sie sie in Benutzerabonnements neu.
 - Häufigkeit: Common
 
 ### <a name="subscription-resources"></a>Abonnementressourcen
@@ -102,6 +102,13 @@ In diesem Artikel werden die bekannten Probleme in Version 1904 von Azure Stack
 - Abhilfe: Laden Sie das Blob mit der SAS-Option hoch.
 - Häufigkeit: Common
 
+### <a name="template"></a>Vorlage
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Im Benutzerportal füllt die Benutzeroberfläche für die Vorlagenbereitstellung Parameter für die Vorlagennamen, die mit „_“ (Unterstrich) beginnen, nicht auf.
+- Abhilfe: Entfernen Sie den „_“ (Unterstrich) aus dem Vorlagennamen.
+- Häufigkeit: Common
+
 ## <a name="networking"></a>Netzwerk
 
 ### <a name="load-balancer"></a>Load Balancer
@@ -149,7 +156,7 @@ Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer a
 #### <a name="centos"></a>CentOS
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Auf der Benutzeroberfläche zum Erstellen von VM-Skalierungsgruppen wird „CentOS 7.2-basiert“ als Option für die Bereitstellung angeboten. CentOS 7.2 ist in Azure Stack nicht verfügbar.
+- Ursache: Auf der Benutzeroberfläche zum Erstellen von VM-Skalierungsgruppen wird „CentOS 7.2-basiert“ als Option für die Bereitstellung angeboten. CentOS 7.2 ist im Azure Stack-Marketplace nicht verfügbar, sodass es zu Bereitstellungsfehlern mit dem Hinweis kommt, dass das Image nicht gefunden wurde.
 - Abhilfe: Wählen Sie entweder ein anderes Betriebssystem für Ihre Bereitstellung aus, oder verwenden Sie eine Azure Resource Manager-Vorlage mit einem anderen CentOS-Image, das vor der Bereitstellung vom Bediener aus dem Marketplace heruntergeladen wurde.
 - Häufigkeit: Common
 

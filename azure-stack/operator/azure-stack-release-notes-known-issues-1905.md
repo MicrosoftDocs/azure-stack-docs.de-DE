@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 38c7ec337ba8cdb73925b1c07f77331c05b25d8a
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: 40b2eb51b3e05a25706037f404a53d86fa7cae5a
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836660"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419580"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905: Bekannte Probleme
 
@@ -47,13 +47,6 @@ In diesem Artikel werden die bekannten Probleme in Version 1905 von Azure Stack
 - Häufigkeit: Common
 
 ## <a name="portal"></a>Portal
-
-### <a name="administrative-subscriptions"></a>Verwaltungsabonnements
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Die beiden Verwaltungsabonnements, die in Version 1804 eingeführt wurden, sollten nicht verwendet werden. Die Abonnementtypen sind **Messungsabonnement** und **Verbrauchsabonnement**.
-- Abhilfe: Diese Abonnements werden ab Version 1906 gesperrt und später gelöscht. Wenn Sie unter diesen beiden Abonnements Ressourcen ausführen, müssen Sie sie mit Benutzerabonnements neu erstellen, die eine ältere Version als 1906 aufweisen.
-- Häufigkeit: Common
 
 ### <a name="subscription-resources"></a>Abonnementressourcen
 
@@ -88,6 +81,13 @@ In diesem Artikel werden die bekannten Probleme in Version 1905 von Azure Stack
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Wenn Sie im Benutzerportal versuchen, ein Blob mit der Option **OAuth (Vorschau)** hochzuladen, wird für die Aufgabe eine Fehlermeldung angezeigt.
 - Abhilfe: Laden Sie das Blob mit der SAS-Option hoch.
+- Häufigkeit: Common
+
+### <a name="template"></a>Vorlage
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Im Benutzerportal füllt die Benutzeroberfläche für die Vorlagenbereitstellung Parameter für die Vorlagennamen, die mit „_“ (Unterstrich) beginnen, nicht auf.
+- Abhilfe: Entfernen Sie den „_“ (Unterstrich) aus dem Vorlagennamen.
 - Häufigkeit: Common
 
 ## <a name="networking"></a>Netzwerk
@@ -132,6 +132,13 @@ Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer a
 - Abhilfe: Erstellen Sie das Speicherkonto unter dem zuvor verwendeten Namen neu.
 - Häufigkeit: Common
 
+### <a name="vm-resize"></a>Ändern der Größe einer VM
+
+- Geltungsbereich: Dieses Problem gilt für Release 1905.
+- Ursache: Die Größe einer VM mit verwaltetem Datenträger lässt sich nicht erfolgreich ändern. Der Versuch, die Größe der VM zu ändern, generiert einen Fehler mit dem „Code“: „InternalOperationError“, „Meldung“: „Interner Fehler bei Vorgang.“
+- Abhilfe: Wir arbeiten daran, dieses Problem im nächsten Release zu beheben. Zurzeit müssen Sie den virtuellen Computer mit der neuen VM-Größe neu erstellen.
+- Häufigkeit: Common
+
 ### <a name="virtual-machine-scale-set"></a>VM-Skalierungsgruppe
 
 #### <a name="centos"></a>CentOS
@@ -154,11 +161,11 @@ Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer a
 - Ursache: Bei der Erstellung von VMs in einer Verfügbarkeitsgruppe mit drei Fehlerdomänen und der Erstellung einer Instanz einer VM-Skalierungsgruppe tritt während des Updatevorgangs in einer Azure Stack-Umgebung mit vier Knoten der Fehler **FabricVmPlacementErrorUnsupportedFaultDomainSize** auf.
 - Abhilfe: Sie können einzelne VMs in einer Verfügbarkeitsgruppe mit zwei Fehlerdomänen erfolgreich durchführen. Die Erstellung der Skalierungsgruppeninstanz ist während des Updatevorgangs in einer Azure Stack-Umgebung mit vier Knoten aber immer noch nicht verfügbar.
 
-#### <a name="vmss-instance-view-blade-doesnt-load"></a>Blatt mit VMSS-Instanzansicht wird nicht geladen
- 
+#### <a name="scale-set-instance-view-blade-doesnt-load"></a>Das Blatt mit der Instanzenansicht einer Skalierungsgruppe wird nicht geladen
+
 - Geltungsbereich: Dieses Problem gilt für das Release 1904 und 1905.
-- Ursache: Das Blatt mit der Instanzansicht einer Skalierungsgruppe im Azure Stack-Portal unter „Dashboard“ > „VM-Skalierungsgruppen“ > „AnyScaleSet – Instanzen“ > „AnyScaleSetInstance“ kann mit Crying Cloud nicht geladen werden.
-- Abhilfe: Es gibt derzeit keine Abhilfe, und wir arbeiten an der Behebung des Fehlers. Verwenden Sie in der Zwischenzeit das CLI-Cmdlet „az vmss get-instance-view“, um die VMSS-Instanzansicht zu erhalten.
+- Ursache: Das Blatt mit der Instanzenansicht einer VM-Skalierungsgruppe im Azure Stack-Portal unter „Dashboard“ -> „VM-Skalierungsgruppen“-> „AnyScaleSet – Instanzen“ -> „AnyScaleSetInstance“ kann nicht geladen werden und zeigt das Bild einer weinenden Wolke an.
+- Abhilfe: Es gibt derzeit keine Abhilfe, und wir arbeiten an der Behebung des Fehlers. Verwenden Sie bis dahin den CLI-Befehl `az vmss get-instance-view`, um die Instanzenansicht einer Skalierungsgruppe abzurufen.
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu-SSH-Zugriff
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: d3464681463cfb66a368210beed79d5ef4c28739
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: db403f68879efa9103e35bb3581801240c0d64d3
+ms.sourcegitcommit: 1545e18a31cd715a12c7ddc3bcb173b41eb41730
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828318"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67348720"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service in Azure Stack: Versionshinweise zu Update 6
 
@@ -112,6 +112,10 @@ Mandanten können das Bereitstellungscenter noch nicht nutzen. Dieses Feature wu
 - Bereitstellungsoptionen der (klassischen) Benutzeroberfläche sowie Portaloptionen für Bereitstellungsanmeldeinformationen nicht verfügbar
 
 Um zu den Bereitstellungsoptionen und den Anmeldeinformationen für die Bereitstellung zu gelangen, müssen Mandanten unter Verwendung des folgenden URL-Formats auf das Portal zugreifen und anschließend wie gewohnt zu ihren Anwendungen navigieren: https://portal.&lt ;*Region*&gt;.&lt;*FQDN*&gt; /?websitesExtension_oldvsts=true. ([https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) für ASDK).
+
+- Die Azure Functions-Überwachung zeigt ständig „Laden“ im Portal an.
+
+Wenn Sie versuchen, einzelne Funktionen zu überwachen, wird im Mandantenportal kein Aufrufprotokoll, keine Erfolgsanzahl oder keine Fehleranzahl angezeigt.  Um diese Funktion erneut zu aktivieren, wechseln Sie zu Ihrer **Funktions-App**, wechseln Sie zu **Plattformfeatures**, und wechseln Sie zu **Anwendungseinstellungen**.  Fügen Sie eine neue App-Einstellung mit den Namen **AzureWebJobsDashboard** hinzu, und legen Sie den Wert auf denselben Wert fest, wie er in „AzureWebJobsStorage“ festgelegt ist.  Wechseln Sie dann zur Überwachungsansicht für Ihre Funktion, wo dann die Überwachungsinformationen angezeigt werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

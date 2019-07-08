@@ -1,5 +1,5 @@
 ---
-title: Verwenden der Azure Stack-API | Microsoft-Dokumentation
+title: Ausführen von API-Anforderungen an Azure Stack | Microsoft-Dokumentation
 description: Informationen zum Abrufen einer Authentifizierung von Azure, um API-Anforderungen an Azure Stack zu richten
 services: azure-stack
 documentationcenter: ''
@@ -14,32 +14,32 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 22aeab6c6f33462ebea50bafa795630a648e2dd5
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 83578f7644f7a4bfc47f854fe9974809c22bba02
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269401"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138916"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
-# <a name="use-the-azure-stack-api"></a>Verwenden der Azure Stack-API
+# <a name="make-api-requests-to-azure-stack"></a>Ausführen von API-Anforderungen an Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Mit der Anwendungsprogrammierschnittstelle (API) können Sie Vorgänge wie das Hinzufügen einer VM zu einer Azure Stack-Cloud automatisieren.
+Mit der Anwendungsprogrammierschnittstelle (API) können Sie Vorgänge wie das Hinzufügen eines virtuellen Computers (VM) zu einer Azure Stack-Cloud automatisieren.
 
 Die API erfordert die Authentifizierung Ihres Clients beim Microsoft Azure-Anmeldungsendpunkt. Der Endpunkt gibt einen Token zurück, das im Header jeder Anforderung verwendet wird, die an die Azure Stack-API gesendet wird. Microsoft Azure basiert auf OAuth 2.0.
 
-Dieser Artikel enthält Beispiele, in denen mithilfe des Hilfsprogramms **cURL** Azure Stack-Anforderungen erstellt werden. Die Anwendung cURL ist ein Befehlszeilenprogramm mit einer Bibliothek zum Übertragen von Daten. Diese Beispiele zeigen eine exemplarische Vorgehensweise zum Abrufen eines Tokens für den Zugriff auf die Azure Stack-API. Die meisten Programmiersprachen bieten OAuth 2.0-Bibliotheken, die eine stabile Tokenverwaltung aufweisen und Aufgaben wie das Aktualisieren des Tokens abwickeln.
+Dieser Artikel enthält Beispiele, in denen mithilfe des Hilfsprogramms **cURL** Azure Stack-Anforderungen erstellt werden. cURL ist ein Befehlszeilenprogramm mit einer Bibliothek zum Übertragen von Daten. Diese Beispiele zeigen eine exemplarische Vorgehensweise zum Abrufen eines Tokens für den Zugriff auf die Azure Stack-API. Die meisten Programmiersprachen bieten OAuth 2.0-Bibliotheken, die eine stabile Tokenverwaltung aufweisen und Aufgaben wie das Aktualisieren des Tokens abwickeln.
 
-Wenn Sie den gesamten Prozess der Verwendung der Azure Stack-REST-API mit einem generischen REST-Client wie z.B. **cURL** überprüfen, können Sie die zugrunde liegenden Anforderungen besser verstehen, und besser einschätzen, was Sie in der Antwortnutzlast erwarten können.
+Sehen Sie sich den gesamten Prozess der Verwendung der Azure Stack-REST-API mit einem generischen REST-Client wie z. B. **cURL** an, um die zugrunde liegenden Anforderungen besser verstehen zu können und eine Vorstellung zu haben, was Sie in der Antwortnutzlast erwarten können.
 
 In diesem Artikel werden nicht alle verfügbaren Optionen für das Abrufen von Token wie die interaktive Anmeldung oder das Erstellen dedizierter App-IDs untersucht. Unter [Azure-REST-API-Referenz](https://docs.microsoft.com/rest/api/) erfahren Sie, wie Informationen zu diesen Themen abgerufen werden.
 
 ## <a name="get-a-token-from-azure"></a>Abrufen eines Tokens von Azure
 
-Erstellen Sie einen mit dem Inhaltstyp „x-www-form-urlencoded“ formatierten Anforderungstext zum Abrufen eines Zugriffstokens. POSTEN Sie Ihre Anforderung an den Endpunkt für Azure-REST-Authentifizierung und -Anmeldung.
+Erstellen Sie einen mit dem Inhaltstyp „x-www-form-urlencoded“ formatierten Anforderungstext zum Abrufen eines Zugriffstokens. POSTen Sie Ihre Anforderung an den Endpunkt für Azure-REST-Authentifizierung und -Anmeldung.
 
 ### <a name="uri"></a>URI
 
@@ -66,19 +66,19 @@ grant_type=password
 
 Für jeden Wert:
 
-- **grant_type**  
+- **grant_type**:  
    Der Typ des von Ihnen verwendeten Authentifizierungsschemas. In diesem Beispiel ist der Wert `password`.
 
-- **resource**  
+- **resource**:  
    Die Ressource, auf die das Token zugreift. Sie finden die Ressource durch Abfragen des Azure Stack-Verwaltungsmetadaten-Endpunkts. Betrachten Sie den Abschnitt **audiences**.
 
-- **Azure Stack-Verwaltungsendpunkt**  
+- **Azure Stack-Verwaltungsendpunkt**:  
    ```
    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
    ```
 
   > [!NOTE]  
-  > Wenn Sie als Administrator versuchen, auf die Mandanten-API zuzugreifen, müssen Sie darauf achten, den Mandantenendpunkt zu verwenden, z.B. `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`.  
+  > Wenn Sie als Administrator versuchen, auf die Mandanten-API zuzugreifen, stellen Sie sicher, dass Sie den Mandantenendpunkt verwenden. Beispiel: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
   Beispielsweise mit dem Azure Stack Development Kit als Endpunkt:
 
@@ -168,7 +168,7 @@ Antwort:
 
 ## <a name="api-queries"></a>API-Abfragen
 
-Nachdem Sie das Zugriffstoken abgerufen haben, müssen Sie es jeder Ihrer API-Anforderungen als Header hinzufügen. Zu diesem Zweck müssen Sie eine Header-**Authorization** mit dem Wert `Bearer <access token>` erstellen. Beispiel: 
+Nachdem Sie das Zugriffstoken abgerufen haben, fügen Sie es jeder Ihrer API-Anforderungen als Header hinzu. Um es als Header hinzuzufügen, erstellen Sie eine Header-**Autorisierung** mit dem Wert `Bearer <access token>`. Beispiel:
 
 Anforderung:
 
@@ -190,7 +190,7 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 
 ### <a name="url-structure-and-query-syntax"></a>URL-Struktur und Abfragesyntax
 
-Generischer Anforderungs-URI, bestehend aus: {URI-Schema} :// {URI-Host} / {Ressourcenpfad}? {Abfragezeichenfolge}
+Generischer Anforderungs-URI, besteht aus: `{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
 
 - **URI-Schema**:  
 Der URI gibt das zum Senden der Anforderung verwendete Protokoll an. Beispiel: `http` oder `https`.

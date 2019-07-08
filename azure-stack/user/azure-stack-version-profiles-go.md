@@ -14,12 +14,12 @@ ms.date: 05/26/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 4a7e36fda318c1987a39427c5ef1f5e5e307d1b6
-ms.sourcegitcommit: d04a93e913ff069e17f6d56811681804a6422b58
+ms.openlocfilehash: 6759264afaf3f44dd612662d9778d7de65a15924
+ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66373015"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406942"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit Go in Azure Stack
 
@@ -32,7 +32,7 @@ Ein Profil ist eine Kombination aus verschiedenen Ressourcentypen mit unterschie
 - Stabilität für Ihre Anwendung durch Festlegung auf bestimmte API-Versionen
 - Kompatibilität für Ihre Anwendung mit Azure Stack und regionalen Azure-Datencentern
 
-Im Go SDK sind Profile unter dem Pfad „profiles“ verfügbar. Ihre Version ist im Format **JJJJ-MM-TT** angegeben. Derzeit ist die neueste Profilversion der Azure Stack-API **2019-03-01**. Zum Importieren eines bestimmten Diensts aus einem Profil importieren Sie sein entsprechendes Moduls aus dem Profil. Beispielsweise importieren Sie den Dienst **Compute** aus dem Profil **2019-03-01** mit dem folgenden Code:
+Im Go SDK sind Profile unter dem Pfad „profiles“ verfügbar. Ihre Version ist im Format **JJJJ-MM-TT** angegeben. Im Moment ist die neueste Azure Stack-API-Profilversion **2019-03-01** für Stempelversionen 1904 oder höher. Zum Importieren eines bestimmten Diensts aus einem Profil importieren Sie sein entsprechendes Moduls aus dem Profil. Beispielsweise importieren Sie den Dienst **Compute** aus dem Profil **2019-03-01** mit dem folgenden Code:
 
 ```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
@@ -86,7 +86,7 @@ So führen Sie ein Beispiel für Go-Code in Azure Stack aus
 
 3. Erstellen Sie ein Abonnement, wenn keins verfügbar ist, und speichern Sie die Abonnement-ID zur späteren Verwendung. Informationen zum Erstellen eines Abonnements finden Sie unter [Erstellen von Abonnements für Angebote in Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
 
-4. Erstellen Sie einen Dienstprinzipal mit dem Bereich **Abonnement** und der Rolle **Besitzer**. Speichern Sie die ID und das Geheimnis des Dienstprinzipals. Informationen zum Erstellen eines Dienstprinzipals für Azure Stack finden Sie unter [Erstellen eines Dienstprinzipals](azure-stack-create-service-principals.md). Ihre Azure Stack-Umgebung ist nun eingerichtet.
+4. Erstellen Sie einen Dienstprinzipal, der einen geheimen Clientschlüssel verwendet, mit dem Bereich **Abonnement** und der Rolle **Besitzer**. Speichern Sie die ID und das Geheimnis des Dienstprinzipals. Informationen zum Erstellen eines Dienstprinzipals für Azure Stack finden Sie unter [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md). Ihre Azure Stack-Umgebung ist nun eingerichtet.
 
 5. Importieren Sie ein Dienstmodul aus dem Go SDK-Profil in Ihren Code. Die aktuelle Version des Azure Stack-Profils ist **2019-03-01**. Verwenden Sie zum Importieren eines Netzwerkmoduls aus dem Profiltyp **2019-03-01** den folgenden Code:
 
@@ -132,7 +132,7 @@ Installieren Sie die **Go-AutoRest**-Module, um mithilfe des Go SDK die **Author
 
 Als Authorizer-Wert muss der Autorisierer für den Ressourcenclient festgelegt werden. Es gibt verschiedene Methoden zum Abrufen von Autorisierertoken in Azure Stack mithilfe von Clientanmeldeinformationen:
 
-1. Wenn ein Dienstprinzipal mit der Rolle „Besitzer“ im Abonnement verfügbar ist, überspringen Sie diesen Schritt. Erstellen Sie andernfalls einen [Dienstprinzipal](azure-stack-create-service-principals.md), und weisen Sie ihm die Rolle „Besitzer“ zu, die [Ihrem Abonnement zugeordnet](azure-stack-create-service-principals.md#assign-the-service-principal-to-a-role) ist. Speichern Sie die Anwendungs-ID und das Geheimnis des Dienstprinzipals.
+1. Wenn ein Dienstprinzipal mit der Rolle „Besitzer“ im Abonnement verfügbar ist, überspringen Sie diesen Schritt. Andernfalls finden Sie Anleitungen zum Erstellen eines Dienstprinzipals, der einen geheimen Clientschlüssel verwendet, und wie Sie ihm die Rolle „Besitzer“ mit Ihrem Abonnement als Gültigkeitsbereich zuweisen, unter [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md). Stellen Sie sicher, dass Sie die Anwendungs-ID und das Geheimnis des Dienstprinzipals speichern.
 
 2. Importieren Sie das **adal**-Paket aus Go-AutoRest in Ihren Code.
 

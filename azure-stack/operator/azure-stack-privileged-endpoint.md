@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 850d99232b408aa9264caf0d928231ed229e5c23
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: b66354baa30bb6bf9ec4b8cb39cab0b9def763f6
+ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782431"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67557886"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Verwenden des privilegierten Endpunkts in Azure Stack
 
@@ -167,10 +167,16 @@ Wenn Sie die PEP-Sitzung in Ihren lokalen Computer importieren möchten, führen
 Schließen der Endpunktsitzung:
 
 1. Erstellen Sie eine externe Dateifreigabe, auf die der PEP zugreifen kann. In einer Development Kit-Umgebung können Sie nur eine Dateifreigabe auf dem Development Kit-Host erstellen.
-2. Führen Sie das `Close-PrivilegedEndpoint`-Cmdlet aus. 
-3. Sie werden aufgefordert, die Aufzeichnungsprotokolldateien auf einem Pfad zu speichern. Geben Sie die zuvor erstellte Dateifreigabe im Format &#92;&#92;*servername*&#92;*sharename* an. Wenn Sie keinen Pfad angeben, schlägt das Cmdlet fehl, und die Sitzung bleibt geöffnet. 
+2. Führen Sie das Cmdlet aus. 
+    ```powershell
+    Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+    ```
+Hierbei gilt:
+| Parameter | BESCHREIBUNG | type | Erforderlich |
+|---------|---------|---------|---------|
+| *TranscriptsPathDestination* | Pfad zu der externen Dateifreigabe, die als „fileshareIP\sharefoldername“ definiert ist. | string | Ja|
+| *Credential* | Anmeldeinformationen für den Zugriff auf die Dateifreigabe | SecureString |  Ja |
 
-    ![Die Ausgabe des Cmdlet Close-PrivilegedEndpoint die anzeigt, wo Sie den Aufzeichnungszielpfad angeben](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
 Nachdem die Aufzeichnungsprotokolldateien erfolgreich in die Dateifreigabe übertragen wurden, werden sie automatisch vom PEP gelöscht. 
 

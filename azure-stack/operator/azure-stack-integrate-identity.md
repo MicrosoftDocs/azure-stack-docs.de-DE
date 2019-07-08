@@ -10,12 +10,12 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 6fb879dc49197b52133750d65aadf96b601bda69
-ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
+ms.openlocfilehash: de2c0c2181025b7dbbc01691b72b0756fa201274
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66043233"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419515"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack-Datencenterintegration: Identität
 
@@ -116,7 +116,7 @@ Der Graph-Dienst in Azure Stack verwendet die folgenden Protokolle und Ports fü
 
 Der Graph-Dienst in Azure Stack verwendet die folgenden Protokolle und Ports für die Kommunikation mit dem Ziel-Active Directory:
 
-|Type|Port|Protocol|
+|type|Port|Protocol|
 |---------|---------|---------|
 |LDAP|389|TCP und UDP|
 |LDAP SSL|636|TCP|
@@ -131,6 +131,7 @@ Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter 
 |---------|---------|---------|---------|
 |CustomAdfsName|Name des ADFS-Anbieters|Der Name der Anspruchsanbieter-Vertrauensstellung.<br>Er wird wie hier angegeben auf der AD FS-Startseite angezeigt.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|ADFS-Metadaten-URI|Verbundmetadatenlink| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|SigningCertificateRevocationCheck|Nicht verfügbar|Optionaler Parameter, um die CRL-Überprüfung zu überspringen|Keine|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Auslösen der Automatisierung zum Konfigurieren der Anspruchsanbieter-Vertrauensstellung in Azure Stack

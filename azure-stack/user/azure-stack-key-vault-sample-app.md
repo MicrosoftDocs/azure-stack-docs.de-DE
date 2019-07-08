@@ -1,6 +1,6 @@
 ---
-title: Zulassen des Abrufs von Azure Stack Key Vault-Geheimnissen durch Anwendungen | Microsoft-Dokumentation
-description: Verwenden einer Beispiel-App zum Arbeiten mit Azure Stack Key Vault
+title: Zugriff auf Azure Stack Key Vault-Geheimnisse durch Apps zulassen | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie eine Beispiel-App ausführen, die Schlüssel und Geheimnisse aus einem Schlüsseltresor in Azure Stack abruft.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: aca8e57a7476ac55729f30c1eadfd4a414409021
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 6cc9475ee04bcdcb7b4c35f4ca5a39efc7c36aa8
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985656"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138890"
 ---
-# <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Eine Beispielanwendung, die in einem Schlüsseltresor gespeicherte Schlüssel und Geheimnisse verwendet
+# <a name="allow-apps-to-access-azure-stack-key-vault-secrets"></a>Zugriff auf Azure Stack Key Vault-Geheimnisse durch Apps zulassen
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Nutzen Sie die Schritte in diesem Artikel, um die Beispielanwendung **HelloKeyVault** auszuführen, die Schlüssel und Geheimnisse aus einem Schlüsseltresor in Azure Stack abruft.
+Nutzen Sie die Schritte in diesem Artikel, um die Beispiel-App **HelloKeyVault** auszuführen, die Schlüssel und Geheimnisse aus einem Schlüsseltresor in Azure Stack abruft.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -35,17 +35,17 @@ Sie können die folgenden erforderlichen Komponenten über das [Azure Stack Deve
 * Installieren Sie [mit Azure Stack kompatible Azure PowerShell-Module](../operator/azure-stack-powershell-install.md).
 * Laden Sie die [Tools herunter, die für die Arbeit mit Azure Stack benötigt werden](../operator/azure-stack-powershell-download.md).
 
-## <a name="create-and-get-the-key-vault-and-application-settings"></a>Erstellen und Abrufen der Schlüsseltresor- und Anwendungseinstellungen
+## <a name="create-a-key-vault-and-register-an-app"></a>Erstellen eines Schlüsseltresors und Registrieren einer App
 
 Bereiten Sie die Beispielanwendung wie folgt vor:
 
 * Erstellen Sie einen Schlüsseltresor in Azure Stack.
-* Registrieren Sie eine Anwendung in Azure Active Directory (Azure AD).
+* Registrieren Sie eine App in Azure Active Directory (Azure AD).
 
-Sie können das Azure-Portal oder PowerShell nutzen, um die Vorbereitungen für die Beispielanwendung durchzuführen. In diesem Artikel wird gezeigt, wie Sie einen Schlüsseltresor erstellen und eine Anwendung mit PowerShell registrieren.
+Verwenden Sie das Azure-Portal oder PowerShell, um die Vorbereitungen für die Beispiel-App durchzuführen.
 
 > [!NOTE]
-> Standardmäßig wird mit dem PowerShell-Skript eine neue Anwendung in Active Directory erstellt. Sie können aber auch eine Ihrer vorhandenen Anwendungen registrieren.
+> Standardmäßig wird mit dem PowerShell-Skript eine neue App in Active Directory erstellt. Sie können aber auch eine Ihrer vorhandenen Anwendungen registrieren.
 
 Stellen Sie vor dem Ausführen des folgenden Skripts sicher, dass Sie Werte für die Variablen `aadTenantName` und `applicationPassword` angeben. Wenn Sie keinen Wert für `applicationPassword` angeben, generiert dieses Skript ein zufälliges Kennwort.
 
@@ -141,27 +141,27 @@ Notieren Sie die vom Skript zurückgegeben Werte für **VaultUrl**, **AuthClient
 
 ## <a name="download-and-configure-the-sample-application"></a>Herunterladen und Konfigurieren der Beispielanwendung
 
-Laden Sie den Beispielschlüsseltresor von der Seite mit den [Azure Key Vault-Clientbeispielen](https://www.microsoft.com/download/details.aspx?id=45343) herunter. Extrahieren Sie den Inhalt der ZIP-Datei auf Ihrer Entwicklungsarbeitsstation. Der Beispielordner enthält zwei Anwendungen. In diesem Artikel wird **HelloKeyVault** verwendet.
+Laden Sie den Beispielschlüsseltresor von der Seite mit den [Azure Key Vault-Clientbeispielen](https://www.microsoft.com/download/details.aspx?id=45343) herunter. Extrahieren Sie den Inhalt der ZIP-Datei auf Ihrer Entwicklungsarbeitsstation. Der Beispielordner enthält zwei Apps. In diesem Artikel wird **HelloKeyVault** verwendet.
 
 So laden Sie das **HelloKeyVault**-Beispiel:
 
-1. Navigieren Sie zu **Microsoft.Azure.KeyVault.Samples**, **samples**, Ordner **HelloKeyVault**.
-2. Öffnen Sie die Anwendung **HelloKeyVault** in Visual Studio.
+1. Navigieren Sie zum Ordner **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault**.
+2. Öffnen Sie die App **HelloKeyVault** in Visual Studio.
 
 ### <a name="configure-the-sample-application"></a>Konfigurieren der Beispielanwendung
 
 In Visual Studio:
 
 1. Öffnen Sie die Datei „HelloKeyVault\App.config“, und suchen Sie nach dem Element `<appSettings>`.
-2. Aktualisieren Sie die Schlüssel **VaultUrl**, **AuthClientId** und **AuthClientSecret** mit den Werten, die von den Schlüsseln zurückgegeben wurden, die zum Erstellen des Schlüsselspeichers verwendet wurden. Standardmäßig enthält die Datei „App.config“ einen Platzhalter für `AuthCertThumbprint`. Ersetzen Sie diesen Platzhalter durch `AuthClientSecret`.
+2. Aktualisieren Sie die Schlüssel **VaultUrl**, **AuthClientId** und **AuthClientSecret** mit den beim Erstellen des Schlüsseltresors zurückgegebenen Werten. Standardmäßig enthält die Datei „App.config“ einen Platzhalter für `AuthCertThumbprint`. Ersetzen Sie diesen Platzhalter durch `AuthClientSecret`.
 
    ![App-Einstellungen](media/azure-stack-key-vault-sample-app/appconfig.png)
 
 3. Erstellen Sie die Projektmappe neu.
 
-## <a name="run-the-application"></a>Ausführen der Anwendung
+## <a name="run-the-app"></a>Ausführen der App
 
-Beim Ausführen von **HelloKeyVault** meldet sich die Anwendung an Azure AD an und nutzt dann das `AuthClientSecret`-Token, um den Schlüsseltresor in Azure Stack zu authentifizieren.
+Beim Ausführen von **HelloKeyVault** meldet sich die App bei Azure AD an und nutzt dann das `AuthClientSecret`-Token, um den Schlüsseltresor in Azure Stack zu authentifizieren.
 
 Sie können das Beispiel **HelloKeyVault** für folgende Zwecke verwenden:
 
