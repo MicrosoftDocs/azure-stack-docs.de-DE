@@ -1,5 +1,5 @@
 ---
-title: Erstellen von cloudübergreifenden Skalierungslösungen mit Azure | Microsoft-Dokumentation
+title: Erstellen von cloudübergreifenden, skalierenden App-Lösungen mit Azure und Azure Stack | Microsoft-Dokumentation
 description: Es wird beschrieben, wie Sie cloudübergreifende Skalierungslösungen mit Azure erstellen.
 services: azure-stack
 documentationcenter: ''
@@ -15,25 +15,25 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: adbe1eba6c5d852466288ddf41c803072d4cd098
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: eb5815a55e5e2c60ce61f9c4af96ee58a1aa684b
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252080"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138946"
 ---
-# <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Tutorial 4: Erstellen von cloudübergreifenden Skalierungslösungen mit Azure
+# <a name="tutorial-create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>Tutorial: Erstellen von cloudübergreifenden, skalierenden App-Lösungen mit Azure und Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Es wird beschrieben, wie Sie eine cloudübergreifende Lösung erstellen, um einen manuell ausgelösten Prozess zum Umschalten von einer unter Azure Stack gehosteten Web-App zu einer unter Azure gehosteten Web-App mit automatischer Skalierung per Traffic Manager bereitzustellen. So ist dafür gesorgt, dass das Cloudhilfsprogramm auch bei hoher Last flexibel und skalierbar bleibt.
+Es wird beschrieben, wie Sie eine cloudübergreifende Lösung erstellen, um einen manuell ausgelösten Prozess zum Umschalten von einer unter Azure Stack gehosteten Web-App zu einer unter Azure gehosteten Web-App mit automatischer Skalierung per Traffic Manager bereitzustellen. So wird sichergestellt, dass das Cloudhilfsprogramm auch bei hoher Last flexibel und skalierbar bleibt.
 
-Bei diesem Muster ist Ihr Mandant ggf. noch nicht bereit für die Ausführung Ihrer Anwendung in der öffentlichen Cloud. Es ist für das Unternehmen aber unter Umständen nicht wirtschaftlich, die für die lokale Umgebung erforderliche Kapazität beizubehalten, um für die App Auslastungsspitzen verarbeiten zu können. Ihr Mandant kann die Elastizität der öffentlichen Cloud für die lokale Lösung nutzen.
+Bei diesem Muster ist Ihr Mandant ggf. noch nicht bereit für die Ausführung Ihrer App in der öffentlichen Cloud. Es ist für das Unternehmen aber unter Umständen nicht wirtschaftlich, die für die lokale Umgebung erforderliche Kapazität beizubehalten, um für die App Auslastungsspitzen verarbeiten zu können. Ihr Mandant kann die Elastizität der öffentlichen Cloud für die lokale Lösung nutzen.
 
 In diesem Tutorial erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht:
 
 > [!div class="checklist"]
-> - Erstellen Sie eine Webanwendung mit mehreren Knoten.
+> - Erstellen Sie eine Web-App mit mehreren Knoten.
 > - Konfigurieren und verwalten Sie den CD-Prozess (Continuous Deployment).
 > - Veröffentlichen Sie die Web-App in Azure Stack.
 > - Erstellen Sie ein Release.
@@ -43,15 +43,16 @@ In diesem Tutorial erstellen Sie eine Beispielumgebung, die Folgendes ermöglich
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack ist eine Erweiterung von Azure. Mit Azure Stack holen Sie sich die Agilität und Innovation von Cloud Computing in Ihre lokale Umgebung. Sie erhalten die einzige Hybrid Cloud, mit der Sie Hybrid-Apps überall entwickeln und bereitstellen können.  
 > 
-> Im Whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Überlegungen zum Entwurf für Hybridanwendungen) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybridanwendungen, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
+> Im Whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Entwurfsüberlegungen für Hybridanwendungen) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybrid-Apps, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 -   Azure-Abonnement. Erstellen Sie bei Bedarf ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), bevor Sie beginnen.
 
 - Ein integriertes Azure Stack-System oder eine Bereitstellung des Azure Stack Development Kit.
-    - Eine Anleitung zur Installation von Azure Stack finden Sie unter [Installieren des Azure Stack Development Kit](../asdk/asdk-install.md).
-    - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) Es kann einige Stunden dauern, bis diese Installation abgeschlossen ist.
+    - Anleitungen zur Installation von Azure Stack finden Sie unter [Installieren des Azure Stack Development Kit](../asdk/asdk-install.md).
+    - Ein Skript zur Automatisierung der Vorgänge nach der Bereitstellung des ASDK finden Sie hier: [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 
+    - Es kann einige Stunden dauern, bis diese Installation abgeschlossen ist.
 
 -   Stellen Sie PaaS-Dienste als [App Service](../operator/azure-stack-app-service-deploy.md) für Azure Stack bereit.
 
@@ -69,15 +70,15 @@ In diesem Tutorial erstellen Sie eine Beispielumgebung, die Folgendes ermöglich
 
 ## <a name="issues-and-considerations"></a>Probleme und Überlegungen
 
-### <a name="scalability-considerations"></a>Überlegungen zur Skalierbarkeit
+### <a name="scalability"></a>Skalierbarkeit
 
-Die wichtigste Komponente der cloudübergreifenden Skalierung ist die Möglichkeit, eine sofortige On-Demand-Skalierung zwischen der öffentlichen und lokalen Cloudinfrastruktur bereitzustellen und für jede Auslastung für einen konsistenten, zuverlässigen Dienst zu sorgen.
+Die wichtigste Komponente der cloudübergreifenden Skalierung ist die Möglichkeit, sofortige Skalierung bei Bedarf zwischen der öffentlichen und lokalen Cloudinfrastruktur bereitzustellen und so einen konsistenten und zuverlässigen Dienst bereitzustellen.
 
-### <a name="availability-considerations"></a>Überlegungen zur Verfügbarkeit
+### <a name="availability"></a>Verfügbarkeit
 
 Stellen Sie sicher, dass lokal bereitgestellte Apps in Bezug auf Hochverfügbarkeit konfiguriert sind, die auf der Konfiguration der lokalen Hardware und der Softwarebereitstellung basiert.
 
-### <a name="manageability-considerations"></a>Überlegungen zur Verwaltbarkeit
+### <a name="manageability"></a>Verwaltbarkeit
 
 Mit der cloudübergreifenden Lösung wird sichergestellt, dass zwischen Umgebungen eine nahtlose Verwaltung möglich ist und eine vertraute Benutzeroberfläche vorhanden ist. PowerShell wird für die plattformübergreifende Verwaltung empfohlen.
 
@@ -89,16 +90,16 @@ Aktualisieren Sie die DNS-Zonendatei für die Domäne. Azure AD überprüft die 
 
 1.  Registrieren Sie eine benutzerdefinierte Domäne bei einer öffentlichen Registrierungsstelle.
 
-2.  Melden Sie sich an der Domänennamen-Registrierungsstelle für die Domäne an. Unter Umständen ist ein genehmigter Administrator erforderlich, um die DNS-Updates durchzuführen. 
+2.  Melden Sie sich an der Domänennamen-Registrierungsstelle für die Domäne an. Unter Umständen ist ein genehmigter Administrator erforderlich, um die DNS-Updates durchzuführen.
 
-3.  Aktualisieren Sie die DNS-Zonendatei für die Domäne, indem Sie den DNS-Eintrag hinzufügen, der von Azure AD bereitgestellt wurde. (Der DNS-Eintrag hat keinerlei Auswirkung auf das E-Mail-Routing oder das Webhosting-Verhalten.) 
+3.  Aktualisieren Sie die DNS-Zonendatei für die Domäne, indem Sie den DNS-Eintrag hinzufügen, der von Azure AD bereitgestellt wurde. (Der DNS-Eintrag hat keinerlei Auswirkung auf das E-Mail-Routing oder das Webhosting-Verhalten.)
 
 ### <a name="create-a-default-multi-node-web-app-in-azure-stack"></a>Erstellen einer Standard-Web-App mit mehreren Knoten in Azure Stack
 
-Richten Sie Hybrid-CI/CD (Continuous Integration/Continuous Deployment) ein, um die Web-App unter Azure und Azure Stack bereitzustellen und Änderungen automatisch per Pushvorgang an beide Clouds zu übertragen.
+Richten Sie Hybrid-CI/CD (Continuous Integration/Continuous Deployment) ein, um Web-Apps unter Azure und Azure Stack bereitzustellen und Änderungen automatisch per Pushvorgang an beide Clouds zu übertragen.
 
 > [!Note]  
-> Azure Stack mit den passenden syndizierten Images für die Ausführung (Windows Server und SQL) und eine App Service-Bereitstellung sind erforderlich. Lesen Sie in der App Service-Dokumentation den Abschnitt [Vor den ersten Schritten mit App Service in Azure Stack](../operator/azure-stack-app-service-before-you-get-started.md) für den Azure Stack-Bediener.
+> Azure Stack mit den passenden syndizierten Images für die Ausführung (Windows Server und SQL) und eine App Service-Bereitstellung sind erforderlich. Weitere Informationen finden Sie in der App Service-Dokumentation unter [Vor den ersten Schritten mit App Service in Azure Stack](../operator/azure-stack-app-service-before-you-get-started.md).
 
 ### <a name="add-code-to-azure-repos"></a>Hinzufügen von Code zu Azure Repos
 
@@ -106,37 +107,37 @@ Azure Repos
 
 1. Melden Sie sich bei Azure Repos mit einem Konto an, das über Berechtigungen zum Erstellen von Projekten in Azure Repos verfügt.
 
-    Der hybride CI/CD-Ansatz kann für Anwendungscode und Infrastrukturcode verwendet werden. Verwenden Sie [Azure Resource Manager-Vorlagen](https://azure.microsoft.com/resources/templates/) für die Entwicklung von privaten und gehosteten Clouds.
+    Der hybride CI/CD-Ansatz kann sowohl für App-Code als auch für Infrastrukturcode verwendet werden. Verwenden Sie [Azure Resource Manager-Vorlagen](https://azure.microsoft.com/resources/templates/) für die Entwicklung von privaten und gehosteten Clouds.
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image1.JPG)
+    ![Herstellen einer Verbindung mit einem Projekt in Azure Repos](media/azure-stack-solution-cloud-burst/image1.JPG)
 
 2. **Klonen Sie das Repository**, indem Sie die Standard-Web-App erstellen und öffnen.
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image2.png)
+    ![Klonen des Repos in der Azure-Web-App](media/azure-stack-solution-cloud-burst/image2.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Erstellen einer eigenständigen Web-App-Bereitstellung für App Services in beiden Clouds
 
-1.  Bearbeiten Sie die Datei **WebApplication.csproj**. Wählen Sie **Runtimeidentifier**, und fügen Sie **win10-x64** hinzu. (Weitere Informationen finden Sie in der Dokumentation zur [eigenständigen Bereitstellung](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).) 
+1.  Bearbeiten Sie die Datei **WebApplication.csproj**. Wählen Sie `Runtimeidentifier` aus, und fügen Sie `win10-x64` hinzu. (Weitere Informationen finden Sie in der Dokumentation zur [eigenständigen Bereitstellung](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).) 
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image3.png)
+    ![Bearbeiten Projektdatei einer Web-App](media/azure-stack-solution-cloud-burst/image3.png)
 
 2.  Checken Sie den Code in Azure Repos ein, indem Sie Team Explorer verwenden.
 
-3.  Vergewissern Sie sich, dass der Anwendungscode in Azure Repos eingecheckt wurde.
+3.  Vergewissern Sie sich, dass der App-Code in Azure Repos eingecheckt wurde.
 
 ## <a name="create-the-build-definition"></a>Erstellen der Builddefinition
 
-1. Melden Sie sich an Azure Pipelines an, um sich zu vergewissern, dass Builddefinitionen erstellt werden können.
+1. Melden Sie sich bei Azure Pipelines an, um sich zu vergewissern, dass Builddefinitionen erstellt werden können.
 
-2. Fügen Sie den Code **-r win10-x64** hinzu. Dies ist erforderlich, um eine eigenständige Bereitstellung mit .NET Core auszulösen.
+2. Fügen Sie den Code **-r win10-x64** hinzu. Diese Hinzufügung ist erforderlich, um eine eigenständige Bereitstellung mit .NET Core auszulösen.
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image4.png)
+    ![Hinzufügen von Code zur Web-App](media/azure-stack-solution-cloud-burst/image4.png)
 
-3. Führen Sie den Buildvorgang aus. Der Buildvorgang für die [eigenständige Bereitstellung](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) veröffentlicht Artefakte, die in Azure und Azure Stack ausgeführt werden können.
+3. Führen Sie den Buildvorgang aus. Der Buildvorgang für die [eigenständige Bereitstellung](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) veröffentlicht Artefakte, die in Azure und Azure Stack ausgeführt werden.
 
 ## <a name="use-an-azure-hosted-agent"></a>Verwenden eines gehosteten Azure-Agents
 
-Mit einem gehosteten Agent lassen sich in Azure Pipelines komfortabel Web-Apps erstellen und bereitstellen. Wartungsarbeiten und Upgrades werden automatisch von Microsoft Azure durchgeführt, was kontinuierliche und ungestörte Entwicklungs-, Test- und Bereitstellungsaktivitäten ermöglicht.
+Mit einem gehosteten Build-Agent lassen sich in Azure Pipelines komfortabel Web-Apps erstellen und bereitstellen. Wartungsarbeiten und Upgrades werden automatisch von Microsoft Azure durchgeführt, was einen kontinuierlichen und ununterbrochenen Entwicklungszyklus ermöglicht.
 
 ### <a name="manage-and-configure-the-cd-process"></a>Verwalten und Konfigurieren des CD-Prozesses
 
@@ -144,89 +145,90 @@ Azure Pipelines und Azure DevOps Server bieten eine äußerst flexibel konfiguri
 
 ## <a name="create-release-definition"></a>Erstellen einer Releasedefinition
 
-![Alt text](media/azure-stack-solution-cloud-burst/image5.png)
+1.  Klicken Sie auf der VSO-Seite im Abschnitt **Build und Release** auf der Registerkarte **Releases** auf die Schaltfläche mit dem **Pluszeichen**, um ein neues Release hinzuzufügen.
 
-1.  Klicken Sie auf der VSO-Seite „Build und Release“ auf der Registerkarte **Releases** auf die Schaltfläche mit dem **Pluszeichen**, um ein neues Release hinzuzufügen.
-
-    ![Alt text](media/azure-stack-solution-cloud-burst/image6.png)
+    ![Erstellen einer Releasedefinition](media/azure-stack-solution-cloud-burst/image5.png)
 
 2. Wenden Sie die Vorlage „Azure App Service-Bereitstellung“ an.
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image7.png)
+   ![Anwenden der Bereitstellungsvorlage für Azure App Service](meDia/azure-stack-solution-cloud-burst/image6.png)
 
-3. Fügen Sie unter „Artefakt hinzufügen“ das Artefakt für die Azure Cloud-Build-App hinzu.
+3. Fügen Sie unter **Artefakt hinzufügen** das Artefakt für die Azure Cloud-Build-App hinzu.
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image8.png)
+   ![Hinzufügen des Artefakts zum Azure Cloud-Build](media/azure-stack-solution-cloud-burst/image7.png)
 
 4. Klicken Sie auf der Registerkarte „Pipeline“ auf den Link **Phase, Aufgabe** der Umgebung, und legen Sie die Azure Cloud-Umgebungswerte fest.
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image9.png)
+   ![Festlegen der Werte für die Azure Cloud-Umgebung](media/azure-stack-solution-cloud-burst/image8.png)
 
-5. Legen Sie unter **Umgebungsname** den Umgebungsnamen fest, und wählen Sie das **Azure-Abonnement** für den Azure Cloud-Endpunkt aus.
+5. Legen Sie den **Umgebungsnamen** fest, und wählen Sie das **Azure-Abonnement** für den Azure Cloud-Endpunkt aus.
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image10.png)
+      ![Auswählen des Azure-Abonnements für den Azure Cloud-Endpunkt](media/azure-stack-solution-cloud-burst/image9.png)
 
-6. Legen Sie unter **Umgebungsname** den erforderlichen Namen des Azure-App-Diensts fest.
+6. Legen Sie unter **App Service-Name** den erforderlichen Namen des Azure App Service fest.
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image11.png)
+      ![Festlegen des Azure App Service-Namens](media/azure-stack-solution-cloud-burst/image10.png)
 
-7. Geben Sie unter „Agent-Warteschlange“ für die gehostete Azure Cloud-Umgebung die Zeichenfolge **Hosted VS2017** ein.
+7. Geben Sie unter **Agent-Warteschlange** für die gehostete Azure Cloud-Umgebung die Zeichenfolge „Hosted VS2017“ ein.
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image12.png)
+      ![Festlegen der Agent-Warteschlange für die gehostete Azure Cloud-Umgebung](media/azure-stack-solution-cloud-burst/image11.png)
 
 8. Wählen Sie im Menü „Deploy Azure App Service“ (Azure App Service bereitstellen) **das gültige Paket oder den gültigen Ordner** für die Umgebung aus. Klicken Sie für den **Ordnerspeicherort** auf **OK**.
+  
+      ![Auswählen des Pakets oder Ordners für die Azure App Service-Umgebung](media/azure-stack-solution-cloud-burst/image12.png)
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image13.png)
-
-    ![Alt text](media/azure-stack-solution-cloud-burst/image14.png)
+      ![Auswählen des Pakets oder Ordners für die Azure App Service-Umgebung](media/azure-stack-solution-cloud-burst/image13.png)
 
 9. Speichern Sie alle Änderungen, und kehren Sie zur **Releasepipeline** zurück.
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image15.png)
+    ![Speichern der Änderungen in der Releasepipeline](media/azure-stack-solution-cloud-burst/image14.png)
 
 10. Fügen Sie ein neues Artefakt hinzu, und wählen Sie dabei den Build für die Azure Stack-App aus.
+    
+    ![Hinzufügen eines neuen Artefakts für die Azure Stack-App](media/azure-stack-solution-cloud-burst/image15.png)
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image16.png)
 
-11. Fügen Sie mindestens eine Umgebung hinzu, und wenden Sie dabei die Azure App Service-Bereitstellung an.
-
-    ![Alt text](media/azure-stack-solution-cloud-burst/image17.png)
+11. Fügen Sie mindestens eine Umgebung hinzu, indem Sie die Azure App Service-Bereitstellung anwenden.
+    
+    ![Hinzufügen einer Umgebung zur Azure App Service-Bereitstellung](media/azure-stack-solution-cloud-burst/image16.png)
 
 12. Nennen Sie die neue Umgebung „Azure Stack“.
-
-    ![Alt text](media/azure-stack-solution-cloud-burst/image18.png)
+    
+    ![Benennen der Umgebung in der Azure App Service-Bereitstellung](media/azure-stack-solution-cloud-burst/image17.png)
 
 13. Suchen Sie auf der Registerkarte **Aufgabe** nach der Umgebung „Azure Stack“.
-
-    ![Alt text](media/azure-stack-solution-cloud-burst/image19.png)
+    
+    ![Azure Stack-Umgebung](media/azure-stack-solution-cloud-burst/image18.png)
 
 14. Wählen Sie das Abonnement für den Azure Stack-Endpunkt aus.
-
-    ![Alt text](media/azure-stack-solution-cloud-burst/image20.png)
+    
+    ![Auswählen des Abonnements für den Azure Stack-Endpunkt](media/azure-stack-solution-cloud-burst/image19.png)
 
 15. Legen Sie den Namen der Azure Stack-Web-App als App Service-Name fest.
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image21.png)
+    ![Festlegen des Namens der Azure Stack-Web-App](media/azure-stack-solution-cloud-burst/image20.png)
 
 16. Wählen Sie den Azure Stack-Agent aus.
-
-    ![Alt text](media/azure-stack-solution-cloud-burst/image22.png)
+    
+    ![Auswählen des Azure Stack-Agents](media/azure-stack-solution-cloud-burst/image21.png)
 
 17. Wählen Sie im Abschnitt „Deploy Azure App Service“ (Azure App Service bereitstellen) **das gültige Paket oder den gültigen Ordner** für die Umgebung aus. Klicken Sie für den Ordnerspeicherort auf **OK**.
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image23.png)
+    ![Wählen Sie den Ordner für die Azure App Service-Bereitstellung aus.](media/azure-stack-solution-cloud-burst/image22.png)
 
-    ![Alt text](media/azure-stack-solution-cloud-burst/image24.png)
+    ![Wählen Sie den Ordner für die Azure App Service-Bereitstellung aus.](media/azure-stack-solution-cloud-burst/image23.png)
 
 18. Fügen Sie auf der Registerkarte „Variable“ eine Variable mit dem Namen `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS` hinzu, und legen Sie ihren Wert auf **true** und den Bereich auf „Azure Stack“ fest.
-
-    ![Alt text](media/azure-stack-solution-cloud-burst/image25.png)
+    
+    ![Hinzufügen einer Variablen zur Azure App-Bereitstellung](media/azure-stack-solution-cloud-burst/image24.png)
 
 19. Klicken Sie bei beiden Artefakten auf das Symbol **Continuous Deployment-Trigger**, und aktivieren Sie den Trigger für **Continuous Deployment**.
-
-    ![Alt text](media/azure-stack-solution-cloud-burst/image26.png)
+    
+    ![Festlegen des Continuous Deployment-Triggers](media/azure-stack-solution-cloud-burst/image25.png)
 
 20. Klicken Sie für die Azure Stack-Umgebung auf das Symbol **Bedingungen vor der Bereitstellung**, und legen Sie den Trigger auf **Nach einem Release** fest.
+    
+    ![Festlegen der Bedingungen vor der Bereitstellung](media/azure-stack-solution-cloud-burst/image26.png)
 
 21. Speichern Sie alle Änderungen.
 
@@ -262,9 +264,9 @@ Die Endpunktinformationen sind vorhanden, und die Verbindung zwischen Azure Pipe
 ## <a name="develop-the-application-build"></a>Entwickeln des Anwendungsbuilds
 
 > [!Note]  
-> Azure Stack mit den passenden syndizierten Images für die Ausführung (Windows Server und SQL) und eine App Service-Bereitstellung sind erforderlich. Lesen Sie in der App Service-Dokumentation den Abschnitt [Vor den ersten Schritten mit App Service in Azure Stack](../operator/azure-stack-app-service-before-you-get-started.md) für den Azure Stack-Bediener.
+> Azure Stack mit den passenden syndizierten Images für die Ausführung (Windows Server und SQL) und eine App Service-Bereitstellung sind erforderlich. Weitere Informationen finden Sie in der App Service-Dokumentation unter [Vor den ersten Schritten mit App Service in Azure Stack](../operator/azure-stack-app-service-before-you-get-started.md).
 
-Verwenden Sie [Azure Resource Manager-Vorlagen](https://azure.microsoft.com/resources/templates/), z.B. Web-App-Code aus Azure Repos, für die Bereitstellung in beiden Clouds.
+Verwenden Sie [Azure Resource Manager-Vorlagen](https://azure.microsoft.com/resources/templates/), z. B. Web-App-Code aus Azure Repos, für die Bereitstellung in beiden Clouds.
 
 ### <a name="add-code-to-an-azure-repos-project"></a>Hinzufügen von Code zu einem Azure Repos-Projekt
 
@@ -274,11 +276,11 @@ Verwenden Sie [Azure Resource Manager-Vorlagen](https://azure.microsoft.com/reso
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Erstellen einer eigenständigen Web-App-Bereitstellung für App Services in beiden Clouds
 
-1.  Bearbeiten Sie die Datei **WebApplication.csproj**: Wählen Sie **Runtimeidentifier**, und fügen Sie „win10-x64“ hinzu. Weitere Informationen finden Sie in der Dokumentation zur [eigenständigen Bereitstellung](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).
+1.  Bearbeiten Sie die Datei **WebApplication.csproj**: Wählen Sie `Runtimeidentifier` aus, und fügen Sie dann `win10-x64` hinzu. Weitere Informationen finden Sie in der Dokumentation zur [eigenständigen Bereitstellung](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).
 
 2.  Checken Sie den Code über den Team Explorer in Azure Repos ein.
 
-3.  Vergewissern Sie sich, dass der Anwendungscode in Azure Repos eingecheckt wurde.
+3.  Vergewissern Sie sich, dass der App-Code in Azure Repos eingecheckt wurde.
 
 ### <a name="create-the-build-definition"></a>Erstellen der Builddefinition
 
@@ -286,13 +288,13 @@ Verwenden Sie [Azure Resource Manager-Vorlagen](https://azure.microsoft.com/reso
 
 2.  Navigieren Sie zur Seite **Build Web Application** (Webanwendung erstellen) für das Projekt.
 
-3.  Fügen Sie unter **Argumente** den Code **-r win10-x64** hinzu. Dies ist erforderlich, um eine eigenständige Bereitstellung mit .NET Core auszulösen.
+3.  Fügen Sie unter **Argumente** den Code **-r win10-x64** hinzu. Diese Hinzufügung ist erforderlich, um eine eigenständige Bereitstellung mit .NET Core auszulösen.
 
 4.  Führen Sie den Buildvorgang aus. Der Buildvorgang für die [eigenständige Bereitstellung](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) veröffentlicht Artefakte, die in Azure und Azure Stack ausgeführt werden können.
 
 #### <a name="use-an-azure-hosted-build-agent"></a>Verwenden eines in Azure gehosteten Build-Agents
 
-Mit einem gehosteten Build-Agent lassen sich in Azure Pipelines komfortabel Web-Apps erstellen und bereitstellen. Wartungsarbeiten und Upgrades für den Agent werden automatisch von Microsoft Azure durchgeführt, was einen kontinuierlichen und ungestörten Entwicklungszyklus ermöglicht.
+Mit einem gehosteten Build-Agent lassen sich in Azure Pipelines komfortabel Web-Apps erstellen und bereitstellen. Wartungsarbeiten und Upgrades werden automatisch von Microsoft Azure durchgeführt, was einen kontinuierlichen und ununterbrochenen Entwicklungszyklus ermöglicht.
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>Konfigurieren des CD-Prozesses (Continuous Deployment)
 
@@ -355,7 +357,7 @@ Die Erstellung einer Releasedefinition ist der letzte Schritt im Anwendungsbuild
 
 1.  Öffnen Sie auf der Registerkarte **Pipeline** die Liste **Release**, und wählen Sie **Release erstellen**.
 
-2.  Geben Sie eine Beschreibung für das Release ein, vergewissern Sie sich, dass die korrekten Artefakte ausgewählt sind, und klicken Sie anschließend auf **Erstellen**. Kurz darauf erscheint ein Banner mit dem Hinweis, dass das neue Release erstellt wurde, und der Releasename wird als Link angezeigt. Klicken Sie auf den Link, um die Zusammenfassungsseite des Release anzuzeigen.
+2.  Geben Sie eine Beschreibung für das Release ein, vergewissern Sie sich, dass die korrekten Artefakte ausgewählt sind, und wählen Sie anschließend **Erstellen**. Kurz darauf erscheint ein Banner mit dem Hinweis, dass das neue Release erstellt wurde, und der Releasename wird als Link angezeigt. Wählen Sie den Link aus, um die Zusammenfassungsseite des Release anzuzeigen.
 
 3.  Die Zusammenfassungsseite enthält Details zum Release. Im folgenden Screenshot für „Release-2“ wird im Abschnitt **Umgebungen** als **Bereitstellungsstatus** für Azure „IN BEARBEITUNG“ und als Status für Azure Stack „SUCCEEDED“ (ERFOLGREICH) angezeigt. Wenn sich der Bereitstellungsstatus für die Azure-Umgebung in „SUCCEEDED“ (ERFOLGREICH) ändert, wird ein Banner mit dem Hinweis angezeigt, dass das Release nun genehmigt werden kann. Wenn eine Bereitstellung noch aussteht oder nicht erfolgreich war, wird ein blaues Informationssymbol **(i)** angezeigt. Zeigen Sie mit der Maus auf das Symbol, um ein Popupfenster mit dem Grund für die Verzögerung oder den Fehler anzuzeigen.
 
@@ -365,7 +367,7 @@ Die Erstellung einer Releasedefinition ist der letzte Schritt im Anwendungsbuild
 
 1.  Klicken Sie auf der Zusammenfassungsseite **Release-2** auf **Protokolle**. Während einer Bereitstellung wird auf dieser Seite das Liveprotokoll des Agents angezeigt. Im linken Bereich wird der Status der einzelnen Vorgänge in der Bereitstellung für die jeweilige Umgebung angezeigt.
 
-2.  Wählen Sie für eine Genehmigung vor oder nach der Bereitstellung das Personensymbol in der Spalte **Aktion**, um zu sehen, wer die Bereitstellung genehmigt (oder abgelehnt) hat und welche Nachricht vorhanden ist.
+2.  Wählen Sie zum Anzeigen von Informationen zur Genehmigung vor oder nach der Bereitstellung das Personensymbol in der Spalte **Aktion**. So können Sie ermitteln, wer die Bereitstellung genehmigt (oder abgelehnt) hat und welche Nachricht vorhanden ist.
 
 3.  Nach Abschluss der Bereitstellung wird im rechten Bereich die gesamte Protokolldatei angezeigt. Wählen Sie einen beliebigen **Schritt** im linken Bereich aus, um die Protokolldatei für einen einzelnen Schritt (z.B. **Auftrag initialisieren**) anzuzeigen. Dank der Möglichkeit zum Anzeigen einzelner Protokolle lassen sich Teile der Gesamtbereitstellung leichter nachverfolgen und debuggen. **Speichern** Sie die Protokolldatei für einen Schritt, oder verwenden Sie die Option **Alle Protokolle als ZIP-Datei herunterladen**.
 
@@ -373,11 +375,11 @@ Die Erstellung einer Releasedefinition ist der letzte Schritt im Anwendungsbuild
 
 5.  Klicken Sie auf den Link für eine Umgebung (**Azure** oder **Azure Stack**), um Informationen zu vorhandenen und ausstehenden Bereitstellungen für eine bestimmte Umgebung anzuzeigen. Mithilfe dieser Ansichten können Sie sich schnell vergewissern, dass der gleiche Build in beiden Umgebungen bereitgestellt wurde.
 
-6.  Öffnen Sie die **bereitgestellte Produktions-App** im Browser. Öffnen Sie beispielsweise für die Azure App Services-Website die URL [https://[Name-Ihrer-App\].azurewebsites.net](https:// [your-app-name].azurewebsites.net).
+6.  Öffnen Sie die **bereitgestellte Produktions-App** in einem Browser. Öffnen Sie für die Azure App Service-Website beispielsweise die URL `https://[your-app-name\].azurewebsites.net`.
 
 **Integration von Azure und Azure Stack ergibt eine skalierbare cloudübergreifende Lösung**
 
-Ein flexibler und stabiler Dienst für mehrere Clouds ermöglicht Datensicherheit, Sicherung und Redundanz, konsistente und schnelle Verfügbarkeit, skalierbare Speicherung und Verteilung sowie geokonformes Routing. Mit diesem manuell ausgelösten Prozess wird das zuverlässige Umschalten der Last zwischen gehosteten Web-Apps sichergestellt, damit die wichtigen Daten sofort verfügbar sind. 
+Ein flexibler und stabiler Dienst für mehrere Clouds ermöglicht Datensicherheit, Sicherung und Redundanz, konsistente und schnelle Verfügbarkeit, skalierbare Speicherung und Verteilung sowie geokonformes Routing. Mit diesem manuell ausgelösten Prozess wird das zuverlässige und effiziente Umschalten der Last zwischen gehosteten Web-Apps und die sofortige Verfügbarkeit wichtiger Daten sichergestellt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 - Weitere Informationen zu Azure-Cloudmustern finden Sie unter [Cloudentwurfsmuster](https://docs.microsoft.com/azure/architecture/patterns).

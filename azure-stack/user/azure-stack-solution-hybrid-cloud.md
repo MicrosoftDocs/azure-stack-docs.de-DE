@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: f1dd98c8c75c28ee176ca318fb9d274110e9b5fe
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: 97869ef7659cb5619ff962fc4b3bc8facbc599ed
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749029"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492443"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Tutorial: Bereitstellen einer Hybrid Cloud-Lösung mit Azure und Azure Stack
 
@@ -32,7 +32,7 @@ Indem Sie eine Hybrid Cloud-Lösung verwenden, können Sie die Compliancevorteil
 
 ## <a name="overview-and-assumptions"></a>Übersicht und Annahmen
 
-Sie können dieses Tutorial durcharbeiten, um einen Workflow einzurichten, bei dem Entwickler eine identische Webanwendung in einer öffentlichen und einer privaten Cloud bereitstellen können. Diese Anwendung kann auf ein Netzwerk zugreifen, das nicht über das Internet geroutet werden kann und in der privaten Cloud gehostet wird. Diese Webanwendungen werden überwacht. Wenn es zu einer Datenverkehrsspitze kommt, werden die DNS-Einträge mit einem Programm geändert, um Datenverkehr an die öffentliche Cloud umzuleiten. Wenn der Datenverkehr wieder auf die Menge vor der Spitze fällt, wird er wieder an die private Cloud geleitet.
+Arbeiten Sie dieses Tutorial durch, um einen Workflow einzurichten, bei dem Entwickler eine identische Web-App in einer öffentlichen und einer privaten Cloud bereitstellen können. Diese App kann auf ein Netzwerk zugreifen, das nicht über das Internet geroutet werden kann und in der privaten Cloud gehostet wird. Diese Web-Apps werden überwacht. Wenn es zu einer Datenverkehrsspitze kommt, werden die DNS-Einträge mit einem Programm geändert, um Datenverkehr an die öffentliche Cloud umzuleiten. Wenn der Datenverkehr wieder auf die Menge vor der Spitze fällt, wird er wieder an die private Cloud geleitet.
 
 Dieses Tutorial enthält die folgenden Aufgaben:
 
@@ -41,7 +41,7 @@ Dieses Tutorial enthält die folgenden Aufgaben:
 > - Verbinden einer Web-App in der globalen Azure-Umgebung mit einem Hybridnetzwerk
 > - Konfigurieren von DNS für die cloudübergreifende Skalierung
 > - Konfigurieren von SSL-Zertifikaten für die cloudübergreifende Skalierung
-> - Konfigurieren und Bereitstellen der Webanwendung
+> - Konfigurieren und Bereitstellen der Web-App
 > - Erstellen eines Traffic Manager-Profils mit anschließender Konfiguration für die cloudübergreifende Skalierung
 > - Einrichten der Application Insights-Überwachung und -Benachrichtigung für erhöhten Datenverkehr
 > - Konfigurieren der automatischen Umschaltung des Datenverkehrs zwischen der globalen Azure-Umgebung und Azure Stack
@@ -62,15 +62,15 @@ Vergewissern Sie sich zunächst, dass die folgenden Anforderungen erfüllt sind 
 - Ein Azure Stack Development Kit (ASDK) oder ein Abonnement für ein integriertes Azure Stack-System. Befolgen Sie die Anleitung unter [Bereitstellen des ASDK mithilfe des Installationsprogramms](../asdk/asdk-install.md), um ein Azure Stack Development Kit bereitzustellen.
 - Für Ihre Azure Stack-Installation sollte Folgendes installiert sein:
   - Azure App Service. Arbeiten Sie mit Ihrem Azure Stack-Betreiber zusammen, um Azure App Service in Ihrer Umgebung bereitzustellen und zu konfigurieren. Für dieses Tutorial muss App Service mindestens über eine (1) verfügbare dedizierte Workerrolle verfügen.
-  - Ein Windows Server 2016-Image
-  - Eine Windows Server 2016-Instanz mit einem Microsoft SQL Server-Image
-  - Die entsprechenden Tarife und Angebote
-  - Ein Domänenname für Ihre Webanwendung. Wenn Sie keinen Domänennamen besitzen, können Sie von einem Domänenanbieter wie GoDaddy, Bluehost oder InMotion einen solchen Namen erwerben.
+  - Ein Windows Server 2016-Image.
+  - Eine Windows Server 2016-Instanz mit einem Microsoft SQL Server-Image.
+  - Die entsprechenden Tarife und Angebote.
+  - Ein Domänenname für Ihre Web-App. Wenn Sie keinen Domänennamen besitzen, können Sie von einem Domänenanbieter wie GoDaddy, Bluehost oder InMotion einen solchen Namen erwerben.
 - Ein SSL-Zertifikat für Ihre Domäne von einer vertrauenswürdigen Zertifizierungsstelle, z.B. LetsEncrypt.
-- Eine Webanwendung, die mit einer SQL Server-Datenbank kommuniziert und Application Insights unterstützt. Sie können die Beispiel-App [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) von GitHub herunterladen.
+- Eine Web-App, die mit einer SQL Server-Datenbank kommuniziert und Application Insights unterstützt. Sie können die Beispiel-App [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) von GitHub herunterladen.
 - Ein Hybridnetzwerk zwischen einem virtuellen Azure-Netzwerk und einem virtuellen Azure Stack-Netzwerk. Eine ausführliche Anleitung finden Sie unter [Konfigurieren der Hybrid Cloud-Konnektivität mit Azure und Azure Stack](azure-stack-solution-hybrid-connectivity.md).
 
-- Eine CI/CD-Hybridpipeline (Continuous Integration/Continuous Deployment mit einem privaten Build-Agent in Azure Stack. Eine ausführliche Anleitung finden Sie unter [Konfigurieren einer Hybrid Cloud-Identität mit Azure- und Azure Stack-Anwendungen](azure-stack-solution-hybrid-identity.md).
+- Eine CI/CD-Hybridpipeline (Continuous Integration/Continuous Deployment mit einem privaten Build-Agent in Azure Stack. Eine ausführliche Anleitung finden Sie unter [Konfigurieren einer Hybrid Cloud-Identität mit Azure- und Azure Stack-Apps](azure-stack-solution-hybrid-identity.md).
 
 ## <a name="deploy-a-hybrid-connected-sql-server-database-server"></a>Bereitstellen eines SQL Server-Datenbankservers mit Hybridverbindung
 
@@ -95,20 +95,20 @@ Vergewissern Sie sich zunächst, dass die folgenden Anforderungen erfüllt sind 
 7. Konfigurieren Sie unter **Einstellungen > Optionale Features konfigurieren** die folgenden Einstellungen:
 
    - **Speicherkonto**: Erstellen Sie ein neues Konto, falls erforderlich.
-   - **Virtuelles Netzwerk**
+   - **Virtuelles Netzwerk:**
 
      > [!Important]  
      > Stellen Sie sicher, dass Ihre SQL Server-VM in demselben virtuellen Netzwerk wie die VPN-Gateways bereitgestellt wird.
 
-   - **Öffentliche IP-Adresse:** Sie können die Standardeinstellungen verwenden.
-   - **Netzwerksicherheitsgruppe (NSG):** Erstellen Sie eine neue NSG.
+   - **Öffentliche IP-Adresse:** Verwenden Sie die Standardeinstellungen.
+   - **Netzwerksicherheitsgruppe**: (NSG). Erstellen Sie eine neue NSG.
    - **Extensions and Monitoring** (Erweiterungen und Überwachung): Behalten Sie die Standardeinstellungen bei.
-   - **Diagnosespeicherkonto:** Erstellen Sie ein neues Konto, falls erforderlich.
+   - **Diagnosespeicherkonto**: Erstellen Sie ein neues Konto, falls erforderlich.
    - Wählen Sie **OK**, um Ihre Konfiguration zu speichern.
 
      ![Optionale Features konfigurieren](media/azure-stack-solution-hybrid-cloud/image4.png)
 
-1. Konfigurieren Sie unter **SQL Server-Einstellungen** die folgenden Einstellungen:
+8. Konfigurieren Sie unter **SQL Server-Einstellungen** die folgenden Einstellungen:
    - Wählen Sie unter **SQL-Konnektivität** die Option **Öffentlich (Internet)** .
    - Behalten Sie für **Port** den Standardwert **1433** bei.
    - Wählen Sie unter **SQL-Authentifizierung** die Option **Aktivieren**.
@@ -130,7 +130,7 @@ Vergewissern Sie sich zunächst, dass die folgenden Anforderungen erfüllt sind 
 
 ## <a name="create-web-apps-in-azure-and-azure-stack"></a>Erstellen von Web-Apps in Azure und Azure Stack
 
-Azure App Service vereinfacht die Ausführung und Verwaltung einer Webanwendung. Da Azure Stack mit Azure konsistent ist, kann App Service in beiden Umgebungen ausgeführt werden. Sie verwenden App Service zum Hosten Ihrer Anwendung.
+Azure App Service vereinfacht die Ausführung und Verwaltung einer Web-App. Da Azure Stack mit Azure konsistent ist, kann App Service in beiden Umgebungen ausgeführt werden. Sie verwenden App Service zum Hosten Ihrer App.
 
 ### <a name="create-web-apps"></a>Erstellen von Web-Apps
 
@@ -140,7 +140,7 @@ Azure App Service vereinfacht die Ausführung und Verwaltung einer Webanwendung.
 
 ### <a name="add-route-for-azure-stack"></a>Hinzufügen der Route für Azure Stack
 
-App Service unter Azure Stack muss über das öffentliche Internet geroutet werden können, damit die Benutzer auf Ihre Anwendung zugreifen können. Wenn Ihre Azure Stack-Instanz über das Internet zugänglich ist, sollten Sie sich die öffentliche IP-Adresse oder URL für die Azure Stack-Web-App notieren.
+App Service unter Azure Stack muss über das öffentliche Internet geroutet werden können, damit die Benutzer auf Ihre App zugreifen können. Wenn Ihre Azure Stack-Instanz über das Internet zugänglich ist, sollten Sie sich die öffentliche IP-Adresse oder URL für die Azure Stack-Web-App notieren.
 
 Bei Verwendung eines ASDK können Sie [eine statische NAT-Zuordnung konfigurieren](../operator/azure-stack-create-vpn-connection-one-node.md#configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal), um App Service außerhalb der virtuellen Umgebung verfügbar zu machen.
 
@@ -148,8 +148,8 @@ Bei Verwendung eines ASDK können Sie [eine statische NAT-Zuordnung konfiguriere
 
 Um die Konnektivität zwischen dem Web-Front-End in Azure und der SQL Server-Datenbank in Azure Stack bereitzustellen, muss die Web-App mit dem Hybridnetzwerk zwischen Azure und Azure Stack verbunden werden. Folgendes ist erforderlich, um die Konnektivität zu aktivieren:
 
-- Konfigurieren der Punkt-zu-Site-Konnektivität
-- Konfigurieren der Web-App
+- Konfigurieren der Punkt-zu-Site-Konnektivität.
+- Konfigurieren der Web-App.
 - Ändern des Gateways für lokale Netzwerke in Azure Stack
 
 ### <a name="configure-the-azure-virtual-network-for-point-to-site-connectivity"></a>Konfigurieren des virtuellen Azure-Netzwerks für Punkt-zu-Standort-Konnektivität
@@ -173,11 +173,11 @@ Das Gateway für virtuelle Netzwerke auf der Azure-Seite des Hybridnetzwerks mus
 
    ![Punkt-zu-Standort-Einstellungen](media/azure-stack-solution-hybrid-cloud/image10.png)
 
-### <a name="integrate-the-azure-app-service-application-with-the-hybrid-network"></a>Integrieren der Azure App Service-Anwendung in das Hybridnetzwerk
+### <a name="integrate-the-azure-app-service-app-with-the-hybrid-network"></a>Integrieren der Azure App Service-App in das Hybridnetzwerk
 
-1. Befolgen Sie die Anleitung unter [Aktivieren der VNET-Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#enabling-vnet-integration), um die Anwendung mit dem Azure VNET zu verbinden.
+1. Befolgen Sie die Anleitung unter [VNET-Integration, die ein Gateway erfordert](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#gateway-required-vnet-integration), um die App mit dem Azure VNET zu verbinden.
 
-2. Navigieren Sie für den App Service-Plan, der die Webanwendung hostet, zu **Einstellungen**. Wählen Sie unter **Einstellungen** die Option **Netzwerk**.
+2. Navigieren Sie für den App Service-Plan, der die Web-App hostet, zu **Einstellungen**. Wählen Sie unter **Einstellungen** die Option **Netzwerk**.
 
     ![Konfigurieren Sie die Netzwerkeinstellungen](media/azure-stack-solution-hybrid-cloud/image11.png)
 
@@ -199,19 +199,21 @@ Das Gateway für lokale Netzwerke im virtuellen Azure Stack-Netzwerk muss zum We
 
     ![Option für Gatewaykonfiguration](media/azure-stack-solution-hybrid-cloud/image14.png)
 
-2. Geben Sie unter **Adressraum** den Punkt-zu-Standort-Adressbereich für das Gateway für virtuelle Netzwerke in Azure ein. Wählen Sie **Speichern**, um diese Konfiguration zu überprüfen und zu speichern.
+2. Geben Sie unter **Adressraum** den Punkt-zu-Standort-Adressbereich für das Gateway für virtuelle Netzwerke in Azure ein.
 
     ![Punkt-zu-Standort-Adressraum](media/azure-stack-solution-hybrid-cloud/image15.png)
 
+3. Wählen Sie **Speichern** aus, um die Konfiguration zu überprüfen und zu speichern.
+
 ## <a name="configure-dns-for-cross-cloud-scaling"></a>Konfigurieren von DNS für die cloudübergreifende Skalierung
 
-Indem Benutzer das DNS für cloudübergreifende Anwendungen richtig konfigurieren, können sie auf die globale Azure-Umgebung und die Azure Stack-Instanzen Ihrer Web-App zugreifen. Mit der DNS-Konfiguration für dieses Tutorial kann Azure Traffic Manager auch Datenverkehr weiterleiten, wenn sich die Last erhöht oder verringert.
+Indem Benutzer das DNS für cloudübergreifende Apps richtig konfigurieren, können sie auf die globale Azure-Umgebung und die Azure Stack-Instanzen Ihrer Web-App zugreifen. Mit der DNS-Konfiguration für dieses Tutorial kann Azure Traffic Manager auch Datenverkehr weiterleiten, wenn sich die Last erhöht oder verringert.
 
-In diesem Tutorial wird Azure DNS zum Verwalten des DNS verwendet. (App Service-Domänen funktionieren nicht.)
+In diesem Tutorial wird Azure DNS zum Verwalten des DNS verwendet, weil App Service-Domänen nicht funktionieren.
 
 ### <a name="create-subdomains"></a>Erstellen von Unterdomänen
 
-Da für Traffic Manager DNS-CNAME-Einträge verwendet werden, wird eine Unterdomäne benötigt, um Datenverkehr korrekt an die Endpunkte weiterleiten zu können. Weitere Informationen zu DNS-Einträgen und zur Domänenzuordnung finden Sie unter [Konfigurieren eines benutzerdefinierten Domänennamens für eine Web-App in Azure App Services, der Traffic Manager verwendet](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager-custom-domain-name).
+Da für Traffic Manager DNS-CNAME-Einträge verwendet werden, wird eine Unterdomäne benötigt, um Datenverkehr korrekt an die Endpunkte weiterleiten zu können. Weitere Informationen zu DNS-Einträgen und zur Domänenzuordnung finden Sie unter [Zuordnen von Domänen mithilfe von Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager-custom-domain-name).
 
 Für den Azure-Endpunkt erstellen Sie eine Unterdomäne, die Benutzer zum Zugreifen auf Ihre Web-App verwenden können. Für dieses Tutorial können Sie **app.northwind.com** verwenden, aber Sie sollten diesen Wert basierend auf Ihrer eigenen Domäne anpassen.
 
@@ -223,15 +225,15 @@ Außerdem müssen Sie eine Unterdomäne mit einem A-Eintrag für den Azure Stack
 
 ### <a name="configure-custom-domains-in-azure-stack"></a>Konfigurieren von benutzerdefinierten Domänen in Azure Stack
 
-1. Fügen Sie den Hostnamen **azurestack.northwind.com** der Azure Stack-Web-App hinzu, indem Sie [Azure App Service einen A-Eintrag zuordnen](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-an-a-record). Verwenden Sie für die App Service-Anwendung die IP-Adresse, die über das Internet geroutet werden kann.
+1. Fügen Sie den Hostnamen **azurestack.northwind.com** der Azure Stack-Web-App hinzu, indem Sie [Azure App Service einen A-Eintrag zuordnen](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-an-a-record). Verwenden Sie für die App Service-App die IP-Adresse, die über das Internet geroutet werden kann.
 
 2. Fügen Sie den Hostnamen **app.northwind.com** der Azure Stack-Web-App hinzu, indem Sie [Azure App Service einen CNAME-Eintrag zuordnen](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-a-cname-record). Verwenden Sie den Hostnamen, den Sie im vorherigen Schritt (1) konfiguriert haben, als Ziel für den CNAME-Eintrag.
 
 ## <a name="configure-ssl-certificates-for-cross-cloud-scaling"></a>Konfigurieren von SSL-Zertifikaten für die cloudübergreifende Skalierung
 
-Sie müssen sicherstellen, dass die von Ihrer Webanwendung erfassten vertraulichen Daten bei der Übertragung zur SQL-Datenbank und im Ruhezustand in der SQL-Datenbank sicher sind.
+Es ist wichtig, dass Sie sicherstellen, dass von Ihrer Web-App erfasste vertrauliche Daten bei der Übertragung zur und der Speicherung in der SQL-Datenbank sicher sind.
 
-Sie konfigurieren Ihre Azure- und Azure Stack-Webanwendungen so, dass für den gesamten eingehenden Datenverkehr SSL-Zertifikate verwendet werden.
+Sie konfigurieren Ihre Azure- und Azure Stack-Web-Apps so, dass für den gesamten eingehenden Datenverkehr SSL-Zertifikate verwendet werden.
 
 ### <a name="add-ssl-to-azure-and-azure-stack"></a>Hinzufügen von SSL zu Azure und Azure Stack
 
@@ -247,26 +249,26 @@ Fügen Sie SSL für Azure Stack wie folgt hinzu:
 
 - Wiederholen Sie die Schritte 1 bis 3, die Sie für Azure verwendet haben.
 
-## <a name="configure-and-deploy-the-web-application"></a>Konfigurieren und Bereitstellen der Webanwendung
+## <a name="configure-and-deploy-the-web-app"></a>Konfigurieren und Bereitstellen der Web-App
 
-Sie konfigurieren den Anwendungscode so, dass die Telemetriedaten an die richtige Application Insights-Instanz gemeldet werden, und konfigurieren die Webanwendungen mit den richtigen Verbindungszeichenfolgen. Weitere Informationen zu Application Insights finden Sie unter [Was ist Application Insights?](https://docs.microsoft.com/azure/application-insights/app-insights-overview).
+Sie konfigurieren den App-Code so, dass die Telemetriedaten an die richtige Application Insights-Instanz gemeldet werden, und konfigurieren die Web-Apps mit den richtigen Verbindungszeichenfolgen. Weitere Informationen zu Application Insights finden Sie unter [Was ist Application Insights?](https://docs.microsoft.com/azure/application-insights/app-insights-overview).
 
 ### <a name="add-application-insights"></a>Hinzufügen von Application Insights
 
-1. Öffnen Sie Ihre Webanwendung in Microsoft Visual Studio.
+1. Öffnen Sie Ihre Web-App in Microsoft Visual Studio.
 
 2. [Fügen Sie Ihrem Projekt Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-client-side-telemetry-for-web-applications) hinzu, um die Telemetriedaten zu übertragen, die von Application Insights zum Erstellen von Warnungen verwendet werden, wenn der Webdatenverkehr zunimmt oder sich verringert.
 
 ### <a name="configure-dynamic-connection-strings"></a>Konfigurieren von dynamischen Verbindungszeichenfolgen
 
-Für jede Instanz der Webanwendung wird eine andere Methode zum Herstellen der Verbindung mit der SQL-Datenbank verwendet. Für die Anwendung in Azure wird die private IP-Adresse des virtuellen SQL Server-Computers (VM) verwendet, und die Anwendung in Azure Stack nutzt die öffentliche IP-Adresse der SQL Server-VM.
+Für jede Instanz der Web-App wird eine andere Methode zum Herstellen der Verbindung mit der SQL-Datenbank verwendet. Für die App in Azure wird die private IP-Adresse des virtuellen SQL Server-Computers (VM) verwendet, und die App in Azure Stack nutzt die öffentliche IP-Adresse der SQL Server-VM.
 
 > [!Note]  
 > Auf einem integrierten Azure Stack-System sollte die öffentliche IP-Adresse nicht über das Internet geroutet werden können. In einem Azure Stack Development Kit (ASDK) kann die öffentliche IP-Adresse nicht außerhalb des ASDK geroutet werden.
 
-Sie können die App Service-Umgebungsvariablen verwenden, um an jede Instanz der Anwendung eine andere Verbindungszeichenfolge zu übergeben.
+Sie können die App Service-Umgebungsvariablen verwenden, um an jede Instanz der App eine andere Verbindungszeichenfolge zu übergeben.
 
-1. Öffnen Sie die Anwendung in Visual Studio.
+1. Öffnen Sie die App in Visual Studio.
 
 2. Öffnen Sie „Startup.cs“, und suchen Sie nach dem folgenden Codeblock:
 
@@ -275,7 +277,7 @@ Sie können die App Service-Umgebungsvariablen verwenden, um an jede Instanz der
         options.UseSqlite("Data Source=localdatabase.db"));
     ```
 
-3. Ersetzen Sie den obigen Codeblock durch den folgenden Code, in dem eine Verbindungszeichenfolge verwendet wird, die in der Datei „appsettings.json“ definiert ist:
+3. Ersetzen Sie den obigen Codeblock durch den folgenden Code, in dem eine Verbindungszeichenfolge verwendet wird, die in der Datei *appsettings.json* definiert ist:
 
     ```C#
     services.AddDbContext<MyDatabaseContext>(options =>
@@ -284,13 +286,13 @@ Sie können die App Service-Umgebungsvariablen verwenden, um an jede Instanz der
      services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
     ```
 
-### <a name="configure-app-service-application-settings"></a>Konfigurieren von App Service-Anwendungseinstellungen
+### <a name="configure-app-service-app-settings"></a>Konfigurieren von App Service-App-Einstellungen
 
 1. Erstellen Sie Verbindungszeichenfolgen für Azure und Azure Stack. Die Zeichenfolgen sollten mit Ausnahme der verwendeten IP-Adressen identisch sein.
 
-2. Fügen Sie in Azure und Azure Stack die entsprechende Verbindungszeichenfolge [als Anwendungseinstellung](https://docs.microsoft.com/azure/app-service/web-sites-configure) in der Webanwendung hinzu, indem Sie `SQLCONNSTR\_` als Präfix im Namen verwenden.
+2. Fügen Sie in Azure und Azure Stack die entsprechende Verbindungszeichenfolge [als App-Einstellung](https://docs.microsoft.com/azure/app-service/web-sites-configure) in der Web-App hinzu, indem Sie `SQLCONNSTR\_` als Präfix im Namen verwenden.
 
-3. **Speichern** Sie die Web-App-Einstellungen, und starten Sie die Anwendung neu.
+3. **Speichern** Sie die Web-App-Einstellungen, und starten Sie die App neu.
 
 ## <a name="enable-automatic-scaling-in-global-azure"></a>Aktivieren der automatischen Skalierung in der globalen Azure-Umgebung
 
@@ -343,11 +345,11 @@ Wenn Sie Ihre Web-App in einer App Service-Umgebung erstellen, beginnt sie mit e
 6. Wählen Sie unter **Metrikquelle** die Option **Aktuelle Ressource**.
 
    > [!Note]  
-   > Die aktuelle Ressource enthält den Namen bzw. die GUID Ihres App Service-Plans, und die Dropdownlisten **Ressourcentyp** und **Ressource** sind abgeblendet.
+   > Die aktuelle Ressource enthält den Namen bzw. die GUID Ihres App Service-Plans, und die Dropdownlisten **Ressourcentyp** und **Ressource** sind nicht verfügbar.
 
 ### <a name="enable-automatic-scale-in"></a>Aktivieren des automatischen horizontalen Herunterskalierens
 
-Bei einer Verringerung des Datenverkehrs kann die Azure-Webanwendung die Anzahl von aktiven Instanzen reduzieren, um die Kosten zu senken. Diese Aktion ist weniger aggressiv als das horizontale Hochskalieren, um die Auswirkung auf Anwendungsbenutzer zu minimieren.
+Bei einer Verringerung des Datenverkehrs kann die Azure-Web-App die Anzahl von aktiven Instanzen reduzieren, um die Kosten zu senken. Diese Aktion ist weniger aggressiv als das horizontale Hochskalieren und minimiert die Auswirkungen auf App-Benutzer.
 
 1. Navigieren Sie zur Standardbedingung für das horizontale Hochskalieren unter **Standard**, und wählen Sie **+ Regel hinzufügen**. Verwenden Sie die folgenden Kriterien und Aktionen für die Regel.
 
@@ -373,19 +375,19 @@ Bei einer Verringerung des Datenverkehrs kann die Azure-Webanwendung die Anzahl 
 
 ## <a name="create-a-traffic-manager-profile-and-configure-cross-cloud-scaling"></a>Erstellen eines Traffic Manager-Profils mit anschließender Konfiguration für die cloudübergreifende Skalierung
 
-Sie erstellen ein Traffic Manager-Profil in Azure und konfigurieren dann die Endpunkte, um die cloudübergreifende Skalierung zu ermöglichen.
+Erstellen Sie ein Traffic Manager-Profil in Azure, und konfigurieren Sie dann die Endpunkte, um die cloudübergreifende Skalierung zu ermöglichen.
 
 ### <a name="create-traffic-manager-profile"></a>Erstellen eines Traffic Manager-Profils
 
 1. Wählen Sie **Ressource erstellen**.
-2. Wählen Sie **Netzwerk**.
-3. Wählen Sie **Traffic Manager-Profil**, und konfigurieren Sie Folgendes:
+2. Wählen Sie **Netzwerk** aus.
+3. Wählen Sie **Traffic Manager-Profil**, und konfigurieren Sie folgende Einstellungen:
 
    - Geben Sie unter **Name** einen Namen für Ihr Profil ein. Dieser Name **muss** in der Zone „trafficmanager.net“ eindeutig sein und wird genutzt, um einen neuen DNS-Namen zu erstellen (z.B. „northwindstore.trafficmanager.net“).
    - Wählen Sie unter **Routingmethode** die Option **Gewichtet**.
    - Wählen Sie unter **Abonnement** das Abonnement aus, unter dem Sie dieses Profil erstellen möchten.
    - Erstellen Sie unter **Ressourcengruppe** eine neue Ressourcengruppe für dieses Profil.
-   - Wählen Sie unter **Ressourcengruppenstandort** den Speicherort für die Ressourcengruppe aus. Diese Einstellung bezieht sich auf den Speicherort der Ressourcengruppe und hat keine Auswirkungen auf das Traffic Manager-Profil, das global bereitgestellt wird.
+   - Wählen Sie unter **Ressourcengruppenstandort** den Speicherort für die Ressourcengruppe aus. Diese Einstellung bezieht sich auf den Speicherort der Ressourcengruppe und hat keine Auswirkungen auf das global bereitgestellte Traffic Manager-Profil.
 
 4. Klicken Sie auf **Erstellen**.
 
@@ -395,7 +397,7 @@ Sie erstellen ein Traffic Manager-Profil in Azure und konfigurieren dann die End
 
 ### <a name="add-traffic-manager-endpoints"></a>Hinzufügen von Traffic Manager-Endpunkten
 
-1. Suchen Sie nach dem Traffic Manager-Profil, das Sie erstellt haben. (Wählen Sie das Profil aus, nachdem Sie die Navigation zur Ressourcengruppe für das Profil durchgeführt haben.)
+1. Suchen Sie nach dem Traffic Manager-Profil, das Sie erstellt haben. Wählen Sie das Profil aus, nachdem Sie die Navigation zur Ressourcengruppe für das Profil durchgeführt haben.
 
 2. Wählen Sie im **Traffic Manager-Profil** unter **EINSTELLUNGEN** die Option **Endpunkte**.
 
@@ -404,7 +406,7 @@ Sie erstellen ein Traffic Manager-Profil in Azure und konfigurieren dann die End
 4. Verwenden Sie unter **Endpunkt hinzufügen** die folgenden Einstellungen für Azure Stack:
 
    - Wählen Sie unter **Typ** die Option **Externer Endpunkt**.
-   - Geben Sie unter **Name** einen Namen für diesen Endpunkt ein.
+   - Geben Sie einen **Namen** für den Endpunkt ein.
    - Geben Sie unter **Fully-qualified domain name (FQDN) or IP** (Vollqualifizierter Domänenname (FQDN) oder IP) die externe URL für Ihre Azure Stack-Web-App ein.
    - Behalten Sie für **Gewichtung** den Standardwert **1** bei. Diese Gewichtung bewirkt, dass der gesamte Datenverkehr an diesen Endpunkt geleitet wird, sofern sein Status intakt ist.
    - Lassen Sie **Als deaktiviert hinzufügen** deaktiviert.
@@ -418,11 +420,11 @@ Als Nächstes konfigurieren Sie den Azure-Endpunkt.
 3. Verwenden Sie unter **Endpunkt hinzufügen** die folgenden Einstellungen für Azure:
 
    - Wählen Sie für **Typ** die Option **Azure-Endpunkt**.
-   - Geben Sie unter **Name** einen Namen für diesen Endpunkt ein.
+   - Geben Sie einen **Namen** für den Endpunkt ein.
    - Wählen Sie unter **Zielressourcentyp** die Option **App Service**.
    - Wählen Sie unter **Zielressource** die Option **App Service auswählen**, um eine Liste mit den Web-Apps für dasselbe Abonnement anzuzeigen.
    - Wählen Sie unter **Ressource** den App Service aus, den Sie als ersten Endpunkt hinzufügen möchten.
-   - Wählen Sie unter **Gewichtung** den Wert **2**. Dies führt dazu, dass der gesamte Datenverkehr an diesen Endpunkt geleitet wird, wenn der primäre Endpunkt fehlerhaft ist oder Sie über eine Regel oder Warnung verfügen, mit der Datenverkehr bei der Auslösung umgeleitet wird.
+   - Wählen Sie unter **Gewichtung** den Wert **2**. Diese Einstellung führt dazu, dass der gesamte Datenverkehr an diesen Endpunkt geleitet wird, wenn der primäre Endpunkt fehlerhaft ist oder Sie über eine Regel oder Warnung verfügen, mit der Datenverkehr bei der Auslösung umgeleitet wird.
    - Lassen Sie **Als deaktiviert hinzufügen** deaktiviert.
 
 4. Wählen Sie **OK**, um den Azure-Endpunkt zu speichern.
@@ -433,9 +435,9 @@ Nachdem beide Endpunkte konfiguriert wurden, werden sie im **Traffic Manager-Pro
 
 ## <a name="set-up-application-insights-monitoring-and-alerting"></a>Einrichten der Application Insights-Überwachung und -Warnungen
 
-Mit Azure Application Insights können Sie Ihre Anwendung überwachen und basierend auf den von Ihnen konfigurierten Bedingungen Warnungen senden. Beispiele: Die Anwendung ist nicht verfügbar, weist Fehler auf oder zeigt Leistungsprobleme an.
+Mit Azure Application Insights können Sie Ihre App überwachen und basierend auf den von Ihnen konfigurierten Bedingungen Warnungen senden. Beispiele: Die App ist nicht verfügbar, weist Fehler auf oder zeigt Leistungsprobleme an.
 
-Sie nutzen Application Insights-Metriken, um Warnungen zu erstellen. Wenn diese Warnungen ausgelöst werden, wird für Ihre Webanwendungen automatisch von Azure Stack zu Azure gewechselt, um horizontal hochzuskalieren, und dann zurück zu Azure, um horizontal herunterzuskalieren.
+Sie nutzen Application Insights-Metriken, um Warnungen zu erstellen. Wenn diese Warnungen ausgelöst werden, wird für die Instanz Ihrer Web-App automatisch von Azure Stack zu Azure gewechselt, um horizontal hochzuskalieren, und dann zurück zu Azure, um horizontal herunterzuskalieren.
 
 ### <a name="create-an-alert-from-metrics"></a>Warnung auf Grundlage von Metriken erstellen
 
@@ -449,7 +451,7 @@ Sie verwenden diese Ansicht, um eine Warnung für das horizontale Hochskalieren 
 
 1. Wählen Sie unter **KONFIGURIEREN** die Option **Warnungen (klassisch)** .
 2. Wählen Sie **Metrikwarnung hinzufügen (klassisch)** .
-3. Konfigurieren Sie unter **Regel hinzufügen** Folgendes:
+3. Konfigurieren Sie unter **Regel hinzufügen** folgende Einstellungen:
 
    - Geben Sie unter **Name** den Namen **Burst into Azure Cloud** ein.
    - Das Angeben einer **Beschreibung** ist optional.
@@ -470,7 +472,7 @@ Sie verwenden diese Ansicht, um eine Warnung für das horizontale Hochskalieren 
 
 1. Wählen Sie unter **KONFIGURIEREN** die Option **Warnungen (klassisch)** .
 2. Wählen Sie **Metrikwarnung hinzufügen (klassisch)** .
-3. Konfigurieren Sie unter **Regel hinzufügen** Folgendes:
+3. Konfigurieren Sie unter **Regel hinzufügen** folgende Einstellungen:
 
    - Geben Sie unter **Name** den Namen **Scale back into Azure Stack** ein.
    - Das Angeben einer **Beschreibung** ist optional.
@@ -514,18 +516,18 @@ Wenn Ihre Website die von Ihnen konfigurierten Schwellenwerte erreicht, erhalten
 
     ![Deaktivieren des Azure Stack-Endpunkts](media/azure-stack-solution-hybrid-cloud/image24.png)
 
-Nachdem die Endpunkte konfiguriert wurden, fließt der Anwendungsdatenverkehr nicht mehr zur Azure Stack-Web-App, sondern zu Ihrer horizontal hochskalierten Azure-Web-App.
+Nachdem die Endpunkte konfiguriert wurden, fließt der App-Datenverkehr nicht mehr zur Azure Stack-Web-App, sondern zu Ihrer horizontal skalierten Azure-Web-App.
 
  ![Geänderte Endpunkte](media/azure-stack-solution-hybrid-cloud/image25.png)
 
 Verwenden Sie zum Umkehren des Datenverkehrsflusses zurück zu Azure Stack die vorherigen Schritte, um Folgendes durchzuführen:
 
-- Aktivieren des Azure Stack-Endpunkts
-- Deaktivieren des Azure-Endpunkts
+- Aktivieren des Azure Stack-Endpunkts.
+- Deaktivieren des Azure-Endpunkts.
 
 ### <a name="configure-automatic-switching-between-azure-and-azure-stack"></a>Konfigurieren des automatischen Umschaltens zwischen Azure und Azure Stack
 
-Sie können die Application Insights-Überwachung auch nutzen, wenn Ihre Anwendung in einer [serverlosen](https://azure.microsoft.com/overview/serverless-computing/) Umgebung ausgeführt wird, die von Azure Functions bereitgestellt wird.
+Sie können die Application Insights-Überwachung auch nutzen, wenn Ihre App in einer [serverlosen](https://azure.microsoft.com/overview/serverless-computing/) Umgebung ausgeführt wird, die von Azure Functions bereitgestellt wird.
 
 In diesem Szenario können Sie Application Insights so konfigurieren, dass ein Webhook zum Aufrufen einer Funktions-App verwendet wird. Diese App aktiviert bzw. deaktiviert automatisch einen Endpunkt als Reaktion auf eine Warnung.
 
