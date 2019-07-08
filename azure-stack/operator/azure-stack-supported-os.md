@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 06/11/2019
 ms.author: sethm
-ms.reviewer: unknown
-ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: aca2517a49936296f73c34392ab4c5439909872f
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.reviewer: kivenkat
+ms.lastreviewed: 06/06/2018
+ms.openlocfilehash: 53acfa3a2d85e73b5d8136c7a1f42ee00d8ed1be
+ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66748968"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67028267"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Für Azure Stack unterstützte Gastbetriebssysteme
 
@@ -43,7 +43,7 @@ Azure Stack unterstützt die Windows-Gastbetriebssysteme aus der folgenden Tabel
 | Windows 10 *(siehe Hinweis 1)* | 64 Bit, Pro und Enterprise | Verwendung eigener Images (Bring Your Own Image, BYOI) |
 
 > [!NOTE]
-> Wenn Sie Windows 10-Clientbetriebssysteme für Azure Stack bereitstellen möchten, müssen Sie über eine [benutzerspezifische Windows-Lizenzierung](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) verfügen oder den Kauf über einen [QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) (Qualified Multitenant Hoster) abwickeln.
+> Wenn Sie Windows 10-Clientbetriebssysteme für Azure Stack bereitstellen möchten, müssen Sie über eine [benutzerspezifische Windows-Lizenzierung](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) verfügen oder den Kauf über einen [QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) (Qualified Multitenant Hoster) abwickeln.
 
 Marketplace-Images stehen für eine Lizenzierung mit nutzungsbasierter Abrechnung oder für eine BYOL-Lizenzierung (EA/SPLA) zur Verfügung. Es kann jedoch nicht beides für die gleiche Azure Stack-Instanz verwendet werden. Während der Bereitstellung fügt Azure Stack eine geeignete Version des Gast-Agents in das Image ein.
 
@@ -54,15 +54,15 @@ Datacenter-Editionen stehen im Marketplace zum Download zur Verfügung. Kunden k
 Die im Marketplace verfügbaren Linux-Distributionen enthalten den erforderlichen Windows Azure-Linux-Agent (WALA). Wenn Sie in Azure Stack Ihr eigenes Image verwenden möchten, beachten Sie die Richtlinien unter [Hinzufügen von Linux-Images zu Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Benutzerdefinierte Images müssen mit der neuesten öffentlichen WALA-Version (in Azure Stack Build 1903 und höher oder mit dem 1901/1902-Hotfix) oder mit Version 2.2.20 erstellt werden. Versionen vor 2.2.20 und zwischen 2.2.20 und 2.2.2.35 (exklusive) funktionieren in Azure Stack möglicherweise nicht ordnungsgemäß. 
+> Benutzerdefinierte Images müssen mit der neuesten öffentlichen WALA-Version (in Azure Stack Build 1903 und höher oder mit dem 1901/1902-Hotfix) oder mit Version 2.2.20 erstellt werden. Versionen vor 2.2.20 und zwischen 2.2.20 und 2.2.2.35 (exklusive) funktionieren in Azure Stack möglicherweise nicht ordnungsgemäß.
 >
 > [cloud-init](https://cloud-init.io/) wird derzeit für Azure Stack nicht unterstützt.
 
 | Distribution | BESCHREIBUNG | Herausgeber | Marketplace |
 | --- | --- | --- | --- |
-| 6.9 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
-| 7.5 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
-| 7.3 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
+| 6\.9 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
+| 7\.5 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
+| 7\.3 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
 | ClearLinux | 64 Bit | ClearLinux.org | Ja |
 | Container Linux |  64 Bit | CoreOS | Stable |
 | Debian 8 „Jessie“ | 64 Bit | credativ |  Ja |

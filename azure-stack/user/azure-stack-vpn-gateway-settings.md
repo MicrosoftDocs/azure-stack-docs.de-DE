@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 06/11/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 35f7c5b15e9dce3b27fd01ab262154e139200f92
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 83fa2e96a7cd956c050efa33ab6e9564b1834e93
+ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310998"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67028291"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>VPN-Gatewaykonfigurationseinstellungen für Azure Stack
 
@@ -34,7 +34,7 @@ Für eine VPN Gateway-Verbindung müssen mehrere Ressourcen konfiguriert werden,
 
 ### <a name="gateway-types"></a>Gatewaytypen
 
-Jedes virtuelle Azure Stack-Netzwerk unterstützt ein einzelnes Gateway für virtuelle Netzwerke, das vom Typ **VPN** sein muss.  Im Gegensatz dazu unterstützt Azure zusätzliche Typen.  
+Jedes virtuelle Azure Stack-Netzwerk unterstützt ein einzelnes Gateway für virtuelle Netzwerke, das vom Typ **VPN** sein muss.  Im Gegensatz dazu unterstützt Azure zusätzliche Typen.
 
 Achten Sie beim Erstellen eines Gateways für virtuelle Netzwerke darauf, dass der Gatewaytyp für Ihre Konfiguration richtig ist. Ein VPN-Gateway erfordert das `-GatewayType Vpn`-Flag. Beispiel:
 
@@ -50,17 +50,17 @@ Beim Erstellen eines Gateways des virtuellen Netzwerks müssen Sie die gewünsch
 
 Azure Stack bietet folgende VPN-Gateway-SKUs:
 
-|   | VPN-Gatewaydurchsatz |Maximale IPsec-Tunnel für das VPN-Gateway |
+| | VPN-Gatewaydurchsatz |Maximale IPsec-Tunnel für das VPN-Gateway |
 |-------|-------|-------|
 |**Basic-SKU**  | 100 MBit/s  | 20    |
-|**Standard-SKU**           | 100 MBit/s  | 20    |
-|**High-Performance-SKU** | 200 MBit/s    | 10    |
+|**Standard-SKU**   | 100 MBit/s  | 20 |
+|**High-Performance-SKU** | 200 MBit/s | 10 |
 
 ### <a name="resizing-gateway-skus"></a>Anpassen der Größe von Gateway-SKUs
 
 SKU-Größenwechsel zwischen den unterstützten Legacy-SKUs werden von Azure Stack nicht unterstützt.
 
-Analog dazu unterstützt Azure Stack auch nicht das Ändern der Größe einer unterstützten Legacy-SKU (Basic, Standard und HighPerformance) in neuere, von Azure unterstützte SKUs (VpnGw1, VpnGw2 und VpnGw3).
+Analog dazu unterstützt Azure Stack auch nicht das Ändern der Größe einer unterstützten Legacy-SKU (**Basic**, **Standard** und **HighPerformance**) in neuere, von Azure unterstützte SKUs (**VpnGw1**, **VpnGw2** und **VpnGw3**).
 
 ### <a name="configure-the-gateway-sku"></a>Konfigurieren der Gateway-SKU
 
@@ -70,7 +70,7 @@ Wenn Sie das Azure Stack-Portal verwenden, um ein Resource Manager-Gateway für 
 
 #### <a name="powershell"></a>PowerShell
 
-Im folgenden PowerShell-Beispiel wird **-GatewaySku** als `VpnGw1` angegeben:
+Im folgenden PowerShell-Beispiel wird `-GatewaySku` als **VpnGw1** angegeben:
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -80,9 +80,9 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 ### <a name="connection-types"></a>Verbindungstypen
 
-Im Resource Manager-Bereitstellungsmodell ist für jede Konfiguration ein bestimmter Typ der Verbindung mit dem Gateway eines virtuellen Netzwerks erforderlich. Die verfügbaren Resource Manager-PowerShell-Werte für **-ConnectionType** lauten:
+Im Resource Manager-Bereitstellungsmodell ist für jede Konfiguration ein bestimmter Typ der Verbindung mit dem Gateway eines virtuellen Netzwerks erforderlich. Die verfügbaren Resource Manager-PowerShell-Werte für `-ConnectionType` sind:
 
-* IPsec
+* **IPsec**
 
    Im folgenden PowerShell-Beispiel wird eine Site-to-Site-Verbindung (S2S) erstellt, die den Verbindungstyp „IPsec“ erfordert:
 
@@ -108,7 +108,7 @@ Wenn Sie das Gateway des virtuellen Netzwerks für eine VPN-Gatewaykonfiguration
 
 * **RouteBased**: Bei routenbasierten VPNs werden Pakete auf der Grundlage von Routen, die in der IP-Weiterleitungstabelle oder -Routingtabelle konfiguriert sind, an die entsprechenden Tunnelschnittstellen weitergeleitet. An den Tunnelschnittstellen werden die Pakete dann ver- bzw. entschlüsselt. Die Richtlinie (bzw. der Datenverkehrsselektor) für **routenbasierte** VPNs wird im Any-to-Any-Format (bzw. unter Verwendung von Platzhaltern) konfiguriert. Sie können standardmäßig nicht geändert werden. Der Wert für einen **RouteBased**-VPN-Typ lautet **RouteBased**.
 
-Im folgenden PowerShell-Beispiel wird **-VpnType** als **RouteBased** angegeben. Achten Sie beim Erstellen eines Gateways darauf, dass **-VpnType** für Ihre Konfiguration richtig ist.
+Das folgende PowerShell-Beispiel gibt `-VpnType` als **RouteBased**an. Achten Sie beim Erstellen eines Gateways darauf, dass `-VpnType` für Ihre Konfiguration richtig ist.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -123,7 +123,7 @@ Die folgende Tabelle enthält die Anforderungen für VPN-Gateways.
 | |Basic-VPN-Gateway (PolicyBased) | Basic-VPN-Gateway (RouteBased) | Standard-VPN-Gateway (RouteBased) | Hochleistungs-VPN-Gateway (RouteBased)|
 |--|--|--|--|--|
 | **Site-to-Site-Konnektivität (S2S-Konnektivität)** | Nicht unterstützt | RouteBased-VPN-Konfiguration | RouteBased-VPN-Konfiguration | RouteBased-VPN-Konfiguration |
-| **Authentifizierungsmethode**  | Nicht unterstützt | Vorinstallierter Schlüssel für S2S-Konnektivität  | Vorinstallierter Schlüssel für S2S-Konnektivität  | Vorinstallierter Schlüssel für S2S-Konnektivität  |   
+| **Authentifizierungsmethode**  | Nicht unterstützt | Vorinstallierter Schlüssel für S2S-Konnektivität  | Vorinstallierter Schlüssel für S2S-Konnektivität  | Vorinstallierter Schlüssel für S2S-Konnektivität  |
 | **Maximale Anzahl von S2S-Verbindungen**  | Nicht unterstützt | 20 | 20| 10|
 |**Aktive Routingunterstützung (BGP)** | Nicht unterstützt | Nicht unterstützt | Unterstützt | Unterstützt |
 
@@ -187,10 +187,10 @@ Im Gegensatz zu Azure, das mehrere Angebote als Initiator und Antwortdienst unte
 |Verschlüsselung und Hashalgorithmen (Authentifizierung) | GCMAES256|
 |SA-Gültigkeitsdauer (Zeit)  | 27.000 Sekunden  |
 |SA-Gültigkeitsdauer (KB) | 33.553.408     |
-|Perfect Forward Secrecy (PFS) |Keine<sup>Siehe Hinweis 1</sup> |
+|Perfect Forward Secrecy (PFS) |Keiner (siehe Hinweis 1) |
 |Dead Peer Detection | Unterstützt|  
 
-* *Hinweis 1:*  Bis zur Version 1807 verwendet Azure Stack für „Perfect Forward Secrecy (PFS)“ den Wert „PFS2048“.
+* *Hinweis 1:*  Bis zur Version 1807 verwendete Azure Stack für „Perfect Forward Secrecy (PFS)“ den Wert „PFS2048“.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

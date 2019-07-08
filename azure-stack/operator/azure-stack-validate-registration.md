@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 06/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a777fc1d9052eb58bbebd319fe6cc7f42a09cb9a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ca2ea89ab73c7a8e056e4b4700e92a872e628f34
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307320"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316175"
 ---
 # <a name="validate-azure-registration"></a>Überprüfen der Azure-Registrierung
 
@@ -40,7 +40,7 @@ Laden Sie die neueste Version von **AzsReadinessChecker** aus dem [PowerShell-Ka
 
 Die folgenden Voraussetzungen müssen erfüllt sein:
 
-**Auf dem Computer, auf dem das Tool ausgeführt wird, muss Folgendes installiert sein:**
+### <a name="the-computer-on-which-the-tool-runs"></a>Auf dem Computer, auf dem das Tool ausgeführt wird, muss Folgendes installiert sein:
 
 - Windows 10 oder Windows Server 2016 mit Internetkonnektivität
 - PowerShell 5.1 oder höher Um Ihre Version zu überprüfen, führen Sie das folgende PowerShell-Cmdlet aus, und überprüfen Sie dann die **Hauptversion** und die **Nebenversionen**:  
@@ -52,7 +52,7 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
 - [Für Azure Stack konfiguriertes PowerShell](azure-stack-powershell-install.md).
 - Laden Sie die neueste Version von [Microsoft Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker) herunter.  
 
-**Azure Active Directory-Umgebung**:
+### <a name="azure-active-directory-environment"></a>Azure Active Directory-Umgebung
 
 - Sie müssen über den Benutzernamen und das Kennwort eines Kontos verfügen, das der Besitzer eines Azure-Abonnements ist, unter dem Sie Azure Stack verwenden.  
 - Ermitteln Sie die Abonnement-ID für das Azure-Abonnement, das Sie verwenden möchten.
@@ -106,7 +106,7 @@ Bei jeder Ausführung einer Überprüfung werden Ergebnisse in den Dateien **Azs
 
 Anhand dieser Dateien können Sie den Überprüfungsstatus freigeben, bevor Sie Azure Stack bereitstellen oder Probleme mit der Überprüfung untersuchen. Die Ergebnisse aller nachfolgenden Überprüfungen werden in beiden Dateien gespeichert. Der Bericht enthält die Bestätigung Ihres Bereitstellungsteams über die Identitätskonfiguration. Mithilfe der Protokolldatei kann Ihr Bereitstellungs- oder Supportteam Probleme bei der Überprüfung untersuchen.
 
-Standardmäßig werden beide Dateien in das Verzeichnis **C:\Users\<Benutzername>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** geschrieben.  
+Standardmäßig werden beide Dateien in das Verzeichnis **C:\Users\Benutzername\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** geschrieben.  
 
 - Verwenden Sie den Parameter **-OutputPath** ***&lt;Pfad&gt;*** am Ende der Befehlszeilenausführung, um einen anderen Berichtsspeicherort anzugeben.
 - Verwenden Sie den **-CleanReport** -Parameter am Ende der Befehlszeile, um Informationen zu früheren Ausführungen des Tools aus **AzsReadinessCheckerReport.json** zu löschen.

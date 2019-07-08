@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/13/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 6afaca6e9bad806f432cf56b79dca5881bb76455
-ms.sourcegitcommit: fbd6a7fed4f064113647540329a768347a6cf261
+ms.lastreviewed: 06/13/2019
+ms.openlocfilehash: 9c263b97deb12a199f2941be7ea4ae05a048837b
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810218"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131629"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack-Compute
 
@@ -85,19 +85,21 @@ Der Wert V (größter virtueller Computer in der Skalierungseinheit) basiert dyn
 
 ## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
 
-F: Von meinem Mandanten wurde ein neuer virtueller Computer bereitgestellt. Wie lange dauert es, bis die verbleibende Kapazität im Funktionsdiagramm des Verwaltungsportals angezeigt wird?
-A: Das Kapazitätsblatt wird alle 15 Minuten aktualisiert.
+**F:** Von meinem Mandanten wurde ein neuer virtueller Computer bereitgestellt. Wie lange dauert es, bis die verbleibende Kapazität im Funktionsdiagramm des Verwaltungsportals angezeigt wird?
 
-F: Meine Kapazität schwankt, obwohl sich die Anzahl bereitgestellter virtueller Computer in meiner Azure Stack-Instanz nicht geändert hat. Warum ist das so?
-A: Der verfügbare Arbeitsspeicher für die VM-Platzierung ist von verschiedenen Faktoren abhängig – unter anderem von der Reserve des Hostbetriebssystems. Der Wert hängt davon ab, wie viel Arbeitsspeicher von den verschiedenen, auf dem Host ausgeführten Hyper-V-Prozessen beansprucht wird, was kein konstanter Wert ist.
+**A:** Das Kapazitätsblatt wird alle 15 Minuten aktualisiert.
 
-F: In welchem Zustand müssen sich Mandanten-VMs befinden, damit sie Arbeitsspeicher beanspruchen?
-A: Zusätzlich zur Ausführung von VMs wird Arbeitsspeicher von allen VMs verbraucht, die im Fabric angeordnet sind. Das bedeutet, dass virtuelle Computer mit dem Zustand „Wird erstellt“ oder „Fehler“ sowie virtuelle Computer, die über den Gast heruntergefahren werden, Arbeitsspeicher beanspruchen (im Gegensatz zu virtuellen Computern, deren Zuordnung mithilfe der entsprechenden Option über das Portal/mit PowerShell/über die Befehlszeilenschnittstelle aufgehoben wurde).
+**F:** Meine Kapazität schwankt, obwohl sich die Anzahl bereitgestellter virtueller Computer in meiner Azure Stack-Instanz nicht geändert hat. Warum?
 
+**A:** Der verfügbare Arbeitsspeicher für die VM-Platzierung ist von verschiedenen Faktoren abhängig – unter anderem von der Reserve des Hostbetriebssystems. Der Wert hängt davon ab, wie viel Arbeitsspeicher von den verschiedenen, auf dem Host ausgeführten Hyper-V-Prozessen beansprucht wird, was kein konstanter Wert ist.
 
-F: Ich verfüge über eine Azure Stack-Instanz mit vier Hosts. Mein Mandant umfasst drei virtuelle Computer, die jeweils 56 GB RAM (D5_v2) beanspruchen. Nachdem die Größe eines der virtuellen Computer in 112 GB RAM (D14_v2) geändert wurde, wurde beim verfügbaren Arbeitsspeicher auf dem Kapazitätsblatt des Dashboards eine Spitzenauslastung von 168 GB gemeldet. Bei der späteren Änderung der Größe der anderen beiden virtuellen Computer von „D5_v2“ in „D14_v2“ wurde dagegen nur ein RAM-Zuwachs von jeweils 56 GB verzeichnet. Woran liegt das?
+**F:** In welchem Zustand müssen sich Mandanten-VMs befinden, damit sie Arbeitsspeicher beanspruchen?
 
-A: Der verfügbare Arbeitsspeicher ist eine Funktion der von Azure Stack verwalteten Resilienzreserve. Die Resilienzreserve ist eine Funktion der größten VM-Größe im Azure Stack-Bereich. Zu Beginn lag der Arbeitsspeicherwert des größten virtuellen Computers bei 56 GB. Nach Änderung der Größe des virtuellen Computers lag der Arbeitsspeicherwert des größten virtuellen Computers bei 112 GB. Dadurch hat sich nicht nur der von dieser Mandanten-VM beanspruchte Arbeitsspeicher erhöht, sondern auch die Resilienzreserve. Dies führte zu einem Anstieg von 56 GB (Arbeitsspeichererhöhung um 56 GB auf 112 GB für die Mandanten-VM) plus 112 GB Arbeitsspeichererhöhung für die Resilienzreserve. Bei der späteren Größenänderung für die anderen virtuellen Computer lag die Größe des größten virtuellen Computers weiterhin bei 112 GB, sodass keine weitere Erhöhung der Resilienzreserve erforderlich war. Somit entsprach der Anstieg bei der Arbeitsspeichernutzung lediglich der Arbeitsspeichererhöhung für die Mandanten-VM (56 GB). 
+A: Zusätzlich zur Ausführung von VMs wird Arbeitsspeicher von allen VMs verbraucht, die im Fabric angeordnet sind. Das bedeutet, dass virtuelle Computer mit dem Zustand „Wird erstellt“ oder „Fehler“ oder virtuelle Computer, die über den Gast heruntergefahren werden, Arbeitsspeicher beanspruchen.
+
+**F:** Ich verfüge über eine Azure Stack-Instanz mit vier Hosts. Mein Mandant umfasst drei virtuelle Computer, die jeweils 56 GB RAM (D5_v2) beanspruchen. Nachdem die Größe eines der virtuellen Computer in 112 GB RAM (D14_v2) geändert wurde, wurde beim verfügbaren Arbeitsspeicher auf dem Kapazitätsblatt des Dashboards eine Spitzenauslastung von 168 GB gemeldet. Bei der späteren Änderung der Größe der anderen beiden virtuellen Computer von „D5_v2“ in „D14_v2“ wurde dagegen nur ein RAM-Zuwachs von jeweils 56 GB verzeichnet. Woran liegt das?
+
+**A:** Der verfügbare Arbeitsspeicher ist eine Funktion der von Azure Stack verwalteten Resilienzreserve. Die Resilienzreserve ist eine Funktion der größten VM-Größe im Azure Stack-Bereich. Zu Beginn lag der Arbeitsspeicherwert des größten virtuellen Computers bei 56 GB. Nach Änderung der Größe des virtuellen Computers lag der Arbeitsspeicherwert des größten virtuellen Computers bei 112 GB. Dadurch hat sich nicht nur der von dieser Mandanten-VM beanspruchte Arbeitsspeicher erhöht, sondern auch die Resilienzreserve. Dies führte zu einem Anstieg von 56 GB (Arbeitsspeichererhöhung um 56 GB auf 112 GB für die Mandanten-VM) plus 112 GB Arbeitsspeichererhöhung für die Resilienzreserve. Bei der späteren Größenänderung für die anderen virtuellen Computer lag die Größe des größten virtuellen Computers weiterhin bei 112 GB, sodass keine weitere Erhöhung der Resilienzreserve erforderlich war. Somit entsprach der Anstieg bei der Arbeitsspeichernutzung lediglich der Arbeitsspeichererhöhung für die Mandanten-VM (56 GB). 
 
 
 > [!NOTE]

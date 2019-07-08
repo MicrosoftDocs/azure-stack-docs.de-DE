@@ -16,12 +16,12 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 625ddb8341b58c98e47b37701547de5d6acea45b
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 3c897300dc2130b2c75449829304d4bd58b21898
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269321"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198664"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit Ruby in Azure Stack
 
@@ -93,7 +93,7 @@ Um das Ruby Azure SDK mit Azure Stack zu verwenden, müssen Sie die folgenden We
 | Geheimer Clientschlüssel | AZURE_CLIENT_SECRET | Die Geheimnisanwendung des Dienstprinzipals, die bei der Erstellung des Dienstprinzipals gespeichert wurde. |
 | Resource Manager-Endpunkt | ARM_ENDPOINT | Siehe [Azure Stack-Resource Manager-Endpunkt](#the-azure-stack-resource-manager-endpoint).  |
 
-### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack-Resource Manager-Endpunkt
+### <a name="the-azure-stack-resource-manager-endpoint"></a>Der Azure Stack-Resource Manager-Endpunkt
 
 Microsoft Azure Resource Manager ist ein Verwaltungsframework, mit dem Administratoren Azure-Ressourcen bereitstellen, verwalten und überwachen können. Azure Resource Manager kann diese Aufgaben als Gruppe – anstatt einzeln – in einem gemeinsamen Vorgang verarbeiten.
 
@@ -130,10 +130,10 @@ Verwenden Sie das folgende Format, um die Umgebungsvariablen in der Windows-Eing
 
 Das Rollup-Gem „Azure_sdk“ umfasst die folgenden drei Profile:
 
-1. **V2019_03_01_Hybrid** Für Azure Stack erstelltes Profil. Verwenden Sie dieses Profil zur Nutzung aller neuesten Versionen der in Azure Stack verfügbaren Dienste.
-2. **V2017_03_09**  
-  Für Azure Stack erstelltes Profil. Verwenden Sie dieses Profil für Dienste, um die beste Kompatibilität mit Azure Stack zu erzielen.
-3. **Neueste**  
+1. **V2019_03_01_Hybrid** Für Azure Stack erstelltes Profil. Verwenden Sie dieses Profil zur Nutzung aller neuesten Versionen der in Azure Stack Stempelversion 1904 oder höher verfügbaren Dienste.
+1. **V2017_03_09**  
+  Für Azure Stack erstelltes Profil. Verwenden Sie dieses Profil für Dienste, um die beste Kompatibilität mit Azure Stack Stempelversion 1808 oder niedriger zu erzielen.
+1. **Neueste**  
   Das Profil umfasst die aktuellen Versionen aller Dienste. Verwenden Sie die neuesten Versionen aller Dienste.
 
 Weitere Informationen zu Azure Stack und API-Profilen finden Sie in der [Zusammenfassung zu API-Profilen](azure-stack-version-profiles.md#summary-of-api-profiles).

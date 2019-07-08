@@ -3,8 +3,8 @@ title: Verwenden eines Validierungstools für Vorlagen zum Überprüfen von Vorl
 description: Überprüfen der Vorlagen für die Bereitstellung in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/08/2018
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: def5b2f49998cfc9a9bf3a857b56b5537b14b9f1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 3cba34e2748d00ebb886e7122ce1dd7151325c85
+ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311316"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67028290"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Überprüfen Ihrer Vorlagen für Azure Stack mit dem Validierungstool für Vorlagen
 
@@ -51,7 +50,7 @@ Bevor Sie die Vorlagenvalidierung verwenden, führen Sie das PowerShell-Modul **
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. Verwenden Sie das Cmdlet `Get-CloudCapabilities`, um Dienstversionen abzurufen und eine JSON-Datei mit Cloudfunktionen zu erstellen. Wenn Sie **-OutputPath** nicht angeben, wird die Datei „AzureCloudCapabilities.Json“ im aktuellen Verzeichnis erstellt. Verwenden Sie den tatsächlichen Azure-Speicherort:
+3. Verwenden Sie das Cmdlet `Get-CloudCapabilities`, um Dienstversionen abzurufen und eine JSON-Datei mit Cloudfunktionen zu erstellen. Wenn Sie `-OutputPath` nicht angeben, wird die Datei „AzureCloudCapabilities.Json“ im aktuellen Verzeichnis erstellt. Verwenden Sie den tatsächlichen Azure-Speicherort:
 
     ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -82,17 +81,17 @@ Warnungen oder Fehler bei der Vorlagenvalidierung werden in der PowerShell-Konso
 
 ### <a name="parameters"></a>Parameter
 
-Das Validierungssteuerelement für Vorlagen unterstützt die folgenden Parameter.
+Das Validierungs-Cmdlet für Vorlagen unterstützt die folgenden Parameter.
 
 | Parameter | BESCHREIBUNG | Erforderlich |
 | ----- | -----| ----- |
-| TemplatePath | Gibt den Pfad an, um Azure Resource Manager-Vorlagen rekursiv zu suchen. | Ja |
-| TemplatePattern | Gibt den Namen der abzugleichenden Vorlagendateien an | Nein  |
-| CapabilitiesPath | Gibt den Pfad zu der JSON-Datei mit Cloudfunktionen an. | Ja |
-| IncludeComputeCapabilities | Enthält die Auswertung von IaaS-Ressourcen wie VM-Größen und VM-Erweiterungen. | Nein  |
-| IncludeStorageCapabilities | Enthält die Auswertung von Speicherressourcen wie SKU-Typen. | Nein  |
-| Bericht | Gibt den Namen des generierten HTML-Berichts an. | Nein  |
-| Ausführlich | Protokolliert Fehler und Warnungen in der Konsole. | Nein |
+| `TemplatePath` | Gibt den Pfad an, um Azure Resource Manager-Vorlagen rekursiv zu suchen. | Ja |
+| `TemplatePattern` | Gibt den Namen der abzugleichenden Vorlagendateien an | Nein |
+| `CapabilitiesPath` | Gibt den Pfad zu der JSON-Datei mit Cloudfunktionen an. | Ja |
+| `IncludeComputeCapabilities` | Enthält die Auswertung von IaaS-Ressourcen wie VM-Größen und VM-Erweiterungen. | Nein |
+| `IncludeStorageCapabilities` | Enthält die Auswertung von Speicherressourcen wie SKU-Typen. | Nein |
+| `Report` | Gibt den Namen des generierten HTML-Berichts an. | Nein |
+| `Verbose` | Protokolliert Fehler und Warnungen in der Konsole. | Nein|
 
 ### <a name="examples"></a>Beispiele
 
@@ -110,5 +109,3 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 
 - [Deploy templates to Azure Stack (Bereitstellen von Vorlagen in Azure Stack)](azure-stack-arm-templates.md)
 - [Entwickeln von Vorlagen für Azure Stack](azure-stack-develop-templates.md)
-
-<!-- Update_Description: wording update -->

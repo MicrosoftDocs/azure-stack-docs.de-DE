@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: a8fe96d645d9277003e17144089a91e0722d0088
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 0df791c6eb9a898c5263b2c628899b512d49601c
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836836"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198659"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Informationen zum VPN-Gateway für Azure Stack
 
@@ -102,6 +102,14 @@ Beachten Sie bei der Auswahl der SKU Folgendes:
 * Richtlinienbasierte Gateways werden von Azure Stack nicht unterstützt.
 * Border Gateway Protocol (BGP) wird in der Basic-SKU nicht unterstützt.
 * Die gemeinsame Verwendung von VPN Gateway und ExpressRoute wird in Azure Stack nicht unterstützt.
+
+## <a name="gateway-availability"></a>Gatewayverfügbarkeit
+
+Hochverfügbarkeitsszenarien können nur in der **Hochleistungsgateway**-Verbindungs-SKU konfiguriert werden. Im Gegensatz zu Azure, das Verfügbarkeit durch sowohl Aktiv/Aktiv- als auch Aktiv/Passiv-Konfigurationen bietet, unterstützt Azure Stack nur die Aktiv/Passiv-Konfiguration. 
+
+### <a name="failover"></a>Failover
+
+Es gibt 3 mehrinstanzenfähige VMs mit Gatewayinfrastruktur in Azure Stack. Zwei dieser virtuellen Computer befinden sich im aktiven Modus, während sich die dritte im redundanten Modus befindet. Aktive virtuelle Computer ermöglichen die Erstellung von VPN-Verbindungen auf sich, und die redundante VM akzeptiert im Falle eines Failovers nur VPN-Verbindungen. Wenn eine aktive Gateway-VM nicht mehr verfügbar ist, führt die VPN-Verbindung nach einem kurzen Zeitraum (ein paar Sekunden) der Verbindungsunterbrechung ein Failover zur redundanten VM durch.
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Voraussichtlicher aggregierter Durchsatz nach SKU
 

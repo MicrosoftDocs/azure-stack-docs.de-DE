@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 06/18/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: 689929a6efc2d318fb8c24545636053946457785
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/18/2019
+ms.openlocfilehash: ecd0d3c79edc2359cf82aa9c52fb9021d7fc7a6f
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310836"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308689"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Zugreifen auf das Kubernetes-Dashboard in Azure Stack 
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit* 
 > [!Note]   
-> Kubernetes in Azure Stack befindet sich in der Vorschauphase. Das Szenario mit nicht verbundenem Azure Stack wird von der Preview zurzeit nicht unterstützt. 
+> Kubernetes in Azure Stack befindet sich in der Vorschauphase. Ein Szenario mit nicht verbundenem Azure Stack wird von der Vorschau zurzeit nicht unterstützt. Verwenden Sie das Marketplace-Element nur für Entwicklungs- und Testszenarien.
 
 Kubernetes enthält ein Webdashboard, das Sie für einfache Verwaltungsvorgänge verwenden können. In diesem Dashboard können Sie den Integritätsstatus und grundlegende Metriken für Ihre Anwendungen anzeigen, Dienste erstellen und bereitstellen und vorhandene Anwendungen bearbeiten. In diesem Artikel wird veranschaulicht, wie Sie das Kubernetes-Dashboard in Azure Stack einrichten.
 
@@ -100,7 +100,7 @@ Sie können die URL für das Dashboard vom Masterknoten in Ihrem Cluster abrufen
     - Öffentliche IP-Adresse des Masterknotens
     - Benutzername
     - Privates Geheimnis
-    - Verwenden Sie **SFTP (SSH File Transfer Protocol)**.
+    - Verwenden Sie **SFTP (SSH File Transfer Protocol)** .
 
 2. Kopieren Sie `/etc/kubernetes/certs/client.pfx` und `/etc/kubernetes/certs/ca.crt` auf Ihren Azure Stack-Verwaltungscomputer.
 
