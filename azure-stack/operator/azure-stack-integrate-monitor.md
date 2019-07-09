@@ -124,7 +124,7 @@ Ausführliche Informationen zur Erstellung eines Dienstprinzipalnamens finden Si
 
 | Parameter | BESCHREIBUNG | Authentication |
 | --- | --- | --- |
-| **External_domain_fqdn** | Externer vollqualifizierter Domänenname |    |
+| **External_domain_fqdn ** | Externer vollqualifizierter Domänenname |    |
 | **region: ** | Name der Region |    |
 | **tenant_id: ** | Mandanten-ID\* |    |
 | client_id: | Client-ID | SPN mit Geheimnis |
