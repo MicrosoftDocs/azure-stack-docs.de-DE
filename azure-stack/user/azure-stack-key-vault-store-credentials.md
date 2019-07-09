@@ -1,5 +1,5 @@
 ---
-title: Speichern von Dienstprinzipal-Anmeldeinformationen in Azure Stack mit Key Vault | Microsoft-Dokumentation
+title: Speichern von Dienstprinzipal-Anmeldeinformationen in Azure Stack Key Vault | Microsoft-Dokumentation
 description: Erfahren Sie, wie Key Vault Dienstprinzipal-Anmeldeinformationen in Azure Stack speichert.
 services: azure-stack
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 1a9fc71f6e57621dba4488821ea2ca8b1e119e48
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: efa8dda8061ce81d751e9cce47c5e81a3917f2bf
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991309"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138841"
 ---
-# <a name="store-service-principal-credentials-in-key-vault"></a>Speichern von Dienstprinzipal-Anmeldeinformationen in Key Vault
+# <a name="store-service-principal-credentials-in-azure-stack-key-vault"></a>Speichern von Dienstprinzipal-Anmeldeinformationen in Azure Stack Key Vault
 
-Zum Entwickeln von Anwendungen in Azure Stack muss normalerweise ein Dienstprinzipal erstellt werden, mit dessen Anmeldeinformationen vor der Bereitstellung eine Authentifizierung durchgeführt wird. Die gespeicherten Anmeldeinformationen für den Dienstprinzipal gehen jedoch häufig verloren. Dieser Artikel beschreibt das Erstellen eines Dienstprinzipals und das Speichern der Werte für den späteren Abruf in Azure Key Vault.
+Zum Entwickeln von Apps in Azure Stack muss normalerweise ein Dienstprinzipal erstellt werden, mit dessen Anmeldeinformationen vor der Bereitstellung eine Authentifizierung durchgeführt wird. Manchmal gehen jedoch die gespeicherten Anmeldeinformationen für den Dienstprinzipal verloren. Dieser Artikel beschreibt das Erstellen eines Dienstprinzipals und das Speichern der Werte für den späteren Abruf in Azure Key Vault.
 
 Weitere Informationen zu Key Vault finden Sie in [diesem Artikel](azure-stack-key-vault-intro.md).
 
@@ -34,7 +34,7 @@ Weitere Informationen zu Key Vault finden Sie in [diesem Artikel](azure-stack-ke
 
 ## <a name="key-vault-in-azure-stack"></a>Key Vault in Azure Stack
 
-Key Vault in Azure Stack unterstützt Sie dabei, kryptografische Schlüssel und Geheimnisse zu schützen, die von Cloudanwendungen und -diensten verwendet werden. Mit Key Vault können Sie Schlüssel und Geheimnisse verschlüsseln.
+Key Vault in Azure Stack unterstützt Sie dabei, kryptografische Schlüssel und Geheimnisse zu schützen, die von Cloud-Apps und -diensten verwendet werden. Mit Key Vault können Sie Schlüssel und Geheimnisse verschlüsseln.
 
 Gehen Sie folgendermaßen vor, um einen Schlüsseltresor zu erstellen:
 
@@ -64,15 +64,15 @@ Gehen Sie folgendermaßen vor, um einen Schlüsseltresor zu erstellen:
 
 2. Wählen Sie **Azure Active Directory**, **App-Registrierungen** und dann **Hinzufügen** aus.
 
-3. Geben Sie einen Namen und eine URL für die Anwendung an. Wählen Sie als Typ für die zu erstellende Anwendung entweder **Web-App/API** oder **Nativ** aus. Wählen Sie nach dem Festlegen der Werte **Erstellen** aus.
+3. Geben Sie einen Namen und eine URL für die App an. Wählen Sie als Typ für die zu erstellende App entweder **Web-App/API** oder **Nativ** aus. Wählen Sie nach dem Festlegen der Werte **Erstellen** aus.
 
 4. Wählen Sie **Active Directory**, **App-Registrierungen** und dann Ihre Anwendung aus.
 
-5. Kopieren Sie die **Anwendungs-ID**, und speichern Sie sie in Ihrem Anwendungscode. In den Beispielanwendungen wird für die **Anwendungs-ID** der Begriff **Client-ID** verwendet.
+5. Kopieren Sie die **Anwendungs-ID**, und speichern Sie sie in Ihrem App-Code. In den Beispiel-App wird für die **Anwendungs-ID** der Begriff **Client-ID** verwendet.
 
 6. Wählen Sie zum Generieren eines Authentifizierungsschlüssels die Option **Schlüssel** aus.
 
-7. Geben Sie eine Beschreibung des Schlüssels und eine Dauer ein.
+7. Geben Sie eine Beschreibung und eine Dauer für den Schlüssel an.
 
 8. Wählen Sie **Speichern** aus.
 
@@ -96,7 +96,7 @@ Gehen Sie folgendermaßen vor, um einen Schlüsseltresor zu erstellen:
 
 8. Wählen Sie **Erstellen** aus, um die Bereitstellung zu starten.
 
-Nach dem Erstellen des Geheimnisses werden die Dienstprinzipalinformationen dort gespeichert. Sie können sie jederzeit unter **Geheimnisse** auswählen und die Eigenschaften anzeigen oder ändern. Der Abschnitt „Eigenschaften“ enthält den Geheimnisbezeichner. Hierbei handelt es sich um einen URI (Uniform Resource Identifier), über den externe Anwendungen auf dieses Geheimnis zugreifen.
+Nach dem erfolgreichen Erstellen des Geheimnisses werden die Dienstprinzipalinformationen dort gespeichert. Sie können es jederzeit unter **Geheimnisse** auswählen und seine Eigenschaften anzeigen oder ändern. Der Abschnitt „Eigenschaften“ enthält den Geheimnisbezeichner. Hierbei handelt es sich um einen URI (Uniform Resource Identifier), über den externe Apps auf dieses Geheimnis zugreifen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
