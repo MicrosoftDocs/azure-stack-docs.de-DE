@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: Howto
-ms.date: 05/31/2019
+ms.date: 06/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 8e64a570ab45e57e3cf58639bc2ec23d9b9bd81b
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.lastreviewed: 06/25/2019
+ms.openlocfilehash: 4e7dd18267060f632e2d059b0a7b0d9158b2e260
+ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453579"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67387748"
 ---
 # <a name="connect-to-azure-stack-using-azure-account-extension-in-visual-studio-code"></a>Herstellen einer Verbindung mit Azure Stack über die Azure-Kontoerweiterung in Visual Studio Code
 
@@ -34,9 +34,15 @@ VS Code ist ein einfacher Editor zum Erstellen und Debuggen von Web- und Cloudan
 
 ## <a name="steps-to-connect-to-azure-stack"></a>Schritte zum Herstellen einer Verbindung mit Azure Stack
 
-1. Öffnen Sie Visual Studio Code.
+1. Führen Sie das **Identity**-Skript aus den Azure Stack-Tools in GitHub aus.
 
-2. Wählen Sie links in der Ecke die Option **Erweiterungen**.
+    - Bevor Sie das Skript ausführen, müssen Sie PowerShell installiert und für Ihre Umgebung konfiguriert haben. Weitere Anleitungen finden Sie unter [Installieren von PowerShell für Azure Stack](../operator/azure-stack-powershell-install.md).
+
+    - Anleitungen zum **Identity**-Skript sowie das Skript selbst finden Sie unter [AzureStack-Tools/Identity](https://github.com/Azure/AzureStack-Tools/tree/master/Identity).
+
+2. Öffnen Sie Visual Studio Code.
+
+3. Wählen Sie links in der Ecke die Option **Erweiterungen**.
 
 3. Geben Sie im Suchfeld `Azure Account`ein.
 
@@ -55,7 +61,7 @@ VS Code ist ein einfacher Editor zum Erstellen und Debuggen von Web- und Cloudan
 
     Die URL zum Abrufen der Metadaten für Ihren Azure Resource Manager-Endpunkt kann beispielsweise wie folgt aussehen: `https://management.local.azurestack.external/metadata/endpoints?api-version=1.0`.
 
-    Notieren Sie sich den zurückgegebenen JSON-Code. Sie benötigen die Werte für die Eigenschaften `loginEndpoint` und `loginEndgraphEndpointpoint`.
+    Notieren Sie sich den zurückgegebenen JSON-Code. Sie benötigen die Werte für die Eigenschaften `loginEndpoint` und `audiences`.
 
 7. Drücken Sie **STRG+UMSCHALT+P**, und wählen Sie **Preferences: Open User Settings (JSON)** (Einstellungen: Benutzereinstellungen öffnen (JSON)).
 
@@ -67,7 +73,7 @@ VS Code ist ein einfacher Editor zum Erstellen und Debuggen von Web- und Cloudan
         | --- | --- |
         | `tenant-ID` | Der Wert Ihrer [Mandanten-ID](../operator/azure-stack-identity-overview.md) für Azure Stack. |
         | `activeDirectoryEndpointUrl` | Dies ist die URL aus der loginEndpoint-Eigenschaft. |
-        | `activeDirectoryResourceId` | Dies ist die URL aus der loginEndgraphEndpointpoint-Eigenschaft.
+        | `activeDirectoryResourceId` | Dies ist die URL aus der audiences-Eigenschaft.
         | `resourceManagerEndpointUrl` | Dies ist die Stamm-URL für die Azure Resource Manager-Instanz für Azure Stack. | 
 
     - JSON-Codeausschnitt:
@@ -76,15 +82,15 @@ VS Code ist ein einfacher Editor zum Erstellen und Debuggen von Web- und Cloudan
       "azure.tenant": "tenant-ID",
       "azure.ppe": {
           "activeDirectoryEndpointUrl": "Login endpoint",
-          "activeDirectoryResourceId": "graph audience",
-          "resourceManagerEndpointUrl": "Management Endpoint",
+          "activeDirectoryResourceId": "This is the URL from the audiences property.",
+          "resourceManagerEndpointUrl": "Aure Resource Management Endpoint",
       },
       "azure.cloud": "AzurePPE"
       ```
 
-8. Speichern Sie die Benutzereinstellungen, und drücken Sie erneut **STRG+UMSCHALT+P**. Wählen Sie **Azure: Sign in to Azure Cloud** (Azure: An Azure-Cloud anmelden). Die neue Option **AzurePPE** wird in der Liste mit den Zielen angezeigt.
+9. Speichern Sie die Benutzereinstellungen, und drücken Sie erneut **STRG+UMSCHALT+P**. Wählen Sie **Azure: Sign in to Azure Cloud** (Azure: An Azure-Cloud anmelden). Die neue Option **AzurePPE** wird in der Liste mit den Zielen angezeigt.
 
-9. Wählen Sie **AzurePPE** aus. Die Authentifizierungsseite wird in Ihrem Browser geladen. Melden Sie sich an Ihrem Endpunkt an.
+10. Wählen Sie **AzurePPE** aus. Die Authentifizierungsseite wird in Ihrem Browser geladen. Melden Sie sich an Ihrem Endpunkt an.
 
 11. Um das erfolgreiche Anmelden an Ihrem Azure Stack-Abonnement zu testen, drücken Sie **STRG+UMSCHALT+P** und wählen **Azure: Select Subscription** (Azure: Abonnement auswählen). Sie können dann prüfen, ob das gewünschte Abonnement verfügbar ist.
 
