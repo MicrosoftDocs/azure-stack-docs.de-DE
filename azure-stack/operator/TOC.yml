@@ -10,7 +10,7 @@
       href: compare-azure-azure-stack.md
     - name: Versionshinweise
       items:
-        - name: Neueste Updates
+        - name: Updates und Wartungsrichtlinie
           href: azure-stack-servicing-policy.md
         - name: Checkliste für die Anwendung von Updates
           href: azure-stack-release-notes-checklist.md
