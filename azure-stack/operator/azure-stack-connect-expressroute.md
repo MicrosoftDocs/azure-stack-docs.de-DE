@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 8f8d7ee82890788f60266f671bcc4041795c075e
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 04c793ceebf167220b74dfc40a7e4fc775723e93
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691642"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316255"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Herstellen einer Verbindung zwischen Azure Stack und Azure mithilfe von Azure ExpressRoute
 
@@ -58,25 +58,21 @@ Für die Verbindungsherstellung zwischen Azure Stack und Azure mithilfe von Expr
 
 ### <a name="expressroute-network-architecture"></a>ExpressRoute-Netzwerkarchitektur
 
-Das folgende Diagramm zeigt die Azure Stack- und die Azure-Umgebung nach der Einrichtung von ExpressRoute anhand der Beispiele in diesem Artikel:
-
-*Abbildung 1: ExpressRoute-Netzwerk*
+Die folgende Abbildung zeigt die Azure Stack- und die Azure-Umgebung nach der Einrichtung von ExpressRoute anhand der Beispiele in diesem Artikel:
 
 ![ExpressRoute-Netzwerk](media/azure-stack-connect-expressroute/Conceptual.png)
 
-Im folgenden Diagramm ist dargestellt, wie für mehrere Mandanten eine Verbindung von der Azure Stack-Infrastruktur über den ExpressRoute-Router mit Azure im Microsoft-Edgebereich hergestellt wird:
-
-*Abbildung 2: Verbindungen für mehrere Mandanten*
+In der folgenden Abbildung ist dargestellt, wie für mehrere Mandanten eine Verbindung von der Azure Stack-Infrastruktur über den ExpressRoute-Router mit Azure im Microsoft-Edgebereich hergestellt wird:
 
 ![Verbindungen für mehrere Mandanten mit ExpressRoute](media/azure-stack-connect-expressroute/Architecture.png)
 
-Im Beispiel in diesem Artikel wird die in Abbildung 2 dargestellte mehrinstanzenfähige Architektur verwendet, um Azure Stack mithilfe von privatem ExpressRoute-Peering mit Azure zu verbinden. Bei der Verbindung handelt es sich um eine Site-to-Site-VPN-Verbindung zwischen dem Gateway des virtuellen Netzwerks in Azure Stack und einem ExpressRoute-Router.
+Im Beispiel in diesem Artikel wird die in diesem Diagramm dargestellte mehrinstanzenfähige Architektur verwendet, um Azure Stack mithilfe von privatem ExpressRoute-Peering mit Azure zu verbinden. Bei der Verbindung handelt es sich um eine Site-to-Site-VPN-Verbindung zwischen dem Gateway des virtuellen Netzwerks in Azure Stack und einem ExpressRoute-Router.
 
 Die Schritte in diesem Artikel veranschaulichen, wie Sie eine End-to-End-Verbindung zwischen zwei VNETs von zwei unterschiedlichen Mandanten in Azure Stack mit entsprechenden VNETs in Azure herstellen. Die Einrichtung von zwei Mandanten ist optional. Sie können diese Schritte auch für einen einzelnen Mandanten verwenden.
 
 ## <a name="configure-azure-stack"></a>Konfigurieren von Azure Stack
 
-Verwenden Sie zum Einrichten der Azure Stack-Umgebung für den ersten Mandanten die Schritte im folgenden Diagramm als Leitfaden. Falls Sie mehrere Mandanten einrichten, wiederholen Sie die folgenden Schritte:
+Verwenden Sie zum Einrichten der Azure Stack-Umgebung für den ersten Mandanten die folgenden Schritte als Leitfaden. Falls Sie mehrere Mandanten einrichten, wiederholen Sie die folgenden Schritte:
 
 >[!NOTE]
 >In diesen Schritten wird gezeigt, wie Sie Ressourcen im Azure Stack-Portal erstellen, Sie können jedoch auch PowerShell verwenden.
@@ -96,7 +92,7 @@ Verwenden Sie die folgenden Verfahren, um die erforderlichen Netzwerkressourcen 
 
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>Erstellen des virtuellen Netzwerks und des VM-Subnetzes
 
-1. Melden Sie sich beim Benutzerportal mit einem Benutzerkonto (Mandantenkonto) an.
+1. Melden Sie sich beim Azure Stack-Benutzerportal an.
 
 2. Klicken Sie im Portal auf **+ Ressource erstellen**.
 
@@ -144,14 +140,14 @@ Verwenden Sie die folgenden Verfahren, um die erforderlichen Netzwerkressourcen 
 
 #### <a name="create-the-local-network-gateway"></a>Erstellen des Gateways des lokalen Netzwerks
 
-Die Ressource „Gateway für lokales Netzwerk“ gibt das Remotegateway am anderen Ende der VPN-Verbindung an. In diesem Beispiel ist das Remoteende der Verbindung die LAN-Unterschnittstelle des ExpressRoute-Routers. Für den Mandanten 1 in Abbildung 2 lautet die Remoteadresse 10.60.3.255.
+Die Ressource „Gateway für lokales Netzwerk“ gibt das Remotegateway am anderen Ende der VPN-Verbindung an. In diesem Beispiel ist das Remoteende der Verbindung die LAN-Unterschnittstelle des ExpressRoute-Routers. Für „Tenant 1“ (Mandant 1) im vorherigen Diagramm lautet die Remoteadresse 10.60.3.255.
 
 1. Melden Sie sich mit Ihrem Benutzerkonto beim Azure Stack-Benutzerportal an, und klicken Sie auf **+ Ressource erstellen**.
 1. Wählen Sie unter **Azure Marketplace** die Option **Netzwerk** aus.
 1. Wählen Sie in der Ressourcenliste den Eintrag für das **lokale Netzwerkgateway** aus.
 1. Geben Sie im Feld **Name** die Zeichenfolge **ER-Router-GW** ein.
-1. Ziehen Sie für das Feld **IP-Adresse** die Abbildung 2 heran. Die IP-Adresse der LAN-Unterschnittstelle für den ExpressRoute-Router von „Tenant 1“ lautet 10.60.3.255. Geben Sie für Ihre eigene Umgebung die IP-Adresse der entsprechenden Schnittstelle Ihres Routers ein.
-1. Geben Sie im Feld **Adressraum** den Adressraum der VNETs ein, mit denen Sie in Azure eine Verbindung herstellen möchten. Die Subnetze für den Mandanten 1 in *Abbildung 2* lauten wie folgt:
+1. Ziehen Sie für das Feld **IP-Adresse** die vorherige Abbildung heran. Die IP-Adresse der LAN-Unterschnittstelle für den ExpressRoute-Router von „Tenant 1“ lautet 10.60.3.255. Geben Sie für Ihre eigene Umgebung die IP-Adresse der entsprechenden Schnittstelle Ihres Routers ein.
+1. Geben Sie im Feld **Adressraum** den Adressraum der VNETs ein, mit denen Sie in Azure eine Verbindung herstellen möchten. Die Subnetze für den Mandanten 1 lauten wie folgt:
 
    * 192.168.2.0/24 ist das Hub-VNET in Azure.
    * 10.100.0.0/16 ist das Spoke-VNET in Azure.
@@ -295,8 +291,6 @@ Der Router ist eine Windows Server-VM (AzS-BGPNAT01), die die RRAS-Rolle (Routin
 
 Nachdem Sie Azure Stack konfiguriert haben, können Sie die Azure-Ressourcen bereitstellen. die folgende Abbildung zeigt ein Beispiel für ein virtuelles Mandantennetzwerk in Azure. Sie können für Ihr VNET in Azure ein beliebiges Namens- und Adressierungsschema verwenden. Der Adressbereich der VNETs in Azure und Azure Stack muss aber eindeutig sein und darf sich nicht überschneiden:
 
-*Abbildung 3: Azure-VNETs*
-
 ![Azure-VNETs](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 
 Die Ressourcen, die Sie in Azure bereitstellen, ähneln den Ressourcen, die Sie in Azure Stack bereitgestellt haben. Sie stellen die folgenden Komponenten bereit:
@@ -356,9 +350,7 @@ Wiederholen Sie diese Schritte für alle zusätzlichen Mandanten-VNETs, für die
 
 ## <a name="configure-the-router"></a>Konfigurieren des Routers
 
-Sie können das folgende Konfigurationsdiagramm des ExpressRoute-Routers als Orientierungshilfe für die Konfiguration Ihres ExpressRoute-Routers verwenden. In diesem Diagramm sind zwei Mandanten („Tenant 1“ und „Tenant 2“) mit ihren jeweiligen ExpressRoute-Verbindungen dargestellt. Jeder Mandant ist mit einer eigenen VRF-Instanz (Virtual Routing and Forwarding) auf der LAN- und WAN-Seite des ExpressRoute-Routers verbunden. Durch diese Konfiguration wird eine End-to-End-Isolation zwischen den beiden Mandanten sichergestellt. Notieren Sie sich die IP-Adressen, die in den Routerschnittstellen verwendet werden, während Sie das Konfigurationsbeispiel durcharbeiten.
-
-*Abbildung 4: Konfiguration des ExpressRoute-Routers*
+Sie können das folgende Konfigurationsdiagramm des ExpressRoute-Routers als Orientierungshilfe für die Konfiguration Ihres ExpressRoute-Routers verwenden. In dieser Abbildung sind zwei Mandanten („Tenant 1“ und „Tenant 2“) mit ihren jeweiligen ExpressRoute-Verbindungen dargestellt. Jeder Mandant ist mit einer eigenen VRF-Instanz (Virtual Routing and Forwarding) auf der LAN- und WAN-Seite des ExpressRoute-Routers verbunden. Durch diese Konfiguration wird eine End-to-End-Isolation zwischen den beiden Mandanten sichergestellt. Notieren Sie sich die IP-Adressen, die in den Routerschnittstellen verwendet werden, während Sie das Konfigurationsbeispiel durcharbeiten.
 
 ![Konfiguration des ExpressRoute-Routers](media/azure-stack-connect-expressroute/EndToEnd.png)
 
@@ -624,7 +616,7 @@ New-NetFirewallRule `
 
 Wenn Sie wissen möchten, wie viel Datenverkehr über Ihre Verbindung übertragen wird, finden Sie diese Informationen im Azure Stack-Benutzerportal. Dort können Sie auch feststellen, ob Ihre Pingtestdaten über die VPN- und ExpressRoute-Verbindungen gesendet wurden:
 
-1. Melden Sie sich mit Ihrem Mandantenkonto beim Azure Stack-Benutzerportal an, und klicken Sie auf **Alle Ressourcen**.
+1. Melden Sie sich beim Azure Stack-Benutzerportal an, und wählen Sie **Alle Ressourcen** aus.
 1. Navigieren Sie zur Ressourcengruppe für Ihr VPN Gateway, und wählen Sie den Objekttyp **Verbindung** aus.
 1. Wählen Sie in der Liste die Verbindung **ConnectToAzure** aus.
 1. Unter **Verbindungen** > **Übersicht** werden Statistiken für **Eingehende Daten** und **Ausgehende Daten** angezeigt. Dort sollten Werte angezeigt werden, die nicht Null sind.

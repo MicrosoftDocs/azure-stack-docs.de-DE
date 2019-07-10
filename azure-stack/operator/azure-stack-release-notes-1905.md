@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 06/14/2019
 ms.author: sethm
-ms.reviewer: ''
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 018c5e2a6e099fb0a0ed7bc164ef26728a9d8ed3
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.reviewer: hectorl
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: 6f178d0208f5111a7ae60d23e1d914fcf8e3aba5
+ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828238"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67397271"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack-Update 1905
 
@@ -41,7 +41,7 @@ Die Buildnummer des Azure Stack-Updates 1905 ist **1.1905.0.40**.
 
 ### <a name="update-type"></a>Updatetyp
 
-Der Azure Stack 1905-Update-Buildtyp lautet **Vollständig**. Weitere Informationen zu Update-Buildtypen finden Sie im Artikel [Verwalten von Updates in Azure Stack](azure-stack-updates.md).
+Der Azure Stack 1905-Update-Buildtyp lautet **Vollständig**. Daher hat das Update 1905 eine längere Laufzeit als Express-Updates wie 1903 und 1904. Genaue Laufzeiten für vollständige Updates hängen in der Regel von der Anzahl der Knoten ab, die Ihre Azure Stack-Instanz enthält, der auf Ihrem System von Mandantenworkloads verbrauchten Kapazität, der Netzwerkkonnektivität Ihres Systems (falls es mit dem Internet verbunden ist) und Ihrer Hardwarekonfiguration. Das Update 1905 hatte bei unseren internen Tests die folgenden erwarteten Laufzeiten: 4 Knoten: 35 Stunden, 8 Knoten: 45 Stunden, 12 Knoten: 55 Stunden, 16 Knoten: 70 Stunden. Laufzeiten von 1905, die länger als diese erwarteten Werte sind, sind nicht ungewöhnlich und erfordern kein Eingreifen seitens des Azure Stack-Operators, es sei denn, das Update schlägt fehl. Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updates in Azure Stack](azure-stack-updates.md).
 
 ## <a name="whats-in-this-update"></a>Inhalt des Updates
 
@@ -65,12 +65,13 @@ Mit diesem Update kann Windows Server 2019 auf einem 2016-Host jetzt erfolgreic
   - microsoft.dsc-arm-2.77.0.0
   - microsoft.vmaccessforlinux-1.5.2
 
-  Laden Sie diese Versionen der Erweiterungen sofort herunter, damit für neue Bereitstellungen der Erweiterung keine Fehler auftreten, wenn TLS 1.2 in einem zukünftigen Release erzwungen wird. Legen Sie immer **autoupdateminorversion=true** fest, damit kleinere Versionsupdates (z. B. von 1.8 auf 1.9) automatisch durchgeführt werden.
+  Laden Sie diese Versionen der Erweiterungen sofort herunter, damit für neue Bereitstellungen der Erweiterung keine Fehler auftreten, wenn TLS 1.2 in einem zukünftigen Release erzwungen wird. Legen Sie immer **autoUpgradeMinorVersion=true** fest, damit Nebenversionsupdates (z. B. von 1.8 auf 1.9) automatisch durchgeführt werden.
 
-- Eine neue Übersicht für **Hilfe und Support** im Azure Stack-Portal erleichtert Betreibern das Prüfen der Supportoptionen, das Inanspruchnehmen von Expertenhilfe und Erhalten von weiteren Informationen zu Azure Stack. In integrierten Systemen wird beim Erstellen einer Supportanfrage der Azure Stack-Dienst vorab ausgewählt. Wir empfehlen dringend, dass Kunden anstelle des öffentlichen Azure-Portals diese Vorgehensweise zum Übermitteln von Tickets nutzen. Weitere Informationen finden Sie unter [Microsoft Azure Stack: Hilfe und Support](azure-stack-help-and-support-overview.md).
+- Eine neue Übersicht für **Hilfe und Support** im Azure Stack-Portal erleichtert Betreibern das Prüfen der Supportoptionen, das Inanspruchnehmen von Expertenhilfe und Erhalten von weiteren Informationen zu Azure Stack. In integrierten Systemen wird beim Erstellen einer Supportanfrage der Azure Stack-Dienst vorab ausgewählt. Wir empfehlen dringend, dass Kunden anstelle des globalen Azure-Portals diese Vorgehensweise zum Übermitteln von Tickets nutzen. Weitere Informationen finden Sie unter [Microsoft Azure Stack: Hilfe und Support](azure-stack-help-and-support-overview.md).
+
 - Wenn das Onboarding für mehrere Azure Active Directory-Instanzen durchgeführt wird (über [diesen Prozess](azure-stack-enable-multitenancy.md)), kann auf das erneute Ausführen des Skripts ggf. verzichtet werden, falls bestimmte Updates auftreten oder Änderungen an der Autorisierung mit dem AAD-Dienstprinzipal zu fehlenden Rechten führen. Dies kann zu verschiedenen Problemen führen: von einer Sperrung des Zugriffs für bestimmte Features bis zu diskreteren Ausfällen, die sich nur schwer zum ursprünglichen Problem nachverfolgen lassen. Als Gegenmaßnahme wurde mit Version 1905 ein neues Feature eingeführt, mit dem diese Berechtigungen überprüft werden und eine Warnung erstellt wird, wenn bestimmte Konfigurationsprobleme ermittelt werden. Diese Überprüfung wird einmal pro Stunde durchgeführt, und es werden die Aktionen zur Behebung angezeigt, die zum Lösen des Problems erforderlich sind. Die Warnung wird geschlossen, wenn sich alle Mandanten in einem fehlerfreien Zustand befinden.
 
-- Die Zuverlässigkeit von Vorgängen für Infrastruktursicherungen während des Dienstfailovers wurde verbessert. 
+- Die Zuverlässigkeit von Vorgängen für Infrastruktursicherungen während des Dienstfailovers wurde verbessert.
 
 - Eine neue Version des [Azure Stack-Nagios-Plug-Ins](azure-stack-integrate-monitor.md#integrate-with-nagios) ist verfügbar, für das die [Azure Active Directory-Authentifizierungsbibliotheken](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) zur Authentifizierung genutzt werden. Das Plug-In unterstützt für Azure Stack jetzt auch Bereitstellungen vom Typ „Azure Active Directory (AAD)“ und „Active Directory-Verbunddienste (AD FS)“. Weitere Informationen finden Sie auf der Website zum [Nagios-Plug-In](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details).
 
@@ -78,6 +79,22 @@ Mit diesem Update kann Windows Server 2019 auf einem 2016-Host jetzt erfolgreic
 
 - Das [Node.js SDK](https://www.npmjs.com/search?q=2019-03-01-hybrid) unterstützt jetzt API-Profile. Pakete, die das Profil **2019-03-01-Hybrid** unterstützen, werden veröffentlicht.
 
+- Das Azure Stack-Update 1905 fügt zwei neue Infrastrukturrollen hinzu, um die Zuverlässigkeit und Unterstützbarkeit der Plattform zu verbessern:
+
+  - **Infrastrukturring**: In Zukunft wird der Infrastrukturring Versionen von vorhandenen Infrastrukturrollen in Containern hosten – z. B. xrp, die derzeit ihre eigenen dedizierten Infrastruktur-VMs erfordern. Dies verbessert die Zuverlässigkeit der Plattform und verringert die Anzahl von Infrastruktur-VMs, die Azure Stack benötigt. Dies wiederum verringert in der Folge den Gesamtressourcenverbrauch von Azure Stack-Infrastrukturrollen in der Zukunft.
+  - **Supportring**: In Zukunft wird der Supportring verwendet, um erweiterte Supportszenarien für Kunden zu verarbeiten.  
+
+  Darüber hinaus haben wir eine zusätzliche Instanz der Domänencontroller-VM hinzugefügt, um die Verfügbarkeit dieser Rolle zu verbessern.
+
+  Diese Änderungen erhöht den Ressourcenverbrauch der Azure Stack-Infrastruktur auf folgende Weise:
+  
+    | Azure Stack-SKU | Anstieg des Computeverbrauchs | Anstieg des Arbeitsspeicherverbrauchs |
+    | -- | -- | -- |
+    |4 Knoten|22 vCPU|28 GB|
+    |8 Knoten|38 vCPU|44 GB|
+    |12 Knoten|54 vCPU|60 GB|
+    |16 Knoten|70 vCPU|76 GB|
+  
 - Es gibt jetzt eine Azure Stack-Erweiterung, die in Visual Studio Code funktioniert. Mit der Erweiterung **Azure-Konto** können Entwickler Azure Stack nutzen, indem sie sich anmelden und Abonnements anzeigen. Darüber hinaus können sie auch noch einige andere Dienste nutzen. Die Erweiterung „Azure-Konto“ funktioniert sowohl für AAD-Umgebungen als auch für AD FS-Umgebungen und erfordert nur eine geringfügige Änderung in den Benutzereinstellungen von Visual Studio Code, die das Eingeben von Azure Stack-Metadatenwerten umfasst. Weitere Informationen finden Sie in [dieser Dokumentation](../user/azure-stack-dev-start-vscode-azure.md).
 
 ### <a name="changes"></a>Änderungen
@@ -118,7 +135,7 @@ Stellen Sie vor dem Anwenden des Updates sicher, dass Sie die folgenden Informat
 
 ## <a name="download-the-update"></a>Herunterladen des Updates
 
-Sie können das Paket mit dem Azure Stack-Update 1905 auf der [Azure Stack-Downloadseite](https://aka.ms/azurestackupdatedownload) herunterladen.
+Sie können das Paket mit dem Azure Stack-Update 1905 auf der [Azure Stack-Downloadseite](https://aka.ms/azurestackupdatedownload) herunterladen. Stellen Sie bei Verwendung des Downloadtools sicher, dass Sie die neueste Version und keine zwischengespeicherte Kopie aus Ihrem Verzeichnis „Downloads“ verwenden.
 
 ## <a name="hotfixes"></a>Hotfixes
 
@@ -138,7 +155,7 @@ Version 1905 von Azure Stack muss auf Version 1904 mit den folgenden Hotfixes 
 Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes. Weitere Informationen finden Sie in unserer [Wartungsrichtlinie](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- Für 1905 ist kein Hotfix verfügbar.
+- [Azure Stack-Hotfix 1.1905.3.48](https://support.microsoft.com/help/4510078)
 
 ## <a name="automatic-update-notifications"></a>Automatische Updatebenachrichtigungen
 
