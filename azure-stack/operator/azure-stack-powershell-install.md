@@ -11,22 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 07/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: c0f680aec95c23db2567100b47a341a5d3fb9dad
-ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
+ms.lastreviewed: 07/09/2019
+ms.openlocfilehash: d22b1df33f4fc57cf9f823f620054a6baa6bb5d3
+ms.sourcegitcommit: d2df594e8346a875967e3cfb04c23562a1bd2e3c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67197171"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725764"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installieren von PowerShell für Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Um mit Ihrer Cloud arbeiten zu können, müssen Sie Azure Stack-kompatible PowerShell-Module installieren. Die Kompatibilität wird über die Funktion *API profiles* (API-Profile) aktiviert.
+Azure PowerShell bietet eine Reihe von Cmdlets, die das Azure Resource Manager-Modell für die Verwaltung von Azure Stack-Ressourcen verwenden.
+
+Um mit Ihrer Cloud arbeiten zu können, müssen Sie Azure Stack-kompatible PowerShell-Module installieren. Azure Stack verwendet das **AzureRM**-Modul statt des neueren **AzureAZ**-Moduls, das im globalen 0Azure verwendet wird. Darüber hinaus müssen Sie *API-Profile* verwenden, um die kompatiblen Endpunkte für die Azure Stack-Ressourcenanbieter anzugeben.
 
 API-Profile bieten eine Möglichkeit, Versionsunterschiede zwischen Azure und Azure Stack zu verwalten. Ein API-Versionsprofil ist eine Gruppe von Azure Resource Manager-PowerShell-Modulen mit spezifischen API-Versionen. Jede Cloudplattform verfügt über eine Gruppe von unterstützten API-Versionsprofilen. Beispielsweise unterstützt Azure Stack eine bestimmte Profilversion, z. B. **2019-03-01-hybrid**. Wenn Sie ein Profil installieren, werden die Azure Resource Manager-PowerShell-Module installiert, die dem angegebenen Profil entsprechen.
 
@@ -138,6 +140,7 @@ Die Installation umfasst vier Schritte:
 1. Installieren der Azure Stack-PowerShell auf einem verbundenen Computer
 2. Aktivieren zusätzlicher Speicherfunktionen
 3. Übertragen der PowerShell-Pakete auf Ihre getrennte Arbeitsstation
+4. Manuelles Bootstrapping des NuGet-Anbieters auf Ihrer getrennten Arbeitsstation
 4. Bestätigen der Installation der PowerShell
 
 ### <a name="install-azure-stack-powershell"></a>Installieren von Azure Stack-PowerShell
@@ -179,7 +182,9 @@ Die Installation umfasst vier Schritte:
 
 2. Melden Sie sich bei der getrennten Arbeitsstation an, und kopieren Sie die Pakete vom USB-Gerät an einen Speicherort auf der Arbeitsstation.
 
-3. Nun registrieren Sie diesen Speicherort als Standardrepository und installieren die AzureRM- und AzureStack-Module aus diesem Repository:
+3. Manuelles Bootstrapping des NuGet-Anbieters auf Ihrer getrennten Arbeitsstation Anweisungen finden Sie unter [Manuelles Bootstrapping des NuGet-Anbieters auf einem Computer, der nicht mit dem Internet verbunden ist](https://docs.microsoft.com/powershell/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
+
+4. Nun registrieren Sie diesen Speicherort als Standardrepository und installieren die AzureRM- und AzureStack-Module aus diesem Repository:
 
    ```powershell
    # requires -Version 5

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 07/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: dd6421e915f170ee576d6486362e8b93ac01465f
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.lastreviewed: 07/09/2019
+ms.openlocfilehash: d18775deb6d73117091a3822c5a60a32d94d4d38
+ms.sourcegitcommit: cb77ffe0d5da14696ad0fe7c09ee6b340c7f66e7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152578"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67678989"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Für Azure Stack verfügbare Azure Marketplace-Elemente
 
@@ -38,7 +38,7 @@ Wann immer Updates der von Ihnen verwendeten Erweiterungen für virtuelle Comput
 |![PowerShell DSC-Erweiterung](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC-Erweiterung](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **Laden Sie dieses Update für die integrierte Version der PowerShell DSC-Erweiterung herunter. Aktualisiert zur Unterstützung der TLS-Version 1.2.** | Microsoft | Windows |
 | ![Microsoft Antimalware-Erweiterung](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Antimalware-Erweiterung](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Microsoft Antimalware für Azure ist eine Lösung mit einem einzelnen Agent für Anwendungen und Mandantenumgebungen, die im Hintergrund ohne Eingreifen des Benutzers ausgeführt wird. **Laden Sie dieses Update für die integrierte Version der Antimalware-Erweiterung herunter.** | Microsoft | Windows |
 | ![Microsoft Azure-Diagnoseerweiterung](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Azure-Diagnoseerweiterung](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-windows)| Die Microsoft Azure-Diagnose ist eine Funktion in Azure, mit der Diagnosedaten für eine bereitgestellte Anwendung erfasst werden können. **Laden Sie dieses Update für die integrierte Version der Diagnoseerweiterung für Windows herunter.** | Microsoft | Windows |
-| ![Microsoft-Überwachungserweiterung](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Monitoring Agent-Erweiterung](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Die Microsoft Monitoring Agent-Erweiterung wird mit OMS zum Bereitstellen der Funktion zum Überwachen virtueller Computer verwendet. **Laden Sie dieses Update für die integrierte Version der Monitoring Agent-Erweiterung für Windows herunter.** | Microsoft | Windows |
+| ![Azure Monitor-, Update- und Konfigurationsverwaltungserweiterung](media/azure-stack-marketplace-azure-items/cse.png) | [Azure Monitor-, Update- und Konfigurationsverwaltungserweiterung](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Die Azure Monitor-, Update- und Konfigurationsverwaltungserweiterung wird mit Log Analytics, Azure Security Center und Azure Sentinel verwendet, um Funktionen zur Überwachung virtueller Computer bereitzustellen. **Laden Sie dieses Update für die integrierte Version der Monitoring Agent-Erweiterung für Windows herunter.** | Microsoft | Windows |
 |![Benutzerdefinierte Skripterweiterung](media/azure-stack-marketplace-azure-items/cse.png) | - [Benutzerdefinierte Skripterweiterung (Version 1, veraltet)](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-linuxostc) </b> - [Benutzerdefinierte Skripterweiterung (Version 2)](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-linux) |**Laden Sie dieses Update für die integrierte Version der benutzerdefinierten Skripterweiterung für Linux herunter. Es gibt mehrere Versionen dieser Erweiterung. Laden Sie beide Versionen herunter: 1.5.2.1 und 2.0.x.** | Microsoft | Linux |
 | ![VM-Zugriff für Linux](media/azure-stack-marketplace-azure-items/cse.png) | [VM-Zugriff für Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| **Laden Sie dieses Update für die integrierte Version der Erweiterung für VMAccess für Linux herunter. Dieses Update ist wichtig, wenn Sie virtuelle Debian Linux-Computer verwenden möchten.** | Microsoft | Linux |
 | ![Acronis Backup-Erweiterung für Linux](media/azure-stack-marketplace-azure-items/acronis.png) | [Acronis Backup-Erweiterung für Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Die Acronis Backup-Erweiterung für Microsoft Azure ist Teil der Acronis Backup-Produktfamilie zum Schutz von Daten. | Acronis International GmbH | Linux |

@@ -16,12 +16,12 @@ ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: d1d3b3c33652811964b16a35686df3e3a24eb59a
-ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
+ms.openlocfilehash: 96a29ab11ffc15b35c7035576fa68544caef594b
+ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67557869"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67648048"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Azure Stack 1906: Bekannte Probleme
 
@@ -71,6 +71,13 @@ In diesem Artikel werden die bekannten Probleme in Version 1906 von Azure Stack
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Wenn Sie im Benutzerportal versuchen, ein Blob mit der Option **OAuth (Vorschau)** hochzuladen, wird für die Aufgabe eine Fehlermeldung angezeigt.
 - Abhilfe: Laden Sie das Blob mit der SAS-Option hoch.
+- Häufigkeit: Common
+
+### <a name="template"></a>Vorlage
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Im Benutzerportal füllt die Benutzeroberfläche für die Vorlagenbereitstellung Parameter für Vorlagennamen, die mit „_“ (Unterstrich) beginnen, nicht auf.
+- Abhilfe: Entfernen Sie den „_“ (Unterstrich) aus dem Vorlagennamen.
 - Häufigkeit: Common
 
 ## <a name="networking"></a>Netzwerk
