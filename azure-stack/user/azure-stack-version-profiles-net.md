@@ -77,7 +77,7 @@ Zur Verwendung des .NET Azure SDK mit Azure Stack müssen Sie die folgenden Wert
 | Client-ID                 | AZURE_CLIENT_ID       | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde. |
 | Abonnement-ID           | AZURE_SUBSCRIPTION_ID | Mit der [*Abonnement-ID*][] greifen Sie in Azure Stack auf Angebote zu.                                                      |
 | Geheimer Clientschlüssel             | AZURE_CLIENT_SECRET   | Das Geheimnis der Dienstprinzipalanwendung, die bei der Erstellung des Dienstprinzipals gespeichert wurde.                                      |
-| Resource Manager-Endpunkt | ARM_ENDPOINT           | Siehe [*den Azure Stack-Resource Manager-Endpunkt*][].                                                                    |
+| Resource Manager-Endpunkt | ARM_ENDPOINT           | Siehe [*Der Azure Stack-Resource Manager-Endpunkt*][].                                                                    |
 | Location                  | RESOURCE_LOCATION     | Standort für Azure Stack.
 
 Folgen Sie den Anweisungen [hier](../operator/azure-stack-csp-ref-operations.md), um die Mandanten-ID für Ihre Azure Stack-Instanz zu suchen. Zum Festlegen Ihrer Umgebungsvariablen führen Sie die folgenden Schritte aus:
