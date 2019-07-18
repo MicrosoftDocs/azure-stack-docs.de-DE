@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 07/12/2019
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: d18775deb6d73117091a3822c5a60a32d94d4d38
-ms.sourcegitcommit: cb77ffe0d5da14696ad0fe7c09ee6b340c7f66e7
+ms.lastreviewed: 07/12/2019
+ms.openlocfilehash: 38427f55f07c4982b909c153a500340b6e61efde
+ms.sourcegitcommit: 51ec68b5e6dbf437aaca19a9f35ba07d2c402892
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67678989"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67851859"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Für Azure Stack verfügbare Azure Marketplace-Elemente
 
@@ -116,7 +116,6 @@ Microsoft Azure Stack unterstützt die folgenden virtuellen Computer und Lösung
 | ![Cassandra-Cluster](media/azure-stack-marketplace-azure-items/cassandra.png) | [Cassandra-Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cassandra-cluster) | Apache Cassandra ist ein Open-Source-System für die verteilte Datenverwaltung. Es wurde entwickelt, um große Datenmengen über viele Standardserver hinweg zu verwalten und Hochverfügbarkeit ohne Single Point of Failure zu gewährleisten. **Diese Lösungsvorlage erfordert auch Debian 8 und die Custom Script for Linux 2.0-Erweiterung.** | Bitnami |
 | ![CiviCRM](media/azure-stack-marketplace-azure-items/civicrm.png) | [CiviCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.civicrm) | Einfaches webbasiertes System für die Beziehungsverwaltung | Bitnami |
 | ![CMS Made Simple (CMS – Vereinfacht)](media/azure-stack-marketplace-azure-items/cmsmadesimple.png) | [CMS Made Simple](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cmsmadesimple) (CMS – Vereinfacht) | Schnelle und einfache Möglichkeit zum Erstellen und Verwalten einer Website | Bitnami |
-| ![Codiad](media/azure-stack-marketplace-azure-items/codiad.png) | [Codiad](https://azuremarketplace.microsoft.com/marketplace/apps?search=codiad) | Open-Source-Cloud-IDE mit minimalem Speicherbedarf | Bitnami |
 | ![Concrete5](media/azure-stack-marketplace-azure-items/concrete5.png) | [Concrete5](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.concrete5) | Einfaches Bereitstellen von Webanwendungen, Websites, Stores und Foren | Bitnami |
 | ![Coppermine](media/azure-stack-marketplace-azure-items/coppermine.png) | [Coppermine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.coppermine) | Web Gallery mit vollem Funktionsumfang für verschiedene Zwecke | Bitnami |
 | ![CouchDB](media/azure-stack-marketplace-azure-items/couchdb.png) | [CouchDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.couchdb) | Einfach zu verwendendes Open-Source-Datenbanksystem | Bitnami |
@@ -170,7 +169,6 @@ Microsoft Azure Stack unterstützt die folgenden virtuellen Computer und Lösung
 | ![nginx](media/azure-stack-marketplace-azure-items/nginx.png) | [Nginx](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nginxstack) | Vollständige PHP-, MySQL- und Nginx-Entwicklungsumgebung | Bitnami |
 | ![Noalyss](media/azure-stack-marketplace-azure-items/noalyss.png) | [Noalyss](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.noalyss) | Leistungsstarkes Doppelbuchhaltungssystem. | Bitnami |
 | ![Node.js](media/azure-stack-marketplace-azure-items/nodejs.png) | [Node.js](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs) | Open-Source-Umgebung (in JavaScript) für einfache Erstellvorgänge | Bitnami |
-| ![Node.js-Hochverfügbarkeitscluster](media/azure-stack-marketplace-azure-items/nodejs.png) | [Node.js-Hochverfügbarkeitscluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs-ha) | Node.js ist eine Runtime-Umgebung, die auf einer V8 JavaScript-Engine basiert. Ihr ereignisgesteuertes, nicht blockierendes E/A-Modell ermöglicht die Entwicklung schneller, skalierbarer und datenintensiver Serveranwendungen. Diese Lösung verwendet mehrere virtuelle Computer, um einen Node.js-Cluster mit einem freigegebenen Dateisystem und Lastenausgleichsfunktionen zu erstellen.  **Diese Lösungsvorlage erfordert auch Debian 8, die Custom Script for Linux 2.0-Erweiterung und eine Datenbank.**| Bitnami |
 | ![Odoo](media/azure-stack-marketplace-azure-items/odoo.png) | [Odoo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.odoo) | ERP- und CRM-System zum effektiven Verbinden von Geschäftsprozessen | Bitnami |
 | ![Open Atrium](media/azure-stack-marketplace-azure-items/openatrium.png) | [Open Atrium](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.openatrium) | Flexible Intranetplattform mit vielen Facetten | Bitnami |
 | ![OpenCart](media/azure-stack-marketplace-azure-items/opencart.png) | [OpenCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.opencart) | Kostenlose E-Commerce-Plattform für Onlinehändler | Bitnami |
@@ -212,7 +210,6 @@ Microsoft Azure Stack unterstützt die folgenden virtuellen Computer und Lösung
 | ![Simple Machines Forum](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Simple Machines Forum](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | Einfache Forumssoftware zum Erstellen Ihrer eigenen Onlinecommunity | Bitnami |
 | ![Spree](media/azure-stack-marketplace-azure-items/spree.png) | [Spree](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.spree) | Einfach zu verwendende E-Commerce-Plattform | Bitnami |
 | ![Subversion](media/azure-stack-marketplace-azure-items/subversion.png) | [Subversion](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.subversion) | Open-Source-System für die Versionskontrolle | Bitnami |
-| ![SugarCRM](media/azure-stack-marketplace-azure-items/sugarcrm.png) | [SugarCRM](https://azuremarketplace.microsoft.com/marketplace/apps/aad.sugarcrm) | Flexible Customer Relationship Management-Lösung | Bitnami |
 | ![SuiteCRM](media/azure-stack-marketplace-azure-items/suitecrm.png) | [SuiteCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.suitecrm) | Beliebte CRM-Anwendung für Unternehmen | Bitnami |
 | ![TestLink](media/azure-stack-marketplace-azure-items/testlink.png) | [TestLink](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.testlink) | Testverwaltungssoftware mit Qualitätssicherung | Bitnami |
 | ![Tiki Wiki CMS Groupware](media/azure-stack-marketplace-azure-items/tikiwikicmsgroupware.png) | [Tiki Wiki CMS Groupware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tikiwikicmsgroupware) | Wiki-Plattform mit vollem Funktionsumfang | Bitnami |
@@ -224,7 +221,6 @@ Microsoft Azure Stack unterstützt die folgenden virtuellen Computer und Lösung
 | ![WebMail Pro PHP](media/azure-stack-marketplace-azure-items/webmailprophp.png) | [WebMail Pro PHP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.webmailpro) | Webmail-System mit Features für Unternehmen | Bitnami |
 | ![WildFly](media/azure-stack-marketplace-azure-items/wildfly.png) | [WildFly](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wildfly) | Anwendungsserver, der Apache, WildFly, MySQL und Java umfasst | Bitnami |
 | ![WordPress](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpress) | Beliebtestes nutzungsbereites CMS | Bitnami |
-| ![X2Engine Sales CRM](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine Sales CRM](https://azuremarketplace.microsoft.com/marketplace/apps?search=x2engine%20sales%20crm) | Kompakte Anwendung für Marketing, Vertrieb und Kundendienst | Bitnami |
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS- und Webportalprogramm zum Erstellen dynamischer Websites. | Bitnami |
 | ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | Open-Source-CRM-System: Mobile, Social und Gamified. | Bitnami |
 | ![Check Point vSEC-Sicherheitsverwaltung](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC-Sicherheitsverwaltung](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC bietet erweiterten, mehrschichtigen Schutz vor Bedrohungen, um Kundenressourcen in Azure vor Schadsoftware und ausgefeilten Bedrohungen zu schützen. **Laden Sie beide Marketplace-Elemente für Check Point vSEC herunter.** | Check Point |
