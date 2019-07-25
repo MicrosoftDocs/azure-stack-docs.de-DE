@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 30b7a5327a709fb35c3c3360f4bb0246e9a5f75f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 6b4e74cce10522fc241c7662ed381793bd264093
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310014"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418569"
 ---
 # <a name="best-practices-for-validation-as-a-service"></a>Bewährte Methoden für Validation-as-a-Service
 
@@ -48,7 +48,7 @@ Verwenden Sie dieselbe VaaS-Lösung, wenn Sie Workflows für dieselbe Hardware-S
 
 Verwenden Sie eine konsistente Benennungskonvention für alle VaaS Workflowdurchläufe. Ein Workflowname kann beispielsweise wie folgt auf der Grundlage der Buildeigenschaften konstruiert werden:
 
-|Buildnummer (Hauptnummer) | Datum | Lösungsgröße | Workflowname
+|Buildnummer (Hauptnummer) | Date | Lösungsgröße | Workflowname
 |---|---|---| ---|
 1808 | 081518 | 4NODE | 1808_081518_4NODE
 

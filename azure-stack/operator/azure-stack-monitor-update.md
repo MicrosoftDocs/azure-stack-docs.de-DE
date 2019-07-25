@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 3ee71fe48b73c6edd2b0fcb8b0dc83cdf5d77910
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: fd9564e25690c2119bfa3d576802858514ef0475
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985069"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417717"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Überwachen von Änderungen in Azure Stack mithilfe des privilegierten Endpunkts
 
@@ -70,7 +70,7 @@ Sie können auch programmgesteuert ermitteln, ob die Cmdlets verfügbar sind, in
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
    ```
-   Beispiel: 
+   Beispiel:
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName
    

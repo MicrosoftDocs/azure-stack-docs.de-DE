@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 558853309faecbf2955a08d7a8f629d83a38dbd1
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 6554a18ee881f053eebc2fc3df8d846cd8d9d12e
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617834"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417957"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aktualisieren des SQL-Ressourcenanbieters
 
@@ -63,8 +63,8 @@ Wenn Sie das PowerShell-Skript **UpdateSQLProvider.ps1** ausführen, können Sie
 | **DefaultSSLCertificatePassword** | Das Kennwort für das PFX-Zertifikat. | _Erforderlich_ |
 | **MaxRetryCount** | Die Anzahl von Wiederholungsversuchen für jeden Vorgang, wenn ein Fehler auftritt.| 2 |
 | **RetryDuration** |Das Timeoutintervall zwischen Wiederholungen in Sekunden. | 120 |
-| **Deinstallieren** | Entfernt den Ressourcenanbieter und alle zugeordneten Ressourcen. | Nein  |
-| **DebugMode** | Verhindert die automatische Bereinigung nach einem Fehler. | Nein  |
+| **Deinstallieren** | Entfernt den Ressourcenanbieter und alle zugeordneten Ressourcen. | Nein |
+| **DebugMode** | Verhindert die automatische Bereinigung nach einem Fehler. | Nein |
 
 ## <a name="update-script-powershell-example"></a>Beispiel für ein PowerShell-Aktualisierungsskript
 Nachstehend finden Sie ein Beispiel für das Skript *UpdateSQLProvider.ps1*, das Sie an einer PowerShell-Konsole mit erhöhten Rechten ausführen können. Achten Sie darauf, die Variableninformationen und Kennwörter wie erforderlich zu ändern:  

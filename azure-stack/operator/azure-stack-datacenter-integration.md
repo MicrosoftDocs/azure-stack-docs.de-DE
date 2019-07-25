@@ -12,21 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 53289e46a2f29a03535958b76743db107f6ecf64
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 07191c95ede4f9a3ce80117bfeca9b5a02cfc0b1
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617779"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417373"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Überlegungen zur Integration von Rechenzentren für integrierte Azure Stack-Systeme
+
 Wenn Sie an einem mit Azure Stack integrierten System interessiert sind, müssen Sie die wichtigsten Aspekte bei der Planung der Bereitstellung verstehen und wissen, wie das System in Ihr Rechenzentrum passt. Dieser Artikel bietet einen allgemeinen Überblick über diese Aspekte, damit Sie wichtige Infrastrukturentscheidungen für Ihr Azure Stack-System mit mehreren Knoten treffen können. Ein Verständnis dieser Aspekte hilft Ihnen bei der Zusammenarbeit mit Ihrem OEM-Hardwareanbieter, sobald dieser Azure Stack in Ihrem Rechenzentrum bereitstellt.  
 
-> [!NOTE]
+> [!NOTE]  
 > Azure Stack-Systeme mit mehreren Knoten können nur bei autorisierten Hardwareherstellern bezogen werden. 
 
 Um Azure Stack bereitzustellen, müssen Sie Ihrem Lösungsanbieter vor dem Beginn der Bereitstellung Planungsinformationen bereitstellen, damit der Prozess schnell und reibungslos abläuft. Die benötigten Informationen reichen von Netzwerk-, Sicherheits- und Identitätsinformationen bis hin zu vielen wichtigen Entscheidungen, die möglicherweise Wissen aus vielen verschiedenen Bereichen und von verschiedenen Entscheidungsträgern erfordern. Daher müssen Sie möglicherweise Mitarbeiter aus mehreren Teams in Ihrem Unternehmen hinzuziehen, um sicherzustellen, dass Sie über alle erforderlichen Informationen verfügen, bevor die Bereitstellung beginnt. Es ist möglicherweise hilfreich, sich mit Ihrem Hardwarehersteller zu besprechen, während Sie diese Informationen sammeln, da er Ratschläge geben kann, die Ihnen bei Ihren Entscheidungen helfen.

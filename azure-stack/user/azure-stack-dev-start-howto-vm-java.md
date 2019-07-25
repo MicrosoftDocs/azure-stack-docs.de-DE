@@ -9,12 +9,12 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 1738d106a0688518f7a739d3fb02ec1b16c2b8b9
-ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
+ms.openlocfilehash: 28d60e8fc5b575cd2fbefee1298220418e4f59a1
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65838373"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418235"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>Bereitstellen einer Java-Web-App auf einer VM in Azure Stack
 
@@ -284,15 +284,16 @@ Anleitungen zum Entwickeln von Java-Apps in Azure finden Sie unter [Erstellen un
 
     a. Löschen Sie den Inhalt von *TOMCAT_HOME/webapps*.
 
-    b. Fügen Sie Ihre Webanwendungsressource unter *TOMCAT_HOME/webapps* hinzu (z. B. */opt/tomcat/webapps/*).
+    b. Fügen Sie Ihre Webanwendungsressource unter *TOMCAT_HOME/webapps* hinzu (z. B. */opt/tomcat/webapps/* ).
 
-1.  Tomcat erweitert die Anwendung automatisch und stellt sie bereit. Sie können die Anwendung mit dem DNS-Namen anzeigen, den Sie zuvor erstellt haben. Beispiel: 
+1.  Tomcat erweitert die Anwendung automatisch und stellt sie bereit. Sie können die Anwendung mit dem DNS-Namen anzeigen, den Sie zuvor erstellt haben. Beispiel:
 
     ```HTTP  
        http://yourmachine.local.cloudapp.azurestack.external:8080/sample
+    ```
+    
+## <a name="next-steps"></a>Nächste Schritte
 
-## Next steps
-
-- Learn more about how to [develop for Azure Stack](azure-stack-dev-start.md).
-- Learn about [common deployments for Azure Stack as IaaS](azure-stack-dev-start-deploy-app.md).
-- To learn the Java programming language and find additional resources for Java, see [Java.com](https://www.java.com).
+- Weitere Informationen zum [Entwickeln für Azure Stack](azure-stack-dev-start.md)
+- Weitere Informationen zu [häufigen Bereitstellungen für Azure Stack als IaaS](azure-stack-dev-start-deploy-app.md)
+- Besuchen Sie die Website [Java.com](https://www.java.com), um die Programmiersprache Java zu erlernen und weitere Ressourcen für Java zu finden.
