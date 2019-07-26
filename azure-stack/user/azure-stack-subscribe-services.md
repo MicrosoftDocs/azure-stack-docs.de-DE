@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Abonnieren eines Azure Stack-Angebots | Microsoft-Dokumentation'
-description: In diesem Tutorial erfahren Sie, wie Sie ein neues Abonnement für Azure Stack-Dienste erstellen und das Angebot mit einem erstellten virtuellen Testcomputer testen.
+title: Erstellen eines Abonnements mit einem Angebot in Azure Stack | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie ein neues Abonnement mit einem Angebot in Azure Stack erstellen und das Angebot dann mit einem virtuellen Testcomputer testen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,14 +17,14 @@ ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 3f577ebd5a57b271a449b5db262ea70779ebdb3d
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 5b72ccee255aadd5d8f42aefea9e397ba310812c
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506366"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376814"
 ---
-# <a name="tutorial-create-and-test-a-subscription"></a>Tutorial: Erstellen und Testen eines Abonnements
+# <a name="tutorial-create-and-test-a-subscription-in-azure-stack"></a>Tutorial: Erstellen und Testen eines Abonnements in Azure Stack
 
 In diesem Tutorial erfahren Sie, wie Sie ein Abonnement mit einem Angebot erstellen und es anschließend testen. Für den Test melden Sie sich beim Azure Stack-Benutzerportal als Cloudadministrator an, abonnieren das Angebot und erstellen dann einen virtuellen Computer.
 
@@ -41,7 +41,7 @@ Sie lernen Folgendes:
 
 ## <a name="subscribe-to-an-offer"></a>Abonnieren von Angeboten
 
-Wenn Sie als Benutzer ein Angebot abonnieren möchten, müssen Sie sich beim Azure Stack-Benutzerportal anmelden, um die Dienste zu ermitteln, die vom Azure Stack-Betreiber angeboten werden.
+Wenn Sie als Benutzer ein Angebot abonnieren möchten, müssen Sie sich beim Azure Stack-Benutzerportal anmelden, um festzustellen, welche Dienste vom Azure Stack-Betreiber angeboten werden.
 
 1. Melden Sie sich beim Benutzerportal an, und wählen Sie **Abonnement erwerben** aus.
 
@@ -60,24 +60,24 @@ Wenn Sie als Benutzer ein Angebot abonnieren möchten, müssen Sie sich beim Azu
 
 ## <a name="test-the-offer"></a>Testen des Angebots
 
-Wenn Sie beim Benutzerportal angemeldet sind, können Sie das Angebot testen, indem Sie einen virtuellen Computer bereitstellen, der die Funktionen des neuen Abonnements verwendet.
+Wenn Sie beim Benutzerportal angemeldet sind, testen Sie das Angebot, indem Sie einen virtuellen Computer mit den Funktionen des neuen Abonnements bereitstellen.
 
 > [!NOTE]
 > Dieser Test setzt voraus, dass dem Azure Stack-Marketplace ein virtueller Windows Server 2016 Datacenter-Computer hinzugefügt wurde.
 
 1. Melden Sie sich am Benutzerportal an.
 
-2. Wählen Sie im Benutzerportal **Virtual Machines** > **Hinzufügen** > **Windows Server 2016 Datacenter** aus, und klicken Sie anschließend auf **Erstellen**.
+2. Wählen Sie im Benutzerportal **Virtual Machines** > **Hinzufügen** > **Windows Server 2016 Datacenter** und anschließend **Erstellen** aus.
 
 3. Geben Sie im Abschnitt **Grundlagen** einen **Namen**, einen **Benutzernamen** und ein **Kennwort** ein, wählen Sie ein **Abonnement** aus, erstellen Sie eine **Ressourcengruppe** (oder wählen Sie eine vorhandene Ressourcengruppe aus), und klicken Sie dann auf **OK**.
 
-4. Wählen Sie im Abschnitt **Größe auswählen** die Option **A1 Standard** aus, und klicken Sie dann auf **Auswählen**.  
+4. Wählen Sie im Abschnitt **Größe auswählen** die Option **A1 Standard** und dann **Auswählen** aus.  
 
 5. Behalten Sie auf dem Blatt **Einstellungen** die Standardwerte bei, und wählen Sie **OK** aus.
 
-6. Klicken Sie im Abschnitt **Zusammenfassung** auf **OK**, um den virtuellen Computer zu erstellen.  
+6. Wählen Sie im Bereich **Zusammenfassung** die Option **OK** aus, um den virtuellen Computer zu erstellen.  
 
-7. Wählen Sie zum Anzeigen Ihres neuen virtuellen Computers **Virtuelle Computer** aus, suchen Sie nach dem neuen virtuellen Computer, und klicken Sie auf seinen Namen.
+7. Damit Sie den neuen virtuellen Computer sehen können, wählen Sie **Virtuelle Computer** aus, suchen nach dem neuen virtuellen Computer und wählen dann dessen Namen aus.
 
     ![Alle Ressourcen](media/azure-stack-subscribe-services/view-vm.png)
 
@@ -85,12 +85,6 @@ Wenn Sie beim Benutzerportal angemeldet sind, können Sie das Angebot testen, in
 > Die Bereitstellung des virtuellen Computers dauert einige Minuten.
 
 ## <a name="next-steps"></a>Nächste Schritte
-
-In diesem Tutorial haben Sie Folgendes gelernt:
-
-> [!div class="checklist"]
-> * Abonnieren von Angeboten 
-> * Testen des Angebots
 
 > [!div class="nextstepaction"]
 > [Tutorial: create a VM using a community template](azure-stack-create-vm-template.md) (Erstellen eines virtuellen Computers über eine Communityvorlage)

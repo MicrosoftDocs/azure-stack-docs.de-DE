@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 07/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
-ms.lastreviewed: 05/14/2019
-ms.openlocfilehash: 4b758cce6741440f5b6a4c00de045e9a4fc8f530
-ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
+ms.lastreviewed: 07/15/2019
+ms.openlocfilehash: fb49649227cf17356c7d383e6505dd3e1c2c5648
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65706331"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380413"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotieren von Geheimnissen in Azure Stack
 
@@ -66,7 +66,7 @@ Azure Stack unterstützt Geheimnisrotation mit externen Zertifikaten von einer n
 |Von „Selbstsigniert“|Zu „Enterprise“|Unterstützt|1903 und höher|
 |Von „Selbstsigniert“|Zu „Selbstsigniert“|Nicht unterstützt||
 |Von „Selbstsigniert“|Zu „Öffentlich“<sup>*</sup>|Unterstützt|1803 und höher|
-|Von „Enterprise“|Zu „Enterprise“| Unterstützt. Von 1803 – 1903: Wird unterstützt, solange Kunden die GLEICHE Unternehmens-ZS wie bei der Bereitstellung verwenden.|1803 und höher|
+|Von „Enterprise“|Zu „Enterprise“|Unterstützt. Von 1803 – 1903: Wird unterstützt, solange Kunden die GLEICHE Unternehmens-ZS wie bei der Bereitstellung verwenden.|1803 und höher|
 |Von „Enterprise“|Zu „Selbstsigniert“|Nicht unterstützt||
 |Von „Enterprise“|Zu „Öffentlich“<sup>*</sup>|Unterstützt|1803 und höher|
 |Von „Öffentlich“<sup>*</sup>|Zu „Enterprise“|Unterstützt|1903 und höher|
@@ -135,7 +135,7 @@ Diese Warnungen können durch Ausführen der Geheimnisrotation behandelt werden.
 > Es ist auch wichtig, dass die Ordnerstruktur der Dateifreigabe mit **Certificates** beginnt, da sie sonst ebenfalls bei der Überprüfung zu einem Fehler führt.
 > Die Einbindung der Dateifreigabe sollte die Form **\\\\\<IPAddress>\\\<ShareName>\\** aufweisen und den Ordner **Certificates\AAD** oder **Certificates\ADFS** enthalten.
 >
-> Beispiel: 
+> Beispiel:
 > - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
 > - CertFolder = **Certificates\AAD**
 > - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
@@ -144,7 +144,7 @@ Diese Warnungen können durch Ausführen der Geheimnisrotation behandelt werden.
 
 So rotieren Sie externe Geheimnisse:
 
-1. Platzieren Sie die neue Gruppe externer Ersatzzertifikate in der Verzeichnisstruktur des Verzeichnisses **\Certificates\\\<IdentityProvider>**, das Sie im Rahmen der Vorbereitungsschritte erstellt haben. Berücksichtigen Sie dabei das Format, wie unter [Azure Stack-PKI-Zertifikatanforderungen](azure-stack-pki-certs.md#mandatory-certificates) im Abschnitt „Erforderliche Zertifikate“ erläutert.
+1. Platzieren Sie die neue Gruppe externer Ersatzzertifikate in der Verzeichnisstruktur des Verzeichnisses **\Certificates\\\<IdentityProvider>** , das Sie im Rahmen der Vorbereitungsschritte erstellt haben. Berücksichtigen Sie dabei das Format, wie unter [Azure Stack-PKI-Zertifikatanforderungen](azure-stack-pki-certs.md#mandatory-certificates) im Abschnitt „Erforderliche Zertifikate“ erläutert.
 
     Beispiel der Ordnerstruktur für den AAD-Identitätsanbieter:
     ```powershell
@@ -254,7 +254,7 @@ Remove-PSSession -Session $PEPSession
 
 Wenn die Geheimnisrotation erfolgreich abgeschlossen wurde, wird in der Konsole **Overall action status: Success** (Allgemeiner Aktionsstatus: Erfolgreich) angezeigt.
     > [!Note]
-    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **-Internal** and **-ReRun** parameters.  
+    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **-Internal** and **-ReRun** parameters.  
 
 ```powershell
 Start-SecretRotation -Internal -ReRun
@@ -271,13 +271,13 @@ Rotiert die Geheimnisse eines Azure Stack-Systems. Wird nur für den privilegier
 #### <a name="for-external-secret-rotation"></a>Für Rotation externer Geheimnisse
 
 ```powershell
-Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
+Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
 #### <a name="for-internal-secret-rotation"></a>Für Rotation interner Geheimnisse
 
 ```powershell
-Start-SecretRotation [-Internal]  
+Start-SecretRotation [-Internal]  
 ```
 
 #### <a name="for-external-secret-rotation-rerun"></a>Für erneute Rotation externer Geheimnisse
@@ -294,17 +294,17 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 ### <a name="description"></a>BESCHREIBUNG
 
-Das Cmdlet **Start-SecretRotation** rotiert die Infrastrukturgeheimnisse eines Azure Stack-Systems. Standardmäßig dreht es nur die Zertifikate aller externen Netzwerkinfrastruktur-Endpunkte. Bei Verwendung mit dem -Internal-Flag werden die internen Infrastrukturgeheimnisse gedreht. Beim Rotieren externer Netzwerkinfrastruktur-Endpunkte muss **Start-SecretRotation** über einen **Invoke-Command**-Skriptblock ausgeführt werden, und die Sitzung des privilegierten Endpunkts der Azure Stack-Umgebung muss als **Session**-Parameter übergeben werden.
+Das Cmdlet **Start-SecretRotation** rotiert die Infrastrukturgeheimnisse eines Azure Stack-Systems. Standardmäßig dreht es nur die Zertifikate aller externen Netzwerkinfrastruktur-Endpunkte. Bei Verwendung mit dem -Internal-Flag werden die internen Infrastrukturgeheimnisse gedreht. Beim Rotieren externer Netzwerkinfrastruktur-Endpunkte muss **Start-SecretRotation** über einen **Invoke-Command**-Skriptblock ausgeführt werden, und die Sitzung des privilegierten Endpunkts der Azure Stack-Umgebung muss als **Session**-Parameter übergeben werden.
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Type | Erforderlich | Position | Standard | BESCHREIBUNG |
+| Parameter | type | Erforderlich | Position | Standard | BESCHREIBUNG |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | Zeichenfolge  | False  | benannt  | Keine  | Der Dateifreigabepfad des Verzeichnisses **\Certificates** mit allen externen Netzwerkendpunkt-Zertifikaten. Nur beim Rotieren externer Geheimnisse erforderlich. Das Endverzeichnis muss **\Certificates** sein. |
-| `CertificatePassword` | SecureString | False  | benannt  | Keine  | Das Kennwort für alle Zertifikate in „-PfXFilesPath“. Erforderlich, wenn „PfxFilesPath“ beim Rotieren externer Geheimnisse angegeben wird. |
+| `PfxFilesPath` | Zeichenfolge  | False  | benannt  | Keine  | Der Dateifreigabepfad des Verzeichnisses **\Certificates** mit allen externen Netzwerkendpunkt-Zertifikaten. Nur beim Rotieren externer Geheimnisse erforderlich. Das Endverzeichnis muss **\Certificates** sein. |
+| `CertificatePassword` | SecureString | False  | benannt  | Keine  | Das Kennwort für alle Zertifikate in „-PfXFilesPath“. Erforderlich, wenn „PfxFilesPath“ beim Rotieren externer Geheimnisse angegeben wird. |
 | `Internal` | Zeichenfolge | False | benannt | Keine | Das Internal-Flag muss immer dann verwendet werden, wenn ein Azure Stack-Operator die internen Infrastrukturgeheimnisse rotieren möchte. |
-| `PathAccessCredential` | PSCredential | False  | benannt  | Keine  | Die PowerShell-Anmeldeinformationen für die Dateifreigabe des Verzeichnisses **\Certificates** mit allen externen Netzwerkendpunkt-Zertifikaten. Nur beim Rotieren externer Geheimnisse erforderlich.  |
-| `ReRun` | SwitchParameter | False  | benannt  | Keine  | Die erneute Ausführung muss immer dann erfolgen, wenn die Geheimnisrotation nach einem fehlgeschlagenen Versuch erneut versucht wird. |
+| `PathAccessCredential` | PSCredential | False  | benannt  | Keine  | Die PowerShell-Anmeldeinformationen für die Dateifreigabe des Verzeichnisses **\Certificates** mit allen externen Netzwerkendpunkt-Zertifikaten. Nur beim Rotieren externer Geheimnisse erforderlich.  |
+| `ReRun` | SwitchParameter | False  | benannt  | Keine  | Die erneute Ausführung muss immer dann erfolgen, wenn die Geheimnisrotation nach einem fehlgeschlagenen Versuch erneut versucht wird. |
 
 ### <a name="examples"></a>Beispiele
 
@@ -313,12 +313,12 @@ Das Cmdlet **Start-SecretRotation** rotiert die Infrastrukturgeheimnisse eines A
 Dies muss über den [privilegierten Endpunkt](azure-stack-privileged-endpoint.md) Ihrer Azure Stack-Umgebung ausgeführt werden.
 
 ```powershell
-PS C:\> Start-SecretRotation -Internal
+PS C:\> Start-SecretRotation -Internal
 ```
 
 Dieser Befehl rotiert alle Infrastrukturgeheimnisse, die für das interne Azure Stack-Netzwerk verfügbar gemacht wurden.
 
-#### <a name="rotate-only-external-infrastructure-secrets"></a>Nur Rotieren externer Infrastrukturgeheimnisse  
+#### <a name="rotate-only-external-infrastructure-secrets"></a>Nur Rotieren externer Infrastrukturgeheimnisse  
 
 ```powershell
 # Create a PEP Session
@@ -363,15 +363,19 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-Dieser Befehl rotiert alle Infrastrukturgeheimnisse, die für das interne Azure Stack-Netzwerk verfügbar gemacht wurden, sowie die TLS-Zertifikate, die für die externen Netzwerkinfrastruktur-Endpunkte von Azure Stack verwendet werden. „Start-SecretRotation“ rotiert alle von Stack generierten Geheimnisse, und da bereitgestellte Zertifikate vorhanden sind, werden auch externe Endpunktzertifikate rotiert.  
+Dieser Befehl rotiert alle Infrastrukturgeheimnisse, die für das interne Azure Stack-Netzwerk verfügbar gemacht wurden, sowie die TLS-Zertifikate, die für die externen Netzwerkinfrastruktur-Endpunkte von Azure Stack verwendet werden. „Start-SecretRotation“ rotiert alle von Stack generierten Geheimnisse, und da bereitgestellte Zertifikate vorhanden sind, werden auch externe Endpunktzertifikate rotiert.  
 
 ## <a name="update-the-baseboard-management-controller-bmc-credential"></a>Aktualisieren des Baseboard Management Controller (BMC, Baseboard-Verwaltungscontroller)
 
 Der Baseboard-Verwaltungscontroller (Baseboard Management Controller, BMC) überwacht den physischen Zustand Ihrer Server. Die Spezifikationen und Anweisungen zur Aktualisierung des Benutzerkontonamens und Kennworts des BMC variieren je nach OEM (Original Equipment Manufacturer, Originalgerätehersteller). Die Kennwörter für Azure Stack-Komponenten sollten regelmäßig aktualisiert werden.
 
-1. Aktualisieren Sie den BMC auf den physischen Azure Stack-Servern gemäß den Anweisungen des OEM. Benutzername und Kennwort für jeden BMC in Ihrer Umgebung müssen identisch sein. Beachten Sie, dass BMC-Benutzernamen nicht länger als 16 Zeichen sein dürfen.
+1. Aktualisieren Sie den BMC auf den physischen Azure Stack-Servern gemäß den Anweisungen des OEM. Benutzername und Kennwort für jeden BMC in Ihrer Umgebung müssen identisch sein. BMC-Benutzernamen dürfen nicht länger als 16 Zeichen sein.
+
+    > [!Note]  
+    > Aktualisieren Sie zunächst die BMC-Anmeldeinformationen im Baseboard-Verwaltungscontroller des physischen Servers. Andernfalls tritt bei der Überprüfung des Azure Stack-Befehls ein Fehler auf.
+
 2. Öffnen Sie in Azure Stack einen privilegierten Endpunkt. Anweisungen finden Sie unter [Verwenden des privilegierten Endpunkts in Azure Stack](azure-stack-privileged-endpoint.md).
-3. Nachdem Sie über Ihre PowerShell-Eingabeaufforderung zu **[IP-Adresse oder ERCS-VM-Name]: PS>** oder zu **[azs-ercs01]: PS>** gewechselt sind, führen Sie (abhängig von der Umgebung) `Set-BmcCredential` durch Ausführen von `Invoke-Command` aus. Übergeben Sie die Sitzungsvariable des privilegierten Endpunkts als Parameter. Beispiel: 
+3. Nachdem Sie über Ihre PowerShell-Eingabeaufforderung zu **[IP-Adresse oder ERCS-VM-Name]: PS>** oder zu **[azs-ercs01]: PS>** gewechselt sind, führen Sie (abhängig von der Umgebung) `Set-BmcCredential` durch Ausführen von `Invoke-Command` aus. Übergeben Sie die Sitzungsvariable des privilegierten Endpunkts als Parameter. Beispiel:
 
     ```powershell
     # Interactive Version
