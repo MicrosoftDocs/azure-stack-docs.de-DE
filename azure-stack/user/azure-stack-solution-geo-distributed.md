@@ -10,25 +10,25 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a348e4e7eada9537defa292f667cfd3eb1e27438
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 47a0fd72da842cc4d2f73372870c561f2d88e48d
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492457"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286955"
 ---
-# <a name="tutorial-create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Tutorial: Erstellen einer geografisch verteilten App-Lösung, um Datenverkehr mit Azure und Azure Stack weiterzuleiten
+# <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Erstellen einer geografisch verteilten App-Lösung, um Datenverkehr mit Azure und Azure Stack weiterzuleiten
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
 Es wird beschrieben, wie Sie Datenverkehr basierend auf unterschiedlichen Metriken an bestimmte Endpunkte weiterleiten, indem Sie das Muster für geografisch verteilte Apps verwenden. Durch die Erstellung eines Traffic Manager-Profils mit Weiterleitung und Endpunktkonfiguration anhand der Geografie wird sichergestellt, dass Informationen basierend auf regionalen Anforderungen, unternehmensinternen und internationalen Bestimmungen und Ihren Datenanforderungen an Endpunkte weitergeleitet werden.
 
-In diesem Tutorial erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht:
+In dieser Lösung erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht:
 
 > [!div class="checklist"]
 > - Erstellen einer geografisch verteilten App
@@ -42,7 +42,7 @@ Mit dem Muster für die geografische Verteilung erzielt Ihre App eine regionsüb
 
 #### <a name="scalability-considerations"></a>Überlegungen zur Skalierbarkeit
 
-In die Lösung, die Sie in diesem Tutorial erstellen, wird die Skalierbarkeit nicht einbezogen. Wenn Sie sie in Kombination mit anderen Azure- und lokalen Lösungen verwenden, ist es aber möglich, dass Sie die Anforderungen an die Skalierbarkeit erfüllen. Informationen zur Erstellung einer Hybridlösung mit automatischer Skalierung per Traffic Manager finden Sie unter [Erstellen von cloudübergreifenden Skalierungslösungen mit Azure](azure-stack-solution-cloud-burst.md).
+In die Lösung, die Sie im Zuge dieses Artikels erstellen, wird die Skalierbarkeit nicht einbezogen. Wenn Sie sie in Kombination mit anderen Azure- und lokalen Lösungen verwenden, ist es aber möglich, dass Sie die Anforderungen an die Skalierbarkeit erfüllen. Informationen zur Erstellung einer Hybridlösung mit automatischer Skalierung per Traffic Manager finden Sie unter [Erstellen von cloudübergreifenden Skalierungslösungen mit Azure](azure-stack-solution-cloud-burst.md).
 
 #### <a name="availability-considerations"></a>Überlegungen zur Verfügbarkeit
 
@@ -74,7 +74,7 @@ Es ist hilfreich, wenn Sie Folgendes wissen, bevor Sie den Speicherbedarf für e
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack ist eine Erweiterung von Azure. Mit Azure Stack holen Sie sich die Agilität und Innovation von Cloud Computing in Ihre lokale Umgebung. Sie erhalten die einzige Hybrid Cloud, mit der Sie Hybrid-Apps überall entwickeln und bereitstellen können.  
 > 
-> Im Whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Entwurfsüberlegungen für Hybridanwendungen) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybridanwendungen, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
+> Im Artikel [Entwurfsüberlegungen für Hybridanwendungen](azure-stack-edge-pattern-overview.md) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybrid-Apps, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
 
 ## <a name="part-1-create-a-geo-distributed-app"></a>Teil 1: Erstellen einer geografisch verteilten App
 
@@ -222,7 +222,7 @@ Azure DevOps und Azure DevOps Server bieten eine äußerst flexibel konfigurier-
 
     ![Wählen Sie den Ordner für die Azure App Service-Bereitstellung aus.](media/azure-stack-solution-geo-distributed/image22.png)
 
-    ![Auswählen des Ordners für die Azure App Service-Bereitstellung](media/azure-stack-solution-geo-distributed/image23.png)
+    ![Wählen Sie den Ordner für die Azure App Service-Bereitstellung aus.](media/azure-stack-solution-geo-distributed/image23.png)
 
 18. Fügen Sie auf der Registerkarte „Variable“ eine Variable mit dem Namen `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS` hinzu, und legen Sie ihren Wert auf **true** und den Bereich auf „Azure Stack“ fest.
     
@@ -260,9 +260,9 @@ Informationen zum Migrieren einer Livewebsite und ihres DNS-Domänennamens zu Ap
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
-Für dieses Tutorial benötigen Sie Folgendes:
+Führen Sie im Rahmen dieser Lösung folgende Schritte aus:
 
--   [Erstellen Sie eine App Service-App](https://docs.microsoft.com/azure/app-service/), oder verwenden Sie eine App, die für ein anderes Tutorial erstellt wurde.
+-   [Erstellen Sie eine App Service-App](https://docs.microsoft.com/azure/app-service/), oder verwenden Sie eine App, die für eine andere Lösung erstellt wurde.
 
 -   Erwerben Sie einen Domänennamen, und stellen Sie sicher, dass der Zugriff auf die DNS-Registrierung für den Domänenanbieter möglich ist.
 
@@ -371,7 +371,7 @@ In diesem Teil führen wir Folgendes durch:
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
-Für dieses Tutorial benötigen Sie Folgendes:
+Führen Sie im Rahmen dieser Lösung folgende Schritte aus:
 
 -   [Erstellen einer App Service-App](https://docs.microsoft.com/azure/app-service/).
 -   [Zuordnen eines benutzerdefinierten DNS-Namens zu Ihrer Web-App](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain).
@@ -508,7 +508,7 @@ Wenn der Upload des Zertifikats in App Service abgeschlossen ist, wird es auf de
 
     - **SNI-basiertes SSL**: Es können mehrere SNI-basierte SSL-Bindungen hinzugefügt werden. Bei dieser Option können mehrere zur selben IP-Adresse zugehörige Domänen durch mehrere SSL-Zertifikate geschützt werden. Die meisten modernen Browser (einschließlich Internet Explorer, Chrome, Firefox und Opera) unterstützen SNI (ausführlichere Informationen zur Browserunterstützung finden Sie unter [Servernamensanzeige](https://wikipedia.org/wiki/Server_Name_Indication)).
 
-    - **IP-basiertes SSL**:  Ggf. kann nur eine IP-basierte SSL-Bindung hinzugefügt werden. Bei dieser Option kann eine dedizierte öffentliche IP-Adresse nur durch ein SSL-Zertifikat geschützt werden. Schützen Sie alle Domänen mit demselben SSL-Zertifikat, wenn Sie den Schutz für mehrere Domänen einrichten möchten. IP-basiertes SSL ist die herkömmliche Option für SSL-Bindungen.
+    - **IP-basiertes SSL:** Ggf. kann nur eine IP-basierte SSL-Bindung hinzugefügt werden. Bei dieser Option kann eine dedizierte öffentliche IP-Adresse nur durch ein SSL-Zertifikat geschützt werden. Schützen Sie alle Domänen mit demselben SSL-Zertifikat, wenn Sie den Schutz für mehrere Domänen einrichten möchten. IP-basiertes SSL ist die herkömmliche Option für SSL-Bindungen.
 
 1. Wählen Sie **Bindung hinzufügen**.
 
@@ -599,9 +599,9 @@ Die App lässt standardmäßig [TLS](https://wikipedia.org/wiki/Transport_Layer_
 
 7. Verwenden Sie für den vollqualifizierten Domänennamen (**FQDN**) die externe URL für die Azure Stack-Web-App.
 
-8. Wählen Sie unter „Geografische Zuordnung“ die Region bzw. den Kontinent der Ressource aus, z. B. **Europa**.
+8. Wählen Sie unter „Geografische Zuordnung“ die Region bzw. den Kontinent der Ressource aus. Beispiel: **Europa**.
 
-9. Wählen Sie in der angezeigten Dropdownliste „Land/Region“ das Land aus, das für diesen Endpunkt gilt, z. B. **Deutschland**.
+9. Wählen Sie in der angezeigten Dropdownliste „Land/Region“ das Land aus, das für diesen Endpunkt gilt. Beispiel: **Deutschland**.
 
 10. Lassen Sie **Als deaktiviert hinzufügen** deaktiviert.
 
@@ -617,7 +617,7 @@ Die App lässt standardmäßig [TLS](https://wikipedia.org/wiki/Transport_Layer_
 
     4.  Wählen Sie unter **Zielressource** die Option **App Service auswählen**, um die Auflistung der Web-Apps desselben Abonnements anzuzeigen. Wählen Sie unter **Ressource** die App Service-Instanz aus, die als erster Endpunkt verwendet werden soll.
 
-13. Wählen Sie unter „Geografische Zuordnung“ die Region bzw. den Kontinent der Ressource aus, z. B. **Nordamerika/Zentralamerika/Karibik**.
+13. Wählen Sie unter „Geografische Zuordnung“ die Region bzw. den Kontinent der Ressource aus. Beispiel: **Nordamerika/Zentralamerika/Karibik**.
 
 14. Lassen Sie das Feld der Dropdownliste „Land/Region“ leer, um alle obigen regionalen Gruppierungen auszuwählen.
 

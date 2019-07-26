@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie mehr zu Azure Monitor in Azure Stack.
+title: Verwenden von Azure Monitor in Azure Stack | Microsoft-Dokumentation
+description: Erfahren Sie mehr zur Verwendung von Azure Monitor in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,24 +14,24 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: a4905951910a220185a8ae0651f5297c97af41f2
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: d243a574e43d3a68d3d5caf0f60235019a57462a
+ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311448"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67816258"
 ---
-# <a name="azure-monitor-on-azure-stack"></a>Azure Monitor in Azure Stack
+# <a name="use-azure-monitor-on-azure-stack"></a>Verwenden von Azure Monitor in Azure Stack
 
-*Gilt für: Integrierte Azure Stack-Systeme*
+*Anwendungsbereich: Integrierte Azure Stack-Systeme*
 
 Dieser Artikel bietet eine Übersicht über den Azure Monitor-Dienst in Azure Stack. Er beschreibt die Vorgänge beim Betrieb von Azure Monitor und enthält zusätzliche Informationen zur Verwendung von Azure Monitor in Azure Stack. 
 
-Eine Einführung, eine Übersicht und erste Schritte mit Azure Monitor finden Sie im allgemeinen Azure-Artikel [Azure Monitor – Übersicht](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
+Eine Übersicht über Azure Monitor finden Sie im allgemeinen Azure-Artikel [Azure Monitor – Übersicht](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
 
 ![Blatt „Monitor“ in Azure Stack](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
-Azure Monitor ist der Plattformdienst, mit dem Sie Ihre Azure-Ressourcen an einem zentralen Ort verwalten können. Mit Azure Monitor können Sie Metriken und Protokolle aus den Ressourcen in Azure visualisieren, abfragen, weiterleiten und archivieren und andere Maßnahmen ergreifen. Sie können im Administratorportal von Azure Stack, mit Monitor PowerShell-Cmdlets, in einer plattformübergreifenden Befehlszeilenschnittstelle oder in Azure Monitor-REST-APIs mit diesen Daten arbeiten. Weitere Informationen zu spezifischen Verbindungen, die von Azure Stack unterstützt werden, finden Sie unter [Nutzen der Überwachungsdaten von Azure Stack](azure-stack-metrics-monitor.md).
+Azure Monitor ist ein Plattformdienst, mit dem Sie Ihre Azure-Ressourcen von einer einzigen Quelle aus überwachen können. Mit Azure Monitor können Sie Metriken und Protokolle aus den Ressourcen in Azure visualisieren, abfragen, weiterleiten und archivieren und sonstige Aktionen damit durchführen. Sie können im Administratorportal von Azure Stack, mit Monitor PowerShell-Cmdlets, in einer plattformübergreifenden Befehlszeilenschnittstelle oder in Azure Monitor-REST-APIs mit diesen Daten arbeiten. Weitere Informationen zu spezifischen Verbindungen, die von Azure Stack unterstützt werden, finden Sie unter [Nutzen der Überwachungsdaten von Azure Stack](azure-stack-metrics-monitor.md).
 
 > [!Note]
 > Metrik- und Diagnoseprotokolle stehen für das Azure Stack Development Kit nicht zur Verfügung.
@@ -55,16 +55,16 @@ Wie in Azure stellt Azure Monitor in Azure Stack grundlegende Infrastrukturmetri
 ![Quellen für Azure Monitor in Azure Stack: Computeteilmenge](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
 Der Ressourcenanbieter **Microsoft.Compute** in Azure Stack umfasst Folgendes:
- - Virtual Machines 
+ - Virtuelle Computer 
  - VM-Skalierungsgruppen
 
-### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>Anwendung: Diagnoseprotokolle, Anwendungsprotokolle und Metriken
+### <a name="application---diagnostics-logs-app-logs-and-metrics"></a>Anwendung: Diagnoseprotokolle, App-Protokolle und Metriken
 
-Anwendungen können im Betriebssystem eines virtuellen Computers mit dem Ressourcenanbieter **Microsoft.Compute** ausgeführt werden. Diese Anwendungen und VMs geben einen eigenen Satz von Protokollen und Metriken aus. Azure Monitor greift auf die Azure-Diagnoseerweiterung (Windows oder Linux) zurück, um die meisten Metriken und Protokolle auf Anwendungsebene zu sammeln. 
+Apps können im Betriebssystem einer VM mit dem Ressourcenanbieter **Microsoft.Compute** ausgeführt werden. Diese Apps und VMs geben eigene Protokolle und Metriken aus. Azure Monitor greift auf die Azure-Diagnoseerweiterung (Windows oder Linux) zurück, um die meisten Metriken und Protokolle auf App-Ebene zu sammeln.
 
 Folgende Measuretypen sind u.a. verfügbar:
  - Leistungsindikatoren
- - Anwendungsprotokolle
+ - App-Protokolle
  - Windows-Ereignisprotokolle
  - .NET-Ereignisquelle
  - IIS-Protokolle
@@ -77,7 +77,7 @@ Folgende Measuretypen sind u.a. verfügbar:
 
 ### <a name="host-and-guest-vm-metrics"></a>Metriken von Host- und Gast-VMs
 
-Die zuvor aufgelisteten Computeressourcen sind einem dedizierten virtuellen Hostcomputer und Gastbetriebssystem zugeordnet. Die Host-VM und das Gastbetriebssystem entsprechen dem virtuellen Stammcomputer und dem virtuellen Gastcomputer im Hyper-V-Hypervisor. Sie können Metriken sowohl für die Host-VM als auch das Gastbetriebssystem erfassen. Darüber hinaus können Sie Diagnoseprotokolle zum Gastbetriebssystem sammeln. Eine Liste der Metriken, die für Host und Gast-VM in Azure Stack gesammelt werden können, finden Sie unter [Unterstützte Metriken von Azure Monitor in Azure Stack](azure-stack-metrics-supported.md). 
+Die zuvor aufgelisteten Computeressourcen sind einem dedizierten virtuellen Hostcomputer und Gastbetriebssystem zugeordnet. Die Host-VM und das Gastbetriebssystem entsprechen dem virtuellen Stammcomputer und dem virtuellen Gastcomputer im Hyper-V-Hypervisor. Sie können Metriken sowohl für die Host-VM als auch das Gastbetriebssystem erfassen. Zudem können Sie Diagnoseprotokolle für das Gastbetriebssystem sammeln. Eine Liste der Metriken, die für Host- und Gast-VM in Azure Stack gesammelt werden können, finden Sie unter [Unterstützte Metriken von Azure Monitor in Azure Stack](azure-stack-metrics-supported.md). 
 
 ### <a name="activity-log"></a>Aktivitätsprotokoll
 
@@ -115,9 +115,9 @@ Sie können die Azure Monitor-REST-API, Befehle der plattformübergreifenden Bef
 Indem Sie Ihre Überwachungsdaten in Grafiken und Diagrammen visualisieren, können Sie Trends schneller ausmachen, als wenn Sie die Daten selbst ansehen. 
 
 Einige Beispiele für Visualisierungsmethoden:
- - Verwenden von Benutzer- und Administratorportal für Azure Stack
+ - Verwenden des Benutzer- und Verwaltungsportals von Azure Stack
  - Weiterleiten von Daten an Microsoft Power BI
- - Weiterleiten von Daten an ein Visualisierungstool eines Drittanbieters mittels Livestreaming oder durch Lesen eines Archivs in Azure Storage
+ - Weiterleiten der Daten an ein Visualisierungstool eines Drittanbieters mittels Livestreaming oder durch Lesen eines Archivs in Azure Storage
 
 ## <a name="methods-of-accessing-azure-monitor-on-azure-stack"></a>Methoden für den Zugriff auf Azure Monitor in Azure Stack
 
@@ -131,4 +131,4 @@ Nachverfolgung, Routing und Abfrage von Daten können ganz allgemein mit einer d
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zu Möglichkeiten zur Nutzung der Überwachungsdaten in Azure Stack finden Sie im Artikel [Nutzen der Überwachungsdaten von Azure Stack](azure-stack-metrics-monitor.md).
+Weitere Informationen zur Nutzung der Überwachungsdaten in Azure Stack finden Sie im Artikel [Nutzen der Überwachungsdaten von Azure Stack](azure-stack-metrics-monitor.md).

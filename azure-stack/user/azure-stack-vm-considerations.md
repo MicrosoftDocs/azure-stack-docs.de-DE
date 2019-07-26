@@ -11,51 +11,52 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 07/16/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/19/2018
-ms.openlocfilehash: 2a9a9a2c402538eee428bad08c9772b288fa1740
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.lastreviewed: 07/16/2019
+ms.openlocfilehash: 09e38de68f740cab50e7a3e0ee8cc7364a9909b9
+ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197338"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68299438"
 ---
 # <a name="azure-stack-vm-features"></a>Features von Azure Stack-VMs
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Über virtuelle Azure Stack-Computer (VMs) werden bedarfsgesteuerte, skalierbare Computingressourcen bereitgestellt. Vor dem Bereitstellen von VMs sollten Sie sich mit den Unterschieden zwischen den VM-Features von Azure Stack und Microsoft Azure vertraut machen. In diesem Artikel werden diese Unterschiede beschrieben und wichtige Überlegungen zur Planung von VM-Bereitstellungen erörtert. Informationen zu allgemeinen Unterschieden zwischen Azure Stack und Azure finden Sie im Artikel [Key considerations](azure-stack-considerations.md) (Wichtige Aspekte).
+Über virtuelle Azure Stack-Computer (VMs) werden bedarfsgesteuerte, skalierbare Computingressourcen bereitgestellt. Vor dem Bereitstellen von virtuellen Computern sollten Sie sich mit den Unterschieden zwischen den VM-Features von Azure Stack und Microsoft Azure vertraut machen. In diesem Artikel werden diese Unterschiede beschrieben und wichtige Überlegungen zur Planung von VM-Bereitstellungen erörtert. Informationen zu allgemeinen Unterschieden zwischen Azure Stack und Azure finden Sie im Artikel [Key considerations](azure-stack-considerations.md) (Wichtige Aspekte).
 
 ## <a name="vm-differences"></a>VM-Unterschiede
 
 | Feature | Azure (global) | Azure Stack |
 | --- | --- | --- |
-| VM-Images | Der Azure Marketplace enthält Images, die Sie zum Erstellen einer VM verwenden können. Auf der Seite [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) können Sie die Liste mit den Images anzeigen, die im Azure Marketplace verfügbar sind. | Im Azure Stack-Marketplace sind standardmäßig keine Images verfügbar. Der Azure Stack-Cloudadministrator muss Images veröffentlichen oder auf den Azure Stack-Marketplace herunterladen, bevor sie von Benutzern verwendet werden können. |
+| VM-Images | Azure Marketplace enthält Images, die Sie zum Erstellen eines virtuellen Computers verwenden können. Auf der Seite [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) können Sie die Liste mit den Images anzeigen, die im Azure Marketplace verfügbar sind. | Im Azure Stack-Marketplace sind standardmäßig keine Images verfügbar. Der Azure Stack-Cloudadministrator muss Images veröffentlichen oder auf den Azure Stack-Marketplace herunterladen, bevor sie von Benutzern verwendet werden können. |
 | Größen virtueller Computer | Azure unterstützt eine Vielzahl von Größen für VMs. Informationen zu den verfügbaren Größen und Optionen finden Sie in den Themen [Größen für virtuelle Windows-Computer in Azure](/azure/virtual-machines/virtual-machines-windows-sizes) und [Größen für virtuelle Linux-Computer in Azure](/azure/virtual-machines/linux/sizes). | Azure Stack unterstützt eine Teilmenge der VM-Größen, die in Azure verfügbar sind. Die Liste mit den unterstützten Größen finden Sie in diesem Artikel im Abschnitt [VM-Größen](#vm-sizes). |
 | Kontingente für virtuelle Computer | [Kontingentgrenzen](/azure/azure-subscription-service-limits#service-specific-limits) werden von Microsoft festgelegt. | Der Azure Stack-Cloudadministrator muss Kontingente zuweisen, bevor Benutzern VMs angeboten werden. |
 | VM-Erweiterungen |Azure unterstützt viele verschiedene VM-Erweiterungen. Weitere Informationen zu den verfügbaren Erweiterungen finden Sie im Artikel zu den [Erweiterungen und Features für VMs](/azure/virtual-machines/windows/extensions-features).| Azure Stack unterstützt eine Teilmenge der Erweiterungen, die in Azure verfügbar sind, und jede Erweiterung hat eine bestimmte Version. Der Azure Stack-Cloudadministrator kann jeweils wählen, welche Erweiterungen für seine Benutzer verfügbar gemacht werden sollen. Die Liste mit den unterstützten Erweiterungen finden Sie in diesem Artikel im Abschnitt [VM-Erweiterungen](#vm-extensions). |
 | Netzwerk für virtuelle Computer | Öffentliche IP-Adressen, die einer Mandanten-VM zugewiesen sind, sind über das Internet zugänglich.<br><br><br>Azure-VMs verfügen über einen festen DNS-Namen. | Öffentliche IP-Adressen, die einer Mandanten-VM zugewiesen sind, sind nur in der Azure Stack Development Kit-Umgebung zugänglich. Ein Benutzer muss per [RDP](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) oder [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) Zugriff auf das Azure Stack Development Kit haben, um eine Verbindung mit einer VM herstellen zu können, die in Azure Stack erstellt wird.<br><br>VMs, die in einer bestimmten Azure Stack-Instanz erstellt werden, verfügen über einen DNS-Namen basierend auf dem Wert, der vom Cloudadministrator konfiguriert wird. |
 | VM-Speicher | Unterstützt [verwaltete Datenträger](/azure/virtual-machines/windows/managed-disks-overview). | Verwaltete Datenträger werden in Azure Stack ab Version 1808 unterstützt. |
-| Leistung von VM-Datenträgern | Abhängig von Datenträgertyp und -größe. | Richtet sich nach der VM-Größe der VM, an die die Datenträger angefügt sind. Weitere Informationen finden Sie im Artikel [In Azure Stack unterstützte VM-Größen](azure-stack-vm-sizes.md).
+| Leistung von VM-Datenträgern | Abhängig von Datenträgertyp und -größe. | Richtet sich nach der VM-Größe des virtuellen Computers, an den die Datenträger angefügt sind. Weitere Informationen finden Sie im Artikel [In Azure Stack unterstützte VM-Größen](azure-stack-vm-sizes.md).
 | API-Versionen | Azure verfügt für alle VM-Features immer über die aktuellen API-Versionen. | Azure Stack unterstützt bestimmte Azure-Dienste und bestimmte API-Versionen für diese Dienste. Die Liste mit den unterstützten API-Versionen finden Sie in diesem Artikel im Abschnitt [API-Versionen](#api-versions). |
-| Azure-Instanzmetadatendienst | Der Azure-Instanzmetadatendienst (Instance Metadata Service) stellt Informationen zum Ausführen von VM-Instanzen bereit, die zum Verwalten und Konfigurieren Ihrer VM verwendet werden können.  | Der Azure-Instanzmetadatendienst wird für Azure Stack nicht unterstützt. |
+| Azure-Instanzmetadatendienst | Instance Metadata Service stellt Informationen zum Ausführen von VM-Instanzen bereit, die zum Verwalten und Einrichten Ihres virtuellen Computers verwendet werden können.  | Der Azure-Instanzmetadatendienst wird für Azure Stack nicht unterstützt. |
 | VM-Verfügbarkeitsgruppen|Mehrere Fehlerdomänen (zwei oder drei pro Region)<br>Mehrere Updatedomänen|Mehrere Fehlerdomänen (zwei oder drei pro Region)<br>Mehrere Updatedomänen (bis zu 20)|
 | VM-Skalierungsgruppen|Die automatische Skalierung wird unterstützt.|Die automatische Skalierung wird nicht unterstützt.<br><br>Fügen Sie einer Skalierungsgruppe mit dem Portal, Resource Manager-Vorlagen oder PowerShell weitere Instanzen hinzu. |
-| Diagnose des virtuellen Computers | Die Linux-VM-Diagnose wird unterstützt. | Die Linux-VM-Diagnose wird in Azure Stack nicht unterstützt. Wenn Sie eine Linux-VM mit aktivierter VM-Diagnose bereitstellen, schlägt die Bereitstellung fehl. Die Bereitstellung schlägt auch fehl, wenn Sie die grundlegenden Linux-VM-Metriken über die Diagnoseeinstellungen aktivieren.
+| Cloudzeuge | Wählen Sie die Endpunkte aus den in Azure Stack verfügbaren Speicherkontoeigenschaften aus. | [Cloudzeuge](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) ist ein Quorumzeugentyp für Failovercluster, der Microsoft Azure zum Bereitstellen einer Stimme für das Clusterquorum verwendet.<br>Die Endpunkte in Global Azure sehen im Vergleich zu Azure Stack möglicherweise wie folgt aus:<br>Für Global Azure:<br>`https://mywitness.blob.core.windows.net/`<br>Für Azure Stack:<br>`https://mywitness.blob.<region>.<FQDN>/`|
+| Diagnose des virtuellen Computers | Die Linux-VM-Diagnose wird unterstützt. | Die Linux-VM-Diagnose wird in Azure Stack nicht unterstützt. Wenn Sie eine Linux-VM mit aktivierter VM-Diagnose bereitstellen, schlägt die Bereitstellung fehl. Die Bereitstellung schlägt auch fehl, wenn Sie die grundlegenden Linux-VM-Metriken über die Diagnoseeinstellungen aktivieren. |
 
 ## <a name="vm-sizes"></a>VM-Größen
 
-Azure Stack erzwingt Ressourcengrenzwerte, um einen übermäßigen Ressourcenverbrauch (auf dem lokalen Server und auf Dienstebene) zu vermeiden. Durch diese Grenzwerte wird ein besseres Benutzererlebnis im Zusammenhang mit Mandanten sichergestellt, da die Auswirkungen des Ressourcenverbrauchs durch andere Mandanten verringert werden.
+Azure Stack erzwingt Ressourcengrenzwerte, um einen übermäßigen Ressourcenverbrauch (auf dem lokalen Server und auf Dienstebene) zu vermeiden. Durch diese Grenzwerte wird eine optimale Nutzung durch Mandanten ermöglicht, da die Auswirkungen des Ressourcenverbrauchs durch andere Mandanten verringert werden.
 
 - Für ausgehenden Netzwerkdatenverkehr des virtuellen Computers gelten Bandbreitenobergrenzen. Die Obergrenzen in Azure Stack sind mit denen in Azure identisch.
-- Für Speicherressourcen implementiert Azure Stack Speicher-IOPS-Grenzwerte (Input/Output Operations Per Second), um den allgemeinen übermäßigen Ressourcenverbrauch durch Mandanten für Speicherzugriff zu vermeiden.
-- Für VM-Datenträger ist Datenträger-IOPS unter Azure Stack keine Funktion des Datenträgertyps, sondern der VM-Größe. Dies bedeutet, dass der IOPS-Grenzwert für einen einzelnen zusätzlichen Datenträger für einen virtuellen Computer der Standard_Fs-Reihe 2.300 IOPS beträgt – unabhängig davon, ob Sie einen Datenträger des Typs SSD oder HDD auswählen.
+- Für Speicherressourcen implementiert Azure Stack Speicher-IOPS-Grenzwerte (Input/Output Operations Per Second), um den allgemeinen übermäßigen Ressourcenverbrauch für die Speichernutzung durch Mandanten zu vermeiden.
+- Für VM-Datenträger ist Datenträger-IOPS unter Azure Stack keine Funktion des Datenträgertyps, sondern der VM-Größe. Dies bedeutet, dass der IOPS-Grenzwert für einen zweiten Datenträger für einen virtuellen Computer der Standard_Fs-Reihe 2300 IOPS beträgt (unabhängig davon, ob Sie einen Datenträger des Typs SSD oder HDD auswählen).
 
 Die folgende Tabelle enthält die in Azure Stack unterstützten virtuellen Computer sowie ihre Konfiguration:
 
-| Type           | Größe          | Bereich der unterstützten Größen |
+| type           | Size          | Bereich der unterstützten Größen |
 | ---------------| ------------- | ------------------------ |
 |Allgemeiner Zweck |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
 |Allgemeiner Zweck |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |

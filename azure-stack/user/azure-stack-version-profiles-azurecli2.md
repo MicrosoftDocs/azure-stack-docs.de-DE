@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 7dba3d791a2ce19429506699ae538c747ed37dbd
-ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
+ms.openlocfilehash: 788d0fd6479ab054568d549af2f7a4306a963d3b
+ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66821784"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68299448"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit Azure CLI in Azure Stack
 
@@ -29,7 +29,7 @@ Mit den Schritten in diesem Artikel können Sie die Azure-Befehlszeilenschnittst
 
 ## <a name="prepare-for-azure-cli"></a>Vorbereiten für Azure CLI
 
-Sie benötigen das Zertifizierungsstellen-Stammzertifikat für Azure Stack, um die Azure CLI auf Ihrem Entwicklungscomputer verwenden zu können. Sie verwenden das Zertifikat, um Ressourcen über die CLI zu verwalten.
+Wenn Sie das Azure Stack Development Kit verwenden, benötigen Sie das CA-Stammzertifikat für Azure Stack, um die Azure CLI auf Ihrem Entwicklungscomputer zu verwenden. Sie verwenden das Zertifikat, um Ressourcen über die CLI zu verwalten.
 
  - Das **Azure Stack-Zertifizierungsstellen-Stammzertifikat** ist erforderlich, wenn Sie die CLI über eine Arbeitsstation außerhalb des ASDK nutzen.  
 
@@ -102,7 +102,7 @@ Melden Sie sich an Ihrer Entwicklungsarbeitsstation an und installieren die CLI.
 
     ![Azure CLI am Python-Speicherort von Azure Stack](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
 
-2. Notieren Sie sich den Python-Speicherort der CLI. Wenn Sie das ASDK ausführen, benötigen Sie diesen Speicherort zum Hinzufügen Ihres Zertifikat.
+2. Notieren Sie sich den Python-Speicherort der CLI. Wenn Sie das ASDK ausführen, müssen Sie diesen Speicherort zum Hinzufügen Ihres Zertifikats verwenden.
 
 
 ## <a name="windows-azure-ad"></a>Windows (Azure AD)

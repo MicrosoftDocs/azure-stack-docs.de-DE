@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: f25bc769e7461c21e40017d6413cfbe35186441b
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 3a92a142181b9e2268948d430b0a62d6ffa189d8
+ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419589"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239442"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904: Bekannte Probleme
 
@@ -214,6 +214,11 @@ Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer a
 - Geltungsbereich: Dieses Problem betrifft die Versionen 1904 und 1905.
 - Ursache: Das Blatt mit der Instanzansicht einer Skalierungsgruppe im Azure Stack-Portal unter **Dashboard** > **VM-Skalierungsgruppen** > **AnyScaleSet – Instanzen** > **AnyScaleSetInstance** kann nicht geladen werden.
 - Abhilfe: Es gibt derzeit keine Abhilfe, und wir arbeiten an der Behebung des Fehlers. Verwenden Sie bis dahin das CLI-Cmdlet `az vmss get-instance-view`, um die Instanzansicht einer VM-Skalierungsgruppe abzurufen.
+
+### <a name="user-image-service"></a>Dienst für Benutzerimages
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Ein Fehler bei der Erstellung eines Benutzerimages sorgt dafür, dass sich der Benutzerimagedienst in einem fehlerhaften Zustand befindet. Das Erstellen von Benutzerimages und Löschvorgänge schlagen fehl. Das Löschen von Benutzerimages schlägt fehl und gibt möglicherweise folgenden Fehler aus: „Fehler: An internal disk management error occurred." (Interner Fehler bei der Datenträgerverwaltung).
+- Abhilfe: Keine Lösung. Öffnen Sie ein Supportticket für Microsoft.
 
 ## <a name="storage"></a>Storage
 

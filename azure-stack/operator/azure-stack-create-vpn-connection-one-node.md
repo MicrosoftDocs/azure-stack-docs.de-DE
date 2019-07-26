@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: cee1ca68caa6742eb5d965b53b685746d9057691
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f34ed3459ad8346860872a4b63a25e214501a2dd
+ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985388"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68299461"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Erstellen einer Site-to-Site-VPN-Verbindung zwischen zwei virtuellen Netzwerken in unterschiedlichen Azure Stack Development Kit-Umgebungen
 
@@ -75,7 +75,7 @@ In der folgenden Tabelle sind die Netzwerkkonfigurationen für beide ASDK-Umgebu
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>Abrufen der IP-Adresse des externen Adapters des virtuellen NAT-Computers
 
 1. Melden Sie sich auf dem physischen Azure Stack-Computer für POC1 an.
-2. Fügen Sie Ihr Administratorkennwort in den folgenden PowerShell-Code ein, und führen Sie den Code auf dem POC-Host aus:
+2. Bearbeiten Sie den folgenden PowerShell-Code, um Ihr Administratorkennwort hinzuzufügen. Führen Sie den Code dann auf dem POC-Host aus:
 
    ```powershell
    cd \AzureStack-Tools-master\connect
@@ -173,7 +173,7 @@ Etwas allgemeiner betrachtet wird mit der Ressource des lokalen Netzwerkgateways
 
 ### <a name="create-a-vm"></a>Erstellen einer VM
 
-Zum Überprüfen der durch die VPN-Verbindung geleiteten Daten benötigen Sie die virtuellen Computer zum Senden und Empfangen von Daten in den einzelnen Azure Stack Development Kits. Erstellen Sie jetzt einen virtuellen Computer in POC1, und platzieren Sie ihn dann im VM-Subnetz Ihres virtuellen Netzwerks.
+Zum Überprüfen der durch die VPN-Verbindung geleiteten Daten benötigen Sie die virtuellen Computer zum Senden und Empfangen von Daten in den einzelnen Azure Stack Development Kits. Erstellen Sie jetzt einen virtuellen Computer in POC1, und platzieren Sie ihn dann im VM-Subnetz Ihres virtuellen Netzwerks:
 
 1. Wählen Sie im Azure-Portal die Option **+ Ressource erstellen**.
 2. Wechseln Sie zu **Marketplace**, und wählen Sie dann **Compute** aus.
@@ -274,8 +274,6 @@ Zum Konfigurieren der VPN-Verbindung müssen Sie eine statische NAT-Zuordnung er
 
 > [!NOTE]
 > Diese Konfiguration ist nur für Azure Stack Development Kit-Umgebungen erforderlich.
->
->
 
 ### <a name="configure-the-nat"></a>Konfigurieren der NAT
 

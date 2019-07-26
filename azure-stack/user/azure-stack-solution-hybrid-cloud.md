@@ -10,23 +10,23 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 97869ef7659cb5619ff962fc4b3bc8facbc599ed
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 73fc9559e639973b07c576f8590c756032db0c3e
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492443"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286923"
 ---
-# <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Tutorial: Bereitstellen einer Hybrid Cloud-Lösung mit Azure und Azure Stack
+# <a name="deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Bereitstellen einer Hybrid Cloud-Lösung mit Azure und Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-In diesem Tutorial erfahren Sie, wie Sie eine Hybrid Cloud-Lösung bereitstellen, für die die öffentliche Azure-Cloud und die private Azure Stack-Cloud verwendet werden.
+In diesem Szenario erfahren Sie, wie Sie eine Hybrid Cloud-Lösung bereitstellen, für die die öffentliche Azure-Cloud und die private Azure Stack-Cloud verwendet werden.
 
 Indem Sie eine Hybrid Cloud-Lösung verwenden, können Sie die Compliancevorteile einer privaten Cloud mit der Skalierbarkeit der öffentlichen Cloud verbinden. Darüber hinaus können Ihre Entwickler das Microsoft-Entwicklerökosystem nutzen und ihre Fähigkeiten auf die Cloudumgebungen und lokalen Umgebungen anwenden.
 
@@ -45,6 +45,12 @@ Dieses Tutorial enthält die folgenden Aufgaben:
 > - Erstellen eines Traffic Manager-Profils mit anschließender Konfiguration für die cloudübergreifende Skalierung
 > - Einrichten der Application Insights-Überwachung und -Benachrichtigung für erhöhten Datenverkehr
 > - Konfigurieren der automatischen Umschaltung des Datenverkehrs zwischen der globalen Azure-Umgebung und Azure Stack
+
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack ist eine Erweiterung von Azure. Mit Azure Stack holen Sie sich die Agilität und Innovation von Cloud Computing in Ihre lokale Umgebung. Sie erhalten die einzige Hybrid Cloud, mit der Sie Hybrid-Apps überall entwickeln und bereitstellen können.  
+> 
+> Im Artikel [Entwurfsüberlegungen für Hybridanwendungen](azure-stack-edge-pattern-overview.md) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybrid-Apps, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
 
 ### <a name="assumptions"></a>Annahmen
 

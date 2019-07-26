@@ -1,24 +1,24 @@
 ---
-title: 'Azure Stack-Netzwerke: Unterschiede und Überlegungen | Microsoft-Dokumentation'
+title: Unterschiede bei Azure Stack-Netzwerken | Microsoft-Dokumentation
 description: Dieser Artikel beschreibt die Unterschiede und zu berücksichtigende Aspekte bei der Verwendung von Netzwerken in Azure Stack.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 06/17/2019
+ms.date: 07/10/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
-ms.reviewer: scottnap
-ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: a59b716df7e8bf7c9a76abbfcdbe6b300c985c9f
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.reviewer: wamota
+ms.lastreviewed: 07/10/2019
+ms.openlocfilehash: 7e0f533c10e8dae0566284ffb09cfa7281213002
+ms.sourcegitcommit: ca7e6b7b9b27d0d93ee4d5d1eeaf3113bbcea4da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198820"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68229437"
 ---
-# <a name="considerations-for-azure-stack-networking"></a>Überlegungen zu Azure Stack-Netzwerken
+# <a name="differences-and-considerations-for-azure-stack-networking"></a>Azure Stack-Netzwerke: Unterschiede und Überlegungen
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -49,19 +49,19 @@ Dieser Artikel enthält eine Übersicht über die besonderen Überlegungen für 
 |  | Anwendungssicherheitsgruppen | Unterstützt | Noch nicht unterstützt. |
 | Gateways für virtuelle Netzwerke | Point-to-Site-VPN Gateway | Unterstützt | Noch nicht unterstützt. |
 |  | VNet-zu-VNet-Gateway | Unterstützt | Noch nicht unterstützt. |
-|  | Typ des Gateways für das virtuelle Netzwerk | Azure unterstützt VPN<br> ExpressRoute <br> Hyper Net | Azure Stack unterstützt derzeit nur VPN als Typ. |
+|  | Typ des Gateways für das virtuelle Netzwerk | Azure unterstützt VPN<br> ExpressRoute <br> Hyper Net | Azure Stack unterstützt derzeit nur den VPN-Typ. |
 |  | VPN Gateway-SKUs | Unterstützung für Basic, GW1, GW2, GW3, Standard High Performance, Ultra-High Performance | Unterstützung für Basic-, Standard- und High Performance-SKUs |
-|  | VPN-Typ | Azure unterstützt sowohl „Richtlinienbasiert“ als auch „Routenbasiert“. | Azure Stack unterstützt nur „Routenbasiert“. |
+|  | VPN-Typ | Azure unterstützt sowohl richtlinienbasierte als auch routenbasierte VPN-Typen. | Azure Stack unterstützt nur routenbasierte VPN-Typen. |
 |  | BGP-Einstellungen | Azure unterstützt die Konfiguration der BGP-Peering-Adresse und Peer-Gewichtung. | BGP-Peering-Adresse und Peer-Gewichtung werden in Azure Stack automatisch konfiguriert. Es gibt keine Möglichkeit für den Benutzer, diese Einstellungen mit eigenen Werten zu konfigurieren. |
 |  | Gateway-Standardwebsite | Azure unterstützt die Konfiguration einer Standardwebsite für Tunnelerzwingung. | Noch nicht unterstützt. |
-|  | Ändern der Gatewaygröße | Azure unterstützt das Ändern der Gatewaygröße nach der Bereitstellung. | Die Änderung der Größe wird nicht unterstützt. |
+|  | Ändern der Gatewaygröße | Azure unterstützt das Ändern der Gatewaygröße nach der Bereitstellung. | Die Größenänderung wird nicht unterstützt. |
 |  | Verfügbarkeitskonfiguration | Aktiv/aktiv | Aktiv/passiv |
 |  | UsePolicyBasedTrafficSelectors | Azure unterstützt die Verwendung richtlinienbasierter Datenverkehrsselektoren mit routenbasierten Gatewayverbindungen. | Noch nicht unterstützt. |
-| Load Balancer | SKU | Load Balancer Basic und Standard werden unterstützt. | Nur Load Balancer Basic wird unterstützt.  Die SKU-Eigenschaft wird nicht unterstützt. |
+| Load Balancer | SKU | Load Balancer Basic und Standard werden unterstützt. | Nur Load Balancer Basic wird unterstützt.<br>Die SKU-Eigenschaft wird nicht unterstützt.<br>Der Load Balancer der SKU „Basic“ (/path/) darf nicht mehr als fünf Front-End-IP-Konfigurationen aufweisen.  |
 |  | Zones | Verfügbarkeitszonen werden unterstützt. | Noch nicht unterstützt |
-|  | Unterstützung eingehender NAT-Regeln für Dienstendpunkte | Azure unterstützt das Festlegen von Dienstendpunkten für eingehende NAT-Regeln. | Azure Stack unterstützt noch keine Dienstendpunkte, daher können keine festgelegt werden. |
+|  | Unterstützung eingehender NAT-Regeln für Dienstendpunkte | Azure unterstützt das Festlegen von Dienstendpunkten für eingehende NAT-Regeln. | Da Azure Stack noch keine Dienstendpunkte unterstützt, können diese nicht festgelegt werden. |
 |  | Protocol | Azure unterstützt das Festlegen von GRE oder ESP. | Protokollklassen werden in Azure Stack nicht unterstützt. |
-| Öffentliche IP-Adresse | Version der öffentlichen IP-Adresse | Azure unterstützt IPv6 und IPv4 | Es wird nur IPv4 unterstützt. |
+| Öffentliche IP-Adresse | Version der öffentlichen IP-Adresse | Azure unterstützt sowohl IPv6 als auch IPv4. | Es wird nur IPv4 unterstützt. |
 | Netzwerkschnittstelle | Abrufen der effektiven Routentabelle | Unterstützt | Noch nicht unterstützt. |
 |  | Abrufen der effektiven ACLs | Unterstützt | Noch nicht unterstützt. |
 |  | Aktivieren des beschleunigten Netzwerkbetriebs | Unterstützt | Noch nicht unterstützt. |

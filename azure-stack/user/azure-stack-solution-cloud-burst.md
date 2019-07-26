@@ -10,19 +10,19 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: eb5815a55e5e2c60ce61f9c4af96ee58a1aa684b
-ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
+ms.openlocfilehash: 1bbe22bdc78f28aa172c90770cd5d2857878d2c3
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67138946"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286918"
 ---
-# <a name="tutorial-create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>Tutorial: Erstellen von cloudübergreifenden, skalierenden App-Lösungen mit Azure und Azure Stack
+# <a name="create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>Erstellen von cloudübergreifenden, skalierenden App-Lösungen mit Azure und Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -30,7 +30,7 @@ Es wird beschrieben, wie Sie eine cloudübergreifende Lösung erstellen, um eine
 
 Bei diesem Muster ist Ihr Mandant ggf. noch nicht bereit für die Ausführung Ihrer App in der öffentlichen Cloud. Es ist für das Unternehmen aber unter Umständen nicht wirtschaftlich, die für die lokale Umgebung erforderliche Kapazität beizubehalten, um für die App Auslastungsspitzen verarbeiten zu können. Ihr Mandant kann die Elastizität der öffentlichen Cloud für die lokale Lösung nutzen.
 
-In diesem Tutorial erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht:
+In dieser Lösung erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht:
 
 > [!div class="checklist"]
 > - Erstellen Sie eine Web-App mit mehreren Knoten.
@@ -43,7 +43,7 @@ In diesem Tutorial erstellen Sie eine Beispielumgebung, die Folgendes ermöglich
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack ist eine Erweiterung von Azure. Mit Azure Stack holen Sie sich die Agilität und Innovation von Cloud Computing in Ihre lokale Umgebung. Sie erhalten die einzige Hybrid Cloud, mit der Sie Hybrid-Apps überall entwickeln und bereitstellen können.  
 > 
-> Im Whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Entwurfsüberlegungen für Hybridanwendungen) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybrid-Apps, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
+> Im Artikel [Entwurfsüberlegungen für Hybridanwendungen](azure-stack-edge-pattern-overview.md) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybrid-Apps, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

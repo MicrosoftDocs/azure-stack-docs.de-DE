@@ -1,5 +1,5 @@
 ---
-title: Tutorial&#58; Bereitstellen von Apps in Azure und Azure Stack | Microsoft-Dokumentation
+title: Bereitstellen von Apps in Azure und Azure Stack | Microsoft-Dokumentation
 description: Erfahren Sie mehr zum Bereitstellen von Apps in Azure und Azure Stack mit einer hybriden CI/CD-Pipeline.
 services: azure-stack
 documentationcenter: ''
@@ -10,25 +10,25 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 03/11/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 9f0f25e5810fc4c9a27d3607defbaca9dcfc0388
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 9fbadb923452fc2420d1f8626a69d377c4d72e12
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692086"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286963"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Bereitstellen von Apps in Azure und Azure Stack
+# <a name="deploy-apps-to-azure-and-azure-stack"></a>Bereitstellen von Apps in Azure und Azure Stack
 
 *Gilt für: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
 Hier erfahren Sie, wie Sie mithilfe einer hybriden Pipeline für Continuous Integration/Continuous Delivery (CI/CD) Apps in Azure und Azure Stack bereitstellen.
 
-In diesem Tutorial erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht:
+In dieser Lösung erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht:
 
 > [!div class="checklist"]
 > * Initiieren Sie einen neuen Build basierend auf Codecommits für Ihr Azure DevOps Services-Repository.
@@ -51,9 +51,9 @@ Weitere Informationen zu CI und CD:
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack ist eine Erweiterung von Azure. Azure Stack ermöglicht für Ihre lokale Umgebung die Flexibilität und das Innovationspotenzial des Cloud Computing. Dies ist die einzige Hybrid Cloud, mit der Sie Hybrid-Apps entwickeln und an jedem Ort bereitstellen können.  
+> Microsoft Azure Stack ist eine Erweiterung von Azure. Mit Azure Stack holen Sie sich die Agilität und Innovation von Cloud Computing in Ihre lokale Umgebung. Sie erhalten die einzige Hybrid Cloud, mit der Sie Hybrid-Apps überall entwickeln und bereitstellen können.  
 > 
-> Im Whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Entwurfsüberlegungen für Hybridanwendungen) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybridanwendungen, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
+> Im Artikel [Entwurfsüberlegungen für Hybridanwendungen](azure-stack-edge-pattern-overview.md) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybrid-Apps, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -63,9 +63,9 @@ Für die Erstellung einer hybriden CI/CD-Pipeline sind einige Komponenten erford
 * Ein Azure Stack-Bediener muss die folgenden Schritte ausführen: App Service bereitstellen, Pläne und Angebote sowie ein Mandantenabonnement erstellen und das Windows Server 2016-Image hinzufügen.
 
 >[!NOTE]
->Wenn Sie bereits einige dieser Komponenten bereitgestellt haben, sollten Sie vor Beginn dieses Tutorials sicherstellen, dass diese alle Anforderungen erfüllen.
+>Wenn Sie bereits einige dieser Komponenten bereitgestellt haben, sollten Sie vor Beginn dieser Lösung sicherstellen, dass diese alle Anforderungen erfüllen.
 
-In diesem Tutorial wird davon ausgegangen, dass Sie bereits über Grundkenntnisse in Bezug auf Azure und Azure Stack verfügen. Lesen Sie die folgenden Artikel, um vor dem Starten des Tutorials weitere Informationen zu erhalten:
+In dieser Lösung wird davon ausgegangen, dass Sie bereits über Grundkenntnisse in Bezug auf Azure und Azure Stack verfügen. Lesen Sie die folgenden Artikel, um vor dem Starten der Lösung weitere Informationen zu erhalten:
 
 * [Einführung in Azure](https://azure.microsoft.com/overview/what-is-azure/)
 * [Azure Stack Key Concepts (Wichtige Begriffe für Azure Stack)](../operator/azure-stack-overview.md)
@@ -73,12 +73,12 @@ In diesem Tutorial wird davon ausgegangen, dass Sie bereits über Grundkenntniss
 ### <a name="azure-requirements"></a>Anforderungen für Azure
 
 * Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
-* Erstellen Sie eine [Web-App](https://docs.microsoft.com/azure/app-service/overview) in Azure. Notieren Sie sich die Web-App-URL, die Sie im Tutorial benötigen.
+* Erstellen Sie eine [Web-App](https://docs.microsoft.com/azure/app-service/overview) in Azure. Notieren Sie sich die Web-App-URL, die Sie in der Lösung benötigen.
 
 ### <a name="azure-stack-requirements"></a>Anforderungen für Azure Stack
 
 * Verwenden Sie ein integriertes Azure Stack-System, oder stellen Sie das Azure Stack Development Kit (ASDK) bereit. So stellen Sie das ASDK bereit
-  * Der Artikel [Tutorial: Installieren des Azure Stack Development Kits (ASDK)](../asdk/asdk-install.md) enthält ausführliche Informationen zur Bereitstellung.
+  * Die [Lösung: Installieren des Azure Stack Development Kits (ASDK)](../asdk/asdk-install.md) enthält ausführliche Informationen zur Bereitstellung.
   * Mit dem PowerShell-Skript [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) lassen sich die Schritte nach der ASDK-Bereitstellung automatisieren.
 
     > [!Note]
@@ -284,7 +284,7 @@ Sie können die Anleitung unter [Create an Azure Resource Manager service connec
 | Verbindungsname | Azure Stack Azure AD | Der Name der Verbindung. |
 | Environment | AzureStack | Der Name Ihrer Umgebung. |
 | Umgebungs-URL | `https://management.local.azurestack.external` | Ihr Verwaltungsendpunkt. |
-| Bereichsebene | Abonnement | Der Bereich der Verbindung. |
+| Bereichsebene | Subscription | Der Bereich der Verbindung. |
 | Abonnement-ID | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Benutzerabonnement-ID aus Azure Stack. |
 | Abonnementname | name@contoso.com | Benutzerabonnementname aus Azure Stack. |
 | Client-ID des Dienstprinzipals | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | Die Prinzipal-ID aus [diesem Abschnitt](azure-stack-solution-pipeline.md#create-a-service-principal) des Artikels. |
@@ -309,7 +309,7 @@ Eine Dienstverbindung kann mit der folgenden Zuordnung erstellt werden:
 | Verbindungsname | Azure Stack ADFS | Der Name der Verbindung. |
 | Environment | AzureStack | Der Name Ihrer Umgebung. |
 | Umgebungs-URL | `https://management.local.azurestack.external` | Ihr Verwaltungsendpunkt. |
-| Bereichsebene | Abonnement | Der Bereich der Verbindung. |
+| Bereichsebene | Subscription | Der Bereich der Verbindung. |
 | Abonnement-ID | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Benutzerabonnement-ID aus Azure Stack. |
 | Abonnementname | name@contoso.com | Benutzerabonnementname aus Azure Stack. |
 | Client-ID des Dienstprinzipals | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | Die Client-ID des Dienstprinzipals, den Sie für AD FS erstellt haben. |
@@ -324,7 +324,7 @@ Nachdem der Endpunkt erstellt wurde, kann die Verbindung zwischen Azure DevOps u
 
 ## <a name="develop-your-application-build"></a>Entwickeln Ihres Anwendungsbuilds
 
-In diesem Teil des Tutorials führen Sie die folgenden Schritte aus:
+In diesem Teil der Lösung führen Sie folgende Schritte aus:
 
 * Fügen Sie einem Azure DevOps Services-Projekt Code hinzu.
 * Erstellen einer eigenständigen Web-App-Bereitstellung

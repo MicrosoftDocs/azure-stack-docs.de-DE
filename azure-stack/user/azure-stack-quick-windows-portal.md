@@ -1,6 +1,6 @@
 ---
-title: Azure Stack-Schnellstart – Erstellen eines virtuellen Windows-Computers
-description: Azure Stack-Schnellstart – Erstellen eines virtuellen Windows-Computers mit dem Portal
+title: Erstellen eines virtuellen Windows-Computers mit dem Azure Stack-Portal | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie einen virtuellen Windows Server 2016-Computer (VM) mit dem Azure Stack-Portal erstellen.
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -11,18 +11,18 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a25af39c5fd055989b09e4cf065d0e78bf88fc25
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: cc9a6baa3c71e58c2671b1f1b221e18a0c4f38c1
+ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782807"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67816165"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>Schnellstart: Erstellen eines virtuellen Windows Server-Computers im Azure Stack-Portal
+# <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-portal"></a>Schnellstart: Erstellen eines virtuellen Windows Server-Computers mit dem Azure Stack-Portal
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Sie können einen virtuellen Windows Server 2016-Computer im Azure Stack-Portal erstellen. Befolgen Sie die Schritte in diesem Artikel zum Erstellen und Verwenden eines virtuellen Computers.
+Erfahren Sie, wie Sie einen virtuellen Windows Server 2016-Computer (VM) mithilfe des Azure Stack-Portals erstellen.
 
 > [!NOTE]  
 > Die Screenshots in diesem Artikel werden entsprechend der Benutzeroberfläche aktualisiert, die mit der Azure Stack Version 1808 eingeführt wurde. 1808 bietet Unterstützung für die Verwendung von *verwalteten Datenträgern*, zusätzlich zu nicht verwalteten Datenträgern. Wenn Sie eine frühere Version verwenden, unterscheiden sich einige Abbildungen, wie die Datenträgerauswahl, von denen, die in diesem Artikel gezeigt werden.  
@@ -35,32 +35,38 @@ Melden Sie sich beim Azure Stack-Portal an. Die Adresse des Azure Stack-Portals 
 * Verwenden Sie für das Azure Stack Development Kit (ASDK) die folgende Adresse: https://portal.local.azurestack.external.
 * Rufen Sie bei einem integrierten Azure Stack-System die vom Azure Stack-Operator bereitgestellte URL auf.
 
-## <a name="create-a-virtual-machine"></a>Erstellen eines virtuellen Computers
+## <a name="create-a-vm"></a>Erstellen einer VM
 
-1. Klicken Sie auf **+ Eine Ressource erstellen** > **Compute** > **Windows Server 2016 Datacenter – nutzungsbasierte Bezahlung** > **Erstellen**. Wenn Sie den Eintrag **Windows Server 2016 Datacenter – nutzungsbasierte Bezahlung** nicht sehen, wenden Sie sich an Ihren Azure Stack-Betreiber. Bitten Sie ihn, diesen dem Marketplace hinzuzufügen, wie im Artikel [Hinzufügen des VM-Images für Windows Server 2016 zum Azure Stack-Marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) beschrieben.
+1. Klicken Sie auf **+ Eine Ressource erstellen** > **Compute** > **Windows Server 2016 Datacenter – nutzungsbasierte Bezahlung** > **Erstellen**. <br> Wenn Ihnen der Eintrag **Windows Server 2016 Datacenter – Pay-as-you-use** nicht angezeigt wird, können Sie sich an Ihren Azure Stack-Operator wenden und ihn bitten, diesen Eintrag (wie im Artikel [Hinzufügen eines virtuellen Windows Server 2016-Computerimages zum Azure Stack-Marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) beschrieben) zum Marketplace hinzuzufügen.
 
     ![Schritte zum Erstellen eines virtuellen Windows-Computers im Portal](media/azure-stack-quick-windows-portal/image01.png)
+
 2. Geben Sie unter **Grundlagen** Werte für **Name**, **Benutzername** und **Kennwort** ein. Wählen Sie ein **Abonnement**aus. Erstellen Sie eine **Ressourcengruppe**, oder wählen Sie eine vorhandene aus, wählen Sie einen **Speicherort** aus, und klicken Sie anschließend auf **OK**.
 
     ![Grundeinstellungen konfigurieren](media/azure-stack-quick-windows-portal/image02.png)
+
 3. Klicken Sie unter **Größe** auf **D1 Standard** und dann auf **Auswählen**.  
-    ![Auswählen der Größe des virtuellen Computers](media/azure-stack-quick-windows-portal/image03.png)
+
+    ![Größe des virtuellen Computers auswählen](media/azure-stack-quick-windows-portal/image03.png)
 
 4. Nehmen Sie auf der Seite **Einstellungen** sämtliche gewünschten Änderungen an den Standardwerten vor.
-   - Ab der Azure Stack Version 1808 können Sie den **Speicher** konfigurieren. An dieser Stelle können Sie auswählen, *verwaltete Datenträger*  zu verwenden. Vor Version 1808 können nur nicht verwaltete Datenträger verwendet werden.  
-   ![Konfigurieren der Einstellungen des virtuellen Computers](media/azure-stack-quick-windows-portal/image04.png)  
+   - Ab der Azure Stack Version 1808 können Sie den **Speicher** konfigurieren. An dieser Stelle können Sie auswählen, *verwaltete Datenträger*  zu verwenden. Bei Versionen vor Version 1808 können nur nicht verwaltete Datenträger verwendet werden.  
+
+   ![Konfigurieren der Einstellungen für den virtuellen Computer](media/azure-stack-quick-windows-portal/image04.png)  
+
    Wenn Ihre Konfigurationen abgeschlossen sind, klicken Sie auf **OK**, um den Vorgang fortzusetzen.
 
-5. Klicken Sie unter **Zusammenfassung** auf **OK**, um den virtuellen Computer zu erstellen.
+5. Klicken Sie zum Erstellen des virtuellen Computers unter **Zusammenfassung** auf **OK**.
     ![Anzeigen der Zusammenfassung und Erstellen des virtuellen Computers](media/azure-stack-quick-windows-portal/image05.png)
 
-6. Klicken Sie zum Anzeigen Ihres neuen virtuellen Computers auf **Alle Ressourcen**, suchen Sie nach dem Namen des virtuellen Computers, und klicken Sie in den Suchergebnissen auf seinen Namen.
+6. Klicken Sie zum Anzeigen des neuen virtuellen Computers auf **Alle Ressourcen**, suchen Sie nach dessen Namen, und wählen Sie ihn dann aus den Suchergebnissen aus.
+
     ![Anzeigen des virtuellen Computers](media/azure-stack-quick-windows-portal/image06.png)
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Wenn die Nutzung des virtuellen Computers abgeschlossen ist, löschen Sie den virtuellen Computer und seine Ressourcen. Wählen Sie hierzu auf der Seite des virtuellen Computers die Ressourcengruppe aus, und klicken Sie auf **Löschen**.
+Wenn Sie den virtuellen Computer nicht mehr benötigen, können Sie ihn und die Ressourcen löschen. Wählen Sie hierzu die Ressourcengruppe auf der Seite des virtuellen Computers aus, und klicken Sie auf **Löschen**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Schnellstart haben Sie einen einfachen virtuellen Windows Server-Computer bereitgestellt. Um weitere Informationen zu virtuellen Computern unter Azure Stack zu erhalten, fahren Sie mit [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md) (Überlegungen zu virtuellen Computern in Azure Stack) fort.
+In dieser Schnellstartanleitung haben Sie einen einfachen virtuellen Windows Server-Computer bereitgestellt. Weitere Informationen zu Azure Stack-VMs finden Sie unter [Überlegungen zur Verwendung von virtuellen Computern in Azure Stack](azure-stack-vm-considerations.md).

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2019
+ms.date: 07/12/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 96a29ab11ffc15b35c7035576fa68544caef594b
-ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
+ms.openlocfilehash: ff64a04731f32934c676ece8e29860bbb9acda3f
+ms.sourcegitcommit: 0bb2fdeccda3183d0bf4572819a28af8ca5f244a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67648048"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863155"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Azure Stack 1906: Bekannte Probleme
 
@@ -73,12 +73,12 @@ In diesem Artikel werden die bekannten Probleme in Version 1906 von Azure Stack
 - Abhilfe: Laden Sie das Blob mit der SAS-Option hoch.
 - Häufigkeit: Common
 
-### <a name="template"></a>Vorlage
+### <a name="update"></a>Aktualisieren
 
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Im Benutzerportal füllt die Benutzeroberfläche für die Vorlagenbereitstellung Parameter für Vorlagennamen, die mit „_“ (Unterstrich) beginnen, nicht auf.
-- Abhilfe: Entfernen Sie den „_“ (Unterstrich) aus dem Vorlagennamen.
-- Häufigkeit: Common
+- Geltungsbereich: Dieses Problem gilt für Release 1906.
+- Ursache: Im Betreiberportal wird für den Hotfix ein fehlerhafter Updatestatus angezeigt. Der Anfangszustand zeigt an, dass das Update nicht installiert werden konnte, obwohl es noch ausgeführt wird.
+- Abhilfe: Aktualisieren Sie das Portal. Dann wird der Status in „Wird ausgeführt“ geändert.
+- Häufigkeit: Zeitweilig
 
 ## <a name="networking"></a>Netzwerk
 

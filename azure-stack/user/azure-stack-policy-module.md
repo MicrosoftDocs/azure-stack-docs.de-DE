@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: 1ae0c24fe5f3a130c7878c8623facada222a0e49
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fdb17c1f8f7fd183b4542a1a0417b6880a8afe9b
+ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310794"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67816157"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Verwalten von Azure-Richtlinien mithilfe des Azure Stack-Richtlinienmoduls
 
@@ -33,7 +33,7 @@ Das Azure Stack-Richtlinienmodul ermöglicht Ihnen die Konfiguration eines Azure
 1. Installieren Sie die erforderliche Version des AzureRM PowerShell-Moduls, wie in Schritt 1 von [Installieren von PowerShell für Azure Stack](../operator/azure-stack-powershell-install.md) beschrieben.
 2. [Laden Sie die Azure Stack-Tools aus GitHub herunter](../operator/azure-stack-powershell-download.md).
 3. [Konfigurieren Sie PowerShell für die Verwendung mit Azure Stack](azure-stack-powershell-configure-user.md).
-4. Importieren Sie das AzureStack.Policy.psm1-Modul:
+4. Importieren Sie das *AzureStack.Policy.psm1*-Modul:
 
 
    ```powershell

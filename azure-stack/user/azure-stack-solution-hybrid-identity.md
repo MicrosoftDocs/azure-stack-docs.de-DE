@@ -10,19 +10,19 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 06/26/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 06/26/2019
-ms.openlocfilehash: 074d971c1f951797b5dc2d53a62eef56d0b7249f
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 3ed0c109e0253fe6d710801dbc30de04c0b5a6e5
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492323"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286829"
 ---
-# <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Tutorial: Konfigurieren einer Hybrid Cloud-Identität für Azure- und Azure Stack-Anwendungen
+# <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Konfigurieren einer Hybrid Cloud-Identität für Azure- und Azure Stack-Anwendungen
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -35,19 +35,19 @@ Der Zugriff auf Ihre Apps in globalen Azure- und Azure Stack-Instanzen kann auf 
 
 Dienstprinzipale werden verwendet, um den Zugriff auf Ihre Azure Stack-Apps zur Bereitstellung oder Konfiguration über Azure Resource Manager in Azure Stack zu gewähren.
 
-In diesem Tutorial erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht:
+In dieser Lösung erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht:
 
 > [!div class="checklist"]
 > - Einrichten einer Hybrididentität in globalen Azure- und Azure Stack-Instanzen
 > - Abrufen eines Tokens für den Zugriff auf die Azure Stack-API
 
-Sie benötigen Azure Stack-Bedienerberechtigungen für die Schritte in diesem Tutorial.
+Sie benötigen Azure Stack-Bedienerberechtigungen für die Schritte in dieser Lösung.
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack ist eine Erweiterung von Azure. Mit Azure Stack holen Sie sich die Agilität und Innovation von Cloud Computing in Ihre lokale Umgebung, indem Sie die einzige Hybrid Cloud aktivieren, mit der Sie Hybrid-Apps überall entwickeln und bereitstellen können.  
+> Microsoft Azure Stack ist eine Erweiterung von Azure. Mit Azure Stack holen Sie sich die Agilität und Innovation von Cloud Computing in Ihre lokale Umgebung. Sie erhalten die einzige Hybrid Cloud, mit der Sie Hybrid-Apps überall entwickeln und bereitstellen können.  
 > 
-> Im Whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Entwurfsüberlegungen für Hybridanwendungen) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybridanwendungen, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
+> Im Artikel [Entwurfsüberlegungen für Hybridanwendungen](azure-stack-edge-pattern-overview.md) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybrid-Apps, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
 
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Erstellen eines Dienstprinzipals für Azure AD über das Portal
@@ -60,7 +60,7 @@ Wenn Sie Azure Stack mit AD FS bereitgestellt haben, können Sie PowerShell verw
 
 ## <a name="using-the-azure-stack-api"></a>Verwenden der Azure Stack-API
 
-Im Tutorial zur [Azure Stack-API](azure-stack-rest-api-use.md) erfahren Sie Schritt für Schritt, wie Sie ein Token für den Zugriff auf die Azure Stack-API abrufen.
+In der Lösung zur [Azure Stack-API](azure-stack-rest-api-use.md) erfahren Sie Schritt für Schritt, wie Sie ein Token für den Zugriff auf die Azure Stack-API abrufen.
 
 ## <a name="connect-to-azure-stack-using-powershell"></a>Herstellen einer Verbindung mit Azure Stack mithilfe von PowerShell
 
