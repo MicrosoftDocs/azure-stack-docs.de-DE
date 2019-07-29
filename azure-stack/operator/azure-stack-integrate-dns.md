@@ -11,12 +11,12 @@ ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 05/09/2019
 keywords: ''
-ms.openlocfilehash: bf1aed6c8140f0c0753f49195082dfd71737868a
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 748da2aa4391d7f28e6d4273830d8d024021bb79
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618667"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417490"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integration des Azure Stack-Datencenters – DNS
 
@@ -80,7 +80,7 @@ Azure Stack enthält autoritative und rekursive DNS-Server. Die rekursiven Serve
 
 ## <a name="resolving-external-dns-names-from-azure-stack"></a>Auflösen von externen DNS-Namen in Azure Stack
 
-Zum Auflösen von DNS-Namen für Endpunkte außerhalb von Azure Stack (z.B. www.bing.com) müssen Sie DNS-Server bereitstellen, die Azure Stack für die Weiterleitung von DNS-Anforderungen verwenden kann, für die Azure Stack nicht autoritativ ist. Für die Bereitstellung sind die DNS-Server, an die Azure Stack Anforderungen weiterleitet, im Arbeitsblatt der Bereitstellung erforderlich (im Feld „DNS-Weiterleitung“). Geben Sie für die Fehlertoleranz mindestens zwei Server in diesem Feld an. Ohne diese Werte schlägt die Azure Stack-Bereitstellung fehl.
+Zum Auflösen von DNS-Namen für Endpunkte außerhalb von Azure Stack (z. B. www\.bing.com) müssen Sie DNS-Server bereitstellen, die Azure Stack für die Weiterleitung von DNS-Anforderungen verwenden kann, für die Azure Stack nicht autoritativ ist. Für die Bereitstellung sind die DNS-Server, an die Azure Stack Anforderungen weiterleitet, im Arbeitsblatt der Bereitstellung erforderlich (im Feld „DNS-Weiterleitung“). Geben Sie für die Fehlertoleranz mindestens zwei Server in diesem Feld an. Ohne diese Werte schlägt die Azure Stack-Bereitstellung fehl.
 
 ### <a name="configure-conditional-dns-forwarding"></a>Konfigurieren der bedingten DNS-Weiterleitung
 

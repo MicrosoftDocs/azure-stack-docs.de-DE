@@ -1,6 +1,6 @@
 ---
-title: Verwenden eines Validierungstools für Vorlagen zum Überprüfen von Vorlagen für Azure Stack | Microsoft-Dokumentation
-description: Überprüfen der Vorlagen für die Bereitstellung in Azure Stack
+title: Verwenden des Validierungstools für Vorlagen in Azure Stack | Microsoft-Dokumentation
+description: Überprüfen Sie Vorlagen für die Bereitstellung in Azure Stack mit dem Validierungstool für Vorlagen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,22 +16,21 @@ ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 3cba34e2748d00ebb886e7122ce1dd7151325c85
-ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
+ms.openlocfilehash: 30513e279b406561fd2bcf88f9119807b371e4a1
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67028290"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376786"
 ---
-# <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Überprüfen Ihrer Vorlagen für Azure Stack mit dem Validierungstool für Vorlagen
-
+# <a name="use-the-template-validation-tool-in-azure-stack"></a>Verwenden des Validierungstools für Vorlagen in Azure Stack
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Sie können das Tool für die Vorlagenvalidierung verwenden, um zu überprüfen, ob Ihre [Azure Resource Manager-Vorlagen](azure-stack-arm-templates.md) in Azure Stack bereitgestellt werden können. Das Tool für die Vorlagenvalidierung ist als Teil der Azure Stack-Tools verfügbar. Laden Sie die Azure Stack-Tools herunter, indem Sie die im Artikel [Herunterladen von Tools von GitHub](../operator/azure-stack-powershell-download.md) beschriebenen Schritte befolgen.
+Mit dem Validierungstool für Vorlagen können Sie überprüfen, ob Ihre Azure Resource Manager-[Vorlagen](azure-stack-arm-templates.md) in Azure Stack bereitgestellt werden können. Das Validierungstool für Vorlagen ist als Teil der Azure Stack-Tools erhältlich. Laden Sie die Azure Stack-Tools herunter, indem Sie die im Artikel [Herunterladen von Tools von GitHub](../operator/azure-stack-powershell-download.md) beschriebenen Schritte befolgen.
 
 ## <a name="overview"></a>Übersicht
 
-Um eine Vorlage zu überprüfen, müssen Sie zunächst eine Datei mit Cloudfunktionen erstellen und dann das Validierungstool ausführen. Sie verwenden die folgenden PowerShell-Module aus den Azure Stack-Tools:
+Um eine Vorlage zu überprüfen, müssen Sie zunächst eine Datei mit Cloudfunktionen erstellen und dann das Validierungstool ausführen. Verwenden Sie die folgenden PowerShell-Module aus den Azure Stack-Tools:
 
 - Im Ordner **CloudCapabilities**: `AzureRM.CloudCapabilities.psm1` erstellt eine JSON-Datei mit Cloudfunktionen, die die Dienste und Versionen in einer Azure Stack-Cloud darstellt.
 - Im Ordner **TemplateValidator**: `AzureRM.TemplateValidator.psm1` verwendet eine JSON-Datei mit Cloudfunktionen, um Vorlagen für die Bereitstellung in Azure Stack zu testen.
@@ -43,7 +42,7 @@ Bevor Sie die Vorlagenvalidierung verwenden, führen Sie das PowerShell-Modul **
 >[!NOTE]
 > Wenn Sie Ihr integriertes System aktualisieren oder neue Dienste oder virtuelle Erweiterungen hinzufügen, sollten Sie dieses Modul erneut ausführen.
 
-1. Stellen Sie sicher, dass Sie mit Azure Stack verbunden sind. Sie können diese Schritte auf dem Azure Stack Development Kit-Host ausführen oder ein [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) verwenden, um eine Verbindung von Ihrer Arbeitsstation aus herzustellen.
+1. Stellen Sie sicher, dass Sie mit Azure Stack verbunden sind. Sie können diese Schritte auf dem ASDK-Host (Azure Stack Development Kit) ausführen oder ein [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) verwenden, um eine Verbindung von Ihrer Arbeitsstation aus herzustellen.
 2. Importieren Sie das PowerShell-Modul **AzureRM.CloudCapabilities**:
 
     ```powershell

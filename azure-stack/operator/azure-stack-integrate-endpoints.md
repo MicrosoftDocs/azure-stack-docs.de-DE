@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 07/22/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 7ee47a5dc7344628561521f067a8310a0c8d3347
-ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
+ms.lastreviewed: 07/22/2019
+ms.openlocfilehash: 85022f074dd494978780d67db8cc14e4c243a49c
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66835087"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380457"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Integration des Azure Stack-Datencenters – Veröffentlichen von Endpunkten
 
@@ -76,11 +76,11 @@ Azure Stack unterstützt nur transparente Proxyserver. In einer Bereitstellung m
 
 |Zweck|Ziel-URL|Protocol|Ports|Quellnetzwerk|
 |---------|---------|---------|---------|---------|
-|Identity|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|Öffentliche VIP - /27<br>Öffentliches Infrastrukturnetzwerk|
-|Marketplace-Syndikation|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|Öffentliche VIP - /27|
+|Identity|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com|HTTP<br>HTTPS|80<br>443|Öffentliche VIP - /27<br>Öffentliches Infrastrukturnetzwerk|
+|Marketplace-Syndikation|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net|HTTPS|443|Öffentliche VIP - /27|
 |Patches und Updates|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Öffentliche VIP - /27|
 |Registrierung|https:\//management.azure.com|HTTPS|443|Öffentliche VIP - /27|
-|Verwendung|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|Öffentliche VIP - /27|
+|Verwendung|https://*.trafficmanager.net |HTTPS|443|Öffentliche VIP - /27|
 |Windows Defender|\*.wdcp.microsoft.com<br>\*.wdcpalt.microsoft.com<br>\*.wd.microsoft.com<br>\*.update.microsoft.com<br>\*.download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Öffentliche VIP - /27<br>Öffentliches Infrastrukturnetzwerk|
 |NTP|(IP des für die Bereitstellung bereitgestellten NTP-Servers)|UDP|123|Öffentliche VIP - /27|
 |DNS|(IP des für die Bereitstellung bereitgestellten DNS-Servers)|TCP<br>UDP|53|Öffentliche VIP - /27|
@@ -90,6 +90,7 @@ Azure Stack unterstützt nur transparente Proxyserver. In einer Bereitstellung m
 |LDAP GC|Active Directory-Gesamtstruktur, bereitgestellt für die Graph-Integration|TCP|3268|Öffentliche VIP - /27|
 |LDAP GC SSL|Active Directory-Gesamtstruktur, bereitgestellt für die Graph-Integration|TCP|3269|Öffentliche VIP - /27|
 |AD FS|AD FS-Metadatenendpunkt, bereitgestellt für die AD FS-Integration|TCP|443|Öffentliche VIP - /27|
+|Sammlungsdienst für Diagnoseprotokolle|Von Azure Storage bereitgestellte Blob SAS URL|HTTPS|443|Öffentliche VIP - /27|
 |     |     |     |     |     |
 
 Für ausgehende URLs erfolgt ein Lastenausgleich mithilfe von Azure Traffic Manager, um bestmögliche Konnektivität basierend auf dem geografischen Standort zu bieten. Durch URLs mit Lastenausgleich kann Microsoft Back-End-Endpunkte ohne Auswirkungen auf Kunden aktualisieren und ändern. Microsoft gibt die Liste der IP-Adressen für die URLs mit Lastenausgleich nicht frei. Sie sollten ein Gerät verwenden, das ein Filtern nach URL und nicht nach IP-Adresse unterstützt.

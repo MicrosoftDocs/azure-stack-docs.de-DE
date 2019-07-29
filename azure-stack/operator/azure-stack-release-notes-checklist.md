@@ -16,12 +16,12 @@ ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: c5108dc8b24fec7569d54964217f146a5cefa5e6
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 49b4276da5c7e42728cf96261104f59c70355c20
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419588"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380405"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack-Checkliste für Updateaktivitäten
 
@@ -29,15 +29,17 @@ Dieser Artikel enthält eine Checkliste mit Updateaktivitäten für Azure Stack
 
 ## <a name="prepare-for-azure-stack-update"></a>Vorbereiten auf ein Azure Stack-Update
 
-| Aktivität              | Details                                                                          |
-|-----------------------|----------------------------------------------------------------------------------|
-| Überprüfen bekannter Probleme   | [Liste mit bekannten Problemen](azure-stack-release-notes-known-issues-1906.md)                |
+| Aktivität                     | Details                                                   |
+|------------------------------|-----------------------------------------------------------|
+| Überprüfen bekannter Probleme     | [Liste mit bekannten Problemen](azure-stack-release-notes-known-issues-1906.md)                |
 | Überprüfen von Sicherheitsupdates | [Liste mit Sicherheitsupdates](azure-stack-release-notes-security-updates-1906.md)      |
-| Ausführen von „Test-AzureStack“   | Führen Sie `Test-AzureStack -Group UpdateReadiness` aus, um Betriebsprobleme zu ermitteln.      |
-| Beheben von Problemen        | Beheben Sie alle Betriebsprobleme, die mithilfe von **Test-AzureStack** ermittelt wurden.                |
-| Anwenden aktueller Hotfixes | Wenden Sie die neuesten Hotfixes an, die für die derzeit installierte Version gelten.         |
-| Ausführen des Capacity Planner-Tools | Achten Sie darauf, dass Sie für die Planung und Größenanpassung Ihrer Workloads die neueste Version des Tools [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) verwenden. Die neueste Version umfasst Fehlerbehebungen und neue Features, die mit jedem Azure Stack-Update veröffentlicht werden. |
-| Update verfügbar       | Nur in verbundenen Szenarios überprüfen Azure Stack-Bereitstellungen in regelmäßigen Abständen einen gesicherten Endpunkt und benachrichtigen Sie automatisch, wenn ein Update für Ihre Cloud verfügbar ist. Kunden ohne Verbindung können das neue Paket für 1906 wie [hier beschrieben](azure-stack-apply-updates.md) herunterladen und importieren.               |
+| Anwenden des aktuellen OEM-Pakets | Wenden Sie sich an ihren OEM, um sicherzustellen, dass Ihr System die Mindestanforderungen für OEM-Pakete für die Azure Stack-Version des Updates für Ihr System erfüllt. |
+| Ausführen von „Test-AzureStack“     | Führen Sie `Test-AzureStack -Group UpdateReadiness` aus, um Betriebsprobleme zu ermitteln.      |
+| Beheben von Problemen          | Beheben Sie alle Betriebsprobleme, die mithilfe von **Test-AzureStack** ermittelt wurden.                |
+| Anwenden aktueller Hotfixes   | Wenden Sie die neuesten Hotfixes an, die für die derzeit installierte Version gelten.         |
+| Ausführen des Capacity Planner-Tools   | Achten Sie darauf, dass Sie für die Planung und Größenanpassung Ihrer Workloads die neueste Version des Tools [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) verwenden. Die neueste Version umfasst Fehlerbehebungen und neue Features, die mit jedem Azure Stack-Update veröffentlicht werden. |
+| Update verfügbar        | Nur in verbundenen Szenarios überprüfen Azure Stack-Bereitstellungen in regelmäßigen Abständen einen gesicherten Endpunkt und benachrichtigen Sie automatisch, wenn ein Update für Ihre Cloud verfügbar ist. Kunden ohne Verbindung können das neue Paket für 1906 wie [hier beschrieben](azure-stack-apply-updates.md) herunterladen und importieren. |
+
 
 ## <a name="during-azure-stack-update"></a>Während des Azure Stack-Updates
 

@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 47a0fd72da842cc4d2f73372870c561f2d88e48d
-ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
+ms.openlocfilehash: ba6eb236086fe9ba0d3ee37d35e1ac69c8ee7224
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68286955"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418165"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Erstellen einer geografisch verteilten App-Lösung, um Datenverkehr mit Azure und Azure Stack weiterzuleiten
 
@@ -60,7 +60,7 @@ Wie bei den Skalierbarkeitsaspekten auch, geht es bei dieser Lösung nicht direk
 
 Es ist hilfreich, wenn Sie Folgendes wissen, bevor Sie den Speicherbedarf für eine verteilte App erstellen:
 
--   **Benutzerdefinierte Domäne für die App:** Wie lautet der Name der benutzerdefinierten Domäne, mit dem Kunden auf die App zugreifen? Für die Beispiel-App lautet der Name der benutzerdefinierten Domäne *www.scalableasedemo.com*.
+-   **Benutzerdefinierte Domäne für die App:** Wie lautet der Name der benutzerdefinierten Domäne, mit dem Kunden auf die App zugreifen? Für die Beispiel-App lautet der Name der benutzerdefinierten Domäne *www\.scalableasedemo.com.*
 
 -   **Traffic Manager-Domäne:** Ein Domänenname wird ausgewählt, wenn Sie ein [Azure Traffic Manager-Profil](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles) erstellen. Dieser Name wird mit dem Suffix *trafficmanager.net* kombiniert, um einen Domäneneintrag zu registrieren, der von Traffic Manager verwaltet wird. Für die Beispiel-App ist der ausgewählte Name *scalable-ase-demo*. Der vollständige Domänenname, der von Traffic Manager verwaltet wird, lautet also *scalable-ase-demo.trafficmanager.net*.
 
@@ -274,7 +274,7 @@ Aktualisieren Sie die DNS-Zonendatei für die Domäne. Azure AD überprüft die 
 
 -   Aktualisieren Sie die DNS-Zonendatei für die Domäne, indem Sie den DNS-Eintrag hinzufügen, der von Azure AD bereitgestellt wurde.
 
-Konfigurieren Sie beispielsweise die DNS-Einstellungen für die Stammdomäne „northwindcloud.com“, um DNS-Einträge für „northwindcloud.com“ und „www.northwindcloud.com“ hinzuzufügen.
+Konfigurieren Sie beispielsweise die DNS-Einstellungen für die Stammdomäne „northwindcloud.com“, um DNS-Einträge für „northwindcloud.com“ und „www\.northwindcloud.com“ hinzuzufügen.
 
 > [!Note]  
 >  Ein Domänenname kann über das [Azure-Portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain) erworben werden. Um einer Web-App einen benutzerdefinierten DNS-Namen zuzuordnen, muss der [App Service-Plan](https://azure.microsoft.com/pricing/details/app-service/) der Web-App einen kostenpflichtigen Tarif (**Shared**, **Basic**, **Standard** oder **Premium**) aufweisen.

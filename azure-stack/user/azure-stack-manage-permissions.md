@@ -1,6 +1,6 @@
 ---
-title: Verwalten von Berechtigungen für Ressourcen pro Benutzer in Azure Stack | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie als Dienstadministrator oder Mandant Berechtigungen für die rollenbasierte Zugriffssteuerung (RBAC) verwalten.
+title: Verwalten des Zugriffs auf Ressourcen mit der rollenbasierten Zugriffssteuerung in Azure Stack | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie als Dienstadministrator oder Mandant in Azure Stack Berechtigungen für die rollenbasierte Zugriffssteuerung (RBAC) verwalten.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,18 +16,18 @@ ms.date: 07/10/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 20bf709cb3c2026910a1283fb0b39ba80c719390
-ms.sourcegitcommit: 7f441f246242fa42147ab5aa69ddc8766ba293e3
+ms.openlocfilehash: a5034e92e52c6da760389d7addc77c6220d59674
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67791357"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376833"
 ---
-# <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Verwalten des Zugriffs auf Ressourcen mit der rollenbasierten Zugriffssteuerung in Azure Stack
+# <a name="manage-access-to-resources-in-azure-stack-with-role-based-access-control"></a>Verwalten des Zugriffs auf Ressourcen mit der rollenbasierten Zugriffssteuerung in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Azure Stack unterstützt die rollenbasierte Zugriffssteuerung (RBAC), das gleiche von Microsoft Azure verwendete [Sicherheitsmodell für die Zugriffsverwaltung](https://docs.microsoft.com/azure/role-based-access-control/overview). Anhand der RBAC können Sie den Benutzer-, Gruppen- oder Anwendungszugriff auf Abonnements, Ressourcen und Dienste verwalten.
+Azure Stack unterstützt die rollenbasierte Zugriffssteuerung (RBAC), das gleiche von Microsoft Azure verwendete [Sicherheitsmodell für die Zugriffsverwaltung](https://docs.microsoft.com/azure/role-based-access-control/overview). Anhand der RBAC können Sie den Benutzer-, Gruppen- oder App-Zugriff auf Abonnements, Ressourcen und Dienste verwalten.
 
 ## <a name="basics-of-access-management"></a>Grundlagen zur Zugriffsverwaltung
 
@@ -52,14 +52,14 @@ Azure Stack verfügt über die folgende Ressourcenhierarchie:
 Der Zugriff, den Sie auf übergeordneter Ebene gewähren, wird auf untergeordneter Ebene geerbt. Beispiel:
 
 * Sie weisen die Rolle **Leser** einer Azure AD-Gruppe im Abonnementbereich zu. Die Mitglieder dieser Gruppe können alle Ressourcengruppen und Ressourcen im Abonnement anzeigen.
-* Sie weisen die Rolle **Mitwirkender** einer Anwendung im Ressourcengruppenbereich zu. Damit kann die Anwendung Ressourcen aller Typen in dieser Ressourcengruppe verwalten, aber keine anderen Ressourcengruppen des Abonnements.
+* Sie weisen die Rolle **Mitwirkender** einer App im Ressourcengruppenbereich zu. Damit kann die App Ressourcen aller Typen in dieser Ressourcengruppe verwalten, aber keine anderen Ressourcengruppen des Abonnements.
 
 ### <a name="assigning-roles"></a>Zuweisen von Rollen
 
 Sie können einem Benutzer mehrere Rollen zuweisen, und jede Rolle kann einem anderen Bereich zugeordnet werden. Beispiel:
 
-* Sie weisen TestUser-A die Leserolle für Subscription-1 zu.
-* Sie weisen TestUser-A die Besitzerrolle für TestVM-1 zu.
+* Sie weisen TestUser-A die Rolle **Leser** für Subscription-1 zu.
+* Sie weisen TestUser-A die Rolle **Besitzer** für TestVM-1 zu.
 
 Der Artikel zu [Rollenzuweisungen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) in Azure enthält ausführliche Informationen zum Anzeigen, Zuweisen und Löschen von Rollen.
 
@@ -70,13 +70,13 @@ In den folgenden Schritte wird beschrieben, wie Berechtigungen für einen Benutz
 1. Melden Sie sich mit einem Konto an, das Besitzerberechtigungen für die Ressource hat, die Sie verwalten möchten.
 2. Wählen Sie im linken Navigationsbereich die Option **Ressourcengruppen** aus.
 3. Wählen Sie den Namen der Ressourcengruppe, der Sie Berechtigungen erteilen möchten.
-4. Wählen Sie im Navigationsbereich der Ressourcengruppe **Zugriffssteuerung (IAM)** . Die Ansicht **Rollenzuweisungen** enthält die Elemente, die über Zugriff auf die Ressourcengruppe verfügen. Sie können die Ergebnisse filtern und gruppieren.
+4. Wählen Sie im Navigationsbereich der Ressourcengruppe **Zugriffssteuerung (IAM)** .<BR> Die Ansicht **Rollenzuweisungen** enthält die Elemente, die über Zugriff auf die Ressourcengruppe verfügen. Sie können die Ergebnisse filtern und gruppieren.
 5. Wählen Sie auf der Menüleiste **Zugriffssteuerung** die Option **Hinzufügen** aus.
 6. Gehen Sie im Bereich **Berechtigungen hinzufügen** wie folgt vor:
 
    * Wählen Sie aus der Dropdownliste **Rolle** die Rolle aus, die Sie zugewiesen werden soll.
    * Wählen Sie aus der Dropdownliste **Zugriff zuweisen an** die Ressource aus, die Sie zugewiesen werden soll.
-   * Wählen Sie den Benutzer, die Gruppe oder die Anwendung als das Element in Ihrem Verzeichnis aus, für das Sie Zugriff gewähren möchten. Sie können das Verzeichnis mit Anzeigenamen, E-Mail-Adressen und Objektbezeichnern durchsuchen.
+   * Wählen Sie den Benutzer, die Gruppe oder die App als das Element in Ihrem Verzeichnis aus, für das Sie Zugriff gewähren möchten. Sie können das Verzeichnis mit Anzeigenamen, E-Mail-Adressen und Objektbezeichnern durchsuchen.
 
 7. Wählen Sie **Speichern** aus.
 
