@@ -1,6 +1,6 @@
 ---
-title: Grundlegendes zu iDNS in Azure Stack | Microsoft-Dokumentation
-description: Grundlegendes zu iDNS-Features und -Funktionen in Azure Stack
+title: Verwenden von iDNS in Azure Stack | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie iDNS-Features und -Funktionen in Azure Stack verwenden.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 41119ef008234b4226ce7cf2fb5070904becc493
-ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
+ms.openlocfilehash: e8a1e40ec5b333862eaca59d7269a46a91460237
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67042009"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376800"
 ---
-# <a name="introducing-idns-for-azure-stack"></a>Einführung in iDNS für Azure Stack
+# <a name="use-idns-in-azure-stack"></a>Verwenden von IDNs in Azure Stack 
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -34,9 +34,9 @@ Mit iDNS in Azure Stack erhalten Sie die folgenden Funktionen, ohne benutzerdefi
 
 - Gemeinsam genutzte DNS-Namensauflösungsdienste für Mandantenworkloads.
 - Autorisierender DNS-Dienst für Namensauflösung und DNS-Registrierung innerhalb des virtuellen Netzwerks des Mandanten.
-- Rekursiver DNS-Dienst für die Auflösung von Internetnamen aus den Mandanten-VMs. Mandanten müssen nicht mehr benutzerdefinierte DNS-Einträge zum Auflösen von Internetnamen (z. B. „www.bing.com“) angeben.
+- Rekursiver DNS-Dienst für die Auflösung von Internetnamen aus den Mandanten-VMs. Mandanten müssen nicht mehr benutzerdefinierte DNS-Einträge zum Auflösen von Internetnamen (z. B. www.bing.com) angeben.
 
-Sie können weiterhin Ihr eigenes DNS und benutzerdefinierte DNS-Server verwenden. Mit iDNS können Sie Internet-DNS-Namen auflösen und eine Verbindung mit anderen virtuellen Computern im gleichen virtuellen Netzwerk herstellen, müssen aber keine benutzerdefinierten DNS-Einträge erstellen.
+Sie können weiterhin Ihr eigenes DNS und benutzerdefinierte DNS-Server verwenden. Mit iDNS können Sie Internet-DNS-Namen auflösen und eine Verbindung mit anderen virtuellen Computern im gleichen virtuellen Netzwerk herstellen, ohne benutzerdefinierte DNS-Einträge erstellen zu müssen.
 
 ## <a name="what-doesnt-idns-do"></a>Was ist mit iDNS nicht möglich?
 

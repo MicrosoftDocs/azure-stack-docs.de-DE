@@ -14,25 +14,25 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: dd68364585fd1d204713c5a014b141f4450a1d45
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 629056556b04a7b5d19c2463b619f3da3a70f7e0
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131551"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376894"
 ---
 # <a name="use-the-azure-stack-portal"></a>Verwenden des Azure Stack-Portals
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Sie können im Azure Stack-Portal öffentliche Angebote abonnieren und die Dienste nutzen, die über diese Angebote bereitgestellt werden. Wenn Sie das globale Azure-Portal genutzt haben, sind Sie bereits mit der Funktionsweise der Website vertraut.
+Im Azure Stack-Portal können Sie öffentliche Angebote abonnieren und die Dienste nutzen, die über diese Angebote bereitgestellt werden. Wenn Sie das globale Azure-Portal genutzt haben, sind Sie bereits mit der Funktionsweise der Website vertraut.
 
 ## <a name="access-the-portal"></a>Zugriff auf das Portal
 
-Ihr Azure Stack-Operator (ein Dienstanbieter oder ein Administrator in Ihrer Organisation) teilt Ihnen die richtige URL für den Zugriff auf das Portal mit.
+Ihr Azure Stack-Bediener (ein Dienstanbieter oder ein Administrator in Ihrer Organisation) teilt Ihnen die richtige URL für den Zugriff auf das Portal mit.
 
 - Bei einem integrierten System variiert die URL abhängig von der Region und dem externen Domänenamen des Betreibers und hat das Format https://portal.&lt;*Region*&gt;.&lt;*FQDN*&gt;.
-- Wenn Sie das Azure Stack Development Kit verwenden, lautet die Portaladresse https://portal.local.azurestack.external.
+- Wenn Sie das Azure Stack Development Kit (ASDK) verwenden, lautet die Portaladresse https://portal.local.azurestack.external.
 - Die Standardzeitzone für alle Azure Stack-Bereitstellungen ist auf „Koordinierte Weltzeit (UTC)“ festgelegt. Sie können bei der Installation von Azure Stack eine Zeitzone auswählen, diese wird während der Installation jedoch automatisch auf die Standardeinstellung „UTC“ zurückgesetzt.
 
 ## <a name="customize-the-dashboard"></a>Anpassen des Dashboards
@@ -47,7 +47,7 @@ So stellen Sie die ursprünglichen Dashboardeinstellungen wieder her:
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Erstellen von Abonnements und Durchsuchen verfügbarer Ressourcen
 
-Wenn Sie noch kein Abonnement haben, müssen Sie zunächst ein Angebot abonnieren. Danach können Sie die verfügbaren Ressourcen durchsuchen. Führen Sie zum Durchsuchen und Erstellen von Ressourcen einen der folgenden Schritte aus:
+Wenn Sie noch kein Abonnement haben, müssen Sie ein Angebot abonnieren. Danach können Sie die verfügbaren Ressourcen durchsuchen. Führen Sie zum Durchsuchen und Erstellen von Ressourcen einen der folgenden Schritte aus:
 
 - Wählen Sie auf dem Dashboard die Kachel **Marketplace** aus.
 - Wählen Sie auf der Kachel **Alle Ressourcen** die Option **Ressourcen erstellen** aus.
@@ -59,7 +59,7 @@ Wenn Sie Anleitungen zur Verwendung verfügbarer Dienste wünschen, stehen Ihnen
 
 - Ihre Organisation oder Ihr Dienstanbieter stellt möglicherweise eine eigene Dokumentation bereit. Dies ist in der Regel der Fall, wenn angepasste Dienste oder Apps angeboten werden.
 - Für Drittanbieter-Apps sind eigene Dokumentationen erforderlich.
-- Für Azure-konsistente Dienste sollten Sie zuerst die Azure Stack-Dokumentation lesen. Um auf die Azure Stack-Benutzerdokumentation zuzugreifen, wählen Sie das Symbol „Hilfe“ und dann **Hilfe und Support** aus.
+- Für Azure-konsistente Dienste sollten Sie zuerst die Azure Stack-Dokumentation lesen. Um auf die Azure Stack-Benutzerdokumentation zuzugreifen, wählen Sie das Symbol „Hilfe“ ( **?** ) und dann **Hilfe und Support** aus.
 
     ![Option „Hilfe und Support“ in der Benutzeroberfläche](media/azure-stack-use-portal/HelpAndSupport.png)
 
@@ -74,7 +74,7 @@ Wenn Sie Anleitungen zur Verwendung verfügbarer Dienste wünschen, stehen Ihnen
 
 Wenn Sie Unterstützung benötigen, wenden Sie sich an Ihr Unternehmen oder Ihren Dienstanbieter.
 
-Bei Verwendung des Azure Stack Development Kit können Sie nur das [Azure Stack-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) als Support nutzen.
+Bei Verwendung des Azure Stack Development Kit (ASDK) können Sie nur das [Azure Stack-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) als Support nutzen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
