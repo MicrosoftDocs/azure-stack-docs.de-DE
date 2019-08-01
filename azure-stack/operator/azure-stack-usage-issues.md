@@ -15,12 +15,12 @@ ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 57c546ec3583c9e04594e4da542a3c2ce3f72c62
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 68bf47ab2a0842b0aeeae07030272e7106a63220
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419915"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494115"
 ---
 # <a name="usage-connectivity-errors"></a>Verbindungsfehler bei der Nutzung
 
@@ -55,7 +55,7 @@ In diesem Abschnitt werden die Nutzungsfehlercodes beschrieben.
 | Nicht autorisiert               | Die Azure-Bridge kann keine Daten per Push an den Nutzungsdienst in Azure übertragen, weil der Azure-Dienst die Azure Stack-Bridge nicht authentifizieren kann. | Überprüfen Sie, ob die Registrierungsressource geändert wurde, und wenn dies der Fall ist, registrieren Sie Azure Stack erneut. <br><br> Manchmal kann ein Zeitsynchronisierungsproblem zwischen Azure Stack und Azure AD diesen Fehler verursachen. Stellen Sie in diesem Fall sicher, dass die Zeiten auf den XRP-VMs in Azure Stack mit Azure AD synchronisiert sind. |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
-Zusätzlich müssen Sie eventuell die Protokolldateien für die Azure-Bridge-, WAS- und WASPublic-Komponenten bereitstellen, indem Sie gemäß [diesen Schritten](azure-stack-diagnostics.md#log-collection-tool) vorgehen.
+Zusätzlich müssen Sie eventuell die Protokolldateien für die Azure-Bridge-, WAS- und WASPublic-Komponenten bereitstellen, indem Sie gemäß [diesen Schritten](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep) vorgehen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

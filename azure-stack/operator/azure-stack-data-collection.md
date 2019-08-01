@@ -16,28 +16,28 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 9da7ced492a86cb97a1b90a2224383d834073423
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: 495b75359cb8c859e532885a1c9fa284691bd90f
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828351"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493812"
 ---
 # <a name="azure-stack-log-and-customer-data-handling"></a>Azure Stack-Protokoll und Behandlung von Kundendaten 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*  
 
 In dem Umfang, in dem Microsoft ein Prozessor oder Subprozessor personenbezogener Daten im Zusammenhang mit Azure Stack ist, geht Microsoft für alle Kunden, in Kraft tretend am 25. Mai 2018, die in (a) „Processing of Personal Data; GDPR (Verarbeitung von persönlichen Daten; DSGVO“ im Abschnitt „Data Protection Terms (Datenschutzbestimmungen))“ der [Online Services Terms (Onlinenutzungsbedingungen)](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) und (b) der „European Union General Data Protection Regulation Terms (Allgemeine Datenschutzbestimmungen der Europäischen Union)“ in Anhang 4 der [Online Services Terms (Onlinenutzungsbedingungen)](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) enthaltenen Verpflichtungen ein. 
 
-Für Azure Stack im Rechenzentrum des Kunden ist Microsoft ausschließlich Data Controller der Daten, die gemeinsam mit Microsoft über [Diagnose](azure-stack-diagnostics.md), [Telemetrie](azure-stack-telemetry.md), und [Abrechnung](azure-stack-usage-reporting.md) genutzt werden.  
+Für Azure Stack im Rechenzentrum des Kunden ist Microsoft ausschließlich Data Controller der Daten, die gemeinsam mit Microsoft über [Diagnose](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep), [Telemetrie](azure-stack-telemetry.md), und [Abrechnung](azure-stack-usage-reporting.md) genutzt werden.  
 
 ## <a name="data-access-controls"></a>Datenzugriffssteuerung 
 Microsoft-Mitarbeiter, die mit der Untersuchung eines bestimmten Supportfalls beauftragt sind, erhalten Lesezugriff auf die verschlüsselten Daten. Microsoft-Mitarbeiter haben bei Bedarf ebenfalls Zugriff auf Tools zum Löschen der Daten. Jeder Zugriff auf Kundendaten wird überwacht und protokolliert.  
 
 Datenzugriffssteuerung:
-1.  Daten werden nur für bis zu 90 Tage nach dem Schließen des Falls gespeichert.
-2.  Der Kunde hat immer die Möglichkeit, die Daten zu einem beliebigen Zeitpunkt in diesem 90-Tage-Zeitraum entfernen zu lassen.
-3.  Microsoft-Mitarbeiter erhalten von Fall zu Fall Zugriff auf die Daten und insoweit, wie zum Lösen des Supportproblems erforderlich. 
-4.  Wenn Microsoft Kundendaten gemeinsam mit OEM-Partnern nutzen muss, ist die Zustimmung des Kunden erforderlich.  
+- Daten werden nur für bis zu 90 Tage nach dem Schließen des Falls gespeichert.
+- Der Kunde hat immer die Möglichkeit, die Daten zu einem beliebigen Zeitpunkt in diesem 90-Tage-Zeitraum entfernen zu lassen.
+- Microsoft-Mitarbeiter erhalten von Fall zu Fall Zugriff auf die Daten und insoweit, wie zum Lösen des Supportproblems erforderlich. 
+- Wenn Microsoft Kundendaten gemeinsam mit OEM-Partnern nutzen muss, ist die Zustimmung des Kunden erforderlich.  
 
 ### <a name="what-data-subject-requests-dsr-controls-do-customers-have"></a>Welche Data Subject Requests-Kontrollen (DSR) stehen Kunden zur Verfügung?
 Wie bereits erwähnt, unterstützt Microsoft bei Bedarf Datenlöschung pro Kundenanforderung. Kunden können anfordern, dass unsere Supportmitarbeiter alle ihre Protokolle für einen bestimmten Fall zu einem beliebigen, vom Kunden ausgewählten Zeitpunkt löschen, bevor die Daten dauerhaft gelöscht werden.  
@@ -48,7 +48,7 @@ Für die automatisierte Datenlöschaktion (90 Tage nach dem Schließen des Fall
 Für die bedarfsgesteuerte Datenlöschaktion haben Microsoft-Supportmitarbeiter Zugriff auf das Tool, wo sie das Löschen der Daten bei Bedarf initiieren können, und sie können Kunden dies nach Abschluss telefonisch bestätigen.
 
 ## <a name="diagnostic-data"></a>Diagnosedaten
-Im Rahmen des Supportprozess können Azure Stack-Operator für Azure Stack-Support und Engineering-Teams [Diagnoseprotokolle freigeben](azure-stack-diagnostics.md), um die Problembehandlung zu vereinfachen.
+Im Rahmen des Supportprozess können Azure Stack-Operator für Azure Stack-Support und Engineering-Teams [Diagnoseprotokolle freigeben](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep), um die Problembehandlung zu vereinfachen.
 
 Microsoft stellt ein Tool und Skript für Kunden bereit, um angeforderte Diagnoseprotokolldateien zu sammeln und hochzuladen. Nach der Erfassung werden die Protokolldateien über eine HTTPS-geschützte, verschlüsselte Verbindung an Microsoft übertragen. Da HTTPS die Verschlüsselung über das Netzwerk bereitstellt, ist während der Übertragung kein Kennwort für die Verschlüsselung erforderlich. Nach Empfangen werden die Protokolle verschlüsselt und gespeichert, bis sie automatisch 90 Tage nach Schließen des Supportfalls gelöscht werden.
 

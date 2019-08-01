@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: c099d67c6446fbd77db62f4c496868437d861f85
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: a66b6fce646a591efac17a5b6e4ed804dba211e7
+ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418486"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68692154"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack"></a>Unterstützte Metriken für Azure Monitor in Azure Stack
 
@@ -50,8 +50,7 @@ Die folgenden Tabellen enthalten die Metriken, die über die Metrikpipeline von 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
 | Metrik | Metrikanzeigename | Unit | Aggregationstyp | BESCHREIBUNG | Dimensionen |
-|----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
+|--------|---------------------|------|------------------|-------------|------------|
 | BlobCapacity | Blob-Kapazität | Byte | Gesamt | Die Größe des vom Blob-Dienst des Speicherkontos genutzten Speichers in Byte. | BlobType |
 | BlobCount | Anzahl von Blobs | Count | Gesamt | Die Anzahl von Blobs im Blob-Dienst des Speicherkontos. | BlobType |
 | ContainerCount | Anzahl von Blob-Containern | Count | Durchschnitt | Die Anzahl von Containern im Blob-Dienst des Speicherkontos. | Keine Dimensionen |
