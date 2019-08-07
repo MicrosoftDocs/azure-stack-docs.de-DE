@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 40be490efceb6747bf848518c55cca64784492da
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: d45b11eb70533125ff8136763be24a3333c1f7dc
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268759"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493953"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referenz für den Infrastructure Backup-Dienst
 
@@ -84,22 +84,37 @@ Es handelt sich um folgende Anforderungen:
 |-----|---------|
 | SMB | 3.x     |
 
+#### <a name="smb-encryption"></a>SMB-Verschlüsselung
+
+**1907 und höher**
+
+Der Infrastruktursicherungsdienst unterstützt das Übertragen von Sicherungsdaten an einen externen Speicherort mit aktivierter serverseitiger SMB-Verschlüsselung. Wenn der Server keine SMB-Verschlüsselung unterstützt oder die Funktion auf ihm nicht aktiviert ist, greift der Infrastruktursicherungsdienst auf die unverschlüsselte Datenübertragung zurück. Sicherungsdaten, die auf dem externen Speicherort platziert werden, sind im Ruhezustand immer verschlüsselt, unabhängig von der SMB-Verschlüsselung. 
+
 #### <a name="storage-location-sizing"></a>Speicherortgröße 
 
-Infrastructure Backup Controller sichert Daten bedarfsgesteuert. Es empfiehlt sich, die Sicherung mindestens zweimal täglich durchzuführen und Sicherungen höchstens sieben Tage lang aufzubewahren. 
+Es empfiehlt sich, die Sicherung mindestens zweimal täglich durchzuführen und Sicherungen höchstens sieben Tage lang aufzubewahren. Dies ist das Standardverhalten bei aktivierten Infrastruktursicherungen auf Azure Stack. 
 
-**1811 und höher**
+**1907 und höher**
+
+***Mit dem Azure AD-Identitätsanbieter verbundenes System***
+
+| Umgebungsgröße | Voraussichtliche Größe der Sicherung | Gesamtmenge des erforderlichen Speicherplatzes |
+|-------------------|--------------------------|--------------------------------|
+| 4–16 Knoten/ASDK   | 1 GB                     | 20 GB                          |
+
+***Per ADFS mit dem AD-Identitätsanbieter des Unternehmens verbundenes System***
 
 | Umgebungsgröße | Voraussichtliche Größe der Sicherung | Gesamtmenge des erforderlichen Speicherplatzes |
 |-------------------|--------------------------|--------------------------------|
 | 4 bis 16 Knoten        | 20 GB                    | 280 GB                        |
 | ASDK              | 10 GB                    | 140 GB                        |
 
-**Vor 1811**
+**Vor 1907**
 
 | Umgebungsgröße | Voraussichtliche Größe der Sicherung | Gesamtmenge des erforderlichen Speicherplatzes |
 |-------------------|--------------------------|--------------------------------|
-| 4–16 Knoten, ASDK  | 10 GB                     | 140 GB                        |
+| 4 bis 16 Knoten        | 20 GB                    | 280 GB                        |
+| ASDK              | 10 GB                    | 140 GB                        |
 
 ### <a name="network-requirements"></a>Netzwerkanforderungen
 

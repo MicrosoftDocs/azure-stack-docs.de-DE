@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 49b4276da5c7e42728cf96261104f59c70355c20
-ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
+ms.lastreviewed: 07/25/2019
+ms.openlocfilehash: 0c7840c723aedd38b51002e4a1f18f5a87d66ec4
+ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380405"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544064"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack-Checkliste für Updateaktivitäten
 
@@ -58,8 +58,9 @@ Dieser Artikel enthält eine Checkliste mit Updateaktivitäten für Azure Stack
 |-----------------------|----------------------------------------------------------------------------------|
 | Anwenden aktueller Hotfixes | Wenden Sie die neuesten Hotfixes an, die für die aktualisierte Version gelten.                          |
 | Abrufen von Verschlüsselungsschlüsseln | Rufen Sie die Verschlüsselungsschlüssel für ruhende Daten ab, und speichern Sie diese sicher außerhalb Ihrer Azure Stack-Bereitstellung. Befolgen Sie die [Anleitungen zum Abrufen der Schlüssel](azure-stack-security-bitlocker.md). |
+| Erneutes Aktivieren der Mehrinstanzenfähigkeit | Im Fall von mehrinstanzenfähigem Azure Stack müssen Sie [darauf achten, alle Gastverzeichnismandanten zu konfigurieren](https://docs.microsoft.com/azure-stack/operator/azure-stack-enable-multitenancy#configure-guest-directory), nachdem ein Update erfolgreich durchgeführt wurde. |
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Überprüfen der Liste mit bekannten Problemen](azure-stack-release-notes-known-issues-1906.md)
-- [Überprüfen der Liste mit Sicherheitsupdates](azure-stack-release-notes-security-updates-1906.md)
+- [Überprüfen der Liste mit bekannten Problemen](azure-stack-release-notes-known-issues-1907.md)
+- [Überprüfen der Liste mit Sicherheitsupdates](azure-stack-release-notes-security-updates-1907.md)

@@ -1,6 +1,6 @@
 ---
-title: Konfigurieren von Site-to-Site-VPN-Verbindungen für Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie etwas über die IPsec/IKE-Richtlinie für Site-to-Site-VPN- oder VNET-zu-VNET-Verbindungen in Azure Stack.
+title: Konfigurieren von Site-to-Site-VPN-Verbindungen mit IPsec/IKE | Microsoft-Dokumentation
+description: Informationen zur und Konfiguration der IPsec/IKE-Richtlinie für Site-to-Site-VPN- oder VNET-zu-VNET-Verbindungen in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,23 +14,23 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: d6944fefeb55c1b2a109964271c84daafb8b8ff8
-ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
+ms.openlocfilehash: 0c9c1af77ecf2bdf1c8da23cc7ab9e8d281067ea
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67397294"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658693"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurieren einer IPsec/IKE-Richtlinie für Standort-zu-Standort-VPN-Verbindungen
 
 Dieser Artikel enthält die Schritte zum Konfigurieren einer IPsec/IKE-Richtlinie für Site-to-Site-VPN-Verbindungen (S2S) in Azure Stack.
 
 >[!NOTE]
-> Sie müssen Azure Stack Build **1809** oder höher ausführen, um diese Funktion zu verwenden.  Wenn Sie aktuell einen niedrigeren Build als 1809 ausführen, aktualisieren Sie Ihr Azure Stack-System auf den neuesten Build, bevor Sie versuchen, diese Funktion zu verwenden, oder führen Sie die in diesem Artikel angeführten Schritte aus.
+> Sie müssen Azure Stack Build **1809** oder höher ausführen, um diese Funktion zu verwenden.  Wenn Sie aktuell einen niedrigeren Build als 1809 ausführen, aktualisieren Sie Ihr Azure Stack-System auf den neuesten Build, bevor Sie mit den Schritten in diesem Artikel fortfahren.
 
 ## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>IPsec- und IKE-Richtlinienparameter für VPN-Gateways
 
-Der IPsec- und IKE-Protokollstandard unterstützt ein breites Spektrum von Kryptografiealgorithmen in verschiedenen Kombinationen. Informationen zu den in Azure Stack unterstützten Parametern finden Sie unter [IPsec/IKE-Parameter](azure-stack-vpn-gateway-settings.md#ipsecike-parameters). Diese Informationen helfen Ihnen bei der Einhaltung Ihrer Compliance- oder Sicherheitsanforderungen.
+Der IPsec- und IKE-Protokollstandard unterstützt ein breites Spektrum von Kryptografiealgorithmen in verschiedenen Kombinationen. Informationen zu den in Azure Stack für die Erfüllung Ihrer Anforderungen an Compliance oder Sicherheit unterstützten Parametern finden Sie unter [IPsec/IKE-Parameter](azure-stack-vpn-gateway-settings.md#ipsecike-parameters).
 
 Dieser Artikel enthält eine Anleitung zum Erstellen und Konfigurieren einer IPsec/IKE-Richtlinie und zu ihrem Anwenden auf eine neue oder vorhandene Verbindung.
 
@@ -42,7 +42,7 @@ Beachten Sie die folgenden wichtigen Informationen, wenn Sie diese Richtlinien v
 
 - Pro Verbindung kann jeweils nur **eine** Richtlinienkombination angegeben werden.
 
-- Sie müssen alle Algorithmen und Parameter für IKE (Hauptmodus) und IPsec (Schnellmodus) angeben. Partielle Richtlinien sind nicht zulässig.
+- Sie müssen alle Algorithmen und Parameter für IKE (Hauptmodus) und IPsec (Schnellmodus) angeben. Eine teilweise Angabe von Richtlinien ist unzulässig.
 
 - Vergewissern Sie sich in den Spezifikationen Ihres VPN-Geräteanbieters, dass die Richtlinie von Ihren lokalen VPN-Geräten unterstützt wird. Site-to-Site-Verbindungen können nicht hergestellt werden, wenn die Richtlinien inkompatibel sind.
 
@@ -89,14 +89,14 @@ Die folgende Tabelle gibt Aufschluss über die unterstützten Kryptografiealgori
   - PFS-Gruppe (Schnellmodus/Phase 2)
   - Bei der SA-Gültigkeitsdauer handelt es sich lediglich um eine lokale Angabe. Diese muss nicht übereinstimmen.
 
-- Wenn GCMAES als IPsec-Verschlüsselungsalgorithmus verwendet wird, müssen Sie für die IPsec-Integrität denselben GCMAES-Algorithmus und dieselbe Schlüssellänge auswählen (beispielsweise „GCMAES128“ für beides).
+- Wenn GCMAES als IPsec-Verschlüsselungsalgorithmus verwendet wird, müssen Sie denselben GCMAES-Algorithmus und dieselbe Schlüssellänge für die IPsec-Integrität auswählen. Beispiel: Verwendung von GCMAES128 für beide.
 
 - Für die obige Tabelle gilt Folgendes:
 
-  - IKEv2 entspricht Hauptmodus oder Phase 1.
-  - IPsec entspricht Hauptmodus oder Phase 2.
-  - Die DH-Gruppe gibt die im Hauptmodus oder in Phase 1 verwendete Diffie-Hellmen-Gruppe an.
-  - Die PFS-Gruppe gibt die im Schnellmodus oder in Phase 2 verwendete Diffie-Hellmen-Gruppe an.
+  - IKEv2 entspricht Hauptmodus oder Phase 1
+  - IPsec entspricht Hauptmodus oder Phase 2
+  - Die DH-Gruppe gibt die im Hauptmodus oder in Phase 1 verwendete Diffie-Hellmen-Gruppe an
+  - Die PFS-Gruppe gibt die im Schnellmodus oder in Phase 2 verwendete Diffie-Hellmen-Gruppe an
 
 - Die SA-Gültigkeitsdauer von IKEv2 (Hauptmodus) ist für die Azure Stack-VPN-Gateways auf 28.800 Sekunden festgelegt.
 
@@ -123,11 +123,11 @@ Eine ausführlichere Anleitung zum Erstellen einer Site-to-Site-VPN-Verbindung f
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
-Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind, bevor Sie beginnen:
+Bevor Sie beginnen, stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
 
 - Ein Azure-Abonnement. Wenn Sie noch kein Azure-Abonnement besitzen, können Sie Ihre [MSDN-Abonnentenvorteile](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) aktivieren oder sich für ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/) registrieren.
 
-- Die Azure Resource Manager-PowerShell-Cmdlets. Weitere Informationen zur Installation der PowerShell-Cmdlets finden Sie unter[Installieren von PowerShell für Azure Stack](../operator/azure-stack-powershell-install.md).
+- Die Azure Resource Manager-PowerShell-Cmdlets. Weitere Informationen zum Installieren der PowerShell-Cmdlets finden Sie unter [Installieren von PowerShell für Azure Stack](../operator/azure-stack-powershell-install.md).
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>Schritt 1: Erstellen des virtuellen Netzwerks, VPN-Gateways und Gateways des lokalen Netzwerks
 
@@ -173,7 +173,7 @@ New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 
 #### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Erstellen des virtuellen Netzwerks, VPN-Gateways und Gateways des lokalen Netzwerks
 
-Im folgenden Beispiel werden das virtuelle Netzwerk **TestVNet1** mit drei Subnetzen und das VPN-Gateway erstellt. Beim Ersetzen der Werte ist es wichtig, dass Sie Ihrem Gatewaysubnetz immer den Namen **GatewaySubnet** geben. Wenn Sie einen anderen Namen verwenden, tritt beim Erstellen des Gateways ein Fehler auf.
+Im folgenden Beispiel wird das virtuelle Netzwerk **TestVNet1** zusammen mit drei Subnetzen und dem VPN-Gateway erstellt. Beim Ersetzen der Werte ist es wichtig, dass Sie Ihrem Gatewaysubnetz immer den Namen **GatewaySubnet** geben. Wenn Sie einen anderen Namen verwenden, tritt beim Erstellen des Gateways ein Fehler auf.
 
 ```powershell
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -228,7 +228,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 ```
 
 > [!IMPORTANT]
-> Nachdem für eine Verbindung eine IPsec/IKE-Richtlinie angegeben wurde, sendet bzw. akzeptiert das Azure-VPN-Gateway den IPsec/IKE-Vorschlag mit angegebenen Kryptografiealgorithmen und Schlüsselstärken nur für die jeweilige Verbindung. Stellen Sie sicher, dass Ihr lokales VPN-Gerät für die Verbindung die exakte Richtlinienkombination nutzt bzw. akzeptiert, da der Site-to-Site-VPN-Tunnel andernfalls nicht hergestellt wird.
+> Nachdem für eine Verbindung eine IPsec/IKE-Richtlinie angegeben wurde, sendet bzw. akzeptiert das Azure-VPN-Gateway den IPsec/IKE-Vorschlag mit angegebenen Kryptografiealgorithmen und Schlüsselstärken nur für die jeweilige Verbindung. Achten Sie darauf, dass Ihr lokales VPN-Gerät für die Verbindung die exakte Richtlinienkombination nutzt bzw. akzeptiert, da der Site-to-Site-VPN-Tunnel andernfalls nicht hergestellt wird.
 
 ## <a name="part-4---update-ipsecike-policy-for-a-connection"></a>Teil 4: Aktualisieren der IPsec/IKE-Richtlinie für eine Verbindung
 

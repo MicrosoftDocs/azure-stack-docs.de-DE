@@ -10,12 +10,12 @@ ms.date: 07/22/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/22/2019
-ms.openlocfilehash: 85022f074dd494978780d67db8cc14e4c243a49c
-ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
+ms.openlocfilehash: 6bf9f9bb66ba7e2c9722f64e7116778f17e0e4e2
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380457"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658616"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Integration des Azure Stack-Datencenters – Veröffentlichen von Endpunkten
 
@@ -77,10 +77,10 @@ Azure Stack unterstützt nur transparente Proxyserver. In einer Bereitstellung m
 |Zweck|Ziel-URL|Protocol|Ports|Quellnetzwerk|
 |---------|---------|---------|---------|---------|
 |Identity|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com|HTTP<br>HTTPS|80<br>443|Öffentliche VIP - /27<br>Öffentliches Infrastrukturnetzwerk|
-|Marketplace-Syndikation|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net|HTTPS|443|Öffentliche VIP - /27|
+|Marketplace-Syndikation|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://\*.azureedge.net|HTTPS|443|Öffentliche VIP - /27|
 |Patches und Updates|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Öffentliche VIP - /27|
 |Registrierung|https:\//management.azure.com|HTTPS|443|Öffentliche VIP - /27|
-|Verwendung|https://*.trafficmanager.net |HTTPS|443|Öffentliche VIP - /27|
+|Verwendung|**Azure**<br>- https://&#42;.trafficmanager.net<br>**Azure Government**<br>- https://&#42;.usgovtrafficmanager.net<br>**Azure China**<br>- https://&#42;.trafficmanager.cn<br> |HTTPS|443|Öffentliche VIP - /27|
 |Windows Defender|\*.wdcp.microsoft.com<br>\*.wdcpalt.microsoft.com<br>\*.wd.microsoft.com<br>\*.update.microsoft.com<br>\*.download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Öffentliche VIP - /27<br>Öffentliches Infrastrukturnetzwerk|
 |NTP|(IP des für die Bereitstellung bereitgestellten NTP-Servers)|UDP|123|Öffentliche VIP - /27|
 |DNS|(IP des für die Bereitstellung bereitgestellten DNS-Servers)|TCP<br>UDP|53|Öffentliche VIP - /27|

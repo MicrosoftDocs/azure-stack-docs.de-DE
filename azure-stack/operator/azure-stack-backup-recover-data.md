@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: d7b38d2eb0e840a35729879211934e470bec6dfe
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b6b6796f5d47189499e01c94b9c988dbf03091bb
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268960"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493998"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Wiederherstellen nach schwerwiegendem Datenverlust
 
@@ -63,8 +63,8 @@ Bei einem Notfall, nach dem die Hardware nicht mehr genutzt werden kann, ist die
 Azure Stack unterstützt die Bereitstellung im sogenannten Cloudwiederherstellungsmodus. Dieser Modus wird nur verwendet, wenn Sie Azure Stack wiederherstellen möchten, nachdem die Lösung infolge eines Notfalls oder Produktfehlers nicht mehr wiederherstellbar war. Bei diesem Bereitstellungsmodus werden keine der in der Lösung gespeicherten Benutzerdaten wiederhergestellt. Der Umfang dieses Bereitstellungsmodus beschränkt sich auf die Wiederherstellung der folgenden Daten:
 
  - Bereitstellungseingaben
- - Interne Identitätssysteme
- - Verbundidentifizierungskonfiguration (getrennte Bereitstellungen)
+ - Daten des internen Identitätsdiensts (ADFS-Bereitstellungen)
+ - Partneridentifizierungskonfiguration (ADFS-Bereitstellungen)
  - Von interner Zertifizierungsstelle verwendete Stammzertifikate
  - Benutzerdaten der Azure Resource Manager-Konfiguration, z.B. Abonnements, Tarife, Angebote und Kontingente für Speicher-, Netzwerk- und Computeressourcen
  - KeyVault-Geheimnisse und Tresore

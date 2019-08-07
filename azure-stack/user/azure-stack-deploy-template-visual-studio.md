@@ -17,18 +17,18 @@ ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 87035fd3860318f63fa30e528ad7fa12c7dc3a39
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: c84965295abd1218458f46e998dcec8b1b2fdc88
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990986"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658598"
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Bereitstellen von Vorlagen in Azure Stack mithilfe von Visual Studio
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Sie können Visual Studio zum Bereitstellen von Azure Resource Manager-Vorlagen für Azure Stack verwenden.
+Visual Studio kann zum Bereitstellen von Azure Resource Manager-Vorlagen für Azure Stack verwendet werden.
 
 ## <a name="to-deploy-a-template"></a>So stellen Sie eine Vorlage bereit
 

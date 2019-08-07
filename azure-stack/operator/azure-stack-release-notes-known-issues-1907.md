@@ -1,6 +1,6 @@
 ---
-title: 'Azure Stack 1906: Bekannte Probleme | Microsoft-Dokumentation'
-description: Enthält Informationen zu bekannten Problemen in Azure Stack 1906.
+title: 'Azure Stack 1907: Bekannte Probleme | Microsoft-Dokumentation'
+description: Enthält Informationen zu bekannten Problemen in Azure Stack 1907.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2019
+ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: cb98d587f766a3039887e0ba800ab255686121bc
+ms.lastreviewed: 07/25/2019
+ms.openlocfilehash: cf09162fb29630ed01834aa6b2b508785206a088
 ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 07/31/2019
-ms.locfileid: "68685543"
+ms.locfileid: "68685569"
 ---
-# <a name="azure-stack-1906-known-issues"></a>Azure Stack 1906: Bekannte Probleme
+# <a name="azure-stack-1907-known-issues"></a>Azure Stack 1907: Bekannte Probleme
 
-In diesem Artikel werden die bekannten Probleme in Version 1906 von Azure Stack aufgelistet. Die Liste wird aktualisiert, wenn neue Probleme identifiziert werden.
+In diesem Artikel werden die bekannten Probleme in Version 1907 von Azure Stack aufgelistet. Die Liste wird aktualisiert, wenn neue Probleme identifiziert werden.
 
 > [!IMPORTANT]  
 > Lesen Sie diesen Abschnitt, bevor Sie das Update anwenden.
@@ -33,7 +33,7 @@ In diesem Artikel werden die bekannten Probleme in Version 1906 von Azure Stack
 ## <a name="update-process"></a>Updateprozess
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Wenn Sie versuchen, das Azure Stack-Update 1906 zu installieren, wird für den Status des Updates möglicherweise ein Fehler ausgegeben und der Zustand in **PreparationFailed** geändert. Der Grund dafür ist, dass der Updateressourcenanbieter (Update Resource Provider, URP) die Dateien aus dem Speichercontainer nicht ordnungsgemäß auf eine Infrastrukturfreigabe zur Verarbeitung übertragen kann. 
+- Ursache: Wenn Sie versuchen, das Azure Stack-Update 1907 zu installieren, wird für den Status des Updates möglicherweise ein Fehler ausgegeben und der Zustand in **PreparationFailed** geändert. Der Grund dafür ist, dass der Updateressourcenanbieter (Update Resource Provider, URP) die Dateien aus dem Speichercontainer nicht ordnungsgemäß auf eine Infrastrukturfreigabe zur Verarbeitung übertragen kann.
 - Abhilfe: Ab Version 1901 (1.1901.0.95) können Sie dieses Problem umgehen, indem Sie auf **Jetzt aktualisieren** (nicht **Fortsetzen**) klicken. Der URP bereinigt dann die Dateien aus dem vorherigen Versuch und startet den Download neu. Falls das Problem weiterhin besteht, empfehlen wir Ihnen das manuelle Hochladen des Updatepakets gemäß der Anleitung im Abschnitt [Importieren und Installieren von Updates](azure-stack-apply-updates.md#import-and-install-updates).
 - Häufigkeit: Common
 
@@ -46,11 +46,11 @@ In diesem Artikel werden die bekannten Probleme in Version 1906 von Azure Stack
 - Abhilfe: Wenn Sie unter diesen beiden Abonnements Ressourcen ausführen, erstellen Sie sie in Benutzerabonnements neu.
 - Häufigkeit: Common
 
-### <a name="subscription-resources"></a>Abonnementressourcen
+### <a name="subscriptions-properties-blade"></a>Blatt „Abonnementeigenschaften“
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Das Löschen von Benutzerabonnements führt zu verwaisten Ressourcen.
-- Abhilfe: Löschen Sie zuerst die Benutzerressourcen oder die gesamte Ressourcengruppe und anschließend die Benutzerabonnements.
+- Ursache: Im Verwaltungsportal wird das Blatt **Eigenschaften** für Abonnements nicht ordnungsgemäß geladen
+- Abhilfe: Sie können diese Abonnementeigenshaften im Bereich **Essentials** des Blatts **Abonnements – Übersicht** anzeigen.
 - Häufigkeit: Common
 
 ### <a name="subscription-permissions"></a>Abonnementberechtigungen
@@ -58,12 +58,6 @@ In diesem Artikel werden die bekannten Probleme in Version 1906 von Azure Stack
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Sie können mit den Azure Stack-Portalen keine Berechtigungen für Ihr Abonnement anzeigen.
 - Abhilfe: Verwenden Sie [PowerShell zum Überprüfen der Berechtigungen](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Häufigkeit: Common
-
-### <a name="subscriptions-properties-blade"></a>Blatt „Abonnementeigenschaften“
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Im Verwaltungsportal wird das Blatt **Eigenschaften** für Abonnements nicht ordnungsgemäß geladen
-- Abhilfe: Sie können diese Abonnementeigenschaften im Bereich „Essentials“ des Blatts „Abonnements – Übersicht“ anzeigen.
 - Häufigkeit: Common
 
 ### <a name="storage-account-settings"></a>Speicherkontoeinstellungen
@@ -78,13 +72,6 @@ In diesem Artikel werden die bekannten Probleme in Version 1906 von Azure Stack
 - Ursache: Wenn Sie im Benutzerportal versuchen, ein Blob mit der Option **OAuth (Vorschau)** hochzuladen, wird für die Aufgabe eine Fehlermeldung angezeigt.
 - Abhilfe: Laden Sie das Blob mit der SAS-Option hoch.
 - Häufigkeit: Common
-
-### <a name="update"></a>Aktualisieren
-
-- Geltungsbereich: Dieses Problem gilt für Release 1906.
-- Ursache: Im Betreiberportal wird für den Hotfix ein fehlerhafter Updatestatus angezeigt. Der Anfangszustand zeigt an, dass das Update nicht installiert werden konnte, obwohl es noch ausgeführt wird.
-- Abhilfe: Aktualisieren Sie das Portal. Dann wird der Status in „Wird ausgeführt“ geändert.
-- Häufigkeit: Zeitweilig
 
 ## <a name="networking"></a>Netzwerk
 
@@ -102,6 +89,13 @@ In diesem Artikel werden die bekannten Probleme in Version 1906 von Azure Stack
 - Häufigkeit: Common
 
 ### <a name="virtual-network-gateway"></a>Gateway des virtuellen Netzwerks
+
+#### <a name="local-network-gateway-deletion"></a>Löschung des lokalen Netzwerkgateways
+
+- Geltungsbereich: Dieses Problem gilt für Release 1906.
+- Ursache: Im Benutzerportal wird beim Löschen des **lokalen Netzwerkgateways** die folgende Fehlermeldung angezeigt: **Ein lokales Netzwerkgateway mit einer aktiven Verbindung kann nicht gelöscht werden**, obwohl keine aktive Verbindung vorhanden ist.
+- Lösung: Die Lösung dieses Problems wird in Version 1907 veröffentlicht. Eine Problemumgehung besteht darin, ein neues lokales Netzwerkgateway mit der gleichen IP-Adresse, dem gleichen Adressraum und den gleichen Konfigurationsdetails, aber unter einem anderen Namen zu erstellen. Das alte LNG kann gelöscht werden, nachdem die Umgebung auf 1907 aktualisiert wurde.
+- Häufigkeit: Common
 
 #### <a name="alerts"></a>Alerts
 
@@ -132,22 +126,6 @@ In diesem Artikel werden die bekannten Probleme in Version 1906 von Azure Stack
   - [ExpressRoute-Verbindungen](azure-stack-connect-expressroute.md)
   - [Angeben von benutzerdefinierten IPsec/IKE-Richtlinien](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-### <a name="load-balancer"></a>Load Balancer
-
-#### <a name="add-backend-pool"></a>Hinzufügen eines Back-End-Pools
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Wenn Sie im Benutzerportal versuchen, einen **Back-End-Pool** einem **Load Balancer** hinzuzufügen, wird für den Vorgang eine Fehlermeldung der Art **Fehler beim Aktualisieren des Lastenausgleichs...** angezeigt.
-- Abhilfe: Verwenden Sie PowerShell, die CLI oder eine Resource Manager-Vorlage, um den Back-End-Pool einer Lastenausgleichsressource zuzuordnen.
-- Häufigkeit: Common
-
-#### <a name="create-inbound-nat"></a>Erstellen von NAT-Regeln für eingehenden Datenverkehr
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Wenn Sie im Benutzerportal versuchen, eine **NAT-Regel für eingehenden Datenverkehr** für einen **Load Balancer** hinzuzufügen, wird für den Vorgang eine Fehlermeldung der Art **Fehler beim Aktualisieren des Lastenausgleichs...** angezeigt.
-- Abhilfe: Verwenden Sie PowerShell, die CLI oder eine Resource Manager-Vorlage, um den Back-End-Pool einer Lastenausgleichsressource zuzuordnen.
-- Häufigkeit: Common
-
 ## <a name="compute"></a>Compute
 
 ### <a name="vm-boot-diagnostics"></a>VM-Startdiagnose
@@ -158,7 +136,6 @@ In diesem Artikel werden die bekannten Probleme in Version 1906 von Azure Stack
 - Häufigkeit: Common
 
 ### <a name="virtual-machine-scale-set"></a>VM-Skalierungsgruppe
-
 
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Erstellungsfehler beim Patchen und Aktualisieren in Azure Stack-Umgebungen mit vier Knoten
 
@@ -175,21 +152,21 @@ In diesem Artikel werden die bekannten Probleme in Version 1906 von Azure Stack
 
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>Das Zurücksetzen des Kennworts einer VM-Skalierungsgruppe funktioniert nicht
 
-- Geltungsbereich: Dieses Problem gilt für Release 1906.
+- Geltungsbereich: Dieses Problem betrifft die Versionen 1906 und 1907.
 - Ursache: Ein neues Blatt zum Zurücksetzen des Kennworts wird in der Benutzeroberfläche der Skalierungsgruppe angezeigt, aber Azure Stack unterstützt das Zurücksetzen von Kennwörtern für eine Skalierungsgruppe noch nicht.
 - Abhilfe: None (Keine):
 - Häufigkeit: Common
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Regenwolke in Skalierungsgruppendiagnose
 
-- Geltungsbereich: Dieses Problem gilt für Release 1906.
+- Geltungsbereich: Dieses Problem betrifft die Versionen 1906 und 1907.
 - Ursache: Auf der Übersichtsseite für die VM-Skalierungsgruppe wird ein leeres Diagramm angezeigt. Durch Klicken auf das leere Diagramm wird ein Blatt mit einer „Regenwolke“ angezeigt. Dies ist das Diagramm für die Diagnoseinformationen der Skalierungsgruppe, z. B. CPU-Prozentsatz, und dies ist eine Funktion, die im aktuellen Azure Stack-Build nicht unterstützt wird.
 - Abhilfe: None (Keine):
 - Häufigkeit: Common
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Blatt mit VM-Diagnoseeinstellungen
 
-- Geltungsbereich: Dieses Problem gilt für Release 1906.
+- Geltungsbereich: Dieses Problem betrifft die Versionen 1906 und 1907.    
 - Ursache: Das Blatt mit den VM-Diagnoseeinstellungen verfügt über eine Registerkarte **Senke**, auf der ein **Application Insights-Konto** abgefragt wird. Dies resultiert aus einem neuen Blatt, das in Azure Stack noch nicht unterstützt wird.
 - Abhilfe: None (Keine):
 - Häufigkeit: Common
@@ -204,4 +181,4 @@ In diesem Artikel werden die bekannten Probleme in Version 1906 von Azure Stack
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Überprüfen der Checkliste mit Updateaktivitäten](azure-stack-release-notes-checklist.md)
-- [Überprüfen der Liste mit Sicherheitsupdates](azure-stack-release-notes-security-updates-1906.md)
+- [Überprüfen der Liste mit Sicherheitsupdates](azure-stack-release-notes-security-updates-1907.md)

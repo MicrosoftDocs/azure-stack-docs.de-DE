@@ -16,12 +16,12 @@ ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 6f178d0208f5111a7ae60d23e1d914fcf8e3aba5
-ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
+ms.openlocfilehash: 68b83ac38da20f341242618a1cfa62a9838a0ada
+ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67397271"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544087"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack-Update 1905
 
@@ -54,6 +54,8 @@ Der Azure Stack 1905-Update-Buildtyp lautet **Vollständig**. Daher hat das Upd
 - Windows Server 2019 wird jetzt unterstützt und ist für die Syndizierung über den Azure Stack-Marketplace verfügbar.
 Mit diesem Update kann Windows Server 2019 auf einem 2016-Host jetzt erfolgreich aktiviert werden.
 
+- Eine neue [Azure-Kontoerweiterung für Visual Studio Code](../user/azure-stack-dev-start-vscode-azure.md) ermöglicht es Entwicklern, Azure Stack zu nutzen, indem sie sich anmelden und Abonnements anzeigen. Darüber hinaus können sie auch noch einige andere Dienste nutzen. Die neue Azure-Kontoerweiterung funktioniert sowohl in Azure AD- (Azure Active Directory) als auch in AD FS-Umgebungen und erfordert nur eine kleine Änderung an den Benutzereinstellungen von Visual Studio Code. Für Visual Studio Code ist es erforderlich, dass einem Dienstprinzipal eine Berechtigung erteilt wird, um in dieser Umgebung ausgeführt zu werden. Importieren Sie zu diesem Zweck das Identitätsskript, und führen Sie die in [Mehrinstanzenfähigkeit in Azure Stack](../operator/azure-stack-enable-multitenancy.md) angegebenen Cmdlets aus. Dafür sind eine Aktualisierung des Basisverzeichnisses und die Registrierung des Gastmandantenverzeichnisses für jedes Verzeichnis erforderlich. Nach dem Update auf 1905 oder höher wird eine Benachrichtigung angezeigt, dass der Basisverzeichnismandant, für den der Dienstprinzipal von Visual Studio Code enthalten ist, aktualisiert werden muss. 
+
 ### <a name="improvements"></a>Verbesserungen
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
@@ -69,11 +71,11 @@ Mit diesem Update kann Windows Server 2019 auf einem 2016-Host jetzt erfolgreic
 
 - Eine neue Übersicht für **Hilfe und Support** im Azure Stack-Portal erleichtert Betreibern das Prüfen der Supportoptionen, das Inanspruchnehmen von Expertenhilfe und Erhalten von weiteren Informationen zu Azure Stack. In integrierten Systemen wird beim Erstellen einer Supportanfrage der Azure Stack-Dienst vorab ausgewählt. Wir empfehlen dringend, dass Kunden anstelle des globalen Azure-Portals diese Vorgehensweise zum Übermitteln von Tickets nutzen. Weitere Informationen finden Sie unter [Microsoft Azure Stack: Hilfe und Support](azure-stack-help-and-support-overview.md).
 
-- Wenn das Onboarding für mehrere Azure Active Directory-Instanzen durchgeführt wird (über [diesen Prozess](azure-stack-enable-multitenancy.md)), kann auf das erneute Ausführen des Skripts ggf. verzichtet werden, falls bestimmte Updates auftreten oder Änderungen an der Autorisierung mit dem AAD-Dienstprinzipal zu fehlenden Rechten führen. Dies kann zu verschiedenen Problemen führen: von einer Sperrung des Zugriffs für bestimmte Features bis zu diskreteren Ausfällen, die sich nur schwer zum ursprünglichen Problem nachverfolgen lassen. Als Gegenmaßnahme wurde mit Version 1905 ein neues Feature eingeführt, mit dem diese Berechtigungen überprüft werden und eine Warnung erstellt wird, wenn bestimmte Konfigurationsprobleme ermittelt werden. Diese Überprüfung wird einmal pro Stunde durchgeführt, und es werden die Aktionen zur Behebung angezeigt, die zum Lösen des Problems erforderlich sind. Die Warnung wird geschlossen, wenn sich alle Mandanten in einem fehlerfreien Zustand befinden.
+- Wenn das Onboarding für mehrere Azure Active Directory-Instanzen durchgeführt wird (über [diesen Prozess](azure-stack-enable-multitenancy.md)), kann auf das erneute Ausführen des Skripts ggf. verzichtet werden, falls bestimmte Updates auftreten oder Änderungen an der Autorisierung mit dem Azure AD-Dienstprinzipal zu fehlenden Rechten führen. Dies kann zu verschiedenen Problemen führen: von einer Sperrung des Zugriffs für bestimmte Features bis zu diskreteren Ausfällen, die sich nur schwer zum ursprünglichen Problem nachverfolgen lassen. Als Gegenmaßnahme wurde mit Version 1905 ein neues Feature eingeführt, mit dem diese Berechtigungen überprüft werden und eine Warnung erstellt wird, wenn bestimmte Konfigurationsprobleme ermittelt werden. Diese Überprüfung wird einmal pro Stunde durchgeführt, und es werden die Aktionen zur Behebung angezeigt, die zum Lösen des Problems erforderlich sind. Die Warnung wird geschlossen, wenn sich alle Mandanten in einem fehlerfreien Zustand befinden.
 
 - Die Zuverlässigkeit von Vorgängen für Infrastruktursicherungen während des Dienstfailovers wurde verbessert.
 
-- Eine neue Version des [Azure Stack-Nagios-Plug-Ins](azure-stack-integrate-monitor.md#integrate-with-nagios) ist verfügbar, für das die [Azure Active Directory-Authentifizierungsbibliotheken](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) zur Authentifizierung genutzt werden. Das Plug-In unterstützt für Azure Stack jetzt auch Bereitstellungen vom Typ „Azure Active Directory (AAD)“ und „Active Directory-Verbunddienste (AD FS)“. Weitere Informationen finden Sie auf der Website zum [Nagios-Plug-In](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details).
+- Eine neue Version des [Azure Stack-Nagios-Plug-Ins](azure-stack-integrate-monitor.md#integrate-with-nagios) ist verfügbar, für das die [Azure Active Directory-Authentifizierungsbibliotheken](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) zur Authentifizierung genutzt werden. Das Plug-In unterstützt für Azure Stack jetzt auch Bereitstellungen vom Typ „Azure AD“ und „Active Directory-Verbunddienste (AD FS)“. Weitere Informationen finden Sie auf der Website zum [Nagios-Plug-In](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details).
 
 - Das neue Hybridprofil **2019-03-01-Hybrid** wurde veröffentlicht. Es unterstützt alle aktuellen Features in Azure Stack. Sowohl Azure PowerShell als auch Azure CLI unterstützen das Profil **2019-03-01-Hybrid**. Für .NET, Ruby, Node.js, Go und Python SDKs wurden Pakete veröffentlicht, die das Profil **2019-03-01-Hybrid** unterstützen. Die entsprechende Dokumentation und einige Beispiele wurden aktualisiert, um die Änderungen widerzuspiegeln.
 
@@ -95,8 +97,6 @@ Mit diesem Update kann Windows Server 2019 auf einem 2016-Host jetzt erfolgreic
     |12 Knoten|54 vCPU|60 GB|
     |16 Knoten|70 vCPU|76 GB|
   
-- Es gibt jetzt eine Azure Stack-Erweiterung, die in Visual Studio Code funktioniert. Mit der Erweiterung **Azure-Konto** können Entwickler Azure Stack nutzen, indem sie sich anmelden und Abonnements anzeigen. Darüber hinaus können sie auch noch einige andere Dienste nutzen. Die Erweiterung „Azure-Konto“ funktioniert sowohl für AAD-Umgebungen als auch für AD FS-Umgebungen und erfordert nur eine geringfügige Änderung in den Benutzereinstellungen von Visual Studio Code, die das Eingeben von Azure Stack-Metadatenwerten umfasst. Weitere Informationen finden Sie in [dieser Dokumentation](../user/azure-stack-dev-start-vscode-azure.md).
-
 ### <a name="changes"></a>Änderungen
 
 - Mit Azure Stack wird eine zusätzliche Infrastrukturrolleninstanz für Domänendienste hinzugefügt, um die Zuverlässigkeit und Verfügbarkeit bei der geplanten und ungeplanten Wartung zu erhöhen.

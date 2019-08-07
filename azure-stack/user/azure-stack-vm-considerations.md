@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/16/2019
-ms.openlocfilehash: 09e38de68f740cab50e7a3e0ee8cc7364a9909b9
-ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
+ms.openlocfilehash: b0ced01686247953e3cb1849305d664d844da949
+ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68299438"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544104"
 ---
 # <a name="azure-stack-vm-features"></a>Features von Azure Stack-VMs
 
@@ -41,7 +41,7 @@ ms.locfileid: "68299438"
 | Leistung von VM-Datenträgern | Abhängig von Datenträgertyp und -größe. | Richtet sich nach der VM-Größe des virtuellen Computers, an den die Datenträger angefügt sind. Weitere Informationen finden Sie im Artikel [In Azure Stack unterstützte VM-Größen](azure-stack-vm-sizes.md).
 | API-Versionen | Azure verfügt für alle VM-Features immer über die aktuellen API-Versionen. | Azure Stack unterstützt bestimmte Azure-Dienste und bestimmte API-Versionen für diese Dienste. Die Liste mit den unterstützten API-Versionen finden Sie in diesem Artikel im Abschnitt [API-Versionen](#api-versions). |
 | Azure-Instanzmetadatendienst | Instance Metadata Service stellt Informationen zum Ausführen von VM-Instanzen bereit, die zum Verwalten und Einrichten Ihres virtuellen Computers verwendet werden können.  | Der Azure-Instanzmetadatendienst wird für Azure Stack nicht unterstützt. |
-| VM-Verfügbarkeitsgruppen|Mehrere Fehlerdomänen (zwei oder drei pro Region)<br>Mehrere Updatedomänen|Mehrere Fehlerdomänen (zwei oder drei pro Region)<br>Mehrere Updatedomänen (bis zu 20)|
+| VM-Verfügbarkeitsgruppen|Mehrere Fehlerdomänen (zwei oder drei pro Region)<br>Mehrere Updatedomänen|Mehrere Fehlerdomänen (zwei oder drei pro Region)<br>Einzelne Updatedomäne mit Livemigration zum Schutz von Workloads während des Updates. 20 Updatedomänen werden aus Gründen der Vorlagenkompatibilität unterstützt.|
 | VM-Skalierungsgruppen|Die automatische Skalierung wird unterstützt.|Die automatische Skalierung wird nicht unterstützt.<br><br>Fügen Sie einer Skalierungsgruppe mit dem Portal, Resource Manager-Vorlagen oder PowerShell weitere Instanzen hinzu. |
 | Cloudzeuge | Wählen Sie die Endpunkte aus den in Azure Stack verfügbaren Speicherkontoeigenschaften aus. | [Cloudzeuge](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) ist ein Quorumzeugentyp für Failovercluster, der Microsoft Azure zum Bereitstellen einer Stimme für das Clusterquorum verwendet.<br>Die Endpunkte in Global Azure sehen im Vergleich zu Azure Stack möglicherweise wie folgt aus:<br>Für Global Azure:<br>`https://mywitness.blob.core.windows.net/`<br>Für Azure Stack:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | Diagnose des virtuellen Computers | Die Linux-VM-Diagnose wird unterstützt. | Die Linux-VM-Diagnose wird in Azure Stack nicht unterstützt. Wenn Sie eine Linux-VM mit aktivierter VM-Diagnose bereitstellen, schlägt die Bereitstellung fehl. Die Bereitstellung schlägt auch fehl, wenn Sie die grundlegenden Linux-VM-Metriken über die Diagnoseeinstellungen aktivieren. |
@@ -56,18 +56,22 @@ Azure Stack erzwingt Ressourcengrenzwerte, um einen übermäßigen Ressourcenver
 
 Die folgende Tabelle enthält die in Azure Stack unterstützten virtuellen Computer sowie ihre Konfiguration:
 
-| type           | Size          | Bereich der unterstützten Größen |
-| ---------------| ------------- | ------------------------ |
-|Allgemeiner Zweck |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
-|Allgemeiner Zweck |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
-|Allgemeiner Zweck |D-Serie       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
-|Allgemeiner Zweck |Dv2-Serie     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
-|Allgemeiner Zweck |DS-Serie      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
-|Allgemeiner Zweck |DSv2-Serie    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
-|Arbeitsspeicheroptimiert|D-Serie       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
-|Arbeitsspeicheroptimiert|DS-Serie      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
-|Arbeitsspeicheroptimiert|Dv2-Serie     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
-|Arbeitsspeicheroptimiert|DSv2-Serie -  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+| type            | Size          | Bereich der unterstützten Größen |
+| ----------------| ------------- | ------------------------ |
+|Allgemeiner Zweck  |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|Allgemeiner Zweck  |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|Allgemeiner Zweck  |Av2-Serie     |[A1_v2–A8m_v2](azure-stack-vm-sizes.md#av2-series)     |
+|Allgemeiner Zweck  |D-Serie       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|Allgemeiner Zweck  |Dv2-Serie     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|Allgemeiner Zweck  |DS-Serie      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|Allgemeiner Zweck  |DSv2-Serie    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|Arbeitsspeicheroptimiert |D-Serie       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|Arbeitsspeicheroptimiert |DS-Serie      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Arbeitsspeicheroptimiert |Dv2-Serie     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Arbeitsspeicheroptimiert |DSv2-Serie    |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+|Computeoptimiert|F-Serie       |[F1–F16](azure-stack-vm-sizes.md#f-series)    |
+|Computeoptimiert|Fs-Serie      |[F1s–F16s](azure-stack-vm-sizes.md#fs-series)    |
+|Computeoptimiert|Fsv2-Serie    |[F2s_v2–F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
 
 Die VM-Größen und entsprechenden Ressourcenmengen sind für Azure Stack und Azure konsistent. Diese Konsistenz umfasst die Arbeitsspeichermenge, die Anzahl von Kernen und die Anzahl bzw. Größe von Datenträgern für Daten, die erstellt werden können. Die Leistung von VMs mit der gleichen Größe richtet sich aber nach den zugrunde liegenden Eigenheiten der jeweiligen Azure Stack-Umgebung.
 

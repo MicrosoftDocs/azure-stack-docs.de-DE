@@ -1,6 +1,6 @@
 ---
-title: VPN-Gatewayeinstellungen für Azure Stack | Microsoft-Dokumentation
-description: Hier finden Sie Informationen zu Einstellungen für VPN-Gateways, die Sie mit Azure Stack verwenden.
+title: Konfigurieren von VPN-Gatewayeinstellungen für Azure Stack | Microsoft-Dokumentation
+description: Hier finden Sie Informationen zu Einstellungen von VPN-Gateways für Azure Stack und zu deren Konfiguration.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 83fa2e96a7cd956c050efa33ab6e9564b1834e93
-ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
+ms.openlocfilehash: 53a423ebc8e9f503934bfd3df2f4962a7b584059
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67028291"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658587"
 ---
-# <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>VPN-Gatewaykonfigurationseinstellungen für Azure Stack
+# <a name="configure-vpn-gateway-settings-for-azure-stack"></a>Konfigurieren von VPN-Gatewayeinstellungen für Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -34,7 +34,7 @@ Für eine VPN Gateway-Verbindung müssen mehrere Ressourcen konfiguriert werden,
 
 ### <a name="gateway-types"></a>Gatewaytypen
 
-Jedes virtuelle Azure Stack-Netzwerk unterstützt ein einzelnes Gateway für virtuelle Netzwerke, das vom Typ **VPN** sein muss.  Im Gegensatz dazu unterstützt Azure zusätzliche Typen.
+Jedes virtuelle Azure Stack-Netzwerk unterstützt ein einzelnes Gateway für virtuelle Netzwerke, das vom Typ **VPN** sein muss.  Diese Unterstützung unterscheidet sich von Azure, das zusätzliche Typen unterstützt.
 
 Achten Sie beim Erstellen eines Gateways für virtuelle Netzwerke darauf, dass der Gatewaytyp für Ihre Konfiguration richtig ist. Ein VPN-Gateway erfordert das `-GatewayType Vpn`-Flag. Beispiel:
 
@@ -60,7 +60,7 @@ Azure Stack bietet folgende VPN-Gateway-SKUs:
 
 SKU-Größenwechsel zwischen den unterstützten Legacy-SKUs werden von Azure Stack nicht unterstützt.
 
-Analog dazu unterstützt Azure Stack auch nicht das Ändern der Größe einer unterstützten Legacy-SKU (**Basic**, **Standard** und **HighPerformance**) in neuere, von Azure unterstützte SKUs (**VpnGw1**, **VpnGw2** und **VpnGw3**).
+Analog dazu unterstützt Azure Stack auch nicht das Ändern der Größe von einer unterstützten Legacy-SKU (**Basic**, **Standard** und **HighPerformance**) in neuere, von Azure unterstützte SKUs (**VpnGw1**, **VpnGw2** und **VpnGw3**).
 
 ### <a name="configure-the-gateway-sku"></a>Konfigurieren der Gateway-SKU
 
@@ -120,9 +120,9 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 Die folgende Tabelle enthält die Anforderungen für VPN-Gateways.
 
-| |Basic-VPN-Gateway (PolicyBased) | Basic-VPN-Gateway (RouteBased) | Standard-VPN-Gateway (RouteBased) | Hochleistungs-VPN-Gateway (RouteBased)|
+| |Basic-VPN-Gateway (richtlinienbasiert) | Basic-VPN-Gateway (routenbasiert) | Standard-VPN-Gateway (routenbasiert) | Hochleistungs-VPN-Gateway (routenbasiert)|
 |--|--|--|--|--|
-| **Site-to-Site-Konnektivität (S2S-Konnektivität)** | Nicht unterstützt | RouteBased-VPN-Konfiguration | RouteBased-VPN-Konfiguration | RouteBased-VPN-Konfiguration |
+| **Site-to-Site-Konnektivität (S2S-Konnektivität)** | Nicht unterstützt | Routenbasierte VPN-Konfiguration | Routenbasierte VPN-Konfiguration | Routenbasierte VPN-Konfiguration |
 | **Authentifizierungsmethode**  | Nicht unterstützt | Vorinstallierter Schlüssel für S2S-Konnektivität  | Vorinstallierter Schlüssel für S2S-Konnektivität  | Vorinstallierter Schlüssel für S2S-Konnektivität  |
 | **Maximale Anzahl von S2S-Verbindungen**  | Nicht unterstützt | 20 | 20| 10|
 |**Aktive Routingunterstützung (BGP)** | Nicht unterstützt | Nicht unterstützt | Unterstützt | Unterstützt |
@@ -149,7 +149,7 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 
 ### <a name="local-network-gateways"></a>Lokale Netzwerkgateways
 
-Wenn Sie eine VPN-Gatewaykonfiguration in Azure erstellen, stellt das Gateway des lokalen Netzwerks meist Ihren lokalen Standort dar. In Azure Stack stellt es ein beliebiges Remote-VPN-Gerät dar, das sich außerhalb von Azure Stack befindet. Hierbei kann es sich um ein VPN-Gerät in Ihrem Datencenter (oder in einem Remotedatencenter) oder um ein VPN Gateway in Azure handeln.
+Wenn Sie eine VPN-Gatewaykonfiguration in Azure erstellen, stellt das Gateway des lokalen Netzwerks meist Ihren lokalen Standort dar. In Azure Stack stellt es ein beliebiges Remote-VPN-Gerät dar, das sich außerhalb von Azure Stack befindet. Bei diesem Gerät kann es sich um ein VPN-Gerät in Ihrem Datencenter (oder in einem Remotedatencenter) oder um ein VPN Gateway in Azure handeln.
 
 Sie geben dem Gateway des lokalen Netzwerks einen Namen, stellen die öffentliche IP-Adresse des VPN-Geräts bereit und geben die Adresspräfixe an, die sich am lokalen Standort befinden. Azure sucht unter den Zieladresspräfixen nach Netzwerkdatenverkehr, sieht in der Konfiguration nach, die Sie für das Gateway des lokalen Netzwerks angegeben haben, und leitet die Pakete entsprechend weiter.
 
@@ -166,7 +166,7 @@ Manchmal müssen Sie die Einstellungen des lokalen Netzwerkgateways ändern, z.B
 
 Wenn Sie eine VPN-Verbindung in Azure Stack einrichten, müssen Sie die Verbindung an beiden Enden konfigurieren. Wenn Sie eine VPN-Verbindung zwischen Azure Stack und einem Hardwaregerät (beispielsweise einem als VPN-Gateway fungierenden Switch oder Router) konfigurieren, sind für dieses Gerät unter Umständen weitere Einstellungen erforderlich.
 
-Im Gegensatz zu Azure, das mehrere Angebote als Initiator und Antwortdienst unterstützt, unterstützt standardmäßig Azure Stack lediglich ein einzelnes Angebot.  Wenn Sie verschiedene IPSec/IKE-Einstellungen mit Ihrem VPN-Gerät verwenden müssen, stehen Ihnen weitere Einstellungen zur Verfügung, um Ihre Verbindung manuell zu konfigurieren.  Weitere Informationen finden Sie unter [Konfigurieren einer IPsec/IKE-Richtlinie für Standort-zu-Standort-VPN-Verbindungen](azure-stack-vpn-s2s.md).
+Im Gegensatz zu Azure, das mehrere Angebote als Initiator und Antwortdienst unterstützt, unterstützt standardmäßig Azure Stack lediglich ein einzelnes Angebot.  Wenn Sie verschiedene IPSec/IKE-Einstellungen mit Ihrem VPN-Gerät verwenden müssen, stehen Ihnen weitere Einstellungen zur Verfügung, um Ihre Verbindung manuell zu konfigurieren.  Weitere Informationen finden Sie unter [Konfigurieren einer IPsec/IKE-Richtlinie für Site-to-Site-VPN-Verbindungen](azure-stack-vpn-s2s.md).
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Parameter der IKE-Phase 1 (Hauptmodus)
 
@@ -190,7 +190,7 @@ Im Gegensatz zu Azure, das mehrere Angebote als Initiator und Antwortdienst unte
 |Perfect Forward Secrecy (PFS) |Keiner (siehe Hinweis 1) |
 |Dead Peer Detection | Unterstützt|  
 
-* *Hinweis 1:*  Bis zur Version 1807 verwendete Azure Stack für „Perfect Forward Secrecy (PFS)“ den Wert „PFS2048“.
+* *Hinweis 1:*  Vor Version 1807 verwendete Azure Stack für „Perfect Forward Secrecy (PFS)“ den Wert „PFS2048“.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

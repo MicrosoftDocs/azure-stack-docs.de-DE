@@ -1,6 +1,6 @@
 ---
-title: Informationen zum VPN-Gateway für Azure Stack | Microsoft-Dokumentation
-description: Hier finden Sie Informationen zu VPN-Gateways, die Sie mit Azure Stack verwenden, sowie zu deren Konfiguration.
+title: Erstellen von VPN-Gateways für Azure Stack | Microsoft-Dokumentation
+description: Erstellen und Konfigurieren von VPN-Gateways für Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 0df791c6eb9a898c5263b2c628899b512d49601c
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 980d601dd5830d653787fe4cc31f57be3b3f8d00
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198659"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658675"
 ---
-# <a name="about-vpn-gateway-for-azure-stack"></a>Informationen zum VPN-Gateway für Azure Stack
+# <a name="create-vpn-gateways-for-azure-stack"></a>Erstellen von VPN-Gateways für Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -32,7 +32,7 @@ Ein VPN Gateway ist eine Art von Gateway für virtuelle Netzwerke, mit dem versc
 
 Der gewünschte Gatewaytyp wird beim Erstellen eines Gateways für virtuelle Netzwerke angegeben. Azure Stack unterstützt eine Art von Gateway für virtuelle Netzwerke: **VPN**.
 
-Jedes virtuelle Netzwerk kann über zwei Gateways für virtuelle Netzwerke, aber nur über eins von jedem Typ verfügen. Abhängig von den gewählten Einstellungen können Sie ggf. mehrere Verbindungen mit einem einzelnen VPN-Gateway erstellen. Ein Beispiel ist eine Verbindungskonfiguration mit mehreren Standorten.
+Jedes virtuelle Netzwerk kann über zwei Gateways für virtuelle Netzwerke, aber nur über eins von jedem Typ verfügen. Abhängig von den gewählten Einstellungen können Sie ggf. mehrere Verbindungen mit einem einzelnen VPN-Gateway erstellen. Ein Beispiel für diese Art Einrichtung ist eine Verbindungskonfiguration mit mehreren Standorten.
 
 Bevor Sie VPN-Gateways für Azure Stack erstellen und konfigurieren, sollten Sie die [Überlegungen zu Azure Stack-Netzwerken](azure-stack-network-differences.md) lesen, um zu erfahren, wie Konfigurationen für Azure Stack sich von Azure unterscheiden.
 
@@ -75,7 +75,7 @@ Orientieren Sie sich bei der Wahl einer geeigneten Verbindungstopologie an den D
 
 ### <a name="site-to-site"></a>Site-to-Site
 
-Eine VPN Gateway-S2S-Verbindung (*Site-to-Site*) ist eine Verbindung über einen IPsec-/IKE-VPN-Tunnel (IKEv2). Dieser Verbindungstyp erfordert ein lokales VPN-Gerät, das einer öffentlichen IP-Adresse zugewiesen ist. Dieses Gerät kann sich nicht hinter einer NAT befinden. S2S-Verbindungen können für standortübergreifende Konfigurationen und Hybridkonfigurationen verwendet werden.
+Eine VPN Gateway-S2S-Verbindung (*Site-to-Site*) ist eine Verbindung über einen IPsec-/IKE-VPN-Tunnel (IKEv2). Dieser Verbindungstyp erfordert ein lokales VPN-Gerät, das einer öffentlichen IP-Adresse zugewiesen ist. Dieses Gerät darf sich nicht hinter einer NAT befinden. S2S-Verbindungen können für standortübergreifende Konfigurationen und Hybridkonfigurationen verwendet werden.
 
 ![Konfigurationsbeispiel für eine Site-to-Site-VPN-Verbindung](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
@@ -109,7 +109,7 @@ Hochverfügbarkeitsszenarien können nur in der **Hochleistungsgateway**-Verbind
 
 ### <a name="failover"></a>Failover
 
-Es gibt 3 mehrinstanzenfähige VMs mit Gatewayinfrastruktur in Azure Stack. Zwei dieser virtuellen Computer befinden sich im aktiven Modus, während sich die dritte im redundanten Modus befindet. Aktive virtuelle Computer ermöglichen die Erstellung von VPN-Verbindungen auf sich, und die redundante VM akzeptiert im Falle eines Failovers nur VPN-Verbindungen. Wenn eine aktive Gateway-VM nicht mehr verfügbar ist, führt die VPN-Verbindung nach einem kurzen Zeitraum (ein paar Sekunden) der Verbindungsunterbrechung ein Failover zur redundanten VM durch.
+Es gibt drei mehrinstanzenfähige VMs mit Gatewayinfrastruktur in Azure Stack. Zwei dieser virtuellen Computer befinden sich im aktiven Modus, während sich die dritte im redundanten Modus befindet. Aktive virtuelle Computer ermöglichen die Erstellung von VPN-Verbindungen auf sich, und die redundante VM akzeptiert nur VPN-Verbindungen, wenn ein Failover eintritt. Wenn eine aktive Gateway-VM nicht mehr verfügbar ist, führt die VPN-Verbindung nach einem kurzen Zeitraum (ein paar Sekunden) der Verbindungsunterbrechung ein Failover zur redundanten VM durch.
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Voraussichtlicher aggregierter Durchsatz nach SKU
 
@@ -125,7 +125,7 @@ In der folgenden Tabelle sind die Gatewaytypen und der geschätzte zusammengefas
 
 *Hinweis (1)* : Der VPN-Durchsatz ist kein garantierter Durchsatz für standortübergreifende Verbindungen über das Internet. Hierbei wird der maximal mögliche Durchsatz gemessen.  
 *Hinweis (2)* : Bei der maximalen Tunnelanzahl handelt es sich um die Summe pro Azure Stack-Bereitstellung für alle Abonnements.  
-*Hinweis (3)* : BGP-Routing wird von der Basic-SKU nicht unterstützt.
+*(3)* Das BGP-Routing wird von der Basic-SKU nicht unterstützt.
 
 >[!NOTE]
 >Zwischen zwei Azure Stack-Bereitstellungen kann nur eine Site-to-Site-VPN-Verbindung hergestellt werden. Der Grund: Wegen einer Einschränkung ist für die Plattform nur eine einzelne VPN-Verbindung mit der gleichen IP-Adresse zulässig. Da Azure Stack das mehrinstanzenfähige Gateway nutzt, das eine öffentliche IP für alle VPN-Gateways im Azure Stack-System verwendet, kann zwischen zwei Azure Stack-Systemen nur eine VPN-Verbindung hergestellt werden. Diese Einschränkung gilt auch für das Herstellen mehrerer Site-to-Site-VPN-Verbindungen mit einem beliebigen VPN-Gateway, das eine einzige IP-Adresse nutzt. Azure Stack lässt nicht zu, dass mehrere Ressourcen des lokalen Netzwerkgateways mit der gleichen IP-Adresse erstellt werden.

@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: c9e796a4ece453c3cd74bbf9a2fb6996757a0b4e
-ms.sourcegitcommit: 44f1bf6e0bfa85ee14819cad27c9b1de65d375df
+ms.openlocfilehash: 9d088cb128243b0b178e7a317ba05176a59e83c1
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67596081"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494063"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Verwenden des privilegierten Endpunkts in Azure Stack
 
@@ -30,7 +30,7 @@ Als Azure Stack-Operator sollten Sie das Administratorportal, PowerShell oder AP
 
 Der PEP kann beispielsweise für Folgendes verwendet werden:
 
-- Aufgaben auf niedriger Ebene durchführen, z. B. [Diagnoseprotokolle erfassen](azure-stack-diagnostics.md#log-collection-tool).
+- Aufgaben auf niedriger Ebene durchführen, z. B. [Diagnoseprotokolle erfassen](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
 - Durchführung zahlreicher Datacenter-Integrationsaufgaben für integrierte Systeme nach der Bereitstellung, z.B. Hinzufügen von DNS-Weiterleitungen nach der Bereitstellung, Einrichten der Microsoft Graph-Integration, der Integration von Active Directory-Verbunddiensten (AD FS), der Zertifikatrotation, usw.
 - Zusammenarbeit mit dem Support zum Erhalt von temporärem, allgemeinem Zugriff für die eingehende Problembehandlung eines integrierten Systems.
 
@@ -154,9 +154,9 @@ Wenn Sie die PEP-Sitzung in Ihren lokalen Computer importieren möchten, führen
      - **Kennwort**: Geben Sie das gleiche Kennwort ein, das während der Installation für das AzureStackAdmin-Domänenadministratorkonto bereitgestellt wurde.
 
 3. Importieren der PEP-Sitzung in Ihren lokalen Computer
-    ```powershell 
+     ```powershell 
         Import-PSSession $session
-    ```
+   ```
 4. Nun können Sie in Ihrer lokalen PowerShell-Sitzung die Ergänzung mittels TAB-TASTE nutzen und wie gewohnt Skripts verwenden – zusammen mit allen Funktionen und Cmdlets des PEPs und ohne Beeinträchtigung der Sicherheit von Azure Stack. Viel Spaß!
 
 
@@ -167,16 +167,16 @@ Wenn Sie die PEP-Sitzung in Ihren lokalen Computer importieren möchten, führen
 Schließen der Endpunktsitzung:
 
 1. Erstellen Sie eine externe Dateifreigabe, auf die der PEP zugreifen kann. In einer Development Kit-Umgebung können Sie nur eine Dateifreigabe auf dem Development Kit-Host erstellen.
-2. Führen Sie das Cmdlet aus. 
-    ```powershell
-    Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
-    ```
-Hierbei gilt:
+2. Führen Sie das folgende Cmdlet aus: 
+     ```powershell
+     Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+     ```
+   Die verwendeten Parameter sind in der folgenden Tabelle definiert.
 
-| Parameter | BESCHREIBUNG | type | Erforderlich |
-|---------|---------|---------|---------|
-| *TranscriptsPathDestination* | Pfad zu der externen Dateifreigabe, die als „fileshareIP\sharefoldername“ definiert ist. | string | Ja|
-| *Credential* | Anmeldeinformationen für den Zugriff auf die Dateifreigabe | SecureString |  Ja |
+   | Parameter | BESCHREIBUNG | type | Erforderlich |
+   |---------|---------|---------|---------|
+   | *TranscriptsPathDestination* | Pfad zu der externen Dateifreigabe, die als „fileshareIP\sharefoldername“ definiert ist. | Zeichenfolge | Ja|
+   | *Credential* | Anmeldeinformationen für den Zugriff auf die Dateifreigabe | SecureString |   Ja |
 
 
 Nachdem die Aufzeichnungsprotokolldateien erfolgreich in die Dateifreigabe übertragen wurden, werden sie automatisch vom PEP gelöscht. 
@@ -187,4 +187,4 @@ Nachdem die Aufzeichnungsprotokolldateien erfolgreich in die Dateifreigabe über
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Azure Stack-Diagnosetools](azure-stack-diagnostics.md)
+[Azure Stack-Diagnosetools](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)

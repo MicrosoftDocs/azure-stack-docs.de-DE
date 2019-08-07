@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 02/15/2019
-ms.openlocfilehash: 38c4de35b4d2b5eac16b8586aa6933b18c62b14a
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 07/31/2019
+ms.openlocfilehash: 3ab7dfbaef82868f45b181fb81d9b98050147191
+ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267332"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68692124"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Verwenden des ASDK zum Überprüfen der Azure Stack-Sicherung
 Nach der Bereitstellung von Azure Stack und von Benutzerressourcen wie Angeboten, Plänen, Kontingenten und Abonnements sollten Sie [Azure Stack-Infrastruktursicherung aktivieren](../operator/azure-stack-backup-enable-backup-console.md). Das Planen und Ausführen regelmäßiger Infrastruktursicherungen stellt sicher, dass Daten zur Infrastrukturverwaltung nicht verloren gehen, wenn ein Hardware- oder Dienstausfall auftritt.
@@ -58,7 +58,7 @@ Vor dem Starten einer Bereitstellung für die Cloudwiederherstellung des ASDK be
 |Sicherungs-ID für die Wiederherstellung|Die Sicherungs-ID im alphanumerischen Format „xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx“, die die Sicherung bezeichnet, für die eine Cloudwiederherstellung durchgeführt werden soll.|
 |Zeitserver-IP-Adresse|Eine gültige Zeitserver IP-Adresse (z.B. 132.163.97.2) ist für Azure Stack-Bereitstellungen erforderlich.|
 |Kennwort für externes Zertifikat|Das Kennwort für das externe Zertifikat, das von Azure Stack verwendet werden soll. Die Sicherung der Zertifizierungsstelle enthält externe Zertifikate, die mit diesem Kennwort wiederhergestellt werden müssen.|
-|Verschlüsselungsschlüssel der Sicherung|Erforderlich, wenn Sie ein Upgrade auf Azure Stack Version 1901 oder höher vorgenommen haben und die Sicherungseinstellungen noch mit einem Verschlüsselungsschlüssel konfiguriert sind. Ab 1901 sind Verschlüsselungsschlüssel veraltet. Das Installationsprogramm unterstützt Verschlüsselungsschlüssel im Abwärtskompatibilitätsmodus für mindestens 3 Versionen. Nachdem Sie die Einstellungen auf die Verwendung eines Zertifikats aktualisiert haben, finden Sie die erforderlichen Informationen in der nächsten Tabelle.|
+|Verschlüsselungsschlüssel der Sicherung|Erforderlich, wenn die Sicherungseinstellungen mit einem Verschlüsselungsschlüssel konfiguriert sind, was eine veraltete Option darstellt. Das Installationsprogramm unterstützt Verschlüsselungsschlüssel im Abwärtskompatibilitätsmodus für mindestens 3 Versionen. Nachdem Sie die Einstellungen auf die Verwendung eines Zertifikats aktualisiert haben, finden Sie die erforderlichen Informationen in der nächsten Tabelle.|
 
 |     |     | 
 
@@ -73,7 +73,7 @@ Vor dem Starten einer Bereitstellung für die Cloudwiederherstellung des ASDK be
 |Zeitserver-IP-Adresse|Eine gültige Zeitserver IP-Adresse (z.B. 132.163.97.2) ist für Azure Stack-Bereitstellungen erforderlich.|
 |Kennwort für externes Zertifikat|Das Kennwort für das externe Zertifikat, das von Azure Stack verwendet werden soll. Die Sicherung der Zertifizierungsstelle enthält externe Zertifikate, die mit diesem Kennwort wiederhergestellt werden müssen.|
 |Kennwort für Entschlüsselungszertifikat|Optional. Nur erforderlich, wenn die Sicherung mit einem Zertifikat verschlüsselt ist. Das Kennwort ist für die PFX-Datei des selbstsignierten Zertifikats, die den privaten Schlüssel enthält, der zum Entschlüsseln der Sicherungsdaten notwendig ist.|
-|Verschlüsselungsschlüssel der Sicherung|Optional. Erforderlich, wenn Sie ein Upgrade auf Azure Stack Version 1901 oder höher vorgenommen haben und die Sicherungseinstellungen noch mit einem Verschlüsselungsschlüssel konfiguriert sind. Das Installationsprogramm unterstützt Verschlüsselungsschlüssel im Abwärtskompatibilitätsmodus für mindestens 3 Versionen. Nachdem Sie die Sicherungseinstellungen auf die Verwendung eines Zertifikats aktualisiert haben, müssen Sie das Kennwort für das Entschlüsselungszertifikat angeben.|
+|Verschlüsselungsschlüssel der Sicherung|Optional. Erforderlich, wenn die Sicherungseinstellungen noch mit einem Verschlüsselungsschlüssel konfiguriert sind. Das Installationsprogramm unterstützt Verschlüsselungsschlüssel im Abwärtskompatibilitätsmodus für mindestens 3 Versionen. Nachdem Sie die Sicherungseinstellungen auf die Verwendung eines Zertifikats aktualisiert haben, müssen Sie das Kennwort für das Entschlüsselungszertifikat angeben.|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>Vorbereiten des Hostcomputers 

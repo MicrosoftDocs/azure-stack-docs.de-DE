@@ -14,12 +14,12 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: a582e1d9abbd690a62f27f6bcaee8c2dd2e6be4b
-ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
+ms.openlocfilehash: da89c973637042b18410db9dc3dc618bfbde12d5
+ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68239431"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68685525"
 ---
 # <a name="validate-azure-stack-system-state"></a>Überprüfen des Azure Stack-Systemstatus
 
@@ -48,7 +48,7 @@ Wie bereits erwähnt, wird das Überprüfungstool über den PEP ausgeführt. Jed
 
    Weitere Informationen finden Sie in den Abschnitten [Überlegungen zu Parametern](azure-stack-diagnostic-test.md#parameter-considerations) und [Beispiele für Anwendungsfälle](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Führen Sie `Get-AzureStackLog` aus, wenn für Tests **FAIL** (FEHLER) gemeldet wird. Eine Anleitung zu einem integrierten System finden Sie unter [So führen Sie „Get-AzureStackLog“ in integrierten Azure Stack-Systemen aus](azure-stack-diagnostics.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems) oder im ASDK unter [Ausführen von Get-AzureStackLog in einem System mit dem Azure Stack Development Kit (ASDK)](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+3. Führen Sie `Get-AzureStackLog` aus, wenn für Tests **FAIL** (FEHLER) gemeldet wird. Eine Anleitung zu einem integrierten System finden Sie unter [So führen Sie „Get-AzureStackLog“ in integrierten Azure Stack-Systemen aus](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems) oder im ASDK unter [Ausführen von Get-AzureStackLog in einem System mit dem Azure Stack Development Kit (ASDK)](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
    Das Cmdlet sammelt Protokolle, die von Test-AzureStack generiert wurden. Sie sollten keine Protokolle sammeln und sich nicht an CSS wenden, wenn bei Tests **WARN** gemeldet wird.
 
@@ -78,6 +78,7 @@ Diese Tests mit geringer Auswirkung arbeiten auf einer Infrastrukturebene und li
 | Kapazität der Azure Stack-Infrastruktur                  | AzsInfraCapacity                  |
 | Leistung der Azure Stack-Infrastruktur               | AzsInfraPerformance               |
 | Zusammenfassung der Infrastrukturrolle von Azure Stack              | AzsInfraRoleSummary               |
+| Azure Stack-Netzwerkinfrastruktur                            | AzsNetworkInfra                   |
 | Zusammenfassung von Azure Stack-Portal und API                   | AzsPortalAPISummary               |
 | VM-Ereignisse der Azure Stack-Skalierungseinheit                     | AzsScaleUnitEvents                |
 | VM-Ressourcen der Azure Stack-Skalierungseinheit                  | AzsScaleUnitResources             |
@@ -227,10 +228,20 @@ Um neue Anmeldeinformationen mit der konfigurierten Sicherungsfreigabe zu testen
   Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
   ```
 
+### <a name="run-validation-tool-to-test-network-infrastructure"></a>Ausführen des Überprüfungstools zum Testen der Netzwerkinfrastruktur 
+
+Dieser Test überprüft die Konnektivität der Netzwerkinfrastruktur, indem er das softwaredefinierte Netzwerk (SDN) von Azure Stack umgeht. Er veranschaulicht Verbindungen von einer öffentlichen VIP mit den konfigurierten DNS-Forwardern, NTP-Servern und Authentifizierungsendpunkten. Dies schließt die Konnektivität mit Azure ein, wenn Azure AD als Identitätsanbieter verwendet wird, oder mit dem Partnerserver, wenn ADFS als Identitätsanbieter verwendet wird. 
+
+Schließen Sie den Debug-Parameter ein, um eine detaillierte Ausgabe des Befehls zu erhalten:
+
+```powershell 
+Test-AzureStack -Include AzsNetworkInfra -Debug
+```
+
 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zu Azure Stack-Diagnosetools und zur Protokollierung von Problemen finden Sie unter [Azure Stack-Diagnosetools](azure-stack-diagnostics.md).
+Weitere Informationen zu Azure Stack-Diagnosetools und zur Protokollierung von Problemen finden Sie unter [Azure Stack-Diagnosetools](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
 
 Weitere Informationen zur Problembehandlung finden Sie unter [Problembehandlung von Microsoft Azure Stack](azure-stack-troubleshooting.md).
