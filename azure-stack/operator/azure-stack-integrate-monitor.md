@@ -15,12 +15,12 @@ ms.date: 06/05/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: e0c3c4740a1bc8073e827ff9809cf1aafa029792
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 7b5bfb39c3ec14c23b1df54c13f2733724fcfe05
+ms.sourcegitcommit: ddb625bb01de11bfb75d9f7a1cc61d5814b3bc31
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691691"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68712917"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrieren einer externen Überwachungslösung mit Azure Stack
 
@@ -85,9 +85,9 @@ Das Plug-In funktioniert für Nagios 4x und XI. Sie können es [hier](https://e
 
 2.  Microsoft Azure Active Directory-Python-Bibliothek. Für die Installation kann Python PIP verwendet werden.
 
-```bash  
-sudo pip install adal pyyaml six
-```
+    ```bash  
+    sudo pip install adal pyyaml six
+    ```
 
 ### <a name="install-plugin"></a>Installieren des Plug-Ins
 
@@ -96,13 +96,13 @@ In diesem Abschnitt wird beschrieben, wie Sie das Azure Stack-Plug-In installier
 Das Plug-In-Paket enthält die folgenden Dateien:
 
 ```
-  azurestack_plugin.py
-  azurestack_handler.sh
-  samples/etc/azurestack.cfg
-  samples/etc/azurestack_commands.cfg
-  samples/etc/azurestack_contacts.cfg
-  samples/etc/azurestack_hosts.cfg
-  samples/etc/azurestack_services.cfg
+azurestack_plugin.py
+azurestack_handler.sh
+samples/etc/azurestack.cfg
+samples/etc/azurestack_commands.cfg
+samples/etc/azurestack_contacts.cfg
+samples/etc/azurestack_hosts.cfg
+samples/etc/azurestack_services.cfg
 ```
 
 1.  Kopieren Sie das Plug-In `azurestack_plugin.py` in das Verzeichnis `/usr/local/nagios/libexec`.
@@ -112,8 +112,8 @@ Das Plug-In-Paket enthält die folgenden Dateien:
 3.  Legen Sie fest, dass die Plug-In-Datei ausführbar ist.
 
     ```bash
-      sudo cp azurestack_plugin.py <PLUGINS_DIR>
-      sudo chmod +x <PLUGINS_DIR>/azurestack_plugin.py
+    sudo cp azurestack_plugin.py <PLUGINS_DIR>
+    sudo chmod +x <PLUGINS_DIR>/azurestack_plugin.py
     ```
 
 ### <a name="configure-plugin"></a>Konfigurieren des Plug-Ins
@@ -164,17 +164,17 @@ Die Nagios-Konfiguration muss aktualisiert werden, um sicherzustellen, dass das 
 /usr/local/nagios/etc/nagios.cfg
 ```
 
-1.  Fügen Sie den folgenden Eintrag hinzu:
+2.  Fügen Sie den folgenden Eintrag hinzu:
 
 ```bash  
-  #load the Azure Stack Plugin Configuration
-  cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
-  cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
-  cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
-  cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
+# Load the Azure Stack Plugin Configuration
+cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
+cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
+cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
+cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
 ```
 
-1.  Laden Sie Nagios neu:
+3.  Laden Sie Nagios neu:
 
 ```bash  
 sudo service nagios reload
@@ -185,13 +185,13 @@ sudo service nagios reload
 Aktive Warnungen können in Nagios mit der benutzerdefinierten Benachrichtigungsfunktion geschlossen werden. Für die benutzerdefinierte Benachrichtigung muss Folgendes gelten:
 
 ```
-  /close-alert <ALERT_GUID>
+/close-alert <ALERT_GUID>
 ```
 
 Eine Warnung kann auch geschlossen werden, indem in einem Terminal der folgende Befehl verwendet wird:
 
 ```bash
-  /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
+/usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
 ```
 
 ### <a name="troubleshooting"></a>Problembehandlung
@@ -199,7 +199,7 @@ Eine Warnung kann auch geschlossen werden, indem in einem Terminal der folgende 
 Die Problembehandlung für das Plug-In kann durchgeführt werden, indem das Plug-In in einem Terminal manuell aufgerufen wird. Verwenden Sie die folgende Methode:
 
 ```bash
-  /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Monitor
+/usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Monitor
 ```
 
 ## <a name="use-powershell-to-monitor-health-and-alerts"></a>Verwenden von PowerShell zum Überwachen von Integrität und Warnungen
@@ -211,31 +211,31 @@ Wenn Sie weder Operations Manager, Nagios noch eine auf Nagios basierende Lösun
 2. Führen Sie die folgenden Befehle aus, um sich mit der Azure Stack-Umgebung als Azure Stack-Operator zu verbinden:
 
    ```powershell
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https:\//adminmanagement.[Region].[External_FQDN] `
+   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
       -AzureKeyVaultDnsSuffix adminvault.[Region].[External_FQDN] `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.[Region].[External_FQDN]
 
-   Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 
 3. Verwenden Sie Befehle wie die folgenden Beispiele, um mit Warnungen zu arbeiten:
    ```powershell
-    #Retrieve all alerts
+    # Retrieve all alerts
     $Alerts = Get-AzsAlert
     $Alerts
 
-    #Filter for active alerts
+    # Filter for active alerts
     $Active = $Alerts | Where-Object { $_.State -eq "active" }
     $Active
 
-    #Close alert
+    # Close alert
     Close-AzsAlert -AlertID "ID"
 
     #Retrieve resource provider health
     $RPHealth = Get-AzsRPHealth
     $RPHealth
 
-    #Retrieve infrastructure role instance health
+    # Retrieve infrastructure role instance health
     $FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
     ```

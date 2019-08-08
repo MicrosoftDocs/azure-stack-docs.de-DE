@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 0c7840c723aedd38b51002e4a1f18f5a87d66ec4
-ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
+ms.openlocfilehash: b789b7ba1f4c55f0ee44c214d4e214b73678b1fc
+ms.sourcegitcommit: 49cfe13427f5255915d5ccbed87b36eec2caf8ca
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544064"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68719968"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack-Checkliste für Updateaktivitäten
 
@@ -31,8 +31,8 @@ Dieser Artikel enthält eine Checkliste mit Updateaktivitäten für Azure Stack
 
 | Aktivität                     | Details                                                   |
 |------------------------------|-----------------------------------------------------------|
-| Überprüfen bekannter Probleme     | [Liste mit bekannten Problemen](azure-stack-release-notes-known-issues-1906.md)                |
-| Überprüfen von Sicherheitsupdates | [Liste mit Sicherheitsupdates](azure-stack-release-notes-security-updates-1906.md)      |
+| Überprüfen bekannter Probleme     | [Liste mit bekannten Problemen](azure-stack-release-notes-known-issues-1907.md)                |
+| Überprüfen von Sicherheitsupdates | [Liste mit Sicherheitsupdates](azure-stack-release-notes-security-updates-1907.md)      |
 | Anwenden des aktuellen OEM-Pakets | Wenden Sie sich an ihren OEM, um sicherzustellen, dass Ihr System die Mindestanforderungen für OEM-Pakete für die Azure Stack-Version des Updates für Ihr System erfüllt. |
 | Ausführen von „Test-AzureStack“     | Führen Sie `Test-AzureStack -Group UpdateReadiness` aus, um Betriebsprobleme zu ermitteln.      |
 | Beheben von Problemen          | Beheben Sie alle Betriebsprobleme, die mithilfe von **Test-AzureStack** ermittelt wurden.                |

@@ -16,12 +16,12 @@ ms.date: 06/04/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: e9c373ebaa6452c57acad866c66c8b3d5ab0c5ed
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: b2b53edaba6a6cb180ae617740fd4695b1a86187
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469175"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842727"
 ---
 # <a name="network-connectivity"></a>Netzwerkverbindung
 Dieser Artikel enthält Informationen zur Netzwerkinfrastruktur von Azure Stack, die Sie bei der Entscheidung unterstützen, wie Sie Azure Stack am besten in Ihre bestehende Netzwerkumgebung integrieren können. 
@@ -40,7 +40,7 @@ Logische Netzwerke stellen eine Abstraktion der zugrunde liegenden physischen Ne
 
 Die folgende Tabelle zeigt die logischen Netzwerke und die zugehörigen IPv4-Subnetzbereiche, die Sie berücksichtigen müssen:
 
-| Logisches Netzwerk | BESCHREIBUNG | Größe | 
+| Logisches Netzwerk | BESCHREIBUNG | Size | 
 | -------- | ------------- | ------------ | 
 | Öffentliche VIP | Azure Stack verwendet insgesamt 31 Adressen aus diesem Netzwerk. Acht öffentliche IP-Adressen werden für einen kleinen Satz von Azure Stack-Diensten verwendet, und die restlichen Adressen werden von virtuellen Computern von Mandanten verwendet. Wenn Sie App Service und SQL-Ressourcenanbieter verwenden möchten, werden sieben weitere Adressen verwendet. Die verbleibenden 15 IP-Adressen sind für zukünftige Azure-Dienste reserviert. | /26 (62 Hosts) - /22 (1022 Hosts)<br><br>Empfohlen = /24 (254 Hosts) | 
 | Switchinfrastruktur | Point-to-Point-IP-Adressen für Routingzwecke, dedizierte Switchverwaltungsschnittstellen und Loopbackadressen, die dem Switch zugewiesen sind. | /26 | 
@@ -77,28 +77,7 @@ Dieses Netzwerk des Typs „/26“ ist das Subnetz, das die routingfähigen Punk
 ### <a name="switch-management-network"></a>Switchverwaltungsnetzwerk
 Dieses Netzwerk des Typs „/29“ (6 Host-IP-Adressen) dient zum Verbinden der Verwaltungsports der Switches. Sie erlaubt einen Out-of-band-Zugriff für Bereitstellung, Verwaltung und Problembehandlung. Sie wird anhand des oben erwähnten Switchinfrastrukturnetzwerks berechnet.
 
-## <a name="publish-azure-stack-services"></a>Veröffentlichen von Azure Stack-Diensten
-Sie müssen Azure Stack-Dienste für Benutzer zur Verfügung stellen, die sich außerhalb von Azure Stack befinden. Azure Stack richtet für die eigenen Infrastrukturrollen verschiedene Endpunkte ein. Diesen Endpunkte werden VIPs aus dem öffentlichen IP-Adressenpool zugewiesen. Für jeden Endpunkt in der externen DNS-Zone, die zum Zeitpunkt der Bereitstellung angegeben wurde, wird ein DNS-Eintrag erstellt. Dem Benutzerportal wird z. B. der DNS-Hosteintrag „portal. *&lt;region>.&lt;fqdn>* “ zugewiesen.
 
-### <a name="ports-and-urls"></a>Ports und URLs
-Damit Sie Azure Stack-Dienste (wie Portale, Azure Resource Manager, DNS, usw.) für externe Netzwerke zur Verfügung stellen können, müssen Sie für diese Endpunkte den eingehenden Datenverkehr für bestimmte URLs, Ports und Protokolle zulassen.
- 
-In einer Bereitstellung mit einem Uplink zwischen einem transparenten Proxy und einem herkömmlichen Proxyserver müssen sowohl für die [eingehende](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) als auch die [ausgehende](azure-stack-integrate-endpoints.md#ports-and-urls-outbound) Kommunikation bestimmte Ports und URLs zugelassen werden. Dazu gehören Ports und URLs für Identität, der Marketplace, Patch und Update, Registrierung und Nutzungsdaten.
-
-### <a name="mac-address-pool"></a>MAC-Adresspool
-
-Für Azure Stack wird ein statischer MAC-Adresspool genutzt, um MAC-Adressen automatisch zu generieren und virtuellen Computern zuzuweisen.
-Dieser MAC-Adresspool wird während der Bereitstellung automatisch generiert und umfasst den folgenden Bereich:
-
-- StartMacAddress: 00-1D-D8-B7-00-00
-- EndMacAddress: 00-1D-D8-F4-FF-FF
-
-> [!Note]  
-> Dieser MAC-Adresspool ist für jedes Azure Stack-System gleich und nicht konfigurierbar.
-
-Je nachdem, wie für die virtuellen Netzwerke eine Verbindung mit vorhandenen Unternehmensnetzwerken hergestellt wird, kommt es ggf. zu doppelten MAC-Adressen von virtuellen Computern.
-
-Weitere Informationen zur Nutzung des MAC-Adresspools erhalten Sie über das Cmdlet [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) im PowerShell-Modul für Azure Stack-Administratoren.
 
 
 ## <a name="next-steps"></a>Nächste Schritte

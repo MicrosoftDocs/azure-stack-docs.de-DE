@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: cf09162fb29630ed01834aa6b2b508785206a088
-ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
+ms.openlocfilehash: 41d07532960776cd5ed9312007877489e9ebbf20
+ms.sourcegitcommit: 83d9dbecd7334f37862e47ca028a50f8d7dafe2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68685569"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68738327"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Azure Stack 1907: Bekannte Probleme
 
@@ -89,13 +89,6 @@ In diesem Artikel werden die bekannten Probleme in Version 1907 von Azure Stack 
 - Häufigkeit: Common
 
 ### <a name="virtual-network-gateway"></a>Gateway des virtuellen Netzwerks
-
-#### <a name="local-network-gateway-deletion"></a>Löschung des lokalen Netzwerkgateways
-
-- Geltungsbereich: Dieses Problem gilt für Release 1906.
-- Ursache: Im Benutzerportal wird beim Löschen des **lokalen Netzwerkgateways** die folgende Fehlermeldung angezeigt: **Ein lokales Netzwerkgateway mit einer aktiven Verbindung kann nicht gelöscht werden**, obwohl keine aktive Verbindung vorhanden ist.
-- Lösung: Die Lösung dieses Problems wird in Version 1907 veröffentlicht. Eine Problemumgehung besteht darin, ein neues lokales Netzwerkgateway mit der gleichen IP-Adresse, dem gleichen Adressraum und den gleichen Konfigurationsdetails, aber unter einem anderen Namen zu erstellen. Das alte LNG kann gelöscht werden, nachdem die Umgebung auf 1907 aktualisiert wurde.
-- Häufigkeit: Common
 
 #### <a name="alerts"></a>Alerts
 
