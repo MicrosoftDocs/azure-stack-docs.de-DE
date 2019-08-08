@@ -1,5 +1,5 @@
 ---
-title: Ethereum-Blockchain-Projektmappenvorlage für Azure Stack
+title: Bereitstellen eines Ethereum-Blockchainnetzwerks in Azure Stack | Microsoft-Dokumentation
 description: Tutorial mit Verwendung von benutzerdefinierten Projektmappenvorlagen zum Bereitstellen und Konfigurieren eines Ethereum-Blockchainnetzwerks in Azure Stack
 services: azure-stack
 keywords: ''
@@ -12,22 +12,28 @@ ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: 8f173ad486ed7fc1a4dae3c9a1c57f77ca623f0d
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: b68a6df35b5345d3e1f00be126cdae24e87d3d0b
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66459095"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842987"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Bereitstellen eines Ethereum-Blockchainnetzwerks in Azure Stack
 
 Mit der Ethereum-Projektmappenvorlage lässt sich ein Multimember-Blockchainnetzwerk für Konsortien von Ethereum mit minimalen Kenntnissen im Bereich Azure und Ethereum schneller und einfacher bereitstellen und konfigurieren.
 
-Mit einigen wenigen Benutzereingaben und einer Bereitstellung mit nur einem Klick über das Azure Stack-Mandantenportal kann jedes Member seinen Netzwerkfußabdruck bereitstellen. Der Netzwerkfußabdruck jedes Members umfasst eine Reihe von Transaktionsknoten mit Lastenausgleich, über die eine Anwendung oder ein Benutzer interaktiv Transaktionen übermitteln kann, sowie eine Reihe von Miningknoten zum Aufzeichnen von Transaktionen und ein virtuelles Netzwerkgerät. Über einen nachfolgenden Verbindungsschritt werden die virtuellen Netzwerkappliances verbunden, sodass ein vollständig konfiguriertes Multimember-Blockchainnetzwerk erstellt wird.
+Mit einigen wenigen Benutzereingaben und einer Bereitstellung mit nur einem Klick über das Azure Stack-Mandantenportal kann jedes Member seinen Netzwerkfußabdruck bereitstellen. Der Netzerkfußabdruck jedes Mitglieds umfasst drei Dinge:
+
+1. Eine Reihe von Transaktionsknoten mit Lastenausgleich, über die eine Anwendung oder ein Benutzer interaktiv Transaktionen übermitteln kann
+2. Eine Reihe von Miningknoten zum Aufzeichnen von Transaktionen
+3. Ein virtuelles Netzwerkgerät (Network Virtual Appliance, NVA)
+
+Über einen später ausgeführten Verbindungsschritt werden die virtuellen Netzwerkgeräte verbunden, sodass ein vollständig konfiguriertes Multimember-Blockchainnetzwerk erstellt wird.
 
 Einrichtung:
 
-- Auswählen der Bereitstellungsarchitektur
+- Auswählen einer Bereitstellungsarchitektur
 - Bereitstellen eines eigenständigen Netzwerks oder eines Netzwerks vom Typ „Konsortium-Leader“ oder „Konsortiumsmitglied“
 
 ## <a name="prerequisites"></a>Voraussetzungen
@@ -43,7 +49,7 @@ Weitere Informationen zu Blockchainszenarien finden Sie unter [Projektmappenvorl
 
 ## <a name="deployment-architecture"></a>Bereitstellungsarchitektur
 
-Mit dieser Projektmappenvorlage können Single- oder Multimembernetzwerke für Ethereum-Konsortien bereitgestellt werden. Das virtuelle Netzwerk wird in einer Kettentopologie mithilfe von Ressourcen von virtuellen Netzwerkappliances und von Verbindungsressourcen verbunden. 
+Mit dieser Projektmappenvorlage können Single- oder Multimembernetzwerke für Ethereum-Konsortien bereitgestellt werden. Das virtuelle Netzwerk wird in einer Kettentopologie mithilfe von Ressourcen von virtuellen Netzwerkappliances und von Verbindungsressourcen verbunden.
 
 ## <a name="deployment-use-cases"></a>Anwendungsfälle für die Bereitstellung
 
@@ -56,7 +62,7 @@ Mit der Vorlage können Leader- und Memberverknüpfungen für Ethereum-Konsortie
 
 Die Konsortium-Leadervorlage konfiguriert den Speicherbedarf für das erste Member im Netzwerk. 
 
-1. Laden Sie die [Leadervorlage von GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json) herunter
+1. Laden Sie die [Leadervorlage von GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json) herunter.
 2. Wählen Sie im Azure Stack-Mandantenportal **+ Ressource erstellen > Vorlagenbereitstellung**, um die Bereitstellung über eine benutzerdefinierte Vorlage durchzuführen.
 3. Klicken Sie auf **Vorlage bearbeiten**, um die neue benutzerdefinierte Vorlage zu bearbeiten.
 4. Wenn Sie sich im rechten Bearbeitungsbereich befinden, kopieren Sie die zuvor heruntergeladene Leader-JSON-Vorlagendatei, und fügen Sie sie ein.
@@ -71,14 +77,14 @@ Die Konsortium-Leadervorlage konfiguriert den Speicherbedarf für das erste Memb
     Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
     NAMEPREFIX | Zeichenfolge, die als Grundlage für die Benennung der bereitgestellten Ressourcen verwendet wird. | Alphanumerische Zeichen (1 bis 6) | eth
-    AUTHTYPE | Die Methode zur Authentifizierung des virtuellen Computers. | Kennwort oder öffentlicher SSH-Schlüssel | Kennwort
-    ADMINUSERNAME | Benutzername des Administrators der einzelnen bereitgestellten virtuellen Computer | 1–64 Zeichen | gethadmin
-    ADMINPASSWORD (Authentifizierungstyp = Kennwort)| Das Kennwort für das Administratorkonto jedes bereitgestellten, virtuellen Computers. Das Kennwort muss drei der folgenden Elemente enthalten: 1 Großbuchstaben, 1 Kleinbuchstaben, 1 Ziffer und 1 Sonderzeichen. <br />Alle VMs haben zunächst dasselbe Kennwort, das nach der Bereitstellung jedoch geändert werden kann.|12–72 Zeichen|
+    AUTHTYPE | Die Methode zur Authentifizierung des virtuellen Computers | Kennwort oder öffentlicher SSH-Schlüssel | Kennwort
+    ADMINUSERNAME | Benutzername des Administrators der einzelnen bereitgestellten virtuellen Computer | 1 bis 64 Zeichen | gethadmin
+    ADMINPASSWORD (Authentifizierungstyp = Kennwort)| Das Kennwort für das Administratorkonto jedes bereitgestellten virtuellen Computers. Das Kennwort muss drei der folgenden Elemente enthalten: 1 Großbuchstaben, 1 Kleinbuchstaben, 1 Ziffer und 1 Sonderzeichen. <br />Alle VMs haben zunächst dasselbe Kennwort, das nach der Bereitstellung jedoch geändert werden kann.|12 bis 72 Zeichen |
     ADMINSSHKEY (Authentifizierungstyp = sshPublicKey) | Der Secure Shell-Schlüssel für die Remoteanmeldung. | |
     GENESISBLOCK | Die JSON-Zeichenfolge, die den benutzerdefinierten Genesis-Block darstellt.  Die Angabe eines Werts für diesen Parameter ist optional. | |
-    ETHEREUMACCOUNTPSSWD | Das zum Schutz des Ethereum-Kontos verwendete Administratorkennwort. | |
+    ETHEREUMACCOUNTPSSWD | Das zum Schutz des Ethereum-Kontos verwendete Administratorkennwort | |
     ETHEREUMACCOUNTPASSPHRASE | Die zum Generieren des privaten Schlüssels verwendete Passphrase, die dem Ethereum-Konto zugeordnet ist. | |
-    ETHEREUMNETWORKID | Die Netzwerk-ID des Konsortiums. | Verwenden Sie einen beliebigen Wert zwischen 5 und 999.999.999 | 72
+    ETHEREUMNETWORKID | Die Netzwerk-ID des Konsortiums. | Verwenden Sie einen beliebigen Wert zwischen 5 und 999.999.999. | 72
     CONSORTIUMMEMBERID | Die ID jedes Members des Konsortiumnetzwerks.   | Diese ID muss im Netzwerk eindeutig sein. | 0
     NUMMININGNODES | Anzahl von Miningknoten. | Zwischen 2 und 15. | 2
     MNNODEVMSIZE | VM-Größe der Miningknoten. | | Standard_A1
@@ -86,7 +92,7 @@ Die Konsortium-Leadervorlage konfiguriert den Speicherbedarf für das erste Memb
     NUMTXNODES | Anzahl von Transaktionsknoten. | Zwischen 1 und 5. | 1
     TXNODEVMSIZE | VM-Größe der Transaktionsknoten. | | Standard_A1
     TXSTORAGEACCOUNTTYPE | Speicherleistung der Transaktionsknoten. | | Standard_LRS
-    BASEURL | Basis-URL zum Abrufen der abhängigen Vorlagen. | Verwenden Sie den Standardwert, sofern Sie die Bereitstellungsvorlagen nicht anpassen möchten. | 
+    BASEURL | Basis-URL zum Abrufen der abhängigen Vorlagen | Verwenden Sie den Standardwert, sofern Sie die Bereitstellungsvorlagen nicht anpassen möchten. | 
 
 7. Klicken Sie auf **OK**.
 8. Geben Sie unter **Benutzerdefinierte Bereitstellung** **Abonnement**, **Ressourcengruppe** und **Ressourcengruppenstandort** an.
@@ -95,7 +101,7 @@ Die Konsortium-Leadervorlage konfiguriert den Speicherbedarf für das erste Memb
 
     Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
-    Abonnement | Das Abonnement, für das das Konsortiumsnetzwerk bereitgestellt wird. | | Verbrauchsabonnement
+    Subscription | Das Abonnement, für das das Konsortiumsnetzwerk bereitgestellt wird | | Verbrauchsabonnement
     Ressourcengruppe | Die Ressourcengruppe, für die das Konsortiumsnetzwerk bereitgestellt wird. | | EthereumResources
     Location | Die Azure-Region für die Ressourcengruppe. | | local
 
@@ -103,15 +109,15 @@ Die Konsortium-Leadervorlage konfiguriert den Speicherbedarf für das erste Memb
 
 Die Bereitstellung kann 20 Minuten oder länger dauern.
 
-Nach dem Abschluss der Bereitstellung können Sie die Zusammenfassung der Bereitstellungen für **Microsoft prüfen. Vorlage** im Bereitstellungsabschnitt der Ressourcengruppe. Die Zusammenfassung enthält die Ausgabewerte, die zum Verknüpfen von Konsortiumsmembern beendet werden können.
+Nachdem die Bereitstellung abgeschlossen ist, überprüfen Sie die Zusammenfassung der Bereitstellung für **Microsoft.Template** im Abschnitt zur Bereitstellung der Ressourcengruppe. Die Zusammenfassung enthält die Ausgabewerte, die zum Verknüpfen von Konsortiumsmembern verwendet werden.
 
-Navigieren Sie zum Überprüfen der Leaderbereitstellung zur Leader-Administratorsite. Sie finden die Adresse der Adminsite im Ausgabebereich der **Microsoft.Template**-Bereitstellung.  
+Navigieren Sie zum Überprüfen der Leaderbereitstellung zur Leader-Administratorwebsite. Sie finden die Adresse der Administratorwebsite im Ausgabebereich der **Microsoft.Template**-Bereitstellung.  
 
 ![Zusammenfassung der Leaderbereitstellung](./media/azure-stack-ethereum/ethereum-node-status.png)
 
 ### <a name="joining-consortium-member-deployment"></a>Verknüpfen der Konsortiums-Memberbereitstellung
 
-1. Laden Sie die [Konsortiumsmembervorlage](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json) herunter
+1. Laden Sie die [Konsortiumsmembervorlage von GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json) herunter.
 2. Wählen Sie im Azure Stack-Mandantenportal **+ Ressource erstellen > Vorlagenbereitstellung**, um die Bereitstellung über eine benutzerdefinierte Vorlage durchzuführen.
 3. Klicken Sie auf **Vorlage bearbeiten**, um die neue benutzerdefinierte Vorlage zu bearbeiten.
 4. Wenn Sie sich im rechten Bearbeitungsbereich befinden, kopieren Sie die zuvor heruntergeladene Leader-JSON-Vorlagendatei, und fügen Sie sie ein.
@@ -121,9 +127,9 @@ Navigieren Sie zum Überprüfen der Leaderbereitstellung zur Leader-Administrato
     Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
     NAMEPREFIX | Zeichenfolge, die als Grundlage für die Benennung der bereitgestellten Ressourcen verwendet wird. | Alphanumerische Zeichen (1 bis 6) | eth
-    AUTHTYPE | Die Methode zur Authentifizierung des virtuellen Computers. | Kennwort oder öffentlicher SSH-Schlüssel | Kennwort
-    ADMINUSERNAME | Benutzername des Administrators der einzelnen bereitgestellten virtuellen Computer | 1–64 Zeichen | gethadmin
-    ADMINPASSWORD (Authentifizierungstyp = Kennwort)| Das Kennwort für das Administratorkonto jedes bereitgestellten, virtuellen Computers. Das Kennwort muss drei der folgenden Elemente enthalten: 1 Großbuchstaben, 1 Kleinbuchstaben, 1 Ziffer und 1 Sonderzeichen. <br />Alle VMs haben zunächst dasselbe Kennwort, das nach der Bereitstellung jedoch geändert werden kann.|12–72 Zeichen|
+    AUTHTYPE | Die Methode zur Authentifizierung des virtuellen Computers | Kennwort oder öffentlicher SSH-Schlüssel | Kennwort
+    ADMINUSERNAME | Benutzername des Administrators der einzelnen bereitgestellten virtuellen Computer | 1 bis 64 Zeichen | gethadmin
+    ADMINPASSWORD (Authentifizierungstyp = Kennwort)| Das Kennwort für das Administratorkonto jedes bereitgestellten virtuellen Computers. Das Kennwort muss drei der folgenden Elemente enthalten: 1 Großbuchstaben, 1 Kleinbuchstaben, 1 Ziffer und 1 Sonderzeichen. <br />Alle VMs haben zunächst dasselbe Kennwort, das nach der Bereitstellung jedoch geändert werden kann.|12 bis 72 Zeichen |
     ADMINSSHKEY (Authentifizierungstyp = sshPublicKey) | Der Secure Shell-Schlüssel für die Remoteanmeldung. | |
     CONSORTIUMMEMBERID | Die ID jedes Members des Konsortiumnetzwerks.   | Diese ID muss im Netzwerk eindeutig sein. | 0
     NUMMININGNODES | Anzahl von Miningknoten. | Zwischen 2 und 15. | 2
@@ -143,7 +149,7 @@ Navigieren Sie zum Überprüfen der Leaderbereitstellung zur Leader-Administrato
 
     Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
-    Abonnement | Das Abonnement, für das das Konsortiumsnetzwerk bereitgestellt wird. | | Verbrauchsabonnement
+    Subscription | Das Abonnement, für das das Konsortiumsnetzwerk bereitgestellt wird | | Verbrauchsabonnement
     Ressourcengruppe | Die Ressourcengruppe, für die das Konsortiumsnetzwerk bereitgestellt wird. | | MemberResources
     Location | Die Azure-Region für die Ressourcengruppe. | | local
 
@@ -151,9 +157,9 @@ Navigieren Sie zum Überprüfen der Leaderbereitstellung zur Leader-Administrato
 
 Die Bereitstellung kann 20 Minuten oder länger dauern.
 
-Nachdem die Bereitstellung abgeschlossen ist, können Sie die Zusammenfassung der Bereitstellung für **Microsoft.Template** im Abschnitt zur Bereitstellung der Ressourcengruppe überprüfen. Die Zusammenfassung enthält die Ausgabewerte, die zum Verbinden von Konsortiumsmembern verwendet werden können.
+Nachdem die Bereitstellung abgeschlossen ist, überprüfen Sie die Zusammenfassung der Bereitstellung für **Microsoft.Template** im Abschnitt zur Bereitstellung der Ressourcengruppe. Die Zusammenfassung enthält die Ausgabewerte, die zum Verknüpfen von Konsortiumsmembern verwendet werden.
 
-Navigieren Sie zum Überprüfen der Bereitstellung des Members zu dessen Administratorsite. Sie finden die Adresse der Adminsite im Ausgabebereich der Microsoft.Template-Bereitstellung.
+Navigieren Sie zum Überprüfen der Bereitstellung des Members zu dessen Administratorsite. Sie finden die Adresse der Administratorwebsite im Ausgabebereich der **Microsoft.Template**-Bereitstellung.
 
 ![Zusammenfassung der Memberbereitstellung](./media/azure-stack-ethereum/ethereum-node-status-2.png)
 
@@ -163,7 +169,7 @@ Wie in der Abbildung gezeigt wird, lautet der Knotenstatus des Members **Wird ni
 
 Mit dieser Vorlage erstellen Sie eine Verbindung vom Leader zu einem Remotemember. 
 
-1. Laden Sie die [Vorlage zum Verbinden von Member und Leader von GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json) herunter
+1. Laden Sie die [Vorlage zum Verbinden von Member und Leader von GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json) herunter.
 2. Wählen Sie im Azure Stack-Mandantenportal **+ Ressource erstellen > Vorlagenbereitstellung**, um die Bereitstellung über eine benutzerdefinierte Vorlage durchzuführen.
 3. Klicken Sie auf **Vorlage bearbeiten**, um die neue benutzerdefinierte Vorlage zu bearbeiten.
 4. Wenn Sie sich im rechten Bearbeitungsbereich befinden, kopieren Sie die zuvor heruntergeladene Leader-JSON-Vorlagendatei, und fügen Sie sie ein.
@@ -193,13 +199,13 @@ Mit dieser Vorlage erstellen Sie eine Verbindung vom Leader zu einem Remotemembe
 
     Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
-    Abonnement | Das Abonnement des Leaders. | | Verbrauchsabonnement
+    Subscription | Das Abonnement des Leaders. | | Verbrauchsabonnement
     Ressourcengruppe | Ressourcengruppe des Leaders. | | EthereumResources
     Location | Die Azure-Region für die Ressourcengruppe. | | local
 
 8. Klicken Sie auf **Erstellen**.
 
-Nachdem die Bereitstellung abgeschlossen ist, dauert es einige Minuten, bis Leader und Member die Kommunikation starten. Aktualisieren Sie zum Überprüfen der Bereitstellung die Administratorsite des Members. Der Status der Knoten des Members muss „Wird ausgeführt“ lauten. 
+Nachdem die Bereitstellung abgeschlossen ist, dauert es einige Minuten, bis Leader und Member die Kommunikation starten. Aktualisieren Sie zum Überprüfen der Bereitstellung die Administratorsite des Members. Der Status der Knoten des Members muss „Wird ausgeführt“ lauten.
 
 ![Überprüfen der Bereitstellung](./media/azure-stack-ethereum/ethererum-node-status-3.png)
 
