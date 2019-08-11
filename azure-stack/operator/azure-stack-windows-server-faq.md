@@ -15,12 +15,12 @@ ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 0896ea921408d651a4b8e072c3d66ab4e333ebd6
-ms.sourcegitcommit: fdeb2760845c9760ea7df1414b8e140b0624a823
+ms.openlocfilehash: 177d18261d8a85807826226b0dcabdfd03e87135
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67334425"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68806897"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Häufig gestellte Fragen zum Azure Stack-Marketplace für Windows Server
 
@@ -53,11 +53,11 @@ Wenn Sie beide Versionen des Images herunterladen, ist nur die neueste Version f
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Was geschieht, wenn mein Benutzer fälschlicherweise das Kontrollkästchen „Ich besitze eine Lizenz“ in den vorherigen Windows-Builds aktiviert hat, obwohl er keine Lizenz besitzt?
 
-Weitere Informationen finden Sie unter [Konvertieren von Windows Server-VMs mit Hybridvorteil zurück zur nutzungsbasierten Bezahlung](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1).
+Weitere Informationen finden Sie unter [Konvertieren von Windows Server-VMs mit BYOL zurück zur nutzungsbasierten Bezahlung](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1).
 
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Was geschieht, wenn wir ein älteres Image besitzen und mein Benutzer vergessen hat, das Kontrollkästchen „Ich besitze eine Lizenz“ zu aktivieren, oder wir unsere eigenen Images verwenden und über Enterprise Agreement-Berechtigung verfügen?
 
-Weitere Informationen finden Sie unter [Konvertieren einer vorhandenen VM mit Azure-Hybridvorteil für Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server). Beachten Sie, dass der Azure-Hybridvorteil zwar nicht für Azure Stack gilt, diese Einstellung sich jedoch auf diesen Dienst auswirkt.
+Weitere Informationen finden Sie unter [Konvertieren einer vorhandenen Windows Server-VM in BYOL](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server). Beachten Sie, dass der Azure-Hybridvorteil zwar nicht für Azure Stack gilt, diese Einstellung sich jedoch auf diesen Dienst auswirkt.
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Was passiert mit anderen VMs, die Windows Server verwenden, z.B. SQL Server oder Machine Learning Server?
 

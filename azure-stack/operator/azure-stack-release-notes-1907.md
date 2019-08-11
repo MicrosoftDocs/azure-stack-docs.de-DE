@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/02/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: de6d45aa18dab4f6a5e4c7c772732242e296aa3a
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.lastreviewed: 08/02/2019
+ms.openlocfilehash: e868cd1e7d6ec24ddb350305c82cc1d87a334d91
+ms.sourcegitcommit: 56778bf71d5f6bbe2768fbc38c2ed2208114b867
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692069"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68756641"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack-Update 1907
 
@@ -97,6 +97,8 @@ Der Buildtyp des Azure Stack 1907-Updates lautet **Express**. Weitere Informatio
 
 - Es wurde ein Problem behoben, bei dem das Beschreibungsfeld beim Erstellen eines Angebots nicht gespeichert wurde.
 
+- Es wurde ein Problem behoben, bei dem ein Benutzer mit **Nur Lesen**-Berechtigungen Ressourcen erstellen, bearbeiten und löschen konnte. Nun kann der Benutzer nur dann Ressourcen erstellen, wenn die Berechtigung **Mitwirkender** zugewiesen ist. 
+
 <!-- https://icm.ad.msft.net/imp/v3/incidents/details/127772311/home -->
 - Es wurde ein Problem behoben, bei dem aufgrund einer vom WMI-Anbieterhost gesperrten DLL-Datei ein Fehler beim Update auftritt.
 
@@ -146,7 +148,7 @@ Version 1907 von Azure Stack muss auf Version 1906 mit den folgenden Hotfixes an
 Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes. Weitere Informationen finden Sie in unserer [Wartungsrichtlinie](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- Für 1907 ist kein Hotfix verfügbar.
+- [Azure Stack-Hotfix 1.1907.8.37](https://support.microsoft.com/help/4515650)
 
 ## <a name="automatic-update-notifications"></a>Automatische Updatebenachrichtigungen
 

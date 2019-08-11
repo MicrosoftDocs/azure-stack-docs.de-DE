@@ -1,6 +1,6 @@
 ---
-title: Anzeigen der Nutzung öffentlicher IP-Adressen in Azure Stack | Microsoft-Dokumentation
-description: Administratoren können die Nutzung öffentlicher IP-Adressen in einer Region anzeigen.
+title: Verwalten von Netzwerkressourcen in Azure Stack | Microsoft-Dokumentation
+description: Administratoren können Netzwerkressourcen, einschließlich des MAC-Adresspools und der Nutzung öffentlicher IP-Adressen in einer Region verwalten.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,31 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 35dc40fc3539038ab3c44318374e8c1fb327e6e4
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: d056cbf73e2417bd826fba7a7de263cc8e015b7d
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782434"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842916"
 ---
-# <a name="view-public-ip-address-consumption-in-azure-stack"></a>Anzeigen der Nutzung öffentlicher IP-Adressen in Azure Stack
+# <a name="manage-network-resources"></a>Verwalten von Netzwerkressourcen
+
+## <a name="mac-address-pool"></a>MAC-Adresspool
+
+Für Azure Stack wird ein statischer MAC-Adresspool genutzt, um MAC-Adressen automatisch zu generieren und virtuellen Computern zuzuweisen.
+Dieser MAC-Adresspool wird während der Bereitstellung automatisch generiert und umfasst den folgenden Bereich:
+
+- StartMacAddress: 00-1D-D8-B7-00-00
+- EndMacAddress: 00-1D-D8-F4-FF-FF
+
+> [!Note]  
+> Dieser MAC-Adresspool ist für jedes Azure Stack-System gleich und nicht konfigurierbar.
+
+Je nachdem, wie für die virtuellen Netzwerke eine Verbindung mit vorhandenen Unternehmensnetzwerken hergestellt wird, kommt es ggf. zu doppelten MAC-Adressen von virtuellen Computern.
+
+Weitere Informationen zur Nutzung des MAC-Adresspools erhalten Sie über das Cmdlet [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) im PowerShell-Modul für Azure Stack-Administratoren.
+
+## <a name="view-public-ip-address-consumption-in-azure-stack"></a>Anzeigen der Nutzung öffentlicher IP-Adressen in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -37,7 +54,7 @@ Diese Kachel soll Azure Stack-Betreibern einen Eindruck von der Anzahl öffentli
 
 Das Menüelement **Öffentliche IP-Adressen** unter **Mandantenressourcen** listet nur die öffentlichen IP-Adressen auf, die *explizit von Mandanten erstellt wurden*. Sie finden das Menüelement im Bereich **Ressourcenanbieter** unter **Netzwerk**. Die Anzahl der **verwendeten** öffentlichen IP-Adressen auf der Kachel **Nutzung öffentlicher IP-Pools** unterscheidet sich immer von der Anzahl auf der Kachel **Öffentliche IP-Adressen** unter **Mandantenressourcen** (d.h. sie ist immer größer).
 
-## <a name="view-the-public-ip-address-usage-information"></a>Anzeigen der Informationen zur Nutzung öffentlicher IP-Adressen
+### <a name="view-the-public-ip-address-usage-information"></a>Anzeigen der Informationen zur Nutzung öffentlicher IP-Adressen
 
 So zeigen Sie die Gesamtanzahl der öffentlichen IP-Adressen an, die in der Region verwendet wurden:
 
@@ -48,7 +65,7 @@ So zeigen Sie die Gesamtanzahl der öffentlichen IP-Adressen an, die in der Regi
 
 Die Angabe unter **Verwendet** stellt die Anzahl der zugewiesenen öffentlichen IP-Adressen aus öffentlichen IP-Adresspools dar. Der Wert unter **Frei** gibt die Anzahl der öffentlichen IP-Adressen von öffentlichen IP-Adresspools an, die nicht zugewiesen wurden und weiterhin verfügbar sind. Der Wert von **% verwendet** gibt die Anzahl der verwendeten oder zugewiesenen Adressen als Prozentsatz der Gesamtzahl der öffentlichen IP-Adressen in öffentlichen IP-Adresspools an diesem Speicherort an.
 
-## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Anzeigen der öffentlichen IP-Adressen, die von Mandantenabonnements erstellt wurden
+### <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Anzeigen der öffentlichen IP-Adressen, die von Mandantenabonnements erstellt wurden
 
 Klicken Sie unter **Mandantenressourcen** auf **Öffentliche IP-Adressen**. Überprüfen Sie die Liste der öffentlichen IP-Adressen, die explizit von Mandantenabonnements in einer bestimmten Region erstellt wurden.
 
@@ -58,17 +75,17 @@ Sie stellen möglicherweise fest, dass einige öffentliche IP-Adressen, die dyna
 
 Der Netzwerkcontroller weist dieser Ressource erst dann eine Adresse zu, wenn sie an eine Schnittstelle, einen Netzwerkadapter, ein Lastenausgleichsmodul oder ein Gateway für virtuelle Netzwerke gebunden ist. Wenn die öffentliche IP-Adresse an eine Schnittstelle gebunden ist, weist der Netzwerkcontroller ihr eine IP-Adresse zu. Die Adresse wird im Feld **Adresse** angezeigt.
 
-## <a name="view-the-public-ip-address-information-summary-table"></a>Übersichtstabelle zum Anzeigen der Informationen zu öffentlichen IP-Adressen
+### <a name="view-the-public-ip-address-information-summary-table"></a>Übersichtstabelle zum Anzeigen der Informationen zu öffentlichen IP-Adressen
 
 In verschiedenen Fällen werden öffentliche IP-Adressen zugewiesen, die bestimmen, ob die Adresse in der einen oder anderen Liste angezeigt wird.
 
 | **Zuweisungsfall der öffentlichen IP-Adresse** | **Wird in Nutzungsübersicht angezeigt** | **Wird in Liste öffentlicher IP-Adressen von Mandanten angezeigt** |
 | --- | --- | --- |
-| Dynamische öffentliche IP-Adresse, die noch nicht einem Netzwerkadapter oder Lastenausgleichsmodul zugewiesen ist (temporär) |Nein  |Ja |
+| Dynamische öffentliche IP-Adresse, die noch nicht einem Netzwerkadapter oder Lastenausgleichsmodul zugewiesen ist (temporär) |Nein |Ja |
 | Dynamische öffentliche IP-Adresse, die einem Netzwerkadapter oder Lastenausgleichsmodul zugewiesen ist. |Ja |Ja |
 | Statische öffentliche IP-Adresse, die einem Mandanten-Netzwerkadapter oder Lastenausgleichsmodul zugewiesen ist. |Ja |Ja |
-| Statische öffentliche IP-Adresse, die einem Fabricinfrastruktur-Dienstendpunkt zugewiesen ist. |Ja |Nein  |
-| Öffentliche IP-Adresse, die implizit für IaaS-VM-Instanzen erstellt wird und für ausgehende NAT im virtuellen Netzwerk verwendet wird. Diese werden im Hintergrund erstellt, wenn ein Mandant eine VM-Instanz erstellt, sodass virtuelle Computer Informationen an das Internet senden können. |Ja |Nein  |
+| Statische öffentliche IP-Adresse, die einem Fabricinfrastruktur-Dienstendpunkt zugewiesen ist. |Ja |Nein |
+| Öffentliche IP-Adresse, die implizit für IaaS-VM-Instanzen erstellt wird und für ausgehende NAT im virtuellen Netzwerk verwendet wird. Diese werden im Hintergrund erstellt, wenn ein Mandant eine VM-Instanz erstellt, sodass virtuelle Computer Informationen an das Internet senden können. |Ja |Nein |
 
 ## <a name="next-steps"></a>Nächste Schritte
 

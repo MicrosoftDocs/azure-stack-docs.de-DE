@@ -1,6 +1,6 @@
 ---
-title: Verwalten von Key Vault in Azure Stack über das Portal | Microsoft Docs
-description: Hier erfahren Sie, wie Sie Key Vault in Azure Stack mithilfe des Portals verwalten.
+title: Verwalten von Key Vault in Azure Stack über das Portal | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Key Vault in Azure Stack über das Azure Stack-Portal verwalten.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 06/11/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 57a23dc63c72657c19a92fa8f69e029be7f12f60
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 4b6d6e784a640894fb1ef304d4469586e9fc2297
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836843"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842736"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Verwalten von Key Vault in Azure Stack über das Portal
 
-Sie können Key Vault in Azure Stack über das Azure Stack-Portal verwalten. In diesem Artikel wird beschrieben, wie Sie einen Schlüsseltresor in Azure Stack erstellen und verwalten.
+In diesem Artikel wird beschrieben, wie Sie einen Schlüsseltresor mithilfe des Azure Stack-Portals in Azure Stack erstellen und verwalten.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -46,15 +46,15 @@ Sie müssen ein Angebot abonnieren, das den Azure Key Vault-Dienst umfasst.
 
 6. Wählen Sie den **Tarif** aus. Im Azure Stack Development Kit (ASDK) unterstützen Schlüsseltresore nur **Standard**-SKUs.
 
-7. Wählen Sie eine der vorhandenen **Zugriffsrichtlinien** aus, oder erstellen Sie eine neue Richtlinie. Mithilfe einer Zugriffsrichtlinie können Sie einen Benutzer, eine Anwendung oder eine Sicherheitsgruppe dazu berechtigen, Vorgänge mit diesem Tresor auszuführen.
+7. Wählen Sie eine der vorhandenen **Zugriffsrichtlinien** aus, oder erstellen Sie eine neue Richtlinie. Mithilfe einer Zugriffsrichtlinie können Sie einen Benutzer, eine App oder eine Sicherheitsgruppe dazu berechtigen, Vorgänge mit diesem Tresor auszuführen.
 
 8. Wählen Sie optional eine **erweiterte Zugriffsrichtlinie** aus, um den Zugriff auf Features zu ermöglichen. Beispiele: virtuelle Computer (virtual machines, VMs) für die Bereitstellung, Resource Manager für die Vorlagenbereitstellung sowie Zugriff auf Azure Disk Encryption für die Volumeverschlüsselung.
 
-9. Nachdem Sie die Einstellungen konfiguriert haben, wählen Sie **OK** aus, und wählen Sie dann **Erstellen** aus. Daraufhin wird die Schlüsseltresorbereitstellung gestartet.
+9. Nachdem Sie die Einstellungen konfiguriert haben, wählen Sie **OK** aus, und wählen Sie dann **Erstellen** aus. Dieser Schritt startet die Schlüsseltresorbereitstellung.
 
 ## <a name="manage-keys-and-secrets"></a>Verwalten von Schlüsseln und Geheimnissen
 
-Gehen Sie nach dem Erstellen eines Schlüsseltresors wie folgt vor, um Schlüssel und Geheimnisse innerhalb des Tresors zu erstellen und zu verwalten.
+Gehen Sie nach dem Erstellen eines Schlüsseltresors wie folgt vor, um Schlüssel und Geheimnisse innerhalb des Tresors zu erstellen und zu verwalten:
 
 ### <a name="create-a-key"></a>Erstellen eines Schlüssels
 
@@ -72,7 +72,7 @@ Gehen Sie nach dem Erstellen eines Schlüsseltresors wie folgt vor, um Schlüsse
 
 7. Wählen Sie **Erstellen** aus, um die Bereitstellung zu starten.
 
-Nach erfolgreicher Erstellung des Schlüssels können Sie ihn unter **Schlüssel** auswählen und seine Eigenschaften anzeigen oder ändern. Der Abschnitt „Eigenschaften“ enthält den **Schlüsselbezeichner**. Hierbei handelt es sich um einen URI (Uniform Resource Identifier), über den externe Anwendungen auf diesen Schlüssel zugreifen. Konfigurieren Sie Einstellungen unter **Zulässige Vorgänge**, um Vorgänge für diesen Schlüssel einzuschränken.
+Nach erfolgreicher Erstellung des Schlüssels können Sie ihn unter **Schlüssel** auswählen und seine Eigenschaften anzeigen oder ändern. Der Abschnitt „Eigenschaften“ enthält den **Schlüsselbezeichner**. Hierbei handelt es sich um einen URI (Uniform Resource Identifier), über den externe Apps auf diesen Schlüssel zugreifen. Konfigurieren Sie Einstellungen unter **Zulässige Vorgänge**, um Vorgänge für diesen Schlüssel einzuschränken.
 
 ![URI (Schlüssel)](media/azure-stack-key-vault-manage-portal/image4.png)
 
@@ -92,7 +92,7 @@ Nach erfolgreicher Erstellung des Schlüssels können Sie ihn unter **Schlüssel
 
 7. Wählen Sie **Erstellen** aus, um die Bereitstellung zu starten.
 
-Nach erfolgreicher Erstellung des Geheimnisses können Sie es unter **Geheimnisse** auswählen und seine Eigenschaften anzeigen oder ändern. Die **Geheimnis-ID** ist ein URI, mit dem externe Anwendungen auf dieses Geheimnis zugreifen können.
+Nach erfolgreicher Erstellung des Geheimnisses können Sie es unter **Geheimnisse** auswählen und seine Eigenschaften anzeigen oder ändern. Die **Geheimnis-ID** ist ein URI, mit dem externe Apps auf dieses Geheimnis zugreifen können.
 
 ![URI (Geheimnis)](media/azure-stack-key-vault-manage-portal/image5.png)
 

@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: cae4c6c5b96dd7bdbd6fcec7859309e0dd995a44
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 891727c8e80af479e800feef9c292f7355fb208c
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658688"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842690"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack"></a>Automatisierung von Update und Verwaltung virtueller Computer in Azure Stack
 Verwenden Sie die folgenden Funktionen der Azure Automation-Lösung, um virtuelle Windows- und Linux-Computer (VMs) zu verwalten, die mit Azure Stack bereitgestellt werden:
@@ -131,6 +131,7 @@ Der Artikel [Verwenden der Zuordnung in Azure Monitor für VMs zum Verstehen von
 
    ![Registerkarte „Azure Monitor VMs Map“ (Azure Monitor-VM-Karte)](https://docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
+Falls Ihnen [Azure Monitor für VMs](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) keine Leistungsdaten anzeigt, müssen Sie die Sammlung von Leistungsdaten für Windows und Linux in den „Erweiterten Einstellungen“ Ihres [LogAnalytics-Arbeitsbereichs](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters) aktivieren.
 
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Aktivieren der Updateverwaltung mithilfe einer Resource Manager-Vorlage
 Wenn Sie eine große Anzahl von virtuellen Azure Stack-Computern verwenden, können Sie [diese Azure Resource Manager-Vorlage](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) verwenden, um die Lösung einfacher auf virtuellen Computern bereitzustellen. Die Vorlage stellt die Microsoft Monitoring Agent-Erweiterung auf einem vorhandenen virtuellen Azure Stack-Computer bereit und fügt sie einem vorhandenen Azure LogAnalytics-Arbeitsbereich hinzu.

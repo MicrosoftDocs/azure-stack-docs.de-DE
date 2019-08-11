@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/01/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 3fd84e5c294c2cdcfa942aeaf9c2daf9f9245891
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: d36761cd7480d782ea01bc1b0d3606b5fa244ed3
+ms.sourcegitcommit: 49cfe13427f5255915d5ccbed87b36eec2caf8ca
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418215"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720026"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrieren von Azure Stack in Azure
 
@@ -34,13 +34,13 @@ In diesem Artikel wird das Registrieren von in Azure Stack integrierten Systemen
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Vor der Registrierung müssen Sie folgende Aufgaben durchführen:
+Vor der Registrierung müssen Sie folgende Voraussetzungen erfüllt haben:
 
- - Überprüfen Ihrer Anmeldeinformationen
- - Festlegen des PowerShell-Sprachmodus
- - Installieren von PowerShell für Azure Stack
- - Herunterladen der Azure Stack-Tools
- - Bestimmen Ihres Registrierungsszenarios
+- Überprüfen Ihrer Anmeldeinformationen
+- Festlegen des PowerShell-Sprachmodus
+- Installieren von PowerShell für Azure Stack
+- Herunterladen der Azure Stack-Tools
+- Bestimmen Ihres Registrierungsszenarios
 
 ### <a name="verify-your-credentials"></a>Überprüfen Ihrer Anmeldeinformationen
 
@@ -92,16 +92,17 @@ Um sicherzustellen, dass Sie die neueste Version verwenden, sollten Sie vor der 
 
 Ihre Azure Stack-Bereitstellung kann *verbunden* oder *nicht verbunden* sein.
 
- - **Verbunden**  
+- **Verbunden**  
  Verbunden bedeutet, dass Sie die Azure Stack-Instanz so bereitgestellt haben, dass sie eine Verbindung mit dem Internet und mit Azure herstellen kann. Als Identitätsspeicher verwenden Sie entweder Azure Active Directory (Azure AD) oder Active Directory-Verbunddienste (AD FS). Bei einer verbundenen Bereitstellung können Sie zwischen zwei Abrechnungsmodellen wählen: nutzungsbasiert oder kapazitätsbasiert.
-    - [Registrieren einer verbundenen Azure Stack-Instanz bei Azure unter Verwendung des **nutzungsbasierten** Abrechnungsmodells](#register-connected-with-pay-as-you-go-billing)
-    - [Registrieren einer verbundenen Azure Stack-Instanz bei Azure unter Verwendung des **kapazitätsbasierten** Abrechnungsmodells](#register-connected-with-capacity-billing)
+  - [Registrieren einer verbundenen Azure Stack-Instanz bei Azure unter Verwendung des **nutzungsbasierten** Abrechnungsmodells](#register-connected-with-pay-as-you-go-billing)
+  - [Registrieren einer verbundenen Azure Stack-Instanz bei Azure unter Verwendung des **kapazitätsbasierten** Abrechnungsmodells](#register-connected-with-capacity-billing)
 
- - **Nicht verbunden**  
+- **Nicht verbunden**  
  Bei der Bereitstellungsoption ohne Verbindung mit Azure können Sie Azure Stack auch ohne Verbindung mit dem Internet bereitstellen und nutzen. Bei einer nicht mit Azure verbundenen Bereitstellung sind Sie jedoch auf einen AD FS-Identitätsspeicher und das kapazitätsbasierte Abrechnungsmodell beschränkt.
-    - [Registrieren einer nicht verbundenen Azure Stack-Instanz unter Verwendung des **kapazitätsbasierten** Abrechnungsmodells](#register-disconnected-with-capacity-billing)
+  - [Registrieren einer nicht verbundenen Azure Stack-Instanz unter Verwendung des **kapazitätsbasierten** Abrechnungsmodells](#register-disconnected-with-capacity-billing)
 
 ### <a name="determine-a-unique-registration-name-to-use"></a>Bestimmen eines eindeutigen zu verwendenden Registrierungsnamens 
+
 Wenn Sie Azure Stack in Azure registrieren, müssen Sie einen eindeutige Registrierungsnamen angeben. Eine einfache Möglichkeit, Ihr Azure Stack-Abonnement mit einer Azure-Registrierung zu verknüpfen, ist die Verwendung der **Cloud-ID** Ihres Azure Stack. 
 
 > [!NOTE]
@@ -341,17 +342,13 @@ Sie können die Kachel **Regionsverwaltung** verwenden, um zu überprüfen, ob d
     - **Abonnement-ID für die Registrierung**: Die Azure-Abonnement-ID, die registriert und mit Azure Stack verknüpft wurde
     - **Ressourcengruppe für die Registrierung**: Die Azure-Ressourcengruppe im zugeordneten Abonnement mit den Azure Stack-Ressourcen.
 
-4. Verwenden Sie das Azure-Portal, um die Azure Stack-App-Registrierungen anzuzeigen. Melden Sie sich beim Azure-Portal mit einem Konto an, das dem Abonnement zugeordnet ist, mit dem Sie die Registrierung von Azure Stack durchgeführt haben. Wechseln Sie zu dem Mandanten, der mit Azure Stack verknüpft ist.
-5. Navigieren Sie zu **Azure Active Directory > App-Registrierungen > Alle Anwendungen anzeigen**.
-
-    ![App-Registrierungen](media/azure-stack-registration/app-registrations.png)
-
-    Azure Stack-App-Registrierungen ist das Präfix **Azure Stack** vorangestellt.
+4. Sie können das Azure-Portal verwenden, um Azure Stack-Registrierungsressourcen anzuzeigen, und dann überprüfen, ob die Registrierung erfolgreich war. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) mit einem Konto an, das dem Abonnement zugeordnet ist, mit dem Sie die Registrierung von Azure Stack durchgeführt haben. Wählen Sie **Alle Ressourcen** aus, aktivieren Sie das Kontrollkästchen **Ausgeblendete Typen anzeigen**, und wählen Sie den Registrierungsnamen aus.
+5. Wenn die Registrierung nicht erfolgreich war, müssen Sie die Registrierung erneut durchführen, indem Sie die [hier beschriebenen Schritte](#change-the-subscription-you-use) ausführen, um das Problem zu beheben.  
 
 Alternativ dazu können Sie mit dem Marketplace-Verwaltungsfeature überprüfen, ob Ihre Registrierung erfolgreich war. Wenn auf dem Marketplace-Verwaltungsblatt eine Liste mit Marketplace-Elementen angezeigt wird, war Ihre Registrierung erfolgreich. Allerdings werden in nicht verbundenen Umgebungen unter der Marketplace-Verwaltung keine Marketplace-Elemente angezeigt.
 
 > [!NOTE]
-> Nachdem die Registrierung abgeschlossen ist, wird die aktive Warnung für die Nichtregistrierung nicht mehr angezeigt. In nicht verbundenen Umgebungen wird eine Meldung in der Marketplace-Verwaltung angezeigt, in der Sie aufgefordert werden, Ihre Azure Stack-Instanz zu registrieren und zu aktivieren, selbst wenn die Registrierung erfolgreich war.
+> Nachdem die Registrierung abgeschlossen ist, wird die aktive Warnung für die Nichtregistrierung nicht mehr angezeigt. In früheren Azure Stack-Releases als 1904 wird in nicht verbundenen Umgebungen eine Meldung in der Marketplace-Verwaltung angezeigt, in der Sie aufgefordert werden, Ihre Azure Stack-Instanz zu registrieren und zu aktivieren, selbst wenn die Registrierung erfolgreich war. Diese Meldung wird in Release 1904 und höher nicht angezeigt.
 
 ## <a name="renew-or-change-registration"></a>Erneuern oder Ändern der Registrierung
 
@@ -451,15 +448,20 @@ Für Azure Stack-Umgebungen, die ein kapazitätsbasiertes Abrechnungsmodell verw
 2. Speichern Sie dieses Registrierungstoken für die Verwendung auf einem mit Azure verbundenen Computer. Sie können die Datei oder den Text aus „$FilePathForRegistrationToken“ kopieren.
 
 ## <a name="move-a-registration-resource"></a>Verschieben einer Registrierungsressource
-Das Verschieben einer Registrierungsressource zwischen Ressourcengruppen im gleichen Abonnement **wird** für alle Umgebungen unterstützt. Das Verschieben einer Registrierungsressource zwischen Abonnements wird jedoch nur für CSPs unterstützt, wenn beide Abonnements zur gleichen Partner-ID aufgelöst werden. Weitere Informationen zum Verschieben von Ressourcen in eine neue Ressourcengruppe finden Sie unter [Verschieben von Ressourcen in eine neue Ressourcengruppe oder ein neues Abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+
+Das Verschieben einer Registrierungsressource zwischen Ressourcengruppen im gleichen Abonnement **wird** für alle Umgebungen unterstützt. Das Verschieben einer Registrierungsressource zwischen Abonnements wird jedoch nur für CSPs unterstützt, wenn beide Abonnements zur gleichen Partner-ID aufgelöst werden. Weitere Informationen zum Verschieben von Ressourcen in eine neue Ressourcengruppe finden Sie unter [Verschieben von Ressourcen in eine neue Ressourcengruppe oder ein neues Abonnement](/azure/azure-resource-manager/resource-group-move-resources).
+
+> [!IMPORTANT]
+> Um das versehentliche Löschen von Registrierungsressourcen im Portal zu verhindern, fügt das Registrierungsskript der Ressource automatisch eine Sperre hinzu. Sie müssen diese Sperre entfernen, bevor Sie sie verschieben oder löschen. Es wird empfohlen, dass Sie Ihrer Registrierungsressource eine Sperre hinzufügen, um ein versehentliches Löschen zu verhindern.
 
 ## <a name="registration-reference"></a>Referenz zur Registrierung
 
 ### <a name="set-azsregistration"></a>Set-AzsRegistration
 
-Sie können „Set-AzsRegistration“ zum Registrieren von Azure Stack bei Azure und zum Aktivieren oder Deaktivieren des Angebots von Elementen im Marketplace sowie Nutzungsberichten verwenden.
+Sie können **Set-AzsRegistration** zum Registrieren von Azure Stack bei Azure und zum Aktivieren oder Deaktivieren des Angebots von Elementen im Marketplace sowie Nutzungsberichten verwenden.
 
 Voraussetzungen für die Ausführung des Cmdlets:
+
 - Ein globales Azure-Abonnement beliebigen Typs.
 - Außerdem müssen Sie mit einem Konto bei Azure PowerShell angemeldet sein, das ein Besitzer oder Mitwirkender dieses Abonnements ist.
 

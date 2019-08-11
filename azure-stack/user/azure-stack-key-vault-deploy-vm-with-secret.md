@@ -1,5 +1,5 @@
 ---
-title: Bereitstellen eines virtuellen Computers mit einem sicher gespeicherten Kennwort in Azure Stack | Microsoft-Dokumentation
+title: Bereitstellen einer Azure Stack-VM mithilfe eines in Key VM gespeicherten Kennworts | Microsoft-Dokumentation
 description: Hier erfahren Sie, wie Sie einen virtuellen Computer mithilfe eines Kennworts bereitstellen, das in einem Azure Stack-Schlüsseltresor gespeichert ist.
 services: azure-stack
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e4163921662b88cbd62f77eedc92d3a7db4bf491
-ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
+ms.openlocfilehash: 480740b12796fe90e2acd6fd1eb164b4c89d5ded
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67041979"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842834"
 ---
-# <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Erstellen eines virtuellen Computers mit einem sicheren, in einer Azure Stack Key Vault-Instanz gespeicherten Kennwort
+# <a name="deploy-an-azure-stack-vm-using-a-password-stored-in-key-vault"></a>Bereitstellen einer Azure Stack-VM mithilfe eines in Key VM gespeicherten Kennworts
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -44,11 +44,11 @@ Sie können Werte (etwa Kennwörter) als Geheimnis in einem Azure Stack-Schlüss
 Die folgenden Schritte beschreiben das Verfahren zum Erstellen eines virtuellen Computers durch Abrufen des Kennworts, das in einem Schlüsseltresor gespeichert ist:
 
 1. Erstellen eines Geheimnisses im Schlüsseltresor
-2. Aktualisieren der Datei „azuredeploy.parameters.json“
+2. Aktualisieren Sie die `azuredeploy.parameters.json`-Datei.
 3. Stellen Sie die Vorlage bereit.
 
 > [!NOTE]  
-> Führen Sie die Schritte über das Azure Stack Development Kit oder über einen externen Client aus, wenn eine Verbindung per VPN besteht.
+> Führen Sie die Schritte über das Azure Stack Development Kit (ASDK) oder über einen externen Client aus, wenn eine Verbindung per VPN besteht.
 
 ## <a name="create-a-key-vault-secret"></a>Erstellen eines Geheimnisses im Schlüsseltresor
 
@@ -80,13 +80,13 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-Wenn Sie das vorherige Skript ausführen, enthält die Ausgabe den URI des Geheimnisses. Notieren Sie sich diesen URI. Sie müssen in der [Vorlage zum Bereitstellung eines virtuellen Windows-Computers mit Kennwort in einem Schlüsseltresor](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) darauf verweisen. Laden Sie den Ordner [101-vm-secure-password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) auf den Entwicklungscomputer herunter. Dieser Ordner enthält die Dateien `azuredeploy.json` und `azuredeploy.parameters.json`, die Sie in den nächsten Schritten benötigen.
+Wenn Sie das vorherige Skript ausführen, enthält die Ausgabe den URI (Uniform Resource Identifier) des Geheimnisses. Notieren Sie sich diesen URI. Sie müssen in der [Vorlage zum Bereitstellung eines virtuellen Windows-Computers mit Kennwort in einem Schlüsseltresor](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) darauf verweisen. Laden Sie den Ordner [101-vm-secure-password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) auf den Entwicklungscomputer herunter. Dieser Ordner enthält die Dateien `azuredeploy.json` und `azuredeploy.parameters.json`, die Sie in den nächsten Schritten benötigen.
 
-Ändern Sie die Datei `azuredeploy.parameters.json` gemäß den Werten Ihrer Umgebung. Die Parameter, die hier von besonderem Interesse sind, sind der Tresorname, die Tresorressourcengruppe und der URI des Geheimnisses (vom vorherigen Skript erstellt). Die folgende Datei ist ein Beispiel für eine Parameterdatei:
+Ändern Sie die Datei `azuredeploy.parameters.json` gemäß den Werten Ihrer Umgebung. Die Parameter, die hier von besonderem Interesse sind, sind der Tresorname, die Tresorressourcengruppe und der URI des Geheimnisses (vom vorherigen Skript erstellt). Die unten stehende Datei ist ein Beispiel für eine Parameterdatei.
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Aktualisieren der Datei „azuredeploy.parameters.json“
 
-Aktualisieren Sie die Datei „azuredeploy.parameters.json“ gemäß Ihrer Umgebung mit den Werten für den Schlüsseltresor-URI, den Geheimnisnamen und den Administratorbenutzernamen des virtuellen Computers. Die folgende JSON-Datei zeigt ein Beispiel der Vorlagenparameterdatei:
+Aktualisieren Sie die Datei `azuredeploy.parameters.json` gemäß Ihrer Umgebung mit den Werten für den Schlüsseltresor-URI, den Geheimnisnamen und den Administratorbenutzernamen des virtuellen Computers. Die folgende JSON-Datei zeigt ein Beispiel der Vorlagenparameterdatei:
 
 ```json
 {

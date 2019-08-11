@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: aafdc25293ea3cc584d24688d071dadb2151ce22
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 329ef95f7902f3fe6dfcdd71b599675fdf7c6286
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418544"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68806936"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Verwenden von Azure Monitor in Azure Stack
 
@@ -121,13 +121,16 @@ Einige Beispiele für Visualisierungsmethoden:
 
 ## <a name="methods-of-accessing-azure-monitor-on-azure-stack"></a>Methoden für den Zugriff auf Azure Monitor in Azure Stack
 
-Nachverfolgung, Routing und Abfrage von Daten können ganz allgemein mit einer der folgenden Methoden angepasst werden. Manche Methoden sind unter Umständen für bestimmte Aktionen oder Datentypen nicht verfügbar.
+Sie können mit Nachverfolgung, Routing und Abfragen von Daten mithilfe einer der folgenden Methoden arbeiten. Manche Methoden sind unter Umständen für bestimmte Aktionen oder Datentypen nicht verfügbar. 
 
  - [Azure Stack-Portal](azure-stack-use-portal.md)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [Plattformübergreifende Befehlszeilenschnittstelle](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [REST-API](https://docs.microsoft.com/rest/api/monitor)
  - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
+
+> [!Important]  
+> Wenn beim Anzeigen des Leistungsdiagramms eines virtuellen Computers der Fehler **Ressource nicht gefunden** auftritt, stellen Sie sicher, dass Sie „Microsoft.insights“ bei dem Abonnement registriert haben, das der VM zugeordnet ist.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
