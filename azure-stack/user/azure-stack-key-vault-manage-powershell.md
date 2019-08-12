@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 05/09/2019
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 613fec37e1677698e72ff09d3ffdc35502a57de5
-ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
+ms.openlocfilehash: ca303590d4dc923380e10e50fc9b8b9ce2e5aac6
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506094"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842963"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Verwalten von Key Vault in Azure Stack mithilfe von PowerShell
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Sie können Key Vault in Azure Stack mithilfe von PowerShell verwalten. Erfahren Sie, wie Sie Key Vault-PowerShell-Cmdlets für Folgendes verwenden:
+In diesem Artikel wird beschrieben, wie Sie einen Schlüsseltresor in Azure Stack mithilfe von PowerShell erstellen und verwalten. Sie erfahren, wie Sie Key Vault-PowerShell-Cmdlets für Folgendes verwenden:
 
 * Erstellen eines Schlüsseltresors
 * Speichern und Verwalten von kryptografischen Schlüsseln und Geheimnissen.
-* Autorisieren von Benutzern bzw. Anwendungen zum Aufrufen von Vorgängen im Tresor.
+* Autorisieren von Benutzern bzw. Apps zum Aufrufen von Vorgängen im Tresor.
 
 >[!NOTE]
 >Die in diesem Artikel beschriebenen Key Vault-PowerShell-Cmdlets stehen im Azure PowerShell SDK zur Verfügung.
@@ -51,7 +51,7 @@ Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 
 Wenn Ihr Abonnement für Tresorvorgänge aktiviert ist, hat **RegistrationState** in der Ausgabe für alle Ressourcentypen eines Schlüsseltresors den Wert **Registered**.
 
-![Registrierungsstatus für Schlüsseltresore](media/azure-stack-key-vault-manage-powershell/image1.png)
+![Registrierungsstatus für Schlüsseltresore in PowerShell](media/azure-stack-key-vault-manage-powershell/image1.png)
 
 Wenn keine Tresorvorgänge aktiviert sind, geben Sie den folgenden Befehl aus, um den Key Vault-Dienst in Ihrem Abonnement zu registrieren:
 
@@ -61,7 +61,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 Wenn die Registrierung erfolgreich war, wird die folgende Ausgabe zurückgegeben:
 
-![Register ](media/azure-stack-key-vault-manage-powershell/image2.png)
+![Registrierungsstatus für Schlüsseltresore in PowerShell erfolgreich](media/azure-stack-key-vault-manage-powershell/image2.png)
 
 Wenn Sie die Schlüsseltresorbefehle aufrufen, wird möglicherweise eine Fehlermeldung wie diese ausgegeben: „Das Abonnement ist nicht für die Verwendung des Namespace ‚Microsoft.KeyVault‘ registriert.“ Wenn ein Fehler ausgegeben wird, bestätigen Sie, dass Sie den Key Vault-Ressourcenanbieter gemäß den Anweisungen aktiviert haben.
 
@@ -73,7 +73,7 @@ Erstellen Sie vor dem Erstellen eines Schlüsseltresors zunächst eine Ressource
 New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 ```
 
-![Neue Ressourcengruppe](media/azure-stack-key-vault-manage-powershell/image3.png)
+![Neue, in PowerShell generierte Ressourcengruppe](media/azure-stack-key-vault-manage-powershell/image3.png)
 
 Erstellen Sie nun mithilfe des Befehls **New-AzureRMKeyVault** einen Schlüsseltresor in der zuvor erstellten Ressourcengruppe. Dieser Befehl liest drei erforderliche Parameter: Ressourcengruppenname, Schlüsseltresorname und geografischer Standort.
 
@@ -83,13 +83,13 @@ Führen Sie den folgenden Befehl aus, um einen Schlüsseltresor zu erstellen:
 New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
 ```
 
-![Neuer Schlüsseltresor](media/azure-stack-key-vault-manage-powershell/image4.png)
+![Neuer, in PowerShell generierter Schlüsseltresor](media/azure-stack-key-vault-manage-powershell/image4.png)
 
-Die Ausgabe dieses Befehls zeigt die Eigenschaften des von Ihnen erstellten Schlüsseltresors. Wenn eine Anwendung auf diesen Tresor zugreift, muss sie dazu die Eigenschaft **Vault URI** verwenden, in diesem Beispiel `https://vault01.vault.local.azurestack.external`.
+Die Ausgabe dieses Befehls zeigt die Eigenschaften des von Ihnen erstellten Schlüsseltresors. Wenn eine App auf diesen Tresor zugreift, muss sie dazu die Eigenschaft **Vault URI** verwenden, in diesem Beispiel `https://vault01.vault.local.azurestack.external`.
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Bereitstellung von Active Directory-Verbunddienste (AD FS)
 
-Bei einer AD FS-Bereitstellung wird möglicherweise die Warnung ausgegeben, dass die Zugriffsrichtlinie nicht festgelegt wurde und dass keine Benutzer oder Anwendungen über Zugriffsberechtigungen für die Verwendung dieses Tresors verfügen. Legen Sie zur Behebung dieses Problems mithilfe des Befehls [Set-AzureRmKeyVaultAccessPolicy](#authorize-an-application-to-use-a-key-or-secret) eine Zugriffsrichtlinie für den Tresor fest:
+Bei einer AD FS-Bereitstellung wird möglicherweise die Warnung ausgegeben, dass die Zugriffsrichtlinie nicht festgelegt wurde und dass keine Benutzer oder Anwendungen über Zugriffsberechtigungen für die Verwendung dieses Tresors verfügen. Legen Sie zur Behebung dieses Problems mithilfe des Befehls [Set-AzureRmKeyVaultAccessPolicy](#authorize-an-app-to-use-a-key-or-secret) eine Zugriffsrichtlinie für den Tresor fest:
 
 ```powershell
 # Obtain the security identifier(SID) of the active directory user
@@ -114,9 +114,9 @@ Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination So
 
 Mit dem Parameter **Destination** wird angegeben, dass es sich um einen softwaregeschützten Schlüssel handelt. Nach erfolgreicher Erstellung des Schlüssels gibt der Befehl die Details des erstellten Schlüssels aus.
 
-![Neuer Schlüssel](media/azure-stack-key-vault-manage-powershell/image5.png)
+![Neuer, in PowerShell generierter Schlüsseltresorschlüssel](media/azure-stack-key-vault-manage-powershell/image5.png)
 
-Sie können nun mithilfe des dazugehörigen URIs auf den erstellten Schlüssel verweisen. Wenn Sie einen Schlüssel mit einem Namen erstellen oder importieren, der dem Namen eines bereits vorhandenen Schlüssels entspricht, wird der ursprüngliche Schlüssel mit den Werten des neuen Schlüssels aktualisiert. Über den versionsspezifischen URI des Schlüssels können Sie auf die vorherige Version des Schlüssels zugreifen. Beispiel: 
+Sie können nun mithilfe des dazugehörigen URIs auf den erstellten Schlüssel verweisen. Wenn Sie einen Schlüssel mit einem Namen erstellen oder importieren, der dem Namen eines bereits vorhandenen Schlüssels entspricht, wird der ursprüngliche Schlüssel mit den Werten des neuen Schlüssels aktualisiert. Über den versionsspezifischen URI des Schlüssels können Sie auf die vorherige Version des Schlüssels zugreifen. Beispiel:
 
 * Mit `https://vault10.vault.local.azurestack.external:443/keys/key01` können Sie immer die aktuelle Version abrufen.
 * Mit `https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a` rufen Sie diese spezifische Version ab.
@@ -131,14 +131,14 @@ Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
 
 ### <a name="create-a-secret"></a>Erstellen eines Geheimnisses
 
-Verwenden Sie den Befehl **Set-AzureKeyVaultSecret**, um ein Geheimnis in einem Tresor zu erstellen oder zu aktualisieren. Ein Geheimnis wird erstellt, wenn bisher keines vorhanden ist. Wenn es bereits vorhanden ist, wird eine neue Version des Geheimnisses erstellt:
+Verwenden Sie den Befehl **Set-AzureKeyVaultSecret**, um ein Geheimnis in einem Tresor zu erstellen oder zu aktualisieren. Ein Geheimnis wird erstellt, wenn es nicht bereits vorhanden ist. Wenn es bereits vorhanden ist, wird eine neue Version des Geheimnisses erstellt:
 
 ```powershell
 $secretvalue = ConvertTo-SecureString "User@123" -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secretvalue
 ```
 
-![Erstellen eines Geheimnisses](media/azure-stack-key-vault-manage-powershell/image6.png)
+![Erstellen eines geheimen Schlüssels in PowerShell](media/azure-stack-key-vault-manage-powershell/image6.png)
 
 ### <a name="get-a-secret"></a>Abrufen eines Geheimnisses
 
@@ -148,19 +148,19 @@ Verwenden Sie den Befehl **Get-AzureKeyVaultSecret**, um ein Geheimnis in einem 
 Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 ```
 
-Nach dem Erstellen von Schlüsseln und Geheimnissen können Sie deren Verwendung durch externe Anwendungen autorisieren.
+Nach dem Erstellen von Schlüsseln und Geheimnissen können Sie deren Verwendung durch externe Apps autorisieren.
 
-## <a name="authorize-an-application-to-use-a-key-or-secret"></a>Autorisieren einer Anwendung zum Verwenden eines Schlüssels oder Geheimnisses
+## <a name="authorize-an-app-to-use-a-key-or-secret"></a>Autorisieren einer App zum Verwenden eines Schlüssels oder Geheimnisses
 
-Verwenden Sie den Befehl **Set-AzureRmKeyVaultAccessPolicy**, um den Zugriff einer Anwendung auf einen Schlüssel oder auf ein Geheimnis im Schlüsseltresor zu autorisieren.
+Verwenden Sie den Befehl **Set-AzureRmKeyVaultAccessPolicy**, um den Zugriff einer App auf einen Schlüssel oder auf ein Geheimnis im Schlüsseltresor zu autorisieren.
 
-Im folgenden Beispiel lautet der Tresorname *ContosoKeyVault*, und die Anwendung, die Sie autorisieren möchten, hat die Client-ID *8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed*. Führen Sie den folgenden Befehl aus, um die Anwendung zu autorisieren. Mithilfe des Parameters **PermissionsToKeys** können Sie optional Berechtigungen für einen Benutzer, eine Anwendung oder eine Sicherheitsgruppe festlegen.
+Im folgenden Beispiel lautet der Tresorname *ContosoKeyVault*, und die App, die Sie autorisieren möchten, hat die Client-ID *8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed*. Führen Sie den folgenden Befehl aus, um die App zu autorisieren. Mithilfe des Parameters **PermissionsToKeys** können Sie auch Berechtigungen für einen Benutzer, eine App oder eine Sicherheitsgruppe festlegen.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
 ```
 
-Wenn Sie die gleiche Anwendung zum Lesen von Geheimnissen in Ihrem Tresor autorisieren möchten, führen Sie das folgende Cmdlet aus:
+Wenn Sie dieselbe App zum Lesen von Geheimnissen in Ihrem Tresor autorisieren möchten, führen Sie das folgende Cmdlet aus:
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get

@@ -1,5 +1,5 @@
 ---
-title: Herstellen einer Verbindung mit Azure Stack per CLI | Microsoft-Dokumentation
+title: Verwalten von Azure Stack mit Azure CLI | Microsoft-Dokumentation
 description: Es wird beschrieben, wie Sie die plattformübergreifende Befehlszeilenschnittstelle (Command-Line Interface, CLI) verwenden, um Ressourcen in Azure Stack zu verwalten und bereitzustellen.
 services: azure-stack
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 788d0fd6479ab054568d549af2f7a4306a963d3b
-ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
+ms.openlocfilehash: 430df1c886a869239c040085dcea983d07b3b36d
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68299448"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842929"
 ---
-# <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit Azure CLI in Azure Stack
+# <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Verwalten und Bereitstellen von Ressourcen in Azure Stack mit Azure CLI
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -29,32 +29,32 @@ Mit den Schritten in diesem Artikel können Sie die Azure-Befehlszeilenschnittst
 
 ## <a name="prepare-for-azure-cli"></a>Vorbereiten für Azure CLI
 
-Wenn Sie das Azure Stack Development Kit verwenden, benötigen Sie das CA-Stammzertifikat für Azure Stack, um die Azure CLI auf Ihrem Entwicklungscomputer zu verwenden. Sie verwenden das Zertifikat, um Ressourcen über die CLI zu verwalten.
+Wen Sie das ASDK verwenden, benötigen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack, um die Azure CLI auf Ihrem Entwicklungscomputer verwenden zu können. Sie verwenden das Zertifikat, um Ressourcen über die CLI zu verwalten.
 
  - Das **Azure Stack-Zertifizierungsstellen-Stammzertifikat** ist erforderlich, wenn Sie die CLI über eine Arbeitsstation außerhalb des ASDK nutzen.  
 
- - Der **Endpunkt der VM-Aliase** stellt einen Alias (z.B. „UbuntuLTS“ oder „Win2012Datacenter“) bereit, der beim Bereitstellen von VMs als einzelner Parameter auf einen Herausgeber, ein Angebot, eine SKU und die Version eines Image verweist.  
+ - **Der Endpunkt der VM-Aliase** stellt einen Alias wie „UbuntuLTS“ oder „Win2012Datacenter“ bereit. Dieser Alias verweist beim Bereitstellen von VMs als einzelner Parameter auf einen Herausgeber, ein Angebot, eine SKU und die Version eines Images.  
 
 In den folgenden Abschnitten wird beschrieben, wie Sie diese Werte abrufen.
 
 ### <a name="export-the-azure-stack-ca-root-certificate"></a>Exportieren des Azure Stack-Zertifizierungsstellen-Stammzertifikats
 
-Wenn Sie ein integriertes System verwenden, müssen Sie das Stammzertifikat der Zertifizierungsstelle nicht exportieren. Sie müssen das Zertifizierungsstellen-Stammzertifikat für ein ASDK exportieren.
+Wenn Sie ein integriertes System verwenden, müssen Sie das Stammzertifikat der Zertifizierungsstelle nicht exportieren. Wenn Sie das ASDK verwenden, müssen Sie das Zertifizierungsstellen-Stammzertifikat für ein ASDK exportieren.
 
 Exportieren Sie das ASDK-Stammzertifikat wie folgt im PEM-Format:
 
 1. Rufen Sie den Namen Ihres Azure Stack-Stammzertifikats ab:
-    - Melden Sie sich am Azure Stack-Mandanten oder im Administratorportal an.
-    - Klicken Sie in der Nähe der Adressleiste auf „Sicher“.
-    - Klicken Sie im Popupfenster auf „Gültig“.
-    - Klicken Sie im Zertifikatsfenster auf die Registerkarte „Zertifizierungspfad“. 
+    - Melden Sie sich beim Azure Stack-Mandanten oder im Verwaltungsportal an.
+    - Klicken Sie in der Nähe der Adressleiste auf **Sicher**.
+    - Klicken Sie im Popupfenster auf **Gültig**.
+    - Klicken Sie im Zertifikatsfenster auf die Registerkarte **Zertifizierungspfad**.
     - Notieren Sie sich den Namen Ihres Azure Stack-Stammzertifikats.
 
     ![Azure Stack-Stammzertifikat](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
 
 2. [Erstellen Sie unter Azure Stack eine Windows-VM](azure-stack-quick-windows-portal.md).
 
-3. Melden Sie sich am Computer an, öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie dann das folgende Skript aus:
+3. Melden Sie sich bei dem virtuellen Computer an, öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie dann das folgende Skript aus:
 
     ```powershell  
       $label = "<the name of your azure stack root cert from Step 1>"
@@ -90,7 +90,7 @@ Sie können einen öffentlich zugänglichen Endpunkt einrichten, der eine VM-Ali
 
 ### <a name="install-or-upgrade-cli"></a>Installieren oder Aktualisieren der CLI
 
-Melden Sie sich an Ihrer Entwicklungsarbeitsstation an und installieren die CLI. Azure Stack erfordert Version 2.0 oder höher der Azure CLI. Für die neueste Version der API-Profile ist eine aktuelle Version der CLI erforderlich.  Mit den im Artikel [Installieren der Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) beschriebenen Schritten können Sie die CLI installieren. 
+Melden Sie sich an Ihrer Entwicklungsarbeitsstation an und installieren die CLI. Azure Stack erfordert Version 2.0 oder höher der Azure CLI. Für die neueste Version der API-Profile ist eine aktuelle Version der CLI erforderlich. Mit den im Artikel [Installieren der Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) beschriebenen Schritten installieren Sie die CLI. 
 
 1. Öffnen Sie ein Terminal oder ein Eingabeaufforderungsfenster, und führen Sie den folgenden Befehl aus, um zu überprüfen, ob die Installation erfolgreich war:
 
@@ -111,13 +111,13 @@ In diesem Abschnitt wird die Einrichtung der CLI Schritt für Schritt beschriebe
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als vertrauenswürdig
 
-Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat auf Ihrem Remotecomputer als vertrauenswürdig einstufen. Für die integrierten Systeme ist dies nicht erforderlich.
+Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat auf Ihrem Remotecomputer als vertrauenswürdig einstufen. Dieser Schritt ist für integrierten Systeme nicht erforderlich.
 
 Zum Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als vertrauenswürdig fügen Sie es für die Python-Version, die mit der Azure CLI installiert wurde, an den vorhandenen Python-Zertifikatspeicher an. Möglicherweise führen Sie Ihre eigene Instanz von Python aus. Die Azure CLI enthält eine eigene Version von Python.
 
 1. Suchen Sie auf Ihrem Computer nach dem Speicherort des Zertifikatspeichers.  Sie finden den Speicherort durch Ausführen des Befehls `az --version`.
 
-2. Navigieren Sie zu dem Ordner, der Ihre CLI-Python-Anwendung enthält. Diese Version von Python sollten Sie ausführen. Wenn Sie Python in Ihrem Systempfad eingerichtet haben, wird Ihre eigene Version von Python ausgeführt. Stattdessen sollten Sie die von der CLI verwendete Version ausführen und Ihr Zertifikat dieser Version hinzufügen. Beispiel: Angenommen, Ihre CLI-Python-Instanz befindet sich in`C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`.
+2. Navigieren Sie zu dem Ordner, der Ihre CLI-Python-App enthält. Diese Version von Python sollten Sie ausführen. Wenn Sie Python in Ihrem Systempfad eingerichtet haben, wird Ihre eigene Version von Python ausgeführt. Stattdessen sollten Sie die von der CLI verwendete Version ausführen und Ihr Zertifikat dieser Version hinzufügen. Beispiel: Angenommen, Ihre CLI-Python-Instanz befindet sich in`C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`.
 
     Verwenden Sie die folgenden Befehle:
 
@@ -126,7 +126,7 @@ Zum Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als v
     .\python -c "import certifi; print(certifi.where())"
     ```
 
-    Notieren Sie sich den Speicherort des Zertifikats. Beispiel: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`. Ihr bestimmter Pfad hängt von Ihrem Betriebssystem und Ihrer CLI-Installation ab.
+    Notieren Sie sich den Speicherort des Zertifikats. Beispiel: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`. Ihr spezifischer Pfad hängt von Ihrem Betriebssystem und Ihrer CLI-Installation ab.
 
 2. Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack als vertrauenswürdig ein, indem Sie es an das vorhandene Python-Zertifikat anfügen.
 
@@ -163,25 +163,25 @@ Zum Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als v
 
 1. Registrieren Sie die Azure Stack-Umgebung, indem Sie den Befehl `az cloud register` ausführen.
 
-    In einigen Szenarien wird die direkte ausgehende Internetkonnektivität durch einen Proxy oder eine Firewall geleitet, die das Abfangen von SSL erzwingen. In diesen Fällen kann der Befehl `az cloud register` mit einem Fehler wie „Endpunkte können nicht aus der Cloud abgerufen werden“ fehlschlagen. Als Problemumgehung dieses Fehlers können Sie die folgenden Umgebungsvariablen festlegen:
+    In einigen Szenarien wird die direkte ausgehende Internetkonnektivität durch einen Proxy oder eine Firewall geleitet, die das Abfangen von SSL erzwingen. In diesen Fällen kann der Befehl `az cloud register` mit einem Fehler wie „Endpunkte können nicht aus der Cloud abgerufen werden“ fehlschlagen. Als Problemumgehung dieses Fehlers legen Sie die folgenden Umgebungsvariablen fest:
 
     ```shell  
     set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
     set ADAL_PYTHON_SSL_NO_VERIFY=1
     ```
 
-2. Registrieren Sie Ihre Umgebung. Verwenden Sie beim Ausführen von `az cloud register` die folgenden Parameter.
+2. Registrieren Sie Ihre Umgebung. Verwenden Sie beim Ausführen von `az cloud register` die folgenden Parameter:
 
     | Wert | Beispiel | BESCHREIBUNG |
     | --- | --- | --- |
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
-    | Resource Manager-Endpunkt | https://management.local.azurestack.external | Der **ResourceManagerUrl**-Wert im Azure Stack Development Kit (ASDK) lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Rufen Sie die erforderlichen Metadaten wie folgt ab: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
-    | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
-    | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
+    | Resource Manager-Endpunkt | https://management.local.azurestack.external | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Rufen Sie die erforderlichen Metadaten wie folgt ab: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
+    | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
+    | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
     | VM-Image-Aliasdokument: Endpunkt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Der URI des Dokuments, in dem die VM-Image-Aliase enthalten sind. Weitere Informationen finden Sie unter [Einrichten des Endpunkts der VM-Aliase](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
-    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
 1. Legen Sie die aktive Umgebung mithilfe der folgenden Befehle fest.
@@ -197,9 +197,9 @@ Zum Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als v
    ```
 
     >[!NOTE]  
-    >Wenn Sie eine Version von Azure Stack ausführen, die älter als Build 1808 ist, müssen Sie das API-Versionsprofil **2017-03-09-profile** anstelle des API-Versionsprofils **2019-03-01-hybrid** verwenden. Sie müssen eine aktuelle Version der Azure CLI verwenden.
+    >Wenn Sie eine Version von Azure Stack ausführen, die älter als Build 1808 ist, müssen Sie das API-Versionsprofil **2017-03-09-profile** anstelle des API-Versionsprofils **2019-03-01-hybrid** verwenden. Sie müssen außerdem eine aktuelle Version der Azure CLI verwenden.
  
-1. Melden Sie sich bei der Azure Stack-Umgebung an, indem Sie den Befehl `az login` ausführen. Sie können sich entweder als Benutzer oder als [Dienstprinzipal](/azure/active-directory/develop/app-objects-and-service-principals) an der Azure Stack-Umgebung anmelden. 
+1. Melden Sie sich bei der Azure Stack-Umgebung an, indem Sie den Befehl `az login` ausführen. Melden Sie sich entweder als Benutzer oder als [Dienstprinzipal](/azure/active-directory/develop/app-objects-and-service-principals) bei der Azure Stack-Umgebung an. 
 
    - Anmelden als *Benutzer*: 
 
@@ -210,7 +210,7 @@ Zum Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als v
      ```
 
      > [!NOTE]
-     > Wenn für Ihr Benutzerkonto die mehrstufige Authentifizierung aktiviert ist, können Sie den Befehl `az login` verwenden, ohne den Parameter `-u` anzugeben. Durch die Ausführung des Befehls erhalten Sie eine URL und einen Code für die Authentifizierung.
+     > Wenn für Ihr Benutzerkonto die mehrstufige Authentifizierung aktiviert ist, verwenden Sie den Befehl `az login`, ohne den Parameter `-u` anzugeben. Durch die Ausführung des Befehls erhalten Sie eine URL und einen Code für die Authentifizierung.
 
    - Melden Sie sich als *Dienstprinzipal* an: 
     
@@ -222,7 +222,7 @@ Zum Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als v
 
 ### <a name="test-the-connectivity"></a>Testen der Konnektivität
 
-Wenn alles eingerichtet ist, können Sie mit der CLI Ressourcen in Azure Stack erstellen. Sie können beispielsweise eine Ressourcengruppe für eine Anwendung erstellen und einen virtuellen Computer hinzufügen. Verwenden Sie den folgenden Befehl, um eine Ressourcengruppe mit dem Namen „MyResourceGroup“ zu erstellen:
+Wenn alles eingerichtet ist, können Sie mit der CLI Ressourcen in Azure Stack erstellen. Sie können beispielsweise eine Ressourcengruppe für eine App erstellen und einen virtuellen Computer hinzufügen. Verwenden Sie den folgenden Befehl, um eine Ressourcengruppe mit dem Namen „MyResourceGroup“ zu erstellen:
 
 ```azurecli
 az group create -n MyResourceGroup -l local
@@ -238,9 +238,9 @@ In diesem Abschnitt wird die Einrichtung der CLI Schritt für Schritt beschriebe
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als vertrauenswürdig
 
-Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat auf Ihrem Remotecomputer als vertrauenswürdig einstufen. Für die integrierten Systeme ist dies nicht erforderlich.
+Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat auf Ihrem Remotecomputer als vertrauenswürdig einstufen. Dieser Schritt ist für integrierten Systeme nicht erforderlich.
 
-1. Suchen Sie den Speicherort des Zertifikats auf Ihrem Computer. Der Speicherort kann je nachdem, wo Sie Python installiert haben, variieren. Öffnen Sie eine Befehlseingabeaufforderung oder eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und geben Sie den folgenden Befehl ein:
+1. Suchen Sie den Speicherort des Zertifikats auf Ihrem Computer. Der Speicherort kann je nachdem, wo Sie Python installiert haben, variieren. Öffnen Sie eine Eingabeaufforderung oder eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und geben Sie den folgenden Befehl ein:
 
     ```powershell  
       python -c "import certifi; print(certifi.where())"
@@ -283,25 +283,25 @@ Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat a
 
 1. Registrieren Sie die Azure Stack-Umgebung, indem Sie den Befehl `az cloud register` ausführen.
 
-    In einigen Szenarien wird die direkte ausgehende Internetkonnektivität durch einen Proxy oder eine Firewall geleitet, die das Abfangen von SSL erzwingen. In diesen Fällen kann der Befehl `az cloud register` mit einem Fehler wie „Endpunkte können nicht aus der Cloud abgerufen werden“ fehlschlagen. Als Problemumgehung dieses Fehlers können Sie die folgenden Umgebungsvariablen festlegen:
+    In einigen Szenarien wird die direkte ausgehende Internetkonnektivität durch einen Proxy oder eine Firewall geleitet, die das Abfangen von SSL erzwingen. In diesen Fällen kann der Befehl `az cloud register` mit einem Fehler wie „Endpunkte können nicht aus der Cloud abgerufen werden“ fehlschlagen. Als Problemumgehung dieses Fehlers legen Sie die folgenden Umgebungsvariablen fest:
 
     ```shell  
     set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
     set ADAL_PYTHON_SSL_NO_VERIFY=1
     ```
 
-2. Registrieren Sie Ihre Umgebung. Verwenden Sie beim Ausführen von `az cloud register` die folgenden Parameter.
+2. Registrieren Sie Ihre Umgebung. Verwenden Sie beim Ausführen von `az cloud register` die folgenden Parameter:
 
     | Wert | Beispiel | BESCHREIBUNG |
     | --- | --- | --- |
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
-    | Resource Manager-Endpunkt | https://management.local.azurestack.external | Der **ResourceManagerUrl**-Wert im Azure Stack Development Kit (ASDK) lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Rufen Sie die erforderlichen Metadaten wie folgt ab: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
-    | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
-    | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
+    | Resource Manager-Endpunkt | https://management.local.azurestack.external | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Rufen Sie die erforderlichen Metadaten wie folgt ab: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
+    | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
+    | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
     | VM-Image-Aliasdokument: Endpunkt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Der URI des Dokuments, in dem die VM-Image-Aliase enthalten sind. Weitere Informationen finden Sie unter [Einrichten des Endpunkts der VM-Aliase](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
-    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
 1. Legen Sie die aktive Umgebung mithilfe der folgenden Befehle fest.
@@ -317,7 +317,7 @@ Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat a
    ```
 
     >[!NOTE]  
-    >Wenn Sie eine Version von Azure Stack ausführen, die älter als Build 1808 ist, müssen Sie das API-Versionsprofil **2017-03-09-profile** anstelle des API-Versionsprofils **2019-03-01-hybrid** verwenden. Sie müssen eine aktuelle Version der Azure CLI verwenden.
+    >Wenn Sie eine Version von Azure Stack ausführen, die älter als Build 1808 ist, müssen Sie das API-Versionsprofil **2017-03-09-profile** anstelle des API-Versionsprofils **2019-03-01-hybrid** verwenden. Sie müssen außerdem eine aktuelle Version der Azure CLI verwenden.
 
 1. Melden Sie sich bei der Azure Stack-Umgebung an, indem Sie den Befehl `az login` ausführen. Sie können sich entweder als Benutzer oder als [Dienstprinzipal](/azure/active-directory/develop/app-objects-and-service-principals) an der Azure Stack-Umgebung anmelden. 
 
@@ -326,11 +326,11 @@ Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat a
      Sie können entweder den Benutzernamen und das Kennwort direkt im Befehl `az login` eingeben oder die Authentifizierung über einen Browser ausführen. Sie müssen das letztgenannte Verfahren wählen, wenn für Ihr Konto mehrstufige Authentifizierung aktiviert ist:
 
      ```azurecli
-     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2019-03-01-hybrid"
+     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>   --profile "2019-03-01-hybrid"
      ```
 
      > [!NOTE]
-     > Wenn für Ihr Benutzerkonto die mehrstufige Authentifizierung aktiviert ist, können Sie den Befehl `az login` verwenden, ohne den Parameter `-u` anzugeben. Durch die Ausführung des Befehls erhalten Sie eine URL und einen Code für die Authentifizierung.
+     > Wenn für Ihr Benutzerkonto die mehrstufige Authentifizierung aktiviert ist, verwenden Sie den Befehl `az login`, ohne den Parameter `-u` anzugeben. Durch die Ausführung des Befehls erhalten Sie eine URL und einen Code für die Authentifizierung.
 
    - Melden Sie sich als *Dienstprinzipal* an: 
     
@@ -352,7 +352,7 @@ Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat a
 
 ### <a name="test-the-connectivity"></a>Testen der Konnektivität
 
-Wenn alles eingerichtet ist, können Sie mit der CLI Ressourcen in Azure Stack erstellen. Sie können beispielsweise eine Ressourcengruppe für eine Anwendung erstellen und einen virtuellen Computer hinzufügen. Verwenden Sie den folgenden Befehl, um eine Ressourcengruppe mit dem Namen „MyResourceGroup“ zu erstellen:
+Wenn alles eingerichtet ist, können Sie mit der CLI Ressourcen in Azure Stack erstellen. Sie können beispielsweise eine Ressourcengruppe für eine App erstellen und einen virtuellen Computer hinzufügen. Verwenden Sie den folgenden Befehl, um eine Ressourcengruppe mit dem Namen „MyResourceGroup“ zu erstellen:
 
 ```azurecli
 az group create -n MyResourceGroup -l local
@@ -369,17 +369,17 @@ In diesem Abschnitt wird die Einrichtung der CLI Schritt für Schritt beschriebe
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als vertrauenswürdig
 
-Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat auf Ihrem Remotecomputer als vertrauenswürdig einstufen. Für die integrierten Systeme ist dies nicht erforderlich.
+Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat auf Ihrem Remotecomputer als vertrauenswürdig einstufen. Dieser Schritt ist für integrierten Systeme nicht erforderlich.
 
 Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack als vertrauenswürdig ein, indem Sie es an das vorhandene Python-Zertifikat anfügen.
 
-1. Suchen Sie den Speicherort des Zertifikats auf Ihrem Computer. Der Speicherort kann je nachdem, wo Sie Python installiert haben, variieren. Die Module „pip“ und „certifi“ müssen installiert sein. Sie können den folgenden Python-Befehl über die Bash-Aufforderung verwenden:
+1. Suchen Sie den Speicherort des Zertifikats auf Ihrem Computer. Der Speicherort kann je nachdem, wo Sie Python installiert haben, variieren. Die Module „pip“ und „certifi“ müssen installiert sein. Verwenden Sie den folgenden Python-Befehl über die Bash-Eingabeaufforderung:
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
     ```
 
-    Notieren Sie sich den Speicherort des Zertifikats, beispielsweise `~/lib/python3.5/site-packages/certifi/cacert.pem`. Ihr eigener Pfad hängt von Ihrem Betriebssystem und der installierten Python-Version ab.
+    Notieren Sie sich den Speicherort des Zertifikats. Beispiel: `~/lib/python3.5/site-packages/certifi/cacert.pem`. Ihr eigener Pfad hängt von Ihrem Betriebssystem und der installierten Python-Version ab.
 
 2. Führen Sie den folgenden Bash-Befehl mit dem Pfad zu Ihrem Zertifikat aus.
 
@@ -399,25 +399,25 @@ Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack als vertr
 
 Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack herzustellen:
 
-1. Registrieren Sie die Azure Stack-Umgebung, indem Sie den Befehl `az cloud register` ausführen. In einigen Szenarien wird die direkte ausgehende Internetkonnektivität durch einen Proxy oder eine Firewall geleitet, die das Abfangen von SSL erzwingen. In diesen Fällen kann der Befehl `az cloud register` mit einem Fehler wie „Endpunkte können nicht aus der Cloud abgerufen werden“ fehlschlagen. Als Problemumgehung dieses Fehlers können Sie die folgenden Umgebungsvariablen festlegen:
+1. Registrieren Sie die Azure Stack-Umgebung, indem Sie den Befehl `az cloud register` ausführen. In einigen Szenarien wird die direkte ausgehende Internetkonnektivität durch einen Proxy oder eine Firewall geleitet, die das Abfangen von SSL erzwingen. In diesen Fällen kann der Befehl `az cloud register` mit einem Fehler wie „Endpunkte können nicht aus der Cloud abgerufen werden“ fehlschlagen. Als Problemumgehung dieses Fehlers legen Sie die folgenden Umgebungsvariablen fest:
 
    ```shell
    export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
    export ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
-2. Registrieren Sie Ihre Umgebung. Verwenden Sie beim Ausführen von `az cloud register` die folgenden Parameter.
+2. Registrieren Sie Ihre Umgebung. Verwenden Sie beim Ausführen von `az cloud register` die folgenden Parameter:
 
     | Wert | Beispiel | BESCHREIBUNG |
     | --- | --- | --- |
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
-    | Resource Manager-Endpunkt | https://management.local.azurestack.external | Der **ResourceManagerUrl**-Wert im Azure Stack Development Kit (ASDK) lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Rufen Sie die erforderlichen Metadaten wie folgt ab: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
-    | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
-    | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
+    | Resource Manager-Endpunkt | https://management.local.azurestack.external | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Rufen Sie die erforderlichen Metadaten wie folgt ab: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
+    | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
+    | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
     | VM-Image-Aliasdokument: Endpunkt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Der URI des Dokuments, in dem die VM-Image-Aliase enthalten sind. Weitere Informationen finden Sie unter [Einrichten des Endpunkts der VM-Aliase](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
-    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
 3. Legen Sie die aktive Umgebung fest. 
@@ -433,7 +433,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack herzu
    ```
 
     >[!NOTE]  
-    >Wenn Sie eine Version von Azure Stack ausführen, die älter als Build 1808 ist, müssen Sie das API-Versionsprofil **2017-03-09-profile** anstelle des API-Versionsprofils **2019-03-01-hybrid** verwenden. Sie müssen eine aktuelle Version der Azure CLI verwenden.
+    >Wenn Sie eine Version von Azure Stack ausführen, die älter als Build 1808 ist, müssen Sie das API-Versionsprofil **2017-03-09-profile** anstelle des API-Versionsprofils **2019-03-01-hybrid** verwenden. Sie müssen außerdem eine aktuelle Version der Azure CLI verwenden.
 
 5. Melden Sie sich bei der Azure Stack-Umgebung an, indem Sie den Befehl `az login` ausführen. Sie können sich entweder als Benutzer oder als [Dienstprinzipal](/azure/active-directory/develop/app-objects-and-service-principals) an der Azure Stack-Umgebung anmelden. 
 
@@ -464,7 +464,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack herzu
 
 ### <a name="test-the-connectivity"></a>Testen der Konnektivität
 
-Wenn alles eingerichtet ist, können Sie mit der CLI Ressourcen in Azure Stack erstellen. Sie können beispielsweise eine Ressourcengruppe für eine Anwendung erstellen und einen virtuellen Computer hinzufügen. Verwenden Sie den folgenden Befehl, um eine Ressourcengruppe mit dem Namen „MyResourceGroup“ zu erstellen:
+Wenn alles eingerichtet ist, können Sie mit der CLI Ressourcen in Azure Stack erstellen. Sie können beispielsweise eine Ressourcengruppe für eine App erstellen und einen virtuellen Computer hinzufügen. Verwenden Sie den folgenden Befehl, um eine Ressourcengruppe mit dem Namen „MyResourceGroup“ zu erstellen:
 
 ```azurecli
     az group create -n MyResourceGroup -l local
@@ -480,17 +480,17 @@ In diesem Abschnitt wird die Einrichtung der CLI Schritt für Schritt beschriebe
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als vertrauenswürdig
 
-Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat auf Ihrem Remotecomputer als vertrauenswürdig einstufen. Für die integrierten Systeme ist dies nicht erforderlich.
+Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat auf Ihrem Remotecomputer als vertrauenswürdig einstufen. Dieser Schritt ist für integrierten Systeme nicht erforderlich.
 
 Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack als vertrauenswürdig ein, indem Sie es an das vorhandene Python-Zertifikat anfügen.
 
-1. Suchen Sie den Speicherort des Zertifikats auf Ihrem Computer. Der Speicherort kann je nachdem, wo Sie Python installiert haben, variieren. Die Module „pip“ und „certifi“ müssen installiert sein. Sie können den folgenden Python-Befehl über die Bash-Aufforderung verwenden:
+1. Suchen Sie den Speicherort des Zertifikats auf Ihrem Computer. Der Speicherort kann je nachdem, wo Sie Python installiert haben, variieren. Die Module „pip“ und „certifi“ müssen installiert sein. Verwenden Sie den folgenden Python-Befehl über die Bash-Eingabeaufforderung:
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
     ```
 
-    Notieren Sie sich den Speicherort des Zertifikats, beispielsweise `~/lib/python3.5/site-packages/certifi/cacert.pem`. Ihr eigener Pfad hängt von Ihrem Betriebssystem und der installierten Python-Version ab.
+    Notieren Sie sich den Speicherort des Zertifikats. Beispiel: `~/lib/python3.5/site-packages/certifi/cacert.pem`. Ihr eigener Pfad hängt von Ihrem Betriebssystem und der installierten Python-Version ab.
 
 2. Führen Sie den folgenden Bash-Befehl mit dem Pfad zu Ihrem Zertifikat aus.
 
@@ -510,7 +510,7 @@ Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack als vertr
 
 Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack herzustellen:
 
-1. Registrieren Sie die Azure Stack-Umgebung, indem Sie den Befehl `az cloud register` ausführen. In einigen Szenarien wird die direkte ausgehende Internetkonnektivität durch einen Proxy oder eine Firewall geleitet, die das Abfangen von SSL erzwingen. In diesen Fällen kann der Befehl `az cloud register` mit einem Fehler wie „Endpunkte können nicht aus der Cloud abgerufen werden“ fehlschlagen. Als Problemumgehung dieses Fehlers können Sie die folgenden Umgebungsvariablen festlegen:
+1. Registrieren Sie die Azure Stack-Umgebung, indem Sie den Befehl `az cloud register` ausführen. In einigen Szenarien wird die direkte ausgehende Internetkonnektivität durch einen Proxy oder eine Firewall geleitet, die das Abfangen von SSL erzwingen. In diesen Fällen kann der Befehl `az cloud register` mit einem Fehler wie „Endpunkte können nicht aus der Cloud abgerufen werden“ fehlschlagen. Als Problemumgehung dieses Fehlers legen Sie die folgenden Umgebungsvariablen fest:
 
    ```shell
    export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
@@ -522,13 +522,13 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack herzu
     | Wert | Beispiel | BESCHREIBUNG |
     | --- | --- | --- |
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
-    | Resource Manager-Endpunkt | https://management.local.azurestack.external | Der **ResourceManagerUrl**-Wert im Azure Stack Development Kit (ASDK) lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Rufen Sie die erforderlichen Metadaten wie folgt ab: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
-    | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
-    | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System sollten Sie einen Endpunkt für Ihr System verwenden.  |
+    | Resource Manager-Endpunkt | https://management.local.azurestack.external | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Rufen Sie die erforderlichen Metadaten wie folgt ab: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
+    | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
+    | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
     | VM-Image-Aliasdokument: Endpunkt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Der URI des Dokuments, in dem die VM-Image-Aliase enthalten sind. Weitere Informationen finden Sie unter [Einrichten des Endpunkts der VM-Aliase](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
-    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
 3. Legen Sie die aktive Umgebung fest. 
@@ -544,7 +544,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack herzu
    ```
 
     >[!NOTE]  
-    >Wenn Sie eine Version von Azure Stack ausführen, die älter als Build 1808 ist, müssen Sie das API-Versionsprofil **2017-03-09-profile** anstelle des API-Versionsprofils **2019-03-01-hybrid** verwenden. Sie müssen eine aktuelle Version der Azure CLI verwenden.
+    >Wenn Sie eine Version von Azure Stack ausführen, die älter als Build 1808 ist, müssen Sie das API-Versionsprofil **2017-03-09-profile** anstelle des API-Versionsprofils **2019-03-01-hybrid** verwenden. Sie müssen außerdem eine aktuelle Version der Azure CLI verwenden.
 
 5. Melden Sie sich bei der Azure Stack-Umgebung an, indem Sie den Befehl `az login` ausführen. Sie können sich entweder als Benutzer oder als [Dienstprinzipal](/azure/active-directory/develop/app-objects-and-service-principals) an der Azure Stack-Umgebung anmelden. 
 
@@ -579,7 +579,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack herzu
 
 ### <a name="test-the-connectivity"></a>Testen der Konnektivität
 
-Wenn alles eingerichtet ist, können Sie mit der CLI Ressourcen in Azure Stack erstellen. Sie können beispielsweise eine Ressourcengruppe für eine Anwendung erstellen und einen virtuellen Computer hinzufügen. Verwenden Sie den folgenden Befehl, um eine Ressourcengruppe mit dem Namen „MyResourceGroup“ zu erstellen:
+Wenn alles eingerichtet ist, können Sie mit der CLI Ressourcen in Azure Stack erstellen. Sie können beispielsweise eine Ressourcengruppe für eine App erstellen und einen virtuellen Computer hinzufügen. Verwenden Sie den folgenden Befehl, um eine Ressourcengruppe mit dem Namen „MyResourceGroup“ zu erstellen:
 
 ```azurecli
   az group create -n MyResourceGroup -l local
@@ -593,7 +593,7 @@ Wenn die Ressourcengruppe erfolgreich erstellt wurde, werden mit dem vorherigen 
 
 Es gibt bekannte Probleme bei der Verwendung der CLI in Azure Stack:
 
- - Der interaktive CLI-Modus (beispielsweise der Befehl `az interactive`) wird in Azure Stack noch nicht unterstützt.
+ - Der interaktive CLI-Modus. Beispielsweise wird der Befehl `az interactive` in Azure Stack noch nicht unterstützt.
  - Verwenden Sie zum Abrufen der Liste der in Azure Stack verfügbaren VM-Images den Befehl `az vm image list --all` anstelle des Befehls `az vm image list`. Durch Angabe der `--all` wird sichergestellt, dass die Antwort nur die Images zurückgibt, die in Ihrer Azure Stack-Umgebung verfügbar sind.
  - VM-Imagealiase, die in Azure verfügbar sind, gelten möglicherweise nicht für Azure Stack. Wenn Sie VM-Images verwenden, müssen Sie den gesamten URN-Parameter (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) anstelle des Imagealias verwenden. Dieser URN muss mit den Imagespezifikationen übereinstimmen, die vom Befehl `az vm images list` abgerufen wurden.
 
