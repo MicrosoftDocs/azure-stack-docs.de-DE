@@ -355,7 +355,7 @@ Nach dem Hinzufügen des CNAME-Eintrags sieht die Seite mit den DNS-Einträgen w
 
 #### <a name="test-in-a-browser"></a>Testen in einem Browser
 
-Navigieren Sie zu dem bzw. den oben konfigurierten DNS-Namen (z. B. `northwindcloud.com` oder „www.northwindcloud.com“).
+Navigieren Sie zu dem bzw. den oben konfigurierten DNS-Namen (z. B. `northwindcloud.com` oder www.northwindcloud.com).
 
 ## <a name="part-3-bind-a-custom-ssl-cert"></a>Teil 3: Binden eines benutzerdefinierten SSL-Zertifikats
 
