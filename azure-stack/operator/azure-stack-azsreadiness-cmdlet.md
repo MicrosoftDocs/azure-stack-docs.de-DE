@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 1f8d7573d9d3da54ddb5fa7aae85ba15d1db4c3c
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: 7d0e9c6914ce8748d842c9addf040355e3dc1cb1
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521254"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991704"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Referenz zum Cmdlet „Start-AzsReadinessChecker“
 
@@ -302,7 +302,7 @@ Gibt den Regionsnamen der Azure Stack-Bereitstellung an.
 
 |  |  |
 |----------------------------|--------------|
-|Geben Sie Folgendes ein:                        |Zeichenfolge        |
+|Geben Sie Folgendes ein:                       |Zeichenfolge        |
 |Position:                   |benannt         |
 |Standardwert:              |Keine          |
 |Pipelineeingabe akzeptieren:      |False         |
@@ -314,7 +314,7 @@ Gibt den externen FQDN der Azure Stack-Bereitstellung an, der auch als Alias f�
 
 |  |  |
 |----------------------------|--------------|
-|Geben Sie Folgendes ein:                        |Zeichenfolge        |
+|Geben Sie Folgendes ein:                       |Zeichenfolge        |
 |Position:                   |benannt         |
 |Standardwert:              |ExternalFQDN, ExternalDomainName |
 |Pipelineeingabe akzeptieren:      |False         |
@@ -326,10 +326,10 @@ Gibt die gültigen Werte des Identitätssystems der Azure Stack-Bereitstellung 
 
 |  |  |
 |----------------------------|--------------|
-|Geben Sie Folgendes ein:                        |Zeichenfolge        |
+|Geben Sie Folgendes ein:                       |Zeichenfolge        |
 |Position:                   |benannt         |
 |Standardwert:              |Keine          |
-|Gültige Werte:                |'AAD','ADFS'  |
+|Gültige Werte:               |'AAD','ADFS'  |
 |Pipelineeingabe akzeptieren:      |False         |
 |Platzhalterzeichen akzeptieren: |False         |
 
@@ -339,7 +339,7 @@ Gibt das den PFX-Zertifikatdateien zugeordnete Kennwort an.
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |SecureString |
+|Geben Sie Folgendes ein:                       |SecureString |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -351,7 +351,7 @@ Gibt die Hashtabelle an, die Pfade und Kennwörter für PaaS-Zertifikate enthäl
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |Hashtable |
+|Geben Sie Folgendes ein:                       |Hashtable |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -363,7 +363,7 @@ Gibt die JSON-Konfigurationsdatei mit Azure Stack-Bereitstellungsdaten an. Diese
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |Zeichenfolge   |
+|Geben Sie Folgendes ein:                       |Zeichenfolge   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -375,7 +375,7 @@ Gibt den Pfad zu einem problematischen Zertifikat an, für dessen Korrektur eine
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |Zeichenfolge   |
+|Geben Sie Folgendes ein:                       |Zeichenfolge   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -387,7 +387,7 @@ Gibt den Zielpfad für die resultierende PFX-Datei der Import-/Exportroutine an.
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |Zeichenfolge   |
+|Geben Sie Folgendes ein:                       |Zeichenfolge   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -399,7 +399,7 @@ Gibt ein sortiertes Wörterbuch des Fachgebiets für die Generierung von Zertifi
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |OrderedDictionary   |
+|Geben Sie Folgendes ein:                       |OrderedDictionary   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -414,10 +414,10 @@ Gibt den SAN-Typ der Zertifikatanforderung an. Gültige Werte: **MultipleCSR**, 
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |Zeichenfolge   |
+|Geben Sie Folgendes ein:                       |Zeichenfolge   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
-|Gültige Werte:                |'MultipleCSR','SingleCSR' |
+|Gültige Werte:               |'MultipleCSR','SingleCSR' |
 |Pipelineeingabe akzeptieren:      |False    |
 |Platzhalterzeichen akzeptieren: |False    |
 
@@ -427,7 +427,7 @@ Gibt den Zielpfad für die Zertifikatanforderungsdateien an. Das Verzeichnis mus
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |Zeichenfolge   |
+|Geben Sie Folgendes ein:                       |Zeichenfolge   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -439,7 +439,7 @@ Gibt den Azure Active Directory-Dienstadministrator an, der für die Azure Stac
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |PSCredential   |
+|Geben Sie Folgendes ein:                       |PSCredential   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -451,7 +451,7 @@ Gibt den für die Azure Stack-Bereitstellung zu verwendenden Azure Active Direct
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |Zeichenfolge   |
+|Geben Sie Folgendes ein:                       |Zeichenfolge   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -463,10 +463,10 @@ Gibt die Instanz der Azure-Dienste mit den Konten, Verzeichnissen und Abonnement
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |Zeichenfolge   |
+|Geben Sie Folgendes ein:                       |Zeichenfolge   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
-|Gültige Werte:                |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
+|Gültige Werte:               |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
 |Pipelineeingabe akzeptieren:      |False    |
 |Platzhalterzeichen akzeptieren: |False    |
 
@@ -476,7 +476,7 @@ Gibt das Registrierungskonto an, das für die Azure Stack-Registrierung verwend
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |Zeichenfolge   |
+|Geben Sie Folgendes ein:                       |Zeichenfolge   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -488,7 +488,7 @@ Gibt die Registrierungsabonnement-ID an, die für die Azure Stack-Registrierung
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |Guid     |
+|Geben Sie Folgendes ein:                       |Guid     |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -500,7 +500,7 @@ Gibt den Pfad für den Bereitschaftsbericht an. Standardmäßig werden das aktue
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |Zeichenfolge   |
+|Geben Sie Folgendes ein:                       |Zeichenfolge   |
 |Position:                   |benannt    |
 |Standardwert:              |Alle      |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -522,7 +522,7 @@ ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, K
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |Zeichenfolge   |
+|Geben Sie Folgendes ein:                       |Zeichenfolge   |
 |Position:                   |benannt    |
 |Standardwert:              |.\Certificates |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -534,7 +534,7 @@ Gibt an, ob PaaS-Dienste/-Hostnamen zu Zertifikatanforderungen hinzugefügt werd
 
 |  |  |
 |----------------------------|------------------|
-|Geben Sie Folgendes ein:                        |SwitchParameter   |
+|Geben Sie Folgendes ein:                       |SwitchParameter   |
 |Position:                   |benannt             |
 |Standardwert:              |False             |
 |Pipelineeingabe akzeptieren:      |False             |
@@ -546,10 +546,10 @@ Gibt an, ob nur die Berichtszusammenfassung angezeigt werden soll und Details au
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                        |Zeichenfolge   |
+|Geben Sie Folgendes ein:                       |Zeichenfolge   |
 |Position:                   |benannt    |
 |Standardwert:              |Alle      |
-|Gültige Werte:                |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
+|Gültige Werte:               |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
 |Pipelineeingabe akzeptieren:      |False    |
 |Platzhalterzeichen akzeptieren: |False    |
 
@@ -559,7 +559,7 @@ Gibt an, ob nur die Berichtszusammenfassung angezeigt werden soll und Details au
 
 |  |  |
 |----------------------------|------------------|
-|Geben Sie Folgendes ein:                        |SwitchParameter   |
+|Geben Sie Folgendes ein:                       |SwitchParameter   |
 |Position:                   |benannt             |
 |Standardwert:              |False             |
 |Pipelineeingabe akzeptieren:      |False             |
@@ -571,7 +571,7 @@ Entfernt die vorherige Ausführung und den Überprüfungsverlauf und schreibt Ü
 
 |  |  |
 |----------------------------|------------------|
-|Geben Sie Folgendes ein:                        |SwitchParameter   |
+|Geben Sie Folgendes ein:                       |SwitchParameter   |
 |Aliase:                    |cf                |
 |Position:                   |benannt             |
 |Standardwert:              |False             |
@@ -584,7 +584,7 @@ Gibt einen benutzerdefinierte Pfad zum Speichern des JSON-Bereitschaftsberichts 
 
 |  |  |
 |----------------------------|------------------|
-|Geben Sie Folgendes ein:                        |Zeichenfolge            |
+|Geben Sie Folgendes ein:                       |Zeichenfolge            |
 |Position:                   |benannt             |
 |Standardwert:              |$ENV:TEMP\AzsReadinessChecker  |
 |Pipelineeingabe akzeptieren:      |False             |
@@ -596,7 +596,7 @@ Fordert vor der Ausführung des Cmdlets zur Bestätigung auf.
 
 |  |  |
 |----------------------------|------------------|
-|Geben Sie Folgendes ein:                        |SwitchParameter   |
+|Geben Sie Folgendes ein:                       |SwitchParameter   |
 |Aliase:                    |cf                |
 |Position:                   |benannt             |
 |Standardwert:              |False             |
@@ -609,7 +609,7 @@ Zeigt, was geschieht, wenn das Cmdlet ausgeführt wird. Das Cmdlet wird nicht au
 
 |  |  |
 |----------------------------|------------------|
-|Geben Sie Folgendes ein:                        |SwitchParameter   |
+|Geben Sie Folgendes ein:                       |SwitchParameter   |
 |Aliase:                    |wi                |
 |Position:                   |benannt             |
 |Standardwert:              |False             |

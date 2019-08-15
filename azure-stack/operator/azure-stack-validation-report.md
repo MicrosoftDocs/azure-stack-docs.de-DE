@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: d02173731f8cf7834160a0228c589b036aac7fe6
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: c00ce005ac72fcde34b58a1afe7e134c27274247
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984015"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991718"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack-Überprüfungsbericht
 
@@ -35,7 +35,7 @@ Wenn das Tool ausgeführt wird, protokolliert es die Ergebnisse in **AzsReadines
 
 Beide Dateien behalten die Ergebnisse der nachfolgenden Durchsicht der Überprüfung bei, wenn sie auf demselben Computer ausgeführt werden. Beispielsweise kann das Tool ausgeführt werden, um Zertifikate zu überprüfen, erneut ausgeführt werden, um die Azure-Identität zu überprüfen, und dann ein drittes Mal, um die Registrierung zu überprüfen. Die Ergebnisse aller drei Überprüfungen sind im sich daraus ergebenden JSON-Bericht verfügbar.  
 
-Standardmäßig werden beide Dateien in das Verzeichnis **C:\Users\<Benutzername>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** geschrieben.  
+Standardmäßig werden beide Dateien in das Verzeichnis **C:\Users\Benutzername\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** geschrieben.  
 
 - Verwenden Sie den `-OutputPath <path>`-Parameter am Ende der Befehlszeile, um einen anderen Berichtsspeicherort anzugeben.
 - Verwenden Sie den `-CleanReport`-Parameter am Ende der Befehlszeile, um Informationen zu früheren Ausführungen des Tools aus **AzsReadinessCheckerReport.json** zu löschen.
@@ -46,7 +46,7 @@ Um den Bericht in PowerShell anzuzeigen, geben Sie den Pfad zum Bericht als Wert
 
 Um den Bericht beispielsweise von einer PowerShell-Eingabeaufforderung aus anzuzeigen, die für den Speicherort geöffnet ist, an dem sich der Bericht befindet, führen Sie den folgenden Befehl aus:
 
-```shell
+```powershell
 Read-AzsReadinessReport -ReportPath .\AzsReadinessReport.json
 ```
 
@@ -96,7 +96,7 @@ PSBoundParameters :
 
 ## <a name="view-the-report-summary"></a>Anzeigen der Berichtzusammenfassung
 
-Um eine Zusammenfassung des Berichts anzuzeigen, können Sie den `-summary`-Parameter an das Ende des PowerShell-Befehls hinzufügen. Beispiel: 
+Um eine Zusammenfassung des Berichts anzuzeigen, können Sie den `-summary`-Parameter an das Ende des PowerShell-Befehls hinzufügen. Beispiel:
 
 ```powershell
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary

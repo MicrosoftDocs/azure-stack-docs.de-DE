@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 21e1e8df3d5f43f91e391b8c39f3f5aca3aefea8
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 7f86ff3347d5d6f24bcd1fe450156c2557fb41e1
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269581"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959399"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Von Profilen in Azure Stack unterstützte API-Versionen von Ressourcenanbietern
 
@@ -33,7 +33,7 @@ Für das API-Profil gelten drei Benennungskonventionen:
 
 Eine Erklärung der API-Profile und des Rhythmus der Versionsveröffentlichung für Azure Stack finden Sie unter [Verwalten von API-Versionsprofilen in Azure Stack](azure-stack-version-profiles.md).
 
-> [!Note]
+> [!NOTE]
 > Das API-Profil **latest** enthält die neueste Version der Ressourcenanbieter-API und ist in diesem Artikel nicht aufgeführt.
 
 ## <a name="overview-of-the-2019-03-01-hybrid-profile"></a>Übersicht über das Profil „2019-03-01-hybrid“
@@ -199,5 +199,5 @@ Mit dem Speicherressourcenanbieter (Storage Resource Provider, SRP) können Sie 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Installieren von PowerShell für Azure Stack](../operator/azure-stack-powershell-install.md)
-* [Konfigurieren der PowerShell-Umgebung des Azure Stack-Benutzers](azure-stack-powershell-configure-user.md)  
+- [Installieren von PowerShell für Azure Stack](../operator/azure-stack-powershell-install.md)
+- [Konfigurieren der PowerShell-Umgebung des Azure Stack-Benutzers](azure-stack-powershell-configure-user.md)  
