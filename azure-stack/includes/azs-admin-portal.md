@@ -4,13 +4,13 @@ ms.service: azure-stack
 ms.topic: include
 ms.date: 06/13/2019
 ms.author: mabrigg
-ms.openlocfilehash: 88b07cc2a98f15d73eeea2d5ea965b4a0d9a72e6
-ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
+ms.openlocfilehash: 1ce77f530bb0f94faa8e4e9cf0f2d7dfd1a7d2af
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133636"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959565"
 ---
-Melden Sie sich beim Verwaltungsportal an:
-- Bei einer integrierten Systembereitstellung variiert die Portaladresse basierend auf der Region und dem externen Domänennamen Ihrer Lösung. Sie weist das Format https://adminportal.&lt;*Region*&gt;.&lt;*FQDN*&gt; auf.
-- Wenn Sie das Azure Stack Development Kit (ASDK) verwenden, lautet die Portaladresse [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
+Melden Sie sich beim Administratorportal an:
+- Bei einer integrierten Systembereitstellung variiert die Portaladresse basierend auf der Region und dem externen Domänennamen Ihrer Lösung. Die Adresse hat folgendes Format: https://adminportal.&lt;*Region*&gt;.&lt;*FQDN*&gt;.
+- Bei Verwendung des Azure Stack Development Kit (ASDK) lautet die Portaladresse [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).

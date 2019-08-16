@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 04/24/2019
+ms.date: 08/09/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 14baf5d5ca411e7c32cbfcf4a6138193a2215b0a
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 08/09/2019
+ms.openlocfilehash: beddafb351af39f0a21a1cd0d7a7baa4ccfee28e
+ms.sourcegitcommit: 94669fe8a55fadd3103e80be307e9e8c823bf746
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783085"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68940273"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>Bereitstellen einer C#-Web-App (ASP.NET) auf einem virtuellen Computer in Azure Stack
 
@@ -61,13 +61,13 @@ In diesem Artikel wird eine C# 6.0-App mit ASP.NET Core 2.2 auf einem Windows�
     | 443 | HTTPS | Das Hypertext Transfer-Protokoll Secure (HTTPS) ist eine sichere Version von HTTP, für die ein Sicherheitszertifikat benötigt wird und die die verschlüsselte Übertragung von Informationen ermöglicht.  |
     | 22 | SSH | Secure Shell (SSH) ist ein verschlüsseltes Netzwerkprotokoll für die sichere Kommunikation. Sie verwenden diese Verbindung mit einem SSH-Client, um die VM zu konfigurieren und die App bereitzustellen. |
     | 3389 | RDP | Optional. Das Remotedesktopprotokoll ermöglicht eine Remotedesktopverbindung, um eine grafische Benutzeroberfläche auf Ihrem Computer zu verwenden.   |
-    | 8080 | Benutzerdefiniert | Der Standardport für den Apache Tomcat-Dienst ist 8080. Auf einem Produktionsserver sollten Sie den Datenverkehr über die Ports 80 und 443 leiten. |
+    | 8172 | Benutzerdefiniert | Der von WebDeploy verwendete Port. |
 
     Führen Sie für jeden Port Folgendes aus:
 
     a. Wählen Sie unter **Quelle** die Option **Alle** aus.
 
-    b. Geben Sie unter **Quellportbereich** ein Sternchen (**\***) ein.
+    b. Geben Sie unter **Quellportbereich** ein Sternchen ( **\*** ) ein.
 
     c. Wählen Sie unter **Ziel** die Option **Alle** aus.
 

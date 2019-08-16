@@ -171,6 +171,8 @@
               href: azure-stack-updates.md
             - name: Anwenden von Updates
               href: azure-stack-apply-updates.md
+            - name: Anwenden von OEM-Updates
+              href: azure-stack-update-oem.md
             - name: Überwachen des Updatestatus
               href: azure-stack-monitor-update.md
         - name: Überwachen von Integrität und Warnungen
