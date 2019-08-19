@@ -86,6 +86,8 @@
               href: azure-stack-network.md
             - name: Grenzkonnektivität
               href: azure-stack-border-connectivity.md
+            - name: Switchkonfiguration
+              href: azure-stack-customer-defined.md
             - name: DNS-Integration
               href: azure-stack-integrate-dns.md
             - name: Firewallintegration
