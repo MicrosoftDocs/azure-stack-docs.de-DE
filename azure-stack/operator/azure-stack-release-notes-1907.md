@@ -16,12 +16,12 @@ ms.date: 08/02/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 08/02/2019
-ms.openlocfilehash: e868cd1e7d6ec24ddb350305c82cc1d87a334d91
-ms.sourcegitcommit: 56778bf71d5f6bbe2768fbc38c2ed2208114b867
+ms.openlocfilehash: d13f3a25d0a46f0f29405858efb06e0a4d634da0
+ms.sourcegitcommit: 86e2b776383a9f761072199ec6b6b8a7d2e6b798
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68756641"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69021699"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack-Update 1907
 
@@ -76,6 +76,8 @@ Der Buildtyp des Azure Stack 1907-Updates lautet **Express**. Weitere Informatio
 - Verbesserte Speicherung interner Protokolle für Administratorvorgänge. Dies führt zu einer verbesserten Leistung und Zuverlässigkeit bei Administratorvorgängen, indem die Arbeitsspeicher- und Speicherplatznutzung durch interne Protokollprozesse minimiert wird. Möglicherweise bemerken Sie darüber hinaus verbesserte Seitenladezeiten des Updateblatts im Verwaltungsportal. Im Rahmen dieser Verbesserung stehen Updateprotokolle, die älter als 6 Monate sind, im System nicht mehr zur Verfügung. Wenn Sie Protokolle für diese Updates benötigen, achten Sie darauf, dass Sie für alle Updateausführungen, die älter als 6 Monate sind, [die Zusammenfassung herunterladen](azure-stack-apply-updates.md), bevor Sie das Update 1907 durchführen.
 
 ### <a name="changes"></a>Änderungen
+
+- Azure Stack, Version 1907 enthält eine Warnmeldung, in der Operatoren darauf hingewiesen werden, dass sie das OEM-Paket des Systems auf Version 2.1 oder höher aktualisieren müssen, **bevor** sie ein Update auf Version 1908 ausführen können. Hardwareanbieter veröffentlichen OEM-Paket 2.1 zur gleichen Zeit wie Azure Stack, Version 1908. OEM-Paket 2.1 oder höher ist eine Voraussetzung für Azure Stack, Version 1908. Weitere Informationen zum Herunterladen von OEM-Paket 2.1 oder höher erhalten Sie vom Hardwareanbieter Ihres Systems.
 
 - Es wurde eine neue Ausgangsregel (HTTPS) hinzugefügt, um dem Azure Stack-Sammlungsdienst für Diagnoseprotokolle die Kommunikation zu ermöglichen. Weitere Informationen finden Sie unter [Integration des Azure Stack-Rechenzentrums – Veröffentlichen von Endpunkten](azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
 

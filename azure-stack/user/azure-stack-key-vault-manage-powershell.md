@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: ca303590d4dc923380e10e50fc9b8b9ce2e5aac6
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: f3f2b715206c834d2c24685b57c068b53cc7020a
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842963"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991687"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Verwalten von Key Vault in Azure Stack mithilfe von PowerShell
 
@@ -43,7 +43,7 @@ In diesem Artikel wird beschrieben, wie Sie einen Schlüsseltresor in Azure Stac
 
 ## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>Aktivieren Ihres Mandantenabonnements für Key Vault-Vorgänge
 
-Damit Sie Vorgänge für einen Schlüsseltresor ausgeben können, muss Ihr Mandantenabonnement für Tresorvorgänge aktiviert sein. Um sicherzustellen, dass Tresorvorgänge aktiviert sind, führen Sie den folgenden Befehl aus:
+Damit Sie Vorgänge für einen Schlüsseltresor ausgeben können, muss Ihr Mandantenabonnement für Tresorvorgänge aktiviert sein. Um sicherzustellen, dass Schlüsseltresorvorgänge aktiviert sind, führen Sie den folgenden Befehl aus:
 
 ```powershell  
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
@@ -75,7 +75,7 @@ New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 
 ![Neue, in PowerShell generierte Ressourcengruppe](media/azure-stack-key-vault-manage-powershell/image3.png)
 
-Erstellen Sie nun mithilfe des Befehls **New-AzureRMKeyVault** einen Schlüsseltresor in der zuvor erstellten Ressourcengruppe. Dieser Befehl liest drei erforderliche Parameter: Ressourcengruppenname, Schlüsseltresorname und geografischer Standort.
+Erstellen Sie nun mithilfe des Cmdlets **New-AzureRMKeyVault** einen Schlüsseltresor in der zuvor erstellten Ressourcengruppe. Dieser Befehl liest drei erforderliche Parameter: Ressourcengruppenname, Schlüsseltresorname und geografischer Standort.
 
 Führen Sie den folgenden Befehl aus, um einen Schlüsseltresor zu erstellen:
 
@@ -154,7 +154,7 @@ Nach dem Erstellen von Schlüsseln und Geheimnissen können Sie deren Verwendung
 
 Verwenden Sie den Befehl **Set-AzureRmKeyVaultAccessPolicy**, um den Zugriff einer App auf einen Schlüssel oder auf ein Geheimnis im Schlüsseltresor zu autorisieren.
 
-Im folgenden Beispiel lautet der Tresorname *ContosoKeyVault*, und die App, die Sie autorisieren möchten, hat die Client-ID *8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed*. Führen Sie den folgenden Befehl aus, um die App zu autorisieren. Mithilfe des Parameters **PermissionsToKeys** können Sie auch Berechtigungen für einen Benutzer, eine App oder eine Sicherheitsgruppe festlegen.
+Im folgenden Beispiel lautet der Tresorname **ContosoKeyVault**, und die App, die Sie autorisieren möchten, hat die Client-ID **8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed**. Führen Sie den folgenden Befehl aus, um die App zu autorisieren. Mithilfe des Parameters **PermissionsToKeys** können Sie auch Berechtigungen für einen Benutzer, eine App oder eine Sicherheitsgruppe festlegen.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign

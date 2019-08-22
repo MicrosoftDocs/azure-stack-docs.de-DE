@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: c5a53fcd2aa2ec516e5677e85a1516ac10208c3f
-ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
+ms.openlocfilehash: 4c4bac9a083ca35f851acb2f2d8201742be0ed1e
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544125"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991828"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Herunterladen von Marketplace-Elementen von Azure in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Als Cloudbediener können Sie Elemente aus Azure Marketplace herunterladen und in Azure Stack bereitstellen. Die zur Auswahl stehenden Optionen stammen aus einer speziell zusammengestellten Liste mit Azure Marketplace-Elementen, die vorab getestet wurden und für Azure Stack geeignet sind. Dieser Liste werden regelmäßig weitere Elemente hinzugefügt. Prüfen Sie daher, ob neue Inhalte verfügbar sind. 
+Als Cloudbediener können Sie Elemente aus Azure Marketplace herunterladen und in Azure Stack bereitstellen. Die zur Auswahl stehenden Optionen stammen aus einer speziell zusammengestellten Liste mit Azure Marketplace-Elementen, die vorab getestet wurden und für Azure Stack geeignet sind. Dieser Liste werden regelmäßig weitere Elemente hinzugefügt. Prüfen Sie daher, ob neue Inhalte verfügbar sind.
 
-Es gibt zwei Szenarien zum Herstellen einer Verbindung mit dem Azure Marketplace: 
+Es gibt zwei Szenarien zum Herstellen einer Verbindung mit dem Azure Marketplace:
 
-- **Verbundenes Szenario:** Hierfür muss Ihre Azure Stack-Umgebung mit dem Internet verbunden sein. Elemente werden über das Azure Stack-Portal gesucht und heruntergeladen. 
+- **Verbundenes Szenario:** Hierfür muss Ihre Azure Stack-Umgebung mit dem Internet verbunden sein. Elemente werden über das Azure Stack-Portal gesucht und heruntergeladen.
 - **Nicht verbundenes oder partiell verbundenes Szenario:** Für dieses Szenario müssen Sie mithilfe des Tools für die Marketplace-Syndikation auf das Internet zugreifen, um Marketplace-Elemente herunterzuladen. Anschließend übertragen Sie Ihre Downloads in die nicht verbundene Azure Stack-Installation. Für dieses Szenario wird PowerShell verwendet.
 
-Eine Liste der zum Download verfügbaren Marketplace-Elemente finden Sie unter [Für Azure Stack verfügbare Azure Marketplace-Elemente](azure-stack-marketplace-azure-items.md).
+Eine komplette Liste der zum Download verfügbaren Marketplace-Elemente finden Sie unter [Für Azure Stack verfügbare Azure Marketplace-Elemente](azure-stack-marketplace-azure-items.md). Eine Liste der aktuellen Ergänzungen, Entfernungen und Updates im Azure Stack Marketplace finden Sie unter [Änderungen im Azure Stack-Marketplace](azure-stack-marketplace-changes.md).
 
 ## <a name="connected-scenario"></a>Verbundenes Szenario
 
@@ -42,13 +42,13 @@ Wenn Azure Stack eine Verbindung mit dem Internet herstellt, können Sie mithilf
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
-Ihre Azure Stack-Bereitstellung muss über eine Internetverbindung verfügen und [bei Azure registriert](azure-stack-registration.md ) sein.
+Ihre Azure Stack-Bereitstellung muss über eine Internetverbindung verfügen und [bei Azure registriert](azure-stack-registration.md) sein.
 
 ### <a name="use-the-portal-to-download-marketplace-items"></a>Herunterladen von Marketplace-Elementen mithilfe des Portals
   
 1. Melden Sie sich beim Azure Stack-Administratorportal an.
 
-2. Überprüfen Sie den verfügbaren Speicherplatz, bevor Sie Marketplace-Elemente herunterladen. Wenn Sie später Elemente zum Download auswählen, können Sie die Downloadgröße mit der verfügbaren Speicherkapazität vergleichen. Ziehen Sie bei eingeschränkter Kapazität Optionen für die [Verwaltung des verfügbaren Speicherplatzes](azure-stack-manage-storage-shares.md#manage-available-space) in Betracht. 
+2. Überprüfen Sie den verfügbaren Speicherplatz, bevor Sie Marketplace-Elemente herunterladen. Wenn Sie später Elemente zum Download auswählen, können Sie die Downloadgröße mit der verfügbaren Speicherkapazität vergleichen. Ziehen Sie bei eingeschränkter Kapazität Optionen für die [Verwaltung des verfügbaren Speicherplatzes](azure-stack-manage-storage-shares.md#manage-available-space) in Betracht.
 
     Wählen Sie zum Überprüfen des verfügbaren Speicherplatzes unter **Regionsverwaltung** die entsprechende Region aus, und klicken Sie dann auf **Ressourcenanbieter** > **Speicher**:
 
@@ -68,29 +68,30 @@ Ihre Azure Stack-Bereitstellung muss über eine Internetverbindung verfügen und
 
     Wenn der Download abgeschlossen ist, können Sie das neue Marketplace-Element entweder als Azure Stack-Bediener oder -benutzer bereitstellen.
 
-5. Klicken Sie zum Bereitstellen des heruntergeladenen Elements auf **+ Ressource erstellen**, und suchen Sie in den Kategorien nach dem neuen Marketplace-Element. Wählen Sie als Nächstes das Element aus, um den Bereitstellungsprozess zu starten. Der Prozess variiert für verschiedene Marketplace-Elemente. 
+5. Klicken Sie zum Bereitstellen des heruntergeladenen Elements auf **+ Ressource erstellen**, und suchen Sie in den Kategorien nach dem neuen Marketplace-Element. Wählen Sie als Nächstes das Element aus, um den Bereitstellungsprozess zu starten. Der Prozess variiert für verschiedene Marketplace-Elemente.
 
 ## <a name="disconnected-or-a-partially-connected-scenario"></a>Nicht verbundenes oder partiell verbundenes Szenario
 
-Wenn sich Azure Stack im Modus „Getrennt“ befindet und keine Internetverbindung besteht, verwenden Sie PowerShell und das *Tool für die Marketplace-Syndikation*, um die Marketplace-Elemente auf einen Computer mit Internetverbindung herunterzuladen. Anschließend übertragen Sie die Elemente in Ihre Azure Stack-Umgebung. In einer nicht verbundenen Umgebung können Sie Marketplace-Elemente nicht mithilfe des Azure Stack-Portals herunterladen. 
+Wenn sich Azure Stack im Modus „Getrennt“ befindet und keine Internetverbindung besteht, verwenden Sie PowerShell und das *Tool für die Marketplace-Syndikation*, um die Marketplace-Elemente auf einen Computer mit Internetverbindung herunterzuladen. Anschließend übertragen Sie die Elemente in Ihre Azure Stack-Umgebung. In einer nicht verbundenen Umgebung können Sie Marketplace-Elemente nicht mithilfe des Azure Stack-Portals herunterladen.
 
-Das Tool für die Marketplace-Syndikation kann auch in einem verbundenen Szenario verwendet werden. 
+Das Tool für die Marketplace-Syndikation kann auch in einem verbundenen Szenario verwendet werden.
 
 Dieses Szenario besteht aus zwei Teilen:
+
 - **Teil 1:** Herunterladen aus dem Azure Marketplace. Konfigurieren Sie auf dem Computer mit Internetzugriff PowerShell, und laden Sie das Tool für die Syndikation und anschließend Elemente aus dem Azure Marketplace herunter.  
 - **Teil 2:** Hochladen und Veröffentlichen im Azure Stack-Marketplace. Verschieben Sie die heruntergeladenen Dateien in die Azure Stack-Umgebung, importieren Sie sie in Azure Stack, und veröffentlichen Sie sie anschließend im Azure Stack-Marketplace.  
 
-
 ### <a name="prerequisites"></a>Voraussetzungen
-- Ihre Azure Stack-Bereitstellung muss [bei Azure registriert](azure-stack-registration.md ) sein.  
+
+- Ihre Azure Stack-Bereitstellung muss [bei Azure registriert](azure-stack-registration.md) sein.
 
 - Auf dem Computer mit Internetverbindung muss **mindestens Version 1.2.11 des Azure Stack-PowerShell-Moduls**  installiert sein. [Installieren Sie die Azure Stack-spezifischen PowerShell-Module](azure-stack-powershell-install.md), falls diese noch nicht vorhanden sind.  
 
 - Die [PowerShell-Umgebung für den Azure Stack-Bediener](azure-stack-powershell-configure-admin.md) muss konfiguriert sein, um den Import eines heruntergeladenen Marketplace-Elements zu ermöglichen.  
 
-- Sie benötigen ein [Speicherkonto](azure-stack-manage-storage-accounts.md) in Azure Stack mit einem öffentlich zugänglichen Container (Speicherblob). Sie verwenden den Container als temporären Speicher für die Katalogdateien der Marketplace-Elemente. Wenn Sie mit Speicherkonten und Containern nicht vertraut sind, lesen Sie den Artikel [Schnellstart: Hochladen, Herunterladen und Auflisten von Blobs über das Azure-Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) in der Azure-Dokumentation.
+- Sie benötigen ein [Speicherkonto](azure-stack-manage-storage-accounts.md) in Azure Stack mit einem öffentlich zugänglichen Container (Speicherblob). Sie verwenden den Container als temporären Speicher für die Katalogdateien der Marketplace-Elemente. Wenn Sie mit Speicherkonten und Containern nicht vertraut sind, lesen Sie den Artikel [Schnellstart: Hochladen, Herunterladen und Auflisten von Blobs über das Azure-Portal](/azure/storage/blobs/storage-quickstart-blobs-portal) in der Azure-Dokumentation.
 
-- Das Tool für die Marketplace-Syndikation wird beim ersten Verfahren heruntergeladen. 
+- Das Tool für die Marketplace-Syndikation wird beim ersten Verfahren heruntergeladen.
 
 - Sie können [AzCopy](/azure/storage/common/storage-use-azcopy) installieren, um die Downloadleistung zu optimieren, dies ist jedoch nicht zwingend erforderlich.
 
@@ -103,7 +104,7 @@ Dieses Szenario besteht aus zwei Teilen:
 3. Sollten Sie über mehrere Abonnements verfügen, führen Sie den folgenden Befehl aus, um das für die Registrierung verwendete Abonnement auszuwählen:  
 
    ```powershell  
-   Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   Get-AzureRmSubscription -SubscriptionID 'Your Azure Subscription GUID' | Select-AzureRmSubscription
    $AzureContext = Get-AzureRmContext
    ```
 
@@ -111,7 +112,7 @@ Dieses Szenario besteht aus zwei Teilen:
 
    ```powershell
    # Download the tools archive.
-   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
+   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
    invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
      -OutFile master.zip
 
@@ -125,12 +126,12 @@ Dieses Szenario besteht aus zwei Teilen:
 
    ```
 
-5. Führen Sie die folgenden Befehle aus, um das Syndikationsmodul zu importieren und zu starten. Ersetzen Sie `Destination folder path` durch einen Speicherort, an dem die aus dem Azure Marketplace heruntergeladenen Dateien gespeichert werden sollen.   
+5. Führen Sie die folgenden Befehle aus, um das Syndikationsmodul zu importieren und zu starten. Ersetzen Sie `Destination folder path` durch einen Speicherort, an dem die aus dem Azure Marketplace heruntergeladenen Dateien gespeichert werden sollen.
 
    ```powershell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
+   Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes"
    ```
 
    Beachten Sie, dass `Export-AzSOfflineMarketplaceItem` ein zusätzliches `-cloud`-Flag aufweist, das die Cloudumgebung angibt. Der Standardwert ist **azurecloud**.
@@ -139,11 +140,11 @@ Dieses Szenario besteht aus zwei Teilen:
 
    [![Popup mit Azure Marketplace-Elementen](media/azure-stack-download-azure-marketplace-item/image05.png "Popup mit Azure Marketplace-Elementen")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
-7. Wählen Sie das Image aus, das Sie herunterladen möchten, und notieren Sie sich die *Version*. Sie können *STRG* gedrückt halten, um mehrere Images auszuwählen. Sie benötigen die *Version*, wenn Sie das Element in der nächsten Prozedur importieren. 
-   
+7. Wählen Sie das Image aus, das Sie herunterladen möchten, und notieren Sie sich die **Version**. Sie können **STRG** gedrückt halten, um mehrere Images auszuwählen. Sie benötigen die *Version*, wenn Sie das Element in der nächsten Prozedur importieren.
+
    Die Liste mit den Images kann mithilfe der Option **Kriterien hinzufügen** gefiltert werden.
 
-8. Klicken Sie auf **OK**, lesen Sie sich dann die rechtlichen Bedingungen durch, und bestätigen Sie diese. 
+8. Klicken Sie auf **OK**, lesen Sie sich dann die rechtlichen Bedingungen durch, und bestätigen Sie diese.
 
 9. Die Dauer des Downloads hängt von der Größe des Elements ab. Nach Abschluss des Downloads ist das Element in dem Ordner verfügbar, den Sie im Skript angegeben haben. Der Download enthält eine VHD-Datei (für virtuelle Computer) oder eine ZIP-Datei (für VM-Erweiterungen). Darüber hinaus kann auch ein Katalogpaket im Format *AZPKG* enthalten sein, bei dem es sich einfach um eine ZIP-Datei handelt.
 
@@ -154,7 +155,7 @@ Dieses Szenario besteht aus zwei Teilen:
     ```
 
     Entfernen Sie vor der Wiederholung den Produktordner, in dem der Fehler beim Herunterladen aufgetreten ist. Wenn der Fehler also beispielsweise beim Herunterladen in den Ordner `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` aufgetreten ist, entfernen Sie den Ordner `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1`, und führen Sie anschließend das Cmdlet erneut aus.
- 
+
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher"></a>Importieren des Downloads und Veröffentlichen im Azure Stack-Marketplace (ab 1811)
 
 1. Die [zuvor heruntergeladenen](#use-the-marketplace-syndication-tool-to-download-marketplace-items) Dateien müssen an einen lokalen Speicherort verschoben werden, damit sie für Ihre Azure Stack-Umgebung zur Verfügung stehen. Das Tools für die Marketplace-Syndikation muss ebenfalls für Ihre Azure Stack-Umgebung verfügbar sein, da dieses Tool für den Importvorgang benötigt wird.
@@ -163,7 +164,7 @@ Dieses Szenario besteht aus zwei Teilen:
 
    [![Verzeichnisstruktur für Marketplace-Downloads](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Verzeichnisstruktur für Marketplace-Downloads")](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
 
-2. Gehen Sie gemäß der Anleitung in [diesem Artikel](azure-stack-powershell-configure-admin.md) vor, um die PowerShell-Sitzung für Azure Stack-Bediener zu konfigurieren. 
+2. Gehen Sie gemäß der Anleitung in [diesem Artikel](azure-stack-powershell-configure-admin.md) vor, um die PowerShell-Sitzung für Azure Stack-Bediener zu konfigurieren.
 
 3. Führen Sie das folgende Skript aus, um das Syndikationsmodul zu importieren und das Tool für die Marketplace-Syndikation zu starten:
 
@@ -176,7 +177,7 @@ Dieses Szenario besteht aus zwei Teilen:
 
    Das `-AzsCredential` ist optional. Dieser Parameter dient dazu, das Zugriffstoken zu erneuern, sollte es abgelaufen sein. Wenn das Token abläuft und der Parameter `-AzsCredential` nicht angegeben ist, werden Sie zur Eingabe der Anmeldeinformationen des Bedieners aufgefordert.
 
-    > [!Note]  
+    > [!NOTE]  
     > AD FS unterstützt nur die interaktive Authentifizierung mit Benutzeridentitäten. Wenn ein Objekt mit Anmeldeinformationen erforderlich ist, müssen Sie einen Dienstprinzipalnamen (SPN) verwenden. Weitere Informationen zum Einrichten eines Dienstprinzipals mit Azure Stack und AD FS als Identitätsverwaltungsdienst finden Sie unter [Verwalten eines AD FS-Dienstprinzipals](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
 
 4. Nach erfolgreicher Ausführung des Skripts sollte das Element im Azure Stack-Marketplace verfügbar sein.
@@ -189,23 +190,23 @@ Dieses Szenario besteht aus zwei Teilen:
 
    Für den Upload benötigen Sie ein Speicherkonto mit einem öffentlich zugänglichen Container. (Informationen hierzu finden Sie in den Voraussetzungen für dieses Szenario.)  
    1. Navigieren Sie im Azure Stack-Verwaltungsportal zu **Alle Dienste**, und wählen Sie dann unter der Kategorie **Daten und Speicher** die Option **Speicherkonten**.  
-   
+
    2. Wählen Sie in Ihrem Abonnement ein Speicherkonto aus, und klicken Sie anschließend unter **BLOB-DIENST** auf **Container**.  
       [![Blob-Dienst](media/azure-stack-download-azure-marketplace-item/blob-service.png "Blob-Dienst")](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
-   
+
    3. Wählen Sie den Container aus, den Sie verwenden möchten, und klicken Sie dann auf **Hochladen**, um den Bereich **Block hochladen** zu öffnen.  
       [![Container](media/azure-stack-download-azure-marketplace-item/container.png "Container")](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
-   
+
    4. Navigieren Sie im Bereich „Blob hochladen“ zu dem Paket und den Datenträgerdateien, die Sie in den Speicher laden möchten, und wählen Sie dann **Hochladen** aus: [![Hochladen](media/azure-stack-download-azure-marketplace-item/uploadsm.png "Hochladen")](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
-   5. Hochgeladene Dateien werden im Bereich „Container“ angezeigt. Wählen Sie eine Datei aus, und kopieren Sie die URL aus dem Bereich **Blob-Eigenschaften**. Sie verwenden diese URL im nächsten Schritt beim Importieren des Marketplace-Elements in Azure Stack.  In der folgenden Abbildung heißt der Container *blob-test-storage* und die Datei *Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  Die Datei-URL lautet *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg* .  
+   5. Hochgeladene Dateien werden im Bereich „Container“ angezeigt. Wählen Sie eine Datei aus, und kopieren Sie die URL aus dem Bereich **Blob-Eigenschaften**. Sie verwenden diese URL im nächsten Schritt beim Importieren des Marketplace-Elements in Azure Stack.  In der folgenden Abbildung heißt der Container **blob-test-storage** und die Datei **Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg**. Die Datei-URL lautet **https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg** .  
       [![Blobeigenschaften](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Blobeigenschaften")](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
-3. Importieren Sie das VHD-Image mithilfe des Cmdlets **Add-AzsPlatformimage** in Azure Stack. Ersetzen Sie bei Verwendung dieses Cmdlets die Werte für *publisher*, *offer* und andere Parameter durch die Werte des Images, das Sie importieren möchten. 
+3. Importieren Sie das VHD-Image mithilfe des Cmdlets **Add-AzsPlatformimage** in Azure Stack. Ersetzen Sie bei Verwendung dieses Cmdlets die Werte für `publisher`, `offer` und andere Parameter durch Werte des Images, das Sie importieren.
 
-   Die Werte für *publisher*, *offer* und *sku* des Images finden Sie in der Textdatei, die mit der AZPKG-Datei heruntergeladen wird. Die Textdatei wird am Zielspeicherort gespeichert. Der *Versionswert* ist die Version, die beim Herunterladen des Elements aus Azure mit dem zuvor genannten Verfahren angegeben ist. 
- 
-   Im folgenden Beispielskript werden die Werte für den virtuellen Computer „Windows Server 2016 Datacenter – Server Core“ verwendet. Der Wert für *-Osuri* ist ein Beispielpfad zum Blobspeicherort für das Element.
+   Die Werte für `publisher`, `offer` und `sku` des Images finden Sie in der Textdatei, die mit der AZPKG-Datei heruntergeladen wird. Die Textdatei wird am Zielspeicherort gespeichert. Der Wert für `version` ist die Version, die beim Herunterladen des Elements aus Azure mit dem zuvor genannten Verfahren angegeben ist.
+
+   Im folgenden Beispielskript werden die Werte für den virtuellen Computer „Windows Server 2016 Datacenter – Server Core“ verwendet. Der Wert für `-Osuri` ist ein Beispielpfad zum Blobspeicherort für das Element.
 
    Als Alternative zu diesem Skript können Sie die in [diesem Artikel beschriebene Vorgehensweise](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) verwenden, um das VHD-Image über das Azure-Portal zu importieren.
 
@@ -219,24 +220,25 @@ Dieses Szenario besteht aus zwei Teilen:
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
 
-   **Informationen zu Lösungsvorlagen:** Einige Vorlagen können eine kleine VHD-Datei mit 3 MB und dem Namen **fixed3.vhd** enthalten. Sie müssen diese Datei nicht in Azure Stack importieren. Fixed3.vhd.  Diese Datei ist in einigen Lösungsvorlagen enthalten, um Veröffentlichungsanforderungen für den Azure Marketplace zu erfüllen.
+   **Informationen zu Lösungsvorlagen:** Einige Vorlagen können eine kleine VHD-Datei mit 3 MB und dem Namen **fixed3.vhd** enthalten. Sie müssen diese Datei nicht in Azure Stack importieren. Die Datei „Fixed3.vhd“ ist in einigen Lösungsvorlagen enthalten, um Veröffentlichungsanforderungen für den Azure Marketplace zu erfüllen.
 
    Lesen Sie die Vorlagenbeschreibung, laden Sie zusätzlich erforderliche Komponenten (etwa für die Verwendung mit der Lösungsvorlage erforderliche VHDs) herunter, und importieren Sie sie anschließend.  
-   
+
    **Informationen zu Erweiterungen:** Verwenden Sie bei der Arbeit mit Erweiterungen für VM-Images die folgenden Parameter:
    - *Herausgeber*
    - *Typ*
    - *Version*  
 
-   Verwenden Sie nicht *Offer* für Erweiterungen.   
+   Verwenden Sie nicht *Offer* für Erweiterungen.
 
+4. Verwenden Sie PowerShell und das Cmdlet **Add-AzsGalleryItem**, um das Marketplace-Element in Azure Stack zu veröffentlichen. Beispiel:
 
-4.  Verwenden Sie PowerShell und das Cmdlet **Add-AzsGalleryItem**, um das Marketplace-Element in Azure Stack zu veröffentlichen. Beispiel:  
-    ```powershell  
+    ```powershell
     Add-AzsGalleryItem `
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      -Verbose
     ```
+
 5. Nachdem Sie ein Katalogelement veröffentlicht haben, kann es genutzt werden. Sie können das Veröffentlichen des Katalogelements bestätigen, indem Sie zu **Alle Dienste** navigieren und dann unter der Kategorie **ALLGEMEIN** die Option **Marketplace** wählen.  Falls es sich bei dem Download um eine Lösungsvorlage handelt, fügen Sie auch alle abhängigen VHD-Images für sie hinzu.  
   [![Anzeigen des Marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "Anzeigen des Marketplace")](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
 

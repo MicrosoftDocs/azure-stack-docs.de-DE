@@ -1,6 +1,6 @@
 ---
-title: Verwenden von API-Versionsprofilen mit .NET SDK in Azure Stack | Microsoft-Dokumentation
-description: Hier erfahren Sie mehr zur Verwendung von API-Versionsprofilen mit .NET in Azure Stack.
+title: Verwenden von API-Versionsprofilen mit .NET in Azure Stack | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie API-Versionsprofile mit .NET SDK in Azure Stack verwenden.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,22 +16,22 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 0d0c4af4d3016989440dc6b9760bda0a3fc8d947
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 14f19fa432d782eace721d47b6b578dc73846631
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198621"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959372"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit .NET in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Das .NET SDK für Azure Stack Resource Manager umfasst Tools zum Erstellen und Verwalten Ihrer Infrastruktur. Zu den Ressourcenanbietern im SDK zählen Compute, Netzwerk, Speicher, App-Dienste und [KeyVault](/azure/key-vault/key-vault-whatis). Das .NET SDK umfasst 14 NuGet-Pakete. Diese Pakete müssen jedes Mal in Ihre Projektmappe heruntergeladen werden, wenn die Profilinformationen eingebunden werden. Sie können aber speziell den Ressourcenanbieter herunterladen, den Sie für das Profil „2019-03-01-hybrid“ oder „2018-03-01-hybrid“ verwenden möchten, um den Arbeitsspeicher für Ihre Anwendung zu optimieren. Jedes Paket besteht aus einem Ressourcenanbieter, der entsprechenden API-Version und dem API-Profil, zu dem es gehört. API-Profile im .NET SDK ermöglichen die Entwicklung einer Hybrid Cloud, indem sie das Wechseln zwischen globalen Azure-Ressourcen und Ressourcen in Azure Stack leicht machen.
+Das .NET SDK für Azure Stack Resource Manager umfasst Tools zum Erstellen und Verwalten Ihrer Infrastruktur. Zu den Ressourcenanbietern im SDK zählen Compute, Networking, Storage, App Services und [Key Vault](/azure/key-vault/key-vault-whatis). Das .NET SDK umfasst 14 NuGet-Pakete. Sie müssen diese Pakete jedes Mal, wenn Sie das Projekt kompilieren, in Ihre Projektmappe herunterladen. Sie können aber speziell den Ressourcenanbieter herunterladen, den Sie für das Profil „2019-03-01-hybrid“ oder „2018-03-01-hybrid“ verwenden möchten, um den Arbeitsspeicher für Ihre Anwendung zu optimieren. Jedes Paket besteht aus einem Ressourcenanbieter, der entsprechenden API-Version und dem API-Profil, zu dem es gehört. API-Profile im .NET SDK ermöglichen die Entwicklung einer Hybrid Cloud, indem sie das Wechseln zwischen globalen Azure-Ressourcen und Ressourcen in Azure Stack leicht machen.
 
 ## <a name="net-and-api-version-profiles"></a>.NET und API-Versionsprofile
 
-Ein API-Profil ist eine Kombination aus Ressourcenanbietern und API-Versionen. Sie können ein API-Profil verwenden, um die aktuelle, stabilste Version der einzelnen Ressourcentypen in einem Ressourcenanbieterpaket abzurufen.
+Ein API-Profil ist eine Kombination aus Ressourcenanbietern und API-Versionen. Verwenden Sie ein API-Profil, um die aktuelle, stabilste Version der einzelnen Ressourcentypen in einem Ressourcenanbieterpaket abzurufen.
 
 -   Verwenden Sie das **aktuelle** Profil von Paketen, um die aktuellen Versionen aller Dienste zu nutzen. Dieses Profil ist Teil des NuGet-Pakets **Microsoft.Azure.Management**.
 
@@ -73,12 +73,12 @@ Zur Verwendung des .NET Azure SDK mit Azure Stack müssen Sie die folgenden Wert
 
 | Wert                     | Umgebungsvariablen   | BESCHREIBUNG                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Mandanten-ID                 | AZURE_TENANT_ID       | Der Wert Ihrer [*Mandanten-ID*][] für Azure Stack.                                                                          |
-| Client-ID                 | AZURE_CLIENT_ID       | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde. |
-| Abonnement-ID           | AZURE_SUBSCRIPTION_ID | Mit der [*Abonnement-ID*][] greifen Sie in Azure Stack auf Angebote zu.                                                      |
-| Geheimer Clientschlüssel             | AZURE_CLIENT_SECRET   | Das Geheimnis der Dienstprinzipalanwendung, die bei der Erstellung des Dienstprinzipals gespeichert wurde.                                      |
-| Resource Manager-Endpunkt | ARM_ENDPOINT           | Siehe [*Der Azure Stack-Resource Manager-Endpunkt*][].                                                                    |
-| Location                  | RESOURCE_LOCATION     | Standort für Azure Stack.
+| Mandanten-ID                 | `AZURE_TENANT_ID `      | Der Wert Ihrer [*Mandanten-ID*][] für Azure Stack.                                                                          |
+| Client-ID                 | `AZURE_CLIENT_ID `      | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde. |
+| Abonnement-ID           | `AZURE_SUBSCRIPTION_ID` | Mit der [*Abonnement-ID*][] greifen Sie in Azure Stack auf Angebote zu.                                                      |
+| Geheimer Clientschlüssel             | `AZURE_CLIENT_SECRET`   | Das App-Geheimnis des Dienstprinzipals, das bei der Erstellung des Dienstprinzipals gespeichert wurde.                                      |
+| Resource Manager-Endpunkt | `ARM_ENDPOINT`          | Siehe [*Der Azure Stack-Resource Manager-Endpunkt*][].                                                                    |
+| Location                  | `RESOURCE_LOCATION`     | Standort für Azure Stack.
 
 Folgen Sie den Anweisungen [hier](../operator/azure-stack-csp-ref-operations.md), um die Mandanten-ID für Ihre Azure Stack-Instanz zu suchen. Zum Festlegen Ihrer Umgebungsvariablen führen Sie die folgenden Schritte aus:
 
@@ -92,7 +92,7 @@ Set Azure_Tenant_ID=Your_Tenant_ID
 
 ### <a name="macos-linux-and-unix-based-systems"></a>MacOS-, Linux- und Unix-basierte Systeme
 
-In Unix-basierten Systemen können Sie den folgenden Befehl verwenden:
+In Unix-basierten Systemen verwenden Sie den folgenden Befehl:
 
 ```shell
 Export Azure_Tenant_ID=Your_Tenant_ID
@@ -102,7 +102,7 @@ Export Azure_Tenant_ID=Your_Tenant_ID
 
 Microsoft Azure Resource Manager ist ein Verwaltungsframework, mit dem Administratoren Azure-Ressourcen bereitstellen, verwalten und überwachen können. Azure Resource Manager kann diese Aufgaben als Gruppe – anstatt einzeln – in einem gemeinsamen Vorgang verarbeiten.
 
-Sie können die Metadateninformationen vom Resource Manager-Endpunkt abrufen. Der Endpunkt gibt eine JSON-Datei zurück, die die erforderlichen Informationen zum Ausführen Ihres Codes enthält.
+Sie können die Metadateninformationen vom Resource Manager-Endpunkt abrufen. Der Endpunkt gibt eine JSON-Datei mit den zum Ausführen des Codes erforderlichen Informationen zurück.
 
 Beachten Sie die folgenden Überlegungen:
 
@@ -133,11 +133,11 @@ JSON-Beispieldatei:
 
 3.  **Aktuell**: Profil, das aus den neuesten Versionen aller Dienste besteht. Verwenden Sie die neuesten Versionen aller Dienste. Dieses Profil ist Teil des NuGet-Pakets **Microsoft.Azure.Management**.
 
-Weitere Informationen zu Azure Stack und API-Profilen finden Sie unter [Zusammenfassung zu API-Profilen][].
+Weitere Informationen zu Azure Stack und API-Profilen finden Sie in der [Zusammenfassung zu API-Profilen][].
 
-## <a name="azure-net-sdk-api-profile-usage"></a>Verwendung des API-Profils aus dem Azure .NET SDK
+## <a name="azure-net-sdk-api-profile-usage"></a>Verwendung des API-Profils aus dem Azure .NET SDK
 
-Zum Instanziieren eines Ressourcenverwaltungsclients sollte der folgende Code verwendet werden. Ähnlicher Code kann verwendet werden, um Clients anderer Ressourcenanbieter (z. B. Compute-, Netzwerk- und Speicher) zu instanziieren. 
+Zum Instanziieren eines Ressourcenverwaltungsclients sollte der folgende Code verwendet werden. Ähnlicher Code kann verwendet werden, um Clients anderer Ressourcenanbieter (z. B. Compute, Networking und Storage) zu instanziieren.
 
 ```csharp
 var client = new ResourceManagementClient(armEndpoint, credentials)
@@ -152,7 +152,7 @@ Der Parameter `credentials` im oben stehenden Code ist erforderlich, um einen Cl
 var azureStackSettings = getActiveDirectoryServiceSettings(armEndpoint);
 var credentials = ApplicationTokenProvider.LoginSilentAsync(tenantId, servicePrincipalId, servicePrincipalSecret, azureStackSettings).GetAwaiter().GetResult();
 ```
-Der `getActiveDirectoryServiceSettings`-Aufruf im Code ruft Azure Stack-Endpunkte aus dem Metadatenendpunkt ab. Er gibt die Umgebungsvariablen aus dem vorgenommenen Aufruf an: 
+Der `getActiveDirectoryServiceSettings`-Aufruf im Code ruft Azure Stack-Endpunkte aus dem Metadatenendpunkt ab. Er gibt die Umgebungsvariablen aus dem vorgenommenen Aufruf an:
 
 ```csharp
 public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(string armEndpoint)
@@ -187,18 +187,18 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
 }
 ```
 
-Dies ermöglicht Ihnen die Verwendung der NuGet-Pakete des API-Profils zum erfolgreichen Bereitstellen Ihrer Anwendung in Azure Stack.
+Diese Schritte ermöglichen Ihnen die Verwendung der NuGet-Pakete des API-Profils zum erfolgreichen Bereitstellen Ihrer Anwendung in Azure Stack.
 
 ## <a name="samples-using-api-profiles"></a>Beispiele für die Verwendung von API-Profilen
 
-Die folgenden Beispiele können als Referenzen zum Erstellen von Lösungen mit .NET- und Azure Stack-API-Profilen verwendet werden.
+Verwenden Sie die folgenden Beispiele als Referenz zum Erstellen von Lösungen mit .NET- und Azure Stack-API-Profilen verwendet werden.
 - [Verwalten von Ressourcengruppen](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
 - [Verwalten von Speicherkonten](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
 - [Manage a Virtual Machine](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm) (Verwalten eines virtuellen Computers) (In diesem Beispiel wird das von Azure Stack verwendete Profil „2019-03-01-hybrid“ genutzt.)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zu API-Profilen finden Sie unter:
+Weitere Informationen zu API-Profilen finden Sie in folgenden Artikeln:
 
 - [Verwalten von API-Versionsprofilen in Azure Stack](azure-stack-version-profiles.md)
 - [Von Profilen unterstützte API-Versionen von Ressourcenanbietern](azure-stack-profiles-azure-resource-manager-versions.md)

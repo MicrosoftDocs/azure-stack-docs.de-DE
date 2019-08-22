@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: fdb17c1f8f7fd183b4542a1a0417b6880a8afe9b
-ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
+ms.openlocfilehash: c0872c598cc621250c3b2c5d39aca0e392f71b29
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67816157"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991603"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Verwalten von Azure-Richtlinien mithilfe des Azure Stack-Richtlinienmoduls
 
@@ -35,14 +35,13 @@ Das Azure Stack-Richtlinienmodul ermöglicht Ihnen die Konfiguration eines Azure
 3. [Konfigurieren Sie PowerShell für die Verwendung mit Azure Stack](azure-stack-powershell-configure-user.md).
 4. Importieren Sie das *AzureStack.Policy.psm1*-Modul:
 
-
    ```powershell
    Import-Module .\Policy\AzureStack.Policy.psm1
    ```
 
 ## <a name="apply-policy-to-azure-subscription"></a>Übernehmen der Richtlinie für das Azure-Abonnement
 
-Mit dem folgenden Befehl können Sie eine Azure Stack-Standardrichtlinie auf Ihr Azure-Abonnement anwenden. Ersetzen Sie vor der Ausführung dieses Befehls `Azure subscription name` durch den Namen Ihres Azure-Abonnements:
+Mit den folgenden Befehlen können Sie eine Azure Stack-Standardrichtlinie auf Ihr Azure-Abonnement anwenden. Ersetzen Sie vor der Ausführung dieser Befehle `Azure subscription name` durch den Namen Ihres Azure-Abonnements:
 
 ```powershell
 Add-AzureRmAccount
@@ -54,7 +53,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 
 ## <a name="apply-policy-to-a-resource-group"></a>Übernehmen einer Richtlinie für eine Ressourcengruppe
 
-Möglicherweise möchten Sie präzisere Richtlinien anwenden. Beispielsweise könnten andere Ressourcen im selben Abonnement ausgeführt werden. Sie können die Anwendung der Richtlinie auf eine bestimmte Ressourcengruppe beschränken, was es Ihnen ermöglicht, Ihre Apps für Azure Stack mithilfe von Azure-Ressourcen zu testen. Ersetzen Sie vor der Ausführung des folgenden Befehls `Azure subscription name` durch den Namen Ihres Azure-Abonnements:
+Möglicherweise möchten Sie präzisere Richtlinien anwenden. Beispielsweise könnten andere Ressourcen im selben Abonnement ausgeführt werden. Sie können die Anwendung der Richtlinie auf eine bestimmte Ressourcengruppe beschränken, was es Ihnen ermöglicht, Ihre Apps für Azure Stack mithilfe von Azure-Ressourcen zu testen. Ersetzen Sie vor der Ausführung der folgenden Befehle `Azure subscription name` durch den Namen Ihres Azure-Abonnements:
 
 ```powershell
 Add-AzureRmAccount

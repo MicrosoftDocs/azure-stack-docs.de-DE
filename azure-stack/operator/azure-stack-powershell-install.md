@@ -15,12 +15,12 @@ ms.date: 07/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: d22b1df33f4fc57cf9f823f620054a6baa6bb5d3
-ms.sourcegitcommit: d2df594e8346a875967e3cfb04c23562a1bd2e3c
+ms.openlocfilehash: d760eb4a9ca0f958ab8be09810b97820b09f5621
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67725764"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959473"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installieren von PowerShell für Azure Stack
 
@@ -38,14 +38,16 @@ Sie können mit Azure Stack kompatible PowerShell-Module in einem Szenario mit I
 
 Bevor Sie mit Azure Stack und PowerShell beginnen, müssen folgende Voraussetzungen erfüllt sein:
 
-- **PowerShell Version 5.0**: Führen Sie zum Überprüfen Ihrer Version **$PSVersionTable.PSVersion** aus, und vergleichen Sie die **Hauptversion**. Wenn Sie nicht über PowerShell 5.0 verfügen, befolgen Sie die Anweisungen unter [Installieren von Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+- **PowerShell-Version 5.0** <br>
+Führen Sie zum Überprüfen Ihrer Version **$PSVersionTable.PSVersion** aus, und vergleichen Sie die **Hauptversion**. Wenn Sie nicht über PowerShell 5.0 verfügen, befolgen Sie die Anweisungen unter [Installieren von Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
 
   > [!Note]
   > Für PowerShell 5.0 muss ein Windows-Computer verwendet werden.
 
 - **Führen Sie PowerShell in einer Eingabeaufforderung mit erhöhten Rechten aus.**
 
-- **PowerShell-Katalogzugriff**: Sie benötigen Zugriff auf den [PowerShell-Katalog](https://www.powershellgallery.com). Der Katalog ist das zentrale Repository für PowerShell-Inhalte. Das **PowerShellGet**-Modul enthält Cmdlets zum Ermitteln, Installieren, Aktualisieren und Veröffentlichen von PowerShell-Artefakten, z.B. Modulen, DSC-Ressourcen, Rollenfunktionen und Skripts aus dem PowerShell-Katalog und anderen privaten Repositorys. Bei Verwendung von PowerShell in einem Szenario ohne Internetverbindung müssen Sie Ressourcen über einen Computer mit Internetverbindung abrufen und an einem Speicherort speichern, auf den Sie von Ihrem Computer ohne Internetverbindung aus zugreifen können.
+- **Zugriff auf den PowerShell-Katalog** <br>
+  Sie benötigen Zugriff auf den [PowerShell-Katalog](https://www.powershellgallery.com). Der Katalog ist das zentrale Repository für PowerShell-Inhalte. Das Modul **PowerShellGet** enthält Cmdlets zum Ermitteln, Installieren, Aktualisieren und Veröffentlichen von PowerShell-Artefakten. Beispiele für diese Artefakte sind Module, DSC-Ressourcen, Rollenfunktionen und Skripts aus dem PowerShell-Katalog und anderen privaten Repositorys. Bei Verwendung von PowerShell in einem Szenario ohne Internetverbindung müssen Sie Ressourcen über einen Computer mit Internetverbindung abrufen und an einem Speicherort speichern, auf den Sie von Ihrem Computer ohne Internetverbindung aus zugreifen können.
 
 ## <a name="2-validate-the-powershell-gallery-accessibility"></a>2. Überprüfen der Verfügbarkeit des PowerShell-Katalogs
 
@@ -62,7 +64,7 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 Get-PSRepository -Name "PSGallery"
 ```
 
-Öffnen Sie eine PowerShell-Sitzung mit erhöhten Rechten, und führen Sie den folgenden Befehl aus, falls das Repository nicht registriert ist:
+Falls das Repository nicht registriert ist, öffnen Sie eine PowerShell-Sitzung mit erhöhten Rechten, und führen Sie den folgenden Befehl aus:
 
 ```powershell
 Register-PSRepository -Default
@@ -71,7 +73,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-powershell-modules"></a>3. Deinstallieren vorhandener Versionen der Azure Stack-PowerShell-Module
 
-Deinstallieren Sie vor der Installation der erforderlichen Version unbedingt alle zuvor installierten AzureRM-PowerShell-Module von Azure Stack. Verwenden Sie zum Deinstallieren eine folgenden Methoden:
+Deinstallieren Sie vor der Installation der erforderlichen Version unbedingt alle zuvor installierten AzureRM-PowerShell-Module von Azure Stack. Deinstallieren Sie die Module mit einer der folgenden zwei Methoden:
 
 1. Schließen Sie alle aktiven PowerShell-Sitzungen, und führen Sie die folgenden Cmdlets aus, um die vorhandenen AzureRM-PowerShell-Module zu deinstallieren:
 
@@ -86,7 +88,7 @@ Deinstallieren Sie vor der Installation der erforderlichen Version unbedingt all
 
 ## <a name="4-connected-install-powershell-for-azure-stack-with-internet-connectivity"></a>4. Verbunden: Installieren von PowerShell für Azure Stack mit Internetverbindung
 
-Das API-Versionsprofil und die Azure Stack-PowerShell-Module, die Sie benötigen, hängen von der Version von Azure Stack ab, die Sie ausführen.
+Das API-Versionsprofil und die Azure Stack-PowerShell-Module, die Sie benötigen, hängen von der jeweils ausgeführten Version von Azure Stack ab.
 
 ### <a name="install-azure-stack-powershell"></a>Installieren von Azure Stack-PowerShell
 
@@ -114,7 +116,7 @@ Führen Sie zum Installieren dieser Module auf der Entwicklungsarbeitsstation da
 
     > [!Note]  
     > - Die Azure Stack-Modulversion 1.7.1 ist ein Breaking Change-Release. Informationen zum Migrieren von Azure Stack 1.6.0 finden Sie im [Migrationsleitfaden](https://aka.ms/azspshmigration171).
-    > - Die AzureRM-Modulversion 2.4.0 enthält einen Breaking Change für das Cmdlet „Remove-AzureRmStorageAccount“. Von diesem Cmdlet wird die Angabe des Parameters „-Force“ erwartet, um das Speicherkonto ohne Bestätigung zu entfernen.
+    > - Die AzureRM-Modulversion 2.4.0 enthält einen Breaking Change für das Cmdlet „Remove-AzureRmStorageAccount“. Von diesem Cmdlet wird die Angabe des Parameters `-Force` erwartet, um das Speicherkonto ohne Bestätigung zu entfernen.
     > - Zum Installieren der Module für Azure Stack-Versionen ab 1901 brauchen Sie **AzureRM.BootStrapper** nicht zu installieren.
     > - Installieren Sie das 2018-03-01-Hybridprofil nicht zusätzlich zur Verwendung der oben genannten AzureRM-Module für Azure Stack-Versionen ab 1901.
 
@@ -131,17 +133,17 @@ War die Installation erfolgreich, werden die AzureRM- und AzureStack-Module in d
 
 ## <a name="5-disconnected-install-powershell-without-an-internet-connection"></a>5. Nicht verbunden: Installieren von PowerShell ohne Internetverbindung
 
-In einem nicht verbundenen Szenario müssen Sie zuerst die PowerShell-Module auf einen Computer mit Internetverbindung herunterladen und sie dann für die Installation in das Azure Stack Development Kit übertragen.
+In einem Szenario ohne Internetverbindung müssen Sie zuerst die PowerShell-Module auf einen Computer mit Internetverbindung herunterladen. Anschließend übertragen Sie sie für den Installationsvorgang in das Azure Stack Development Kit (ASDK).
 
 Melden Sie sich bei einem Computer mit Internetverbindung an, und verwenden Sie die folgenden Skripts, um die Pakete „Azure Resource Manager“ und „Azure Stack“ abhängig von Ihrer Version von Azure Stack herunterzuladen.
 
 Die Installation umfasst vier Schritte:
 
-1. Installieren der Azure Stack-PowerShell auf einem verbundenen Computer
+1. Installieren von Azure Stack-PowerShell auf einem verbundenen Computer
 2. Aktivieren zusätzlicher Speicherfunktionen
 3. Übertragen der PowerShell-Pakete auf Ihre getrennte Arbeitsstation
 4. Manuelles Bootstrapping des NuGet-Anbieters auf Ihrer getrennten Arbeitsstation
-4. Bestätigen der Installation der PowerShell
+5. Bestätigen der Installation von PowerShell
 
 ### <a name="install-azure-stack-powershell"></a>Installieren von Azure Stack-PowerShell
 
@@ -184,7 +186,7 @@ Die Installation umfasst vier Schritte:
 
 3. Manuelles Bootstrapping des NuGet-Anbieters auf Ihrer getrennten Arbeitsstation Anweisungen finden Sie unter [Manuelles Bootstrapping des NuGet-Anbieters auf einem Computer, der nicht mit dem Internet verbunden ist](https://docs.microsoft.com/powershell/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
 
-4. Nun registrieren Sie diesen Speicherort als Standardrepository und installieren die AzureRM- und AzureStack-Module aus diesem Repository:
+4. Registrieren Sie diesen Speicherort als Standardrepository, und installieren Sie die AzureRM- und AzureStack-Module aus diesem Repository:
 
    ```powershell
    # requires -Version 5
@@ -213,7 +215,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 ## <a name="6-configure-powershell-to-use-a-proxy-server"></a>6. Konfigurieren von PowerShell für die Verwendung eines Proxyservers
 
-In Szenarien, für die ein Proxyserver für den Zugriff auf das Internet erforderlich ist, müssen Sie zuerst PowerShell für die Verwendung eines vorhandenen Proxyservers konfigurieren:
+In Szenarien, für die ein Proxyserver für den Zugriff auf das Internet erforderlich ist, konfigurieren Sie zuerst PowerShell für die Verwendung eines vorhandenen Proxyservers:
 
 1. Öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten.
 2. Führen Sie die folgenden Befehle aus:

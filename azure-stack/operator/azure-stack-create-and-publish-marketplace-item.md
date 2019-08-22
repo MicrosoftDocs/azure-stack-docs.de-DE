@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 59e86e15289833d63b85314a84d0bb9e60dc5da8
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 24fc0f7993001ce95a21e175c84f37d755a5ce6c
+ms.sourcegitcommit: ec38ec569ad2193369c438f55e5c190aa5f0efd5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172564"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68956598"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Erstellen und Veröffentlichen eines Marketplace-Elements
 
@@ -47,7 +47,7 @@ ms.locfileid: "65172564"
 
 4. Testen Sie die Vorlage mit den Microsoft Azure Stack-APIs, um sicherzustellen, dass die Ressource bereitgestellt werden kann.
 5. Wenn Ihre Vorlage auf einem VM-Image basiert, befolgen Sie die Anweisungen zum [Hinzufügen eines VM-Images zu Azure Stack](azure-stack-add-vm-image.md).
-6. Speichern Sie die Azure Resource Manager-Vorlage im Ordner **/Contoso.TodoList/DeploymentTemplates/**.
+6. Speichern Sie die Azure Resource Manager-Vorlage im Ordner **/Contoso.TodoList/DeploymentTemplates/** .
 7. Wählen Sie Symbole und Text für Ihr Marketplace-Element aus. Fügen Sie Symbole zum Ordner **Symbole** hinzu. Text wird der Datei **Ressourcen** im Ordner **Zeichenfolgen** hinzugefügt. Verwenden Sie für die Symbole die Namenskonvention für **kleine**, **mittlere**, **große** und **breite** Symbole. Eine ausführliche Beschreibung dieser Größen finden Sie in der [Referenz zur Benutzeroberfläche für Marketplace-Elemente](#reference-marketplace-item-ui).
 
    > [!NOTE]
@@ -81,11 +81,11 @@ ms.locfileid: "65172564"
 12. Öffnen Sie eine Eingabeaufforderung, und führen Sie den folgenden Befehl aus, um die Ordner in eine AZPKG-Datei zu packen:
 
     ```shell
-    AzureGalleryPackager.exe package -m <path to manifest.json> -o <output location for the package>
+    AzureGalleryPackager.exe package -m <absolute path to manifest.json> -o <output location for the package>
     ```
 
     > [!NOTE]
-    > Der vollständige Pfad zum Ausgabepaket muss vorhanden sein. Wenn der Ausgabepfad „C:\MarketPlaceItem\yourpackage.azpkg“ lautet, muss der Ordner **C:\MarketPlaceItem** vorhanden sein.
+    > Der vollständige Pfad zur Datei „manifest.json“ und das Ausgabepaket müssen vorhanden sein. Wenn der Ausgabepfad „C:\MarketPlaceItem\yourpackage.azpkg“ lautet, muss der Ordner **C:\MarketPlaceItem** vorhanden sein.
     >
     >
 
@@ -116,7 +116,7 @@ ms.locfileid: "65172564"
 `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
 `https://systemgallery.blob.[Region].[external FQDN]/dev20161101-microsoft-windowsazure-gallery/[Template Name]/UiDefinition.json`
 
-6. Sie können ein Marketplace-Element mit dem Cmdlet **Remove-AzureRMGalleryItem** entfernen. Beispiel: 
+6. Sie können ein Marketplace-Element mit dem Cmdlet **Remove-AzureRMGalleryItem** entfernen. Beispiel:
 
    ```powershell
    Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  -Verbose
@@ -131,7 +131,7 @@ ms.locfileid: "65172564"
 
 ### <a name="identity-information"></a>Identitätsinformationen
 
-| NAME | Erforderlich | Type | Einschränkungen | BESCHREIBUNG |
+| NAME | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
 | NAME |X |Zeichenfolge |[A-Za-z0-9]+ | |
 | Herausgeber |X |Zeichenfolge |[A-Za-z0-9]+ | |
@@ -139,7 +139,7 @@ ms.locfileid: "65172564"
 
 ### <a name="metadata"></a>Metadaten
 
-| NAME | Erforderlich | Type | Einschränkungen | BESCHREIBUNG |
+| NAME | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Zeichenfolge |Empfehlung: 80 Zeichen |Im Portal wird der Elementname unter Umständen nicht richtig angezeigt, wenn er länger als 80 Zeichen ist. |
 | PublisherDisplayName |X |Zeichenfolge |Empfehlung: 30 Zeichen |Im Portal wird der Herausgebername unter Umständen nicht richtig angezeigt, wenn er länger als 30 Zeichen ist. |
@@ -158,7 +158,7 @@ Marketplace verwendet die folgenden Symbole:
 | Groß |115 px |115 px |Immer erforderlich |
 | Mittel |90 px |90 px |Immer erforderlich |
 | Klein |40 px |40 px |Immer erforderlich |
-| Screenshot |533 px |32 px |Optional |
+| Screenshot |533 px |324 px |Immer erforderlich |
 
 ### <a name="categories"></a>Categories
 
@@ -168,7 +168,7 @@ Jedes Marketplace-Element muss mit einer Kategorie gekennzeichnet werden, die di
 
 Jedes Marketplace-Element kann verschiedene Links zu zusätzlichen Inhalten enthalten. Die Links werden als Liste der Namen und URIs angegeben:
 
-| NAME | Erforderlich | Type | Einschränkungen | BESCHREIBUNG |
+| NAME | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Zeichenfolge |Maximal 64 Zeichen. | |
 | Uri |X |URI | | |
@@ -177,7 +177,7 @@ Jedes Marketplace-Element kann verschiedene Links zu zusätzlichen Inhalten enth
 
 Zusätzlich zu den oben genannten Metadaten können Marketplace-Autoren benutzerdefinierte Schlüssel-Wert-Paare mit Daten in der folgenden Form angeben.
 
-| NAME | Erforderlich | Type | Einschränkungen | BESCHREIBUNG |
+| NAME | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Zeichenfolge |Maximal 25 Zeichen. | |
 | Wert |X |Zeichenfolge |Maximal 30 Zeichen. | |

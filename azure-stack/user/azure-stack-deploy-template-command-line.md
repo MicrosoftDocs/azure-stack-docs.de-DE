@@ -1,6 +1,6 @@
 ---
 title: Bereitstellen einer Vorlage mithilfe der Befehlszeile in Azure Stack | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie mit der plattformübergreifenden Befehlszeilenschnittstelle (Command Line Interface, CLI) Vorlagen in Azure Stack bereitstellen.
+description: Hier erfahren Sie, wie Sie mit der plattformübergreifenden Azure-Befehlszeilenschnittstelle (Command Line Interface, CLI) Vorlagen in Azure Stack bereitstellen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 92c9189f8144804f36e551ab89d8b4fc4c1f8598
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: da17e80c802e210d53effbad8f264b1a4019e6e0
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691366"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991849"
 ---
 # <a name="deploy-a-template-with-the-command-line-in-azure-stack"></a>Bereitstellen einer Vorlage mithilfe der Befehlszeile in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Verwenden Sie die Azure-Befehlszeilenschnittstelle (Command-Line Interface, CLI) zum Bereitstellen von Azure Resource Manager-Vorlagen in Azure Stack. Azure Resource Manager-Vorlagen stellen Ressourcen für Ihre App in einem einzigen, koordinierten Vorgang bereit.
+Sie können die Azure-Befehlszeilenschnittstelle (Command-Line Interface, CLI) zum Bereitstellen von Azure Resource Manager-Vorlagen in Azure Stack verwenden. Azure Resource Manager-Vorlagen stellen Ressourcen für Ihre App in einem einzigen, koordinierten Vorgang bereit.
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
@@ -55,4 +55,4 @@ az storage account list
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erfahren Sie mehr über das [Bereitstellen von Vorlagen mithilfe von PowerShell](azure-stack-deploy-template-powershell.md).
+Informieren Sie sich über das [Bereitstellen von Vorlagen mit Azure PowerShell](azure-stack-deploy-template-powershell.md).

@@ -11,28 +11,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 476ffeaf7712e5cee22befbc822545382f808de5
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.openlocfilehash: b33c96ad10d5e4269f96741a5d4aba10d782896c
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65386623"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959515"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegieren von Angeboten in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Als Azure Stack-Bediener kann es sein, dass Sie andere Personen in die Lage versetzen möchten, Benutzer zu registrieren und Abonnements zu erstellen. Als Dienstanbieter z.B. müssen Sie Ihren Vertriebspartnern ermöglichen können, in Ihrem Auftrag Kunden zu registrieren und diese zu verwalten. Wenn Sie einer zentralen IT-Gruppe in einem Unternehmen angehören, sollten Sie in Betracht ziehen, die Benutzerregistrierung an einen anderen IT-Mitarbeiter zu delegieren.
+Als Azure Stack-Bediener kann es sein, dass Sie andere Personen in die Lage versetzen möchten, Benutzer zu registrieren und Abonnements zu erstellen. Als Dienstanbieter z.B. müssen Sie Ihren Vertriebspartnern ermöglichen können, in Ihrem Auftrag Kunden zu registrieren und diese zu verwalten. Wenn Sie einer zentralen IT-Gruppe in einem Unternehmen angehören, möchten Sie vielleicht die Benutzerregistrierung an einen anderen IT-Mitarbeiter delegieren.
 
 Durch die Delegierung ist es einfacher, mehr Benutzer zu erreichen und zu verwalten, als Sie selbst handhaben können, wie in der folgenden Abbildung dargestellt:
 
 ![Delegierungsebenen](media/azure-stack-delegated-provider/image1.png)
 
-Der delegierte Anbieter verwaltet ein Angebot (delegiertes Angebot), und Endkunden erhalten Abonnements im Rahmen dieses Angebots ohne Beteiligung des Systemadministrators.
+Der delegierte Anbieter verwaltet ein Angebot (ein sogenanntes *delegiertes Angebot*), und Endkunden erhalten Abonnements im Rahmen dieses Angebots ohne Beteiligung des Systemadministrators.
 
 ## <a name="delegation-roles"></a>Delegierungsrollen
 
@@ -64,7 +64,7 @@ Nachdem diese Beziehung hergestellt wurde, kann der Azure Stack-Bediener ein Ang
 
 ## <a name="delegation-walkthrough"></a>Exemplarische Vorgehensweise einer Delegierung
 
-Die folgenden Abschnitte enthalten eine praktische exemplarische Vorgehensweise für das Einrichten eines delegierten Anbieters, das Delegieren eines Angebots und das Überprüfen, ob sich Benutzer für das delegierte Angebot registrieren können.
+Die folgenden Abschnitte enthalten eine exemplarische Vorgehensweise für das Einrichten eines delegierten Anbieters, das Delegieren eines Angebots und das Überprüfen, ob sich Benutzer für das delegierte Angebot registrieren können.
 
 ### <a name="set-up-roles"></a>Einrichten von Rollen
 
@@ -158,7 +158,7 @@ Abonnements können bei Bedarf zwischen neuen oder vorhandenen Abonnements deleg
 Diese Möglichkeit ist in folgenden Situationen nützlich:
 
 * Sie integrieren ein neues Teammitglied, das die Rolle des delegierten Anbieters übernimmt, und möchten diesem Teammitglied Benutzerabonnements zuweisen, die zuvor im Standardabonnement des Anbieters erstellt wurden.
-* Es sind mehrere Abonnements von delegierten Anbietern im gleichen Verzeichnismandanten (Azure Active Directory) vorhanden, und Sie müssen Benutzerabonnements zwischen diesen verschieben. Bei einem solchen Szenario kann es sich um einen Fall handeln, in dem ein Teammitglied zwischen den Teams verschoben wird und sein Abonnement dem neuen Team zugewiesen werden muss.
+* Es sind mehrere Abonnements von delegierten Anbietern im gleichen Verzeichnismandanten (Azure Active Directory) vorhanden, und Sie müssen Benutzerabonnements zwischen diesen verschieben. Ein solches Szenario kann vorliegen, wenn ein Teammitglied zu einem anderen Team wechselt und sein Abonnement dem neuen Team zugewiesen werden muss.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

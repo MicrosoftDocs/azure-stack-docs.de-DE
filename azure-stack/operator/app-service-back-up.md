@@ -1,6 +1,6 @@
 ---
 title: Sichern von App Service in Azure Stack | Microsoft-Dokumentation
-description: Ausführliche Anleitung zum Sichern von App Service in Azure Stack.
+description: In diesem Artikel erfahren Sie, wie Sie App Services in Azure Stack sichern.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 8e8e866efe8de4d4c5d116339edbe81082c6545e
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b49390434990ac2efb81692c1177c634aee4bab0
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269267"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959530"
 ---
 # <a name="back-up-app-service-on-azure-stack"></a>Sichern von App Service in Azure Stack
 
@@ -34,9 +34,9 @@ Dieses Dokument enthält Anweisungen zum Sichern von App Service in Azure Stac
 
 Für Azure App Service in Azure Stack müssen bei der Planung der Notfallwiederherstellung vier Hauptkomponenten berücksichtigt werden:
 1. Die Ressourcenanbieterinfrastruktur, Serverrollen, Workerebenen usw. 
-2. Die App Service-Geheimnisse
-3. Die SQL Server-Instanz für App Service, die Datenbanken hostet und Messungen ausführt
-4. In der App Service-Dateifreigabe gespeicherte Inhalte der App Service-Benutzerworkload   
+2. Die App Service-Geheimnisse.
+3. Die SQL Server-Instanz für App Service, die Datenbanken hostet und Messungen ausführt.
+4. In der App Service-Dateifreigabe gespeicherte Inhalte der App Service-Benutzerworkload.
 
 ## <a name="back-up-app-service-secrets"></a>Sichern von App Service-Geheimnissen
 Wenn Sie App Service aus einer Sicherung wiederherstellen, müssen Sie die App Service-Schlüssel angeben, die für die Erstbereitstellung verwendet wurden. Diese Informationen sollten nach der erfolgreichen Bereitstellung von App Service sofort gespeichert und an einem sicheren Ort verwahrt werden. Die Konfiguration der Ressourcenanbieterinfrastruktur wird während der Wiederherstellung mithilfe von PowerShell-Cmdlets für die App Service-Wiederherstellung aus einer Sicherung neu erstellt.
@@ -49,11 +49,11 @@ Gehen Sie wie folgt vor, um App Service-Geheimnisse über das Verwaltungsportal
 
 3. Wählen Sie **Geheimnisse herunterladen** aus.
 
-   ![Herunterladen von Geheimnissen](./media/app-service-back-up/download-secrets.png)
+   ![Herunterladen von Geheimnissen im Azure Stack-Verwaltungsportal](./media/app-service-back-up/download-secrets.png)
 
 4. Wenn die Geheimnisse zum Herunterladen bereit sind, klicken Sie auf **Speichern**, und speichern Sie die Datei mit den App Service-Geheimnissen (**SystemSecrets.JSON**) an einem sicheren Ort. 
 
-   ![Speichern von Geheimnissen](./media/app-service-back-up/save-secrets.png)
+   ![Speichern von Geheimnissen im Azure Stack-Verwaltungsportal](./media/app-service-back-up/save-secrets.png)
 
 > [!NOTE]
 > Wiederholen Sie diese Schritte bei jeder Rotation der App Service-Geheimnisse.
@@ -61,7 +61,7 @@ Gehen Sie wie folgt vor, um App Service-Geheimnisse über das Verwaltungsportal
 ## <a name="back-up-the-app-service-databases"></a>Sichern der App Service-Datenbanken
 Zum Wiederherstellen von App Service benötigen Sie die Datenbanksicherungen **Appservice_hosting** und **Appservice_metering**. Es wird empfohlen, SQL Server-Wartungspläne oder Azure Backup Server zu verwenden, um die regelmäßige Sicherung und sichere Speicherung dieser Datenbanken zu gewährleisten. Sie können jedoch eine beliebige Methode verwenden, um die regelmäßige Erstellung von SQL-Sicherungen sicherzustellen.
 
-Mit den folgenden PowerShell-Befehlen können Sie die Datenbanken manuell sichern, während Sie bei SQL Server angemeldet sind:
+Sichern Sie mit den folgenden PowerShell-Befehlen die Datenbanken manuell, während Sie bei SQL Server angemeldet sind:
 
   ```powershell
   $s = "<SQL Server computer name>"
@@ -77,9 +77,9 @@ Mit den folgenden PowerShell-Befehlen können Sie die Datenbanken manuell sicher
 Nachdem alle Datenbanken erfolgreich gesichert wurden, kopieren Sie die BAK-Dateien zusammen mit den Informationen zu den App Service-Geheimnissen an einen sicheren Ort.
 
 ## <a name="back-up-the-app-service-file-share"></a>Sichern der App Service-Dateifreigabe
-App Service speichert Informationen von Mandanten-Apps in der Dateifreigabe. Diese Freigabe muss in regelmäßigen Abständen zusammen mit den App Service-Datenbanken gesichert werden, damit im Fall einer Wiederherstellung so wenig Daten wie möglich verloren gehen. 
+App Service speichert Informationen von Mandanten-Apps in der Dateifreigabe. Diese Dateifreigabe muss in regelmäßigen Abständen zusammen mit den App Service-Datenbanken gesichert werden, damit im Fall einer Wiederherstellung so wenig Daten wie möglich verloren gehen.
 
-Zum Sichern des Inhalts der App Service-Dateifreigabe können Sie Azure Backup Server oder eine andere Methode verwenden, um den Inhalt der Dateifreigabe regelmäßig an den Speicherort zu kopieren, an dem Sie alle vorherigen Wiederherstellungsinformationen gespeichert haben. 
+Verwenden Sie zum Sichern des Inhalts der App Service-Dateifreigabe Azure Backup Server oder eine andere Methode, um den Inhalt der Dateifreigabe regelmäßig an den Speicherort zu kopieren, an dem Sie alle vorherigen Wiederherstellungsinformationen gespeichert haben.
 
 Sie können z. B. die folgenden Schritte ausführen, um Robocopy in einer Windows PowerShell-Konsolensitzung (nicht PowerShell ISE) zu verwenden:
 

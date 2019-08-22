@@ -1,6 +1,6 @@
 ---
 title: Verwenden von API-Versionsprofilen mit Python in Azure Stack | Microsoft-Dokumentation
-description: Hier erfahren Sie mehr zur Verwendung von API-Versionsprofilen mit Python in Azure Stack.
+description: Hier erfahren Sie, wie Sie API-Versionsprofile mit Python in Azure Stack verwenden.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: 18884a4570f5c90d00b8e17e42fe8bc1b3c073c2
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 35ce331c29e89af3a81396a9658cf8a0f29018d3
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198597"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959431"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit Python in Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "67198597"
 
 ## <a name="python-and-api-version-profiles"></a>Python und API-Versionsprofile
 
-Das Python SDK unterstützt API-Versionsprofile für unterschiedliche Cloudplattformen, z.B. Azure Stack und globales Azure. Sie können API-Profile beim Erstellen von Lösungen für eine Hybrid Cloud nutzen. Das Python SDK unterstützt die folgenden API-Profile:
+Das Python SDK unterstützt API-Versionsprofile für unterschiedliche Cloudplattformen, z.B. Azure Stack und globales Azure. Verwenden Sie API-Profile beim Erstellen von Lösungen für eine Hybrid Cloud. Das Python SDK unterstützt die folgenden API-Profile:
 
 - **Neueste**  
     Dieses Profil ist auf die aktuellen API-Versionen für alle Dienstanbieter auf der Azure Platform ausgerichtet.
@@ -47,24 +47,24 @@ Das Python SDK unterstützt API-Versionsprofile für unterschiedliche Cloudplatt
 2. Eine Anleitung zum Installieren des Python SDK finden Sie unter [Azure für Python-Entwickler](/python/azure/python-sdk-azure-install?view=azure-python).
 3. Erstellen Sie ein Abonnement, wenn keins verfügbar ist, und speichern Sie die Abonnement-ID zur späteren Verwendung. Anweisungen zum Erstellen eines Abonnements finden Sie unter [Erstellen von Abonnements für Angebote in Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
 4. Erstellen Sie einen Dienstprinzipal, und speichern Sie die ID und das Geheimnis. Eine Anleitung zum Erstellen eines Dienstprinzipals für Azure Stack finden Sie unter [Bereitstellen des Anwendungszugriffs auf Azure Stack](../operator/azure-stack-create-service-principals.md).
-5. Stellen Sie sicher, dass Ihr Dienstprinzipal über die Rolle „Mitwirkender“ bzw. „Besitzer“ für Ihr Abonnement verfügt. Eine Anleitung zum Zuweisen von Rollen zum Dienstprinzipal finden Sie unter [Bereitstellen des Anwendungszugriffs auf Azure Stack](../operator/azure-stack-create-service-principals.md).
+5. Stellen Sie sicher, dass Ihr Dienstprinzipal über die Rolle „Mitwirkender“ bzw. „Besitzer“ für Ihr Abonnement verfügt. Eine Anleitung zum Zuweisen einer Rolle zum Dienstprinzipal finden Sie unter [Bereitstellen des Anwendungszugriffs auf Azure Stack](../operator/azure-stack-create-service-principals.md).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Um das Python Azure SDK mit Azure Stack zu verwenden, müssen Sie die folgenden Werte angeben und dann Werte mit Umgebungsvariablen festlegen. In der Anleitung unter der Tabelle für Ihr Betriebssystem ist angegeben, wie Sie die Umgebungsvariablen festlegen.
+Um das Python Azure SDK mit Azure Stack zu verwenden, müssen Sie die folgenden Werte angeben und dann Werte mit Umgebungsvariablen festlegen. Befolgen Sie die Anweisungen in der Tabelle für Ihr Betriebssystem, um die Umgebungsvariablen festzulegen.
 
 | Wert | Umgebungsvariablen | BESCHREIBUNG |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Mandanten-ID | AZURE_TENANT_ID | Der Wert Ihrer [Mandanten-ID](../operator/azure-stack-identity-overview.md) für Azure Stack. |
-| Client-ID | AZURE_CLIENT_ID | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde. |
-| Abonnement-ID | AZURE_SUBSCRIPTION_ID | Mit der [Abonnement-ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) greifen Sie in Azure Stack auf Angebote zu. |
-| Geheimer Clientschlüssel | AZURE_CLIENT_SECRET | Das Geheimnis der Dienstprinzipalanwendung, die bei der Erstellung des Dienstprinzipals gespeichert wurde. |
-| Resource Manager-Endpunkt | ARM_ENDPOINT | Siehe [Azure Stack-Resource Manager-Endpunkt](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
-| Resource Location | AZURE_RESOURCE_LOCATION | Der Ressourcenspeicherort Ihrer Azure Stack-Umgebung.
+| Mandanten-ID | `AZURE_TENANT_ID` | Der Wert Ihrer [Mandanten-ID](../operator/azure-stack-identity-overview.md) für Azure Stack. |
+| Client-ID | `AZURE_CLIENT_ID` | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde. |
+| Abonnement-ID | `AZURE_SUBSCRIPTION_ID` | Mit der [Abonnement-ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) greifen Sie in Azure Stack auf Angebote zu. |
+| Geheimer Clientschlüssel | `AZURE_CLIENT_SECRET` | Das App-Geheimnis des Dienstprinzipals, das bei der Erstellung des Dienstprinzipals gespeichert wurde. |
+| Resource Manager-Endpunkt | `ARM_ENDPOINT` | Siehe [Azure Stack-Resource Manager-Endpunkt](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Resource Location | `AZURE_RESOURCE_LOCATION` | Der Ressourcenspeicherort Ihrer Azure Stack-Umgebung.
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als vertrauenswürdig
 
-Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat auf Ihrem Remotecomputer als vertrauenswürdig einstufen. Für die integrierten Systeme ist dies nicht erforderlich.
+Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat auf Ihrem Remotecomputer als vertrauenswürdig einstufen. Sie müssen das Zertifizierungsstellen-Stammzertifikat nicht für die integrierten Systeme als vertrauenswürdig einstufen.
 
 #### <a name="windows"></a>Windows
 
@@ -74,7 +74,7 @@ Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat a
       python -c "import certifi; print(certifi.where())"
     ```
 
-    Notieren Sie sich den Zertifikatspeicherort. Beispiel: *~/lib/python3.5/site-packages/certifi/cacert.pem*. Der Pfad hängt davon ab, welches BS Sie verwenden und welche Python-Version installiert ist.
+    Notieren Sie sich den Zertifikatspeicherort. Beispiel: *~/lib/python3.5/site-packages/certifi/cacert.pem*. Der konkrete Pfad hängt vom jeweiligen Betriebssystem und der installierten Python-Version ab.
 
 2. Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack als vertrauenswürdig ein, indem Sie es an das vorhandene Python-Zertifikat anfügen.
 
@@ -109,7 +109,7 @@ Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat a
     ```
 
 > [!NOTE]  
-> Wenn Sie wie weiter unten erwähnt virtualenv für die Entwicklung mit dem Python SDK verwenden, muss das obige Zertifikat auch dem Zertifikatspeicher Ihrer virtuellen Umgebung hinzugefügt werden. Der Pfad kann beispielsweise wie folgt aussehen: „..\mytestenv\Lib\site-packages\certifi\cacert.pem“.
+> Wenn Sie wie weiter unten erwähnt virtualenv für die Entwicklung mit dem Python SDK verwenden, muss das obige Zertifikat dem Zertifikatspeicher Ihrer virtuellen Umgebung hinzugefügt werden. Der Pfad kann beispielsweise wie folgt aussehen: „..\mytestenv\Lib\site-packages\certifi\cacert.pem“.
 
 
 
@@ -119,34 +119,34 @@ Folgende Codebeispiele sind u. a. für Azure Stack mit dem Python SDK verfügbar
 
 - [Manage Resources and Resource Groups](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/) (Verwalten von Ressourcen und Ressourcengruppen)
 - [Manage Storage Account](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/) (Verwalten eines Speicherkontos)
-- [Manage Virtual Machines](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/) (Verwalten von VMs) (Beispiel mit „2019-03-01-hybrid“ für die aktuellsten API-Versionen, die von Azure Stack unterstützt werden.)
+- [Manage Virtual Machines](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/) (Verwalten virtueller Computer); (In diesem Beispiel wird „2019-03-01-hybrid“ für die von Azure Stack unterstützten aktuellen API-Versionen verwendet)
 
 ## <a name="python-manage-virtual-machine-sample"></a>Python-Beispiel für die Verwaltung von VMs
 
-Mit dem folgenden Codebeispiel können Sie allgemeine Verwaltungsaufgaben für VMs in Ihrer Azure Stack-Instanz ausführen. Das Codebeispiel veranschaulicht folgende Aufgaben:
+Verwenden Sie das folgende Codebeispiel, um allgemeine Verwaltungsaufgaben für virtuelle Computer (VMs) in Ihrer Azure Stack-Instanz auszuführen. Das Codebeispiel veranschaulicht folgende Aufgaben:
 
-- Erstellen von virtuellen Computern:
-  - Erstellen einer virtuellen Linux-Maschine
+- Erstellen virtueller Computer:
+  - Erstellen eines virtuellen Linux-Computers
   - Erstellen eines virtuellen Windows-Computers
 - Aktualisieren eines virtuellen Computers:
   - Erweitern eines Laufwerks
-  - Markieren eines virtuellen Computers
+  - Kennzeichnen eines virtuellen Computers
   - Anfügen von Datenträgern für Daten
   - Trennen von Datenträgern
 - Betreiben eines virtuellen Computers:
   - Starten eines virtuellen Computers
-  - Dient zum Beenden eines virtuellen Computers.
+  - Anhalten eines virtuellen Computers
   - Neustarten eines virtuellen Computers
-- Auflisten von virtuellen Computern
+- Auflisten der virtuellen Computer
 - Löschen eines virtuellen Computers
 
 Den Code zum Ausführen dieser Vorgänge finden Sie in der **run_example()** -Funktion im Python-Skript **example.py** im GitHub-Repository [Hybrid-Compute-Python-Manage-VM](https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM).
 
-Jeder Vorgang ist deutlich mit einem Kommentar und einer Druckfunktion gekennzeichnet. Die Beispiele befinden sich nicht unbedingt in der Reihenfolge, die in der obigen Liste angezeigt wird.
+Jeder Vorgang ist deutlich mit einem Kommentar und einer Druckfunktion gekennzeichnet. Die Reihenfolge der Beispiele entspricht nicht unbedingt der in der obigen Liste.
 
 ## <a name="run-the-python-sample"></a>Ausführen des Python-Beispiels
 
-1. [Installieren Sie Python](https://www.python.org/downloads/), falls Sie es noch nicht getan haben. Dieses Beispiel (und das SDK) ist mit Python 2.7, 3.4, 3.5 und 3.6 kompatibel.
+1. [Installieren Sie Python](https://www.python.org/downloads/), falls dies noch nicht erfolgt ist. Dieses Beispiel (und das SDK) ist mit Python 2.7, 3.4, 3.5 und 3.6 kompatibel.
 
 2. Allgemein wird für die Python-Entwicklung die Verwendung einer virtuellen Umgebung empfohlen. Weitere Informationen finden Sie in der [Python-Dokumentation](https://docs.python.org/3/tutorial/venv.html).
 
@@ -186,7 +186,7 @@ Jeder Vorgang ist deutlich mit einem Kommentar und einer Druckfunktion gekennzei
     export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
-8. Zum Ausführen dieses Beispiels müssen Ubuntu 16.04 LTS- und Windows Server 2012 R2 Datacenter-Images im Azure Stack-Marketplace vorhanden sein. Diese können entweder [aus Azure heruntergeladen](../operator/azure-stack-download-azure-marketplace-item.md) oder dem [Platform Image Repository](../operator/azure-stack-add-vm-image.md) hinzugefügt werden.
+8. Zum Ausführen dieses Beispiels müssen Ubuntu 16.04 LTS- und Windows Server 2012 R2 Datacenter-Images im Azure Stack-Marketplace vorhanden sein. Diese Images können entweder [aus Azure heruntergeladen](../operator/azure-stack-download-azure-marketplace-item.md) oder dem [Platform Image Repository](../operator/azure-stack-add-vm-image.md) hinzugefügt werden.
 
 9. Führen Sie das Beispiel aus:
 
@@ -200,4 +200,5 @@ Jeder Vorgang ist deutlich mit einem Kommentar und einer Druckfunktion gekennzei
 - [Azure Python Developer Center](https://azure.microsoft.com/develop/python/)
 - [Dokumentation zu virtuellen Azure-Computern](https://azure.microsoft.com/services/virtual-machines/)
 - [Lernpfad für Virtual Machines](/learn/paths/deploy-a-website-with-azure-virtual-machines/)
-- Wenn Sie kein Microsoft Azure-Abonnement haben, können Sie [hier](https://go.microsoft.com/fwlink/?LinkId=330212) ein KOSTENLOSES Testkonto erstellen.
+
+Wenn Sie kein Microsoft Azure-Abonnement haben, können Sie [hier](https://go.microsoft.com/fwlink/?LinkId=330212) ein KOSTENLOSES Testkonto erstellen.

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2019
+ms.date: 08/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 08/05/2019
-ms.openlocfilehash: 76ce6d491969913ad48486fd9004f7686af8e6f3
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.lastreviewed: 08/09/2019
+ms.openlocfilehash: b1085c22533530402d322702ca26c078c9cc7e4a
+ms.sourcegitcommit: 6239b35370d21852529978777c0e39cfba5a4552
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68807126"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68917609"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Für Azure Stack verfügbare Azure Marketplace-Elemente
 
@@ -88,6 +88,7 @@ Microsoft Azure Stack unterstützt die folgenden virtuellen Computer und Lösung
 | ![Container Linux von CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Container Linux von CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Container Linux ist eine moderne und minimale Linux-Distribution, die eine einfache Möglichkeit zum Ausführen von Containern, zum Verwalten von Clustern und zum nahtlosem Update Ihrer Server bietet – also den Komponenten, die eine Computelösung auf Warehouse-Ebene ermöglichen. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server ist das weltweit beliebteste Linux für Cloudumgebungen. | Canonical |
 | ![Debian 8 „Jessie“](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 „Jessie“](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux ist eine der am häufigsten verwendeten Linux-Distributionen. | credativ |
+| ![Oracle Linux](media/azure-stack-marketplace-azure-items/oracle.png) | [Oracle Linux](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oracle-linux) | Das Betriebssystem Oracle Linux ist auf eine Open Cloud-Infrastruktur ausgelegt. Es bietet höchste Leistung, Skalierbarkeit und Zuverlässigkeit für SaaS- und PaaS-Workloads von Unternehmen; herkömmliche Unternehmensanwendungen werden ebenfalls unterstützt. | Oracle |
 | ![6\.8 (CentOS-basiert)](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-basiert 6.8](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased68HPC) | Diese Linux-Distribution basiert auf CentOS und wird von Rogue Wave Software bereitgestellt. | Rogue Wave Software (früher OpenLogic)  |
 | ![6\.10 (CentOS-basiert)](media/azure-stack-marketplace-azure-items/roguewave.png) | [6.10 (CentOS-basiert)](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Diese Linux-Distribution basiert auf CentOS und wird von Rogue Wave Software bereitgestellt. | Rogue Wave Software (früher OpenLogic)  |
 | ![7\.3 (CentOS-basiert)](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.3 (CentOS-basiert)](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC) | Diese Linux-Distribution basiert auf CentOS und wird von Rogue Wave Software bereitgestellt. | Rogue Wave Software (früher OpenLogic) |
