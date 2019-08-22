@@ -36,7 +36,7 @@ Verwaltete Datenträger vereinfachen die Datenträgerverwaltung für IaaS-VMs du
 
 | Feature | Azure (global) | Azure Stack |
 | --- | --- | --- |
-|Verschlüsselung für ruhende Daten |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE)     |BitLocker-128-Bit-AES-Verschlüsselung      |
+|Verschlüsselung für ruhende Daten |Azure-Speicherdienstverschlüsselung (Storage Service Encryption, SSE), Azure Disk Encryption (ADE)     |BitLocker-128-Bit-AES-Verschlüsselung      |
 |Image          | Verwaltetes benutzerdefiniertes Image |Unterstützt|
 |Sicherungsoptionen | Azure Backup-Dienst |Noch nicht unterstützt |
 |Optionen für die Notfallwiederherstellung | Azure Site Recovery |Noch nicht unterstützt|
