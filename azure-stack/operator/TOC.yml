@@ -10,10 +10,6 @@
       href: compare-azure-azure-stack.md
     - name: Versionshinweise
       items:
-        - name: Updates und Wartungsrichtlinie
-          href: azure-stack-servicing-policy.md
-        - name: Checkliste für die Anwendung von Updates
-          href: azure-stack-release-notes-checklist.md
         - name: Sicherheitsupdates
           href: azure-stack-release-notes-security-updates-1907.md
         - name: Update 1907
@@ -171,12 +167,22 @@
           items:
             - name: Übersicht zum Verwalten von Updates
               href: azure-stack-updates.md
+            - name: Updates und Wartungsrichtlinie
+              href: azure-stack-servicing-policy.md
+            - name: Checkliste für die Anwendung von Updates
+              href: azure-stack-release-notes-checklist.md
+            - name: Planen eines Updates
+              href: azure-stack-update-plan.md
+            - name: Vorbereiten des Updatepakets
+              href: azure-stack-update-prepare-package.md
             - name: Anwenden von Updates
-              href: azure-stack-apply-updates.md
-            - name: Anwenden von OEM-Updates
-              href: azure-stack-update-oem.md
+              items:
+                - name: Anwenden von Updates
+                  href: azure-stack-apply-updates.md
+                - name: Anwenden von OEM-Updates
+                  href: azure-stack-update-oem.md
             - name: Überwachen des Updatestatus
-              href: azure-stack-monitor-update.md
+              href: azure-stack-update-monitor.md
         - name: Überwachen von Integrität und Warnungen
           href: azure-stack-monitor-health.md
         - name: Verwalten von Netzwerkressourcen
