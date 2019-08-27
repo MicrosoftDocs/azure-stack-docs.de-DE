@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Development Kit – Architektur | Microsoft-Dokumentation
+title: ASDK-Architektur | Microsoft-Dokumentation
 description: In diesem Artikel wird die Architektur des Azure Stack Development Kits (ASDK) beschrieben.
 services: azure-stack
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 06/28/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 4cd20ed4c76b062ea2fcfdf3d314ef2bcdecaff0
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 5a34061b1fa6cd30f3bbf9f9780b13c01f0a4866
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492344"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579085"
 ---
-# <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure Stack Development Kit – Architektur
+# <a name="asdk-architecture"></a>ASDK-Architektur
 Das Azure Stack Development Kit (ASDK) ist eine Bereitstellung von Azure Stack mit einem Knoten, die auf einem einzelnen Hostcomputer ausgeführt wird. Edge-Routingkomponenten werden auf dem Hostcomputer installiert, um NAT- und VPN-Funktionen für Azure Stack bereitzustellen. Azure Stack-Infrastrukturrollen werden auf der Hyper-V-Ebene des physischen Hostcomputers ausgeführt.
 
 
@@ -39,7 +39,7 @@ Das ASDK bietet Dienste unter Verwendung der folgenden auf dem Hostcomputer des 
 | **AzS-ERCS01** | Notfallwiederherstellungskonsolen-VM |
 | **AzS-GWY01** | Edge-Gateway-Dienste, z.B. VPN-Site-to-Site-Verbindungen für Mandantennetzwerke|
 | **AzS-NC01** | Netzwerkcontroller, der Azure Stack-Netzwerkdienste verwaltet  |
-| **AzS-SLB01** | Lastenausgleichs-Multiplexerdienste in Azure Stack für beide Mandanten und Azure Stack-Infrastrukturdienste  |
+| **AzS-SLB01** | Lastenausgleichs-Multiplexerdienste in Azure Stack für Mandanten und Azure Stack-Infrastrukturdienste  |
 | **AzS-SQL01** | Interner Datenspeicher für Azure Stack-Infrastrukturrollen  |
 | **AzS-WAS01** | Azure Stack-Verwaltungsportal und Azure Resource Manager-Dienste|
 | **AzS-WASP01**| Azure Stack-Benutzerportal (Mandantenportal) und Azure Resource Manager-Dienste|

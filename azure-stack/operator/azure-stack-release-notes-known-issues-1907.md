@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 41d07532960776cd5ed9312007877489e9ebbf20
-ms.sourcegitcommit: 83d9dbecd7334f37862e47ca028a50f8d7dafe2d
+ms.openlocfilehash: 0b305f07344540555b444017a04c1002bb8a08a8
+ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68738327"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896339"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Azure Stack 1907: Bekannte Probleme
 
@@ -107,6 +107,12 @@ In diesem Artikel werden die bekannten Probleme in Version 1907 von Azure Stack 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Im Benutzerportal wird auf dem Blatt **Verbindungen** eine Funktion namens **VPN-Problembehandlung** angezeigt. Diese Funktion wird zurzeit in Azure Stack nicht unterstützt.
 - Häufigkeit: Common
+
+### <a name="network-connection-type"></a>Netzwerkverbindungstyp
+
+- Geltungsbereich: Dieses Problem betrifft alle 1906- und 1907-Umgebungen. 
+- Ursache: Im Benutzerportal wird auf dem Blatt **AddConnection** eine Option für die Verwendung von **VNet-zu-VNet** angezeigt. Diese Funktion wird zurzeit in Azure Stack nicht unterstützt. 
+- Häufigkeit: Common 
 
 #### <a name="documentation"></a>Dokumentation
 

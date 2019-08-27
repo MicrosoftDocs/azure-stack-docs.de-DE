@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/20/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 24fc0f7993001ce95a21e175c84f37d755a5ce6c
-ms.sourcegitcommit: ec38ec569ad2193369c438f55e5c190aa5f0efd5
+ms.openlocfilehash: b9e1e9a1cdd0afe18a5395c99fb2eef932791667
+ms.sourcegitcommit: 1a8ebd8103608b5ee9e804d7015eefe05ef55185
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68956598"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69643847"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Erstellen und Veröffentlichen eines Marketplace-Elements
 
@@ -55,7 +55,7 @@ ms.locfileid: "68956598"
    >
    >
 
-8. Geben Sie in der Datei **manifest.json** für **name** den Namen des Marketplace-Elements ein. Geben Sie außerdem für **publisher** Ihren Namen oder Ihr Unternehmen ein.
+8. Geben Sie in der Datei **manifest.json** für **name** den Namen des Marketplace-Elements ein. Geben Sie außerdem für **publisher** Ihren Namen oder Ihr Unternehmen ein. Aktualisieren Sie vor dem Veröffentlichen des Images die Datei „manifest.json file“, und aktualisieren Sie die folgende Zeile: "name": "xxx". Achten Sie darauf, dass Sie für jede Imageversion einen anderen Namen verwenden.
 9. Fügen Sie unter **artifacts** für **name** und **path** die richtigen Informationen für die Azure Resource Manager-Vorlage ein, die Sie aufgenommen haben:
 
    ```json

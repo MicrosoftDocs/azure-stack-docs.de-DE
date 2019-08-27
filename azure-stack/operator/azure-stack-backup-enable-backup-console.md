@@ -12,16 +12,16 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: eefd393fa12814260711590f028c9a787811d8af
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 08/21/2019
+ms.openlocfilehash: d3ac538109f48e38f6483cd1ecae4896f1d3e635
+ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269026"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896381"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Aktivieren der Sicherung für Azure Stack über das Verwaltungsportal
 Aktivieren Sie den Infrastructure Backup-Dienst über das Verwaltungsportal, sodass Azure Stack Infrastruktursicherungen generieren kann. Mit diesen Sicherungen kann der Hardwarepartner bei einem [schwerwiegenden Fehler](./azure-stack-backup-recover-data.md) Ihre Umgebung mittels einer Cloudwiederherstellung wiederherstellen. Die Cloudwiederherstellung soll sicherstellen, dass die Anbieter und Benutzer sich nach Abschluss der Wiederherstellung wieder im Portal anmelden können. Auf diese Weise können Benutzer ihre Abonnements wiederherstellen, einschließlich RBAC-Berechtigungen (Role-Based Access Control) und -Rollen, ursprünglichen Plänen, Angeboten und zuvor definierten Compute-, Speicher-, Netzwerkkontingenten und Key Vault-Geheimnissen.
@@ -53,7 +53,7 @@ Administratoren und Benutzer sind für die Sicherung und Wiederherstellung von I
     > [!Note]  
     > Wenn Sie Sicherungen nach Ablauf ihrer Vermerkdauer archivieren möchten, achten Sie darauf, die Dateien zu sichern, bevor der Scheduler die Sicherungen löscht. Wenn Sie die Vermerkdauer reduzieren (z.B. von 7 auf 5 Tage) löscht der Scheduler alle Sicherungen, die älter als neue Vermerkdauer sind. Stellen Sie sicher, dass das Löschen von Sicherungen keine Probleme verursacht, bevor Sie diesen Wert aktualisieren. 
 
-9. Geben Sie in den Verschlüsselungseinstellungen ein Zertifikat im CER-Dateifeld „Zertifikat“ an. Sicherungsdateien werden mit dem öffentlichen Schlüssel im Zertifikat verschlüsselt. Sie sollten ein Zertifikat bereitstellen, das nur den öffentlichen Schlüsselteil enthält, wenn Sie die Sicherungseinstellungen konfigurieren. Nachdem Sie dieses Zertifikat zum ersten Mal festgelegt haben oder das Zertifikat in der Zukunft rotieren, können Sie nur den Fingerabdruck des Zertifikats anzeigen. Sie können die hochgeladene Zertifikatdatei nicht herunterladen oder anzeigen. Um die Zertifikatdatei zu erstellen, führen Sie den folgenden PowerShell-Befehl aus, um ein selbstsigniertes Zertifikat mit den öffentlichen und privaten Schlüsseln zu erstellen, und exportieren Sie ein Zertifikat mit nur dem öffentlichen Schlüsselteil.
+9. Geben Sie in den Verschlüsselungseinstellungen ein Zertifikat im CER-Dateifeld „Zertifikat“ an. Sicherungsdateien werden mit dem öffentlichen Schlüssel im Zertifikat verschlüsselt. Sie sollten ein Zertifikat bereitstellen, das nur den öffentlichen Schlüsselteil enthält, wenn Sie die Sicherungseinstellungen konfigurieren. Nachdem Sie dieses Zertifikat zum ersten Mal festgelegt haben oder das Zertifikat in der Zukunft rotieren, können Sie nur den Fingerabdruck des Zertifikats anzeigen. Sie können die hochgeladene Zertifikatdatei nicht herunterladen oder anzeigen. Um die Zertifikatdatei zu erstellen, führen Sie den folgenden PowerShell-Befehl aus, um ein selbstsigniertes Zertifikat mit den öffentlichen und privaten Schlüsseln zu erstellen, und exportieren Sie ein Zertifikat mit nur dem öffentlichen Schlüsselteil. Sie können das Zertifikat an jedem beliebigen Ort speichern, auf den Sie über das Verwaltungsportal zugreifen können.
 
     ```powershell
 
@@ -118,7 +118,7 @@ Neue Sicherungen beginnen mit der Verwendung des öffentlichen Schlüssels in de
 ![Azure Stack: Zertifikatfingerabdruck anzeigen](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>Abwärtskompatibilitätsmodus
-Wenn Sie die Sicherung vor der Aktualisierung auf 1901 konfiguriert haben, werden die Einstellungen ohne Änderungen im Verhalten übernommen. In diesem Fall wird der Verschlüsselungsschlüssel aus Gründen der Abwärtskompatibilität unterstützt. Sie haben die Möglichkeit, den Verschlüsselungsschlüssel zu aktualisieren oder zur Verwendung eines Zertifikats zu wechseln. Sie haben mindestens drei Releases Zeit, um die Aktualisierung des Verschlüsselungsschlüssels fortzusetzen. Nutzen Sie diesen Zeitraum, um zu einem Zertifikat überzugehen. Verwenden Sie zum Erstellen eines neuen Verschlüsselungsschlüssels das [Cmdlet „New-AzsEncryptionKeyBase64“](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
+Wenn Sie die Sicherung vor der Aktualisierung auf 1901 konfiguriert haben, werden die Einstellungen ohne Änderungen im Verhalten übernommen. In diesem Fall wird der Verschlüsselungsschlüssel aus Gründen der Abwärtskompatibilität unterstützt. Sie können den Verschlüsselungsschlüssel aktualisieren oder wechseln, um ein Zertifikat zu verwenden. Sie haben mindestens drei Releases Zeit, um die Aktualisierung des Verschlüsselungsschlüssels fortzusetzen. Nutzen Sie diesen Zeitraum, um zu einem Zertifikat überzugehen. Verwenden Sie zum Erstellen eines neuen Verschlüsselungsschlüssels das Cmdlet [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
 
 ![Azure Stack: Verwenden des Verschlüsselungsschlüssels im Abwärtskompatibilitätsmodus](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 

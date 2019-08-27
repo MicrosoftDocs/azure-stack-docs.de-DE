@@ -1,6 +1,6 @@
 ---
-title: Wiederherstellen von Azure App Service in Azure Stack | Microsoft-Dokumentation
-description: Ausführliche Anleitung zur Notfallwiederherstellung von App Service in Azure Stack
+title: App Service-Wiederherstellung in Azure Stack | Microsoft-Dokumentation
+description: In diesem Artikel wird die Notfallwiederherstellung für App Service in Azure Stack erläutert.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,23 +16,23 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: c302ad1188d52c86d2d42734fa9061820268d420
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 82498781e83aedf13a3ba33da24f484bc7e80d4b
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269221"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579028"
 ---
-# <a name="recovery-of-app-service-on-azure-stack"></a>Wiederherstellung von App Service in Azure Stack
+# <a name="app-service-recovery-on-azure-stack"></a>App Service-Wiederherstellung in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*  
 
-Dieses Dokument enthält Anweisungen zu den Aktionen, die Sie zur App Service-Notfallwiederherstellung ausführen müssen.
+Dieser Artikel enthält Anweisungen zu den Aktionen, die Sie zur App Service-Notfallwiederherstellung ausführen müssen.
 
 Die folgenden Aktionen müssen ausgeführt werden, um App Service in Azure Stack aus einer Sicherung wiederherzustellen:
-1.  Wiederherstellen der App Service-Datenbanken
-2.  Wiederherstellen des Inhalts der Dateiserverfreigabe
-3.  Wiederherstellen von App Service-Rollen und -Diensten
+1. Wiederherstellen der App Service-Datenbanken
+2. Wiederherstellen des Inhalts der Dateiserverfreigabe
+3. Wiederherstellen von App Service-Rollen und -Diensten
 
 Wenn Azure Stack-Speicher als Speicher für Funktionen-Apps verwendet wurde, müssen Sie zudem Schritte zum Wiederherstellen der Funktionen-Apps ausführen.
 
@@ -50,7 +50,7 @@ Nach dem [Vorbereiten der SQL Server-Instanz](azure-stack-app-service-before-yo
 3. Stellen Sie sicher, dass beide App Service-Datenbanken erfolgreich wiederhergestellt wurden, und beenden Sie SQL Server Management Studio.
 
 > [!NOTE]
-> Folgen Sie zum Wiederherstellen nach einem Fehler der Failoverclusterinstanz [diesen Anweisungen](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017). 
+> Informationen zur Wiederherstellung nach einem Fehler einer Failoverclusterinstanz finden Sie unter [Wiederherstellen nach einem Fehler der Failoverclusterinstanz](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017). 
 
 ## <a name="restore-the-app-service-file-share-content"></a>Wiederherstellen des Inhalts der App Service-Dateifreigabe
 Nach dem [Vorbereiten des Dateiservers](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server) zum Hosten der App Service-Dateifreigabe müssen Sie den Inhalt der Mandantendateifreigabe aus einer Sicherung wiederherstellen. Sie können die Dateien mit einer beliebigen Methode an den Speicherort der neu erstellten App Service-Dateifreigabe kopieren. Wenn Sie dieses Beispiel auf dem Dateiserver ausführen, werden PowerShell und Robocopy verwendet, um eine Verbindung mit einer Remotefreigabe herzustellen und die Dateien in die Freigabe zu kopieren:
@@ -63,7 +63,7 @@ robocopy /E $source $destination
 net use $source /delete
 ```
 
-Zusätzlich zum Kopieren des Inhalts der Dateifreigabe müssen Sie auch die Berechtigungen für die Dateifreigabe selbst zurücksetzen. Öffnen Sie dazu auf dem Dateiservercomputer eine Administratoreingabeaufforderung, und führen Sie die Datei **ReACL.cmd** aus. Die Datei **ReACL.cmd** finden Sie in den App Service-Installationsdateien im Verzeichnis **BCDR**.
+Zusätzlich zum Kopieren des Inhalts der Dateifreigabe müssen Sie auch die Berechtigungen für die Dateifreigabe selbst zurücksetzen. Öffnen Sie zum Zurücksetzen der Berechtigungen auf dem Dateiservercomputer eine Administratoreingabeaufforderung, und führen Sie die Datei **ReACL.cmd** aus. Die Datei **ReACL.cmd** finden Sie in den App Service-Installationsdateien im Verzeichnis **BCDR**.
 
 ## <a name="restore-app-service-roles-and-services"></a>Wiederherstellen von App Service-Rollen und -Diensten
 Nachdem die App Service-Datenbanken und der Inhalt der Dateifreigabe wiederhergestellt wurden, müssen Sie als Nächstes mithilfe von PowerShell die App Service-Rollen und -Dienste wiederherstellen. Mit den folgenden Schritten werden App Service-Geheimnisse und -Dienstkonfigurationen wiederhergestellt.  
@@ -71,7 +71,7 @@ Nachdem die App Service-Datenbanken und der Inhalt der Dateifreigabe wiederherg
 1. Melden Sie sich mit dem Kennwort, das Sie während der Installation von App Service angegeben haben, als Rollenadministrator (**roleadmin**)bei der App Service-Controller-VM **CN0-VM** an. 
     > [!TIP]
     > Sie müssen die Netzwerksicherheitsgruppe der VM ändern, um RDP-Verbindungen zuzulassen. 
-2. Kopieren Sie die Datei **SystemSecrets.JSON** lokal auf die Controller-VM. Den Pfad dieser Datei müssen Sie im nächsten Schritt als Parameter `$pathToExportedSecretFile` angeben. 
+2. Kopieren Sie die Datei **SystemSecrets.JSON** lokal auf die Controller-VM. Den Pfad dieser Datei müssen Sie im nächsten Schritt als Parameter `$pathToExportedSecretFile` angeben.
 3. Führen Sie die folgenden Befehle in einem PowerShell-Konsolenfenster mit erhöhten Rechten aus, um die App Service-Rollen und -Dienste wiederherzustellen:
 
     ```powershell
@@ -105,11 +105,11 @@ Nachdem die App Service-Datenbanken und der Inhalt der Dateifreigabe wiederherg
 > Es wird dringend empfohlen, diese PowerShell-Sitzung nach der Ausführung des Befehls zu schließen.
 
 ## <a name="restore-function-apps"></a>Wiederherstellen von Funktionen-Apps 
-Mit Ausnahme des Inhalts der Dateifreigabe unterstützt App Service für Azure Stack das Wiederherstellen von Mandantenbenutzer-Apps oder -daten nicht. Diese Apps und Daten müssen daher außerhalb der App Service-Sicherungs- und Wiederherstellungsvorgänge gesichert und wiederhergestellt werden. Wenn Azure Stack-Speicher als Speicher für Funktionen-Apps verwendet wurde, sollten zum Wiederherstellen verloren gegangener Daten die folgenden Schritte ausgeführt werden:
+Mit Ausnahme des Inhalts der Dateifreigabe unterstützt App Service für Azure Stack das Wiederherstellen von Mandantenbenutzer-Apps oder -daten nicht. Alle anderen Daten müssen daher außerhalb der App Service-Sicherungs- und Wiederherstellungsvorgänge gesichert und wiederhergestellt werden. Wenn Azure Stack-Speicher als Speicher für Funktionen-Apps verwendet wurde, sollten zum Wiederherstellen verloren gegangener Daten die folgenden Schritte ausgeführt werden:
 
 1. Erstellen Sie ein neues Speicherkonto für die Funktionen-App. Bei diesem Speicher kann es sich um Azure Stack-Speicher, Azure Storage oder beliebigen kompatiblen Speicher handeln.
 2. Rufen Sie die Verbindungszeichenfolge für den Speicher ab.
-3. Öffnen Sie das Funktionsportal, und navigieren Sie zur Funktionen-App.
+3. Öffnen Sie das Funktionsportal, und navigieren Sie zur Funktions-App.
 4. Navigieren Sie zur Registerkarte **Plattformfeatures**, und klicken Sie auf **Anwendungseinstellungen**.
 5. Ändern Sie **AzureWebJobsDashboard** und **AzureWebJobsStorage**, indem Sie die neue Verbindungszeichenfolge angeben, und klicken Sie auf **Speichern**.
 6. Wechseln Sie zu **Übersicht**.
