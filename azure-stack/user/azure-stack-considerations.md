@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 07/17/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: a7a61e8eef33ee6a6efb87001504fe5234e3cf16
-ms.sourcegitcommit: 2063332b4d7f98ee944dd1f443847eea70eb5614
+ms.openlocfilehash: fc04032f7741c61a9b2b86e23a9173ca268a1e11
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68303152"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008342"
 ---
 # <a name="differences-between-azure-stack-and-azure-when-using-services-and-building-apps"></a>Unterschiede zwischen Azure Stack und Azure beim Verwenden von Diensten und Erstellen von Apps
 
@@ -77,7 +77,7 @@ Azure Stack unterstützt bestimmte Versionen von Azure PowerShell und Azure-Dien
 Verwenden Sie [API-Versionsprofile](azure-stack-version-profiles.md), damit sichergestellt ist, dass Sie eine richtige Version von Azure PowerShell nutzen. Ermitteln Sie den verwendeten Azure Stack-Build, um das neueste verwendbare API-Versionsprofil zu bestimmen. Sie erhalten diese Informationen von Ihrem Azure Stack-Administrator.
 
 > [!NOTE]
-> Wenn Sie das Azure Stack Development Kit nutzen und über Administratorzugriff verfügen, können Sie den Azure Stack-Build ermitteln, indem Sie im Abschnitt [Bestimmen der aktuellen Version](../operator/azure-stack-updates.md#determine-the-current-version) die entsprechenden Schritte ausführen.
+> Wenn Sie das Azure Stack Development Kit nutzen und über Administratorzugriff verfügen, können Sie den Azure Stack-Build ermitteln, indem Sie im Abschnitt [Bestimmen der aktuellen Version](../operator/azure-stack-updates.md) die entsprechenden Schritte ausführen.
 
 Führen Sie für die anderen APIs den folgenden PowerShell-Befehl aus, um die Namespaces, Ressourcentypen und API-Versionen auszugeben, die in Ihrem Azure Stack-Abonnement unterstützt werden (unter Umständen bestehen auf Eigenschaftsebene noch Unterschiede). Damit dieser Befehl funktioniert, müssen Sie PowerShell für eine Azure Stack-Umgebung bereits [installiert](../operator/azure-stack-powershell-install.md) und [konfiguriert](azure-stack-powershell-configure-user.md) haben. Sie müssen auch über ein Abonnement für ein Azure Stack-Angebot verfügen.
 
