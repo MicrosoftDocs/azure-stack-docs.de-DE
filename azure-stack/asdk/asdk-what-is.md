@@ -1,6 +1,6 @@
 ---
-title: Einführung in das Azure Stack Development Kit (ASDK) | Microsoft-Dokumentation
-description: Beschreibt das ASDK sowie gängige Anwendungsfälle für die Evaluierung von Microsoft Azure Stack.
+title: Was ist das ASDK? | Microsoft-Dokumentation
+description: Hier erfahren Sie mehr über das Azure Stack Development Kit (ASDK) und seine Verwendung zum Auswerten von Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -17,26 +17,26 @@ ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 0c6019fd07b21bf82d32bc516a05c5d491041783
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 50a08480a098c9ca5a6d50e94dd6dc7dbfc78b09
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267228"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118618"
 ---
-# <a name="what-is-the-azure-stack-development-kit"></a>Was ist das Azure Stack Development Kit?
+# <a name="what-is-the-asdk"></a>Was ist das ASDK?
 [Integrierte Microsoft Azure Stack-Systeme](../operator/azure-stack-overview.md) haben eine Größe von 4 bis 16 Knoten, und der Support wird von einem Hardwarepartner und von Microsoft gemeinsam bereitgestellt. Mit integrierten Azure Stack-Systemen ermöglichen Sie neue Szenarien für Ihre Produktionsworkloads. Wenn Sie ein Azure Stack-Betreiber sind, der die Infrastruktur integrierter Systeme verwaltet und Dienste anbietet, hilft Ihnen die [Dokumentation für Betreiber](/azure-stack/operator) weiter.
 
-Das Azure Stack Development Kit (ASDK) ist eine Azure Stack-Bereitstellung mit einem einzelnen Knoten, die Sie **kostenlos** herunterladen und verwenden können. Alle ASDK-Komponenten werden auf virtuellen Computern installiert, die auf einem einzelnen Hostservercomputer ausgeführt werden, der die [Mindesthardwareanforderungen](asdk-deploy-considerations.md#hardware) erfüllen muss. Das ASDK stellt eine *produktionsfremde* Umgebung bereit, in der Sie anhand von mit Azure konsistenten APIs und Tools Azure Stack evaluieren und moderne Anwendungen entwickeln können. 
+Das Azure Stack Development Kit (ASDK) ist eine Azure Stack-Bereitstellung mit einem einzelnen Knoten, die Sie **kostenlos** herunterladen und verwenden können. Alle ASDK-Komponenten werden auf virtuellen Computern installiert, die auf einem einzelnen Hostcomputer ausgeführt werden, der die [Mindesthardwareanforderungen](asdk-deploy-considerations.md#hardware) erfüllen muss. Das ASDK stellt eine *produktionsfremde* Umgebung bereit, in der Sie anhand von mit Azure konsistenten APIs und Tools Azure Stack evaluieren und moderne Anwendungen entwickeln können. 
 
 > [!IMPORTANT]
 > Das ASDK ist nicht für die Verwendung in einer Produktionsumgebung vorgesehen, und diese Art der Verwendung wird nicht unterstützt.
 
-Da alle ASDK-Komponenten auf einem einzelnen Development Kit-Hostcomputer bereitgestellt werden, sind die verfügbaren physischen Ressourcen begrenzt. Bei ASDK-Bereitstellungen befinden sich die virtuellen Computer der Azure Stack-Infrastruktur und die virtuellen Mandantencomputer auf dem gleichen Servercomputer. Diese Konfiguration ist nicht für die Beurteilung von Skalierung oder Leistung vorgesehen.
+Da alle ASDK-Komponenten auf einem einzelnen Hostcomputer bereitgestellt werden, sind die verfügbaren physischen Ressourcen begrenzt. Bei ASDK-Bereitstellungen befinden sich die virtuellen Computer der Azure Stack-Infrastruktur und die virtuellen Mandantencomputer auf dem gleichen Servercomputer. Diese Konfiguration ist nicht für die Auswertung von Skalierung oder Leistung vorgesehen.
 
 Das ASDK ist als Azure-konsistente Hybrid Cloud-Umgebung für folgende Benutzer konzipiert:
 - **Administratoren** (Azure Stack-Betreiber): Das ASDK eignet sich hervorragend, um sich über die verfügbaren Azure Stack-Dienste zu informieren und sie zu evaluieren.
-- **Entwickler:** Das ASDK kann für die lokale Entwicklung von Hybridanwendungen und modernen Anwendungen verwendet werden (Entwicklungs-/Testumgebungen). Dies ermöglicht die Wiederholung der Entwicklungserfahrung vor der Azure Stack-Bereitstellung in der Produktionsumgebung (oder parallel dazu). 
+- **Entwickler:** Das ASDK kann für die lokale Entwicklung von Hybrid-Apps und modernen Apps verwendet werden (Entwicklungs-/Testumgebungen). Diese Flexibilität ermöglicht die Wiederholung der Entwicklungserfahrung vor der Azure Stack-Bereitstellung in der Produktionsumgebung (oder parallel dazu).
 
 Weitere Informationen zum ASDK erhalten Sie im folgenden kurzen Video:
 
@@ -51,7 +51,7 @@ Zwischen ASDK-Bereitstellungen mit einem einzelnen Knoten und Azure Stack-Bereit
 |**Skalieren**|Alle Komponenten werden auf einem Servercomputer mit einem einzelnen Knoten installiert.|Kann zwischen 4 und 16 Knoten umfassen.|
 |**Resilienz**|Die Konfiguration mit einem einzelnen Knoten bietet keine Hochverfügbarkeit.|Funktionen für [Hochverfügbarkeit](../operator/azure-stack-overview.md#providing-high-availability) werden unterstützt.|
 |**Netzwerk**|Der ASDK-Host leitet den gesamten ASDK-Netzwerkdatenverkehr weiter. Es müssen keine zusätzlichen Switchanforderungen erfüllt werden.|Bei Bereitstellungen mit mehreren Knoten ist eine komplexere [Netzwerkroutinginfrastruktur](../operator/azure-stack-network.md#network-infrastructure) erforderlich, einschließlich TOR-Switches (Top-Of-Rack), BMC-Switches (Baseboard Management Controller, Baseboard-Verwaltungscontroller) und Grenzswitches (Datencenter-Netzwerkswitches).|
-|**Patch- und Updateprozess**|Wenn Sie zu einer neuen ASDK-Version wechseln möchten, müssen Sie das ASDK erneut auf dem Development Kit-Hostcomputer bereitstellen.|Zum Aktualisieren der installierten Azure Stack-Version wird der Prozess zum [Patchen und Aktualisieren](../operator/azure-stack-updates.md) verwendet.|
+|**Patch- und Updateprozess**|Wenn Sie zu einer neuen ASDK-Version wechseln möchten, müssen Sie das ASDK erneut auf dem ASDK-Hostcomputer bereitstellen.|Zum Aktualisieren der installierten Azure Stack-Version wird der Prozess zum [Patchen und Aktualisieren](../operator/azure-stack-updates.md) verwendet.|
 |**Unterstützung**|MSDN-Azure Stack-Forum. Microsoft-Kundendienst und -Support (Customer Service and Support, CSS) steht für produktionsfremde Umgebungen *nicht* zur Verfügung.|[MSDN-Azure Stack-Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) und uneingeschränkter CSS-Support.|
 | | |
 
@@ -81,4 +81,4 @@ Die Unterstützung von Azure-Diensten in Azure Stack wird kontinuierlich weiter 
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-Um erste Schritte in Azure Stack ausführen zu können, müssen Sie zunächst [das neueste ASDK](asdk-download.md) herunterladen und den ASDK-Hostcomputer vorbereiten. Nachdem Sie den Development Kit-Host vorbereitet haben, können Sie das ASDK installieren und sich beim Administrator- und Benutzerportal anmelden, um mit der Verwendung von Azure Stack zu beginnen.
+Um erste Schritte in Azure Stack ausführen zu können, müssen Sie zunächst [das neueste ASDK](asdk-download.md) herunterladen und den ASDK-Hostcomputer vorbereiten. Anschließend können Sie das ASDK installieren und sich beim Administrator- und Benutzerportal anmelden, um Azure Stack zu verwenden.
