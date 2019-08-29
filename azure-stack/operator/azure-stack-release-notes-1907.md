@@ -16,12 +16,12 @@ ms.date: 08/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 08/16/2019
-ms.openlocfilehash: 2f840fdd06caf92dcadb8e49d26d7570d9d6aa71
-ms.sourcegitcommit: 54448d4518c7d9145b8755f51b18d554b3190810
+ms.openlocfilehash: 526343889bbd5cc784ebb87c39603e2152a98f3b
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69548292"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008766"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack-Update 1907
 
@@ -143,7 +143,7 @@ Azure Stack-Hotfixes gelten nur für integrierte Azure Stack-Systeme. Versuchen 
 Version 1907 von Azure Stack muss auf Version 1906 mit den folgenden Hotfixes angewendet werden:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack-Hotfix 1.1906.11.52](https://support.microsoft.com/help/4513119)
+- [Azure Stack-Hotfix 1.1906.12.54](https://support.microsoft.com/help/4518365)
 
 ### <a name="after-successfully-applying-the-1907-update"></a>Nach erfolgreicher Anwendung des Updates 1907
 

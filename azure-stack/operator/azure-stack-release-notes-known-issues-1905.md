@@ -16,12 +16,12 @@ ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 40b2eb51b3e05a25706037f404a53d86fa7cae5a
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 619bd20b3ed9affb93bceed7b253c15bdb1e3609
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419580"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008731"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905: Bekannte Probleme
 
@@ -43,7 +43,7 @@ In diesem Artikel werden die bekannten Probleme in Version 1905 von Azure Stack
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Wenn Sie versuchen, das Azure Stack-Update 1905 zu installieren, wird für den Status des Updates möglicherweise ein Fehler ausgegeben und der Zustand in **PreparationFailed** geändert. Der Grund dafür ist, dass der Updateressourcenanbieter (Update Resource Provider, URP) die Dateien aus dem Speichercontainer nicht ordnungsgemäß auf eine Infrastrukturfreigabe zur Verarbeitung übertragen kann. Da das Updatepaket 1905 größer als vorherige Updatepakete ist, kann dieses Problem häufiger auftreten.
-- Abhilfe: Ab Version 1901 (1.1901.0.95) können Sie dieses Problem umgehen, indem Sie auf **Jetzt aktualisieren** (nicht **Fortsetzen**) klicken. Der URP bereinigt dann die Dateien aus dem vorherigen Versuch und startet den Download neu. Falls das Problem weiterhin besteht, empfehlen wir Ihnen das manuelle Hochladen des Updatepakets gemäß der Anleitung im Abschnitt [Importieren und Installieren von Updates](azure-stack-apply-updates.md#import-and-install-updates).
+- Abhilfe: Ab Version 1901 (1.1901.0.95) können Sie dieses Problem umgehen, indem Sie auf **Jetzt aktualisieren** (nicht **Fortsetzen**) klicken. Der URP bereinigt dann die Dateien aus dem vorherigen Versuch und startet den Download neu. Falls das Problem weiterhin besteht, empfehlen wir Ihnen das manuelle Hochladen des Updatepakets gemäß der Anleitung im Abschnitt [Importieren und Installieren von Updates](azure-stack-apply-updates.md).
 - Häufigkeit: Common
 
 ## <a name="portal"></a>Portal
