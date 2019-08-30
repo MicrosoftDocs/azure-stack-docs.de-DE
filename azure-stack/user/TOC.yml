@@ -184,7 +184,7 @@
                   href: azure-stack-metrics-supported.md
                 - name: Nutzen von Azure-Überwachungsdaten
                   href: azure-stack-metrics-monitor.md
-        - name: Verwenden von Lösungsvorlagen
+        - name: Bereitstellen von Add-On-Diensten
           items:
             - name: Bereitstellen von Ethereum
               href: azure-stack-ethereum.md
