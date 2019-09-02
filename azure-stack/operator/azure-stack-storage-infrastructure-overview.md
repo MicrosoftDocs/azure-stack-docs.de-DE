@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4c57cad7a5b002e6c73c0555c450a8103eaf8aa4
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: c2a61e165ee64c4b0ee91fbe387973aaa5039f46
+ms.sourcegitcommit: 9cb82df1eccb0486bcabec0bd674162d4820c00c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418002"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060221"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Verwalten der Speicherinfrastruktur für Azure Stack
 
@@ -83,7 +83,7 @@ Volumes unter „Direkte Speicherplätze“ bieten Resilienz als Schutz vor Hard
 
 ![Azure Stack-Speicherinfrastruktur](media/azure-stack-storage-infrastructure-overview/image5.png)
 
-Die Spiegelung ermöglicht Fehlertoleranz, indem mehrere Kopien aller Daten aufbewahrt werden. Das Striping und die Anordnung dieser Daten ist nicht trivial (weitere Informationen in diesem Blog), aber es lässt sich festhalten, dass alle per Spiegelung gespeicherten Daten vollständig mehrfach geschrieben werden. Jede Kopie wird auf andere physische Hardware (unterschiedliche Laufwerke von nicht identischen Servern) geschrieben, für die angenommen wird, dass sie nicht gemeinsam ausfallen. Bei der Drei-Wege-Spiegelung können mindestens zwei gleichzeitige Hardwareprobleme (Laufwerk oder Server) problemlos toleriert werden. Wenn Sie beispielsweise einen Server neu starten und plötzlich ein anderes Laufwerk bzw. ein Server ausfällt, bleiben alle Daten geschützt und sind ohne Unterbrechung zugänglich.
+Die Spiegelung ermöglicht Fehlertoleranz, indem mehrere Kopien aller Daten aufbewahrt werden. Das Striping und die Anordnung dieser Daten sind nicht trivial, aber es lässt sich festhalten, dass alle per Spiegelung gespeicherten Daten vollständig mehrfach geschrieben werden. Jede Kopie wird auf andere physische Hardware (unterschiedliche Laufwerke von nicht identischen Servern) geschrieben, für die angenommen wird, dass sie nicht gemeinsam ausfallen. Bei der Drei-Wege-Spiegelung können mindestens zwei gleichzeitige Hardwareprobleme (Laufwerk oder Server) problemlos toleriert werden. Wenn Sie beispielsweise einen Server neu starten und plötzlich ein anderes Laufwerk bzw. ein Server ausfällt, bleiben alle Daten geschützt und sind ohne Unterbrechung zugänglich.
 
 ## <a name="volume-states"></a>Volumezustände
 

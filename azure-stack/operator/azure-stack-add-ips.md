@@ -1,6 +1,6 @@
 ---
 title: Hinzufügen öffentlicher IP-Adressen in Azure Stack | Microsoft Docs
-description: Erfahren Sie, wie Sie Azure Stack weitere öffentliche IP-Adressen hinzufügen können.
+description: Erfahren Sie, wie Sie Azure Stack öffentliche IP-Adressen hinzufügen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,44 +16,44 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 54caca10d729968f4c7f05dea456ee13056e4e7e
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 6d99e5b293f86f4bdb62d35fc111054f12d57172
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131052"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118726"
 ---
 # <a name="add-public-ip-addresses"></a>Hinzufügen öffentlicher IP-Adressen
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*  
 
-Erfahren Sie, wie Sie Azure Stack weitere öffentliche IP-Adressen hinzufügen können.  In diesem Artikel beziehen wir uns auf die externen Adressen als öffentliche IP-Adressen, aber in Azure Stack soll dies das Hinzufügen von IP-Adressblöcken zu Ihrem externen Netzwerk bedeuten.  Ob dieses externe Netzwerk öffentlich internetroutingfähig ist oder sich in einem Intranet befindet und einen privaten Adressraum verwendet, spielt für die Zwecke dieses Artikels keine Rolle.  Die Schritte sind identisch. 
+In diesem Artikel werden externe Adressen als öffentliche IP-Adressen bezeichnet. Im Zusammenhang mit Azure Stack ist eine öffentliche IP-Adresse eine IP-Adresse, auf die von außerhalb von Azure Stack zugegriffen werden kann. Ob dieses externe Netzwerk öffentlich internetroutingfähig ist oder sich in einem Intranet befindet und einen privaten Adressraum verwendet, spielt für die Zwecke dieses Artikels keine Rolle, da die Schritte identisch sind.
 
 ## <a name="add-a-public-ip-address-pool"></a>Hinzufügen eines öffentlichen IP-Adresspools
-Sie können Ihrem Azure Stack-System jederzeit nach der erstmaligen Bereitstellung des Azure Stack-Systems öffentliche IP-Adressen hinzufügen. Schauen Sie sich an, wie Sie die [Nutzung öffentlicher IP-Adressen anzeigen](azure-stack-viewing-public-ip-address-consumption.md) können, um zu sehen, welche aktuelle Nutzung und Verfügbarkeit öffentlicher IP-Adressen in Ihrem Azure Stack vorliegt.
+Sie können Ihrem Azure Stack-System nach der erstmaligen Bereitstellung jederzeit öffentliche IP-Adressen hinzufügen. Sehen Sie sich an, wie Sie die [Nutzung öffentlicher IP-Adressen anzeigen](azure-stack-viewing-public-ip-address-consumption.md) können, um zu sehen, welche aktuelle Nutzung und Verfügbarkeit öffentlicher IP-Adressen in Ihrem Azure Stack vorliegt.
 
-Auf Übersichtsebene sieht der Vorgang des Hinzufügens eines neuen öffentlichen IP-Adressblocks zu Azure Stack folgendermaßen aus:
+Ganz allgemein sieht der Vorgang des Hinzufügens eines neuen öffentlichen IP-Adressblocks zu Azure Stack folgendermaßen aus:
 
  ![Hinzufügen eines IP-Datenflusses](media/azure-stack-add-ips/flow.PNG)
 
 ## <a name="obtain-the-address-block-from-your-provider"></a>Abrufen des Adressblocks von Ihrem Anbieter
-Zunächst müssen Sie den Adressblock abrufen, den Sie Azure Stack hinzufügen möchten.  Je nachdem, woher Sie Ihren Adressblock beziehen, müssen Sie die Vorlaufzeit berücksichtigen und diese mit der Rate abgleichen, mit der Sie öffentliche IP-Adressen in Azure Stack nutzen.  
+Zunächst müssen Sie den Adressblock abrufen, den Sie Azure Stack hinzufügen möchten. Je nachdem, woher Sie Ihren Adressblock beziehen, müssen Sie die Vorlaufzeit berücksichtigen und diese mit der Rate abgleichen, mit der Sie öffentliche IP-Adressen in Azure Stack nutzen.
 
 > [!IMPORTANT]
-> Azure Stack akzeptiert jeden von Ihnen bereitgestellten Adressblock, sofern es sich um einen gültigen Adressblock handelt und er sich nicht mit einem vorhandenen Adressbereich in Azure Stack überschneidet.  Stellen Sie sicher, dass Sie einen gültigen Adressblock erhalten, der routingfähig ist und nicht mit dem externen Netzwerk überlappt, mit dem Azure Stack verbunden ist.  Nachdem Sie den Bereich Azure Stack hinzugefügt haben, können Sie ihn nicht mehr entfernen.
+> Azure Stack akzeptiert jeden von Ihnen bereitgestellten Adressblock, sofern es sich um einen gültigen Adressblock handelt und er sich nicht mit einem vorhandenen Adressbereich in Azure Stack überschneidet. Stellen Sie sicher, dass Sie einen gültigen Adressblock erhalten, der routingfähig ist und nicht mit dem externen Netzwerk überlappt, mit dem Azure Stack verbunden ist. Nachdem Sie den Bereich Azure Stack hinzugefügt haben, können Sie ihn nicht mehr entfernen.
 
 ## <a name="add-the-ip-address-range-to-azure-stack"></a>Hinzufügen des IP-Adressbereichs zu Azure Stack
 
-1. Navigieren Sie in einem Internetbrowser zu Ihrem Verwaltungsportaldashboard.  In diesem Beispiel verwenden wir https://adminportal.local.azurestack.external.  
-2.  Melden Sie sich als Cloudoperator am Azure Stack-Verwaltungsportal an.
-3.  Suchen Sie im Standarddashboard nach der Liste „Regionsverwaltung“, und wählen Sie die Region aus, die Sie verwalten möchten (beispielsweise „lokal“).
-4.  Suchen Sie nach der Kachel „Ressourcenanbieter“, und klicken Sie auf den Netzwerkressourcenanbieter.
-5.  Klicken Sie auf die Kachel für die Nutzung öffentlicher IP-Pools.
-6.  Klicken Sie auf die Schaltfläche „IP-Pool hinzufügen“.
-7.  Geben Sie einen Namen für den IP-Pool an.  Der von Ihnen ausgewählte Name dient nur dazu, den IP-Pool leicht zu identifizieren, sodass Sie einen beliebigen Namen verwenden können.  Es hat sich als bewährte Methode herausgestellt, den gleichen Namen wie der Adressbereich zu verwenden, aber das ist nicht erforderlich.
-8.   Geben Sie den Adressblock in CIDR-Notation ein, den Sie hinzufügen möchten.  Beispiel:  192.168.203.0/24
-9.  Wenn Sie einen gültigen CIDR-Bereich im Feld „Adressbereich“ (CIDR-Block) angeben, werden die Felder „IP-Startadresse“, „IP-Endadresse“ und „Verfügbare IP-Adressen“ automatisch mit Daten aufgefüllt.  Sie sind schreibgeschützt und werden automatisch generiert, sodass Sie diese Angaben nicht ändern können, ohne den Wert im Feld „Adressbereich“ zu ändern.
-10. Nach dem Überprüfen der Informationen auf dem Blatt und dem Bestätigen, dass alle Angaben richtig sind, klicken Sie auf „OK“, um die Änderung zu übernehmen und den Adressbereich Azure Stack hinzuzufügen.
+1. Wechseln Sie in einem Browser zu Ihrem Dashboard im Admin-Portal. In diesem Beispiel verwenden wir https://adminportal.local.azurestack.external.
+2. Melden Sie sich beim Azure Stack-Verwaltungsportal als Cloudoperator an.
+3. Suchen Sie auf dem Standarddashboard nach der Liste „Regionsverwaltung“, und klicken Sie auf die Region, die Sie verwalten möchten. In diesem Beispiel verwenden wir die lokale Region.
+4. Suchen Sie nach der Kachel „Ressourcenanbieter“, und klicken Sie auf den Netzwerkressourcenanbieter.
+5. Klicken Sie auf die Kachel für die Nutzung öffentlicher IP-Pools.
+6. Klicken Sie auf die Schaltfläche „IP-Pool hinzufügen“.
+7. Geben Sie einen Namen für den IP-Pool an. Der von Ihnen ausgewählte Name hilft Ihnen dabei, den IP-Pool einfacher zu identifizieren. Es hat sich als bewährte Methode herausgestellt, den gleichen Namen wie der Adressbereich zu verwenden, aber das ist nicht erforderlich.
+8. Geben Sie den Adressblock, den Sie hinzufügen möchten, in CIDR-Notation ein. Beispiel:  192.168.203.0/24
+9. Wenn Sie einen gültigen CIDR-Bereich im Feld „Adressbereich“ (CIDR-Block) angeben, werden die Felder „IP-Startadresse“, „IP-Endadresse“ und „Verfügbare IP-Adressen“ automatisch mit Daten aufgefüllt. Diese Felder sind schreibgeschützt und werden automatisch generiert, sodass Sie diese Angaben nicht ändern können, ohne den Wert im Feld „Adressbereich“ zu ändern.
+10. Nach dem Überprüfen der Informationen auf dem Blatt und dem Bestätigen, dass alle Angaben richtig sind, klicken Sie auf **OK**, um die Änderung zu übernehmen und Azure Stack den Adressbereich hinzuzufügen.
 
 
 ## <a name="next-steps"></a>Nächste Schritte 
-[Überprüfen von Knotenaktionen für Skalierungseinheiten](azure-stack-node-actions.md) 
+[Überprüfen von Knotenaktionen für Skalierungseinheiten](azure-stack-node-actions.md)

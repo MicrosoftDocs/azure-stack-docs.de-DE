@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 329ef95f7902f3fe6dfcdd71b599675fdf7c6286
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.openlocfilehash: 88b07c5c3325263e068de49b78df25d17861a37e
+ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68806936"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70064184"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Verwenden von Azure Monitor in Azure Stack
 
@@ -40,7 +40,7 @@ Azure Monitor ist ein Plattformdienst, mit dem Sie Ihre Azure-Ressourcen von ein
 
 Registrieren Sie den Ressourcenanbieter **Microsoft.insights** in den Einstellungen für die Angebotsressource Ihres Abonnements. Sie können überprüfen, ob der Ressourcenanbieter in dem mit Ihrem Abonnement verknüpften Angebot verfügbar ist:
 
-1. Öffnen Sie das Azure Stack-Administratorportal.
+1. Öffnen Sie das Azure Stack-Benutzerportal.
 2. Wählen Sie **Angebote** aus.
 3. Wählen Sie das Angebot aus, das dem Abonnement zugeordnet ist.
 4. Wählen Sie unter **Einstellungen** die Option **Ressourcenanbieter** aus. 
@@ -123,7 +123,7 @@ Einige Beispiele für Visualisierungsmethoden:
 
 Sie können mit Nachverfolgung, Routing und Abfragen von Daten mithilfe einer der folgenden Methoden arbeiten. Manche Methoden sind unter Umständen für bestimmte Aktionen oder Datentypen nicht verfügbar. 
 
- - [Azure Stack-Portal](azure-stack-use-portal.md)
+ - [Azure Stack-Benutzerportal](azure-stack-use-portal.md)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [Plattformübergreifende Befehlszeilenschnittstelle](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [REST-API](https://docs.microsoft.com/rest/api/monitor)

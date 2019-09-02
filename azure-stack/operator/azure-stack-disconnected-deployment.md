@@ -16,12 +16,12 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: a3986bcdff911fb70957dcb7529a07f77b586c0a
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 11bf3bd4cc670d45fc4a4c9d1421fc0c25440726
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131510"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118677"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Planungsentscheidungen zu nicht mit Azure verbundenen Bereitstellungen für in Azure Stack integrierte Systeme
 Nachdem Sie entschieden haben, [wie Sie Azure Stack in Ihre Hybrid Cloud-Umgebung integrieren](azure-stack-connection-models.md), können Sie Ihre Azure Stack-Bereitstellungsentscheidungen abschließen.
@@ -52,7 +52,7 @@ Azure Stack wurde so konzipiert, dass die Lösung am besten funktioniert, wenn s
 |App-Dienste|Beeinträchtigt: WebApps erfordern möglicherweise Internetzugriff für aktualisierte Inhalte.|
 |Befehlszeilenschnittstelle (Command Line Interface, CLI)|Beeinträchtigt: Die Befehlszeilenschnittstelle bietet weniger Funktionalität in Bezug auf die Authentifizierung und Bereitstellung von Dienstprinzipalen.|
 |Visual Studio: Cloud Discovery|Beeinträchtigt: Cloud Discovery ermittelt entweder andere Clouds oder funktioniert überhaupt nicht.|
-|Visual Studio: AD FS|Beeinträchtigt: Nur Visual Studio Enterprise unterstützt AD FS.
+|Visual Studio: AD FS|Beeinträchtigt: Nur Visual Studio Enterprise und Visual Studio Code unterstützen die AD FS-Authentifizierung.
 Telemetrie|Nicht verfügbar: Telemetriedaten für Azure Stack sowie alle Katalogpakete von Drittanbietern, die von Telemetriedaten abhängig sind.|
 |Zertifikate|Nicht verfügbar: Im Kontext von HTTPS ist eine Internetverbindung für die Dienste Zertifikatsperrliste (Certificate Revocation List, CRL) und Online Certificate Status-Protokoll (OSCP) erforderlich.|
 |Key Vault|Beeinträchtigt: Ein typischer Anwendungsfall für Key Vault ist das Lesen von Geheimnissen durch eine Anwendung zur Laufzeit. Dazu benötigt die Anwendung einen Dienstprinzipal im Verzeichnis. In Azure Active Directory ist es normalen Benutzern (die keine Administratoren sind) standardmäßig erlaubt, Dienstprinzipale hinzuzufügen. In AD (bei Verwenden von AD FS) dürfen sie das nicht. Dies stellt ein Hindernis für die Benutzer dar, da stets ein Verzeichnisadministrator benötigt wird, um eine Anwendung hinzuzufügen.| 

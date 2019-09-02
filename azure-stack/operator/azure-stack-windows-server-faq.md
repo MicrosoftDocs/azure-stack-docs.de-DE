@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2019
+ms.date: 08/23/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 177d18261d8a85807826226b0dcabdfd03e87135
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.openlocfilehash: 21364595b30c62f47c293e38bdcb9c5663c56e90
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68806897"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008318"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Häufig gestellte Fragen zum Azure Stack-Marketplace für Windows Server
 
@@ -53,11 +53,29 @@ Wenn Sie beide Versionen des Images herunterladen, ist nur die neueste Version f
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Was geschieht, wenn mein Benutzer fälschlicherweise das Kontrollkästchen „Ich besitze eine Lizenz“ in den vorherigen Windows-Builds aktiviert hat, obwohl er keine Lizenz besitzt?
 
-Weitere Informationen finden Sie unter [Konvertieren von Windows Server-VMs mit BYOL zurück zur nutzungsbasierten Bezahlung](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1).
+Durch Ausführen des folgenden Skripts können Sie das Lizenzmodellattribut ändern, um vom BYOL-Modell (Bring Your Own License) zum Modell mit nutzungsbasierter Bezahlung (Pay As You Go) zu wechseln:
+
+```powershell
+vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+```
+
+Sie können den Lizenztyp Ihrer VM überprüfen, indem Sie die folgenden Befehle ausführen. Wenn als Lizenzmodell **Windows_Server** angegeben ist, wird Ihnen die Windows-Lizenz gemäß dem Modell mit nutzungsbasierter Bezahlung in Rechnung gestellt:
+
+```powershell
+$vm | ft Name, VmId,LicenseType,ProvisioningState
+```
 
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Was geschieht, wenn wir ein älteres Image besitzen und mein Benutzer vergessen hat, das Kontrollkästchen „Ich besitze eine Lizenz“ zu aktivieren, oder wir unsere eigenen Images verwenden und über Enterprise Agreement-Berechtigung verfügen?
 
-Weitere Informationen finden Sie unter [Konvertieren einer vorhandenen Windows Server-VM in BYOL](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server). Beachten Sie, dass der Azure-Hybridvorteil zwar nicht für Azure Stack gilt, diese Einstellung sich jedoch auf diesen Dienst auswirkt.
+Durch Ausführen der folgenden Befehle können Sie das Lizenzmodellattribut ändern, um auf das BYOL-Modell (Bring Your Own License) umzustellen:
+
+```powershell
+$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "None"
+Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+```
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Was passiert mit anderen VMs, die Windows Server verwenden, z.B. SQL Server oder Machine Learning Server?
 

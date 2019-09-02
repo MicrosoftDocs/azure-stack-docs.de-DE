@@ -1,6 +1,6 @@
 ---
-title: Konfigurationen nach der Bereitstellung für das Azure Stack Development Kit (ASDK) | Microsoft-Dokumentation
-description: Dieser Artikel beschreibt die empfohlenen Konfigurationsänderungen, die nach der Installation des Azure Stack Development Kits (ASDK) vorgenommen werden müssen.
+title: Konfigurationen nach der Bereitstellung für das ASDK | Microsoft-Dokumentation
+description: Erfahren Sie etwas über die empfohlenen Konfigurationsänderungen, die nach der Installation des Azure Stack Development Kits (ASDK) vorgenommen werden müssen.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,16 +16,16 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: cbf9872fa75013fdb3e933c102b813924d396a83
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.openlocfilehash: 111e8e6cb72baac64229e4808003818efece54cd
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692091"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025881"
 ---
-# <a name="post-asdk-installation-configuration-tasks"></a>Konfigurationsaufgaben nach der Installation des ASDK
+# <a name="post-deployment-configurations-for-asdk"></a>Konfigurationen nach der Bereitstellung für das ASDK
 
-Nach dem [Installieren des Azure Stack Development Kit (ASDK)](asdk-install.md) sollten Sie einige nach der Installation empfohlene Konfigurationsänderungen vornehmen, während Sie auf dem ASDK-Hostcomputer als „AzureStack\AzureStackAdmin“ angemeldet sind.
+Nach dem [Installieren des Azure Stack Development Kit (ASDK)](asdk-install.md) sollten Sie einige nach der Bereitstellung empfohlene Konfigurationsänderungen vornehmen, während Sie auf dem ASDK-Hostcomputer als „AzureStack\AzureStackAdmin“ angemeldet sind.
 
 ## <a name="install-azure-stack-powershell"></a>Installieren von Azure Stack-PowerShell
 
@@ -37,14 +37,14 @@ PowerShell-Befehle für Azure Stack werden über den PowerShell-Katalog installi
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
-Sie können API-Versionsprofile verwenden, um mit Azure Stack kompatible AzureRM-Module anzugeben.  API-Versionsprofile bieten eine Möglichkeit, Versionsunterschiede zwischen Azure und Azure Stack zu verwalten. Ein API-Versionsprofil ist eine Gruppe von AzureRM-PowerShell-Modulen mit spezifischen API-Versionen. Das über den PowerShell-Katalog verfügbare Modul **AzureRM.BootStrapper** stellt PowerShell-Cmdlets bereit, die für die Arbeit mit API-Versionsprofilen erforderlich sind.
+Verwenden Sie API-Versionsprofile, um mit Azure Stack kompatible AzureRM-Module anzugeben.  API-Versionsprofile bieten eine Möglichkeit, Versionsunterschiede zwischen Azure und Azure Stack zu verwalten. Ein API-Versionsprofil ist eine Gruppe von AzureRM-PowerShell-Modulen mit spezifischen API-Versionen. Das über den PowerShell-Katalog verfügbare Modul **AzureRM.BootStrapper** stellt PowerShell-Cmdlets bereit, die für die Arbeit mit API-Versionsprofilen erforderlich sind.
 
 Sie können das aktuelle Azure Stack PowerShell-Modul mit oder ohne Internetverbindung mit dem ASDK-Hostcomputer installieren:
 
 > [!IMPORTANT]
 > Vor der Installation der erforderlichen Version [deinstallieren Sie unbedingt alle vorhandenen Azure PowerShell-Module](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
 
-- **Mit Internetverbindung** auf dem ASDK-Hostcomputer. Führen Sie zum Installieren dieser Module in Ihrer Development Kit-Installation das folgende PowerShell-Skript aus:
+- **Mit Internetverbindung** auf dem ASDK-Hostcomputer: Führen Sie zum Installieren dieser Module in Ihrer ASDK-Installation das folgende PowerShell-Skript aus:
 
 
   ```powershell  
@@ -61,7 +61,7 @@ Sie können das aktuelle Azure Stack PowerShell-Modul mit oder ohne Internetverb
 
   War die Installation erfolgreich, werden die AzureRM- und AzureStack-Module in der Ausgabe angezeigt.
 
-- **Ohne Internetverbindung** auf dem ASDK-Hostcomputer. In einem Szenario ohne Internetverbindung müssen Sie zuerst mithilfe der folgenden PowerShell-Befehle die PowerShell-Module auf einen Computer mit Internetverbindung herunterladen:
+- **Ohne Internetverbindung** auf dem ASDK-Hostcomputer: In einem Szenario ohne Internetverbindung müssen Sie zuerst mithilfe der folgenden PowerShell-Befehle die PowerShell-Module auf einen Computer mit Internetverbindung herunterladen:
 
   ```powershell
   $Path = "<Path that is used to save the packages>"
@@ -109,16 +109,16 @@ Sie können das aktuelle Azure Stack PowerShell-Modul mit oder ohne Internetverb
 
 ## <a name="validate-the-asdk-installation"></a>Überprüfen der ASDK-Installation
 
-Um sicherzustellen, dass Ihre ASDK-Bereitstellung erfolgreich durchgeführt wurde, können Sie folgende Schritte durchführen und das Cmdlet „Test-AzureStack“ verwenden:
+Um sicherzustellen, dass Ihre ASDK-Bereitstellung erfolgreich durchgeführt wurde, führen Sie mit dem Cmdlet Test-AzureStack folgende Schritte durch:
 
 1. Melden Sie sich auf dem ASDK-Hostcomputer als „AzureStack\AzureStackAdmin“ an.
-2. Starten Sie PowerShell als Administrator (nicht PowerShell ISE).
+2. Öffnen Sie PowerShell als Administrator (nicht PowerShell ISE).
 3. Führen Sie diesen Befehl aus: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
 4. Führen Sie diesen Befehl aus: `Test-AzureStack`
 
 Die Tests dauern einige Minuten. Wenn die Installation erfolgreich war, sieht die Ausgabe in etwa wie folgt aus:
 
-![Test-AzureStack](media/asdk-post-deploy/test-azurestack.png)
+![Testen von Azure Stack – Installation erfolgreich](media/asdk-post-deploy/test-azurestack.png)
 
 Wenn ein Fehler aufgetreten ist, führen Sie die Schritte zur Problembehandlung aus, um Hilfe zu erhalten.
 
@@ -127,7 +127,7 @@ Wenn ein Fehler aufgetreten ist, führen Sie die Schritte zur Problembehandlung 
 Für Bereitstellungen mithilfe von Azure AD müssen Sie [Mehrinstanzenfähigkeit](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy) für die ASDK-Installation aktivieren.
 
 > [!NOTE]
-> Wenn Administrator- oder Benutzerkonten aus anderen Domänen als derjenigen, die zur Registrierung von Azure Stack verwendet haben, für die Anmeldung an einem Azure Stack-Portal verwendet werden, muss der Domänenname, mit dem Azure Stack registriert wird, an die Portal-URL angefügt werden. Wenn beispielsweise Azure Stack mit „fabrikam.onmicrosoft.com“ registriert wurde und das Benutzerkonto für die Anmeldung admin@contoso.com ist, lautet die URL für die Anmeldung am Benutzerportal wie folgt: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+> Wenn Administrator- oder Benutzerkonten aus anderen Domänen als die bei der Registrierung von Azure Stack verwendeten für die Anmeldung bei einem Azure Stack-Portal verwendet werden, muss der Domänenname, mit dem Azure Stack registriert wird, an die Portal-URL angefügt werden. Wenn beispielsweise Azure Stack mit „fabrikam.onmicrosoft.com“ registriert wurde und für die Anmeldung das Benutzerkonto admin@contoso.com verwendet wird, lautet die URL für die Anmeldung beim Benutzerportal wie folgt: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

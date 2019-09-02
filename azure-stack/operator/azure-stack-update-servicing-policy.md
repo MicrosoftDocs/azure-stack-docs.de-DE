@@ -1,27 +1,26 @@
 ---
-title: Azure Stack-Wartungsrichtlinie | Microsoft-Dokumentation
-description: Hier erhalten Sie Informationen zur Azure Stack-Wartungsrichtlinie und erfahren, wie Sie den unterstützten Zustand eines integrierten Systems aufrechterhalten.
+title: Anwenden eines OEM-Updates (Originalgerätehersteller) auf Azure Stack | Microsoft-Dokumentation
+description: In diesem Artikel wird das Anwenden eines OEM-Updates (Originalgerätehersteller) auf Azure Stack erläutert.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
 ms.service: azure-stack
 ms.workload: na
-pms.tgt_pltfrm: na
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2019
-ms.author: sethm
-ms.reviewer: harik
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c02cc78205b2622b4ef5bdd8b88070912af72b97
+ms.date: 08/15/2019
+ms.author: mabrigg
+ms.lastreviewed: 08/15/2019
+ms.reviewer: ppacent
+ms.openlocfilehash: b8031afd05ba03086cfa748614b58d9b0c5248e9
 ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008601"
+ms.locfileid: "70010305"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack-Wartungsrichtlinie
 
@@ -30,6 +29,8 @@ ms.locfileid: "70008601"
 In diesem Artikel wird die Wartungsrichtlinie für integrierte Azure Stack-Systeme beschrieben, was Sie tun müssen, um den unterstützten Zustand Ihres Systems aufrechtzuerhalten, und wo Sie Hilfe erhalten.
 
 ## <a name="keep-your-system-under-support"></a>Halten Sie den Support für Ihr System aufrecht
+
+Um weiterhin Support zu erhalten, muss Ihre Azure Stack-Instanz auf dem aktuellen Stand bleiben.
 
 Damit die Azure Stack-Instanz auch weiterhin unterstützt wird, muss diese die zuletzt veröffentlichte Updateversion oder eine der beiden vorherigen Updateversionen ausführen.
 
@@ -43,6 +44,6 @@ Microsoft-Softwareupdatepakete sind nicht kumulativ und setzen das jeweils vorhe
 
 Azure Stack folgt demselben Supportprozess wie Azure. Unternehmenskunden können dem beschriebenen in [Gewusst wie: Erstellen einer Azure-Supportanfrage](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) beschriebenen Prozess folgen. Wenn Sie Kunde eines Clouddienstanbieters (Cloud Service Provider, CSP) sind, wenden Sie sich an Ihren CSP-Support. Weitere Informationen finden Sie unter [Häufig gestellte Fragen zum Azure-Support](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Nächste Schritte
+# <a name="next-steps"></a>Nächste Schritte
 
-- [Verwalten von Updates in Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+[Verwalten von Updates in Azure Stack](azure-stack-updates.md)

@@ -1,5 +1,5 @@
 ---
-title: Überprüfen einer Azure Stack-Sicherung mit dem ASDK | Microsoft-Dokumentation
+title: Verwenden des ASDK zum Überprüfen der Azure Stack-Sicherung | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie eine Azure Stack-Sicherung für integrierte Systeme mit dem ASDK überprüfen.
 services: azure-stack
 author: justinha
@@ -11,18 +11,18 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 3ab7dfbaef82868f45b181fb81d9b98050147191
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.openlocfilehash: 8905a376a165776acde2fb792df1e8f35279140e
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692124"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118753"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Verwenden des ASDK zum Überprüfen der Azure Stack-Sicherung
-Nach der Bereitstellung von Azure Stack und von Benutzerressourcen wie Angeboten, Plänen, Kontingenten und Abonnements sollten Sie [Azure Stack-Infrastruktursicherung aktivieren](../operator/azure-stack-backup-enable-backup-console.md). Das Planen und Ausführen regelmäßiger Infrastruktursicherungen stellt sicher, dass Daten zur Infrastrukturverwaltung nicht verloren gehen, wenn ein Hardware- oder Dienstausfall auftritt.
+Nach der Bereitstellung von Azure Stack und von Benutzerressourcen (z. B. Angeboten, Plänen, Kontingenten und Abonnements) sollten Sie die [Azure Stack-Infrastruktursicherung aktivieren](../operator/azure-stack-backup-enable-backup-console.md). Das Planen und Ausführen regelmäßiger Infrastruktursicherungen stellt sicher, dass Daten für die Infrastrukturverwaltung bei einem Hardware- oder Dienstausfall nicht verloren gehen.
 
 > [!TIP]
-> Es wird empfohlen, [eine bedarfsgesteuerte Sicherung auszuführen](../operator/azure-stack-backup-back-up-azure-stack.md), bevor Sie dieses Verfahren beginnen, um sicherzustellen, dass Sie über eine Kopie der neuesten Infrastrukturdaten verfügen. Stellen Sie sicher, die Sicherungs-ID zu erfassen, nachdem eine Sicherung erfolgreich abgeschlossen wurde. Diese ID wird bei der Cloudwiederherstellung benötigt. 
+> Es wird empfohlen, [eine bedarfsgesteuerte Sicherung auszuführen](../operator/azure-stack-backup-back-up-azure-stack.md), bevor Sie dieses Verfahren beginnen, um sicherzustellen, dass Sie über eine Kopie der neuesten Infrastrukturdaten verfügen. Stellen Sie sicher, die Sicherungs-ID zu erfassen, nachdem eine Sicherung erfolgreich abgeschlossen wurde. Diese ID wird bei der Cloudwiederherstellung benötigt.
 
 Azure Stack-Infrastruktursicherungen enthalten wichtige Daten zu Ihrer Cloud, die während einer erneuten Bereitstellung von Azure Stack wiederhergestellt werden können. Sie können das ASDK verwenden, um diese Sicherungen ohne Auswirkungen auf den Schutz Ihrer Produktionscloud zu überprüfen. 
 
@@ -77,7 +77,7 @@ Vor dem Starten einer Bereitstellung für die Cloudwiederherstellung des ASDK be
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>Vorbereiten des Hostcomputers 
-Wie bei einer normalen ASDK-Bereitstellung muss die ASDK-Hostsystemumgebung für die Installation vorbereitet werden. Nach der Vorbereitung des Development Kit-Hostcomputers startet der Computer von der Festplatte des virtuellen Computers (CloudBuilder.vhdx), sodass die ASDK-Bereitstellung beginnen kann.
+Wie bei einer normalen ASDK-Bereitstellung muss die ASDK-Hostsystemumgebung für die Installation vorbereitet werden. Nach der Vorbereitung des ASDK-Hostcomputers wird der Computer von der Festplatte des virtuellen Computers („CloudBuilder.vhdx“) gestartet, um mit der ASDK-Bereitstellung zu beginnen.
 
 Laden Sie auf dem ASDK-Hostcomputer die zur gesicherten Version von Azure Stack gehörige Datei „cloudbuilder.vhdx“ herunter, und befolgen Sie die Anweisungen für das [Vorbereiten des ASDK-Hostcomputers](asdk-prepare-host.md).
 
@@ -104,46 +104,46 @@ Schließlich kopieren Sie das Entschlüsselungszertifikat (.pfx) in das Zertifik
 Die Schritte in diesem Abschnitt zeigen, wie das ASDK mit einer grafischen Benutzeroberfläche (GUI) bereitgestellt werden kann, die durch Herunterladen und Ausführen des PowerShell-Skripts **asdk-installer.ps1** bereitgestellt werden kann.
 
 > [!NOTE]
-> Die Benutzeroberfläche des Installers für das Azure Stack Development Kit ist ein Open Source-Skript, das auf WCF und PowerShell basiert.
+> Die Benutzeroberfläche des Installationsprogramms für das ASDK ist ein Open-Source-Skript, das auf WCF und PowerShell basiert.
 
 > [!IMPORTANT]
 > Das aktuelle Benutzeroberflächen-Installationsprogramm unterstützt nur Verschlüsselungsschlüssel.
 
-1. Nachdem der Hostcomputer im Image „CloudBuilder.vhdx“ erfolgreich gestartet wurde, können Sie sich mit den Administratoranmeldeinformationen anmelden, die Sie bei der [Vorbereitung des Development Kit-Hostcomputers](asdk-prepare-host.md) für die ASDK-Installation angegeben haben. Diese sollten mit den Anmeldeinformationen für den lokalen Administrator des Development Kit-Hosts identisch sein.
+1. Nachdem der Hostcomputer im Image „CloudBuilder.vhdx“ gestartet wurde, können Sie sich mit den Administratoranmeldeinformationen anmelden, die Sie bei der [Vorbereitung des ASDK-Hostcomputers](asdk-prepare-host.md) für die ASDK-Installation angegeben haben. Diese Anmeldeinformationen sollten mit den Anmeldeinformationen für den lokalen Administrator des ASDK-Hosts identisch sein.
 2. Öffnen Sie eine PowerShell-Konsole mit erhöhten Rechten, und führen Sie das PowerShell-Skript „ **&lt;Laufwerkbuchstabe>\AzureStack_Installer\asdk-installer.ps1**“ aus. Das Skript kann sich jetzt eventuell auf einem anderen Laufwerk als „C:\“ im Image „CloudBuilder.vhdx“ befindet. Klicken Sie auf **Wiederherstellen**.
 
     ![ASDK-Installationsskript](media/asdk-validate-backup/1.PNG) 
 
-3. Geben Sie Ihre Azure AD-Verzeichnisinformationen (optional) sowie das lokale Administratorkennwort für den ASDK-Hostcomputer auf der Seite für Identitätsanbieter und Anmeldeinformationen ein. Klicken Sie auf **Weiter**.
+3. Geben Sie Ihre Azure AD-Verzeichnisinformationen (optional) und das lokale Administratorkennwort für den ASDK-Hostcomputer auf der Seite für Identitätsanbieter und Anmeldeinformationen ein. Klicken Sie auf **Weiter**.
 
-    ![Seite „Identität und Anmeldeinformationen“](media/asdk-validate-backup/2.PNG) 
+    ![Seite für Identität und Anmeldeinformationen für das ASDK](media/asdk-validate-backup/2.PNG) 
 
 4. Wählen Sie den Netzwerkadapter aus, der vom ASDK-Hostcomputer verwendet werden soll, und klicken Sie auf **Weiter**. Alle anderen Netzwerkschnittstellen werden während der ASDK-Installation deaktiviert. 
 
-    ![Netzwerkadapterschnittstelle](media/asdk-validate-backup/3.PNG) 
+    ![ASDK-Netzwerkadapterschnittstelle](media/asdk-validate-backup/3.PNG) 
 
 5. Geben Sie auf der Seite „Netzwerkkonfiguration“ gültige IP-Adressen für einen Zeitserver und die DNS-Weiterleitung an. Klicken Sie auf **Weiter**.
 
-    ![Seite „Netzwerkkonfiguration“](media/asdk-validate-backup/4.PNG) 
+    ![Seite „Netzwerkkonfiguration“ für das ASDK](media/asdk-validate-backup/4.PNG) 
 
 6. Wenn Netzwerkschnittstellenkarten-Eigenschaften überprüft wurden, klicken Sie auf **Weiter**. 
 
-    ![Überprüfung der Netzwerkkarteneinstellungen](media/asdk-validate-backup/5.PNG) 
+    ![Überprüfung der ASDK-Netzwerkkarteneinstellungen](media/asdk-validate-backup/5.PNG) 
 
-7. Geben Sie die weiter oben im [Abschnitt „Voraussetzungen“](#prereqs) beschriebenen, erforderlichen Informationen auf der Seite „Sicherungseinstellungen“ an sowie den Benutzernamen und das Kennwort, die für den Zugriff auf die Dateifreigabe verwendet werden sollen. Klicken Sie auf **Weiter**: 
+7. Geben Sie die weiter oben im [Abschnitt „Voraussetzungen“](#prereqs) beschriebenen erforderlichen Informationen auf der Seite „Sicherungseinstellungen“ an sowie den Benutzernamen und das Kennwort für den Zugriff auf die Dateifreigabe. Klicken Sie auf **Weiter**: 
 
-   ![Seite „Sicherungseinstellungen“](media/asdk-validate-backup/6.PNG) 
+   ![Seite „Sicherungseinstellungen“ für das ASDK](media/asdk-validate-backup/6.PNG) 
 
 8. Überprüfen Sie für die Bereitstellung des ASDK zu verwendende Bereitstellungsskript auf der Seite „Zusammenfassung“. Klicken Sie auf **Bereitstellen**, um die Bereitstellung zu starten. 
 
-    ![Seite „Zusammenfassung“](media/asdk-validate-backup/7.PNG) 
+    ![Seite „Zusammenfassung“ für das ASDK](media/asdk-validate-backup/7.PNG) 
 
 
 ### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>Verwenden der PowerShell zum Bereitstellen des ASDK im Wiederherstellungsmodus
 
 Passen Sie die folgenden PowerShell-Befehle an Ihre Umgebung an, und führen Sie sie aus, um das ASDK im Cloudwiederherstellungsmodus bereitzustellen:
 
-**Verwenden Sie das Skript „InstallAzureStackPOC.ps1“, um die Cloudwiederherstellung mit Verschlüsselungsschlüssel zu initiieren.**
+**Verwenden Sie das Skript „InstallAzureStackPOC.ps1“, um die Cloudwiederherstellung mit Verschlüsselungsschlüssel zu beginnen.**
 
 ```powershell
 cd C:\CloudDeployment\Setup     
@@ -160,7 +160,7 @@ $key = Read-Host -AsSecureString -Prompt "Your backup encryption key"
  -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
 ```
 
-**Verwenden Sie das Skript „InstallAzureStackPOC.ps1“, um die Cloudwiederherstellung mit Entschlüsselungszertifikat zu initiieren.**
+**Verwenden Sie das Skript „InstallAzureStackPOC.ps1“, um die Cloudwiederherstellung mit Entschlüsselungszertifikat zu beginnen.**
 
 ```powershell
 cd C:\CloudDeployment\Setup     
@@ -184,8 +184,8 @@ Nach der Anmeldung als Azure Stack-Operator [installieren Sie Azure Stack PowerS
 
 **Wiederherstellungsmodus mit Zertifikatsdatei**
 
-> [!NOTE] 
-> Eine Azure Stack-Bereitstellung behält das Entschlüsselungszertifikat aus Sicherheitsgründen nicht. Sie müssen das Entschlüsselungszertifikat mit dem zugehörigen Kennwort erneut bereitstellen.
+> [!NOTE]
+> Bei einer Azure Stack-Bereitstellung wird das Entschlüsselungszertifikat aus Sicherheitsgründen nicht beibehalten. Sie müssen das Entschlüsselungszertifikat mit dem zugehörigen Kennwort erneut bereitstellen.
 
 ```powershell
 $decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"

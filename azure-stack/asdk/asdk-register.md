@@ -1,6 +1,6 @@
 ---
 title: Registrieren des ASDK bei Azure | Microsoft-Dokumentation
-description: In diesem Artikel wird beschrieben, wie Azure Stack bei Azure registriert wird, um die Azure Marketplace-Syndikation und die Berichterstellung zur Verwendung zu aktivieren.
+description: Erfahren Sie, wie das ASDK bei Azure registriert wird, um die Azure Marketplace-Syndikation und die Berichterstellung zur Verwendung zu aktivieren.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,24 +15,24 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: cf25678ad84ac79dd29ddd1684b1ca2f958180ff
-ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
+ms.openlocfilehash: 886271e99b10d3fec0801f977a693a01e59fc0a5
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67197196"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025867"
 ---
-# <a name="azure-stack-registration"></a>Azure Stack-Registrierung
+# <a name="register-the-asdk-with-azure"></a>Registrieren des ASDK bei Azure
 
 Sie können Ihre ASDK-Installation (Azure Stack Development Kit) bei Azure registrieren, um Marketplace-Elemente von Azure herunterzuladen und die Berichterstellung zu E-Commerce-Daten für Microsoft einzurichten. Die Registrierung ist für die uneingeschränkte Unterstützung aller Azure Stack-Funktionen (einschließlich Marketplace-Syndikation) erforderlich. Eine Registrierung ist erforderlich, da Sie hierüber wichtige Azure Stack-Funktionen wie die Marketplace-Syndikation und Berichterstellung zur Verwendung testen können. Nachdem Sie Azure Stack registrieren, wird Ihre Nutzung an den Azure-Commerce übermittelt. Dies wird im Abonnement angezeigt, das Sie zur Registrierung verwendet haben. Die übermittelte Nutzung durch Benutzer des ASDK wird diesen jedoch nicht in Rechnung gestellt.
 
-Wenn Sie Ihr ASDK nicht registrieren, wird Ihnen die Warnung **Aktivierung erforderlich** angezeigt, die Ihnen dazu rät, Ihr Azure Stack Development Kit zu registrieren. Dies ist das erwartete Verhalten.
+Wenn Sie Ihr ASDK nicht registrieren, wird möglicherweise die Warnung **Aktivierung erforderlich** angezeigt, die Ihnen dazu rät, Ihr ASDK zu registrieren. Dies ist das erwartete Verhalten.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Bevor Sie die folgenden Anweisungen zur Registrierung des ASDK bei Azure befolgen, installieren Sie die mit Azure Stack kompatiblen PowerShell-Module, und laden Sie die Azure Stack-Tools herunter. Dies wird im Artikel [Konfiguration nach der Bereitstellung](asdk-post-deploy.md) beschrieben.
 
-Außerdem muss der PowerShell-Sprachmodus auf dem Computer, der zur Registrierung des ASDK bei Azure verwendet wird, auf **FullLanguage** festgelegt werden. Um zu überprüfen, ob der aktuelle Sprachmodus auf vollständig festgelegt ist, öffnen Sie ein PowerShell-Fenster mit erhöhten Rechten, und führen Sie die folgenden PowerShell-Befehle aus:
+Außerdem muss der PowerShell-Sprachmodus auf dem Computer für die Registrierung des ASDK bei Azure auf **FullLanguage** festgelegt werden. Um zu überprüfen, ob der aktuelle Sprachmodus auf vollständig festgelegt ist, öffnen Sie ein PowerShell-Fenster mit erhöhten Rechten, und führen Sie die folgenden PowerShell-Befehle aus:
 
 ```powershell  
 $ExecutionContext.SessionState.LanguageMode
@@ -40,22 +40,22 @@ $ExecutionContext.SessionState.LanguageMode
 
 Vergewissern Sie sich, dass in der Ausgabe **FullLanguage** zurückgegeben wird. Wenn ein anderer Sprachmodus zurückgegeben wird, muss die Registrierung auf einem anderen Computer ausgeführt oder der Sprachmodus auf **FullLanguage** festgelegt werden, damit Sie fortfahren können.
 
-Das für die Registrierung verwendete Azure AD-Konto muss Zugriff auf das Azure-Abonnement besitzen und berechtigt sein, Identitätsanwendungen und Dienstprinzipale in dem Verzeichnis zu erstellen, das diesem Abonnement zugeordnet ist. Wir empfehlen, dass Sie Azure Stack mithilfe einer Verwaltung mit geringstmöglichen Berechtigungen bei Azure registrieren, indem Sie [ein für die Registrierung zu verwendendes Dienstkonto erstellen](../operator/azure-stack-registration-role.md), statt Anmeldeinformationen eine globalen Administrators zu verwenden.
+Das für die Registrierung verwendete Azure AD-Konto muss Zugriff auf das Azure-Abonnement besitzen und berechtigt sein, Identitäts-Apps und Dienstprinzipale in dem Verzeichnis zu erstellen, das diesem Abonnement zugeordnet ist. Wir empfehlen, Azure Stack durch [Erstellen eines Dienstkontos für die Registrierung](../operator/azure-stack-registration-role.md) zu registrieren, statt Anmeldeinformationen eines globalen Administrators zu verwenden.
 
-## <a name="register-azure-stack-with-azure"></a>Registrieren von Azure Stack in Azure
+## <a name="register-the-asdk"></a>Registrieren des ASDK
 
 Führen Sie diese Schritte aus, um das ASDK bei Azure zu registrieren.
 
 > [!NOTE]
-> Alle diese Schritte müssen von einem Computer ausgeführt werden, der Zugriff auf den privilegierten Endpunkt hat. Beim ASDK ist das der Development Kit-Hostcomputer.
+> Alle diese Schritte müssen von einem Computer ausgeführt werden, der Zugriff auf den privilegierten Endpunkt hat. Beim ASDK ist das der ASDK-Hostcomputer.
 
 1. Öffnen Sie eine PowerShell-Konsole als Administrator.  
 
-2. Führen Sie die folgenden PowerShell-Befehle zum Registrieren Ihrer ASDK-Installation bei Azure aus. Sie müssen sich sowohl bei Ihrem Azure-Abrechnungsabonnement als auch bei der lokalen ASDK-Installation anmelden. Falls Sie noch nicht über eine Azure-Abrechnungsabonnement-ID verfügen, können Sie [hier ein kostenloses Azure-Konto erstellen](https://azure.microsoft.com/free/?b=17.06). Durch das Registrieren von Azure Stack fallen keine zusätzlichen Kosten in Ihrem Azure-Abonnement an.<br><br>Legen Sie einen eindeutigen Namen für die Registrierung fest, wenn Sie das Cmdlet **Set-AzsRegistration** ausführen. Der **RegistrationName**-Parameter hat den Standardwert **AzureStackRegistration**. Wenn Sie den gleichen Namen jedoch in mehreren Instanzen von Azure Stack verwenden, tritt beim Ausführen des Skripts ein Fehler auf.
+2. Führen Sie die folgenden PowerShell-Befehle zum Registrieren Ihrer ASDK-Installation bei Azure aus. Melden Sie sich sowohl bei Ihrem Azure-Abrechnungsabonnement als auch bei der lokalen ASDK-Installation an. Falls Sie noch nicht über eine Azure-Abrechnungsabonnement-ID verfügen, können Sie [hier ein kostenloses Azure-Konto erstellen](https://azure.microsoft.com/free/?b=17.06). Durch das Registrieren von Azure Stack fallen keine zusätzlichen Kosten in Ihrem Azure-Abonnement an.<br><br>Legen Sie einen eindeutigen Namen für die Registrierung fest, wenn Sie das Cmdlet **Set-AzsRegistration** ausführen. Der **RegistrationName**-Parameter hat den Standardwert **AzureStackRegistration**. Wenn Sie den gleichen Namen jedoch in mehreren Instanzen von Azure Stack verwenden, tritt beim Ausführen des Skripts ein Fehler auf.
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
-    # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+    # Supported environment names are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
     Add-AzureRmAccount -EnvironmentName "<environment name>"
 
     # Register the Azure Stack resource provider in your Azure subscription
@@ -85,10 +85,10 @@ Führen Sie diese Schritte aus, um das ASDK bei Azure zu registrieren.
 
 ## <a name="register-in-disconnected-environments"></a>Registrieren in nicht verbundenen Umgebungen
 
-Wenn Sie Azure Stack in einer nicht mit Azure verbundenen Umgebung (ohne Internetverbindung) registrieren, müssen Sie ein Registrierungstoken aus der Azure Stack-Umgebung abrufen und dieses Token dann auf einem Computer verwenden, der eine Verbindung mit Azure herstellen kann. Es dient zum Registrieren und Erstellen einer Aktivierungsressource für Ihre ASDK-Umgebung.
+Wenn Sie Azure Stack in einer nicht mit Azure verbundenen Umgebung (ohne Internetverbindung) registrieren, müssen Sie ein Registrierungstoken aus der Azure Stack-Umgebung abrufen und dieses Token dann auf einem Computer verwenden, der eine Verbindung mit Azure herstellen kann. Dies dient zum Registrieren und Erstellen einer Aktivierungsressource für Ihre ASDK-Umgebung.
 
  > [!IMPORTANT]
- > Stellen Sie vor der Verwendung dieser Anleitung zum Registrieren von Azure Stack sicher, dass Sie PowerShell für Azure Stack installiert und die Azure Stack-Tools wie unter [Konfiguration nach der Bereitstellung](asdk-post-deploy.md) beschrieben heruntergeladen haben. Dies gilt sowohl für den ASDK-Hostcomputer als auch für den Computer mit Internetzugriff, der zum Herstellen der Verbindung mit Azure und zum Durchführen der Registrierung verwendet wird.
+ > Stellen Sie vor der Verwendung dieser Anleitung zum Registrieren von Azure Stack sicher, dass Sie PowerShell für Azure Stack installiert und die Azure Stack-Tools wie im Artikel zur [Konfiguration nach der Bereitstellung](asdk-post-deploy.md) beschrieben heruntergeladen haben. Dies gilt sowohl für den ASDK-Hostcomputer als auch für den Computer mit Internetzugriff, der zum Herstellen der Verbindung mit Azure und zum Durchführen der Registrierung verwendet wird.
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Abrufen eines Registrierungstokens aus der Azure Stack-Umgebung
 
@@ -110,7 +110,7 @@ Starten Sie auf dem ASDK-Hostcomputer PowerShell als Administrator, und navigier
    -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 
-Speichern Sie dieses Registrierungstoken für die Verwendung auf dem Computer mit der Internetverbindung. Sie können die Datei oder den Text aus der Datei kopieren, die durch den Parameter „$FilePathForRegistrationToken“ erstellt wurde.
+Speichern Sie dieses Registrierungstoken für die Verwendung auf dem Computer mit der Internetverbindung. Sie können die Datei oder den Text aus der Datei kopieren, die durch den Parameter `$FilePathForRegistrationToken` erstellt wurde.
 
 ### <a name="connect-to-azure-and-register"></a>Verbinden mit Azure und Registrieren
 
@@ -161,10 +161,10 @@ Alternativ können Sie mit dem Cmdlet **Get-Content** auf eine Datei verweisen, 
   -RegistrationName $RegistrationName
   ```
 
-Nach Abschluss der Registrierung sollte eine ähnliche Meldung wie **Ihre Azure Stack-Umgebung ist jetzt bei Azure registriert.** angezeigt werden.
+Nach Abschluss der Registrierung sollte eine Meldung ähnlich der folgenden angezeigt werden: **Ihre Azure Stack-Umgebung ist nun bei Azure registriert.**
 
 > [!IMPORTANT]
-> Lassen Sie das PowerShell-Fenster geöffnet.
+> Lassen Sie das PowerShell-Fenster **geöffnet**.
 
 Speichern Sie das Registrierungstoken und den Namen der Registrierungsressource zur späteren Verwendung.
 
@@ -172,7 +172,7 @@ Speichern Sie das Registrierungstoken und den Namen der Registrierungsressource 
 
 Verwenden Sie weiterhin den Computer mit Internetverbindung **und dasselbe PowerShell-Konsolenfenster**, und rufen Sie einen Aktivierungsschlüssel von der Registrierungsressource ab, die bei der Registrierung für Azure erstellt wurde.
 
-Führen Sie zum Abrufen des Aktivierungsschlüssels die folgenden PowerShell-Befehle aus, und verwenden Sie den gleichen eindeutigen Registrierungsnamenswert, den Sie bei der Registrierung für Azure im vorherigen Schritt angegeben haben:  
+Führen Sie die folgenden PowerShell-Befehle zum Abrufen des Aktivierungsschlüssels aus. Verwenden Sie den gleichen eindeutigen Wert für den Registrierungsnamen, den Sie bei der Registrierung bei Azure im vorherigen Schritt angegeben haben:  
 
   ```Powershell
   $RegistrationResourceName = "<unique-registration-name>"
@@ -211,17 +211,17 @@ Alternativ können Sie mit dem Cmdlet **Get-Content** auf eine Datei verweisen, 
   -ActivationKey $ActivationKey
   ```
 
-Nach Abschluss der Registrierung sollte eine ähnliche Meldung wie **Der Registrierungs- und Aktivierungsvorgang für Ihre Umgebung wurde beendet.** angezeigt werden.
+Nach Abschluss der Aktivierung sollte eine Meldung ähnlich der folgenden angezeigt werden: **Der Registrierungs- und Aktivierungsvorgang für Ihre Umgebung wurde abgeschlossen.**
 
 ## <a name="verify-the-registration-was-successful"></a>Überprüfen der erfolgreichen Ausführung der Registrierung
 
-Sie können die Kachel **Regionsverwaltung** verwenden, um zu überprüfen, ob die Azure Stack-Registrierung erfolgreich war. Diese Kachel steht im Standarddashboard im Administratorportal zur Verfügung.
+Sie können die Kachel **Regionsverwaltung** verwenden, um zu überprüfen, ob die Azure Stack-Registrierung erfolgreich war. Diese Kachel steht auf dem Standarddashboard des Verwaltungsportals zur Verfügung.
 
 1. Melden Sie sich beim [Azure Stack-Verwaltungsportal](https://adminportal.local.azurestack.external) an.
 
 2. Wählen Sie im Dashboard **Regionsverwaltung** aus.
 
-    [![Kachel „Regionsverwaltung“](media/asdk-register/admin1sm.png "Kachel „Regionsverwaltung“")](media/asdk-register/admin1.png#lightbox)
+    [![Kachel für Regionsverwaltung im Azure Stack-Verwaltungsportal](media/asdk-register/admin1sm.png "Kachel für Regionsverwaltung")](media/asdk-register/admin1.png#lightbox)
 
 3. Wählen Sie **Eigenschaften** aus. Auf diesem Blatt werden der Status und Details Ihrer Umgebung angezeigt. Der Status kann **registriert** oder **nicht registriert** lauten. Wenn er „Registriert“ ist, wird außerdem die ID des Azure-Abonnements angezeigt, mit dem Sie Ihren Azure Stack registriert haben, zusammen mit der Registrierungsressourcengruppe und dem Namen.
 

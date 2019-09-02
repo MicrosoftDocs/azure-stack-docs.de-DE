@@ -1,6 +1,6 @@
 ---
-title: Anwenden von Updates in Azure Stack | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie Microsoft-Updates für ein integriertes Azure Stack-System importieren und installieren.
+title: Anwenden eines OEM-Updates (Originalgerätehersteller) auf Azure Stack | Microsoft-Dokumentation
+description: In diesem Artikel wird das Anwenden eines OEM-Updates (Originalgerätehersteller) auf Azure Stack erläutert.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,114 +11,79 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 08/23/2019
 ms.author: mabrigg
-ms.reviewer: justini
-ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 04494c3f394fb5a3b836c8fcf67cd02fb2900910
-ms.sourcegitcommit: 4f3e161e7632c8a6e3d41946b09f22b5bdb08d36
+ms.lastreviewed: 08/23/2019
+ms.reviewer: ppacent
+ms.openlocfilehash: 792790c2ae5c14e31914b64fc6e5d7eba11aacc0
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413186"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025930"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Anwenden von Updates in Azure Stack
 
 *Gilt für: Integrierte Azure Stack-Systeme*
 
-Sie können im Verwaltungsportal über die Kachel **Aktualisieren** Microsoft- oder OEM-Updatepakete für Azure Stack anwenden.
+Sie können das Update über das Blatt **Update** in Azure Stack anwenden. In diesem Artikel werden Sie durch die Schritte zum Aktualisieren, Überwachen und Beheben von Problemen mit dem Updatevorgang geführt. Auf dem Blatt „Update“ können Sie Updateinformationen anzeigen, Updates installieren, den Aktualisierungsfortschritt überwachen, den Aktualisierungsverlauf überprüfen und die aktuelle Version des OEM-Pakets anzeigen.
 
-Wenn Sie eine integrierte Systemversion 1807 oder höher verwenden, müssen Sie das Updatepaket herunterladen, die Paketdateien in Azure Stack importieren und das Update dann installieren. Anweisungen hierzu finden Sie unter [Aktualisieren von Azure Stack durch Herunterladen des Pakets](#update-azure-stack-by-downloading-the-package).
+Sie können Updates über das Administratorportal verwalten. Mit den **Updates** im Dashboard können Sie folgende Aktionen ausführen:
 
-Diese Upgradeanweisungen funktionieren nur mit integrierten Azure Stack-Systemen. Wenn Sie das Azure Stack-Entwicklungssystem verwenden, müssen Sie das Installationspaket für die aktuelle Version herunterladen. Anleitungen finden Sie unter [Installieren des Azure Stack Development Kits](../asdk/asdk-install.md).
+-   Anzeigen wichtiger Informationen wie z. B. der aktuellen Version
+-   Installieren von Updates und Überwachen des Status
+-   Überprüfen des Updateverlaufs der zuvor installierten Updates
+-   Anzeigen der aktuellen OEM-Paketversion der Cloud
 
-## <a name="update-azure-stack"></a>Aktualisieren von Azure Stack
+## <a name="determine-the-current-version"></a>Bestimmen der aktuellen Version
 
-### <a name="select-and-apply-an-update-package"></a>Auswählen und Anwenden eines Updatepakets
+Die aktuelle Version von Azure Stack können Sie auf dem Blatt **Update** anzeigen. So öffnen Sie das Blatt
 
-1. Öffnen Sie das Verwaltungsportal.
+1.  Öffnen Sie das Azure Stack-Administratorportal an.
 
-2. Wählen Sie **Dashboard** aus. Wählen Sie die Kachel **Update** aus.
+2.  Wählen Sie **Dashboard** aus. Auf dem Blatt **Updates** ist die aktuelle Version aufgeführt.
 
-    ![Azure Stack-Update verfügbar](media/azure-stack-apply-updates/azure-stack-updates-1901-dashboard.png)
+    ![Kachel „Updates“ auf dem Standarddashboard](./media/azure-stack-update-apply/image1.png)
 
-3. Notieren Sie sich die aktuelle Version Ihres Azure Stacks. Sie können auf die nächsten Vollversion aktualisieren. Wenn Sie beispielsweise Azure Stack 1811 ausführen, ist die nächste veröffentlichte Version 1901.
+    In dieser Abbildung wird beispielsweise die Version 1.1903.0.35 angezeigt.
 
-    ![Azure Stack-Update anwenden](media/azure-stack-apply-updates/azure-stack-updates-1901-updateavailable.png)
+## <a name="install-updates-and-monitor-progress"></a>Installieren von Updates und Überwachen des Status
 
-4. Wählen Sie die nächste verfügbare Version in der Liste „Updates“ aus. Sie können in der Spalte mit den Versionshinweisen **Anzeigen** auswählen, um das Thema mit den Versionshinweisen für die Version anzuzeigen, wenn Sie die Versionsänderungen überprüfen möchten.
+1.  Öffnen Sie das Azure Stack-Administratorportal an.
 
-5. Wählen Sie jetzt das Update aus. Das Update wird gestartet.
+2.  Wählen Sie **Dashboard** aus. Wählen Sie **Update** aus.
 
-### <a name="review-update-history"></a>Prüfen des Updateverlaufs
+3.  Wählen Sie das verfügbare Update aus, das Sie anwenden möchten. Wenn kein Update als **Verfügbar** markiert ist, müssen Sie das [Updatepaket vorbereiten](azure-stack-update-prepare-package.md).
 
-1. Öffnen Sie das Verwaltungsportal.
+4.  Wählen Sie **Jetzt aktualisieren** aus.
 
-2. Wählen Sie **Dashboard** aus. Wählen Sie die Kachel **Update** aus.
+    ![Details zur Azure Stack-Updateausführung](./media/azure-stack-update-apply/image2.png)
 
-3. Wählen Sie **Updateverlauf** aus.
+5.  Sie können den allgemeinen Status anzeigen, während im Updateprozess die verschiedenen Subsysteme in Azure Stack durchlaufen werden. Beispiele für Subsysteme sind physische Hosts, Service Fabric, virtuelle Computer der Infrastruktur und Dienste, die das Administrator- sowie das Benutzerportal umfassen. Während des gesamten Updateprozesses meldet der Updateressourcenanbieter zusätzliche Details zu dem Update, z. B. die Anzahl der erfolgreich ausgeführten Schritte sowie die Anzahl der laufenden Schritte.
 
-![Azure Stack-Updateverlauf](media/azure-stack-apply-updates/azure-stack-update-history.PNG)
+6.  Wählen Sie auf dem Blatt mit den Details zur Updateausführung die Option **Download summary** (Zusammenfassung herunterladen) aus, um die vollständigen Protokolle herunterzuladen.
 
-## <a name="update-azure-stack-by-downloading-the-package"></a>Aktualisieren von Azure Stack durch Herunterladen des Pakets
+    Falls bei der Überwachung des Updates Probleme auftreten, können Sie mit dem [privilegierten Endpunkt](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint) den Status eines Azure Stack-Updatevorgangs überwachen und ein fehlerhaftes Update vom letzten erfolgreichen Schritt aus fortsetzen, falls das Azure Stack-Portal nicht verfügbar sein sollte. Anweisungen hierzu finden Sie unter [Überwachen von Updates in Azure Stack mithilfe von PowerShell](azure-stack-update-monitor.md).
 
-Wenn Sie eine integrierte Systemversion 1807 oder höher verwenden, müssen Sie das Updatepaket herunterladen, die Paketdateien in Azure Stack importieren und das Update dann installieren.
+    ![Details zur Azure Stack-Updateausführung](./media/azure-stack-update-apply/image3.png)
 
-## <a name="download-the-update-package"></a>Herunterladen des Updates
+7.  Nach Abschluss des Vorgangs gibt der Updateressourcenanbieter die Bestätigungsmeldung **Erfolgreich** aus. Damit wird angegeben, dass der Updateprozess abgeschlossen ist und wie lange er gedauert hat. Dort können Sie über den Filter Informationen zu allen verfügbaren oder installierten Updates anzeigen.
 
-Wenn ein Microsoft- oder OEM-Updatepaket für Azure Stack verfügbar ist, laden Sie das Paket an einen Speicherort herunter, auf den von Azure Stack aus zugegriffen werden kann. Überprüfen Sie den Paketinhalt. Ein Updatepaket besteht in der Regel aus folgenden Dateien:
+    ![azure-stack-update-apply](./media/azure-stack-update-apply/image4.png)
 
-- Eine selbstextrahierende `<PackageName>.zip`-Datei. Diese Datei enthält die Nutzlast für das Update, beispielsweise das aktuelle kumulative Update für Windows Server.
+    Wenn beim Update Fehler auftreten, wird auf dem Blatt **Update** die Meldung **Eingreifen erforderlich** angezeigt. Verwenden Sie die Option **Vollständiges Protokoll herunterladen**, um den allgemeinen Status abzurufen und zu ermitteln, wo die Fehler aufgetreten sind. Die Azure Stack-Protokollsammlung erleichtert die Diagnose und Problembehandlung.
 
-- Entsprechende `<PackageName>.bin`-Dateien. Diese Dateien dienen zum Komprimieren der Nutzlast, die der Datei *Paketname.zip* zugeordnet ist.
+## <a name="review-update-history"></a>Prüfen des Updateverlaufs
 
-- Eine `Metadata.xml`-Datei. Diese Datei enthält wichtige Informationen zum Update, etwa Herausgeber, Name, Voraussetzungen, Größe und Supportpfad-URL.
+1.  Öffnen Sie das Administratorportal.
 
-> [!IMPORTANT]  
-> Nachdem das Updatepaket für Azure Stack 1901 angewendet wurde, ändert sich das Paketformat für Azure Stack-Updatepakete von ZIP, BIN(s) und XML in ZIP(s) und XML. Azure Stack-Betreiber, die verbundene Zeitstempel besitzen, sind davon nicht betroffen. Azure Stack-Betreiber, die getrennt sind, importieren einfach die XML- und ZIP-Dateien, indem sie denselben Prozess wie unten beschrieben verwenden.
+2.  Wählen Sie **Dashboard** aus. Wählen Sie **Update** aus.
 
-## <a name="import-and-install-updates"></a>Importieren und Installieren von Updates
+3.  Wählen Sie **Updateverlauf** aus.
 
-Das folgende Verfahren zeigt, wie Updatepakete im Administratorportal importiert und installiert werden.
-
-> [!IMPORTANT]  
-> Es wird dringend empfohlen, dass Sie die Benutzer über alle Wartungsvorgänge unterrichten und normale Wartungsfenster so weit wie möglich außerhalb der Geschäftszeiten planen. Wartungsvorgänge können sowohl Benutzerworkloads als auch Portalvorgänge beeinträchtigen.
-
-1. Wählen Sie im Administratorportal **Alle Dienste** aus. Wählen Sie anschließend in der Kategorie **Daten und Speicher** die Option **Speicherkonten** aus. (Oder beginnen Sie im Filterfeld mit der Eingabe von **Speicherkonten**, und wählen Sie dann die entsprechende Option aus.)
-
-    ![Hier sehen Sie, wo Sie Speicherkonten im Portal finden.](media/azure-stack-apply-updates/ApplyUpdates1.png)
-
-2. Geben Sie in das Filterfeld **update** ein, und wählen Sie das Speicherkonto **updateadminaccount**.
-
-3. Klicken Sie in den Speicherkontodetails unter **Dienste** auf **Blobs**.
- 
-    ![Hier sehen Sie, wie Sie „Blobs“ für das Speicherkonto auswählen.](media/azure-stack-apply-updates/ApplyUpdates3.png) 
-
-4. Klicken Sie unter **Blob-Dienst** auf **+ Container**, um einen Container zu erstellen. Geben Sie einen Namen (etwa *Update-1811*) ein, und wählen Sie dann **OK**.
- 
-     ![Hier sehen Sie, wie Sie einen Container im Speicherkonto hinzufügen.](media/azure-stack-apply-updates/ApplyUpdates4.png)
-
-5. Klicken Sie nach dem Erstellen des Containers auf den Containernamen und dann auf **Hochladen**, um die Paketdateien in den Container hochzuladen.
- 
-    ![Hier sehen Sie, wie Sie die Paketdateien hochladen.](media/azure-stack-apply-updates/ApplyUpdates5.png)
-
-6. Klicken Sie unter **Blob hochladen** auf das Ordnersymbol, navigieren Sie zur ZIP-Datei des Updatepakets, und klicken Sie dann im Explorer-Fenster auf **Öffnen**.
-  
-7. Klicken Sie unter **Blob hochladen** auf **Hochladen**.
-  
-    ![Hier sehen Sie, wo die einzelnen Paketdateien hochgeladen werden.](media/azure-stack-apply-updates/ApplyUpdates6.png)
-
-8. Wiederholen Sie die Schritte 6 und 7 für die Dateien *Paketname.bin* und „Metadata.xml“. Falls die Datei „Supplemental Notice.txt“ enthalten ist, importieren Sie sie nicht. Beachten Sie, dass die Dateien ab 1901 das ZIP-Format anstelle von BIN und ZIP aufweisen – importieren Sie die XML-Datei weiterhin wie gewohnt.
-
-9. Anschließend können Sie die Benachrichtigungen (Glockensymbol in der oberen rechten Ecke des Portals) überprüfen. In den Benachrichtigungen sollte angegeben sein, dass der Upload abgeschlossen ist.
-10. Kehren Sie zur Kachel „Aktualisieren“ auf dem Dashboard zurück. Auf der Kachel sollte angegeben sein, dass ein Update verfügbar ist. Klicken Sie auf die Kachel, um das neu hinzugefügte Updatepaket zu überprüfen.
-11. Um das Update zu installieren, wählen Sie das als **Bereit** markierte Paket aus. Klicken Sie dann entweder mit der rechten Maustaste auf das Paket, und wählen Sie **Jetzt aktualisieren**, oder klicken Sie im oberen Bereich auf die Aktion **Jetzt aktualisieren**.
-12. Wenn Sie auf „Update wird installiert...“ klicken, können Sie den Status im Bereich **Update run details** (Updateausführungsdetails) anzeigen. Hier können Sie auch auf **Download summary** (Zusammenfassung herunterladen) klicken, um die Protokolldateien herunterzuladen. Protokolle der Ausführung von Updates sind im Anschluss an den Versuch 6 Monate lang verfügbar. 
-13. Wenn das Update abgeschlossen ist, wird auf der Kachel „Aktualisieren“ die aktualisierte Azure Stack-Version angezeigt.
-
-Sie können Updates manuell aus dem Speicherkonto löschen, nachdem sie in Azure Stack installiert wurden. Azure Stack führt in regelmäßigen Abständen eine Überprüfung auf ältere Updatepakete durch und entfernt diese aus dem Speicher. Es kann in Azure Stack bis zu zwei Wochen dauern, bis die alten Pakete entfernt werden.
+    ![Azure Stack-Updateverlauf](./media/azure-stack-update-apply/image7.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Übersicht zum Verwalten von Updates in Azure Stack](azure-stack-updates.md)
-- [Azure Stack-Wartungsrichtlinie](azure-stack-servicing-policy.md)
+-   [Übersicht zum Verwalten von Updates in Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
+-   [Azure Stack-Wartungsrichtlinie](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  

@@ -1,6 +1,6 @@
 ---
 title: Hinzufügen von Knoten zu Skalierungseinheiten in Azure Stack | Microsoft-Dokumentation
-description: Fügen Sie Knoten zu Skalierungseinheiten in Azure Stack hinzu.
+description: Erfahren Sie, wie Sie in Azure Stack Skalierungseinheiten Knoten hinzufügen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,12 +16,12 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 56dbc301c87e819b241d9dd6e801544df4afa152
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: ab06f5d3674000733227894a5a69778d90c29d48
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131196"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118735"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Hinzufügen zusätzlicher Knoten zu Skalierungseinheiten in Azure Stack
 
@@ -29,14 +29,15 @@ Azure Stack-Betreiber können die Gesamtkapazität einer bestehenden Skalierungs
 
 Um einen Knoten zu einer Skalierungseinheit hinzuzufügen, agieren Sie in Azure Stack und führen Tools Ihres Originalgeräteherstellers (OEM) aus. Die OEM-Tools werden auf dem Hardwarelebenszyklushost (HLH) ausgeführt, um sicherzustellen, dass der neue physische Computer die gleiche Firmwareebene wie die vorhandenen Knoten aufweist.
 
-Das folgende Flussdiagramm zeigt den allgemeinen Prozess des Hinzufügens eines Knoten zu einer Skalierungseinheit.
+Das folgende Flussdiagramm zeigt den allgemeinen Prozess des Hinzufügens eines Knotens zu einer Skalierungseinheit:
 
-![Fluss zu Skalierungseinheit hinzufügen *&#42; ](media/azure-stack-add-scale-node/add-node-flow.png)Ob Ihr Originalgerätehersteller die Platzierung des physischen Serverracks vornimmt und die Firmware aktualisiert, hängt von Ihrem Supportvertrag ab.*
+![Flow zum Hinzufügen zu Skalierungseinheiten](media/azure-stack-add-scale-node/add-node-flow.png)
+<br> *Ob Ihr OEM-Hardwarehersteller die Platzierung des physischen Serverracks vornimmt und die Firmware aktualisiert, hängt von Ihrem Supportvertrag ab.*
 
 Das Hinzufügen eines neuen Knotens kann mehrere Stunden oder Tage dauern.
 
 > [!Note]  
-> Führen Sie keinen der folgenden Vorgänge durch, während ein Vorgang zum Hinzufügen eines Skalierungseinheitknotens bereits ausgeführt wird:
+> Führen Sie keinen der folgenden Vorgänge durch, während bereits ein Vorgang zum Hinzufügen eines Knotens zu einer Skalierungseinheit ausgeführt wird:
 >
 >  - Aktualisieren von Azure Stack
 >  - Rotieren von Zertifikaten
@@ -64,7 +65,7 @@ Zum Hinzufügen neuer Knoten können Sie das Verwaltungsportal oder PowerShell v
 1. Melden Sie sich beim Azure Stack-Administratorportal als Azure Stack-Operator an.
 2. Navigieren Sie zu **+Ressource erstellen** > **Kapazität** > **Skalierungseinheitknoten**.
    ![Scale Unit Node](media/azure-stack-add-scale-node/select-node1.png) (Skalierungseinheitknoten)
-3. Wählen Sie im Bereich **Knoten hinzufügen** die *Region* und dann die *Skalierungseinheit* aus, der der Knoten hinzugefügt werden soll. Geben Sie auch die *BMC-IP-ADRESSE* für den hinzugefügten Skalierungseinheitknoten an. Sie können immer nur jeweils einen Knoten hinzufügen.
+3. Wählen Sie im Bereich **Knoten hinzufügen** die *Region* und dann die *Skalierungseinheit* aus, der der Knoten hinzugefügt werden soll. Geben Sie auch die *BMC-IP-ADRESSE* für den hinzugefügten Skalierungseinheitenknoten an. Sie können immer nur jeweils einen Knoten hinzufügen.
    ![Hinzufügen von Knotendetails](media/azure-stack-add-scale-node/select-node2.png)
  
 
@@ -75,7 +76,7 @@ Fügen Sie mithilfe des Cmdlets **New-AzsScaleUnitNodeObject** einen Knoten hinz
 Ersetzen Sie die Werte *Knotennamen* und *IP-Adressen* durch Werte aus Ihrer Azure Stack-Umgebung, bevor Sie eines der folgenden PowerShell-Beispielskripts verwenden.
 
   > [!Note]  
-  > Bei der Benennung eines Knotens müssen Sie den Namen auf weniger als 15 Zeichen beschränken. Außerdem können Sie keinen Namen verwenden, der ein Leerzeichen oder eines der folgenden Zeichen enthält: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`,`}`, `_`.
+  > Bei der Benennung eines Knotens müssen Sie den Namen auf weniger als 15 Zeichen beschränken. Außerdem können Sie keinen Namen verwenden, der ein Leerzeichen oder eines der folgenden Zeichen enthält: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
 
 **Hinzufügen eines Knotens:**
   ```powershell
@@ -86,10 +87,10 @@ Ersetzen Sie die Werte *Knotennamen* und *IP-Adressen* durch Werte aus Ihrer Azu
   ```  
 
 ## <a name="monitor-add-node-operations"></a>Überwachen des Vorgangs zum Hinzufügen eines Knotens 
-Über das Administratorportal oder PowerShell können Sie den Status des Vorgangs zum Hinzufügen eines Knoten abrufen. Vorgänge zum Hinzufügen eines Knoten können mehrere Stunden oder sogar Tage in Anspruch nehmen.
+Über das Administratorportal oder PowerShell können Sie den Status des Vorgangs zum Hinzufügen eines Knotens abrufen. Vorgänge zum Hinzufügen eines Knoten können mehrere Stunden oder sogar Tage in Anspruch nehmen.
 
 ### <a name="use-the-admin-portal"></a>Verwenden des Verwaltungsportals 
-Um das Hinzufügen eines neuen Knotens zu überwachen, überprüfen Sie im Administratorportal die Objekte für Skalierungseinheit bzw. Skalierungseinheitknoten. Wechseln Sie zu **Regionsverwaltung** > **Skalierungseinheiten**. Wählen Sie anschließend die Skalierungseinheit bzw. den Skalierungseinheitknoten aus, die Sie überprüfen möchten. 
+Um das Hinzufügen eines neuen Knotens zu überwachen, überprüfen Sie im Administratorportal die Objekte für die Skalierungseinheit bzw. den Skalierungseinheitenknoten. Wechseln Sie zu **Regionsverwaltung** > **Skalierungseinheiten**. Wählen Sie anschließend die Skalierungseinheit bzw. den Skalierungseinheitknoten aus, die Sie überprüfen möchten. 
 
 ### <a name="use-powershell"></a>Verwenden von PowerShell
 Der Status für Skalierungseinheit und Skalierungseinheitknoten kann mit PowerShell wie folgt abgerufen werden:

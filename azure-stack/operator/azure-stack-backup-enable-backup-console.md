@@ -16,12 +16,12 @@ ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: d3ac538109f48e38f6483cd1ecae4896f1d3e635
-ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
+ms.openlocfilehash: 84dd8fdc91a796a94df71926788e62d98b5ef1ae
+ms.sourcegitcommit: 22814dd79664206a260ba0160ed3ae2612e33495
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896381"
+ms.locfileid: "69976167"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Aktivieren der Sicherung für Azure Stack über das Verwaltungsportal
 Aktivieren Sie den Infrastructure Backup-Dienst über das Verwaltungsportal, sodass Azure Stack Infrastruktursicherungen generieren kann. Mit diesen Sicherungen kann der Hardwarepartner bei einem [schwerwiegenden Fehler](./azure-stack-backup-recover-data.md) Ihre Umgebung mittels einer Cloudwiederherstellung wiederherstellen. Die Cloudwiederherstellung soll sicherstellen, dass die Anbieter und Benutzer sich nach Abschluss der Wiederherstellung wieder im Portal anmelden können. Auf diese Weise können Benutzer ihre Abonnements wiederherstellen, einschließlich RBAC-Berechtigungen (Role-Based Access Control) und -Rollen, ursprünglichen Plänen, Angeboten und zuvor definierten Compute-, Speicher-, Netzwerkkontingenten und Key Vault-Geheimnissen.
@@ -53,7 +53,7 @@ Administratoren und Benutzer sind für die Sicherung und Wiederherstellung von I
     > [!Note]  
     > Wenn Sie Sicherungen nach Ablauf ihrer Vermerkdauer archivieren möchten, achten Sie darauf, die Dateien zu sichern, bevor der Scheduler die Sicherungen löscht. Wenn Sie die Vermerkdauer reduzieren (z.B. von 7 auf 5 Tage) löscht der Scheduler alle Sicherungen, die älter als neue Vermerkdauer sind. Stellen Sie sicher, dass das Löschen von Sicherungen keine Probleme verursacht, bevor Sie diesen Wert aktualisieren. 
 
-9. Geben Sie in den Verschlüsselungseinstellungen ein Zertifikat im CER-Dateifeld „Zertifikat“ an. Sicherungsdateien werden mit dem öffentlichen Schlüssel im Zertifikat verschlüsselt. Sie sollten ein Zertifikat bereitstellen, das nur den öffentlichen Schlüsselteil enthält, wenn Sie die Sicherungseinstellungen konfigurieren. Nachdem Sie dieses Zertifikat zum ersten Mal festgelegt haben oder das Zertifikat in der Zukunft rotieren, können Sie nur den Fingerabdruck des Zertifikats anzeigen. Sie können die hochgeladene Zertifikatdatei nicht herunterladen oder anzeigen. Um die Zertifikatdatei zu erstellen, führen Sie den folgenden PowerShell-Befehl aus, um ein selbstsigniertes Zertifikat mit den öffentlichen und privaten Schlüsseln zu erstellen, und exportieren Sie ein Zertifikat mit nur dem öffentlichen Schlüsselteil. Sie können das Zertifikat an jedem beliebigen Ort speichern, auf den Sie über das Verwaltungsportal zugreifen können.
+9. Geben Sie in den Verschlüsselungseinstellungen ein Zertifikat im Feld für das Zertifikat (CER-Datei) an. Sicherungsdateien werden mit dem öffentlichen Schlüssel im Zertifikat verschlüsselt. Sie sollten ein Zertifikat bereitstellen, das nur den öffentlichen Schlüsselteil enthält, wenn Sie die Sicherungseinstellungen konfigurieren. Nachdem Sie dieses Zertifikat zum ersten Mal festgelegt haben oder das Zertifikat in der Zukunft rotieren, können Sie nur den Fingerabdruck des Zertifikats anzeigen. Sie können die hochgeladene Zertifikatdatei nicht herunterladen oder anzeigen. Um die Zertifikatdatei zu erstellen, führen Sie den folgenden PowerShell-Befehl aus, um ein selbstsigniertes Zertifikat mit den öffentlichen und privaten Schlüsseln zu erstellen, und exportieren Sie ein Zertifikat mit nur dem öffentlichen Schlüsselteil. Sie können das Zertifikat an jedem beliebigen Ort speichern, auf den Sie über das Verwaltungsportal zugreifen können.
 
     ```powershell
 
