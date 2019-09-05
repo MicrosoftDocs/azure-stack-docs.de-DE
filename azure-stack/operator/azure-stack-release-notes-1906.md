@@ -16,12 +16,13 @@ ms.date: 07/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: c646ca836728cc1963354afb66ee04ee0accf1b6
-ms.sourcegitcommit: fc7da38321736e952b2cc6d5d07f276d095dc8d1
+monikerRange: azs-1906
+ms.openlocfilehash: bf8e32d6395b3ddfc54fe586568b51b76b71dc63
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69887110"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188304"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack-Update 1906
 
@@ -116,14 +117,14 @@ Der Buildtyp des Azure Stack 1906-Updates lautet **Express**. Weitere Informati
 
 ## <a name="security-updates"></a>Sicherheitsupdates
 
-Informationen zu Sicherheitsupdates in diesem Update von Azure Stack finden Sie unter [Azure Stack-Sicherheitsupdates](azure-stack-release-notes-security-updates-1906.md).
+Informationen zu Sicherheitsupdates in diesem Update von Azure Stack finden Sie unter [Azure Stack-Sicherheitsupdates](azure-stack-release-notes-security-updates.md).
 
 ## <a name="update-planning"></a>Updateplanung
 
 Stellen Sie vor dem Anwenden des Updates sicher, dass Sie die folgenden Informationen überprüfen:
 
 - [Bekannte Probleme](azure-stack-release-notes-known-issues-1906.md)
-- [Sicherheitsupdates](azure-stack-release-notes-security-updates-1906.md)
+- [Sicherheitsupdates](azure-stack-release-notes-security-updates.md)
 - [Azure Stack-Checkliste für Updateaktivitäten](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>Herunterladen des Updates

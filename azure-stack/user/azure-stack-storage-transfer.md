@@ -14,12 +14,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 6b6ab8ac8292f8d548b49331cf5d2e2ae100e68f
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 92e0c1a3bfd055373ffba5091d79922f1203b20b
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418449"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188025"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-storage"></a>Verwenden der Datenübertragungstools im Azure Stack-Speicher
 
@@ -57,8 +57,13 @@ AzCopy ist ein Befehlszeilenprogramm zum Kopieren von Daten in bzw. aus Microsof
 
 ### <a name="download-and-install-azcopy"></a>Herunterladen und Installieren von AzCopy
 
+::: moniker range=">=azs-1811"
 * Laden Sie für das Update 1811 oder neuere Versionen [AzCopy V10+](/azure/storage/common/storage-use-azcopy-v10#download-azcopy) herunter.
+::: moniker-end
+
+::: moniker range="<azs-1811"
 * Laden Sie für vorherige Versionen (Update 1802 bis 1809) [AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) herunter.
+::: moniker-end
 
 ### <a name="azcopy-101-configuration-and-limits"></a>Konfiguration und Einschränkungen von AzCopy 10.1
 

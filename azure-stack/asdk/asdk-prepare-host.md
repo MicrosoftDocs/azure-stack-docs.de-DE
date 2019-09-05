@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 08/28/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 23cacc7a9005e1695f7394d1e441298f3f90bca8
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.lastreviewed: 08/28/2019
+ms.openlocfilehash: cf15aebac3ad4d099892270bb2e334d32f82f580
+ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025945"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70144011"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>Vorbereiten des ASDK-Hostcomputers
 Bevor Sie das Azure Stack Development Kit (ASDK) auf dem Hostcomputer installieren können, muss der ASDK-Host für die Installation vorbereitet werden. Nach der Vorbereitung des Hosts wird der Computer von der Festplatte des virtuellen Computers („CloudBuilder.vhdx“) gestartet, um mit der ASDK-Bereitstellung zu beginnen.
@@ -64,12 +64,17 @@ Bevor Sie das ASDK auf dem Hostcomputer installieren können, muss die Umgebung 
 
     Sie können auch Werte für die folgenden optionalen Einstellungen angeben:
     - **Computername**: Diese Option legt den Namen für den ASDK-Host fest. Der Name muss die FQDN-Anforderungen erfüllen und darf höchstens 15 Zeichen umfassen. Der Standardwert ist ein von Windows generierter zufälliger Computername.
-    - **Statische IP-Konfiguration**: Legt für Ihre Bereitstellung die Verwendung einer statischen IP-Adresse fest. Andernfalls werden beim Neustart des Installationsprogramms in „cloudbuilder.vhdx“ die Netzwerkschnittstellen mit DHCP konfiguriert. Wenn Sie sich für die Verwendung einer statischen IP-Konfiguration entscheiden, werden zusätzliche Optionen angezeigt, bei denen Sie außerdem Folgendes ausführen müssen:
-      - Wählen Sie einen Netzwerkadapter aus. Stellen Sie sicher, dass Sie eine Verbindung mit dem Adapter herstellen können, bevor Sie auf **Weiter** klicken.
-      - Stellen Sie sicher, dass die angezeigten Werte für **IP-Adresse**, **Gateway** und **DNS** richtig sind, und klicken Sie dann auf **Weiter**.
 
-   > [!TIP]
-   > Besuchen Sie zum Ermitteln der IP-Adresse eines Zeitservers [ntppool.org](https://www.ntppool.org/), oder pingen Sie „time.windows.com“.
+        - Wählen Sie einen Netzwerkadapter aus. Stellen Sie sicher, dass Sie eine Verbindung mit dem Adapter herstellen können, bevor Sie auf **Weiter** klicken.
+
+            ![Screenshot: Einstellungen für Netzwerkadapter](media/asdk-prepare-host/step-four-network-adapter.png)
+
+        - Stellen Sie sicher, dass die angezeigten Werte für **IP-Adresse**, **Gateway** und **DNS** korrekt sind, geben Sie eine gültige IP-Adresse für den **Zeitserver** an, und klicken Sie auf **Weiter**.
+
+            >[!TIP]
+            >Besuchen Sie zum Ermitteln der IP-Adresse eines Zeitservers [ntppool.org](https://www.ntppool.org/), oder pingen Sie „time.windows.com“. 
+
+            ![Screenshot: IP-Konfigurationseinstellungen](media/asdk-prepare-host/step-five-host-ip-config.png)
 
 7. Klicken Sie auf **Weiter**, um den Vorbereitungsprozess zu starten.
 8. Wenn die Vorbereitung **Abgeschlossen** anzeigt, klicken Sie auf **Weiter**.
