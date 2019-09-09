@@ -1,6 +1,6 @@
 ---
 title: Hinzufügen eines VM-Images zu Azure Stack | Microsoft-Dokumentation
-description: Fügen Sie ein VM-Image hinzu, das von Mandanten verwendet werden kann, oder entfernen Sie ein Image aus dem benutzerdefinierten Windows- oder Linux-VM-Image Ihres Unternehmens.
+description: Es wird beschrieben, wie Sie Azure Stack ein VM-Image hinzufügen oder es entfernen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 84aa627f6c274d22ebdab411d6abd1064c6ecd6d
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 8fec1b3702aa7c8c55f1a90167b1ac13f0ac8847
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417477"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271755"
 ---
-# <a name="add-a-vm-image-to-offer-in-azure-stack"></a>Hinzufügen eines VM-Images in Azure Stack
+# <a name="add-a-vm-image-to-azure-stack"></a>Hinzufügen eines VM-Images zu Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-In Azure Stack können Sie in Marketplace ein VM-Image (virtueller Computer) hinzufügen, um es Benutzern zur Verfügung zu stellen. Sie können mit Azure Resource Manager-Vorlagen für Azure Stack VM-Images hinzufügen. Sie können VM-Images auch der Azure Marketplace-Benutzeroberfläche als Marketplace-Element hinzufügen. Verwenden Sie entweder ein Image aus dem globalen Azure Marketplace oder Ihr eigenes benutzerdefiniertes VM-Image. Sie können ein VM-Image mit dem Verwaltungsportal oder mit Windows PowerShell hinzufügen.
+In Azure Stack können Sie in Marketplace ein VM-Image (virtueller Computer) hinzufügen, um es Benutzern zur Verfügung zu stellen. Images werden hinzugefügt, indem Azure Resource Manager-Vorlagen für Azure Stack verwendet werden. Sie können VM-Images der Azure Marketplace-Benutzeroberfläche auch als Marketplace-Element hinzufügen, indem Sie das Verwaltungsportal oder Windows PowerShell verwenden. Verwenden Sie entweder ein Image aus dem globalen Azure Marketplace oder Ihr eigenes benutzerdefiniertes VM-Image.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Hinzufügen eines VM-Images über das Portal
 
@@ -35,12 +35,12 @@ In Azure Stack können Sie in Marketplace ein VM-Image (virtueller Computer) hin
 
 Auf Images muss über einen Blobspeicher-URI verwiesen werden können. Bereiten Sie ein Image mit Windows- oder Linux-Betriebssystem im VHD-Format (nicht VHDX) vor, und laden Sie es anschließend in ein Speicherkonto in Azure oder Azure Stack hoch. Falls Ihr Image bereits in den Blobspeicher in Azure oder Azure Stack hochgeladen wurde, können Sie Schritt 1 überspringen.
 
-1. [Laden Sie für Resource Manager-Bereitstellungen ein Windows-VM-Image in Azure hoch](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), oder gehen Sie für ein Linux-Image wie unter [Hinzufügen von Linux-Images zu Azure Stack](azure-stack-linux.md) beschrieben vor. Berücksichtigen Sie vor dem Hochladen des Images unbedingt folgende Faktoren:
+1. [Laden Sie für Resource Manager-Bereitstellungen ein Windows-VM-Image in Azure hoch](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), oder gehen Sie für ein Linux-Image wie unter [Add Linux images to Azure Stack](azure-stack-linux.md) (Hinzufügen von Linux-Images zu Azure Stack) beschrieben vor. Berücksichtigen Sie vor dem Hochladen des Images unbedingt folgende Faktoren:
 
    - Azure Stack unterstützt nur virtuelle Computer der 1. Generation im VHD-Format für Datenträger fester Größe. Bei diesem Format wird der logische Datenträger in der Datei linear strukturiert, sodass das Datenträger-Offset X beim Blob-Offset X gespeichert wird. Die Eigenschaften der VHD werden in einer kleinen Fußzeile am Ende des Blobs beschrieben. Ob es sich bei Ihrem Datenträger um einen Datenträger mit fester Größe handelt, können Sie mithilfe des PowerShell-Befehls [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) ermitteln.  
 
      > [!IMPORTANT]  
-     >  Azure Stack unterstützt keine dynamischen VHDs. Die Anpassung der Größe eines dynamischen Datenträgers, der an einen virtuellen Computer angefügt ist, führt zu einem Fehler. Löschen Sie in diesem Fall den virtuellen Computer, ohne jedoch seinen Datenträger (ein VHD-Blob in einem Speicherkonto) zu löschen. Konvertieren Sie dann die virtuelle Festplatte von einem dynamischen Datenträger in einen Datenträger mit fester Größe, und erstellen Sie den virtuellen Computer neu.
+     >  Azure Stack unterstützt keine dynamischen VHDs. Die Anpassung der Größe eines dynamischen Datenträgers, der an einen virtuellen Computer angefügt ist, führt zu einem Fehler. Löschen Sie in diesem Fall den virtuellen Computer, ohne jedoch seinen Datenträger (ein VHD-Blob in einem Speicherkonto) zu löschen. Konvertieren Sie anschließend die virtuelle Festplatte von einem dynamischen Datenträger in einen Datenträger mit fester Größe, und erstellen Sie die VM neu.
 
    - Es ist effizienter, ein Image in den Azure Stack-Blobspeicher als in Azure Blob Storage hochzuladen, da die Übertragung des Images per Push in das Azure Stack-Image-Repository schneller geht.
 
@@ -48,7 +48,7 @@ Auf Images muss über einen Blobspeicher-URI verwiesen werden können. Bereiten 
 
    - Notieren Sie sich den URI des Blobspeichers, in den Sie das Image hochladen. Der Blobspeicher-URI hat folgendes Format: *&lt;Speicherkonto&gt;/&lt;Blobcontainer&gt;/&lt;Ziel-VHD-Name&gt;* .vhd.
 
-   - Damit auf das Blob anonym zugegriffen werden kann, navigieren Sie zum Speicherkonto-Blobcontainer, in den die VM-Image-VHD hochgeladen wurde. Wählen Sie **Blob** und anschließend **Zugriffsrichtlinie**. Sie können optional auch eine Shared Access Signature für den Container generieren und in den Blob-URI aufnehmen. Mit diesem Schritt wird sichergestellt, dass das Blob verfügbar ist und für das Hinzufügen als Image verwendet werden kann. Kann auf das Blob nicht anonym zugegriffen werden, wird das VM-Image mit dem Status „Fehler“ erstellt.
+   - Damit auf das Blob anonym zugegriffen werden kann, navigieren Sie zum Speicherkonto-Blobcontainer, in den die VM-Image-VHD hochgeladen wurde. Wählen Sie **Blob** und anschließend **Zugriffsrichtlinie**. Sie können optional auch eine Shared Access Signature für den Container generieren und in den Blob-URI aufnehmen. Mit diesem Schritt wird sichergestellt, dass das Blob für die Nutzung verfügbar ist. Kann auf das Blob nicht anonym zugegriffen werden, wird das VM-Image mit dem Status „Fehler“ erstellt.
 
      ![Navigieren zu Speicherkontoblobs](./media/azure-stack-add-vm-image/image1.png)
 
@@ -75,7 +75,7 @@ Auf Images muss über einen Blobspeicher-URI verwiesen werden können. Bereiten 
 ## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>Hinzufügen eines VM-Images zum Marketplace mit PowerShell
 
 > [!Note]  
-> Wenn Sie ein Image hinzufügen, ist es nur für Azure Resource Manger-basierte Vorlagen und PowerShell-Bereitstellungen verfügbar. Wenn Sie ein Image für Ihre Benutzer als Marketplace-Element bereitstellen möchten, können Sie es mit den Schritten im Artikel [Erstellen und Veröffentlichen eines Marketplace-Elements](azure-stack-create-and-publish-marketplace-item.md) veröffentlichen.
+> Wenn Sie ein Image hinzufügen, ist es nur für Azure Resource Manger-basierte Vorlagen und PowerShell-Bereitstellungen verfügbar. Stellen Sie ein Image für Ihre Benutzer als Marketplace-Element zur Verfügung, indem Sie es mit den Schritten in diesem Artikel veröffentlichen: [Erstellen und Veröffentlichen eines Marketplace-Elements](azure-stack-create-and-publish-marketplace-item.md)
 
 1. [Installieren Sie PowerShell für Azure Stack](azure-stack-powershell-install.md).  
 
@@ -133,7 +133,7 @@ Auf Images muss über einen Blobspeicher-URI verwiesen werden können. Bereiten 
       -TenantId $TenantID
    ```
 
-2. Verwenden Sie bei Nutzung der **Active Directory-Verbunddienste (AD FS)** das folgende Cmdlet:
+2. Verwenden Sie bei Nutzung der **Active Directory-Verbunddienste (AD FS)** das folgende Cmdlet:
 
    ```powershell
    # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
@@ -173,11 +173,11 @@ Auf Images muss über einen Blobspeicher-URI verwiesen werden können. Bereiten 
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>" -OSType "<ostype>" -OSUri "<osuri>"
    ```
 
-    Weitere Informationen zum Add-AzsPlatformimage- und New-DataDiskObject-Cmdlet finden Sie in der [Dokumentation zum Azure Stack-Bedienermodul](https://docs.microsoft.com/powershell/module/) für Microsoft PowerShell.
+    Weitere Informationen zum Cmdlet „Add-AzsPlatformimage“ und Cmdlet „New-DataDiskObject“ finden Sie in der [Dokumentation zum Azure Stack-Bedienermodul](https://docs.microsoft.com/powershell/module/) für Microsoft PowerShell.
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>Entfernen eines VM-Images mithilfe von PowerShell
 
-Wenn Sie das hochgeladene VM-Image nicht mehr benötigen, können Sie es im Marketplace mithilfe des folgenden Cmdlets löschen:
+Wenn Sie das hochgeladene VM-Image nicht mehr benötigen, können Sie es im Marketplace mit dem folgenden Cmdlet löschen:
 
 1. [Installieren Sie PowerShell für Azure Stack](azure-stack-powershell-install.md).
 

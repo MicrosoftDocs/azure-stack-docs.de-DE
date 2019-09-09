@@ -16,16 +16,19 @@ ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 5d5292753b6fedfb7468a0bc68dd821a2da4cd54
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: b9b18b62786c0720b531d0f74ed68c629034b8d7
+ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118709"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70143994"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Hinzufügen neuer Azure Stack-Mandantenkonten in Azure Active Directory
 
-Nach dem [Bereitstellen des Azure Stack Development Kits (ASDK)](../asdk/asdk-install.md) benötigen Sie ein Mandantenbenutzerkonto, damit Sie das Portal erkunden und Ihre Angebote und Pläne testen können. Sie können über das [Azure-Portal](#create-an-azure-stack-tenant-account-using-the-azure-portal) oder mithilfe von PowerShell ein Mandantenkonto in Azure Active Directory (Azure AD) erstellen.
+
+Nach dem [Bereitstellen des Azure Stack Development Kits](../asdk/asdk-install.md) benötigen Sie ein Mandantenbenutzerkonto, damit Sie das Portal durchsuchen und Ihre Angebote und Pläne testen können. Sie können ein Mandantenkonto über das Azure-Portal oder mit PowerShell erstellen.
+
+
 
 ## <a name="create-an-azure-stack-tenant-account-by-using-the-azure-portal"></a>Erstellen eines Azure Stack-Mandantenkontos mithilfe des Azure-Portals
 

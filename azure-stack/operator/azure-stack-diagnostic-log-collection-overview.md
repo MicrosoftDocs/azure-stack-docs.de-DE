@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 09/04/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 17f68039382453312114dff8737072d1515a583d
-ms.sourcegitcommit: b752f4e6733d9ebe56dbd171a14528dcb9a693fd
+ms.lastreviewed: 09/04/2019
+ms.openlocfilehash: 338df8d335376ebbaf14230e62d8dee9f813994f
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68522002"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271745"
 ---
 # <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Übersicht zur Azure Stack-Diagnoseprotokollsammlung 
 
@@ -31,7 +31,7 @@ Bei Azure Stack handelt es sich um eine große Sammlung von Komponenten, die zus
 
 Vor Version 1907 beinhaltete der Diagnoseprozess die Verwendung von [Test-AzureStack](azure-stack-diagnostic-test.md) zum Überprüfen der Systemintegrität und die Nutzung des [privilegierten Endpunkts (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep) zum Sammeln von Protokollen zur Problembehandlung. 
 
-Seit Version 1907 steht auf der Seite **Hilfe und Support** der einfachere Prozess zur Verfügung, der die **Sammlung von Diagnoseprotokollen** beinhaltet. 
+Seit Version 1907 steht auf der Seite **Hilfe und Support** ein einfacherer Prozess zur Verfügung, der die **Sammlung von Diagnoseprotokollen** beinhaltet. 
 Die **Sammlung von Diagnoseprotokollen** ist Teil eines fortgesetzten Engagements zum Verbessern der Abläufe im Fehlerbehandlungsprozess für den Azure Stack-Operator. Dank dieser Verbesserungen können Operatoren schnell Diagnoseprotokolle sammeln und mit den Microsoft Customer Support Services (CSS) teilen. Die Protokolle können in einem Blobcontainer in Azure gespeichert werden, wo der Zugriff nach Bedarf angepasst werden kann.    
    
 Die **Sammlung von Diagnoseprotokollen** kann Diagnoseprotokolle auf zwei verschiedene Weisen sammeln:

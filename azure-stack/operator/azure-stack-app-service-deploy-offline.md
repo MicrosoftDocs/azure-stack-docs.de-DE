@@ -12,23 +12,23 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c97598145b0d03f3b25876296cb070b0301a3742
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: a33dc4ee1d9889b1dfa817b18b2c5c97e78c8432
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269235"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159629"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Hinzufügen eines App Service-Ressourcenanbieters zu einer getrennten, durch AD FS gesicherten Azure Stack-Umgebung
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Wenden Sie das Update 1904 auf Ihr integriertes Azure Stack-System an, oder stellen Sie das aktuelle Azure Stack Development Kit bereit, bevor Sie Azure App Service 1.6 bereitstellen.
+> Wenden Sie das Update 1907 auf Ihr integriertes Azure Stack-System an, oder stellen Sie das aktuelle Azure Stack Development Kit bereit, bevor Sie Azure App Service 1.7 bereitstellen.
 
 Mithilfe der Anweisungen in diesem Artikel können Sie den [App Service-Ressourcenanbieter](azure-stack-app-service-overview.md) in einer Azure Stack-Umgebung installieren, für die Folgendes gilt:
 
@@ -36,7 +36,7 @@ Mithilfe der Anweisungen in diesem Artikel können Sie den [App Service-Ressourc
 - Sie wird mit Active Directory Federation Services (AD FS) geschützt.
 
 > [!IMPORTANT]
-> Vergewissern Sie sich vor dem Ausführen des Installationsprogramms für den Ressourcenanbieter, dass Sie die [Vorbereitungsschritte](azure-stack-app-service-before-you-get-started.md) ausgeführt haben, und informieren Sie sich anhand der [Versionshinweise](azure-stack-app-service-release-notes-update-six.md) für das Release 6 über neue Funktionen, Fehlerbehebungen und bekannte Probleme, die ggf. für Ihre Bereitstellung relevant sind.
+> Vergewissern Sie sich vor dem Ausführen des Installationsprogramms für den Ressourcenanbieter, dass Sie die [Vorbereitungsschritte](azure-stack-app-service-before-you-get-started.md) ausgeführt haben, und informieren Sie sich anhand der [Versionshinweise](azure-stack-app-service-release-notes-update-seven.md) für das Release 1.7 über neue Funktionen, Fehlerbehebungen und bekannte Probleme, die ggf. für Ihre Bereitstellung relevant sind.
 
 Um Ihrer Azure Stack-Offlinebereitstellung den App Service-Ressourcenanbieter hinzuzufügen, müssen Sie die folgenden wichtigen Aufgaben ausführen:
 
@@ -161,7 +161,7 @@ Um App Service in einer nicht verbundenen Umgebung bereitzustellen, müssen Sie 
      >
      >
 
-    | Rolle | Mindestanzahl der Instanzen | Mindest-SKU | Notizen |
+    | Role | Mindestanzahl der Instanzen | Mindest-SKU | Notizen |
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Verwaltet und wartet die Integrität der App Service-Cloud |
     | Verwaltung | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Verwaltet die Azure Resource Manager- und API-Endpunkte, die Portalerweiterungen (Administrator-, Mandanten, Functions-Portal) und den Datendienst von App Service. Zur Unterstützung eines Failovers erhöhen Sie die empfohlenen Instanzen auf 2. |
@@ -203,7 +203,7 @@ Um App Service in einer nicht verbundenen Umgebung bereitzustellen, müssen Sie 
 
 Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk und eine interne IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht.  Wechseln Sie im Verwaltungsportal zur Netzwerksicherheitsgruppe „WorkersNsg“, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
 
-- Quelle: Beliebig
+- Quelle: Any
 - Quellportbereich: *
 - Ziel: IP-Adressen
 - IP-Zieladressbereich: Bereich der IPs für Ihren Dateiserver
@@ -258,15 +258,10 @@ Nachdem Sie den App Service-Ressourcenanbieter bereitgestellt und registriert ha
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sie können auch weitere [PaaS-Dienste (Platform-as-a-Service)](azure-stack-offer-services-overview.md) ausprobieren.
+Vorbereiten auf weitere Administratorvorgänge für App Service unter Azure Stack
 
-- [SQL Server-Ressourcenanbieter](azure-stack-sql-resource-provider-deploy.md)
-- [MySQL-Ressourcenanbieter](azure-stack-mysql-resource-provider-deploy.md)
-
-<!--Links-->
-[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
+- [Kapazitätsplanung](azure-stack-app-service-capacity-planning.md)
+- [Konfigurieren von Bereitstellungsquellen](azure-stack-app-service-configure-deployment-sources.md)
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-advanced-create-package.png

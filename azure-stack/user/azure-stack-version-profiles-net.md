@@ -16,12 +16,12 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 14f19fa432d782eace721d47b6b578dc73846631
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: af1f1351a5659447fb0f9e7ac9782fb74208e038
+ms.sourcegitcommit: ebb5afb7968d3e6531ecfcde7f4bb5e4420caf02
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959372"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70302376"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit .NET in Azure Stack
 

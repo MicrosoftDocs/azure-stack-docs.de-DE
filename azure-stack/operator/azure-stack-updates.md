@@ -3,7 +3,7 @@ title: Verwalten von Updates in Azure Stack | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie Updates in Azure Stack verwalten.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2019
-ms.author: mabrigg
-ms.lastreviewed: 08/23/2019
+ms.date: 09/03/2019
+ms.author: justinha
+ms.lastreviewed: 09/03/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 0cd83c7a16ef56e3432de7dcba39cc11ca20a379
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: f34f31ac54881c5911488f5049cc75ffee85bd38
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008476"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70234936"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Übersicht zum Verwalten von Updates in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme*
 
-Sie müssen Azure Stack auf dem neuesten Stand halten, indem Sie vollständige und Express-Updates, Hotfixes und OEM-Paketupdates (Originalgereätehersteller) auf Azure Stack anwenden. Indem Sie Azure Stack mit den aktuellen Updates auf dem neuesten Stand halten, werden jeweils die neuesten Sicherheitspatches sowie Produkt-, Treiber- und Firmwareupdates auf Ihr System angewandt. Dieser Artikel bietet eine Übersicht über die verschiedenen Updatepakete, den Rhythmus für diese Releasepakete und zum allgemeinen Aktualisierungsprozess sowie dazu, wo Sie Informationen zu aktuellen Releases finden.
+Mit vollständigen und Express-Updates, Hotfixes und Treiber- und Firmwareupdates vom Originalgerätehersteller (Original Equipment Manufacturer, OEM) kann Azure Stack auf dem aktuellen Stand gehalten werden. In diesem Artikel werden die unterschiedlichen Arten von Updates und die voraussichtlichen Veröffentlichungstermine beschrieben, und Sie erfahren, wo Sie weitere Informationen zum aktuellen Release erhalten.
 
 > [!Note]  
 > Sie können Azure Stack-Updatepakete nicht auf Azure Stack Development Kit (ASDK) anwenden. Die Updatepakete sind für integrierte Systeme vorgesehen. Weitere Informationen finden Sie unter [Erneutes Bereitstellen des ASDK](https://docs.microsoft.com/azure-stack/asdk/asdk-redeploy).
@@ -75,7 +75,7 @@ Die Benachrichtigungen über Updates hängen von einigen Faktoren ab, z. B. der
 
 ## <a name="update-processes"></a>Updateprozesse
 
-Wenn Sie wissen, dass ein Update verfügbar ist, wenden Sie das Update anhand der folgenden Schritte an.
+Wenn Sie wissen, dass ein Update verfügbar ist, können Sie es mit den folgenden Schritten anwenden.
 
 ![Azure Stack-Updatevorgang](./media/azure-stack-updates/azure-stack-update-process.png)
 
@@ -93,7 +93,7 @@ Wenn Sie wissen, dass ein Update verfügbar ist, wenden Sie das Update anhand de
 
 3. **Anwenden des Updates**
 
-    Sie wenden das Update über das Blatt **Update** in Azure Stack an. Überwachen Sie während des Updates den Updatefortschritt, und beheben Sie ggf. Probleme beim Updatevorgang. Weitere Schritte zum Planen des Updates finden Sie unter [Anwenden eines Azure Stack-Updates](azure-stack-apply-updates.md).
+    Wenden Sie das Update an, indem Sie in Azure Stack das Blatt **Update** verwenden. Verfolgen Sie während des Updatevorgangs den Status und die Problembehandlung. Weitere Informationen finden Sie unter [Install OEM updates in Azure Stack](azure-stack-apply-updates.md) (Installieren von OEM-Updates in Azure Stack).
 
 ## <a name="the-update-resource-provider"></a>Der Updateressourcenanbieter
 

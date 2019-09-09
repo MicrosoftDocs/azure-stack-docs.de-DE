@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 01e359b2fc92abfe2c4903b75fd52687c2246d56
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: e09cc9e5c77379441d7757fa1395941712ecc5ff
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959555"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271832"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Bereitstellen von App Service in einer Hochverfügbarkeitskonfiguration
 
@@ -123,7 +123,7 @@ Vor dem Ausführen des App Service-Installationsprogramms müssen zunächst ein
 - [Laden Sie das App Service-Installationsprogramm und die Hilfsskripts herunter.](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts)
 - [Laden Sie die neueste benutzerdefinierte Skripterweiterung in den Azure Stack-Marketplace herunter.](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace)
 - [Generieren Sie die erforderlichen Zertifikate.](azure-stack-app-service-before-you-get-started.md#get-certificates)
-- Erstellen Sie die ID-Anwendung auf der Grundlage des Identitätsanbieters, den Sie für Azure Stack ausgewählt haben. Eine ID-Anwendung kann entweder für [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-application) oder für [Active Directory-Verbunddienste](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-application) erstellt werden. (Notieren Sie sich die Anwendungs-ID.)
+- Erstellen Sie die ID-Anwendung auf der Grundlage des Identitätsanbieters, den Sie für Azure Stack ausgewählt haben. Eine ID-Anwendung kann entweder für [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app) oder für [Active Directory-Verbunddienste](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app) erstellt werden. (Notieren Sie sich die Anwendungs-ID.)
 - Vergewissern Sie sich, dass Sie das Windows Server 2016 Datacenter-Image dem Azure Stack-Marketplace hinzugefügt haben. Dieses Image ist für die App Service-Installation erforderlich.
 
 ### <a name="steps-for-app-service-deployment"></a>Schritte für die App Service-Bereitstellung

@@ -3,7 +3,7 @@ title: Vorbereiten eines Azure Stack-Updatepakets | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie ein Azure Stack-Updatepaket vorbereiten.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2019
-ms.author: mabrigg
-ms.lastreviewed: 08/15/2019
+ms.date: 09/03/2019
+ms.author: justinha
+ms.lastreviewed: 09/03/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: ab7b764e608ed1fb8008071296d0004f6ef65e7a
-ms.sourcegitcommit: 1c45814696e70ba987dd39ce61d93ea4ef5222ea
+ms.openlocfilehash: 9b58b4911a575ef66c95594b6cb4cd1cc9e27a43
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70029480"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70234998"
 ---
 # <a name="prepare-an-azure-stack-update-package"></a>Vorbereiten eines Azure Stack-Updatepakets
 
@@ -28,14 +28,14 @@ ms.locfileid: "70029480"
 
 Dieser Artikel bietet eine Übersicht über die Vorbereitung von Azure Stack-Updatepaketen, damit diese zum Aktualisieren Ihrer Azure Stack-Umgebung verwendet werden können. Dieser Vorgang besteht aus folgenden Schritten:
 
-- [Herunterladen des Updatepakets](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#download-the-update-package)
-- [Importieren des Updatepakets in Ihre Azure Stack-Umgebung über das Azure Stack-Administratorportal](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#import-and-install-updates)
+- [Herunterladen des Updatepakets](#download-the-update-package)
+- [Importieren des Updatepakets in Ihre Azure Stack-Umgebung über das Azure Stack-Administratorportal](#import-and-install-updates)
 
-Dieser Prozess wird für Azure Stack-Softwareupdates und -Hotfixes auf Systemen mit Internetverbindung mit den [Azure Stack-Endpunkten für automatische Updates](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages) automatisch ausgeführt.
+Auf Systemen, die eine Verbindung mit den automatischen Updateendpunkten herstellen können, werden Azure Stack-Softwareupdates und -Hotfixes automatisch heruntergeladen und vorbereitet. Auf Systemen ohne Konnektivität und für alle Updates vom OEM muss das Updatepaket wie in diesem Thema beschrieben vorbereitet werden.  
 
-In der folgenden Tabelle wird angezeigt, wann die Updatepakete manuell vorbereitet werden müssen und wann sie automatisch vorbereitet werden:
+In der folgenden Tabelle ist angegeben, wann die Updatepakete manuell vorbereitet werden müssen und wann sie automatisch vorbereitet werden.
 
-| Updatetyp | Konnektivität der Azure Stack-Umgebung mit den [Azure Stack-Endpunkten für automatische Updates](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages) | Erforderliche Aktion |
+| Updatetyp | Konnektivität | Erforderliche Aktion |
 | --- | --- | --- |
 | Azure Stack-Softwareupdates | Verbunden | Die Updates werden automatisch heruntergeladen und vorbereitet, wenn das Update angewandt wird. |
 | Azure Stack-Hotfixes | Verbunden | Die Updates werden automatisch heruntergeladen und vorbereitet, wenn das Update angewandt wird. |
@@ -46,6 +46,9 @@ In der folgenden Tabelle wird angezeigt, wann die Updatepakete manuell vorbereit
 
 ## <a name="download-the-update-package"></a>Herunterladen des Updates
 Das Updatepaket für Azure Stack-Updates und -Hotfixes ist bei verbundenen Systemen auf dem Blatt „Update“ verfügbar. Sie müssen das Paket herunterladen und an einen Speicherort verschieben, auf den von Ihrer Azure Stack-Instanz zugegriffen werden kann, wenn Sie ein OEM-Paket aktualisieren oder wenn Sie ein nicht verbundenes System warten. Sie müssen das Paket möglicherweise auch herunterladen und an einen zugänglichen Speicherort hochladen, wenn Sie ein System mit einer nur zeitweiligen Verbindung ausführen.
+
+>[!NOTE]
+>Das Updatepaket selbst und sein Inhalt (z. B. Binärdateien, PowerShell-Skripts usw.) werden mit Zertifikaten signiert, die im Besitz von Microsoft sind. Bei einer Manipulation des Pakets wird die Signatur ungültig.
 
 Überprüfen Sie den Paketinhalt. Ein Updatepaket besteht in der Regel aus folgenden Dateien:
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: db403f68879efa9103e35bb3581801240c0d64d3
-ms.sourcegitcommit: 1545e18a31cd715a12c7ddc3bcb173b41eb41730
+ms.openlocfilehash: c142ecda309f00ee94429be3d7b8f3c6e8072668
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67348720"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188220"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service in Azure Stack: Versionshinweise zu Update 6
 
@@ -89,7 +89,7 @@ Das Update 6 für Azure App Service in Azure Stack enthält folgende Verbesseru
 - Worker können den Dateiserver nicht erreichen, wenn App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist. Dies ist in der Bereitstellungsdokumentation zu Azure App Service in Azure Stack dargestellt.
 
 Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk und eine interne IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Verwaltungsportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
- * Quelle: Beliebig
+ * Quelle: Any
  * Quellportbereich: *
  * Ziel: IP-Adressen
  * IP-Zieladressbereich: Bereich der IPs für Ihren Dateiserver
@@ -101,7 +101,7 @@ Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk u
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack betreiben
 
-Lesen Sie die Dokumentation in den [Versionshinweisen zum Azure Stack-Update 1904](azure-stack-release-notes-1904.md).
+Lesen Sie die Dokumentation in den [Versionshinweisen zum Azure Stack-Update 1908](azure-stack-release-notes-1908.md).
 
 ### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>Bekannte Probleme für Mandanten, die Anwendungen in Azure App Service in Azure Stack bereitstellen
 

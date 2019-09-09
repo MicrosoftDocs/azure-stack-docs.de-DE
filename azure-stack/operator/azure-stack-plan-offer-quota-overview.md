@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 08/29/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 6f417b8afdf5315f581db52dc4b850f72e02b1f0
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.lastreviewed: 08/29/2019
+ms.openlocfilehash: 72787bda5dd5fad372af33141e276b4852f86c39
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991747"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159522"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Übersicht über Pläne, Angebote, Kontingente und Abonnements
 
@@ -85,7 +85,7 @@ Jede Kombination aus einem Benutzer und einem Angebot stellt ein eindeutiges Abo
 
 ### <a name="default-provider-subscription"></a>Standardabonnement des Anbieters
 
-Das Standardabonnement des Anbieters wird automatisch erstellt, wenn Sie das Azure Stack Development Kit bereitstellen. Dieses Abonnement kann zum Verwalten von Azure Stack, zum Bereitstellen weiterer Ressourcenanbieter sowie zum Erstellen von Plänen und Angeboten für Benutzer verwendet werden. Aus Sicherheits- und Lizenzierungsgründen sollte es nicht eingesetzt werden, um Kundenworkloads und -anwendungen auszuführen.
+Das Standardabonnement des Anbieters wird automatisch erstellt, wenn Sie das Azure Stack Development Kit bereitstellen. Dieses Abonnement kann zum Verwalten von Azure Stack, zum Bereitstellen weiterer Ressourcenanbieter sowie zum Erstellen von Plänen und Angeboten für Benutzer verwendet werden. Aus Sicherheits- und Lizenzierungsgründen sollte es nicht eingesetzt werden, um Kundenworkloads und -anwendungen auszuführen. Das Kontingent für das Standardabonnement des Anbieters kann nicht geändert werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 08/29/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 21364595b30c62f47c293e38bdcb9c5663c56e90
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.lastreviewed: 08/29/2019
+ms.openlocfilehash: b71065d4a5af880fe5fb9a48d78a0e2821822b56
+ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008318"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70143985"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Häufig gestellte Fragen zum Azure Stack-Marketplace für Windows Server
 
@@ -57,11 +57,11 @@ Durch Ausführen des folgenden Skripts können Sie das Lizenzmodellattribut änd
 
 ```powershell
 vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
-$vm.LicenseType = "Windows_Server"
+$vm.LicenseType = "None"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
-Sie können den Lizenztyp Ihrer VM überprüfen, indem Sie die folgenden Befehle ausführen. Wenn als Lizenzmodell **Windows_Server** angegeben ist, wird Ihnen die Windows-Lizenz gemäß dem Modell mit nutzungsbasierter Bezahlung in Rechnung gestellt:
+Sie können den Lizenztyp Ihrer VM überprüfen, indem Sie die folgenden Befehle ausführen. Wenn das Lizenzmodell den Eintrag **Windows_Server** enthält, wird Ihnen der BYOL-Preis berechnet. Andernfalls werden Ihnen die Windows-Verbrauchseinheiten über das Modell „Nutzungsbasierte Zahlung“ berechnet:
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
@@ -73,7 +73,7 @@ Durch Ausführen der folgenden Befehle können Sie das Lizenzmodellattribut änd
 
 ```powershell
 $vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
-$vm.LicenseType = "None"
+$vm.LicenseType = "Windows_Server"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 

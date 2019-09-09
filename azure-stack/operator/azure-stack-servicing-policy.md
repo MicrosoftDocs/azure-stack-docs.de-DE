@@ -12,18 +12,35 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 08/01/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c02cc78205b2622b4ef5bdd8b88070912af72b97
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: 1022ab056157ea1a9bc925d3992a99bd0b395a35
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008601"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188083"
 ---
-# <a name="azure-stack-servicing-policy"></a>Azure Stack-Wartungsrichtlinie
+- **Updates des OEM-Hardwareanbieters**. Azure Stack-Hardwarepartner sind für den End-to-End-Wartungslebenszyklus (inklusive Leitung) der hardwarebezogenen Firmware- und Treiberupdatepakete verantwortlich. Darüber hinaus obliegt den Azure Stack-Hardwarepartnern die Leitung für die gesamte Software und Hardware des Hardwarelebenszyklus-Hosts. Die OEM-Hardwareanbieter hosten diese Updatepakete auf ihren Downloadwebsites.
+
+## <a name="update-package-release-cadence"></a>Updatepaketrelease-Intervall
+
+Microsoft veröffentlicht Softwareupdatepakete in der Regel monatlich. Allerdings ist es möglich, dass in einem Monat mehrere oder keine Updatereleases veröffentlicht werden. OEM-Hardwareanbieter veröffentlichen ihre Updates nach Bedarf.
+
+Die Dokumentation zur Planung und Verwaltung von Updates sowie zur Ermittlung Ihrer aktuellen Version finden Sie unter [Übersicht zum Verwalten von Updates in Azure Stack](azure-stack-updates.md).
+
+Informationen zu einem bestimmten Update und darüber, wie sie es herunterladen, finden Sie in den Versionshinweisen zu diesem Update:
+
+- [Azure Stack-Update 1908](azure-stack-release-notes-1908.md)
+- [Azure Stack-Update 1907](azure-stack-release-notes-1907.md)
+- [Azure Stack-Update 1906](azure-stack-release-notes-1906.md)
+- [Azure Stack-Update 1905](azure-stack-release-notes-1905.md)
+
+## <a name="hotfixes"></a>Hotfixes
+
+Gelegentlich stellt Microsoft Hotfixes für Azure Stack zur Verfügung, die ein bestimmtes Problem beheben, das oft präventiv oder zeitkritisch ist.  Jeder Hotfix wird mit einem entsprechenden Microsoft Knowledge Base-Artikel veröffentlicht, der das Problem, die Ursache und die Lösung beschreibt.
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme*
 

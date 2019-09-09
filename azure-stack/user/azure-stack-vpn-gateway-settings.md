@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 53a423ebc8e9f503934bfd3df2f4962a7b584059
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 9fa12d91e9f2ec738c68f4a04438a93415bd36fb
+ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658587"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70144035"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack"></a>Konfigurieren von VPN-Gatewayeinstellungen für Azure Stack
 
@@ -39,8 +39,8 @@ Jedes virtuelle Azure Stack-Netzwerk unterstützt ein einzelnes Gateway für vir
 Achten Sie beim Erstellen eines Gateways für virtuelle Netzwerke darauf, dass der Gatewaytyp für Ihre Konfiguration richtig ist. Ein VPN-Gateway erfordert das `-GatewayType Vpn`-Flag. Beispiel:
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
--Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn
+New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+-Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
 ```
 
@@ -70,27 +70,25 @@ Wenn Sie das Azure Stack-Portal verwenden, um ein Resource Manager-Gateway für 
 
 #### <a name="powershell"></a>PowerShell
 
-Im folgenden PowerShell-Beispiel wird `-GatewaySku` als **VpnGw1** angegeben:
+Im folgenden PowerShell-Beispiel wird `-GatewaySku` als **Standard** angegeben:
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
--Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1
+New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+-Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
 ### <a name="connection-types"></a>Verbindungstypen
 
-Im Resource Manager-Bereitstellungsmodell ist für jede Konfiguration ein bestimmter Typ der Verbindung mit dem Gateway eines virtuellen Netzwerks erforderlich. Die verfügbaren Resource Manager-PowerShell-Werte für `-ConnectionType` sind:
+Im Resource Manager-Bereitstellungsmodell ist für jede Konfiguration ein bestimmter Typ der Verbindung mit dem Gateway eines virtuellen Netzwerks erforderlich. Der verfügbare Resource Manager-PowerShell-Wert für `-ConnectionType` ist **IPsec**.
 
-* **IPsec**
+Im folgenden PowerShell-Beispiel wird eine Site-to-Site-Verbindung (S2S) erstellt, die den Verbindungstyp „IPsec“ erfordert:
 
-   Im folgenden PowerShell-Beispiel wird eine Site-to-Site-Verbindung (S2S) erstellt, die den Verbindungstyp „IPsec“ erfordert:
-
-   ```powershell
-   New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
-   -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
-   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-   ```
+```powershell
+New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+-Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+-ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+```
 
 ### <a name="vpn-types"></a>VPN-Typen
 
@@ -111,8 +109,8 @@ Wenn Sie das Gateway des virtuellen Netzwerks für eine VPN-Gatewaykonfiguration
 Das folgende PowerShell-Beispiel gibt `-VpnType` als **RouteBased**an. Achten Sie beim Erstellen eines Gateways darauf, dass `-VpnType` für Ihre Konfiguration richtig ist.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
--Location 'West US' -IpConfigurations $gwipconfig
+New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+-Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
@@ -156,7 +154,7 @@ Sie geben dem Gateway des lokalen Netzwerks einen Namen, stellen die öffentlich
 Im nächsten PowerShell-Beispiel wird ein neues Gateway des lokalen Netzwerks erstellt:
 
 ```powershell
-New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
