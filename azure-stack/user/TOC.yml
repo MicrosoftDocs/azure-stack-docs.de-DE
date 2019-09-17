@@ -191,16 +191,39 @@
             - name: Bereitstellen eines Service Fabric-Clusters
               href: azure-stack-solution-template-service-fabric-cluster.md
             - name: Bereitstellen eines Kubernetes-Clusters
-              href: azure-stack-solution-template-kubernetes-deploy.md
               items:
-                - name: Bereitstellen von Kubernetes mit Azure AD
-                  href: azure-stack-solution-template-kubernetes-azuread.md
-                - name: Bereitstellen von Kubernetes mit AD FS
-                  href: azure-stack-solution-template-kubernetes-adfs.md
-                - name: Aktivieren des Kubernetes-Dashboards
-                  href: azure-stack-solution-template-kubernetes-dashboard.md
-                - name: Problembehandlung für Kubernetes-Cluster
-                  href: azure-stack-solution-template-kubernetes-trouble.md
+                - name: AKS Engine
+                  items:
+                    - name: AKS-Engine in Azure Stack
+                      href: azure-stack-kubernetes-aks-engine-overview.md
+                    - name: Supportrichtlinie
+                      href: azure-stack-kubernetes-ask-engine-support.md
+                    - name: Einrichten der AKS-Engine
+                      href: azure-stack-kubernetes-aks-engine-set-up.md
+                    - name: Erstellen eines Linux-Clients
+                      href: azure-stack-kubernetes-aks-engine-deploy-linux.md
+                    - name: Erstellen eines Windows-Clients
+                      href: azure-stack-kubernetes-aks-engine-deploy-windows.md
+                    - name: Bereitstellen eines Clusters
+                      href: azure-stack-kubernetes-aks-engine-deploy-cluster.md
+                    - name: Skalieren eines Clusters
+                      href: azure-stack-kubernetes-aks-engine-scale.md
+                    - name: Aktualisieren eines Clusters
+                      href: azure-stack-kubernetes-aks-engine-upgrade.md
+                    - name: Problembehandlung für die AKS-Engine
+                      href: azure-stack-kubernetes-aks-engine-troubleshoot.md
+                - name: Marketplace-Element
+                  items:
+                    - name: Bereitstellen eines Kubernetes-Clusters
+                      href: azure-stack-solution-template-kubernetes-deploy.md
+                    - name: Bereitstellen von Kubernetes mit Azure AD
+                      href: azure-stack-solution-template-kubernetes-azuread.md
+                    - name: Bereitstellen von Kubernetes mit AD FS
+                      href: azure-stack-solution-template-kubernetes-adfs.md
+                    - name: Aktivieren des Kubernetes-Dashboards
+                      href: azure-stack-solution-template-kubernetes-dashboard.md
+                    - name: Problembehandlung für Kubernetes-Cluster
+                      href: azure-stack-solution-template-kubernetes-trouble.md
             - name: Bereitstellen von Cognitive Services
               href: azure-stack-solution-template-cognitive-services.md
     - name: Bereitstellen von Apps
