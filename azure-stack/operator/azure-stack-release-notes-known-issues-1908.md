@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: 317f53eb5b50fc415fc7a65e044eca7948a54e58
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: 86d8cea0164a9181f444066181945358122c831b
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234960"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70862975"
 ---
 # <a name="azure-stack-1908-known-issues"></a>Azure Stack 1908: Bekannte Probleme
 
@@ -34,7 +34,7 @@ In diesem Artikel sind die bekannten Probleme in Version 1908 von Azure Stack au
 ## <a name="update-process"></a>Updateprozess
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Wenn Sie versuchen, das Azure Stack-Update 1907 zu installieren, wird für den Status des Updates möglicherweise ein Fehler ausgegeben und der Zustand in **PreparationFailed** geändert. Der Grund dafür ist, dass der Updateressourcenanbieter (Update Resource Provider, URP) die Dateien aus dem Speichercontainer nicht ordnungsgemäß auf eine Infrastrukturfreigabe zur Verarbeitung übertragen kann.
+- Ursache: Wenn Sie versuchen, das Azure Stack-Update zu installieren, kommt es für das Update möglicherweise zu einem Statusfehler, und der Status wird in **PreparationFailed** geändert. Der Grund dafür ist, dass der Updateressourcenanbieter (Update Resource Provider, URP) die Dateien aus dem Speichercontainer nicht ordnungsgemäß auf eine Infrastrukturfreigabe zur Verarbeitung übertragen kann.
 - Abhilfe: Ab Version 1901 (1.1901.0.95) können Sie dieses Problem umgehen, indem Sie auf **Jetzt aktualisieren** (nicht **Fortsetzen**) klicken. Der URP bereinigt dann die Dateien aus dem vorherigen Versuch und startet den Download neu. Falls das Problem weiterhin besteht, empfehlen wir Ihnen das manuelle Hochladen des Updatepakets gemäß der Anleitung im Abschnitt [Installieren von Updates](azure-stack-apply-updates.md#install-updates-and-monitor-progress).
 - Häufigkeit: Common
 
@@ -99,7 +99,7 @@ In diesem Artikel sind die bekannten Probleme in Version 1908 von Azure Stack au
 
 #### <a name="local-network-gateway-deletion"></a>Löschung des lokalen Netzwerkgateways
 
-- Geltungsbereich: Dieses Problem gilt für Release 1906.
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Im Benutzerportal wird beim Löschen des **lokalen Netzwerkgateways** die folgende Fehlermeldung angezeigt: **Ein lokales Netzwerkgateway mit einer aktiven Verbindung kann nicht gelöscht werden**, obwohl keine aktive Verbindung vorhanden ist.
 - Lösung: Die Lösung dieses Problems wird in Version 1907 veröffentlicht. Eine Problemumgehung besteht darin, ein neues lokales Netzwerkgateway mit der gleichen IP-Adresse, dem gleichen Adressraum und den gleichen Konfigurationsdetails, aber unter einem anderen Namen zu erstellen. Das alte LNG kann gelöscht werden, nachdem die Umgebung auf 1907 aktualisiert wurde.
 - Häufigkeit: Common
@@ -159,21 +159,21 @@ In diesem Artikel sind die bekannten Probleme in Version 1908 von Azure Stack au
 
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>Das Zurücksetzen des Kennworts einer VM-Skalierungsgruppe funktioniert nicht
 
-- Geltungsbereich: Dieses Problem betrifft die Versionen 1906 und 1907.
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Ein neues Blatt zum Zurücksetzen des Kennworts wird in der Benutzeroberfläche der Skalierungsgruppe angezeigt, aber Azure Stack unterstützt das Zurücksetzen von Kennwörtern für eine Skalierungsgruppe noch nicht.
 - Abhilfe: None (Keine):
 - Häufigkeit: Common
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Regenwolke in Skalierungsgruppendiagnose
 
-- Geltungsbereich: Dieses Problem betrifft die Versionen 1906 und 1907.
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Auf der Übersichtsseite für die VM-Skalierungsgruppe wird ein leeres Diagramm angezeigt. Durch Klicken auf das leere Diagramm wird ein Blatt mit einer „Regenwolke“ angezeigt. Dies ist das Diagramm für die Diagnoseinformationen der Skalierungsgruppe, z. B. CPU-Prozentsatz, und dies ist eine Funktion, die im aktuellen Azure Stack-Build nicht unterstützt wird.
 - Abhilfe: None (Keine):
 - Häufigkeit: Common
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Blatt mit VM-Diagnoseeinstellungen
 
-- Geltungsbereich: Dieses Problem betrifft die Versionen 1906 und 1907.    
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.    
 - Ursache: Das Blatt mit den VM-Diagnoseeinstellungen verfügt über eine Registerkarte **Senke**, auf der ein **Application Insights-Konto** abgefragt wird. Dies resultiert aus einem neuen Blatt, das in Azure Stack noch nicht unterstützt wird.
 - Abhilfe: None (Keine):
 - Häufigkeit: Common

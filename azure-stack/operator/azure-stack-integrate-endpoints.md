@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/09/2019
 ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 7b8bae02fdb3f85b856f6ccdb9d90155e6bde768
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.lastreviewed: 09/09/2019
+ms.openlocfilehash: 9333cfde7985977607f7108fd90b62e376fa9462
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188355"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70863003"
 ---
 # <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Integration des Azure Stack-Datencenters – Veröffentlichen der Azure Stack-Dienste
 
@@ -72,7 +72,7 @@ Wenn der [Erweiterungshost](azure-stack-extension-host-prepare.md) hinzugefügt 
 Azure Stack unterstützt nur transparente Proxyserver. In einer Bereitstellung mit einem Uplink zwischen einem transparenten Proxy und einem herkömmlichen Proxyserver müssen für die ausgehende Kommunikation die Ports und URLs in der folgenden Tabelle zugelassen werden.
 
 > [!Note]  
-> Azure Stack unterstützt nicht die Verwendung von Express Route, um die in der folgenden Tabelle aufgeführten Azure-Dienste zu erreichen.
+> Azure Stack bietet keine Unterstützung für die Verwendung von ExpressRoute zur Kommunikation mit den in der folgenden Tabelle aufgeführten Azure-Diensten, weil ExpressRoute den Datenverkehr möglicherweise nicht an alle Endpunkte weiterleiten kann.
 
 |Zweck|Ziel-URL|Protocol|Ports|Quellnetzwerk|
 |---------|---------|---------|---------|---------|
@@ -95,7 +95,7 @@ Azure Stack unterstützt nur transparente Proxyserver. In einer Bereitstellung m
 
 Für ausgehende URLs erfolgt ein Lastenausgleich mithilfe von Azure Traffic Manager, um bestmögliche Konnektivität basierend auf dem geografischen Standort zu bieten. Durch URLs mit Lastenausgleich kann Microsoft Back-End-Endpunkte ohne Auswirkungen auf Kunden aktualisieren und ändern. Microsoft gibt die Liste der IP-Adressen für die URLs mit Lastenausgleich nicht frei. Sie sollten ein Gerät verwenden, das ein Filtern nach URL und nicht nach IP-Adresse unterstützt.
 
-DNS in ausgehender Richtung ist immer erforderlich. Nur die Quelle, über die das externe DNS abgefragt wird, und die gewählte Identitätsintegration variieren. Wenn dies ein verbundenes Szenario ist, benötigt die im BMC-Netzwerk angeordnete DVM diesen ausgehenden Zugriff. Nach der Bereitstellung wird der DNS-Dienst aber auf eine interne Komponente verschoben, von der Abfragen über eine öffentliche VIP gesendet werden. Zu diesem Zeitpunkt kann der ausgehende DNS-Zugriff über das BMC-Netzwerk entfernt werden, aber der Zugriff über die öffentliche VIP auf diesen DNS-Server muss erhalten bleiben, da für die Authentifizierung ansonsten ein Fehler auftritt.
+Ausgehender DNS-Datenverkehr ist immer erforderlich. Nur die Quelle für die externe DNS-Abfrage und die gewählte Identitätsintegration können variieren. Während der Bereitstellung eines verbundenen Szenarios benötigt der DVM im BMC-Netzwerk Zugriff auf den ausgehenden Datenverkehr. Nach der Bereitstellung wird der DNS-Dienst jedoch in eine interne Komponente verschoben, die Abfragen über eine öffentliche virtuelle IP-Adresse sendet. Zu diesem Zeitpunkt kann der ausgehende DNS-Zugriff über das BMC-Netzwerk entfernt werden, aber der Zugriff über die öffentliche virtuelle IP-Adresse auf diesen DNS-Server muss erhalten bleiben, weil es bei der Authentifizierung ansonsten zu einem Fehler kommt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

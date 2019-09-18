@@ -16,12 +16,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 111e8e6cb72baac64229e4808003818efece54cd
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: f4fe915d07b81a6f99d9bd5a4b222590d1bb9a30
+ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025881"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70876586"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>Konfigurationen nach der Bereitstellung für das ASDK
 
@@ -127,7 +127,7 @@ Wenn ein Fehler aufgetreten ist, führen Sie die Schritte zur Problembehandlung 
 Für Bereitstellungen mithilfe von Azure AD müssen Sie [Mehrinstanzenfähigkeit](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy) für die ASDK-Installation aktivieren.
 
 > [!NOTE]
-> Wenn Administrator- oder Benutzerkonten aus anderen Domänen als die bei der Registrierung von Azure Stack verwendeten für die Anmeldung bei einem Azure Stack-Portal verwendet werden, muss der Domänenname, mit dem Azure Stack registriert wird, an die Portal-URL angefügt werden. Wenn beispielsweise Azure Stack mit „fabrikam.onmicrosoft.com“ registriert wurde und für die Anmeldung das Benutzerkonto admin@contoso.com verwendet wird, lautet die URL für die Anmeldung beim Benutzerportal wie folgt: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+> Wenn Administrator- oder Benutzerkonten aus anderen Domänen als die bei der Registrierung von Azure Stack verwendeten für die Anmeldung bei einem Azure Stack-Portal verwendet werden, muss der Domänenname, mit dem Azure Stack registriert wird, an die Portal-URL angefügt werden. Wenn also beispielsweise Azure Stack mit fabrikam.onmicrosoft.com registriert wurde und für die Anmeldung das Benutzerkonto admin@contoso.com verwendet wird, lautet die URL für die Anmeldung beim Benutzerportal wie folgt: https\://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -14,12 +14,12 @@ ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 04c793ceebf167220b74dfc40a7e4fc775723e93
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: 2ddc95097539eb1a7b15fdfc1fd2faf2c71f9ced
+ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316255"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70377296"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Herstellen einer Verbindung zwischen Azure Stack und Azure mithilfe von Azure ExpressRoute
 
@@ -221,22 +221,15 @@ Vergessen Sie nicht, die IP-Adressen zu ändern, um Überlappungen zu vermeiden,
 
 Das Azure Stack Development Kit ist eigenständig und von dem Netzwerk isoliert, in dem der physische Host bereitgestellt wird. Das VIP-Netzwerk, mit dem die Gateways verbunden sind, ist nicht extern, sondern befindet sich hinter einem Router, der Netzwerkadressenübersetzung (Network Address Translation, NAT) ausführt.
 
-Der Router ist eine Windows Server-VM (AzS-BGPNAT01), die die RRAS-Rolle (Routing- und RAS-Dienste) ausführt. Sie müssen die NAT auf dem virtuellen Computer „AzS-BGPNAT01“ konfigurieren, um die Site-to-Site-VPN-Verbindung an beiden Enden zu ermöglichen.
+Der Router ist ein ASDK-Host, der mit der RRAS-Rolle (Routing and Remote Access Services) ausgeführt wird. Sie müssen die NAT auf dem ASDK-Host konfigurieren, um die Site-to-Site-VPN-Verbindung an beiden Endpunkten zu ermöglichen.
 
 #### <a name="configure-the-nat"></a>Konfigurieren der NAT
 
 1. Melden Sie sich mit Ihrem Administratorkonto am Azure Stack-Hostcomputer an.
-1. Kopieren und bearbeiten Sie das folgende PowerShell-Skript: Ersetzen Sie `your administrator password` durch Ihr Administratorkennwort, und führen Sie das Skript dann in einer PowerShell ISE mit erhöhten Rechten aus. Das Skript gibt Ihre **externe BGPNAT-Adresse** zurück.
+1. Führen Sie das Skript in einer PowerShell-ISE mit erhöhten Rechten aus. Das Skript gibt Ihre **externe BGPNAT-Adresse** zurück.
 
    ```powershell
-   cd \AzureStack-Tools-master\connect
-   Import-Module .\AzureStack.Connect.psm1
-   $Password = ConvertTo-SecureString "your administrator password" `
-    -AsPlainText `
-    -Force
-   Get-AzureStackNatServerAddress `
-    -HostComputer "azs-bgpnat01" `
-    -Password $Password
+   Get-NetNatExternalAddress
    ```
 
 1. Kopieren und bearbeiten Sie das folgende PowerShell-Skript, um die NAT zu konfigurieren. Ersetzen Sie im Skript die `External BGPNAT address` und `Internal IP address` durch die folgenden Beispielwerte:
@@ -251,40 +244,32 @@ Der Router ist eine Windows Server-VM (AzS-BGPNAT01), die die RRAS-Rolle (Routin
    $IntBgpNat = 'Internal IP address'
 
    # Designate the external NAT address for the ports that use the IKE authentication.
-   Invoke-Command `
-    -ComputerName azs-bgpnat01 `
-     {Add-NetNatExternalAddress `
+   Add-NetNatExternalAddress `
       -NatName BGPNAT `
       -IPAddress $Using:ExtBgpNat `
       -PortStart 499 `
-      -PortEnd 501}
-   Invoke-Command `
-    -ComputerName azs-bgpnat01 `
-     {Add-NetNatExternalAddress `
+      -PortEnd 501
+   Add-NetNatExternalAddress `
       -NatName BGPNAT `
       -IPAddress $Using:ExtBgpNat `
       -PortStart 4499 `
-      -PortEnd 4501}
+      -PortEnd 4501
    # Create a static NAT mapping to map the external address to the Gateway public IP address to map the ISAKMP port 500 for PHASE 1 of the IPSEC tunnel.
-   Invoke-Command `
-    -ComputerName azs-bgpnat01 `
-     {Add-NetNatStaticMapping `
+   Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
       -ExternalIPAddress $Using:ExtBgpNat `
       -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 500 `
-      -InternalPort 500}
+      -InternalPort 500
    # Configure NAT traversal which uses port 4500 to  establish the complete IPSEC tunnel over NAT devices.
-   Invoke-Command `
-    -ComputerName azs-bgpnat01 `
-     {Add-NetNatStaticMapping `
+   Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
       -ExternalIPAddress $Using:ExtBgpNat `
       -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
-      -InternalPort 4500}
+      -InternalPort 4500
    ```
 
 ## <a name="configure-azure"></a>Konfigurieren von Azure

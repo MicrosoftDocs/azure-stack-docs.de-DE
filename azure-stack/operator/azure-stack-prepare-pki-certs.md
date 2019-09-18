@@ -3,7 +3,7 @@ title: Vorbereiten von PKI-Zertifikaten für Azure Stack für die Bereitstellung
 description: Beschreibt die Vorgehensweise zum Vorbereiten von Azure Stack-PKI-Zertifikaten für in Azure Stack integrierte Systeme.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
-ms.author: mabrigg
+ms.date: 09/10/2019
+ms.author: justinha
 ms.reviewer: ppacent
-ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 682a5ce693bd9f184fd73a322ab9ed29c2d90fae
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 09/10/2019
+ms.openlocfilehash: 6b7d7a3e70d78b8ab943224babc515395319914e
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782500"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902716"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Vorbereiten von Azure Stack-PKI-Zertifikaten für die Verwendung bei der Bereitstellung oder Rotation
 
@@ -28,7 +28,8 @@ Die [von der Zertifizierungsstelle Ihrer Wahl bezogenen](azure-stack-get-pki-cer
 
 ## <a name="prepare-certificates-for-deployment"></a>Vorbereiten von Zertifikaten für die Bereitstellung
 
-Verwenden Sie diese Schritte zum Vorbereiten und Überprüfen der Azure Stack-PKI-Zertifikate, die für die Bereitstellung einer neuen Azure Stack-Umgebung oder für die Geheimnisrotation in einer vorhandenen Azure Stack-Umgebung verwendet werden: 
+Verwenden Sie die folgenden Schritte zum Vorbereiten und Überprüfen der Azure Stack-PKI-Zertifikate, die für die Bereitstellung einer neuen Azure Stack-Umgebung oder für die Geheimnisrotation in einer vorhandenen Azure Stack-Umgebung verwendet werden. 
+
 
 ### <a name="import-the-certificate"></a>Importieren des Zertifikats
 
@@ -51,6 +52,9 @@ Verwenden Sie diese Schritte zum Vorbereiten und Überprüfen der Azure Stack-PK
    ![Markieren des Schlüssels als exportierbar](./media/prepare-pki-certs/2.png)
 
 1. Klicken Sie auf „Fertig stellen“, um den Import abzuschließen.
+
+> [!NOTE]
+> Nachdem Sie ein Zertifikat für Azure Stack importiert haben, wird der private Schlüssel des Zertifikats als PKCS 12-Datei (PFX) im Clusterspeicher gespeichert.
 
 ### <a name="export-the-certificate"></a>Zertifikat exportieren
 

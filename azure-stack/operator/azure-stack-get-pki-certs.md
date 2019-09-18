@@ -3,23 +3,23 @@ title: Generieren von PKI-Zertifikaten für Azure Stack für die Bereitstellung 
 description: Beschreibt den Bereitstellungsprozess für Azure Stack-PKI-Zertifikate für in Azure Stack integrierte Systeme.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
-ms.author: mabrigg
+ms.date: 09/10/2019
+ms.author: justinha
 ms.reviewer: ppacent
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 1c342b1edb86629fff95dc04735fd5b6d98fc70a
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 09/10/2019
+ms.openlocfilehash: c9f14e643f886fab0fae148c5af8643890866fd6
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782271"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902681"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Generieren von Signieranforderungen für Azure Stack-Zertifikate
 
@@ -39,10 +39,10 @@ Ihr System muss die folgenden Voraussetzungen erfüllen, bevor Sie die Zertifika
   - Regionsname
   - Externer vollqualifizierter Domänenname (FQDN)
   - Subject
-- Windows 10 oder Windows Server 2016
+- Windows 10 oder Windows Server 2016 oder höher
 
   > [!NOTE]  
-  > Wenn Sie Ihre Zertifikate von Ihrer Zertifizierungsstelle erhalten haben, müssen Sie auf demselben System die Schritte in [Vorbereiten von Azure Stack-PKI-Zertifikaten](azure-stack-prepare-pki-certs.md) ausführen!
+  > Wenn Sie die Zertifikate von Ihrer Zertifizierungsstelle erhalten haben, müssen Sie auf demselben System die Schritte in [Vorbereiten von Azure Stack-PKI-Zertifikaten](azure-stack-prepare-pki-certs.md) ausführen!
 
 ## <a name="generate-certificate-signing-requests"></a>Generieren der Zertifikatsignieranforderungen
 
@@ -54,7 +54,7 @@ Gehen Sie wie folgt vor, um die Azure Stack-PKI-Zertifikate vorzubereiten und zu
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. Deklarieren Sie den **Antragsteller** als sortiertes Wörterbuch. Beispiel: 
+2. Deklarieren Sie den **Antragsteller** als sortiertes Wörterbuch. Beispiel:
 
     ```powershell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
@@ -63,7 +63,7 @@ Gehen Sie wie folgt vor, um die Azure Stack-PKI-Zertifikate vorzubereiten und zu
     > [!note]  
     > Wenn ein allgemeiner Name (CN) angegeben ist, wird dieser vom ersten DNS-Namen der Zertifikatanforderung überschrieben.
 
-3. Deklarieren Sie ein Ausgabeverzeichnis, das bereits vorhanden ist. Beispiel: 
+3. Deklarieren Sie ein Ausgabeverzeichnis, das bereits vorhanden ist. Beispiel:
 
     ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"

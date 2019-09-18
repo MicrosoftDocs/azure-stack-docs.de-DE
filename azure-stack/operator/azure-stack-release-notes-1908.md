@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/05/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: fbf4983f6f7d2f88da70552ae182792ee316994a
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: ad059e09bbd544e4709a237ee0c51cafc2a734b4
+ms.sourcegitcommit: 9438b559ea314cc8c19fd710e1b2a6ceb15e50c3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234959"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70912654"
 ---
 # <a name="azure-stack-1908-update"></a>Azure Stack-Update 1908
 
@@ -35,7 +35,7 @@ In diesem Artikel wird der Inhalt des Updatepakets 1908 beschrieben. Das Update 
 
 ## <a name="previous-release-notes"></a>Vorherige Versionshinweise
 
-Ab Version 1908 werden die vorherigen Versionen der Versionshinweise links im Inhaltsverzeichnis nicht mehr angezeigt. Wählen Sie zum Zugreifen auf frühere Versionen der Versionshinweise einen anderen Artikel (z. B. [Azure Stack-Übersicht](azure-stack-overview.md)) und dann in der Versionsauswahl oben im Inhaltsverzeichnis auf der linken Seite die Version 1905, 1906, 1907 oder 1908 aus. Frühere Versionen von Versionshinweisen finden Sie im Abschnitt [Archivierte Versionshinweise](#archived-release-notes).
+Ab Version 1908 werden die vorherigen Versionen der Versionshinweise links im Inhaltsverzeichnis nicht mehr angezeigt. Wählen Sie zum Zugriff auf frühere Versionen der Versionshinweise einen anderen Artikel (z. B. [Azure Stack-Übersicht](azure-stack-overview.md)) und dann in der Versionsauswahl oben im Inhaltsverzeichnis auf der linken Seite die Version 1905, 1906, 1907 oder 1908 aus. Frühere Versionen von Versionshinweisen finden Sie im Abschnitt [Archivierte Versionshinweise](#archived-release-notes).
 
 ## <a name="build-reference"></a>Buildreferenz
 
@@ -63,7 +63,7 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 
 - Beachten Sie für 1908, dass das zugrunde liegende Betriebssystem, auf dem Azure Stack ausgeführt wird, auf Windows Server 2019 aktualisiert wurde. So werden wichtige grundlegende Verbesserungen ermöglicht, und in naher Zukunft kann Azure Stack um weitere Funktionen erweitert werden.
 - Für alle Komponenten der Azure Stack-Infrastruktur wird jetzt der FIPS 140-2-Modus verwendet.
-
+- Azure Stack-Operatoren können jetzt Portalbenutzerdaten entfernen. Weitere Informationen finden Sie unter [Löschen von Portalbenutzerdaten aus Azure Stack](azure-stack-portal-clear.md).
 
 ### <a name="improvements"></a>Verbesserungen
 

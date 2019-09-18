@@ -16,12 +16,12 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: a12aceff00cf5be2d6ab70c4957ef04ea1c135d5
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 0fbb57771976b896f8f6b37b62780e34d6635d78
+ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271711"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386240"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack"></a>Voraussetzungen für das Bereitstellen von App Service unter Azure Stack
 
@@ -47,9 +47,12 @@ Bevor Sie Azure App Service in Azure Stack bereitstellen, müssen die erforderli
    - Ordner „Modules“
      - GraphAPI.psm1
 
-## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Syndizieren der benutzerdefinierten Skripterweiterung über den Marketplace
+## <a name="download-items-from-the-azure-marketplace"></a>Herunterladen von Elementen aus dem Azure Marketplace
 
-Für Azure App Service in Azure Stack ist die benutzerdefinierte Skripterweiterung v1.9.1 erforderlich.  Die Erweiterung muss [über den Marketplace syndiziert](azure-stack-download-azure-marketplace-item.md) werden, bevor mit der Bereitstellung oder dem Upgrade von Azure App Service in Azure Stack begonnen wird.
+Für Azure App Service in Azure Stack müssen Elemente aus dem [Azure Marketplace heruntergeladen werden](azure-stack-download-azure-marketplace-item.md), sodass sie im Azure Stack-Marketplace verfügbar sind. Die Elemente müssen heruntergeladen werden, bevor mit der Bereitstellung oder dem Upgrade von Azure App Service in Azure Stack begonnen wird:
+
+1. Die aktuelle Version des Windows Server 2016 Datacenter-VM-Images.
+2. Benutzerdefinierte Skripterweiterung v1.9.1 oder höher. Dies ist eine VM-Erweiterung.
 
 ## <a name="get-certificates"></a>Abrufen von Zertifikaten
 

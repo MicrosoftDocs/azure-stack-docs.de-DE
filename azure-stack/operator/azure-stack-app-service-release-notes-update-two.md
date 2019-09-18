@@ -1,6 +1,6 @@
 ---
-title: App Service in Azure Stack – Versionshinweise zu Update 2 | Microsoft-Dokumentation
-description: Erfahren Sie, was in Update 2 für App Service in Azure Stack enthalten ist, welche bekannten Probleme es gibt und wo das Update heruntergeladen werden kann.
+title: 'App Service in Azure Stack: Versionshinweise zu Update 2 | Microsoft-Dokumentation'
+description: Erfahren Sie mehr über Verbesserungen, Fehlerbehebungen und bekannte Probleme in Update 2 für App Service in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,42 +16,38 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: b56c90d9bac8039d428b7ee06a384956924e94f5
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: c85cc176949c9f3c86cded80be14417add6c40da
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269046"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808146"
 ---
-# <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service in Azure Stack – Versionshinweise zu Update 2
+# <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service in Azure Stack: Versionshinweise zu Update 2
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Diese Versionshinweise beschreiben die Verbesserungen und Fehlerbehebungen in Update 2 für Azure App Service in Azure Stack sowie bekannte Probleme. Die bekannten Probleme sind in Probleme unterteilt, die sich direkt auf die Bereitstellung und den Updateprozess beziehen, und in Probleme mit dem Build (nach der Installation).
+In diesen Versionshinweisen werden die Verbesserungen, Fehlerbehebungen und bekannte Probleme in Update 2 für Azure App Service in Azure Stack beschrieben. Die bekannten Probleme sind in drei Abschnitte unterteilt: Probleme in Bezug auf die Bereitstellung, Probleme mit dem Updatevorgang und Probleme mit dem Build (nach der Installation).
 
 > [!IMPORTANT]
-> Wenden Sie Update 1804 auf Ihr integriertes Azure Stack-System an, oder stellen Sie das aktuelle Azure Stack Development Kit vor der Bereitstellung von Azure App Service 1.2 bereit.
->
->
+> Wenden Sie Update 1804 auf Ihr integriertes Azure Stack-System an, oder stellen Sie das aktuelle Azure Stack Development Kit (ASDK) vor der Bereitstellung von Azure App Service 1.2 bereit.
 
 ## <a name="build-reference"></a>Buildreferenz
 
-Die Buildnummer von Update 2 für App Service in Azure Stack ist **72.0.13698.10**.
+Die Buildnummer von Update 2 für App Service in Azure Stack lautet **72.0.13698.10**.
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
 > [!IMPORTANT]
-> Neue Bereitstellungen von Azure App Service in Azure Stack erfordern jetzt aufgrund von Verbesserungen der Art, in der SSO für Kudu jetzt in Azure App Service behandelt wird, ein [Platzhalterzertifikat mit drei Antragstellern](azure-stack-app-service-before-you-get-started.md#get-certificates). Der neue Antragsteller lautet **\*.sso.appservice.\<Region\>.\<Domänenname\>.\<Erweiterung\>**
->
->
+> Neue Bereitstellungen von Azure App Service in Azure Stack erfordern jetzt aufgrund einer verbesserten SSO-Verarbeitung für Kudu in Azure App Service ein [Platzhalterzertifikat mit drei Antragstellern](azure-stack-app-service-before-you-get-started.md#get-certificates). Der neue Antragsteller lautet: **\*.sso.appservice.\<Region\>.\<Domänenname\>.\<Erweiterung\>**
 
-Lesen Sie die Dokumentation [Vor den ersten Schritten mit App Service in Azure Stack](azure-stack-app-service-before-you-get-started.md), bevor Sie mit der Bereitstellung beginnen.
+Lesen Sie vor Beginn der Bereitstellung die [Voraussetzungen für das Bereitstellen von App Service in Azure Stack](azure-stack-app-service-before-you-get-started.md).
 
 ### <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
 
 Update 2 für Azure App Service in Azure Stack enthält die folgenden Verbesserungen und Fehlerbehebungen:
 
-- Updates für **App Service-Mandanten, Admin, Functions-Portale und Kudu-Tools**. Mit Azure Stack-Portal-SDK-Version konsistent.
+- Updates für **App Service-Mandanten, Admin, Functions-Portale und Kudu-Tools**. Konsistent mit Azure Stack-Portal-SDK-Version.
 
 - Aktualisiert **Azure Functions Runtime** auf **v1.0.11612**.
 
@@ -69,11 +65,11 @@ Update 2 für Azure App Service in Azure Stack enthält die folgenden Verbesseru
   - .NET Core-Komponenten wurden aktualisiert, um mit Azure App Service in einer öffentlichen Cloud konsistent zu sein.
   - Aktualisierte Kudu
 
-- Feature für den automatischen Austausch von Bereitstellungsslots aktiviert – [Konfigurieren des automatischen Austauschs](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)
+- Feature für den automatischen Austausch von Bereitstellungsslots aktiviert: [Konfigurieren des automatischen Austauschs](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap).
 
-- Feature zum Testen in Produktionsumgebungen aktiviert – [Einführung in Tests in einer Produktionsumgebung](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
+- Feature zum Testen in Produktionsumgebungen aktiviert: [Einführung in Tests in einer Produktionsumgebung](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/).
 
-- Azure-Funktionsproxys aktiviert – [Verwenden von Azure-Funktionsproxys](https://docs.microsoft.com/azure/azure-functions/functions-proxies)
+- Azure-Funktionsproxys aktiviert: [Verwenden von Azure-Funktionsproxys](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
 
 - UX-Unterstützung der App Service-Administratorerweiterung hinzugefügt für:
   - Rotation für Geheimnisse
@@ -85,8 +81,9 @@ Update 2 für Azure App Service in Azure Stack enthält die folgenden Verbesseru
 
 - Worker können den Dateiserver nicht erreichen, wenn der App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist.
 
-Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk und eine interne IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie dazu im Admin-Portal zur WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
-* Quelle: Beliebig
+Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk und zur Verwendung einer internen IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Verwaltungsportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
+
+* Quelle: Any
 * Quellportbereich: *
 * Ziel: IP-Adressen
 * IP-Zieladressbereich: Bereich der IPs für Ihren Dateiserver
@@ -103,4 +100,4 @@ Lesen Sie die Dokumentation in den [Versionshinweisen zum Azure Stack-Update 180
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Einen Überblick über Azure App Service finden Sie unter [Übersicht über App Service in Azure Stack](azure-stack-app-service-overview.md).
-- Weitere Informationen zum Vorbereiten der Bereitstellung von App Service in Azure Stack finden Sie unter [Vor den ersten Schritten mit App Service in Azure Stack](azure-stack-app-service-before-you-get-started.md).
+- Weitere Informationen zum Vorbereiten der Bereitstellung von App Service in Azure Stack finden Sie unter [Voraussetzungen für das Bereitstellen von App Service in Azure Stack](azure-stack-app-service-before-you-get-started.md).

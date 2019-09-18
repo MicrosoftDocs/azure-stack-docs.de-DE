@@ -15,12 +15,12 @@ ms.date: 08/28/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: bea83d743e7f43ff25d446a09b0e12d0c0af4232
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: b218a1b40953d9266ec5a8bcdd49f5d89a421146
+ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188372"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749937"
 ---
 # <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>Anwenden von OEM-Updates (Originalgerätehersteller) auf Azure Stack
 
@@ -59,8 +59,9 @@ Führen Sie zum Anwenden von OEM-Paketen folgende Schritte aus:
 1. Sie müssen sich zu folgenden Zwecken an Ihren OEM wenden:
       - Bestimmen der aktuellen Version Ihres OEM-Pakets.  
       - Ermitteln der besten Methode zum Herunterladen des OEM-Pakets.  
-2. Bereiten Sie Ihr OEM-Paket mit den unter [Herunterladen der Updatepakete für integrierte Systeme](azure-stack-servicing-policy.md) beschriebenen Schritten vor.
-3. Wenden Sie die Updates mit den unter [Anwenden von Updates in Azure Stack](azure-stack-apply-updates.md) beschriebenen Schritten an.
+2. Vor dem Anwenden eines OEM-Paketupdates sollten Sie immer den neuesten Azure Stack-Hotfix anwenden, der für die aktuelle Azure Stack-Version Ihres Systems verfügbar ist. Weitere Informationen zu Hotfixes finden Sie unter [Azure Stack-Hotfixes](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy).
+3. Bereiten Sie Ihr OEM-Paket mit den unter [Herunterladen der Updatepakete für integrierte Systeme](azure-stack-servicing-policy.md) beschriebenen Schritten vor.
+4. Wenden Sie die Updates mit den unter [Anwenden von Updates in Azure Stack](azure-stack-apply-updates.md) beschriebenen Schritten an.
 
 ## <a name="configure-hardware-vendor-vm"></a>Konfigurieren der Hardwareanbieter-VM
 

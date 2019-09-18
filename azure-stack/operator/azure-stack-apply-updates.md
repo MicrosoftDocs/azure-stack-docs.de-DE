@@ -1,9 +1,9 @@
 ---
-title: Installieren von OEM-Updates in Azure Stack | Microsoft-Dokumentation
-description: Es wird beschrieben, wie Sie OEM-Updates in Azure Stack installieren.
+title: Installieren von Azure Stack-Updates | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Azure Stack-Updates installieren.
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/03/2019
-ms.author: justinha
-ms.lastreviewed: 09/03/2019
+ms.date: 09/10/2019
+ms.author: mabriggs
+ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a563c3ec43950122e045b0ec3168bcb3ca11fe56
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 2153a91bcf833386ef5884a9fd4e7c0fc759c01b
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271794"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70863060"
 ---
-# <a name="install-oem-updates-in-azure-stack"></a>Installieren von OEM-Updates in Azure Stack
+# <a name="install-azure-stack-updates"></a>Installieren von Azure Stack-Updates
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme*
 
-Sie können Updates des Originalgeräteherstellers (Original Equipment Manufacturer, OEM) installieren, indem Sie in Azure Stack das Blatt **Update** verwenden. In diesem Artikel werden Sie durch die Schritte zum Aktualisieren, Überwachen und Beheben von Problemen mit dem Updatevorgang geführt. Verwenden Sie das Blatt „Update“, um Updateinformationen anzuzeigen, Updates zu installieren, den Aktualisierungsfortschritt zu überwachen, den Aktualisierungsverlauf zu überprüfen und die aktuelle Version des OEM-Pakets anzuzeigen.
+Sie können Updatepakete über das Blatt **Update** in Azure Stack installieren. In diesem Artikel werden Sie durch die Schritte zum Aktualisieren, Überwachen und Beheben von Problemen mit dem Updatevorgang geführt. Verwenden Sie das Blatt „Update“, um Updateinformationen anzuzeigen, Updates zu installieren, den Aktualisierungsfortschritt zu überwachen, den Aktualisierungsverlauf zu überprüfen und die aktuelle Version des Azure Stack- und OEM-Pakets anzuzeigen.
 
 Sie können Updates über das Verwaltungsportal verwalten und im Dashboard den Abschnitt **Updates** verwenden, um Folgendes durchzuführen:
 
@@ -39,7 +39,7 @@ Sie können Updates über das Verwaltungsportal verwalten und im Dashboard den A
 
 Die aktuelle Version von Azure Stack können Sie auf dem Blatt **Update** anzeigen. So öffnen Sie das Blatt
 
-1.  Öffnen Sie das Azure Stack-Administratorportal.
+1.  Öffnen Sie das Azure Stack-Administratorportal an.
 
 2.  Wählen Sie **Dashboard** aus. Auf dem Blatt **Updates** ist die aktuelle Version aufgeführt.
 

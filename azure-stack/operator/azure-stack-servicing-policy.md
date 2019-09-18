@@ -12,17 +12,37 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 09/06/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 1022ab056157ea1a9bc925d3992a99bd0b395a35
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: dbfce7138d76892c7f66e2cf6f33883668e55395
+ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188083"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749951"
 ---
+# <a name="azure-stack-servicing-policy"></a>Azure Stack-Wartungsrichtlinie
+
+Dieser Artikel beschreibt die Wartungsrichtlinie für integrierte Azure Stack-Systeme, und was Sie tun müssen, um den unterstützten Zustand Ihres Systems aufrechtzuerhalten.
+
+## <a name="download-update-packages-for-integrated-systems"></a>Herunterladen der Updatepakete für integrierte Systeme
+
+Microsoft veröffentlicht sowohl vollständige monatliche Updatepakete als auch Hotfixpakete, um spezielle Probleme zu behandeln.
+
+Monatliche Updatepakete werden in einem sicheren Azure-Endpunkt gehostet. Sie können sie manuell mithilfe des [Downloadtools für Azure Stack-Updates](https://aka.ms/azurestackupdatedownload) herunterladen. Wenn Ihre Skalierungseinheit verbunden ist, wird das Update automatisch im Administratorportal als **Update verfügbar** angezeigt. Vollständige, monatlich Updatepakete werden bei jeder Veröffentlichung ausführlich dokumentiert. Weitere Informationen zu jedem Release erhalten Sie, wenn Sie im Abschnitt [Updatepaketrelease-Intervall](#update-package-release-cadence) dieses Artikels auf das jeweilige Release klicken.
+
+Hotfixupdatepakete werden in demselben sicheren Azure-Endpunkt gehostet. Sie können sie mithilfe der eingebetteten Links in jedem der jeweiligen Hotfix-KB-Artikel herunterladen, z. B. [Azure Stack-Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Ähnlich wie bei den vollständigen, monatlichen Updatepaketen können Azure Stack-Betreiber die XML-, BIN- und EXE-Dateien herunterladen und mithilfe des Verfahrens in [Anwenden von Updates in Azure Stack](azure-stack-apply-updates.md) importieren. Azure Stack-Betreiber mit verbundenen Skalierungseinheiten wird das automatische Eintreffen von Hotfixes im Administratorportal mit der Meldung **Update verfügbar** angezeigt.
+
+Wenn Ihre Skalierungseinheit nicht verbunden ist, und Sie bei jedem Hotfixrelease benachrichtigt werden möchten, abonnieren Sie den [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)- oder [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)-Feed, der in jedem Release vermerkt ist.
+
+## <a name="update-package-types"></a>Updatepakettypen
+
+Es gibt zwei Arten von Updatepaketen für integrierte Systeme:
+
+- **Softwareupdates von Microsoft**. Microsoft ist für den End-to-End-Wartungslebenszyklus der Softwareupdatepakete von Microsoft verantwortlich. Diese Pakete können die neuesten Sicherheitsupdates von Windows Server, nicht sicherheitsrelevante Updates und Updates von Azure Stack-Feature enthalten. Sie können diese Updatepakete direkt von Microsoft herunterladen.
+
 - **Updates des OEM-Hardwareanbieters**. Azure Stack-Hardwarepartner sind für den End-to-End-Wartungslebenszyklus (inklusive Leitung) der hardwarebezogenen Firmware- und Treiberupdatepakete verantwortlich. Darüber hinaus obliegt den Azure Stack-Hardwarepartnern die Leitung für die gesamte Software und Hardware des Hardwarelebenszyklus-Hosts. Die OEM-Hardwareanbieter hosten diese Updatepakete auf ihren Downloadwebsites.
 
 ## <a name="update-package-release-cadence"></a>Updatepaketrelease-Intervall
@@ -40,11 +60,18 @@ Informationen zu einem bestimmten Update und darüber, wie sie es herunterladen,
 
 ## <a name="hotfixes"></a>Hotfixes
 
-Gelegentlich stellt Microsoft Hotfixes für Azure Stack zur Verfügung, die ein bestimmtes Problem beheben, das oft präventiv oder zeitkritisch ist.  Jeder Hotfix wird mit einem entsprechenden Microsoft Knowledge Base-Artikel veröffentlicht, der das Problem, die Ursache und die Lösung beschreibt.
-
 *Anwendungsbereich: Integrierte Azure Stack-Systeme*
 
-In diesem Artikel wird die Wartungsrichtlinie für integrierte Azure Stack-Systeme beschrieben, was Sie tun müssen, um den unterstützten Zustand Ihres Systems aufrechtzuerhalten, und wo Sie Hilfe erhalten.
+Gelegentlich stellt Microsoft Hotfixes für Azure Stack zur Verfügung, die ein bestimmtes Problem beheben, das oft präventiv oder zeitkritisch ist.  Jeder Hotfix wird mit einem entsprechenden Microsoft Knowledge Base-Artikel veröffentlicht, der das Problem, die Ursache und die Lösung beschreibt.
+
+Hotfixes werden wie die regulären Pakete mit vollständigen Updates für Azure Stack heruntergeladen und installiert. Im Gegensatz zu einem vollständigen Update können Hotfixes jedoch innerhalb von Minuten installiert werden. Azure Stack-Operatoren wird empfohlen, die Wartungsfenster bei der Installation von Hotfixes zu setzen. Hotfixes aktualisieren die Version Ihrer Azure Stack-Cloud, sodass Sie leicht feststellen können, ob der Hotfix angewendet wurde. Für jede Version von Azure Stack, die noch unterstützt wird, wird ein separater Hotfix bereitgestellt. Jeder Fix für eine bestimmte Iteration ist kumulativ und enthält die vorherigen Updates für dieselbe Version. Wenn Sie mehr über die Anwendbarkeit eines bestimmten Hotfixes erfahren möchten, lesen Sie den entsprechenden Knowledge Base-Artikel. Siehe die Links mit den Versionshinweisen im vorherigen Abschnitt.
+
+Informationen zu den derzeit verfügbaren Hotfixes finden Sie in den Versionshinweisen für das jeweilige Update:
+
+- [Azure Stack-Hotfix 1908](azure-stack-release-notes-1908.md#hotfixes)
+- [Azure Stack-Hotfix 1907](azure-stack-release-notes-1907.md#hotfixes)
+- [Azure Stack-Hotfix 1906](azure-stack-release-notes-1906.md#hotfixes)
+- [Azure Stack-Hotfix 1905](azure-stack-release-notes-1905.md#hotfixes)
 
 ## <a name="keep-your-system-under-support"></a>Halten Sie den Support für Ihr System aufrecht
 
@@ -62,4 +89,4 @@ Azure Stack folgt demselben Supportprozess wie Azure. Unternehmenskunden können
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Verwalten von Updates in Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+- [Verwalten von Updates in Azure Stack](azure-stack-updates.md)

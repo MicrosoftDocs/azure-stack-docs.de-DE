@@ -3,7 +3,7 @@ title: Verwenden des privilegierten Endpunkts in Azure Stack | Microsoft-Dokumen
 description: Hier erfahren Sie, wie Sie den privilegierten Endpunkt (privileged endpoint, PEP) in Azure Stack (für einen Azure Stack-Operator) verwenden.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
-ms.author: mabrigg
+ms.date: 09/03/2019
+ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 9d088cb128243b0b178e7a317ba05176a59e83c1
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.lastreviewed: 09/03/2019
+ms.openlocfilehash: a278a918100619953b2b7eb9b288236625968187
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494063"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902623"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Verwenden des privilegierten Endpunkts in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Als Azure Stack-Operator sollten Sie das Administratorportal, PowerShell oder APIs des Azure Resource Manager für die meisten alltäglichen Verwaltungsaufgaben verwenden. Für einige weniger häufig ausgeführten Vorgänge müssen Sie jedoch den *privilegierten Endpunkt* (PEP) verwenden. Bei dem PEP handelt es sich um eine vorkonfigurierte Remote-PowerShell-Konsole, die Ihnen gerade so viele Funktionen zur Verfügung stellt, wie Sie zur Ausführung einer erforderlichen Aufgabe benötigen. Der Endpunkt nutzt [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview), um nur einen eingeschränkten Satz von Cmdlets verfügbar zu machen. Es wird ein Konto mit geringen Berechtigungen verwendet, um auf den PEP zuzugreifen und den eingeschränkten Satz von Cmdlets aufzurufen. Es sind keine Administratorkonten erforderlich. Zur Erhöhung der Sicherheit ist die Skripterstellung nicht zulässig.
+Als Azure Stack-Operator sollten Sie das Administratorportal, PowerShell oder APIs des Azure Resource Manager für die meisten alltäglichen Verwaltungsaufgaben verwenden. Für einige weniger häufig ausgeführten Vorgänge müssen Sie jedoch den *privilegierten Endpunkt* (PEP) verwenden. Bei dem PEP handelt es sich um eine vorkonfigurierte Remote-PowerShell-Konsole, die Ihnen gerade so viele Funktionen zur Verfügung stellt, wie Sie zur Ausführung einer erforderlichen Aufgabe benötigen. Der Endpunkt nutzt [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview), um nur einen eingeschränkten Satz von Cmdlets verfügbar zu machen. Es wird ein Konto mit geringen Berechtigungen verwendet, um auf den PEP zuzugreifen und den eingeschränkten Satz von Cmdlets aufzurufen. Es sind keine Administratorkonten erforderlich. Zur Erhöhung der Sicherheit ist die Skripterstellung nicht zulässig.
 
 Der PEP kann beispielsweise für Folgendes verwendet werden:
 
@@ -68,6 +68,10 @@ Bevor Sie dieses Verfahren für das integrierte System beginnen, vergewissern Si
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
      Der Parameter `ComputerName` kann die IP-Adresse oder der DNS-Name eines der virtuellen Computer sein, die den PEP hosten. 
+
+     >[!NOTE]
+     >Azure Stack führt beim Überprüfen der PEP-Anmeldeinformationen keinen Remoteaufruf aus. Für die Überprüfung wird ein lokal gespeicherter öffentlicher RSA-Schlüssel verwendet.
+     
    - Bei Ausführung des ASDK:
      
      ```powershell
@@ -82,7 +86,7 @@ Bevor Sie dieses Verfahren für das integrierte System beginnen, vergewissern Si
      - **Kennwort**: Geben Sie das gleiche Kennwort ein, das während der Installation für das AzureStackAdmin-Domänenadministratorkonto bereitgestellt wurde.
 
      > [!NOTE]
-     > Falls Sie keine Verbindung mit dem ERCS-Endpunkt herstellen können, wiederholen Sie die Schritte 1 und 2 mit der IP-Adresse eines virtuellen ERCS-Computers, mit dem Sie noch nicht versucht haben, eine Verbindung herzustellen.
+     > Wenn Sie keine Verbindung mit dem ERCS-Endpunkt herstellen können, wiederholen Sie die Schritte 1 und 2 mit einer anderen ERCS-VM-IP-Adresse.
 
 3. Nachdem Sie eine Verbindung hergestellt haben, ändert sich die Eingabeaufforderung in **[*IP-Adresse oder ERCS-VM-Name*]: PS>** oder zu **[azs-ercs01]: PS>** (abhängig von der Umgebung). Führen Sie `Get-Command` aus, um die Liste der verfügbaren Cmdlets anzuzeigen.
 
@@ -109,7 +113,7 @@ Bevor Sie dieses Verfahren für das integrierte System beginnen, vergewissern Si
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Verwendungstipps für den privilegierten Endpunkt 
 
-Beim PEP handelt es sich wie bereits erwähnt um einen Endpunkt vom Typ [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview). Ein JEA-Endpunkt bietet nicht nur eine Ebene mit hoher Sicherheit, sondern schränkt auch einige der grundlegenden PowerShell-Funktionen wie Skriptverwendung und Vervollständigung mittels TAB-TASTE ein. Wenn Sie einen Skriptvorgangstyp testen, schlägt der Vorgang mit Fehler **ScriptsNotAllowed** fehl. Dieses Verhalten wird erwartet.
+Beim PEP handelt es sich wie bereits erwähnt um einen Endpunkt vom Typ [PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview). Ein JEA-Endpunkt bietet nicht nur eine Ebene mit hoher Sicherheit, sondern schränkt auch einige der grundlegenden PowerShell-Funktionen wie Skriptverwendung und Vervollständigung mittels TAB-TASTE ein. Wenn Sie einen Skriptvorgangstyp testen, schlägt der Vorgang mit Fehler **ScriptsNotAllowed** fehl. Dieses Verhalten wird erwartet.
 
 Wenn Sie also beispielsweise die Parameterliste für ein bestimmtes Cmdlet erhalten möchten, führen Sie den folgenden Befehl aus:
 

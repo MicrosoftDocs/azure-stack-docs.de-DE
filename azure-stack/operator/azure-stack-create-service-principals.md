@@ -1,24 +1,24 @@
 ---
 title: Verwenden einer App-Identität für den Ressourcenzugriff
 description: Beschreibt das Verwalten eines Dienstprinzipals, der mit der rollenbasierten Zugriffssteuerung zum Anmelden und für den Zugriff auf Ressourcen verwendet werden kann.
-services: azure-resource-manager
+services: azure-stack
 documentationcenter: na
 author: BryanLa
 manager: femila
-ms.service: azure-resource-manager
+ms.service: azure-stack
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/25/2019
+ms.date: 09/09/2019
 ms.author: bryanla
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 8c27948185df5f98926a3500db0981a1ccddc321
-ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
+ms.openlocfilehash: 6855ca4d6453c152bc46584248865bb1934419ca
+ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67397314"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70876572"
 ---
 # <a name="use-an-app-identity-to-access-resources"></a>Verwenden einer App-Identität für den Ressourcenzugriff
 
@@ -80,9 +80,9 @@ Die Skripts müssen in einer PowerShell-Konsole mit erhöhten Rechten („Als Ad
 
 Wenn Sie ein Zertifikat für Anmeldeinformationen eines Dienstprinzipals erstellen, müssen die folgenden Anforderungen erfüllt sein:
 
- - Der Kryptografiedienstanbieter (Cryptographic Service Provider, CSP) muss ein Legacyschlüsselanbieter sein.
+ - Zertifikate müssen für die Produktion von einer internen oder einer öffentlichen Zertifizierungsstelle ausgestellt werden. Wenn Sie eine öffentliche Zertifizierungsstelle verwenden, muss die Zertifizierungsstelle im Rahmen des Microsoft Trusted Root Authority Program in das Basisbetriebssystem-Image aufgenommen werden. Sie finden die vollständige Liste unter [Microsoft Trusted Root Certificate Program: Participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca). Ein Beispiel für das Erstellen eines „selbstsignierten“ Testzertifikats finden Sie auch weiter unten in diesem Artikel unter [Aktualisieren der Zertifikatanmeldeinformationen eines Dienstprinzipals](#update-a-service-principals-certificate-credential). 
+ - Der Kryptografieanbieter muss als Microsoft Legacy-CSP-Schlüsselanbieter (Microsoft Legacy Cryptographic Service Provider) angegeben werden.
  - Das Zertifikatformat muss eine PFX-Datei sein, da sowohl der öffentliche als auch der private Schlüssel benötigt wird. Windows-Server verwenden PFX-Dateien, die die Datei für den öffentlichen Schlüssel (SSL-Zertifikatdatei) und die zugehörige Datei für den privaten Schlüssel enthalten.
- - Zertifikate müssen für die Produktion von einer internen oder einer öffentlichen Zertifizierungsstelle ausgestellt werden. Wenn Sie eine öffentliche Zertifizierungsstelle verwenden, muss die Zertifizierungsstelle im Rahmen des Microsoft Trusted Root Authority Program in das Basisbetriebssystem-Image aufgenommen werden. Sie finden die vollständige Liste unter [Microsoft Trusted Root Certificate Program: Participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
  - Ihre Azure Stack-Infrastruktur muss über Netzwerkzugriff auf den im Zertifikat veröffentlichten Speicherort der Zertifikatsperrliste (Certificate Revocation List, CRL) der Zertifizierungsstelle verfügen. Bei dieser CRL muss es sich um einen HTTP-Endpunkt handeln.
 
 Sobald Sie über ein Zertifikat verfügen, verwenden Sie das folgende PowerShell-Skript, um Ihre Anwendung zu registrieren und einen Dienstprinzipal zu erstellen. Den Dienstprinzipal verwenden Sie auch, um sich bei Azure anzumelden. Ersetzen Sie die folgenden Platzhalter durch Ihre eigenen Werte:

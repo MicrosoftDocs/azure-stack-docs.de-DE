@@ -3,7 +3,7 @@ title: Vorbereiten eines Azure Stack-Updatepakets | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie ein Azure Stack-Updatepaket vorbereiten.
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/03/2019
-ms.author: justinha
-ms.lastreviewed: 09/03/2019
+ms.date: 09/10/2019
+ms.author: mabrigg
+ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 9b58b4911a575ef66c95594b6cb4cd1cc9e27a43
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: 515195e30aed9944b8e0cc0e371d08b54ea75189
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234998"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902667"
 ---
 # <a name="prepare-an-azure-stack-update-package"></a>Vorbereiten eines Azure Stack-Updatepakets
 
@@ -47,9 +47,6 @@ In der folgenden Tabelle ist angegeben, wann die Updatepakete manuell vorbereite
 ## <a name="download-the-update-package"></a>Herunterladen des Updates
 Das Updatepaket für Azure Stack-Updates und -Hotfixes ist bei verbundenen Systemen auf dem Blatt „Update“ verfügbar. Sie müssen das Paket herunterladen und an einen Speicherort verschieben, auf den von Ihrer Azure Stack-Instanz zugegriffen werden kann, wenn Sie ein OEM-Paket aktualisieren oder wenn Sie ein nicht verbundenes System warten. Sie müssen das Paket möglicherweise auch herunterladen und an einen zugänglichen Speicherort hochladen, wenn Sie ein System mit einer nur zeitweiligen Verbindung ausführen.
 
->[!NOTE]
->Das Updatepaket selbst und sein Inhalt (z. B. Binärdateien, PowerShell-Skripts usw.) werden mit Zertifikaten signiert, die im Besitz von Microsoft sind. Bei einer Manipulation des Pakets wird die Signatur ungültig.
-
 Überprüfen Sie den Paketinhalt. Ein Updatepaket besteht in der Regel aus folgenden Dateien:
 
 -   **Einer selbstextrahierenden ZIP-Datei mit dem Benennungsmuster „\<Paketname>.zip“.** Diese Datei enthält die Nutzlast für das Update.
@@ -62,9 +59,13 @@ Azure Stack-Softwareupdates und -Hotfixes werden auf Systemen mit Internetverbin
 
 Azure Stack-Updates für [vollständige und Express-Updates](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) werden auf einem sicheren Azure-Endpunkt gehostet. Azure Stack-Bedienern mit verbundenen Instanzen werden [die Azure Stack-Updates automatisch im Verwaltungsportal](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages) angezeigt. Für Systeme ohne oder mit schwacher Internetverbindung können Updatepakete mit dem [Downloadprogramm für Azure Stack-Updates](https://aka.ms/azurestackupdatedownload) heruntergeladen werden. Azure Stack-Softwareupdatepakete können Updates für Azure Stack-Dienste sowie das Betriebssystem der Skalierungseinheiten Ihrer Azure Stack-Instanz enthalten.
 
+>[!NOTE]
+>Das Updatepaket selbst und sein Inhalt (z. B. Binärdateien, PowerShell-Skripts usw.) werden mit Zertifikaten signiert, die im Besitz von Microsoft sind. Bei einer Manipulation des Pakets wird die Signatur ungültig.
+
+
 ### <a name="where-to-download-azure-stack-hotfix-packages"></a>Downloadorte von Azure Stack-Hotfixpaketen
 
-Pakete für [Azure Stack-Hotfixes](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) werden auf demselben sicheren Azure-Endpunkt gehostet wie Azure Stack-Updates. Azure Stack-Bedienern mit verbundenen Instanzen werden [die Azure Stack-Updates automatisch im Verwaltungsportal](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages) angezeigt. Sie können sie mithilfe der eingebetteten Links in jedem der jeweiligen Hotfix-KB-Artikel herunterladen, z. B. [Azure Stack-Hotfix 1.1906.11.52](https://support.microsoft.com/help/4515650). Hotfixes finden Sie in den Versionshinweisen zu Ihrer Azure Stack-Version. Vom OEM-Hardwareanbieter bereitgestellte Updates
+Pakete für [Azure Stack-Hotfixes](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) werden auf demselben sicheren Azure-Endpunkt gehostet wie Azure Stack-Updates. Azure Stack-Bedienern mit verbundenen Instanzen werden [die Azure Stack-Updates automatisch im Verwaltungsportal](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages) angezeigt. Sie können sie mithilfe der eingebetteten Links in jedem der jeweiligen Hotfix-KB-Artikel herunterladen, z. B. [Azure Stack-Hotfix 1.1906.11.52](https://support.microsoft.com/help/4515650). Hotfixes finden Sie in den Versionshinweisen zu Ihrer Azure Stack-Version.
 
 ### <a name="where-to-download-oem-update-packages"></a>Downloadorte von OEM-Updatepaketen
 Ihr OEM-Anbieter veröffentlicht auch Updates, z. B. Treiber- und Firmwareupdates. Diese Updates werden zwar als separate [OEM-Paketupdates](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) vom Hardwareanbieter bereitgestellt, doch sie werden auf die gleiche Weise importiert, installiert und verwaltet wie Updatepakete von Microsoft. Eine Liste mit Kontaktlinks von Anbietern finden Sie unter [Anwenden von OEM-Updates (Originalgerätehersteller) auf Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-oem#oem-contact-information).

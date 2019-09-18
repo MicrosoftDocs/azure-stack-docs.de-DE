@@ -12,22 +12,86 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 09/04/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 9b78a7ee9af9dde3cbb40b52268cb4cbfc0a6dcc
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 09/04/2019
+ms.openlocfilehash: a9d62640b2baabfd3283099656719a880dd0a41b
+ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268236"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70377245"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Problembehandlung für Microsoft Azure Stack
 
-Dieses Dokument enthält allgemeine Informationen zur Problembehandlung für Azure Stack. Die Empfehlungen und Codebeispiele werden in der vorliegenden Form bereitgestellt und führen ggf. nicht immer zur Behebung des Problems. 
+Dieses Dokument enthält Informationen zur Problembehandlung für Azure Stack. 
 
-## <a name="deployment"></a>Bereitstellung
+
+## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
+
+Diese Abschnitte enthalten Links zu Dokumentationen, in denen Sie Antworten auf häufige Fragen finden, die an den Microsoft-Kundensupport gesendet werden.
+
+### <a name="purchase-considerations"></a>Überlegungen zum Kauf
+
+* [Informationen zum Erwerb](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)
+* [Übersicht über Azure Stack](azure-stack-overview.md)
+
+### <a name="azure-stack-development-kit-asdk"></a>Azure Stack Development Kit (ASDK)
+
+Wenn Sie Hilfe mit dem [zum Azure Stack Development Kit](../asdk/asdk-what-is.md) benötigen, wenden Sie sich an einen der Experten im [Azure Stack-MSDN-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Das ASDK wird als Evaluierungsumgebung ohne Unterstützung durch den Kundensupport angeboten. Für ASDK geöffnete Supportfälle werden an das MSDN-Forum verwiesen.
+
+### <a name="updates-and-diagnostics"></a>Updates und Diagnose
+
+* [Verwenden von Diagnosetools in Azure Stack](azure-stack-diagnostics.md)
+* [Überprüfen des Azure Stack-Systemstatus](azure-stack-diagnostic-test.md)
+* [Veröffentlichungsintervall für Updatepakete](azure-stack-servicing-policy.md#update-package-release-cadence)
+
+### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>Unterstützte Betriebssysteme und Größen für Gast-VMS
+
+* [Für Azure Stack unterstützte Gastbetriebssysteme](azure-stack-supported-os.md)
+* [In Azure Stack unterstützte VM-Größen](../user/azure-stack-vm-sizes.md)
+
+### <a name="azure-marketplace"></a>Azure Marketplace
+
+* [Für Azure Stack verfügbare Azure Marketplace-Elemente](azure-stack-marketplace-azure-items.md)
+
+### <a name="manage-capacity"></a>Verwalten der Kapazität
+
+#### <a name="memory"></a>Arbeitsspeicher
+
+Sie können zusätzlichen Speicher hinzufügen, um die verfügbare Gesamtspeicherkapazität für Azure Stack zu erhöhen. In Azure Stack wird Ihr physischer Server auch als Skalierungseinheitknoten bezeichnet. Alle Skalierungseinheitknoten, die Mitglieder einer einzelnen Skalierungseinheit sind, müssen über die [gleiche Speichermenge](azure-stack-manage-storage-physical-memory-capacity.md) verfügen.
+
+#### <a name="retention-period"></a>Aufbewahrungszeitraum
+
+Die Einstellung für den Aufbewahrungszeitraum ermöglicht einem Cloudbetreiber das Festlegen eines Zeitraums in Tagen (zwischen 0 und 9999 Tage), in dem gelöschte Konten ggf. wiederhergestellt werden können. Der Standardaufbewahrungszeitraum ist auf 0 Tage festgelegt. Mit dem Wert „0“ wird festgelegt, dass alle gelöschten Konten sofort aus der Aufbewahrung entfernt und für die regelmäßige automatische Speicherbereinigung markiert werden.
+
+* [Festlegen des Aufbewahrungszeitraums](azure-stack-manage-storage-accounts.md#set-the-retention-period)
+
+### <a name="security-compliance-and-identity"></a>Sicherheit, Compliance und Identität  
+
+#### <a name="manage-rbac"></a>Verwalten der RBAC
+
+Ein Benutzer in Azure Stack kann ein Leser, ein Besitzer oder ein Mitwirkender an jeder Instanz eines Abonnements, einer Ressourcengruppe oder eines Diensts sein.
+
+* [Verwalten der rollenbasierten Zugriffssteuerung](azure-stack-manage-permissions.md)
+
+Wenn die integrierten Rollen für Azure-Ressourcen die Ansprüche Ihrer Organisation nicht erfüllen, können Sie Ihre eigenen benutzerdefinierten Rollen erstellen. In diesem Tutorial erstellen Sie mithilfe von Azure PowerShell eine benutzerdefinierte Rolle namens „Reader Support Tickets“.
+
+* [Tutorial: Erstellen einer benutzerdefinierten Rolle für Azure-Ressourcen mithilfe von Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell)
+
+### <a name="manage-usage-and-billing-as-a-csp"></a>Verwalten der Nutzung und Abrechnung als CSP
+
+* [Verwalten der Nutzung und Abrechnung als CSP](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
+* [Erstellen eines CSP- oder APSS-Abonnements](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
+
+Wählen Sie den Typ des Kontos für gemeinsame Dienste aus, das Sie für Azure Stack verwenden. Folgende Abonnementtypen können für die Registrierung einer mehrinstanzenfähigen Azure Stack-Instanz verwendet werden:
+
+* Cloud-Dienstanbieter
+* Partner Shared Services-Abonnement
+
+
+## <a name="troubleshoot-deployment"></a>Problembehandlung bei der Bereitstellung 
 ### <a name="general-deployment-failure"></a>Allgemeiner Bereitstellungsfehler
 Wenn während der Installation ein Fehler auftritt, können Sie mithilfe der Option „-rerun“ des Bereitstellungsskripts die Bereitstellung ab dem Schritt neu starten, in dem der Fehler aufgetreten ist.  
 
@@ -54,7 +118,7 @@ Um zu überprüfen, ob dieses Problem vorliegt, können Sie die folgenden Schrit
 
 Wenn dieser Befehl nicht erfolgreich ist, überprüfen Sie, ob der TOR-Switch und alle weiteren Netzwerkgeräte so konfiguriert sind, dass sie [Netzwerkverkehr zulassen](azure-stack-network.md).
 
-## <a name="virtual-machines"></a>Virtuelle Computer
+## <a name="troubleshoot-virtual-machines"></a>Problembehandlung bei virtuellen Computern
 ### <a name="default-image-and-gallery-item"></a>Standardimage und Katalogelement
 Vor der Bereitstellung virtueller Computer in Azure Stack müssen Sie zuerst ein Windows Server-Image und ein Katalogelement hinzufügen.
 
@@ -66,7 +130,7 @@ Es kann auch vorkommen, dass Mandanten-VMs nach einem Neustart des Azure Stack D
 1.  Starten Sie auf dem Azure Stack Development Kit-Host im Startmenü den **Failovercluster-Manager**.
 2.  Wählen Sie den Cluster **S-Cluster.azurestack.local** aus.
 3.  Wählen Sie **Rollen** aus.
-4.  Mandanten-VMs werden mit dem Zustand *gespeichert* angezeigt. Sobald alle Infrastruktur-VMs ausgeführt werden, klicken Sie mit der rechten Maustaste auf die Mandanten-VMs, und wählen Sie **Start**, um die Ausführung des virtuellen Computers fortzusetzen.
+4.  Mandanten-VMs werden mit dem Zustand *gespeichert* angezeigt. Sobald alle Infrastruktur-VMs ausgeführt werden, klicken Sie mit der rechten Maustaste auf die Mandanten-VMs und wählen **Start** aus, um die VMs fortzusetzen.
 
 ### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Ich habe einige virtuelle Computer gelöscht, die VHD-Dateien werden mir auf dem Datenträger aber weiterhin angezeigt. Ist dieses Verhalten zu erwarten?
 Ja, dieses Verhalten wird erwartet. Es wurde aus den folgenden Gründen so entwickelt:
@@ -78,7 +142,7 @@ Wenn „verwaiste“ VHDs angezeigt werden, müssen Sie wissen, ob diese zu eine
 
 Weitere Informationen zum Konfigurieren des Schwellenwerts für die Aufbewahrung und zur bedarfsgesteuerten Anforderung der Freigabe von Speicherplatz finden Sie unter [Manage Storage Accounts](azure-stack-manage-storage-accounts.md) (Verwalten von Speicherkonten).
 
-## <a name="storage"></a>Storage
+## <a name="troubleshoot-storage"></a>Beheben von Problemen mit dem Speicher
 ### <a name="storage-reclamation"></a>Freigabe von Speicherplatz
 Es kann bis zu 14 Stunden dauern, bis freigegebene Kapazität im Portal angezeigt wird. Die Freigabe von Speicherplatz hängt von verschiedenen Faktoren ab, einschließlich der prozentualen Auslastung von internen Containerdateien im Blockblobspeicher. Je nach gelöschter Datenmenge besteht daher keine Garantie für die Menge des Speicherplatzes, der freigegeben werden kann, wenn der Garbage Collector ausgeführt wird.
 

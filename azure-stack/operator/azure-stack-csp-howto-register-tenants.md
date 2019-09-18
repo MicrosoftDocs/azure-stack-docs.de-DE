@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2019
+ms.date: 09/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: e69000eb862411dd0c8b415ab1f0ad7c8573f046
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 9f35a2bef6e5aa3b9ae1866927be007d58532b74
+ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419550"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749964"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Hinzufügen von Mandanten für Nutzung und Abrechnung zu Azure Stack
 
@@ -58,7 +58,7 @@ Standardmäßig haben Sie als CSP keinen Zugriff auf das Azure Stack-Abonnement 
 Aktualisieren Sie Ihre Registrierung mit dem Abonnement des neuen Kunden. Azure meldet die Nutzung des Kunden mithilfe der Kundenidentität aus dem Partner Center. So wird sichergestellt, dass die Nutzung jedes Kunden unter dem individuellen CSP-Abonnement des Kunden gemeldet wird. Dies erleichtert die Nachverfolgung der Nutzung durch den Benutzer und die Abrechnung.
 
 > [!NOTE]  
-> Um diesen Schritt ausführen zu können, müssen Sie [Azure Stack registriert](azure-stack-registration.md) haben.
+> Um diesen Schritt ausführen zu können, müssen Sie [Azure Stack zunächst registrieren](azure-stack-registration.md).
 
 1. Öffnen Sie Windows PowerShell mit einer Eingabeaufforderung mit erhöhten Rechten, und führen Sie Folgendes aus:  
     `Add-AzureRmAccount`

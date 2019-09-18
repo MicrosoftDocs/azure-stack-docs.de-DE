@@ -1,6 +1,6 @@
 ---
 title: Aktualisieren von Azure App Service in Azure Stack | Microsoft-Dokumentation
-description: Detaillierter Leitfaden zum Aktualisieren von Azure App Service in Azure Stack
+description: Erfahren Sie, wie Sie Azure App Service in Azure Stack aktualisieren.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -15,30 +15,30 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/28/2019
-ms.openlocfilehash: 8bc2b996892f8b19fb602fa0d91354b08dcf3cd6
-ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
+ms.openlocfilehash: 768a6270021d6a87be3d2d28508288836ffadd29
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70159638"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808260"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Aktualisieren von Azure App Service in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Wenden Sie das Update 1904 auf Ihr integriertes Azure Stack-System an, oder stellen Sie das aktuelle Azure Stack Development Kit bereit, bevor Sie Azure App Service 1.7 bereitstellen.
+> Wenden Sie Update 1904 auf Ihr integriertes Azure Stack-System an, oder stellen Sie das aktuelle Azure Stack Development Kit (ASDK) vor der Bereitstellung von Azure App Service 1.7 bereit.
 
-Mithilfe der Anweisungen in diesem Artikel können Sie den in einer mit dem Internet verbundenen Azure Stack-Umgebung bereitgestellten [App Service-Ressourcenanbieter](azure-stack-app-service-overview.md) aktualisieren.
+In diesem Artikel erläutern wir, wie Sie den in einer mit dem Internet verbundenen Azure Stack-Umgebung bereitgestellten [App Service-Ressourcenanbieter](azure-stack-app-service-overview.md) aktualisieren.
 
 > [!IMPORTANT]
-> Vergewissern Sie sich vor dem Ausführen des Upgrades, dass die [Bereitstellung von Azure App Service im Azure Stack-Ressourcenanbieter](azure-stack-app-service-deploy.md) abgeschlossen ist, und informieren Sie sich anhand der [Versionshinweise](azure-stack-app-service-release-notes-update-seven.md) für das Release 1.7 über neue Funktionen, Fehlerbehebungen und bekannte Probleme, die sich auf die Bereitstellung auswirken können.
+> Stellen Sie vor dem Ausführen des Upgrades sicher, dass Sie die [Bereitstellung von Azure App Service in Azure Stack](azure-stack-app-service-deploy.md) bereits abgeschlossen haben. Lesen Sie auch die [Versionshinweise](azure-stack-app-service-release-notes-update-seven.md) zur Version 1.7, um weitere Informationen zu neuen Funktionen, Fehlerbehebungen und bekannten Problemen zu erhalten, die sich auf die Bereitstellung auswirken können.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Ausführen des Installationsprogramms für den App Service-Ressourcenanbieter
 
 Während dieses Vorgangs führt das Upgrade Folgendes aus:
 
-* Ermitteln vor der Bereitstellung von App Service
+* Ermitteln der vorherigen Bereitstellung von App Service
 * Vorbereiten aller Updatepakete und neuen Versionen aller bereitzustellenden OSS-Bibliotheken
 * Hochladen in den Speicher
 * Aktualisieren aller App Service-Rollen (Controller, Verwaltung, Front-End, Herausgeber und Worker)
@@ -47,8 +47,6 @@ Während dieses Vorgangs führt das Upgrade Folgendes aus:
 
 > [!IMPORTANT]
 > Das App Service-Installationsprogramm muss auf einem Computer ausgeführt werden, der den Azure Resource Manager-Endpunkt des Azure Stack-Administrators erreichen kann.
->
->
 
 Gehen Sie folgendermaßen vor, um die Bereitstellung von App Service in Azure Stack zu aktualisieren:
 
@@ -64,7 +62,7 @@ Gehen Sie folgendermaßen vor, um die Bereitstellung von App Service in Azure St
 
 5. Lesen und akzeptieren Sie die Drittanbieter-Lizenzbedingungen, und klicken Sie dann auf **Weiter**.
 
-6. Stellen Sie sicher, dass die Informationen über den Azure Resource Manager-Endpunkt für Azure Stack und den Active Directory-Mandanten richtig sind. Wenn Sie während der Bereitstellung mit dem Azure Stack Development Kit die Standardeinstellungen verwendet haben, können Sie hier die Standardwerte übernehmen. Wenn Sie die Optionen bei der Bereitstellung von Azure Stack jedoch angepasst haben, müssen Sie die Werte in diesem Fenster anpassen. Wenn Sie beispielsweise das Domänensuffix *mycloud.com* verwenden, muss der Azure Resource Manager-Endpunkt für Azure Stack in *management.region.mycloud.com* geändert werden. Nachdem Sie Ihre Informationen bestätigt haben, klicken Sie auf **Weiter**.
+6. Stellen Sie sicher, dass die Informationen über den Azure Resource Manager-Endpunkt für Azure Stack und den Active Directory-Mandanten richtig sind. Wenn Sie während der ASDK-Bereitstellung die Standardeinstellungen verwendet haben, können Sie hier die Standardwerte übernehmen. Wenn Sie die Optionen bei der Bereitstellung von Azure Stack jedoch angepasst haben, müssen Sie die Werte in diesem Fenster anpassen. Wenn Sie beispielsweise das Domänensuffix *mycloud.com* verwenden, muss der Azure Resource Manager-Endpunkt für Azure Stack in *management.region.mycloud.com* geändert werden. Nachdem Sie Ihre Informationen bestätigt haben, klicken Sie auf **Weiter**.
 
     ![Azure Stack-Cloudinformationen][2]
 
@@ -74,8 +72,8 @@ Gehen Sie folgendermaßen vor, um die Bereitstellung von App Service in Azure St
         * Wenn Sie Azure Active Directory (Azure AD) verwenden, geben Sie das Azure AD-Administratorkonto, das Sie bei der Bereitstellung von Azure Stack angegeben haben, und das zugehörige Kennwort ein. Klicken Sie auf **Anmelden**.
         * Wenn Sie Active Directory-Verbunddienste (AD FS) verwenden, geben Sie Ihr Administratorkonto an. Beispiel: *cloudadmin\@azurestack.local*. Geben Sie Ihr Kennwort ein, und klicken Sie auf **Anmelden**.
    2. Wählen Sie im Feld **Azure Stack-Abonnements** das **Standardabonnement des Anbieters** aus.
-   3. Wählen Sie im Feld **Azure Stack-Standorte** den Standort aus, der der Region entspricht, in der die Bereitstellung erfolgen soll. Wählen Sie z.B. **lokal** aus, wenn Ihre Bereitstellung im Azure Stack Development Kit erfolgt.
-   4. Wenn eine vorhandene App Service-Bereitstellung erkannt wird, werden Ressourcengruppe und Speicherkonto aufgefüllt und ausgegraut.
+   3. Wählen Sie im Feld **Azure Stack-Standorte** den Standort aus, der der Region entspricht, in der die Bereitstellung erfolgen soll. Wählen Sie beispielsweise **Lokal**, wenn Sie die Bereitstellung für das ASDK durchführen.
+   4. Wenn eine vorhandene App Service-Bereitstellung erkannt wird, werden Ressourcengruppe und Speicherkonto aufgefüllt und sind nicht verfügbar.
    5. Klicken Sie auf **Weiter**, um die Zusammenfassung des Upgrades zu überprüfen.
 
       ![App Service-Installation erkannt][3]
@@ -102,7 +100,7 @@ Gehen Sie folgendermaßen vor, um die Bereitstellung von App Service in Azure St
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Vorbereiten auf weitere Administratorvorgänge für App Service unter Azure Stack
+Vorbereiten auf weitere Verwaltungsvorgänge für App Service unter Azure Stack:
 
 * [Planen zusätzlicher Kapazität](azure-stack-app-service-capacity-planning.md)
 * [Hinzufügen zusätzlicher Kapazität](azure-stack-app-service-add-worker-roles.md)
