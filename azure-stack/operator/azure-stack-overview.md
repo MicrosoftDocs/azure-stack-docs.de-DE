@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/29/2019
+ms.date: 09/16/2019
 ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 05/14/2019
-ms.openlocfilehash: 1aa6f494320843cf1debe2c1887f353bf79a7303
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 7c84a9cb841f06887d09a650d277566fb9ff18ed
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268357"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070178"
 ---
 # <a name="azure-stack-overview"></a>Übersicht über Azure Stack
 
@@ -122,7 +122,7 @@ Die Infrastruktur von Azure Stack verfügt zwar bereits über Resilienz gegenüb
 
 - **Fehlerdomänen**: In einer Verfügbarkeitsgruppe angeordnete VMs werden physisch voneinander isoliert, indem sie so gleichmäßig wie möglich auf mehrere Fehlerdomänen (Azure Stack-Knoten) verteilt werden. Bei einem Hardwarefehler werden VMs aus der betroffenen Fehlerdomäne in anderen Fehlerdomänen neu gestartet. Dies sind nach Möglichkeit aber Fehlerdomänen, die von den anderen VMs in derselben Verfügbarkeitsgruppe getrennt sind. Nachdem die Hardware wieder in den Onlinezustand versetzt wurde, wird für die VMs ein neuer Ausgleichsvorgang durchgeführt, um die Hochverfügbarkeit sicherzustellen. 
  
-- **Updatedomänen**: Updatedomänen sind ein anderes Azure-Konzept, mit dem für Hochverfügbarkeit in Verfügbarkeitsgruppen gesorgt wird. Eine Updatedomäne ist eine logische Gruppe von zugrunde liegender Hardware, die zur gleichen Zeit gewartet werden kann. VMs in derselben Updatedomäne werden während einer geplanten Wartung gemeinsam neu gestartet. Wenn Mandanten VMs in einer Verfügbarkeitsgruppe erstellen, werden die VMs von der Azure-Plattform automatisch auf diese Updatedomänen verteilt. In Azure Stack wird für VMs eine Livemigration über die anderen Onlinehosts im Cluster durchgeführt, bevor der zugrunde liegende Host aktualisiert wird. Da es während eines Hostupdates nicht zu Mandantenausfallzeiten kommt, ist das Updatedomänenfeature in Azure Stack nur für die Vorlagenkompatibilität mit Azure vorhanden. 
+- **Updatedomänen**: Updatedomänen sind ein anderes Azure-Konzept, mit dem für Hochverfügbarkeit in Verfügbarkeitsgruppen gesorgt wird. Eine Updatedomäne ist eine logische Gruppe von zugrunde liegender Hardware, die zur gleichen Zeit gewartet werden kann. VMs in derselben Updatedomäne werden während einer geplanten Wartung gemeinsam neu gestartet. Wenn Mandanten VMs in einer Verfügbarkeitsgruppe erstellen, werden die VMs von der Azure-Plattform automatisch auf diese Updatedomänen verteilt. In Azure Stack wird für VMs eine Livemigration über die anderen Onlinehosts im Cluster durchgeführt, bevor der zugrunde liegende Host aktualisiert wird. Da es während eines Hostupdates nicht zu Mandantenausfallzeiten kommt, ist das Updatedomänenfeature in Azure Stack nur für die Vorlagenkompatibilität mit Azure vorhanden. Virtuelle Computer in einer Verfügbarkeitsgruppe zeigen im Portal **0** als Nummer der Updatedomäne an. 
 
 ## <a name="role-based-access-control"></a>Rollenbasierte Zugriffssteuerung
 Mit der rollenbasierten Zugriffssteuerung (Role Based Access Control, RBAC) können Sie autorisierten Benutzern, Gruppen und Diensten Systemzugriff gewähren, indem Sie ihnen Rollen auf Abonnement-, Ressourcengruppen- oder Ressourcenebene zuweisen. Jede Rolle definiert die Zugriffsebene, die ein Benutzer, eine Gruppe oder ein Dienst auf Microsoft Azure Stack-Ressourcen hat.

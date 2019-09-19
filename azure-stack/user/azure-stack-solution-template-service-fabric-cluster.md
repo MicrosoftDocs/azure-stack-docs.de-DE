@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: f14face1998b73ed0739db1d9ed0504eaad2799c
-ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: e672ee6227e00ea6276c92c22d02874f7c8b5529
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67042053"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101243"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Bereitstellen eines Service Fabric-Clusters in Azure Stack
 
@@ -35,7 +35,7 @@ Für den Service Fabric-Cluster in Azure Stack wird der Ressourcenanbieter „Mi
 Folgendes ist für die Bereitstellung des Service Fabric-Clusters erforderlich:
 1. **Clusterzertifikat**  
    Dies ist das X.509-Serverzertifikat, das Sie Key Vault beim Bereitstellen von Service Fabric hinzufügen. 
-   - Der **CN** dieses Zertifikats muss mit dem vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) des von Ihnen erstellten Service Fabric-Clusters übereinstimmen. 
+   - Der **CN** dieses Zertifikats muss mit dem vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) des von Ihnen erstellten Service Fabric-Clusters übereinstimmen. Weitere Hinweise zum FQDN finden Sie unter [Erforderliche Zertifikate für eine Azure Stack-Produktionsbereitstellung von Azure App Service](../operator/azure-stack-app-service-before-you-get-started.md#certificates-required-for-azure-stack-production-deployment-of-azure-app-service).
    - Das Zertifikat muss im PFX-Format vorliegen, da sowohl der öffentliche als auch der private Schlüssel benötigt werden. 
      Informationen zum Erstellen dieses serverseitigen Zertifikats finden Sie unter [Szenarien für die Clustersicherheit in Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
 
@@ -128,28 +128,39 @@ Weitere Informationen finden Sie unter [Verwalten von Key Vault in Azure Stack m
 
    ![Auswählen des Service Fabric-Clusters](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
-1. Füllen Sie auf jeder Seite (etwa *Grundlagen*) das Bereitstellungsformular aus. Verwenden Sie Standardwerte, wenn Sie bei einem Wert unsicher sind. Klicken Sie auf **OK**, um zur nächsten Seite zu gelangen:
+2. Füllen Sie auf jeder Seite (etwa *Grundlagen*) das Bereitstellungsformular aus. Verwenden Sie Standardwerte, wenn Sie bei einem Wert unsicher sind.
+
+    Für Bereitstellungen in einer nicht verbundenen Azure Stack-Instanz oder die Bereitstellung einer anderen Version von Service Fabric laden Sie das Service Fabric-Bereitstellungspaket und das entsprechende Runtimepaket herunter und hosten es in einem Azure Stack-Blob. Geben Sie diese Werte in den Feldern für die **Paket-URL der Service Fabric Bereitstellung** und die **Paket-URL der Service Fabric-Runtime** an.
+    > [!NOTE]  
+    > Zwischen dem aktuellen Release von Service Fabric und dem dazugehörigen SDK liegen Kompatibilitätsprobleme vor. Bis dieses Problem behoben ist, geben Sie bitte die folgenden Parameter für die URL des Bereitstellungspakets und die URL des Runtimepakets an. Andernfalls schlagen Ihre Bereitstellungen fehl.
+    > - Paket-URL der Service Fabric-Bereitstellung: <https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
+    > - Paket-URL der Service Fabric-Runtime: <https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
+    >
+    > Für nicht verbundene Bereitstellungen laden Sie diese Pakete vom angegebenen Speicherort herunter und hosten Sie sie lokal in einem Azure Stack-Blob.
 
    ![Grundlagen](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
-1. Auf der Seite *Netzwerkeinstellungen* können Sie angeben, dass bestimmte Ports für Ihre Anwendungen geöffnet werden sollen:
+    
+3. Auf der Seite *Netzwerkeinstellungen* können Sie angeben, dass bestimmte Ports für Ihre Anwendungen geöffnet werden sollen:
 
    ![Netzwerkeinstellungen](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
 
-1. Fügen Sie auf der Seite *Sicherheit* die Werte hinzu, die Sie beim [Erstellen von Azure Key Vault](#add-a-secret-to-key-vault) und Hochladen des Geheimnisses erhalten haben.
+4. Fügen Sie auf der Seite *Sicherheit* die Werte hinzu, die Sie beim [Erstellen von Azure Key Vault](#add-a-secret-to-key-vault) und Hochladen des Geheimnisses erhalten haben.
 
    Geben Sie unter *Admin Client Certificate Thumbprint* (Fingerabdruck des Administratorclientzertifikats) den Fingerabdruck des *Clientzertifikats des Administrators* ein. (Siehe [Voraussetzungen](#prerequisites).)
    
    - Quellschlüsseltresor:  Geben Sie die gesamte Zeichenfolge `keyVault id` aus den Skriptergebnissen an. 
    - Cluster Certificate URL (Clusterzertifikat-URL): Geben Sie die gesamte URL unter `Secret Id` aus den Skriptergebnissen an. 
    - Cluster Certificate thumbprint (Clusterzertifikatfingerabdruck): Geben Sie den *Clusterzertifikatfingerabdruck* aus den Skriptergebnissen an.
+   - Serverzertifikat-URL: Wenn Sie ein vom Clusterzertifikat getrenntes Zertifikat verwenden möchten, laden Sie das Zertifikat in einen Schlüsseltresor hoch, und geben Sie die vollständige URL für das Geheimnis an. 
+   - Serverzertifikat-Fingerabdruck: Geben Sie den Fingerabdruck für das Serverzertifikat an.
    - Admin Client Certificate Thumbprints (Fingerabdrücke des Administratorclientzertifikats): Geben Sie den *Fingerabdruck des Administratorclientzertifikats* an, der unter „Voraussetzungen“ erstellt wurde. 
 
    ![Skriptausgabe](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
    ![Sicherheit](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
-1. Schließen Sie den Assistenten ab, und klicken Sie dann auf **Erstellen**, um den Service Fabric-Cluster bereitzustellen.
+5. Schließen Sie den Assistenten ab, und klicken Sie dann auf **Erstellen**, um den Service Fabric-Cluster bereitzustellen.
 
 
 
