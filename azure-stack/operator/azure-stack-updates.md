@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 2a6165d37aa813c332cd664ef905717ef7a8ffa8
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 64e1bd7934b1b3b8c0bc935a920a2e4e188c4bd9
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863029"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101199"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Übersicht zum Verwalten von Updates in Azure Stack
 
@@ -105,4 +105,4 @@ Bei der Installation der Updates können Sie den allgemeinen Status anzeigen, w�
 
 - Um den Updatevorgang zu starten, führen Sie die Schritte unter [Planen eines Azure Stack-Updates](azure-stack-update-plan.md) aus.
 - Informationen zu den unterstützten Versionen von Azure Stack finden Sie unter [Azure Stack-Wartungsrichtlinie](azure-stack-servicing-policy.md).  
-- Weitere Informationen zu den aktuellen und letzten Updates finden Sie in den [Azure Stack-Versionshinweisen](azure-stack-release-notes-security-updates-1907.md).
+- Weitere Informationen zu den aktuellen und letzten Updates finden Sie in den [Azure Stack-Versionshinweisen](release-notes.md).

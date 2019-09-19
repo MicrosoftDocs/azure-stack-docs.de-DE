@@ -16,12 +16,12 @@ ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: b120346d489f676919cb05863f81db9bfb102634
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 6e127983afe023448d6caad23cf79e8a3a289c17
+ms.sourcegitcommit: 8ddd70ba5ce05c591d3fa62597981859af107c06
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836982"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70936161"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Erstellen von Plänen in Azure Stack
 
@@ -29,6 +29,7 @@ ms.locfileid: "66836982"
 
 [Azure Stack-Pläne](azure-stack-overview.md) sind Gruppen mit mindestens einem Dienst und den zugehörigen Kontingenten. Als Anbieter können Sie Pläne erstellen und Ihren Benutzern anbieten. Benutzer abonnieren daraufhin Ihre Angebote, um die darin enthaltenen Pläne, Dienste und Kontingente zu verwenden. In diesem Beispiel wird veranschaulicht, wie Sie einen Plan erstellen, der die Compute-, Netzwerk- und Speicherressourcenanbieter enthält. Mit diesem Plan erhalten Abonnenten die Möglichkeit, virtuelle Computer bereitzustellen.
 
+::: moniker range=">=azs-1902"
 ## <a name="create-a-plan-1902-and-later"></a>Erstellen von Plänen (ab 1902)
 
 1. Melden Sie sich beim [Azure Stack-Administratorportal](https://adminportal.local.azurestack.external) an.
@@ -70,7 +71,9 @@ ms.locfileid: "66836982"
 10. Wenn Sie so weit sind, wählen Sie **Erstellen** aus, um den Plan zu erstellen.
 
 11. Klicken Sie zum Anzeigen des neuen Plans links auf **Alle Dienste**, und wählen Sie **Pläne**. Suchen Sie dann nach dem Plan, und wählen Sie seinen Namen aus. Wenn Ihre Liste mit den Ressourcen sehr lang ist, können Sie die Option **Suche** verwenden, um anhand des Namens nach Ihrem Plan zu suchen.
+::: moniker-end
 
+::: moniker range="<=azs-1901"
 ## <a name="create-a-plan-1901-and-earlier"></a>Erstellen von Plänen (bis 1901)
 
 1. Melden Sie sich beim [Azure Stack-Administratorportal](https://adminportal.local.azurestack.external) an.
@@ -114,6 +117,7 @@ ms.locfileid: "66836982"
 10. Wählen Sie zum Anzeigen des neuen Plans die Option **Alle Ressourcen**, suchen Sie nach dem Plan, und wählen Sie seinen Namen aus. Wenn Ihre Liste mit den Ressourcen sehr lang ist, können Sie die Option **Suche** verwenden, um anhand des Namens nach Ihrem Plan zu suchen.
 
     ![Überprüfen des Plans](media/azure-stack-create-plan/plan-overview1901.png)
+::: moniker-end
 
 ## <a name="next-steps"></a>Nächste Schritte
 

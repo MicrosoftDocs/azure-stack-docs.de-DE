@@ -11,31 +11,11 @@
     - name: Versionshinweise
       items:
         - name: Sicherheitsupdates
-          href: azure-stack-release-notes-security-updates.md
-        - name: Update 1908
-          items:
-            - name: Versionshinweise
-              href: azure-stack-release-notes-1908.md
-            - name: Bekannte Probleme
-              href: azure-stack-release-notes-known-issues-1908.md
-        - name: Update 1907
-          items:
-            - name: Versionshinweise
-              href: azure-stack-release-notes-1907.md
-            - name: Bekannte Probleme
-              href: azure-stack-release-notes-known-issues-1907.md
-        - name: Update 1906
-          items:
-            - name: Versionshinweise
-              href: azure-stack-release-notes-1906.md
-            - name: Bekannte Probleme
-              href: azure-stack-release-notes-known-issues-1906.md
-        - name: Update 1905
-          items:
-            - name: Versionshinweise
-              href: azure-stack-release-notes-1905.md
-            - name: Bekannte Probleme
-              href: azure-stack-release-notes-known-issues-1905.md
+          href: release-notes-security-updates.md
+        - name: Versionshinweise
+          href: release-notes.md
+        - name: Bekannte Probleme
+          href: known-issues.md
 - name: Schnellstarts
   expanded: true
   items:
@@ -172,7 +152,7 @@
             - name: Updates und Wartungsrichtlinie
               href: azure-stack-servicing-policy.md
             - name: Checkliste für die Anwendung von Updates
-              href: azure-stack-release-notes-checklist.md
+              href: release-notes-checklist.md
             - name: Planen eines Updates
               href: azure-stack-update-plan.md
             - name: Vorbereiten des Updatepakets

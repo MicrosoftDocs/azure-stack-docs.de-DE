@@ -15,17 +15,18 @@ ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: a2bb84cef5c24cd84653092a34dea7f0e20b624e
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 1492c779144eac235e5c32e767e966b3a6cfb9fd
+ms.sourcegitcommit: 8ddd70ba5ce05c591d3fa62597981859af107c06
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836913"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70936141"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Erstellen von Angeboten in Azure Stack
 
 [Angebote](azure-stack-overview.md) sind Gruppen mit mindestens einem Plan, die Anbieter Benutzern zum Kauf oder in Form von Abonnements anbieten. In diesem Artikel wird beschrieben, wie Sie ein Angebot erstellen, das den [von Ihnen erstellten Plan](azure-stack-create-plan.md) enthält. Durch dieses Angebot erhalten Abonnenten die Möglichkeit, virtuelle Computer (VMs) einzurichten.
 
+::: moniker range=">=azs-1902"
 ## <a name="create-an-offer-1902-and-later"></a>Erstellen von Angeboten (ab 1902)
 
 1. Melden Sie sich beim [Azure Stack-Administratorportal](https://adminportal.local.azurestack.external) an, und wählen Sie **+ Ressource erstellen** > **Angebote + Pläne** > **Angebot** aus.
@@ -70,7 +71,9 @@ Der Zustand eines Angebots kann auf zwei Arten geändert werden:
 2. Wählen Sie die Option **Angebotseinstellungen**. Wählen Sie den gewünschten Zustand (beispielsweise **Öffentlich**) und anschließend **Speichern** aus.
 
    ![Auswählen von „Status der Barrierefreiheit“](media/azure-stack-create-offer/offer-settings.png)
+::: moniker-end
 
+::: moniker range="<=azs-1901"
 ## <a name="create-an-offer-1901-and-earlier"></a>Erstellen von Angeboten (bis 1901)
 
 1. Melden Sie sich beim [Azure Stack-Administratorportal](https://adminportal.local.azurestack.external) an, und wählen Sie die Optionen **+ Ressource erstellen**, **Mandantenangebote + Pläne** und dann **Angebot**.
@@ -104,6 +107,7 @@ Der Zustand eines Angebots kann auf zwei Arten geändert werden:
 
 > [!NOTE]
 > Sie können auch PowerShell verwenden, um Standardangebote, Pläne und Kontingente zu erstellen. Weitere Informationen finden Sie unter [Azure Stack-Modul 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
+::: moniker-end
 
 ## <a name="next-steps"></a>Nächste Schritte
 
