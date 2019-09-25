@@ -16,12 +16,12 @@ ms.date: 08/01/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: d36761cd7480d782ea01bc1b0d3606b5fa244ed3
-ms.sourcegitcommit: 49cfe13427f5255915d5ccbed87b36eec2caf8ca
+ms.openlocfilehash: 27dda5b79525c4a5d1c12c998077bb19cbea0079
+ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720026"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061190"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrieren von Azure Stack in Azure
 
@@ -135,6 +135,9 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
    | Parameter | BESCHREIBUNG |  
    |-----|-----|
    | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für ein Azure-Abonnement für China **AzureChinaCloud**.  |
+
+   >[!Note]
+   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie lediglich Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit Add-AzureRmAccount anmelden: `Remove-AzureRmAccount-Scope Process`
 
 3. Wenn Sie über mehrere Abonnements verfügen, führen Sie den folgenden Befehl aus, um das zu verwendende Abonnement auszuwählen:  
 

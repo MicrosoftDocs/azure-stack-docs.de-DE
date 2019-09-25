@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d056cbf73e2417bd826fba7a7de263cc8e015b7d
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 6abf8480528aad0bff121d553172bdc8d0446e11
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842916"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070206"
 ---
 # <a name="manage-network-resources"></a>Verwalten von Netzwerkressourcen
 
@@ -61,7 +61,7 @@ So zeigen Sie die Gesamtanzahl der öffentlichen IP-Adressen an, die in der Regi
 1. Wählen Sie im Azure Stack-Administratorportal **Alle Dienste** aus. Wählen Sie unter der Kategorie **VERWALTUNG** die Option **Netzwerk**.
 1. Im Bereich **Netzwerk** wird die Kachel **Nutzung öffentlicher IP-Pools** im Abschnitt **Übersicht** angezeigt.
 
-![Bereich „Netzwerkressourcenanbieter“](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+    ![Bereich „Netzwerkressourcenanbieter“](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-01.png)
 
 Die Angabe unter **Verwendet** stellt die Anzahl der zugewiesenen öffentlichen IP-Adressen aus öffentlichen IP-Adresspools dar. Der Wert unter **Frei** gibt die Anzahl der öffentlichen IP-Adressen von öffentlichen IP-Adresspools an, die nicht zugewiesen wurden und weiterhin verfügbar sind. Der Wert von **% verwendet** gibt die Anzahl der verwendeten oder zugewiesenen Adressen als Prozentsatz der Gesamtzahl der öffentlichen IP-Adressen in öffentlichen IP-Adresspools an diesem Speicherort an.
 
@@ -69,7 +69,7 @@ Die Angabe unter **Verwendet** stellt die Anzahl der zugewiesenen öffentlichen 
 
 Klicken Sie unter **Mandantenressourcen** auf **Öffentliche IP-Adressen**. Überprüfen Sie die Liste der öffentlichen IP-Adressen, die explizit von Mandantenabonnements in einer bestimmten Region erstellt wurden.
 
-![Öffentliche IP-Adressen von Mandanten](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
+![Öffentliche IP-Adressen von Mandanten](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-02.png)
 
 Sie stellen möglicherweise fest, dass einige öffentliche IP-Adressen, die dynamisch zugewiesen wurden, in der Liste angezeigt werden. Ihnen wurde jedoch noch keine Adresse zugeordnet. Die Adressressource wurde im Netzwerkressourcenanbieter erstellt, jedoch noch nicht im Netzwerkcontroller.
 

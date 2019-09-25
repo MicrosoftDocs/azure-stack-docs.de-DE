@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 43ee38c18e2831d1cb96958501cee6f77292edd0
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: b01199bfe96c39fe79aac65eca219a065f39375c
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271681"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975007"
 ---
 # <a name="add-workers-and-infrastructure-in-app-service-on-azure-stack"></a>Hinzufügen von Workern und Infrastruktur in App Service unter Azure Stack
 
@@ -75,23 +75,23 @@ Azure App Service in Azure Stack stellt alle Rollen mithilfe von VM-Skalierungsg
 
 3. Überwachen Sie über die Option für die App Service-Verwaltung den Status der neuen Rolleninstanzen. Klicken Sie in der Liste auf den jeweiligen Rollentyp, um den Status einer einzelnen Rolleninstanz zu überprüfen.
 
-## <a name="add-additional-workers-using-the-admin-portal"></a>Hinzufügen zusätzlicher Worker über das Verwaltungsportal
+## <a name="add-additional-workers-using-the-administrator-portal"></a>Hinzufügen zusätzlicher Worker über das Administratorportal
 
-1. Melden Sie sich am Azure Stack-Verwaltungsportal als Dienstadministrator an.
+1. Melden Sie sich am Azure Stack-Administratorportal als Dienstadministrator an.
 
 2. Navigieren Sie zu **App Services**.
 
-    ![App Service im Azure Stack-Verwaltungsportal](media/azure-stack-app-service-add-worker-roles/image01.png)
+    ![App Service im Azure Stack-Administratorportal](media/azure-stack-app-service-add-worker-roles/image01.png)
 
 3. Klicken Sie auf **Rollen**. Eine Übersicht mit allen bereitgestellten App Service-Rollen wird angezeigt.
 
 4. Klicken Sie mit der rechten Maustaste auf die Zeile des Typs, den Sie skalieren möchten, und klicken Sie dann auf **ScaleSet**.
 
-    ![ScaleSet-App Service-Rollen im Azure Stack-Verwaltungsportal](media/azure-stack-app-service-add-worker-roles/image02.png)
+    ![ScaleSet-App Service-Rollen im Azure Stack-Administratorportal](media/azure-stack-app-service-add-worker-roles/image02.png)
 
 5. Klicken Sie auf **Skalierung**, wählen Sie die Anzahl der Instanzen aus, auf die skaliert werden soll, und klicken Sie dann auf **Speichern**.
 
-    ![Festlegen von Instanzen für die Skalierung in App Service-Rollen im Azure Stack-Verwaltungsportal](media/azure-stack-app-service-add-worker-roles/image03.png)
+    ![Festlegen von Instanzen für die Skalierung in App Service-Rollen im Azure Stack-Administratorportal](media/azure-stack-app-service-add-worker-roles/image03.png)
 
 6. App Service in Azure Stack fügt jetzt die zusätzlichen VMs hinzu, konfiguriert sie, installiert die gesamte erforderliche Software und kennzeichnet sie als bereit, wenn dieser Prozess abgeschlossen ist. Dieser Prozess kann ca. 80 Minuten dauern.
 
@@ -101,7 +101,7 @@ Azure App Service in Azure Stack stellt alle Rollen mithilfe von VM-Skalierungsg
 
 Nachdem die Worker vollständig bereitgestellt wurden und einsatzbereit sind, werden sie für die Benutzer verfügbar gemacht, damit diese ihre Workloads darauf bereitstellen können. Der folgende Screenshot zeigt ein Beispiel für die verschiedenen Tarife, die standardmäßig verfügbar sind. Die Option zum Auswählen des entsprechenden Tarifs ist nicht verfügbar, wenn für eine bestimmte Workerebene keine Worker vorhanden sind.
 
-![Tarife für den neuen App Service-Plan im Azure Stack-Verwaltungsportal](media/azure-stack-app-service-add-worker-roles/image04.png)
+![Tarife für den neuen App Service-Plan im Azure Stack-Administratorportal](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
 > Um die Rollen „Management“, „Front-End“ oder „Herausgeber“ horizontal hochzuskalieren, befolgen Sie die gleichen Schritte und wählen dabei den entsprechenden Rollentyp aus. Controller werden nicht als Skalierungsgruppen bereitgestellt. Aus diesem Grund sollten zwei Controller zum Installationszeitpunkt für alle Produktionsbereitstellungen bereitgestellt werden.

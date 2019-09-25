@@ -15,12 +15,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 886271e99b10d3fec0801f977a693a01e59fc0a5
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: 2dea14ab5d43aab8deab2632b07277d7094e33c4
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025867"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974622"
 ---
 # <a name="register-the-asdk-with-azure"></a>Registrieren des ASDK bei Azure
 
@@ -215,13 +215,13 @@ Nach Abschluss der Aktivierung sollte eine Meldung ähnlich der folgenden angeze
 
 ## <a name="verify-the-registration-was-successful"></a>Überprüfen der erfolgreichen Ausführung der Registrierung
 
-Sie können die Kachel **Regionsverwaltung** verwenden, um zu überprüfen, ob die Azure Stack-Registrierung erfolgreich war. Diese Kachel steht auf dem Standarddashboard des Verwaltungsportals zur Verfügung.
+Sie können die Kachel **Regionsverwaltung** verwenden, um zu überprüfen, ob die Azure Stack-Registrierung erfolgreich war. Diese Kachel steht im Standarddashboard im Administratorportal zur Verfügung.
 
-1. Melden Sie sich beim [Azure Stack-Verwaltungsportal](https://adminportal.local.azurestack.external) an.
+1. Melden Sie sich beim [Azure Stack-Administratorportal](https://adminportal.local.azurestack.external) an.
 
 2. Wählen Sie im Dashboard **Regionsverwaltung** aus.
 
-    [![Kachel für Regionsverwaltung im Azure Stack-Verwaltungsportal](media/asdk-register/admin1sm.png "Kachel für Regionsverwaltung")](media/asdk-register/admin1.png#lightbox)
+    [![Kachel für Regionsverwaltung im Azure Stack-Administratorportal](media/asdk-register/admin1sm.png "Kachel für Regionsverwaltung")](media/asdk-register/admin1.png#lightbox)
 
 3. Wählen Sie **Eigenschaften** aus. Auf diesem Blatt werden der Status und Details Ihrer Umgebung angezeigt. Der Status kann **registriert** oder **nicht registriert** lauten. Wenn er „Registriert“ ist, wird außerdem die ID des Azure-Abonnements angezeigt, mit dem Sie Ihren Azure Stack registriert haben, zusammen mit der Registrierungsressourcengruppe und dem Namen.
 

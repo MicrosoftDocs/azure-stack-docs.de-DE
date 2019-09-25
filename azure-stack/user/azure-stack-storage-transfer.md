@@ -14,12 +14,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 92e0c1a3bfd055373ffba5091d79922f1203b20b
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: 87e9021c6d2b085c95e186e410b009ae89753311
+ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188025"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010810"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-storage"></a>Verwenden der Datenübertragungstools im Azure Stack-Speicher
 
@@ -112,6 +112,7 @@ azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[containe
  - AzCopy-Vorgänge für Dateispeicher sind nicht verfügbar, da in Azure Stack noch kein Dateispeicher verfügbar ist.
  - Wenn Sie Daten zwischen zwei Blobspeicherorten in Azure Stack oder mithilfe von AzCopy 10.1 zwischen Azure Stack und Azure Storage übertragen möchten, müssen Sie die Daten zuerst an einen lokalen Speicherort herunterladen und dann erneut in das Zielverzeichnis in Azure Stack oder in Azure Storage hochladen. Oder Sie können AzCopy 7.1 verwenden und die Übertragung mit der Option **/SyncCopy** angeben, um die Daten zu kopieren.  
  - Die Linux-Version von AzCopy unterstützt nur das Update 1802 oder höhere Versionen und unterstützt den Tabellenspeicherdienst nicht.
+ - Wenn Sie Daten in und aus Ihrem Azure Table-Speicherdienst kopieren möchten, [installieren Sie AzCopy, Version 7.3.0](https://aka.ms/azcopyforazurestack20171109).
  
 ## <a name="azure-powershell"></a>Azure PowerShell
 

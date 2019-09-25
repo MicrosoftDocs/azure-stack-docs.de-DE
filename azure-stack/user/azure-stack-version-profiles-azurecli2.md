@@ -14,12 +14,12 @@ ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 430df1c886a869239c040085dcea983d07b3b36d
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 18644d3d331a5c093d0a78da435d6f79e03cb531
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842929"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974661"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Verwalten und Bereitstellen von Ressourcen in Azure Stack mit Azure CLI
 
@@ -44,7 +44,7 @@ Wenn Sie ein integriertes System verwenden, müssen Sie das Stammzertifikat der 
 Exportieren Sie das ASDK-Stammzertifikat wie folgt im PEM-Format:
 
 1. Rufen Sie den Namen Ihres Azure Stack-Stammzertifikats ab:
-    - Melden Sie sich beim Azure Stack-Mandanten oder im Verwaltungsportal an.
+    - Melden Sie sich beim Benutzer- oder Administratorportal von Azure Stack an.
     - Klicken Sie in der Nähe der Adressleiste auf **Sicher**.
     - Klicken Sie im Popupfenster auf **Gültig**.
     - Klicken Sie im Zertifikatsfenster auf die Registerkarte **Zertifizierungspfad**.
@@ -336,7 +336,7 @@ Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat a
     
      Bereiten Sie die PEM-Datei vor, die für die Anmeldung des Dienstprinzipals verwendet werden soll.
 
-     Exportieren Sie auf dem Clientcomputer, auf dem der Prinzipal erstellt wurde, das Dienstprinzipalzertifikat als PFX-Datei mit dem privaten Schlüssel. Sie finden diesen unter `cert:\CurrentUser\My`, und das Zertifikat trägt den gleichen Namen wie der Prinzipal.
+     Exportieren Sie auf dem Clientcomputer, auf dem der Prinzipal erstellt wurde, das Dienstprinzipalzertifikat als PFX-Datei mit dem privaten Schlüssel. Sie finden diesen unter `cert:\CurrentUser\My`. Das Zertifikat trägt den gleichen Namen wie der Prinzipal.
 
      Konvertieren Sie die PFX-Datei in eine PEM-Datei (mit dem OpenSSL-Hilfsprogramm).
 
@@ -563,7 +563,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack herzu
         
      Bereiten Sie die PEM-Datei vor, die für die Anmeldung des Dienstprinzipals verwendet werden soll.
 
-      * Exportieren Sie auf dem Clientcomputer, auf dem der Prinzipal erstellt wurde, das Dienstprinzipalzertifikat als PFX-Datei mit dem privaten Schlüssel. Sie finden diesen unter `cert:\CurrentUser\My`, und das Zertifikat trägt den gleichen Namen wie der Prinzipal.
+      * Exportieren Sie auf dem Clientcomputer, auf dem der Prinzipal erstellt wurde, das Dienstprinzipalzertifikat als PFX-Datei mit dem privaten Schlüssel. Sie finden diesen unter `cert:\CurrentUser\My`. Das Zertifikat trägt den gleichen Namen wie der Prinzipal.
   
       * Konvertieren Sie die PFX-Datei in eine PEM-Datei (mit dem OpenSSL-Hilfsprogramm).
 

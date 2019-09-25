@@ -16,12 +16,12 @@ ms.date: 03/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 45fddcb71781f11cdab600200631737d284935d9
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 80dc7bae2371025fba82531b08216606580176e1
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271684"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975199"
 ---
 # <a name="capacity-planning-for-app-service-server-roles-in-azure-stack"></a>Kapazitätsplanung für App Service-Serverrollen in Azure Stack
 
@@ -99,7 +99,7 @@ Bei Upgrades und Wartungsmaßnahmen für Worker führt Azure App Service in Azur
 
 Während der Upgrade- und Wartungsvorgänge verschiebt Azure App Service Workloads auf nicht zugeordnete Worker, um sicherzustellen, dass die Workloads weiterhin ausgeführt werden können. Falls während des Upgrades aber keine nicht zugeordneten Worker verfügbar sind, kann es für Mandantenworkloads zu Ausfällen kommen. In Bezug auf gemeinsam verwendete Worker müssen Kunden aber keine zusätzlichen Worker bereitstellen, da der Dienst Mandanten-Apps in verfügbaren Workern automatisch zuordnet. Zur Erzielung von Hochverfügbarkeit müssen bei diesem Tarif mindestens zwei Worker verfügbar sein.
 
-Cloudadministratoren können ihre Workertarifzuordnung im App Service-Verwaltungsbereich des Azure Stack-Verwaltungsportals überwachen. Navigieren Sie zu App Service, und wählen Sie im linken Bereich die Option „Workertarife“ aus. Die Tabelle mit den Workertarifen enthält den Namen des Workertarifs sowie Größe, verwendetes Image, Anzahl verfügbarer (nicht zugeordneter) Worker, Gesamtanzahl von Workern im jeweiligen Tarif und den allgemeinen Zustand des Workertarifs.
+Cloudadministratoren können ihre Workertarifzuordnung im App Service-Verwaltungsbereich des Azure Stack-Administratorportals überwachen. Navigieren Sie zu App Service, und wählen Sie im linken Bereich die Option „Workertarife“ aus. Die Tabelle mit den Workertarifen enthält den Namen des Workertarifs sowie Größe, verwendetes Image, Anzahl verfügbarer (nicht zugeordneter) Worker, Gesamtanzahl von Workern im jeweiligen Tarif und den allgemeinen Zustand des Workertarifs.
 
 ![App Service-Verwaltung: Workertarife][1]
 

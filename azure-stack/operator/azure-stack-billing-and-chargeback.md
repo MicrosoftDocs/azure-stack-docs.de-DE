@@ -1,6 +1,6 @@
 ---
 title: Kundenabrechnung und verbrauchsbasierte Kostenzuteilung in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Informationen zum Ressourcenverbrauch aus Azure Stack abrufen.
+description: Erfahren Sie, wie die Abrechnung des Ressourcenverbrauchs für Azure Stack-Benutzer erfolgt, und wie Sie zur Analyse und verbrauchsbasierten Kostenzuteilung auf die Abrechnungsinformationen zugreifen können.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,20 +15,20 @@ ms.date: 06/21/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 05a1e106a171df2a8948601376dbc152cb5ca70a
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: bcdf43f7be95c76cfd4fc454d85e08ad197551a6
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316190"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094329"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Verbrauch und Abrechnung in Azure Stack
 
-Dieser Artikel erläutert, wie die Abrechnung des Ressourcenverbrauchs für Azure Stack-Benutzer erfolgt und wie Sie zur Analyse und verbrauchsbasierten Kostenzuteilung auf die Abrechnungsinformationen zugreifen können.
+Dieser Artikel erläutert, wie die Abrechnung des Ressourcenverbrauchs für Azure Stack-Benutzer erfolgt, und wie zur Analyse und verbrauchsbasierten Kostenzuteilung auf die Abrechnungsinformationen zugegriffen wird.
 
 Azure Stack erfasst und gruppiert Nutzungsdaten für alle verwendeten Ressourcen und leitet diese Daten dann an Azure Commerce weiter. Azure Commerce stellt Ihnen die Azure Stack-Nutzung genauso in Rechnung wie die Azure-Nutzung.
 
-Sie können auch Nutzungsdaten abrufen und mithilfe eines Abrechnungsadapters in Ihr eigenes System für die Abrechnung und verbrauchsbasierte Kostenzuteilung oder in ein Business Intelligence-Tool wie z.B. Microsoft Power BI exportieren.
+Sie können auch Nutzungsdaten abrufen und mithilfe eines Abrechnungsadapters in Ihr eigenes System für die Abrechnung und verbrauchsbasierte Kostenzuteilung oder in ein Business Intelligence-Tool wie z. B. Microsoft Power BI exportieren.
 
 ## <a name="usage-pipeline"></a>Nutzungspipeline
 
@@ -53,7 +53,7 @@ Das Azure-Abrechnungsportal zeigt Nutzungsdaten für kostenpflichtige Ressourcen
 
 ## <a name="usage-reporting-for-multi-tenant-cloud-service-providers"></a>Nutzungsberichte für mehrinstanzenfähige Cloud-Dienstanbieter
 
-Ein mehrinstanzenfähiger Clouddienstanbieter (CSP) mit vielen Kunden, die Azure Stack nutzen, sollte einen separaten Nutzungsbericht für jeden Kunden erstellen, damit der Anbieter die Nutzung für verschiedene Azure-Abonnements in Rechnung stellen kann.
+Ein mehrinstanzenfähiger Cloud Solution Provider (CSP), der Azure Stack nutzt, sollte einen separaten Nutzungsbericht für jeden Kunden erstellen, damit der Anbieter die Nutzung für verschiedene Azure-Abonnements in Rechnung stellen kann.
 
 Die Identitäten der einzelnen Kunden werden jeweils durch einen anderen Azure Active Directory-Mandanten (Azure AD) dargestellt. Azure Stack unterstützt das Zuweisen eines CSP-Abonnements an jeden Azure AD-Mandanten. Sie können der Azure Stack-Basisregistrierung Mandanten und deren Abonnements hinzufügen. Die Basisregistrierung erfolgt für alle Azure Stack-Instanzen. Wenn ein Abonnement für einen Mandanten nicht registriert ist, kann der Benutzer Azure Stack trotzdem verwenden, und seine Nutzungsdaten werden an das für die Basisregistrierung verwendete Abonnement gesendet.
 

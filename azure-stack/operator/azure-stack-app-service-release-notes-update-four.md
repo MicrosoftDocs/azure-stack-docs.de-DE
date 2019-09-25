@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: b92fcd3f729bf068dd578893f24f1c7fa66bbcff
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 9098fb61c0d4edcb534bd7b9d07b4727c953df8d
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808157"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974888"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>App Service in Azure Stack: Versionshinweise zu Update 4
 
@@ -42,7 +42,7 @@ Lesen Sie vor Beginn der Bereitstellung die [Voraussetzungen für das Bereitstel
 
 Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack auf 1.4 beginnen:
 
-- Stellen Sie sicher, dass alle Rollen in der Azure App Service-Verwaltung im Azure Stack-Verwaltungsportal bereit sind.
+- Stellen Sie sicher, dass alle Rollen in der Azure App Service-Verwaltung im Azure Stack-Administratorportal bereit sind.
 
 - Sichern Sie App Service- und Masterdatenbanken:
   - AppService_Hosting
@@ -92,7 +92,7 @@ Update 4 für Azure App Service in Azure Stack enthält die folgenden Verbesseru
 
 - Funktionen in den CORS-Einstellungen (Cross-Origin Resource Sharing, Ressourcenfreigabe zwischen verschiedenen Ursprüngen) im App Service-Mandantenportal wurden wiederhergestellt.
 
-- Jetzt wird im App Service-Verwaltungsportal eine Fehlermeldung angezeigt, wenn die Steuerungsebene des Ressourcenanbieters keine Verbindung mit der konfigurierten SQL Server-Instanz herstellen kann.
+- Jetzt wird im App Service-Administratorportal eine Fehlermeldung angezeigt, wenn die Steuerungsebene des Ressourcenanbieters keine Verbindung mit der konfigurierten SQL Server-Instanz herstellen kann.
 
 - Es wird sichergestellt, dass der Endpunkt in der benutzerdefinierten Speicherverbindungszeichenfolge angegeben wird, wenn er in der neuen Funktions-App angegeben ist.
 
@@ -207,7 +207,7 @@ Führen Sie die folgenden Schritte aus, nachdem das Update für Azure App Servic
 
 - Worker können den Dateiserver nicht erreichen, wenn der App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist. Dieses Problem wird in der Bereitstellungsdokumentation zu Azure App Service in Azure Stack beschrieben.
 
-Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk und zur Verwendung einer internen IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Verwaltungsportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
+Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk und zur Verwendung einer internen IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Administratorportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
 
  * Quelle: Any
  * Quellportbereich: *

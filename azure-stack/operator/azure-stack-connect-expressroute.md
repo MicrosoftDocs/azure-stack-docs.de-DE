@@ -1,5 +1,5 @@
 ---
-title: Herstellen einer Verbindung von Azure Stack zu Azure mithilfe von ExpressRoute
+title: Herstellen einer Verbindung von Azure Stack mit Azure mithilfe von ExpressRoute | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie mithilfe von ExpressRoute eine Verbindung zwischen virtuellen Netzwerken in Azure Stack und virtuellen Netzwerken in Azure herstellen.
 services: azure-stack
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 2ddc95097539eb1a7b15fdfc1fd2faf2c71f9ced
-ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
+ms.openlocfilehash: d7fa69b632ec6d205eff0ed0c388c1f9ec9b9c41
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70377296"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094404"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Herstellen einer Verbindung zwischen Azure Stack und Azure mithilfe von Azure ExpressRoute
 
@@ -142,7 +142,7 @@ Verwenden Sie die folgenden Verfahren, um die erforderlichen Netzwerkressourcen 
 
 Die Ressource „Gateway für lokales Netzwerk“ gibt das Remotegateway am anderen Ende der VPN-Verbindung an. In diesem Beispiel ist das Remoteende der Verbindung die LAN-Unterschnittstelle des ExpressRoute-Routers. Für „Tenant 1“ (Mandant 1) im vorherigen Diagramm lautet die Remoteadresse 10.60.3.255.
 
-1. Melden Sie sich mit Ihrem Benutzerkonto beim Azure Stack-Benutzerportal an, und klicken Sie auf **+ Ressource erstellen**.
+1. Melden Sie sich beim Azure Stack-Benutzerportal an, und wählen Sie **+ Ressource erstellen** aus.
 1. Wählen Sie unter **Azure Marketplace** die Option **Netzwerk** aus.
 1. Wählen Sie in der Ressourcenliste den Eintrag für das **lokale Netzwerkgateway** aus.
 1. Geben Sie im Feld **Name** die Zeichenfolge **ER-Router-GW** ein.
@@ -153,7 +153,7 @@ Die Ressource „Gateway für lokales Netzwerk“ gibt das Remotegateway am ande
    * 10.100.0.0/16 ist das Spoke-VNET in Azure.
 
    > [!IMPORTANT]
-   > In diesem Beispiel wird davon ausgegangen, dass Sie statische Routen für die Site-to-Site-VPN-Verbindung zwischen dem Azure Stack-Gateway und dem ExpressRoute-Router verwenden.
+   > In diesem Beispiel wird vorausgesetzt, dass Sie statische Routen für die Site-to-Site-VPN-Verbindung zwischen dem Azure Stack-Gateway und dem ExpressRoute-Router verwenden.
 
 1. Vergewissern Sie sich, dass Ihr **Abonnement**, die **Ressourcengruppe** und der **Speicherort** richtig sind. Klicken Sie anschließend auf **Erstellen**.
 
@@ -179,13 +179,13 @@ Nachdem Sie das Gateway für virtuelle Netzwerke erstellt haben, können Sie die
 1. Wählen Sie unter **Gateway für virtuelle Netzwerke** in der Ressourcenliste die Option **Übersicht** aus. Alternativ können Sie auf **Eigenschaften** klicken.
 1. Notieren Sie die unter **Öffentliche IP-Adresse** angezeigte IP-Adresse. Für die Beispielkonfiguration lautet diese Adresse 192.68.102.1.
 
-#### <a name="create-a-virtual-machine"></a>Erstellen eines virtuellen Computers
+#### <a name="create-a-virtual-machine-vm"></a>Erstellen eines virtuellen Computers (VM)
 
 Zum Testen des Datenverkehrs über die VPN-Verbindung benötigen Sie virtuelle Computer, um Daten im Azure Stack-VNET senden und empfangen zu können. Erstellen Sie eine VM, und stellen Sie sie im VM-Subnetz für Ihr virtuelles Netzwerk bereit.
 
 1. Klicken Sie im Azure Stack-Benutzerportal auf **+ Ressource erstellen**.
 1. Wählen Sie unter **Azure Marketplace** die Option **Compute** aus.
-1. Wählen Sie in der Liste mit den VM-Images das Image **Windows Server 2016 Datacenter Eval** aus.
+1. Wählen Sie in der Liste mit den VM-Images das Image **Windows Server 2016 Datacenter Eval** aus.
 
    >[!NOTE]
    >Falls das für diesen Artikel verwendete Image nicht verfügbar ist, bitten Sie Ihren Azure Stack-Bediener, ein anderes Windows Server-Image bereitzustellen.
@@ -212,16 +212,16 @@ Um weitere Mandanten hinzuzufügen, wiederholen Sie die Schritte, die Sie in den
 * [Erstellen der Verbindung](#create-the-connection)
 * [Erstellen eines virtuellen Computers](#create-a-virtual-machine)
 
-Vergessen Sie nicht, die IP-Adressen zu ändern, um Überlappungen zu vermeiden, falls Sie den Mandanten 2 als Beispiel verwenden.
+Vergessen Sie nicht, die IP-Adressen zu ändern, um Überlappungen zu vermeiden, falls Sie den Mandanten 2 als Beispiel verwenden.
 
-### <a name="configure-the-nat-virtual-machine-for-gateway-traversal"></a>Konfigurieren des virtuellen NAT-Computers für das Durchlaufen des Gateways
+### <a name="configure-the-nat-vm-for-gateway-traversal"></a>Konfigurieren des virtuellen NAT-Computers für das Durchlaufen des Gateways
 
 > [!IMPORTANT]
-> Dieser Abschnitt gilt nur für ASDK-Bereitstellungen (Azure Stack Development Kit). NAT ist für Bereitstellungen mit mehreren Knoten nicht erforderlich.
+> Dieser Abschnitt gilt nur für ASDK-Bereitstellungen. NAT ist für Bereitstellungen mit mehreren Knoten nicht erforderlich.
 
-Das Azure Stack Development Kit ist eigenständig und von dem Netzwerk isoliert, in dem der physische Host bereitgestellt wird. Das VIP-Netzwerk, mit dem die Gateways verbunden sind, ist nicht extern, sondern befindet sich hinter einem Router, der Netzwerkadressenübersetzung (Network Address Translation, NAT) ausführt.
+Das ASDK ist eigenständig und von dem Netzwerk isoliert, in dem der physische Host bereitgestellt wird. Das VIP-Netzwerk, mit dem die Gateways verbunden sind, ist nicht extern. Es ist hinter einem Router mit NAT (Network Address Translation) angeordnet.
 
-Der Router ist ein ASDK-Host, der mit der RRAS-Rolle (Routing and Remote Access Services) ausgeführt wird. Sie müssen die NAT auf dem ASDK-Host konfigurieren, um die Site-to-Site-VPN-Verbindung an beiden Endpunkten zu ermöglichen.
+Der Router ist der ASDK-Host, der mit der RRAS-Rolle (Routing and Remote Access Services) ausgeführt wird. Sie müssen die NAT auf dem ASDK-Host konfigurieren, um die Site-to-Site-VPN-Verbindung an beiden Endpunkten zu ermöglichen.
 
 #### <a name="configure-the-nat"></a>Konfigurieren der NAT
 
@@ -341,7 +341,7 @@ Sie können das folgende Konfigurationsdiagramm des ExpressRoute-Routers als Ori
 
 Sie können einen beliebigen Router verwenden, der ein IKEv2-VPN und BGP unterstützt, um die Site-to-Site-VPN-Verbindung von Azure Stack zu beenden. Derselbe Router wird verwendet, um über eine ExpressRoute-Verbindung eine Verbindung mit Azure herzustellen.
 
-Das folgende Konfigurationsbeispiel für den Aggregation Services Router der ASR 1000-Reihe von Cisco unterstützt die im Diagramm *Konfiguration des ExpressRoute-Routers* dargestellte Netzwerkinfrastruktur.
+Das folgende Konfigurationsbeispiel für den Aggregation Services Router der Cisco Site Recovery 1000-Reihe unterstützt die im Diagramm *Konfiguration des ExpressRoute-Routers* dargestellte Netzwerkinfrastruktur.
 
 ```shell
 ip vrf Tenant 1
@@ -567,7 +567,7 @@ Testen Sie Ihre Verbindung, nachdem Sie die Site-to-Site-Verbindung und die Expr
 Führen Sie folgende Pingtests durch:
 
 * Melden Sie sich bei einer der VMs an, die Sie in Ihrem Azure VNET erstellt haben, und pingen Sie die VM, die Sie in Azure Stack erstellt haben.
-* Melden Sie sich bei einer der VMs an, die Sie in Azure Stack erstellt haben, und pingen Sie die VM, die Sie im Azure VNET erstellt haben.
+* Melden Sie sich bei einer der VMs an, die Sie in Azure Stack erstellt haben, und pingen Sie die VM, die Sie in Azure VNET erstellt haben.
 
 >[!NOTE]
 >Um sicherzustellen, dass Sie den Datenverkehr über die Site-to-Site- und ExpressRoute-Verbindungen senden, müssen Sie die dedizierte IP-Adresse (DIP) der VM an beiden Enden pingen, und nicht die VIP-Adresse der VM.
@@ -583,11 +583,11 @@ New-NetFirewallRule `
   -Protocol ICMPv4
 ```
 
-### <a name="ping-the-azure-stack-virtual-machine"></a>Pingen des virtuellen Azure Stack-Computers
+### <a name="ping-the-azure-stack-vm"></a>Pingen der Azure Stack-VM
 
-1. Melden Sie sich mit einem Mandantenkonto am Azure Stack-Benutzerportal an.
+1. Melden Sie sich beim Azure Stack-Benutzerportal an.
 
-1. Suchen Sie nach der VM, die Sie erstellt haben, und wählen Sie sie aus.
+1. Suchen Sie den erstellten virtuellen Computer, und wählen Sie ihn aus.
 
 1. Wählen Sie **Verbinden**aus.
 
@@ -599,7 +599,7 @@ New-NetFirewallRule `
 
 ### <a name="view-data-transfer-statistics"></a>Anzeigen der Datenübertragungsstatistik
 
-Wenn Sie wissen möchten, wie viel Datenverkehr über Ihre Verbindung übertragen wird, finden Sie diese Informationen im Azure Stack-Benutzerportal. Dort können Sie auch feststellen, ob Ihre Pingtestdaten über die VPN- und ExpressRoute-Verbindungen gesendet wurden:
+Wenn Sie wissen möchten, wie viel Datenverkehr über Ihre Verbindung übertragen wird, finden Sie diese Informationen im Azure Stack-Benutzerportal. Die Anzeige von Datenübertragungsstatistiken ist auch eine gute Möglichkeit festzustellen, ob Ihre Pingtestdaten über die VPN- und ExpressRoute-Verbindungen gesendet wurden:
 
 1. Melden Sie sich beim Azure Stack-Benutzerportal an, und wählen Sie **Alle Ressourcen** aus.
 1. Navigieren Sie zur Ressourcengruppe für Ihr VPN Gateway, und wählen Sie den Objekttyp **Verbindung** aus.

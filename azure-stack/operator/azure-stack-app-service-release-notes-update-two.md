@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: c85cc176949c9f3c86cded80be14417add6c40da
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: f427a31001f8f486fd231af7e59ef2bb30592661
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808146"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974806"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service in Azure Stack: Versionshinweise zu Update 2
 
@@ -81,7 +81,7 @@ Update 2 für Azure App Service in Azure Stack enthält die folgenden Verbesseru
 
 - Worker können den Dateiserver nicht erreichen, wenn der App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist.
 
-Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk und zur Verwendung einer internen IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Verwaltungsportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
+Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk und zur Verwendung einer internen IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Administratorportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
 
 * Quelle: Any
 * Quellportbereich: *

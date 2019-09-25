@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 88b07c5c3325263e068de49b78df25d17861a37e
-ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
+ms.openlocfilehash: 71855d557f26fc1eb4d86ab0d5a48bf8cf987506
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70064184"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974676"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Verwenden von Azure Monitor in Azure Stack
 
@@ -115,7 +115,7 @@ Sie können die Azure Monitor-REST-API, Befehle der plattformübergreifenden Bef
 Indem Sie Ihre Überwachungsdaten in Grafiken und Diagrammen visualisieren, können Sie Trends schneller ausmachen, als wenn Sie die Daten selbst ansehen. 
 
 Einige Beispiele für Visualisierungsmethoden:
- - Verwenden des Benutzer- und Verwaltungsportals von Azure Stack
+ - Verwenden des Benutzer- und Administratorportals von Azure Stack
  - Weiterleiten von Daten an Microsoft Power BI
  - Weiterleiten der Daten an ein Visualisierungstool eines Drittanbieters mittels Livestreaming oder durch Lesen eines Archivs in Azure Storage
 

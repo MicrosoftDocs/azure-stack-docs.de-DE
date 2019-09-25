@@ -16,12 +16,12 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: ab06f5d3674000733227894a5a69778d90c29d48
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 9b28d6b55530de6716fd7781b4c7894cbc859288
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118735"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975003"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Hinzufügen zusätzlicher Knoten zu Skalierungseinheiten in Azure Stack
 
@@ -58,9 +58,9 @@ Die folgenden Schritte bieten einen allgemeinen Überblick über das Hinzufügen
 
 ## <a name="add-the-node"></a>Hinzufügen des Knotens
 
-Zum Hinzufügen neuer Knoten können Sie das Verwaltungsportal oder PowerShell verwenden. Bei diesem Vorgang wird zunächst der neue Knoten zur Skalierungseinheit als verfügbare Computekapazität hinzugefügt, und dann die Speicherkapazität automatisch erweitert. Die Kapazität wird automatisch erweitert, da es sich bei Azure Stack um ein hyperkonvergentes System handelt, in dem *Compute-* und *Speicherressourcen* gemeinsam skaliert werden.
+Zum Hinzufügen neuer Knoten können Sie das Administratorportal oder PowerShell verwenden. Bei diesem Vorgang wird zunächst der neue Knoten zur Skalierungseinheit als verfügbare Computekapazität hinzugefügt, und dann die Speicherkapazität automatisch erweitert. Die Kapazität wird automatisch erweitert, da es sich bei Azure Stack um ein hyperkonvergentes System handelt, in dem *Compute-* und *Speicherressourcen* gemeinsam skaliert werden.
 
-### <a name="use-the-admin-portal"></a>Verwenden des Verwaltungsportals
+### <a name="use-the-administrator-portal"></a>Verwenden des Administratorportals
 
 1. Melden Sie sich beim Azure Stack-Administratorportal als Azure Stack-Operator an.
 2. Navigieren Sie zu **+Ressource erstellen** > **Kapazität** > **Skalierungseinheitknoten**.
@@ -89,7 +89,7 @@ Ersetzen Sie die Werte *Knotennamen* und *IP-Adressen* durch Werte aus Ihrer Azu
 ## <a name="monitor-add-node-operations"></a>Überwachen des Vorgangs zum Hinzufügen eines Knotens 
 Über das Administratorportal oder PowerShell können Sie den Status des Vorgangs zum Hinzufügen eines Knotens abrufen. Vorgänge zum Hinzufügen eines Knoten können mehrere Stunden oder sogar Tage in Anspruch nehmen.
 
-### <a name="use-the-admin-portal"></a>Verwenden des Verwaltungsportals 
+### <a name="use-the-administrator-portal"></a>Verwenden des Administratorportals 
 Um das Hinzufügen eines neuen Knotens zu überwachen, überprüfen Sie im Administratorportal die Objekte für die Skalierungseinheit bzw. den Skalierungseinheitenknoten. Wechseln Sie zu **Regionsverwaltung** > **Skalierungseinheiten**. Wählen Sie anschließend die Skalierungseinheit bzw. den Skalierungseinheitknoten aus, die Sie überprüfen möchten. 
 
 ### <a name="use-powershell"></a>Verwenden von PowerShell

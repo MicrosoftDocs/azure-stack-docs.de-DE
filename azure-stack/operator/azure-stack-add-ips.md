@@ -16,12 +16,12 @@ ms.date: 09/10/2019
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 3978ac3339a2bf6a9dd4df770736bca1a21cc5a3
-ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
+ms.openlocfilehash: 090c532541ffe6ae6221958d395145c5215c3112
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70902646"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974946"
 ---
 # <a name="add-public-ip-addresses"></a>Hinzufügen öffentlicher IP-Adressen
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*  
@@ -46,8 +46,8 @@ Zunächst müssen Sie den Adressblock abrufen, den Sie Azure Stack hinzufügen m
 
 ## <a name="add-the-ip-address-range-to-azure-stack"></a>Hinzufügen des IP-Adressbereichs zu Azure Stack
 
-1. Wechseln Sie in einem Browser zu Ihrem Dashboard im Admin-Portal. In diesem Beispiel verwenden wir https://adminportal.local.azurestack.external.
-2. Melden Sie sich beim Azure Stack-Verwaltungsportal als Cloudoperator an.
+1. Wechseln Sie in einem Browser zu Ihrem Dashboard im Administratorportal. In diesem Beispiel verwenden wir https://adminportal.local.azurestack.external.
+2. Melden Sie sich als Cloudoperator am Azure Stack-Administratorportal an.
 3. Suchen Sie auf dem Standarddashboard nach der Liste „Regionsverwaltung“, und klicken Sie auf die Region, die Sie verwalten möchten. In diesem Beispiel verwenden wir die lokale Region.
 4. Suchen Sie nach der Kachel „Ressourcenanbieter“, und klicken Sie auf den Netzwerkressourcenanbieter.
 5. Klicken Sie auf die Kachel für die Nutzung öffentlicher IP-Pools.

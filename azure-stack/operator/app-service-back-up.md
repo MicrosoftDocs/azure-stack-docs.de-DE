@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: b49390434990ac2efb81692c1177c634aee4bab0
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: a41943a598545b1a4c5dbe6325307a8fa3594cd5
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959530"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975037"
 ---
 # <a name="back-up-app-service-on-azure-stack"></a>Sichern von App Service in Azure Stack
 
@@ -43,17 +43,17 @@ Wenn Sie App Service aus einer Sicherung wiederherstellen, müssen Sie die App�
 
 Gehen Sie wie folgt vor, um App Service-Geheimnisse über das Verwaltungsportal zu sichern: 
 
-1. Melden Sie sich am Azure Stack-Verwaltungsportal als Dienstadministrator an.
+1. Melden Sie sich am Azure Stack-Administratorportal als Dienstadministrator an.
 
 2. Navigieren Sie zu **App Service** -> **Geheimnisse**. 
 
 3. Wählen Sie **Geheimnisse herunterladen** aus.
 
-   ![Herunterladen von Geheimnissen im Azure Stack-Verwaltungsportal](./media/app-service-back-up/download-secrets.png)
+   ![Herunterladen von Geheimnissen im Azure Stack-Administratorportal](./media/app-service-back-up/download-secrets.png)
 
 4. Wenn die Geheimnisse zum Herunterladen bereit sind, klicken Sie auf **Speichern**, und speichern Sie die Datei mit den App Service-Geheimnissen (**SystemSecrets.JSON**) an einem sicheren Ort. 
 
-   ![Speichern von Geheimnissen im Azure Stack-Verwaltungsportal](./media/app-service-back-up/save-secrets.png)
+   ![Speichern von Geheimnissen im Azure Stack-Administratorportal](./media/app-service-back-up/save-secrets.png)
 
 > [!NOTE]
 > Wiederholen Sie diese Schritte bei jeder Rotation der App Service-Geheimnisse.

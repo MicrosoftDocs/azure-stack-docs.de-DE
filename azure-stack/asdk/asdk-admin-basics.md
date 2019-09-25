@@ -16,12 +16,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2982012901b410b9e6e3830aa24fe4c62be8aa4c
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: 1074f359063855ef5f80ef6f1e3807b87184a4ca
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579064"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974877"
 ---
 # <a name="asdk-admin-basics"></a>Grundlagen der ASDK-Verwaltung
 Wenn Sie mit der Verwaltung des Azure Stack Development Kits (ASDK) noch nicht vertraut sind, gibt es verschiedene Aspekte, die Sie kennen müssen. Dieser Leitfaden bietet eine Übersicht über Ihre Rolle als Azure Stack-Operator in der Evaluierungsumgebung. Wenn Sie sich mit diesen Informationen vertraut machen, stellen Sie sicher, dass Ihre Testbenutzer schnell produktiv arbeiten können.
@@ -36,13 +36,13 @@ Es gibt einige Überlegungen zu Konten, die Sie beim Verwalten von Azure Stack b
 |Konto|Azure AD|AD FS|
 |-----|-----|-----|
 |Lokaler Administrator (.\Administrator)|ASDK-Hostadministrator|ASDK-Hostadministrator|
-|AzureStack\AzureStackAdmin|ASDK-Hostadministrator<br><br>Kann zum Anmelden beim Azure Stack-Verwaltungsportal verwendet werden.<br><br>Zugriff zum Anzeigen und Verwalten von Service Fabric-Ringen|ASDK-Hostadministrator<br><br>Kein Zugriff auf das Azure Stack-Verwaltungsportal<br><br>Zugriff zum Anzeigen und Verwalten von Service Fabric-Ringen<br><br>Nicht mehr Besitzer des Standardabonnements des Anbieters (DPS)|
+|AzureStack\AzureStackAdmin|ASDK-Hostadministrator<br><br>Kann zum Anmelden beim Azure Stack-Administratorportal verwendet werden<br><br>Zugriff zum Anzeigen und Verwalten von Service Fabric-Ringen|ASDK-Hostadministrator<br><br>Kein Zugriff auf das Azure Stack-Administratorportal<br><br>Zugriff zum Anzeigen und Verwalten von Service Fabric-Ringen<br><br>Nicht mehr Besitzer des Standardabonnements des Anbieters (DPS)|
 |AzureStack\CloudAdmin|Kann auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen|Kann auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen<br><br>Kann sich nicht beim ASDK-Host anmelden<br><br>Besitzer des Standardabonnements des Anbieters (DPS)|
 |Globaler Azure AD-Administrator|Während der Installation verwendet<br><br>Besitzer des Standardabonnements des Anbieters (DPS)|Nicht zutreffend|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Welche Tools verwende ich für die Verwaltung?
-Für die Verwaltung von Azure Stack können Sie das [Azure Stack-Verwaltungsportal](https://adminportal.local.azurestack.external) oder PowerShell verwenden. Die einfachste Möglichkeit, sich mit den grundlegenden Konzepten vertraut zu machen, bietet das Portal. Wenn Sie PowerShell verwenden möchten, müssen Sie [PowerShell für Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) installieren und [die Azure Stack-Tools aus GitHub herunterladen](asdk-post-deploy.md#download-the-azure-stack-tools).
+Für die Verwaltung von Azure Stack können Sie das [Azure Stack-Administratorportal](https://adminportal.local.azurestack.external) oder PowerShell verwenden. Die einfachste Möglichkeit, sich mit den grundlegenden Konzepten vertraut zu machen, bietet das Portal. Wenn Sie PowerShell verwenden möchten, müssen Sie [PowerShell für Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) installieren und [die Azure Stack-Tools aus GitHub herunterladen](asdk-post-deploy.md#download-the-azure-stack-tools).
 
 Azure Stack verwendet den Azure Resource Manager als zugrunde liegenden Mechanismus für die Bereitstellung, Verwaltung und Organisation. Wenn Sie Azure Stack verwalten und Support für Benutzer bereitstellen werden, sollten Sie sich mit dem Azure Resource Manager vertraut machen. Weitere Informationen finden Sie im Whitepaper [Erste Schritte mit dem Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
 
@@ -50,7 +50,7 @@ Azure Stack verwendet den Azure Resource Manager als zugrunde liegenden Mechanis
 Ihre Benutzer möchten Dienste nutzen. Aus ihrer Sicht besteht Ihre Hauptrolle darin, ihnen diese Dienste zur Verfügung zu stellen. Mit dem ASDK finden Sie heraus, welche Dienste Sie anbieten sollten und wie Sie diese Dienste durch die [Erstellung von Plänen, Angeboten und Kontingenten](../operator/azure-stack-tutorial-tenant-vm.md) zur Verfügung stellen. Zudem müssen Sie dem Marketplace Elemente hinzufügen, z. B. Images für virtuelle Computer (VMs). Die einfachste Möglichkeit besteht darin, [Marketplace-Elemente](../operator/azure-stack-create-and-publish-marketplace-item.md) von Azure in Azure Stack herunterzuladen.
 
 > [!NOTE]
-> Wenn Sie Ihre Pläne, Angebote und Dienste testen möchten, sollten Sie das [Benutzerportal](https://portal.local.azurestack.external) und nicht das [Verwaltungsportal](https://adminportal.local.azurestack.external) verwenden.
+> Wenn Sie Ihre Pläne, Angebote und Dienste testen möchten, sollten Sie das [Benutzerportal](https://portal.local.azurestack.external) verwenden, nicht das [Verwaltungsportal](https://adminportal.local.azurestack.external).
 
 Neben der Bereitstellung von Diensten müssen Sie alle regulären Aufgaben eines Azure Stack-Operators durchführen, um den reibungslosen Betrieb des ASDK sicherzustellen. Diese Pflichten umfassen folgende Aufgaben:
 - Hinzufügen von Benutzerkonten für Azure AD- oder AD FS-Bereitstellungen.
@@ -62,7 +62,7 @@ Neben der Bereitstellung von Diensten müssen Sie alle regulären Aufgaben eines
 ## <a name="where-to-get-support"></a>Supportquellen
 Fragen rund um den Support für das ASDK können Sie im [Azure Stack-MSDN-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) stellen.
 
-Sie können auch auf die Foren zugreifen, indem Sie in der oberen rechten Ecke des Verwaltungsportals auf **Hilfe** (das Fragezeichen) klicken. Klicken Sie anschließend auf **Hilfe und Support**, um die **Übersicht** zu Hilfe und Support zu öffnen. Dort finden Sie einen Link zum Forum. MSDN-Foren werden regelmäßig überprüft.  
+Sie können auch auf die Foren zugreifen, indem Sie in der oberen rechten Ecke des Administratorportals auf **Hilfe** (das Fragezeichen) klicken. Klicken Sie anschließend auf **Hilfe und Support**, um die **Übersicht** zu Hilfe und Support zu öffnen. Dort finden Sie einen Link zum Forum. MSDN-Foren werden regelmäßig überprüft.  
 
 > [!IMPORTANT]
 > Da das ASDK eine Evaluierungsumgebung ist, wird über Microsoft Customer Support Services (CSS) kein offizieller Support angeboten.

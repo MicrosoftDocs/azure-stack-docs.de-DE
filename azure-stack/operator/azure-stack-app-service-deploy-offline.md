@@ -16,12 +16,12 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9190a8cb0b42b10710a4abc2671fe8ead3094d9a
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 0147108a2e4fb45fce98460fcde141b5f2e28df5
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808295"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975050"
 ---
 # <a name="deploy-app-service-in-an-offline-environment-in-azure-stack"></a>Bereitstellen von App Service in einer Offlineumgebung in Azure Stack
 
@@ -202,7 +202,7 @@ Um App Service in einer Offlineumgebung bereitzustellen, müssen Sie zunächst e
 > [!IMPORTANT]
 > Wenn Sie den App Service-Ressourcenanbieter mit einer SQL Always On-Instanz bereitgestellt haben, *müssen* Sie die [Datenbanken „appservice_hosting“ und „appservice_metering“ einer Verfügbarkeitsgruppe hinzufügen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) und die Datenbanken synchronisieren, damit es im Falle eines Datenbankfailovers nicht zu Dienstausfällen kommt.
 
-Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk und eine interne IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Verwaltungsportal zur Netzwerksicherheitsgruppe „WorkersNsg“, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
+Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk und eine interne IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Administratorportal zur Netzwerksicherheitsgruppe „WorkersNsg“, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
 
 - Quelle: Any
 - Quellportbereich: *
@@ -216,7 +216,7 @@ Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk u
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Überprüfen der Installation von App Service in Azure Stack
 
-1. Navigieren Sie im Azure Stack-Verwaltungsportal zu **Verwaltung – App Service**.
+1. Navigieren Sie im Azure Stack-Administratorportal zu **Verwaltung – App Service**.
 
 2. Überprüfen Sie in der Übersicht unter „Status“, ob für **Status** die Option **Alle Rollen sind bereit** angezeigt wird.
 

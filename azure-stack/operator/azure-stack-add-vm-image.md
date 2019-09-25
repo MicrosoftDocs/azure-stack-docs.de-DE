@@ -3,7 +3,7 @@ title: Hinzufügen eines VM-Images zu Azure Stack | Microsoft-Dokumentation
 description: Es wird beschrieben, wie Sie Azure Stack ein VM-Image hinzufügen oder es entfernen.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: Justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: mabrigg
+ms.date: 09/17/2019
+ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 8fec1b3702aa7c8c55f1a90167b1ac13f0ac8847
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: fef815ec23655638bbe4df1bcdccae42aeee13e2
+ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271755"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061166"
 ---
 # <a name="add-a-vm-image-to-azure-stack"></a>Hinzufügen eines VM-Images zu Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-In Azure Stack können Sie in Marketplace ein VM-Image (virtueller Computer) hinzufügen, um es Benutzern zur Verfügung zu stellen. Images werden hinzugefügt, indem Azure Resource Manager-Vorlagen für Azure Stack verwendet werden. Sie können VM-Images der Azure Marketplace-Benutzeroberfläche auch als Marketplace-Element hinzufügen, indem Sie das Verwaltungsportal oder Windows PowerShell verwenden. Verwenden Sie entweder ein Image aus dem globalen Azure Marketplace oder Ihr eigenes benutzerdefiniertes VM-Image.
+In Azure Stack können Sie in Marketplace ein VM-Image (virtueller Computer) hinzufügen und Benutzern zur Verfügung zu stellen. Images werden hinzugefügt, indem Azure Resource Manager-Vorlagen für Azure Stack verwendet werden. Sie können VM-Images der Azure Marketplace-Benutzeroberfläche auch als Marketplace-Element hinzufügen, indem Sie das Administratorportal oder Windows PowerShell verwenden. Verwenden Sie entweder ein Image aus dem globalen Azure Marketplace oder Ihr eigenes benutzerdefiniertes VM-Image.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Hinzufügen eines VM-Images über das Portal
 
@@ -66,7 +66,7 @@ Auf Images muss über einen Blobspeicher-URI verwiesen werden können. Bereiten 
 
 ## <a name="remove-a-vm-image-through-the-portal"></a>Entfernen eines VM-Images über das Portal
 
-1. Öffnen Sie das Verwaltungsportal unter [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
+1. Öffnen Sie das Administratorportal unter [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
 
 2. Wählen Sie **Marketplace-Verwaltung** und dann die VM, die Sie löschen möchten.
 
@@ -155,10 +155,13 @@ Auf Images muss über einen Blobspeicher-URI verwiesen werden können. Bereiten 
 5. Bereiten Sie ein Windows- oder Linux-Betriebssystemimage im VHD-Format (nicht VHDX) vor, laden Sie das Image in Ihr Speicherkonto hoch, und rufen Sie den URI ab, über den das VM-Image per PowerShell abgerufen werden kann.  
 
    ```powershell
-    Add-AzureRmAccount `
-      -EnvironmentName "AzureStackAdmin" `
-      -TenantId $TenantID
+   Add-AzureRmAccount 
+   -EnvironmentName "AzureStackAdmin" 
+   -TenantId $TenantID
    ```
+  
+   >[!Note]
+   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie lediglich Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit Add-AzureRmAccount anmelden: `Remove-AzureRmAccount-Scope Process`
 
 6. (Optional) Sie können als Teil des VM-Images ein Array mit Datenträgern für Daten hochladen. Erstellen Sie Ihre Datenträger für Daten mit dem New-DataDiskObject-Cmdlet. Öffnen Sie PowerShell über eine Eingabeaufforderung mit erhöhten Rechten, und führen Sie Folgendes aus:
 

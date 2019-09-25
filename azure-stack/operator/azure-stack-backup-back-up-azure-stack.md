@@ -1,6 +1,6 @@
 ---
 title: Sichern von Azure Stack | Microsoft-Dokumentation
-description: Führen Sie eine bedarfsgesteuerte Sicherung von Azure Stack durch, indem Sie den integrierten Sicherungsdienst nutzen.
+description: Erfahren Sie, wie Sie eine bedarfsgesteuerte Sicherung in Azure Stack durchführen.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,18 +16,18 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: a572275ff81918d1b8f739a99fbe7a57784d0651
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 01a4ff62b7cc340a0cf0f98298ee28425d6df892
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269016"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974731"
 ---
 # <a name="back-up-azure-stack"></a>Sichern von Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Führen Sie eine bedarfsgesteuerte Sicherung von Azure Stack durch. Anweisungen zum Konfigurieren der PowerShell-Umgebung finden Sie unter [Installieren von PowerShell für Azure Stack](azure-stack-powershell-install.md). Informationen zur Anmeldung bei Azure Stack finden Sie unter [Verwenden des Administratorportals in Azure Stack](azure-stack-manage-portals.md).
+Dieser Artikel zeigt Ihnen, wie Sie eine bedarfsgesteuerte Sicherung in Azure Stack durchführen. Anweisungen zum Konfigurieren der PowerShell-Umgebung finden Sie unter [Installieren von PowerShell für Azure Stack](azure-stack-powershell-install.md). Informationen zur Anmeldung bei Azure Stack finden Sie unter [Verwenden des Administratorportals in Azure Stack](azure-stack-manage-portals.md).
 
 ## <a name="start-azure-stack-backup"></a>Starten der Azure Stack-Sicherung
 
@@ -42,9 +42,9 @@ Verwenden Sie „Start-AzSBackup“, um eine neue Sicherung sofort und ohne Nach
 Verwenden Sie „Start-AzSBackup“, um eine neue Sicherung mit dem Parameter **-AsJob** zu starten und als Variable zu speichern, um den Fortschritt des Sicherungsauftrags zu verfolgen.
 
 > [!NOTE]
-> Der Sicherungsauftrag wird im Portal etwa 10 bis 15 Minuten vor Abschluss des Auftrags als erfolgreich abgeschlossen angezeigt.
+> Ihr Sicherungsauftrag wird im Portal etwa 10 bis 15 Minuten vor Abschluss des Auftrags als erfolgreich abgeschlossen angezeigt.
 >
-> Daher wird der tatsächliche Status besser über den folgenden Code beobachtet.
+> Der tatsächliche Status wird besser über den folgenden Code beobachtet.
 
 > [!IMPORTANT]
 > Die anfängliche Verzögerung von 1 Millisekunde wird eingeführt, weil der Code zu schnell ist, um den Auftrag ordnungsgemäß zu registrieren, und er kehrt ohne **PSBeginTime** und damit auch ohne **Zustand** des Auftrags zurück.
@@ -111,10 +111,10 @@ Das Ergebnis sollte der folgenden Ausgabe ähneln:
     Tags              : {}
 ```
 
-### <a name="confirm-backup-has-completed-in-the-administration-portal"></a>Im Verwaltungsportal sicherstellen, dass die Sicherung abgeschlossen wurde
-Führen Sie im Azure Stack-Verwaltungsportal diese Schritte aus, um sicherzustellen, dass die Sicherung erfolgreich abgeschlossen wurde:
+### <a name="confirm-backup-has-completed-in-the-administrator-portal"></a>Sicherstellen im Administratorportal, dass die Sicherung abgeschlossen wurde
+Führen Sie im Azure Stack-Administratorportal diese Schritte aus, um sicherzustellen, dass die Sicherung erfolgreich abgeschlossen wurde:
 
-1. Öffnen Sie das [Azure Stack-Verwaltungsportal](azure-stack-manage-portals.md).
+1. Öffnen Sie das [Azure Stack-Administratorportal](azure-stack-manage-portals.md).
 2. Wählen Sie **Alle Dienste** aus, und wählen Sie dann unter der Kategorie **VERWALTUNG** die Option **Infrastruktursicherung** aus. Wählen Sie auf dem Blatt **Infrastructure Backup** die Option **Konfiguration** aus.
 3. Suchen Sie in der Liste **Verfügbare Sicherungen** nach **Name** und **Abschlussdatum** der Sicherung.
 4. Überprüfen Sie, ob der **Status** als **Erfolgreich** angezeigt wird.

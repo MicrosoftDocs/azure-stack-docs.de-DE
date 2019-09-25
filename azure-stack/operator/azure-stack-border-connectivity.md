@@ -1,6 +1,6 @@
 ---
-title: Überlegungen zur Integration der Netzwerkkonnektivität über Border-Geräte für integrierte Azure Stack-Systeme | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie die Netzwerkkonnektivität über Border-Geräte für Rechenzentren mit Azure Stack-Systemen mit mehreren Knoten planen können.
+title: Konnektivität über Border-Geräte und Netzwerkintegration für integrierte Azure Stack-Systeme | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie die Netzwerkkonnektivität über Border-Geräte für Rechenzentren in integrierten Azure Stack-Systemen planen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,21 +16,21 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 85da256828d69db600bd8e5847a110ee3519568b
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 142ea9b53d64e89157ce5c5556241b41275d430d
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131405"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094352"
 ---
 # <a name="border-connectivity"></a>Grenzkonnektivität 
-Die Planung der Netzwerkintegration ist eine wichtige Voraussetzung, um erfolgreich integrierte Azure Stack-Systeme bereitstellen, betreiben und verwalten zu können. Bei der Planung der Konnektivität über Border-Geräte wird zunächst festgelegt, ob dynamisches Routing mit Border Gateway Protocol (BGP) verwendet werden soll. Hierfür muss eine autonome 16-Bit-BGP-Systemnummer (öffentlich oder privat) zugewiesen oder statisches Routing verwendet werden, wenn Border-Geräten eine statische Standardroute zugewiesen wird.
+Die Planung der Netzwerkintegration ist eine wichtige Voraussetzung, um erfolgreich integrierte Azure Stack-Systeme bereitstellen, betreiben und verwalten zu können. Bei der Planung der Konnektivität über Border-Geräte entscheiden Sie zuerst, ob Sie dynamisches Routing mit Border Gateway Protocol (BGP) verwenden möchten. Hierfür muss eine autonome 16-Bit-BGP-Systemnummer (öffentlich oder privat) zugewiesen oder statisches Routing verwendet werden, wenn Border-Geräten eine statische Standardroute zugewiesen wird.
 
 > [!IMPORTANT]
-> Für TOR-Switches (Top of Rack) sind Layer 3-Uplinks mit für physische Schnittstellen konfigurierte Point-to-Point-IP-Adressen (Netzwerke vom Typ „/30“) erforderlich. Layer 2-Uplinks mit TOR-Switches mit Unterstützung für Azure Stack-Vorgänge werden nicht unterstützt. 
+> Für TOR-Switches (Top of Rack) sind Layer 3-Uplinks mit für physische Schnittstellen konfigurierte Point-to-Point-IP-Adressen (Netzwerke vom Typ „/30“) erforderlich. Layer 2-Uplinks mit TOR-Switches mit Unterstützung für Azure Stack-Vorgänge werden nicht unterstützt.
 
 ## <a name="bgp-routing"></a>BGP-Routing
-Durch ein dynamisches Routingprotokoll wie BGP wird die Erkennung von Netzwerkänderungen durch Ihr System sichergestellt und die Verwaltung vereinfacht. Zur Verbesserung der Sicherheit kann für das BGP-Peering zwischen TOR und Grenze ein Kennwort festgelegt werden. 
+Durch ein dynamisches Routingprotokoll wie BGP wird die Erkennung von Netzwerkänderungen durch Ihr System sichergestellt und die Verwaltung vereinfacht. Zur Verbesserung der Sicherheit kann für das BGP-Peering zwischen TOR und Grenze ein Kennwort festgelegt werden.
 
 Wie im folgenden Diagramm dargestellt, wird die Ankündigung des privaten IP-Bereichs für den TOR-Switch durch eine Präfixliste blockiert. Die Präfixliste lehnt die Ankündigung des privaten Netzwerks ab und wird als Routenzuordnung für die Verbindung zwischen TOR und Grenze angewendet.
 
@@ -41,9 +41,9 @@ Um sicherzustellen, dass Benutzerdatenverkehr nach einem Fehler umgehend und tra
 ![BGP-Routing](media/azure-stack-border-connectivity/bgp-routing.png)
 
 ## <a name="static-routing"></a>Statisches Routing
-Statisches Routing erfordert zusätzliche Konfiguration für die Border-Geräte. Es erfordert weitere manuelle Eingriffe und Verwaltung sowie eine gründliche Analyse vor jeder Änderung, und ein Rollback für durch einen Konfigurationsfehler verursachte Probleme dauert je nach den vorgenommenen Änderungen möglicherweise länger. Dies ist zwar nicht die empfohlene Routingmethode, es besteht jedoch Unterstützung für diese.
+Statisches Routing erfordert zusätzliche Konfiguration für die Border-Geräte. Vor jeder Änderung sind mehr manuelle Intervention und Verwaltung sowie eine gründliche Analyse erforderlich. Bei Problemen, die durch Konfigurationsfehler verursacht wurden, kann der Rollback je nach den vorgenommenen Änderungen relativ zeitintensiv sein. Diese Routingmethode wird nicht empfohlen, jedoch unterstützt.
 
-Zum Integrieren von Azure Stack in Ihre Netzwerkumgebung mithilfe von statischem Routing müssen alle vier physischen Verknüpfungen zwischen dem Border- und dem Tor-Gerät verbunden sein, und hohe Verfügbarkeit kann aufgrund der Funktionsweise von statischem Routing nicht garantiert werden.
+Zum Integrieren von Azure Stack in Ihre Netzwerkumgebung mithilfe von statischem Routing müssen alle vier physischen Verknüpfungen zwischen dem Border- und dem Tor-Gerät verbunden sein. Hohe Verfügbarkeit kann aufgrund der Funktionsweise von statischem Routing nicht garantiert werden.
 
 Das Border-Gerät muss für Datenverkehr an die *externen* Netzwerke oder öffentlichen VIP-Adressen und das *Infrastrukturnetzwerk* mit statischen Routen konfiguriert sein, die auf die P2P-Verbindungen der Tor-Geräte verweisen. Es benötigt statische Routen zum *BMC*-Netzwerk und *externen* Netzwerken für die Bereitstellung. Betreiber können statische Routen auch in der Border-Vorrichtung beibehalten, um auf Verwaltungsressourcen im *BMC*-Netzwerk zuzugreifen. Das Hinzufügen von statischen Routen zu *Switchinfrastruktur*- und *Switchverwaltungsnetzwerken* ist optional.
 

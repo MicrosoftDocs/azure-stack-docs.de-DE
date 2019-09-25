@@ -3,7 +3,7 @@ title: Verwalten des Zugriffs auf Ressourcen mit der rollenbasierten Zugriffsste
 description: Hier erfahren Sie, wie Sie als Dienstadministrator oder Mandant in Azure Stack Berechtigungen für die rollenbasierte Zugriffssteuerung (RBAC) verwalten.
 services: azure-stack
 documentationcenter: ''
-author: PatAltimore
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
@@ -12,26 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2019
-ms.author: patricka
+ms.date: 09/13/2019
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: a5034e92e52c6da760389d7addc77c6220d59674
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: a784da0d16f6ec92a105d9360430f4e8da2817ef
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376833"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974930"
 ---
 # <a name="manage-access-to-resources-in-azure-stack-with-role-based-access-control"></a>Verwalten des Zugriffs auf Ressourcen mit der rollenbasierten Zugriffssteuerung in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Azure Stack unterstützt die rollenbasierte Zugriffssteuerung (RBAC), das gleiche von Microsoft Azure verwendete [Sicherheitsmodell für die Zugriffsverwaltung](https://docs.microsoft.com/azure/role-based-access-control/overview). Anhand der RBAC können Sie den Benutzer-, Gruppen- oder App-Zugriff auf Abonnements, Ressourcen und Dienste verwalten.
+Azure Stack unterstützt die rollenbasierte Zugriffssteuerung (RBAC), das gleiche von Microsoft Azure verwendete [Sicherheitsmodell für die Zugriffsverwaltung](/azure/role-based-access-control/overview). Anhand der RBAC können Sie den Benutzer-, Gruppen- oder App-Zugriff auf Abonnements, Ressourcen und Dienste verwalten.
 
 ## <a name="basics-of-access-management"></a>Grundlagen zur Zugriffsverwaltung
 
-Die rollenbasierte Zugriffssteuerung bietet eine präzise Zugriffssteuerung, mit der Sie Ihre Umgebung schützen können. Dabei erteilen Sie Benutzern genau die benötigten Berechtigungen, indem Sie eine RBAC-Rolle in einem bestimmten Bereich zuweisen. Der Bereich der Rollenzuweisung kann ein Abonnement, eine Ressourcengruppe oder eine einzelne Ressource sein. Ausführlichere Informationen zur Zugriffsverwaltung finden Sie im Artikel [Rollenbasierte Zugriffssteuerung im Azure-Portal](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Die rollenbasierte Zugriffssteuerung (RBAC) bietet eine präzise Zugriffssteuerung, mit der Sie Ihre Umgebung schützen können. Dabei erteilen Sie Benutzern genau die benötigten Berechtigungen, indem Sie eine RBAC-Rolle in einem bestimmten Bereich zuweisen. Der Bereich der Rollenzuweisung kann ein Abonnement, eine Ressourcengruppe oder eine einzelne Ressource sein. Ausführlichere Informationen zur Zugriffsverwaltung finden Sie im Artikel [Rollenbasierte Zugriffssteuerung im Azure-Portal](/azure/role-based-access-control/overview).
+
+> [!NOTE]
+> Wenn Azure Stack mit Active Directory-Verbunddiensten (Active Directory Federation Services, AD FS) als Identitätsanbieter bereitgestellt wird, werden nur universelle Gruppen für RBAC-Szenarien unterstützt.
 
 ### <a name="built-in-roles"></a>Integrierte Rollen
 
@@ -61,7 +64,7 @@ Sie können einem Benutzer mehrere Rollen zuweisen, und jede Rolle kann einem an
 * Sie weisen TestUser-A die Rolle **Leser** für Subscription-1 zu.
 * Sie weisen TestUser-A die Rolle **Besitzer** für TestVM-1 zu.
 
-Der Artikel zu [Rollenzuweisungen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) in Azure enthält ausführliche Informationen zum Anzeigen, Zuweisen und Löschen von Rollen.
+Der Artikel zu [Rollenzuweisungen](/azure/role-based-access-control/role-assignments-portal) in Azure enthält ausführliche Informationen zum Anzeigen, Zuweisen und Löschen von Rollen.
 
 ## <a name="set-access-permissions-for-a-user"></a>Festlegen von Zugriffsberechtigungen für Benutzer
 

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2019
+ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: 9f35a2bef6e5aa3b9ae1866927be007d58532b74
-ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 97d57605ce093684fcbabe2375deecda5e35cce2
+ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70749964"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061138"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Hinzufügen von Mandanten für Nutzung und Abrechnung zu Azure Stack
 
@@ -55,13 +55,17 @@ Standardmäßig haben Sie als CSP keinen Zugriff auf das Azure Stack-Abonnement 
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>Aktualisieren der Registrierung mit dem Endkundenabonnement
 
-Aktualisieren Sie Ihre Registrierung mit dem Abonnement des neuen Kunden. Azure meldet die Nutzung des Kunden mithilfe der Kundenidentität aus dem Partner Center. So wird sichergestellt, dass die Nutzung jedes Kunden unter dem individuellen CSP-Abonnement des Kunden gemeldet wird. Dies erleichtert die Nachverfolgung der Nutzung durch den Benutzer und die Abrechnung.
-
-> [!NOTE]  
-> Um diesen Schritt ausführen zu können, müssen Sie [Azure Stack zunächst registrieren](azure-stack-registration.md).
+Aktualisieren Sie Ihre Registrierung mit dem Abonnement des neuen Kunden. Azure meldet die Nutzung des Kunden mithilfe der Kundenidentität aus dem Partner Center. So wird sichergestellt, dass die Nutzung jedes Kunden unter dem individuellen CSP-Abonnement des Kunden gemeldet wird. Dies erleichtert die Nachverfolgung der Nutzung und die Abrechnung. Um diesen Schritt ausführen zu können, müssen Sie [Azure Stack zunächst registrieren](azure-stack-registration.md).
 
 1. Öffnen Sie Windows PowerShell mit einer Eingabeaufforderung mit erhöhten Rechten, und führen Sie Folgendes aus:  
-    `Add-AzureRmAccount`
+
+   ```powershell
+   Add-AzureRmAccount
+   ```
+
+   >[!Note]
+   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie lediglich Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit Add-AzureRmAccount anmelden: `Remove-AzureRmAccount-Scope Process`
+
 2. Geben Sie Ihre Azure-Anmeldeinformationen ein.
 3. Führen Sie in der PowerShell-Sitzung Folgendes aus:
 

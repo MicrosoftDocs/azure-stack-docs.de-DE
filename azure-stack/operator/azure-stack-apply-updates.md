@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabriggs
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 2153a91bcf833386ef5884a9fd4e7c0fc759c01b
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 3d760e981f3dd298284b10ed56c4c6ace683f49b
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863060"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974791"
 ---
 # <a name="install-azure-stack-updates"></a>Installieren von Azure Stack-Updates
 
@@ -28,7 +28,7 @@ ms.locfileid: "70863060"
 
 Sie können Updatepakete über das Blatt **Update** in Azure Stack installieren. In diesem Artikel werden Sie durch die Schritte zum Aktualisieren, Überwachen und Beheben von Problemen mit dem Updatevorgang geführt. Verwenden Sie das Blatt „Update“, um Updateinformationen anzuzeigen, Updates zu installieren, den Aktualisierungsfortschritt zu überwachen, den Aktualisierungsverlauf zu überprüfen und die aktuelle Version des Azure Stack- und OEM-Pakets anzuzeigen.
 
-Sie können Updates über das Verwaltungsportal verwalten und im Dashboard den Abschnitt **Updates** verwenden, um Folgendes durchzuführen:
+Sie können Updates über das Administratorportal verwalten und im Dashboard den Abschnitt **Updates** verwenden, um Folgendes durchzuführen:
 
 - Anzeigen wichtiger Informationen, z. B. die aktuelle Version
 - Installieren von Updates und Überwachen des Status
@@ -49,7 +49,7 @@ Die aktuelle Version von Azure Stack können Sie auf dem Blatt **Update** anzeig
 
 ## <a name="install-updates-and-monitor-progress"></a>Installieren von Updates und Überwachen des Status
 
-1. Öffnen Sie das Azure Stack-Administratorportal.
+1. Öffnen Sie das Azure Stack-Administratorportal an.
 
 2. Wählen Sie **Dashboard** aus. Wählen Sie **Update** aus.
 
@@ -75,7 +75,7 @@ Die aktuelle Version von Azure Stack können Sie auf dem Blatt **Update** anzeig
 
 ## <a name="review-update-history"></a>Prüfen des Updateverlaufs
 
-1. Öffnen Sie das Verwaltungsportal.
+1. Öffnen Sie das Administratorportal.
 
 2. Wählen Sie **Dashboard** aus. Wählen Sie **Update** aus.
 

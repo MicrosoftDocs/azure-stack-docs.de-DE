@@ -1,6 +1,6 @@
 ---
 title: Aktivieren der Azure CLI für Azure Stack-Benutzer | Microsoft-Dokumentation
-description: Es wird beschrieben, wie Sie die plattformübergreifende Befehlszeilenschnittstelle (Command-Line Interface, CLI) verwenden, um Ressourcen in Azure Stack zu verwalten und bereitzustellen.
+description: Erfahren Sie, wie Sie die plattformübergreifende Befehlszeilenschnittstelle (Command-Line Interface, CLI) aktivieren, um Ressourcen in Azure Stack zu verwalten und bereitzustellen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,28 +14,28 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: ace99053d9aac4c525e9481e5430ac1f5648f194
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 6e901b2d806e85f7bc394dc9bee6412270753649
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782326"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094305"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Aktivieren der Azure CLI für Azure Stack-Benutzer
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Sie können das CA-Stammzertifikat Benutzern in Azure Stack zur Verfügung stellen, damit sie die Azure CLI auf ihren Entwicklungscomputern verwenden können. Ihre Benutzer benötigen das Zertifikat, um Ressourcen über die CLI zu verwalten.
+Sie können das CA-Stammzertifikat Benutzern in Azure Stack zur Verfügung stellen, damit sie die Azure CLI auf ihren Entwicklungscomputern aktivieren können. Ihre Benutzer benötigen das Zertifikat, um Ressourcen über die CLI zu verwalten.
 
- - Das **Azure Stack-Zertifizierungsstellen-Stammzertifikat** ist erforderlich, wenn Benutzer die CLI auf einer Arbeitsstation außerhalb von Azure Stack Development Kit verwenden.  
+ - Das **Azure Stack-Zertifizierungsstellen-Stammzertifikat** ist erforderlich, wenn Benutzer die CLI auf einer Arbeitsstation außerhalb von Azure Stack Development Kit (ASDK) verwenden.  
 
- - Der **Endpunkt der VM-Aliase** stellt einen Alias (z.B. „UbuntuLTS“ oder „Win2012Datacenter“) bereit, der beim Bereitstellen von VMs als einzelner Parameter auf einen Herausgeber, ein Angebot, eine SKU und die Version eines Image verweist.  
+ - Der **Endpunkt der VM-Aliase** (Virtual Machines, virtuelle Computer) stellt einen Alias wie z. B. „UbuntuLTS“ oder „Win2012Datacenter“ bereit, der beim Bereitstellen von VMs als einzelner Parameter auf einen Herausgeber, ein Angebot, eine SKU und die Version eines Image verweist.  
 
 In den folgenden Abschnitten wird beschrieben, wie Sie diese Werte abrufen.
 
 ## <a name="export-the-azure-stack-ca-root-certificate"></a>Exportieren des Azure Stack-Zertifizierungsstellen-Stammzertifikats
 
-Wenn Sie ein integriertes System verwenden, müssen Sie das Stammzertifikat der Zertifizierungsstelle nicht exportieren. Bei einem Azure Stack Development Kit (ASDK) müssen Sie das Stammzertifikat der Zertifizierungsstelle exportieren.
+Wenn Sie ein integriertes System verwenden, müssen Sie das Stammzertifikat der Zertifizierungsstelle nicht exportieren. Sie müssen das Zertifizierungsstellen-Stammzertifikat des ASDK exportieren.
 
 Um das ASDK-Stammzertifikat im PEM-Format zu exportieren, melden Sie sich an, und führen Sie das folgende Skript aus:
 
@@ -56,7 +56,7 @@ Write-Host "Converting certificate to PEM format"
 certutil -encode root.cer root.pem
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Einrichten des Endpunkts der VM-Aliase
+## <a name="set-up-the-vm-aliases-endpoint"></a>Einrichten des Endpunkts der VM-Aliase
 
 Azure Stack-Betreiber sollten einen öffentlich zugänglichen Endpunkt einrichten, der eine VM-Aliasdatei hostet. Bei der VM-Aliasdatei handelt es sich um eine JSON-Datei, die einen allgemeinen Namen für ein Image bereitstellt. Sie verwenden den Namen, wenn Sie eine VM bereitstellen, als Azure CLI-Parameter.  
 
@@ -66,7 +66,7 @@ Eine [Aliasbeispieldatei](https://raw.githubusercontent.com/Azure/azure-rest-api
 
 1. Laden Sie die [Beispieldatei](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) von GitHub herunter.
 2. Erstellen Sie ein Speicherkonto in Azure Stack. Erstellen Sie anschließend einen Blobcontainer. Legen Sie die Zugriffsrichtlinie auf „Öffentlich“ fest.  
-3. Laden Sie die JSON-Datei in den neuen Container hoch. Wenn das erledigt ist, können Sie die URL des Blobs anzeigen. Wählen Sie den Blobnamen aus, und wählen Sie dann die URL in den „Blob-Eigenschaften“ aus.
+3. Laden Sie die JSON-Datei in den neuen Container hoch. Wenn das erledigt ist, können Sie die URL des Blobs anzeigen. Wählen Sie den Blobnamen aus, und wählen Sie dann die URL in den Blobeigenschaften aus.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

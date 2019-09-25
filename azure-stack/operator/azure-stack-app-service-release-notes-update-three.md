@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 88255a15a204f5dcb18dd83f9763e8297a1af51c
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: c80a6068aa46cd182f8ec928942e7072638b143f
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808243"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974849"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service in Azure Stack: Versionshinweise zu Update 3
 
@@ -40,7 +40,7 @@ Die Buildnummer von Update 3 für App Service in Azure Stack lautet **74.0.1369
 
 Lesen Sie vor Beginn der Bereitstellung die [Voraussetzungen für das Bereitstellen von App Service in Azure Stack](azure-stack-app-service-before-you-get-started.md).
 
-Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack auf 1.3 beginnen, stellen Sie sicher, dass im Azure Stack-Verwaltungsportal in der Azure App Service-Verwaltung alle Rollen bereit stehen.
+Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack auf 1.3 beginnen, stellen Sie sicher, dass im Azure Stack-Administratorportal in der Azure App Service-Verwaltung alle Rollen bereit stehen.
 
 ![Status von App Service-Rollen](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
@@ -184,7 +184,7 @@ Führen Sie die folgenden Schritte aus, nachdem das Update für Azure App Servic
 
 - Worker können den Dateiserver nicht erreichen, wenn der App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist. Dieses Problem wird in der Bereitstellungsdokumentation zu Azure App Service in Azure Stack beschrieben.
 
-Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk und eine interne IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Verwaltungsportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
+Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk und zur Verwendung einer internen IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Administratorportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
 
  * Quelle: Any
  * Quellportbereich: *

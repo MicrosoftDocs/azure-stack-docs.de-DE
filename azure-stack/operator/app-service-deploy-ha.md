@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 994291eb0a990521dc932adc63f0ad52d4430e0d
-ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
+ms.openlocfilehash: 77ec512f5e2996aaec53ef77c000d0334bda456a
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70386247"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975210"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Bereitstellen von App Service in einer Hochverfügbarkeitskonfiguration
 
@@ -73,7 +73,7 @@ Gehen Sie wie in diesem Abschnitt beschrieben vor, um mithilfe der Azure Stack-
 
     ![Erstellen einer benutzerdefinierten Bereitstellung](media/app-service-deploy-ha/4.png)
 
-6. Klicken Sie im Verwaltungsportal auf **Ressourcengruppen** und dann auf den Namen der Ressourcengruppe, die Sie für die benutzerdefinierte Bereitstellung erstellt haben (in diesem Beispiel: **app-service-ha**). Überprüfen Sie den Status der Bereitstellung, um sicherzustellen, dass alle Bereitstellungen erfolgreich abgeschlossen wurden.
+6. Wählen Sie im Administratorportal **Ressourcengruppen** und dann den Namen der Ressourcengruppe aus, die Sie für die benutzerdefinierte Bereitstellung erstellt haben (in diesem Beispiel **app-service-ha**). Überprüfen Sie den Status der Bereitstellung, um sicherzustellen, dass alle Bereitstellungen erfolgreich abgeschlossen wurden.
 
    > [!NOTE]
    > Die Vorlagenbereitstellung dauert etwa eine Stunde.
@@ -95,7 +95,7 @@ Die Ausgabewerte der Vorlage finden Sie wie folgt:
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. Klicken Sie im Verwaltungsportal auf **Ressourcengruppen** und dann auf den Namen der Ressourcengruppe, die Sie für die benutzerdefinierte Bereitstellung erstellt haben (in diesem Beispiel: **app-service-ha**). 
+2. Wählen Sie im Administratorportal **Ressourcengruppen** und dann den Namen der Ressourcengruppe aus, die Sie für die benutzerdefinierte Bereitstellung erstellt haben (in diesem Beispiel **app-service-ha**). 
 
 3. Klicken Sie auf **Bereitstellungen**, und wählen Sie **Microsoft.Template** aus.
 
@@ -170,7 +170,7 @@ Führen Sie zum Bereitstellen des App Service-Ressourcenanbieters die folgenden 
 
     ![Dialogfeld mit erwartetem Fehler in App Service](media/app-service-deploy-ha/08.png)
 
-    Wenn Sie die Bereitstellung in einem vorhandenen virtuellen Netzwerk durchführen und für die Verbindung mit Ihrem Dateiserver eine interne IP-Adresse verwenden, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen. Diese Regel ermöglicht SMB-Datenverkehr zwischen dem Workersubnetz und dem Dateiserver. Wechseln Sie im Verwaltungsportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
+    Wenn Sie die Bereitstellung in einem vorhandenen virtuellen Netzwerk durchführen und für die Verbindung mit Ihrem Dateiserver eine interne IP-Adresse verwenden, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen. Diese Regel ermöglicht SMB-Datenverkehr zwischen dem Workersubnetz und dem Dateiserver. Wechseln Sie im Administratorportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
     - Quelle: Any
     - Quellportbereich: *
     - Ziel: IP-Adressen
