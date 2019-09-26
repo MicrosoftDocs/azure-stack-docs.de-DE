@@ -9,12 +9,12 @@ ms.date: 08/09/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 08/09/2019
-ms.openlocfilehash: beddafb351af39f0a21a1cd0d7a7baa4ccfee28e
-ms.sourcegitcommit: 94669fe8a55fadd3103e80be307e9e8c823bf746
+ms.openlocfilehash: cd7ca2e1a198cb66c5d7627029215b55af0de975
+ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68940273"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71142582"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>Bereitstellen einer C#-Web-App (ASP.NET) auf einem virtuellen Computer in Azure Stack
 
@@ -111,7 +111,7 @@ Erstellen Sie ein Veröffentlichungsziel für Ihre VM in Azure Stack.
     ![Bereitstellen einer ASP.NET-Web-App zur Veröffentlichung in Azure Stack](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
 
 1. Wählen Sie im Fenster **Veröffentlichen** die Option **Neues Profil** aus.
-1. Wählen Sie **IIS**, **FTP** usw. aus.
+1. Wählen Sie **IIS, FTP** usw. aus.
 1. Wählen Sie **Veröffentlichen**.
 1. Wählen Sie als **Veröffentlichungsmethode** die Option **Web Deploy** aus.
 1. Geben Sie unter **Server** den zuvor definierten DNS-Namen ein, z. B. *w21902.local.cloudapp.azurestack.external*.
