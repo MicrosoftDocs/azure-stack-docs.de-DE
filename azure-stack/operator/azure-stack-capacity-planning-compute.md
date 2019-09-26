@@ -16,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 224f5832af5d7fdc57f6b5fcb91d6308d479448b
-ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
+ms.openlocfilehash: 17136cbe86029f0ea776d8dc8860ff96c82c756e
+ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68286707"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71142591"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack-Compute
 
@@ -86,7 +86,7 @@ Diese Berechnung ergibt den insgesamt verfügbaren Arbeitsspeicher, der für die
 
   Resilienzreserve = H + R * ((N-1) * H) + V * (N-2)
 
-> Hinweis:
+> Hierbei gilt:
 > - H = Größe des einzelnen Serverspeichers
 > - N = Größe der Skalierungseinheit (Anzahl der Server)
 > - R = Betriebssystemreserve für Mehraufwand des Betriebssystems (in dieser Formel 0,15)<sup>2</sup>
@@ -111,7 +111,7 @@ Der Wert V (größter virtueller Computer in der Skalierungseinheit) basiert dyn
 
 **F:** In welchem Zustand müssen sich Mandanten-VMs befinden, damit sie Arbeitsspeicher beanspruchen?
 
-A: Zusätzlich zur Ausführung von VMs wird Arbeitsspeicher von allen VMs verbraucht, die im Fabric angeordnet sind. Das bedeutet, dass virtuelle Computer mit dem Zustand „Wird erstellt“ oder „Fehler“ oder virtuelle Computer, die über den Gast heruntergefahren werden, Arbeitsspeicher beanspruchen.
+A: Zusätzlich zur Ausführung von VMs wird Arbeitsspeicher von allen VMs verbraucht, die im Fabric angeordnet sind. Das bedeutet, dass virtuelle Computer mit dem Zustand „Wird erstellt“ oder „Fehler“ sowie virtuelle Computer, die über den Gast heruntergefahren werden, Arbeitsspeicher beanspruchen (im Gegensatz zu virtuellen Computern, deren Zuordnung mithilfe der entsprechenden Option über das Portal/mit PowerShell/über die Befehlszeilenschnittstelle aufgehoben wurde).
 
 **F:** Ich verfüge über eine Azure Stack-Instanz mit vier Hosts. Mein Mandant umfasst drei virtuelle Computer, die jeweils 56 GB RAM (D5_v2) beanspruchen. Nachdem die Größe eines der virtuellen Computer in 112 GB RAM (D14_v2) geändert wurde, wurde beim verfügbaren Arbeitsspeicher auf dem Kapazitätsblatt des Dashboards eine Spitzenauslastung von 168 GB gemeldet. Bei der späteren Änderung der Größe der anderen beiden virtuellen Computer von „D5_v2“ in „D14_v2“ wurde dagegen nur ein RAM-Zuwachs von jeweils 56 GB verzeichnet. Woran liegt das?
 
