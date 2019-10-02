@@ -73,16 +73,19 @@
               href: azure-stack-develop-templates.md
             - name: Entwickeln von Vorlagen in Azure
               href: azure-stack-developer.md
-            - name: Überprüfen von Vorlagen
+            - name: Bereitstellen von Vorlagen
               href: azure-stack-validate-templates.md
-            - name: Bereitstellen über das Portal
-              href: azure-stack-deploy-template-portal.md
-            - name: Bereitstellen mit PowerShell
-              href: azure-stack-deploy-template-powershell.md
-            - name: Bereitstellen mit dem CLI
-              href: azure-stack-deploy-template-command-line.md
-            - name: Bereitstellen mit Visual Studio 2013
-              href: azure-stack-deploy-template-visual-studio.md
+              items:
+                - name: Bereitstellen über das Portal
+                  href: azure-stack-deploy-template-portal.md
+                - name: Bereitstellen mit PowerShell
+                  href: azure-stack-deploy-template-powershell.md
+                - name: Bereitstellen mit dem CLI
+                  href: azure-stack-deploy-template-command-line.md
+                - name: Bereitstellen mit Visual Studio Code
+                  href: azure-stack-resource-manager-deploy-template-vscode.md
+                - name: Bereitstellen mit Visual Studio 2013
+                  href: azure-stack-deploy-template-visual-studio.md
         - name: Verwenden von API-Versionsprofilen
           items:
             - name: Übersicht
