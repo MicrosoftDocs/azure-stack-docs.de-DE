@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: e5126f55a60b98ec7c410b7f8f2256ad08fa9753
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 7679589090022f6f07c5e1fddb9c768716628865
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618570"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829438"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>Versionshinweise zum MySQL-Ressourcenanbieter 1.1.30.0
 

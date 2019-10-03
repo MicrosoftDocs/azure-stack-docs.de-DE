@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 9582c47f37bdd6ae4c306593bea094b66652c49e
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 60515f257dc8ab04e351d1353919a749e9cf4224
+ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101166"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687956"
 ---
 # <a name="plan-for-an-azure-stack-update"></a>Planen eines Azure Stack-Updates
 
@@ -36,9 +36,9 @@ Sie sollten die Benutzer über alle Wartungsvorgänge unterrichten und normale W
 
 Sie können ein Update vorbereiten, indem Sie sicherstellen, dass alle Hotfixes, Sicherheitspatches und OEM-Updates angewandt wurden. Außerdem sollten Sie die Integrität Ihrer Azure Stack Instanz, die verfügbare Kapazität und das Updatepaket überprüft haben.
 
-1. Überprüfen Sie die bekannten Probleme. Anweisungen hierzu finden Sie unter [Azure Stack – bekannte Probleme](https://docs.microsoft.com/azure-stack/operator/release-notes.md).
+1. Überprüfen Sie die bekannten Probleme. Anweisungen hierzu finden Sie unter [Azure Stack – bekannte Probleme](https://docs.microsoft.com/azure-stack/operator/release-notes).
 
-2. Überprüfen Sie die Sicherheitsupdates. Eine Liste der Updates finden Sie unter [Azure Stack-Sicherheitsupdates](https://docs.microsoft.com/azure-stack/operator/release-notes-security-updates.md).
+2. Überprüfen Sie die Sicherheitsupdates. Eine Liste der Updates finden Sie unter [Azure Stack-Sicherheitsupdates](https://docs.microsoft.com/azure-stack/operator/release-notes-security-updates).
 
 3. Bevor Sie mit der Installation dieses Updates beginnen, sollten Sie [Test-AzureStack](https://docs.microsoft.com/azure-stack/operator/azure-stack-diagnostic-test) ausführen, um den Status von Azure Stack zu überprüfen und alle gefundenen operativen Probleme (einschließlich aller Warnungen und Fehler) zu beheben. Überprüfen Sie auch aktive Warnungen, und führen Sie die Behebung für Einträge durch, für die eine Aktion erforderlich ist.
 

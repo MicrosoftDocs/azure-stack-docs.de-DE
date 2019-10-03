@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 10/2/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: cb7a9358a8c80c31f251bfdda16246c3ef6d0822
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: e2680a91aa2b9232eb86de4338d1198fb515e6d3
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783037"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824721"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-Speicher: Unterschiede und Überlegungen
 
@@ -40,7 +40,7 @@ Dieser Artikel fasst die bekannten Unterschiede des Azure Stack-Speichers im Ver
 |Replikationsoptionen|Lokal redundanter Speicher, georedundanter Speicher, schreibgeschützter georedundanter Speicher und zonenredundanter Speicher|Lokal redundanter Speicher.
 |Storage Premium|Speicher mit hoher Leistung und geringer Latenz. Unter Storage Premium-Konten werden nur Seitenblobs unterstützt.|Kann bereitgestellt werden, aber ohne Leistungsgrenzwerte oder Garantien. Die Nutzung von Blockblobs, Anfügeblobs, Tabellen und Warteschlangen in Storage Premium-Konten wird nicht blockiert.
 |Verwaltete Datenträger|Unterstützung für Premium und Standard|Unterstützt bei Verwendung von Version 1808 oder höher.
-|Blobname|1.024 Zeichen (2.048 Bytes)|880 Zeichen (1.760 Bytes)
+|Blobname|1\.024 Zeichen (2.048 Bytes)|880 Zeichen (1.760 Bytes)
 |Maximale Blockblobgröße|4,75 TB (100 MB X 50.000 Blöcke)|4,75 TB (100 MB x 50.000 Blöcke) für das Update 1802 oder eine neuere Version. 50.000 x 4 MB (ca. 195 GB) für vorherige Versionen.
 |Seitenblob-Momentaufnahmenkopie|Die Sicherung nicht verwalteter Azure-VM-Datenträger, die an einen ausgeführten virtuellen Computer angefügt sind, wird unterstützt.|Noch nicht unterstützt.
 |Inkrementelle Momentaufnahmenkopie des Seitenblobs|Unterstützung für Premium- und Standard-Azure-Seitenblobs|Noch nicht unterstützt.
@@ -49,7 +49,7 @@ Dieser Artikel fasst die bekannten Unterschiede des Azure Stack-Speichers im Ver
 |Vorläufiges Löschen für Blobspeicher|Allgemein verfügbar|Noch nicht unterstützt.
 |Maximale Seitenblobgröße|8 TB|1 TB
 |Seitenblob – Seitengröße|512 Bytes|4 KB
-|Größe für Tabellenpartitionsschlüssel und Zeilenschlüssel|1.024 Zeichen (2.048 Bytes)|400 Zeichen (800 Bytes)
+|Größe für Tabellenpartitionsschlüssel und Zeilenschlüssel|1\.024 Zeichen (2.048 Bytes)|400 Zeichen (800 Bytes)
 |Momentaufnahme eines Blobs|Die maximale Anzahl von Momentaufnahmen eines Blobs ist nicht beschränkt.|Die maximale Anzahl von Momentaufnahmen eines Blobs beträgt 1.000.
 |Azure AD-Authentifizierung für Speicher|In der Vorschau|Noch nicht unterstützt.
 |Unveränderliche Blobs|Allgemein verfügbar|Noch nicht unterstützt.

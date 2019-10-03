@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 04/25/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: c0b55579c5103c7bb1073546243dbfcc0b700b4a
-ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: 3d2854511415421b69a6972cd807132639300f96
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65838388"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824508"
 ---
 # <a name="use-an-ssh-public-key"></a>Verwenden eines öffentlichen SSH-Schlüssels
 
@@ -79,13 +79,13 @@ Bevor Sie die Verbindung herstellen, benötigen Sie Folgendes:
 
     ![PuTTY-Konfigurationsbereich](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-connect.png)
 
-2. Geben Sie im Feld **Hostname (oder IP-Adresse)** den Benutzernamen und die öffentliche IP-Adresse des Computers ein (z. B. **username@192.XXX.XXX.XX**). 
+2. Geben Sie im Feld **Hostname (oder IP-Adresse)** den Benutzernamen und die öffentliche IP-Adresse des Computers ein (z. B. **username@192.XXX.XXX.XX** ). 
 3. Vergewissern Sie sich, dass für **Port** die Zahl**22** angegeben und als **Verbindungstyp** die Option **SSH** ausgewählt ist.
 4. Erweitern Sie in der Struktur **Kategorie** die Punkte **SSH** und **Auth**.
 
     ![PuTTY-Konfigurationsbereich: Privater SSH-Schlüssel](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)
 
-5. Wählen Sie neben dem Feld **Private key file for authentication** (Datei mit privatem Schlüssel für die Authentifizierung) die Option **Durchsuchen**, und suchen Sie für Ihr öffentlich-privates Schlüsselpaar dann nach der Datei mit dem privaten Schlüssel (*\<Dateiname>.ppk*).
+5. Wählen Sie neben dem Feld **Private key file for authentication** (Datei mit privatem Schlüssel für die Authentifizierung) die Option **Durchsuchen**, und suchen Sie für Ihr öffentlich-privates Schlüsselpaar dann nach der Datei mit dem privaten Schlüssel ( *\<Dateiname>.ppk*).
 6. Wählen Sie in der Struktur **Kategorie** die Option **Sitzung**.
 
     ![PuTTY-Konfigurationsbereich: Feld „Saved Sessions“ (Gespeicherte Sitzungen)](media/azure-stack-dev-start-howto-ssh-public-key/003-puTTY-save-session.png)

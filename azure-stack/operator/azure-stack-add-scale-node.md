@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 9b28d6b55530de6716fd7781b4c7894cbc859288
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 140f184b2ea6af010879d9c42803c6c0acd35b65
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975003"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824815"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Hinzufügen zusätzlicher Knoten zu Skalierungseinheiten in Azure Stack
 

@@ -14,12 +14,12 @@ ms.author: mabrigg
 ms.date: 06/18/2019
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 135bffd37c98ce53de4b7ec58ddca1d65f4c9495
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 8d6730135e2a7055fc50f5c69918d1f0b2dbe5af
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493831"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71823868"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Problembehandlung bei der Bereitstellung von Kubernetes in Azure Stack
 
@@ -94,7 +94,7 @@ Sie können auf den VMs, die Ihren Kubernetes-Cluster unterstützen, Bereitstell
 4.  Wenn der virtuelle Computer **OK** ist, untersuchen Sie die DVM. Wenn für die DVM eine Fehlermeldung vorliegt, sind die folgenden Ursachen möglich:
 
     - Der öffentliche Schlüssel ist möglicherweise ungültig. Überprüfen Sie den Schlüssel, den Sie erstellt haben.  
-    - Wenden Sie sich an den Azure Stack-Administrator, um die Protokolle für Azure Stack mit den privilegierten Endpunkten abzurufen. Weitere Informationen finden Sie unter [Azure Stack-Diagnosetools](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
+    - Wenden Sie sich an den Azure Stack-Administrator, um die Protokolle für Azure Stack mit den privilegierten Endpunkten abzurufen. Weitere Informationen finden Sie unter [Azure Stack-Diagnosetools](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
 5. Wenn Sie Fragen zu Ihrer Bereitstellung haben, können Sie diese im [Azure Stack-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) stellen bzw. ermitteln, ob jemand die Frage dort bereits beantwortet hat. 
 
 ## <a name="review-deployment-status"></a>Überprüfen des Bereitstellungsstatus

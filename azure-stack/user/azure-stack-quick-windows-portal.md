@@ -6,17 +6,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 05/16/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: cc9a6baa3c71e58c2671b1f1b221e18a0c4f38c1
-ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
+ms.openlocfilehash: 95fef782ca7efe09f7c93fbf0e28e81ed34d8166
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67816165"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71823923"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-portal"></a>Schnellstart: Erstellen eines virtuellen Windows Server-Computers mit dem Azure Stack-Portal
 
