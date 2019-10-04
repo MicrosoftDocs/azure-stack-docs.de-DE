@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 6a5ef529d2eabf8039be1da6c53da907c0b7aaaf
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: d63d4876674c66fcccab942cd856dce958e62644
+ms.sourcegitcommit: 32609bdb04a07b063c8f20f892c30769ad6903dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66459047"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71269482"
 ---
-# <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Häufig gestellte Fragen zur Azure Stack-Nutzungs-API
+# <a name="frequently-asked-questions-about-azure-stack-usage"></a>Häufig gestellte Fragen zur Nutzung von Azure Stack
 
-In diesem Artikel werden einige häufig gestellte Fragen zur Azure Stack-Nutzungs-API beantwortet.
+In diesem Artikel werden einige häufig gestellte Fragen zur Nutzung von Azure Stack und zur Azure Stack-Nutzungs-API beantwortet.
 
 ## <a name="what-meter-ids-can-i-see"></a>Welche Verbrauchseinheits-IDs kann ich sehen?
 
@@ -418,6 +418,16 @@ Aktuell können Sie nur nach *gemeldeter Zeit* abfragen.
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>Welche Gebührenrichtlinie gilt für virtuelle Computer?
 
 Aktive und beendete virtuelle Computer generieren Nutzungsdaten. Um die Generierung von Nutzungsdaten zu beenden, ist genau wie bei Azure eine Aufhebung der Zuordnung erforderlich. Sollte das Portal nicht verfügbar sein und der Computeressourcenanbieter weiterhin ausgeführt werden, werden weiter Nutzungsdaten ausgegeben.
+
+## <a name="how-do-i-extract-usage-data-from-the-azure-stack-usage-apis"></a>Wie extrahiere ich Nutzungsdaten aus den Azure Stack-Nutzungs-APIs?
+
+Nutzungsdaten aus lokalen Nutzungs-APIs in einer Azure Stack-Instanz lassen sich am einfachsten mit dem [Skript zur Nutzungszusammenfassung auf GitHub](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/Usagesummary.ps1) extrahieren. Das Skript erfordert das Start- und Enddatum als Eingabeparameter.
+
+Alternativ dazu können Sie auch REST-APIs verwenden, wie in den Artikeln [Ressourcennutzungs-API für Anbieter](azure-stack-provider-resource-api.md) und [Ressourcennutzungs-API für Mandanten](azure-stack-tenant-resource-usage-api.md) erläutert.
+
+## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-user-subscription"></a>Wie kann ich die aus Azure-Nutzungs-APIs extrahierte Nutzung einem bestimmten Azure Stack-Benutzerabonnement zuordnen?
+
+Die Nutzungsdaten beinhalten einen Eigenschaftenbehälter namens **additionalInfo**, der die Azure Stack-Abonnement-ID enthält. Dies ist das Benutzerabonnement, dem der entsprechende Nutzungsdatensatz entspringt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

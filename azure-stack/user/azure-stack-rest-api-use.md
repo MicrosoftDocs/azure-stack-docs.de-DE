@@ -14,12 +14,12 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 83578f7644f7a4bfc47f854fe9974809c22bba02
-ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
+ms.openlocfilehash: 0be1e7832d5ac32b092e44674b78c59552af351c
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67138916"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159718"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -127,7 +127,7 @@ Für jeden Wert:
 
   **username**
 
-  Beispielsweise das Azure Stack-AAD-Konto:
+  Beispielsweise das Azure Stack-Azure AD-Konto:
 
   ```
   azurestackadmin@fabrikam.onmicrosoft.com
@@ -135,7 +135,7 @@ Für jeden Wert:
 
   **password**
 
-  Das Azure Stack-AAD-Administratorkennwort.
+  Das Azure Stack-Azure AD-Administratorkennwort.
 
 ### <a name="example"></a>Beispiel
 

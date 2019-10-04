@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 9e92101b6d00da397359ed25e8682f18305f5a83
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: f60ee96673b5574f0cd0393dc6a53a2d7937c04f
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974724"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159157"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Referenz zum Cmdlet „Start-AzsReadinessChecker“
 
@@ -166,7 +166,7 @@ Start-AzsReadinessChecker
 
 ## <a name="description"></a>BESCHREIBUNG
 
-Das Cmdlet **Start-AzsReadinessChecker** überprüft Zertifikate, Azure-Konten, Azure-Abonnements und Azure Active Directory-Instanzen (AAD). Führen Sie vor dem Bereitstellen von Azure Stack oder vor Azure Stack-Wartungsaktionen wie etwa der Geheimnisrotation eine Überprüfung aus. Das Cmdlet kann auch zum Generieren von Zertifikatsignieranforderungen für Infrastrukturzertifikate (und optional für PaaS-Zertifikate) verwendet werden. Zu guter Letzt kann das Cmdlet PFX-Zertifikate neu packen, um häufige Probleme mit der Paketerstellung zu beheben.
+Das Cmdlet **Start-AzsReadinessChecker** überprüft Zertifikate, Azure-Konten, Azure-Abonnements und Azure Active Directory-Instanzen (Azure AD). Führen Sie vor dem Bereitstellen von Azure Stack oder vor Azure Stack-Wartungsaktionen wie etwa der Geheimnisrotation eine Überprüfung aus. Das Cmdlet kann auch zum Generieren von Zertifikatsignieranforderungen für Infrastrukturzertifikate (und optional für PaaS-Zertifikate) verwendet werden. Zu guter Letzt kann das Cmdlet PFX-Zertifikate neu packen, um häufige Probleme mit der Paketerstellung zu beheben.
 
 ## <a name="examples"></a>Beispiele
 
@@ -188,7 +188,7 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
 ```
 
-In diesem Beispiel wird aus Sicherheitsgründen das PFX-Kennwort benötigt, und `Start-AzsReadinessChecker` überprüft den relativen Ordner **Certificates** auf Zertifikate, die für eine AAD-Bereitstellung mit dem Regionsnamen **east** und dem externen FQDN **azurestack.contoso.com** gültig sind.
+In diesem Beispiel wird aus Sicherheitsgründen das PFX-Kennwort benötigt, und `Start-AzsReadinessChecker` überprüft den relativen Ordner **Certificates** auf Zertifikate, die für eine Azure AD-Bereitstellung mit dem Regionsnamen **east** und dem externen FQDN **azurestack.contoso.com** gültig sind.
 
 ### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>Beispiel: Überprüfen von Zertifikaten mit Bereitstellungsdaten (Bereitstellung und Support)
 
@@ -237,7 +237,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
-In diesem Beispiel werden aus Sicherheitsgründen die Kontoanmeldeinformationen des Dienstadministrators benötigt, und `Start-AzsReadinessChecker` überprüft, ob das Azure-Konto und AAD für eine AAD-Bereitstellung mit dem Mandantenverzeichnisnamen **azurestack.contoso.com** gültig sind.
+In diesem Beispiel werden aus Sicherheitsgründen die Anmeldeinformationen des Dienstadministratorkontos benötigt, und `Start-AzsReadinessChecker` überprüft, ob das Azure-Konto und Azure AD für eine Azure AD-Bereitstellung mit dem Mandantenverzeichnisnamen **azurestack.contoso.com** gültig sind.
 
 ### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Beispiel: Überprüfen der Azure-Identität mit Bereitstellungsdaten (Bereitstellungsunterstützung)
 
@@ -246,7 +246,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-In diesem Beispiel werden aus Sicherheitsgründen die Kontoanmeldeinformationen des Dienstadministrators benötigt, und `Start-AzsReadinessChecker` überprüft, ob das Azure-Konto und AAD für eine AAD-Bereitstellung gültig sind, bei der **AzureCloud** und **TenantName** aus der für die Bereitstellung generierten JSON-Datei mit Bereitstellungsdaten gelesen werden.
+In diesem Beispiel werden aus Sicherheitsgründen die Anmeldeinformationen des Dienstadministratorkontos benötigt, und `Start-AzsReadinessChecker` überprüft, ob das Azure-Konto und Azure AD für eine Azure AD-Bereitstellung gültig sind, bei der **AzureCloud** und **TenantName** aus der für die Bereitstellung generierten JSON-Datei mit Bereitstellungsdaten gelesen werden.
 
 ### <a name="example-validate-azure-registration"></a>Beispiel: Überprüfen der Azure-Registrierung
 
@@ -435,7 +435,7 @@ Gibt den Zielpfad für die Zertifikatanforderungsdateien an. Das Verzeichnis mus
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
-Gibt den für die Azure Stack-Bereitstellung zu verwendenden AAD-Dienstadministrator an.
+Gibt den für die Azure Stack-Bereitstellung zu verwendenden Azure AD-Dienstadministrator an.
 
 |  |  |
 |----------------------------|---------|
@@ -447,7 +447,7 @@ Gibt den für die Azure Stack-Bereitstellung zu verwendenden AAD-Dienstadministr
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
-Gibt den für die Azure Stack-Bereitstellung zu verwendenden AAD-Namen an.
+Gibt den für die Azure Stack-Bereitstellung zu verwendenden Azure AD-Namen an.
 
 |  |  |
 |----------------------------|---------|
@@ -512,7 +512,7 @@ Gibt den Pfad für den Bereitschaftsbericht an. Standardmäßig werden das aktue
 
 Gibt den Pfad an, unter dem nur die für das Zertifikat erforderlichen Zertifikatordner enthalten sind.
 
-Zu den erforderlichen Ordnern für die Azure Stack-Bereitstellung mit dem AAD-Identitätssystem zählen Folgende:
+Folgende Ordner sind für die Azure Stack-Bereitstellung mit dem Azure AD-Identitätssystem erforderlich:
 
 - ACSBlob, ACSQueue, ACSTable, Admin Portal, ARM Admin, ARM Public, KeyVault, KeyVaultInternal, Public Portal
 

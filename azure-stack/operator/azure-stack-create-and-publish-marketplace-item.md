@@ -1,6 +1,6 @@
 ---
 title: Erstellen und Veröffentlichen eines Marketplace-Elements in Azure Stack | Microsoft-Dokumentation
-description: Erstellen und veröffentlichen Sie ein Marketplace-Element in Azure Stack.
+description: Erfahren Sie, wie Sie ein Azure Stack-Marketplace-Element erstellen und veröffentlichen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 08/20/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: b9e1e9a1cdd0afe18a5395c99fb2eef932791667
-ms.sourcegitcommit: 1a8ebd8103608b5ee9e804d7015eefe05ef55185
+ms.openlocfilehash: 668882b1f5e0702ce51798468c8f102efe92edcd
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69643847"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159693"
 ---
-# <a name="create-and-publish-a-marketplace-item"></a>Erstellen und Veröffentlichen eines Marketplace-Elements
+# <a name="create-and-publish-a-marketplace-item-in-azure-stack"></a>Erstellen und Veröffentlichen eines Marketplace-Elements in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -91,9 +91,9 @@ ms.locfileid: "69643847"
 
 ## <a name="publish-a-marketplace-item"></a>Veröffentlichen von Marketplace-Elementen
 
-1. Verwenden Sie PowerShell oder Azure Storage-Explorer, um Ihr Marketplace-Element (.azpkg) in Azure Blob Storage hochzuladen. Sie können es in Azure Stack-Speicher oder Azure Storage als temporärem Speicherort für das Paket hochladen. Stellen Sie sicher, dass das Blob öffentlich zugänglich ist.
+1. Verwenden Sie PowerShell oder Azure Storage-Explorer, um Ihr Marketplace-Element (.azpkg) in Azure Blob Storage hochzuladen. Sie können es in einen lokalen Azure Stack-Speicher oder in Azure Storage hochladen – ein temporärer Speicherort für das Paket. Stellen Sie sicher, dass das Blob öffentlich zugänglich ist.
 2. Stellen Sie auf dem virtuellen Clientcomputer in der Microsoft Azure Stack-Umgebung sicher, dass Ihre PowerShell-Sitzung mit Ihren Dienstadministrator-Anmeldeinformationen eingerichtet ist. Anweisungen zum Authentifizieren von PowerShell in Azure Stack finden Sie unter [Bereitstellen von Vorlagen mit PowerShell](../user/azure-stack-deploy-template-powershell.md).
-3. Bei Verwendung von [PowerShell 1.3.0](azure-stack-powershell-install.md) oder höher können Sie das PowerShell-Cmdlet **Add-AzsGalleryItem** verwenden, um das Marketplace-Element für Azure Stack zu veröffentlichen. Verwenden Sie für ältere Versionen als PowerShell 1.3.0 das Cmdlet **Add-AzureRMGalleryitem** anstelle von **Add-AzsGalleryItem**. Hier ist ein Beispiel bei Verwendung von PowerShell 1.3.0 oder höher angegeben:
+3. Bei Verwendung von [PowerShell 1.3.0](azure-stack-powershell-install.md) oder höher können Sie das PowerShell-Cmdlet **Add-AzsGalleryItem** verwenden, um das Marketplace-Element für Azure Stack zu veröffentlichen. Verwenden Sie bei älteren Versionen das Cmdlet **Add-AzureRMGalleryitem** anstelle von **Add-AzsGalleryItem**. Hier ist ein Beispiel bei Verwendung von PowerShell 1.3.0 oder höher angegeben:
 
    ```powershell
    Add-AzsGalleryItem -GalleryItemUri `
@@ -141,8 +141,8 @@ ms.locfileid: "69643847"
 
 | NAME | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Zeichenfolge |Empfehlung: 80 Zeichen |Im Portal wird der Elementname unter Umständen nicht richtig angezeigt, wenn er länger als 80 Zeichen ist. |
-| PublisherDisplayName |X |Zeichenfolge |Empfehlung: 30 Zeichen |Im Portal wird der Herausgebername unter Umständen nicht richtig angezeigt, wenn er länger als 30 Zeichen ist. |
+| DisplayName |X |Zeichenfolge |Empfehlung: 80 Zeichen |Im Portal wird der Elementname möglicherweise nicht richtig angezeigt, wenn er länger als 80 Zeichen ist. |
+| PublisherDisplayName |X |Zeichenfolge |Empfehlung: 30 Zeichen |Im Portal wird der Herausgebername möglicherweise nicht richtig angezeigt, wenn er länger als 30 Zeichen ist. |
 | PublisherLegalName |X |Zeichenfolge |Maximal 256 Zeichen | |
 | Zusammenfassung |X |Zeichenfolge |60–100 Zeichen | |
 | LongSummary |X |Zeichenfolge |140–256 Zeichen |Noch nicht für Azure Stack gültig |
@@ -162,7 +162,7 @@ Marketplace verwendet die folgenden Symbole:
 
 ### <a name="categories"></a>Categories
 
-Jedes Marketplace-Element muss mit einer Kategorie gekennzeichnet werden, die die Position des Elements auf der Portalbenutzeroberfläche angibt. Sie können eine der vorhandenen Kategorien in Azure Stack (**Compute**, **Daten und Speicher** usw.) oder eine neue Kategorie auswählen.
+Jedes Marketplace-Element muss mit einer Kategorie gekennzeichnet werden, die die Position des Elements auf der Portalbenutzeroberfläche angibt. Sie können eine der vorhandenen Kategorien in Azure Stack auswählen (**Compute**, **Daten und Speicher** usw.) oder eine neue erstellen.
 
 ### <a name="links"></a>Links
 
@@ -194,11 +194,11 @@ Im Azure Stack-Portal werden folgende Symbole und Texte für Marketplace-Element
 
 ### <a name="create-blade"></a>Blatt "Erstellen"
 
-![Blatt "Erstellen"](media/azure-stack-create-and-publish-marketplace-item/image1.png)
+![Blatt „Erstellen“ – Azure Stack-Marketplace-Elemente](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Blatt „Details“ für ein Marketplace-Element
 
-![Blatt „Details“ für ein Marketplace-Element](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+![Blatt „Details“ für ein Azure Stack-Marketplace-Element](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

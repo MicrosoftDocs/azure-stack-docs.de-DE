@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7e5467945db4987bdd86b7265117c486fb6f7e1b
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 091dc657153309298a1eda161b633a42050a0f57
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418329"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159346"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack
 
@@ -62,7 +62,7 @@ Allgemeine Testparameter umfassen vertrauliche Informationen, die nicht in Konfi
 Parameter    | BESCHREIBUNG
 -------------|-----------------
 Mandantenadministratorbenutzer                            | Azure Active Directory-Mandantenadministrator, der vom Dienstadministrator im AAD-Verzeichnis bereitgestellt wurde. Dieser Benutzer führt auf Mandantenebene Aktionen wie das Bereitstellen von Vorlagen zum Einrichten von Ressourcen (VMs, Speicherkonten usw.) und Ausführen von Workloads aus. Weitere Informationen zum Bereitstellen von Mandantenkonten finden Sie unter [Hinzufügen eines neuen Azure Stack-Mandanten](../operator/azure-stack-add-new-user-aad.md).
-Dienstadministratorbenutzer             | Der Azure Active Directory-Administrator des Mandanten des AAD-Verzeichnisses, der während der Azure Stack-Bereitstellung angegeben wird. Suchen Sie in der ECE-Konfigurationsdatei nach `AADTenant`, und wählen Sie den Wert im `UniqueName`-Element aus.
+Dienstadministratorbenutzer             | Der Azure Active Directory-Administrator des Mandanten des Azure AD-Verzeichnisses, der während der Azure Stack-Bereitstellung angegeben wird. Suchen Sie in der ECE-Konfigurationsdatei nach `AADTenant`, und wählen Sie den Wert im `UniqueName`-Element aus.
 Cloudadministratorbenutzer               | Azure Stack-Domänenadministratorkonto (beispielsweise `contoso\cloudadmin`). Suchen Sie in der ECE-Konfigurationsdatei nach `User Role="CloudAdmin"`, und wählen Sie den Wert im `UserName`-Element aus.
 Diagnoseverbindungszeichenfolge          | Eine SAS-URL zu einem Azure Storage-Konto, in das während der Testausführung Diagnoseprotokolle kopiert werden. Anweisungen zum Generieren der SAS-URL finden Sie unter [Generieren der Diagnose-Verbindungszeichenfolge](#generate-the-diagnostics-connection-string). |
 

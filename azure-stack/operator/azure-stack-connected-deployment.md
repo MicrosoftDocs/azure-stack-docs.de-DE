@@ -16,17 +16,17 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: d06dabc32141fcf2f487151e92c5f47aa79b6149
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: fa90091f93556cd313fa8e4e21bfe0fd24011e38
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094323"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159135"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Planungsentscheidungen zu mit Azure verbundenen Bereitstellungen für in Azure Stack integrierte Systeme
 Nachdem Sie entschieden haben, [wie Sie Azure Stack in Ihre Hybrid Cloud-Umgebung integrieren](azure-stack-connection-models.md), können Sie Ihre Azure Stack-Bereitstellungsentscheidungen abschließen.
 
-Die Bereitstellung von mit Azure verbundenem Azure Stack bedeutet, dass Sie entweder Azure Active Directory (AAD) oder Active Directory-Verbunddienste (AD FS) als Identitätsspeicher verwenden können. Sie können auch ein Abrechnungsmodell wählen: nutzungsabhängig oder kapazitätsabhängig. Eine mit Azure verbundene Bereitstellung ist die Standardoption, da sie Kunden ermöglicht, den größtmöglichen Nutzen aus Azure Stack zu ziehen, insbesondere bei Hybrid Cloud-Szenarien, die sowohl Azure als auch Azure Stack umfassen.
+Die Bereitstellung von mit Azure verbundenem Azure Stack bedeutet, dass Sie entweder Azure Active Directory (Azure AD) oder Active Directory-Verbunddienste (AD FS) als Identitätsspeicher verwenden können. Sie können auch ein Abrechnungsmodell wählen: nutzungsabhängig oder kapazitätsabhängig. Eine mit Azure verbundene Bereitstellung ist die Standardoption, da sie Kunden ermöglicht, den größtmöglichen Nutzen aus Azure Stack zu ziehen, insbesondere bei Hybrid Cloud-Szenarien, die sowohl Azure als auch Azure Stack umfassen.
 
 ## <a name="choose-an-identity-store"></a>Wählen eines Identitätsspeichers
 Bei einer mit Azure verbundenen Bereitstellung haben Sie die Wahl zwischen Azure AD oder AD FS als Identitätsspeicher. Bei einer nicht mit Azure verbundenen Bereitstellung (ohne Internetverbindung) kann nur AD FS verwendet werden.
@@ -38,9 +38,9 @@ Wenn Sie z. B. VMs von IaaS-Mandanten auf Azure Stack aufsetzend bereitstellen 
 ### <a name="azure-ad-identity-store"></a>Azure AD-Identitätsspeicher
 Bei Verwendung von Azure AD als Identitätsspeicher werden zwei Azure AD-Konten benötigt: ein globales Administratorkonto und ein Abrechnungskonto. Diese Konten können entweder dasselbe oder verschiedene Konten sein. Während die Verwendung desselben Benutzerkontos einfacher und praktischer sein kann, wenn Sie nur eine begrenzte Anzahl von Azure-Konten haben, können Ihre geschäftlichen Anforderungen die Verwendung zweier Konten nahelegen:
 
-1. **Globales Administratorkonto** (nur für mit Azure verbundene Bereitstellungen erforderlich). Hierbei handelt es sich um ein Azure-Konto, das zum Erstellen von Apps und Dienstprinzipalen für Azure Stack-Infrastrukturdienste in AAD verwendet wird. Dieses Konto muss über Administratorrechte für das Verzeichnis verfügen, in dem Ihr Azure Stack-System installiert werden soll. Es wird zum globalen Administratorkonto des „Cloudbetreibers“ für den Azure AD-Benutzer und für die folgenden Aufgaben verwendet:
+1. **Globales Administratorkonto** (nur für mit Azure verbundene Bereitstellungen erforderlich). Hierbei handelt es sich um ein Azure-Konto, das zum Erstellen von Apps und Dienstprinzipalen für Azure Stack-Infrastrukturdienste in Azure AD verwendet wird. Dieses Konto muss über Administratorrechte für das Verzeichnis verfügen, in dem Ihr Azure Stack-System installiert werden soll. Es wird zum globalen Administratorkonto des „Cloudbetreibers“ für den Azure AD-Benutzer und für die folgenden Aufgaben verwendet:
 
-    - Bereitstellen und Delegieren von Apps und Dienstprinzipalen für alle Azure Stack-Dienste, die mit AAD und Graph-API interagieren müssen.
+    - Bereitstellen und Delegieren von Apps und Dienstprinzipalen für alle Azure Stack-Dienste, die mit Azure AD und der Graph-API interagieren müssen.
     - Als Dienstadministratorkonto. Dieses Konto ist der Besitzer des Standardanbieterabonnements (den Sie später jedoch ändern können). Mit diesem Konto können Sie sich beim Azure Stack-Administratorportal anmelden und damit Angebote und Pläne erstellen, Kontingente festlegen und andere administrative Aufgaben in Azure Stack erledigen.
 
 2. **Abrechnungskonto** (sowohl für mit Azure verbundene als auch nicht verbundene Bereitstellungen erforderlich). Dieses Azure-Konto wird verwendet, um die Abrechnungsbeziehung zwischen Ihrem in Azure Stack integrierten System und dem Azure-Commerce-Back-End herzustellen. Dies ist das Konto, dem Azure Stack-Gebühren in Rechnung gestellt werden. Dieses Konto wird auch zum Anbieten von Elementen im Marketplace und in anderen Hybridszenarien verwendet.

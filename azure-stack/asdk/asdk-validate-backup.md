@@ -11,12 +11,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 8905a376a165776acde2fb792df1e8f35279140e
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 685f2d868314610ea7c19443fe47f29182561a51
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118753"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71225021"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Verwenden des ASDK zum Überprüfen der Azure Stack-Sicherung
 Nach der Bereitstellung von Azure Stack und von Benutzerressourcen (z. B. Angeboten, Plänen, Kontingenten und Abonnements) sollten Sie die [Azure Stack-Infrastruktursicherung aktivieren](../operator/azure-stack-backup-enable-backup-console.md). Das Planen und Ausführen regelmäßiger Infrastruktursicherungen stellt sicher, dass Daten für die Infrastrukturverwaltung bei einem Hardware- oder Dienstausfall nicht verloren gehen.
@@ -59,7 +59,6 @@ Vor dem Starten einer Bereitstellung für die Cloudwiederherstellung des ASDK be
 |Zeitserver-IP-Adresse|Eine gültige Zeitserver IP-Adresse (z.B. 132.163.97.2) ist für Azure Stack-Bereitstellungen erforderlich.|
 |Kennwort für externes Zertifikat|Das Kennwort für das externe Zertifikat, das von Azure Stack verwendet werden soll. Die Sicherung der Zertifizierungsstelle enthält externe Zertifikate, die mit diesem Kennwort wiederhergestellt werden müssen.|
 |Verschlüsselungsschlüssel der Sicherung|Erforderlich, wenn die Sicherungseinstellungen mit einem Verschlüsselungsschlüssel konfiguriert sind, was eine veraltete Option darstellt. Das Installationsprogramm unterstützt Verschlüsselungsschlüssel im Abwärtskompatibilitätsmodus für mindestens 3 Versionen. Nachdem Sie die Einstellungen auf die Verwendung eines Zertifikats aktualisiert haben, finden Sie die erforderlichen Informationen in der nächsten Tabelle.|
-
 |     |     | 
 
 **Anforderungen an das PowerShell-Installationsprogramm**
@@ -89,9 +88,9 @@ $azsbackupshare = New-Item -Path $shares.FullName -Name "AzSBackups" -ItemType "
 New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\Administrator")  -Name "AzSBackups"
 ```
 
-Kopieren Sie als Nächstes Ihre aktuellsten Azure Stack-Sicherungsdateien in die neu erstellte Freigabe. Die Ordnerstruktur in der Freigabe sollte `\\<ComputerName>\AzSBackups\MASBackup\<BackupID>\` lauten.
+Kopieren Sie als Nächstes Ihre aktuellsten Azure Stack-Sicherungsdateien in die neu erstellte Freigabe. Stellen Sie sicher, dass Sie den übergeordneten Ordner des Ordners `<BackupID>` kopieren, der den Zeitstempel der Ausführung der Sicherung enthält. Die Ordnerstruktur in der Freigabe sollte `\\<ComputerName>\AzSBackups\MASBackup\<TimeStamp>\<BackupID>\` lauten. 
 
-Schließlich kopieren Sie das Entschlüsselungszertifikat (.pfx) in das Zertifikatsverzeichnis: `C:\CloudDeployment\Setup\Certificates\` und benennen die Datei in `BackupDecryptionCert.pfx` um.
+Schließlich kopieren Sie das Entschlüsselungszertifikat (.pfx) in das Zertifikatsverzeichnis: `C:\CloudDeployment\Setup\BackupDecryptionCert\` und benennen die Datei in `BackupDecryptionCert.pfx` um.
 
 ## <a name="deploy-the-asdk-in-cloud-recovery-mode"></a>Bereitstellen des ASDK im Cloudwiederherstellungsmodus
 

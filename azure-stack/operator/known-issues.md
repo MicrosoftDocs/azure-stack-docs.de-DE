@@ -16,16 +16,18 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 09/13/2019
-ms.openlocfilehash: 3179416a7f8dacc5c3282372038c6761009b5b76
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: ba5b8358dced378f499c30f9b8d409497319fc86
+ms.sourcegitcommit: 2c37ac8e88de19430080128bac1b70e33557d354
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106509"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71164252"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack – Bekannte Probleme
 
-In diesem Artikel sind die bekannten Probleme in Releases von Azure Stack aufgelistet. Die Liste wird aktualisiert, wenn neue Probleme identifiziert werden. **Wenn Sie auf bekannte Probleme für eine andere Version zugreifen möchten, verwenden Sie die Versionsauswahl in der linken oberen Ecke.**
+In diesem Artikel sind die bekannten Probleme in Releases von Azure Stack aufgelistet. Die Liste wird aktualisiert, wenn neue Probleme identifiziert werden.
+
+Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die Dropdown-Auswahlliste oberhalb des Inhaltsverzeichnisses auf der linken Seite.
 
 ::: moniker range=">=azs-1905"
 > [!IMPORTANT]  
@@ -674,7 +676,7 @@ Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer a
 ::: moniker range=">=azs-1905"
 ## <a name="archive"></a>Archivieren
 
-Wenn Sie auf archivierte bekannte Probleme für eine ältere Version zugreifen möchten, verwenden Sie die Versionsauswahl in der oberen linken Ecke der Seite, und wählen Sie die gewünschte Version aus. 
+Um auf archivierte bekannte Probleme für eine ältere Version zuzugreifen, verwenden Sie die Dropdown-Auswahlliste oberhalb des Inhaltsverzeichnisses auf der linken Seite, und wählen Sie die gewünschte Version aus.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

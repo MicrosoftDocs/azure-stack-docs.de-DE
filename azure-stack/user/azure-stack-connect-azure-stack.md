@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 90759186b008c41bd9b3e35bf368d4f819534823
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: fe10926fdcb3b01cef84e021300d37168c68ae0b
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975065"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159330"
 ---
 # <a name="connect-to-azure-stack"></a>Herstellen einer Verbindung mit Azure Stack
 
@@ -41,7 +41,7 @@ Bei einer Remotedesktopverbindung kann ein einzelner gleichzeitiger Benutzer das
 
 ## <a name="connect-to-azure-stack-with-vpn"></a>Herstellen einer Verbindung mit Azure Stack per VPN
 
-Sie können eine VPN-Verbindung vom Typ „Geteilter Tunnel“ mit einem Azure Stack Development Kit herstellen. Über die VPN-Verbindung können Sie auf das Administratorportal, das Benutzerportal und lokal installierte Tools wie z. B. Visual Studio und PowerShell zugreifen, um Azure Stack-Ressourcen zu verwalten. Die VPN-Konnektivität wird sowohl für Bereitstellungen auf AAD-Basis (Azure Active Directory) als auch auf AD FS-Basis (Active Directory-Verbunddienste) unterstützt. Mit VPN-Verbindungen können mehrere Clients gleichzeitig eine Verbindung mit Azure Stack herstellen. 
+Sie können eine VPN-Verbindung vom Typ „Geteilter Tunnel“ mit einem Azure Stack Development Kit herstellen. Über die VPN-Verbindung können Sie auf das Administratorportal, das Benutzerportal und lokal installierte Tools wie z. B. Visual Studio und PowerShell zugreifen, um Azure Stack-Ressourcen zu verwalten. Die VPN-Konnektivität wird in Bereitstellungen sowohl auf Azure AD-Basis (Azure Active Directory) als auch auf AD FS-Basis (Active Directory-Verbunddienste) unterstützt. Mit VPN-Verbindungen können mehrere Clients gleichzeitig eine Verbindung mit Azure Stack herstellen. 
 
 > [!NOTE] 
 > Diese VPN-Verbindung stellt keine Konnektivität mit VMs der Azure Stack-Infrastruktur bereit. 

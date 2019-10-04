@@ -10,12 +10,12 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: de2c0c2181025b7dbbc01691b72b0756fa201274
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: f51b0bdd4e433dd3083701e8cc967b3105d23ed6
+ms.sourcegitcommit: 820ec8d10ddab1fee136397d3aa609e676f8b39d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419515"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71127520"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack-Datencenterintegration: Identität
 
@@ -57,7 +57,7 @@ Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter 
 
 |Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|BESCHREIBUNG|Beispiel|
 |---------|---------|---------|---------|
-|`CustomADGlobalCatalog`|FQDN der ADFS-Gesamtstruktur|FQDN der Active Directory-Zielgesamtstruktur,<br>mit der die Integration erfolgen soll.|Contoso.com|
+|`CustomADGlobalCatalog`|FQDN der AD FS-Gesamtstruktur|FQDN der Active Directory-Zielgesamtstruktur,<br>mit der die Integration erfolgen soll.|Contoso.com|
 |`CustomADAdminCredentials`| |Ein Benutzer mit LDAP-Leseberechtigung.|IHREDOMAENE\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>Konfigurieren von Active Directory-Standorten
@@ -129,8 +129,8 @@ Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter 
 
 |Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|BESCHREIBUNG|Beispiel|
 |---------|---------|---------|---------|
-|CustomAdfsName|Name des ADFS-Anbieters|Der Name der Anspruchsanbieter-Vertrauensstellung.<br>Er wird wie hier angegeben auf der AD FS-Startseite angezeigt.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|ADFS-Metadaten-URI|Verbundmetadatenlink| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|CustomAdfsName|AD FS-Anbietername|Der Name der Anspruchsanbieter-Vertrauensstellung.<br>Er wird wie hier angegeben auf der AD FS-Startseite angezeigt.|Contoso|
+|CustomAD<br>FSFederationMetadataEndpointUri|AD FS-Metadaten-URI|Verbundmetadatenlink| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 |SigningCertificateRevocationCheck|Nicht verfügbar|Optionaler Parameter, um die CRL-Überprüfung zu überspringen|Keine|
 
 

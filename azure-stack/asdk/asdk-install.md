@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: c616736cf9ea8cc350c2c53bb7d6994346dac990
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: deac15b2f1e3ebd86fdd2e171f664bd4b5917e37
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025971"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159438"
 ---
 # <a name="install-the-asdk"></a>Installieren des ASDK
 Nachdem Sie den [ASDK-Hostcomputer vorbereitet](asdk-prepare-host.md) haben, kann das Azure Stack Development Kit (ASDK) mit den folgenden Schritten in diesem Artikel im Image „CloudBuilder.vhdx“ bereitgestellt werden.
@@ -44,7 +44,7 @@ Die Schritte in diesem Artikel zeigen, wie das ASDK mit einer grafischen Benutze
   
     Wenn Sie ein Azure-Abonnement als Identitätsanbieter auswählen, benötigen Sie eine Internetverbindung, den vollständigen Namen eines Azure AD-Verzeichnismandanten im Format „*Domänenname*.onmicrosoft.com“ oder einen von Azure AD überprüften benutzerdefinierten Domänennamen. Außerdem benötigen Sie globale Administratoranmeldeinformationen für das angegebene Verzeichnis.
 
-    Nach der Bereitstellung ist die globale Azure Active Directory-Administratorberechtigung (AAD) nicht mehr erforderlich. Einige Vorgänge erfordern jedoch möglicherweise die Anmeldeinformationen für den globalen Administrator. Beispielsweise ein Ressourcenanbieter-Installationsskript oder ein neues Feature, dem eine Berechtigung erteilt werden muss. Sie können entweder die globalen Administratorrechte des Kontos vorübergehend wiederherstellen oder ein separates globales Administratorkonto verwenden, das Besitzer des *Standardanbieterabonnements* ist.
+    Nach der Bereitstellung ist die globale Azure Active Directory-Administratorberechtigung (Azure AD) nicht mehr erforderlich. Einige Vorgänge erfordern jedoch möglicherweise die Anmeldeinformationen für den globalen Administrator. Beispielsweise ein Ressourcenanbieter-Installationsskript oder ein neues Feature, dem eine Berechtigung erteilt werden muss. Sie können entweder die globalen Administratorrechte des Kontos vorübergehend wiederherstellen oder ein separates globales Administratorkonto verwenden, das Besitzer des *Standardanbieterabonnements* ist.
 
     Wenn Sie AD FS als Identitätsanbieter verwenden, wird der standardmäßige Stampverzeichnisdienst verwendet. Das Standardkonto für die Anmeldung lautet azurestackadmin@azurestack.local, und das dazugehörige Kennwort haben Sie im Rahmen des Setupvorgangs angegeben.
 

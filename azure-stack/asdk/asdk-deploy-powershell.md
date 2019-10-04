@@ -17,12 +17,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 5b517eec23950380bf5f0fc8febe717683960b65
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: 0ba8723b9d0f03006b52ecd016c3713280b63dea
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579103"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159292"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>Bereitstellen des ASDK über die Befehlszeile mithilfe von PowerShell
 
@@ -144,7 +144,7 @@ Wenn DHCP für Ihre Umgebung nicht aktiviert ist, müssen Sie die folgenden zus�
 |Parameter|Erforderlich/Optional|BESCHREIBUNG|
 |-----|-----|-----|
 |AdminPassword|Erforderlich|Legt das lokale Administratorkonto und alle anderen Benutzerkonten auf allen VMs fest, die im Rahmen der ASDK-Bereitstellung erstellt werden. Dieses Kennwort muss mit dem Kennwort des lokalen Administrators auf dem Host übereinstimmen.|
-|InfraAzureDirectoryTenantName|Erforderlich|Legt das Mandantenverzeichnis fest. Verwenden Sie diesen Parameter, um ein bestimmtes Verzeichnis anzugeben, für das das AAD-Konto über Berechtigungen zum Verwalten mehrerer Verzeichnisse verfügt. Vollständiger Name eines AAD-Mandanten im Format „.onmicrosoft.com“ oder ein von Azure AD überprüfter benutzerdefinierter Domänenname.|
+|InfraAzureDirectoryTenantName|Erforderlich|Legt das Mandantenverzeichnis fest. Verwenden Sie diesen Parameter, um ein bestimmtes Verzeichnis anzugeben, in dem das Azure AD-Konto über Berechtigungen zum Verwalten mehrerer Verzeichnisse verfügt. Vollständiger Name eines Azure AD-Mandanten im Format „.onmicrosoft.com“ oder ein von Azure AD überprüfter benutzerdefinierter Domänenname.|
 |TimeServer|Erforderlich|Verwenden Sie diesen Parameter, um einen bestimmten Zeitserver anzugeben. Dieser Parameter muss als gültige Zeitserver-IP-Adresse angegeben werden. Servernamen werden nicht unterstützt.|
 |InfraAzureDirectoryTenantAdminCredential|Optional|Legt den Benutzernamen und das Kennwort für Azure Active Directory fest. Bei diesen Azure-Anmeldeinformationen muss es sich um eine Organisations-ID handeln.|
 |InfraAzureEnvironment|Optional|Wählen Sie die Azure-Umgebung aus, für die Sie diese Azure Stack-Bereitstellung registrieren möchten. Die verfügbaren Optionen sind „Globales Azure“, „Azure – China“ und „Azure – US Government“.|

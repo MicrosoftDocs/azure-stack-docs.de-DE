@@ -1,6 +1,6 @@
 ---
-title: Verwalten von Nutzung und Abrechnung für Azure Stack als Cloud-Dienstanbieter | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Azure Stack als Cloud-Dienstanbieter (Cloud Solution Provider, CSP) registrieren und Kunden für die Abrechnung hinzufügen.
+title: Verwalten der Nutzung und Abrechnung für Azure Stack als Cloudlösungsanbieter | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Azure Stack als Cloudlösungsanbieter (Cloud Solution Provider, CSP) registrieren und Kunden für die Abrechnung hinzufügen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a8ae60e9ee19f96196d1c3763a32be0842567c7a
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 82aa27440a496a813e2f1fa99879005503ba8d07
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118690"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159499"
 ---
-# <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Verwalten von Nutzung und Abrechnung für Azure Stack als Cloud-Dienstanbieter
+# <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-solution-provider"></a>Verwalten der Nutzung und Abrechnung für Azure Stack als Cloudlösungsanbieter
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme*
 
@@ -32,7 +32,7 @@ Als CSP arbeiten Sie mit Azure Stack mit unterschiedlichen Kunden. Jeder Kunde v
 
 Die folgende Abbildung zeigt die erforderlichen Schritte, um Ihr Konto für gemeinsame Dienste auszuwählen und das Azure-Konto beim Azure Stack-Konto zu registrieren. Nach der Registrierung können Sie Ihre Endkunden integrieren:
 
-[ ![Prozess zur Aktivierung der Nutzung und Verwaltung als Cloudanbieter](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "Prozess zur Aktivierung der Nutzung und Verwaltung als Cloudanbieter") ](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
+[![Prozess zur Aktivierung der Nutzung und Verwaltung als Cloudlösungsanbieter](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "Prozess zur Aktivierung der Nutzung und Verwaltung als Cloudlösungsanbieter") ](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
 
 ## <a name="create-a-csp-or-apss-subscription"></a>Erstellen eines CSP- oder APSS-Abonnements
 
@@ -40,7 +40,7 @@ Die folgende Abbildung zeigt die erforderlichen Schritte, um Ihr Konto für geme
 
 Wählen Sie den Typ des Kontos für gemeinsame Dienste aus, das Sie für Azure Stack verwenden. Folgende Abonnementtypen können für die Registrierung einer mehrinstanzenfähigen Azure Stack-Instanz verwendet werden:
 
-- Cloud-Dienstanbieter
+- Cloud Solution Provider
 - Partner Shared Services-Abonnement
 
 #### <a name="azure-partner-shared-services"></a>Azure Partner Shared Services

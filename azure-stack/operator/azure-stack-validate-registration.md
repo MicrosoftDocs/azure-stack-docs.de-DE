@@ -16,12 +16,12 @@ ms.date: 06/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: ca2ea89ab73c7a8e056e4b4700e92a872e628f34
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: 9c4ddec0606556290e55850a9081c6665f2524d1
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316175"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159590"
 ---
 # <a name="validate-azure-registration"></a>Überprüfen der Azure-Registrierung
 
@@ -73,7 +73,7 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
    ```
 
    > [!NOTE]
-   > Wenn Sie als CSP ein Shared Services- oder IUR-Abonnement nutzen, müssen Sie die Anmeldeinformationen eines Benutzers aus der entsprechenden AAD-Instanz angeben. Diese sehen in der Regel etwa wie folgt aus: `subscriptionowner@iurcontoso.onmicrosoft.com`. Dieser Benutzer benötigt die entsprechenden Anmeldeinformationen, wie im vorherigen Schritt beschrieben.
+   > Wenn Sie als CSP ein Shared Services- oder IUR-Abonnement nutzen, müssen Sie die Anmeldeinformationen eines Benutzers aus der entsprechenden Azure AD-Instanz angeben. Diese sehen in der Regel etwa wie folgt aus: `subscriptionowner@iurcontoso.onmicrosoft.com`. Dieser Benutzer benötigt die entsprechenden Anmeldeinformationen, wie im vorherigen Schritt beschrieben.
 
 3. Führen Sie an der PowerShell-Eingabeaufforderung Folgendes aus, um `$subscriptionID` als zu verwendendes Azure-Abonnement festzulegen. Ersetzen Sie `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` durch Ihre eigene Abonnement-ID:
 

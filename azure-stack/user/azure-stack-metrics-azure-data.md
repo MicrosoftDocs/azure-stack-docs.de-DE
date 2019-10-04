@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 71855d557f26fc1eb4d86ab0d5a48bf8cf987506
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: e36f7c7f80de3cf0b822c4d145af411584ea38e4
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974676"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224999"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Verwenden von Azure Monitor in Azure Stack
 
@@ -41,8 +41,8 @@ Azure Monitor ist ein Plattformdienst, mit dem Sie Ihre Azure-Ressourcen von ein
 Registrieren Sie den Ressourcenanbieter **Microsoft.insights** in den Einstellungen für die Angebotsressource Ihres Abonnements. Sie können überprüfen, ob der Ressourcenanbieter in dem mit Ihrem Abonnement verknüpften Angebot verfügbar ist:
 
 1. Öffnen Sie das Azure Stack-Benutzerportal.
-2. Wählen Sie **Angebote** aus.
-3. Wählen Sie das Angebot aus, das dem Abonnement zugeordnet ist.
+2. Wählen Sie **Abonnements**.
+3. Wählen Sie das Abonnement aus, das Sie registrieren möchten.
 4. Wählen Sie unter **Einstellungen** die Option **Ressourcenanbieter** aus. 
 5. Suchen Sie in der Liste nach **Microsoft.Insights**, und stellen Sie sicher, dass der Status **Registriert** lautet.
 

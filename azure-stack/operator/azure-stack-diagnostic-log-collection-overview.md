@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 09/23/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/04/2019
-ms.openlocfilehash: 338df8d335376ebbaf14230e62d8dee9f813994f
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.lastreviewed: 09/23/2019
+ms.openlocfilehash: ecaea28d3b753520c53710a4e888cf37bf508fe1
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271745"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224929"
 ---
 # <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Übersicht zur Azure Stack-Diagnoseprotokollsammlung 
 
@@ -34,7 +34,7 @@ Vor Version 1907 beinhaltete der Diagnoseprozess die Verwendung von [Test-AzureS
 Seit Version 1907 steht auf der Seite **Hilfe und Support** ein einfacherer Prozess zur Verfügung, der die **Sammlung von Diagnoseprotokollen** beinhaltet. 
 Die **Sammlung von Diagnoseprotokollen** ist Teil eines fortgesetzten Engagements zum Verbessern der Abläufe im Fehlerbehandlungsprozess für den Azure Stack-Operator. Dank dieser Verbesserungen können Operatoren schnell Diagnoseprotokolle sammeln und mit den Microsoft Customer Support Services (CSS) teilen. Die Protokolle können in einem Blobcontainer in Azure gespeichert werden, wo der Zugriff nach Bedarf angepasst werden kann.    
    
-Die **Sammlung von Diagnoseprotokollen** kann Diagnoseprotokolle auf zwei verschiedene Weisen sammeln:
+Die **Sammlung von Diagnoseprotokollen** funktioniert auf zwei verschiedene Arten:
 
 - **Automatische Sammlung**: Wenn sie aktiviert ist (empfohlen), wird die Sammlung von Protokollen automatisch durch bestimmte Integritätswarnungen ausgelöst und in Ihrem Azure-Speicherkonto gespeichert
 - **Protokolle jetzt sammeln**: Dies ist eine bedarfsgesteuerte Option, bei der Sie sich für die Erfassung von Protokollen in einem 1–4 Stunden großen gleitenden Fenster in den letzten sieben Tagen entscheiden können
@@ -46,7 +46,7 @@ Wenn Ihre Richtlinie das Teilen von Diagnoseprotokollen mit CSS zulässt, ist di
 
 ## <a name="automatic-diagnostic-log-collection"></a>Automatische Sammlung von Diagnoseprotokollen 
 
-Die automatische Sammlung von Diagnoseprotokollen lädt proaktiv Diagnoseprotokolle von Azure Stack auf ein Speicherblob hoch, wenn bestimmte kritische Warnungen ausgelöst werden, wodurch sich die für das Teilen von Diagnoseprotokollen mit CSS erforderliche Zeit erheblich verkürzt.
+Wenn eine [bestimmte Integritätswarnung](azure-stack-configure-automatic-diagnostic-log-collection.md#automatic-diagnostic-log-collection-alerts) aktiv ist, startet die automatische Sammlung von Diagnoseprotokollen und lädt proaktiv Diagnoseprotokolle aus Azure Stack in ein Speicherblob hoch. Dadurch verkürzt sich die für das Freigeben von Diagnoseprotokollen mit CSS erforderliche Zeit erheblich. Diagnoseprotokolle werden nur gesammelt, wenn eine Warnung ausgelöst wird.  
 
 Weitere Informationen zur automatischen Protokollsammlung finden Sie unter [Konfigurieren der automatischen Azure Stack-Diagnoseprotokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection.md).
 

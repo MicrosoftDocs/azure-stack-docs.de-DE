@@ -15,12 +15,12 @@ ms.date: 06/05/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 7b5bfb39c3ec14c23b1df54c13f2733724fcfe05
-ms.sourcegitcommit: ddb625bb01de11bfb75d9f7a1cc61d5814b3bc31
+ms.openlocfilehash: 489859720df8a2d0c20bb476b285fe9cb65b797e
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68712917"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159639"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrieren einer externen Überwachungslösung mit Azure Stack
 
@@ -75,7 +75,7 @@ Zusammen mit den Cloudbase-Partnerlösungen wurde ein Plug-In für die Nagios-Ü
 
 Das Plug-In ist in Python geschrieben und nutzt die REST-API des Integritätsressourcenanbieters. Es bietet grundlegende Funktionen zum Abrufen und Schließen von Warnungen in Azure Stack. Ähnlich wie beim System Center Management Pack können Sie damit mehrere Azure Stack-Implementierungen hinzufügen und Benachrichtigungen versenden.
 
-Für Version 1.2 des Azure Stack-Nagios-Plug-Ins wird die Active Directory-Authentifizierungsbibliothek von Microsoft genutzt und die Authentifizierung per Dienstprinzipal mit einem Geheimnis oder Zertifikat unterstützt. Außerdem wurde die Konfiguration vereinfacht, indem eine einfache Konfigurationsdatei mit neuen Parametern verwendet wird. Es werden jetzt Azure Stack-Bereitstellungen mit Verwendung von AAD und AD FS als Identitätssystem unterstützt.
+Für Version 1.2 des Azure Stack-Nagios-Plug-Ins wird die Active Directory-Authentifizierungsbibliothek von Microsoft genutzt und die Authentifizierung per Dienstprinzipal mit einem Geheimnis oder Zertifikat unterstützt. Außerdem wurde die Konfiguration vereinfacht, indem eine einfache Konfigurationsdatei mit neuen Parametern verwendet wird. Es werden jetzt Azure Stack-Bereitstellungen mit Verwendung von Azure AD und AD FS als Identitätssystem unterstützt.
 
 Das Plug-In funktioniert für Nagios 4x und XI. Sie können es [hier](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)herunterladen. Die Downloadwebsite enthält auch Installations- und Konfigurationsdetails.
 

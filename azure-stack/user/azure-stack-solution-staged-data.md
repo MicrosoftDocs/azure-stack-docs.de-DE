@@ -15,12 +15,12 @@ ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 859d80c9782926602769664006375cb131de8637
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: 37ffb494ab6ae124c6a0eb460da4569f660cd283
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602933"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159361"
 ---
 # <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Bereitstellen einer Lösung für die gestaffelte Datenanalyse in Azure Stack
 
@@ -49,7 +49,7 @@ In dieser Lösung erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht
 ## <a name="prerequisites-for-staged-data-analytics"></a>Voraussetzungen für gestaffelte Datenanalyse
 
   - Ein Azure-Abonnement.
-  - Ein Dienstprinzipal für Azure Active Directory (Azure AD), der über Berechtigungen für das Mandantenabonnement in Azure und Azure Stack verfügt. Möglicherweise müssen Sie zwei Dienstprinzipale erstellen, wenn Azure Stack einen anderen AAD-Mandanten als Ihr Azure-Abonnement verwendet. Informationen zum Erstellen eines Dienstprinzipals für Azure Stack finden Sie unter [Erstellen von Dienstprinzipalen, um Anwendungen Zugriff auf Azure Stack-Ressourcen zu gewähren](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
+  - Ein Dienstprinzipal für Azure Active Directory (Azure AD), der über Berechtigungen für das Mandantenabonnement in Azure und Azure Stack verfügt. Möglicherweise müssen Sie zwei Dienstprinzipale erstellen, wenn Azure Stack einen anderen AAD-Mandanten als Ihr Azure-Abonnement verwendet. Informationen zum Erstellen eines Dienstprinzipals für Azure Stack finden Sie unter [Erstellen von Dienstprinzipalen, um Anwendungen Zugriff auf Azure Stack-Ressourcen zu gewähren](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
       - **Notieren Sie sich die Anwendungs-ID, den geheimen Clientschlüssel, die Azure AD-Mandanten-ID und den Mandantennamen (xxxxx.onmicrosoft.com) jedes Dienstprinzipals.**
   - Sie müssen eine Sammlung von Daten für die Datenanalyse bereitstellen. Beispieldaten werden bereitgestellt.
   - [Docker für Windows](https://docs.docker.com/docker-for-windows/), auf Ihrem lokalen Computer installiert.

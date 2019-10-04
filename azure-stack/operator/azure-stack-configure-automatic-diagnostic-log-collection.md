@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: efab23f12086fee2e4f5c14a70f95717ac9669b9
-ms.sourcegitcommit: b752f4e6733d9ebe56dbd171a14528dcb9a693fd
+ms.openlocfilehash: 4d6bc431b292fc7a124aa2b8051d0a927d736eee
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68522062"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224952"
 ---
 # <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>Konfigurieren der automatischen Azure Stack-Diagnoseprotokollsammlung
 
@@ -49,7 +49,7 @@ Bewährte Methoden zum Wählen von Parametern für das Speicherkonto für die au
    - **Speicherkontoname**: Geben Sie einen eindeutigen Speicherkontonamen an.
    - **Standort**: Wählen Sie in Übereinstimmung mit Ihrer Unternehmensrichtlinie ein Rechenzentrum aus.
    - **Leistung**: Wählen Sie „Standard“ aus.
-   - **Kontotyp** Wählen Sie „StorageV2 (universell v2)“ aus. 
+   - **Kontotyp**: Wählen Sie „StorageV2 (Universell V2)“ aus. 
    - **Replikation**: Wählen Sie „Lokal redundanter Speicher (LRS)“ aus.
    - **Zugriffsebene**: Wählen Sie „Kalt“ aus.
 
@@ -100,7 +100,6 @@ Führen Sie diese Schritte aus, um der Benutzeroberfläche der Protokollsammlung
 >[!NOTE]
 >Die automatische Protokollsammlung kann jederzeit deaktiviert und wieder aktiviert werden. Die SAS-URL-Konfiguration ändert sich dadurch nicht. Wenn die automatische Protokollsammlung wieder aktiviert wird, durchläuft die zuvor eingegebene SAS-URL die gleichen Überprüfungen, und eine abgelaufene SAS-URL wird abgelehnt. 
 
-
 ## <a name="view-log-collection"></a>Anzeigen der Protokollsammlung
 
 Der Verlauf der von Azure Stack gesammelten Protokolle wird auf der Seite **Protokollsammlung** in Hilfe und Support mit den folgenden Daten und Uhrzeiten angezeigt:
@@ -116,6 +115,36 @@ Wenn die Sammlung von Diagnoseprotokollen misslingt, überprüfen Sie, ob die SA
 Operatoren können darüber hinaus das Speicherkonto für automatisch gesammelte Protokolle überprüfen. Dieser Screenshot zeigt z.B. Protokollsammlungen mithilfe der Storage-Explorer-Vorschau aus dem Azure-Portal:
 
 ![Screenshot mit Darstellung von Protokollsammlungen](media/azure-stack-automatic-log-collection/check-storage-account.png)
+
+## <a name="automatic-diagnostic-log-collection-alerts"></a>Warnungen für die automatische Sammlung von Diagnoseprotokollen 
+
+Wenn diese Option aktiviert ist, erfolgt die automatische Sammlung von Diagnoseprotokollen nur bei Bedarf. Nur die folgenden Warnungen lösen eine Sammlung aus. 
+
+|Titel der Warnung  | FaultIdType|    
+|-------------|------------|
+|Es konnte keine Verbindung mit dem Remotedienst hergestellt werden |  UsageBridge.NetworkError|
+|Fehler bei Update |    Urp.UpdateFailure   |          
+|Infrastruktur oder Abhängigkeiten für Speicherressourcenanbieter nicht verfügbar |  StorageResourceProviderDependencyUnavailable     |     
+|Knoten nicht mit Controller verbunden|  ServerHostNotConnectedToController   |     
+|Fehler bei Routenveröffentlichung |    SlbMuxRoutePublicationFailure | 
+|Interner Datenspeicher des Speicherressourcenanbieters nicht verfügbar |    StorageResourceProvider. DataStoreConnectionFail     |       
+|Speichergerätfehler | Microsoft.Health.FaultType.VirtualDisks.Detached   |      
+|Health Controller kann nicht auf das Speicherkonto zugreifen | Microsoft.Health.FaultType.StorageError |    
+|Konnektivität mit einem physischen Datenträger ist verloren gegangen |    Microsoft.Health.FaultType.PhysicalDisk.LostCommunication    |    
+|Blobdienst wird auf einem Knoten nicht ausgeführt | StorageService.The.blob.service.is.not.running.on.a.node-Critical | 
+|Infrastrukturrolle fehlerhaft |    Microsoft.Health.FaultType.GenericExceptionFault |        
+|Fehler bei Tabellenspeicherdienst | StorageService.Table.service.errors-Critical |              
+|Dateifreigabe ist zu mehr als 80 % belegt |    Microsoft.Health.FaultType.FileShare.Capacity.Warning.Infra |       
+|Skalierungseinheitknoten ist offline. | FRP.Heartbeat.PhysicalNode |  
+|Infrastrukturrolleninstanz nicht verfügbar | FRP.Heartbeat.InfraVM   |    
+|Infrastrukturrolleninstanz nicht verfügbar  |    FRP.Heartbeat.NonHaVm     |        
+|Infrastrukturrolle „Verzeichnisverwaltung“ hat Fehler bei der Zeitsynchronisierung gemeldet |  DirectoryServiceTimeSynchronizationError |     
+|Pending external certificate expiration (Bevorstehender Ablauf eines externen Zertifikats) |  CertificateExpiration.ExternalCert.Warning |
+|Pending external certificate expiration (Bevorstehender Ablauf eines externen Zertifikats) |  CertificateExpiration.ExternalCert.Critical |
+|Virtuelle Computer können aufgrund einer niedrigen Arbeitsspeicherkapazität für bestimmte Klassen und Größen nicht bereitgestellt werden |  AzureStack.ComputeController.VmCreationFailure.LowMemory |
+|Auf Knoten kann für Platzierung des virtuellen Computers nicht zugegriffen werden. |  AzureStack.ComputeController.HostUnresponsive | 
+|Fehler bei Sicherung  | AzureStack.BackupController.BackupFailedGeneralFault |    
+|Geplante Sicherung wurde aufgrund eines Konflikts mit fehlerhaften Vorgängen übersprungen  | AzureStack.BackupController.BackupSkippedWithFailedOperationFault |   
 
 
 ## <a name="see-also"></a>Weitere Informationen
