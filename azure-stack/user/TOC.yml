@@ -31,7 +31,7 @@
       items:
         - name: Abonnieren von Angeboten
           href: azure-stack-subscribe-services.md
-        - name: Aktivieren eines Cloud-Dienstanbieters
+        - name: Aktivieren von Cloud Solution Provider
           href: azure-stack-csp-enable-billing-usage-tracking.md
         - name: Verwenden des Portals für Azure Stack
           href: azure-stack-use-portal.md
@@ -267,6 +267,14 @@
           href: azure-stack-solution-mongodb-ha.md
         - name: Bereitstellen von SQL Server 2016 mit Hochverfügbarkeit
           href: azure-stack-solution-sql-ha.md
+    - name: Bereitstellen grundlegender Muster
+      items:
+        - name: Einrichten einer VPN-Verbindung mit einer lokalen Ressource
+          href: azure-stack-network-howto-vnet-to-onprem.md
+        - name: VNet-zu-VNet-Verbindung
+          href: azure-stack-network-howto-vnet-to-vnet-stacks.md
+        - name: VNET-Peering
+          href: azure-stack-network-howto-vnet-to-vnet.md
 - name: Konzepte
   items:
     - name: Hybrid Cloud-Muster
