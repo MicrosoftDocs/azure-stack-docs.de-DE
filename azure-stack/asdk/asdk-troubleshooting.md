@@ -12,24 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 09/26/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 7946b8339c9ff1127c0a9d9572c49527208b38f2
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: ab43d94c2e65032e5e525ec000e38cacb01b2980
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118663"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319101"
 ---
 # <a name="troubleshoot-the-asdk"></a>Problembehandlung beim ASDK
-Dieser Artikel enthält allgemeine Informationen zur Problembehandlung beim Azure Stack Development Kit (ASDK). Wenn bei Ihnen ein Problem auftritt, das nicht dokumentiert ist, suchen Sie im [MSDN-Forum für Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) nach weiterer Unterstützung.  
+Dieser Artikel enthält allgemeine Informationen zur Problembehandlung beim Azure Stack Development Kit (ASDK). Hilfe zu integrierten Azure Stack-Systemen finden Sie unter [Problembehandlung für Microsoft Azure Stack](../operator/azure-stack-troubleshooting.md). 
 
-> [!IMPORTANT]
-> Da das ASDK eine Evaluierungsumgebung ist, wird über Microsoft Customer Support Services (CSS) kein offizieller Support angeboten.
+Da das ASDK eine Evaluierungsumgebung ist, wird vom Microsoft-Kundendienst und -Support (CSS) kein Support geleistet. Falls bei Ihnen nicht dokumentierte Probleme auftreten, können Sie über das [MSDN-Forum für Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) Hilfe von Experten erhalten. 
 
-Die in diesem Abschnitt beschriebenen Empfehlungen zur Behandlung von Problemen basieren auf mehreren Quellen, und es kann vorkommen, dass sich Ihr spezifisches Problem nicht mit den Empfehlungen beheben lässt. Codebeispiele werden entsprechend dem aktuellen Entwicklungsstand bereitgestellt, und die erwarteten Ergebnisse können nicht garantiert werden. An diesem Abschnitt werden im Zuge der Implementierung von Produktverbesserungen regelmäßig Änderungen und Aktualisierungen vorgenommen.
 
 ## <a name="deployment"></a>Bereitstellung
 ### <a name="deployment-failure"></a>Fehler bei der Bereitstellung
@@ -47,18 +45,18 @@ Dies ist wahrscheinlich nur auf das Standardverhalten des PowerShell-Befehlsfens
 ### <a name="default-image-and-gallery-item"></a>Standardimage und Katalogelement
 Vor der Bereitstellung virtueller Computer in Azure Stack müssen Sie zuerst ein Windows Server-Image und ein Katalogelement hinzufügen.
 
-### <a name="after-restarting-my-azure-stack-host-some-vms-dont-automatically-start"></a>Nach einem Neustart des Azure Stack-Hosts werden einige virtuelle Computer nicht automatisch gestartet.
+### <a name="after-restarting-my-azure-stack-host-some-vms-dont-automatically-start"></a>Nach einem Neustart des Azure Stack-Hosts werden einige virtuelle Computer nicht automatisch gestartet
 Nach dem Neustart des Hosts sind die Azure Stack-Dienste möglicherweise nicht sofort verfügbar. Dies ist darauf zurückzuführen, dass [Infrastruktur-VMs](asdk-architecture.md#virtual-machine-roles) von Azure Stack und die RPs etwas Zeit zum Überprüfen der Konsistenz benötigen. Sie werden jedoch letztlich automatisch gestartet.
 
-Es kann auch vorkommen, dass Mandanten-VMs nach einem Neustart des ASDK-Hosts nicht automatisch gestartet werden. Dies ist ein bekanntes Problem, und es sind nur einige manuelle Schritte erforderlich, um diese VMs wieder online zu schalten:
+Es kann auch vorkommen, dass Mandanten-VMs nach einem Neustart des ASDK-Hosts nicht automatisch gestartet werden. Sie können sie mit einigen manuellen Schritten wieder in den Onlinezustand versetzen:
 
 1.  Starten Sie auf dem ASDK-Host im Startmenü den **Failovercluster-Manager**.
 2.  Wählen Sie den Cluster **S-Cluster.azurestack.local** aus.
 3.  Wählen Sie **Rollen** aus.
 4.  Mandanten-VMs werden mit dem Zustand *gespeichert* angezeigt. Sobald alle Infrastruktur-VMs ausgeführt werden, klicken Sie mit der rechten Maustaste auf die Mandanten-VMs, und wählen Sie **Start**, um die Ausführung des virtuellen Computers fortzusetzen.
 
-### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Ich habe einige VMs gelöscht, die VHD-Dateien werden auf dem Datenträger aber weiterhin angezeigt. Ist dieses Verhalten zu erwarten?
-Ja, dieses Verhalten wird erwartet. Es wurde aus den folgenden Gründen so konzipiert:
+### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk"></a>Ich habe einige VMs gelöscht, aber die VHD-Dateien werden auf dem Datenträger weiterhin angezeigt 
+Dieses Verhalten ist beabsichtigt:
 
 * Wenn Sie einen virtuellen Computer löschen, werden die VHDs nicht gelöscht. Datenträger sind separate Ressourcen in der Ressourcengruppe.
 * Wenn ein Speicherkonto gelöscht wird, wird der Löschvorgang über Azure Resource Manager sofort angezeigt, die darin enthaltenen Datenträger bleiben jedoch möglicherweise im Speicher erhalten, bis die Garbage Collection ausgeführt wird.

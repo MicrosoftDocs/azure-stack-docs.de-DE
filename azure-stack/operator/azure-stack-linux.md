@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 8e9617974984afac55c2b1542065ea0455da0acc
-ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
+ms.openlocfilehash: 309d3d7185bd225f58691d4996ba649e8df7b97a
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67197149"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714614"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Hinzufügen von Linux-Images zu Azure Stack
 
@@ -40,7 +40,7 @@ Laden Sie nach Möglichkeit die Images herunter, die über die Marketplace-Verwa
 
 ### <a name="azure-linux-agent"></a>Azure Linux-Agent
 
-Der Azure Linux-Agent (in der Regel `WALinuxAgent` oder `walinuxagent`) ist erforderlich, es können aber nicht alle Versionen des Agents mit Azure Stack verwendet werden. Versionen zwischen 2.2.20 und 2.2.35 werden in Azure Stack nicht unterstützt. Um die aktuellen Agent-Versionen über 2.2.35 zu verwenden, installieren Sie den Hotfix 1901 bzw. 1902, oder aktualisieren Sie Azure Stack auf die Version 1903 (oder höher). Beachten Sie, dass [cloud-init](https://cloud-init.io/) derzeit nicht für Azure Stack unterstützt wird.
+Der Azure Linux-Agent (in der Regel **WALinuxAgent** oder **walinuxagent**) ist erforderlich, es können aber nicht alle Versionen des Agents mit Azure Stack verwendet werden. Versionen zwischen 2.2.20 und 2.2.35 werden in Azure Stack nicht unterstützt. Um die aktuellen Agent-Versionen über 2.2.35 zu verwenden, installieren Sie den Hotfix 1901 bzw. 1902, oder aktualisieren Sie Azure Stack auf die Version 1903 (oder höher). Beachten Sie, dass [cloud-init](https://cloud-init.io/) derzeit nicht für Azure Stack unterstützt wird.
 
 | Azure Stack-Build | Azure Linux-Agent-Build |
 | ------------- | ------------- |

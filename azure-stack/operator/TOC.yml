@@ -123,6 +123,8 @@
       items:
         - name: Verwaltungsgrundlagen
           href: azure-stack-manage-basics.md
+        - name: Vorgangsprüfliste
+          href: azure-stack-operations-checklist.md
         - name: Löschen von Benutzerdaten im Portal
           href: azure-stack-portal-clear.md
         - name: Konfigurieren der Erfassung von Telemetriedaten

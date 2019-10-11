@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 980d601dd5830d653787fe4cc31f57be3b3f8d00
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: a66057ea2490f4510d28db8b07d03e4ed17ba3ad
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658675"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714760"
 ---
 # <a name="create-vpn-gateways-for-azure-stack"></a>Erstellen von VPN-Gateways für Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Um Netzwerkdatenverkehr zwischen Ihrem virtuellen Azure-Netzwerk und Ihrem lokalen Standort senden zu können, müssen Sie für Ihr virtuelles Netzwerk zunächst ein Gateway für virtuelle Netzwerke erstellen.
+Um Netzwerkdatenverkehr zwischen Ihrem virtuellen Azure-Netzwerk und Ihrem lokalen Standort senden zu können, müssen Sie für Ihr virtuelles Netzwerk zunächst ein Gateway für virtuelle Netzwerke (VPN) erstellen.
 
 Ein VPN Gateway ist eine Art von Gateway für virtuelle Netzwerke, mit dem verschlüsselter Datenverkehr über eine öffentliche Verbindung gesendet wird. Sie können VPN-Gateways für einen sicheren Datenverkehr zwischen einem virtuellen Netzwerk in Azure Stack und einem virtuellen Netzwerk in Azure verwenden. Zudem können Sie den Datenverkehr zwischen einem virtuellen Netzwerk und einem anderen Netzwerk, das mit einem VPN-Gerät verbunden ist, sicher übertragen.
 
@@ -42,7 +42,7 @@ Bevor Sie VPN-Gateways für Azure Stack erstellen und konfigurieren, sollten Si
 > Beispiel:
 >
 > * In Azure bietet die VPN Gateway-SKU „Basic“ eine aggregierte Durchsatzkapazität von etwa 100 Mbit/s. Wenn Sie zwei Verbindungen mit diesem VPN Gateway erstellen und eine dieser Verbindungen eine Bandbreite von 50 Mbit/s beansprucht, stehen für die andere Verbindung noch 50 Mbit/s zur Verfügung.
-> * In Azure Stack wird **jeder Verbindung** mit der VPN-Gateway-SKU „Basic“ ein Durchsatz von 100 Mbit/s zugeordnet.
+> * In Azure Stack wird jeder Verbindung mit der VPN-Gateway-SKU „Basic“ ein Durchsatz von 100 Mbit/s zugeordnet.
 
 ## <a name="configuring-a-vpn-gateway"></a>Konfigurieren eines VPN-Gateways
 
@@ -75,7 +75,7 @@ Orientieren Sie sich bei der Wahl einer geeigneten Verbindungstopologie an den D
 
 ### <a name="site-to-site"></a>Site-to-Site
 
-Eine VPN Gateway-S2S-Verbindung (*Site-to-Site*) ist eine Verbindung über einen IPsec-/IKE-VPN-Tunnel (IKEv2). Dieser Verbindungstyp erfordert ein lokales VPN-Gerät, das einer öffentlichen IP-Adresse zugewiesen ist. Dieses Gerät darf sich nicht hinter einer NAT befinden. S2S-Verbindungen können für standortübergreifende Konfigurationen und Hybridkonfigurationen verwendet werden.
+Eine VPN Gateway-S2S-Verbindung (*Site-to-Site*) ist eine Verbindung über einen IPsec-/IKE-VPN-Tunnel (IKEv2). Dieser Verbindungstyp erfordert ein lokales VPN-Gerät, das einer öffentlichen IP-Adresse zugewiesen ist. Dieses Gerät kann sich nicht hinter einer NAT befinden. S2S-Verbindungen können für standortübergreifende Konfigurationen und Hybridkonfigurationen verwendet werden.
 
 ![Konfigurationsbeispiel für eine Site-to-Site-VPN-Verbindung](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
@@ -105,7 +105,7 @@ Beachten Sie bei der Auswahl der SKU Folgendes:
 
 ## <a name="gateway-availability"></a>Gatewayverfügbarkeit
 
-Hochverfügbarkeitsszenarien können nur in der **Hochleistungsgateway**-Verbindungs-SKU konfiguriert werden. Im Gegensatz zu Azure, das Verfügbarkeit durch sowohl Aktiv/Aktiv- als auch Aktiv/Passiv-Konfigurationen bietet, unterstützt Azure Stack nur die Aktiv/Passiv-Konfiguration. 
+Hochverfügbarkeitsszenarien können nur in der **Hochleistungsgateway**-Verbindungs-SKU konfiguriert werden. Im Gegensatz zu Azure, das Verfügbarkeit durch sowohl Aktiv/Aktiv- als auch Aktiv/Passiv-Konfigurationen bietet, unterstützt Azure Stack nur die Aktiv/Passiv-Konfiguration.
 
 ### <a name="failover"></a>Failover
 
@@ -115,17 +115,17 @@ Es gibt drei mehrinstanzenfähige VMs mit Gatewayinfrastruktur in Azure Stack. Z
 
 In der folgenden Tabelle sind die Gatewaytypen und der geschätzte zusammengefasste Durchsatz nach Gateway-SKU angegeben:
 
-|| VPN-Gatewaydurchsatz *(1)* | Max. IPsec-Tunnel für das VPN-Gateway *(2)* |
+|| VPN Gateway-Durchsatz (1) | Max. IPsec-Tunnel für VPN Gateway (2) |
 |-------|-------|-------|
-|**Basic-SKU** ***(3)*** | 100 MBit/s | 20 |
+|**Basic-SKU** **(3)** | 100 MBit/s | 20 |
 |**Standard-SKU** | 100 MBit/s | 20 |
 |**High-Performance-SKU** | 200 MBit/s | 10 |
 
-**Anmerkungen zur Tabelle:**
+### <a name="table-notes"></a>Anmerkungen zur Tabelle
 
-*Hinweis (1)* : Der VPN-Durchsatz ist kein garantierter Durchsatz für standortübergreifende Verbindungen über das Internet. Hierbei wird der maximal mögliche Durchsatz gemessen.  
-*Hinweis (2)* : Bei der maximalen Tunnelanzahl handelt es sich um die Summe pro Azure Stack-Bereitstellung für alle Abonnements.  
-*(3)* Das BGP-Routing wird von der Basic-SKU nicht unterstützt.
+**(1)** VPN-Durchsatz ist kein garantierter Durchsatz für standortübergreifende Verbindungen über das Internet. Hierbei wird der maximal mögliche Durchsatz gemessen.  
+**(2)** Bei der maximalen Tunnelanzahl handelt es sich um die Summe pro Azure Stack-Bereitstellung für alle Abonnements.  
+**(3)** BGP-Routing wird von der Basic-SKU nicht unterstützt.
 
 >[!NOTE]
 >Zwischen zwei Azure Stack-Bereitstellungen kann nur eine Site-to-Site-VPN-Verbindung hergestellt werden. Der Grund: Wegen einer Einschränkung ist für die Plattform nur eine einzelne VPN-Verbindung mit der gleichen IP-Adresse zulässig. Da Azure Stack das mehrinstanzenfähige Gateway nutzt, das eine öffentliche IP für alle VPN-Gateways im Azure Stack-System verwendet, kann zwischen zwei Azure Stack-Systemen nur eine VPN-Verbindung hergestellt werden. Diese Einschränkung gilt auch für das Herstellen mehrerer Site-to-Site-VPN-Verbindungen mit einem beliebigen VPN-Gateway, das eine einzige IP-Adresse nutzt. Azure Stack lässt nicht zu, dass mehrere Ressourcen des lokalen Netzwerkgateways mit der gleichen IP-Adresse erstellt werden.

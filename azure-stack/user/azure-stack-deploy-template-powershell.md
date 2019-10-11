@@ -6,22 +6,21 @@ documentationcenter: ''
 author: sethmanheim
 manager: femila
 editor: ''
-ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 09/23/2019
 ms.author: sethm
-ms.reviewer: unknown
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 6824e6bfd0b6c824783c82041fb1a51ba8f5213f
-ms.sourcegitcommit: 2063332b4d7f98ee944dd1f443847eea70eb5614
+ms.reviewer: sijuman
+ms.lastreviewed: 09/23/2019
+ms.openlocfilehash: af4ac82e03b96b4fc3f6d728cbebf5a6fa9d6388
+ms.sourcegitcommit: e8aa26b078a9bab09c8fafd888a96785cc7abb4d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68303120"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71708966"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Bereitstellen einer Vorlage mithilfe von PowerShell in Azure Stack
 
@@ -44,7 +43,7 @@ In diesem Beispiel werden **AzureRM**-PowerShell-Cmdlets und eine auf GitHub ges
     # Set deployment variables
     $myNum = "001" # Modify this per deployment
     $RGName = "myRG$myNum"
-    $myLocation = "local"
+    $myLocation = "yourregion" # local for the ASDK
 
     # Create resource group for template deployment
     New-AzureRmResourceGroup -Name $RGName -Location $myLocation
@@ -53,19 +52,19 @@ In diesem Beispiel werden **AzureRM**-PowerShell-Cmdlets und eine auf GitHub ges
     New-AzureRmResourceGroupDeployment `
         -Name myDeployment$myNum `
         -ResourceGroupName $RGName `
-        -TemplateFile c:\templates\azuredeploy-101-simple-windows-vm.json `
-        -NewStorageAccountName mystorage$myNum `
-        -DnsNameForPublicIP mydns$myNum `
+        -TemplateUri <path>\AzureStack-QuickStart-Templates\101-vm-windows-create\azuredeploy.json `
         -AdminUsername <username> `
-        -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force) `
-        -VmName myVM$myNum `
-        -WindowsOSVersion 2012-R2-Datacenter
+        -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force)
     ```
 
     >[!IMPORTANT]
     > Erhöhen Sie bei jeder Skriptausführung den Wert für den `$myNum`-Parameter, um zu verhindern, dass Ihre Bereitstellung überschrieben wird.
 
 4. Öffnen Sie das Azure Stack-Portal, wählen Sie **Durchsuchen**, und wählen Sie dann **Virtuelle Computer**, um nach dem neuen virtuellen Computer (**myDeployment001**) zu suchen.
+
+## <a name="cancel-a-running-template-deployment"></a>Abbrechen der Bereitstellung einer Vorlage
+
+Verwenden Sie zum Abbrechen der Ausführung einer Vorlagenbereitstellung das PowerShell-Cmdlet `Stop-AzureRmResourceGroupDeployment`.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

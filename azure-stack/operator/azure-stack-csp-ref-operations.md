@@ -1,6 +1,6 @@
 ---
 title: Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack | Microsoft-Dokumentation
-description: Details zu Vorgängen zum Verwalten von Mandantenregistrierungen und zur Nachverfolgung der Mandantennutzung in Azure Stack.
+description: Hier erfahren Sie, wie Sie Mandanten registrieren und die Mandantennutzung in Azure Stack nachverfolgen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 619bfc89e5def3406d719abfb589193c76c3db6b
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: a9e0dd05195d7ece62689aa8b5971cf72a6e3713
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070083"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342821"
 ---
-# <a name="manage-tenant-registration-in-azure-stack"></a>Verwalten der Mandantenregistrierung in Azure Stack
+# <a name="register-tenants-for-usage-tracking-in-azure-stack"></a>Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme*
 
@@ -50,7 +50,7 @@ Weitere Informationen zu Azure Stack und API-Profilen finden Sie unter [Verwalte
 | Parameter                  | BESCHREIBUNG |
 |---                         | --- |
 | registrationSubscriptionID | Das Azure-Abonnement, das für die anfängliche Registrierung verwendet wurde. |
-| customerSubscriptionID     | Das Azure-Abonnement (nicht Azure Stack), das zu dem Kunden gehört, der registriert werden soll. Muss im CSP-Angebot (Cloud Service Provider, Clouddienstanbieter) über das Partner Center erstellt werden. Wenn ein Kunde über mehrere Mandanten verfügt, erstellen Sie für den Mandanten ein Abonnement zum Anmelden bei Azure Stack. |
+| customerSubscriptionID     | Das Azure-Abonnement (nicht Azure Stack), das zu dem Kunden gehört, der registriert werden soll. Muss im CSP-Angebot (Cloud Solution Provider) über Partner Center erstellt werden. Wenn ein Kunde über mehrere Mandanten verfügt, erstellen Sie für den Mandanten ein Abonnement zum Anmelden bei Azure Stack. |
 | resourceGroup              | Die Ressourcengruppe in Azure, in dem Ihre Registrierung gespeichert ist. |
 | registrationName           | Der Name der Registrierung Ihrer Azure Stack-Instanz. Dies ist ein in Azure gespeichertes Objekt. Der Name hat in der Regel die Form **azurestack-CloudID**, wobei **CloudID** die Cloud-ID Ihrer Azure Stack-Bereitstellung ist. |
 

@@ -1,6 +1,6 @@
 ---
-title: Nutzungsberichtsinfrastruktur für Cloud-Dienstanbieter für Azure Stack | Microsoft-Dokumentation
-description: Azure Stack umfasst die erforderliche Infrastruktur zum Nachverfolgen der Nutzung für von einem Cloud-Dienstanbieter verwalteten Mandanten in Echtzeit und leitet das Ergebnis an Azure weiter.
+title: Nutzungsberichtsinfrastruktur für Cloudlösungsanbieter für Azure Stack | Microsoft-Dokumentation
+description: Enthält Informationen zur Infrastruktur für die Erstellung von Nutzungsberichten, die zum Nachverfolgen der Nutzung für Mandanten eines Cloudlösungsanbieters (CSP) verwendet wird.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 0b4ff1e6c76bedc4618bfa527b0045d7bfce41af
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 1a3c59ab7650c9cd2337e8256556f8a449feacec
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419481"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342808"
 ---
-# <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Nutzungsberichtsinfrastruktur für Cloud-Dienstanbieter
+# <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Nutzungsberichtsinfrastruktur für Cloudlösungsanbieter
 
-Azure Stack umfasst die erforderliche Infrastruktur zum Nachverfolgen der Nutzung in Echtzeit und leitet das Ergebnis an Azure weiter. In Azure verarbeitet Azure Commerce die Nutzungsdaten und stellt die Nutzung den entsprechenden Azure-Abonnements in Rechnung. Dies erfolgt auf die gleiche Weise wie die Nutzungsnachverfolgung in der globalen Azure-Cloud.
+Azure Stack umfasst die erforderliche Infrastruktur zum Nachverfolgen der Nutzung in Echtzeit und leitet das Ergebnis an Azure weiter. In Azure verarbeitet Azure Commerce die Nutzungsdaten und stellt die Nutzung den entsprechenden Azure-Abonnements in Rechnung. Dieser Prozess funktioniert genauso wie die Nachverfolgung der Nutzung in der globalen Azure-Cloud.
 
 Bestimmte Konzepte sind zwischen globalen Azure-Umgebungen und Azure Stack konsistent. Azure Stack verfügt über lokale Abonnements, die eine ähnliche Rolle wie ein Azure-Abonnement erfüllen. Lokale Abonnements sind nur lokal gültig. Lokale Abonnements werden Azure-Abonnements zugeordnet, wenn die Nutzung an Azure weitergeleitet wird.
 
@@ -32,7 +32,7 @@ Azure Stack verfügt über lokale Nutzungszähler. Die lokale Nutzung wird den i
 
 Es gibt zwischen Azure Stack und Azure einige Unterschiede in der Art, wie Preise für Dienste berechnet werden. In Azure Stack basiert die Gebühr für virtuelle Computer – im Gegensatz zu Azure – z.B. allein auf „Virtuelle Kerne/Stunden“ mit demselben Tarif für alle VM-Serien. Der Grund ist, dass im globalen Azure die verschiedenen Preise unterschiedliche Hardware widerspiegeln. In Azure Stack stellt der Kunde die Hardware bereit, sodass es keinen Grund gibt, für unterschiedliche VM-Klassen unterschiedliche Tarife in Rechnung zu stellen.
 
-Sie können sich über die in Commerce verwendeten Azure Stack-Zähler und deren Preise auf die gleiche Weise wie im Fall von Azure-Diensten im Partner Center informieren:
+Informationen zu den kommerziell verwendeten Azure Stack-Verbrauchseinheiten und den zugehörigen Preisen finden Sie im Partner Center. Der Prozess entspricht dem Prozess für Azure-Dienste:
 
 1. Navigieren Sie in Partner Center zum **Dashboardmenü**, und wählen Sie dann die Optionen **Verkaufen** und **Preise und Angebote**.
 2. Wählen Sie unter **Nutzungsbasierte Dienste** die Option **Aktuell** aus.
@@ -47,7 +47,7 @@ Die folgenden Begriffe und-Konzepte werden für Abrechnung und Nutzung in Azure 
 | --- | --- |
 | Direkter CSP-Partner | Ein direkter Cloud-Dienstanbieter-Partner (Cloud Solution Provider, CSP) erhält direkt von Microsoft eine Rechnung für die Verwendung von Azure sowie Azure Stack und rechnet direkt mit seinen Kunden ab. |
 | Indirekter CSP | Indirekte Vertriebspartner arbeiten mit einem indirekten Anbieter (auch als Verteiler bekannt) zusammen. Die Vertriebspartner werben Endkunden; der indirekte Anbieter unterhält die Abrechnungsbeziehung mit Microsoft, verwaltet die Kundenabrechnung und bietet zusätzliche Dienste wie Produktsupport. |
-| Endkunde | Endkunden sind die Unternehmen und Regierungsbehörden, die Besitzer der Anwendungen und anderen Arbeitslasten sind, die auf Azure Stack ausgeführt werden. |
+| Endkunde | Endkunden sind die Unternehmen und Behörden, die Besitzer der Apps und der anderen Arbeitslasten sind, die unter Azure Stack ausgeführt werden. |
 
 ## <a name="next-steps"></a>Nächste Schritte
 

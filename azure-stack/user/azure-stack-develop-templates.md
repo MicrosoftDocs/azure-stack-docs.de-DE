@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: bedc4c3971c5d4a177f4d8ac804878babebaa9b6
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 5cd8e87613d1d4aa4adc8dedac7dcac4fa57eae2
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658643"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714724"
 ---
 # <a name="develop-templates-for-azure-stack-with-azure-resource-manager"></a>Entwickeln von Vorlagen für Azure Stack mit Azure Resource Manager
 
@@ -31,7 +31,7 @@ Bei der Entwicklung Ihrer App ist die Portabilität von Vorlagen zwischen Azure 
 
 ## <a name="resource-provider-availability"></a>Verfügbarkeit des Ressourcenanbieters
 
-Die Vorlage, die Sie bereitstellen möchten, darf nur Microsoft Azure-Dienste verwenden, die in Azure Stack bereits verfügbar sind oder sich in der Vorschauphase befinden.
+Die Vorlage, die Sie bereitstellen möchten, darf nur Microsoft Azure-Dienste verwenden, die in Azure Stack bereits verfügbar sind oder sich in der Vorschauphase befinden.
 
 ## <a name="public-namespaces"></a>Öffentliche Namespaces
 
@@ -63,7 +63,7 @@ Azure Resource Manager-[Funktionen](/azure/azure-resource-manager/resource-group
 * Verweisen auf Werte aus anderen Ressourcen
 * Durchlaufen von Ressourcen zur Bereitstellung mehrerer Instanzen
 
-Diese Funktionen sind in Azure Stack nicht verfügbar:
+Dieser Funktionen sind in Azure Stack nicht verfügbar:
 
 * Überspringen
 * Take

@@ -1,6 +1,6 @@
 ---
-title: Allgemeine Überlegungen zur Integration von Rechenzentren für integrierte Azure Stack-Systeme | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie die Integration von Rechenzentren mit Azure Stack-Systemen mit mehreren Knoten jetzt planen und vorbereiten können.
+title: Überlegungen zur Planung der Rechenzentrumsintegration für integrierte Azure Stack-Systeme | Microsoft-Dokumentation
+description: Es wird beschrieben, wie Sie die Rechenzentrumsintegration für integrierte Azure Stack-Systeme planen und vorbereiten.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,53 +16,51 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 07191c95ede4f9a3ce80117bfeca9b5a02cfc0b1
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 1d78696da3ee3e54052cff62bcef490ccbd99925
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417373"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342896"
 ---
-# <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Überlegungen zur Integration von Rechenzentren für integrierte Azure Stack-Systeme
+# <a name="datacenter-integration-planning-considerations-for-azure-stack-integrated-systems"></a>Überlegungen zur Planung der Rechenzentrumsintegration für integrierte Azure Stack-Systeme
 
-Wenn Sie an einem mit Azure Stack integrierten System interessiert sind, müssen Sie die wichtigsten Aspekte bei der Planung der Bereitstellung verstehen und wissen, wie das System in Ihr Rechenzentrum passt. Dieser Artikel bietet einen allgemeinen Überblick über diese Aspekte, damit Sie wichtige Infrastrukturentscheidungen für Ihr Azure Stack-System mit mehreren Knoten treffen können. Ein Verständnis dieser Aspekte hilft Ihnen bei der Zusammenarbeit mit Ihrem OEM-Hardwareanbieter, sobald dieser Azure Stack in Ihrem Rechenzentrum bereitstellt.  
+Wenn Sie an einem mit Azure Stack integrierten System interessiert sind, müssen Sie die wichtigsten Aspekte bei der Planung der Bereitstellung verstehen und wissen, wie das System in Ihr Rechenzentrum passt. Dieser Artikel enthält einen allgemeinen Überblick über diese Aspekte, damit Sie wichtige Infrastrukturentscheidungen für Ihre integrierten Azure Stack-Systeme treffen können. Das Verständnis dieser Aspekte hilft Ihnen bei der Zusammenarbeit mit Ihrem OEM-Hardwareanbieter, wenn dieser Azure Stack in Ihrem Rechenzentrum bereitstellt.  
 
 > [!NOTE]  
-> Azure Stack-Systeme mit mehreren Knoten können nur bei autorisierten Hardwareherstellern bezogen werden. 
+> Integrierte Azure Stack-Systeme können nur bei autorisierten Hardwareanbietern bezogen werden.
 
-Um Azure Stack bereitzustellen, müssen Sie Ihrem Lösungsanbieter vor dem Beginn der Bereitstellung Planungsinformationen bereitstellen, damit der Prozess schnell und reibungslos abläuft. Die benötigten Informationen reichen von Netzwerk-, Sicherheits- und Identitätsinformationen bis hin zu vielen wichtigen Entscheidungen, die möglicherweise Wissen aus vielen verschiedenen Bereichen und von verschiedenen Entscheidungsträgern erfordern. Daher müssen Sie möglicherweise Mitarbeiter aus mehreren Teams in Ihrem Unternehmen hinzuziehen, um sicherzustellen, dass Sie über alle erforderlichen Informationen verfügen, bevor die Bereitstellung beginnt. Es ist möglicherweise hilfreich, sich mit Ihrem Hardwarehersteller zu besprechen, während Sie diese Informationen sammeln, da er Ratschläge geben kann, die Ihnen bei Ihren Entscheidungen helfen.
+Um Azure Stack bereitzustellen, müssen Sie Ihrem Lösungsanbieter vor dem Beginn der Bereitstellung Planungsinformationen bereitstellen, damit der Prozess schnell und reibungslos abläuft. Die benötigten Informationen reichen von Netzwerk-, Sicherheits- und Identitätsinformationen bis hin zu vielen wichtigen Entscheidungen, die möglicherweise Wissen aus vielen verschiedenen Bereichen und von verschiedenen Entscheidungsträgern erfordern. Sie benötigen Mitarbeiter aus mehreren Teams Ihres Unternehmens, um sicherzustellen, dass Sie vor Beginn der Bereitstellung über alle erforderlichen Informationen verfügen. Es kann ratsam sein, dass Sie sich mit Ihrem Hardwareanbieter abstimmen, während Sie diese Informationen sammeln, da er Ihnen ggf. hilfreiche Ratschläge geben kann.
 
-Während Sie die erforderlichen Informationen recherchieren und sammeln, müssen Sie möglicherweise vor der Bereitstellung einige Konfigurationsänderungen an Ihrer Netzwerkumgebung vornehmen. Dazu gehören die Reservierung von IP-Adressräumen für die Azure Stack-Lösung sowie die Konfiguration Ihrer Router, Switches und Firewalls zur Vorbereitung der Konnektivität mit den Switches der neuen Azure Stack-Lösung. Sichern Sie sich bei Ihrer Planung die Unterstützung der Fachbereichsexperten.
+Während Sie die erforderlichen Informationen recherchieren und sammeln, müssen Sie möglicherweise vor der Bereitstellung einige Konfigurationsänderungen an Ihrer Netzwerkumgebung vornehmen. Zu diesen Änderungen gehören die Reservierung von IP-Adressräumen für die Azure Stack-Lösung sowie die Konfiguration Ihrer Router, Switches und Firewalls zur Vorbereitung der Konnektivität mit den Switches der neuen Azure Stack-Lösung. Sichern Sie sich bei Ihrer Planung die Unterstützung der Fachbereichsexperten.
 
 ## <a name="capacity-planning-considerations"></a>Aspekte der Kapazitätsplanung
-Beim Auswerten einer Azure Stack-Lösung für den Kauf müssen Entscheidungen in Bezug auf die Hardwarekonfiguration getroffen werden, die eine direkte Auswirkung auf die Gesamtkapazität der Azure Stack-Lösung haben. Hierzu gehört die übliche Auswahl von CPU, Arbeitsspeicherdichte, Speicherkonfiguration und Gesamtumfang der Lösung (z.B. Anzahl von Servern). Im Gegensatz zu einer herkömmlichen Virtualisierungslösung gilt die einfache Arithmetik dieser Komponenten zur Ermittlung der nutzbaren Kapazität nicht. Der erste Grund ist, dass Azure Stack so aufgebaut ist, dass die Infrastruktur- bzw. Verwaltungskomponenten in der Lösung selbst gehostet werden. Der zweite Grund ist, dass ein Teil der Lösungskapazität zur Unterstützung der Resilienz reserviert ist. Es geht um die Aktualisierung der Lösungssoftware auf eine Weise, bei der die Beeinträchtigung von Mandantenworkloads verringert wird. 
+Beim Evaluieren einer Azure Stack-Lösung für den Kauf müssen Sie Entscheidungen in Bezug auf die Aspekte der Hardwarekonfiguration treffen, die eine direkte Auswirkung auf die Gesamtkapazität der Azure Stack-Lösung haben. Hierzu gehört die übliche Auswahl von CPU, Arbeitsspeicherdichte, Speicherkonfiguration und Gesamtumfang der Lösung (z. B. Anzahl von Servern). Im Gegensatz zu einer herkömmlichen Virtualisierungslösung gilt die einfache Arithmetik dieser Komponenten zur Ermittlung der nutzbaren Kapazität nicht. Der erste Grund ist, dass Azure Stack so aufgebaut ist, dass die Infrastruktur- bzw. Verwaltungskomponenten in der Lösung selbst gehostet werden. Der zweite Grund ist, dass ein Teil der Lösungskapazität zur Unterstützung der Resilienz reserviert ist. Es geht um die Aktualisierung der Lösungssoftware auf eine Weise, bei der die Beeinträchtigung von Mandantenworkloads verringert wird.
 
-Mit dem Tool [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) können Sie auf zwei Arten fundierte Entscheidungen zur Planung der Kapazität treffen: entweder per Auswahl eines Hardwareangebots und einer passenden Kombination von Ressourcen, oder per Definition der von Azure Stack auszuführenden Workload, um die verfügbaren Hardware-SKUs anzuzeigen, die dies unterstützen. Schließlich dient das Tool auch als Hilfe beim Treffen von Entscheidungen in Bezug auf die Azure Stack-Planung und -Konfiguration. 
+Mit der [Kalkulationstabelle des Azure Stack-Kapazitätsplanungstools](https://aka.ms/azstackcapacityplanner) haben Sie zwei Optionen, um fundierte Entscheidungen zur Planung der Kapazität zu treffen. Die erste Option besteht darin, ein Hardwareangebot auszuwählen und zu versuchen, eine geeignete Kombination von Ressourcen zu ermitteln. Bei der zweiten Option wird die Workload definiert, die mit Azure Stack ausgeführt werden soll, um die verfügbaren Hardware-SKUs anzuzeigen, die für die Unterstützung geeignet sind. Schließlich dient das Tool auch als Hilfe beim Treffen von Entscheidungen in Bezug auf die Azure Stack-Planung und -Konfiguration.
 
-Es soll aber nicht als Ersatz für Ihre eigenen Untersuchungen und Analysen dienen.  Microsoft gewährt für die mit dem Tool bereitgestellten Informationen keine Zusicherungen oder Garantien, weder ausdrücklich noch konkludent.
-
-
+Es soll aber nicht als Ersatz für Ihre eigenen Untersuchungen und Analysen dienen. Microsoft gewährt für die mit dem Tool bereitgestellten Informationen keine Zusicherungen oder Garantien, weder ausdrücklich noch konkludent.
 
 ## <a name="management-considerations"></a>Überlegungen zur Verwaltung
-Azure Stack ist ein geschlossenes System, bei dem die Infrastruktur aus Berechtigungs- und Netzwerksicht abgeriegelt ist. Dabei werden Netzwerk-Zugriffssteuerungslisten (ACLs) angewendet, um sämtlichen nicht autorisierten eingehenden Datenverkehr und sämtliche unnötige Kommunikation zwischen Infrastrukturkomponenten zu blockieren. Dadurch soll nicht autorisierten Benutzern der Zugriff auf das System verwehrt werden.
+Azure Stack ist ein geschlossenes System, bei dem die Infrastruktur aus Berechtigungs- und Netzwerksicht abgeriegelt ist. Dabei werden Netzwerk-Zugriffssteuerungslisten (ACLs) angewendet, um sämtlichen nicht autorisierten eingehenden Datenverkehr und sämtliche unnötige Kommunikation zwischen Infrastrukturkomponenten zu blockieren. Hierdurch wird für nicht autorisierte Benutzer der Zugriff auf das System erschwert.
 
-Für die tägliche Verwaltung und den Betrieb besteht kein uneingeschränkter Administratorzugriff auf die Infrastruktur. Azure Stack-Operatoren müssen das System über das Administratorportal oder mithilfe von Azure Resource Manager (über PowerShell oder die REST-API) verwalten. Es gibt keinen Zugriff auf das System durch andere Verwaltungstools wie Hyper-V-Manager oder Failovercluster-Manager. Es kann keine Software von Drittanbietern (z. B. Agenten) innerhalb der Komponenten der Azure Stack-Infrastruktur installiert werden, um den Schutz des Systems zu unterstützen. Die Interoperabilität mit externer Verwaltungs- und Sicherheitssoftware erfolgt über PowerShell oder die REST-API.
+Für die tägliche Verwaltung und den Betrieb besteht kein uneingeschränkter Administratorzugriff auf die Infrastruktur. Azure Stack-Operatoren müssen das System über das Administratorportal oder mithilfe von Azure Resource Manager (über PowerShell oder die REST-API) verwalten. Es besteht kein Zugriff auf das System durch andere Verwaltungstools wie Hyper-V-Manager oder Failovercluster-Manager. Es kann keine Software von Drittanbietern (z. B. Agenten) innerhalb der Komponenten der Azure Stack-Infrastruktur installiert werden, um den Schutz des Systems zu unterstützen. Die Interoperabilität mit externer Verwaltungs- und Sicherheitssoftware erfolgt über PowerShell oder die REST-API.
 
-Wenn für die Behandlung von Problemen, die nicht durch Schritte zur Warnungsvermittlung behoben werden, eine höhere Zugriffsebene erforderlich ist, müssen Sie mit dem Microsoft-Support zusammenarbeiten. Über den Support gibt es eine Methode zur vorübergehenden Bereitstellung von uneingeschränktem Administratorzugriff für das System, um komplexere Operationen durchführen zu können. 
+Wenden Sie sich an den Microsoft-Support, falls für die Behandlung von Problemen, die nicht durch Schritte zur Warnungskorrektur behoben werden, eine höhere Zugriffsebene erforderlich ist. Über den Support ist eine Methode zur vorübergehenden Bereitstellung von uneingeschränktem Administratorzugriff für das System verfügbar, um erweiterte Vorgänge durchführen zu können.
 
 ## <a name="identity-considerations"></a>Überlegungen zur Identität
 
 ### <a name="choose-identity-provider"></a>Auswählen des Identitätsanbieters
-Sie müssen bedenken, welchen Identitätsanbieter Sie für die Bereitstellung von Azure Stack nutzen möchten, Azure AD oder AD FS. Sie können die Identitätsanbieter nach der Bereitstellung nicht wechseln, ohne das System komplett neu bereitstellen zu müssen. Wenn Sie Azure AD-Kontos nicht besitzen und ein Konto verwenden, die Sie von Ihrem Cloud-Service-Anbieter bereitgestellt und Sie verwenden möchten, wechseln Sie Anbieter, und verwenden einen anderen Azure AD-Konto, die an diesem Punkt müssen, wenden Sie sich an Ihre Lösungsanbieter, um die f-Lösung erneut bereitstellen oder Sie Ihre Kosten.
+Sie müssen bedenken, welchen Identitätsanbieter Sie für die Bereitstellung von Azure Stack nutzen möchten, Azure AD oder AD FS. Sie können die Identitätsanbieter nach der Bereitstellung nicht wechseln, ohne das System komplett neu bereitstellen zu müssen. Wenn Sie nicht im Besitz des Azure AD-Kontos sind und ein von Ihrem Cloudlösungsanbieter bereitgestelltes Konto verwenden und dann den Anbieter wechseln und ein anderes Azure AD-Konto nutzen möchten, müssen Sie sich an Ihren Lösungsanbieter wenden, damit er die Lösung auf Ihre Kosten für Sie erneut bereitstellt.
 
-Ihre Wahl des Identitätsanbieters hat keinen Einfluss auf virtuelle Computer des Mandanten, auf das Identitätssystem sowie auf von ihnen verwendete Konten oder darauf, ob sie einer Active Directory-Domäne usw. beitreten können. Das ist was anderes.
+Die Wahl des Identitätsanbieters hat keinen Einfluss auf virtuelle Mandantencomputer (VMs), auf das dafür verwendete Identitätssystem, die verwendeten Konten, die Möglichkeit zum Beitritt zu einer Active Directory-Domäne usw. Dies sind separate Dinge.
 
 Im Artikel [Verbindungsmodell von in Azure Stack integrierten Systemen](./azure-stack-connection-models.md) erfahren Sie mehr über die Auswahl eines Identitätsanbieters.
 
 ### <a name="ad-fs-and-graph-integration"></a>Integration von AD FS und Graph
-Wenn Sie die Bereitstellung von Azure Stack mithilfe von AD FS als Identitätsanbieter gewählt haben, müssen Sie die AD FS-Instanz für Azure Stack über eine Verbundvertrauensstellung mit einer vorhandenen AD FS-Instanz integrieren. Dies gestattet Identitäten in einer vorhandenen Active Directory-Gesamtstruktur die Authentifizierung mit Ressourcen in Azure Stack.
+Wenn Sie die Bereitstellung von Azure Stack mithilfe von AD FS als Identitätsanbieter gewählt haben, müssen Sie die AD FS-Instanz für Azure Stack über eine Verbundvertrauensstellung mit einer vorhandenen AD FS-Instanz integrieren. Diese Integration gestattet Identitäten in einer vorhandenen Active Directory-Gesamtstruktur die Authentifizierung mit Ressourcen in Azure Stack.
 
-Sie können auch den Graph-Dienst in Azure Stack mit dem vorhandenen Active Directory integrieren. Dadurch können Sie die rollenbasierte Zugriffssteuerung (RBAC) in Azure Stack verwalten. Wenn der Zugriff auf eine Ressource delegiert wird, sucht die Graph-Komponente das Benutzerkonto mithilfe des LDAP-Protokolls in der vorhandenen Active Directory-Gesamtstruktur.
+Sie können auch den Graph-Dienst in Azure Stack mit dem vorhandenen Active Directory integrieren. Mit dieser Integration können Sie die rollenbasierte Zugriffssteuerung (RBAC) in Azure Stack verwalten. Wenn der Zugriff auf eine Ressource delegiert wird, sucht die Graph-Komponente das Benutzerkonto mithilfe des LDAP-Protokolls in der vorhandenen Active Directory-Gesamtstruktur.
 
 Das folgende Diagramm zeigt den integrierten Datenverkehrsfluss von AD FS und Graph.
 ![Diagramm mit Datenverkehrsfluss für AD FS und Graph](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
@@ -89,9 +87,9 @@ In der folgenden Tabelle sind diese Entscheidungen zur Domänenbenennung zusamme
 
 | NAME | BESCHREIBUNG | 
 | -------- | ------------- | 
-|Regionsname | Der Name Ihres ersten Azure Stack-Region. Dieser Name wird als FQDN-Komponente für die öffentlichen virtuellen IP-Adressen (VIPs) verwendet, die von Azure Stack verwaltet werden. Der Regionsname gibt in der Regel eine physische Standort-ID an, z. B. den Standort des Rechenzentrums.<br><br>Die Regionsname darf nur aus Buchstaben und Ziffern zwischen 0 und 9 bestehen. Sonderzeichen wie „-“ oder „#“ usw. sind unzulässig.| 
+|Regionsname | Der Name Ihres ersten Azure Stack-Region. Dieser Name wird als FQDN-Komponente für die öffentlichen virtuellen IP-Adressen (VIPs) verwendet, die von Azure Stack verwaltet werden. Der Regionsname gibt in der Regel eine physische Standort-ID an, z. B. den Standort des Rechenzentrums.<br><br>Die Regionsname darf nur aus Buchstaben und Ziffern zwischen 0 und 9 bestehen. Es sind keine Sonderzeichen (z. B. `-`, `#` usw.) zulässig.| 
 | Externer Domänenname | Der Name der DNS-Zone (Domain Name System) für Endpunkte mit externen VIPs. Wird im FQDN für diese öffentlichen VIPs verwendet. | 
-| Privater (interner) Domänenname | Der Name der Domäne (und internen DNS-Zone), die in Azure Stack zur Infrastrukturverwaltung erstellt wurde. 
+| Privater (interner) Domänenname | Der Name der Domäne (und internen DNS-Zone), die in Azure Stack zur Infrastrukturverwaltung erstellt wurde.
 | | |
 
 ## <a name="certificate-requirements"></a>Zertifikatanforderungen
@@ -101,23 +99,25 @@ Für die Bereitstellung müssen Sie SSL-Zertifikate (Secure Sockets Layer) für 
 - Sie können ein einzelnes Platzhalterzertifikat oder eine Reihe von dedizierten Zertifikaten verwenden und dann Platzhalter nur für Endpunkte wie Speicher und Key Vault einsetzen.
 - Zertifikate können von einer öffentlichen vertrauenswürdigen Zertifizierungsstelle oder einer vom Kunden verwalteten Zertifizierungsstelle ausgestellt werden.
 
-Weitere Informationen darüber, welche PKI-Zertifikate (Public Key-Infrastruktur) für die Bereitstellung von Azure Stack erforderlich sind und wie Sie diese erhalten, finden Sie unter [Anforderungen für PKI-Zertifikate für Azure Stack](azure-stack-pki-certs.md).  
+Weitere Informationen dazu, welche PKI-Zertifikate (Public Key-Infrastruktur) für die Bereitstellung von Azure Stack erforderlich sind und wie Sie diese erhalten, finden Sie unter [Anforderungen für PKI-Zertifikate für Azure Stack](azure-stack-pki-certs.md).  
 
 
 > [!IMPORTANT]
-> Die Informationen zu PKI-Zertifikaten in diesem Artikel dienen nur als allgemeine Leitlinien. Bevor Sie PKI-Zertifikate für Azure Stack erwerben, wenden Sie sich an Ihren OEM-Hardwarepartner. Er stellt Ihnen ausführliche Anleitungen und Anforderungen für Zertifikate bereit.
+> Die Informationen zu PKI-Zertifikaten in diesem Artikel dienen nur als allgemeine Leitlinien. Bevor Sie PKI-Zertifikate für Azure Stack erwerben, wenden Sie sich an Ihren OEM-Hardwarepartner. Dort erhalten Sie ausführliche Anleitungen und Anforderungen für Zertifikate.
 
 
 ## <a name="time-synchronization"></a>Zeitsynchronisierung
-Sie müssen einen bestimmten Zeitserver auswählen, mit dessen Hilfe Azure Stack synchronisiert wird.  Die Uhrzeitsynchronisierung ist für Azure Stack und seine Infrastrukturrollen von entscheidender Bedeutung, da sie zur Generierung von Kerberos-Tickets dient, mit denen sich interne Dienste gegenseitig authentifizieren.
+Sie müssen einen bestimmten Zeitserver auswählen, der zum Synchronisieren von Azure Stack verwendet wird. Die Zeitsynchronisierung ist für Azure Stack und die zugehörigen Infrastrukturrollen von entscheidender Bedeutung, da sie zum Generieren von Kerberos-Tickets verwendet wird. Kerberos-Tickets werden genutzt, um interne Dienste untereinander zu authentifizieren.
 
-Sie müssen eine IP-Adresse für den Zeitsynchronisierungsserver angeben. Wenngleich die meisten Komponenten in der Infrastruktur eine URL auflösen können, können einige nur IP-Adressen unterstützen. Wenn Sie die Bereitstellungsoption „Getrennt“ verwenden, müssen Sie einen Zeitserver in Ihrem Unternehmensnetzwerk angeben, von dem Sie sicher sind, dass er über das Infrastrukturnetzwerk in Azure Stack erreichbar ist.
+Sie müssen eine IP-Adresse für den Zeitsynchronisierungsserver angeben. Die meisten Komponenten der Infrastruktur können zwar eine URL auflösen, aber einige unterstützen nur IP-Adressen. Wenn Sie die Bereitstellungsoption „Getrennt“ verwenden, müssen Sie einen Zeitserver in Ihrem Unternehmensnetzwerk angeben, von dem Sie sicher sind, dass er über das Infrastrukturnetzwerk in Azure Stack erreichbar ist.
 
 ## <a name="connect-azure-stack-to-azure"></a>Herstellen einer Verbindung von Azure Stack zu Azure
 
-Für Hybrid Cloud-Szenarien müssen Sie planen, wie Sie Azure Stack mit Azure verbinden möchten. Es gibt zwei unterstützte Methoden, um virtuelle Netzwerke in Azure Stack mit virtuellen Netzwerken in Azure zu verbinden: 
-- **Standort zu Standort**: Eine VPN-Verbindung (virtuelles privates Netzwerk) über IPsec (IKE v1 und IKE v2). Diese Art von Verbindung erfordert ein VPN-Gerät oder einen Routing- und RAS-Dienst (RRAS). Weitere Informationen zu VPN-Gateways in Azure finden Sie unter [Informationen zu VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Die Kommunikation über diesen Tunnel ist verschlüsselt und sicher. Die Bandbreite ist jedoch durch den maximalen Durchsatz des Tunnels (100-200 MBit/s) beschränkt.
-- **Ausgehende NAT**: Standardmäßig verfügen alle virtuellen Computer in Azure Stack mittels ausgehender NAT über Verbindungen mit externen Netzwerken. Jedem in Azure Stack erstellten virtuellen Netzwerk wird eine öffentliche IP-Adresse zugewiesen. Ganz gleich, ob dem virtuellen Computer eine öffentliche IP-Adresse direkt zugewiesen wird oder er sich hinter einem Load Balancer mit einer öffentlichen IP-Adresse befindet, verfügt er mittels der ausgehenden NAT über den ausgehenden Zugriff, indem die virtuelle IP-Adresse des virtuellen Netzwerks verwendet wird. Dies funktioniert nur für die Kommunikation, die vom virtuellen Computer eingeleitet wird und die für externe Netzwerke (Internet oder Intranet) bestimmt ist. Dies kann nicht für die Kommunikation mit dem virtuellen Computer von außerhalb verwendet werden.
+Für Hybrid Cloud-Szenarien müssen Sie planen, wie Sie Azure Stack mit Azure verbinden möchten. Es gibt zwei unterstützte Methoden, um virtuelle Netzwerke in Azure Stack mit virtuellen Netzwerken in Azure zu verbinden:
+
+- **Site-to-Site**: Eine VPN-Verbindung (virtuelles privates Netzwerk) über IPsec (IKE v1 und IKE v2). Diese Art von Verbindung erfordert ein VPN-Gerät oder einen Routing- und RAS-Dienst (RRAS). Weitere Informationen zu VPN-Gateways in Azure finden Sie unter [Informationen zu VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Die Kommunikation über diesen Tunnel ist verschlüsselt und sicher. Die Bandbreite ist jedoch durch den maximalen Durchsatz des Tunnels (100-200 MBit/s) beschränkt.
+
+- **Ausgehende NAT**: Standardmäßig verfügen alle VMs in Azure Stack mittels ausgehender NAT über Verbindungen mit externen Netzwerken. Jedem in Azure Stack erstellten virtuellen Netzwerk wird eine öffentliche IP-Adresse zugewiesen. Unabhängig davon, ob der VM eine öffentliche IP-Adresse direkt zugewiesen wird oder sie sich hinter einem Load Balancer mit einer öffentlichen IP-Adresse befindet, verfügt sie per ausgehender NAT über ausgehenden Zugriff, indem die virtuelle IP-Adresse des virtuellen Netzwerks verwendet wird. Diese Methode funktioniert nur für die Kommunikation, die von der VM eingeleitet wird und die für externe Netzwerke (Internet oder Intranet) bestimmt ist. Dieser Ansatz kann nicht für die Kommunikation mit der VM von außerhalb verwendet werden.
 
 ### <a name="hybrid-connectivity-options"></a>Optionen der Hybridkonnektivität
 
@@ -154,7 +154,7 @@ Das folgende Diagramm zeigt ExpressRoute für ein Szenario mit mehreren Mandante
 ![Diagramm mit ExpressRoute-Szenario mit mehreren Mandanten](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
 ## <a name="external-monitoring"></a>Externe Überwachung
-Um eine Gesamtübersicht über alle Warnungen Ihrer Azure Stack-Bereitstellung sowie den zugehörigen Geräten zu erhalten und Warnungen zur Ticketerstellung in vorhandene Workflows zum IT-Service-Management zu integrieren, können Sie [Azure Stack mit Überwachungslösungen externer Rechenzentren integrieren](azure-stack-integrate-monitor.md).
+Um eine Gesamtübersicht über alle Warnungen Ihrer Azure Stack-Bereitstellung sowie der zugehörigen Geräte zu erhalten und Warnungen zur Ticketerstellung in vorhandene Workflows zum IT-Service-Management zu integrieren, können Sie [Azure Stack mit Überwachungslösungen externer Rechenzentren integrieren](azure-stack-integrate-monitor.md).
 
 Der in der Azure Stack-Lösung enthaltene Hardwarelebenszyklushost ist ein Computer, der sich außerhalb von Azure Stack befindet, und vom OEM-Anbieter bereitgestellte Verwaltungstools für Hardware ausführt. Sie können diese Tools oder andere Lösungen verwenden, die direkt mit vorhandenen Überwachungslösungen in Ihr Rechenzentrum integriert werden.
 
@@ -174,24 +174,32 @@ Beachten Sie folgende Punkte:
 
 ## <a name="backup-and-disaster-recovery"></a>Backup und Notfallwiederherstellung
 
-Die Planung der Sicherung und Notfallwiederherstellung umfasst das Planen für die zugrunde liegende Azure Stack-Infrastruktur, die virtuelle IaaS-Computer und PaaS-Dienste hostet, sowie für Mandantenanwendungen und -daten. Sie müssen diese separat planen.
+Die Planung der Sicherung und Notfallwiederherstellung umfasst das Planen für die zugrunde liegende Azure Stack-Infrastruktur, mit der IaaS-VMs und PaaS-Dienste gehostet werden, sowie für Mandanten-Apps und -daten. Planen Sie diese Dinge separat.
 
 ### <a name="protect-infrastructure-components"></a>Schützen von Infrastrukturkomponenten
 
 Sie können Infrastrukturkomponenten von Azure Stack in einer von Ihnen angegebenen SMB-Freigabe [sichern](azure-stack-backup-back-up-azure-stack.md):
 
 - Sie benötigen eine externe SMB-Dateifreigabe auf einem vorhandenen Windows-basierten Dateiserver oder auf einem Gerät eines Drittanbieters.
-- Sie sollten dieselbe Freigabe für die Sicherung von Netzwerkswitches und des Hardwarelebenszyklushosts verwenden. Ihr OEM-Hardwareanbieter unterstützt Sie dabei, eine Anleitung zum Sichern und Wiederherstellen dieser Komponenten bereitzustellen, da sich diese außerhalb von Azure Stack befinden. Sie sind dafür zuständig, die Sicherungsworkflows auf Basis der Empfehlungen des OEM-Anbieters auszuführen.
+- Verwenden Sie dieselbe Freigabe für die Sicherung von Netzwerkswitches und des Hardwarelebenszyklus-Hosts. Ihr OEM-Hardwareanbieter unterstützt Sie dabei, eine Anleitung zum Sichern und Wiederherstellen dieser Komponenten bereitzustellen, da sich diese außerhalb von Azure Stack befinden. Sie sind dafür zuständig, die Sicherungsworkflows auf Basis der Empfehlungen des OEM-Anbieters auszuführen.
 
-Wenn ein schwerwiegender Datenverlust auftritt, können Sie die Sicherung der Infrastruktur dazu verwenden, um für die Bereitstellungsdaten (z. B. Bereitstellungseingaben und -IDs, Dienstkonten, Stammzertifikat der Zertifizierungsstelle, Verbundressourcen (in Bereitstellungen ohne Verbindung zum Internet), Pläne, Angebote, Abonnements, Kontingente, RBAC-Richtlinien- und -Rollenzuweisungen sowie geheime Key Vault-Schlüssel) ein erneutes Seeding durchzuführen.
- 
-### <a name="protect-tenant-applications-on-iaas-virtual-machines"></a>Schützen von Mandantenanwendungen auf virtuellen IaaS-Computern
+Bei einem katastrophalen Datenverlust können Sie die Infrastruktursicherung verwenden, um für die Bereitstellungsdaten das erneute Seeding durchzuführen, z. B.: 
 
-Azure Stack sichert keine Mandantenanwendungen und -daten. Sie müssen die Sicherung und Notfallwiederherstellung auf einem Ziel außerhalb von Azure Stack planen. Der Mandantenschutz ist eine vom Mandanten gesteuerte Aktivität. Für virtuelle IaaS-Computer können Mandanten In-Guest-Technologien verwenden, um Dateiordner, Anwendungsdaten und den Systemstatus zu schützen. Als Unternehmen oder Dienstanbieter möchten Sie jedoch möglicherweise eine Sicherungs- und Wiederherstellungslösung anbieten, die sich in demselben Rechenzentrum oder extern in einer Cloud befindet.
+- Bereitstellungseingaben und -IDs
+- Dienstkonten
+- Zertifizierungsstellen-Stammzertifikat
+- Verbundressourcen (in Bereitstellungen ohne Verbindung)
+- Pläne, Angebote, Abonnements und Kontingente
+- RBAC-Richtlinien- und -Rollenzuweisungen
+- Key Vault-Geheimnisse
 
-Zur Sicherung von virtuellen IaaS-Computern mit Linux oder Windows müssen Sie Sicherungsprodukte mit Zugriff auf das Gastbetriebssystem verwenden, um den Datei-, Ordner- und Systemstatus sowie Anwendungsdaten zu schützen. Sie können Azure Backup, System Center Data Center Protection Manager oder unterstützte Produkte von Drittanbietern verwenden.
+### <a name="protect-tenant-apps-on-iaas-vms"></a>Schützen von Mandanten-Apps auf IaaS-VMs
 
-Sie können Azure Site Recovery oder unterstützte Produkte von Drittanbietern verwenden, um Daten für den Notfall an einen sekundären Standort zu replizieren und Anwendungsfailover zu orchestrieren. Darüber hinaus können Anwendungen, die die native Replikation unterstützen (z.B. Microsoft SQL Server), Daten an einen anderen Speicherort replizieren, an dem die Anwendung ausgeführt wird.
+In Azure Stack werden Mandanten-Apps und -daten nicht gesichert. Sie müssen die Sicherung und Notfallwiederherstellung auf einem Ziel außerhalb von Azure Stack planen. Der Mandantenschutz ist eine vom Mandanten gesteuerte Aktivität. Für IaaS-VMs können Mandanten In-Guest-Technologien verwenden, um Dateiordner, App-Daten und den Systemstatus zu schützen. Als Unternehmen oder Dienstanbieter möchten Sie jedoch möglicherweise eine Sicherungs- und Wiederherstellungslösung anbieten, die sich in demselben Rechenzentrum oder extern in einer Cloud befindet.
+
+Zur Sicherung von IaaS-VMs mit Linux oder Windows müssen Sie Sicherungsprodukte mit Zugriff auf das Gastbetriebssystem verwenden, um den Datei-, Ordner- und Systemstatus sowie App-Daten zu schützen. Sie können Azure Backup, System Center Data Center Protection Manager oder unterstützte Produkte von Drittanbietern verwenden.
+
+Sie können Azure Site Recovery oder unterstützte Produkte von Drittanbietern verwenden, um Daten im Notfall an einem sekundären Standort zu replizieren und Anwendungsfailover zu orchestrieren. Darüber hinaus können Apps, die die native Replikation unterstützen (z. B. Microsoft SQL Server), Daten an einem anderen Speicherort replizieren, an dem die App ausgeführt wird.
 
 ## <a name="learn-more"></a>Weitere Informationen
 

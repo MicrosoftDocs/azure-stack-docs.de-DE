@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: b2671446594377833609032e27ff02b7c53c763c
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: fd7c1ede611f9505ed48c8efc3caa5311c285cd3
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974692"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342867"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Wiederherstellen nach schwerwiegendem Datenverlust
 
@@ -68,7 +68,7 @@ Azure Stack unterstützt die Bereitstellung im sogenannten Cloudwiederherstellun
  - Von interner Zertifizierungsstelle verwendete Stammzertifikate.
  - Benutzerdaten der Azure Resource Manager-Konfiguration, z. B. Abonnements, Tarife, Angebote, Speicher- und Netzwerkkontingente sowie Computeressourcen.
  - Key Vault-Geheimnisse und Tresore.
- - RBAC-Richtlinienzuweisungen und Rollenzuweisungen =.
+ - RBAC-Richtlinienzuweisungen und Rollenzuweisungen
 
 Während der Bereitstellung werden keine der IaaS-Ressourcen (Infrastructure-as-a-Service) oder PaaS-Ressourcen (Platform-as-a-Service) wiederhergestellt. Diese Verluste beinhalten IaaS-VMs, Speicherkonten, Blobs, Tabellen, Netzwerkkonfiguration usw. Die Cloudwiederherstellung soll sicherstellen, dass die Bediener und Benutzer sich nach Abschluss der Bereitstellung wieder im Portal anmelden können. Benutzer, die sich wieder anmelden, können keine ihrer Ressourcen anzeigen. Für die Benutzer werden Abonnements sowie die vom Administrator definierten ursprünglichen Pläne, Angebote und Richtlinien wiederhergestellt. Die erneute Anmeldung der Benutzer im System unterliegt den gleichen Einschränkungen, die für die ursprüngliche Lösung vor dem Notfall galten. Nach Abschluss der Cloudwiederherstellung kann der Bediener Erweiterungs- und Drittanbieter-RPs sowie zugehörige Werte wiederherstellen.
 

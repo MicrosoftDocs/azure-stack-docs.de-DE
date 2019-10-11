@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: dac2eeaf3499068812d9c9a66348b0c44ea07b7d
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 0636f3069db80613f02e979b5a102a471f12efad
+ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842712"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71814460"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit Go in Azure Stack
 
@@ -32,17 +32,17 @@ Ein Profil ist eine Kombination aus verschiedenen Ressourcentypen mit unterschie
 - Stabilität für Ihre App durch Festlegung auf bestimmte API-Versionen
 - Kompatibilität für Ihre App mit Azure Stack und regionalen Azure-Datencentern
 
-Im Go SDK sind Profile unter dem Pfad „profiles“ verfügbar. Ihre Versionsnummern sind im Format **JJJJ-MM-TT** angegeben. Die neueste Azure Stack-API-Profilversion ist **2019-03-01** für Stempelversionen 1904 oder höher. Zum Importieren eines bestimmten Diensts aus einem Profil importieren Sie sein entsprechendes Moduls aus dem Profil. Beispielsweise importieren Sie den Dienst **Compute** aus dem Profil **2019-03-01** mit dem folgenden Code:
+Im Go SDK sind Profile unter dem Pfad „profiles“ verfügbar. Profilversionsnummern sind im Format **JJJJ-MM-TT** angegeben. Die neueste Azure Stack-API-Profilversion ist **2019-03-01** für Azure Stack-Version 1904 oder höher. Zum Importieren eines bestimmten Diensts aus einem Profil importieren Sie sein entsprechendes Moduls aus dem Profil. Beispielsweise importieren Sie den Dienst **Compute** aus dem Profil **2019-03-01** mit dem folgenden Code:
 
 ```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
 ```
 
-## <a name="install-azure-sdk-for-go"></a>Installieren des Azure SDK für Go
+## <a name="install-the-azure-sdk-for-go"></a>Installieren des Azure SDK für Go
 
 1. Installieren Sie Git. Anweisungen hierzu finden Sie unter [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) (Erste Schritte: Installieren von Git).
-2. Installieren Sie die [Go-Programmiersprache](https://golang.org/dl). Für API-Profile für Azure ist mindestens Version 1.9 von Go erforderlich.
-3. Installieren Sie das Go Azure SDK und seine Abhängigkeiten, indem Sie den folgenden Bash-Befehl ausführen:
+2. Installieren Sie die [Programmiersprache Go](https://golang.org/dl). Für API-Profile für Azure ist mindestens Version 1.9 von Go erforderlich.
+3. Installieren Sie das Azure Go SDK und die zugehörigen Abhängigkeiten, indem Sie den folgenden Bash-Befehl ausführen:
 
    ```bash
    go get -u -d github.com/Azure/azure-sdk-for-go/...
@@ -63,7 +63,7 @@ Das Go SDK ist zum Senden von REST-Anforderungen an Azure Resource Manager-Endpu
 
 So führen Sie ein Beispiel für Go-Code in Azure Stack aus
 
-1. Installieren Sie das Azure SDK für Go und seine Abhängigkeiten. Anweisungen finden Sie im vorherigen Abschnitt zum [Installieren des Azure SDK für Go](#install-azure-sdk-for-go).
+1. Installieren Sie das Azure SDK für Go und die zugehörigen Abhängigkeiten. Anweisungen finden Sie im vorherigen Abschnitt zum [Installieren des Azure SDK für Go](#install-the-azure-sdk-for-go).
 2. Rufen Sie die Metadateninformationen vom Resource Manager-Endpunkt ab. Der Endpunkt gibt eine JSON-Datei mit den zum Ausführen des Go-Codes erforderlichen Informationen zurück.
 
    > [!NOTE]  
@@ -86,7 +86,7 @@ So führen Sie ein Beispiel für Go-Code in Azure Stack aus
 
 3. Erstellen Sie ein Abonnement, wenn keins verfügbar ist, und speichern Sie die Abonnement-ID zur späteren Verwendung. Informationen zum Erstellen eines Abonnements finden Sie unter [Erstellen von Abonnements für Angebote in Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
 
-4. Erstellen Sie einen Dienstprinzipal, der einen geheimen Clientschlüssel verwendet, mit dem Bereich **Abonnement** und der Rolle **Besitzer**. Speichern Sie die ID und das Geheimnis des Dienstprinzipals. Informationen zum Erstellen eines Dienstprinzipals für Azure Stack finden Sie unter [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md). <br>Ihre Azure Stack-Umgebung ist nun eingerichtet.
+4. Erstellen Sie einen Dienstprinzipal, der einen geheimen Clientschlüssel verwendet, mit dem Bereich **Abonnement** und der Rolle **Besitzer**. Speichern Sie die ID und das Geheimnis des Dienstprinzipals. Informationen zum Erstellen eines Dienstprinzipals für Azure Stack finden Sie unter [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md). Ihre Azure Stack-Umgebung ist nun eingerichtet.
 
 5. Importieren Sie ein Dienstmodul aus dem Go SDK-Profil in Ihren Code. Die aktuelle Version des Azure Stack-Profils ist **2019-03-01**. Verwenden Sie zum Importieren eines Netzwerkmoduls aus dem Profiltyp **2019-03-01** den folgenden Code:
 
@@ -109,7 +109,7 @@ So führen Sie ein Beispiel für Go-Code in Azure Stack aus
 
    Legen Sie `<baseURI>` auf den in Schritt 2 verwendeten **ResourceManagerUrl**-Wert fest. Legen Sie `<subscriptionID>` auf den in Schritt 3 gespeicherten **SubscriptionID**-Wert fest.
 
-   Informationen zum Erstellen des Tokens finden Sie im folgenden Abschnitt.  
+   Informationen zum Erstellen des Tokens finden Sie im nächsten Abschnitt.  
 
 7. Rufen Sie API-Methoden mithilfe des im vorherigen Schritt erstellten Clients auf. Informationen zum Erstellen eines virtuellen Netzwerks mithilfe des Clients aus dem vorherigen Schritt finden Sie im folgenden Beispiel:
 
@@ -128,13 +128,13 @@ Ein vollständiges Beispiel zum Erstellen eines virtuellen Netzwerks in Azure St
 
 ## <a name="authentication"></a>Authentication
 
-Installieren Sie die **Go-AutoRest**-Module, um mithilfe des Go SDK die **Authorizer**-Eigenschaft aus Azure Active Directory abzurufen. Diese Module sollten bereits bei der Installation des Go SDK installiert worden sein. Ist dies nicht der Fall, installieren Sie das [Authentifizierungspaket von GitHub](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
+Installieren Sie die **Go-AutoRest**-Module, um mithilfe des Go SDK die **Authorizer**-Eigenschaft aus Azure Active Directory abzurufen. Diese Module sollten bei der Installation des Go SDK bereits installiert worden sein. Falls nicht, können Sie das [Authentifizierungspaket von GitHub](https://github.com/Azure/go-autorest/tree/master/autorest/adal) installieren.
 
 Als Authorizer-Wert muss der Autorisierer für den Ressourcenclient festgelegt werden. Es gibt verschiedene Methoden zum Abrufen von Autorisierertoken in Azure Stack mithilfe von Clientanmeldeinformationen:
 
 1. Wenn ein Dienstprinzipal mit der Rolle „Besitzer“ im Abonnement verfügbar ist, überspringen Sie diesen Schritt. Andernfalls finden Sie Anleitungen zum Erstellen eines Dienstprinzipals, der einen geheimen Clientschlüssel verwendet, und Hilfe dazu, wie Sie ihm die Rolle „Besitzer“ mit Ihrem Abonnement als Gültigkeitsbereich zuweisen, unter [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md). Stellen Sie sicher, dass Sie die Anwendungs-ID und das Geheimnis des Dienstprinzipals speichern.
 
-2. Importieren Sie das **adal**-Paket aus Go-AutoRest in Ihren Code.
+2. Importieren Sie das **adal**-Paket aus **Go-AutoRest** in Ihren Code.
 
    ```go
    package main
@@ -299,11 +299,14 @@ Dies ist ein Beispiel für Go-Code zum Erstellen eines virtuellen Netzwerks in A
       }
    }
    ```
+
 Unter anderem sind bei Verwendung des Go SDK folgende Codebeispiele für Azure Stack verfügbar:
+
 - [Erstellen eines virtuellen Computers](https://github.com/Azure-Samples/Hybrid-Compute-Go-Create-VM)
 - [Speicherdatenebene](https://github.com/Azure-Samples/Hybrid-Storage-Go-Dataplane)
 - [Verwenden von Managed Disks](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks) (ein Beispiel mit „2019-03-01-hybrid“ für die aktuellsten API-Versionen, die von Azure Stack unterstützt werden)
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Installieren von PowerShell für Azure Stack](../operator/azure-stack-powershell-install.md)
-- [Konfigurieren der PowerShell-Umgebung des Azure Stack-Benutzers](azure-stack-powershell-configure-user.md)  
+- [Konfigurieren der PowerShell-Umgebung des Azure Stack-Benutzers](azure-stack-powershell-configure-user.md)

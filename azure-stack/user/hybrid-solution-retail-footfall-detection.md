@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 10/01/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: e87baeba1b961c134fc5754fda8c9f1688f3fe90
-ms.sourcegitcommit: f38903cb925276e96dd62ebe8ffe92df8bf6e5c8
+ms.openlocfilehash: 32533b063d4c42b740825923e9e2b5692ec03728
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256553"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714631"
 ---
 # <a name="footfall-detection-solution"></a>Lösung zur Ermittlung der Kundenfrequenz
 
@@ -92,6 +92,6 @@ Da diese Lösung Bilder von Kunden erfasst, ist das Thema Sicherheit von größt
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zu den von dieser Lösung verwendeten Mustern finden Sie unter [Gestaffeltes Datenmuster](azure-stack-solution-staged-data.md). 
-
-Weitere Informationen zum benutzerdefinierten maschinellen Sehen finden Sie hier: [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/). 
+- Weitere Informationen zu den von dieser Lösung verwendeten Mustern finden Sie unter [Gestaffeltes Datenmuster](azure-stack-solution-staged-data.md). 
+- Weitere Informationen zum benutzerdefinierten maschinellen Sehen finden Sie hier: [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/). 
+- Laden Sie eine [Beispielimplementierung der Lösung zur Ermittlung der Kundenfrequenz](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis) herunter, und stellen Sie sie bereit. Sie erfahren, wie Sie mithilfe von Azure, Azure Stack und dem Custom Vision AI Dev Kit Erkenntnisse aus realen Aktionen generieren.   

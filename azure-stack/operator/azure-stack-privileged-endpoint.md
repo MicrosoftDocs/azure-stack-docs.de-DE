@@ -1,6 +1,6 @@
 ---
 title: Verwenden des privilegierten Endpunkts in Azure Stack | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie den privilegierten Endpunkt (privileged endpoint, PEP) in Azure Stack (für einen Azure Stack-Operator) verwenden.
+description: Es wird beschrieben, wie Sie als Bediener den privilegierten Endpunkt (PEP) in Azure Stack verwenden.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,23 +15,23 @@ ms.date: 09/18/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: cb339e4d6d368481060c673482d80244f63f9cc4
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 3730da9d185f1c38411453a6bef965ab5df7d3ae
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101099"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829375"
 ---
-# <a name="using-the-privileged-endpoint-in-azure-stack"></a>Verwenden des privilegierten Endpunkts in Azure Stack
+# <a name="use-the-privileged-endpoint-in-azure-stack"></a>Verwenden des privilegierten Endpunkts in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Als Azure Stack-Operator sollten Sie das Administratorportal, PowerShell oder APIs des Azure Resource Manager für die meisten alltäglichen Verwaltungsaufgaben verwenden. Für einige weniger häufig ausgeführten Vorgänge müssen Sie jedoch den *privilegierten Endpunkt* (PEP) verwenden. Bei dem PEP handelt es sich um eine vorkonfigurierte Remote-PowerShell-Konsole, die Ihnen gerade so viele Funktionen zur Verfügung stellt, wie Sie zur Ausführung einer erforderlichen Aufgabe benötigen. Der Endpunkt nutzt [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview), um nur einen eingeschränkten Satz von Cmdlets verfügbar zu machen. Es wird ein Konto mit geringen Berechtigungen verwendet, um auf den PEP zuzugreifen und den eingeschränkten Satz von Cmdlets aufzurufen. Es sind keine Administratorkonten erforderlich. Zur Erhöhung der Sicherheit ist die Skripterstellung nicht zulässig.
+Als Azure Stack-Operator sollten Sie das Administratorportal, PowerShell oder APIs des Azure Resource Manager für die meisten alltäglichen Verwaltungsaufgaben verwenden. Für einige weniger häufig ausgeführten Vorgänge müssen Sie jedoch den *privilegierten Endpunkt* (PEP) verwenden. Bei dem PEP handelt es sich um eine vorkonfigurierte PowerShell-Remotekonsole, die Ihnen gerade so viele Funktionen zur Verfügung stellt, wie Sie zur Ausführung einer erforderlichen Aufgabe benötigen. Der Endpunkt nutzt [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview), um nur einen eingeschränkten Satz von Cmdlets verfügbar zu machen. Es wird ein Konto mit geringen Berechtigungen verwendet, um auf den PEP zuzugreifen und den eingeschränkten Satz von Cmdlets aufzurufen. Es sind keine Administratorkonten erforderlich. Die Skripterstellung ist nicht zulässig, um die Sicherheit zu erhöhen.
 
-Der PEP kann beispielsweise für Folgendes verwendet werden:
+Sie können den PEP nutzen, um diese Aufgaben durchzuführen:
 
-- Aufgaben auf niedriger Ebene durchführen, z. B. [Diagnoseprotokolle erfassen](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
-- Durchführung zahlreicher Datacenter-Integrationsaufgaben für integrierte Systeme nach der Bereitstellung, z.B. Hinzufügen von DNS-Weiterleitungen nach der Bereitstellung, Einrichten der Microsoft Graph-Integration, der Integration von Active Directory-Verbunddiensten (AD FS), der Zertifikatrotation, usw.
+- Aufgaben auf niedriger Ebene, z. B. [Diagnoseprotokolle erfassen](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
+- Viele Aufgaben zur Integration von Rechenzentren für integrierte Systeme nach der Bereitstellung, z. B. Hinzufügen von DNS-Weiterleitungen nach der Bereitstellung, Einrichten der Microsoft Graph-Integration, der Integration von Active Directory-Verbunddiensten (AD FS), der Zertifikatrotation usw.
 - Zusammenarbeit mit dem Support zum Erhalt von temporärem, allgemeinem Zugriff für die eingehende Problembehandlung eines integrierten Systems.
 
 Der PEP protokolliert jede Aktion, die Sie in der PowerShell-Sitzung ausführen (sowie die entsprechende Ausgabe). Dies bietet vollständige Transparenz und die komplette Überwachung von Vorgängen. Sie können diese Protokolldateien für zukünftige Überwachungen aufbewahren.
@@ -41,24 +41,24 @@ Der PEP protokolliert jede Aktion, die Sie in der PowerShell-Sitzung ausführen 
 
 ## <a name="access-the-privileged-endpoint"></a>Zugreifen auf den privilegierten Endpunkt
 
-Der Zugriff auf den PEP erfolgt über eine PowerShell-Remotesitzung auf dem virtuellen Computer, der den PEP hostet. In der ASDK heißt dieser virtuelle Computer **AzS-ERCS01**. Wenn Sie ein integriertes System verwenden, gibt es drei Instanzen des PEPs. Aus Resilienzgründen werden diese jeweils auf einem virtuellen Computer („*Präfix*-ERCS01“, „*Präfix*-ERCS02“ und „*Präfix*-ERCS03“) auf unterschiedlichen Hosts ausgeführt. 
+Der Zugriff auf den PEP erfolgt über eine PowerShell-Remotesitzung auf dem virtuellen Computer (VM), auf dem der PEP gehostet wird. Im ASDK hat diese VM den Namen **AzS-ERCS01**. Wenn Sie ein integriertes System verwenden, gibt es drei Instanzen des PEPs. Aus Resilienzgründen werden diese jeweils auf einer VM („*Präfix*-ERCS01“, „*Präfix*-ERCS02“ und „*Präfix*-ERCS03“) auf unterschiedlichen Hosts ausgeführt.
 
-Bevor Sie dieses Verfahren für das integrierte System beginnen, vergewissern Sie sich, dass Sie anhand der IP-Adresse oder per DNS auf den PEP zugreifen können. Nach der erstmaligen Bereitstellung von Azure Stack können Sie nur über die IP-Adresse auf den PEP zugreifen, da die DNS-Integration noch nicht eingerichtet wurde. Ihr OEM-Hardwarehersteller stellt eine JSON-Datei namens **AzureStackStampDeploymentInfo** bereit, die die IP-Adressen des PEPs enthält.
+Bevor Sie dieses Verfahren für das integrierte System beginnen, sollten Sie sich vergewissern, dass Sie anhand der IP-Adresse oder per DNS auf den PEP zugreifen können. Nach der erstmaligen Bereitstellung von Azure Stack können Sie nur über die IP-Adresse auf den PEP zugreifen, da die DNS-Integration noch nicht eingerichtet wurde. Ihr OEM-Hardwarehersteller stellt eine JSON-Datei namens **AzureStackStampDeploymentInfo** bereit, die die IP-Adressen des PEPs enthält.
 
 
 > [!NOTE]
-> Aus Sicherheitsgründen darf mit dem PEP nur über einen gehärteten virtuellen Computer, der auf dem Hardwarelebenszyklushost basiert, oder über einen dedizierten, sicheren Computer (beispielsweise eine [Arbeitsstation mit privilegiertem Zugriff](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)) eine Verbindung hergestellt werden. Die ursprüngliche Konfiguration des Hardwarelebenszyklushosts darf nicht geändert werden (dies schließt auch die Installation neuer Software ein), und er darf nicht zum Herstellen einer Verbindung mit dem PEP verwendet werden.
+> Aus Sicherheitsgründen darf mit dem PEP nur über eine gehärtete VM, die auf dem Hardwarelebenszyklus-Host basiert, oder über einen dedizierten, sicheren Computer (beispielsweise eine [Arbeitsstation mit privilegiertem Zugriff](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)) eine Verbindung hergestellt werden. Die ursprüngliche Konfiguration des Hardwarelebenszyklus-Hosts darf nicht geändert werden (einschließlich der Installation neuer Software), und er darf nicht zum Herstellen einer Verbindung mit dem PEP verwendet werden.
 
 1. Richten Sie die Vertrauensstellung ein.
 
-    - Führen Sie auf einem integrierten System in einer Windows PowerShell-Sitzung mit erhöhten Rechten den folgenden Befehl aus, um den PEP als vertrauenswürdigen Host auf dem gehärteten virtuellen Computer hinzuzufügen, der auf dem Hardwarelebenszyklushost oder auf der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird.
+    - Führen Sie auf einem integrierten System in einer Windows PowerShell-Sitzung mit erhöhten Rechten den folgenden Befehl aus, um den PEP als vertrauenswürdigen Host auf der gehärteten virtuellen VM hinzuzufügen, die auf dem Hardwarelebenszyklus-Host oder der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird.
 
       ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - Wenn Sie das ASDK ausführen, melden Sie sich beim Development Kit-Host an.
 
-2. Öffnen Sie auf dem gehärteten virtuellen Computer, der auf dem Hardwarelebenszyklushost oder auf der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird, eine Windows PowerShell-Sitzung. Führen Sie die folgenden Befehle aus, um eine Remotesitzung auf dem virtuellen Computer einzurichten, der den PEP hostet:
+2. Öffnen Sie auf der gehärteten virtuellen VM, die auf dem Hardwarelebenszyklus-Host oder der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird, eine Windows PowerShell-Sitzung. Führen Sie die folgenden Befehle aus, um eine Remotesitzung auf der VM einzurichten, die den PEP hostet:
  
    - In einem integrierten System:
      ```powershell
@@ -67,10 +67,10 @@ Bevor Sie dieses Verfahren für das integrierte System beginnen, vergewissern Si
        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
-     Der Parameter `ComputerName` kann die IP-Adresse oder der DNS-Name eines der virtuellen Computer sein, die den PEP hosten. 
+     Der Parameter `ComputerName` kann die IP-Adresse oder der DNS-Name einer VM sein, auf der der PEP gehostet wird.
 
      >[!NOTE]
-     >Azure Stack führt beim Überprüfen der PEP-Anmeldeinformationen keinen Remoteaufruf aus. Für die Überprüfung wird ein lokal gespeicherter öffentlicher RSA-Schlüssel verwendet.
+     >Azure Stack führt beim Überprüfen der PEP-Anmeldeinformationen keinen Remoteaufruf durch. Für die Überprüfung wird ein lokal gespeicherter öffentlicher RSA-Schlüssel verwendet.
      
    - Bei Ausführung des ASDK:
      
@@ -86,7 +86,7 @@ Bevor Sie dieses Verfahren für das integrierte System beginnen, vergewissern Si
      - **Kennwort**: Geben Sie das gleiche Kennwort ein, das während der Installation für das AzureStackAdmin-Domänenadministratorkonto bereitgestellt wurde.
 
      > [!NOTE]
-     > Wenn Sie keine Verbindung mit dem ERCS-Endpunkt herstellen können, wiederholen Sie die Schritte 1 und 2 mit einer anderen ERCS-VM-IP-Adresse.
+     > Wenn Sie keine Verbindung mit dem ERCS-Endpunkt herstellen können, wiederholen Sie die Schritte 1 und 2 mit einer anderen ERCS-VM-IP-Adresse.
 
 3. Nachdem Sie eine Verbindung hergestellt haben, ändert sich die Eingabeaufforderung in **[*IP-Adresse oder ERCS-VM-Name*]: PS>** oder zu **[azs-ercs01]: PS>** (abhängig von der Umgebung). Führen Sie `Get-Command` aus, um die Liste der verfügbaren Cmdlets anzuzeigen.
 
@@ -113,28 +113,28 @@ Bevor Sie dieses Verfahren für das integrierte System beginnen, vergewissern Si
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Verwendungstipps für den privilegierten Endpunkt 
 
-Beim PEP handelt es sich wie bereits erwähnt um einen Endpunkt vom Typ [PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview). Ein JEA-Endpunkt bietet nicht nur eine Ebene mit hoher Sicherheit, sondern schränkt auch einige der grundlegenden PowerShell-Funktionen wie Skriptverwendung und Vervollständigung mittels TAB-TASTE ein. Wenn Sie einen Skriptvorgangstyp testen, schlägt der Vorgang mit Fehler **ScriptsNotAllowed** fehl. Dieses Verhalten wird erwartet.
+Beim PEP handelt es sich wie bereits erwähnt um einen Endpunkt vom Typ [PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview). Ein JEA-Endpunkt bietet nicht nur eine Ebene mit hoher Sicherheit, sondern schränkt auch einige der grundlegenden PowerShell-Funktionen wie Skriptverwendung und Vervollständigung mittels TAB-TASTE ein. Wenn Sie einen Skriptvorgangstyp testen, schlägt der Vorgang mit Fehler **ScriptsNotAllowed** fehl. Dieser Fehler ist das erwartete Verhalten.
 
-Wenn Sie also beispielsweise die Parameterliste für ein bestimmtes Cmdlet erhalten möchten, führen Sie den folgenden Befehl aus:
+Führen Sie den folgenden Befehl aus, wenn Sie beispielsweise die Parameterliste für ein bestimmtes Cmdlet erhalten möchten:
 
 ```powershell
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Alternativ können Sie das Cmdlet [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) verwenden, um alle PEP-Cmdlets in die aktuelle Sitzung auf Ihrem lokalen Computer zu importieren. Dadurch stehen alle Cmdlets und Funktionen des PEPs auf Ihrem lokalen Computer zur Verfügung – zusammen mit der Vervollständigung mittels TAB-TASTE und der Skriptverwendung im Allgemeinen. 
+Alternativ können Sie das Cmdlet [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) verwenden, um alle PEP-Cmdlets in die aktuelle Sitzung auf Ihrem lokalen Computer zu importieren. Dadurch stehen alle Cmdlets und Funktionen des PEPs auf Ihrem lokalen Computer zur Verfügung – zusammen mit der Vervollständigung mittels TAB-TASTE und der Skriptverwendung im Allgemeinen.
 
 Wenn Sie die PEP-Sitzung in Ihren lokalen Computer importieren möchten, führen Sie die folgenden Schritte aus:
 
 1. Richten Sie die Vertrauensstellung ein.
 
-    Führen Sie auf einem integrierten System in einer Windows PowerShell-Sitzung mit erhöhten Rechten den folgenden Befehl aus, um den PEP als vertrauenswürdigen Host auf dem gehärteten virtuellen Computer hinzuzufügen, der auf dem Hardwarelebenszyklushost oder auf der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird.
+    Führen Sie auf einem integrierten System in einer Windows PowerShell-Sitzung mit erhöhten Rechten den folgenden Befehl aus, um den PEP als vertrauenswürdigen Host auf der gehärteten virtuellen VM hinzuzufügen, die auf dem Hardwarelebenszyklus-Host oder der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird.
 
       ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - Wenn Sie das ASDK ausführen, melden Sie sich beim Development Kit-Host an.
 
-2. Öffnen Sie auf dem gehärteten virtuellen Computer, der auf dem Hardwarelebenszyklushost oder auf der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird, eine Windows PowerShell-Sitzung. Führen Sie die folgenden Befehle aus, um eine Remotesitzung auf dem virtuellen Computer einzurichten, der den PEP hostet:
+2. Öffnen Sie auf der gehärteten virtuellen VM, die auf dem Hardwarelebenszyklus-Host oder der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird, eine Windows PowerShell-Sitzung. Führen Sie die folgenden Befehle aus, um eine Remotesitzung auf dem virtuellen Computer einzurichten, der den PEP hostet:
  
    - In einem integrierten System:
      ```powershell
@@ -143,7 +143,7 @@ Wenn Sie die PEP-Sitzung in Ihren lokalen Computer importieren möchten, führen
        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
-     Der Parameter `ComputerName` kann die IP-Adresse oder der DNS-Name eines der virtuellen Computer sein, die den PEP hosten. 
+     Der Parameter `ComputerName` kann die IP-Adresse oder der DNS-Name einer VM sein, auf der der PEP gehostet wird.
    - Bei Ausführung des ASDK:
      
      ```powershell
@@ -166,20 +166,20 @@ Wenn Sie die PEP-Sitzung in Ihren lokalen Computer importieren möchten, führen
 
 ## <a name="close-the-privileged-endpoint-session"></a>Schließen der Sitzung mit dem privilegierten Endpunkt
 
- Der PEP protokolliert wie bereits erwähnt jede Aktion, die Sie in der PowerShell-Sitzung ausführen, sowie die entsprechende Ausgabe. Schließen Sie die Sitzung mithilfe des Cmdlets `Close-PrivilegedEndpoint`. Dieses Cmdlet schließt den Endpunkt ordnungsgemäß, und überträgt die Protokolldateien an eine externe Dateifreigabe für die Aufbewahrung.
+ Der PEP protokolliert wie bereits erwähnt jede Aktion, die Sie in der PowerShell-Sitzung durchführen, sowie die entsprechende Ausgabe. Schließen Sie die Sitzung mithilfe des Cmdlets `Close-PrivilegedEndpoint`. Dieses Cmdlet schließt den Endpunkt ordnungsgemäß, und überträgt die Protokolldateien an eine externe Dateifreigabe für die Aufbewahrung.
 
 Schließen der Endpunktsitzung:
 
 1. Erstellen Sie eine externe Dateifreigabe, auf die der PEP zugreifen kann. In einer Development Kit-Umgebung können Sie nur eine Dateifreigabe auf dem Development Kit-Host erstellen.
-2. Führen Sie das folgende Cmdlet aus: 
+2. Führen Sie das folgende Cmdlet aus:
      ```powershell
      Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
      ```
-   Die verwendeten Parameter sind in der folgenden Tabelle definiert.
+   Das Cmdlet verwendet die Parameter in der folgenden Tabelle:
 
    | Parameter | BESCHREIBUNG | type | Erforderlich |
    |---------|---------|---------|---------|
-   | *TranscriptsPathDestination* | Pfad zu der externen Dateifreigabe, die als „fileshareIP\sharefoldername“ definiert ist. | Zeichenfolge | Ja|
+   | *TranscriptsPathDestination* | Pfad zur externen Dateifreigabe, die als „fileshareIP\sharefoldername“ definiert ist. | Zeichenfolge | Ja|
    | *Credential* | Anmeldeinformationen für den Zugriff auf die Dateifreigabe | SecureString |   Ja |
 
 
@@ -191,4 +191,4 @@ Nachdem die Aufzeichnungsprotokolldateien erfolgreich in die Dateifreigabe über
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Azure Stack-Diagnosetools](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)
+[Azure Stack-Diagnosetools](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)

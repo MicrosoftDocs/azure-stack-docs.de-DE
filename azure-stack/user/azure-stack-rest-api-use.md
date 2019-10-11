@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 0be1e7832d5ac32b092e44674b78c59552af351c
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 822d05c53db2d55b3cddac44fa919c72e9af2efe
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159718"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714655"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -27,19 +27,19 @@ ms.locfileid: "71159718"
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Mit der Anwendungsprogrammierschnittstelle (API) können Sie Vorgänge wie das Hinzufügen eines virtuellen Computers (VM) zu einer Azure Stack-Cloud automatisieren.
+Mit den Azure Stack-REST-APIs können Sie Vorgänge wie das Hinzufügen eines virtuellen Computers (VM) zu Ihrer Azure Stack-Cloud automatisieren.
 
-Die API erfordert die Authentifizierung Ihres Clients beim Microsoft Azure-Anmeldungsendpunkt. Der Endpunkt gibt einen Token zurück, das im Header jeder Anforderung verwendet wird, die an die Azure Stack-API gesendet wird. Microsoft Azure basiert auf OAuth 2.0.
+Für die APIs ist die Authentifizierung Ihres Clients beim Microsoft Azure-Anmeldungsendpunkt erforderlich. Der Endpunkt gibt ein Token zurück, das im Header jeder Anforderung verwendet wird, die an die Azure Stack-APIs gesendet wird. Microsoft Azure basiert auf OAuth 2.0.
 
-Dieser Artikel enthält Beispiele, in denen mithilfe des Hilfsprogramms **cURL** Azure Stack-Anforderungen erstellt werden. cURL ist ein Befehlszeilenprogramm mit einer Bibliothek zum Übertragen von Daten. Diese Beispiele zeigen eine exemplarische Vorgehensweise zum Abrufen eines Tokens für den Zugriff auf die Azure Stack-API. Die meisten Programmiersprachen bieten OAuth 2.0-Bibliotheken, die eine stabile Tokenverwaltung aufweisen und Aufgaben wie das Aktualisieren des Tokens abwickeln.
+Dieser Artikel enthält Beispiele, in denen mithilfe des Hilfsprogramms **cURL** Azure Stack-Anforderungen erstellt werden. cURL ist ein Befehlszeilenprogramm mit einer Bibliothek zum Übertragen von Daten. Mit diesen Beispiele wird eine exemplarische Vorgehensweise zum Abrufen eines Tokens für den Zugriff auf die Azure Stack-APIs veranschaulicht. Die meisten Programmiersprachen bieten OAuth 2.0-Bibliotheken, die eine stabile Tokenverwaltung aufweisen und Aufgaben wie das Aktualisieren des Tokens abwickeln.
 
-Sehen Sie sich den gesamten Prozess der Verwendung der Azure Stack-REST-API mit einem generischen REST-Client wie z. B. **cURL** an, um die zugrunde liegenden Anforderungen besser verstehen zu können und eine Vorstellung zu haben, was Sie in der Antwortnutzlast erwarten können.
+Sehen Sie sich den gesamten Prozess für die Verwendung der Azure Stack-REST-APIs mit einem generischen REST-Client an (z. B. **cURL**), um die zugrunde liegenden Anforderungen besser verstehen zu können und eine Vorstellung davon zu haben, was Sie in einer Antwortnutzlast erwarten können.
 
-In diesem Artikel werden nicht alle verfügbaren Optionen für das Abrufen von Token wie die interaktive Anmeldung oder das Erstellen dedizierter App-IDs untersucht. Unter [Azure-REST-API-Referenz](https://docs.microsoft.com/rest/api/) erfahren Sie, wie Informationen zu diesen Themen abgerufen werden.
+In diesem Artikel werden nicht alle verfügbaren Optionen für das Abrufen von Token wie die interaktive Anmeldung oder das Erstellen dedizierter App-IDs untersucht. In der [Azure-REST-API-Referenz](/rest/api/) wird beschrieben, wie Sie Informationen zu diesen Themen abrufen.
 
 ## <a name="get-a-token-from-azure"></a>Abrufen eines Tokens von Azure
 
-Erstellen Sie einen mit dem Inhaltstyp „x-www-form-urlencoded“ formatierten Anforderungstext zum Abrufen eines Zugriffstokens. POSTen Sie Ihre Anforderung an den Endpunkt für Azure-REST-Authentifizierung und -Anmeldung.
+Erstellen Sie einen mit dem Inhaltstyp `x-www-form-urlencoded` formatierten Anforderungstext zum Abrufen eines Zugriffstokens. POSTen Sie Ihre Anforderung an den Endpunkt für Azure-REST-Authentifizierung und -Anmeldung.
 
 ### <a name="uri"></a>URI
 
@@ -49,9 +49,9 @@ POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 
 Die **Mandanten-ID** ist eine der Folgenden:
 
- - Ihre Mandantendomäne z.B. `fabrikam.onmicrosoft.com`
- - Ihre Mandanten-ID z.B. `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
- - Standardwert für mandantenunabhängige Schlüssel: `common`
+- Ihre Mandantendomäne z.B. `fabrikam.onmicrosoft.com`
+- Ihre Mandanten-ID z.B. `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+- Standardwert für mandantenunabhängige Schlüssel: `common`
 
 ### <a name="post-body"></a>Posttext
 
@@ -72,13 +72,14 @@ Für jeden Wert:
 - **resource**:  
    Die Ressource, auf die das Token zugreift. Sie finden die Ressource durch Abfragen des Azure Stack-Verwaltungsmetadaten-Endpunkts. Betrachten Sie den Abschnitt **audiences**.
 
-- **Azure Stack-Verwaltungsendpunkt**:  
-   ```
+- **Azure Stack-Verwaltungsendpunkt**:
+
+   ```bash
    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
    ```
 
   > [!NOTE]  
-  > Wenn Sie als Administrator versuchen, auf die Mandanten-API zuzugreifen, stellen Sie sicher, dass Sie den Mandantenendpunkt verwenden. Beispiel: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
+  > Wenn Sie als Administrator versuchen, auf die Mandanten-API zuzugreifen, sollten Sie sicherstellen, dass Sie den Mandantenendpunkt verwenden, z. B. `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`.
 
   Beispielsweise mit dem Azure Stack Development Kit als Endpunkt:
 
@@ -88,7 +89,7 @@ Für jeden Wert:
 
   Antwort:
 
-  ```
+  ```bash
   {
   "galleryEndpoint":"https://adminportal.local.azurestack.external:30015/",
   "graphEndpoint":"https://graph.windows.net/",
@@ -102,21 +103,20 @@ Für jeden Wert:
 
 ### <a name="example"></a>Beispiel
 
-  ```
+  ```bash
   https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
   ```
 
-  **client_id**
+- **client_id**
 
   Dieser Wert ist mit einem Standardwert hartcodiert:
 
-  ```
+  ```bash
   1950a258-227b-4e31-a9cf-717495945fc2
   ```
 
   Alternative Optionen sind für bestimmte Szenarien verfügbar:
 
-  
   | Anwendung | ApplicationID |
   | --------------------------------------- |:-------------------------------------------------------------:|
   | LegacyPowerShell | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 |
@@ -125,15 +125,15 @@ Für jeden Wert:
   | VisualStudio | 872cd9fa-d31f-45e0-9eab-6e460a02d1f1 |
   | AzureCLI | 04b07795-8ddb-461a-bbee-02f9e1bf7b46 |
 
-  **username**
+- **username**
 
   Beispielsweise das Azure Stack-Azure AD-Konto:
 
-  ```
+  ```bash
   azurestackadmin@fabrikam.onmicrosoft.com
   ```
 
-  **password**
+- **password**
 
   Das Azure Stack-Azure AD-Administratorkennwort.
 
@@ -141,7 +141,7 @@ Für jeden Wert:
 
 Anforderung:
 
-```
+```bash
 curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token" \
 -H "Content-Type: application/x-www-form-urlencoded" \
 --data-urlencode "client_id=1950a258-227b-4e31-a9cf-717495945fc2" \
@@ -153,7 +153,7 @@ curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token"
 
 Antwort:
 
-```
+```bash
 {
   "token_type": "Bearer",
   "scope": "user_impersonation",
@@ -168,7 +168,7 @@ Antwort:
 
 ## <a name="api-queries"></a>API-Abfragen
 
-Nachdem Sie das Zugriffstoken abgerufen haben, fügen Sie es jeder Ihrer API-Anforderungen als Header hinzu. Um es als Header hinzuzufügen, erstellen Sie eine Header-**Autorisierung** mit dem Wert `Bearer <access token>`. Beispiel:
+Nachdem Sie das Zugriffstoken abgerufen haben, fügen Sie es Ihren API-Anforderungen jeweils als Header hinzu. Für das Hinzufügen als Header erstellen Sie einen Header vom Typ **Autorisierung** mit dem Wert `Bearer <access token>`. Beispiel:
 
 Anforderung:
 
@@ -203,22 +203,22 @@ Die Zeichenfolge enthält zusätzliche einfache Parameter, z.B. die API-Version 
 
 ## <a name="azure-stack-request-uri-construct"></a>Azure Stack-Anforderungs-URI-Konstrukt
 
-```
+```bash
 {URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version}
 ```
 
 ### <a name="uri-syntax"></a>URI-Syntax
 
-```
+```bash
 https://adminmanagement.local.azurestack.external/{subscription id}/resourcegroups/{resource group}/providers/{provider}/{resource-path}?{api-version}
 ```
 
 ### <a name="query-uri-example"></a>Abfrage-URI-Beispiel
 
-```
+```bash
 https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8/resourcegroups/system.local/providers/microsoft.infrastructureinsights.admin/regionhealths/local/Alerts?$filter=(Properties/State eq 'Active') and (Properties/Severity eq 'Critical')&$orderby=Properties/CreatedTimestamp desc&api-version=2016-05-01"
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zur Verwendung der Azure-RESTful-Endpunkte finden Sie unter [Azure REST-API-Referenz](https://docs.microsoft.com/rest/api/).
+Weitere Informationen zur Verwendung der Azure-REST-Endpunkte finden Sie in der [Azure REST-API-Referenz](/rest/api/).

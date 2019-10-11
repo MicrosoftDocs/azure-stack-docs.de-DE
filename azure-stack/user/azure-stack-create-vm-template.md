@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/04/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: d82cdb1cccd52cc5e4c11571d85914be3f79a74e
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 02300ae5c3a6ef7fd104dfb59e179b557e0c8778
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691573"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961712"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Tutorial: Erstellen eines virtuellen Computers mit einer Communityvorlage
 
@@ -39,7 +39,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
 Azure Stack-Schnellstartvorlagen werden auf GitHub im [globalen Repository für Azure Stack-Schnellstartvorlagen](https://github.com/Azure/AzureStack-QuickStart-Templates) gespeichert. Dieses Repository enthält Azure Resource Manager-Bereitstellungsvorlagen, die mit dem Microsoft Azure Stack Development Kit (ASDK) getestet wurden. Sie können sie verwenden, um Ihnen das Auswerten von Azure Stack und Verwenden der ASDK-Umgebung zu vereinfachen.
 
-Im Laufe der Zeit haben viele GitHub-Benutzer einen Beitrag zum Repository geleistet, wodurch eine Sammlung mit mehr als 400 Bereitstellungsvorlagen entstanden ist. Dieses Repository ist ein hervorragender Ausgangspunkt, um ein besseres Verständnis zu entwickeln, wie Sie verschiedene Arten von Umgebungen in Azure Stack bereitstellen können.
+Im Laufe der Zeit haben viele GitHub-Benutzer einen Beitrag zum Repository geleistet, wodurch eine Sammlung mit mehr als 400 Bereitstellungsvorlagen entstanden ist. Dieses Repository ist ein guter Ausgangspunkt, um ein Verständnis dafür zu entwickeln, wie Sie verschiedene Arten von Umgebungen in Azure Stack bereitstellen können.
 
 >[!IMPORTANT]
 > Einige dieser Vorlagen wurden von Mitgliedern der Community und nicht von Microsoft erstellt. Jede Vorlage wird von dessen Besitzer, nicht von Microsoft, unter einem Lizenzvertrag lizenziert. Microsoft ist für diese Vorlagen nicht verantwortlich und führt dafür keine Tests in Bezug auf die Sicherheit, Kompatibilität oder Leistung durch. Vorlagen aus der Community werden von keinem Microsoft-Supportprogramm oder -Dienst unterstützt und „wie besehen“ ohne jegliche Gewährleistung zur Verfügung gestellt.

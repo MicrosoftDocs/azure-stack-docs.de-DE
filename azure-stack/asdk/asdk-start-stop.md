@@ -16,15 +16,15 @@ ms.date: 07/18/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 5232b1087414d6e7149157063a253b18a6b6e13a
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: b33ae5ce88cf05fb73e2519f7f697fca90f7f8bc
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025809"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824757"
 ---
 # <a name="start-and-stop-the-asdk"></a>Starten und Beenden des ASDK
-Es wird nicht empfohlen, den ASDK-Hostcomputer einfach neu zu starten. Stattdessen sollten Sie die Verfahren in diesem Artikel befolgen, um ASDK-Dienste ordnungsgemäß herunterzufahren und neu zu starten.
+Es wird nicht empfohlen, den ASDK-Hostcomputer einfach neu zu starten. Befolgen Sie stattdessen die Verfahren in diesem Artikel, um ASDK-Dienste ordnungsgemäß herunterzufahren und neu zu starten.
 
 ## <a name="stop-azure-stack"></a>Beenden von Azure Stack 
 Um Azure Stack-Dienste und den ASDK-Hostcomputer ordnungsgemäß herunterzufahren, verwenden Sie die folgenden PowerShell-Befehle:
@@ -66,7 +66,7 @@ Unabhängig davon, wie das ASDK heruntergefahren wurde, sollten Sie die folgende
 Weitere Informationen zu den empfohlenen Verfahren zum ordnungsgemäßen Herunterfahren und Neustarten von Azure Stack-Diensten finden Sie unter [Starten und Beenden von Azure Stack](../operator/azure-stack-start-and-stop.md).
 
 ## <a name="troubleshoot-startup-and-shutdown"></a>Behandeln von Problemen beim Starten und Herunterfahren 
-Führen Sie diese Schritte aus, wenn die Azure Stack-Dienste nicht innerhalb von zwei Stunden nach Einschalten des ASDK-Hostcomputers erfolgreich gestartet werden:
+Führen Sie diese Schritte aus, wenn die Azure Stack-Dienste nicht innerhalb von zwei Stunden nach Einschalten des ASDK-Hostcomputers erfolgreich gestartet werden:
 
 1. Melden Sie sich auf dem ASDK-Hostcomputer als „AzureStack\AzureStackAdmin“ an.
 2. Öffnen Sie PowerShell als Administrator (nicht PowerShell ISE).
@@ -90,4 +90,4 @@ Führen Sie diese Schritte aus, wenn die Azure Stack-Dienste nicht innerhalb von
 Wenn die Ausführung von **Start-AzureStack** zu einem Fehler führt, besuchen Sie das [Azure Stack Support-Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack), um Unterstützung bei der ASDK-Problembehandlung zu erhalten. 
 
 ## <a name="next-steps"></a>Nächste Schritte 
-Weitere Informationen zu Azure Stack-Diagnosetools und zur Protokollierung von Problemen finden Sie unter [Azure Stack-Diagnosetools](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
+Weitere Informationen zu Azure Stack-Diagnosetools und zur Protokollierung von Problemen finden Sie unter [Azure Stack-Diagnosetools](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack-Diagnoseprotokolle jetzt sammeln | Microsoft-Dokumentation
-description: Konfigurieren der bedarfsgesteuerten Sammlung von Diagnoseprotokollen in Azure Stack – Hilfe und Support.
+title: Bedarfsgesteuertes Sammeln von Azure Stack-Diagnoseprotokollen | Microsoft-Dokumentation
+description: Es wird beschrieben, wie Sie in Azure Stack Diagnoseprotokolle bedarfsgesteuert sammeln, indem Sie „Hilfe und Support“ oder einen privilegierten Endpunkt (PEP) verwenden.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,20 +16,20 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 007703facf882eccd594dfb6f78941570c9cfb02
-ms.sourcegitcommit: 8de4c18b25bd1047fc270812a795f24e8f1e9244
+ms.openlocfilehash: 9d8510c121c424c3c66fd179639256e8834e932e
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68865906"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829063"
 ---
-# <a name="collect-azure-stack-diagnostic-logs-now-on-demand"></a>Azure Stack-Diagnoseprotokolle jetzt sammeln (bedarfsgesteuert)
+# <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>Bedarfsgesteuertes Sammeln von Azure Stack-Diagnoseprotokollen
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme*
 
-Im Rahmen der Problembehandlung muss der Microsoft-Kundensupport (Customer Support Services, CSS) möglicherweise Diagnoseprotokolle analysieren. Ab Version 1907 können Azure Stack-Operatoren bei Bedarf Diagnoseprotokolle mithilfe von **Hilfe und Support** in einen Blobcontainer in Azure hochladen. Wenn das Portal nicht verfügbar ist, können Operatoren Protokolle alternativ mithilfe von „Get-AzureStackLog“ über den privilegierten Endpunkt (PEP) erfassen. In diesem Thema werden beide Verfahren zum Sammeln von Diagnoseprotokollen bei Bedarf behandelt.
+Im Rahmen der Problembehandlung muss der Microsoft-Kundensupport (Customer Support Services, CSS) möglicherweise Diagnoseprotokolle analysieren. Ab Version 1907 können Azure Stack-Operatoren bei Bedarf Diagnoseprotokolle mithilfe von **Hilfe und Support** in einen Blobcontainer in Azure hochladen. Wenn das Portal nicht verfügbar ist, können Operatoren Protokolle alternativ mithilfe von „Get-AzureStackLog“ über den privilegierten Endpunkt (PEP) erfassen. In diesem Thema werden beide Verfahren zum bedarfsgesteuerten Sammeln von Diagnoseprotokollen behandelt.
 
-## <a name="using-help-and-support"></a>Mithilfe von Hilfe und Support
+## <a name="use-help-and-support-to-collect-diagnostic-logs"></a>Verwenden von „Hilfe und Support“ zum Sammeln von Diagnoseprotokollen
 
 Zur Behandlung eines Problems fordert CSS einen Azure Stack-Operator möglicherweise auf, bei Bedarf Diagnoseprotokolle für ein bestimmtes Zeitfenster aus der vorangegangenen Woche zu erfassen. In diesem Fall stellt CSS dem Operator eine SAS-URL zum Hochladen der Sammlung zur Verfügung. Führen Sie die folgenden Schritte aus, um die bedarfsgesteuerte Protokollsammlung mithilfe der SAS-URL von CSS zu konfigurieren:
 
@@ -43,17 +43,17 @@ Zur Behandlung eines Problems fordert CSS einen Azure Stack-Operator möglicherw
 >[!NOTE]
 >Wenn die automatische Diagnoseprotokollsammlung aktiviert ist, wird es in **Hilfe und Support** angezeigt, wenn die Protokollsammlung erfolgt. Wenn Sie auf **Jetzt Protokolle sammeln** klicken, um Protokolle eines bestimmten Zeitfensters zu erfassen, während die automatische Protokollsammlung ausgeführt wird, beginnt die bedarfsgesteuerte Protokollsammlung nach dem Abschluss der automatischen Protokollsammlung. 
 
-## <a name="using-pep"></a>Mithilfe von PEP
+## <a name="using-pep-to-collect-diagnostic-logs"></a>Verwenden eines PEP zum Sammeln von Diagnoseprotokollen
 
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
 
 Die Azure Stack-Diagnosetools helfen dabei, die Erfassung von Protokollen einfach und effizient zu machen. Im folgenden Diagramm ist dargestellt, wie die Diagnosetools funktionieren:
 
-![Azure Stack-Diagnosetools](media/azure-stack-diagnostics/get-azslogs.png)
+![Azure Stack-Diagnosetools: Workflowdiagramm](media/azure-stack-diagnostics/get-azslogs.png)
 
 ### <a name="trace-collector"></a>Collector der Ablaufverfolgung
 
-Der Collector der Ablaufverfolgung ist standardmäßig aktiviert und wird dauerhaft im Hintergrund ausgeführt, um alle ETW-Protokolle (Ereignisablaufverfolgung für Windows) von Azure Stack-Komponentendiensten zu sammeln. ETW-Protokolle werden für fünf Tage in einer gemeinsamen lokalen Freigabe gespeichert. Nachdem dieser Grenzwert erreicht wurde, werden die ältesten Dateien gelöscht, wenn neue Dateien erstellt werden. Die maximal zulässige Standardgröße pro Datei beträgt 200 MB. Die Größe wird alle zwei Minuten überprüft. Ab einer Größe von 200 MB wird die aktuelle Datei gespeichert und eine neue Datei generiert. Für die Gesamtdateigröße, die pro Ereignissitzung generiert werden kann, gilt außerdem eine Obergrenze von 8 GB.
+Der Collector der Ablaufverfolgung ist standardmäßig aktiviert und wird dauerhaft im Hintergrund ausgeführt, um alle ETW-Protokolle (Ereignisablaufverfolgung für Windows) von Azure Stack-Komponentendiensten zu sammeln. ETW-Protokolle werden maximal fünf Tage lang auf einer gemeinsam genutzten lokalen Freigabe gespeichert. Nachdem dieser Grenzwert erreicht wurde, werden die ältesten Dateien gelöscht, wenn neue Dateien erstellt werden. Die maximal zulässige Standardgröße pro Datei beträgt 200 MB. Die Größe wird alle zwei Minuten überprüft. Ab einer Größe von 200 MB wird die aktuelle Datei gespeichert und eine neue Datei generiert. Für die Gesamtdateigröße, die pro Ereignissitzung generiert werden kann, gilt außerdem eine Obergrenze von 8 GB.
 
 ### <a name="get-azurestacklog"></a>Get-AzureStackLog
 
@@ -75,7 +75,7 @@ Diese Dateien werden vom Collector der Ablaufverfolgung gesammelt und in einer F
 
 #### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>So führen Sie „Get-AzureStackLog“ in integrierten Azure Stack-Systemen aus
 
-Um „Get-AzureStackLog“ auf einem integrierten System auszuführen, benötigen Sie Zugriff auf den privilegierten Endpunkt (PEP). Das folgende Beispielskript können Sie mit dem PEP ausführen, um Protokolle in einem integrierten System zu sammeln:
+Um „Get-AzureStackLog“ auf einem integrierten System auszuführen, benötigen Sie Zugriff auf den privilegierten Endpunkt (PEP). Das folgende Beispielskript können Sie mit dem PEP ausführen, um Protokolldaten in einem integrierten System zu erfassen:
 
 ```powershell
 $ipAddress = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
@@ -148,12 +148,12 @@ Verwenden Sie diese Schritte zum Ausführen von `Get-AzureStackLog` auf einem AS
 
   Um das SAS-Token für das Speicherkonto zu generieren, sind folgende Berechtigungen erforderlich:
 
-  * Zugriff auf Azure Blob Storage-Dienst
+  * Zugriff auf den Blob Storage-Dienst
   * Zugriff auf den Containerressourcentyp
 
-  Um einen SAS-URI-Wert für den Parameter `-OutputSasUri` verwendet zu generieren, führen Sie die folgenden Schritte aus:
+  Führen Sie diese Schritte aus, um einen SAS-URI-Wert für den Parameter `-OutputSasUri` zu generieren:
 
-  1. Erstellen Sie ein Speicherkonto, indem Sie den Schritten [in diesem Artikel](/azure/storage/common/storage-quickstart-create-account) ausführen.
+  1. Erstellen Sie ein Speicherkonto, indem Sie die Schritte in [diesem Artikel](/azure/storage/common/storage-quickstart-create-account) ausführen.
   2. Öffnen Sie eine Instanz des Azure Storage-Explorers.
   3. Stellen Sie eine Verbindung mit dem in Schritt 1 erstellten Speicherkonto her.
   4. Navigieren Sie zu **Blobcontainer** in **Speicherdienste**.
@@ -162,7 +162,7 @@ Verwenden Sie diese Schritte zum Ausführen von `Get-AzureStackLog` auf einem AS
   7. Wählen Sie eine gültige **Startzeit** und **Endzeit** entsprechend Ihren Anforderungen aus.
   8. Wählen Sie die erforderlichen Berechtigungen **Lesen**, **Schreiben** und **Auflisten** aus.
   9. Klicken Sie auf **Erstellen**.
-  10. Sie erhalten eine Shared Access Signature. Kopieren Sie den URL-Teil, und übergeben Sie ihn an den `-OutputSasUri`-Parameter.
+  10. Sie erhalten eine Shared Access Signature. Kopieren Sie den URL-Teil, und übergeben Sie ihn an den Parameter `-OutputSasUri`.
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Überlegungen zu den Parametern für das ASDK und integrierte Systeme
 
@@ -182,7 +182,7 @@ Verwenden Sie diese Schritte zum Ausführen von `Get-AzureStackLog` auf einem AS
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByLogType File
     ```
 
-* Sie können den **TimeOutInMinutes**-Parameter verwenden, um das Timeout für die Sammlung von Protokollen festzulegen. Es ist standardmäßig auf 150 (2,5 Stunden) festgelegt.
+* Sie können den **TimeOutInMinutes**-Parameter verwenden, um das Timeout für die Sammlung von Protokollen festzulegen. Er ist standardmäßig auf 150 (2,5 Stunden) festgelegt.
 * Die Protokollsammlung für Dumpdateien ist standardmäßig deaktiviert. Sie können sie mithilfe des Switch-Parameters **IncludeDumpFile** aktivieren.
 * Derzeit können Sie den **FilterByRole**-Parameter verwenden, um die Protokollsammlung nach den folgenden Rollen zu filtern:
 
@@ -195,7 +195,7 @@ Verwenden Sie diese Schritte zum Ausführen von `Get-AzureStackLog` auf einem AS
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
   |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
   |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
-  |ACSMonitoringService  |Domäne                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
+  |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
   |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB                       |         |
   |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
   |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP                       |         |
@@ -209,11 +209,11 @@ Verwenden Sie diese Schritte zum Ausführen von `Get-AzureStackLog` auf einem AS
   |BRP                   |HintingServiceV2               |NRP                            |UsageBridge               |         |
   |   |   |   |    |     | 
 
-### <a name="additional-considerations"></a>Zusätzliche Überlegungen
+### <a name="additional-considerations-on-diagnostic-logs"></a>Weitere Aspekte zu Diagnoseprotokollen
 
 * Je nachdem, welche Rollen in den Protokollen gesammelt werden, kann dieser Befehl mehr Zeit beanspruchen. Zu den entscheidenden Faktoren gehören auch der Zeitraum, der für die Protokollsammlung angegeben wurde, und die Anzahl von Knoten in der Azure Stack-Umgebung.
 * Überprüfen Sie während der Protokollsammlung den neuen Ordner, der mit dem **OutputSharePath**-Parameter des Befehls erstellt wird.
-* Für jede Rolle sind die Protokolle in separaten ZIP-Dateien enthalten. Abhängig von der Größe der gesammelten Protokolle kann das Protokoll einer Rolle möglicherweise in mehrere ZIP-Dateien aufgeteilt werden. Wenn Sie alle Protokolldateien in denselben Ordner entzippen möchten, verwenden Sie für eine solche Rolle ein Tool, das den Entzipvorgang in einer Sammeloperation durchführen kann. Wählen Sie alle ZIP-Dateien für die Rolle und dann **Hier entpacken** aus. Damit werden die Protokolldateien für diese Rolle in einem zusammengeführten Ordner entzippt.
+* Für jede Rolle sind die Protokolle in separaten ZIP-Dateien enthalten. Abhängig von der Größe der gesammelten Protokolle kann das Protokoll einer Rolle möglicherweise in mehrere ZIP-Dateien aufgeteilt werden. Gehen Sie für eine Rolle dieser Art wie folgt vor, wenn Sie alle Protokolldateien in demselben Ordner entzippen möchten: Verwenden Sie ein Tool, mit dem das Entzippen als Massenvorgang durchgeführt werden kann. Wählen Sie alle ZIP-Dateien für die Rolle und dann **Hier entpacken** aus. Alle Protokolldateien für diese Rolle werden in einen einzelnen zusammengeführten Ordner entzippt.
 * Eine Datei namens **Get-AzureStackLog_Output.log** wird ebenfalls in dem Ordner mit den gezippten Protokolldateien erstellt. Diese Datei ist ein Protokoll der Befehlsausgabe, die Sie zum Beheben von Problemen während der Protokollsammlung verwenden können. In einigen Fällen enthält die Protokolldatei `PS>TerminatingError`-Einträge, die ignoriert werden können, es sei denn, nach der Protokollsammlung fehlen erwartete Protokolldateien.
 * Zum Untersuchen eines bestimmten Fehlers werden unter Umständen die Protokolle von mehr als einer Komponente benötigt.
 
@@ -223,11 +223,11 @@ Verwenden Sie diese Schritte zum Ausführen von `Get-AzureStackLog` auf einem AS
   * ACS-Protokolle werden unter den Rollen **Storage** und **ACS** gesammelt.
 
 > [!NOTE]
-> Größen- und Altersgrenzwerte für die gesammelten Protokolle werden erzwungen, da es sehr wichtig ist, für eine effiziente Nutzung Ihres Speicherplatzes zu sorgen. So wird sichergestellt, dass keine übermäßig hohe Anzahl von Protokollen gespeichert wird. Allerdings werden beim Diagnostizieren von Problemen manchmal Protokolle benötigt, die aufgrund dieser Grenzwerte möglicherweise nicht mehr vorhanden sind. Daher wird **dringend empfohlen**, Ihre Protokolle alle acht bis zwölf Stunden in einen externen Speicher zu verlagern (Speicherkonto in Azure, zusätzliches lokales Speichergerät oder Ähnliches) und je nach Ihren Anforderungen dort einen bis drei Monate lang aufzubewahren. Stellen Sie außerdem sicher, dass der Speicherort verschlüsselt ist.
+> Größen- und Altersgrenzwerte für die gesammelten Protokolle werden erzwungen, da es sehr wichtig ist, für eine effiziente Nutzung Ihres Speicherplatzes zu sorgen und eine übermäßig hohe Anzahl von Protokollen zu verhindern. Allerdings werden beim Diagnostizieren von Problemen manchmal Protokolle benötigt, die aufgrund dieser Grenzwerte nicht mehr vorhanden sind. Daher empfehlen wir Ihnen**dringend**, Ihre Protokolle alle acht bis zwölf Stunden in einen externen Speicher zu verlagern (Speicherkonto in Azure, zusätzliches lokales Speichergerät oder Ähnliches) und je nach Ihren Anforderungen darin einen bis drei Monate lang aufzubewahren. Außerdem sollten Sie sicherstellen, dass der Speicherort verschlüsselt ist.
 
 ### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
 
-Sie können das Cmdlet **Invoke-AzureStackOnDemandLog** verwenden, um bedarfsgesteuerte Protokolle für bestimmte Rollen zu generieren (siehe Liste am Ende dieses Abschnitts). Die von diesem Cmdlet generierten Protokolle sind standardmäßig nicht im Protokollpaket enthalten, das Sie beim Ausführen des Cmdlets **Get-AzureStackLog** erhalten. Es wird außerdem empfohlen, diese Protokolle nur auf Anforderung des Microsoft-Supportteams zu erfassen.
+Sie können das Cmdlet **Invoke-AzureStackOnDemandLog** verwenden, um bedarfsgesteuerte Protokolle für bestimmte Rollen zu generieren (siehe Liste am Ende dieses Abschnitts). Die von diesem Cmdlet generierten Protokolle sind standardmäßig nicht im Protokollpaket enthalten, das Sie beim Ausführen des Cmdlets **Get-AzureStackLog** erhalten. Außerdem empfehlen wir Ihnen, diese Protokolle nur auf Anforderung des Microsoft-Supportteams zu erfassen.
 
 Derzeit können Sie den Parameter `-FilterByRole` verwenden, um die Protokollsammlung nach den folgenden Rollen zu filtern:
 
@@ -236,7 +236,7 @@ Derzeit können Sie den Parameter `-FilterByRole` verwenden, um die Protokollsam
 * SLB
 * Gateway
 
-#### <a name="example-of-collecting-on-demand-logs"></a>Beispiel für das Erfassen von bedarfsgesteuerten Protokollen
+#### <a name="example-of-collecting-on-demand-diagnostic-logs"></a>Beispiel für das Sammeln von bedarfsgesteuerten Diagnoseprotokollen
 
 ```powershell
 $ipAddress = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.

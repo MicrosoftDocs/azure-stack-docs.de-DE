@@ -15,16 +15,16 @@ ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 68bf47ab2a0842b0aeeae07030272e7106a63220
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 3548574ce8ece470c67101d42b115dbafe2c9a1c
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494115"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829217"
 ---
 # <a name="usage-connectivity-errors"></a>Verbindungsfehler bei der Nutzung
 
-Azure Stack-Nutzungsdaten werden von der [*Azure-Bridge*-Komponente](azure-stack-usage-reporting.md) in Azure Stack an Azure gesendet. Wenn die Bridge innerhalb von Azure Stack keine Verbindung mit dem Azure-Nutzungsdienst herstellen kann, wird folgender Fehler angezeigt:
+Azure Stack-Nutzungsdaten werden von der [*Azure-Bridge*-Komponente](azure-stack-usage-reporting.md) in Azure Stack an Azure gesendet. Wenn die Bridge innerhalb von Azure Stack keine Verbindung mit dem Azure-Nutzungsdienst herstellen kann, wird der folgende Fehler angezeigt:
 
 ![Bridge-Nutzungsfehler](media/azure-stack-usage-issues/usageerror2.png)
 
@@ -38,7 +38,7 @@ Führen Sie die folgenden Schritte aus, um das Problem zu beheben:
 
 - Stellen Sie sicher, dass die Netzwerkkonfiguration der Azure-Bridge das Verbinden mit dem Remotedienst gestattet.
 
-- Wechseln Sie zum Blatt [**Regionsverwaltung** > **Eigenschaften** ](azure-stack-registration.md#verify-azure-stack-registration), um die für die Registrierung verwendete Azure-Abonnement-ID, die Ressourcengruppe und den Namen der Registrierungsressource herauszufinden. Stellen Sie sicher, dass die Registrierungsressource unter der richtigen Azure-Abonnement-ID im Azure-Portal vorhanden ist. Zu diesem Zweck wechseln Sie zu **Alle Ressourcen**, erstellt unter der Azure-Abonnement-ID, und aktivieren Sie das Feld **Ausgeblendete Typen anzeigen**. Wenn Sie die Registrierungsressource nicht finden können, befolgen Sie die Schritte in [Erneuern oder Ändern der Registrierung](azure-stack-registration.md#renew-or-change-registration), um Ihr Azure Stack erneut zu registrieren.
+- Wechseln Sie zum Blatt [**Regionsverwaltung** > **Eigenschaften** ](azure-stack-registration.md#verify-azure-stack-registration), um die für die Registrierung verwendete Azure-Abonnement-ID, die Ressourcengruppe und den Namen der Registrierungsressource herauszufinden. Stellen Sie sicher, dass die Registrierungsressource unter der richtigen Azure-Abonnement-ID im Azure-Portal vorhanden ist. Zu diesem Zweck wechseln Sie zu **Alle Ressourcen**, erstellt unter der Azure-Abonnement-ID, und aktivieren Sie das Feld **Ausgeblendete Typen anzeigen**. Wenn Sie die Registrierungsressource nicht finden können, sollten Sie die Schritte unter [Erneuern oder Ändern der Registrierung](azure-stack-registration.md#renew-or-change-registration) ausführen, um Ihre Azure Stack-Instanz erneut zu registrieren.
 
   ![Portal](media/azure-stack-usage-issues/stackres.png)
 
@@ -55,7 +55,7 @@ In diesem Abschnitt werden die Nutzungsfehlercodes beschrieben.
 | Nicht autorisiert               | Die Azure-Bridge kann keine Daten per Push an den Nutzungsdienst in Azure übertragen, weil der Azure-Dienst die Azure Stack-Bridge nicht authentifizieren kann. | Überprüfen Sie, ob die Registrierungsressource geändert wurde, und wenn dies der Fall ist, registrieren Sie Azure Stack erneut. <br><br> Manchmal kann ein Zeitsynchronisierungsproblem zwischen Azure Stack und Azure AD diesen Fehler verursachen. Stellen Sie in diesem Fall sicher, dass die Zeiten auf den XRP-VMs in Azure Stack mit Azure AD synchronisiert sind. |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
-Zusätzlich müssen Sie eventuell die Protokolldateien für die Azure-Bridge-, WAS- und WASPublic-Komponenten bereitstellen, indem Sie gemäß [diesen Schritten](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep) vorgehen.
+Zusätzlich müssen Sie eventuell die Protokolldateien für die Azure-Bridge-, WAS- und WASPublic-Komponenten bereitstellen, indem Sie gemäß [diesen Schritten](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) vorgehen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

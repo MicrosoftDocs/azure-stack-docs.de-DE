@@ -11,26 +11,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: efa8dda8061ce81d751e9cce47c5e81a3917f2bf
-ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
+ms.openlocfilehash: 9d86f7e68b2e96eb4a22f9896ff65a4ed6b96f92
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67138841"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714745"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-key-vault"></a>Speichern von Dienstprinzipal-Anmeldeinformationen in Azure Stack Key Vault
 
 Zum Entwickeln von Apps in Azure Stack muss normalerweise ein Dienstprinzipal erstellt werden, mit dessen Anmeldeinformationen vor der Bereitstellung eine Authentifizierung durchgeführt wird. Manchmal gehen jedoch die gespeicherten Anmeldeinformationen für den Dienstprinzipal verloren. Dieser Artikel beschreibt das Erstellen eines Dienstprinzipals und das Speichern der Werte für den späteren Abruf in Azure Key Vault.
 
-Weitere Informationen zu Key Vault finden Sie in [diesem Artikel](azure-stack-key-vault-intro.md).
+Weitere Informationen zu Key Vault finden Sie unter [Einführung in Key Vault in Azure Stack](azure-stack-key-vault-intro.md).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - Ein Abonnement eines Angebots, das den Azure Key Vault-Dienst enthält
-- Konfiguration von PowerShell für die Verwendung mit Azure Stack
+- PowerShell ist installiert und für die Verwendung mit Azure Stack konfiguriert.
 
 ## <a name="key-vault-in-azure-stack"></a>Key Vault in Azure Stack
 
@@ -86,7 +86,7 @@ Gehen Sie folgendermaßen vor, um einen Schlüsseltresor zu erstellen:
 
 3. Wählen Sie im Bereich **Geheimnis erstellen** in der Liste der Optionen **Manuell** aus. Wenn Sie den Dienstprinzipal mithilfe von Zertifikaten erstellt haben, wählen Sie die Zertifikate aus der Dropdownliste aus, und laden Sie dann die Datei hoch.
 
-4. Geben Sie als Namen für Ihren Schlüssel die **Anwendungs-ID** ein, die Sie vom Dienstprinzipal kopiert haben. Schlüsselnamen dürfen nur alphanumerische Zeichen und Bindestriche (-) enthalten.
+4. Geben Sie als Namen für Ihren Schlüssel die **Anwendungs-ID** ein, die Sie aus dem Dienstprinzipal kopiert haben. Schlüsselnamen dürfen nur alphanumerische Zeichen und Bindestriche (-) enthalten.
 
 5. Fügen Sie den Wert des Schlüssels vom Dienstprinzipal auf der Registerkarte **Wert** ein.
 
@@ -96,7 +96,7 @@ Gehen Sie folgendermaßen vor, um einen Schlüsseltresor zu erstellen:
 
 8. Wählen Sie **Erstellen** aus, um die Bereitstellung zu starten.
 
-Nach dem erfolgreichen Erstellen des Geheimnisses werden die Dienstprinzipalinformationen dort gespeichert. Sie können es jederzeit unter **Geheimnisse** auswählen und seine Eigenschaften anzeigen oder ändern. Der Abschnitt „Eigenschaften“ enthält den Geheimnisbezeichner. Hierbei handelt es sich um einen URI (Uniform Resource Identifier), über den externe Apps auf dieses Geheimnis zugreifen.
+Nach dem erfolgreichen Erstellen des Geheimnisses werden die Dienstprinzipalinformationen dort gespeichert. Sie können sie jederzeit unter **Geheimnisse** auswählen und die Eigenschaften anzeigen oder ändern. Der Abschnitt **Eigenschaften** enthält die Geheimnis-ID. Hierbei handelt es sich um einen URI (Uniform Resource Identifier), über den externe Apps auf dieses Geheimnis zugreifen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

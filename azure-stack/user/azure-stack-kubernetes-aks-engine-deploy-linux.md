@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/27/2019
-ms.openlocfilehash: d831f5ad30fe2c7e2b4c2ce5d6a9018f8cc833fb
-ms.sourcegitcommit: 036d4b22a8076ca9ba5c667a451c544d88f8bb94
+ms.lastreviewed: 10/09/2019
+ms.openlocfilehash: 3debcd152a54fd3a0b940ad3dd4d379c6688faec
+ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71681717"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037963"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>Installieren der AKS-Engine in Linux in Azure Stack
 
@@ -43,13 +43,13 @@ Sie können die Client-VM installieren, um Ihren Kubernetes-Cluster in einer mit
 
 1. Erstellen Sie eine Linux-VM in ihrer Azure Stack-Instanz. Anweisungen finden Sie unter [Schnellstart: Erstellen Sie einen virtuellen Linux-Server mit dem Azure Stack-Portal](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
 2. Stellen Sie eine Verbindung mit ihrer VM her.
-3. Suchen Sie die Version der AKS-Engine in der Tabelle [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) (Unterstützte Kubernetes-Versionen). Die AKS-Basis-Engine muss in Ihrem Azure Stack-Marketplace verfügbar sein. Beim Ausführen des Befehls müssen Sie die Version `--version v0.40.1` angeben. Wenn Sie die Version nicht angeben, installiert der Befehl die neueste Version, die möglicherweise ein VHD-Image erfordert, das in Ihrem Marketplace nicht verfügbar ist.
+3. Suchen Sie die Version der AKS-Engine in der Tabelle [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) (Unterstützte Kubernetes-Versionen). Die AKS-Basis-Engine muss in Ihrem Azure Stack-Marketplace verfügbar sein. Beim Ausführen des Befehls müssen Sie die Version `--version v0.41.2` angeben. Wenn Sie die Version nicht angeben, installiert der Befehl die neueste Version, die möglicherweise ein VHD-Image erfordert, das in Ihrem Marketplace nicht verfügbar ist.
 4. Führen Sie den folgenden Befehl aus:
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.40.1
+        ./get-akse.sh --version v0.41.2
     ```
 
     > [!Note]  

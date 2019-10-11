@@ -16,12 +16,12 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d054f4ad45f27994c7ef6fc5e52f07eb1fa7f761
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: eca886314388f404e7a26a22f7a3b03294ff0577
+ms.sourcegitcommit: 5e53eb5d43d28ab07b4f84891dd269bbfcf65622
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974634"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71311306"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Bewährte SQL Server-Methoden zum Optimieren der Leistung in Azure Stack
 
@@ -98,12 +98,12 @@ Es empfiehlt sich, TempDB auf einem Datenträger für Daten zu speichern, da jed
 
 ### <a name="data-disks"></a>Datenträger
 
-- **Verwenden von Datenträgern für Daten- und Protokolldateien:** Wenn Sie kein Datenträgerstriping nutzen, sollten Sie zwei Datenträger einer VM verwenden, die Storage Premium unterstützt. Dabei enthält ein Datenträger die Protokolldateien und der andere die Daten- und TempDB-Dateien. Jeder Datenträger bietet abhängig von der VM-Familie bestimmte IOPS- und Bandbreitenwerte (MBit/s), wie unter [In Azure Stack unterstützte VM-Größen](azure-stack-vm-sizes.md) beschrieben. Wenn Sie eine Datenträgerstriping-Technik (beispielsweise Speicherplätze) verwenden, speichern Sie alle Daten- und Protokolldateien auf demselben Laufwerk (einschließlich TempDB). Diese Konfiguration ermöglicht die für SQL Server maximal verfügbare Anzahl von IOPS, unabhängig davon, welche Datei diese zu einem bestimmten Zeitpunkt nutzt.
+- **Verwenden von Datenträgern für Daten- und Protokolldateien:** Wenn Sie kein Datenträgerstriping nutzen, sollten Sie zwei Datenträger einer VM verwenden, die Storage Premium unterstützt. Dabei enthält ein Datenträger die Protokolldateien und der andere die Daten- und TempDB-Dateien. Jeder Datenträger bietet abhängig von der VM-Familie bestimmte IOPS-Werte, wie unter [In Azure Stack unterstützte VM-Größen](azure-stack-vm-sizes.md) beschrieben. Wenn Sie eine Datenträgerstriping-Technik (beispielsweise Speicherplätze) verwenden, speichern Sie alle Daten- und Protokolldateien auf demselben Laufwerk (einschließlich TempDB). Diese Konfiguration ermöglicht die für SQL Server maximal verfügbare Anzahl von IOPS, unabhängig davon, welche Datei diese zu einem bestimmten Zeitpunkt nutzt.
 
 > [!NOTE]  
 > Beim Bereitstellen einer SQL Server-VM im Portal haben Sie die Möglichkeit, Ihre Speicherkonfiguration zu bearbeiten. Je nach Konfiguration werden in Azure Stack ein oder mehrere Datenträger konfiguriert. Mehrere Datenträger werden in einem einzelnen Speicherpool zusammengefasst. Daten- und Protokolldateien befinden sich in dieser Konfiguration zusammen.
 
-- **Datenträgerstriping:** Für einen höheren Durchsatz können Sie zusätzliche Datenträger für Daten hinzufügen und Datenträgerstriping verwenden. Um die Anzahl der Datenträger zu ermitteln, müssen Sie die Anzahl der IOPS und die Bandbreite analysieren, die für die Protokolldateien und für Ihre Daten und die TempDB-Dateien erforderlich sind. Beachten Sie, dass IOPS-Grenzwerte pro Datenträger basierend auf der Serie der VM-Familie gelten – nicht basierend auf der VM-Größe. Limits für die Netzwerkbandbreite basieren dagegen auf der VM-Größe. Weitere Details finden Sie in den Tabellen unter [In Azure Stack unterstützte VM-Größen](azure-stack-vm-sizes.md). Verwenden Sie die folgenden Richtlinien:
+- **Datenträgerstriping:** Für einen höheren Durchsatz können Sie zusätzliche Datenträger für Daten hinzufügen und Datenträgerstriping verwenden. Um die Anzahl der benötigten Datenträger zu ermitteln, müssen Sie die Anzahl der IOPS analysieren, die für die Protokolldateien, Ihre Daten und die TempDB-Dateien erforderlich sind. Beachten Sie, dass IOPS-Grenzwerte pro Datenträger basierend auf der Serie der VM-Familie gelten – nicht basierend auf der VM-Größe. Limits für die Netzwerkbandbreite basieren dagegen auf der VM-Größe. Weitere Details finden Sie in den Tabellen unter [In Azure Stack unterstützte VM-Größen](azure-stack-vm-sizes.md). Verwenden Sie die folgenden Richtlinien:
 
   - Verwenden Sie [Speicherplätze](https://technet.microsoft.com/library/hh831739.aspx) für Windows 2012 und höher entsprechend den folgenden Richtlinien:
 
