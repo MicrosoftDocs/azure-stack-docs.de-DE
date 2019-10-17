@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 05/14/2019
-ms.openlocfilehash: 7c84a9cb841f06887d09a650d277566fb9ff18ed
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: 060258b07e3eef385298600794a6dd8154a461fc
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070178"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283427"
 ---
 # <a name="azure-stack-overview"></a>Übersicht über Azure Stack
 
@@ -92,7 +92,7 @@ Sie können Azure Stack über das Verwaltungsportal, das Benutzerportal oder mit
 
 Als Azure Stack-Bediener können Sie eine Vielzahl von Diensten und Anwendungen bereitstellen, z. B. [VMs](azure-stack-tutorial-tenant-vm.md), [Webanwendungen](azure-stack-app-service-overview.md) sowie hochverfügbare [SQL Server](azure-stack-tutorial-sql.md)-Datenbanken und [MySQL](azure-stack-tutorial-mysql.md)-Serverdatenbanken. Sie können auch [Azure Resource Manager-Schnellstartvorlagen für Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) zum Bereitstellen von SharePoint, Exchange usw. verwenden. 
 
-Das Verwaltungsportal ermöglicht Ihnen das [Konfigurieren von Azure Stack zur Bereitstellung von Diensten](azure-stack-plan-offer-quota-overview.md) für Mandanten (mit Plänen, Angeboten, Kontingenten und Abonnements). Mandantenbenutzer können mehrere Angebote abonnieren. Angebote können einen oder mehrere Pläne enthalten und die Pläne wiederum einen oder mehrere Dienste. Betreiber können auch die Kapazität verwalten und auf Warnungen reagieren. 
+Das Verwaltungsportal ermöglicht Ihnen das [Konfigurieren von Azure Stack zur Bereitstellung von Diensten](service-plan-offer-subscription-overview.md) für Mandanten (mit Plänen, Angeboten, Kontingenten und Abonnements). Mandantenbenutzer können mehrere Angebote abonnieren. Angebote können einen oder mehrere Pläne enthalten und die Pläne wiederum einen oder mehrere Dienste. Betreiber können auch die Kapazität verwalten und auf Warnungen reagieren. 
 
 Wenn Azure Stack konfiguriert ist, nutzt ein **Azure Stack-Benutzer** (auch als „Mandant“ bezeichnet) Dienste, die der Bediener anbietet. Benutzer können Dienste, die sie abonniert haben – z.B. Web-Apps, Speicher und virtuelle Computer – bereitstellen, überwachen und verwalten.
 

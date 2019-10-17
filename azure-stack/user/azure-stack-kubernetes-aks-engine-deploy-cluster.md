@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/27/2019
-ms.openlocfilehash: 0cccd93ca24f2e93717bfbbd6ec05137d91f5bd0
-ms.sourcegitcommit: 036d4b22a8076ca9ba5c667a451c544d88f8bb94
+ms.lastreviewed: 10/10/2019
+ms.openlocfilehash: 7ca248ace5020546fe9d25b9e1e731f7e70275d6
+ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71681821"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72381394"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack
 
@@ -170,19 +170,14 @@ Fahren Sie mit der Bereitstellung eines Clusters fort:
 
     ```bash
     sudo snap install helm –classic
+    kubectl -n kube-system create serviceaccount tiller
+    kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+    helm init --service-account=tiller
     helm repo update
     helm install stable/mysql
     ```
 
-5. Wenn Sie nach dem Versuch, `install stable/mysql` auszuführen, eine Fehlermeldung wie `Error: incompatible versions client[v2.XX.X] server[v2.YY.Y]` erhalten, gehen Sie wie folgt vor: Führen Sie die folgenden Befehle aus:
-
-    ```bash 
-    helm init --force-upgrade
-    and retry:
-    helm install stable/mysql
-    ```
-
-6.  Um den Test zu bereinigen, suchen Sie den Namen, der für die MySQL-Bereitstellung verwendet wird. Im folgenden Beispiel lautet der Name `wintering-rodent`. Löschen Sie ihn dann. 
+5.  Um den Test zu bereinigen, suchen Sie den Namen, der für die MySQL-Bereitstellung verwendet wird. Im folgenden Beispiel lautet der Name `wintering-rodent`. Löschen Sie ihn dann. 
 
     Führen Sie die folgenden Befehle aus:
 
