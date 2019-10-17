@@ -16,12 +16,12 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6bb5c0cf6b5e4f2ddf60a19734a9e7c63df5d329
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: 6c2fd698efb6990862887a758ce1b44021bd13a7
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070260"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282867"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit .NET in Azure Stack
 
@@ -212,7 +212,7 @@ Weitere Informationen zu API-Profilen:
   [Erstellen von Abonnements für Angebote in Azure Stack]: ../operator/azure-stack-subscribe-plan-provision-vm.md
   [Bereitstellen des Anwendungszugriffs auf Azure Stack]: ../operator/azure-stack-create-service-principals.md
   [*Mandanten-ID*]: ../operator/azure-stack-identity-overview.md
-  [*Abonnement-ID*]: ../operator/azure-stack-plan-offer-quota-overview.md#subscriptions
+  [*Abonnement-ID*]: ../operator/service-plan-offer-subscription-overview.md#subscriptions
   [*Der Azure Stack-Resource Manager-Endpunkt*]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
   [Zusammenfassung zu API-Profilen]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
   [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject

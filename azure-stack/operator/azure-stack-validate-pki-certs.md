@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 8d929a3b1fd67f3ec73137b2e1a87f594ea5b544
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 3823aa73d58af48c662690aa0d8e8a21180b4ed6
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417830"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283239"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Überprüfen von Azure Stack-PKI-Zertifikaten
 
@@ -272,7 +272,7 @@ Nach der Überprüfung durch AzsReadinessChecker können Sie die Zertifikate in 
 
  - Bereitstellung: Übertragen Sie Ihre Zertifikate auf sichere Weise an Ihren Bereitstellungstechniker, damit dieser sie auf den Bereitstellungshost kopieren kann (wie unter [Azure Stack-PKI-Zertifikatanforderungen](azure-stack-pki-certs.md) beschrieben).
  - Geheimnisrotation: Sie können die Zertifikate verwenden, um ältere Zertifikate für die Endpunkte der öffentlichen Infrastruktur von Azure Stack zu aktualisieren. Eine entsprechende Anleitung finden Sie unter [Rotieren von Geheimnissen in Azure Stack](azure-stack-rotate-secrets.md).
- - PaaS-Dienste: Sie können die Zertifikate verwenden, um SQL-, MySQL- und App Services-Ressourcenanbieter in Azure Stack zu installieren. Entsprechende Anweisungen finden Sie unter [Übersicht über das Anbieten von Diensten in Azure Stack](azure-stack-offer-services-overview.md).
+ - PaaS-Dienste: Sie können die Zertifikate verwenden, um SQL-, MySQL- und App Services-Ressourcenanbieter in Azure Stack zu installieren. Entsprechende Anweisungen finden Sie unter [Übersicht über das Anbieten von Diensten in Azure Stack](service-plan-offer-subscription-overview.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

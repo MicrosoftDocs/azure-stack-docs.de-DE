@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 64554d0bd2c9e9d8622b1fd48bb7d086cd0b4b76
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: ca313e2e936f7bb006fdc1c15c49d271b1059a16
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603129"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283298"
 ---
 # <a name="create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>Erstellen von cloudübergreifenden, skalierenden App-Lösungen mit Azure und Azure Stack
 
@@ -56,7 +56,7 @@ In dieser Lösung erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht
 
 -   Stellen Sie PaaS-Dienste als [App Service](../operator/azure-stack-app-service-deploy.md) für Azure Stack bereit.
 
--   [Erstellen Sie Pläne/Angebote](../operator/azure-stack-plan-offer-quota-overview.md) in Ihrer Azure Stack-Umgebung.
+-   [Erstellen Sie Pläne/Angebote](../operator/service-plan-offer-subscription-overview.md) in Ihrer Azure Stack-Umgebung.
 
 -   [Erstellen Sie ein Mandantenabonnement](../operator/azure-stack-subscribe-plan-provision-vm.md) in Ihrer Azure Stack-Umgebung.
 
@@ -66,7 +66,7 @@ In dieser Lösung erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht
 
 -   Es wird ein virtueller Windows Server 2016-Computer mit .NET 3.5 benötigt. Diese VM wird im Mandantenabonnement unter Azure Stack als privater Build-Agent erstellt.
 
--   Das [Image „Windows Server 2016 mit SQL 2017-VM“](../operator/azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) ist auf dem Azure Stack Marketplace verfügbar. Falls dieses Image nicht verfügbar sein sollte, können Sie einen Azure Stack-Bediener bitten, es der Umgebung hinzuzufügen.
+-   Das [Image „Windows Server 2016 mit SQL 2017-VM“](../operator/azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal) ist auf dem Azure Stack Marketplace verfügbar. Falls dieses Image nicht verfügbar sein sollte, können Sie einen Azure Stack-Bediener bitten, es der Umgebung hinzuzufügen.
 
 ## <a name="issues-and-considerations"></a>Probleme und Überlegungen
 

@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a2311466bc6949bbc1ea372410373654352418fa
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: ae1aaa87ab2817ec696e488372bbc8f2cb6d119b
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603020"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283704"
 ---
 # <a name="configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Konfigurieren der Hybrid Cloud-Konnektivität mit Azure und Azure Stack
 
@@ -70,7 +70,7 @@ In dieser Lösung wird davon ausgegangen, dass Sie bereits über Grundkenntnisse
    >Da die Bereitstellung des ASDK bis zu sieben Stunden dauern kann, sollten Sie entsprechend planen.
 
  - Stellen Sie PaaS-Dienste als [App Service](../operator/azure-stack-app-service-deploy.md) für Azure Stack bereit.
- - [Erstellen Sie Pläne und Angebote](../operator/azure-stack-plan-offer-quota-overview.md) in der Azure Stack-Umgebung.
+ - [Erstellen Sie Pläne und Angebote](../operator/service-plan-offer-subscription-overview.md) in der Azure Stack-Umgebung.
  - [Erstellen Sie ein Mandantenabonnement](../operator/azure-stack-subscribe-plan-provision-vm.md) in Ihrer Azure Stack-Umgebung.
 
 ### <a name="before-you-begin"></a>Voraussetzungen

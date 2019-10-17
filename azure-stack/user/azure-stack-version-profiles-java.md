@@ -16,12 +16,12 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: f5cbf333494eb8d04ccbc974f95cda8be5d62284
-ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
+ms.openlocfilehash: 7d2a98656671a5e6f59d46054e074e45bb9d3c89
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71814497"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282890"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit Java in Azure Stack
 
@@ -97,7 +97,7 @@ Zur Verwendung des Azure Java-SDK mit Azure Stack müssen Sie die folgenden Wert
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Mandanten-ID                 | `AZURE_TENANT_ID`            | Ihre Azure Stack-[Mandanten-ID](../operator/azure-stack-identity-overview.md).                                                          |
 | Client-ID                 | `AZURE_CLIENT_ID`             | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt gespeichert wurde.                                                                                              |
-| Abonnement-ID           | `AZURE_SUBSCRIPTION_ID`      | Sie verwenden die [Abonnement-ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions), um in Azure Stack auf Angebote zuzugreifen.                |
+| Abonnement-ID           | `AZURE_SUBSCRIPTION_ID`      | Sie verwenden die [Abonnement-ID](../operator/service-plan-offer-subscription-overview.md#subscriptions), um in Azure Stack auf Angebote zuzugreifen.                |
 | Geheimer Clientschlüssel             | `AZURE_CLIENT_SECRET`        | Das Geheimnis der Dienstprinzipalanwendung, die bei der Erstellung des Dienstprinzipals gespeichert wurde.                                                                                                                                   |
 | Resource Manager-Endpunkt | `ARM_ENDPOINT`              | Informationen hierzu finden Sie im Artikel [Azure Stack Resource Manager-Endpunkt](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Location                  | `RESOURCE_LOCATION`    | **Lokal** für Azure Stack.                                                                                                                                                                                                |

@@ -277,35 +277,53 @@
           href: azure-stack-quota-types.md
     - name: Anbieten von Netzwerklösungen
       href: azure-stack-network-solutions-enable.md
-    - name: Anbieten von SQL als PaaS
+    - name: Verwalten von Ressourcenanbietern von Add-On-Diensten
       items:
-        - name: Anbieten von SQL-Datenbanken in Azure Stack
+        - name: App Service in Azure Stack
           items:
             - name: Übersicht
-              href: azure-stack-sql-resource-provider.md
-            - name: Bereitstellen des SQL Server-Ressourcenanbieters
-              href: azure-stack-sql-resource-provider-deploy.md
-            - name: Hinzufügen von SQL-Hostservern
-              href: azure-stack-sql-resource-provider-hosting-servers.md
-            - name: Erstellen von SQL-Datenbanken
-              href: azure-stack-sql-resource-provider-databases.md
-        - name: Anbieten von hoch verfügbaren SQL-Datenbanken
-          href: azure-stack-tutorial-sql.md
-        - name: Aktualisieren des SQL Server-Ressourcenanbieters
-          href: azure-stack-sql-resource-provider-update.md
-        - name: Warten des SQL Server-Ressourcenanbieters
-          href: azure-stack-sql-resource-provider-maintain.md
-        - name: Entfernen des SQL Server-Ressourcenanbieters
-          href: azure-stack-sql-resource-provider-remove.md
-        - name: Versionsanmerkungen zum SQL-Ressourcenanbieter
-          items:
-            - name: Versionshinweise zum SQL-Ressourcenanbieter 1.1.30.0
-              href: azure-stack-sql-resource-provider-11300.md
-            - name: Versionshinweise zum SQL-Ressourcenanbieter 1.1.33.0
-              href: azure-stack-sql-resource-provider-11330.md
-    - name: Anbieten von MySQL als PaaS
-      items:
-        - name: Anbieten von MySQL-Datenbanken in Azure Stack
+              href: azure-stack-app-service-overview.md
+            - name: App Service-Kapazitätsplanung
+              href: azure-stack-app-service-capacity-planning.md
+            - name: Bevor Sie beginnen
+              href: azure-stack-app-service-before-you-get-started.md
+            - name: Bereitstellen von App Service
+              href: azure-stack-app-service-deploy.md
+            - name: Bereitstellen von App Service für Hochverfügbarkeit
+              href: app-service-deploy-ha.md
+            - name: Offlinebereitstellung von App Service
+              href: azure-stack-app-service-deploy-offline.md
+            - name: Aktualisieren von App Service
+              href: azure-stack-app-service-update.md
+            - name: Offlineaktualisierung von App Service
+              href: azure-stack-app-service-update-offline.md
+            - name: Hinzufügen von App Service-Infrastrukturrollen
+              href: azure-stack-app-service-add-worker-roles.md
+            - name: Konfigurieren von Bereitstellungsquellen
+              href: azure-stack-app-service-configure-deployment-sources.md
+            - name: Sichern von App Service
+              href: app-service-back-up.md
+            - name: Wiederherstellen von App Service
+              href: app-service-recover.md
+            - name: Häufig gestellte Fragen zur App Service-Abrechnung
+              href: app-service-billing-faq.md
+            - name: 'App Service in Azure Stack: Versionshinweise'
+              items:
+                - name: App Service in Azure Stack – Versionshinweise zu Update 1
+                  href: azure-stack-app-service-release-notes-update-one.md
+                - name: App Service in Azure Stack – Versionshinweise zu Update 2
+                  href: azure-stack-app-service-release-notes-update-two.md
+                - name: App Service in Azure Stack – Versionshinweise zu Update 3
+                  href: azure-stack-app-service-release-notes-update-three.md
+                - name: 'App Service in Azure Stack: Versionshinweise zu Update 4'
+                  href: azure-stack-app-service-release-notes-update-four.md
+                - name: 'App Service in Azure Stack: Versionshinweise zu Update 5'
+                  href: azure-stack-app-service-release-notes-update-five.md
+                - name: "App Service in Azure Stack: Versionshinweise zu Update\_6"
+                  href: azure-stack-app-service-release-notes-update-six.md
+                - name: "App Service in Azure Stack: Versionshinweise zu Update\_7"
+                  href: azure-stack-app-service-release-notes-update-seven.md
+        - name: MySQL in Azure Stack
           items:
             - name: Übersicht
               href: azure-stack-mysql-resource-provider.md
@@ -315,63 +333,44 @@
               href: azure-stack-mysql-resource-provider-hosting-servers.md
             - name: Erstellen von MySQL-Datenbanken
               href: azure-stack-mysql-resource-provider-databases.md
-        - name: Anbieten von hoch verfügbaren MySQL-Datenbanken
-          href: azure-stack-tutorial-mysql.md
-        - name: Aktualisieren des MySQL Server-Ressourcenanbieters
-          href: azure-stack-mysql-resource-provider-update.md
-        - name: Warten des MySQL Server-Ressourcenanbieters
-          href: azure-stack-mysql-resource-provider-maintain.md
-        - name: Entfernen des MySQL Server-Ressourcenanbieters
-          href: azure-stack-mysql-resource-provider-remove.md
-        - name: Versionsanmerkungen zum MySQL-Ressourcenanbieter
+            - name: Bereitstellen von hochverfügbaren MySQL-Datenbanken
+              href: azure-stack-tutorial-mysql.md
+            - name: Aktualisieren des MySQL Server-Ressourcenanbieters
+              href: azure-stack-mysql-resource-provider-update.md
+            - name: Warten des MySQL Server-Ressourcenanbieters
+              href: azure-stack-mysql-resource-provider-maintain.md
+            - name: Entfernen des MySQL Server-Ressourcenanbieters
+              href: azure-stack-mysql-resource-provider-remove.md
+            - name: Versionsanmerkungen zum MySQL-Ressourcenanbieter
+              items:
+                - name: Versionsanmerkungen zum MySQL-Ressourcenanbieter 1.1.30.0
+                  href: azure-stack-mysql-resource-provider-11300.md
+                - name: Versionsanmerkungen zum MySQL-Ressourcenanbieter 1.1.33.0
+                  href: azure-stack-mysql-resource-provider-11330.md
+        - name: SQL in Azure Stack
           items:
-            - name: Versionsanmerkungen zum MySQL-Ressourcenanbieter 1.1.30.0
-              href: azure-stack-mysql-resource-provider-11300.md
-            - name: Versionsanmerkungen zum MySQL-Ressourcenanbieter 1.1.33.0
-              href: azure-stack-mysql-resource-provider-11330.md
-    - name: App Service als PaaS anbieten
-      href: azure-stack-app-service-overview.md
-      items:
-        - name: App Service-Kapazitätsplanung
-          href: azure-stack-app-service-capacity-planning.md
-        - name: Häufig gestellte Fragen zur App Service-Abrechnung
-          href: app-service-billing-faq.md
-        - name: Bevor Sie beginnen
-          href: azure-stack-app-service-before-you-get-started.md
-        - name: Bereitstellen von App Service
-          href: azure-stack-app-service-deploy.md
-        - name: Bereitstellen von App Service für Hochverfügbarkeit
-          href: app-service-deploy-ha.md
-        - name: Offlinebereitstellung von App Service
-          href: azure-stack-app-service-deploy-offline.md
-        - name: Aktualisieren von App Service
-          href: azure-stack-app-service-update.md
-        - name: Offlineaktualisierung von App Service
-          href: azure-stack-app-service-update-offline.md
-        - name: Hinzufügen von App Service-Infrastrukturrollen
-          href: azure-stack-app-service-add-worker-roles.md
-        - name: Konfigurieren von Bereitstellungsquellen
-          href: azure-stack-app-service-configure-deployment-sources.md
-        - name: Sichern von App Service
-          href: app-service-back-up.md
-        - name: Wiederherstellen von App Service
-          href: app-service-recover.md
-        - name: 'App Service in Azure Stack: Versionshinweise'
-          items:
-            - name: App Service in Azure Stack – Versionshinweise zu Update 1
-              href: azure-stack-app-service-release-notes-update-one.md
-            - name: App Service in Azure Stack – Versionshinweise zu Update 2
-              href: azure-stack-app-service-release-notes-update-two.md
-            - name: App Service in Azure Stack – Versionshinweise zu Update 3
-              href: azure-stack-app-service-release-notes-update-three.md
-            - name: 'App Service in Azure Stack: Versionshinweise zu Update 4'
-              href: azure-stack-app-service-release-notes-update-four.md
-            - name: 'App Service in Azure Stack: Versionshinweise zu Update 5'
-              href: azure-stack-app-service-release-notes-update-five.md
-            - name: "App Service in Azure Stack: Versionshinweise zu Update\_6"
-              href: azure-stack-app-service-release-notes-update-six.md
-            - name: "App Service in Azure Stack: Versionshinweise zu Update\_7"
-              href: azure-stack-app-service-release-notes-update-seven.md
+            - name: Übersicht
+              href: azure-stack-sql-resource-provider.md
+            - name: Bereitstellen des SQL Server-Ressourcenanbieters
+              href: azure-stack-sql-resource-provider-deploy.md
+            - name: Hinzufügen von SQL-Hostservern
+              href: azure-stack-sql-resource-provider-hosting-servers.md
+            - name: Erstellen von SQL-Datenbanken
+              href: azure-stack-sql-resource-provider-databases.md
+            - name: Bereitstellen von hochverfügbaren SQL-Datenbanken
+              href: azure-stack-tutorial-sql.md
+            - name: Aktualisieren des SQL Server-Ressourcenanbieters
+              href: azure-stack-sql-resource-provider-update.md
+            - name: Warten des SQL Server-Ressourcenanbieters
+              href: azure-stack-sql-resource-provider-maintain.md
+            - name: Entfernen des SQL Server-Ressourcenanbieters
+              href: azure-stack-sql-resource-provider-remove.md
+            - name: Versionsanmerkungen zum SQL-Ressourcenanbieter
+              items:
+                - name: Versionshinweise zum SQL-Ressourcenanbieter 1.1.30.0
+                  href: azure-stack-sql-resource-provider-11300.md
+                - name: Versionshinweise zum SQL-Ressourcenanbieter 1.1.33.0
+                  href: azure-stack-sql-resource-provider-11330.md
     - name: Nutzung und Abrechnung
       href: azure-stack-billing-and-chargeback.md
       items:

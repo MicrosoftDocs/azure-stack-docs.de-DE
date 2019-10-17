@@ -14,12 +14,12 @@ ms.date: 07/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 07/30/2019
-ms.openlocfilehash: 35093371ede6e3f5f776b981eaaf8463df9e7f36
-ms.sourcegitcommit: 7961fda0bfcdd3db8cf94a8c405b5c23a23643af
+ms.openlocfilehash: 7e2753ebb5bebad4f1ac2a7bbc17a27ccd87cbe9
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616838"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283047"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit dem Node.js-SDK (Software Development Kit) in Azure Stack
 
@@ -95,7 +95,7 @@ Zur Verwendung des Node.js Azure SDK mit Azure Stack müssen Sie die folgenden W
 | --- | --- | --- |
 | Mandanten-ID | TENANT\_ID | Der Wert Ihrer [Mandanten-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview) für Azure Stack. |
 | Client-ID | CLIENT\_ID | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Dokuments gespeichert wurde.  |
-| Abonnement-ID | AZURE\_SUBSCRIPTION\_ID   Mithilfe der [Abonnement-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) greifen Sie auf Angebote in Azure Stack zu.  |
+| Abonnement-ID | AZURE\_SUBSCRIPTION\_ID   Mithilfe der [Abonnement-ID](https://docs.microsoft.com/azure/azure-stack/service-plan-offer-subscription-overview#subscriptions) greifen Sie auf Angebote in Azure Stack zu.  |
 | Geheimer Clientschlüssel | APPLICATION\_SECRET | Die Geheimnisanwendung des Dienstprinzipals, die bei der Erstellung des Dienstprinzipals gespeichert wurde. |
 | Resource Manager-Endpunkt | ARM\_ENDPOINT | Siehe [Azure Stack-Resource Manager-Endpunkt](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-resource-manager-endpoint). |
 

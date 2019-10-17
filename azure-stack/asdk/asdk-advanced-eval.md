@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 36c4dae72f7fcf91438880f07231c94c8d286253
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: a47bae619b2525534797158cf2660d5bc77192c9
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579073"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282614"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>ASDK-Aufgaben zur erweiterten Evaluierung
 Wenn Sie sich mit den grundlegenden Dienstfeatures und -funktionen des Azure Stack Development Kits (ASDK) vertraut gemacht haben, können Sie Ihre Kenntnisse zu Azure Stack vertiefen, indem Sie erweiterte Szenarien ausprobieren. Diese erweiterten Evaluierungsaufgaben sind vollständig in der Dokumentation für Azure Stack-Bediener beschrieben.
@@ -46,4 +46,4 @@ Stellen Sie den App Service-Ressourcenanbieter bereit, um [Ihren Azure Stack-Ben
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Weitere Informationen zum Anbieten von Diensten mit integrierten Azure Stack-Systemen](../operator/azure-stack-offer-services-overview.md)
+[Weitere Informationen zum Anbieten von Diensten mit integrierten Azure Stack-Systemen](../operator/service-plan-offer-subscription-overview.md)
