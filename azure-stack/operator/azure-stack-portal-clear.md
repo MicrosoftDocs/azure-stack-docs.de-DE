@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
 monikerRange: azs-1802
-ms.openlocfilehash: a341ff38b0a2540fbf8e1070d9c98bdd9ec4df5f
-ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
+ms.openlocfilehash: 2dd88656491a474e4082ff4e8321af836776b1f0
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878784"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019114"
 ---
 # <a name="clear-portal-user-data-from-azure-stack"></a>Löschen von Portalbenutzerdaten aus Azure Stack
 
@@ -86,7 +86,7 @@ Verwenden Sie für diesen Vorgang einen Computer, der mit dem Resource Manager-E
 
 ## <a name="clear-portal-user-data-in-guest-directory"></a>Löschen von Portalbenutzerdaten im Gastverzeichnis
 
-In diesem Szenario hat der Azure Stack-Operator keinen Zugriff auf das Gastverzeichnis, in dem sich der Benutzer befindet. Dies ist ein gängiges Szenario für Cloud-Dienstanbieter.
+In diesem Szenario hat der Azure Stack-Operator keinen Zugriff auf das Gastverzeichnis, in dem sich der Benutzer befindet. Dies ist ein gängiges Szenario für Cloudlösungsanbieter (Cloud Solution Provider, CSP).
 
 Damit ein Azure Stack-Operator die Portalbenutzerdaten entfernen kann, ist mindestens die Benutzerobjekt-ID erforderlich.
 

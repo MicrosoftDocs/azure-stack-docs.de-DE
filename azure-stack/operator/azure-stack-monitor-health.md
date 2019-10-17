@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/2/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 00f4a9c0aaaf52ed08706e9024059d7b24268290
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 1747be1c97a706aae5d49889949fd0b0f9a70da3
+ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829471"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72164960"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Überwachen von Integrität und Warnungen in Azure Stack
 
@@ -67,6 +67,9 @@ Die Liste der aktiven Warnungen für jede Azure Stack-Region kann direkt über d
 Durch Auswahl des oberen Teils der Kachel **Warnungen** navigieren Sie zur Liste aller aktiven Warnungen für die Region. Wenn Sie in der Kachel das Zeilenelement **Kritisch** oder **Warnung** auswählen, navigieren Sie zu einer gefilterten Liste von Warnungen („Kritisch“ oder „Warnung“). 
 
 Auf dem Blatt **Warnungen** können Benachrichtigungen nach Status („Aktiv“ oder „Geschlossen“) oder Schweregrad („Kritisch“ oder „Warnung“) gefiltert werden. Die Standardansicht zeigt alle aktiven Warnungen an. Alle geschlossene Warnungen werden nach sieben Tagen aus dem System entfernt.
+
+>[!Note]
+>Wenn eine Warnung aktiv bleibt, aber mehr als einen Tag lang nicht aktualisiert wurde, können Sie [Test-AzureStack](azure-stack-diagnostic-test.md) ausführen und die Warnung schließen, falls keine Probleme gemeldet werden.
 
 ![Filterbereich zum Filtern nach dem Status „Kritisch“ oder „Warnung“](media/azure-stack-monitor-health/alert-view.png)
 

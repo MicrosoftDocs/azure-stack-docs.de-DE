@@ -1,6 +1,6 @@
 ---
-title: Integration des Azure Stack-Datencenters – DNS
-description: Erfahren Sie, wie Sie das Azure Stack-DNS in Ihr Datencenter-DNS integrieren.
+title: DNS-Integration in Azure Stack-Datencenter | Microsoft-Dokumentation
+description: Es wird beschrieben, wie Sie das DNS von Azure Stack in das DNS Ihres Datencenters integrieren.
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -11,27 +11,27 @@ ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
 keywords: ''
-ms.openlocfilehash: 9e60a8f9ebda573141e2f97a9182087e90741652
-ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
+ms.openlocfilehash: 4949ed2533ed550f61efd2cc4e0dfed7de3a1d7e
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896357"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019236"
 ---
-# <a name="azure-stack-datacenter-integration---dns"></a>Integration des Azure Stack-Datencenters – DNS
+# <a name="azure-stack-datacenter-dns-integration"></a>DNS-Integration in Azure Stack-Datencenter
 
 Für den Zugriff auf Azure Stack-Endpunkte wie **portal**, **adminportal**, **management** und **adminmanagement** von außerhalb von Azure Stack müssen Sie die Azure Stack-DNS-Dienste in die DNS-Server integrieren, die die DNS-Zonen hosten, die Sie in Azure Stack verwenden möchten.
 
 ## <a name="azure-stack-dns-namespace"></a>DNS-Namespace von Azure Stack
 
-Sie müssen einige wichtige Informationen über das DNS zur Verfügung stellen, wenn Sie Azure Stack bereitstellen.
+Sie müssen einige wichtige Informationen zum DNS angeben, wenn Sie Azure Stack bereitstellen.
 
 
 |Feld  |BESCHREIBUNG  |Beispiel|
 |---------|---------|---------|
 |Region|Der geografische Standort Ihrer Azure Stack-Bereitstellung.|`east`|
 |Externer Domänenname|Der Name der Zone, die Sie für Ihre Azure Stack-Bereitstellung verwenden möchten.|`cloud.fabrikam.com`|
-|Interner Domänenname|Der Name der internen Zone, die für die Infrastrukturdienste in Azure Stack verwendet wird.  Dieser ist im Verzeichnisdienst integriert und privat (nicht von außerhalb der Azure Stack-Bereitstellung erreichbar).|`azurestack.local`|
+|Interner Domänenname|Der Name der internen Zone, die für die Infrastrukturdienste in Azure Stack verwendet wird. Sie ist im Verzeichnisdienst integriert und privat (nicht von außerhalb der Azure Stack-Bereitstellung erreichbar).|`azurestack.local`|
 |DNS-Weiterleitungen|DNS-Server, die zum Weiterleiten von DNS-Abfragen verwendet werden, DNS-Zonen und -Einträge, die außerhalb von Azure Stack gehostet werden, entweder im Unternehmensintranet oder im öffentlichen Internet. Wenn Sie eine DNS-Weiterleitung ersetzen, muss die IP-Adresse aktualisiert werden. |`10.57.175.34`<br>`8.8.8.8`|
 |Namenspräfix (optional)|Das Namenspräfix, das die Computernamen der Rolleninstanz Ihrer Azure Stack-Infrastruktur aufweisen sollen.  Wenn dieses nicht angegeben wird, lautet der Standardwert `azs`.|`azs`|
 
@@ -55,7 +55,7 @@ Damit Sie die DNS-Namen für Azure Stack-Endpunkte und -Instanzen von außerhalb
 
 ### <a name="dns-name-labels"></a>DNS-Namensbezeichnungen
 
-Azure Stack unterstützt das Hinzufügen einer DNS-Namensbezeichnung zu einer öffentlichen IP-Adresse, um eine Namensauflösung für öffentliche IP-Adressen zu ermöglichen. Benutzer können dies als bequeme Möglichkeit nutzen, um in Azure Stack gehostete Anwendungen und Dienste anhand des Namens zu erreichen. Die DNS-Namensbezeichnung verwendet einen etwas anderen Namespace als die Infrastrukturendpunkte. Gemäß dem vorherigen Beispiel-Namespace sieht der Namespace für DNS-Namensbezeichnungen wie folgt aus:
+Azure Stack unterstützt das Hinzufügen einer DNS-Namensbezeichnung zu einer öffentlichen IP-Adresse, um eine Namensauflösung für öffentliche IP-Adressen zu ermöglichen. Benutzer können DNS-Bezeichnungen als bequeme Möglichkeit nutzen, um in Azure Stack gehostete Apps und Dienste anhand des Namens zu erreichen. Die DNS-Namensbezeichnung verwendet einen etwas anderen Namespace als die Infrastrukturendpunkte. Gemäß dem vorherigen Beispiel-Namespace sieht der Namespace für DNS-Namensbezeichnungen wie folgt aus:
 
 `*.east.cloudapp.cloud.fabrikam.com`
 
@@ -74,13 +74,13 @@ Es gibt zwei Arten von DNS-Server:
 - Ein autoritativer DNS-Server hostet DNS-Zonen. Er antwortet nur auf DNS-Abfragen nach Einträgen für diese Zonen.
 - Ein rekursiver DNS-Server hostet keine DNS-Zonen. Er reagiert auf alle DNS-Abfragen durch Aufrufen der autoritativen DNS-Server, um die benötigten Daten zu erfassen.
 
-Azure Stack enthält autoritative und rekursive DNS-Server. Die rekursiven Server werden verwendet, um alle Namen außer denen der internen privaten Zone und der externen öffentlichen DNS-Zone für diese Azure Stack-Bereitstellung aufzulösen. 
+Azure Stack enthält autoritative und rekursive DNS-Server. Die rekursiven Server werden verwendet, um alle Namen außer denen der internen privaten Zone und der externen öffentlichen DNS-Zone für diese Azure Stack-Bereitstellung aufzulösen.
 
 ![DNS-Architektur von Azure Stack](media/azure-stack-integrate-dns/Integrate-DNS-01.png)
 
 ## <a name="resolving-external-dns-names-from-azure-stack"></a>Auflösen von externen DNS-Namen in Azure Stack
 
-Zum Auflösen von DNS-Namen für Endpunkte außerhalb von Azure Stack (z. B. www\.bing.com) müssen Sie DNS-Server bereitstellen, die Azure Stack für die Weiterleitung von DNS-Anforderungen verwenden kann, für die Azure Stack nicht autoritativ ist. Für die Bereitstellung sind die DNS-Server, an die Azure Stack Anforderungen weiterleitet, im Arbeitsblatt der Bereitstellung erforderlich (im Feld „DNS-Weiterleitung“). Geben Sie für die Fehlertoleranz mindestens zwei Server in diesem Feld an. Ohne diese Werte schlägt die Azure Stack-Bereitstellung fehl. Wenn DNS-Weiterleitungen ersetzt werden, aktualisieren Sie die IP-Adressen. 
+Zum Auflösen von DNS-Namen für Endpunkte außerhalb von Azure Stack (z. B. www\.bing.com) müssen Sie DNS-Server bereitstellen, die Azure Stack für die Weiterleitung von DNS-Anforderungen verwenden kann, für die Azure Stack nicht autoritativ ist. Für die Bereitstellung sind die DNS-Server, an die Azure Stack Anforderungen weiterleitet, im Arbeitsblatt der Bereitstellung erforderlich (im Feld „DNS-Weiterleitung“). Geben Sie für die Fehlertoleranz mindestens zwei Server in diesem Feld an. Ohne diese Werte schlägt die Azure Stack-Bereitstellung fehl. Wenn DNS-Weiterleitungen ersetzt werden, aktualisieren Sie die IP-Adressen.
 
 ### <a name="configure-conditional-dns-forwarding"></a>Konfigurieren der bedingten DNS-Weiterleitung
 

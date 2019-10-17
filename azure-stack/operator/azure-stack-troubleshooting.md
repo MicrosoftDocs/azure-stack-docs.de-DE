@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 0fb46cd1b92c1b811ba1c72a91188201a7d2af96
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: b3540727b1868c700e43e2865848a71635e8003d
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687968"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173107"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Problembehandlung für Microsoft Azure Stack
 
@@ -82,9 +82,20 @@ Wenn die integrierten Rollen für Azure-Ressourcen die Ansprüche Ihrer Organisa
 
 Wählen Sie den Typ des Kontos für gemeinsame Dienste aus, das Sie für Azure Stack verwenden. Folgende Abonnementtypen können für die Registrierung einer mehrinstanzenfähigen Azure Stack-Instanz verwendet werden:
 
-* Cloud-Dienstanbieter
+* Cloud Solution Provider
 * Partner Shared Services-Abonnement
 
+## <a name="get-scale-unit-metrics"></a>Abrufen der Metriken von Skalierungseinheiten
+
+Sie können PowerShell verwenden, um ohne CSS-Hilfe Informationen zur Stempelauslastung zu erhalten. Rufen Sie die Stempelauslastung wie folgt ab: 
+
+1. Erstellen Sie eine PEP-Sitzung.
+2. Führen Sie „test-azurestack“ aus.
+3. Beenden Sie die PEP-Sitzung.
+4. Führen Sie das SeedRing-Element „get-azurestacklog -filterbyrole“ aus, indem Sie einen „invoke-command“-Aufruf verwenden.
+5. Extrahieren Sie die SeedRing-ZIP-Datei, um im ERCS-Ordner, in dem Sie „test-azurestack“ ausgeführt haben, auf den Bericht der Überprüfung zuzugreifen.
+
+Weitere Informationen finden Sie unter [Azure Stack-Diagnose](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems).
 
 ## <a name="troubleshoot-deployment"></a>Problembehandlung bei der Bereitstellung 
 ### <a name="general-deployment-failure"></a>Allgemeiner Bereitstellungsfehler

@@ -12,28 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 30513e279b406561fd2bcf88f9119807b371e4a1
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: a5e86f0f0719e30ef693c736ac4c70f05830c3bb
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376786"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961665"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack"></a>Verwenden des Validierungstools für Vorlagen in Azure Stack
+
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Mit dem Validierungstool für Vorlagen können Sie überprüfen, ob Ihre Azure Resource Manager-[Vorlagen](azure-stack-arm-templates.md) in Azure Stack bereitgestellt werden können. Das Validierungstool für Vorlagen ist als Teil der Azure Stack-Tools erhältlich. Laden Sie die Azure Stack-Tools herunter, indem Sie die im Artikel [Herunterladen von Tools von GitHub](../operator/azure-stack-powershell-download.md) beschriebenen Schritte befolgen.
+Mit dem Validierungstool für Vorlagen können Sie überprüfen, ob Ihre Azure Resource Manager-[Vorlagen](azure-stack-arm-templates.md) in Azure Stack bereitgestellt werden können. Das Tool für die Vorlagenvalidierung ist im GitHub-Repository mit den Azure Stack-Tools verfügbar. Laden Sie die Azure Stack-Tools herunter, indem Sie die im Artikel [Herunterladen von Tools von GitHub](../operator/azure-stack-powershell-download.md) beschriebenen Schritte befolgen.
 
 ## <a name="overview"></a>Übersicht
 
 Um eine Vorlage zu überprüfen, müssen Sie zunächst eine Datei mit Cloudfunktionen erstellen und dann das Validierungstool ausführen. Verwenden Sie die folgenden PowerShell-Module aus den Azure Stack-Tools:
 
-- Im Ordner **CloudCapabilities**: `AzureRM.CloudCapabilities.psm1` erstellt eine JSON-Datei mit Cloudfunktionen, die die Dienste und Versionen in einer Azure Stack-Cloud darstellt.
-- Im Ordner **TemplateValidator**: `AzureRM.TemplateValidator.psm1` verwendet eine JSON-Datei mit Cloudfunktionen, um Vorlagen für die Bereitstellung in Azure Stack zu testen.
+- Im Ordner **CloudCapabilities**: Mit **AzureRM.CloudCapabilities.psm1** wird eine JSON-Datei mit Cloudfunktionen erstellt, die die Dienste und Versionen in einer Azure Stack-Cloud darstellt.
+- Im Ordner **TemplateValidator**: In **AzureRM.TemplateValidator.psm1** wird eine JSON-Datei mit Cloudfunktionen verwendet, um Vorlagen für die Bereitstellung in Azure Stack zu testen.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Erstellen der Datei mit Cloudfunktionen
 
@@ -49,7 +50,7 @@ Bevor Sie die Vorlagenvalidierung verwenden, führen Sie das PowerShell-Modul **
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. Verwenden Sie das Cmdlet `Get-CloudCapabilities`, um Dienstversionen abzurufen und eine JSON-Datei mit Cloudfunktionen zu erstellen. Wenn Sie `-OutputPath` nicht angeben, wird die Datei „AzureCloudCapabilities.Json“ im aktuellen Verzeichnis erstellt. Verwenden Sie den tatsächlichen Azure-Speicherort:
+3. Verwenden Sie das Cmdlet **Get-CloudCapabilities**, um Dienstversionen abzurufen und eine JSON-Datei mit Cloudfunktionen zu erstellen. Wenn Sie `-OutputPath` nicht angeben, wird die Datei **AzureCloudCapabilities.Json** im aktuellen Verzeichnis erstellt. Verwenden Sie den tatsächlichen Azure-Speicherort:
 
     ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -57,7 +58,7 @@ Bevor Sie die Vorlagenvalidierung verwenden, führen Sie das PowerShell-Modul **
 
 ## <a name="validate-templates"></a>Überprüfen von Vorlagen
 
-Mit diesen Schritten überprüfen Sie Vorlagen, indem Sie das PowerShell-Modul **AzureRM.TemplateValidator** verwenden. Sie können Ihre eigenen Vorlagen verwenden, oder die [Azure Stack Quickstart templates (Azure Stack-Vorlagen für den Schnellstart)](https://github.com/Azure/AzureStack-QuickStart-Templates) verwenden.
+Mit diesen Schritten überprüfen Sie Vorlagen, indem Sie das PowerShell-Modul **AzureRM.TemplateValidator** verwenden. Sie können Ihre eigenen Vorlagen oder die [Azure Stack-Vorlagen für den Schnellstart](https://github.com/Azure/AzureStack-QuickStart-Templates) verwenden.
 
 1. Importieren Sie das PowerShell-Modul **AzureRM.TemplateValidator.psm1**:
 
@@ -94,7 +95,7 @@ Das Validierungs-Cmdlet für Vorlagen unterstützt die folgenden Parameter.
 
 ### <a name="examples"></a>Beispiele
 
-In diesem Beispiel werden alle [Vorlagen aus dem Azure Stack-Schnellstart](https://github.com/Azure/AzureStack-QuickStart-Templates) überprüft, die in den lokalen Speicher heruntergeladen wurden. Im Beispiel werden auch die Größen und Erweiterungen virtueller Computer anhand der Azure Stack Development Kit-Funktionen überprüft:
+In diesem Beispiel werden alle [Vorlagen aus dem Azure Stack-Schnellstart](https://github.com/Azure/AzureStack-QuickStart-Templates) überprüft, die in den lokalen Speicher heruntergeladen wurden. Im Beispiel werden auch die Größen und Erweiterungen virtueller Computer anhand der ASDK-Funktionen überprüft:
 
 ```powershell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `

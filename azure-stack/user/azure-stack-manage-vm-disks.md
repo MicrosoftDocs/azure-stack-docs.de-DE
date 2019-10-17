@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 8b4d48b55cfe21cf7de09119b9069ae4056d3efd
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: af110f6b4140a69e01dadcd38a32843866744abf
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492430"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961596"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack"></a>Erstellen von VM-Datenträgerspeicher in Azure Stack
 
@@ -50,7 +50,7 @@ In der folgenden Tabelle ist zusammengefasst, wie Sie Datenträger über das Por
 
 | Methode | Optionen
 |-|-|
-|Benutzerportal|- Fügen Sie einer vorhandenen VM neue Datenträger für Daten hinzu. Von Azure Stack werden neue Datenträger erstellt. </br> </br>- Fügen Sie eine vorhandene Datenträgerdatei (.vhd) einem vorab erstellten virtuellen Computer hinzu. Hierzu müssen Sie die VHD-Datei vorbereiten und dann in Azure Stack hochladen. |
+|Benutzerportal|- Fügen Sie einer vorhandenen VM neue Datenträger für Daten hinzu. Von Azure Stack werden neue Datenträger erstellt. </br> </br> - Fügen Sie eine vorhandene Datenträgerdatei (.vhd) einem vorab erstellten virtuellen Computer hinzu. Hierzu müssen Sie die VHD-Datei vorbereiten und dann in Azure Stack hochladen. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | - Erstellen Sie einen neuen virtuellen Computer mit einem Betriebssystem-Datenträger, und fügen Sie dem virtuellen Computer gleichzeitig einen oder mehrere Datenträger für Daten hinzu. |
 
 ## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Verwenden des Portals zum Hinzufügen von Datenträgern zu einer VM
@@ -129,7 +129,7 @@ Weitere Informationen zum Arbeiten mit Speicherkonten in Azure Stack finden Sie
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>Hinzufügen eines vorhandenen Datenträgers zu einem virtuellen Computer
 
-1. [Bereiten Sie eine VHD-Datei vor](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd), um sie als Datenträger für einen virtuellen Computer zu verwenden. Laden Sie die VHD-Datei in ein Speicherkonto hoch, das Sie mit der VM verwenden, an die Sie die VHD-Datei anfügen möchten.
+1. [Bereiten Sie eine VHD-Datei vor](/azure/virtual-machines/windows/classic/createupload-vhd), um sie als Datenträger für einen virtuellen Computer zu verwenden. Laden Sie die VHD-Datei in ein Speicherkonto hoch, das Sie mit der VM verwenden, an die Sie die VHD-Datei anfügen möchten.
 
     Verwenden Sie für die VHD-Datei nicht den Container, der den Betriebssystem-Datenträger enthält.
     ![Beispiel: Hochladen einer VHD-Datei](media/azure-stack-manage-vm-disks/upload-vhd.png)
@@ -163,7 +163,7 @@ Weitere Informationen zum Arbeiten mit Speicherkonten in Azure Stack finden Sie
 
 ## <a name="use-powershell-to-add-multiple-unmanaged-disks-to-a-vm"></a>Hinzufügen mehrerer nicht verwalteter Datenträger zu einem virtuellen Computer mithilfe von PowerShell
 
-Mit PowerShell können Sie eine VM bereitstellen und einen neuen Datenträger hinzufügen oder eine bereits vorhandene **VHD-Datei** als Datenträger anfügen.
+Mit PowerShell können Sie eine VM bereitstellen und einen neuen Datenträger hinzufügen oder eine bereits vorhandene VHD-Datei als Datenträger anfügen.
 
 Das Cmdlet **Add-AzureRmVMDataDisk** fügt einem virtuellen Computer einen Datenträger hinzu. Ein Datenträger kann beim Erstellen eines virtuellen Computers oder einem bereits vorhandenen virtuellen Computer hinzugefügt werden. Geben Sie den Parameter **VhdUri** an, um die Datenträger auf unterschiedliche Container zu verteilen.
 
@@ -215,10 +215,10 @@ $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
 Verwenden Sie die folgenden PowerShell-Befehle, um der VM den Betriebssystemdatenträger und die Netzwerkkonfiguration hinzuzufügen, und starten Sie dann die neue VM:
 
 ```powershell
-#set variables
+# Set variables
 $rgName = "myResourceGroup"
 $location = "local"
-#Set OS Disk
+# Set OS Disk
 $osDiskUri = "https://contoso.blob.local.azurestack.external/vhds/osDisk.vhd"
 $osDiskName = "osDisk"
 

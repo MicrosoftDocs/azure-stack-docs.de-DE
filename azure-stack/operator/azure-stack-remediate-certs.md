@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: ac6e04fbb884b3689cec7e5f435f9265f7e2108e
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: 6e8adbc0d84c7816a081e751473764aab79cfcf2
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152419"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961913"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Beheben von häufigen Problemen mit Azure Stack-PKI-Zertifikaten
 
-In diesem Artikel werden häufig auftretende Probleme mit Azure Stack-PKI-Zertifikaten beschrieben und erläutert, wie diese behoben werden können. Sie können Probleme ermitteln, indem Sie das Tool „Azure Stack Readiness Checker“ zur [Überprüfung von Azure Stack-PKI-Zertifikaten](azure-stack-validate-pki-certs.md) verwenden. Das Tool führt Überprüfungen durch, um sicherzustellen, dass Zertifikate die PKI-Anforderungen einer Azure Stack-Bereitstellung und Azure Stack-Geheimnisrotation erfüllen, und protokolliert die Ergebnisse in einer Datei vom Typ [report.json](azure-stack-validation-report.md).  
+In diesem Artikel werden häufig auftretende Probleme mit Azure Stack-PKI-Zertifikaten beschrieben, und es wird erläutert, wie diese behoben werden können. Sie können Probleme ermitteln, indem Sie das Tool „Azure Stack Readiness Checker“ zur [Überprüfung von Azure Stack-PKI-Zertifikaten](azure-stack-validate-pki-certs.md) verwenden. Das Tool führt Überprüfungen durch, um sicherzustellen, dass Zertifikate die PKI-Anforderungen einer Azure Stack-Bereitstellung und Azure Stack-Geheimnisrotation erfüllen, und protokolliert die Ergebnisse in einer Datei vom Typ [report.json](azure-stack-validation-report.md).  
 
 ## <a name="pfx-encryption"></a>PFX-Verschlüsselung
 
@@ -93,14 +93,14 @@ In diesem Artikel werden häufig auftretende Probleme mit Azure Stack-PKI-Zertif
 
 ## <a name="fix-common-packaging-issues"></a>Beheben von häufigen Problemen beim Packen
 
-Das Tool **AzsReadinessChecker** enthält das Hilfs-Cmdlet `Repair-AzsPfxCertificate`, mit dem eine PFX-Datei importiert und dann exportiert werden kann, um häufig auftretende Probleme beim Verpacken zu beheben, z. B.:
+Das Tool **AzsReadinessChecker** enthält das Hilfs-Cmdlet **Repair-AzsPfxCertificate**, mit dem eine PFX-Datei importiert und dann exportiert werden kann, um häufig auftretende Probleme beim Verpacken zu beheben, z. B.:
 
 - Bei der **PFX-Verschlüsselung** handelt es sich nicht um TripleDES-SHA1.
 - Beim **privaten Schlüssel** fehlt das Attribut des lokalen Computers.
 - Die **Zertifikatkette** ist unvollständig oder falsch. Der lokale Computer muss die Zertifikatkette enthalten, wenn dies beim PFX-Paket nicht der Fall ist.
 - **Andere Zertifikate**
 
-`Repair-AzsPfxCertificate` kann keine Abhilfe leisten, wenn Sie eine neue Zertifikatsignieranforderung generieren und ein Zertifikat erneut ausstellen müssen.
+**Repair-AzsPfxCertificate** kann nicht als Hilfe dienen, wenn Sie eine neue Zertifikatsignieranforderung generieren und ein Zertifikat neu ausstellen müssen.
 
 ### <a name="prerequisites"></a>Voraussetzungen
 

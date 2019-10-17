@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 69f427bd825bdc74501256d47e61bbae95f4d64b
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.openlocfilehash: 97684f2a0ef9960854b192ca15f972bc15ff5b62
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687995"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974061"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: Unterschiede und Überlegungen
 
@@ -30,24 +30,24 @@ Dieser Artikel beschreibt die Unterschiede zwischen [verwalteten Datenträgern i
 Verwaltete Datenträger vereinfachen die Datenträgerverwaltung für IaaS-VMs durch Verwaltung der [Speicherkonten](../operator/azure-stack-manage-storage-accounts.md), die den VM-Datenträgern zugeordnet sind.
 
 > [!NOTE]  
-> Verwaltete Datenträger stehen in Azure Stack ab Update 1808 zur Verfügung. Ab Update 1811 sind sie standardmäßig aktiviert, wenn VMs über das Azure Stack-Portal erstellt werden.
+> Verwaltete Datenträger stehen in Azure Stack ab Update 1808 zur Verfügung. Ab Update 1811 ist das Feature standardmäßig aktiviert, wenn VMs über das Azure Stack-Portal erstellt werden.
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>Spickzettel: Unterschiede zwischen Managed Disks
 
 | Feature | Azure (global) | Azure Stack |
 | --- | --- | --- |
-|Verschlüsselung für ruhende Daten |Azure-Speicherdienstverschlüsselung (Storage Service Encryption, SSE), Azure Disk Encryption (ADE)     |BitLocker-128-Bit-AES-Verschlüsselung      |
+|Verschlüsselung für ruhende Daten |Azure-Speicherdienstverschlüsselung (Storage Service Encryption, SSE), Azure Disk Encryption (ADE).     |BitLocker-128-Bit-AES-Verschlüsselung      |
 |Image          | Verwaltetes benutzerdefiniertes Image |Unterstützt|
 |Sicherungsoptionen | Azure Backup-Dienst |Noch nicht unterstützt |
 |Optionen für die Notfallwiederherstellung | Azure Site Recovery |Noch nicht unterstützt|
-|Datenträgertypen     |SSD Premium, SSD Standard und HDD Standard |SSD Premium, HDD Standard |
-|Premium-Datenträger  |Vollständig unterstützt |Kann bereitgestellt werden, jedoch ohne Leistungsgrenzwerte oder Garantien  |
-|Premium-Datenträger-IOPs  |Abhängig von der Größe des Datenträgers  |2\.300 IOPS pro Datenträger |
-|Durchsatz Premium-Datenträger |Abhängig von der Größe des Datenträgers |145 MB/Sekunde pro Datenträger |
+|Datenträgertypen     |SSD Premium, SSD Standard und HDD Standard. |SSD Premium, HDD Standard |
+|Premium-Datenträger  |Vollständig unterstützt. |Kann bereitgestellt werden, jedoch ohne Leistungsgrenzwerte oder Garantien  |
+|Premium-Datenträger-IOPs  |Abhängig von der Größe des Datenträgers.  |2\.300 IOPS pro Datenträger |
+|Durchsatz Premium-Datenträger |Abhängig von der Größe des Datenträgers. |145 MB/Sekunde pro Datenträger |
 |Datenträgergröße  |Azure Premium Disk: P4 (32 GiB) bis P80 (32 TiB)<br>Azure SSD Standard-Datenträger: E10 (128 GiB) bis E80 (32 TiB)<br>Azure HDD Standard-Datenträger: S4 (32 GiB) bis S80 (32 TiB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GB<br>M15: 256 GiB<br>M20: 512 GB<br>M30: 1.023 GiB |
-|Datenträger-Momentaufnahme Kopie|Momentaufnahmen verwalteter Azure-Datenträger, die an eine ausgeführte VM angefügt sind, werden unterstützt|Noch nicht unterstützt |
-|Analyse Datenträgerleistung |Unterstützung für aggregierte Metriken und Metriken pro Datenträger |Noch nicht unterstützt |
-|Migration      |Bereitstellung eines Tools für die Migration von vorhandenen, nicht verwalteten Azure Resource Manager VMs, ohne dass der virtuelle Computer neu erstellt werden muss.  |Noch nicht unterstützt |
+|Datenträger-Momentaufnahme Kopie|Momentaufnahmen verwalteter Azure-Datenträger, die an eine ausgeführte VM angefügt sind, werden unterstützt.|Noch nicht unterstützt |
+|Analyse Datenträgerleistung |Unterstützung für aggregierte Metriken und Metriken pro Datenträger. |Noch nicht unterstützt |
+|Migration      |Bereitstellung eines Tools für die Migration von vorhandenen, nicht verwalteten Azure Resource Manager-VMs, ohne dass der virtuelle Computer neu erstellt werden muss.  |Noch nicht unterstützt |
 
 > [!NOTE]  
 > Managed Disks-IOPs und Durchsatz in Azure Stack ist eine Cap-Zahl statt einer bereitgestellten Zahl, die durch Hardware und in Azure Stack ausgeführte Workloads beeinflusst werden kann.
@@ -228,7 +228,7 @@ Nach Anwendung des Updates 1808 oder höher müssen Sie folgende Änderung an de
 - Wenn ein Abonnement vor dem Update 1808 erstellt wurde, führen Sie die folgenden Schritte aus, um das Abonnement zu aktualisieren. Andernfalls kann die Bereitstellung von VMs in diesem Abonnement mit einer Fehlermeldung „Interner Fehler im Datenträger-Manager“ fehlschlagen.
    1. Navigieren Sie im Azure Stack-Benutzerportal zu **Abonnements**, und suchen Sie nach dem Abonnement. Klicken Sie auf **Ressourcenanbieter**, klicken Sie dann auf **Microsoft.Compute**, und klicken Sie anschließend auf **Erneut registrieren**.
    2. Navigieren Sie unter dem gleichen Abonnement zu **Zugriffssteuerung (IAM)** , und überprüfen Sie, ob **Azure Stack – Verwalteter Datenträger** aufgeführt wird.
-- Wenn Sie eine Umgebung mit mehreren Mandanten verwenden, bitten Sie Ihren Cloudoperator (der sich in Ihrem Unternehmen oder beim Dienstanbieter befinden kann), jedes Ihrer Gastverzeichnisse gemäß den folgenden Schritten in [diesem Artikel](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) neu zu konfigurieren. Andernfalls kann die Bereitstellung von VMs in einem Abonnement, das diesem Gastverzeichnis zugeordnet ist, mit einer Fehlermeldung „Interner Fehler im Datenträger-Manager.“ fehlschlagen.
+- Wenn Sie eine Umgebung mit mehreren Mandanten verwenden, bitten Sie Ihren Cloudoperator (der sich in Ihrem Unternehmen oder beim Dienstanbieter befinden kann), jedes Ihrer Gastverzeichnisse gemäß den folgenden Schritten in [diesem Artikel](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) neu zu konfigurieren. Andernfalls kann die Bereitstellung von VMs in einem Abonnement, das diesem Gastverzeichnis zugeordnet ist, mit der Fehlermeldung „Interner Fehler im Datenträger-Manager“ fehlschlagen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 1a3c59ab7650c9cd2337e8256556f8a449feacec
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.openlocfilehash: c170e450739609e0ef0be353f2354a17e39a28b1
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342808"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961839"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Nutzungsberichtsinfrastruktur für Cloudlösungsanbieter
 
 Azure Stack umfasst die erforderliche Infrastruktur zum Nachverfolgen der Nutzung in Echtzeit und leitet das Ergebnis an Azure weiter. In Azure verarbeitet Azure Commerce die Nutzungsdaten und stellt die Nutzung den entsprechenden Azure-Abonnements in Rechnung. Dieser Prozess funktioniert genauso wie die Nachverfolgung der Nutzung in der globalen Azure-Cloud.
 
-Bestimmte Konzepte sind zwischen globalen Azure-Umgebungen und Azure Stack konsistent. Azure Stack verfügt über lokale Abonnements, die eine ähnliche Rolle wie ein Azure-Abonnement erfüllen. Lokale Abonnements sind nur lokal gültig. Lokale Abonnements werden Azure-Abonnements zugeordnet, wenn die Nutzung an Azure weitergeleitet wird.
+Einige Konzepte sind zwischen globalen Azure-Umgebungen und Azure Stack konsistent. Azure Stack verfügt über lokale Abonnements, die eine ähnliche Rolle wie ein Azure-Abonnement erfüllen. Lokale Abonnements sind nur lokal gültig. Lokale Abonnements werden Azure-Abonnements zugeordnet, wenn die Nutzung an Azure weitergeleitet wird.
 
 Azure Stack verfügt über lokale Nutzungszähler. Die lokale Nutzung wird den in Azure Commerce verwendeten Zählern zugeordnet. Allerdings unterscheiden sich die Zähler-IDs. Es sind lokal mehr Zähler verfügbar als derjenige, den Microsoft für die Abrechnung verwendet.
 
@@ -45,7 +45,7 @@ Die folgenden Begriffe und-Konzepte werden für Abrechnung und Nutzung in Azure 
 
 | Begriff | Definition |
 | --- | --- |
-| Direkter CSP-Partner | Ein direkter Cloud-Dienstanbieter-Partner (Cloud Solution Provider, CSP) erhält direkt von Microsoft eine Rechnung für die Verwendung von Azure sowie Azure Stack und rechnet direkt mit seinen Kunden ab. |
+| Direkter CSP-Partner | Ein direkter CSP-Partner erhält direkt von Microsoft eine Rechnung für die Verwendung von Azure sowie Azure Stack und rechnet direkt mit seinen Kunden ab. |
 | Indirekter CSP | Indirekte Vertriebspartner arbeiten mit einem indirekten Anbieter (auch als Verteiler bekannt) zusammen. Die Vertriebspartner werben Endkunden; der indirekte Anbieter unterhält die Abrechnungsbeziehung mit Microsoft, verwaltet die Kundenabrechnung und bietet zusätzliche Dienste wie Produktsupport. |
 | Endkunde | Endkunden sind die Unternehmen und Behörden, die Besitzer der Apps und der anderen Arbeitslasten sind, die unter Azure Stack ausgeführt werden. |
 

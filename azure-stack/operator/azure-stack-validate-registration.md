@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/23/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 9c4ddec0606556290e55850a9081c6665f2524d1
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: c959a2553d6b298ef4a815890de6f717838361de
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159590"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961862"
 ---
 # <a name="validate-azure-registration"></a>Überprüfen der Azure-Registrierung
 
-Verwenden Sie das Tool Azure Stack Readiness Checker (**AzsReadinessChecker**), um zu überprüfen, ob Ihr Azure-Abonnement mit Azure Stack verwendet werden kann. Überprüfen Sie die Registrierung, bevor Sie mit einer Azure Stack-Bereitstellung beginnen. Bei der Überprüfung der Bereitschaft wird Folgendes geprüft:
+Verwenden Sie das Tool „Azure Stack Readiness Checker“ (**AzsReadinessChecker**), um zu überprüfen, ob Ihr Azure-Abonnement mit Azure Stack verwendet werden kann, bevor Sie mit einer Azure Stack-Bereitstellung beginnen. Bei der Überprüfung der Bereitschaft wird Folgendes geprüft:
 
-- Bei dem Azure-Abonnement, das Sie verwenden, handelt es sich um einen unterstützten Typ. Bei Abonnements muss es sich um einen Cloud-Dienstanbieter (Cloud Service Provider, CSP) oder einen Enterprise Agreement (EA) handeln.
+- Bei dem Azure-Abonnement, das Sie verwenden, handelt es sich um einen unterstützten Typ. Bei Abonnements muss es sich um einen Cloudlösungsanbieter (Cloud Solution Provider, CSP) oder ein Enterprise Agreement (EA) handeln.
 - Das Konto, mit dem Sie Ihr Abonnement bei Azure registrieren, kann sich bei Azure anmelden und ist der Besitzer eines Abonnements.
 
 Weitere Informationen zur Azure Stack-Registrierung finden Sie unter [Registrieren von Azure Stack in Azure](azure-stack-registration.md).
@@ -50,7 +50,7 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
   ```
 
 - [Für Azure Stack konfiguriertes PowerShell](azure-stack-powershell-install.md).
-- Laden Sie die neueste Version von [Microsoft Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker) herunter.  
+- Die neueste Version des Tools [Microsoft Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker)  
 
 ### <a name="azure-active-directory-environment"></a>Azure Active Directory-Umgebung
 
@@ -58,7 +58,7 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
 - Ermitteln Sie die Abonnement-ID für das Azure-Abonnement, das Sie verwenden möchten.
 - Legen Sie die Azure-Umgebung (**AzureEnvironment**) fest, die Sie verwenden möchten. Unterstützte Werte für den Umgebungsnamensparameter sind je nach Ihrem verwendeten Azure-Abonnement **AzureCloud**, **AzureChinaCloud** oder **AzureUSGovernment**.
 
-## <a name="steps-to-validate-azure-registration"></a>Schritte zum Überprüfen der Azure-Registrierung
+## <a name="steps-to-validate-the-azure-registration"></a>Schritte zum Überprüfen der Azure-Registrierung
 
 1. Öffnen Sie auf einem Computer, der die Voraussetzungen erfüllt, eine administrative PowerShell-Eingabeaufforderung, und führen Sie den folgenden Befehl zum Installieren von **AzsReadinessChecker** aus:
 
@@ -86,9 +86,9 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
    - Legen Sie den Wert für `AzureEnvironment` als **AzureCloud**, **AzureGermanCloud** oder **AzureChinaCloud** fest.  
    - Geben Sie Ihren Azure Active Directory-Administrator und den Namen Ihres Azure Active Directory-Mandanten an.
 
-   ```powershell
-   Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
-   ```
+      ```powershell
+      Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
+      ```
 
 5. Wenn das Tool ausgeführt wird, überprüfen Sie die Ausgabe. Vergewissern Sie sich, dass der Status für die Anmelde- und Registrierungsanforderungen richtig ist. Eine erfolgreiche Validierungsausgabe sieht in etwa wie folgt aus:
 
@@ -108,8 +108,8 @@ Anhand dieser Dateien können Sie den Überprüfungsstatus freigeben, bevor Sie 
 
 Standardmäßig werden beide Dateien in das Verzeichnis **C:\Users\Benutzername\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** geschrieben.  
 
-- Verwenden Sie den Parameter **-OutputPath** ***&lt;Pfad&gt;*** am Ende der Befehlszeilenausführung, um einen anderen Berichtsspeicherort anzugeben.
-- Verwenden Sie den **-CleanReport** -Parameter am Ende der Befehlszeile, um Informationen zu früheren Ausführungen des Tools aus **AzsReadinessCheckerReport.json** zu löschen.
+- Verwenden Sie den Parameter `-OutputPath <path>` am Ende der Ausführungsbefehlszeile, um einen anderen Berichtsspeicherort anzugeben.
+- Verwenden Sie den Parameter `-CleanReport` am Ende des Ausführungsbefehls, um Informationen zu früheren Ausführungen des Tools aus **AzsReadinessCheckerReport.json** zu löschen.
 
 Weitere Informationen finden Sie unter [Azure Stack-Überprüfungsbericht](azure-stack-validation-report.md).
 
@@ -117,7 +117,7 @@ Weitere Informationen finden Sie unter [Azure Stack-Überprüfungsbericht](azure
 
 Wenn bei der Überprüfung Fehler auftreten, werden Details zum Fehler im PowerShell-Fenster angezeigt. Das Tool protokolliert Informationen außerdem in der Datei **AzsReadinessChecker.log**.
 
-Die folgenden Beispiele zeigen, wie allgemeine Fehler bei der Überprüfung behoben werden:
+Die folgenden Beispiele enthalten weitere Informationen zu häufigen Überprüfungsfehlern.
 
 ### <a name="user-must-be-an-owner-of-the-subscription"></a>Der Benutzer muss der Besitzer eines Abonnements sein.
 

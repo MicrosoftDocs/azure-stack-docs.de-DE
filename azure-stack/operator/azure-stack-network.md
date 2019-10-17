@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: b2b53edaba6a6cb180ae617740fd4695b1a86187
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: dca5d863a046ec225b4d34c8cf5917153a3a5785
+ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842727"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037970"
 ---
 # <a name="network-connectivity"></a>Netzwerkverbindung
 Dieser Artikel enthält Informationen zur Netzwerkinfrastruktur von Azure Stack, die Sie bei der Entscheidung unterstützen, wie Sie Azure Stack am besten in Ihre bestehende Netzwerkumgebung integrieren können. 
@@ -55,7 +55,7 @@ Die Netzwerkinfrastruktur für Azure Stack besteht aus mehreren logischen Netzwe
 ![Logisches Netzwerkdiagramm und Switchverbindungen](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>BMC-Netzwerk
-Dieses Netzwerk ist für die Verbindung aller Baseboard-Verwaltungscontroller (BMCs, auch Dienstprozessoren genannt, z.B. iDRAC, iLO, iBMC, iBMC usw.) mit dem Verwaltungsnetzwerk bestimmt. Falls vorhanden, befindet sich der Hardware Lifecycle Host (HLH) in diesem Netzwerk und kann OEM-spezifische Software für die Hardwarewartung oder -überwachung bereitstellen. 
+Dieses Netzwerk ist für die Verbindung aller Baseboard-Verwaltungscontroller (BMCs, auch Dienstprozessoren genannt, z.B. iDRAC, iLO, iBMC, iBMC usw.) mit dem Verwaltungsnetzwerk bestimmt. Für die Kommunikation mit einem BMC-Knoten wird nur ein BMC-Konto verwendet. Falls vorhanden, befindet sich der Hardware Lifecycle Host (HLH) in diesem Netzwerk und kann OEM-spezifische Software für die Hardwarewartung oder -überwachung bereitstellen. 
 
 Der HLH hostet auch den virtuellen Bereitstellungscomputer (Deployment VM, DVM). Der DVM wird im Rahmen der Azure Stack-Bereitstellung verwendet und nach Abschluss der Bereitstellung entfernt. In verbundenen Szenarien benötigt der DVM Internetzugriff, um mehrere Komponenten testen und überprüfen sowie darauf zugreifen zu können. Diese Komponenten können sich innerhalb oder außerhalb Ihres Unternehmensnetzwerks befinden. Beispiele wären etwa NTP, DNS und Azure. Weitere Informationen zu Konnektivitätsanforderungen finden Sie im [NAT-Abschnitt des Artikels zur Azure Stack-Firewallintegration](azure-stack-firewall.md#network-address-translation). 
 

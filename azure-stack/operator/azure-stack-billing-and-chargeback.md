@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: bcdf43f7be95c76cfd4fc454d85e08ad197551a6
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: d3eacfa8ab4b071d44ebd3bd2ad52351b72e7f00
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094329"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974039"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Verbrauch und Abrechnung in Azure Stack
 
@@ -51,7 +51,7 @@ Die gesammelten Nutzungsdaten werden [an Azure gemeldet](azure-stack-usage-repor
 
 Das Azure-Abrechnungsportal zeigt Nutzungsdaten für kostenpflichtige Ressourcen. Zusätzlich zu den kostenpflichtigen Ressourcen erfasst Azure Stack Nutzungsdaten für eine umfassendere Palette an Ressourcen. Auf diese Daten können Sie in Ihrer Azure Stack-Umgebung über REST-APIs oder PowerShell-Cmdlets zugreifen. Azure Stack-Operatoren können die Nutzungsdaten für alle Benutzerabonnements abrufen. Einzelne Benutzer können nur ihre eigenen Nutzungsdetails abrufen.
 
-## <a name="usage-reporting-for-multi-tenant-cloud-service-providers"></a>Nutzungsberichte für mehrinstanzenfähige Cloud-Dienstanbieter
+## <a name="usage-reporting-for-multi-tenant-cloud-solution-providers"></a>Nutzungsberichte für mehrinstanzenfähige Cloudlösungsanbieter
 
 Ein mehrinstanzenfähiger Cloud Solution Provider (CSP), der Azure Stack nutzt, sollte einen separaten Nutzungsbericht für jeden Kunden erstellen, damit der Anbieter die Nutzung für verschiedene Azure-Abonnements in Rechnung stellen kann.
 

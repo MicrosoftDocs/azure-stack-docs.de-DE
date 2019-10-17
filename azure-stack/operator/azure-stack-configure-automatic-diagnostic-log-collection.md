@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 4d6bc431b292fc7a124aa2b8051d0a927d736eee
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: e9ee5d3b8ad67c7955fa4da7b64d2c0962f21a15
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224952"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173074"
 ---
 # <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>Konfigurieren der automatischen Azure Stack-Diagnoseprotokollsammlung
 
@@ -118,7 +118,9 @@ Operatoren können darüber hinaus das Speicherkonto für automatisch gesammelte
 
 ## <a name="automatic-diagnostic-log-collection-alerts"></a>Warnungen für die automatische Sammlung von Diagnoseprotokollen 
 
-Wenn diese Option aktiviert ist, erfolgt die automatische Sammlung von Diagnoseprotokollen nur bei Bedarf. Nur die folgenden Warnungen lösen eine Sammlung aus. 
+Wenn diese Option aktiviert ist, erfolgt die automatische Sammlung von Diagnoseprotokollen nur bei Bedarf. Nur die Warnungen in der folgenden Tabelle lösen die Sammlung aus. 
+
+**Fehler bei Update** ist beispielsweise eine Warnung, bei der die automatische Sammlung von Diagnoseprotokollen ausgelöst wird. Wenn die automatische Sammlung aktiviert ist, werden Diagnoseprotokolle bei einem Updatefehler proaktiv erfasst, um CSS bei der Behandlung des Problems zu unterstützen. Die Diagnoseprotokolle werden nur erfasst, wenn die Warnung für **Fehler bei Update** ausgelöst wird. 
 
 |Titel der Warnung  | FaultIdType|    
 |-------------|------------|

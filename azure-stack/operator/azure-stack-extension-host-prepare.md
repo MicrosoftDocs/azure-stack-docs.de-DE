@@ -1,26 +1,26 @@
 ---
-title: Vorbereiten auf den Erweiterungshost für Azure Stack | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie Vorbereitungen für den Erweiterungshost treffen, der über ein zukünftiges Azure Stack-Updatepaket automatisch aktiviert wird.
+title: Vorbereiten auf den Erweiterungshost in Azure Stack | Microsoft-Dokumentation
+description: Es wird beschrieben, wie Sie die Vorbereitung auf den Erweiterungshost in Azure Stack durchführen, der mit einem Azure Stack-Updatepaket nach Version 1808 automatisch aktiviert wird.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: ab508956ddcc57baa04c74710ea485c07cc20416
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 75070550f1863457c3a2aaf9ab5915536372d55b
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131154"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019273"
 ---
-# <a name="prepare-for-extension-host-for-azure-stack"></a>Vorbereiten auf den Erweiterungshost für Azure Stack
+# <a name="prepare-for-extension-host-in-azure-stack"></a>Vorbereiten auf den Erweiterungshost in Azure Stack
 
-Der Erweiterungshost sichert Azure Stack, indem die Anzahl der erforderlichen TCP/IP-Ports verringert wird. In diesem Artikel erfahren Sie, wie Sie Azure Stack für den Erweiterungshost vorbereiten, der nach dem Update 1808 automatisch über ein Azure Stack-Updatepaket aktiviert wird. Dieser Artikel gilt für die Updates 1808, 1809 und 1811 von Azure Stack.
+Der Erweiterungshost trägt zum Schutz von Azure Stack bei, indem die Anzahl erforderlicher TCP/IP-Ports verringert wird. In diesem Artikel erfahren Sie, wie Sie Azure Stack für den Erweiterungshost vorbereiten, der nach dem Update 1808 automatisch über ein Azure Stack-Updatepaket aktiviert wird. Dieser Artikel gilt für die Updates 1808, 1809 und 1811 von Azure Stack.
 
 ## <a name="certificate-requirements"></a>Zertifikatanforderungen
 
@@ -33,11 +33,11 @@ Die Tabelle zeigt die neuen Namespaces und die zugehörigen Zertifikate:
 | Administrator-Erweiterungshost | *.adminhosting.\<Region>.\<FQDN> (SSL-Platzhalterzertifikate) | Administrator-Erweiterungshost | adminhosting.\<Region>.\<FQDN> |
 | Öffentlicher Erweiterungshost | *.hosting.\<Region>.\<FQDN> (SSL-Platzhalterzertifikate) | Öffentlicher Erweiterungshost | hosting.\<region>.\<fqdn> |
 
-Die ausführlichen Zertifikatanforderungen finden Sie im Artikel [Azure Stack-PKI-Zertifikatanforderungen](azure-stack-pki-certs.md).
+Ausführlichere Informationen zu den Zertifikatanforderungen finden Sie unter [Azure Stack-PKI-Zertifikatanforderungen](azure-stack-pki-certs.md).
 
 ## <a name="create-certificate-signing-request"></a>Erstellen der Zertifikatsignieranforderung
 
-Das Tool Azure Stack Readiness Checker bietet die Möglichkeit, eine Zertifikatsignieranforderung für die beiden neuen, erforderlichen SSL-Zertifikate zu erstellen. Befolgen Sie die Schritte im Artikel [Generieren von Signieranforderungen für Azure Stack-Zertifikate](azure-stack-get-pki-certs.md).
+Mit dem Tool Azure Stack Readiness Checker können Sie eine Zertifikatsignieranforderung für die beiden neuen und erforderlichen SSL-Zertifikate erstellen. Befolgen Sie die Schritte im Artikel [Generieren von Signieranforderungen für Azure Stack-Zertifikate](azure-stack-get-pki-certs.md).
 
 > [!Note]  
 > Sie können diesen Schritt abhängig davon überspringen, wie Sie Ihre SSL-Zertifikate angefordert haben.
@@ -45,7 +45,7 @@ Das Tool Azure Stack Readiness Checker bietet die Möglichkeit, eine Zertifikats
 ## <a name="validate-new-certificates"></a>Überprüfen neuer Zertifikate
 
 1. Öffnen Sie PowerShell mit erhöhten Berechtigungen auf dem Hardware-Lebenszyklushost oder dem Azure Stack-Verwaltungscomputer.
-2. Führen Sie das folgende Cmdlet aus, um das Tool Azure Stack Readiness Checker zu installieren.
+2. Führen Sie das folgende Cmdlet aus, um das Tool Azure Stack Readiness Checker zu installieren:
 
     ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
@@ -75,7 +75,7 @@ Das Tool Azure Stack Readiness Checker bietet die Möglichkeit, eine Zertifikats
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ```
 
-6. Überprüfen Sie die Ausgabe und ob alle Tests für alle Zertifikate erfolgreich waren.
+6. Überprüfen Sie die Ausgabe und den erfolgreichen Ausgang aller Tests für alle Zertifikate.
 
 
 ## <a name="import-extension-host-certificates"></a>Importieren von Zertifikaten für den Erweiterungshost
@@ -83,8 +83,8 @@ Das Tool Azure Stack Readiness Checker bietet die Möglichkeit, eine Zertifikats
 Verwenden Sie für die folgenden Schritte einen Computer, der eine Verbindung mit dem für Azure Stack berechtigten Endpunkt herstellen kann. Vergewissern Sie sich, dass Sie Zugriff auf die neuen Zertifikatsdateien auf diesem Computer haben.
 
 1. Verwenden Sie für die folgenden Schritte einen Computer, der eine Verbindung mit dem für Azure Stack berechtigten Endpunkt herstellen kann. Vergewissern Sie sich, dass Sie auf die neuen Zertifikatsdateien auf diesem Computer zugreifen.
-2. Öffnen der PowerShell-ISE zum Ausführen der nächsten Skriptblöcke
-3. Importieren Sie das Zertifikat für das Administrator-Hosting-Endpunkt.
+2. Öffnen Sie die PowerShell-ISE zum Ausführen der nächsten Skriptblöcke.
+3. Importieren Sie das Zertifikat für den Administrator-Hostingendpunkt.
 
     ```powershell  
 
@@ -132,7 +132,7 @@ Wenn einzelne A-Datensätze des Hosts zum Veröffentlichen von Azure Stack-Endpu
 | \<IP> | *.Adminhosting.\<Region>.\<FQDN> | Eine Datei |
 | \<IP> | *.Hosting.\<Region>.\<FQDN> | Eine Datei |
 
-Die zugeordneten IP-Adressen können mithilfe des berechtigten Endpunkts durch Ausführen des Cmdlets **Get-AzureStackStampInformation** abgerufen werden.
+Die zugeordneten IP-Adressen können mithilfe des berechtigten Endpunkts abgerufen werden, indem das Cmdlet **Get-AzureStackStampInformation** ausgeführt wird.
 
 ### <a name="ports-and-protocols"></a>Ports und Protokolle
 
@@ -148,7 +148,7 @@ winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
 $PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
-# Obtain DNS Servers and Extension Host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
+# Obtain DNS Servers and extension host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
 $StampInformation = Invoke-Command $PEPSession {Get-AzureStackStampInformation} | Select-Object -Property ExternalDNSIPAddress01, ExternalDNSIPAddress02, @{n="TenantHosting";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://*.","testdnsentry"-replace "/"}},  @{n="AdminHosting";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://*.","testdnsentry"-replace "/"}},@{n="TenantHostingDNS";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://",""-replace "/"}},  @{n="AdminHostingDNS";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://",""-replace "/"}}
 If (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress01 -Name $StampInformation.TenantHosting -ErrorAction SilentlyContinue) {
     Write-Host "Can access AZS DNS" -ForegroundColor Green
@@ -192,12 +192,12 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>Aktualisieren vorhandener Veröffentlichungsregeln (nach der Aktivierung des Erweiterungshosts)
 
 > [!Note]  
-> Das Paket für das Azure Stack-Update 1808 aktiviert den Erweiterungshost **nicht**. Es erlaubt die Vorbereitung für den Erweiterungshost durch das Importieren der erforderlichen Zertifikate. Schließen Sie keine Ports, bevor der Erweiterungshost nicht automatisch über ein Azure Stack-Updatepaket nach dem Update 1808 aktiviert wurde.
+> Das Paket für das Azure Stack-Update 1808 aktiviert den Erweiterungshost **nicht**. Es ermöglicht Ihnen die Vorbereitung für den Erweiterungshost durch das Importieren der erforderlichen Zertifikate. Schließen Sie keine Ports, bevor der Erweiterungshost nicht automatisch über ein Azure Stack-Updatepaket nach dem Update 1808 aktiviert wurde.
 
 Die folgenden vorhandenen Endpunktports müssen in vorhandenen Firewallregeln geschlossen werden.
 
 > [!Note]  
-> Es wird empfohlen, die Ports erst nach einer erfolgreichen Validierung zu schließen.
+> Wir empfehlen Ihnen, die Ports nach der erfolgreichen Validierung zu schließen.
 
 | Endpunkt (VIP) | Protocol | Ports |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|

@@ -6,16 +6,16 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: f5086dcae534656cea4ef1addacae3f5acdcb2d6
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.openlocfilehash: de96b74351fa3becd0b066da4430e42cb2a9cea7
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197381"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961678"
 ---
 # <a name="introduction-to-azure-stack-vms"></a>Einführung in Azure Stack-VMs
 
@@ -23,7 +23,7 @@ ms.locfileid: "66197381"
 
 Azure Stack verfügt über virtuelle Computer (VMs) als Option für bedarfsgesteuerte und skalierbare Computingressourcen. Sie können virtuelle Computer verwenden, wenn Sie mehr Kontrolle über Ihre Computingumgebung benötigen. Lesen Sie vor dem Erstellen Ihres ersten virtuellen Computers die Informationen in diesem Artikel.
 
-Ein virtueller Azure Stack-Computer bietet die Flexibilität der Virtualisierung, ohne dass Sie Cluster oder einzelne Computer verwalten müssen. Der virtuelle Computer muss allerdings weiterhin gewartet werden, z. B. durch das Konfigurieren, Patchen und Verwalten der darauf ausgeführten Software.
+Ein virtueller Azure Stack-Computer bietet die Flexibilität der Virtualisierung, ohne dass Sie Cluster oder einzelne Computer verwalten müssen. Der virtuelle Computer muss allerdings weiterhin gewartet werden, z. B. durch das Konfigurieren, Patchen/Aktualisieren und Verwalten der darauf ausgeführten Software.
 
 Sie können Azure Stack-VMs auf mehrere Arten verwenden. Beispiel:
 
@@ -31,7 +31,7 @@ Sie können Azure Stack-VMs auf mehrere Arten verwenden. Beispiel:
 
 - **Anwendungen in der Cloud**: Da die Nutzung Ihrer Anwendung Schwankungen unterliegen kann, ist es unter Umständen wirtschaftlich sinnvoll, sie auf einem virtuellen Computer in Azure Stack auszuführen. Sie bezahlen für zusätzliche virtuelle Computer, wenn Sie sie benötigen, und fahren sie andernfalls einfach herunter.
 
-- **Erweitertes Datencenter**: VMs in einem virtuellen Azure Stack-Netzwerk lassen sich mit dem Netzwerk Ihrer Organisation oder mit Azure verbinden.
+- **Erweitertes Datencenter**: VMs in einem virtuellen Azure Stack-Netzwerk können mit dem Netzwerk Ihrer Organisation oder mit Azure verbunden werden.
 
 Die virtuellen Computer, die von Ihrer Anwendung genutzt werden, können zur Erfüllung Ihrer Anforderungen zentral oder horizontal hochskaliert werden.
 
@@ -91,7 +91,7 @@ Die Ressourcen in der folgenden Tabelle werden vom virtuellen Computer verwendet
 
 |Resource|Erforderlich|BESCHREIBUNG|
 |---------|---------|---------|
-|Ressourcengruppe|Ja|Der virtuelle Computer muss sich in einer Ressourcengruppe befinden.|
+|Resource group|Ja|Der virtuelle Computer muss sich in einer Ressourcengruppe befinden.|
 |Speicherkonto|Nein|Bei Verwendung verwalteter Datenträger benötigt die VM das Speicherkonto nicht, um die virtuellen Festplatten zu speichern. <br>Bei Verwendung von nicht verwalteten Datenträgern benötigt der virtuelle Computer das Speicherkonto, um die virtuellen Festplatten zu speichern.|
 |Virtuelles Netzwerk|Ja|Der virtuelle Computer muss einem virtuellen Netzwerk angehören.|
 |Öffentliche IP-Adresse|Nein|Für den Remotezugriff kann dem virtuellen Computer eine öffentliche IP-Adresse zugewiesen werden.|

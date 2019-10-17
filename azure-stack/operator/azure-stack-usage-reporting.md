@@ -15,12 +15,12 @@ ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 3aeae5c1a0106a0c13c9b6bbe2eb4ba07de14dd4
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: 5fecdbe7bcc85ea01e1502afcfc1c67d3b830c3e
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959440"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019389"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Melden von Azure Stack-Nutzungsdaten an Azure
 
@@ -96,7 +96,7 @@ Für Azure Stack-Systeme mit mehreren Knoten werden das Enterprise Agreement-Abo
 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Funktioniert das Melden von Nutzungsdaten in unabhängigen Clouds?
 
-Beim Azure Stack Development Kit werden für das Melden von Nutzungsdaten Abonnements benötigt, die im globalen Azure-System erstellt wurden. Abonnements, die in einer der Sovereign Clouds (die Clouds „Azure Government“, „Azure Deutschland“ und „Azure China“) erstellt wurden, können nicht bei Azure registriert werden und unterstützen daher das Melden von Nutzungsdaten nicht.
+Beim Azure Stack Development Kit werden für das Melden von Nutzungsdaten Abonnements benötigt, die im globalen Azure-System erstellt wurden. Abonnements, die in einer der Sovereign Clouds (die Clouds „Azure Government“, „Azure Deutschland“ und „Azure China 21Vianet“) erstellt wurden, können nicht bei Azure registriert werden und unterstützen daher das Melden von Nutzungsdaten nicht.
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Warum stimmen die in Azure Stack gemeldeten Nutzungsdaten nicht mit dem vom Azure-Kontocenter erstellten Bericht überein?
 
@@ -107,4 +107,4 @@ Zwischen den von den Azure Stack-Nutzungs-APIs und den vom Azure-Kontocenter gem
 - [Anbieternutzungs-API](azure-stack-provider-resource-api.md)  
 - [Mandantennutzungs-API](azure-stack-tenant-resource-usage-api.md)
 - [FAQ zur Nutzung](azure-stack-usage-related-faq.md)
-- [Verwalten von Nutzung und Abrechnung als Cloud-Dienstanbieter](azure-stack-add-manage-billing-as-a-csp.md)
+- [Verwalten von Nutzung und Abrechnung als Cloudlösungsanbieter](azure-stack-add-manage-billing-as-a-csp.md)

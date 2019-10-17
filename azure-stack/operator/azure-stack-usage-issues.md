@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 3548574ce8ece470c67101d42b115dbafe2c9a1c
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 265645b69e909c7c9762cd03e4f49035baa2872b
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829217"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019428"
 ---
 # <a name="usage-connectivity-errors"></a>Verbindungsfehler bei der Nutzung
 
@@ -61,4 +61,4 @@ Zusätzlich müssen Sie eventuell die Protokolldateien für die Azure-Bridge-, W
 
 - Erfahren Sie mehr über das [Melden von Azure Stack-Nutzungsdaten an Azure](azure-stack-usage-reporting.md).
 - Wie Sie ggf. in Ihrem Registrierungsprozess ausgelöste Fehlermeldungen überprüfen, erfahren Sie unter [Fehlermeldungen bei der Mandantenregistrierung](azure-stack-registration-errors.md).
-- Weitere Informationen zur [Infrastruktur für Nutzungsberichte für Cloud-Dienstanbieter](azure-stack-csp-ref-infrastructure.md).
+- Weitere Informationen zur [Nutzungsberichtsinfrastruktur für Cloudlösungsanbieter](azure-stack-csp-ref-infrastructure.md).

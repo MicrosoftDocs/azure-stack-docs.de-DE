@@ -12,24 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 9d8510c121c424c3c66fd179639256e8834e932e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: fd56e7aa7805614829985a2e083d228d1960b402
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829063"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173062"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>Bedarfsgesteuertes Sammeln von Azure Stack-Diagnoseprotokollen
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme*
 
-Im Rahmen der Problembehandlung muss der Microsoft-Kundensupport (Customer Support Services, CSS) möglicherweise Diagnoseprotokolle analysieren. Ab Version 1907 können Azure Stack-Operatoren bei Bedarf Diagnoseprotokolle mithilfe von **Hilfe und Support** in einen Blobcontainer in Azure hochladen. Wenn das Portal nicht verfügbar ist, können Operatoren Protokolle alternativ mithilfe von „Get-AzureStackLog“ über den privilegierten Endpunkt (PEP) erfassen. In diesem Thema werden beide Verfahren zum bedarfsgesteuerten Sammeln von Diagnoseprotokollen behandelt.
+Im Rahmen der Problembehandlung muss der Microsoft-Kundensupport (Customer Support Services, CSS) möglicherweise Diagnoseprotokolle analysieren. Ab Version 1907 können Azure Stack-Operatoren bei Bedarf Diagnoseprotokolle mithilfe von **Hilfe und Support** in einen Blobcontainer in Azure hochladen. Wenn das Portal nicht verfügbar ist, können Operatoren Protokolle mithilfe von „Get-AzureStackLog“ über den privilegierten Endpunkt (PEP) erfassen. In diesem Thema werden beide Verfahren zum bedarfsgesteuerten Sammeln von Diagnoseprotokollen behandelt.
 
-## <a name="use-help-and-support-to-collect-diagnostic-logs"></a>Verwenden von „Hilfe und Support“ zum Sammeln von Diagnoseprotokollen
+>[!Note]
+>Als Alternative zum bedarfsgesteuerten Sammeln von Protokollen können Sie den Problembehandlungsprozess auch optimieren, indem Sie die [automatische Sammlung von Diagnoseprotokollen](azure-stack-configure-automatic-diagnostic-log-collection.md) aktivieren. Wenn die Integritätsbedingungen des Systems untersucht werden müssen, werden die Protokolle automatisch zur Analyse durch den Microsoft-Kundensupport (Microsoft Customer Support Services, CSS) hochgeladen. 
+
+## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>Verwenden von „Hilfe und Support“ zum bedarfsgesteuerten Sammeln von Diagnoseprotokollen
 
 Zur Behandlung eines Problems fordert CSS einen Azure Stack-Operator möglicherweise auf, bei Bedarf Diagnoseprotokolle für ein bestimmtes Zeitfenster aus der vorangegangenen Woche zu erfassen. In diesem Fall stellt CSS dem Operator eine SAS-URL zum Hochladen der Sammlung zur Verfügung. Führen Sie die folgenden Schritte aus, um die bedarfsgesteuerte Protokollsammlung mithilfe der SAS-URL von CSS zu konfigurieren:
 

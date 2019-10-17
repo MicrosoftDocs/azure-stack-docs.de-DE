@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 9403931d91756e744dcdb6c34adb26e8281f6d28
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 8741d63dbbcefde950fc10c0917d87bc4e9718f7
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492382"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961518"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>Bereitstellen eines virtuellen Computers mit einem sicher gespeicherten Zertifikat in Azure Stack 
 
@@ -32,7 +32,7 @@ In diesem Artikel wird beschrieben, wie Sie einen virtuellen Azure Stack-Compute
 
 Zertifikate werden in vielen Szenarien verwendet, z.B. zur Authentifizierung für Active Directory oder zur Verschlüsselung von Webdatenverkehr. Sie können Zertifikate auf sichere Weise als Geheimnisse in einem Azure Stack-Schlüsseltresor speichern. Die Nutzung von Azure Stack Key Vault hat folgende Vorteile:
 
-* Zertifikate werden nicht per Skript, Befehlszeilenverlauf oder Vorlage offengelegt.
+* Zertifikate werden per Skript, Befehlszeilenverlauf oder Vorlage nicht offengelegt.
 * Der Zertifikatverwaltungsprozess wurde optimiert.
 * Sie haben die Kontrolle über die Schlüssel, mit denen auf Zertifikate zugegriffen wird.
 
@@ -119,7 +119,7 @@ Set-AzureKeyVaultSecret `
    -SecretValue $secret
 ```
 
-Wenn Sie dieses Skript ausführen, enthält die Ausgabe den URI des Geheimnisses. Notieren Sie sich diesen URI, wie Sie sich in der [Vorlage „Zertifikat per Push an Windows Resource Manager übertragen“](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) darauf beziehen müssen. Laden Sie den Ordner für die [Vorlage „vm-push-certificate-windows“](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) auf Ihren Entwicklungscomputer herunter. Dieser Ordner enthält die Dateien **azuredeploy.json** und **azuredeploy.parameters.json**, die Sie für die folgenden Schritte benötigen.
+Wenn Sie dieses Skript ausführen, enthält die Ausgabe den URI des Geheimnisses. Notieren Sie sich diesen URI, da Sie in der [Vorlage „Zertifikat per Push an Windows Resource Manager übertragen“](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) darauf verweisen müssen. Laden Sie den Ordner für die [Vorlage „vm-push-certificate-windows“](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) auf Ihren Entwicklungscomputer herunter. Dieser Ordner enthält die Dateien **azuredeploy.json** und **azuredeploy.parameters.json**, die Sie für die folgenden Schritte benötigen.
 
 Ändern Sie die Datei **azuredeploy.parameters.json** gemäß den Werten Ihrer Umgebung. Die wichtigen Parameter sind der Tresorname, die Tresorressourcengruppe und der Geheimnis-URI (wie vom vorherigen Skript generiert). Der folgende Abschnitt enthält ein Beispiel für eine Parameterdatei.
 
@@ -165,7 +165,7 @@ Aktualisieren Sie die Datei **azuredeploy.parameters.json** gemäß Ihrer Umgebu
 Stellen Sie die Vorlage mithilfe des folgenden PowerShell-Skripts bereit:
 
 ```powershell
-# Deploy a Resource Manager template to create a VM and push the secret onto it
+# Deploy a Resource Manager template to create a VM and push the secret to it
 New-AzureRmResourceGroupDeployment `
   -Name KVDeployment `
   -ResourceGroupName $resourceGroup `
@@ -173,7 +173,7 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
 
-Wenn die Vorlage erfolgreich bereitgestellt wurde, erhalten Sie die folgende Ausgabe:
+Wenn die Vorlage erfolgreich bereitgestellt wurde, wird die folgende Ausgabe angezeigt:
 
 ![Ergebnisse der Vorlagenbereitstellung](media/azure-stack-key-vault-push-secret-into-vm/deployment-output.png)
 

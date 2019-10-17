@@ -15,12 +15,12 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: d63d4876674c66fcccab942cd856dce958e62644
-ms.sourcegitcommit: 32609bdb04a07b063c8f20f892c30769ad6903dd
+ms.openlocfilehash: b4780077f015c060c63abc3abd33bd3e71c63e15
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269482"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019321"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-usage"></a>Häufig gestellte Fragen zur Nutzung von Azure Stack
 
@@ -322,7 +322,7 @@ Der Verbrauch wird für die folgenden Ressourcenanbieter gemeldet:
 **ID der Verbrauchseinheit**: 190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **Name der Verbrauchseinheit**: App Service  
 **Einheit:** Virtueller Kern Stunden  
-**Hinweise**: Anzahl der virtuellen Kerne, die zum Ausführen des App-Diensts verwendet werden Hinweis: Microsoft verwendet diese Verbrauchseinheit, um App Service in Azure Stack in Rechnung zu stellen. Cloud-Dienstanbieter können die anderen App Service-Verbrauchseinheiten (unten) zum Berechnen der Nutzung für ihre Mandanten verwenden.  
+**Hinweise**: Anzahl der virtuellen Kerne, die zum Ausführen des App-Diensts verwendet werden Hinweis: Microsoft verwendet diese Verbrauchseinheit, um App Service in Azure Stack in Rechnung zu stellen. Cloudlösungsanbieter können die anderen App Service-Verbrauchseinheiten (unten) zum Berechnen der Nutzung für ihre Mandanten verwenden.  
   
 **ID der Verbrauchseinheit**: 67CC4AFC-0691-48E1-A4B8-D744D1FEDBDE  
 **Name der Verbrauchseinheit**: Functions-Anforderungen  

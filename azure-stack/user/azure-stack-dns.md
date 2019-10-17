@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 8bfe15ad19e4aaec45492aa98cfb2ef02294742a
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 5600dd6537df35e703e0ac7a08ad4a61f976e489
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658474"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961485"
 ---
 # <a name="use-dns-in-azure-stack"></a>Verwenden von DNS in Azure Stack
 
@@ -49,7 +49,7 @@ Der folgende Screenshot zeigt das Dialogfeld **Öffentliche IP-Adresse erstellen
 
 Sie verfügen über einen Lastenausgleich, der Anforderungen einer Web-App verarbeitet. Im Hintergrund des Lastenausgleichs befindet sich eine Website, die auf einem oder mehreren virtuellen Computern ausgeführt wird. Jetzt können Sie auf die Website mit Lastenausgleich mit einem DNS-Namen zugreifen, statt mit einer IP-Adresse.
 
-## <a name="create-and-manage-dns-zones-and-records-using-the-api"></a>Erstellen und Verwalten von DNS-Zonen und -Einträgen mit der API
+## <a name="create-and-manage-dns-zones-and-records-using-the-apis"></a>Erstellen und Verwalten von DNS-Zonen und -Einträgen mit den APIs
 
 Sie können DNS-Zonen und -Einträge in Azure Stack erstellen und verwalten.
 
@@ -61,9 +61,9 @@ Die Azure Stack-DNS-Infrastruktur ist kompakter als in Azure. Die Größe und de
 
 DNS in Azure Stack ist DNS in Azure ähnlich, aber es gibt ein paar wichtige Ausnahmen:
 
-* **AAAA-Einträge werden nicht unterstützt**: Azure Stack unterstützt keine AAAA-Einträge, weil Azure Stack keine Unterstützung von IPv6-Adressen aufweist. Dies ist ein wichtiger Unterschied zwischen DNS in Azure und Azure Stack.
+* **AAAA-Einträge werden nicht unterstützt:** Azure Stack unterstützt keine AAAA-Einträge, weil Azure Stack keine Unterstützung von IPv6-Adressen aufweist. Dies ist ein wichtiger Unterschied zwischen DNS in Azure und Azure Stack.
 
-* **Keine Mehrinstanzenfähigkeit**: Der DNS-Dienst in Azure Stack ist nicht mehrinstanzenfähig. Für mehrere Mandanten kann nicht die gleiche DNS-Zone erstellt werden. Dies ist nur für das erste Abonnement erfolgreich, mit dem versucht wird, die Zone zu erstellen. Spätere Anforderungen schlagen fehl. Dies ist ein weiterer wichtiger Unterschied zwischen DNS in Azure und Azure Stack.
+* **Nicht mehrinstanzenfähig:** Der DNS-Dienst in Azure Stack ist nicht mehrinstanzenfähig. Für mehrere Mandanten kann nicht dieselbe DNS-Zone erstellt werden. Dies ist nur für das erste Abonnement erfolgreich, mit dem versucht wird, die Zone zu erstellen. Spätere Anforderungen schlagen fehl. Dies ist ein weiterer wichtiger Unterschied zwischen DNS in Azure und Azure Stack.
 
 * **Tags, Metadaten und ETags:** Außerdem gibt es kleinere Unterschiede in Bezug darauf, wie Azure Stack Tags, Metadaten, ETags und Grenzwerte verarbeitet.
 

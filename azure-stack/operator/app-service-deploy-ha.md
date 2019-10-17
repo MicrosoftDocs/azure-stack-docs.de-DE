@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2019
+ms.date: 10/07/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 77ec512f5e2996aaec53ef77c000d0334bda456a
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 0bf89b0f80557f99c83fb5ad6afd0c4a5dcd3849
+ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975210"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165010"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Bereitstellen von App Service in einer Hochverfügbarkeitskonfiguration
 
@@ -177,7 +177,7 @@ Führen Sie zum Bereitstellen des App Service-Ressourcenanbieters die folgenden 
     - IP-Zieladressbereich: Bereich der IPs für Ihren Dateiserver
     - Zielportbereich: 445
     - Protokoll: TCP
-    - Aktion: ZULASSEN
+    - Aktion: Allow
     - Priorität: 700
     - Name: Outbound_Allow_SMB445
 
@@ -236,7 +236,7 @@ Führen Sie zum Bereitstellen des App Service-Ressourcenanbieters die folgenden 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Fügen Sie die Datenbanken „appservice_hosting“ und „appservice_metering“ einer Verfügbarkeitsgruppe hinzu](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database), wenn Sie für den App Service-Ressourcenanbieter eine SQL Always On-Instanz bereitgestellt haben. Synchronisieren Sie die Datenbanken, um bei einem Datenbankfailover einen Dienstverlust zu verhindern.
+[Fügen Sie die Datenbanken „appservice_hosting“ und „appservice_metering“ einer Verfügbarkeitsgruppe hinzu](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database), wenn Sie für den App Service-Ressourcenanbieter eine SQL Always On-Instanz bereitgestellt haben. Synchronisieren Sie die Datenbanken, um bei einem Datenbankfailover einen Dienstverlust zu verhindern. Sie können auch ein [Skript](https://blog.sqlauthority.com/2017/11/30/sql-server-alwayson-availability-groups-script-sync-logins-replicas/) ausführen, um die AppServices-Anmeldungen vom ursprünglichen primären Server auf einen Failoverserver zu importieren.
 
 [Erweitern Sie App Service.](azure-stack-app-service-add-worker-roles.md) Gegebenenfalls müssen noch weitere App Service-Infrastrukturrollen-Worker hinzugefügt werden, um den zu erwartenden Anwendungsbedarf in Ihrer Umgebung zu decken. Standardmäßig unterstützt App Service in Azure Stack kostenlose und gemeinsam genutzte Workerebenen. Um andere Workerebenen hinzufügen zu können, müssen Sie weitere Workerrollen hinzufügen.
 

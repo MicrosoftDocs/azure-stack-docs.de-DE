@@ -7,22 +7,22 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: cd32288f6541dc4ba1ed16a24ff5fa802066af30
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: ed73441f1a8d3c1c722ce35d5deda9ab7387283b
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094416"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974091"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Bereitstellen von VM-Skalierungsgruppen in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
   
-VM-Skalierungsgruppen sind eine Azure Stack-Computeressource. Verwenden Sie sie zum Bereitstellen und Verwalten eines Satzes identischer virtueller Computer (VMs). Da alle VMs genauso konfiguriert sind, ist bei Skalierungsgruppen keine Vorabbereitstellung der VMs erforderlich. Es ist einfacher, umfangreiche Dienste zu erstellen, die auf hohe Rechenleistung, Big Data und Workloads in Containern ausgelegt sind.
+VM-Skalierungsgruppen sind eine Azure Stack-Computeressource. Verwenden Sie sie zum Bereitstellen und Verwalten eines Satzes identischer virtueller Computer (VMs). Da alle VMs gleich konfiguriert sind, ist bei Skalierungsgruppen keine Vorabbereitstellung der VMs erforderlich. Es ist einfacher, umfangreiche Dienste zu erstellen, die auf hohe Rechenleistung, Big Data und Workloads in Containern ausgelegt sind.
 
 Dieser Artikel beschreibt, wie Skalierungsgruppen im Azure Stack-Marketplace verfügbar gemacht werden. Wenn Sie dieses Verfahren abgeschlossen haben, können Ihre Benutzer VM-Skalierungsgruppen zu ihren Abonnements hinzufügen.
 
@@ -41,7 +41,7 @@ In Azure Stack unterstützen VM-Skalierungsgruppen keine automatische Skalierung
 ## <a name="use-the-azure-stack-portal"></a>Verwenden des Azure Stack-Portals
 
 >[!IMPORTANT]  
-> Die Informationen in diesem Abschnitt gelten bei Verwendung von Azure Stack Version 1808 oder höher. Wenn Ihre Version 1807 oder niedriger ist, lesen Sie [Hinzufügen der VM-Skalierungsgruppe (vor 1808)](#add-the-virtual-machine-scale-set-prior-to-version-1808).
+> Die Informationen in diesem Abschnitt gelten bei Verwendung von Azure Stack Version 1808 oder höher. Wenn Ihre Version 1807 oder niedriger ist, lesen Sie [Hinzufügen der VM-Skalierungsgruppe (vor 1808)](#add-the-virtual-machine-scale-set-prior-to-version-1808).
 
 1. Melden Sie sich beim Azure Stack-Portal an. Navigieren Sie dann zu **Alle Dienste** und **VM-Skalierungsgruppen**, und wählen Sie unter **COMPUTE** die Option **VM-Skalierungsgruppen** aus.
    ![Auswählen von VM-Skalierungsgruppen](media/azure-stack-compute-add-scalesets/all-services.png)

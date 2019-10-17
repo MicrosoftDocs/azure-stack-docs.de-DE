@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: d7fa69b632ec6d205eff0ed0c388c1f9ec9b9c41
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: 4d9331f5167a0ce9d305a76225987d8b1d3f3dcc
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094404"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961559"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Herstellen einer Verbindung zwischen Azure Stack und Azure mithilfe von Azure ExpressRoute
 
@@ -153,7 +153,7 @@ Die Ressource „Gateway für lokales Netzwerk“ gibt das Remotegateway am ande
    * 10.100.0.0/16 ist das Spoke-VNET in Azure.
 
    > [!IMPORTANT]
-   > In diesem Beispiel wird vorausgesetzt, dass Sie statische Routen für die Site-to-Site-VPN-Verbindung zwischen dem Azure Stack-Gateway und dem ExpressRoute-Router verwenden.
+   > In diesem Beispiel wird davon ausgegangen, dass Sie statische Routen für die Site-to-Site-VPN-Verbindung zwischen dem Azure Stack-Gateway und dem ExpressRoute-Router verwenden.
 
 1. Vergewissern Sie sich, dass Ihr **Abonnement**, die **Ressourcengruppe** und der **Speicherort** richtig sind. Klicken Sie anschließend auf **Erstellen**.
 
@@ -219,7 +219,7 @@ Vergessen Sie nicht, die IP-Adressen zu ändern, um Überlappungen zu vermeiden,
 > [!IMPORTANT]
 > Dieser Abschnitt gilt nur für ASDK-Bereitstellungen. NAT ist für Bereitstellungen mit mehreren Knoten nicht erforderlich.
 
-Das ASDK ist eigenständig und von dem Netzwerk isoliert, in dem der physische Host bereitgestellt wird. Das VIP-Netzwerk, mit dem die Gateways verbunden sind, ist nicht extern. Es ist hinter einem Router mit NAT (Network Address Translation) angeordnet.
+Das ASDK ist eigenständig und von dem Netzwerk isoliert, in dem der physische Host bereitgestellt wird. Das VIP-Netzwerk, mit dem die Gateways verbunden sind, ist nicht extern, sondern befindet sich hinter einem Router, der Netzwerkadressenübersetzung (Network Address Translation, NAT) ausführt.
 
 Der Router ist der ASDK-Host, der mit der RRAS-Rolle (Routing and Remote Access Services) ausgeführt wird. Sie müssen die NAT auf dem ASDK-Host konfigurieren, um die Site-to-Site-VPN-Verbindung an beiden Endpunkten zu ermöglichen.
 
