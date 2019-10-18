@@ -1,6 +1,6 @@
 ---
-title: Verwenden des Verwaltungsportals in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie als Azure Stack-Bediener das Verwaltungsportal verwenden.
+title: Verwenden des Administratorportals in Azure Stack | Microsoft-Dokumentation
+description: Erfahren wie Sie das Administratorportal in Azure Stack verwenden.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,22 +16,22 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: cb57d43306b69c3698441b9bb7b01c0c292bd704
-ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
+ms.openlocfilehash: a5a2c86d4680d38b3923eea4a04cacbf61fff108
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66821753"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283502"
 ---
-# <a name="quickstart-use-the-azure-stack-administration-portal"></a>Schnellstart: Verwenden des Azure Stack-Verwaltungsportals
+# <a name="use-the-administrator-portal-in-azure-stack"></a>Verwenden des Administratorportals in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-In Azure Stack stehen zwei Portale zur Verfügung: das Verwaltungs- bzw. Administratorportal und das Benutzerportal (manchmal auch als *Mandantenportal* bezeichnet). Als Azure Stack-Bediener können Sie das Verwaltungsportal für tägliche Verwaltungsaufgaben und Vorgänge in Azure Stack verwenden.
+In Azure Stack stehen zwei Portale zur Verfügung: das Administratorportal und das Benutzerportal. Als Azure Stack-Betreiber führen Sie mit dem Administratorportal tägliche Verwaltungsaufgaben und Vorgänge in Azure Stack aus.
 
 ## <a name="access-the-administrator-portal"></a>Zugreifen auf das Administratorportal
 
-Rufen Sie zum Zugreifen auf das Administratorportal die Portal-URL auf, und melden Sie sich mit den Anmeldeinformationen eines Azure Stack-Betreibers an. Bei einem integrierten System variiert die Portal-URL basierend auf dem Regionsnamen und dem externen vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) der Azure Stack-Bereitstellung. Für Bereitstellungen des Azure Stack Development Kit (ASDK) ist die URL für das Verwaltungsportal immer gleich. 
+Rufen Sie zum Zugreifen auf das Administratorportal die Portal-URL auf, und melden Sie sich mit Ihren Azure Stack-Bedieneranmeldeinformationen an. Bei einem integrierten System variiert die Portal-URL basierend auf dem Regionsnamen und dem externen vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) der Azure Stack-Bereitstellung. Für Bereitstellungen des Azure Stack Development Kit (ASDK) ist die URL für das Administratorportal immer gleich.
 
 | Environment | URL des Administratorportals |   
 | -- | -- | 
@@ -42,41 +42,41 @@ Rufen Sie zum Zugreifen auf das Administratorportal die Portal-URL auf, und meld
 > [!TIP]
 > Bei einer ASDK-Umgebung müssen Sie zunächst sicherstellen, dass Sie über die Remotedesktopverbindung oder ein virtuelles privates Netzwerk (VPN) eine [Verbindung mit dem Development Kit-Host herstellen](../asdk/asdk-connect.md) können.
 
- ![Verwaltungsportal](media/azure-stack-manage-portals/admin-portal.png)
+ ![Azure Stack-Administratorportal](media/azure-stack-manage-portals/admin-portal.png)
 
-Die Standardzeitzone für alle Azure Stack-Bereitstellungen ist auf „Koordinierte Weltzeit (UTC)“ festgelegt. 
+Die Standardzeitzone für alle Azure Stack-Bereitstellungen ist auf „Koordinierte Weltzeit (UTC)“ festgelegt.
 
 Im Administratorportal können Sie beispielsweise folgende Aufgaben ausführen:
 
 * [Registrieren von Azure Stack in Azure](azure-stack-registration.md)
 * [Auffüllen des Marketplace](azure-stack-download-azure-marketplace-item.md)
-* [Erstellen von Plänen, Angeboten und Abonnements für Benutzer](azure-stack-plan-offer-quota-overview.md)
+* [Erstellen von Plänen, Angeboten und Abonnements für Benutzer](service-plan-offer-subscription-overview.md)
 * [Überwachung von Zustand und Warnungen](azure-stack-monitor-health.md)
 * [Verwalten von Azure Stack-Updates](azure-stack-updates.md)
 
 Auf der Kachel **Schnellstart-Lernprogramme** stehen Links zur Onlinedokumentation für die häufigsten Aufgaben zur Verfügung.
 
-Obwohl ein Bediener im Verwaltungsportal Ressourcen wie VMs, virtuelle Netzwerke und Speicherkonten erstellen kann, sollten Sie sich zum Erstellen und Testen von Ressourcen [beim Benutzerportal anmelden](../user/azure-stack-use-portal.md).
+Ein Betreiber kann zwar im Administratorportal Ressourcen wie virtuelle Computer (VMs), virtuelle Netzwerke und Speicherkonten erstellen, Sie sollten sich jedoch [beim Benutzerportal anmelden](../user/azure-stack-use-portal.md), um Ressourcen zu erstellen und zu testen.
 
 >[!NOTE]
->Über den Link **Virtuellen Computer erstellen** auf der Kachel des Schnellstarttutorials können Sie eine VM im Verwaltungsportal erstellen, diese Option dient jedoch nur zum Überprüfen der erfolgreichen Bereitstellung von Azure Stack.
+>Über den Link **Virtuellen Computer erstellen** auf der Kachel des Schnellstarttutorials können Sie eine VM im Administratorportal erstellen. Diese Option dient jedoch nur zum Überprüfen der erfolgreichen Bereitstellung von Azure Stack.
 
 ## <a name="understand-subscription-behavior"></a>Grundlegendes zum Abonnementverhalten
 
-Im Verwaltungsportal werden standardmäßig drei Abonnements erstellt: für den Verbrauch, den Standardanbieter und die Messung. Als Bediener verwenden Sie in erster Linie das *Standardabonnement des Anbieters*. Es ist nicht möglich, weitere Abonnements hinzuzufügen und im Verwaltungsportal zu verwenden. 
+Im Administratorportal werden standardmäßig drei Abonnements erstellt: für den Verbrauch, den Standardanbieter und die Messung. Als Bediener verwenden Sie in erster Linie das *Standardabonnement des Anbieters*. Sie können im Administratorportal keine weiteren Abonnements hinzufügen und verwenden.
 
-Andere Abonnements werden von Benutzern im Benutzerportal auf Grundlage der Pläne und Angebote erstellt, die Sie für diese erstellen. Über das Benutzerportal kann jedoch nicht auf die administrativen oder operativen Funktionen des Verwaltungsportals zugegriffen werden.
+Andere Abonnements werden von Benutzern im Benutzerportal auf Grundlage der Pläne und Angebote erstellt, die Sie für diese erstellen. Über das Benutzerportal kann jedoch nicht auf die administrativen oder operativen Funktionen des Administratorportals zugegriffen werden.
 
-Die Verwaltungs- und Benutzerportale basieren auf separaten Instanzen von Azure Resource Manager. Aufgrund dieser Trennung von Azure Resource Manager sind Abonnements nicht portalübergreifend. Wenn Sie sich beispielsweise als Azure Stack-Bediener beim Benutzerportal anmelden, können Sie nicht auf das *Standardabonnement des Anbieters* zugreifen. Obwohl Sie keinen Zugriff auf administrative Funktionen haben, können Sie jedoch auf der Grundlage verfügbarer öffentlicher Angebote Abonnements für sich selbst erstellen. Solange Sie beim Benutzerportal angemeldet sind, gelten Sie als Mandantenbenutzer.
+Das Administratorportal und das Benutzerportal basieren auf separaten Instanzen von Azure Resource Manager. Aufgrund dieser Trennung von Azure Resource Manager sind Abonnements nicht portalübergreifend. Wenn Sie sich beispielsweise als Azure Stack-Betreiber beim Benutzerportal anmelden, können Sie nicht auf das *Standardabonnement des Anbieters* zugreifen. Obwohl Sie keinen Zugriff auf administrative Funktionen haben, können Sie jedoch auf der Grundlage verfügbarer öffentlicher Angebote Abonnements für sich selbst erstellen. Solange Sie beim Benutzerportal angemeldet sind, gelten Sie als Mandantenbenutzer.
 
   >[!NOTE]
-  >In einer ASDK-Umgebung gilt Folgendes: Wenn ein Benutzer dem gleichen Mandantenverzeichnis angehört wie der Azure Stack-Bediener, kann er sich beim Verwaltungsportal anmelden. Er kann jedoch nicht auf die Verwaltungsfunktionen zugreifen oder Abonnements hinzufügen, um auf Angebote zuzugreifen, die im Benutzerportal nicht für ihn verfügbar sind.
+  >In einer ASDK-Umgebung gilt Folgendes: Wenn ein Benutzer dem gleichen Mandantenverzeichnis angehört wie der Azure Stack-Bediener, kann er sich beim Administratorportal anmelden. Er kann jedoch nicht auf die Verwaltungsfunktionen zugreifen oder Abonnements hinzufügen, um auf Angebote zuzugreifen, die im Benutzerportal nicht für ihn verfügbar sind.
 
-## <a name="administration-portal-tips"></a>Tipps zur Verwendung des Verwaltungsportals
+## <a name="administrator-portal-tips"></a>Tipps zum Administratorportal
 
 ### <a name="customize-the-dashboard"></a>Anpassen des Dashboards
 
-Das Dashboard enthält eine Reihe von Standardkacheln. Wählen Sie **Dashboard bearbeiten** aus, um das Standarddashboard anzupassen, oder wählen Sie **Neues Dashboard** aus, um ein benutzerdefiniertes Dashboard hinzuzufügen. Sie können einem Dashboard einfach Kacheln hinzufügen. Wählen Sie beispielsweise **+Ressource erstellen** aus, klicken Sie mit der rechten Maustaste auf **Angebote und Pläne**, und wählen Sie dann **An Dashboard anheften** aus.
+Das Dashboard enthält eine Reihe von Standardkacheln. Wählen Sie **Dashboard bearbeiten** aus, um das Standarddashboard anzupassen, oder wählen Sie **Neues Dashboard** aus, um ein benutzerdefiniertes Dashboard hinzuzufügen. Sie können einem Dashboard auch Kacheln hinzufügen. Wählen Sie beispielsweise **+Ressource erstellen** aus, klicken Sie mit der rechten Maustaste auf **Angebote und Pläne**, und wählen Sie dann **An Dashboard anheften** aus.
 
 Es kann sein, dass im Portal manchmal ein leeres Dashboard angezeigt wird. Klicken Sie zum Wiederherstellen des Dashboards auf **Dashboard bearbeiten**, klicken Sie dann mit der rechten Maustaste, und wählen Sie **Auf Standardzustand zurücksetzen** aus.
 
@@ -93,8 +93,8 @@ Wenn Sie oben rechts im Administratorportal auf das Symbol „Hilfe“ (Fragezei
 
 ### <a name="quick-access-to-the-azure-roadmap"></a>Schneller Zugriff auf die Azure-Roadmap
 
-Wenn Sie oben rechts im Verwaltungsportal **Hilfe und Support** (Fragezeichen) und dann **Azure-Roadmap** auswählen, wird eine neue Browserregisterkarte geöffnet, über die Sie zur Azure-Roadmap gelangen. Durch Eingabe von **Azure Stack** in das Suchfeld **Produkte** werden alle Updates von Azure Stack-Roadmap angezeigt.
+Wenn Sie in der oberen rechten Ecke des Administratorportals **Hilfe und Unterstützung** (das Fragezeichen) und dann **Azure-Roadmap** auswählen, wird eine neue Browserregisterkarte geöffnet, über die Sie zur Azure-Roadmap gelangen. Durch Eingabe von **Azure Stack** in das Suchfeld **Produkte** werden alle Updates von Azure Stack-Roadmap angezeigt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Registrieren Sie sich für Azure Stack in Azure](azure-stack-registration.md), und füllen Sie den [Azure Stack-Marketplace](azure-stack-marketplace.md) mit Elementen auf, die Sie für Ihre Benutzer anbieten möchten. 
+[Registrieren Sie sich für Azure Stack in Azure](azure-stack-registration.md), und füllen Sie den [Azure Stack-Marketplace](azure-stack-marketplace.md) mit Elementen auf, die Sie für Ihre Benutzer anbieten möchten.
