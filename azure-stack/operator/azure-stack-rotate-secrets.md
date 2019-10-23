@@ -11,44 +11,59 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2019
+ms.date: 10/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
-ms.lastreviewed: 07/15/2019
+ms.lastreviewed: 09/30/2019
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: b79e3def3444db2228992b423ca21945d7964f26
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: f32a25997e4336a24dfb9b673202882cff1845e9
+ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159615"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72381457"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotieren von Geheimnissen in Azure Stack
 
 *Diese Anweisungen gelten nur für integrierte Azure Stack-Systeme ab Version 1803. Versuchen Sie nicht, die Geheimnisrotation mit älteren Azure Stack-Versionen (vor 1802) zu verwenden.*
 
+Geheimnisse tragen zur Gewährleistung einer sicheren Kommunikation zwischen Azure Stack-Infrastrukturressourcen und -diensten bei.
+
+## <a name="overview-to-rotate-secrets"></a>Übersicht über das Rotieren von Geheimnissen
+
+1. Bereiten Sie die Zertifikate vor, die für die Geheimnisrotation verwendet werden.
+2. Sehen Sie sich die [Azure Stack-PKI-Zertifikatanforderungen](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs) an.
+3. [Verwenden Sie den privilegierten Endpunkt](azure-stack-privileged-endpoint.md), und führen Sie **Test-azurestack** aus, um zu überprüfen, ob alles in Ordnung ist.  
+4. Informieren Sie sich ausführlicher über das [Vorbereiten der Geheimnisrotation](#pre-steps-for-secret-rotation).
+5. [Überprüfen Sie die Azure Stack-PKI-Zertifikate.](https://docs.microsoft.com/azure-stack/operator/azure-stack-validate-pki-certs) Stellen Sie sicher, dass das Kennwort keine Sonderzeichen wie `*` oder `)` enthält.
+6. Vergewissern Sie sich, dass als PFX-Verschlüsselung **TripleDES-SHA1** verwendet wird. Tritt ein Problem auf, lesen Sie die Informationen unter [Behebung von häufigen Problemen mit Azure Stack-PKI-Zertifikaten](https://docs.microsoft.com/azure-stack/operator/azure-stack-remediate-certs#pfx-encryption).
+7. Bereiten Sie die Ordnerstruktur vor.  Ein Beispiel finden Sie im Abschnitt [Rotieren externer Geheimnisse](https://docs.microsoft.com/azure-stack/operator/azure-stack-rotate-secrets#rotating-external-secrets).
+8. [Starten Sie die Geheimnisrotation.](#use-powershell-to-rotate-secrets)
+
+## <a name="rotate-secrets"></a>Rotieren von Geheimnissen
+
 Azure Stack verwendet verschiedene Geheimnisse, um eine sichere Kommunikation zwischen Azure Stack-Infrastrukturressourcen und -diensten zu gewährleisten.
 
 - **Interne Geheimnisse**
 
-Alle Zertifikate, Kennwörter, sicheren Zeichenfolgen und Schlüssel, die von der Azure Stack-Infrastruktur ohne Beteiligung des Azure Stack-Betreibers verwendet werden.
+    Alle Zertifikate, Kennwörter, sicheren Zeichenfolgen und Schlüssel, die von der Azure Stack-Infrastruktur ohne Beteiligung des Azure Stack-Betreibers verwendet werden.
 
 - **Externe Geheimnisse**
 
-Infrastrukturdienstzertifikate für extern ausgerichtete Dienste, die vom Azure Stack-Betreiber bereitgestellt werden. Zu externen Geheimnissen zählen Zertifikate für folgende Dienste:
+    Infrastrukturdienstzertifikate für extern ausgerichtete Dienste, die vom Azure Stack-Betreiber bereitgestellt werden. Zu externen Geheimnissen zählen Zertifikate für folgende Dienste:
 
-- Administratorportal
-- Öffentliches Portal
-- Azure Resource Manager (Administrator)
-- Azure Resource Manager (global)
-- Key Vault (Administrator)
-- KeyVault
-- Administratorerweiterungshost
-- ACS (einschließlich Blob, Table und Queue Storage)
-- ADFS *
-- Graph *
-
-\* Nur relevant, wenn Active Directory-Verbunddienste (AD FS) als Identitätsanbieter der Umgebung verwendet wird.
+    - Administratorportal
+    - Öffentliches Portal
+    - Azure Resource Manager (Administrator)
+    - Azure Resource Manager (global)
+    - Key Vault (Administrator)
+    - KeyVault
+    - Administratorerweiterungshost
+    - ACS (einschließlich Blob, Table und Queue Storage)
+    - ADFS *
+    - Graph *
+    
+    \* Nur relevant, wenn Active Directory-Verbunddienste (AD FS) als Identitätsanbieter der Umgebung verwendet wird.
 
 > [!Note]
 > Alle anderen sicheren Schlüssel und Zeichenfolgen (einschließlich BMC- und Wechselkennwörter sowie Kennwörter für Benutzer- und Administratorkonten) werden weiterhin manuell vom Administrator aktualisiert.
@@ -58,7 +73,7 @@ Infrastrukturdienstzertifikate für extern ausgerichtete Dienste, die vom Azure 
 
 Um die Integrität der Azure Stack-Infrastruktur zu erhalten, müssen Operatoren die Geheimnisse ihrer Infrastruktur regelmäßig und mit einer Häufigkeit rotieren können, die mit den Sicherheitsanforderungen ihrer Organisation in Einklang steht.
 
-### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Rotieren von Geheimnissen mit externen Zertifikate von einer neuen Zertifizierungsstelle
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Rotieren von Geheimnissen mit externen Zertifikaten von einer neuen Zertifizierungsstelle
 
 Azure Stack unterstützt Geheimnisrotation mit externen Zertifikaten von einer neuen Zertifizierungsstelle (ZS) in den folgenden Kontexten:
 
@@ -217,7 +232,7 @@ So rotieren Sie externe Geheimnisse:
 
 6. Entfernen Sie nach erfolgreichem Abschluss der Geheimnisrotation Ihre Zertifikate aus der Freigabe, die Sie im Rahmen der Vorbereitung erstellt haben, und speichern Sie sie an ihrem sicheren Sicherungsspeicherort.
 
-## <a name="walkthrough-of-secret-rotation"></a>Exemplarische Vorgehensweise für die Geheimnisrotation
+## <a name="use-powershell-to-rotate-secrets"></a>Verwenden von PowerShell zum Rotieren von Geheimnissen
 
 Das folgende PowerShell-Beispiel veranschaulicht die zu verwendenden Cmdlets und Parameter für die Geheimnisrotation.
 
@@ -368,13 +383,12 @@ Dieser Befehl rotiert alle Infrastrukturgeheimnisse, die für das interne Azure 
 
 ## <a name="update-the-baseboard-management-controller-bmc-credential"></a>Aktualisieren des Baseboard Management Controller (BMC, Baseboard-Verwaltungscontroller)
 
-Der Baseboard-Verwaltungscontroller (Baseboard Management Controller, BMC) überwacht den physischen Zustand Ihrer Server. Die Spezifikationen und Anweisungen zur Aktualisierung des Benutzerkontonamens und Kennworts des BMC variieren je nach OEM (Original Equipment Manufacturer, Originalgerätehersteller). Die Kennwörter für Azure Stack-Komponenten sollten regelmäßig aktualisiert werden.
+Der Baseboard-Verwaltungscontroller (Baseboard Management Controller, BMC) überwacht den physischen Zustand Ihrer Server. Anweisungen zur Aktualisierung des Benutzerkontonamens und Kennworts des BMC erhalten Sie vom OEM-Hardwareanbieter (Original Equipment Manufacturer, Originalgerätehersteller). 
+
+>[!NOTE]
+> Der OEM stellt unter Umständen zusätzliche Verwaltungsanwendungen bereit. Die Aktualisierung des Benutzernamens oder Kennworts für andere Verwaltungsanwendungen wirkt sich nicht auf den BMC-Benutzernamen oder das BMC-Kennwort aus.   
 
 1. Aktualisieren Sie den BMC auf den physischen Azure Stack-Servern gemäß den Anweisungen des OEM. Benutzername und Kennwort für jeden BMC in Ihrer Umgebung müssen identisch sein. BMC-Benutzernamen dürfen nicht länger als 16 Zeichen sein.
-
-    > [!Note]  
-    > Aktualisieren Sie zunächst die BMC-Anmeldeinformationen im Baseboard-Verwaltungscontroller des physischen Servers. Andernfalls tritt bei der Überprüfung des Azure Stack-Befehls ein Fehler auf.
-
 2. Öffnen Sie in Azure Stack einen privilegierten Endpunkt. Anweisungen finden Sie unter [Verwenden des privilegierten Endpunkts in Azure Stack](azure-stack-privileged-endpoint.md).
 3. Nachdem Sie über Ihre PowerShell-Eingabeaufforderung zu **[IP-Adresse oder ERCS-VM-Name]: PS>** oder zu **[azs-ercs01]: PS>** gewechselt sind, führen Sie (abhängig von der Umgebung) `Set-BmcCredential` durch Ausführen von `Invoke-Command` aus. Übergeben Sie die Sitzungsvariable des privilegierten Endpunkts als Parameter. Beispiel:
 

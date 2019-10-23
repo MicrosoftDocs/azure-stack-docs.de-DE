@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 10/16/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: b3540727b1868c700e43e2865848a71635e8003d
-ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
+ms.lastreviewed: 10/16/2019
+ms.openlocfilehash: 3c0b1ce32399b4739796b2718e97c69d96291dc6
+ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173107"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72445282"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Problembehandlung für Microsoft Azure Stack
 
@@ -85,7 +85,7 @@ Wählen Sie den Typ des Kontos für gemeinsame Dienste aus, das Sie für Azure S
 * Cloud Solution Provider
 * Partner Shared Services-Abonnement
 
-## <a name="get-scale-unit-metrics"></a>Abrufen der Metriken von Skalierungseinheiten
+### <a name="get-scale-unit-metrics"></a>Abrufen der Metriken von Skalierungseinheiten
 
 Sie können PowerShell verwenden, um ohne CSS-Hilfe Informationen zur Stempelauslastung zu erhalten. Rufen Sie die Stempelauslastung wie folgt ab: 
 
@@ -151,6 +151,11 @@ Weitere Informationen zum Konfigurieren des Schwellenwerts für die Aufbewahrung
 ## <a name="troubleshoot-storage"></a>Beheben von Problemen mit dem Speicher
 ### <a name="storage-reclamation"></a>Freigabe von Speicherplatz
 Es kann bis zu 14 Stunden dauern, bis freigegebene Kapazität im Portal angezeigt wird. Die Freigabe von Speicherplatz hängt von verschiedenen Faktoren ab, einschließlich der prozentualen Auslastung von internen Containerdateien im Blockblobspeicher. Je nach gelöschter Datenmenge besteht daher keine Garantie für die Menge des Speicherplatzes, der freigegeben werden kann, wenn der Garbage Collector ausgeführt wird.
+
+### <a name="azure-storage-explorer-not-working-with-azure-stack"></a>Azure Storage-Explorer funktioniert nicht mit Azure Stack. 
+ 
+Wenn Sie ein integriertes System in einem nicht verbundenen Szenario verwenden, wird die Verwendung einer Unternehmenszertifizierungsstelle empfohlen. Exportieren Sie das Stammzertifikat im Base64-Format, und importieren Sie es in Azure Storage-Explorer. Entfernen Sie unbedingt den nachstehenden Schrägstrich (/) vom ARM-Endpunkt. Weitere Informationen finden Sie unter [Herstellen einer Verbindung von Storage-Explorer mit einem Azure Stack-Abonnement oder -Speicherkonto](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se#prepare-for-connecting-to-azure-stack).
+ 
 
 ## <a name="troubleshooting-app-service"></a>Problembehandlung für App Service
 ### <a name="create-aadidentityappps1-script-fails"></a>Fehler für das Skript „Create-AADIdentityApp.ps1“

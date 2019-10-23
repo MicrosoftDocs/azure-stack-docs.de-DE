@@ -1,6 +1,6 @@
 ---
-title: Verwalten von Berechtigungen für Ressourcen pro Benutzer in Azure Stack (Dienstadministrator und Mandant) | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie als Dienstadministrator oder Mandant RBAC-Berechtigungen verwalten.
+title: Festlegen von Zugriffsberechtigungen mithilfe der rollenbasierten Zugriffssteuerung | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie mithilfe der rollenbasierten Zugriffssteuerung (Role-Based Access Control, RBAC) Zugriffsberechtigungen in Azure Stack festlegen.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -15,14 +15,14 @@ ms.date: 05/16/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 9fc4e6bb48c8cdd7508a1a85d193a22761c62e99
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: fa4e836a2c7cd5b59a6234a05efcc1cface12620
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268596"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277051"
 ---
-# <a name="manage-role-based-access-control"></a>Verwalten der rollenbasierten Zugriffssteuerung
+# <a name="set-access-permissions-using-role-based-access-control"></a>Festlegen von Zugriffsberechtigungen mithilfe der rollenbasierten Zugriffssteuerung
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 

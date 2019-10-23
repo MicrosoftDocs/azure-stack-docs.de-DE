@@ -1,6 +1,6 @@
 ---
-title: 'Azure Stack-Datencenterintegration: Identität'
-description: Erfahren Sie, wie Sie Azure Stack AD FS in AD FS des Datencenters integrieren.
+title: Integrieren der AD FS-Identität in Ihr Azure Stack-Rechenzentrum | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie den Azure Stack AD FS-Identitätsanbieter in die AD FS des Rechenzentrums integrieren.
 services: azure-stack
 author: PatAltimore
 manager: femila
@@ -10,16 +10,16 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: f51b0bdd4e433dd3083701e8cc967b3105d23ed6
-ms.sourcegitcommit: 820ec8d10ddab1fee136397d3aa609e676f8b39d
+ms.openlocfilehash: c7d0396f01970366696309445efb911e2e189162
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71127520"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277186"
 ---
-# <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack-Datencenterintegration: Identität
+# <a name="integrate-ad-fs-identity-with-your-azure-stack-datacenter"></a>Integrieren der AD FS-Identität in Ihr Azure Stack-Rechenzentrum
 
-Azure Stack kann mithilfe von Azure Active Directory (Azure AD) oder den Active Directory-Verbunddiensten (AD FS) als Identitätsanbieter bereitgestellt werden. Sie müssen die entsprechende Entscheidung treffen, bevor Sie Azure Stack bereitstellen. In einem verbundenen Szenario können Sie zwischen Azure AD und AD FS wählen. In einem nicht verbundenen Szenario wird nur AD FS unterstützt.
+Azure Stack kann mithilfe von Azure Active Directory (Azure AD) oder den Active Directory-Verbunddiensten (AD FS) als Identitätsanbieter bereitgestellt werden. Sie müssen die entsprechende Entscheidung treffen, bevor Sie Azure Stack bereitstellen. In einem verbundenen Szenario können Sie zwischen Azure AD und AD FS wählen. In einem nicht verbundenen Szenario wird nur AD FS unterstützt. In diesem Artikel erfahren Sie, wie Sie Azure Stack AD FS in die AD FS des Rechenzentrums integrieren.
 
 > [!IMPORTANT]
 > Sie können den Identitätsanbieter nicht wechseln, ohne die gesamte Azure Stack-Lösung erneut bereitzustellen.
@@ -28,13 +28,13 @@ Azure Stack kann mithilfe von Azure Active Directory (Azure AD) oder den Active 
 
 Die Bereitstellung mit AD FS gestattet Identitäten in einer vorhandenen Active Directory-Gesamtstruktur die Authentifizierung mit Ressourcen in Azure Stack. Diese vorhandene Active Directory-Gesamtstruktur erfordert eine Bereitstellung von AD FS, um das Erstellen einer AD FS-Verbundvertrauensstellung zu ermöglichen.
 
-Authentifizierung ist ein Teil der Identität. Damit rollenbasierte Zugriffssteuerung (Role Based Access Control, RBAC) in Azure-Stack verwaltet werden kann, muss die Graph-Komponente konfiguriert werden. Wenn der Zugriff auf eine Ressource delegiert wird, sucht die Graph-Komponente das Benutzerkonto mithilfe des LDAP-Protokolls in der vorhandenen Active Directory-Gesamtstruktur.
+Authentifizierung ist ein Teil der Identität. Damit rollenbasierte Zugriffssteuerung (Role Based Access Control, RBAC) in Azure Stack verwaltet werden kann, muss die Graph-Komponente konfiguriert werden. Wenn der Zugriff auf eine Ressource delegiert wird, sucht die Graph-Komponente das Benutzerkonto mithilfe des LDAP-Protokolls in der vorhandenen Active Directory-Gesamtstruktur.
 
 ![AD FS-Architektur von Azure Stack](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
 
 Die vorhandenen AD FS sind der Konto-Sicherheitstokendienst (STS), der Ansprüche an Azure Stack AD FS (den Ressourcen-STS) sendet. In Azure Stack erstellt die Automatisierung die Anspruchsanbieter-Vertrauensstellung mit dem Metadatenendpunkt für die vorhandenen AD FS.
 
-Für die vorhandenen AD FS muss eine Vertrauensstellung der vertrauenden Seite konfiguriert werden. Dieser Schritt erfolgt nicht durch die Automatisierung und muss vom Operator konfiguriert werden. Der Azure Stack-VIP-Endpunkt für AD FS kann mithilfe des Musters `https://adfs.<Region>.<ExternalFQDN>/` erstellt werden.
+Für die vorhandenen AD FS muss eine Vertrauensstellung der vertrauenden Seite konfiguriert werden. Dieser Schritt erfolgt nicht durch die Automatisierung und muss vom Betreiber konfiguriert werden. Der Azure Stack-VIP-Endpunkt für AD FS kann mithilfe des Musters `https://adfs.<Region>.<ExternalFQDN>/` erstellt werden.
 
 Die Vertrauensstellungskonfiguration der vertrauenden Seite erfordert außerdem, dass die Regeln für die Anspruchstransformation konfiguriert werden, die von Microsoft bereitgestellt werden.
 
@@ -57,14 +57,14 @@ Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter 
 
 |Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|BESCHREIBUNG|Beispiel|
 |---------|---------|---------|---------|
-|`CustomADGlobalCatalog`|FQDN der AD FS-Gesamtstruktur|FQDN der Active Directory-Zielgesamtstruktur,<br>mit der die Integration erfolgen soll.|Contoso.com|
+|`CustomADGlobalCatalog`|FQDN der AD FS-Gesamtstruktur|FQDN der Active Directory-Zielgesamtstruktur, mit der die Integration erfolgen soll|Contoso.com|
 |`CustomADAdminCredentials`| |Ein Benutzer mit LDAP-Leseberechtigung.|IHREDOMAENE\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>Konfigurieren von Active Directory-Standorten
 
 Bei Active Directory-Bereitstellungen mit mehreren Standorten sollten Sie den Active Directory-Standort konfigurieren, der Ihrer Azure Stack-Bereitstellung am nächsten gelegen ist. Durch die Konfiguration wird vermieden, dass der Azure Stack-Graph-Dienst Abfragen über einen globalen Katalogserver von einem Remotestandort auflöst.
 
-Fügen Sie das Azure Stack-Subnetz [mit öffentlicher VIP](azure-stack-network.md#public-vip-network) dem Active Directory-Standort hinzu, der Azure Stack am nächsten gelegen ist. Wenn Ihr Active Directory beispielsweise die beiden Standorte Seattle und Redmond aufweist und Azure Stack am Standort Seattle bereitgestellt ist, fügen Sie das Azure Stack-Subnetz mit öffentlicher VIP dem Azure Active Directory-Standort für Seattle hinzu.
+Fügen Sie das Azure Stack-Subnetz [mit öffentlicher VIP](azure-stack-network.md#public-vip-network) dem Active Directory-Standort hinzu, der Azure Stack am nächsten gelegen ist. Nehmen wir beispielsweise an, dass Ihr Active Directory zwei Standorte hat: Seattle und Redmond. Wenn Azure Stack am Standort Seattle bereitgestellt ist, fügen Sie das Azure Stack-Subnetz mit öffentlicher VIP dem Azure Active Directory-Standort für Seattle hinzu.
 
 Weitere Informationen zu Active Directory-Standorten finden Sie unter [Entwerfen der Standorttopologie](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 
@@ -73,11 +73,11 @@ Weitere Informationen zu Active Directory-Standorten finden Sie unter [Entwerfen
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Erstellen eines Benutzerkontos im vorhandenen Active Directory (optional)
 
-Optional können Sie ein Konto für den Graph-Dienst im vorhandenen Active Directory erstellen. Führen Sie diesen Schritt aus, wenn Sie noch nicht über ein Konto verfügen, das Sie verwenden möchten.
+Optional können Sie ein Konto für den Graph-Dienst im vorhandenen Active Directory erstellen. Führen Sie diesen Schritt aus, wenn Sie noch kein Konto haben, das Sie verwenden möchten.
 
 1. Erstellen Sie im vorhandenen Active Directory das folgende Benutzerkonto (Empfehlung):
    - **Benutzername**: graphservice
-   - **Kennwort**: Verwenden Sie ein sicheres Kennwort.<br>Konfigurieren Sie das Kennwort so, dass es nie abläuft.
+   - **Kennwort**: Verwenden Sie ein sicheres Kennwort, und konfigurieren Sie es so, dass es nie abläuft.
 
    Es sind keine speziellen Berechtigungen oder eine Mitgliedschaft erforderlich.
 
@@ -130,8 +130,8 @@ Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter 
 |Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|BESCHREIBUNG|Beispiel|
 |---------|---------|---------|---------|
 |CustomAdfsName|AD FS-Anbietername|Der Name der Anspruchsanbieter-Vertrauensstellung.<br>Er wird wie hier angegeben auf der AD FS-Startseite angezeigt.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|AD FS-Metadaten-URI|Verbundmetadatenlink| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
-|SigningCertificateRevocationCheck|Nicht verfügbar|Optionaler Parameter, um die CRL-Überprüfung zu überspringen|Keine|
+|CustomAD<br>FSFederationMetadataEndpointUri|AD FS-Metadaten-URI|Verbundmetadatenlink.| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|SigningCertificateRevocationCheck|Nicht verfügbar|Optionaler Parameter, um die CRL-Überprüfung zu überspringen.|Keine|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Auslösen der Automatisierung zum Konfigurieren der Anspruchsanbieter-Vertrauensstellung in Azure Stack
@@ -170,11 +170,11 @@ Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter 
 |Parameter|BESCHREIBUNG|Beispiel|
 |---------|---------|---------|
 |CustomAdfsName|Der Name der Anspruchsanbieter-Vertrauensstellung. Er wird wie hier angegeben auf der AD FS-Startseite angezeigt.|Contoso|
-|CustomADFSFederationMetadataFileContent|Metadateninhalte|$using:federationMetadataFileContent|
+|CustomADFSFederationMetadataFileContent|Metadateninhalte.|$using:federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>Erstellen der Verbundmetadatendatei
 
-Für das folgende Verfahren müssen Sie einen Computer verwenden, der über eine Netzwerkverbindung mit der vorhandenen AD FS-Bereitstellung verfügt, die zum Konto-STS wird. Darüber hinaus müssen die erforderlichen Zertifikate installiert sein.
+Für das folgende Verfahren müssen Sie einen Computer verwenden, der über eine Netzwerkverbindung mit der vorhandenen AD FS-Bereitstellung verfügt, die zum Konto-STS wird. Die erforderlichen Zertifikate müssen ebenfalls installiert sein.
 
 1. Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Rechten, und führen Sie den folgenden Befehl mit den Parametern aus, die für Ihre Umgebung geeignet sind:
 
@@ -206,7 +206,7 @@ Verwenden Sie für diese Prozedur einen Computer, der mit dem privilegierten End
     Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
     ```
 
-3. Führen Sie den folgenden Befehl aus, um den Besitzer des Anbieterstandardabonnements zu aktualisieren. Verwenden Sie dabei für Ihre Umgebung geeignete Parameter:
+3. Führen Sie den folgenden Befehl aus, um den Besitzer des Anbieterstandardabonnements zu aktualisieren. Verwenden Sie dabei für Ihre Umgebung geeignete Parameter.
 
    ```powershell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
@@ -256,16 +256,16 @@ Wenn Sie die Befehle manuell ausführen möchten, gehen Sie folgendermaßen vor:
    => issue(claim = c);
    ```
 
-2. Stellen Sie sicher, dass die Windows Forms-basierte Authentifizierung für Extranet und Intranet aktiviert ist. Überprüfen Sie zunächst, ob sie bereits aktiviert ist, indem Sie das folgende Cmdlet ausführen:
+2. Stellen Sie sicher, dass die Windows Forms-basierte Authentifizierung für Extranet und Intranet aktiviert ist. Sie können überprüfen, ob sie bereits aktiviert ist, indem Sie das folgende Cmdlet ausführen:
 
    ```powershell  
    Get-AdfsAuthenticationProvider | where-object { $_.name -eq "FormsAuthentication" } | select Name, AllowedForPrimaryExtranet, AllowedForPrimaryIntranet
    ```
 
     > [!Note]  
-    > Die von der integrierten Windows-Authentifizierung (WIA) unterstützten Benutzer-Agenten-Zeichenfolgen können für Ihre AD FS-Bereitstellung veraltet sein und müssen möglicherweise aktualisiert werden, um neueste Clients zu unterstützen. Weitere Informationen zum Aktualisieren der von WIA unterstützten Zeichenfolgen für den Benutzer-Agent finden Sie im Artikel [Konfigurieren der formularbasierten Authentifizierung für Geräte im Intranet, die WIA nicht unterstützen](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br>Die Schritte zum Aktivieren der formularbasierten Authentifizierungsrichtlinie werden im Artikel [Konfigurieren von Authentifizierungsrichtlinien](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies) beschrieben.
+    > Die von der integrierten Windows-Authentifizierung (WIA) unterstützten Benutzer-Agenten-Zeichenfolgen können für Ihre AD FS-Bereitstellung veraltet sein und müssen möglicherweise aktualisiert werden, um aktuelle Clients zu unterstützen. Weitere Informationen zum Aktualisieren der von WIA unterstützten Zeichenfolgen für den Benutzer-Agent finden Sie im Artikel [Konfigurieren der formularbasierten Authentifizierung für Geräte im Intranet, die WIA nicht unterstützen](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br><br>Die Schritte zum Aktivieren der formularbasierten Authentifizierungsrichtlinie finden Sie unter [Konfigurieren von Authentifizierungsrichtlinien](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
 
-3. Zum Hinzufügen der Vertrauensstellung der vertrauenden Seite führen Sie den folgenden Windows PowerShell-Befehl für Ihre AD FS-Instanz oder Ihr Farmmitglied aus. Stellen Sie sicher, dass Sie den AD FS-Endpunkt aktualisieren, und verweisen Sie auf die Datei, die Sie in Schritt 1 erstellt haben.
+3. Zum Hinzufügen der Vertrauensstellung der vertrauenden Seite führen Sie den folgenden Windows PowerShell-Befehl für Ihre AD FS-Instanz oder Ihr Farmmitglied aus. Aktualisieren Sie unbedingt den AD FS-Endpunkt, und verweisen Sie auf die Datei, die Sie in Schritt 1 erstellt haben.
 
    **Für AD FS 2016**
 
@@ -285,7 +285,7 @@ Wenn Sie die Befehle manuell ausführen möchten, gehen Sie folgendermaßen vor:
 4. Wenn Sie einen der Browser Internet Explorer oder Microsoft Edge verwenden, um auf Azure Stack zuzugreifen, müssen Sie Tokenbindungen ignorieren. Andernfalls tritt beim Anmeldeversuch ein Fehler auf. Führen Sie für Ihre AD FS-Instanz oder Ihr Farmmitglied den folgenden Befehl aus:
 
    > [!note]  
-   > Dies gilt nicht, wenn Sie Windows Server 2012 oder 2012 R2 AD FS verwenden. Sie können diesen Befehl problemlos überspringen und die Integration fortsetzen.
+   > Dies gilt nicht, wenn Sie Windows Server 2012 oder 2012 R2 AD FS verwenden. In diesem Fall können Sie diesen Befehl problemlos überspringen und die Integration fortsetzen.
 
    ```powershell  
    Set-AdfsProperties -IgnoreTokenBinding $true
@@ -295,11 +295,11 @@ Wenn Sie die Befehle manuell ausführen möchten, gehen Sie folgendermaßen vor:
 
 Es gibt viele Szenarien, die die Verwendung eines Dienstprinzipalnamens (SPN) für die Authentifizierung erfordern. Hier einige Beispiele:
 
-- CLI-Verwendung mit der AD FS-Bereitstellung von Azure Stack
+- Verwendung der CLI mit der AD FS-Bereitstellung von Azure Stack
 - System Center Management Pack für Azure Stack bei der Bereitstellung mit AD FS
 - Ressourcenanbieter in Azure Stack bei der Bereitstellung mit AD FS
-- Verschiedene Anwendungen
-- Sie benötigen eine nicht interaktive Anmeldung
+- Verschiedene Apps
+- Sie benötigen eine nicht interaktive Anmeldung.
 
 > [!Important]  
 > AD FS unterstützt nur interaktive Anmeldesitzungen. Wenn Sie eine nicht-interaktive Anmeldung für ein automatisiertes Szenario benötigen, müssen Sie einen SPN verwenden.
@@ -352,5 +352,6 @@ Wenn für eines der Cmdlets ein Fehler auftritt, können Sie zusätzliche Protok
    Get-AzureStackLog -OutputPath \\myworkstation\AzureStackLogs -FilterByRole ECE
    ```
 
+## <a name="next-steps"></a>Nächste Schritte
 
 [Integrieren einer externen Überwachungslösung in Azure Stack](azure-stack-integrate-monitor.md)

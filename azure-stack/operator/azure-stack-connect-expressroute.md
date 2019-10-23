@@ -14,12 +14,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 4d9331f5167a0ce9d305a76225987d8b1d3f3dcc
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: 2fee81a79b58294a9c43f8d550f139157cb64a9b
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961559"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283574"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Herstellen einer Verbindung zwischen Azure Stack und Azure mithilfe von Azure ExpressRoute
 
@@ -84,7 +84,7 @@ Verwenden Sie zum Einrichten der Azure Stack-Umgebung für den ersten Mandanten 
 Bevor Sie mit der Konfiguration von Azure Stack beginnen, benötigen Sie Folgendes:
 
 * Eine Bereitstellung eines integrierten Azure Stack-Systems oder ein Azure Stack Development Kit (ASDK). Informationen zum Bereitstellen des ASDK finden Sie im [Schnellstart für die Azure Stack Development Kit-Bereitstellung](../asdk/asdk-download.md).
-* Ein Angebot in Azure Stack, das von Ihren Benutzern abonniert werden kann. Weitere Informationen finden Sie unter [Pläne, Angebote und Abonnements](azure-stack-plan-offer-quota-overview.md).
+* Ein Angebot in Azure Stack, das von Ihren Benutzern abonniert werden kann. Weitere Informationen finden Sie unter [Übersicht über Dienste, Pläne, Angebote und Abonnements](service-plan-offer-subscription-overview.md).
 
 ### <a name="create-network-resources-in-azure-stack"></a>Erstellen von Netzwerkressourcen in Azure Stack
 
@@ -341,7 +341,7 @@ Sie können das folgende Konfigurationsdiagramm des ExpressRoute-Routers als Ori
 
 Sie können einen beliebigen Router verwenden, der ein IKEv2-VPN und BGP unterstützt, um die Site-to-Site-VPN-Verbindung von Azure Stack zu beenden. Derselbe Router wird verwendet, um über eine ExpressRoute-Verbindung eine Verbindung mit Azure herzustellen.
 
-Das folgende Konfigurationsbeispiel für den Aggregation Services Router der Cisco Site Recovery 1000-Reihe unterstützt die im Diagramm *Konfiguration des ExpressRoute-Routers* dargestellte Netzwerkinfrastruktur.
+Das folgende Konfigurationsbeispiel für den Aggregation Services Router der ASR 1000-Reihe von Cisco unterstützt die im Diagramm *Konfiguration des ExpressRoute-Routers* dargestellte Netzwerkinfrastruktur.
 
 ```shell
 ip vrf Tenant 1

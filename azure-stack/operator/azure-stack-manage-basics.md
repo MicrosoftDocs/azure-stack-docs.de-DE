@@ -1,6 +1,6 @@
 ---
 title: Grundlagen zur Verwaltung von Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie alles, was Sie über die Verwaltung von Azure Stack wissen müssen.
+description: Lernen Sie die Grundlagen zur Verwaltung von Azure Stack kennen.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: justinha
 ms.lastreviewed: 05/29/2019
-ms.openlocfilehash: 3887712d2c7f14498536e5ad22494bedaa41197c
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: f9b9d6d1474c22c8e31d24ae08faf1aac6d5e9c1
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691677"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283488"
 ---
 # <a name="azure-stack-administration-basics"></a>Grundlagen zur Verwaltung von Azure Stack
 
@@ -33,7 +33,7 @@ Es gibt verschiedene Punkte, mit denen Sie sich vertraut machen müssen, falls S
  
 ### <a name="development-kit"></a>Development Kit
 
-Wenn Sie das Azure Stack Development Kit (ASDK) verwenden, helfen Ihnen die Informationen zum Zweck des ASDK und der damit verbundenen Einschränkungen unter [Was ist Azure Stack?](../asdk/asdk-what-is.md) weiter. Sie können das ASDK als *Sandkasten* verwenden, mit dem Sie Azure Stack auswerten und Ihre Apps in einer Nichtproduktionsumgebung entwickeln und testen können. Informationen zur Bereitstellung finden Sie unter [Azure Stack Development Kit-Bereitstellung](../asdk/asdk-install.md).
+Wenn Sie das Azure Stack Development Kit (ASDK) verwenden, helfen Ihnen die Informationen zum Zweck und zu den Einschränkungen des ASDK unter [Was ist Azure Stack?](../asdk/asdk-what-is.md) weiter. Sie können das ASDK als *Sandbox* verwenden, mit der Sie Azure Stack auswerten und Ihre Apps in einer Nichtproduktionsumgebung entwickeln und testen können. Informationen zur Bereitstellung finden Sie unter [Azure Stack Development Kit-Bereitstellung](../asdk/asdk-install.md).
 
 Wir führen schnell Innovationen wie Azure ein. Regelmäßig veröffentlichen wir neue Builds. Wenn Sie das ASDK ausführen und die Umstellung auf den neuesten Build durchführen möchten, müssen Sie [Azure Stack erneut bereitstellen](../asdk/asdk-redeploy.md). Es ist nicht möglich, Updatepakete anzuwenden. Dieser Vorgang dauert zwar eine Weile, doch danach können Sie die neuesten Funktionen ausprobieren. Die ASDK-Dokumentation auf unserer Website gilt für den neuesten Versionsbuild.
 
@@ -73,10 +73,10 @@ Es gibt einige Aspekte in Bezug auf Konten, die Sie beim Verwalten von Azure Sta
 
 |Konto|Azure AD|AD FS|
 |-----|-----|-----|
-|Lokaler Administrator (.\Administrator)|ASDK-Hostadministrator|ASDK-Hostadministrator|
-|AzureStack\AzureStackAdmin|ASDK-Hostadministrator<br><br>Kann zum Anmelden beim Azure Stack-Verwaltungsportal verwendet werden.<br><br>Zugriff zum Anzeigen und Verwalten von Service Fabric-Ringen|ASDK-Hostadministrator<br><br>Kein Zugriff auf das Azure Stack-Verwaltungsportal<br><br>Zugriff zum Anzeigen und Verwalten von Service Fabric-Ringen<br><br>Nicht mehr Besitzer des Standardabonnements des Anbieters (DPS)|
-|AzureStack\CloudAdmin|Kann auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen|Kann auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen<br><br>Kann sich nicht beim ASDK-Host anmelden<br><br>Besitzer des Standardabonnements des Anbieters (DPS)|
-|Globaler Azure AD-Administrator|Während der Installation verwendet<br><br>Besitzer des Standardabonnements des Anbieters (DPS)|Nicht zutreffend|
+|Lokaler Administrator (.\Administrator)|ASDK-Hostadministrator.|ASDK-Hostadministrator.|
+|AzureStack\AzureStackAdmin|ASDK-Hostadministrator.<br><br>Kann zum Anmelden beim Azure Stack-Administratorportal verwendet werden.<br><br>Zugriff zum Anzeigen und Verwalten von Service Fabric-Ringen.|ASDK-Hostadministrator.<br><br>Kein Zugriff auf das Azure Stack-Administratorportal.<br><br>Zugriff zum Anzeigen und Verwalten von Service Fabric-Ringen.<br><br>Nicht mehr Besitzer des Standardabonnements des Anbieters (DPS).|
+|AzureStack\CloudAdmin|Kann auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen.|Kann auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen.<br><br>Kann sich nicht beim ASDK-Host anmelden.<br><br>Besitzer des Standardabonnements des Anbieters (DPS).|
+|Globaler Azure AD-Administrator|Während der Installation verwendet.<br><br>Besitzer des Standardabonnements des Anbieters (DPS).|Nicht zutreffend|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Welche Tools verwende ich für die Verwaltung?
@@ -87,24 +87,24 @@ Azure Stack verwendet den Azure Resource Manager als zugrunde liegenden Mechanis
 
 ## <a name="your-typical-responsibilities"></a>Typische Aufgaben
 
-Ihre Benutzer möchten Dienste nutzen. Aus ihrer Sicht besteht Ihre Hauptrolle darin, ihnen diese Dienste zur Verfügung zu stellen. Treffen Sie die Entscheidung, welche Dienste angeboten werden sollen, und stellen Sie diese Dienste durch die Erstellung von Plänen, Angeboten und Kontingenten zur Verfügung. Weitere Informationen finden Sie unter [Übersicht über das Anbieten von Diensten in Azure Stack](azure-stack-offer-services-overview.md). 
+Ihre Benutzer möchten Dienste nutzen. Aus ihrer Sicht besteht Ihre Hauptrolle darin, ihnen diese Dienste zur Verfügung zu stellen. Treffen Sie die Entscheidung, welche Dienste angeboten werden sollen, und stellen Sie diese Dienste durch die Erstellung von Plänen, Angeboten und Kontingenten zur Verfügung. Weitere Informationen finden Sie unter [Übersicht über das Anbieten von Diensten in Azure Stack](service-plan-offer-subscription-overview.md). 
 
-Zudem müssen Sie Elemente, z. B. Images für virtuelle Computer, dem [Marketplace](azure-stack-marketplace.md) hinzufügen. Die einfachste Möglichkeit besteht darin, [Marketplace-Elemente von Azure in Azure Stack herunterzuladen](azure-stack-download-azure-marketplace-item.md).
+Außerdem müssen Sie Elemente zum [Azure Stack-Marketplace](azure-stack-marketplace.md) hinzufügen. Die einfachste Möglichkeit besteht darin, [Marketplace-Elemente von Azure in Azure Stack herunterzuladen](azure-stack-download-azure-marketplace-item.md).
 
 > [!NOTE]
 > Wenn Sie Ihre Pläne, Angebote und Dienste testen möchten, sollten Sie das [Benutzerportal](azure-stack-manage-portals.md) und nicht das Administratorportal verwenden.
 
-Neben der Bereitstellung von Diensten müssen Sie die regulären Aufgaben eines Betreibers durchführen, um den reibungslosen Betrieb von Azure Stack sicherzustellen. Zu diesen Aufgaben gehören Folgende:
+Neben der Bereitstellung von Diensten müssen Sie die regulären Aufgaben eines Betreibers durchführen, um den reibungslosen Betrieb von Azure Stack sicherzustellen. Diese Pflichten umfassen folgende Aufgaben:
 
-- Hinzufügen von Benutzerkonten (für die Bereitstellung von [Azure Active Directory](azure-stack-add-new-user-aad.md) oder [Active Directory-Verbunddiensten](azure-stack-add-users-adfs.md))
-- [Zuweisen von rollenbasierten Zugriffssteuerungsrollen (Role-Based Access Control, RBAC)](azure-stack-manage-permissions.md) (Dies ist nicht auf Administratoren beschränkt.)
+- Hinzufügen von Benutzerkonten (für [Azure AD](azure-stack-add-new-user-aad.md)- oder [AD FS](azure-stack-add-users-adfs.md)-Bereitstellungen).
+- [Zuweisen von Rollen für die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC)](azure-stack-manage-permissions.md); (diese Aufgabe ist nicht auf Administratoren beschränkt.)
 - [Überwachen der Infrastrukturintegrität](azure-stack-monitor-health.md)
-- Verwalten von [Netzwerk-](azure-stack-viewing-public-ip-address-consumption.md) und [Speicherressourcen](azure-stack-manage-storage-accounts.md)
-- Ersetzen Sie fehlerhafte Hardware, z.B. [einen fehlerhaften Datenträger](azure-stack-replace-disk.md).
+- Verwalten von [Netzwerk](azure-stack-viewing-public-ip-address-consumption.md)- und [Speicherressourcen](azure-stack-manage-storage-accounts.md)
+- Ersetzen von fehlerhafter Hardware, z. B. [Ersetzen eines fehlerhaften Datenträgers](azure-stack-replace-disk.md)
 
 ## <a name="what-to-tell-your-users"></a>Wichtige Informationen für Ihre Benutzer
 
-Sie müssen Ihre Benutzer über verschiedene Punkte informieren, z.B. die Arbeit mit Diensten in Azure Stack, das Herstellen einer Verbindung mit der Umgebung und das Abonnieren von Angeboten. Zusätzlich zu benutzerdefinierter Dokumentation, die Sie ggf. für Ihre Benutzer bereitstellen möchten, können Sie Benutzer auch an die Website mit der Dokumentation für Azure Stack-Benutzer weiterleiten.
+Sie müssen Ihre Benutzer über verschiedene Punkte informieren, z.B. die Arbeit mit Diensten in Azure Stack, das Herstellen einer Verbindung mit der Umgebung und das Abonnieren von Angeboten. Zusätzlich zu benutzerdefinierter Dokumentation, die Sie ggf. für Ihre Benutzer bereitstellen möchten, können Sie Benutzer auch an die [Benutzerdokumentation zu Azure Stack](https://docs.microsoft.com/en-us/azure-stack/user/) weiterleiten.
 
 **Grundlegendes zum Arbeiten mit Diensten in Azure Stack**
 
@@ -118,11 +118,11 @@ Die folgenden Artikel enthalten Informationen, in denen die Unterschiede zwische
 
 **Herstellen einer Verbindung mit Azure Stack als Benutzer**
 
-Wenn ein Benutzer in einer ASDK-Umgebung eine Verbindung mit dem ASDK-Host nicht per Remotedesktop herstellt, kann er für die Verbindung mit Azure Stack eine VPN-Verbindung (Virtuelles Privates Netzwerk) konfigurieren. Weitere Informationen finden Sie unter [Herstellen einer Verbindung mit Azure Stack](../asdk/asdk-connect.md). 
+Wenn ein Benutzer in einer ASDK-Umgebung eine Verbindung mit dem ASDK-Host nicht per Remotedesktop herstellt, kann er für die Verbindung mit Azure Stack eine VPN-Verbindung (Virtuelles Privates Netzwerk) konfigurieren. Weitere Informationen finden Sie unter [Herstellen einer Verbindung mit Azure Stack](../asdk/asdk-connect.md).
 
 Ihre Benutzer sollten wissen, wie sie [auf das Benutzerportal zugreifen](../user/azure-stack-use-portal.md) oder eine Verbindung über PowerShell herstellen. In der Umgebung eines integrierten Systems variiert die Adresse des Benutzerportals je nach Bereitstellung. Sie müssen für Ihre Benutzer die richtige URL bereitstellen.
 
-Bei der Verwendung von PowerShell müssen Benutzer möglicherweise Ressourcenanbieter registrieren, bevor sie Dienste verwenden können. (Ein Ressourcenanbieter verwaltet einen Dienst. Der Netzwerkressourcenanbieter verwaltet beispielsweise Ressourcen wie virtuelle Netzwerke, Netzwerkschnittstellen und Lastenausgleichsmodule.) Diese Anbieter müssen PowerShell [installieren](azure-stack-powershell-install.md), zusätzliche Module [herunterladen](azure-stack-powershell-download.md) und PowerShell (sowie die Registrierung von Ressourcenanbietern) [konfigurieren](../user/azure-stack-powershell-configure-user.md).
+Bei der Verwendung von PowerShell müssen Benutzer möglicherweise Ressourcenanbieter registrieren, bevor sie Dienste verwenden können. Ein Ressourcenanbieter verwaltet einen Dienst. Der Netzwerkressourcenanbieter verwaltet beispielsweise Ressourcen wie virtuelle Netzwerke, Netzwerkschnittstellen und Lastenausgleichsmodule. Diese Anbieter müssen PowerShell [installieren](azure-stack-powershell-install.md), zusätzliche Module [herunterladen](azure-stack-powershell-download.md) und PowerShell (sowie die Registrierung von Ressourcenanbietern) [konfigurieren](../user/azure-stack-powershell-configure-user.md).
 
 **Abonnieren von Angeboten**
 
@@ -137,15 +137,15 @@ Bevor ein Benutzer Dienste verwenden kann, muss er [ein Angebot abonnieren](azur
 
 Für ein integriertes System besteht ein koordinierter Eskalations- und Lösungsprozess zwischen Microsoft und seinen OEM-Hardwarepartnern (Original Equipment Manufacturer).
 
-Wenn es zu einem Problem mit einem Clouddienst kommt, wird Support über den Microsoft-Kundensupport (Microsoft Customer Support Services, CSS) angeboten. Wenn Sie oben rechts im Administratorportal auf das Symbol „Hilfe und Support“ (Fragezeichen) klicken, können Sie **Hilfe und Support** und dann im Abschnitt **Support** die Option **Neue Supportanfrage** wählen. Öffnen Sie eine Supportanfrage.
+Wenn es zu einem Problem mit einem Clouddienst kommt, wird Support über den Microsoft-Kundensupport (Microsoft Customer Support Services, CSS) angeboten. Zum Öffnen einer Supportanfrage wählen Sie oben rechts im Administratorportal das Symbol „Hilfe und Support“ (Fragezeichen) aus. Dann wählen Sie **Hilfe und Support** und schließlich im Abschnitt **Support** die Option **Neue Supportanfrage** aus.
 
 Wenden Sie sich zuerst an Ihren OEM-Hardwareanbieter, falls ein Problem in den folgenden Bereichen besteht: Bereitstellung, Patches und Updates, Hardware (einschließlich der vor Ort austauschbaren Teile (Field Replaceable Units)) und Software mit Hardware-Branding, z. B. auf dem Hardware-Lebenszyklushost ausgeführte Software.
 
-Wenden Sie sich zuerst an Ihren OEM-Hardwareanbieter, falls ein Problem in den folgenden Bereichen besteht: Bereitstellung, Patches und Updates, Hardware (einschließlich der vor Ort austauschbaren Teile (Field Replaceable Units)) und Software mit Hardware-Branding, z.B. auf dem Hardware-Lebenszyklushost ausgeführte Software. Wenden Sie sich bei allen anderen Problemen an Microsoft CSS.
+Wenden Sie sich bei allen anderen Problemen an Microsoft CSS.
 
 ### <a name="azure-stack-development-kit-asdk"></a>Azure Stack Development Kit (ASDK)
 
-Fragen rund um den Support für das ASDK können Sie in den [Microsoft-Foren](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) stellen. Wenn Sie oben rechts im Administratorportal auf das Symbol „Hilfe und Support“ (Fragezeichen) klicken, können Sie **Hilfe und Support** und dann im Abschnitt **Support** die Option **MSDN-Foren** wählen.  Die Forumwebsite wird geöffnet. Diese Foren werden regelmäßig überprüft. Da das ASDK eine Evaluierungsumgebung ist, wird über Microsoft CSS kein offizieller Support angeboten.
+Fragen rund um den Support für das ASDK können Sie in den [Microsoft-Foren](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) stellen. Zum Aufrufen der Foren wählen Sie oben rechts im Administratorportal das Symbol „Hilfe und Support“ (Fragezeichen) aus. Anschließend können Sie **Hilfe und Support** und dann im Abschnitt **Support** die Option **MSDN-Foren** auswählen. Diese Foren werden regelmäßig überprüft. Da das ASDK eine Evaluierungsumgebung ist, wird über Microsoft CSS kein offizieller Support angeboten.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

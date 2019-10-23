@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 10/14/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 27dda5b79525c4a5d1c12c998077bb19cbea0079
-ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
+ms.openlocfilehash: e972c7799b8cac37d1cd75cda9dc4e94a7ae73e2
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71061190"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310547"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrieren von Azure Stack in Azure
 
@@ -46,7 +46,7 @@ Vor der Registrierung müssen Sie folgende Voraussetzungen erfüllt haben:
 
 Vor der Registrierung von Azure Stack in Azure müssen Sie folgende Bedingungen erfüllen:
 
-- Sie müssen über eine Abonnement-ID eines Azure-Abonnements verfügen. Nur Abonnements freigegebener EA-, CSP- oder CSP-Dienste werden für die Registrierung unterstützt. CSPs müssen entscheiden, ob ein [CSP- oder APSS-Abonnement verwendet werden soll](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>Um die ID abzurufen, melden Sie sich bei Azure an, und klicken Sie auf **Alle Dienste**. Wählen Sie dann unter der Kategorie **ALLGEMEIN** die Option **Abonnements** aus, und klicken Sie auf das gewünschte Abonnement. Unter **Zusammenfassung** finden Sie die Abonnement-ID.
+- Sie müssen über eine Abonnement-ID eines Azure-Abonnements verfügen. Nur Abonnements freigegebener EA-, CSP- oder CSP-Dienste werden für die Registrierung unterstützt. CSPs müssen entscheiden, ob ein [CSP- oder APSS-Abonnement verwendet werden soll](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>Um die ID abzurufen, melden Sie sich bei Azure an, und klicken Sie auf **Alle Dienste**. Wählen Sie dann unter der Kategorie **ALLGEMEIN** die Option **Abonnements** aus, und klicken Sie auf das gewünschte Abonnement. Unter **Zusammenfassung** finden Sie die Abonnement-ID. Verwenden Sie als bewährte Methode separate Abonnements für Produktions- und Entwicklungs-/Testumgebungen. 
 
   > [!Note]  
   > Cloudabonnements für Deutschland werden derzeit nicht unterstützt.

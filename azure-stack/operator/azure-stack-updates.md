@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: ae603e1914b5a83f190eeafe7fa7d7e94e43a1aa
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: 0a784a80931113b7901a021a7c2ff707ce7df355
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714706"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283266"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Übersicht zum Verwalten von Updates in Azure Stack
 
@@ -71,7 +71,7 @@ Die Benachrichtigungen über Updates hängen von einigen Faktoren ab, z. B. der
 
 - **Updates des OEM-Hardwareanbieters**
 
-    OEM-Updates hängen vom Hersteller ab. Sie müssen einen Kommunikationskanal mit Ihrem OEM einrichten, damit Sie wissen, wann Updates Ihres OEM angewandt werden müssen. Weitere Informationen zu OEMs und zum OEM-Updateprozess finden Sie unter [Anwenden von OEM-Updates (Originalgerätehersteller) auf Azure Stack](azure-stack-update-oem.md).
+    OEM-Updates hängen vom Hersteller ab. Sie müssen einen Kommunikationskanal mit Ihrem OEM einrichten, damit Sie wissen, wann Updates Ihres OEM angewendet werden müssen. Weitere Informationen zu OEMs und zum OEM-Updateprozess finden Sie unter [Anwenden von OEM-Updates (Originalgerätehersteller) auf Azure Stack](azure-stack-update-oem.md).
 
 ## <a name="update-processes"></a>Updateprozesse
 

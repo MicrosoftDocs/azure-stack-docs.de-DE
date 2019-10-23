@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: f633f000968fcf4f373fc502898fa18084f93f80
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: b9a7416bc73c0e36ab9986b1a280597c2d6d93a9
+ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824304"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72257771"
 ---
 # <a name="protect-vms-deployed-on-azure-stack"></a>Schutz von in Azure Stack bereitgestellten VMs
 
@@ -162,8 +162,16 @@ Wichtige Überlegungen zu Ihrer Azure Stack-Bereitstellung:
 
 In diesem Artikel wurden allgemeine Richtlinien zum Schützen der virtuellen Computer von Benutzern beschrieben, die unter Azure Stack bereitgestellt werden. Informationen zur Verwendung von Azure-Diensten zum Schützen der virtuellen Computer von Benutzern finden Sie unter:
 
+- [Azure Stack: Überlegungen zu Business Continuity & Disaster Recovery](http://aka.ms/azurestackbcdrconsiderationswp)
+
+### <a name="azure-backup-server"></a>Azure Backup Server
  - [Sichern von Dateien und Apps in Azure Stack](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
  - [Azure Backup Server-Unterstützung für Azure Stack](https://docs.microsoft.com/azure/backup/ ) 
+ 
+ ### <a name="azure-site-recovery"></a>Azure Site Recovery
  - [Azure Site Recovery-Unterstützung für Azure Stack](https://docs.microsoft.com/azure/site-recovery/)  
+ 
+ ### <a name="partner-products"></a>Partnerprodukte
+ - [Datenblatt mit Partnerunternehmen für die Azure Stack-Rechenzentrumsintegration](http://aka.ms/azurestackbcdrpartners)
 
 Weitere Informationen zu den Partnerprodukten, die VM-Schutz in Azure Stack bieten, finden Sie unter [Schutz von Apps und Daten in Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/).

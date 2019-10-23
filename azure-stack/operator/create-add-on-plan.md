@@ -13,20 +13,20 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 06/11/2019
+ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: d34b57a76f654e4d1825124f0f13ca26049332e5
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: 4b3fed8ee02739cf82b1446cc8c0a9b807763d49
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319181"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283279"
 ---
 # <a name="azure-stack-add-on-plans"></a>Add-On-Pläne für Azure Stack
 
-Als Azure Stack-Bediener erstellen Sie Add-On-Pläne, um einen [Basisplan](azure-stack-create-plan.md) zu ändern, wenn Sie zusätzliche Dienste anbieten oder die *Computer*-, *Speicher*- oder *Netzwerk*kontingente ändern möchten, die diesen Basisplan ursprünglich enthalten. Add-On-Pläne verändern den Basisplan und sind optionale Erweiterungen, die Benutzer abonnieren können.
+Als Azure Stack-Bediener erstellen Sie Add-On-Pläne, um einen [Basisplan](azure-stack-create-plan.md) zu ändern, wenn Sie zusätzliche Dienste anbieten oder die *Computer*-, *Speicher*- oder *Netzwerk*kontingente ändern möchten, die diesen Basisplan ursprünglich enthalten. Add-On-Pläne verändern den Basisplan und sind optionale Erweiterungen, die Benutzer in ihrem Abonnement aktivieren können.
 
 Manchmal besteht die optimale Lösung darin, alles in einem einzelnen Plan zu kombinieren. In anderen Fällen bietet es sich an, einen Basisplan zu verwenden und zusätzliche Dienste mithilfe von Add-On-Plänen anzubieten. Beispielsweise können Sie die Entscheidung treffen, IaaS-Dienste im Rahmen eines Basisplans anzubieten und alle PaaS-Dienste als Add-On-Pläne zu behandeln.
 
@@ -35,9 +35,7 @@ Add-On-Pläne können auch bei der Überwachung der Ressourcennutzung hilfreich 
 > [!NOTE]
 > Wenn Sie keinen Add-On-Plan verwenden möchten, um ein Kontingent zu erweitern, können Sie [die ursprüngliche Konfiguration des Kontingents bearbeiten](azure-stack-quota-types.md#edit-a-quota).
 
-Wenn Sie einen Add-On-Plan einem vorhandenen Angebotsabonnement hinzufügen, kann es bis zu einer Stunde dauern, bis die zusätzlichen Ressourcen angezeigt werden.
-
-Add-On-Pläne werden durch Ändern eines vorhandenen Angebots erstellt.
+Add-On-Pläne werden [auf die gleiche Weise erstellt](azure-stack-create-plan.md) wie ein Basisplan. Die Art des Plans wird bestimmt, wenn der Plan einem Angebot hinzugefügt wird. Der Plan wird entweder als Basisplan oder als Add-On-Plan festgelegt. Wenn Sie einen Add-On-Plan einem vorhandenen Angebot hinzufügen, kann es bis zu einer Stunde dauern, bis die zusätzlichen Ressourcen angezeigt werden.
 
 ::: moniker range=">=azs-1902"
 ## <a name="create-an-add-on-plan-1902-and-later"></a>Erstellen eines Add-On-Plans (ab 1902)

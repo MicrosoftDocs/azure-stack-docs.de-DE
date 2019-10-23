@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: ec07277043068835d1d1d5a41285ee5df5ee7691
-ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
+ms.openlocfilehash: 77fb9772f027d25b0d8c0d8355e3a868c2142d6c
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165359"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282601"
 ---
 # <a name="app-service-on-azure-stack-update-7-release-notes"></a>App Service in Azure Stack: Versionshinweise zu Update 7
 
@@ -56,6 +56,8 @@ Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack auf 1.7 beginnen
 ### <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
 
 Update 7 für Azure App Service in Azure Stack enthält folgende Verbesserungen und Fehlerbehebungen:
+
+- Lösung für [CVE-2019-1372](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1372) (Sicherheitsanfälligkeit bezüglich Remotecodeausführung)
 
 - Updates für **App Service-Mandanten, Admin, Functions-Portale und Kudu-Tools**. Mit Azure Stack-Portal-SDK-Version konsistent.
 
@@ -110,7 +112,7 @@ Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk u
  * IP-Zieladressbereich: Bereich der IPs für Ihren Dateiserver
  * Zielportbereich: 445
  * Protokoll: TCP
- * Aktion: ZULASSEN
+ * Aktion: Allow
  * Priorität: 700
  * Name: Outbound_Allow_SMB445
 

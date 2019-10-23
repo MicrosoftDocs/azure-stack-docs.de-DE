@@ -14,12 +14,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: ebee962bbf53cad48df11bd21653830410f04d9d
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 454fe5b07dc5576cecdb11b59e5424e3c5ccbb72
+ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417558"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72445377"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Herstellen einer Verbindung von Storage-Explorer mit einem Azure Stack-Abonnement oder -Speicherkonto
 
@@ -38,14 +38,14 @@ Nachdem Sie eine Verbindung mit einem Azure Stack-Abonnement oder -Speicherkont
 
 Damit der Storage-Explorer auf das Azure Stack-Abonnement zugreifen kann, benötigen Sie direkten Zugriff auf Azure Stack oder eine VPN-Verbindung. Weitere Informationen zur Einrichtung einer VPN-Verbindung mit Azure Stack finden Sie unter [Connect with VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) (Herstellen einer VPN-Verbindung).
 
-Für das Azure Stack Development Kit (ASDK) müssen Sie das Stammzertifikat der Azure Stack-Zertifizierungsstelle exportieren.
-
 > [!Note]  
-> Verwenden Sie für das ASDK nicht das Stammzertifikat (CA.cer), das während des Setupprozesses erstellt wurde, wenn Sie über ein VPN eine Verbindung mit dem ASDK herstellen.  Dies ist ein DER-codiertes (Distinguished Encoding Rules) Zertifikat, das es dem Storage-Explorer nicht erlaubt, Ihre Azure Stack-Abonnements abzurufen. Gehen Sie wie folgt vor, um ein Base64-codiertes Zertifikat zur Verwendung mit dem Storage-Explorer zu exportieren.
+> Verwenden Sie für das ASDK nicht das Stammzertifikat (CA.cer), das während des Setupprozesses erstellt wurde, wenn Sie über ein VPN eine Verbindung mit dem ASDK herstellen.  Dies ist ein DER-codiertes (Distinguished Encoding Rules) Zertifikat, das es dem Storage-Explorer nicht erlaubt, Ihre Azure Stack-Abonnements abzurufen. Gehen Sie wie folgt vor, um ein Base64-codiertes Zertifikat zur Verwendung mit Storage-Explorer zu exportieren.
+
+Für nicht verbundene integrierte Systeme und für das ASDK empfiehlt es sich, eine interne Unternehmenszertifizierungsstelle zu verwenden, um das Stammzertifikat im Base64-Format zu exportieren und anschließend in Azure Storage-Explorer zu importieren.  
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>Exportieren und anschließendes Importieren des Azure Stack-Zertifikats
 
-Exportieren Sie das Azure Stack-Zertifikat für das ASDK, und importieren Sie es anschließend. Bei integrierten Systemen ist das Zertifikat öffentlich signiert, sodass dieser Schritt nicht erforderlich ist.
+Exportieren und importieren Sie das Azure Stack-Zertifikat für nicht verbundene integrierte Systeme und für das ASDK. Bei verbundenen integrierten Systemen ist das Zertifikat öffentlich signiert, sodass dieser Schritt nicht erforderlich ist.
 
 1. Öffnen Sie `mmc.exe` auf einem Azure Stack-Hostcomputer oder einem lokalen Computer, der über eine VPN-Verbindung mit Azure Stack verfügt. 
 

@@ -3,7 +3,7 @@ title: Bereitstellen einer Vorlage mithilfe der Befehlszeile in Azure Stack | Mi
 description: Hier erfahren Sie, wie Sie mit der plattformübergreifenden Azure-Befehlszeilenschnittstelle (Command Line Interface, CLI) Vorlagen in Azure Stack bereitstellen.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,45 +11,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: article
-ms.date: 08/13/2019
-ms.author: sethm
+ms.date: 10/07/2019
+ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: da17e80c802e210d53effbad8f264b1a4019e6e0
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 7b3daaefd8fa7e7bce9c6d5708e664911fc906fe
+ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991849"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72304085"
 ---
 # <a name="deploy-a-template-with-the-command-line-in-azure-stack"></a>Bereitstellen einer Vorlage mithilfe der Befehlszeile in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Sie können die Azure-Befehlszeilenschnittstelle (Command-Line Interface, CLI) zum Bereitstellen von Azure Resource Manager-Vorlagen in Azure Stack verwenden. Azure Resource Manager-Vorlagen stellen Ressourcen für Ihre App in einem einzigen, koordinierten Vorgang bereit.
-
-## <a name="before-you-begin"></a>Voraussetzungen
-
-- Verwenden Sie die Azure CLI, um Azure Stack zu [installieren und eine Verbindung herzustellen](azure-stack-version-profiles-azurecli2.md).
-- Laden Sie die Dateien *azuredeploy.json* und *azuredeploy.parameters.json* aus der [Beispielvorlage zum Erstellen von Speicherkonten](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account) herunter.
+Sie können die Azure-Befehlszeilenschnittstelle (Command-Line Interface, CLI) zum Bereitstellen von Azure Resource Manager-Vorlagen in Azure Stack verwenden. Azure Resource Manager-Vorlagen stellen Ressourcen für Ihre App in einer einzigen, koordinierten Aktion bereit und richten sie ein.
 
 ## <a name="deploy-template"></a>Bereitstellen der Vorlage
 
-Navigieren Sie zu dem Ordner, in den diese Dateien heruntergeladen wurden, und führen Sie den folgenden Befehl zum Bereitstellen der Vorlage aus:
+1. Suchen Sie im Repository [AzureStack-QuickStart-Templates repo](https://aka.ms/AzureStackGitHub) nach der Vorlage **101-create-storage-account**. Speichern Sie die Vorlage (`azuredeploy.json`) und die Parameterdateien `(azuredeploy.parameters.json`) an einem Speicherort auf dem lokalen Laufwerk, etwa `C:\templates\`.
+2. Navigieren Sie zu dem Ordner, in den Sie die Dateien heruntergeladen haben. 
+3. Verwenden Sie die Azure CLI, um Azure Stack zu [installieren und eine Verbindung herzustellen](azure-stack-version-profiles-azurecli2.md).
+4. Aktualisieren Sie die Region und den Speicherort im folgenden Befehl. Geben Sie bei Verwendung des ASDK `local` als location-Parameter an. So stellen Sie die Vorlage bereit:
+    ```azurecli
+    az group create --name testDeploy --location local
+    az group deployment create --resource-group testDeploy --template-file ./azuredeploy.json --parameters ./azuredeploy.parameters.json
+    ```
 
-```azurecli
-az group create "cliRG" "local" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
-```
-
-Dieser Befehl stellt die Vorlage für die Ressourcengruppe **cliRG** am Standardspeicherort für Azure Stack POC bereit.
+Dieser Befehl stellt die Vorlage für die Ressourcengruppe **testDeploy** in Ihrer Azure Stack-Instanz bereit.
 
 ## <a name="validate-template-deployment"></a>Überprüfen der Vorlagenbereitstellung
 
-Um diese Ressourcengruppe und das Speicherkonto anzuzeigen, verwenden Sie die folgenden CLI-Befehle:
+Wenn Sie die Ressourcengruppe und das Speicherkonto überprüfen möchten, führen Sie die folgenden CLI-Befehle aus:
 
 ```azurecli
 az group list
-
 az storage account list
 ```
 

@@ -15,12 +15,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 14f2300be0309cbd47b1481a4a52b02331f120a4
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: 6ada971c092acbc1ebe8e83a784a5d1e392c4dea
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319198"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283595"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Erstellen von Angeboten in Azure Stack
 
@@ -43,7 +43,7 @@ ms.locfileid: "71319198"
 
    ![Auswählen eines Plans, der in Ihr Azure Stack-Angebot einbezogen werden soll](media/azure-stack-create-offer/select-plan.png)
 
-4. An dieser Stelle können Sie optional einen Add-On-Plan erstellen, um den Basisplan zu ändern. Informationen zum Erstellen eines Add-On-Plans finden Sie im Artikel [Add-On-Pläne für Azure Stack](create-add-on-plan.md).
+4. An dieser Stelle können Sie optional einen Add-On-Plan erstellen, um den Basisplan zu ändern. Im nächsten Artikel ([Add-On-Pläne für Azure Stack](create-add-on-plan.md)) können Sie einen Add-On-Plan erstellen.
 
 5. Wählen Sie die Registerkarte **Überprüfen + erstellen** aus. Überprüfen Sie die Angebotszusammenfassung, und vergewissern Sie sich, dass alle Werte korrekt sind. Auf der Oberfläche können Sie die Kontingente in den gewählten Plänen erweitern, um die Details jedes einzelnen Kontingents in einem Plan anzuzeigen. Sie können auch zurückkehren, um erforderliche Änderungen vorzunehmen.
 
@@ -111,5 +111,5 @@ Der Zustand eines Angebots kann auf zwei Arten geändert werden:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Erstellen von Abonnements](azure-stack-subscribe-plan-provision-vm.md)
-- [Bereitstellen von virtuellen Computern](../user/azure-stack-create-vm-template.md)
+- Wenn Sie erfahren möchten, wie Sie ein Angebot ändern und für Ihre Benutzer einen Add-On-Plan bereitstellen, lesen Sie die Informationen unter [Add-On-Pläne für Azure Stack](create-add-on-plan.md) (optional).
+- Fahren Sie andernfalls mit dem Thema [Erstellen von Abonnements für Angebote in Azure Stack](azure-stack-subscribe-plan-provision-vm.md) fort.

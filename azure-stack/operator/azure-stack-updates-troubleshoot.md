@@ -15,12 +15,12 @@ ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 76c6c21c2a728004d2a33c04a02b905ec674b972
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.openlocfilehash: d5606e7904fe311a54d792a18e5d4029c709b33c
+ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301245"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72257746"
 ---
 # <a name="troubleshooting-patch-and-update-issues-for-azure-stack"></a>Behandeln von Patch- und Updateproblemen bei Azure Stack
 
@@ -32,9 +32,9 @@ Nutzen Sie die Hinweise in diesem Artikel, um mögliche Probleme beim Aktualisie
 
 **Geltungsbereich**: Dieses Problem gilt für alle unterstützten Versionen.
 
-**Ursache:** Wenn Sie versuchen, das Azure Stack-Update zu installieren, kommt es für das Update möglicherweise zu einem Statusfehler, und der Status wird in `PreparationFailed` geändert. Der Grund dafür ist, dass der Updateressourcenanbieter (Update Resource Provider, URP) die Dateien aus dem Speichercontainer nicht ordnungsgemäß auf eine Infrastrukturfreigabe zur Verarbeitung übertragen kann.
+**Ursache:** Wenn Sie versuchen, das Azure Stack-Update zu installieren, kommt es für das Update möglicherweise zu einem Statusfehler, und der Status wird in `PreparationFailed` geändert. Bei Systemen mit Internetverbindung weist dies in der Regel darauf hin, dass das Updatepaket aufgrund einer schlechten Internetverbindung nicht richtig heruntergeladen werden kann. 
 
-**Abhilfe**: Ab Version 1901 (1.1901.0.95) können Sie dieses Problem umgehen, indem Sie erneut auf **Aktualisieren** (nicht auf **Fortsetzen**) klicken. Der URP bereinigt dann die Dateien aus dem vorherigen Versuch und startet den Download neu. Falls das Problem weiterhin besteht, empfehlen wir Ihnen das manuelle Hochladen des Updatepakets gemäß der Anleitung im Abschnitt [Installieren von Updates](azure-stack-apply-updates.md?#install-updates-and-monitor-progress).
+**Abhilfe**: Sie können dieses Problem umgehen, indem Sie erneut auf **Jetzt installieren** klicken. Falls das Problem weiterhin besteht, empfehlen wir Ihnen das manuelle Hochladen des Updatepakets gemäß der Anleitung im Abschnitt [Installieren von Updates](azure-stack-apply-updates.md?#install-updates-and-monitor-progress).
 
 **Häufigkeit**: Common
 

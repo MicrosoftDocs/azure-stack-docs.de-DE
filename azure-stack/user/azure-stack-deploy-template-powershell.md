@@ -3,7 +3,7 @@ title: Bereitstellen einer Vorlage mithilfe von PowerShell in Azure Stack | Micr
 description: Stellen Sie eine Vorlage mithilfe von PowerShell in Azure Stack bereit.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2019
-ms.author: sethm
+ms.date: 10/07/2019
+ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: af4ac82e03b96b4fc3f6d728cbebf5a6fa9d6388
-ms.sourcegitcommit: e8aa26b078a9bab09c8fafd888a96785cc7abb4d
+ms.openlocfilehash: 38c3c428443afa251c8a6185929bfe0b80680b86
+ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71708966"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72304065"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Bereitstellen einer Vorlage mithilfe von PowerShell in Azure Stack
 
@@ -35,7 +35,7 @@ In diesem Beispiel werden **AzureRM**-PowerShell-Cmdlets und eine auf GitHub ges
 >[!NOTE]
 > Bevor Sie dieses Beispiel ausprobieren, stellen Sie sicher, dass Sie [PowerShell für einen Azure Stack-Benutzer konfiguriert](azure-stack-powershell-configure-user.md) haben.
 
-1. Durchsuchen Sie das [AzureStackGitHub-Repository](https://aka.ms/AzureStackGitHub) nach der **101-simple-windows-vm**-Vorlage. Speichern Sie die Vorlage an diesem Speicherort: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
+1. Durchsuchen Sie das [Repository „AzureStack-QuickStart-Templates“](https://aka.ms/AzureStackGitHub) nach der Vorlage **101-simple-windows-vm**. Speichern Sie die Vorlage an diesem Speicherort: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
 2. Öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten.
 3. Ersetzen Sie `username` und `password` im folgenden Skript durch Ihren Benutzernamen und Ihr Kennwort, und führen Sie dann das Skript aus:
 

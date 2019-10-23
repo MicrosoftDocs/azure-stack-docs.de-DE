@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/16/2019
+ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 07/16/2019
-ms.openlocfilehash: b0ced01686247953e3cb1849305d664d844da949
-ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
+ms.lastreviewed: 10/09/2019
+ms.openlocfilehash: e3601f4489a0a80881cccd2ba64f98b61e14683a
+ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544104"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72381439"
 ---
 # <a name="azure-stack-vm-features"></a>Features von Azure Stack-VMs
 
@@ -41,7 +41,7 @@ ms.locfileid: "68544104"
 | Leistung von VM-Datenträgern | Abhängig von Datenträgertyp und -größe. | Richtet sich nach der VM-Größe des virtuellen Computers, an den die Datenträger angefügt sind. Weitere Informationen finden Sie im Artikel [In Azure Stack unterstützte VM-Größen](azure-stack-vm-sizes.md).
 | API-Versionen | Azure verfügt für alle VM-Features immer über die aktuellen API-Versionen. | Azure Stack unterstützt bestimmte Azure-Dienste und bestimmte API-Versionen für diese Dienste. Die Liste mit den unterstützten API-Versionen finden Sie in diesem Artikel im Abschnitt [API-Versionen](#api-versions). |
 | Azure-Instanzmetadatendienst | Instance Metadata Service stellt Informationen zum Ausführen von VM-Instanzen bereit, die zum Verwalten und Einrichten Ihres virtuellen Computers verwendet werden können.  | Der Azure-Instanzmetadatendienst wird für Azure Stack nicht unterstützt. |
-| VM-Verfügbarkeitsgruppen|Mehrere Fehlerdomänen (zwei oder drei pro Region)<br>Mehrere Updatedomänen|Mehrere Fehlerdomänen (zwei oder drei pro Region)<br>Einzelne Updatedomäne mit Livemigration zum Schutz von Workloads während des Updates. 20 Updatedomänen werden aus Gründen der Vorlagenkompatibilität unterstützt.|
+| VM-Verfügbarkeitsgruppen|Mehrere Fehlerdomänen (zwei oder drei pro Region)<br>Mehrere Updatedomänen|Mehrere Fehlerdomänen (zwei oder drei pro Region)<br>Einzelne Updatedomäne mit Livemigration zum Schutz von Workloads während des Updates. 20 Updatedomänen werden aus Gründen der Vorlagenkompatibilität unterstützt.<br>Der virtuelle Computer und die Verfügbarkeitsgruppe müssen sich am gleichen Standort und in der gleichen Ressourcengruppe befinden.|
 | VM-Skalierungsgruppen|Die automatische Skalierung wird unterstützt.|Die automatische Skalierung wird nicht unterstützt.<br><br>Fügen Sie einer Skalierungsgruppe mit dem Portal, Resource Manager-Vorlagen oder PowerShell weitere Instanzen hinzu. |
 | Cloudzeuge | Wählen Sie die Endpunkte aus den in Azure Stack verfügbaren Speicherkontoeigenschaften aus. | [Cloudzeuge](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) ist ein Quorumzeugentyp für Failovercluster, der Microsoft Azure zum Bereitstellen einer Stimme für das Clusterquorum verwendet.<br>Die Endpunkte in Global Azure sehen im Vergleich zu Azure Stack möglicherweise wie folgt aus:<br>Für Global Azure:<br>`https://mywitness.blob.core.windows.net/`<br>Für Azure Stack:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | Diagnose des virtuellen Computers | Die Linux-VM-Diagnose wird unterstützt. | Die Linux-VM-Diagnose wird in Azure Stack nicht unterstützt. Wenn Sie eine Linux-VM mit aktivierter VM-Diagnose bereitstellen, schlägt die Bereitstellung fehl. Die Bereitstellung schlägt auch fehl, wenn Sie die grundlegenden Linux-VM-Metriken über die Diagnoseeinstellungen aktivieren. |
@@ -95,7 +95,7 @@ Wenn die Bereitstellung einer Erweiterung für eine VM-Bereitstellung zu lange d
 
 VM-Features in Azure Stack unterstützen die folgenden API-Versionen:
 
-![VM-Ressourcentypen](media/azure-stack-vm-considerations/vm-resoource-types.png)
+„2017-12-01“, „2017-03-30“, „2016-03-30“ und „2015-06-15“.
 
 Sie können das folgende PowerShell-Skript verwenden, um die API-Versionen für die VM-Features abzurufen, die in Ihrer Azure Stack-Umgebung verfügbar sind:
 

@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/23/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 5357fcf548971e0962bec41ad9238bf88290531c
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: c821f35928df5da4c34455a0b541699b0a84d490
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603107"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310677"
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Bereitstellen von Apps in Azure und Azure Stack
 
@@ -97,7 +97,7 @@ Bei der App-Bereitstellung sind Kontinuität, Sicherheit und Zuverlässigkeit f�
      
   1. Stellen Sie PaaS-Dienste als [Azure App Service](../operator/azure-stack-app-service-deploy.md) für Azure Stack bereit.
      
-  1. Erstellen Sie [einen Plan und ein Angebot](../operator/azure-stack-plan-offer-quota-overview.md) in Azure Stack.
+  1. Erstellen Sie [einen Plan und ein Angebot](../operator/service-plan-offer-subscription-overview.md) in Azure Stack.
      
   1. Erstellen Sie ein [Mandantenabonnement](../operator/azure-stack-subscribe-plan-provision-vm.md) für das Angebot in Azure Stack. 
      
@@ -342,20 +342,62 @@ Der hybride CI/CD-Ansatz kann sowohl für App-Code als auch für Infrastrukturco
 1. Öffnen Sie Ihre Azure DevOps-Organisation und Ihr Projekt im Webbrowser.
    
 1. Wählen Sie linken Navigationsbereich **Pipelines** > **Builds** und dann **Neue Pipeline**. 
+
+1. Wählen Sie Ihr Coderepository aus. Azure Pipelines analysiert und identifiziert das Projekt als ASP.NET Core und öffnet die standardmäßige ASP.NET Core-Buildvorlage *azure-pipelines.yml*. 
    
-1. Wählen Sie unter **Vorlage auswählen** die Vorlage **ASP.NET Core** und dann **Übernehmen** aus. 
+   ![ASP.NET Core-Datei „azure-pipelines.yml“](media/azure-stack-solution-pipeline/buildargument.png)
    
-1. Wählen Sie auf der Seite „Konfiguration“ im linken Bereich **Veröffentlichen** aus.
+1. Sie können den Pipelinecode direkt bearbeiten oder **Assistent anzeigen** auswählen, um einen **Aufgabenbereich** zu öffnen, in dem Sie Aufgaben und Schritte hinzufügen können. 
    
-1. Fügen Sie `-r win10-x64` im rechten Bereich unter **Argumente** der Konfiguration hinzu. 
+   Wenn Sie **Assistent anzeigen** auswählen, wählen Sie im **Aufgabenbereich** die Option **.NET Core** aus. Im **.NET Core**-Formular:
+   - Öffnen Sie die Dropdownliste unter **Befehl**, und wählen Sie **Veröffentlichen** aus. 
+   - Geben Sie unter **Argument** die Zeichenfolge *-r win10-x64*  ein.
+   - Stellen Sie sicher, dass **Webprojekte veröffentlichen** ausgewählt ist.
+   - Wählen Sie **Hinzufügen**.
    
-   ![Hinzufügen eines Arguments für die Buildpipeline](media/azure-stack-solution-pipeline/buildargument.png)
+   Anstatt den Assistenten zu verwenden, können Sie den folgenden Code direkt der Datei *azure-pipelines.yml* hinzufügen:
    
-1. Wählen Sie oben auf der Seite **Speichern und in die Warteschlange einreihen** aus.
+   - Ändern Sie unter `pool` das `vmImage` von `ubuntu-latest` in `vs2017-win2016`.
+     
+   - Fügen Sie unter `steps` die Aufgabe [DotNetCoreCLI](/azure/devops/pipelines/tasks/build/dotnet-core-cli), den Befehl und die Argumente hinzu: 
+     
+     ```yaml
+     - task: DotNetCoreCLI@2
+       inputs:
+         command: 'publish'
+         publishWebProjects: true
+         arguments: '-r win10-x64'
+     ```
+   Die Datei *azure-pipelines.yml*  sollte jetzt den folgenden Code enthalten: 
    
-1. Wählen Sie im Dialogfeld **Build ausführen** die Option **Speichern und ausführen** aus. 
+   ```yaml
+   # ASP.NET Core
+   # Build and test ASP.NET Core projects targeting .NET Core.
+   # Add steps that run tests, create a NuGet package, deploy, and more:
+   # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
    
-Der [Buildvorgang für die eigenständige Bereitstellung](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) veröffentlicht Artefakte, die in Azure und Azure Stack ausgeführt werden können.
+   trigger:
+   - master
+   
+   pool:
+     vmImage: 'vs2017-win2016'
+   
+   variables:
+     buildConfiguration: 'Release'
+
+   steps:
+   - script: dotnet build --configuration $(buildConfiguration)
+     displayName: 'dotnet build $(buildConfiguration)'
+   
+   - task: DotNetCoreCLI@2
+     inputs:
+       command: 'publish'
+       publishWebProjects: true
+       arguments: '-r win10-x64'
+   ```
+1. Wählen Sie **Speichern und ausführen** aus, fügen Sie eine Commitnachricht und optional eine Beschreibung hinzu, und wählen Sie dann erneut **Speichern und ausführen** aus. 
+   
+Der [Buildvorgang für die eigenständige Bereitstellung](/dotnet/core/deploying/#self-contained-deployments-scd) veröffentlicht Artefakte, die in Azure und Azure Stack ausgeführt werden können.
 
 ### <a name="create-a-release-pipeline"></a>Erstellen einer Releasepipeline
 
@@ -381,25 +423,25 @@ Die Erstellung einer Releasepipeline ist der letzte Schritt im Konfigurationspro
    
    ![Abonnement auswählen und App Service-Namen eingeben](media/azure-stack-solution-pipeline/stage1.png)
    
-1. Wählen Sie im linken Bereich **Ausführung mit Agent** aus. Wählen Sie im rechten Bereich in der Dropdownliste **Agentpool** die Option **Hosted VS2017** aus, sofern diese nicht bereits ausgewählt ist.
+1. Wählen Sie im linken Bereich **Ausführung mit Agent** aus. Wählen Sie im rechten Bereich **Azure Pipelines** aus der Dropdownliste **Agentpool** aus, und wählen Sie dann **vs2017-win2016**  aus der Dropdownliste **Agentspezifikation** aus.
    
    ![Gehosteten Agent auswählen](media/azure-stack-solution-pipeline/agentjob.png)
    
-1. Wählen Sie im linken Bereich **Azure App Service bereitstellen** aus, und navigieren Sie im rechten Bereich zum **Paket oder Ordner** für den Azure-Web-App-Build.
+1. Wählen Sie im linken Bereich **Azure App Service bereitstellen** aus. Scrollen Sie im rechten Bereich nach unten, und wählen Sie die Auslassungspunkte **…** neben **Paket oder Ordner** aus.
    
    ![Auswählen des Pakets oder Ordners](media/azure-stack-solution-pipeline/packageorfolder.png)
    
-1. Wählen Sie im Dialogfeld **Datei oder Ordner suchen** die Option **OK** aus.
+1. Navigieren Sie im Dialogfeld **Datei oder Ordner auswählen** zum Speicherort Ihres Azure-Web-App-Builds, und wählen Sie dann **OK** aus.
    
-1. Wählen Sie rechts oben auf der Seite **Neue Releasepipeline** die Option **Speichern** aus.
-   
-   ![Speichern der Änderungen](media/azure-stack-solution-pipeline/save-devops-icon.png)
+1. Wählen Sie rechts oben auf der Seite **Neue Releasepipeline** die Option **Speichern** aus. 
    
 1. Wählen Sie auf der Registerkarte **Pipeline** die Option **Artefakt hinzufügen** aus. Wählen Sie Ihr Projekt und dann im Dropdownmenü **Quelle (Buildpipeline)** den Azure Stack-Build aus. Wählen Sie **Hinzufügen**. 
    
-1. Wählen Sie auf der Registerkarte **Pipeline** unter **Stufen** die Option **Hinzufügen** aus.
+1. Zeigen Sie unter **Stufen** auf die Stufe**Azure** bis das **+** angezeigt wird, und wählen Sie dann **Hinzufügen** aus.
    
-1. Wählen Sie in der neuen Stufe den Link **Stufenaufgaben anzeigen** aus. Geben Sie als Stufennamen den Namen *Azure Stack* ein. 
+1. Wählen Sie unter **Vorlage** die Option **Leerer Auftrag** aus. 
+   
+1. Geben Sie im Dialogfeld **Stufe** als Stufenname *Azure Stack* ein. 
    
    ![Neue Stufe anzeigen](media/azure-stack-solution-pipeline/newstage.png)
    
@@ -430,7 +472,7 @@ Die Erstellung einer Releasepipeline ist der letzte Schritt im Konfigurationspro
 
 Nachdem Sie nun über eine Releasepipeline verfügen, können Sie sie zum Erstellen eines Release und zum Bereitstellen Ihrer App verwenden. 
 
-Da der Continuous Deployment-Trigger in der Releasepipeline festgelegt ist, wird durch Ändern des Quellcodes ein neuer Build gestartet und automatisch ein neues Release erstellt. Die Erstellung und Ausführung dieses neuen Release soll hier jedoch manuell erfolgen.
+Da der Continuous Deployment-Trigger in der Releasepipeline festgelegt ist, wird durch Ändern des Quellcodes ein neuer Build gestartet und automatisch ein neues Release erstellt. Die Erstellung und Ausführung eines neuen Release erfolgt dieses Mal jedoch manuell.
 
 So erstellen Sie ein Release und stellen dieses bereit
 

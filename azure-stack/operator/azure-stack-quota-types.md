@@ -16,18 +16,18 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 48ad7808e550fb875c8ee13caa5a429e1d77aa98
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: e3e7ae6cc29756486ae5c292de6fea7e5259ecc1
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010789"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283460"
 ---
 # <a name="quota-types-in-azure-stack"></a>Kontingenttypen in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-[Kontingente](azure-stack-plan-offer-quota-overview.md#plans) definieren die Grenzwerte von Ressourcen, die ein Benutzerabonnement bereitstellen oder nutzen kann. Mithilfe eines Kontingents kann ein Benutzer beispielsweise bis zu fünf virtuelle Computer erstellen. Jede Ressource verfügt über eigene Kontingenttypen.
+[Kontingente](service-plan-offer-subscription-overview.md#plans) definieren die Grenzwerte von Ressourcen, die ein Benutzerabonnement bereitstellen oder nutzen kann. Mithilfe eines Kontingents kann ein Benutzer beispielsweise bis zu fünf virtuelle Computer erstellen. Jede Ressource verfügt über eigene Kontingenttypen.
 
 > [!IMPORTANT]
 > Es kann bis zu zwei Stunden dauern, bis neue Kontingente im Benutzerportal verfügbar sind oder ein geändertes Kontingent erzwungen wird.
@@ -117,5 +117,5 @@ Die neuen Werte für das Kontingent gelten global für alle Pläne, die das geä
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Erfahren Sie mehr über Pläne, Angebote und Kontingente.](azure-stack-plan-offer-quota-overview.md)
+- [Erfahren Sie mehr über Dienste, Pläne, Angebote und Kontingente.](service-plan-offer-subscription-overview.md)
 - [Erstellen Sie Kontingente, während Sie einen Plan erstellen.](azure-stack-create-plan.md)

@@ -1,6 +1,6 @@
 ---
-title: Integration des Azure Stack-Datencenters – Veröffentlichen von Endpunkten | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie Azure Stack-Endpunkte in Ihrem Datencenter veröffentlichen.
+title: Veröffentlichen von Azure Stack-Diensten im Rechenzentrum | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie Azure Stack-Dienste in Ihrem Rechenzentrum veröffentlichen.
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -10,20 +10,20 @@ ms.date: 09/09/2019
 ms.author: justinha
 ms.reviewer: wamota
 ms.lastreviewed: 09/09/2019
-ms.openlocfilehash: 9333cfde7985977607f7108fd90b62e376fa9462
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: cfd9434bc52684f89617eff3b62a7bf51fc68bcd
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863003"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277429"
 ---
-# <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Integration des Azure Stack-Datencenters – Veröffentlichen der Azure Stack-Dienste
+# <a name="publish-azure-stack-services-in-your-datacenter"></a>Veröffentlichen von Azure Stack-Diensten in Ihrem Rechenzentrum 
 
 Azure Stack richtet für die eigenen Infrastrukturrollen virtuelle IP-Adressen (VIPs) ein. Diese VIPs stammen aus dem öffentlichen IP-Adresspool. Jede VIP wird durch eine Zugriffssteuerungsliste (Access Control List, ACL) auf der softwaredefinierten Netzwerkebene geschützt. Für zusätzlichen Schutz werden außerdem übergreifende ACLs für die physischen Switches (TORs und BMC) verwendet. Für jeden Endpunkt in der externen DNS-Zone, die zum Zeitpunkt der Bereitstellung angegeben wurde, wird ein DNS-Eintrag erstellt. Dem Benutzerportal wird z. B. der DNS-Hosteintrag „portal. *&lt;region>.&lt;fqdn>* “ zugewiesen.
 
 Das folgende Architekturdiagramm zeigt die verschiedenen Netzwerkebenen und ACLs:
 
-![Strukturbild](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![Diagramm mit verschiedenen Netzwerkebenen und ACLs](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ### <a name="ports-and-urls"></a>Ports und URLs
 Damit Sie Azure Stack-Dienste (wie Portale, Azure Resource Manager, DNS, usw.) für externe Netzwerke zur Verfügung stellen können, müssen Sie für diese Endpunkte den eingehenden Datenverkehr für bestimmte URLs, Ports und Protokolle zulassen.
@@ -93,7 +93,7 @@ Azure Stack unterstützt nur transparente Proxyserver. In einer Bereitstellung m
 |Sammlungsdienst für Diagnoseprotokolle|Von Azure Storage bereitgestellte Blob SAS URL|HTTPS|443|Öffentliche VIP - /27|
 |     |     |     |     |     |
 
-Für ausgehende URLs erfolgt ein Lastenausgleich mithilfe von Azure Traffic Manager, um bestmögliche Konnektivität basierend auf dem geografischen Standort zu bieten. Durch URLs mit Lastenausgleich kann Microsoft Back-End-Endpunkte ohne Auswirkungen auf Kunden aktualisieren und ändern. Microsoft gibt die Liste der IP-Adressen für die URLs mit Lastenausgleich nicht frei. Sie sollten ein Gerät verwenden, das ein Filtern nach URL und nicht nach IP-Adresse unterstützt.
+Für ausgehende URLs wird mithilfe von Azure Traffic Manager ein Lastausgleich vorgenommen, um bestmögliche Konnektivität basierend auf dem geografischen Standort zu bieten. Durch URLs mit Lastenausgleich kann Microsoft Back-End-Endpunkte ohne Auswirkungen auf Kunden aktualisieren und ändern. Microsoft gibt die Liste der IP-Adressen für die URLs mit Lastenausgleich nicht frei. Verwenden Sie ein Gerät, das ein Filtern nach URL und nicht nach IP-Adresse unterstützt.
 
 Ausgehender DNS-Datenverkehr ist immer erforderlich. Nur die Quelle für die externe DNS-Abfrage und die gewählte Identitätsintegration können variieren. Während der Bereitstellung eines verbundenen Szenarios benötigt der DVM im BMC-Netzwerk Zugriff auf den ausgehenden Datenverkehr. Nach der Bereitstellung wird der DNS-Dienst jedoch in eine interne Komponente verschoben, die Abfragen über eine öffentliche virtuelle IP-Adresse sendet. Zu diesem Zeitpunkt kann der ausgehende DNS-Zugriff über das BMC-Netzwerk entfernt werden, aber der Zugriff über die öffentliche virtuelle IP-Adresse auf diesen DNS-Server muss erhalten bleiben, weil es bei der Authentifizierung ansonsten zu einem Fehler kommt.
 

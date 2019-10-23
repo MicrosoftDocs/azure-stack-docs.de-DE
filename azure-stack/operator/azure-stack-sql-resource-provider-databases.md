@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: dfa8e778b21826ff1f589efbf2b49097d5ee3685
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: ceeca4f42f728bdcd9496b735704bfef6d98f25c
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829338"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283392"
 ---
 # <a name="create-sql-databases"></a>Erstellen von SQL-Datenbanken
 
@@ -79,4 +79,4 @@ Auf den anderen Replikaten versetzt SQL die Datenbank in den Wiederherstellungss
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Warten des SQL Server-Ressourcenanbieters](azure-stack-sql-resource-provider-maintain.md)
+Informieren Sie sich über das [Anbieten hochverfügbarer SQL-Datenbanken](azure-stack-tutorial-sql.md).
