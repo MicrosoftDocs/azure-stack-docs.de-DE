@@ -1,6 +1,6 @@
 ---
-title: Verwenden von MySQL-Datenbank-Instanzen in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie in wenigen Schritten MySQL-Datenbank-Instanzen als Dienst in Azure Stack und den MySQL Server-Ressourcenanbieteradapter bereitstellen können.
+title: Bereitstellen des MySQL-Ressourcenanbieters in Azure Stack | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie den MySQL-Ressourcenanbieteradapter und MySQL-Databases as a Service in Azure Stack bereitstellen.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 603a42fcd98872a59109a1c8f6806fba72e615e0
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: c3b3c30eb10e767cf20336af67bd094994def2f9
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909000"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682118"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Bereitstellen des MySQL-Ressourcenanbieters in Azure Stack
 
@@ -34,7 +34,7 @@ Verwenden Sie den MySQL Server-Ressourcenanbieter, um MySQL-Datenbanken als Azur
 Es gibt mehrere Voraussetzungen, die erfüllt werden müssen, bevor Sie den Azure Stack-MySQL-Ressourcenanbieter bereitstellen können. Führen Sie zum Erfüllen dieser Anforderungen die Schritte in diesem Artikel auf einem Computer aus, der auf die privilegierte Endpunkt-VM zugreifen kann.
 
 * Falls Sie dies noch nicht getan haben, [registrieren Sie Azure Stack](./azure-stack-registration.md) bei Azure, damit Sie Azure Marketplace-Elemente herunterladen können.
-* Sie müssen die Azure- und Azure Stack PowerShell-Module auf dem System installieren, auf dem Sie diese Installation ausführen. Das System muss ein Windows 10- oder Windows Server 2016-Image mit der neuesten Version der .NET Runtime sein. Weitere Informationen finden Sie unter [Installieren von PowerShell für Azure Stack](./azure-stack-powershell-install.md).
+* Installieren Sie die Azure- und Azure Stack PowerShell-Module auf dem System, auf dem Sie diese Installation ausführen. Das System muss ein Windows 10- oder Windows Server 2016-Image mit der neuesten Version der .NET Runtime sein. Weitere Informationen finden Sie unter [Installieren von PowerShell für Azure Stack](./azure-stack-powershell-install.md).
 * Fügen Sie dem Azure Stack-Marketplace die erforderliche Windows Server Core-VM hinzu, indem Sie das Image **Windows Server 2016 Datacenter – Server Core** herunterladen.
 
 * Laden Sie die Binärdatei des MySQL-Ressourcenanbieters herunter, und führen Sie dann den Self-Extractor aus, um den Inhalt in ein temporäres Verzeichnis zu extrahieren.
@@ -118,7 +118,7 @@ Install-Module -Name AzureStack -RequiredVersion 1.6.0
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  
 
-# For integrated systems, use the IP address of one of the ERCS virtual machines.
+# For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01"
 
 # Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
@@ -132,7 +132,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the new resource provider VM local administrator account
+# Set the credentials for the new resource provider VM local admin account
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 
@@ -147,7 +147,7 @@ Clear-AzureRMContext -Scope Process -Force
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
+# Change to the directory folder where you extracted the installation files. Don't provide a certificate on ASDK!
 . $tempDir\DeployMySQLProvider.ps1 `
     -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `

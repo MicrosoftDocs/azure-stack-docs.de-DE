@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/17/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 60515f257dc8ab04e351d1353919a749e9cf4224
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.openlocfilehash: 44eca76e3b9e969681f4540093088785ad06f97c
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687956"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534007"
 ---
 # <a name="plan-for-an-azure-stack-update"></a>Planen eines Azure Stack-Updates
 
@@ -55,6 +55,8 @@ Sie können ein Update vorbereiten, indem Sie sicherstellen, dass alle Hotfixes,
 6. Stellen Sie sicher, dass Ihr OEM-Paket mit der Azure Stack-Version, auf die Sie aktualisieren, kompatibel ist. Wenn das OEM-Paket nicht mit der Azure Stack-Version, auf die Sie aktualisieren, kompatibel ist, müssen Sie vor dem Ausführen eines Azure Stack-Updates ein Update des OEM-Pakets durchführen. Anweisungen finden Sie unter „Anwenden von OEM-Updates (Originalgerätehersteller) auf Azure Stack“. Wiederholen Sie die Schritte 3 und 4 nach dem Anwenden des OEM-Paketupdates.
 
 7. Führen Sie das Tool Capacity Planner aus. Eine Übersicht und Anweisungen zur Verwendung des Tools finden Sie unter [Übersicht über die Azure Stack-Kapazitätsplanung](https://docs.microsoft.com/azure-stack/operator/azure-stack-capacity-planning-overview).
+
+8. Optional können Sie die [automatische Diagnoseprotokollsammlung aktivieren](azure-stack-configure-automatic-diagnostic-log-collection.md), um Protokolle für die Kundendienstanalyse proaktiv zu sammeln, wenn Sie eine Warnung wie **Fehler bei Update** sehen. 
 
 8. Überprüfen Sie das Updatepaket. Bei der Planung für Ihr Wartungsfenster ist es wichtig, den spezifischen Typ des von Microsoft herausgegebenen Updatepakets zu prüfen. Hierauf wird auch in den Versionshinweisen hingewiesen.
 

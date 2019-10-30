@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 10/21/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 6e7f4785603dc6a0523186ee31af5ef9b51bec46
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 34422c5d868b26be599065c33ef0cfe20d790a2f
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909525"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682133"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack-Updates: Versionshinweise
 
@@ -128,7 +128,7 @@ Für das Azure Stack-Update 1908 ist **Azure Stack-OEM-Version 2.1 oder höher*
 Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes. Weitere Informationen finden Sie in unserer [Wartungsrichtlinie](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- Für 1908 ist kein Hotfix verfügbar.
+- [Azure Stack-Hotfix 1.1908.6.37](https://support.microsoft.com/help/4527372)
 ::: moniker-end
 
 ::: moniker range="azs-1907"

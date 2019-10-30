@@ -11,12 +11,12 @@ ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
 keywords: ''
-ms.openlocfilehash: 4949ed2533ed550f61efd2cc4e0dfed7de3a1d7e
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 1f84eeffffae3c103c33b366a5c503a907cf6715
+ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019236"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72780487"
 ---
 # <a name="azure-stack-datacenter-dns-integration"></a>DNS-Integration in Azure Stack-Datencenter
 
@@ -32,7 +32,7 @@ Sie müssen einige wichtige Informationen zum DNS angeben, wenn Sie Azure Stack 
 |Region|Der geografische Standort Ihrer Azure Stack-Bereitstellung.|`east`|
 |Externer Domänenname|Der Name der Zone, die Sie für Ihre Azure Stack-Bereitstellung verwenden möchten.|`cloud.fabrikam.com`|
 |Interner Domänenname|Der Name der internen Zone, die für die Infrastrukturdienste in Azure Stack verwendet wird. Sie ist im Verzeichnisdienst integriert und privat (nicht von außerhalb der Azure Stack-Bereitstellung erreichbar).|`azurestack.local`|
-|DNS-Weiterleitungen|DNS-Server, die zum Weiterleiten von DNS-Abfragen verwendet werden, DNS-Zonen und -Einträge, die außerhalb von Azure Stack gehostet werden, entweder im Unternehmensintranet oder im öffentlichen Internet. Wenn Sie eine DNS-Weiterleitung ersetzen, muss die IP-Adresse aktualisiert werden. |`10.57.175.34`<br>`8.8.8.8`|
+|DNS-Weiterleitungen|DNS-Server, die zum Weiterleiten von DNS-Abfragen verwendet werden, DNS-Zonen und -Einträge, die außerhalb von Azure Stack gehostet werden, entweder im Unternehmensintranet oder im öffentlichen Internet. Sie können den Wert für die DNS-Weiterleitung nach der Bereitstellung mit dem [**Set-AzSDnsForwarder**-Cmdlet](#editing-dns-forwarder-ips) bearbeiten. 
 |Namenspräfix (optional)|Das Namenspräfix, das die Computernamen der Rolleninstanz Ihrer Azure Stack-Infrastruktur aufweisen sollen.  Wenn dieses nicht angegeben wird, lautet der Standardwert `azs`.|`azs`|
 
 Der vollqualifizierte Domänenname (fully qualified domain name, FQDN) Ihrer Azure Stack-Bereitstellung und -Endpunkte ist die Kombination aus den Parametern „Region“ und „externer Domänenname“. Wenn die Werte aus den Beispielen der vorherigen Tabelle verwendet werden, lautet der vollqualifizierte Domänenname für diese Azure Stack-Bereitstellung folgendermaßen:
@@ -80,7 +80,9 @@ Azure Stack enthält autoritative und rekursive DNS-Server. Die rekursiven Serve
 
 ## <a name="resolving-external-dns-names-from-azure-stack"></a>Auflösen von externen DNS-Namen in Azure Stack
 
-Zum Auflösen von DNS-Namen für Endpunkte außerhalb von Azure Stack (z. B. www\.bing.com) müssen Sie DNS-Server bereitstellen, die Azure Stack für die Weiterleitung von DNS-Anforderungen verwenden kann, für die Azure Stack nicht autoritativ ist. Für die Bereitstellung sind die DNS-Server, an die Azure Stack Anforderungen weiterleitet, im Arbeitsblatt der Bereitstellung erforderlich (im Feld „DNS-Weiterleitung“). Geben Sie für die Fehlertoleranz mindestens zwei Server in diesem Feld an. Ohne diese Werte schlägt die Azure Stack-Bereitstellung fehl. Wenn DNS-Weiterleitungen ersetzt werden, aktualisieren Sie die IP-Adressen.
+Zum Auflösen von DNS-Namen für Endpunkte außerhalb von Azure Stack (z. B. www\.bing.com) müssen Sie DNS-Server bereitstellen, die Azure Stack für die Weiterleitung von DNS-Anforderungen verwenden kann, für die Azure Stack nicht autoritativ ist. Für die Bereitstellung sind die DNS-Server, an die Azure Stack Anforderungen weiterleitet, im Arbeitsblatt der Bereitstellung erforderlich (im Feld „DNS-Weiterleitung“). Geben Sie für die Fehlertoleranz mindestens zwei Server in diesem Feld an. Ohne diese Werte schlägt die Azure Stack-Bereitstellung fehl. Sie können die Werte für die DNS-Weiterleitung nach der Bereitstellung mit dem [**Set-AzSDnsForwarder**-Cmdlet](#editing-dns-forwarder-ips) bearbeiten. 
+
+
 
 ### <a name="configure-conditional-dns-forwarding"></a>Konfigurieren der bedingten DNS-Weiterleitung
 
@@ -145,6 +147,10 @@ Beispiel:
 
 - Name der DNS-Unternehmensdomäne: `contoso.com`
 - Externer Azure Stack-DNS-Domänenname: `azurestack.contoso.com`
+
+## <a name="editing-dns-forwarder-ips"></a>Bearbeiten von IP-Adressen der DNS-Weiterleitung
+
+IP-Adressen der DNS-Weiterleitung werden während der Bereitstellung von Azure Stack festgelegt. Wenn die IP-Adressen der Weiterleitung jedoch aus irgendeinem Grund aktualisiert werden müssen, können Sie die Werte bearbeiten, indem Sie eine Verbindung mit dem privilegierten Endpunkt herstellen und die PowerShell-Cmdlets `Get-AzSDnsForwarder` und `Set-AzSDnsForwarder [[-IPAddress] <IPAddress[]>]` ausführen. Weitere Informationen finden Sie unter [Privilegierter Endpunkt](azure-stack-privileged-endpoint.md).
 
 ## <a name="delegating-the-external-dns-zone-to-azure-stack"></a>Delegieren der externen DNS-Zone an Azure Stack
 

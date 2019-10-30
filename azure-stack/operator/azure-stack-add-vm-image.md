@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 10/16/2019
 ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 9dc5039a2c8b74b14da59573758a4cf8d1a3657a
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 91fdd5c0068638f3e597f72ce5aee50fe04b324c
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282656"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534040"
 ---
 # <a name="add-a-custom-vm-to-azure-stack"></a>Hinzufügen eines benutzerdefinierten virtuellen Computers zu Azure Stack
 
@@ -57,6 +57,8 @@ Wenn die VHD von Azure stammt, befolgen Sie diese Anweisungen zum Generalisieren
    ```
 
 2. Fahren Sie den virtuellen Computer herunter, und laden Sie die VHD herunter. Wenn Sie Ihre VHD aus Azure einbinden, können Sie den Datenträgerexport verwenden, wie in [Herunterladen einer Windows-VHD von Azure](/azure/virtual-machines/windows/download-vhd) gezeigt.
+
+Beachten Sie die Linux-Agent-Versionen für Azure, die mit Azure Stack funktionieren ([wie hier beschrieben](azure-stack-linux.md#azure-linux-agent)). Stellen Sie sicher, dass das sysprepped-Image über eine Linux-Agent-Version für Azure verfügt, die mit Azure Stack kompatibel ist.
 
 ### <a name="common-steps-for-both-windows-and-linux"></a>Allgemeine Schritte für Windows als auch Linux
 

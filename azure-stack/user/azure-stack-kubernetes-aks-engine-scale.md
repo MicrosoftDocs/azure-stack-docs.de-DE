@@ -15,12 +15,12 @@ ms.date: 09/25/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 70adb6abaefc81faf487bbae5c560cc67f705341
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.openlocfilehash: b7d20327410ace5b5ad12d34a24ff474c1a384b0
+ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279206"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72780472"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack"></a>Skalieren eines Kubernetes-Cluster in Azure Stack
 
@@ -49,7 +49,7 @@ Die folgenden Parameter werden vom scale-Befehl verwendet, um Ihre Clusterdefini
 | -master-FQDN |  | Master-FQDN. Beim horizontalen Herunterskalieren erforderlich. |
 | identity-system | adfs | Optional. Geben Sie Ihre Identitätsverwaltungslösung an, wenn Sie Active Directory-Verbunddienste (AD FS) nutzen. |
 
-Beim Skalieren eines Clusters in Azure Stack müssen Sie den Parameter **–azure-env** angeben. Weitere Informationen zu Parametern und deren Werten, die im **scale**-Befehl für die AKS-Engine verwendet werden, finden Sie unter [Scale – parameters](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters) (Scale – Parameter).
+Beim Skalieren eines Clusters in Azure Stack müssen Sie den Parameter **--azure-env** angeben. Weitere Informationen zu Parametern und deren Werten, die im **scale**-Befehl für die AKS-Engine verwendet werden, finden Sie unter [Scale – parameters](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters) (Scale – Parameter).
 
 ### <a name="command-to-scale-your-cluster"></a>Befehl zum Skalieren des Clusters
 

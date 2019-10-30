@@ -1,6 +1,6 @@
 ---
 title: Azure Stack-MySQL-Ressourcenanbieter 1.1.30.0 – Versionshinweise | Microsoft-Dokumentation
-description: Erfahren Sie, was im neuesten Update für den Azure Stack-MySQL-Ressourcenanbieter enthalten ist, welche bekannten Probleme vorliegen und wo Sie den Download finden.
+description: Lesen Sie die Versionshinweise, um zu erfahren, welche Neuerungen im Update zum MySQL-Ressourcenanbieter 1.1.30.0 von Azure Stack enthalten sind.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 7679589090022f6f07c5e1fddb9c768716628865
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: fa21bb641589bb6da143696e0c925a0bfe51c1d0
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829438"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682206"
 ---
-# <a name="mysql-resource-provider-11300--release-notes"></a>Versionshinweise zum MySQL-Ressourcenanbieter 1.1.30.0
+# <a name="mysql-resource-provider-11300-release-notes"></a>Versionsanmerkungen zum MySQL-Ressourcenanbieter 1.1.30.0
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -53,13 +53,13 @@ Diese Version des Azure Stack-MySQL-Ressourcenanbieters enthält die folgenden V
 
 - **Blatt zur Änderung des MySQL-Anmeldekennworts**. Es wurde ein Problem behoben, bei dem das Kennwort auf dem entsprechenden Blatt nicht geändert werden kann. Links wurden aus Benachrichtigungen zur Kennwortänderung entfernt.
 
-## <a name="known-issues"></a>Bekannte Probleme 
+## <a name="known-issues"></a>Bekannte Probleme
 
-- **Dauer von bis zu einer Stunde bis zur Anzeige von MySQL SKUs im Portal**. Es kann bis zu einer Stunde dauern, bis die neu erstellten SKUs beim Erstellen neuer MySQL-Datenbanken angezeigt werden. 
+- **Dauer von bis zu einer Stunde bis zur Anzeige von MySQL SKUs im Portal**. Es kann bis zu einer Stunde dauern, bis die neu erstellten SKUs beim Erstellen neuer MySQL-Datenbanken angezeigt werden.
 
     **Problemumgehung**: None (Keine):
 
-- **Wiederverwendung von MySQL-Anmeldungen**. Der Versuch einer neuen MySQL-Anmeldung mit dem gleichen Benutzernamen wie eine vorhandene Anmeldung unter demselben Abonnement führt dazu, dass die gleiche Anmeldung und das vorhandene Kennwort wiederverwendet werden. 
+- **Wiederverwendung von MySQL-Anmeldungen**. Der Versuch einer neuen MySQL-Anmeldung mit dem gleichen Benutzernamen wie eine vorhandene Anmeldung unter demselben Abonnement führt dazu, dass die gleiche Anmeldung und das vorhandene Kennwort wiederverwendet werden.
 
     **Problemumgehung**: Nutzen Sie unterschiedliche Benutzernamen, wenn Sie neue Anmeldungen unter demselben Abonnement oder Anmeldungen mit dem gleichen Benutzernamen unter unterschiedlichen Abonnements erstellen.
 

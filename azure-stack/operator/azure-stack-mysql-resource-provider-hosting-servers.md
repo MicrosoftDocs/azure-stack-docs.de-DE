@@ -1,6 +1,6 @@
 ---
-title: MySQL-Hostserver in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie MySQL-Instanzen für die Bereitstellung über den MySQL-Adapterressourcenanbieter hinzufügen.
+title: Hinzufügen des MySQL-Hostservers in Azure Stack | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie MySQL-Hostserver für die Bereitstellung über den MySQL-Adapterressourcenanbieter hinzufügen.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 8c774d78cd03efeee830b1cbc5e726c7c53e3c57
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 632528519bbca9286ab72fb806ee756ccdb6a166
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909044"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682210"
 ---
-# <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Hinzufügen von Hostservern für den MySQL-Ressourcenanbieter
+# <a name="add-mysql-hosting-servers-in-azure-stack"></a>Hinzufügen für MySQL-Hostserver in Azure Stack
 
 Sie können eine MySQL-Hostserverinstanz auf einem virtuellen Computer (VM) in [Azure Stack](azure-stack-overview.md) oder auf einer VM außerhalb Ihrer Azure Stack-Umgebung hosten, solange sich der MySQL-Ressourcenanbieter mit der Instanz verbinden kann.
 
@@ -35,17 +35,17 @@ Die MySQL-Versionen 5.6, 5.7 und 8.0 können für Ihre Hostingserver verwendet w
 
 Stellen Sie sicher, dass Sie über die Anmeldeinformationen für ein Konto mit Systemadministratorrechten verfügen. Gehen Sie folgendermaßen vor, um einen Hostserver hinzuzufügen:
 
-1. Melden Sie sich beim Azure Stack-Operatorportal als Dienstadministrator an.
+1. Anmelden beim Azure Stack-Administratorportal als Dienstadministrator
 2. Wählen Sie **Alle Dienste** aus.
 3. Wählen Sie unter der Kategorie **VERWALTUNGSRESSOURCEN** die Option **MySQL-Hostserver** >  **+Hinzufügen** aus. Es wird das Dialogfeld **Einen MySQL-Hostserver hinzufügen** geöffnet, wie in der folgenden Bildschirmaufnahme dargestellt.
 
-   ![Einen Hostserver konfigurieren](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
+   ![Konfigurieren eines MySQL-Hostservers](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
 4. Geben Sie die Verbindungsdetails für Ihre MySQL Server-Instanz an.
 
    * Geben Sie für **MySQL-Hostservername** den vollqualifizierten Domänennamen (FQDN) oder eine gültige IPv4-Adresse an. Verwenden Sie nicht den Kurznamen des virtuellen Computers.
-   * Der **Benutzername** des Standardadministrators für die verfügbaren Bitnami-MySQL-Images im Azure Stack-Marketplace lautet *root*. 
-   * Sollte Ihnen das root-**Kennwort** nicht bekannt sein, erfahren Sie in der [Bitnami-Dokumentation](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials), wie Sie es erhalten. 
+   * Der **Benutzername** des Standardadministrators für die verfügbaren Bitnami-MySQL-Images im Azure Stack-Marketplace lautet *root*.
+   * Sollte Ihnen das root-**Kennwort** nicht bekannt sein, erfahren Sie in der [Bitnami-Dokumentation](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials), wie Sie es erhalten.
    * Es ist keine MySQL-Standardinstanz angegeben, daher müssen Sie die **Größe des Hostservers in GB** eingeben. Geben Sie eine Größe ein, die in etwa der physischen Kapazität des Datenbankservers entspricht.
    * Behalten Sie die Standardeinstellung für **Abonnement** bei.
    * Für **Ressourcengruppe** können Sie eine neue Gruppe erstellen oder eine vorhandene Gruppe verwenden.

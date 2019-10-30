@@ -16,12 +16,12 @@ ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 8b05b2cc9fdde7987efd78c5beb0123b035e03ea
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 94a7dc11c4711bcdf39215ccaab69e95ea5c57f3
+ms.sourcegitcommit: b72729305234e13c65de3771cb08678d46ba1348
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019356"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72543844"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack"></a>Übersicht über Identitätsanbieter für Azure Stack
 
@@ -175,7 +175,7 @@ Das Token muss dann den Header einer Anforderung an Azure Resource Manager über
 - Überprüft, ob das JSON Web Token mit einem Zertifikat signiert ist, das per OpenID konfiguriert wurde und das Azure Resource Manager bekannt ist.
 - Überprüft die Ansprüche *issued at* (iat) und *expiry* (exp), um zu bestätigen, dass das Token aktiv ist und akzeptiert werden kann.
 
-Nachdem alle Überprüfungen abgeschlossen sind, verwendet Azure Resource Manager die Ansprüche *objected* (oid) und *groups*, um eine Liste mit Ressourcen zu erstellen, auf die der Prinzipal zugreifen kann.
+Nachdem alle Überprüfungen abgeschlossen sind, verwendet der Azure Resource Manager die Ansprüche *object id* (oid) und *groups*, um eine Liste mit Ressourcen zu erstellen, auf die der Prinzipal zugreifen kann.
 
 ![Diagramm des Protokolls für den Tokenaustausch](media/azure-stack-identity-overview/token-exchange.png)
 

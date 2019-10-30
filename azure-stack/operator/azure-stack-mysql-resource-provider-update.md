@@ -15,18 +15,18 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 4e482be6cc47ce79b299d77592436b70420978ea
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 0c37b61cf56b1b730ce36e0574fea5cea6e2e7ec
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71908976"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682095"
 ---
-# <a name="update-the-mysql-resource-provider"></a>Aktualisieren des MySQL-Ressourcenanbieters 
+# <a name="update-the-mysql-resource-provider-in-azure-stack"></a>Aktualisieren des MySQL-Ressourcenanbieters in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme.*
 
-Unter Umständen wird ein neuer MySQL-Ressourcenanbieteradapter veröffentlicht, wenn Azure Stack-Builds aktualisiert werden. Der vorhandene Adapter funktioniert zwar weiterhin, aber es ist ratsam, so schnell wie möglich das Update auf den aktuellen Build durchzuführen. 
+Unter Umständen wird ein neuer MySQL-Ressourcenanbieteradapter veröffentlicht, wenn Azure Stack-Builds aktualisiert werden. Der vorhandene Adapter funktioniert zwar weiterhin, aber es ist ratsam, so schnell wie möglich das Update auf den aktuellen Build durchzuführen.
 
 Ab Ressourcenanbieter MySQL RP Version 1.1.33.0 sind die Updates kumulativ und müssen nicht in der Reihenfolge installiert werden, in der sie veröffentlicht wurden, sofern Sie mit Version 1.1.24.0 oder höher beginnen. Wenn Sie beispielsweise Version 1.1.24.0 des MySQL-Ressourcenanbieters ausführen, können Sie dann ein Upgrade auf Version 1.1.33.0 oder höher ausführen, ohne zuerst Version 1.1.30.0 installieren zu müssen. In der Versionsliste unter [Bereitstellen des Ressourcenanbieters – Voraussetzungen](./azure-stack-mysql-resource-provider-deploy.md#prerequisites) finden Sie die verfügbaren Ressourcenanbieterversionen und die jeweilige Azure Stack-Version, auf der sie unterstützt werden.
 
@@ -37,7 +37,7 @@ Verwenden Sie zum Aktualisieren des Ressourcenanbieters das Skript **UpdateMySQL
 
 ## <a name="update-script-processes"></a>Aktualisieren von Skriptprozessen
 
-Mit dem Skript **UpdateMySQLProvider.ps1** wird eine neue VM mit dem aktuellen Ressourcenanbietercode erstellt, und die Einstellungen werden von der alten VM zur neuen VM migriert. Zu den migrierten Einstellungen gehören Datenbank- und Hostserverinformationen und der erforderliche DNS-Eintrag. 
+Mit dem Skript **UpdateMySQLProvider.ps1** wird ein neuer virtueller Computer (virtual machine, VM) mit dem aktuellen Ressourcenanbietercode erstellt, und die Einstellungen werden von der alten VM zur neuen VM migriert. Zu den migrierten Einstellungen gehören Datenbank- und Hostserverinformationen und der erforderliche DNS-Eintrag.
 
 >[!NOTE]
 >Wir empfehlen Ihnen, das aktuelle Windows Server 2016 Core-Image aus der Marketplace-Verwaltung herunterzuladen. Wenn Sie ein Update installieren müssen, können Sie unter dem lokalen Abhängigkeitspfad ein **einzelnes** MSU-Paket platzieren. Beim Skript tritt ein Fehler auf, wenn an diesem Speicherort mehrere MSU-Dateien vorhanden sind.
@@ -46,7 +46,7 @@ Für das Skript ist die Verwendung der Argumente erforderlich, die für das Skri
 
 
 ## <a name="update-script-parameters"></a>Aktualisieren von Skriptparametern 
-Wenn Sie das PowerShell-Skript **UpdateMySQLProvider.ps1** ausführen, können Sie die folgenden Parameter in der Befehlszeile angeben. Wenn Sie keine Parameter angeben oder bei der Überprüfung eines Parameters ein Fehler auftritt, werden Sie aufgefordert, die erforderlichen Parameter anzugeben. 
+Wenn Sie das PowerShell-Skript **UpdateMySQLProvider.ps1** ausführen, geben Sie die folgenden Parameter in der Befehlszeile an. Wenn Sie keine Parameter angeben oder bei der Überprüfung eines Parameters ein Fehler auftritt, werden Sie aufgefordert, die erforderlichen Parameter anzugeben.
 
 | Parametername | BESCHREIBUNG | Kommentar oder Standardwert | 
 | --- | --- | --- | 
@@ -64,10 +64,10 @@ Wenn Sie das PowerShell-Skript **UpdateMySQLProvider.ps1** ausführen, können S
 | **AcceptLicense** | Überspringt die Aufforderung zum Akzeptieren der GPL-Lizenz.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
 ## <a name="update-script-example"></a>Beispiel für ein Updateskript
-Nachstehend finden Sie ein Beispiel für die Verwendung des Skripts *UpdateMySQLProvider.ps1*, das Sie an einer PowerShell-Konsole mit erhöhten Rechten ausführen können. Achten Sie darauf, die Variableninformationen und Kennwörter wie erforderlich zu ändern:  
+Nachstehend finden Sie ein Beispiel für die Verwendung des Skripts *UpdateMySQLProvider.ps1*, das Sie an einer PowerShell-Konsole mit erhöhten Rechten ausführen können. Achten Sie darauf, die Variableninformationen und Kennwörter wie erforderlich zu ändern:
 
 > [!NOTE] 
-> Der Updateprozess gilt nur für integrierte Systeme. 
+> Der Updateprozess gilt nur für integrierte Systeme.
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -76,10 +76,10 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time. 
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack" 
 
-# For integrated systems, use the IP address of one of the ERCS virtual machines 
+# For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01" 
 
 # Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
@@ -88,24 +88,24 @@ $AzureEnvironment = "<EnvironmentName>"
 # Point to the directory where the resource provider installation files were extracted. 
 $tempDir = 'C:\TEMP\MYSQLRP' 
 
-# The service admin account (can be Azure Active Directory or Active Directory Federation Services). 
+# The service admin account (can be Azure Active Directory or Active Directory Federation Services).
 $serviceAdmin = "admin@mydomain.onmicrosoft.com" 
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass) 
  
-# Set credentials for the new resource provider VM. 
+# Set credentials for the new resource provider VM.
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass) 
  
-# And the cloudadmin credential required for privileged endpoint access. 
+# And the cloudadmin credential required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass) 
 
-# Change the following as appropriate. 
+# Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
  
-# Change directory to the folder where you extracted the installation files. 
-# Then adjust the endpoints. 
+# Change directory to the folder where you extracted the installation files.
+# Then adjust the endpoints.
 .$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
 -VMLocalCredential $vmLocalAdminCreds ` 
 -CloudAdminCredential $cloudAdminCreds ` 

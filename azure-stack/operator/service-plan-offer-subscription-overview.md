@@ -1,6 +1,6 @@
 ---
-title: Übersicht über Azure Stack-Dienste, -Pläne, -Angebote und -Abonnements
-description: Als Cloudbetreiber möchte ich verstehen, wie es sich mit Azure Stack-Diensten, -Plänen, -Angeboten und -Abonnements verhält.
+title: 'Übersicht: Azure Stack-Dienste, -Pläne, -Angebote und Abonnements | Microsoft-Dokumentation'
+description: Übersicht über Azure Stack-Dienste, -Pläne, -Angebote und Abonnements
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -12,22 +12,22 @@ ms.date: 08/29/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 3559dd6bb684ef3a1ab1c90efcc3dfc814c811f3
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 2242da61eaa457a8cc234fb3310787eb26b9148e
+ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72287276"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72814059"
 ---
-# <a name="service-plan-offer-subscription-overview"></a>Übersicht über Dienste, Pläne, Angebote und Abonnements
+# <a name="azure-stack-services-plans-offers-subscriptions-overview"></a>Übersicht: Azure Stack-Dienste, -Pläne, -Angebote und Abonnements
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-[Microsoft Azure Stack](azure-stack-overview.md) ist eine Hybrid-Cloudplattform, die das Bereitstellen von Diensten aus Ihrem Datencenter ermöglicht. Zu diesen Diensten gehören virtuelle Computer, SQL Server-Datenbanken, SharePoint, Exchange und sogar [Azure Marketplace-Elemente](azure-stack-marketplace-azure-items.md). Als Dienstanbieter können Sie Dienste für Ihre Mandanten anbieten. Innerhalb eines Unternehmens oder einer Behörde ist es möglich, den Mitarbeitern lokale Dienste anzubieten.
+[Microsoft Azure Stack](azure-stack-overview.md) ist eine Hybrid-Cloudplattform, die das Bereitstellen von Diensten aus Ihrem Datencenter ermöglicht. Zu diesen Diensten gehören u. a. VMs, SQL Server-Datenbanken, SharePoint, Exchange und sogar [Azure Marketplace-Elemente](azure-stack-marketplace-azure-items.md). Als Dienstanbieter können Sie Dienste für Ihre Mandanten anbieten. Innerhalb eines Unternehmens oder einer Behörde ist es möglich, den Mitarbeitern lokale Dienste anzubieten.
 
 ## <a name="overview"></a>Übersicht
 
-Als Azure Stack-Betreiber verwenden Sie Angebote, Pläne und Abonnements, um Dienste zu konfigurieren und bereitzustellen. Angebote enthalten mindestens einen Plan, und jeder Plan enthält einen oder mehrere Dienste, die jeweils mit Kontingenten konfiguriert sind. Indem Sie Pläne erstellen und diese in verschiedenen Angeboten kombinieren, können Benutzer Ihre Angebote abonnieren und Ressourcen bereitstellen. So können Sie Folgendes verwalten:
+Als Azure Stack-Betreiber verwenden Sie Angebote, Pläne und Abonnements, um Dienste zu konfigurieren und bereitzustellen. Angebote enthalten mindestens einen Plan, und jeder Plan enthält einen oder mehrere Dienste, die jeweils mit Kontingenten konfiguriert sind. Indem Sie Pläne erstellen und diese in verschiedenen Angeboten kombinieren, können Benutzer Ihre Angebote abonnieren und Ressourcen bereitstellen. Diese Struktur ermöglicht Ihnen die Verwaltung von Folgendem:
 
 - Dienste und Ressourcen, auf die Ihre Benutzer zugreifen können
 - Menge der Ressourcen, die von Benutzern genutzt werden können
@@ -36,12 +36,14 @@ Als Azure Stack-Betreiber verwenden Sie Angebote, Pläne und Abonnements, um Die
 Die Bereitstellung eines Diensts umfasst folgende allgemeine Schritte:
 
 1. Planen Ihrer Dienstangebote mit:
-   - Grundlegenden Diensten, z. B. Compute, Speicher, Netzwerk oder Key Vault
-   - Add-On-Diensten, z. B. App Service, SQL Server oder MySQL Server
-2. Erstellen Sie einen Plan, der mindestens einen Dienst umfasst. Wählen Sie beim Erstellen eines Plans Kontingente aus, mit denen die Ressourceneinschränkungen der einzelnen Dienste des Plans definiert werden, oder erstellen Sie eigene Kontingente.
-3. Erstellen Sie ein Angebot, das mindestens einen Plan enthält. Das Angebot kann Basispläne und optionale Add-On-Pläne enthalten.
 
-Nachdem Sie das Angebot erstellt haben, können Ihre Benutzer es abonnieren, um auf die im Angebot enthaltenen Dienste zuzugreifen und Ressourcen bereitzustellen. Benutzer können beliebig viele Angebote abonnieren. Die folgende Abbildung zeigt ein einfaches Beispiel für einen Benutzer, der zwei Angebote abonniert hat. Jedes Angebot verfügt über einen oder zwei Pläne, und jeder Plan ermöglicht den Zugriff auf bestimmte Dienste.
+   - Grundlegenden Diensten, z. B. Compute, Speicher, Netzwerk oder Key Vault
+   - Add-On-Diensten, z. B. App Service, SQL Server oder MySQL Server
+
+2. Erstellen Sie einen Plan, der mindestens einen Dienst umfasst. Wählen Sie beim Erstellen eines Plans Kontingente aus, mit denen die Ressourceneinschränkungen der einzelnen Dienste des Plans definiert werden, oder erstellen Sie eigene Kontingente.
+3. Erstellen Sie ein Angebot, das mindestens einen Plan umfasst. Das Angebot kann Basispläne und optionale Add-On-Pläne enthalten.
+
+Nachdem Sie das Angebot erstellt haben, können Ihre Benutzer es abonnieren, um auf die Dienste zuzugreifen und Ressourcen bereitzustellen. Benutzer können beliebig viele Angebote abonnieren. Die folgende Abbildung zeigt ein einfaches Beispiel für einen Benutzer, der zwei Angebote abonniert hat. Jedes Angebot verfügt über einen oder zwei Pläne, und jeder Plan ermöglicht den Zugriff auf bestimmte Dienste.
 
 ![Mandantenabonnement mit Angeboten und Plänen](media/azure-stack-key-features/image4.png)
 
@@ -59,15 +61,15 @@ Sie können auch Dienste kombinieren, um komplexe Lösungen für verschiedene Be
 
 ### <a name="quotas"></a>Kontingente
 
-Zur Vereinfachung der Cloudkapazitätsverwaltung können Sie vorkonfigurierte *Kontingente* verwenden oder für jeden Dienst in einem Plan ein neues Kontingent erstellen. Mit Kontingenten werden die Obergrenzen von Ressourcen definiert, die ein Benutzerabonnement bereitstellen oder nutzen kann. Beispielsweise kann ein Benutzer für ein Kontingent ggf. bis zu fünf virtuelle Computer erstellen.
+Zur Vereinfachung der Cloudkapazitätsverwaltung können Sie vorkonfigurierte *Kontingente* verwenden oder für jeden Dienst in einem Plan ein neues Kontingent erstellen. Mit Kontingenten werden die Obergrenzen von Ressourcen definiert, die ein Benutzerabonnement bereitstellen oder nutzen kann. Mithilfe eines Kontingents kann ein Benutzer beispielsweise bis zu fünf virtuelle Computer erstellen.
 
 > [!IMPORTANT]
 > Es kann bis zu zwei Stunden dauern, bis neue Kontingente im Benutzerportal verfügbar sind oder ein geändertes Kontingent erzwungen wird.
 
-Sie können Kontingente nach Region konfigurieren. Beispielsweise kann für einen Plan mit Computediensten in Region A ein Kontingent von zwei virtuellen Computern gelten.
+Sie können Kontingente nach Region einrichten. Beispielsweise kann für einen Plan mit Computediensten in Region A ein Kontingent von zwei virtuellen Computern gelten.
 
 >[!NOTE]
->Im Azure Stack Development Kit ist nur eine Region verfügbar (mit dem Namen *local*).
+>Im Azure Stack Development Kit (ASDK) ist nur eine Region verfügbar (mit dem Namen *local*).
 
 Weitere Informationen zu Kontingenttypen in Azure Stack finden Sie [hier](azure-stack-quota-types.md).
 
@@ -85,7 +87,7 @@ Add-On-Pläne sind optionale Pläne, die Sie einem Angebot hinzufügen können. 
 
 ## <a name="offers"></a>Angebote
 
-Angebote sind Gruppen mit mindestens einem Plan, die Sie erstellen, damit Benutzer sie abonnieren können. Beispielsweise kann Angebot „Alpha“ den Plan A mit einem Satz von Computediensten und Plan B mit einem Satz von Speicher- und Netzwerkdiensten enthalten.
+Angebote sind Gruppen mit mindestens einem Plan, die Sie erstellen, damit Benutzer sie abonnieren können. Beispiel:  Das Angebot „Alpha“ kann den Plan A mit mehreren Computediensten und Plan B mit mehreren Speicher- und Netzwerkdiensten enthalten.
 
 Beim [Erstellen eines Angebots](azure-stack-create-offer.md) müssen Sie mindestens einen Basisplan einschließen, aber Sie können auch Add-On-Pläne erstellen, die Benutzer ihrem Abonnement hinzufügen können.
 
@@ -99,13 +101,13 @@ Berücksichtigen Sie beim Planen Ihrer Angebote Folgendes:
 
 ## <a name="subscriptions"></a>Abonnements
 
-Abonnements ermöglichen Benutzern den Zugriff auf Ihre Angebote. Wenn Sie ein Azure Stack-Bediener bei einem Dienstanbieter sind, erwerben Benutzer (Mandanten) Ihre Dienste, indem sie Ihre Angebote abonnieren. Wenn Sie ein Azure Stack-Bediener in einer Organisation sind, können Ihre Benutzer (Mitarbeiter) die von Ihnen angebotenen Dienste abonnieren, ohne dafür zu bezahlen. 
+Über Abonnements können Benutzer auf Ihre Angebote zugreifen. Wenn Sie ein Azure Stack-Bediener bei einem Dienstanbieter sind, erwerben Benutzer (Mandanten) Ihre Dienste, indem sie Ihre Angebote abonnieren. Wenn Sie ein Azure Stack-Bediener in einer Organisation sind, können Ihre Benutzer (Mitarbeiter) die von Ihnen angebotenen Dienste abonnieren, ohne dafür zu bezahlen.
 
-Benutzer erstellen neue Abonnements und erhalten Zugriff auf vorhandene Abonnements, indem Sie sich bei Azure Stack anmelden. Jedes Abonnement stellt eine Zuordnung zu einem einzelnen Angebot dar. Das Angebot (und seine Pläne und Kontingente), das einem Abonnement zugewiesen ist, kann nicht mit anderen Abonnements gemeinsam genutzt werden. Jede Ressource, die von einem Benutzer erstellt wird, ist einem Abonnement zugeordnet.
+Benutzer erstellen neue Abonnements und erhalten Zugriff auf vorhandene Abonnements, indem sie sich bei Azure Stack anmelden. Jedes Abonnement stellt eine Zuordnung zu einem einzelnen Angebot dar. Das Angebot (und seine Pläne und Kontingente), das einem Abonnement zugewiesen ist, kann nicht mit anderen Abonnements gemeinsam genutzt werden. Jede Ressource, die von einem Benutzer erstellt wird, ist einem Abonnement zugeordnet.
 
 ### <a name="default-provider-subscription"></a>Standardabonnement des Anbieters
 
-Das Standardabonnement des Anbieters wird automatisch erstellt, wenn Sie das Azure Stack Development Kit bereitstellen. Dieses Abonnement kann zum Verwalten von Azure Stack, zum Bereitstellen weiterer Ressourcenanbieter sowie zum Erstellen von Plänen und Angeboten für Benutzer verwendet werden. Aus Sicherheits- und Lizenzierungsgründen sollte es nicht eingesetzt werden, um Kundenworkloads und -anwendungen auszuführen. Das Kontingent für das Standardabonnement des Anbieters kann nicht geändert werden.
+Das Standardabonnement des Anbieters wird automatisch erstellt, wenn Sie das ASDK bereitstellen. Dieses Abonnement kann zum Verwalten von Azure Stack, zum Bereitstellen weiterer Ressourcenanbieter sowie zum Erstellen von Plänen und Angeboten für Benutzer verwendet werden. Aus Sicherheits- und Lizenzierungsgründen darf es nicht eingesetzt werden, um Kundenworkloads und -Apps auszuführen. Das Kontingent für das Standardabonnement des Anbieters kann nicht geändert werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

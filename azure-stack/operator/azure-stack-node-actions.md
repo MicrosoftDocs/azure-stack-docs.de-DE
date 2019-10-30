@@ -1,6 +1,6 @@
 ---
 title: Knotenaktionen für Skalierungseinheiten in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie den Knotenstatus anzeigen und die Knotenaktionen für das Ein- und Ausschalten, das Deaktivieren und das Fortsetzen in einem in Azure Stack integrierten System verwenden.
+description: Informationen zu Aktionen für Knoten von Skalierungseinheiten (einschließlich „Einschalten“, „Ausschalten“, „Deaktivieren“ und „Fortsetzen“) und dazu, wie Sie den Knotenstatus in Systemen abrufen können, die in Azure Stack integriert sind
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 07/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: b75d9f37e2b2deacb5935bb6cda3c2586afb8baa
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: 18d76db779db5914663f551154fc8c795753503c
+ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70235013"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72814043"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Knotenaktionen für Skalierungseinheiten in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme*
 
-In diesem Artikel wird beschrieben, wie Sie den Status einer Skalierungseinheit anzeigen. Sie können die Knoten der Einheit anzeigen. Sie können Knotenaktionen wie Ein-/Ausschalten, Herunterfahren, Entladen, Fortsetzen und Reparieren ausführen. Normalerweise verwenden Sie diese Knotenaktionen für den Austausch von Teilen im Betrieb oder bei der Wiederherstellung eines Knotens.
+In diesem Artikel wird beschrieben, wie Sie den Status einer Skalierungseinheit anzeigen. Sie können die Knoten der Einheit anzeigen. Sie können Knotenaktionen wie „Einschalten“, „Ausschalten“, „Deaktivieren“, „Fortsetzen“ und „Reparieren“ ausführen. Normalerweise verwenden Sie diese Knotenaktionen für den Austausch von Teilen im Betrieb oder bei der Wiederherstellung eines Knotens.
 
 > [!Important]  
 > Alle in diesem Artikel beschriebenen Knotenaktionen sollten immer nur auf einen Knoten gleichzeitig ausgerichtet sein.
@@ -45,10 +45,10 @@ So zeigen Sie den Status einer Skalierungseinheit an
    Zeigen Sie die folgenden Informationen an:
 
    - Die Liste der einzelnen Knoten
-   - Betriebsstatus (siehe unten die Liste)
-   - Energiestatus („wird ausgeführt“ oder „beendet“)
+   - Betriebsstatus (weitere Informationen in der nachfolgenden Liste)
+   - Energiestatus („Wird ausgeführt“ oder „Beendet“)
    - Servermodell
-   - IP-Adresse des Baseboard-Verwaltungscontrollers (BMC)
+   - IP-Adresse des Baseboard-Verwaltungscontrollers (Baseboard Management Controller, BMC)
    - Gesamtanzahl von Kernen
    - Gesamtspeichermenge
 
@@ -68,10 +68,11 @@ So zeigen Sie den Status einer Skalierungseinheit an
 ## <a name="scale-unit-node-actions"></a>Knotenaktionen für Skalierungseinheiten
 
 Beim Anzeigen von Informationen zu einem Knoten einer Skalierungseinheit können Sie Knotenaktionen wie die folgenden ausführen:
+
  - Starten und Beenden (je nach aktuellem Energiestatus)
  - Deaktivieren und Fortsetzen (je nach Betriebsstatus)
  - Reparieren
- - Shutdown
+ - Herunterfahren
 
 Der Betriebszustand des Knotens bestimmt, welche Optionen verfügbar sind.
 
@@ -79,7 +80,7 @@ Sie müssen Azure Stack PowerShell-Module installieren. Diese Cmdlets befinden s
 
 ## <a name="stop"></a>Beenden
 
-Die Aktion **Beenden** schaltet den Knoten aus. Dies entspricht dem Drücken des Netzschalters. Es wird kein Signal zum Herunterfahren an das Betriebssystem gesendet. Probieren Sie bei geplanten Beenden-Vorgängen immer zuerst den Vorgang zum Herunterfahren aus. 
+Die Aktion **Beenden** schaltet den Knoten aus. Dies entspricht dem Drücken des Netzschalters. Es wird kein Signal zum Herunterfahren an das Betriebssystem gesendet. Probieren Sie bei geplanten Beenden-Vorgängen immer zuerst den Vorgang zum Herunterfahren aus.
 
 Diese Aktion wird normalerweise verwendet, wenn ein Knoten nicht mehr reagiert und keine Anforderungen mehr verarbeitet.
 
@@ -95,15 +96,15 @@ Weitere Informationen finden Sie unter [Stop-AzsScaleUnitNode](https://docs.micr
 
 ## <a name="start"></a>Start
 
-Die Aktion **Starten** schaltet den Knoten ein. Dies entspricht dem Drücken des Netzschalters. 
- 
+Die Aktion **Starten** schaltet den Knoten ein. Dies entspricht dem Drücken des Netzschalters.
+
 Um die Starten-Aktion auszuführen, öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus:
 
 ```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-Versuchen Sie in dem unwahrscheinlichen Fall, dass die Starten-Aktion nicht funktioniert, den Vorgang noch mal, und falls er ein zweites Mal fehlschlägt, verwenden Sie stattdessen die BMC-Webbenutzeroberfläche.
+Sollte der unwahrscheinliche Fall eintreten, dass die Aktion „Starten“ nicht funktioniert, wiederholen Sie den Vorgang. Wenn auch beim zweiten Mal ein Fehler auftritt, verwenden Sie stattdessen die BMC-Webschnittstelle.
 
 Weitere Informationen finden Sie unter [Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
 
@@ -111,10 +112,10 @@ Weitere Informationen finden Sie unter [Start-AzsScaleUnitNode](https://docs.mic
 
 Die Aktion **Entladen** verschiebt alle aktiven Workloads auf die übrigen Knoten in dieser spezifischen Skalierungseinheit.
 
-Diese Aktion wird in der Regel für den Austausch von Teilen im Betrieb, z.B. beim Ersetzen eines vollständigen Knotens, verwendet.
+Diese Aktion wird in der Regel für den Austausch von Teilen im Betrieb verwendet, z. B. beim Ersetzen eines vollständigen Knotens.
 
 > [!Important]
-> Stellen Sie sicher, dass Sie einen Entladen-Vorgang nur während eines geplanten Wartungsfensters auf einen Knoten anwenden, über das Benutzer benachrichtigt wurden. Unter bestimmten Umständen können bei aktiven Workloads Unterbrechungen auftreten.
+> Achten Sie darauf, Vorgänge zum Entladen nur während geplanten Wartungen auf Knoten anzuwenden, über die die Benutzer benachrichtigt wurden. Unter bestimmten Umständen können bei aktiven Workloads Unterbrechungen auftreten.
 
 Um die Entladen-Aktion auszuführen, öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus:
 
@@ -126,7 +127,7 @@ Weitere Informationen finden Sie unter [Disable-AzsScaleUnitNode](https://docs.m
 
 ## <a name="resume"></a>Fortfahren
 
-Die Aktion **Fortsetzen** setzt einen entladenen Knoten fort und markiert ihn für die Verteilung von Workloads als aktiv. Für frühere Workloads, die auf dem Knoten ausgeführt wurden, wird kein Failback durchgeführt. (Wenn Sie einen Entladen-Vorgang auf einem Knoten verwenden, stellen Sie sicher, dass er ausgeschaltet ist. Wenn Sie den Knoten wieder einschalten, ist er nicht als aktiv für die Workloadverteilung gekennzeichnet. Sie müssen zunächst noch die Aktion „Fortsetzen“ verwenden, um den Knoten als aktiv zu kennzeichnen.)
+Die Aktion **Fortsetzen** setzt einen entladenen Knoten fort und markiert ihn für die Verteilung von Workloads als aktiv. Für frühere Workloads, die auf dem Knoten ausgeführt wurden, wird kein Failback durchgeführt. (Wenn Sie einen Entladen-Vorgang auf einem Knoten verwenden, stellen Sie sicher, dass er ausgeschaltet ist. Wenn Sie den Knoten wieder einschalten, ist er für die Workloadplatzierung nicht als „Aktiv“ gekennzeichnet. Sie müssen zunächst noch die Aktion „Fortsetzen“ verwenden, um den Knoten als aktiv zu kennzeichnen.)
 
 Um die Fortsetzen-Aktion auszuführen, öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus:
 
@@ -139,7 +140,7 @@ Weitere Informationen finden Sie unter [Enable-AzsScaleUnitNode](https://docs.mi
 ## <a name="repair"></a>Reparieren
 
 > [!CAUTION]  
-> Der Firmwareabgleich ist für den Erfolg des in diesem Artikel beschriebenen Vorgangs entscheidend. Wenn Sie diesen Schritt auslassen, kann dies zu einem instabilen System, Leistungseinbußen oder Sicherheitsbedrohungen führen oder eine Bereitstellung des Betriebssystems mithilfe der Azure Stack Automatisierung verhindern. Lesen Sie immer die Dokumentation des Hardwarepartners, wenn Sie Hardware austauschen, um sicherzustellen, dass die angewendete Firmware der OEM-Version entspricht, die im [Azure Stack-Administratorportal](azure-stack-updates.md) angezeigt wird.<br>
+> Der Firmwareabgleich ist für den Erfolg des in diesem Artikel beschriebenen Vorgangs entscheidend. Wenn Sie diesen Schritt auslassen, kann dies zu einem instabilen System, Leistungseinbußen, Sicherheitsbedrohungen führen oder eine Bereitstellung des Betriebssystems mithilfe der Azure Stack-Automatisierung verhindern. Lesen Sie immer die Dokumentation des Hardwarepartners, wenn Sie Hardware austauschen, um sicherzustellen, dass die angewendete Firmware der OEM-Version entspricht, die im [Azure Stack-Administratorportal](azure-stack-updates.md) angezeigt wird.<br><br>
 Weitere Informationen und Links zur Partnerdokumentation finden Sie unter [Ersetzen einer Hardwarekomponente](azure-stack-replace-component.md).
 
 | Hardwarepartner | Region | URL |
@@ -153,13 +154,14 @@ Weitere Informationen und Links zur Partnerdokumentation finden Sie unter [Erset
 | Lenovo | Alle | [ThinkAgile SXM – bewährte Vorgehensweisen](https://datacentersupport.lenovo.com/us/en/solutions/ht505122) |
 
 Die Aktion **Reparieren** repariert einen Knoten. Verwenden Sie diese Aktion nur für eines der folgenden Szenarien:
- - Vollständiger Knotenaustausch (mit neuen Datenträgern oder ohne diese)
- - Nach dem Ausfall oder dem Austausch einer Hardwarekomponente (sofern in der Dokumentation der FRU (Field Replaceable Unit) empfohlen).
+
+- Vollständiger Knotenaustausch (mit oder ohne neue Datenträger)
+- Nach dem Ausfall oder dem Austausch einer Hardwarekomponente (sofern in der Dokumentation der FRU (Field Replaceable Unit) empfohlen).
 
 > [!Important]  
-> Wenn Sie einen Knoten oder einzelne Hardwarekomponenten ersetzen müssen, finden Sie die genauen Schritte in der FRU-Dokumentation Ihres OEM-Hardwareherstellers. In der FRU-Dokumentation ist auch angegeben, ob Sie die Reparaturaktion nach dem Ersetzen einer Hardwarekomponente ausführen müssen. 
+> Wenn Sie einen Knoten oder einzelne Hardwarekomponenten ersetzen müssen, finden Sie die genauen Schritte in der FRU-Dokumentation Ihres OEM-Hardwareherstellers. In der FRU-Dokumentation ist auch angegeben, ob Sie die Reparaturaktion nach dem Ersetzen einer Hardwarekomponente ausführen müssen.
 
-Beim Ausführen der Reparaturaktion müssen Sie die BMC-IP-Adresse angeben. 
+Beim Ausführen der Reparaturaktion müssen Sie die BMC-IP-Adresse angeben.
 
 Um die Reparieren-Aktion auszuführen, öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus:
 
@@ -181,8 +183,6 @@ Sollte beim Herunterfahren ein Fehler auftreten, führen Sie vor dem Herunterfah
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 
-
-
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zum Fabric-Administratormodul von Azure Stack finden Sie unter [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).
+[Weitere Informationen zum Modul für Azure Stack Fabric-Betreiber](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)

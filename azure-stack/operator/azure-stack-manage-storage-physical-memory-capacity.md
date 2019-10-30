@@ -1,6 +1,6 @@
 ---
-title: Verwalten der Kapazität des physischer Speichers für Azure Stack | Microsoft-Dokumentation
-description: Überwachen und verwalten Sie den verfügbaren Speicherplatz für Azure Stack.
+title: Verwalten der Kapazität des physischer Speichers in Azure Stack | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie den physischen Speicher und die Kapazität in Azure Stack überwachen und verwalten können.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,28 +16,28 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 147bfb6ba35115f44fe24f388f36814db766c7f2
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: f72ad1b86bf8ef84e64f79603c27d14571b00838
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829462"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534151"
 ---
-# <a name="manage-physical-memory-capacity-for-azure-stack"></a>Verwalten der Kapazität des physischen Speichers für Azure Stack
+# <a name="manage-physical-memory-capacity-in-azure-stack"></a>Verwalten der Kapazität des physischen Speichers in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme*
 
-Sie können zusätzlichen Speicher hinzufügen, um die verfügbare Gesamtspeicherkapazität für Azure Stack zu erhöhen. In Azure Stack wird Ihr physischer Server auch als *Skalierungseinheitknoten* bezeichnet. Alle Skalierungseinheitknoten, die Mitglieder einer einzelnen Skalierungseinheit sind, müssen über die gleiche Speichermenge verfügen.
+Sie können zusätzlichen Speicher hinzufügen, um die verfügbare Gesamtspeicherkapazität in Azure Stack zu erhöhen. In Azure Stack wird Ihr physischer Server auch als *Skalierungseinheitknoten* bezeichnet. Alle Skalierungseinheitknoten, die Mitglieder einer einzelnen Skalierungseinheit sind, müssen über die gleiche Speichermenge verfügen.
 
 > [!note]  
 > Sehen Sie vor dem Fortfahren in der Dokumentation des Hardwareherstellers nach, ob Ihr Hersteller ein Upgrade des physischen Speichers unterstützt. Im Rahmen des Supportvertrags Ihres OEM-Hardwareanbieters kann festgelegt sein, dass der Einbau von physischen Serverracks und Updates der Gerätefirmware vom Anbieter durchgeführt werden müssen.
 
 Im folgenden Flussdiagramm ist der allgemeine Prozess zum Hinzufügen von Speicher zu den einzelnen Skalierungseinheitknoten dargestellt.
 
-![Hinzufügen von Speicher zu den einzelnen Skalierungseinheitknoten](media/azure-stack-manage-storage-physical-capacity/process-to-add-memory-to-scale-unit.png)
+![Verfahren zum Hinzufügen von Speicher zu den einzelnen Skalierungseinheitknoten](media/azure-stack-manage-storage-physical-capacity/process-to-add-memory-to-scale-unit.png)
 
 ## <a name="add-memory-to-an-existing-node"></a>Hinzufügen von Speicher zu einem vorhandenen Knoten
-Die folgenden Schritte enthalten einen allgemeinen Überblick über den Prozess zum Hinzufügen von Speicher. 
+Die folgenden Schritte enthalten einen allgemeinen Überblick über den Prozess zum Hinzufügen von Speicher.
 
 > [!Warning]
 > Befolgen Sie diese Schritte nicht, ohne zuvor die vom OEM-Anbieter bereitgestellte Dokumentation zu Rate gezogen zu haben.
@@ -51,5 +51,5 @@ Die folgenden Schritte enthalten einen allgemeinen Überblick über den Prozess 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
- - Informationen zur Verwaltung von Speicherkonten in Azure Stack, um Speicherkapazität basierend auf Geschäftsanforderungen zu suchen, wiederherzustellen und freizugeben, finden Sie unter [Verwalten von Speicherkonten in Azure Stack](azure-stack-manage-storage-accounts.md).
- - Informationen dazu, wie Azure Stack-Cloudbetreiber die Speicherkapazität ihrer Azure Stack-Bereitstellung überwachen und verwalten, finden Sie unter [Verwalten der Speicherkapazität für Azure Stack](azure-stack-manage-storage-shares.md). 
+ - Unter [Verwalten von Speicherkonten in Azure Stack](azure-stack-manage-storage-accounts.md) erhalten Sie Informationen zum Verwalten von Speicherkonten in Azure Stack.
+ - Informationen dazu, wie die Speicherkapazität ihrer Azure Stack-Bereitstellung überwacht und verwaltet werden kann, finden Sie unter [Verwalten der Speicherkapazität für Azure Stack](azure-stack-manage-storage-shares.md).

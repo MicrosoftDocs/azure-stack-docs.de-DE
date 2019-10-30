@@ -1,5 +1,5 @@
 ---
-title: Verwalten des MySQL-Ressourcenanbieters in Azure Stack | Microsoft-Dokumentation
+title: Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie den MySQL-Ressourcenanbieterdienst in Azure Stack verwalten können.
 services: azure-stack
 documentationCenter: ''
@@ -15,18 +15,18 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 6667fd3db21cd6138e756c16eb8e68b8ecd1b3e9
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 9dc2de86828e188aa82b44d376e693be887717d8
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829414"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682190"
 ---
-# <a name="mysql-resource-provider-maintenance-operations"></a>Wartungsvorgänge von MySQL-Ressourcenanbietern
+# <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack
 
-Der MySQL-Ressourcenanbieter wird auf einem gesperrten virtuellen Computer ausgeführt. Damit Wartungen durchgeführt werden können, müssen Sie die Sicherheit einer VM aktualisieren. Dies kann nach dem Prinzip der letzten Berechtigung über den PowerShell JEA-Endpunkt (Just Enough Administration) „DBAdapterMaintenance“ erfolgen. Das Ressourcenanbieter-Installationspaket enthält ein Skript für diese Vorgänge.
+Der MySQL-Ressourcenanbieter wird auf einer gesperrten VM ausgeführt. Damit Wartungsvorgänge durchgeführt werden können, müssen Sie die Sicherheit der VM aktualisieren. Dies kann nach dem Prinzip der geringsten Rechte über den PowerShell JEA-Endpunkt (Just Enough Administration) „DBAdapterMaintenance“ erfolgen. Das Ressourcenanbieter-Installationspaket enthält ein Skript für diese Vorgänge.
 
-## <a name="update-the-virtual-machine-operating-system"></a>Aktualisieren des Betriebssystems für den virtuellen Computer
+## <a name="update-the-vm-operating-system"></a>Aktualisieren des VM-Betriebssystems
 
 Da der Ressourcenanbieter auf einer *Benutzer*-VM ausgeführt wird, müssen Sie die erforderlichen Patches und Updates installieren, sobald sie veröffentlicht werden. Sie können die Windows Update-Pakete verwenden, die als Teil des Patch- und Updatezyklus bereitgestellt werden, um die VM zu aktualisieren.
 
@@ -35,7 +35,7 @@ Aktualisieren Sie die Anbieter-VM mit einer der folgenden Methoden:
 - Installieren des aktuellen Ressourcenanbieterpakets über ein gepatchtes Windows Server 2016-Core-Image
 - Installieren eines Windows Update-Pakets während der Installation oder des Updates des Ressourcenanbieters.
 
-## <a name="update-the-virtual-machine-windows-defender-definitions"></a>Aktualisieren der Windows Defender-Definitionen für den virtuellen Computer
+## <a name="update-the-vm-windows-defender-definitions"></a>Aktualisieren der Windows Defender-Definitionen für die VM
 
 Führen Sie die folgenden Schritte aus, um die Defender-Definitionen zu aktualisieren:
 
@@ -76,7 +76,7 @@ Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64'
 $session = New-PSSession -ComputerName $databaseRPMachine `
     -Credential $vmLocalAdminCreds -ConfigurationName DBAdapterMaintenance
 
-# Copy the defender update file to the adapter virtual machine.
+# Copy the defender update file to the adapter VM.
 Copy-Item -ToSession $session -Path $localPathToDefenderUpdate `
      -Destination "User:\"
 
@@ -103,7 +103,7 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>PowerShell-Beispiele für die Rotation von Geheimnissen
 
-**Gleichzeitiges Ändern aller Geheimnisse**
+**Gleichzeitiges Ändern aller Geheimnisse:**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -117,7 +117,7 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
 
 ```
 
-**Ändern des Kennworts für den Diagnosebenutzer**
+**Ändern des Kennworts für den Diagnosebenutzer:**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -128,7 +128,7 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
 
 ```
 
-**Ändern des Kennworts des lokalen Administratorkontos für den virtuellen Computer**
+**Ändern des Kennworts des lokalen Administratorkontos für die VM**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -139,7 +139,7 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
 
 ```
 
-**Ändern des SSL-Zertifikatkennworts**
+**Ändern des SSL-Zertifikatkennworts:**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -159,7 +159,7 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
 |CloudAdminCredential|Anmeldeinformationen für das Domänenkonto des Azure Stack-Cloudadministrators|
 |PrivilegedEndpoint|Privilegierter Endpunkt für den Zugriff auf „Get-AzureStackStampInformation“|
 |DiagnosticsUserPassword|Kennwort des Diagnosebenutzerkontos|
-|VMLocalCredential|Das lokale Administratorkonto des virtuellen MySQLAdapter-Computers.|
+|VMLocalCredential|Das lokale Administratorkonto auf der MySQLAdapter-VM.|
 |DefaultSSLCertificatePassword|Kennwort für das SSL-Standardzertifikat (*.pfx)|
 |DependencyFilesLocalPath|Lokaler Pfad der Abhängigkeitsdateien|
 |     |     |
@@ -174,7 +174,7 @@ Verwenden Sie das Cmdlet Get-AzsDBAdapterLogs, um alle Ressourcenanbieterprotoko
 
 ## <a name="collect-diagnostic-logs"></a>Erfassen von Diagnoseprotokollen
 
-Zum Erfassen von Protokollen vom gesperrten virtuellen Computer können Sie den PowerShell JEA-Endpunkt (Just Enough Administration) „DBAdapterDiagnostics“ verwenden. Dieser Endpunkt bietet die folgenden Befehle:
+Zum Erfassen von Protokollen von gesperrten VMs können Sie den PowerShell JEA-Endpunkt (Just Enough Administration) „DBAdapterDiagnostics“ verwenden. Dieser Endpunkt bietet die folgenden Befehle:
 
 - **Get-AzsDBAdapterLog**. Dieser Befehl erstellt ein Zip-Paket der Diagnoseprotokolle des Ressourcenanbieters und speichert die Datei auf dem Benutzerlaufwerk der Sitzung. Sie können diesen Befehl ohne Parameter ausführen, und die Protokolle der letzten vier Stunden werden gesammelt.
 
@@ -185,16 +185,16 @@ Zum Erfassen von Protokollen vom gesperrten virtuellen Computer können Sie den 
 Beim Installieren oder Aktualisieren eines Ressourcenanbieters wird das „dbadapterdiag“-Benutzerkonto erstellt. Sie werden dieses Konto verwenden, um Diagnoseprotokolle zu sammeln.
 
 >[!NOTE]
->Das Kennwort des „dbadapterdiag“-Kontos entspricht dem Kennwort des lokalen Administrators der virtuellen Maschine, das während der Bereitstellung oder dem Update eines Anbieters erstellt wurde.
+>Das Kennwort des Kontos „dbadapterdiag“ entspricht dem Kennwort des lokalen Administrators der VM, die während der Bereitstellung oder dem Update eines Anbieters erstellt wurde.
 
-Zum Nutzen der _DBAdapterDiagnostics_-Befehle müssen Sie eine PowerShell-Remotesitzung mit dem virtuellen Computer des Ressourcenanbieters herstellen und den **Get-AzsDBAdapterLog**-Befehl ausführen.
+Zur Verwendung der _DBAdapterDiagnostics_-Befehle müssen Sie eine PowerShell-Remotesitzung mit der VM des Ressourcenanbieters herstellen und den Befehl **Get-AzsDBAdapterLog** ausführen.
 
 Mit den Parametern **FromDate** und **ToDate** legen Sie die Zeitspanne für die Protokollsammlung fest. Wenn Sie einen oder beide dieser Parameter nicht angeben, werden die folgenden Standardwerte verwendet:
 
 * „FromDate“ sind vier Stunden vor der aktuellen Uhrzeit.
 * „ToDate“ ist die aktuelle Uhrzeit.
 
-**PowerShell-Skriptbeispiel für die Sammlung von Protokollen**
+**PowerShell-Skriptbeispiel für die Sammlung von Protokollen:**
 
 Das folgende Skript zeigt, wie Diagnoseprotokolle aus der Ressourcenanbieter-VM gesammelt werden.
 

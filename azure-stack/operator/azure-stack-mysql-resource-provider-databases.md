@@ -1,6 +1,6 @@
 ---
-title: Verwenden von Datenbanken, die vom MySQL-Adapter-Ressourcenanbieter in Azure Stack bereitgestellt werden | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie MySQL-Datenbanken, die mit dem MySQL-Adapter-Ressourcenanbieter bereitgestellt wurden, erstellen und verwalten.
+title: Erstellen von MySQL-Datenbanken in Azure Stack | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie MySQL-Datenbanken, die mit dem Ressourcenanbieter MySQL Adapter bereitgestellt wurden, in Azure Stack erstellen und verwalten können.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 594d1f45e19717bdbbc5f9fee56cf253c03b6efb
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 9daaea395ee28da79da1d6fd553d2e0b30e28156
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283473"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682228"
 ---
-# <a name="create-mysql-databases"></a>Erstellen von MySQL-Datenbanken
+# <a name="create-mysql-databases-in-azure-stack"></a>Erstellen von MySQL-Datenbanken in Azure Stack
 Ein Azure Stack-Benutzer, der ein Angebot abonniert hat, das den MySQL-Datenbankdienst enthält, kann MySQL-Self-Service-Datenbanken im Benutzerportal erstellen und verwalten.
 
 ## <a name="create-a-mysql-database"></a>Erstellen einer MySQL-Datenbank
@@ -66,4 +66,4 @@ Das Kennwort kann in der MySQL Server-Instanz geändert werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Informieren Sie sich über das [Anbieten hochverfügbarer MySQL-Datenbanken](azure-stack-tutorial-mysql.md).
+Informieren Sie sich über das [Anbieten von hochverfügbaren MySQL-Datenbanken](azure-stack-tutorial-mysql.md).

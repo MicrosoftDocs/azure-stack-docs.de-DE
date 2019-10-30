@@ -14,33 +14,33 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 7cfbba830b91d5dba8935cce20a2cdc0e65e49de
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: d99a49676f9ab684c5b83e8e68cf58f86efc948f
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909159"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534059"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Überwachen von Änderungen in Azure Stack mithilfe des privilegierten Endpunkts
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme*
 
-Sie können mit dem [privilegierten Endpunkt](azure-stack-privileged-endpoint.md) den Status eines Azure Stack-Updatevorgangs überwachen und ein fehlerhaftes Update vom letzten erfolgreichen Schritt aus fortsetzen, falls das Azure Stack-Portal nicht verfügbar sein sollte.  Das Azure Stack-Portal ist die empfohlene Methode zum Verwalten von Updates in Azure Stack.
+Sie können den [privilegierten Endpunkt](azure-stack-privileged-endpoint.md) nutzen, um den Fortschritt einer Updateausführung für Azure Stack zu überwachen. Darüber hinaus können Sie den privilegierten Endpunkt verwenden, um einen nicht erfolgreichen Updatevorgang ab dem letzten erfolgreichen Schritt fortzusetzen, wenn das Azure Stack-Portal nicht mehr verfügbar ist. Das Azure Stack-Portal ist die empfohlene Methode zum Verwalten von Updates in Azure Stack.
 
 Die folgenden neuen PowerShell-Cmdlets für die Updateverwaltung sind im Update 1710 für in Azure Stack integrierte Systeme enthalten.
 
 | Cmdlet  | BESCHREIBUNG  |
 |---------|---------|
-| `Get-AzureStackUpdateStatus` | Gibt den Status des derzeit ausgeführten, abgeschlossenen oder fehlerhaften Updates zurück Stellt den allgemeinen Status des Updatevorgangs sowie ein XML-Dokument, das den aktuellen Schritt und den zugehörigen Status beschreibt, bereit |
+| `Get-AzureStackUpdateStatus` | Gibt den Status des derzeit ausgeführten, abgeschlossenen oder fehlerhaften Updates zurück Stellt den allgemeinen Status des Updatevorgangs sowie ein XML-Dokument bereit, das den aktuellen Schritt und den zugehörigen Status beschreibt. |
 | `Resume-AzureStackUpdate` | Nimmt ein fehlerhaftes Update an der Stelle wieder auf, an der der Fehler aufgetreten ist. In bestimmten Szenarien müssen Sie möglicherweise Schritte Risikominderung durchführen, bevor Sie das Update fortsetzen.         |
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Überprüfen der Verfügbarkeit von Cmdlets
 Da die Cmdlets im Updatepaket 1710 für Azure Stack neu sind, muss der Updatevorgang für 1710 einen bestimmten Punkt erreichen, bevor die Überwachungsfunktionen zur Verfügung steht. In der Regel sind die Cmdlets verfügbar, wenn der Status im Administratorportal angibt, dass sich das Update 1710 beim Schritt **Speicherhosts neu starten** befindet. Insbesondere kommt das Cmdletupdate vor in **Schritt: Ausführen von Schritt 2.6: Aktualisieren der PrivilegedEndpoint-Whitelist**.
 
-Sie können auch programmgesteuert ermitteln, ob die Cmdlets verfügbar sind, indem Sie die Befehlsliste vom privilegierten Endpunkt aus abfragen. Führen Sie dazu die folgenden Befehle über den Hardwarelebenszyklushost oder über eine Arbeitsstation für privilegierten Zugriff aus. Stellen Sie außerdem sicher, dass es sich bei dem privilegierten Endpunkt um einen vertrauenswürdigen Host handelt. Weitere Informationen finden Sie in Schritt 1 von [Zugreifen auf den privilegierten Endpunkt](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). 
+Sie können auch programmgesteuert ermitteln, ob die Cmdlets verfügbar sind, indem Sie die Befehlsliste über den privilegierten Endpunkt abfragen. Führen Sie dazu die folgenden Befehle über den Hardwarelebenszyklushost oder über eine Arbeitsstation mit privilegiertem Zugriff aus. Stellen Sie außerdem sicher, dass es sich bei dem privilegierten Endpunkt um einen vertrauenswürdigen Host handelt. Weitere Informationen finden Sie in Schritt 1 von [Zugreifen auf den privilegierten Endpunkt](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint).
 
-1. Erstellen Sie eine PowerShell-Sitzung auf einem der virtuellen ERCS-Computer in Ihrer Azure Stack-Umgebung (*Präfix*-ERCS01, *Präfix*-ERCS02 oder *Präfix*-ERCS03). Ersetzen Sie *Präfix* durch die spezifische Präfixzeichenfolge für virtuelle Computer in Ihrer Umgebung.
+1. Erstellen Sie eine PowerShell-Sitzung auf einer der ERCS-VMs in Ihrer Azure Stack-Umgebung (*Präfix*-ERCS01, *Präfix*-ERCS02 oder *Präfix*-ERCS03). Ersetzen Sie *Präfix* durch die genaue VM-Präfixzeichenfolge für Ihre Umgebung.
 
    ```powershell
    $cred = Get-Credential
@@ -49,7 +49,7 @@ Sie können auch programmgesteuert ermitteln, ob die Cmdlets verfügbar sind, in
    ```
    Wenn Sie zum Eingeben von Anmeldeinformationen aufgefordert werden, verwenden Sie das Konto &lt;*Azure Stack-Domäne*&gt;\cloudadmin oder ein Konto, das Mitglied der Gruppe CloudAdmins ist. Geben Sie für das CloudAdmin-Konto dasselbe Kennwort ein, das während der Installation für das Domänenadministratorkonto AzureStackAdmin bereitgestellt wurde.
 
-2. Rufen Sie die vollständige Liste der Befehle ab, die im privilegierten Endpunkt verfügbar sind. 
+2. Rufen Sie die vollständige Liste der Befehle ab, die im privilegierten Endpunkt verfügbar sind.
 
    ```powershell
    $commands = Invoke-Command -Session $pepSession -ScriptBlock { Get-Command } 
@@ -87,7 +87,7 @@ Sie können auch programmgesteuert ermitteln, ob die Cmdlets verfügbar sind, in
 
 ### <a name="connect-to-the-privileged-endpoint-and-assign-session-variable"></a>Herstellen einer Verbindung mit dem privilegierten Endpunkt und Zuweisen einer Sitzungsvariable
 
-Führen Sie die folgenden Befehle aus, um eine PowerShell-Sitzung auf einem der virtuellen ERCS-Computer in Ihrer Azure Stack-Umgebung (*Präfix*-ERCS01, *Präfix*-ERCS02 oder *Präfix*-ERCS03) zu erstellen und eine Sitzungsvariable zuzuweisen.
+Führen Sie die folgenden Befehle aus, um eine PowerShell-Sitzung auf einer der ERCS-VMs in Ihrer Azure Stack-Umgebung (*Präfix*-ERCS01, *Präfix*-ERCS02 oder *Präfix*-ERCS03) zu erstellen und eine Sitzungsvariable zuzuweisen.
 
 ```powershell
 $cred = Get-Credential
@@ -96,9 +96,9 @@ $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -Con
 ```
  Wenn Sie zum Eingeben von Anmeldeinformationen aufgefordert werden, verwenden Sie das Konto &lt;*Azure Stack-Domäne*&gt;\cloudadmin oder ein Konto, das Mitglied der Gruppe CloudAdmins ist. Geben Sie für das CloudAdmin-Konto dasselbe Kennwort ein, das während der Installation für das Domänenadministratorkonto AzureStackAdmin bereitgestellt wurde.
 
-### <a name="get-high-level-status-of-the-current-update-run"></a>Abrufen des allgemeinen Status des aktuellen Updatevorgangs 
+### <a name="get-high-level-status-of-the-current-update-run"></a>Abrufen des allgemeinen Status des aktuellen Updatevorgangs
 
-Um den allgemeinen Status des aktuellen Updatevorgangs zu erhalten, führen Sie die folgenden Befehle aus: 
+Um den allgemeinen Status des aktuellen Updatevorgangs zu erhalten, führen Sie die folgenden Befehle aus:
 
 ```powershell
 $statusString = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus -StatusOnly }
@@ -113,11 +113,11 @@ Mögliche Werte sind:
 - Fehler 
 - Canceled
 
-Sie können diese Befehle wiederholt ausführen, um den aktuellen Status abzurufen. Sie müssen eine Verbindung nicht erneut herstellen, um die Überprüfung zu wiederholen.
+Sie können diese Befehle mehrfach ausführen, um den aktuellen Status abzurufen. Sie müssen eine Verbindung nicht erneut herstellen, um die Überprüfung zu wiederholen.
 
-### <a name="get-the-full-update-run-status-with-details"></a>Abrufen des vollständigen Ausführungsstatus des Updates mit Details 
+### <a name="get-the-full-update-run-status-with-details"></a>Abrufen des vollständigen Ausführungsstatus des Updates mit Details
 
-Sie können die vollständige Zusammenfassung des Updatevorgangs als XML-Zeichenfolge abrufen. Sie können die Zeichenfolge zur Überprüfung in eine Datei schreiben oder als XML-Dokument anlegen, die Sie dann mit PowerShell analysieren. Der folgende Befehl analysiert den XML-Code, um eine hierarchische Liste der aktuell ausgeführten Schritte abzurufen.
+Sie können die vollständige Zusammenfassung des Updatevorgangs als XML-Zeichenfolge abrufen. Sie können die Zeichenfolge zur Überprüfung in eine Datei schreiben oder als XML-Dokument anlegen, die Sie dann mit PowerShell analysieren. Der folgende Befehl analysiert den XML-Code, um eine hierarchische Liste der aktuell ausgeführten Schritte abzurufen:
 
 ```powershell
 [xml]$updateStatus = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus }
@@ -168,10 +168,10 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 ## <a name="troubleshoot"></a>Problembehandlung
 
-Der privilegierte Endpunkt ist auf allen virtuellen ERCS-Computern in der Azure Stack-Umgebung verfügbar. Da die Verbindung nicht an einem Endpunkt mit hoher Verfügbarkeit hergestellt wird, können gelegentlich Unterbrechungen, Warnungen oder Fehlermeldungen auftreten. Diese Meldungen weisen möglicherweise darauf hin, dass die Sitzung getrennt wurde oder ein Fehler bei der Kommunikation mit dem ECE-Dienst aufgetreten ist. Dies ist das erwartete Verhalten. Sie können den Vorgang nach einigen Minuten wiederholen oder eine neue Sitzung mit privilegiertem Endpunkt auf einem anderen virtuellen ERCS-Computer erstellen. 
+Der privilegierte Endpunkt ist auf allen ERCS-VMs in der Azure Stack-Umgebung verfügbar. Da die Verbindung nicht an einem Endpunkt mit Hochverfügbarkeit hergestellt wird, können gelegentlich Unterbrechungen, Warnungen oder Fehlermeldungen auftreten. Diese Meldungen weisen möglicherweise darauf hin, dass die Sitzung getrennt wurde oder ein Fehler bei der Kommunikation mit dem ECE-Dienst aufgetreten ist. Dies ist das erwartete Verhalten. Sie können den Vorgang nach einigen Minuten wiederholen oder eine neue Sitzung mit privilegiertem Endpunkt auf einer anderen ERCS-VM erstellen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Verwalten von Updates in Azure Stack](azure-stack-updates.md) 
+- [Verwalten von Updates in Azure Stack](azure-stack-updates.md)
 
 

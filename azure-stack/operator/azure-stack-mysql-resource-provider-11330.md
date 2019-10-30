@@ -1,6 +1,6 @@
 ---
-title: Azure Stack-MySQL-Ressourcenanbieter 1.1.30.0 – Versionshinweise | Microsoft-Dokumentation
-description: Erfahren Sie, was im neuesten Update für den Azure Stack-MySQL-Ressourcenanbieter enthalten ist, welche bekannten Probleme vorliegen und wo Sie den Download finden.
+title: Azure Stack-MySQL-Ressourcenanbieter 1.1.33.0 – Versionshinweise | Microsoft-Dokumentation
+description: Lesen Sie die Versionshinweise, um zu erfahren, welche Neuerungen im Update zum MySQL-Ressourcenanbieter 1.1.33.0 von Azure Stack enthalten sind.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: fdac6c099980a1c2cedb3271123908539d18169d
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 0ff97155d1ad27c36e86e142aa000c4987c5c8fd
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909155"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682148"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>Versionshinweise zum MySQL-Ressourcenanbieter 1.1.33.0
 
@@ -44,21 +44,22 @@ Laden Sie die Binärdatei des MySQL-Ressourcenanbieters herunter, und führen Si
 Diese Version des Azure Stack-MySQL-Ressourcenanbieters enthält die folgenden Verbesserungen und Fehlerbehebungen:
 
 ### <a name="fixes"></a>Fehlerbehebungen
-- **MySQL-Ressourcenanbieter-Portalerweiterung wählt ggf. das falsche Abonnement:** Der MySQL-Ressourcenanbieter ermittelt anhand von Azure Resource Manager-Aufrufen, welches Dienstadministratorabonnement verwendet werden soll. Es kann sein, dass dies nicht das *Standardanbieterabonnement* ist. In diesem Fall funktioniert der MySQL-Ressourcenanbieter nicht normal. 
 
-- **MySQL-Hostserver listet keine gehosteten Datenbanken auf:** Vom Benutzer erstellte Datenbanken werden unter Umständen nicht aufgeführt, wenn für MySQL-Hostserver Mandantenressourcen angezeigt werden.
+- **MySQL-Ressourcenanbieter-Portalerweiterung wählt ggf. das falsche Abonnement:** Der MySQL-Ressourcenanbieter ermittelt anhand von Azure Resource Manager-Aufrufen, welches Dienstadministratorabonnement verwendet werden soll. Es kann sein, dass dies nicht das *Standardanbieterabonnement* ist. In diesem Fall funktioniert der MySQL-Ressourcenanbieter nicht normal.
 
-- **Bei der Bereitstellung des vorherigen MySQL-Ressourcenanbieters (1.1.30.0) tritt ggf. ein Fehler auf, wenn TLS 1.2 nicht aktiviert ist:** MySQL-Ressourcenanbieter 1.1.33.0 wurde aktualisiert, um TLS 1.2 zu ermöglichen, wenn der Ressourcenanbieter bereitgestellt oder aktualisiert wird oder Geheimnisse rotiert werden. 
+- **MySQL-Hostserver listet keine gehosteten Datenbanken auf.** Vom Benutzer erstellte Datenbanken werden unter Umständen nicht aufgeführt, wenn für MySQL-Hostserver Mandantenressourcen angezeigt werden.
+
+- **Bei der Bereitstellung des vorherigen MySQL-Ressourcenanbieters (1.1.30.0) tritt ggf. ein Fehler auf, wenn TLS 1.2 nicht aktiviert ist:** MySQL-Ressourcenanbieter 1.1.33.0 wurde aktualisiert, um TLS 1.2 zu ermöglichen, wenn der Ressourcenanbieter bereitgestellt oder aktualisiert wird oder Geheimnisse rotiert werden.
 
 - **Fehler bei Rotation von Geheimnissen für MySQL-Ressourcenanbieter:** Problem behoben, das beim Rotieren von Geheimnissen zu folgendem Fehler geführt hat: `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
-## <a name="known-issues"></a>Bekannte Probleme 
+## <a name="known-issues"></a>Bekannte Probleme
 
 - **Dauer von bis zu einer Stunde bis zur Anzeige von MySQL SKUs im Portal**. Es kann bis zu einer Stunde dauern, bis die neu erstellten SKUs beim Erstellen neuer MySQL-Datenbanken angezeigt werden. 
 
     **Problemumgehung**: None (Keine):
 
-- **Wiederverwendung von MySQL-Anmeldungen**. Der Versuch einer neuen MySQL-Anmeldung mit dem gleichen Benutzernamen wie eine vorhandene Anmeldung unter demselben Abonnement führt dazu, dass die gleiche Anmeldung und das vorhandene Kennwort wiederverwendet werden. 
+- **Wiederverwendung von MySQL-Anmeldungen**. Der Versuch einer neuen MySQL-Anmeldung mit dem gleichen Benutzernamen wie eine vorhandene Anmeldung unter demselben Abonnement führt dazu, dass die gleiche Anmeldung und das vorhandene Kennwort wiederverwendet werden.
 
     **Problemumgehung**: Verwenden Sie unterschiedliche Benutzernamen, wenn Sie neue Anmeldungen unter demselben Abonnement oder Anmeldungen mit demselben Benutzernamen unter unterschiedlichen Abonnements erstellen.
 
