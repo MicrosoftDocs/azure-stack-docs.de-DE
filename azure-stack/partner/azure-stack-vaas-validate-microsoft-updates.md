@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 10/29/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0a507b7488a34715e528b6bbf291fec9832ef027
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 6fe2f8e7ab435cae3517890f79c26611a80c8a60
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418286"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167155"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Überprüfen der Softwareupdates von Microsoft
 
@@ -41,20 +41,14 @@ Machen Sie sich zunächst mit Folgendem vertraut, bevor Sie den monatlichen Aktu
 
 Für die monatliche Softwareüberprüfung müssen die folgenden Tests in der angegebenen Reihenfolge ausgeführt werden:
 
-1. Monthly Azure Stack Update Verification (Monatliche Azure Stack-Updateüberprüfung)
-2. Cloud-Simulationsmodul
+- Schritt 1: Monatliche Azure Stack-Updateüberprüfung
+- Schritt 2: Überprüfung des OEM-Erweiterungspakets
+- Schritt 3: OEM – Cloud-Simulationsmodul
 
 ## <a name="validating-software-updates"></a>Überprüfen von Softwareupdates
 
 1. Erstellen Sie einen neuen Workflow vom Typ **Paketvalidierung**.
 1. Gehen Sie für die oben angegebenen erforderlichen Tests wie unter [Ausführen von Paketvalidierungstests](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests) beschrieben vor. Im folgenden Abschnitt finden Sie zusätzliche Anweisungen für den Test **Monthly Azure Stack Update Verification** (Monatliche Azure Stack-Updateüberprüfung).
-
-### <a name="apply-the-monthly-update"></a>Anwenden des monatlichen Updates
-
-1. Wählen Sie einen Agent aus, für den Tests ausgeführt werden sollen.
-1. Planen Sie eine monatliche Azure Stack-Updateüberprüfung (**Monthly Azure Stack Update Verification**).
-1. Geben Sie den Speicherort des OEM-Erweiterungspakets, das derzeit auf dem Stamp bereitgestellt ist, sowie den Speicherort des OEM-Erweiterungspakets an, das im Rahmen des Updates angewendet wird. Informationen zum Konfigurieren der URLs für diese Pakete finden Sie unter [Verwalten von Paketen für die Überprüfung](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation).
-1. Führen Sie die Schritte auf der Benutzeroberfläche des ausgewählten Agents aus.
 
 Wenden Sie sich bei Fragen oder anderen Anliegen an den [VaaS-Support](mailto:vaashelp@microsoft.com).
 

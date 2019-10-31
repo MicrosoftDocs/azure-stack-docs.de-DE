@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b1a658b428d13cdd12c16b767430f87a80e89fdc
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: cc2299f32f02c4a825424309943d3f27d0fab6fb
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418368"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167189"
 ---
 # <a name="deploy-the-local-agent"></a>Bereitstellen des lokalen Agents
 
@@ -33,8 +33,8 @@ Hier erfahren Sie, wie Sie mithilfe des lokalen VaaS-Agents (Validation-as-a-Ser
 
 Das Bereitstellen des lokalen Agents umfasst folgende Schritte:
 
-1. Installieren Sie den lokalen Agent.
-2. Führen Sie Integritätsprüfungen durch.
+1. Laden Sie den lokalen Agent herunter, und installieren Sie ihn.
+2. Führen Sie vor Beginn der Tests Integritätsprüfungen durch.
 3. Führen Sie den lokalen Agent aus.
 
 ## <a name="download-and-start-the-local-agent"></a>Herunterladen und Starten des lokalen Agents
@@ -52,46 +52,53 @@ Vergewissern Sie sich, dass Ihr Computer die folgenden Kriterien erfüllt:
 - Mindestens 200 GB Speicherplatz
 - Stabile Verbindung mit dem Internet
 
-### <a name="download-and-install-the-agent"></a>Herunterladen und Installieren des Agents
+### <a name="download-and-install-the-local-agent"></a>Herunterladen und Installieren des lokalen Agents
 
 1. Öffnen Sie auf dem Computer, den Sie zum Ausführen der Tests verwenden möchten, Windows PowerShell in einer Eingabeaufforderung mit erhöhten Rechten.
-2. Führen Sie den folgenden Befehl aus, um den lokalen Agent herunterzuladen:
+2. Führen Sie den folgenden Befehl aus, um die Abhängigkeiten des lokalen Agents herunterzuladen und zu installieren und die PIR-Images (Betriebssystem-VHD) in Ihre Azure Stack-Umgebung zu kopieren.
 
     ```powershell
-    Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "OnPremAgent.zip"
-    Expand-Archive -Path ".\OnPremAgent.zip" -DestinationPath VaaSOnPremAgent -Force
-    Set-Location VaaSOnPremAgent\lib\net46
-    ```
+    # Review and update the following five parameters
+    $RootFolder = "c:\VaaS"
+    $CloudAdmindUserName = "<Cloud admin user name>"
+    $CloudAdminPassword = "<Cloud admin password>"
+    $AadServiceAdminUserName = "<AAD service admin user name>"
+    $AadServiceAdminPassword = "<AAD service admin password>"
 
-3. Führen Sie den folgenden Befehl aus, um die Abhängigkeiten des lokalen Agents zu installieren:
+    if (-not(Test-Path($RootFolder))) {
+        mkdir $RootFolder
+    }
+    Set-Location $RootFolder
+    Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "$rootFolder\OnPremAgent.zip"
+    Expand-Archive -Path "$rootFolder\OnPremAgent.zip" -DestinationPath "$rootFolder\VaaSOnPremAgent" -Force
+    Set-Location "$rootFolder\VaaSOnPremAgent\lib\net46"
 
-    ```powershell
-    $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
+    $cloudAdminCredential = New-Object System.Management.Automation.PSCredential($cloudAdmindUserName, (ConvertTo-SecureString $cloudAdminPassword -AsPlainText -Force))
+    $getStampInfoUri = "https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation" 
+    $stampInfo = Invoke-RestMethod -Method Get -Uri $getStampInfoUri -Credential $cloudAdminCredential -ErrorAction Stop
+    $serviceAdminCreds = New-Object System.Management.Automation.PSCredential $aadServiceAdminUserName, (ConvertTo-SecureString $aadServiceAdminPassword -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
-    Install-VaaSPrerequisites -AadTenantId $AadTenantId `
-                              -ServiceAdminCreds $ServiceAdminCreds `
-                              -ArmEndpoint https://adminmanagement.$ExternalFqdn `
-                              -Region $Region
+    Install-VaaSPrerequisites -AadTenantId $stampInfo.AADTenantID `
+                            -ServiceAdminCreds $serviceAdminCreds `
+                            -ArmEndpoint $stampInfo.AdminExternalEndpoints.AdminResourceManager `
+                            -Region $stampInfo.RegionName
     ```
 
-    **Parameter**
+> [!Note]  
+> Das Cmdlet „Install-VaaSPrerequisites“ lädt große VM-Imagedateien herunter. Ist die Geschwindigkeit niedrig, können Sie Dateien auf Ihren lokalen Dateiserver herunterladen und VM-Images manuell zu Ihrer Testumgebung hinzufügen. Weitere Informationen finden Sie unter [Behandeln langsamer Netzwerkverbindungen](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity).
 
-    | Parameter | BESCHREIBUNG |
-    | --- | --- |
-    | aadServiceAdminUser | Der globale Administratorbenutzer für Ihren Azure AD-Mandanten. Beispiel: vaasadmin@contoso.onmicrosoft.com |
-    | aadServiceAdminPassword | Das Kennwort für den globalen Administratorbenutzer |
-    | AadTenantId | Azure AD-Mandanten-ID für das bei Validation-as-a-Service registrierte Azure-Konto |
-    | ExternalFqdn | Sie finden den vollqualifizierten Domänennamen in der Konfigurationsdatei. Anweisungen hierzu finden Sie unter [Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack](azure-stack-vaas-parameters.md). |
-    | Region | Die Region des Azure AD-Mandanten |
+**Parameter**
 
-Der Befehl lädt ein PIR-Image (Betriebssystem-VHD) und eine Kopie aus einem Azure-Blobspeicher in Ihren Azure Stack-Speicher herunter.
+| Parameter | BESCHREIBUNG |
+| --- | --- |
+| AadServiceAdminUser | Der globale Administratorbenutzer für Ihren Azure AD-Mandanten. Beispiel: vaasadmin@contoso.onmicrosoft.com |
+| AadServiceAdminPassword | Das Kennwort für den globalen Administratorbenutzer |
+| CloudAdminUserName | Der Cloudadministratorbenutzer, der auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen kann. Beispiel: AzusreStack\CloudAdmin. Weitere Informationen finden Sie [hier](azure-stack-vaas-parameters.md). |
+| CloudAdminPassword | Das Kennwort für das Cloudadministratorkonto|
 
-![Herunterladen der erforderlichen Komponenten](media/installingprereqs.png)
+![Herunterladen der erforderlichen Komponenten](media/installing-prereqs.png)
 
-> [!Note]
-> Wenn die Geschwindigkeit beim Herunterladen dieser Images niedrig ist, laden Sie sie einzeln auf eine lokale Dateifreigabe herunter, und geben Sie den Parameter **-LocalPackagePath** *FileShareOrLocalPath* an. Weitere Informationen zum PIR-Download finden Sie unter [Problembehandlung für Validation-as-a-Service](azure-stack-vaas-troubleshoot.md) im Abschnitt [Behandeln langsamer Netzwerkverbindung](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity).
-
-## <a name="checks-before-starting-the-tests"></a>Prüfungen vor Beginn der Tests
+## <a name="perform-sanity-checks-before-starting-the-tests"></a>Ausführen von Integritätsprüfungen vor Beginn der Tests
 
 Im Rahmen der Tests werden Remotevorgänge ausgeführt. Der Computer, auf dem die Tests ausgeführt werden, muss Zugriff auf die Azure Stack-Endpunkte haben. Andernfalls funktionieren die Tests nicht. Verwenden Sie bei Verwendung des lokalen VaaS-Agents den Computer, auf dem der Agent ausgeführt wird. Sie können überprüfen, ob Ihr Computer Zugriff auf die Azure Stack-Endpunkte hat. Führen Sie hierzu die folgenden Schritte aus:
 
@@ -107,20 +114,30 @@ Im Rahmen der Tests werden Remotevorgänge ausgeführt. Der Computer, auf dem di
 
 4. Überprüfen Sie die Systemintegrität mithilfe des PowerShell-Cmdlets **Test-AzureStack**, wie in [Ausführen eines Validierungstests für Azure Stack](../operator/azure-stack-diagnostic-test.md) beschrieben. Beheben Sie vor dem Starten von Tests alle Warnungen und Fehler.
 
-## <a name="run-the-agent"></a>Ausführen des Agents
+## <a name="run-the-local-agent"></a>Führen Sie den lokalen Agent aus.
 
 1. Öffnen Sie Windows PowerShell in einer Eingabeaufforderung mit erhöhten Rechten.
 
 2. Führen Sie den folgenden Befehl aus:
 
     ```powershell
-    .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
+   # Review and update the following five parameters
+    $RootFolder = "c:\VAAS"
+    $CloudAdmindUserName = "<Cloud admin user name>"
+    $CloudAdminPassword = "<Cloud admin password>"
+    $VaaSUserId = "<VaaS user ID>"
+    $VaaSTenantId = "<VaaS tenant ID>"
+
+    Set-Location "$rootFolder\VaaSOnPremAgent\lib\net46"
+    .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u $VaaSUserId -t $VaaSTenantId -x $CloudAdmindUserName -y $CloudAdminPassword
     ```
 
       **Parameter**  
 
     | Parameter | BESCHREIBUNG |
     | --- | --- |
+    | CloudAdminUserName | Der Cloudadministratorbenutzer, der auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen kann. Beispiel: AzusreStack\CloudAdmin. Weitere Informationen finden Sie [hier](azure-stack-vaas-parameters.md). |
+    | CloudAdminPassword | Das Kennwort für das Cloudadministratorkonto|
     | VaaSUserId | Benutzer-ID für die Anmeldung beim VaaS-Portal (Beispiel: <Benutzername>\@Contoso.com) |
     | VaaSTenantId | Azure AD-Mandanten-ID für das bei Validation-as-a-Service registrierte Azure-Konto |
 
@@ -129,9 +146,9 @@ Im Rahmen der Tests werden Remotevorgänge ausgeführt. Der Computer, auf dem di
 
 Werden keine Fehler angezeigt, war der lokale Agent erfolgreich. Der folgende Beispieltext wird im Konsolenfenster angezeigt:
 
-`Heartbeat Callback at 11/8/2016 4:45:38 PM`
+`Heartbeat was sent successfully.`
 
-![Gestarteter Agent](media/startedagent.png)
+![Gestarteter Agent](media/started-agent.png)
 
 Ein Agent wird anhand seines Namens eindeutig identifiziert. Standardmäßig wird der vollqualifizierte Domänenname (Fully Qualified Domain Name, FQDN) des Computers verwendet, auf dem er gestartet wurde. Sie müssen das Fenster minimieren, um versehentliche Klicks im Fenster zu vermeiden, da durch eine Fokusänderung alle anderen Aktionen angehalten werden.
 

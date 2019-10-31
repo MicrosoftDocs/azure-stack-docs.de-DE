@@ -215,6 +215,8 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: Problembehandlung für die AKS-Engine
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
+                    - name: Verschieben der AKS-Engine aus dem Marketplace-Element
+                      href: azure-stack-kubernetes-aks-engine-dvm.md
                 - name: Marketplace-Element
                   items:
                     - name: Bereitstellen eines Kubernetes-Clusters
@@ -275,8 +277,8 @@
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
         - name: VNET-Peering
           href: azure-stack-network-howto-vnet-to-vnet.md
-        - name: Verbinden mit iSCSI-Speicher
-          href: azure-stack-network-howto-iscsi-storage.md
+        - name: Kopieren der Abonnementressourcen
+          href: azure-stack-network-howto-backup-replicator.md
 - name: Konzepte
   items:
     - name: Hybrid Cloud-Muster
