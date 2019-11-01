@@ -19,7 +19,7 @@
 - name: Schnellstarts
   expanded: true
   items:
-    - name: Verwenden des Verwaltungsportals
+    - name: Verwenden des Administratorportals
       href: azure-stack-manage-portals.md
 - name: Lernprogramme
   items:
