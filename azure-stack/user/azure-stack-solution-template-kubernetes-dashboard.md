@@ -15,18 +15,18 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 2c1a762f002e5058e11857117b4210ad0b59e564
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: fdda72e215590c7bbd7d739e2eb46b085fc55405
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277546"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047192"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Zugreifen auf das Kubernetes-Dashboard in Azure Stack 
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit* 
 > [!Note]   
-> Kubernetes in Azure Stack befindet sich in der Vorschauphase. Ein Szenario mit nicht verbundenem Azure Stack wird von der Vorschau zurzeit nicht unterstützt. Verwenden Sie das Marketplace-Element nur für Entwicklungs- und Testszenarien.
+> Verwenden Sie das Kubernetes-Azure Stack-Marketplace-Element nur, um Cluster als Proof of Concept bereitzustellen. Verwenden Sie für unterstützte Kubernetes-Cluster in Azure Stack  [die AKS-Engine](azure-stack-kubernetes-aks-engine-overview.md).
 
 Kubernetes enthält ein Webdashboard, das Sie für einfache Verwaltungsvorgänge verwenden können. In diesem Dashboard können Sie den Integritätsstatus und grundlegende Metriken für Ihre Anwendungen anzeigen, Dienste erstellen und bereitstellen und vorhandene Anwendungen bearbeiten. In diesem Artikel wird veranschaulicht, wie Sie das Kubernetes-Dashboard in Azure Stack einrichten.
 

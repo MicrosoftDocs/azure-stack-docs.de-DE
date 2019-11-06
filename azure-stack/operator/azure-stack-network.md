@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 39937882f8bf43b076a231d76440d401495daca1
-ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
+ms.openlocfilehash: 4894fb7184944095d968d08e2d668912a78119d4
+ms.sourcegitcommit: ef7efcde76d1d7875ca1c882afebfd6a27f1c686
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72814084"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72888046"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planen der Netzwerkintegration für Azure Stack
 
@@ -72,8 +72,7 @@ Dieses Netzwerk vom Typ „/24“ (254 Host-IP-Adressen) ist für die Azure Sta
 - **Internes VIP-Netzwerk (Virtuelle IP-Adresse):** Ein Netzwerk des Typs „/25“, das ausschließlich internen VIPs für den softwaregestützten Lastenausgleich vorbehalten ist.
 
 ### <a name="azure-stack-infrastructure-network"></a>Azure Stack-Infrastrukturnetzwerk
-
-Dieses Netzwerk des Typs „/24“ ist internen Azure Stack-Komponenten zugeordnet, damit diese untereinander kommunizieren und Daten austauschen können. Dieses Subnetz erfordert routingfähige IP-Adressen, bleibt aber durch Verwendung von Zugriffssteuerungslisten (ACLs) für die Lösung privat. Es wird nicht erwartet, dass ein Routing über die Border-Switches erfolgt. Eine Ausnahme bildet ein kleiner Bereich der Größe eines Netzwerks des Typs „/27“, der von einigen dieser Dienste genutzt wird, wenn sie Zugriff auf externe Ressourcen und/oder das Internet benötigen.
+Dieses Netzwerk des Typs „/24“ ist internen Azure Stack-Komponenten zugeordnet, damit diese untereinander kommunizieren und Daten austauschen können. Dieses Subnetz kann extern von der Azure Stack-Lösung zu Ihrem Rechenzentrum geroutet werden. Von der Verwendung öffentlicher oder über das Internet routingfähiger IP-Adressen in diesem Subnetz wird abgeraten. Dieses Netzwerk wird für das Border-Gerät angekündigt, die meisten der zugehörigen IP-Adressen werden jedoch durch Zugriffssteuerungslisten (ACLs) geschützt. Die für den Zugriff zulässigen IP--Adressen befinden sich in einem kleinen Bereich, der einem Netzwerk des Typs „/27“ und Hostdiensten wie z. B. dem [privilegierten Endpunkt (PEP)](azure-stack-privileged-endpoint.md) und [Azure Stack Backup](azure-stack-backup-reference.md) entspricht.
 
 ### <a name="public-vip-network"></a>Öffentliches VIP-Netzwerk
 

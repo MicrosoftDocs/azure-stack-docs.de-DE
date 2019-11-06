@@ -9,14 +9,16 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: c11d5ad563ff673cfaf9e28cea7373bbc6e551aa
-ms.sourcegitcommit: b72729305234e13c65de3771cb08678d46ba1348
+ms.openlocfilehash: 340f9d868c854560019899f9a4d38a484c973f7f
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72543802"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167294"
 ---
 # <a name="setup-vpn-gateway-for-azure-stack-using-fortigate-nva"></a>Einrichten eines VPN-Gateways für Azure Stack per FortiGate NVA
+
+*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
 In diesem Artikel wird beschrieben, wie Sie eine VPN-Verbindung mit Ihrer Azure Stack-Instanz herstellen. Ein VPN-Gateway ist eine Art von Gateway für virtuelle Netzwerke, mit dem verschlüsselter Datenverkehr zwischen Ihrem virtuellen Netzwerk in Azure Stack und einem Remote-VPN-Gateway gesendet wird. Im unten angegebenen Verfahren wird ein VNET mit einer FortiGate NVA (Network Virtual Appliance) in einer Ressourcengruppe bereitgestellt. Außerdem werden Schritte zum Einrichten eines IPSec-VPN auf der FortiGate NVA beschrieben.
 
@@ -34,7 +36,7 @@ In diesem Artikel wird beschrieben, wie Sie eine VPN-Verbindung mit Ihrer Azure 
     > [!Note]  
     > Wenden Sie sich an Ihren Cloudbetreiber, falls **Fortinet FortiGate-VM For Azure BYOL** und **FortiGate NGFW – Single VM Deployment (BYOL)** in Ihrem Azure Stack-Marketplace nicht verfügbar sind.
 
--  Zum Aktivieren der FortiGate NVA benötigen Sie mindestens eine verfügbare FortiGate-Lizenzdatei. Informationen zur Beschaffung dieser Lizenzen finden Sie in der Fortinet-Dokumentbibliothek im Artikel zum [Registrieren und Herunterladen Ihrer Lizenz](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license).
+-  Zum Aktivieren der FortiGate-NVA benötigen Sie mindestens eine verfügbare FortiGate-Lizenzdatei. Informationen zur Beschaffung dieser Lizenzen finden Sie in der Fortinet-Dokumentbibliothek im Artikel zum [Registrieren und Herunterladen Ihrer Lizenz](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license).
 
     In diesem Verfahren wird die [Bereitstellung einer einzelnen FortiGate-VM](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment) durchgeführt. Sie finden die Schritte zum Herstellen einer Verbindung zwischen der FortiGate NVA und dem Azure Stack-VNET in Ihrem lokalen Netzwerk.
 
@@ -88,7 +90,7 @@ In der folgenden Tabelle sind als Referenz die Parameter zusammengefasst, die in
 
 3. Klicken Sie auf **OK**.
 
-4. Konfigurieren Sie die öffentliche IP-Adresse für die Fortigate NVA:
+4. Konfigurieren Sie die öffentliche IP-Adresse für die FortiGate-NVA:
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image8.png)
 

@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 583b23f8b70856e39f5d6f53204fd3234cb92a4e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: d6e4aa25b558d12cfb437155c453d3d093ea7e00
+ms.sourcegitcommit: ef7efcde76d1d7875ca1c882afebfd6a27f1c686
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829110"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72888063"
 ---
 # <a name="border-connectivity"></a>Grenzkonnektivität 
 Die Planung der Netzwerkintegration ist eine wichtige Voraussetzung, um erfolgreich integrierte Azure Stack-Systeme bereitstellen, betreiben und verwalten zu können. Bei der Planung der Konnektivität über Border-Geräte entscheiden Sie zuerst, ob Sie dynamisches Routing mit Border Gateway Protocol (BGP) verwenden möchten. Hierfür muss eine autonome 16-Bit-BGP-Systemnummer (öffentlich oder privat) zugewiesen oder statisches Routing verwendet werden, wenn Border-Geräten eine statische Standardroute zugewiesen wird.
@@ -45,7 +45,7 @@ Statisches Routing erfordert zusätzliche Konfiguration für die Border-Geräte.
 
 Zum Integrieren von Azure Stack in Ihre Netzwerkumgebung mithilfe von statischem Routing müssen alle vier physischen Verknüpfungen zwischen dem Border- und dem Tor-Gerät verbunden sein. Hohe Verfügbarkeit kann aufgrund der Funktionsweise von statischem Routing nicht garantiert werden.
 
-Das Border-Gerät muss für Datenverkehr an die *externen* Netzwerke oder öffentlichen VIP-Adressen und das *Infrastrukturnetzwerk* mit statischen Routen konfiguriert sein, die auf die P2P-Verbindungen der Tor-Geräte verweisen. Es benötigt statische Routen zum *BMC*-Netzwerk und *externen* Netzwerken für die Bereitstellung. Betreiber können statische Routen auch in der Border-Vorrichtung beibehalten, um auf Verwaltungsressourcen im *BMC*-Netzwerk zuzugreifen. Das Hinzufügen von statischen Routen zu *Switchinfrastruktur*- und *Switchverwaltungsnetzwerken* ist optional.
+Das Border-Gerät muss für Datenverkehr an Netzwerke innerhalb von Azure Stack mit statischen Routen konfiguriert sein, die auf jede der vier festgelegten P2P-IP-Adressen zwischen dem Tor-Gerät und dem Border-Gerät verweisen, für den Betrieb ist jedoch nur das *externe* oder öffentliche VIP-Netzwerk erforderlich. Statische Routen zum *BMC*-Netzwerk und den *externen* Netzwerken sind für die erste Bereitstellung erforderlich. Betreiber können statische Routen auch in der Border-Vorrichtung beibehalten, um auf Verwaltungsressourcen im *BMC*-Netzwerk und *Infrastrukturnetzwerk* zuzugreifen. Das Hinzufügen von statischen Routen zu *Switchinfrastruktur*- und *Switchverwaltungsnetzwerken* ist optional.
 
 Die Tor-Geräte sind mit einer statischen Standardroute vorkonfiguriert, die sämtlichen Datenverkehr an die Border-Geräte sendet. Die einzige Datenverkehrsausnahme von der Standardregel ist der private Bereich. Dieser wird mithilfe einer Zugriffssteuerungsliste für die Verbindung zwischen dem Tor- und Border-Gerät blockiert.
 

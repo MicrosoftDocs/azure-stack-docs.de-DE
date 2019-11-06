@@ -14,19 +14,19 @@ ms.author: mabrigg
 ms.date: 10/10/2019
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 14a32696a3e46782b8990ba57f9510976200f7d3
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 1070608db881426d6cb7ca78d0b19444bdba77ce
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277572"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047217"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Problembehandlung bei der Bereitstellung von Kubernetes in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes in Azure Stack befindet sich in der Vorschauphase. Ein Szenario mit nicht verbundenem Azure Stack wird von der Vorschau zurzeit nicht unterstützt. Verwenden Sie das Marketplace-Element nur für Entwicklungs- und Testszenarien.
+> Verwenden Sie das Kubernetes-Azure Stack-Marketplace-Element nur, um Cluster als Proof of Concept bereitzustellen. Verwenden Sie für unterstützte Kubernetes-Cluster in Azure Stack  [die AKS-Engine](azure-stack-kubernetes-aks-engine-overview.md).
 
 In diesem Artikel wird erläutert, wie Sie Probleme mit Ihrem Kubernetes-Cluster beheben. Um mit der Problembehandlung zu beginnen, überprüfen Sie zunächst die für die Bereitstellung erforderlichen Elemente. Sie müssen möglicherweise die Bereitstellungsprotokolle von Azure Stack oder den Linux-VMs erfassen, die Kubernetes hosten. Wenden Sie sich an Ihren Azure Stack-Administrator, um Protokolle von einem Verwaltungsendpunkt abzurufen.
 

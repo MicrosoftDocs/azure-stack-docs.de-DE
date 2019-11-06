@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: d42b1f161d1b74633c4e9924e45677a57b3493e1
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.lastreviewed: 10/28/2019
+ms.openlocfilehash: 0ac21cc388b55be6548f9fdba6c8985dd2316c4e
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277823"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167141"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Versionshinweise zu Validation-as-a-Service
 
@@ -66,7 +66,7 @@ Wenn Sie den Workflow für die monatliche Updateüberprüfung für Azure Stack a
 
 - Voraussetzungen für VaaS
 
-    `Install-VaaSPrerequisites` erfordert keine Cloudadministrator-Anmeldeinformationen mehr. Wenn Sie die neueste Version dieses Cmdlets ausführen, finden Sie die überarbeiteten Befehle für die Installation der Voraussetzungen unter [Herunterladen und Installieren des Agents](azure-stack-vaas-local-agent.md#download-and-install-the-agent). Hier sind die Befehle angegeben:
+    `Install-VaaSPrerequisites` erfordert keine Cloudadministrator-Anmeldeinformationen mehr. Wenn Sie die neueste Version dieses Cmdlets ausführen, finden Sie die überarbeiteten Befehle für die Installation der Voraussetzungen unter [Herunterladen und Installieren des lokalen Agents](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent). Hier sind die Befehle angegeben:
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -83,7 +83,7 @@ Wenn Sie den Workflow für die monatliche Updateüberprüfung für Azure Stack a
 
 - Voraussetzungen für VaaS und VHD-Updates
 
-    `Install-VaaSPrerequisites` erfordert nun Cloudadministrator-Anmeldeinformationen aufgrund eines Problems bei der Paketvalidierung. Die Dokumentation unter [Herunterladen und Installieren des Agents](azure-stack-vaas-local-agent.md#download-and-install-the-agent) wurde folgendermaßen aktualisiert:
+    `Install-VaaSPrerequisites` erfordert nun Cloudadministrator-Anmeldeinformationen aufgrund eines Problems bei der Paketvalidierung. Die Dokumentation unter [Herunterladen und Installieren des lokalen Agents](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent) wurde folgendermaßen aktualisiert:
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -100,7 +100,7 @@ Wenn Sie den Workflow für die monatliche Updateüberprüfung für Azure Stack a
 
 - Aktualisierung des lokalen Agents
 
-    Die vorherige Version des lokalen Agents ist nicht mit der aktuellen Version 4.0.0 des Diensts kompatibel. Alle Benutzer müssen ihre lokalen Agents aktualisieren. Anweisungen zum Installieren des neuesten Agents finden Sie unter [Herunterladen und Installieren des Agents](azure-stack-vaas-local-agent.md#download-and-install-the-agent).
+    Die vorherige Version des lokalen Agents ist nicht mit der aktuellen Version 4.0.0 des Diensts kompatibel. Alle Benutzer müssen ihre lokalen Agents aktualisieren. Anweisungen zum Installieren des neuesten Agents finden Sie unter [Herunterladen und Installieren des lokalen Agents](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent).
 
 - Update der PowerShell-Automatisierung
 

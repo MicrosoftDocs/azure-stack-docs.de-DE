@@ -15,19 +15,19 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 74cad0b1f41c5c764bef361f3f521162eec59198
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 0fc45ae0413fb7e269d8d7347e2279895c234950
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277653"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047164"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Bereitstellen von Kubernetes für die Verwendung von Containern in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes in Azure Stack befindet sich in der Vorschauphase. Ein Szenario mit nicht verbundenem Azure Stack wird von der Vorschau zurzeit nicht unterstützt. Verwenden Sie das Marketplace-Element nur für Entwicklungs- und Testszenarien.
+> Verwenden Sie das Kubernetes-Azure Stack-Marketplace-Element nur, um Cluster als Proof of Concept bereitzustellen. Verwenden Sie für unterstützte Kubernetes-Cluster in Azure Stack  [die AKS-Engine](azure-stack-kubernetes-aks-engine-overview.md).
 
 Sie können die Schritte in diesem Artikel befolgen, um die Ressourcen für Kubernetes in einem einzigen, koordinierten Vorgang bereitzustellen und einzurichten. Die Schritte verwenden eine Azure Resource Manager-Lösungsvorlage. Sie müssen die erforderlichen Informationen zu Ihrer Azure Stack-Installation sammeln, die Vorlage generieren und dann die Bereitstellung in der Cloud ausführen. Die Azure Stack-Vorlage verwendet nicht denselben verwalteten AKS-Dienst, der in der globalen Azure-Umgebung angeboten wird.
 

@@ -15,19 +15,19 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: e625ba27e683dc11cd8a825441ef73ef37d00f0a
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 902645ffcb6fda4afad76a1a258b55f0ace2b189
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277695"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047242"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Bereitstellen von Kubernetes in Azure Stack mithilfe von Azure Active Directory
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes in Azure Stack befindet sich in der Vorschauphase. Ein Szenario mit nicht verbundenem Azure Stack wird von der Vorschau zurzeit nicht unterstützt. Verwenden Sie das Marketplace-Element nur für Entwicklungs- und Testszenarien.
+> Verwenden Sie das Kubernetes-Azure Stack-Marketplace-Element nur, um Cluster als Proof of Concept bereitzustellen. Verwenden Sie für unterstützte Kubernetes-Cluster in Azure Stack  [die AKS-Engine](azure-stack-kubernetes-aks-engine-overview.md).
 
 Sie können die Schritte in diesem Artikel zum Bereitstellen und Einrichten der Ressourcen für Kubernetes in einem einzigen, koordinierten Vorgang befolgen, wenn Sie Azure Active Directory (Azure AD) als Ihren Identitätsverwaltungsdienst verwenden.
 

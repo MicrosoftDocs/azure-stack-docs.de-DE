@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/25/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 4a8f24c11f8e72c4b3e2b99ae6b2a417e3bd0cba
-ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
+ms.openlocfilehash: d03049fd6dea5f5d7a10a61a25639cb1de3d67ad
+ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72310587"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73057776"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack-Marketplace-Elements
 
@@ -45,11 +45,11 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
 3. Das Katalogpaket muss die folgende Struktur aufweisen:
 
-   :::image type="content" source="media/azure-stack-create-and-publish-marketplace-item/gallerypkg1.png" alt-text="Katalogpaket":::
+   ![Screenshot: Struktur des Katalogpakets](media/azure-stack-create-and-publish-marketplace-item/gallerypkg1.png)
 
    Die Dateistruktur der Bereitstellungsvorlagen sieht wie folgt aus:
 
-   :::image type="content" source="media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png" alt-text="Katalogpaket":::
+   ![Screenshot: Struktur der Bereitstellungsvorlagen](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
 4. Ersetzen Sie die folgenden markierten Werte (mit Zahlen) in der Vorlage „Manifest.json“ durch den Wert, den Sie beim [Hochladen des benutzerdefinierten Images ](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal) angegeben haben.
 
@@ -156,10 +156,10 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
 10. Informationen zur weiteren Bearbeitung der Datei „Manifest.json“ finden Sie unter [Referenz: Datei „manifest.json“ für Marketplace-Elemente](#reference-marketplace-item-manifestjson).
 
-11. Wenn Sie die Änderungen an den Dateien abgeschlossen haben, konvertieren Sie sie in eine AZPKG-Datei. Sie führen die Konvertierung mithilfe des Tools **AzureGalleryPackager.exe** und des zuvor heruntergeladenen Beispielkatalogpakets durch. Führen Sie den folgenden Befehl aus:
+11. Wenn Sie die Änderungen an den Dateien abgeschlossen haben, konvertieren Sie sie in eine AZPKG-Datei. Sie führen die Konvertierung mithilfe des Tools **AzureGallery.exe** und des zuvor heruntergeladenen Beispielkatalogpakets durch. Führen Sie den folgenden Befehl aus:
 
     ```shell
-    .\AzureGalleryPackager.exe package –m c:\<path>\<gallery package name>\manifest.json –o c:\Temp
+    .\AzureGallery.exe package –m c:\<path>\<gallery package name>\manifest.json –o c:\Temp
     ```
 
     > [!NOTE]
@@ -192,7 +192,7 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
    Nachdem Sie Ihr Katalogpaket fertiggestellt und mit **Add-AzsGalleryItem** hochgeladen haben, sollte Ihr benutzerdefinierter virtueller Computer nun sowohl im Marketplace als auch in der Ansicht **Erstellen einer Ressource** angezeigt werden. Beachten Sie, dass das benutzerdefinierte Katalogpaket unter **Marketplace-Verwaltung** nicht angezeigt wird.
 
-   [![Benutzerdefiniertes Marketplace-Element hochgeladen](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "Benutzerdefiniertes Marketplace-Element hochgeladen")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
+   [![Hochgeladenes benutzerdefiniertes Marketplace-Element](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "Hochgeladenes benutzerdefiniertes Marketplace-Element")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
 
 6. Nachdem Ihr Element erfolgreich im Marketplace veröffentlicht wurde, können Sie den Inhalt aus dem Speicherkonto löschen.
 

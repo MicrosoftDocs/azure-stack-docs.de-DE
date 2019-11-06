@@ -10,12 +10,12 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: c7d0396f01970366696309445efb911e2e189162
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 4d4ece9946d257bce5cf19876b940cf4d828872d
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277186"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167171"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-datacenter"></a>Integrieren der AD FS-Identität in Ihr Azure Stack-Rechenzentrum
 
@@ -263,7 +263,7 @@ Wenn Sie die Befehle manuell ausführen möchten, gehen Sie folgendermaßen vor:
    ```
 
     > [!Note]  
-    > Die von der integrierten Windows-Authentifizierung (WIA) unterstützten Benutzer-Agenten-Zeichenfolgen können für Ihre AD FS-Bereitstellung veraltet sein und müssen möglicherweise aktualisiert werden, um aktuelle Clients zu unterstützen. Weitere Informationen zum Aktualisieren der von WIA unterstützten Zeichenfolgen für den Benutzer-Agent finden Sie im Artikel [Konfigurieren der formularbasierten Authentifizierung für Geräte im Intranet, die WIA nicht unterstützen](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br><br>Die Schritte zum Aktivieren der formularbasierten Authentifizierungsrichtlinie finden Sie unter [Konfigurieren von Authentifizierungsrichtlinien](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
+    > Die von der integrierten Windows-Authentifizierung (WIA) unterstützten Benutzer-Agent-Zeichenfolgen können für Ihre AD FS-Bereitstellung veraltet sein und müssen möglicherweise aktualisiert werden, um die neuesten Clients zu unterstützen. Weitere Informationen zum Aktualisieren der von WIA unterstützten Zeichenfolgen für den Benutzer-Agent finden Sie im Artikel [Konfigurieren der formularbasierten Authentifizierung für Geräte im Intranet, die WIA nicht unterstützen](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br><br>Die Schritte zum Aktivieren der formularbasierten Authentifizierungsrichtlinie finden Sie unter [Konfigurieren von Authentifizierungsrichtlinien](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
 
 3. Zum Hinzufügen der Vertrauensstellung der vertrauenden Seite führen Sie den folgenden Windows PowerShell-Befehl für Ihre AD FS-Instanz oder Ihr Farmmitglied aus. Aktualisieren Sie unbedingt den AD FS-Endpunkt, und verweisen Sie auf die Datei, die Sie in Schritt 1 erstellt haben.
 
