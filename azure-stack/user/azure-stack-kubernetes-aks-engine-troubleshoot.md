@@ -1,26 +1,26 @@
 ---
 title: Problembehandlung bei der AKS-Engine in Azure Stack | Microsoft-Dokumentation
-description: Dieses Thema enthält Schritte zur Problembehandlung für die AKS-Engine in Azure Stack.
+description: In diesem Artikel werden Schritte zur Problembehandlung für die AKS-Engine in Azure Stack beschrieben.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
-manager: femila
+manager: femilav
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: eb8a46c5b226d1be40d922a78c6ecdcdda5e45ad
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.lastreviewed: 10/28/2019
+ms.openlocfilehash: 49684cb1821a5014e984a8e177f881be13123829
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019384"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047144"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Problembehandlung bei der AKS-Engine in Azure Stack
 
@@ -84,7 +84,7 @@ Weitere Informationen finden Sie im Artikel [Troubleshooting](https://github.com
 
 ## <a name="collect-aks-engine-logs"></a>Sammeln von AKS-Engine-Protokollen
 
-Sie können auf Überprüfungsinformationen zugreifen, die von der AKS-Engine erstellt wurden. Die AKS-Engine meldet Status und Fehler, während die Anwendung ausgeführt wird. Sie können die Ausgabe entweder an eine Textdatei übergeben oder direkt von der Befehlszeilenkonsole kopieren.
+Sie können auf Überprüfungsinformationen zugreifen, die von der AKS-Engine erstellt wurden. Die AKS-Engine meldet Status und Fehler, während die Anwendung ausgeführt wird. Sie können die Ausgabe entweder an eine Textdatei übergeben oder direkt von der Befehlszeilenkonsole kopieren. Eine Liste der von der AKS-Engine ausgelösten Fehlercodes finden Sie unter [Überprüfen der Fehlercodes für die benutzerdefinierte Skripterweiterung](#review-custom-script-extension-error-codes).
 
 1.  Erfassen Sie Standardausgabe und Fehler aus Informationen, die im AKS-Engine-Befehlszeilentool angezeigt werden.
 
@@ -157,6 +157,18 @@ Anforderungen:
 ## <a name="review-custom-script-extension-error-codes"></a>Überprüfen der Fehlercodes für die benutzerdefinierte Skripterweiterung
 
 Sie können eine Liste der Fehlercodes einsehen, die von der benutzerdefinierten Skripterweiterung (Custom Script Extension, CSE) beim Ausführen Ihres Clusters erstellt wurden. Die CSE-Fehlercodes können nützlich sein, um die Ursache des Problems zu diagnostizieren. Die CSE für den Ubuntu-Server, der im Kubernetes-Cluster verwendet wird, unterstützt viele der AKS-Engine-Vorgänge. Weitere Informationen zu den CSE-Exitcodes finden Sie unter [cse_helpers. sh](https://github.com/Azure/aks-engine/blob/master/parts/k8s/cloud-init/artifacts/cse_helpers.sh).
+
+### <a name="providing-kubernetes-logs-to-a-microsoft-support-engineer"></a>Bereitstellen von Kubernetes-Protokollen für einen Microsoft-Supporttechniker
+
+Wenn Sie das Problem nach dem Erfassen und Durchsehen von Protokollen immer noch nicht beheben können, empfiehlt es sich, den Prozess zum Erstellen eines Supporttickets zu starten und die erfassten Protokolle durch Ausführen von `getkuberneteslogs.sh` mit dem Parametersatz `--upload-logs` zu übermitteln. 
+
+Wenden Sie sich an Ihren Azure Stack-Operator. Der Operator erstellt den Supportfall anhand der Informationen aus Ihren Protokollen.
+
+Während der Behandlung von supportbezogenen Problemen kann ein Microsoft-Supporttechniker darum bitten, dass Ihr Azure Stack-Bediener die Azure Stack-Systemprotokolle erfasst. Möglicherweise müssen Sie dem Bediener die Informationen zum Speicherkonto zur Verfügung stellen, unter dem Sie die Kubernetes-Protokolle hochgeladen haben. Führen Sie dazu `getkuberneteslogs.sh` aus.
+
+Der Bediener führt u. U. das PowerShell-Cmdlet **Get-AzureStackLog** aus. Von diesem Befehl wird ein Parameter (`-InputSaSUri`) verwendet, der das Speicherkonto angibt, unter dem Sie die Kubernetes-Protokolle gespeichert haben.
+
+Der Operator kann die von Ihnen erstellten Protokolle zusammen mit anderen vom Microsoft-Support benötigten Systemprotokollen kombinieren und diese für Microsoft verfügbar machen.
 
 ## <a name="open-github-issues"></a>Öffnen von GitHub-Problemen
 
