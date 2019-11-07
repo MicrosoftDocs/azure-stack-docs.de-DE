@@ -1,10 +1,10 @@
-- name: Dokumentation für Azure Stack-Partner
+- name: Dokumentation für Azure Stack Hub-Partner
   href: index.yml
 - name: Übersicht
   href: index.yml
   expanded: true
   items:
-    - name: Validation-as-a-Service für Azure Stack
+    - name: Validation-as-a-Service für Azure Stack Hub
       href: azure-stack-vaas-overview.md
     - name: Versionshinweise
       href: azure-stack-vaas-release-notes.md
@@ -12,7 +12,7 @@
   items:
     - name: Einrichten Ihrer Ressourcen
       href: azure-stack-vaas-set-up-resources.md
-    - name: Automatisieren der Azure Stack-Überprüfung mit PowerShell
+    - name: Automatisieren der Azure Stack Hub-Überprüfung mit PowerShell
       href: azure-stack-vaas-automate-with-powershell.md
 - name: Anleitung
   items:
@@ -24,7 +24,7 @@
       href: azure-stack-vaas-create-oem-package.md
     - name: Überprüfen von OEM-Paketen
       href: azure-stack-vaas-validate-oem-package.md
-    - name: Überprüfen einer neuen Azure Stack-Lösung
+    - name: Überprüfen einer neuen Azure Stack Hub-Lösung
       href: azure-stack-vaas-validate-solution-new.md
     - name: Überprüfen der Softwareupdates von Microsoft
       href: azure-stack-vaas-validate-microsoft-updates.md
@@ -44,7 +44,7 @@
       href: azure-stack-vaas-troubleshoot.md
 - name: Verwandte Themen
   items:
-    - name: Dokumentation zu Azure Stack
+    - name: Dokumentation für Azure Stack Hub-Bediener
       href: /azure-stack/operator
     - name: Azure Active Directory
       href: /azure/active-directory/

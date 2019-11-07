@@ -1,4 +1,4 @@
-- name: Dokumentation zum Azure Stack Development Kit
+- name: Dokumentation zum Azure Stack Hub Development Kit
   href: index.yml
 - name: Übersicht
   expanded: true
@@ -35,11 +35,11 @@
           href: asdk-redeploy.md
     - name: Registrieren des ASDK
       href: asdk-register.md
-    - name: Konfigurieren von Azure Stack-Telemetrieeinstellungen
+    - name: Konfigurieren von Azure Stack Hub-Telemetrieeinstellungen
       href: asdk-telemetry.md
     - name: Starten und Beenden des ASDK
       href: asdk-start-stop.md
-    - name: Überprüfen der Azure Stack-Sicherung
+    - name: Überprüfen einer Azure Stack Hub-Sicherung
       href: asdk-validate-backup.md
     - name: Herstellen einer Verbindung mit dem ASDK
       href: asdk-connect.md
@@ -49,13 +49,13 @@
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
-    - name: Azure Stack-Befehlszeilenschnittstelle
+    - name: Befehlszeilenschnittstelle (CLI)
       href: /cli/azure/?view=azure-cli-2017-03-09-profile
 - name: Verwandte Themen
   items:
-    - name: Dokumentation für Azure Stack-Bediener
+    - name: Dokumentation für Azure Stack Hub-Bediener
       href: /azure-stack/operator
-    - name: Benutzerdokumentation zu Azure Stack
+    - name: Dokumentation für Azure Stack Hub-Benutzer
       href: /azure-stack/user/
 - name: Ressourcen
   items:

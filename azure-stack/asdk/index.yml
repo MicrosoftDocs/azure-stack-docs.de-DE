@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentation zum Azure Stack Development Kit
+title: Dokumentation zum Azure Stack Hub Development Kit
 metadata:
   document_id: null
-  title: 'Dokumentation zum Azure Stack Development Kit: Tutorials, API-Referenz'
-  description: Informationen zum Bereitstellen und Verwenden des Azure Stack Development Kits
+  title: 'Dokumentation zum Azure Stack Hub Development Kit: Tutorials, API-Referenz'
+  description: Informationen zum Bereitstellen und Verwenden des Azure Stack Hub Development Kit
   services: azure-stack
   author: mattbriggs
   manager: femila
@@ -15,7 +15,7 @@ metadata:
   ms.date: 04/13/2018
   ms.author: mabrigg
 abstract:
-  description: 'Das Azure Stack Development Kit (ASDK) ist eine Bereitstellung von Azure Stack mit einem Knoten, die Sie kostenlos herunterladen und verwenden können. Das ASDK stellt eine Nicht-Produktionsumgebung bereit, in der Sie anhand von mit Azure konsistenten APIs und Tools Azure Stack evaluieren und moderne Anwendungen entwickeln können. <br/><br/>Wenn Sie ein Azure Stack-Betreiber sind, der die Infrastruktur integrierter Systeme verwaltet und Dienste anbietet, hilft Ihnen die <a href="/azure-stack/operator">Dokumentation für Betreiber</a> weiter.<br/><br/>Wenn Sie ein Azure Stack-Benutzer sind, der Dienste verwendet oder Apps für Azure Stack erstellt, helfen Ihnen die Informationen in unserer <a href="/azure-stack/user">Dokumentation für Benutzer</a> weiter.'
+  description: 'Das Azure Stack Hub Development Kit (ASDK) ist eine Azure Stack-Bereitstellung mit einem einzelnen Knoten, die Sie kostenlos herunterladen und verwenden können. Das ASDK stellt eine Nicht-Produktionsumgebung bereit, in der Sie anhand von mit Azure konsistenten APIs und Tools Azure Stack evaluieren und moderne Anwendungen entwickeln können. <br/><br/>Wenn Sie ein Azure Stack-Betreiber sind, der die Infrastruktur integrierter Systeme verwaltet und Dienste anbietet, hilft Ihnen die <a href="/azure-stack/operator">Dokumentation für Betreiber</a> weiter.<br/><br/>Wenn Sie ein Azure Stack-Benutzer sind, der Dienste verwendet oder Apps für Azure Stack erstellt, helfen Ihnen die Informationen in unserer <a href="/azure-stack/user">Dokumentation für Benutzer</a> weiter.'
 sections:
   - title: Schritt-für-Schritt-Tutorials
     items:

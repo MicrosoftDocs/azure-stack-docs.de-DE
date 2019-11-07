@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentation für Azure Stack-Bediener
+title: Dokumentation für Azure Stack Hub-Bediener
 metadata:
-  title: 'Dokumentation für Azure Stack – Tutorials, API-Referenz'
+  title: 'Dokumentation für Azure Stack Hub – Tutorials, API-Referenz'
   meta.description: azure-stack
   services: azure-stack
   author: justinha
@@ -16,9 +16,9 @@ metadata:
   ms.date: 07/09/2019
   ms.author: justinha
 abstract:
-  description: 'Microsoft Azure Stack ist eine Hybrid Cloud-Plattform, mit der Sie Azure-Dienste aus Ihrem Datencenter bereitstellen können. In unseren Schnellstarts und Tutorials erfahren Sie, wie Sie die Infrastruktur für integrierte Azure Stack-Systeme verwalten und Dienste anbieten.<br/><br/>Wenn Sie ein Azure Stack-Benutzer sind, der Dienste verwendet oder Apps für Azure Stack erstellt, helfen Ihnen die Informationen in unserer <a href="/azure-stack/user">Dokumentation für Benutzer</a> weiter.<br/><br/>Wenn Sie als Azure Stack-Bediener das Azure Stack Development Kit (ASDK) verwenden möchten, können Sie eine kostenlose Azure Stack-Bereitstellung mit einem Knoten herunterladen. Weitere Informationen finden Sie in der <a href="/azure-stack/asdk">ASDK-Dokumentation</a>.'
+  description: 'Microsoft Azure Stack Hub ist eine Hybrid Cloud-Plattform, mit der Sie Azure-Dienste aus Ihrem Datencenter bereitstellen können. In unseren Schnellstarts und Tutorials erfahren Sie, wie Sie die Infrastruktur für integrierte Azure Stack Hub-Systeme verwalten und Dienste anbieten.<br/><br/>Wenn Sie ein Azure Stack Hub-Benutzer sind, der Dienste verwendet oder Apps für Azure Stack Hub erstellt, helfen Ihnen die Informationen in unserer <a href="/azure-stack/user">Dokumentation für Benutzer</a> weiter.<br/><br/>Wenn Sie als Azure Stack Hub-Bediener das Azure Stack Hub Development Kit (ASDK) verwenden möchten, können Sie eine kostenlose Azure Stack Hub-Bereitstellung mit einem Knoten herunterladen. Weitere Informationen finden Sie in der <a href="/azure-stack/asdk">ASDK-Dokumentation</a>.'
 sections:
-  - title: Erste Schritte mit Azure Stack
+  - title: Erste Schritte mit Azure Stack Hub
     items:
       - type: list
         style: cards
@@ -28,44 +28,44 @@ sections:
               <a href="/azure-stack/operator/azure-stack-manage-portals">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_portal.svg" alt="">
               <br><b>Verwenden des Verwaltungsportals</b></a>
-              <p>Verwenden Sie das Verwaltungsportal für tägliche Verwaltungsaufgaben und Vorgänge in Azure Stack.</p>
+              <p>Verwenden Sie das Verwaltungsportal für tägliche Verwaltungsaufgaben und Vorgänge in Azure Stack Hub.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-powershell-install">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt="">
               <br><b>Azure Stack PowerShell</b></a>
-              <p>Verwalten Sie Ihre Azure Stack-Ressourcen ganz einfach über PowerShell.</p>
+              <p>Verwalten Sie Ihre Azure Stack Hub-Ressourcen ganz einfach über PowerShell.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-capacity-planning-overview">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_load-testing.svg" alt="">
               <br><b>Kapazitätsplanung</b></a>
               <p>Sehen Sie sich an, wie unterschiedliche Zuordnungen von Computeressourcen zu einer Auswahl von Hardwareangeboten passen.</p>
-  - title: Anbieten von Azure Stack-Diensten
+  - title: Anbieten von Azure Stack Hub-Diensten
     items:
       - type: list
         style: cards
         className: cardsA
         items:
-          - html: "<a href=\"/azure-stack/operator/azure-stack-sql-resource-provider\">\n<img height=\"48\" width=\"48\" src=\"https://docs.microsoft.com/media/logos/logo_SQL.svg\" alt=\"hybrid cloud app ci/cd\">\n<br><b>Anbieten von SQL als PaaS</b></a>\n<p>Verwenden Sie den SQL\_Server-Ressourcenanbieter, um SQL-Datenbanken als Dienst in Azure\_Stack anzubieten.</p>"
-          - html: "<a href=\"/azure-stack/operator/azure-stack-mysql-resource-provider\">\n<img height=\"48\" width=\"48\" src=\"https://docs.microsoft.com/media/logos/logo_mysql.svg\" alt=\"hybrid cloud app identity\">\n<br><b>Anbieten von MySQL als PaaS</b></a>\n<p>Verwenden Sie den MySQL-Ressourcenanbieter, um MySQL-Datenbanken als Dienst in Azure\_Stack anzubieten.</p>"
+          - html: "<a href=\"/azure-stack/operator/azure-stack-sql-resource-provider\">\n<img height=\"48\" width=\"48\" src=\"https://docs.microsoft.com/media/logos/logo_SQL.svg\" alt=\"hybrid cloud app ci/cd\">\n<br><b>Anbieten von SQL als PaaS</b></a>\n<p>Verwenden Sie den SQL\_Server-Ressourcenanbieter, um SQL-Datenbanken als Dienst in Azure\_Stack\_Hub anzubieten.</p>"
+          - html: "<a href=\"/azure-stack/operator/azure-stack-mysql-resource-provider\">\n<img height=\"48\" width=\"48\" src=\"https://docs.microsoft.com/media/logos/logo_mysql.svg\" alt=\"hybrid cloud app identity\">\n<br><b>Anbieten von MySQL als PaaS</b></a>\n<p>Verwenden Sie den MySQL-Ressourcenanbieter, um MySQL-Datenbanken als Dienst in Azure\_Stack\_Hub anzubieten.</p>"
           - html: |-
               <a href="/azure-stack/operator/azure-stack-app-service-overview">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-apps.svg" alt="hybrid cloud app scaling">
               <br><b>Anbieten von Azure App Service als PaaS</b></a>
               <p>Unterstützen Sie Benutzer bei der Erstellung von Webanwendungen und APIs für beliebige Plattformen oder Geräte.</p>
-  - title: Verwalten von Azure Stack
+  - title: Verwalten von Azure Stack Hub
     items:
       - type: list
         style: cards
         className: cardsA
         items:
-          - html: "<a href=\"/azure-stack/operator/azure-stack-updates\">\n<img height=\"48\" width=\"48\" src=\"https://docs.microsoft.com/media/common/i_upgrade.svg\" alt=\"\">\n<br><b>Aktualisieren von Azure Stack</b></a>\n<p>Microsoft stellt jeden Monat ein Paket zusammen, um integrierte Azure\_Stack-Systeme auf dem neusten Stand zu halten. </p>"
+          - html: "<a href=\"/azure-stack/operator/azure-stack-updates\">\n<img height=\"48\" width=\"48\" src=\"https://docs.microsoft.com/media/common/i_upgrade.svg\" alt=\"\">\n<br><b>Aktualisieren von Azure Stack Hub</b></a>\n<p>Microsoft stellt jeden Monat ein Paket zusammen, um integrierte Azure\_Stack\_Hub-Systeme auf dem neusten Stand zu halten. </p>"
           - html: |-
               <a href="/azure-stack/operator/azure-stack-backup-infrastructure-backup">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_usb.svg" alt="">
-              <br><b>Sichern von Azure Stack</b></a>
+              <br><b>Sichern von Azure Stack Hub</b></a>
               <p>Sie können Konfigurations- und Dienstdaten mithilfe des Infrastructure Backup-Diensts sichern und wiederherstellen.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-security-configuration">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_cloud-security.svg" alt="">
-              <br><b>Konfigurieren der Azure Stack-Sicherheit</b></a>
-              <p>Azure Stack wurde für die Abwehr moderner Bedrohungen und die Erfüllung von Compliancestandards konzipiert.</p>
+              <br><b>Konfigurieren der Azure Stack Hub-Sicherheit</b></a>
+              <p>Azure Stack Hub wurde für die Abwehr moderner Bedrohungen und die Erfüllung von Compliancestandards konzipiert.</p>
