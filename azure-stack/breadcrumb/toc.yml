@@ -6,10 +6,13 @@
       tocHref: /azure-stack/
       topicHref: /azure-stack/
       items:
-        - name: ASDK
+        - name: Hub ASDK
           tocHref: /azure-stack/asdk/
           topicHref: /azure-stack/asdk/index
-        - name: Operator
+        - name: Hybrid
+          tocHref: /azure-stack/hybrid/
+          topicHref: /azure-stack/hybrid/index
+        - name: Hub-Bediener
           tocHref: /azure-stack/operator/
           topicHref: /azure-stack/operator/index
           items:
@@ -23,9 +26,9 @@
                 - name: Replizieren virtueller Azure Stack-Computer in Azure
                   tocHref: /azure/site-recovery/azure-stack-site-recovery
                   topicHref: /azure/site-recovery/azure-stack-site-recovery
-        - name: Partner
+        - name: Hub-Partner
           tocHref: /azure-stack/partner/
           topicHref: /azure-stack/partner/index
-        - name: Benutzer
+        - name: Hub-Benutzer
           tocHref: /azure-stack/user/
           topicHref: /azure-stack/user/index
