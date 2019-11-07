@@ -16,18 +16,18 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a47bae619b2525534797158cf2660d5bc77192c9
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 2390f2c21325a059ea6f651e7fcd944d890bf307
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282614"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73594769"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>ASDK-Aufgaben zur erweiterten Evaluierung
 Wenn Sie sich mit den grundlegenden Dienstfeatures und -funktionen des Azure Stack Development Kits (ASDK) vertraut gemacht haben, können Sie Ihre Kenntnisse zu Azure Stack vertiefen, indem Sie erweiterte Szenarien ausprobieren. Diese erweiterten Evaluierungsaufgaben sind vollständig in der Dokumentation für Azure Stack-Bediener beschrieben.
 
 > [!NOTE]
-> Viele Aufgaben für Bediener werden sowohl für das ASDK als auch für Azure Stack-Produktionsbereitstellungen mit mehreren Knoten unterstützt, es werden aber nicht alle Nutzungsszenarien für ASDK-Bereitstellungen unterstützt. Weitere Informationen finden Sie unter [Unterschiede zwischen ASDK und Azure Stack mit mehreren Knoten](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences).
+> Viele Aufgaben für Bediener werden sowohl für das ASDK als auch für Azure Stack-Produktionsbereitstellungen mit mehreren Knoten unterstützt, es werden aber nicht alle Nutzungsszenarien für ASDK-Bereitstellungen unterstützt. Weitere Informationen finden Sie unter [Unterschiede zwischen ASDK und Azure Stack mit mehreren Knoten](asdk-what-is.md#asdk-and-multi-node-azure-stack-hub-differences).
 
 ## <a name="delegate-offers-in-azure-stack"></a>Delegieren von Angeboten in Azure Stack
 Als Azure Stack-Bediener müssen Sie häufig andere Personen in die Lage versetzen, Angebote zu erstellen und Benutzer zu registrieren. Als Dienstanbieter z.B. müssen Sie Ihren Vertriebspartnern ermöglichen können, in Ihrem Auftrag Kunden zu registrieren und diese zu verwalten. Wenn Sie einer zentralen IT-Gruppe in einem Unternehmen angehören, möchten Sie vielleicht, dass Niederlassungen ohne Ihr Eingreifen Benutzer registrieren können.

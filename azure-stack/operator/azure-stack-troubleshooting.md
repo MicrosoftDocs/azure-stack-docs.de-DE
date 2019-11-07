@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 3c0b1ce32399b4739796b2718e97c69d96291dc6
-ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: 4c04eafab93da233859b5b67571b70899b081b95
+ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72445282"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659234"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Problembehandlung für Microsoft Azure Stack
 
@@ -96,42 +96,6 @@ Sie können PowerShell verwenden, um ohne CSS-Hilfe Informationen zur Stempelaus
 5. Extrahieren Sie die SeedRing-ZIP-Datei, um im ERCS-Ordner, in dem Sie „test-azurestack“ ausgeführt haben, auf den Bericht der Überprüfung zuzugreifen.
 
 Weitere Informationen finden Sie unter [Azure Stack-Diagnose](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems).
-
-## <a name="troubleshoot-deployment"></a>Problembehandlung bei der Bereitstellung 
-### <a name="general-deployment-failure"></a>Allgemeiner Bereitstellungsfehler
-Wenn während der Installation ein Fehler auftritt, können Sie mithilfe der Option „-rerun“ des Bereitstellungsskripts die Bereitstellung ab dem Schritt neu starten, in dem der Fehler aufgetreten ist.  
-
-### <a name="template-validation-error-parameter-osprofile-is-not-allowed"></a>Fehlerparameter „osProfile“ für die Vorlagenüberprüfung ist nicht zulässig
-
-Wenn Sie bei der Vorlagenüberprüfung eine Fehlermeldung mit dem Hinweis erhalten, dass der Parameter „osProfile“ nicht zulässig ist, sollten Sie sicherstellen, dass Sie die richtigen Versionen der APIs für diese Komponenten verwenden:
-
-- [Compute](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
-- [Netzwerk](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
-
-Verwenden Sie [AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy), um eine VHD von Azure nach Azure Stack zu kopieren. Wenden Sie sich an Ihren Anbieter, um Probleme zu beheben, die das Image selbst betreffen. Weitere Informationen zu den WALinuxAgent-Anforderungen für Azure Stack finden Sie unter [Azure LinuX-Agent](azure-stack-linux.md#azure-linux-agent).
-
-### <a name="deployment-fails-due-to-lack-of-external-access"></a>Bereitstellungsfehler aufgrund von fehlendem externen Zugriff
-Wenn es bei der Bereitstellung in Phasen, in denen ein externer Zugriff erforderlich ist, zu Fehlern kommt, wird eine Ausnahme wie im folgenden Beispiel zurückgegeben:
-
-```
-An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
-   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
-   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
-```
-Falls dieser Fehler auftritt, sollten Sie überprüfen, ob die Mindestanforderungen für den Netzwerkbetrieb erfüllt sind. Überprüfen Sie hierzu die [Informationen zum Netzwerkdatenverkehr bei der Bereitstellung](deployment-networking.md). Für Partner steht im Rahmen des Toolkits für Partner außerdem ein Tool für die Netzwerküberprüfung zur Verfügung.
-
-Andere Bereitstellungsfehler sind normalerweise auf Probleme bei der Verbindungsherstellung mit Ressourcen im Internet zurückzuführen.
-
-Sie können die folgenden Schritte ausführen, um die Konnektivität mit Ressourcen im Internet zu überprüfen:
-
-1. Öffnen Sie PowerShell.
-2. Starten Sie über „Enter-PSSession“ eine Sitzung auf WAS01 oder einer beliebigen ERC-VM.
-3. Führen Sie das folgende Cmdlet aus: 
-   ```powershell
-   Test-NetConnection login.windows.net -port 443
-   ```
-
-Wenn dieser Befehl nicht erfolgreich ist, überprüfen Sie, ob der TOR-Switch und alle weiteren Netzwerkgeräte so konfiguriert sind, dass sie [Netzwerkverkehr zulassen](azure-stack-network.md).
 
 ## <a name="troubleshoot-virtual-machines"></a>Problembehandlung bei virtuellen Computern
 ### <a name="default-image-and-gallery-item"></a>Standardimage und Katalogelement

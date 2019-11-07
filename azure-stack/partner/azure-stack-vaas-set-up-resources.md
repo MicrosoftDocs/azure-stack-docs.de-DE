@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 33ead43fd8dbe77feae12db58ca7c689030c6f98
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: e36235af4dea72ae6d8016085ee18aec819ae4dd
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829103"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618239"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutorial: Einrichten von Ressourcen für Validation-as-a-Service
 
@@ -100,7 +100,7 @@ Das Azure Storage-Konto wird in der öffentlichen Azure-Cloud und nicht in Ihrer
 
 3. Wählen Sie unter **Ressourcengruppe** die Option **Neu erstellen** aus. Geben Sie einen Namen für die neue Ressourcengruppe ein.
 
-4. Informieren Sie sich über die [Benennungskonventionen](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage) für Azure Storage-Konten. Geben Sie einen Namen für Ihr Speicherkonto ein.
+4. Informieren Sie sich über die [Benennungskonventionen](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage) für Azure Storage-Konten. Geben Sie einen Namen für Ihr Speicherkonto ein.
 
 5. Wählen Sie die Region **USA, Westen** für Ihr Speicherkonto aus.
 

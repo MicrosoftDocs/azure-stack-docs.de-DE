@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: ab43d94c2e65032e5e525ec000e38cacb01b2980
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: c8db19ff7bf8d7ccdb406617cbcf75dce3770522
+ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319101"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659219"
 ---
 # <a name="troubleshoot-the-asdk"></a>Problembehandlung beim ASDK
 Dieser Artikel enthält allgemeine Informationen zur Problembehandlung beim Azure Stack Development Kit (ASDK). Hilfe zu integrierten Azure Stack-Systemen finden Sie unter [Problembehandlung für Microsoft Azure Stack](../operator/azure-stack-troubleshooting.md). 
@@ -40,6 +40,39 @@ Wenn während der Installation ein Fehler auftritt, können Sie mithilfe der Opt
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Am Ende der Bereitstellung ist die PowerShell-Sitzung noch geöffnet, und es wird keine Ausgabe angezeigt.
 Dies ist wahrscheinlich nur auf das Standardverhalten des PowerShell-Befehlsfensters zurückzuführen, wenn dieses ausgewählt wurde. Die Bereitstellung des ASDK war erfolgreich, das Skript wurde jedoch beim Auswählen des Fensters angehalten. Sie können überprüfen, ob das Setup abgeschlossen ist, indem Sie in der Titelleiste des Befehlsfensters nach dem Wort „select“ suchen. Drücken Sie die ESC-Taste, um die Auswahl aufzuheben. Danach sollte die Abschlussmeldung angezeigt werden.
+
+### <a name="template-validation-error-parameter-osprofile-is-not-allowed"></a>Fehlerparameter „osProfile“ für die Vorlagenüberprüfung ist nicht zulässig
+
+Wenn Sie bei der Vorlagenüberprüfung eine Fehlermeldung mit dem Hinweis erhalten, dass der Parameter „osProfile“ nicht zulässig ist, sollten Sie sicherstellen, dass Sie die richtigen Versionen der APIs für diese Komponenten verwenden:
+
+- [Compute](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
+- [Netzwerk](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
+
+Verwenden Sie [AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy), um eine VHD von Azure nach Azure Stack zu kopieren. Wenden Sie sich an Ihren Anbieter, um Probleme zu beheben, die das Image selbst betreffen. Weitere Informationen zu den WALinuxAgent-Anforderungen für Azure Stack finden Sie unter [Azure LinuX-Agent](../operator/azure-stack-linux.md#azure-linux-agent).
+
+### <a name="deployment-fails-due-to-lack-of-external-access"></a>Bereitstellungsfehler aufgrund von fehlendem externen Zugriff
+Wenn es bei der Bereitstellung in Phasen, in denen ein externer Zugriff erforderlich ist, zu Fehlern kommt, wird eine Ausnahme wie im folgenden Beispiel zurückgegeben:
+
+```
+An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
+```
+Falls dieser Fehler auftritt, sollten Sie überprüfen, ob die Mindestanforderungen für den Netzwerkbetrieb erfüllt sind. Überprüfen Sie hierzu die [Informationen zum Netzwerkdatenverkehr bei der Bereitstellung](../operator/deployment-networking.md). Für Partner steht im Rahmen des Toolkits für Partner außerdem ein Tool für die Netzwerküberprüfung zur Verfügung.
+
+Andere Bereitstellungsfehler sind normalerweise auf Probleme bei der Verbindungsherstellung mit Ressourcen im Internet zurückzuführen.
+
+Sie können die folgenden Schritte ausführen, um die Konnektivität mit Ressourcen im Internet zu überprüfen:
+
+1. Öffnen Sie PowerShell.
+2. Starten Sie über „Enter-PSSession“ eine Sitzung auf WAS01 oder einer beliebigen ERC-VM.
+3. Führen Sie das folgende Cmdlet aus: 
+   ```powershell
+   Test-NetConnection login.windows.net -port 443
+   ```
+
+Wenn dieser Befehl nicht erfolgreich ist, überprüfen Sie, ob der TOR-Switch und alle weiteren Netzwerkgeräte so konfiguriert sind, dass sie [Netzwerkverkehr zulassen](../operator/azure-stack-network.md).
+
 
 ## <a name="virtual-machines"></a>Virtuelle Computer
 ### <a name="default-image-and-gallery-item"></a>Standardimage und Katalogelement

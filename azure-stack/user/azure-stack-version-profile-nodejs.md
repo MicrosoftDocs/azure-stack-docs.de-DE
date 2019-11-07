@@ -14,12 +14,12 @@ ms.date: 07/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 07/30/2019
-ms.openlocfilehash: 7e2753ebb5bebad4f1ac2a7bbc17a27ccd87cbe9
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 65ea0b4f6f7f7cb3769e83bf9052ac2953668e48
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283047"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618228"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit dem Node.js-SDK (Software Development Kit) in Azure Stack
 
@@ -73,7 +73,7 @@ Die spezifischen API-Versionen eines Ressourcenanbieters zu erhalten Sie, indem 
 
 2. Installieren Sie die aktuelle Version von [Node.js](https://nodejs.org/en/download/), oder führen Sie ein Upgrade darauf aus. Node.js enthält außerdem den JavaScript-Paket-Manager [npm](https://www.npmjs.com/).
 
-3. Installieren Sie [Visual Studio Code](https://code.visualstudio.com/), oder führen Sie ein Upgrade aus, und installieren Sie die [Node.js-Erweiterung](https://code.visualstudio.com/docs/Node.js/nodejs-debugging) für Visual Studio Code.
+3. Installieren Sie [Visual Studio Code](https://code.visualstudio.com/), oder führen Sie ein Upgrade aus, und installieren Sie die [Node.js-Erweiterung](https://code.visualstudio.com/docs/nodejs/nodejs-debugging) für Visual Studio Code.
 
 2.  Installieren Sie die Clientpakete für den Azure Stack Resource Manger. Weitere Informationen finden Sie unter [Installieren von Clientbibliotheken](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid).
 
@@ -95,7 +95,7 @@ Zur Verwendung des Node.js Azure SDK mit Azure Stack müssen Sie die folgenden W
 | --- | --- | --- |
 | Mandanten-ID | TENANT\_ID | Der Wert Ihrer [Mandanten-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview) für Azure Stack. |
 | Client-ID | CLIENT\_ID | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Dokuments gespeichert wurde.  |
-| Abonnement-ID | AZURE\_SUBSCRIPTION\_ID   Mithilfe der [Abonnement-ID](https://docs.microsoft.com/azure/azure-stack/service-plan-offer-subscription-overview#subscriptions) greifen Sie auf Angebote in Azure Stack zu.  |
+| Abonnement-ID | AZURE\_SUBSCRIPTION\_ID   Mithilfe der [Abonnement-ID](/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions) greifen Sie auf Angebote in Azure Stack zu.  |
 | Geheimer Clientschlüssel | APPLICATION\_SECRET | Die Geheimnisanwendung des Dienstprinzipals, die bei der Erstellung des Dienstprinzipals gespeichert wurde. |
 | Resource Manager-Endpunkt | ARM\_ENDPOINT | Siehe [Azure Stack-Resource Manager-Endpunkt](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-resource-manager-endpoint). |
 
