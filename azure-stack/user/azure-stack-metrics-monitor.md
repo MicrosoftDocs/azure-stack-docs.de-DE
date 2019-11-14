@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
-ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 64935022f8ace33bd4350ab4ef5421636ff3991e
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 20e4f71480aa377e56115c499f96492e768010c3
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418507"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955739"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack"></a>Nutzen der Überwachungsdaten von Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "68418507"
  
 ## <a name="options-for-data-consumption"></a>Optionen für die Datennutzung
 
-| Datentyp | Category (Kategorie) | Unterstützte Dienste | Zugriffsmethoden |
+| Datentyp | Category | Unterstützte Dienste | Zugriffsmethoden |
 |-------------------------------------------------------------|----------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | Azure Monitor-Metriken auf Plattformebene | metrics | [Unterstützte Metriken von Azure Monitor in Azure Stack](azure-stack-metrics-supported.md) | REST-API |
 | Computemetriken zum Gastbetriebssystem (z.B. Leistungsindikator) | metrics | Virtuelle Windows- und Linux-Computer | Speichertabelle oder -blob:<br>Azure-Diagnose unter Windows oder Linux <br>Event Hub:<br>Azure-Diagnose unter Windows |

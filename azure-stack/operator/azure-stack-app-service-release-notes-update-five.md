@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 4adad49b27b1ab1d255ccc566c95b003cfd09b3b
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: f44bfcaf91e06979d1a9eb745bf681c0d9f69371
+ms.sourcegitcommit: cb9548e5a2ca27d9c44f349eeb08d94c9c6334da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974915"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73916402"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>App Service in Azure Stack: Versionshinweise zu Update 5
 
@@ -137,9 +137,9 @@ Führen Sie die folgenden Schritte aus, nachdem das Update für Azure App Servic
             GO  
 
             /********[appservice_hosting] Migration End********/
-    '''
+    ```
 
-1. Migrate logins to contained database users.
+1. Migrieren Sie Anmeldungen zu Benutzern eigenständiger Datenbanken.
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
@@ -193,7 +193,7 @@ Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk u
  * IP-Zieladressbereich: Bereich der IPs für Ihren Dateiserver
  * Zielportbereich: 445
  * Protokoll: TCP
- * Aktion: ZULASSEN
+ * Aktion: Allow
  * Priorität: 700
  * Name: Outbound_Allow_SMB445
 

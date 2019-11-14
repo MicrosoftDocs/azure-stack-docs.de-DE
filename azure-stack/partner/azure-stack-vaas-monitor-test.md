@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5d3d32df25aeba90ef065fc4363f0887dcbc36e5
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 87ba89298c0a5a134cb0b3b1a2b7e771151e46d9
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418357"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955906"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Überwachen und Verwalten von Tests im VaaS-Portal
 
@@ -69,7 +69,7 @@ In jeder geplanten Testinstanz werden die folgenden Informationen angezeigt:
 | Column | BESCHREIBUNG |
 | --- | --- |
 | Testname | Name und Version des Tests |
-| Category (Kategorie) | Der Zweck des Tests |
+| Category | Der Zweck des Tests |
 | Erstellt | Der Zeitpunkt, zu dem der Test geplant wurde |
 | Gestartet | Der Zeitpunkt, zu dem die Ausführung des Tests gestartet wurde |
 | Duration | Die Ausführungsdauer des Tests |
@@ -92,7 +92,7 @@ Wählen Sie im Kontextmenü **Information anzeigen** aus, um allgemeine Informat
 | Testname | Der Name des Tests. |
 | Testversion | Die Version des Tests |
 | Herausgeber | Der Herausgeber des Tests |
-| Category (Kategorie) |  Der Zweck des Tests |
+| Category |  Der Zweck des Tests |
 | Target services (Zieldienste) | Die Azure Stack-Dienste, die getestet werden |
 | BESCHREIBUNG | Die Beschreibung des Tests |
 | Estimated duration (minutes) (Geschätzte Dauer (Minuten)) | Die erwartete Ausführungsdauer des Tests |

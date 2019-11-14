@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
-ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 61d938ef1a3039c4b685c4df8f09577d9c7d3f50
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.lastreviewed: 11/01/2019
+ms.openlocfilehash: 183abaa85607f0ad0c1bb9f82901b86176ae5c65
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909289"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955233"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Planungsentscheidungen zu nicht mit Azure verbundenen Bereitstellungen für in Azure Stack integrierte Systeme
 Nachdem Sie entschieden haben, [wie Sie Azure Stack in Ihre Hybrid Cloud-Umgebung integrieren](azure-stack-connection-models.md), können Sie Ihre Entscheidungsfindung für die Azure Stack-Bereitstellung abschließen.
