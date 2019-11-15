@@ -261,6 +261,8 @@
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
         - name: Erweitern des Rechenzentrums
           href: azure-stack-network-howto-extend-datacenter.md
+        - name: F5-Lastenausgleich
+          href: network-howto-f5.md
         - name: Verbinden mit iSCSI-Speicher
           href: azure-stack-network-howto-iscsi-storage.md
         - name: Einrichten von Tunneln
