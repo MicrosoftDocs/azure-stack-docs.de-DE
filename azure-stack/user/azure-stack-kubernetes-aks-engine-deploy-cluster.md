@@ -15,12 +15,12 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: 933a2a0bc37be4c5a1b5c92fd334917668761879
-ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
+ms.openlocfilehash: e4f10cb3e5d96942e5fe32b0d8fe3a04cf921521
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72780451"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595197"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack
 
@@ -54,7 +54,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
     > [!Note]  
     > Wenn nano nicht installiert ist, können Sie nano auf Ubuntu installieren: `sudo apt-get install nano`.
 
-3.  Suchen Sie in der Datei „kubernetes-azurestack.json“ nach `orchestratorRelease`. Wählen Sie eine der unterstützten Kubernetes-Versionen aus. Beispiel: 1.11, 1.12, 1.13, 1.14. Die Versionen sind häufig Updates. Geben Sie die Version als „x.xx“ anstelle von „x.xx.x“ an. Eine Liste der aktuellen Versionen finden Sie unter [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) (Unterstützte Kubernetes-Versionen). Sie können die unterstützte Version ermitteln, indem Sie den folgenden AKS-Engine-Befehl ausführen:
+3.  Suchen Sie in der Datei „kubernetes-azurestack.json“ nach `orchestratorRelease`. Wählen Sie eine der unterstützten Kubernetes-Versionen aus. Beispiel: 1.14, 1.15. Die Versionen sind häufig Updates. Geben Sie die Version als „x.xx“ anstelle von „x.xx.x“ an. Eine Liste der aktuellen Versionen finden Sie unter [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) (Unterstützte Kubernetes-Versionen). Sie können die unterstützte Version ermitteln, indem Sie den folgenden AKS-Engine-Befehl ausführen:
 
     ```bash
     aks-engine get-versions

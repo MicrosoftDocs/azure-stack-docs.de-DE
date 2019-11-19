@@ -1,5 +1,5 @@
 ---
-title: Installieren der AKS-Engine in Linux in Azure Stack | Microsoft-Dokumentation
+title: Installieren der AKS-Engine unter Linux in Azure Stack | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie einen Linux-Computer in Ihrer Azure Stack-Instanz zum Hosten der AKS-Engine verwenden, um einen Kubernetes-Cluster bereitzustellen und zu verwalten.
 services: azure-stack
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 3debcd152a54fd3a0b940ad3dd4d379c6688faec
-ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
+ms.openlocfilehash: 3979dfdf6a229f1d81b6c5cc017d4d3f75a62e1a
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037963"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595354"
 ---
-# <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>Installieren der AKS-Engine in Linux in Azure Stack
+# <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>Installieren der AKS-Engine unter Linux in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Sie können einen Linux-Computer in Ihrer Azure Stack-Instanz zum Hosten der AKS-Engine verwenden, um einen Kubernetes-Cluster bereitzustellen und zu verwalten. In diesem Artikel wird beschrieben, wie Sie die Client-VM für die Verwaltung Ihres Clusters für verbundene und nicht verbundene Azure Stack-Instanzen vorbereiten, die Installation überprüfen und die Client-VM auf dem ASDK einrichten.
+Erfahren Sie, wie Sie einen Linux-Computer in Ihrer Azure Stack-Instanz zum Hosten der AKS-Engine verwenden, um einen Kubernetes-Cluster bereitzustellen und zu verwalten. In diesem Artikel wird beschrieben, wie Sie die Client-VM für die Verwaltung Ihres Clusters für verbundene und nicht verbundene Azure Stack-Instanzen vorbereiten, die Installation überprüfen und die Client-VM auf dem ASDK einrichten.
 
 ## <a name="prepare-the-client-vm"></a>Vorbereiten der Client-VM
 
@@ -42,14 +42,14 @@ Wenn Sie Ihren Clientcomputer auswählen, sollten Sie Folgendes beachten:
 Sie können die Client-VM installieren, um Ihren Kubernetes-Cluster in einer mit dem Internet verbundenen Azure Stack-Instanz zu verwalten.
 
 1. Erstellen Sie eine Linux-VM in ihrer Azure Stack-Instanz. Anweisungen finden Sie unter [Schnellstart: Erstellen Sie einen virtuellen Linux-Server mit dem Azure Stack-Portal](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
-2. Stellen Sie eine Verbindung mit ihrer VM her.
-3. Suchen Sie die Version der AKS-Engine in der Tabelle [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) (Unterstützte Kubernetes-Versionen). Die AKS-Basis-Engine muss in Ihrem Azure Stack-Marketplace verfügbar sein. Beim Ausführen des Befehls müssen Sie die Version `--version v0.41.2` angeben. Wenn Sie die Version nicht angeben, installiert der Befehl die neueste Version, die möglicherweise ein VHD-Image erfordert, das in Ihrem Marketplace nicht verfügbar ist.
+2. Stellen Sie eine Verbindung mit Ihrer VM her.
+3. Suchen Sie die Version der AKS-Engine in der Tabelle [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) (Unterstützte Kubernetes-Versionen). Die AKS-Basis-Engine muss in Ihrem Azure Stack-Marketplace verfügbar sein. Beim Ausführen des Befehls müssen Sie die Version `--version v0.43.0` angeben. Wenn Sie die Version nicht angeben, installiert der Befehl die neueste Version, die möglicherweise ein VHD-Image erfordert, das in Ihrem Marketplace nicht verfügbar ist.
 4. Führen Sie den folgenden Befehl aus:
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.41.2
+        ./get-akse.sh --version v0.43.0
     ```
 
     > [!Note]  

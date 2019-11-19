@@ -1,5 +1,6 @@
 ---
 title: Regionsverwaltung in Azure Stack | Microsoft-Dokumentation
+titleSuffix: Azure Stack
 description: Übersicht über die Regionsverwaltung in Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -16,12 +17,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: da80b144987e1dd90e45e83bb7be4ed581db143e
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 38004b88f43ef59448ca99c3eb2762e5ca63e89c
+ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991762"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802282"
 ---
 # <a name="region-management-in-azure-stack"></a>Regionsverwaltung in Azure Stack
 
@@ -35,13 +36,13 @@ Eine integrierte (als *Azure Stack-Cloud* bezeichnete) Systembereitstellung bild
 
 Azure Stack verfügt über einige Funktionen der Regionsverwaltung, die in der Kachel **Regionsverwaltung** verfügbar sind. Diese Kachel steht Azure Stack-Operatoren im Administratorportal im Standarddashboard zur Verfügung. Über diese Kachel können Sie Ihre Azure Stack-Region und deren regionsspezifische Komponenten überwachen und aktualisieren.
 
-![Die Regionsverwaltungskachel](media/azure-stack-region-management/image1.png)
+![Die Kachel „Regionsverwaltung“ im Azure Stack-Administratorportal](media/azure-stack-region-management/image1.png)
 
 Wenn Sie auf der Kachel **Regionsverwaltung** auf eine Region klicken, können Sie auf folgende Informationen zugreifen:
 
-[![Beschreibung der Bereiche auf dem Blatt „Regionsverwaltung“](media/azure-stack-region-management/regionssm.png "Blatt „Regionsverwaltung“")](media/azure-stack-region-management/regions.png#lightbox)
+[![Beschreibung der Bereiche auf dem Blatt „Regionsverwaltung“ im Azure Stack-Administratorportal](media/azure-stack-region-management/regionssm.png "Blatt „Regionsverwaltung“ im Azure Stack-Administratorportal")](media/azure-stack-region-management/regions.png#lightbox)
 
-1. **Das Ressourcenmenü**: Hier können Sie auf spezifische Infrastrukturverwaltungsbereiche zugreifen und Benutzerressourcen anzeigen und verwalten. Zu solchen Ressourcen zählen etwa Speicherkonten und virtuelle Netzwerke.
+1. **Das Ressourcenmenü**: Hier können Sie auf verschiedene Infrastrukturverwaltungsbereiche zugreifen und Benutzerressourcen anzeigen und verwalten. Zu solchen Ressourcen zählen etwa Speicherkonten und virtuelle Netzwerke.
 
 2. **Warnungen**: Hier werden systemweite Warnungen sowie ausführlichere Informationen zu diesen Warnungen aufgelistet.
 

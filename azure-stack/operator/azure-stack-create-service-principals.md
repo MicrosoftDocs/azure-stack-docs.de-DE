@@ -1,28 +1,22 @@
 ---
-title: Verwenden einer App-Identität für den Ressourcenzugriff | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie einen Dienstprinzipal verwalten, der mit der rollenbasierten Zugriffssteuerung zum Anmelden und für den Zugriff auf Ressourcen verwendet werden kann.
-services: azure-stack
-documentationcenter: na
+title: Verwenden einer App-Identität für den Ressourcenzugriff
+description: Hier erfahren Sie, wie Sie einen Azure Stack Hub-Dienstprinzipal verwalten. Ein Dienstprinzipal kann mit der rollenbasierten Zugriffssteuerung für die Anmeldung bei und für den Zugriff auf Ressourcen verwendet werden.
 author: BryanLa
-manager: femila
-ms.service: azure-stack
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/06/2019
 ms.author: bryanla
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 7110febfa58fb1d31cde5f0ae1b4df659f567956
-ms.sourcegitcommit: 8203490cf3ab8a8e6d39b137c8c31e3baec52298
+ms.service: azure-stack
+ms.topic: how-to
+ms.date: 11/11/2019
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: ff36a5c280df7ecb68d0d181438489ce696ed4fc
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73712732"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955387"
 ---
-# <a name="use-an-app-identity-to-access-resources"></a>Verwenden einer App-Identität für den Ressourcenzugriff
+# <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Verwenden einer App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit (ASDK)*
+*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme und Azure Stack Hub Development Kit (ASDK)*
 
 Eine Anwendung, die Ressourcen über Azure Resource Manager bereitstellen oder konfigurieren muss, muss durch einen Dienstprinzipal repräsentiert werden. Genau wie ein Benutzer durch einen Benutzerprinzipal repräsentiert wird, ist ein Dienstprinzipal eine Art Sicherheitsprinzipal, der eine App repräsentiert. Der Dienstprinzipal bietet eine Identität für Ihre App, wodurch es Ihnen ermöglicht wird, nur die erforderlichen Berechtigungen an diesen Dienstprinzipal zu delegieren.  
 
@@ -41,16 +35,16 @@ Das Ausführen einer App unter der Identität eines Dienstprinzipals ist der Aus
  - Sie können einem Dienstprinzipal **restriktivere Berechtigungen** zuweisen. In der Regel sind diese Berechtigungen genau auf die von der App zu erfüllenden Aufgaben beschränkt, bekannt als das *Prinzip der geringsten Rechte*.
  - Die **Anmeldeinformationen und Berechtigungen eines Dienstprinzipals ändern sich nicht so häufig**, wie die Anmeldeinformationen eines Benutzers. Wenn sich beispielsweise die Verantwortlichkeiten des Benutzers ändern, Kennwortanforderungen eine Änderung erforderlich machen, oder ein Benutzer das Unternehmen verlässt.
 
-Sie beginnen damit, dass Sie eine neue App-Registrierung erstellen, die ein zugeordnetes [Dienstprinzipalobjekt](/azure/active-directory/develop/developer-glossary#service-principal-object) erstellt, um die Identität der App innerhalb des Verzeichnisses darzustellen. Dieses Dokument beschreibt den Prozess zum Erstellen und Verwalten eines Dienstprinzipals, je nach dem Verzeichnis, das Sie für Ihre Azure Stack-Instanz ausgewählt haben:
+Sie beginnen damit, dass Sie eine neue App-Registrierung erstellen, die ein zugeordnetes [Dienstprinzipalobjekt](/azure/active-directory/develop/developer-glossary#service-principal-object) erstellt, um die Identität der App innerhalb des Verzeichnisses darzustellen. Dieses Dokument beschreibt den Prozess zum Erstellen und Verwalten eines Dienstprinzipals, abhängig von dem Verzeichnis, das Sie für Ihre Azure Stack Hub-Instanz ausgewählt haben:
 
-- Azure Active Directory (Azure AD): Azure AD ist ein mehrinstanzenfähiger cloudbasierter Verzeichnis- und Identitätsverwaltungsdienst. Sie können Azure AD mit einer verbundenen Azure Stack-Instanz verwenden.
-- Active Directory-Verbunddienste (AD FS). AD FS bietet einen vereinfachten, geschützten Identitätsverbund und Funktionen für eine einmalige Anmeldung (Single Sign-On, SSO) über das Web. Sie können AD FS sowohl mit verbundenen als auch mit getrennten Azure Stack-Instanzen verwenden.
+- Azure Active Directory (Azure AD): Azure AD ist ein mehrinstanzenfähiger cloudbasierter Verzeichnis- und Identitätsverwaltungsdienst. Sie können Azure AD mit einer verbundenen Azure Stack Hub-Instanz verwenden.
+- Active Directory-Verbunddienste (AD FS). AD FS bietet einen vereinfachten, geschützten Identitätsverbund und Funktionen für eine einmalige Anmeldung (Single Sign-On, SSO) über das Web. Sie können AD FS sowohl mit verbundenen als auch mit getrennten Azure Stack Hub-Instanzen verwenden.
 
 Zuerst erfahren Sie, wie Sie einen Dienstprinzipal verwalten, dann wie Sie den Dienstprinzipal einer Rolle zuweisen und so seinen Zugriff auf Ressourcen einschränken.
 
 ## <a name="manage-an-azure-ad-service-principal"></a>Verwalten eines Azure AD-Dienstprinzipals
 
-Wenn Sie Azure Stack mit Azure AD als Identitätsverwaltungsdienst bereitgestellt haben, können Sie Dienstprinzipale auf die gleiche Weise wie für Azure erstellen. In diesem Abschnitt erfahren Sie, wie die Schritte über das Azure-Portal ausgeführt werden. Vergewissern Sie sich vorher, ob Sie über die [erforderlichen Azure AD-Berechtigungen](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) verfügen.
+Wenn Sie Azure Stack Hub mit Azure AD als Identitätsverwaltungsdienst bereitgestellt haben, können Sie Dienstprinzipale auf die gleiche Weise wie für Azure erstellen. In diesem Abschnitt erfahren Sie, wie die Schritte über das Azure-Portal ausgeführt werden. Vergewissern Sie sich vorher, ob Sie über die [erforderlichen Azure AD-Berechtigungen](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) verfügen.
 
 ### <a name="create-a-service-principal-that-uses-a-client-secret-credential"></a>Erstellen eines Dienstprinzipals, der Anmeldeinformationen mit einem geheimen Clientschlüssel verwendet
 
@@ -72,9 +66,9 @@ In diesem Abschnitt registrieren Sie Ihre App über das Azure-Portal, wodurch da
 
 ## <a name="manage-an-ad-fs-service-principal"></a>Verwalten eines AD FS-Dienstprinzipals
 
-Wenn Sie Azure Stack mit AD FS als Identitätsverwaltungsdienst bereitgestellt haben, müssen Sie PowerShell verwenden, um den Dienstprinzipal zu verwalten. Beispiele für das Verwalten von Anmeldeinformationen des Dienstprinzipals finden Sie im Folgenden. Es werden sowohl ein X.509-Zertifikat als auch ein geheimer Clientschlüssel demonstriert.
+Wenn Sie Azure Stack Hub mit AD FS als Identitätsverwaltungsdienst bereitgestellt haben, müssen Sie PowerShell für die Verwaltung des Dienstprinzipals verwenden. Beispiele für das Verwalten von Anmeldeinformationen des Dienstprinzipals finden Sie im Folgenden. Es werden sowohl ein X.509-Zertifikat als auch ein geheimer Clientschlüssel demonstriert.
 
-Die Skripts müssen in einer PowerShell-Konsole mit erhöhten Rechten („Als Administrator ausführen“) ausgeführt werden, wodurch eine weitere Sitzung auf einer VM geöffnet wird, die einen privilegierten Endpunkt für Ihre Azure Stack-Instanz hostet. Sobald die Sitzung des privilegierten Endpunkts eingerichtet wurde, werden zusätzliche Cmdlets ausgeführt und damit der Dienstprinzipal verwaltet. Weitere Informationen zum privilegierten Endpunkt finden Sie unter [Verwenden des privilegierten Endpunkts in Azure Stack](azure-stack-privileged-endpoint.md).
+Die Skripts müssen in einer PowerShell-Konsole mit erhöhten Rechten („Als Administrator ausführen“) ausgeführt werden, wodurch eine weitere Sitzung auf einer VM geöffnet wird, die einen privilegierten Endpunkt für Ihre Azure Stack Hub-Instanz hostet. Sobald die Sitzung des privilegierten Endpunkts eingerichtet wurde, werden zusätzliche Cmdlets ausgeführt und damit der Dienstprinzipal verwaltet. Weitere Informationen zum privilegierten Endpunkt finden Sie unter [Verwenden des privilegierten Endpunkts in Azure Stack Hub](azure-stack-privileged-endpoint.md).
 
 ### <a name="create-a-service-principal-that-uses-a-certificate-credential"></a>Erstellen eines Dienstprinzipals, der Zertifikatanmeldeinformationen verwendet
 
@@ -83,13 +77,13 @@ Wenn Sie ein Zertifikat für Anmeldeinformationen eines Dienstprinzipals erstell
  - Zertifikate müssen für die Produktion von einer internen oder einer öffentlichen Zertifizierungsstelle ausgestellt werden. Wenn Sie eine öffentliche Zertifizierungsstelle verwenden, muss die Zertifizierungsstelle im Rahmen des Microsoft Trusted Root Authority Program in das Basisbetriebssystem-Image aufgenommen werden. Sie finden die vollständige Liste unter [Microsoft Trusted Root Certificate Program: Participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca). Ein Beispiel für das Erstellen eines „selbstsignierten“ Testzertifikats finden Sie auch weiter unten in diesem Artikel unter [Aktualisieren der Zertifikatanmeldeinformationen eines Dienstprinzipals](#update-a-service-principals-certificate-credential). 
  - Der Kryptografieanbieter muss als Microsoft Legacy-CSP-Schlüsselanbieter (Microsoft Legacy Cryptographic Service Provider) angegeben werden.
  - Das Zertifikatformat muss eine PFX-Datei sein, da sowohl der öffentliche als auch der private Schlüssel benötigt wird. Windows-Server verwenden PFX-Dateien, die die Datei für den öffentlichen Schlüssel (SSL-Zertifikatdatei) und die zugehörige Datei für den privaten Schlüssel enthalten.
- - Ihre Azure Stack-Infrastruktur muss über Netzwerkzugriff auf den im Zertifikat veröffentlichten Speicherort der Zertifikatsperrliste (Certificate Revocation List, CRL) der Zertifizierungsstelle verfügen. Bei dieser CRL muss es sich um einen HTTP-Endpunkt handeln.
+ - Ihre Azure Stack Hub-Infrastruktur muss über Netzwerkzugriff auf den im Zertifikat veröffentlichten Speicherort der Zertifikatsperrliste (Certificate Revocation List, CRL) der Zertifizierungsstelle verfügen. Bei dieser CRL muss es sich um einen HTTP-Endpunkt handeln.
 
 Sobald Sie über ein Zertifikat verfügen, verwenden Sie das folgende PowerShell-Skript, um Ihre App zu registrieren und einen Dienstprinzipal zu erstellen. Den Dienstprinzipal verwenden Sie auch, um sich bei Azure anzumelden. Ersetzen Sie die folgenden Platzhalter durch Ihre eigenen Werte:
 
 | Platzhalter | BESCHREIBUNG | Beispiel |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Der Name der privilegierten Endpunkt-VM in Ihrer Azure Stack-Instanz. | "AzS-ERCS01" |
+| \<PepVM\> | Der Name der privilegierten Endpunkt-VM in Ihrer Azure Stack Hub-Instanz. | "AzS-ERCS01" |
 | \<YourCertificateLocation\> | Der Speicherort Ihres X.509-Zertifikats im lokalen Zertifikatspeicher. | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
 | \<YourAppName\> | Ein beschreibender Name für die neue App-Registrierung. | "Mein Verwaltungstool" |
 
@@ -112,7 +106,7 @@ Sobald Sie über ein Zertifikat verfügen, verwenden Sie das folgende PowerShell
     $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
     $Session | Remove-PSSession
 
-    # Using the stamp info for your Azure Stack instance, populate the following variables:
+    # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
     # - AzureRM endpoint used for Azure Resource Manager operations 
     # - Audience for acquiring an OAuth token used to access Graph API 
     # - GUID of the directory tenant
@@ -120,7 +114,7 @@ Sobald Sie über ein Zertifikat verfügen, verwenden Sie das folgende PowerShell
     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
     $TenantID = $AzureStackInfo.AADTenantID
 
-    # Register and set an AzureRM environment that targets your Azure Stack instance
+    # Register and set an AzureRM environment that targets your Azure Stack Hub instance
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
 
     # Sign in using the new service principal identity
@@ -160,7 +154,7 @@ Aktualisieren Sie die Zertifikatanmeldeinformationen mithilfe der PowerShell, in
 
 | Platzhalter | BESCHREIBUNG | Beispiel |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Der Name der privilegierten Endpunkt-VM in Ihrer Azure Stack-Instanz. | "AzS-ERCS01" |
+| \<PepVM\> | Der Name der privilegierten Endpunkt-VM in Ihrer Azure Stack Hub-Instanz. | "AzS-ERCS01" |
 | \<YourAppName\> | Ein beschreibender Name für die neue App-Registrierung. | "Mein Verwaltungstool" |
 | \<YourCertificateLocation\> | Der Speicherort Ihres X.509-Zertifikats im lokalen Zertifikatspeicher. | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
 | \<AppIdentifier\> | Der Bezeichner, der der Anwendungsregistrierung zugewiesen ist. | "S-1-5-21-1512385356-3796245103-1243299919-1356" |
@@ -205,7 +199,7 @@ Nun erstellen Sie eine weitere App-Registrierung, aber diesmal geben Sie Anmelde
 
 | Platzhalter | BESCHREIBUNG | Beispiel |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Der Name der privilegierten Endpunkt-VM in Ihrer Azure Stack-Instanz. | "AzS-ERCS01" |
+| \<PepVM\> | Der Name der privilegierten Endpunkt-VM in Ihrer Azure Stack Hub-Instanz. | "AzS-ERCS01" |
 | \<YourAppName\> | Ein beschreibender Name für die neue App-Registrierung. | "Mein Verwaltungstool" |
 
 1. Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Rechten, und führen Sie die folgenden Cmdlets aus:
@@ -222,7 +216,7 @@ Nun erstellen Sie eine weitere App-Registrierung, aber diesmal geben Sie Anmelde
      $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
      $Session | Remove-PSSession
 
-     # Using the stamp info for your Azure Stack instance, populate the following variables:
+     # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
      # - AzureRM endpoint used for Azure Resource Manager operations 
      # - Audience for acquiring an OAuth token used to access Graph API 
      # - GUID of the directory tenant
@@ -230,7 +224,7 @@ Nun erstellen Sie eine weitere App-Registrierung, aber diesmal geben Sie Anmelde
      $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
      $TenantID = $AzureStackInfo.AADTenantID
 
-     # Register and set an AzureRM environment that targets your Azure Stack instance
+     # Register and set an AzureRM environment that targets your Azure Stack Hub instance
      Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
 
      # Sign in using the new service principal identity
@@ -262,7 +256,7 @@ Aktualisieren Sie die Anmeldeinformationen mit einem geheimen Clientschlüssel m
 
 | Platzhalter | BESCHREIBUNG | Beispiel |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Der Name der privilegierten Endpunkt-VM in Ihrer Azure Stack-Instanz. | "AzS-ERCS01" |
+| \<PepVM\> | Der Name der privilegierten Endpunkt-VM in Ihrer Azure Stack Hub-Instanz. | "AzS-ERCS01" |
 | \<AppIdentifier\> | Der Bezeichner, der der Anwendungsregistrierung zugewiesen ist. | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
 
 1. Führen Sie unter Verwendung Ihrer Windows PowerShell-Sitzung mit erhöhten Rechten die folgenden Cmdlets aus:
@@ -299,7 +293,7 @@ Ersetzen Sie die folgenden Platzhalter durch Ihre eigenen Werte:
 
 | Platzhalter | BESCHREIBUNG | Beispiel |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Der Name der privilegierten Endpunkt-VM in Ihrer Azure Stack-Instanz. | "AzS-ERCS01" |
+| \<PepVM\> | Der Name der privilegierten Endpunkt-VM in Ihrer Azure Stack Hub-Instanz. | "AzS-ERCS01" |
 | \<AppIdentifier\> | Der Bezeichner, der der Anwendungsregistrierung zugewiesen ist. | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
 
 ```powershell  
@@ -331,7 +325,7 @@ Der Zugriff von Benutzern und Apps auf Azure-Ressourcen wird über die rollenbas
 
 Der Typ der Ressource, die Sie auswählen, bestimmt auch den *Zugriffsbereich* für den Dienstprinzipal. Sie können den Zugriffsbereich auf Ebene des Abonnements, der Ressourcengruppe oder der Ressource festlegen. Berechtigungen werden von niedrigeren Ebenen mit geringerem Umfang geerbt. Wenn z. B. der Rolle „Leser“ für eine Ressourcengruppe eine App hinzugefügt wird, kann diese Rolle die Ressourcengruppe und alle darin enthaltenen Ressourcen lesen.
 
-1. Melden Sie sich beim entsprechenden Portal an, basierend auf dem Verzeichnis, das Sie während der Azure Stack-Installation angegeben haben (z. B. für Azure AD im Azure-Portal oder für AD FS im Azure Stack-Benutzerportal). In diesem Beispiel zeigen wir einen beim Azure Stack-Benutzerportal angemeldeten Benutzer.
+1. Melden Sie sich basierend auf dem Verzeichnis, das Sie bei der Azure Stack Hub-Installation angegeben haben, beim entsprechenden Portal an (etwa für Azure AD beim Azure-Portal oder für AD FS beim Azure Stack Hub-Benutzerportal). In diesem Beispiel zeigen wir einen beim Azure Stack Hub-Benutzerportal angemeldeten Benutzer.
 
    > [!NOTE]
    > Um Rollenzuweisungen für eine bestimmte Ressource hinzuzufügen, muss Ihr Benutzerkonto einer Rolle angehören, die die `Microsoft.Authorization/roleAssignments/write`-Berechtigung deklariert. Beispielsweise einer der integrierten Rollen [Besitzer](/azure/role-based-access-control/built-in-roles#owner)oder [Benutzerzugriffsadministrator](/azure/role-based-access-control/built-in-roles#user-access-administrator).  
@@ -352,7 +346,7 @@ Der Typ der Ressource, die Sie auswählen, bestimmt auch den *Zugriffsbereich* f
 
      [![Zugewiesene Rolle](media/azure-stack-create-service-principal/assigned-role.png)](media/azure-stack-create-service-principal/assigned-role.png#lightbox)
 
-Nachdem Sie nun einen Dienstprinzipal erstellt und eine Rolle zugewiesen haben, können Sie diesen Dienstprinzipal in Ihrer App nutzen, um auf Azure Stack-Ressourcen zuzugreifen.  
+Nachdem Sie nun einen Dienstprinzipal erstellt und eine Rolle zugewiesen haben, können Sie diesen Dienstprinzipal in Ihrer App nutzen, um auf Azure Stack Hub-Ressourcen zuzugreifen.  
 
 ## <a name="next-steps"></a>Nächste Schritte
 

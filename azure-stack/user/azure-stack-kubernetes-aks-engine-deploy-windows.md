@@ -1,5 +1,5 @@
 ---
-title: Bereitstellen der AKS-Engine in Windows in Azure Stack | Microsoft-Dokumentation
+title: Bereitstellen der AKS-Engine unter Windows in Azure Stack | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie einen Windows-Computer in Ihrer Azure Stack-Instanz zum Hosten der AKS-Engine verwenden, um einen Kubernetes-Cluster bereitzustellen und zu verwalten.
 services: azure-stack
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: c646f8229b5360aed12c9cd8070a00bf38ca3e01
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: b9dd45b6ea7fdfaab1b1e7418800dcd2031dc151
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167304"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595185"
 ---
-# <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Installieren der AKS-Engine in Windows in Azure Stack
+# <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Installieren der AKS-Engine unter Windows in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -46,11 +46,11 @@ Sie können die Client-VM installieren, um Ihren Kubernetes-Cluster in einer mit
 3. [Installieren Sie Chocolatey mithilfe der PowerShell-Anweisungen](https://chocolatey.org/install#install-with-powershellexe). 
 
     Die Chocolatey-Website enthält folgende Informationen: Chocolatey ist ein Paket-Manager wie z. B. apt-get oder yum, aber für Windows. Er wurde als dezentralisiertes Framework für die schnelle Installation von Anwendungen und Tools konzipiert, die Sie benötigen. Er basiert auf der NuGet-Infrastruktur und verwendet derzeit schwerpunktmäßig PowerShell zur Bereitstellung von Paketen aus den Distributionen für Ihren Computer.
-4. Suchen Sie die Version der AKS-Engine in der Tabelle [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) (Unterstützte Kubernetes-Versionen). Die AKS-Basis-Engine muss in Ihrem Azure Stack-Marketplace verfügbar sein. Beim Ausführen des Befehls müssen Sie die Version `--version v0.41.2` angeben. Wenn Sie die Version nicht angeben, installiert der Befehl die neueste Version, die möglicherweise ein VHD-Image erfordert, das in Ihrem Marketplace nicht verfügbar ist.
+4. Suchen Sie die Version der AKS-Engine in der Tabelle [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) (Unterstützte Kubernetes-Versionen). Die AKS-Basis-Engine muss in Ihrem Azure Stack-Marketplace verfügbar sein. Beim Ausführen des Befehls müssen Sie die Version `--version v0.43.0` angeben. Wenn Sie die Version nicht angeben, installiert der Befehl die neueste Version, die möglicherweise ein VHD-Image erfordert, das in Ihrem Marketplace nicht verfügbar ist.
 5. Führen Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten aus, und beziehen Sie die Versionsnummer ein:
 
     ```PowerShell  
-        choco install aks-engine --version 0.41.2 -y
+        choco install aks-engine --version 0.43.0 -y
     ```
 
 > [!Note]  
@@ -75,7 +75,7 @@ Sie können die Client-VM installieren, um Ihren Kubernetes-Cluster in einer Azu
 7.  Führen Sie den folgenden Befehl in einer Eingabeaufforderung mit erhöhten Rechten aus. Beziehen Sie die richtige Versionsnummer ein:
 
     ```PowerShell  
-        choco install aks-engine --version v0.41.2 -y
+        choco install aks-engine --version 0.43.0 -y
     ```
 
 ## <a name="verify-the-installation"></a>Überprüfen der Installation

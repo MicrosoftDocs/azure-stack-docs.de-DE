@@ -16,12 +16,12 @@ ms.date: 10/10/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 91314fcd33d3b4171dc7e9a3e2d78cdf07e2f50e
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 095744322937a34dffd680b886fd4b06ca65d7d6
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283552"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618276"
 ---
 # <a name="download-existing-marketplace-items-from-azure-and-publish-to-azure-stack"></a>Herunterladen vorhandener Marketplace-Elemente aus Azure und Veröffentlichen in Azure Stack
 
@@ -101,7 +101,7 @@ Dieses Szenario besteht aus zwei Teilen:
 
 Nach Ihrer Registrierung können Sie die folgende Meldung ignorieren, die auf dem Blatt für die Marketplace-Verwaltung angezeigt wird, da sie für den Anwendungsfall mit getrennter Umgebung nicht relevant ist:
 
-[![Meldung „Nicht registriert“](media/azure-stack-download-azure-marketplace-item/toolsmsgsm.png "Meldung „Nicht registriert“")](media/azure-stack-download-azure-marketplace-item/toolsmsg.png#lightbox)
+[![Nicht registrierte Nachricht](media/azure-stack-download-azure-marketplace-item/toolsmsgsm.png "Nicht registrierte Nachricht")](media/azure-stack-download-azure-marketplace-item/toolsmsg.png#lightbox)
 
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Herunterladen von Marketplace-Elementen mithilfe des Tools für die Marketplace-Syndikation
 
@@ -150,9 +150,9 @@ Nach Ihrer Registrierung können Sie die folgende Meldung ignorieren, die auf de
 
 6. Wenn das Tool ausgeführt wird, wird ein Bildschirm mit der Liste verfügbarer Azure Marketplace-Elemente angezeigt, der in etwa wie auf der folgenden Abbildung aussieht:
 
-   [![Popup mit Azure Marketplace-Elementen](media/azure-stack-download-azure-marketplace-item/image05.png "Popup mit Azure Marketplace-Elementen")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
+   [![Popup mit Azure Marketplace-Elementen](media/azure-stack-download-azure-marketplace-item/image05.png "Marketplace-Elemente")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
-7. Wenn Sie die Azure Storage-Tools nicht installiert haben, erhalten Sie die folgende Meldung. Laden Sie zum Installieren dieser Tools [AzCopy](/azure/storage/common/storage-use-azcopy#download-and-install-azcopy-on-windows) herunter:
+7. Wenn Sie die Azure Storage-Tools nicht installiert haben, erhalten Sie die folgende Meldung. Laden Sie zum Installieren dieser Tools [AzCopy](/azure/storage/common/storage-use-azcopy#download-azcopy) herunter:
 
    ![Speichertools](media/azure-stack-download-azure-marketplace-item/vmnew1.png)
 

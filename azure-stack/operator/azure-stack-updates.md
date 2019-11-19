@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 0a784a80931113b7901a021a7c2ff707ce7df355
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 31436cbe92550044efe8b28a5063da61508e7304
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283266"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845781"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Übersicht zum Verwalten von Updates in Azure Stack
 
@@ -81,7 +81,7 @@ Wenn Sie wissen, dass ein Update verfügbar ist, können Sie es mit den folgende
 
 1. **Planen des Updates**
 
-    Bereiten Sie Ihre Azure Stack-Instanz vor, um den Aktualisierungsprozess so reibungslos wie möglich zu gestalten, damit die Benutzer nur minimal beeinträchtigt werden. Informieren Sie Ihre Benutzer über mögliche Dienstausfälle, und befolgen Sie dann die Schritte zum Vorbereiten der Instanz auf das Update. Weitere Schritte zum Planen des Updates finden Sie unter [Planen eines Azure Stack-Updates](azure-stack-update-plan.md).
+    Bereiten Sie Ihre Azure Stack-Instanz vor, um den Aktualisierungsprozess so reibungslos wie möglich zu gestalten, damit die Benutzer nur minimal beeinträchtigt werden. Informieren Sie Ihre Benutzer über mögliche Dienstausfälle, und befolgen Sie dann die Schritte zum Vorbereiten der Instanz auf das Update. Weitere Schritte zum Planen des Updates finden Sie unter [Azure Stack-Checkliste für Updateaktivitäten](release-notes-checklist.md).
 
 2. **Hochladen und Vorbereiten des Updatepakets**
 
@@ -103,6 +103,6 @@ Bei der Installation der Updates können Sie den allgemeinen Status anzeigen, w�
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Um den Updatevorgang zu starten, führen Sie die Schritte unter [Planen eines Azure Stack-Updates](azure-stack-update-plan.md) aus.
+- Um den Updatevorgang zu starten, führen Sie die Schritte unter [Azure Stack-Checkliste für Updateaktivitäten](release-notes-checklist.md) aus.
 - Informationen zu den unterstützten Versionen von Azure Stack finden Sie unter [Azure Stack-Wartungsrichtlinie](azure-stack-servicing-policy.md).  
 - Weitere Informationen zu den aktuellen und letzten Updates finden Sie in den [Azure Stack-Versionshinweisen](release-notes.md).

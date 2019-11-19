@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/19/2019
+ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 553b6af0e61067b4223baee100bd1a9b3079d1f1
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.lastreviewed: 10/30/2019
+ms.openlocfilehash: 4294f7f1d53f77c55532645de428678cf42be531
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73168529"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618287"
 ---
 # <a name="back-up-your-vm-on-azure-stack-with-commvault"></a>Sichern Ihres virtuellen Computers in Azure Stack mit Commvault
 
@@ -149,7 +149,7 @@ Sie müssen wissen, ob Azure AD oder AD FS als Identity Manager festgelegt ist
 
 9. Geben Sie Ihre Zugriffsinformationen für das Speicherkonto ein. Anweisungen zum Einrichten eines Azure Storage-Kontos finden Sie hier. Zugriffsinformationen:
 
-    -  **Diensthost**: Der Name der URL stammt aus den Eigenschaften des Blobcontainers in der Ressource. Wenn als URL z. B. https://backuptest.blob.westus.stackpoc.com/mybackups verwendet wird, ist „blob.westus.stackpoc.com“ der Diensthost.
+    -  **Diensthost**: Der Name der URL stammt aus den Eigenschaften des Blobcontainers in der Ressource. Die Beispiel-URL lautete https:\//backuptest.blob.westus.stackpoc.com/mybackups and I used, blob.westus.stackpoc.com auf dem Diensthost.
     
     -   **Kontoname:** Verwenden Sie den Namen des Speicherkontos. Diesen finden Sie auf dem Blatt „Zugriffsschlüssel“ in der Speicherressource.
     

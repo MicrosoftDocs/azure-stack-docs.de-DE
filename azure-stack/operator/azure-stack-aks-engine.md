@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 1e1e72cea27bf036f662cfaa64a84a57fe9bc964
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: c21223ca8926a1e2b3ca1b06752a79a14adaeda1
+ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283057"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73636879"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Hinzufügen von Voraussetzungen für die Azure Kubernetes Services-Engine (AKS) zum Azure Stack-Marketplace
 
@@ -64,14 +64,14 @@ Fügen Sie das folgende Element zum Marketplace hinzu:
 
 1. Wählen Sie **+ Add from Azure** (+ Aus Azure hinzufügen) aus.
 
-1. Geben Sie `AKS Base Image` ein.
+1. Geben Sie `AKS Base` ein.
 
 1. Wählen Sie die Imageversion aus, die der Version der AKS-Engine entspricht. Eine Liste der AKS-Basisimages für verschiedene Versionen der AKS-Engine finden Sie unter [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) (Unterstützte Kubernetes-Versionen). 
 
     Wählen Sie in der Liste Folgendes aus:
     - **Herausgeber**: Azure Kubernetes Service
     - **Angebot**: aks
-    - **Version**: AKS-Basisimage 16.04-LTS Image Distro, September 2019 (2019.09.19 oder Version mit Zuordnung zur AKS-Engine)
+    - **Version**: AKS-Basisimage 16.04-LTS Image Distro, October 2019 (2019.10.24 oder Version mit Zuordnung zur AKS-Engine)
 
 1. Wählen Sie **Herunterladen** aus.
 

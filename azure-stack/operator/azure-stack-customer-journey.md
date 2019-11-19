@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: fdb0f9a34fe40b3d3fef6abf96b9e1a6927b04e6
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 6ea5248881e10ca9e96ba423ecb4ea5569f00211
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909307"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618251"
 ---
 # <a name="azure-stack-datacenter-integration-walkthrough"></a>Integration des Azure Stack-Datencenters: Exemplarische Vorgehensweise
 
@@ -29,12 +29,49 @@ In diesem Artikel wird die Azure Stack-End-to-End-Kundenerfahrung vom Kauf eines
 
 Als Azure Stack-Kunde sollten Sie die folgenden Phasen erwarten:
 
-|     |Planungsphase|Auftragsprozess|Vor der Bereitstellung|Factoryprozess|Hardwarelieferung|Lokale Bereitstellung|
-|-----|-----|-----|-----|-----|-----|-----|
-|**Microsoft**|Interagieren Sie mit dem Partner, um Presales-Support bereitzustellen.|Bereiten Sie Softwarelizenzierung und Verträge nach Bedarf vor.|Stellen Sie dem Kunden die erforderlichen Tools zum Sammeln von Anforderungen an die Datencenterintegration und Dokumentation bereit.|Stellen Sie die neuesten Baselinebuilds und Toolkettenaktualisierungen in einem monatlichen Rhythmus bereit.|–|Die Supporttechniker von Microsoft unterstützen Sie bei eventuellen Bereitstellungsproblemen.|
-|**Partner**|Empfehlen Sie Lösungsoptionen anhand von Kundenanforderungen.<br><br>Schlagen Sie bei Bedarf Proof of Concept (POC) vor.<br><br>Richten Sie eine Geschäftsbeziehung ein.<br><br>Entscheiden Sie über die Supportebene.|Bereiten Sie erforderliche Verträge mit dem Kunden vor.<br><br>Erstellen Sie eine Kundenbestellung.<br><br>Legen Sie die Übermittlungszeitachse fest.<br><br>Stellen Sie bei Bedarf eine Verbindung zwischen dem Kunden und Microsoft her.|Bieten Sie dem Kunden die erforderliche Schulung, um sicherzustellen, dass er sämtliche Bereitstellungsvoraussetzungen und Optionen für die Datencenterintegration versteht.<br><br>Helfen Sie dem Kunden bei der Prüfung der gesammelten Daten, um deren Vollständigkeit und Genauigkeit sicherzustellen.|Wenden Sie den zuletzt überprüften Baselinebuild an.<br><br>Wenden Sie das erforderliche Microsoft Deployment Toolkit an.|Versenden Sie Hardware an den Kundenstandort.|Die Bereitstellung wird durch einen Vor-Ort-Techniker erledigt.<br><br>Rack und Stack.<br><br>HLH-Bereitstellung (Hardware Lifecycle Host, Hardwarelebenszyklus-Host).<br><br>Azure Stack-Bereitstellung.<br><br>Übergabe an den Kunden.|
-|**Kunde**|Beschreiben Sie vorgesehene Anwendungsfälle, und geben Sie die Anforderungen an.|Bestimmen Sie das Abrechnungsmodell zum Verwenden, Überprüfen und Genehmigen von Verträgen.|Füllen Sie das [Arbeitsblatt für die Bereitstellung](azure-stack-deployment-worksheet.md) aus, und stellen Sie sicher, dass alle Bereitstellungsvoraussetzungen erfüllt und fertig für die Bereitstellung sind.|–|Bereiten Sie das Datencenter vor, indem Sie sicherstellen, dass die gesamte erforderliche Stromversorgung und Kühlung, die Grenzkonnektivität und andere Anforderungen an die Datencenterintegration vorhanden sind.|Stehen Sie während der Bereitstellung zur Verfügung, um Anmeldeinformationen und Support zum Abonnement zu bieten, sofern es Fragen zu den bereitgestellten Daten gibt.|
-| | | | | | | |
+# <a name="customertabcustomer"></a>[Kunde](#tab/customer)
+
+1. Beschreiben Sie vorgesehene Anwendungsfälle, und geben Sie die Anforderungen an.
+2. Bestimmen Sie das Abrechnungsmodell zum Verwenden, Überprüfen und Genehmigen von Verträgen.
+3. Füllen Sie das [Arbeitsblatt für die Bereitstellung](azure-stack-deployment-worksheet.md) aus, und stellen Sie sicher, dass alle Bereitstellungsvoraussetzungen erfüllt und fertig für die Bereitstellung sind.
+4. Bereiten Sie das Rechenzentrum vor, indem Sie sicherstellen, dass die gesamte erforderliche Stromversorgung und Kühlung, die Grenzkonnektivität und andere Anforderungen an die Datencenterintegration vorhanden sind.
+5. Stehen Sie während der Bereitstellung zur Verfügung, um Anmeldeinformationen und Support zum Abonnement zu bieten, sofern es Fragen zu den bereitgestellten Daten gibt.
+
+# <a name="partnertabpartner"></a>[Partner](#tab/partner)
+
+1. Planungsphase:
+   - Empfehlen Sie Lösungsoptionen anhand von Kundenanforderungen.
+   - Schlagen Sie bei Bedarf Proof of Concept (POC) vor.
+   - Richten Sie eine Geschäftsbeziehung ein.
+   - Entscheiden Sie über die Supportebene.
+2. Auftragsprozess:
+   - Bereiten Sie erforderliche Verträge mit dem Kunden vor.
+   - Erstellen Sie eine Kundenbestellung.
+   - Legen Sie die Übermittlungszeitachse fest.
+   - Stellen Sie bei Bedarf eine Verbindung zwischen dem Kunden und Microsoft her.
+3. Vor der Bereitstellung
+   - Bieten Sie dem Kunden die erforderliche Schulung, um sicherzustellen, dass er sämtliche Bereitstellungsvoraussetzungen und Optionen für die Rechenzentrumsintegration versteht.
+   - Helfen Sie dem Kunden bei der Prüfung der gesammelten Daten, um deren Vollständigkeit und Genauigkeit sicherzustellen.
+4. Factoryprozess
+   - Wenden Sie den zuletzt überprüften Baselinebuild an.
+   - Wenden Sie das erforderliche Microsoft Deployment Toolkit an.
+5. Hardwarelieferung:
+   - Versenden Sie Hardware an den Kundenstandort.
+6. Lokale Bereitstellung
+   - Die Bereitstellung wird durch einen Vor-Ort-Techniker erledigt.
+   - Rack und Stack.
+   - HLH-Bereitstellung (Hardware Lifecycle Host, Hardwarelebenszyklus-Host).
+   - Azure Stack-Bereitstellung.
+   - Übergabe an den Kunden.
+
+# <a name="microsofttabmicro"></a>[Microsoft](#tab/micro)
+
+1. Interagieren Sie mit dem Partner, um Presales-Support bereitzustellen.
+2. Bereiten Sie Softwarelizenzierung und Verträge nach Bedarf vor.
+3. Stellen Sie dem Kunden die erforderlichen Tools zum Sammeln von Anforderungen an die Datencenterintegration und Dokumentation bereit.
+4. Stellen Sie die neuesten Baselinebuilds und Toolkettenaktualisierungen in einem monatlichen Rhythmus bereit.
+5. Die Supporttechniker von Microsoft unterstützen Sie bei eventuellen Bereitstellungsproblemen.
+
 
 
 ## <a name="planning-phase"></a>Planungsphase

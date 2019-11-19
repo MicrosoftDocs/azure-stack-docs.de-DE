@@ -15,12 +15,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 49684cb1821a5014e984a8e177f881be13123829
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 7c2dfd33db3847f386136922716b0ee35c61ce75
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047144"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595290"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Problembehandlung bei der AKS-Engine in Azure Stack
 
@@ -36,9 +36,9 @@ Beim Bereitstellen oder Arbeiten mit der AKS-Engine in Azure Stack tritt möglic
 
 ### <a name="try-gofish"></a>Ausprobieren von GoFish
 
-Wenn bei den Installationsschritten Fehler auftreten, versuchen Sie, mit dem GoFish-Paket-Manager zu installieren. [GoFish](https://gofi.sh) ist nach eigener Darstellung ein plattformübergreifendes Homebrew.
+Wenn bei den vorherigen Installationsschritten Fehler auftreten, können Sie die AKS-Engine mit dem GoFish-Paket-Manager installieren. [GoFish](https://gofi.sh) ist nach eigener Darstellung ein plattformübergreifendes Homebrew.
 
-#### <a name="install-the-aks-engine-with-gofish-on-linux"></a>Installieren der AKS-Engine mit GoFish in Linux
+#### <a name="install-the-aks-engine-with-gofish-on-linux"></a>Installieren der AKS-Engine mit GoFish unter Linux
 
 Installieren Sie GoFish von der [Installationsseite](https://gofi.sh/#install).
 
@@ -54,7 +54,7 @@ Installieren Sie GoFish von der [Installationsseite](https://gofi.sh/#install).
     Run "gofish install aks-engine"
     ```
 
-#### <a name="install-the-aks-engine-with-gofish-on-windows"></a>Installieren der AKS-Engine mit GoFish in Windows
+#### <a name="install-the-aks-engine-with-gofish-on-windows"></a>Installieren der AKS-Engine mit GoFish unter Windows
 
 Installieren Sie GoFish von der [Installationsseite](https://gofi.sh/#install).
 
@@ -62,7 +62,7 @@ Installieren Sie GoFish von der [Installationsseite](https://gofi.sh/#install).
 
     ```PowerShell
     Set-ExecutionPolicy Bypass -Scope Process -Force
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.ps1'))
+    iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.ps1'))
     ```
 
 2.  Führen Sie den folgenden Befehl in derselben Sitzung zum Installieren der AKS-Engine mit GoFish aus:
@@ -126,8 +126,8 @@ Anforderungen:
     ```bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
-    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.0/diagnosis.tar.gz
-    tar xvzf diagnosis.tar.gz -C ./
+    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.1/diagnosis-v0.1.1.tar.gz
+    tar xvf diagnosis-v0.1.1.tar.gz -C ./
     ```
 
 2. Suchen Sie nach den Parametern, die das `getkuberneteslogs.sh`-Skript benötigt. Das Skript verwendet die folgenden Parameter:

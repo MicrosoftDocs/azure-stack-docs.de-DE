@@ -15,12 +15,12 @@ ms.date: 09/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: 79d7a0adfc7d869f600e864264716b34d6452213
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 53390633cf1abb1508a87a10e8672d7a23772207
+ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101143"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802362"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installieren von PowerShell für Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "71101143"
 
 Azure PowerShell bietet eine Reihe von Cmdlets, die das Azure Resource Manager-Modell für die Verwaltung von Azure Stack-Ressourcen verwenden.
 
-Um mit Ihrer Cloud arbeiten zu können, müssen Sie Azure Stack-kompatible PowerShell-Module installieren. Azure Stack verwendet das **AzureRM**-Modul statt des neueren **AzureAZ**-Moduls, das im globalen 0Azure verwendet wird. Darüber hinaus müssen Sie *API-Profile* verwenden, um die kompatiblen Endpunkte für die Azure Stack-Ressourcenanbieter anzugeben.
+Um mit Ihrer Cloud arbeiten zu können, müssen Sie Azure Stack-kompatible PowerShell-Module installieren. Azure Stack verwendet das **AzureRM**-Modul statt des neueren **AzureAZ**-Moduls, das im globalen Azure verwendet wird. Darüber hinaus müssen Sie *API-Profile* verwenden, um die kompatiblen Endpunkte für die Azure Stack-Ressourcenanbieter anzugeben.
 
 API-Profile bieten eine Möglichkeit, Versionsunterschiede zwischen Azure und Azure Stack zu verwalten. Ein API-Versionsprofil ist eine Gruppe von Azure Resource Manager-PowerShell-Modulen mit spezifischen API-Versionen. Jede Cloudplattform verfügt über eine Gruppe von unterstützten API-Versionsprofilen. Beispielsweise unterstützt Azure Stack eine bestimmte Profilversion, z. B. **2019-03-01-hybrid**. Wenn Sie ein Profil installieren, werden die Azure Resource Manager-PowerShell-Module installiert, die dem angegebenen Profil entsprechen.
 
@@ -129,7 +129,7 @@ Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
 
-War die Installation erfolgreich, werden die AzureRM- und AzureStack-Module in der Ausgabe angezeigt.
+War die Installation erfolgreich, werden die `AzureRM`- und `AzureStack`-Module in der Ausgabe angezeigt.
 
 ## <a name="5-disconnected-install-powershell-without-an-internet-connection"></a>5. Nicht verbunden: Installieren von PowerShell ohne Internetverbindung
 
@@ -186,7 +186,7 @@ Die Installation umfasst vier Schritte:
 
 3. Manuelles Bootstrapping des NuGet-Anbieters auf Ihrer getrennten Arbeitsstation Anweisungen finden Sie unter [Manuelles Bootstrapping des NuGet-Anbieters auf einem Computer, der nicht mit dem Internet verbunden ist](https://docs.microsoft.com/powershell/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
 
-4. Registrieren Sie diesen Speicherort als Standardrepository, und installieren Sie die AzureRM- und AzureStack-Module aus diesem Repository:
+4. Registrieren Sie diesen Speicherort als Standardrepository, und installieren Sie die Module AzureRM und `AzureStack` aus diesem Repository:
 
    ```powershell
    # requires -Version 5

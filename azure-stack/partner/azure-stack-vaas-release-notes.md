@@ -14,18 +14,63 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 0ac21cc388b55be6548f9fdba6c8985dd2316c4e
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: aa85310314a09db47f10424e84fe40e355bacb25
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167141"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73846234"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Versionshinweise zu Validation-as-a-Service
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Dieser Artikel enthält die Versionshinweise zu Validation-as-a-Service in Azure Stack.
+
+## <a name="version-4353"></a>Version 4.3.5.3
+
+7\. November 2019
+
+- Updates für Testinhalte
+  - Monatliche Azure Stack-Updateüberprüfung (Version 5.1.46.0 bis 5.1.49.0)
+  - Überprüfung des OEM-Erweiterungspakets (Version 5.1.46.0 bis 5.1.49.0)
+  - Ergebnisse für 5.1.46.0 wurden beibehalten. Benachrichtigen Sie bei erfolgreichen Ausführungen unter 5.1.46.0 vaashelp@microsoft.com bei der Ergebnisübermittlung.
+
+- Fehlerbehebungen
+  - Problem behoben, aufgrund dessen bei der Ausführung der monatlichen Azure Stack-Updateüberprüfung ein Fehler auftrat, wenn die ZIP-Datei mit dem Update Sonderzeichen enthielt
+
+- Bekannte Probleme
+  - Fehler bei VaaS-Tests, wenn „mstest.exe“ nicht gefunden wird. Problemumgehung:
+    1. Drücken Sie im PowerShell-Fenster STRG+C für den Agent.
+    1. Geben Sie „mstest.exe“ ein, um zu überprüfen, ob das Programm „mstest.exe“ erkannt wird.
+    1. Wird „mstest.exe“ nicht erkannt, schließen Sie das aktuelle PowerShell-Fenster.
+    1. Klicken Sie auf „Start“ (nicht auf „PowerShell“ auf der Taskleiste), suchen Sie PowerShell, und öffnen Sie die Shell als Administrator.
+    1. Geben Sie „mstest.exe“ ein, und vergewissern Sie sich, dass dieser Befehl verfügbar ist.
+    1. Starten Sie den Agent neu, und wiederholen Sie den Test.
+  - Das Cloud-Simulationsmodul meldet gelegentlich Fehler bei \*VM-Tests. Schreiben Sie an vaashelp@microsoft.com, bevor Sie die Ausführung wiederholen. 
+
+
+29. Oktober 2019
+
+- Die Onlinedokumentation für den Workflow des monatlichen Azure Stack-Updates und den Workflow der OEM-Paketüberprüfung wurde aktualisiert.
+
+    Lesen Sie hier die aktualisierte Dokumentation zum Überprüfen von OEM-Paketen und hier die aktualisierte Dokumentation zum Überprüfen der Softwareupdates von Microsoft.
+- Aktualisierung des VaaS-Workflows: Monatliches Azure Stack-Update (Version 5.1.30.0 bis 5.1.46.0): Der Testworkflow für die monatliche Azure Stack-Updateüberprüfung wurde aktualisiert.
+
+    Der Workflow erfordert keinen manuellen Eingriff mehr und kann für eine nahtlose Ausführung geplant werden.
+- Aktualisierung des VaaS-Workflows: OEM-Paketüberprüfung (Version 5.1.30.0 bis 5.1.46.0): Der Workflow für die OEM-Paketüberprüfung wurde aktualisiert.
+
+    Der Workflow erfordert keinen manuellen Eingriff mehr und kann für eine nahtlose Ausführung geplant werden.
+- Das Cloud-Simulationsmodul im OEM-Paketvalidierungsworkflow (Version 5.1.30.0 bis 5.1.46.0) wurde aktualisiert, um die Dauer der Validierung zu verkürzen: Die Laufzeit wurde auf 1 Stunde reduziert.
+- Das Cloud-Simulationsmodul im OEM-Paketüberprüfungsworkflow und im Azure Stack-Updateworkflow (Version 5.1.30.0 bis 5.1.46.0) setzt voraus, dass die Updates in zwei unterschiedlichen übergeordneten Ordnern ohne andere Updates in untergeordneten Ordnern überprüft werden.
+- Das Cloud-Simulationsmodul im OEM-Paketüberprüfungsworkflow und im Azure Stack-Updateworkflow (Version 5.1.30.0 bis 5.1.46.0) setzt voraus, dass die Tests in der folgenden Reihenfolge geplant werden: Test für die monatliche Azure Stack-Updateüberprüfung, Test für die OEM-Erweiterungspaketüberprüfung und Cloud-Simulationsmodul.
+- Aktualisierung des VaaS-Agents: Der aktualisierte VaaS-Agent nutzt nun die Anmeldeinformationen des Azure Stack-Cloudadministrators, um den Stempel abzufragen und die Stempelinformationen zum automatischen Auffüllen der Workflows zu erhalten. 
+
+    Bei diesem Update müssen alle Agents aktualisiert und neu gestartet werden. Weitere Informationen zum Aktualisieren des VaaS-Agents finden Sie in den folgenden Anweisungen: https://docs.microsoft.com/en-us/azure-stack/partner/azure-stack-vaas-local-agent.
+- Aktualisierung der VaaS-Portalbenutzeroberfläche: Die Agent-Auswahltabelle wurde verschoben und befindet sich nun oberhalb des Bereichs für die Testplanung, um die Ausführung von Tests zu erleichtern.
+
+    Beim Planen eines Auftrags müssen keine Stempelinformationen mehr eingegeben werden, wenn die VaaS-Agents ordnungsgemäß aktualisiert wurden.
+
 
 ## <a name="version-405"></a>Version 4.0.5
 

@@ -15,18 +15,18 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: b56c5a2be45e9f92630283a2b702f37471e80290
-ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
+ms.openlocfilehash: 9a1f25873512da735df4e098804bb474d9ce75ea
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173092"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73594950"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack"></a>Einrichten der Voraussetzungen für die AKS-Engine in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Sie können die AKS-Engine auf einem virtuellen Computer in Ihrer Umgebung oder auf einem beliebigen Clientcomputer installieren, der Zugriff auf Ihren Azure Stack-Resource Manager-Endpunkt hat. Sie benötigen Folgendes, bevor Sie die Engine ausführen: einen AKS-Basis-Ubuntu-Server und eine benutzerdefinierte Linux-Skripterweiterung, die in Ihrem Abonnement verfügbar sind, eine Dienstprinzipalidentität, die einer Mitwirkendenrolle zugewiesen wurde, und ein privates/öffentliches Schlüsselpaar für den SSH-Zugriff auf Ihren Ubuntu-Server. Wenn Sie das Azure Stack Development Kit verwenden, muss Ihr Computer außerdem den entsprechenden Zertifikaten vertrauen.
+Sie können die AKS-Engine auf einem virtuellen Computer in Ihrer Umgebung oder auf einem beliebigen Clientcomputer installieren, der Zugriff auf Ihren Azure Stack Resource Manager-Endpunkt hat. Sie benötigen Folgendes, bevor Sie die Engine ausführen: einen AKS-Basis-Ubuntu-Server und eine benutzerdefinierte Linux-Skripterweiterung, die in Ihrem Abonnement verfügbar sind, eine Dienstprinzipalidentität, die einer Mitwirkendenrolle zugewiesen wurde, und ein privates/öffentliches Schlüsselpaar für den SSH-Zugriff auf Ihren Ubuntu-Server. Wenn Sie das Azure Stack Development Kit verwenden, muss Ihr Computer außerdem den entsprechenden Zertifikaten vertrauen.
 
 Wenn Sie die Voraussetzungen erfüllen, können Sie mit der [Definition Ihres Clusters](azure-stack-kubernetes-aks-engine-deploy-cluster.md) beginnen.
 
@@ -39,7 +39,7 @@ Zur Verwendung der AKS-Engine benötigen Sie die folgenden Ressourcen. Beachten 
 | Voraussetzung | BESCHREIBUNG | Erforderlich | Anleitung |
 | --- | --- | --- | --- |
 | Benutzerdefinierte Linux-Skripterweiterung | Benutzerdefinierte Linux-Skripterweiterung 2.0<br>Angebot: Custom Script for Linux 2.0<br>Version: 2.0.6 (oder neueste Version)<br>Herausgeber: Microsoft Corp. | Erforderlich | Wenn Sie in Ihrem Abonnement nicht über dieses Element verfügen, wenden Sie sich an Ihren Cloudbetreiber. |
-| AKS-Basis-Ubuntu-Image | AKS-Basisimage<br>Angebot: aks<br>Version: 2019.09.19 (oder neuere Version)<br>Herausgeber: microsoft-aks<br>SKU: aks-ubuntu-1604-201909 | Erforderlich | Wenn Sie in Ihrem Abonnement nicht über dieses Element verfügen, wenden Sie sich an Ihren Cloudbetreiber. Weitere Informationen zur Versionsabhängigkeit finden Sie unter [Abstimmen der Engine auf die Basisimageversion](#matching-engine-to-base-image-version).<br> Wenn Sie der Cloudbediener für Azure Stack sind und die AKS-Engine anbieten möchten, befolgen Sie die Anweisungen unter [Hinzufügen der AKS-Engine zum Azure Stack-Marketplace](../operator/azure-stack-aks-engine.md). |
+| AKS-Basis-Ubuntu-Image | AKS-Basisimage<br>Angebot: aks<br> 2019.10.24 (oder neuere Version)<br>Herausgeber: microsoft-aks<br>SKU: aks-ubuntu-1604-201910 | Erforderlich | Wenn Sie in Ihrem Abonnement nicht über dieses Element verfügen, wenden Sie sich an Ihren Cloudbetreiber. Weitere Informationen zur Versionsabhängigkeit finden Sie unter [Abstimmen der Engine auf die Basisimageversion](#matching-engine-to-base-image-version).<br> Wenn Sie der Cloudbediener für Azure Stack sind und die AKS-Engine anbieten möchten, befolgen Sie die Anweisungen unter [Hinzufügen der AKS-Engine zum Azure Stack-Marketplace](../operator/azure-stack-aks-engine.md). |
 | Azure Stack-Abonnement | Sie greifen über Abonnements auf Angebote in ihrer Azure Stack-Instanz zu. Das Angebot enthält die Dienste, die Ihnen zur Verfügung stehen. | Erforderlich | Zum Bereitstellen von Mandantenworkloads in Azure Stack müssen Sie zuerst ein [Azure Stack-Abonnement](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services) erhalten. |
 | Dienstprinzipalidentität (SPN) |  Eine Anwendung, Ressourcen über Azure Resource Manager bereitstellen oder konfigurieren muss, muss von einem Dienstprinzipal dargestellt werden. | Erforderlich | Möglicherweise müssen Sie sich für dieses Element an den Azure Stack-Operator wenden.  Anweisungen finden Sie unter [Verwenden einer App-Identität für den Ressourcenzugriff](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals). |
 | (SPN) zugewiesene Rolle **Mitwirkender** | Um einer Anwendung den Zugriff auf Ressourcen in Ihrem Abonnement unter Verwendung ihres Dienstprinzipals zu gestatten, müssen Sie den Dienstprinzipal einer Rolle für eine bestimmte Ressource zuweisen. | Erforderlich | Eine Anleitung hierzu finden Sie unter [Zuweisen einer Rolle](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals#assign-a-role). |
@@ -51,9 +51,9 @@ Zur Verwendung der AKS-Engine benötigen Sie die folgenden Ressourcen. Beachten 
 
 ## <a name="matching-engine-to-base-image-version"></a>Abstimmen der Engine auf die Basisimageversion
 
-Die AKS-Engine verwendet ein erstelltes Image, das **AKS-Basisimage**. Alle AKS-Engine-Versionen sind von einer bestimmten Imageversion abhängig, die von Ihrem Azure Stack-Operator in ihrer Azure Stack-Instanz verfügbar gemacht wird. Eine Tabelle mit den AKS-Engine-Versionen und den entsprechenden unterstützten Kubernetes-Versionen finden Sie unter [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) (Unterstützte Kubernetes-Versionen). Beispielsweise hängt die AKS-Engine-Version `v0.41.2` von der Version `2019.09.19` des AKS-Basisimage ab. Bitten Sie Ihren Azure Stack-Operator, die spezifische Imageversion vom Azure Marketplace in den Azure Stack-Marketplace herunterzuladen.
+Die **AKS-Engine** verwendet ein erstelltes Image, das AKS-Basisimage. Alle AKS-Engine-Versionen sind von einer bestimmten Imageversion abhängig, die von Ihrem Azure Stack-Operator in ihrer Azure Stack-Instanz verfügbar gemacht wird. Eine Tabelle mit den AKS-Engine-Versionen und den entsprechenden unterstützten Kubernetes-Versionen finden Sie unter [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) (Unterstützte Kubernetes-Versionen). Beispielsweise hängt die AKS-Engine-Version `v0.43.0` von der Version `2019.10.24` des AKS-Basisimage ab. Bitten Sie Ihren Azure Stack-Operator, die spezifische Imageversion vom Azure Marketplace in den Azure Stack-Marketplace herunterzuladen.
 
-Wenn das Image nicht in Ihrem Azure Stack-Marketplace verfügbar ist, lösen Sie einen Fehler aus. Wenn Sie beispielsweise derzeit AKS-Engine Version v0.41.2 verwenden und AKS-Basisimageversion `2019.09.19` nicht verfügbar ist, wird beim Ausführen der AKS-Engine folgende Fehlermeldung angezeigt: 
+Wenn das Image nicht in Ihrem Azure Stack-Marketplace verfügbar ist, lösen Sie einen Fehler aus. Wenn Sie beispielsweise derzeit AKS-Engine Version 0.43.0 verwenden und AKS-Basisimageversion `2019.10.24` nicht verfügbar ist, wird beim Ausführen der AKS-Engine folgende Fehlermeldung angezeigt: 
 
 ```Text  
 The platform image 'microsoft-aks:aks:aks-ubuntu-1604-201908:2019.08.09' is not available. 
@@ -72,5 +72,5 @@ GitTreeState: clean
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Bereitstellen der AKS-Engine in Windows in Azure Stack](azure-stack-kubernetes-aks-engine-deploy-windows.md)  
-> [Bereitstellen der AKS-Engine in Linux in Azure Stack](azure-stack-kubernetes-aks-engine-deploy-linux.md)
+> [Bereitstellen der AKS-Engine unter Windows in Azure Stack](azure-stack-kubernetes-aks-engine-deploy-windows.md)  
+> [Bereitstellen der AKS-Engine unter Linux in Azure Stack](azure-stack-kubernetes-aks-engine-deploy-linux.md)

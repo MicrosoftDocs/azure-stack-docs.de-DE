@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 3fa6d124722d45d727525820b6a99d408f0d2350
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 87549d27418f787b0e173cfda1ca835dc1c181e4
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975168"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955941"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack"></a>Automatisierung von Update und Verwaltung virtueller Computer in Azure Stack
 Verwenden Sie die folgenden Funktionen der Azure Automation-Lösung, um virtuelle Windows- und Linux-Computer (VMs) zu verwalten, die mit Azure Stack bereitgestellt werden:
@@ -60,7 +60,7 @@ Im nächsten Schritt müssen Sie ein [Automation-Konto erstellen](https://docs.m
 
 5. Wiederholen Sie die Schritte 2 bis 4, um alle drei Lösungen zu aktivieren. 
 
-   [![](media/vm-update-management/1-sm.PNG "Aktivieren der Features des Azure Automation-Kontos")](media/vm-update-management/1-lg.PNG#lightbox)
+   [![](media/vm-update-management/1-sm.PNG "Enable Azure Automation account features")](media/vm-update-management/1-lg.PNG#lightbox)
 
 ### <a name="enable-azure-monitor-for-vms"></a>Aktivieren von Azure Monitor für VMs
 
@@ -92,15 +92,15 @@ Führen Sie die folgenden Schritte aus, um die Updateverwaltung für virtuelle A
 
 2. Navigieren Sie im Azure Stack-Benutzerportal zum Blatt „Erweiterungen“ der VMs, für die Sie diese Lösungen aktivieren möchten, klicken Sie auf **+ Hinzufügen**, wählen Sie die Erweiterung **Azure Update- und Konfigurationsverwaltung** aus, und klicken Sie dann auf **Erstellen**:
 
-   [![](media/vm-update-management/3-sm.PNG "Blatt „VM-Erweiterung“")](media/vm-update-management/3-lg.PNG#lightbox)
+   [![](media/vm-update-management/3-sm.PNG "VM extension blade")](media/vm-update-management/3-lg.PNG#lightbox)
 
 3. Geben Sie die zuvor erstellte WorkspaceID und den Primärschlüssel ein, um den Agent mit dem LogAnalytics-Arbeitsbereich zu verknüpfen. Klicken Sie dann auf **OK**, um die Erweiterung bereitzustellen.
 
-   [![](media/vm-update-management/4-sm.PNG "Bereitstellen der WorkspaceID und des Schlüssels")](media/vm-update-management/4-lg.PNG#lightbox) 
+   [![](media/vm-update-management/4-sm.PNG "Providing the WorkspaceID and Key")](media/vm-update-management/4-lg.PNG#lightbox) 
 
 4. Wie in der [Dokumentation zur Updateverwaltung](https://docs.microsoft.com/azure/automation/automation-update-management) beschrieben, müssen Sie die Updateverwaltungslösung für jeden virtuellen Computer aktivieren, den Sie verwalten möchten. Um die Lösung für alle virtuellen Computer zu aktivieren, die den Arbeitsbereich verwenden, wählen Sie **Updateverwaltung** aus, klicken Sie auf **Computer verwalten**, und wählen Sie dann die Option **Auf allen verfügbaren und zukünftigen Computern aktivieren** aus.
 
-   [![](media/vm-update-management/5-sm.PNG "Aktivieren der Updateverwaltungslösung auf allen Computern")](media/vm-update-management/5-lg.PNG#lightbox) 
+   [![](media/vm-update-management/5-sm.PNG "Enable Update Management solution on all machines")](media/vm-update-management/5-lg.PNG#lightbox) 
 
    > [!TIP]
    > Wiederholen Sie diesen Schritt, um jede Lösung für die virtuellen Azure Stack-Computer zu aktivieren, die den Arbeitsbereich verwenden. 
@@ -109,7 +109,7 @@ Nachdem die Erweiterung „Azure Update- und Konfigurationsverwaltung“ aktivie
 
 Nachdem die virtuellen Computer überprüft wurden, werden sie im Azure Automation-Konto in der Updateverwaltungslösung angezeigt: 
 
-   [![](media/vm-update-management/6-sm.PNG "Azure Automation-Konto in der Updateverwaltung")](media/vm-update-management/6-lg.PNG#lightbox) 
+   [![](media/vm-update-management/6-sm.PNG "Azure Automation account in Update Management")](media/vm-update-management/6-lg.PNG#lightbox) 
 
 > [!IMPORTANT]
 > Es kann zwischen 30 Minuten und sechs Stunden dauern, bis im Dashboard aktualisierte Daten von verwalteten Computern angezeigt werden.

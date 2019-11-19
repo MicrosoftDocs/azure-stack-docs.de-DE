@@ -1,5 +1,6 @@
 ---
 title: Ressourcennutzungs-API für Anbieter | Microsoft-Dokumentation
+titleSuffix: Azure Stack
 description: Referenz für die Ressourcennutzungs-API, die Azure Stack-Nutzungsinformationen abruft
 services: azure-stack
 documentationcenter: ''
@@ -15,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 631d6764ca7947ddafd70ec57b607df1ea5a4ab5
-ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
+ms.openlocfilehash: 75a4adca6d9265314c74cdebe642d43b8c2f11ef
+ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68286690"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802401"
 ---
 # <a name="provider-resource-usage-api"></a>Ressourcennutzungs-API für Anbieter
 
@@ -44,10 +45,10 @@ Die Nutzungs-API ist eine Anbieter-API. Aus diesem Grund muss dem Aufrufer im Ab
 
 | Argument | BESCHREIBUNG |
 | --- | --- |
-| `armendpoint` |Azure Resource Management-Endpunkt Ihrer Azure Stack-Umgebung. Nach Azure Stack-Konvention folgt der Name des Azure Resource Manager-Endpunkts dem Format `https://adminmanagement.{domain-name}`. Wenn der Domänenname für das Development Kit beispielsweise *local.azurestack.external* lautet, ist der Resource Manager-Endpunkt `https://adminmanagement.local.azurestack.external`. |
+| `armendpoint` |Azure Resource Management-Endpunkt Ihrer Azure Stack-Umgebung. Nach Azure Stack-Konvention folgt der Name des Azure Resource Manager-Endpunkts dem Format `https://adminmanagement.{domain-name}`. Wenn der Domänenname für das Azure Stack Development Kit (ASDK) beispielsweise *local.azurestack.external* lautet, ist der Resource Manager-Endpunkt `https://adminmanagement.local.azurestack.external`. |
 | `subId` |Abonnement-ID des Benutzers, von dem der Aufruf ausgeht. |
-| `reportedStartTime` |Die Startzeit der Abfrage. Der Wert für `DateTime` sollte in koordinierter Weltzeit (UTC) und vollen Stunden angegeben werden, z. B. 13:00. Legen Sie den Wert für eine tägliche Aggregation auf Mitternacht (UTC) fest. Das Format ist ISO 8601, z. B. `2015-06-16T18%3a53%3a11%2b00%3a00Z`, wobei der Doppelpunkt mit Escapezeichen zu `%3a` wird und das Pluszeichen zu `%2b`, um auch für URIs geeignet zu sein. |
-| `reportedEndTime` |Die Endzeit der Abfrage. Die Einschränkungen, die für `reportedStartTime` gelten, gelten auch für dieses Argument. Der Wert von `reportedEndTime` kann nicht in der Zukunft liegen oder das aktuelle Datum sein. Wenn dies der Fall ist, wird als Ergebnis „processing not complete“ (nicht abgeschlossen) angezeigt. |
+| `reportedStartTime` |Die Startzeit der Abfrage. Der Wert für `DateTime` sollte in koordinierter Weltzeit (UTC) und vollen Stunden angegeben werden, z. B. 13:00. Legen Sie den Wert für eine tägliche Aggregation auf Mitternacht (UTC) fest. Das Format ist ISO 8601 mit Escapezeichen, z. B. `2015-06-16T18%3a53%3a11%2b00%3a00Z`. Dabei wird der Doppelpunkt mit Escapezeichen zu `%3a` und das Pluszeichen zu `%2b`, um auch für URIs geeignet zu sein. |
+| `reportedEndTime` |Die Endzeit der Abfrage. Die Einschränkungen, die für `reportedStartTime` gelten, gelten auch für dieses Argument. Der Wert von `reportedEndTime` darf nicht in der Zukunft liegen oder das aktuelle Datum sein. Wenn dies der Fall ist, wird als Ergebnis „processing not complete“ (nicht abgeschlossen) angezeigt. |
 | `aggregationGranularity` |Optionaler Parameter, der zwei mögliche diskrete Werte hat: **täglich** und **stündlich**. Wie die Namen schon sagen, gibt der eine Wert Daten in Abständen von einem Tag zurück und der andere in Abständen von einer Stunde. Der Standard ist die Option **täglich**. |
 | `subscriberId` |Abonnement-ID Um gefilterte Daten zu erhalten, ist die Abonnement-ID eines direkten Mandanten des Anbieters erforderlich. Wenn kein Parameter für die Abonnement-ID angegeben ist, gibt der Aufruf Nutzungsdaten für alle direkten Mandanten des Anbieters zurück. |
 | `api-version` |Die Version des Protokolls, das für diese Anforderung verwendet wird. Dieser Wert ist auf `2015-06-01-preview` festgelegt. |
@@ -104,7 +105,7 @@ meterID1",
 
 ### <a name="powershell"></a>PowerShell
 
-Um Nutzungsdaten zu generieren, benötigen Sie Ressourcen, die ausgeführt werden und das System aktiv verwenden, beispielsweise einen aktiven virtuellen Computer oder ein Speicherkonto mit Daten. Wenn Sie nicht sicher sind, ob Sie über Ressourcen verfügen, die im Azure Stack Marketplace ausgeführt werden, stellen Sie einen virtuellen Computer bereit, und überprüfen Sie das Überwachungsblatt für diesen Computer, um sicherzustellen, dass er ausgeführt wird. Verwenden Sie die folgenden PowerShell-Cmdlets, um die Nutzungsdaten anzuzeigen:
+Zum Generieren der Nutzungsdaten benötigen Sie Ressourcen, die ausgeführt werden und das System aktiv verwenden, beispielsweise einen aktiven virtuellen Computer oder ein Speicherkonto mit Daten. Wenn Sie nicht sicher sind, ob Sie über Ressourcen verfügen, die im Azure Stack Marketplace ausgeführt werden, stellen Sie einen virtuellen Computer bereit, und überprüfen Sie das Überwachungsblatt für diesen virtuellen Computer, um sicherzustellen, dass er ausgeführt wird. Verwenden Sie die folgenden PowerShell-Cmdlets, um die Nutzungsdaten anzuzeigen:
 
 1. [Installieren Sie PowerShell für Azure Stack](azure-stack-powershell-install.md).
 2. Konfigurieren Sie die PowerShell-Umgebung des [Azure Stack-Benutzers](../user/azure-stack-powershell-configure-user.md) oder des [Azure Stack-Betreibers](azure-stack-powershell-configure-admin.md).

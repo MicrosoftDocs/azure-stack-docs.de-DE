@@ -14,12 +14,12 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: cc432538715c1c990a9efe6473b33303deb78734
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: a70eaaf46988524f5323052a3f2ca90f5b7719e1
+ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72280553"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73636809"
 ---
 # <a name="configure-the-time-server-for-azure-stack"></a>Konfigurieren des Zeitservers für Azure Stack
 
@@ -29,7 +29,10 @@ Sie können den privilegierten Endpunkt (PEP) verwenden, um den Zeitserver in Az
 
 Azure Stack verwendet NTP (Network Time Protocol) zum Herstellen einer Verbindung mit Zeitservern im Internet. NTP-Server stellen eine genaue Systemzeit bereit. Die Uhrzeit wird auf physischen Netzwerkswitches, auf dem Hardwarelebenszyklus-Host, im Infrastrukturdienst und auf virtuellen Computern von Azure Stack verwendet. Wird die Uhr nicht synchronisiert, treten in Azure Stack unter Umständen schwerwiegende Netzwerk- und Authentifizierungsprobleme auf. Protokolldateien, Dokumente und andere Dateien werden möglicherweise mit falschen Zeitstempeln erstellt.
 
-Mindestens ein Zeitserver (NTP) ist erforderlich, damit Azure Stack die Uhrzeit synchronisieren kann. Bei der Bereitstellung von Azure Stack geben Sie die Adresse eines NTP-Servers an. Die Uhrzeit ist ein kritischer Rechenzentrumsinfrastruktur-Dienst. Ändert sich der Dienst, müssen Sie die Uhrzeit aktualisieren.
+Die Angabe eines Zeitservers (NTP) ist erforderlich, damit Azure Stack die Uhrzeit synchronisieren kann. Bei der Bereitstellung von Azure Stack geben Sie die Adresse eines NTP-Servers an. Die Uhrzeit ist ein kritischer Rechenzentrumsinfrastruktur-Dienst. Ändert sich der Dienst, müssen Sie die Uhrzeit aktualisieren.
+
+> [!NOTE]
+> Azure Stack unterstützt die Synchronisierungs der Uhrzeit nur mit einem Zeitserver (NTP). Sie können nicht mehrere NTPs bereitstellen, mit denen Azure Stack die Uhrzeit synchronisiert.
 
 ## <a name="configure-time"></a>Konfigurieren der Uhrzeit
 

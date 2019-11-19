@@ -1,28 +1,28 @@
 ---
-title: Sichern von Ressourcen mithilfe des Replikators für Azure Stack-Abonnements | Microsoft-Dokumentation
-description: In diesem Artikel erfahren Sie, wie Sie Ressourcen mit dem Replikator für Azure Stack-Abonnements sichern.
+title: Replizieren von Ressourcen in Azure Stack-Abonnements | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Ressourcen mit den Replikatorskripts für Azure Stack-Abonnements replizieren.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 10/29/2019
-ms.openlocfilehash: 97d8b417869faa84423df78bde4029b8d18f0741
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.lastreviewed: 10/30/2019
+ms.openlocfilehash: f468d28ae1642235735f4e1472a8aa84859dc6e6
+ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73168223"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567780"
 ---
-# <a name="how-to-back-up-resources-using-the-azure-stack-subscription-replicator"></a>Sichern von Ressourcen mit dem Replikator für Azure Stack-Abonnements
+# <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>Replizieren von Ressourcen mit dem Replikator für Azure Stack-Abonnements
 
-Sie können mit dem PowerShell-Skript des Replikators für Azure Stack-Abonnements die Ressourcen zwischen Azure Stack-Abonnements kopieren. Das Replikatorskript liest und erstellt die Azure Resource Manager-Ressourcen aus anderen Azure- und Azure Stack-Abonnements neu. In diesem Artikel wird die Funktionsweise des Skripts erläutert. Außerdem wird beschrieben, wie Sie das Skript verwenden können, und die Vorgänge im Skript werden aufgelistet.
+Sie können mit dem PowerShell-Skript des Replikators für Azure Stack-Abonnements die Ressourcen zwischen Azure Stack-Abonnements, Azure Stack-Stamps oder Azure Stack und Azure kopieren. Das Replikatorskript liest und erstellt die Azure Resource Manager-Ressourcen aus anderen Azure- und Azure Stack-Abonnements neu. In diesem Artikel wird die Funktionsweise des Skripts erläutert. Sie erfahren, wie Sie das Skript verwenden können. Außerdem finden Sie eine Referenz für Skriptvorgänge.
 
 ## <a name="subscription-replicator-overview"></a>Übersicht über den Abonnementreplikator
 
-Der Azure-Abonnementreplikator (v3) wurde modular entwickelt. Dieses Tool verwendet einen Core-Prozessor, der die Replikation von Ressourcen orchestriert. Außerdem unterstützt das Tool anpassbare Prozessoren, die als Vorlagen für das Kopieren unterschiedlicher Ressourcentypen fungieren. 
+Der Azure-Abonnementreplikator ist modular aufgebaut. Dieses Tool verwendet einen Core-Prozessor, der die Replikation von Ressourcen orchestriert. Außerdem unterstützt das Tool anpassbare Prozessoren, die als Vorlagen für das Kopieren unterschiedlicher Ressourcentypen fungieren. 
 
 Der Core-Prozessor setzt sich aus den folgenden drei Skripts zusammen:
 
@@ -70,18 +70,18 @@ Möglicherweise ist jedoch die Ressourcenanbieter-API-Version des Zielabonnement
 
 Das Tool erfordert einen Parameter namens **parallel**. Dieser Parameter nimmt einen booleschen Wert an, der angibt, ob die abgerufenen Ressourcen parallel bereitgestellt werden sollen oder nicht. Wenn der Wert auf **true** festgelegt ist, weist jeder Aufruf von **New-AzureRmResourceGroupDeployment** das Flag **-asJob** auf, und Codeblöcke zum Abwarten der Fertigstellung von Parallelaufträgen werden je nach Ressourcentypen zwischen Gruppen von Ressourcenbereitstellungen hinzugefügt. Dadurch wird sichergestellt, dass alle Ressourcen eines Typs bereitgestellt wurden, bevor der nächste Ressourcentyp bereitgestellt wird. Wenn der Wert des Parameters **parallel** auf **false** festgelegt ist, werden sämtliche Ressourcen nacheinander bereitgestellt.
 
-## <a name="adding-additional-resource-types"></a>Hinzufügen zusätzlicher Ressourcentypen
+## <a name="add-additional-resource-types"></a>Hinzufügen zusätzlicher Ressourcentypen
 
 Neue Ressourcentypen können auf einfache Weise hinzugefügt werden. Der Entwickler muss einen angepassten Prozessor und entweder eine Azure Resource Manager-Vorlage oder einen Azure Resource Manager-Vorlagengenerator erstellen. Nach Abschluss dieses Vorgangs muss der Entwickler den Ressourcentyp dem ValidateSet für den Parameter **$resourceType** und das Array **$resourceTypes** in „resource_retriever.ps1“ hinzufügen. Beim Hinzufügen des Ressourcentyps zum Array **$resourceTypes** muss die richtige Reihenfolge beachtet werden. Die Reihenfolge des Arrays bestimmt die Reihenfolge, in der Ressourcen bereitgestellt werden; beachten Sie daher vorhandene Abhängigkeiten. Wenn der angepasste Prozessor einen Azure Resource Manager-Vorlagengenerator nutzt, muss schließlich der Name des Ressourcentyps dem Array **$customTypes** in **post_process.ps1** hinzugefügt werden.
 
-## <a name="running-azure-subscription-replicator"></a>Ausführen des Azure-Abonnementreplikators
+## <a name="run-azure-subscription-replicator"></a>Ausführen des Azure-Abonnementreplikators
 
 Zum Ausführen des Azure-Abonnementreplikators (v3) müssen Sie „resource_retriever.ps1“ starten und alle Parameter angeben. Für den Parameter **resourceType** kann eine Option für die Auswahl von **All** anstelle eines Ressourcentyps ausgewählt werden. Bei Auswahl von **All** verarbeitet „resource_retriever.ps1“ alle Ressourcen in einer bestimmten Reihenfolge, sodass beim Ausführen der Bereitstellung abhängige Ressourcen zuerst bereitgestellt werden. VNETs werden beispielsweise vor VMs bereitgestellt, da für die ordnungsgemäße Bereitstellung von VMs ein VNET vorhanden sein muss.
 
 Wenn die Ausführung des Skripts abgeschlossen ist, sind die drei neuen Ordner **Deployment_Files**, **Parameter_Files** und **Custom_ARM_Templates** vorhanden.
 
  > [!Note]  
- > Vor dem Ausführen eines der generierten Skripts müssen Sie die richtige Umgebung festlegen und sich beim Zielabonnement anmelden (beispielsweise im neuen Azure Stack) sowie das Arbeitsverzeichnis auf den Ordner **Deployment_Files** festlegen.
+ > Vor dem Ausführen eines der generierten Skripts müssen Sie die richtige Umgebung festlegen und sich beim Zielabonnement anmelden (beispielsweise in der neuen Azure Stack-Instanz) sowie das Arbeitsverzeichnis auf den Ordner **Deployment_Files** festlegen.
 
 „Deployment_Files“ enthält die beiden Dateien **DeployResourceGroups.ps1** und **DeployResources.ps1**. Durch das Ausführen von „DeployResourceGroups.ps1“ werden die Ressourcengruppen bereitgestellt. Durch das Ausführen von „DeployResources.ps1“ werden alle verarbeiteten Ressourcen bereitgestellt. Wenn das Tool mit **All** oder **Microsoft.Compute/virtualMachines** als Ressourcentyp ausgeführt wurde, fordert „DeployResources.ps1“ den Benutzer zur Eingabe eines VM-Administratorkennworts auf, mit dem alle VMs erstellt werden.
 
@@ -89,37 +89,20 @@ Wenn die Ausführung des Skripts abgeschlossen ist, sind die drei neuen Ordner *
 
 1.  Führen Sie das Skript aus.
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image2.png)
+    ![Ausführen des Skripts](./media/azure-stack-network-howto-backup-replicator/image2.png)
 
-1.  Warten Sie, bis das Skript ausgeführt wurde.
+    > [!Note]  
+    > Vergessen Sie nicht, die Quellumgebung und den Abonnementkontext für die PS-Instanz zu konfigurieren. 
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image3.png)
+2.  Überprüfen Sie die neu erstellten Ordner:
 
-1.  Überprüfen Sie die neu erstellten Ordner:
+    ![Überprüfen der Ordner](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image4.png)
+3.  Legen Sie den Kontext auf das Zielabonnement fest, ändern Sie den Ordner in **Deployment_Files**, verteilen Sie die Ressourcengruppen, und starten Sie dann die Ressourcenbereitstellung.
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image5.png)
+    ![Konfigurieren und Starten der Bereitstellung](./media/azure-stack-network-howto-backup-replicator/image6.png)
 
-1.  Legen Sie den Kontext auf das Zielabonnement fest.
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image6.png)
-
-1.  Geben Sie `cd` ein, um zum Ordner **Deployment_Files** zu wechseln.
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image7.png)
-
-1.  Führen Sie `DeployResourceGroups.ps1` aus, um die Ressourcengruppen bereitzustellen.
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image8.png)
-
-1.  Führen Sie `DeployResources.ps1` aus, um die Ressourcen bereitzustellen.
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image9.png)
-
-1.  Führen Sie `Get-Job` aus, um den Status zu überprüfen. Get-Job | Receive-Job gibt die Ergebnisse zurück.
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image10.png)
+4.  Führen Sie `Get-Job` aus, um den Status zu überprüfen. Get-Job | Receive-Job gibt die Ergebnisse zurück.
 
 ## <a name="clean-up"></a>Bereinigen
 
@@ -187,8 +170,8 @@ Wenn Sie das Tool mit **All** als Ressourcentyp ausführen, wird beim Repliziere
             - Konfiguration der Netzwerksicherheitsgruppe  
             - Konfiguration der Verfügbarkeitsgruppe  
 
-            > ![Note]  
-            > Only creates managed disks for OS disk and data disks, no support for using storage accounts currently
+> [!Note]  
+> Erstellt nur verwaltete Datenträger für Betriebssystem- und andere Datenträger. Speicherkonten werden derzeit nicht unterstützt. 
 
 ### <a name="limitations"></a>Einschränkungen
 
@@ -197,6 +180,8 @@ Das Tool kann Ressourcen aus einem Abonnement in ein anderes replizieren, sofern
 Stellen Sie für eine erfolgreiche Replikation sicher, dass die Versionen der Ressourcenanbieter des Zielabonnements denen des Quellabonnements entsprechen.
 
 Beim Replizieren aus kommerziellem Azure zu kommerziellem Azure oder aus einem Abonnement in Azure Stack zu einem anderen Abonnement innerhalb desselben Azure Stack treten beim Replizieren von Speicherkonten Probleme auf. Dies ist auf die Benennungsanforderung für Speicherkonten zurückzuführen, dass alle Namen von Speicherkonten im gesamten kommerziellem Azure bzw. in allen Abonnements in einer Azure Stack-Region/-Instanz eindeutig sein müssen. Das Replizieren von Speicherkonten über verschiedene Azure Stack-Instanzen ist erfolgreich, da die Stacks separate Regionen/Instanzen darstellen.
+
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

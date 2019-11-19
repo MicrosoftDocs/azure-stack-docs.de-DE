@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 93a835b6d3eff233ccbd421930f9618325126ea4
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 22779072b2dfed018a2ff6d5eac5bf2c294ccd31
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73057775"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595121"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack"></a>Was ist die AKS-Engine in Azure Stack?
 
@@ -34,7 +34,7 @@ Sie können mit dem AKS-Engine-Befehlszeilentool einen Kubernetes-Cluster in Azu
 
 ## <a name="overview-of-the-aks-engine"></a>Übersicht über die AKS-Engine
 
-Die [AKS-Engine](https://github.com/Azure/aks-engine) stellt ein Befehlszeilentool zum Bootstrap von Kubernetes-Clustern in Azure und Azure Stack bereit. Mithilfe des Azure Resource Managers unterstützt die AKS-Engine das Erstellen und Verwalten von Clustern, die auf virtuellen Computern, virtuellen Netzwerken und anderen IaaS-Ressourcen (Infrastructure-as-a-Service) in Azure Stack ausgeführt werden.
+Die [AKS-Engine](https://github.com/Azure/aks-engine) stellt ein Befehlszeilentool zum Bootstrap von Kubernetes-Clustern in Azure und Azure Stack bereit. Mithilfe von Azure Resource Manager unterstützt die AKS-Engine das Erstellen und Verwalten von Clustern, die auf virtuellen Computern, virtuellen Netzwerken und anderen IaaS-Ressourcen (Infrastructure-as-a-Service) in Azure Stack ausgeführt werden.
 
 ## <a name="aks-engine-on-azure-stack-considerations"></a>Überlegungen zur AKS-Engine in Azure Stack
 
@@ -58,8 +58,8 @@ So stellen Sie einen Kubernetes-Cluster mit der AKS-Engine in Azure Stack bereit
 
 1. [Einrichten der Voraussetzungen für die AKS-Engine in Azure Stack](azure-stack-kubernetes-aks-engine-set-up.md)
 2. Installieren Sie die AKS-Engine auf einem Computer mit Zugriff auf Ihre Azure Stack-Umgebung.
-     - [Installieren der AKS-Engine in Windows in Azure Stack](azure-stack-kubernetes-aks-engine-deploy-windows.md)
-     - [Installieren der AKS-Engine in Linux in Azure Stack](azure-stack-kubernetes-aks-engine-deploy-linux.md)
+     - [Installieren der AKS-Engine unter Windows in Azure Stack](azure-stack-kubernetes-aks-engine-deploy-windows.md)
+     - [Installieren der AKS-Engine unter Linux in Azure Stack](azure-stack-kubernetes-aks-engine-deploy-linux.md)
 3. [Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack](azure-stack-kubernetes-aks-engine-deploy-cluster.md)
 
 ## <a name="next-steps"></a>Nächste Schritte

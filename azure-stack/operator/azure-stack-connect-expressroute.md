@@ -14,12 +14,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 2fee81a79b58294a9c43f8d550f139157cb64a9b
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: efea925c421a031206ac33b49a13bd486bab1eea
+ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283574"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73636888"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Herstellen einer Verbindung zwischen Azure Stack und Azure mithilfe von Azure ExpressRoute
 
@@ -62,7 +62,7 @@ Die folgende Abbildung zeigt die Azure Stack- und die Azure-Umgebung nach der Ei
 
 ![ExpressRoute-Netzwerk](media/azure-stack-connect-expressroute/Conceptual.png)
 
-In der folgenden Abbildung ist dargestellt, wie für mehrere Mandanten eine Verbindung von der Azure Stack-Infrastruktur über den ExpressRoute-Router mit Azure im Microsoft-Edgebereich hergestellt wird:
+In der folgenden Abbildung ist dargestellt, wie für mehrere Mandanten eine Verbindung von der Azure Stack-Infrastruktur über den ExpressRoute-Router mit Azure im hergestellt wird:
 
 ![Verbindungen für mehrere Mandanten mit ExpressRoute](media/azure-stack-connect-expressroute/Architecture.png)
 
@@ -610,4 +610,4 @@ Wenn Sie wissen möchten, wie viel Datenverkehr über Ihre Verbindung übertrage
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Deploy apps to Azure and Azure Stack (Bereitstellen von Apps in Azure und Azure Stack)](../user/azure-stack-solution-pipeline.md )
+[Deploy apps to Azure and Azure Stack (Bereitstellen von Apps in Azure und Azure Stack)](../user/azure-stack-solution-pipeline.md)

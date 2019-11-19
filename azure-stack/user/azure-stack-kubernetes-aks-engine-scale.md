@@ -15,12 +15,12 @@ ms.date: 09/25/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: b7d20327410ace5b5ad12d34a24ff474c1a384b0
-ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
+ms.openlocfilehash: 39c651649aea60ab12aae9daf35b0d07615bf697
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72780472"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595296"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack"></a>Skalieren eines Kubernetes-Cluster in Azure Stack
 
