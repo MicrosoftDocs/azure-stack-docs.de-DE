@@ -12,97 +12,82 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: asganesh
-ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 6ea5248881e10ca9e96ba423ecb4ea5569f00211
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.lastreviewed: 11/07/2019
+ms.openlocfilehash: 6bcdbcb03cdd4151978e9eeee645a0d4ab488fe3
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618251"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845774"
 ---
 # <a name="azure-stack-datacenter-integration-walkthrough"></a>Integration des Azure Stack-Datencenters: Exemplarische Vorgehensweise
 
-In diesem Artikel wird die Azure Stack-End-to-End-Kundenerfahrung vom Kauf eines integrierten Systems bis zu einer erfolgreichen lokalen Bereitstellung durch einen Lösungsanbieter beschrieben. Nutzen Sie diese Informationen zur Vereinfachung Ihrer „Journey“ und als Hilfe bei der Festlegung Ihrer Erwartungen für Sie als Azure Stack-Kunde.
-
-Als Azure Stack-Kunde sollten Sie die folgenden Phasen erwarten:
+In diesem Artikel wird der End-to-End-Prozess für die Azure Stack-Rechenzentrumsintegration von der Anschaffung bis zur Unterstützung nach der Bereitstellung beschrieben. Die Integration ist ein gemeinschaftliches Projekt zwischen dem Kunden, einem Lösungsanbieter und Microsoft. Klicken Sie auf die folgenden Registerkarten, um die jeweiligen Schritte für jedes Projektmitglied anzuzeigen. In den nächsten Abschnitten finden Sie eine Zusammenfassung der verschiedenen Phasen für den Projektzeitplan. 
 
 # <a name="customertabcustomer"></a>[Kunde](#tab/customer)
 
-1. Beschreiben Sie vorgesehene Anwendungsfälle, und geben Sie die Anforderungen an.
-2. Bestimmen Sie das Abrechnungsmodell zum Verwenden, Überprüfen und Genehmigen von Verträgen.
-3. Füllen Sie das [Arbeitsblatt für die Bereitstellung](azure-stack-deployment-worksheet.md) aus, und stellen Sie sicher, dass alle Bereitstellungsvoraussetzungen erfüllt und fertig für die Bereitstellung sind.
-4. Bereiten Sie das Rechenzentrum vor, indem Sie sicherstellen, dass die gesamte erforderliche Stromversorgung und Kühlung, die Grenzkonnektivität und andere Anforderungen an die Datencenterintegration vorhanden sind.
-5. Stehen Sie während der Bereitstellung zur Verfügung, um Anmeldeinformationen und Support zum Abonnement zu bieten, sofern es Fragen zu den bereitgestellten Daten gibt.
+1. Beschreiben von Anwendungsfällen und Anforderungen
+1. Bestimmen des Abrechnungsmodells
+1. Überprüfen und Genehmigen von Verträgen
+1. Ausfüllen des [Arbeitsblatts für die Bereitstellung](azure-stack-deployment-worksheet.md)
+1. Sicherstellen, dass die Voraussetzungen für die Bereitstellung erfüllt sind
+1. Vorbereiten des Rechenzentrums 
+1. Angeben von Abonnementinformationen während der Bereitstellung
+1. Beantworten aller Fragen zu den bereitgestellten Daten
 
 # <a name="partnertabpartner"></a>[Partner](#tab/partner)
 
-1. Planungsphase:
-   - Empfehlen Sie Lösungsoptionen anhand von Kundenanforderungen.
-   - Schlagen Sie bei Bedarf Proof of Concept (POC) vor.
-   - Richten Sie eine Geschäftsbeziehung ein.
-   - Entscheiden Sie über die Supportebene.
-2. Auftragsprozess:
-   - Bereiten Sie erforderliche Verträge mit dem Kunden vor.
-   - Erstellen Sie eine Kundenbestellung.
-   - Legen Sie die Übermittlungszeitachse fest.
-   - Stellen Sie bei Bedarf eine Verbindung zwischen dem Kunden und Microsoft her.
-3. Vor der Bereitstellung
-   - Bieten Sie dem Kunden die erforderliche Schulung, um sicherzustellen, dass er sämtliche Bereitstellungsvoraussetzungen und Optionen für die Rechenzentrumsintegration versteht.
-   - Helfen Sie dem Kunden bei der Prüfung der gesammelten Daten, um deren Vollständigkeit und Genauigkeit sicherzustellen.
-4. Factoryprozess
-   - Wenden Sie den zuletzt überprüften Baselinebuild an.
-   - Wenden Sie das erforderliche Microsoft Deployment Toolkit an.
-5. Hardwarelieferung:
-   - Versenden Sie Hardware an den Kundenstandort.
-6. Lokale Bereitstellung
-   - Die Bereitstellung wird durch einen Vor-Ort-Techniker erledigt.
-   - Rack und Stack.
-   - HLH-Bereitstellung (Hardware Lifecycle Host, Hardwarelebenszyklus-Host).
-   - Azure Stack-Bereitstellung.
-   - Übergabe an den Kunden.
+1. Empfehlen von Lösungsoptionen auf der Grundlage der Kundenanforderungen
+1. Vorschlagen einer Proof of Concept-Strategie 
+1. Auswählen der Supportebene
+1. Vorbereiten von Verträgen mit dem Kunden
+1. Erstellen einer Kundenbestellung
+1. Festlegen des Bereitstellungszeitplans
+1. Herstellen des Kontakts zwischen dem Kunden und Microsoft 
+1. Schulen des Kunden bei der Bereitstellung 
+1. Unterstützen des Kunden bei der Überprüfung der gesammelten Daten
+1. Installieren und Validieren des Baselinebuilds und des Microsoft Deployment Toolkit
+1. Versenden der Hardware an den Kundenstandort
+1. Bereitstellen eines Technikers vor Ort
+1. Rack und Stack
+1. Bereitstellen des Hardwarelebenszyklus-Hosts (Hardware Lifecycle Host, HLH) 
+1. Bereitstellen von Azure Stack
+1. Übergabe an den Kunden
 
 # <a name="microsofttabmicro"></a>[Microsoft](#tab/micro)
 
-1. Interagieren Sie mit dem Partner, um Presales-Support bereitzustellen.
-2. Bereiten Sie Softwarelizenzierung und Verträge nach Bedarf vor.
-3. Stellen Sie dem Kunden die erforderlichen Tools zum Sammeln von Anforderungen an die Datencenterintegration und Dokumentation bereit.
-4. Stellen Sie die neuesten Baselinebuilds und Toolkettenaktualisierungen in einem monatlichen Rhythmus bereit.
-5. Die Supporttechniker von Microsoft unterstützen Sie bei eventuellen Bereitstellungsproblemen.
+1. Einbinden des Partners für Presales-Support
+2. Vorbereiten von Softwarelizenzierung und Verträgen
+3. Bereitstellen von Tools zum Erfassen der Anforderungen für die Rechenzentrumsintegration
+4. Bereitstellen monatlicher Baselinebuilds und Toolkettenaktualisierungen
+5. Unterstützung bei eventuellen Bereitstellungsproblemen durch Supporttechniker von Microsoft
 
+---
 
-
-## <a name="planning-phase"></a>Planungsphase
-Die Planungsphase liegt vor, wenn Microsoft oder der Azure Stack-Lösungspartner mit Ihnen zusammenarbeiten, um Ihre Anforderungen auszuwerten, zu verstehen und so zu ermitteln, ob Azure Stack die richtige Lösung für Sie ist:
-
-Sie erhalten Hilfe beim Beantworten der folgenden Fragen:
+## <a name="planning"></a>Planung
+Microsoft oder ein Azure Stack-Lösungspartner unterstützt Sie bei der Bewertung Ihrer Ziele. Sie beantworten Ihnen Fragen wie:
 
 -   Ist Azure Stack die richtige Lösung für Ihre Organisation?
-
--   Welche Größenlösung benötigen Sie?
-
 -   Welche Art von Abrechnungs- und Lizenzierungsmodell wird bei Ihrer Organisation funktionieren?
-
+-   Welche Größenlösung benötigen Sie?
 -   Wie sind die Anforderungen an Stromversorgung und Kühlung?
 
-Um sicherzustellen, dass die Hardwarelösung Ihren Anforderungen am besten entspricht, ist der [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) als Unterstützung bei der Planung vor dem Kauf hilfreich, um die geeignete Kapazität und Konfiguration für Ihre Azure Stack-Hardwarelösung zu ermitteln.
+Verwenden Sie [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822), um die beste Hardwarekapazität und -konfiguration für Ihre Anforderungen zu ermitteln und zu analysieren. 
 
-Das Arbeitsblatt ist *nicht* als Ersatz für Ihre eigenen Untersuchungen und die Analyse von Hardwarelösungen gedacht, die Ihren Anforderungen am besten entsprechen. Bei der Planung einer Azure Stack-Bereitstellung sollten Sie auch die [allgemeinen Überlegungen zur Datencenterintegration](azure-stack-datacenter-integration.md) für integrierte Azure Stack-Systeme überprüfen.
+## <a name="ordering"></a>Bestellung
+Ihre Organisation entscheidet sich für den Erwerb von Azure Stack, unterzeichnet Verträge und Bestellungen und stellt die Daten der Integrationsanforderungen für den Lösungsanbieter bereit.
 
-## <a name="order-process-phase"></a>Auftragsprozessphase
-In dieser Phase sollten viele Ihrer Fragen im Hinblick auf die Durchführbarkeit beantwortet worden sein. Nachdem Sie nun zum Ausführen eines Commits für den Kauf von Azure Stack bereit sind und alle erforderlichen Verträge und Bestellungen unterzeichnet haben, werden Sie aufgefordert, Ihrem Lösungsanbieter die Integrationsanforderungsdaten bereitzustellen.
-
-## <a name="pre-deployment-phase"></a>Phase vor der Bereitstellung
-Während dieser Phase müssen Sie entscheiden, wie Sie Azure Stack in Ihr Datencenter integrieren möchten. Zur Erleichterung dieses Prozesses hat Microsoft eine Vorlage für Anforderungen zusammengestellt, damit Sie die erforderlichen Informationen zur Planung einer integrierten Systembereitstellung innerhalb Ihrer Umgebung zusammenstellen können. Diese Vorlage für Anforderungen wurde in Zusammenarbeit mit den Lösungsanbietern erstellt.
-
+## <a name="pre-deployment"></a>Vor der Bereitstellung
+Sie entscheiden, wie Sie Azure Stack in Ihr Rechenzentrum integrieren. Microsoft hat zusammen mit Lösungsanbietern ein [Arbeitsblatt für die Bereitstellung](azure-stack-deployment-worksheet.md) veröffentlicht, das Sie beim Erfassen der erforderlichen Informationen unterstützt.
 Der Artikel [General datacenter integration considerations](azure-stack-datacenter-integration.md) (Allgemeine Überlegungen zur Datencenterintegration) enthält Informationen, die Ihnen beim Ausfüllen der Vorlage, dem so genannten Arbeitsblatt „Deployment Worksheet“ (Arbeitsblatt für die Bereitstellung), helfen sollen.
 
 > [!IMPORTANT]
-> Während dieser Phase ist es wichtig, dass alle vorausgesetzten Informationen untersucht werden und darüber entschieden wird, bevor die Lösung bestellt wird. Denken Sie daran, dass dieser Schritt zeitaufwändig ist und dafür die Koordination und das Sammeln von Daten aus mehreren Fachrichtungen innerhalb Ihrer Organisation erforderlich ist. Falsche oder unvollständige Informationen können zu einer längeren Dauer der Bereitstellung führen. 
+> Alle Voraussetzungen werden vor der Bestellung der Lösung untersucht, um Verzögerungen bei der Bereitstellung zu vermeiden. Die Überprüfung der Voraussetzungen kann einige Zeit in Anspruch nehmen und die Koordination und Datensammlung aus verschiedenen Abteilungen innerhalb Ihres Unternehmens erfordern. 
 
-In der Phase vor der Bereitstellung müssen Sie über Folgendes entscheiden:
+Sie wählen Folgendes aus:
 
 - **Azure Stack-Verbindungsmodell und Identitätsanbieter**. Sie können Azure Stack entweder bei [vorhandener Verbindung mit dem Internet (und mit Azure) oder offline bereitstellen](azure-stack-connection-models.md). Um von Azure Stack, einschließlich Hybridszenarien, am meisten zu profitieren, empfiehlt es sich, die Bereitstellung durchzuführen, wenn eine Verbindung mit Azure besteht. Die Wahl von Active Directory-Verbunddienste (AD FS) oder Azure Active Directory (Azure AD) ist eine Entscheidung, die Sie bei der Bereitstellung einmalig treffen müssen. **Sie können Ihren Identitätsanbieter später nicht mehr ändern, ohne das gesamte System neu bereitzustellen**.
 
@@ -115,12 +100,11 @@ In der Phase vor der Bereitstellung müssen Sie über Folgendes entscheiden:
 
 - **Firewallintegration**. Wir empfehlen Ihnen, Azure Stack [mit einer Firewall](azure-stack-firewall.md) zu schützen. Firewalls können bei der Verhinderung von DDoS-Angriffen, bei Angriffserkennung und Inhaltsuntersuchung helfen. Allerdings muss daran gedacht werden, dass sie zu einem Durchsatzengpass für Azure-Speicherdienste werden können.
 
-
 - **Zertifikatanforderungen**. Es ist sehr wichtig, dass [alle erforderlichen Zertifikate](azure-stack-pki-certs.md) zur Verfügung stehen, *bevor* ein Vor-Ort-Techniker in Ihrem Datencenter zur Bereitstellung eintrifft.
 
 Sobald alle vorausgesetzten Informationen über das Arbeitsblatt für die Bereitstellung erfasst wurden, startet der Lösungsanbieter den Factoryprozess anhand der gesammelten Daten, um eine erfolgreiche Integration von Azure Stack in Ihr Datencenter sicherzustellen.
 
-## <a name="hardware-delivery-phase"></a>Phase der Hardwarelieferung
+## <a name="hardware-delivery"></a>Hardwarelieferung 
 Ihr Lösungsanbieter arbeitet mit Ihnen bei der Planung zusammen, wann die Lösung in Ihrer Einrichtung eintrifft. Nachdem alles empfangen und eingerichtet wurde, müssen Sie mit dem Lösungsanbieter planen, wann ein Techniker vor Ort die Azure Stack-Bereitstellung durchführen soll.
 
 Es ist **äußerst wichtig**, dass alle erforderlichen Daten gesperrt und verfügbar sind, *bevor der Vor-Ort-Techniker eintrifft, um die Lösung bereitzustellen*.
@@ -134,7 +118,7 @@ Es ist **äußerst wichtig**, dass alle erforderlichen Daten gesperrt und verfü
 > [!TIP]
 > Wenn eine dieser Informationen geändert wurde, teilen Sie diese Änderung dem Lösungsanbieter unbedingt mit, bevor Sie die tatsächliche Bereitstellung planen.
 
-## <a name="onsite-deployment-phase"></a>Phase der lokalen Bereitstellung
+## <a name="onsite-deployment"></a>Lokale Bereitstellung 
 Zum Bereitstellen von Azure Stack muss ein Vor-Ort-Techniker vom Lösungsanbieter für Ihre Hardware anwesend sein, um die Bereitstellung zu starten. Um für eine erfolgreiche Bereitstellung zu sorgen, sollten Sie sicherstellen, dass keine der über das Arbeitsblatt für die Bereitstellung angegebenen Informationen geändert wurden.
 
 Anhand der folgenden Überprüfungen wird beschrieben, was Sie vom Vor-Ort-Techniker während des Bereitstellungsverfahrens erwarten sollten:
@@ -148,7 +132,7 @@ Anhand der folgenden Überprüfungen wird beschrieben, was Sie vom Vor-Ort-Techn
 > [!NOTE]
 > Die Durchführung des Bereitstellungsverfahrens durch den Vor-Ort-Techniker kann ungefähr eine Geschäftswoche dauern.
 
-## <a name="post-deployment-phase"></a>Phase nach der Bereitstellung
+## <a name="post-deployment"></a>Nach der Bereitstellung 
 Vom Partner müssen mehrere Schritte ausgeführt werden, bevor die Lösung in der Phase nach der Integration an den Kunden übergeben wird. In dieser Phase ist die Validierung wichtig, um sicherzustellen, dass das System korrekt bereitgestellt wird und einwandfrei funktioniert. 
 
 Folgende Aktionen sollten vom OEM-Partner ausgeführt werden:
@@ -180,7 +164,7 @@ Es gibt mehrere Schritte, die – je nach Installationstyp – entweder erforder
 
   -   [Nagios-Integration](azure-stack-integrate-monitor.md#integrate-with-nagios)
 
-## <a name="overall-timeline"></a>Gesamte Zeitachse
+## <a name="schedule"></a>Schedule
 
 ![Gesamte Zeitachse für die lokale Azure Stack-Bereitstellung](./media/azure-stack-datacenter-integration-walkthrough/image1.png)
 
