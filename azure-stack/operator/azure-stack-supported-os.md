@@ -16,12 +16,12 @@ ms.date: 08/14/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 98baf8217bc245f7aa6ac7bc0e2b8f8a5284c6d6
-ms.sourcegitcommit: 86e2b776383a9f761072199ec6b6b8a7d2e6b798
+ms.openlocfilehash: 25a32b1d73818e988a8bdf7fb565d06b06d53d68
+ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69021847"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74100015"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Für Azure Stack unterstützte Gastbetriebssysteme
 
@@ -64,7 +64,7 @@ Die im Marketplace verfügbaren Linux-Distributionen enthalten den erforderliche
 | 7\.5 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
 | 7\.3 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
 | ClearLinux | 64 Bit | ClearLinux.org | Ja |
-| Container Linux |  64 Bit | CoreOS | Stable |
+| CoreOS Linux (stabil) |  64 Bit | CoreOS | Ja |
 | Debian 8 „Jessie“ | 64 Bit | credativ |  Ja |
 | Debian 9 „Stretch“ | 64 Bit | credativ | Ja |
 | Oracle Linux | 64 Bit | Oracle | Ja |
