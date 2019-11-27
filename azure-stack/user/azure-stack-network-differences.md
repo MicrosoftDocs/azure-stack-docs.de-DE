@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 09e75656fc6a00181ffb31087e19e80b92760ed2
-ms.sourcegitcommit: b72729305234e13c65de3771cb08678d46ba1348
+ms.openlocfilehash: 2ba1fc76b8b0ead1da543abb467d7a1613a5304c
+ms.sourcegitcommit: ac7d98a2b58442e82798022d69ebfae6616a225f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72543679"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239341"
 ---
 # <a name="differences-and-considerations-for-azure-stack-networking"></a>Azure Stack-Netzwerke: Unterschiede und Überlegungen
 
@@ -62,6 +62,7 @@ Dieser Artikel enthält eine Übersicht über die besonderen Überlegungen für 
 |  | Unterstützung eingehender NAT-Regeln für Dienstendpunkte | Azure unterstützt das Festlegen von Dienstendpunkten für eingehende NAT-Regeln. | Da Azure Stack noch keine Dienstendpunkte unterstützt, können diese nicht festgelegt werden. |
 |  | Protocol | Azure unterstützt das Festlegen von GRE oder ESP. | Protokollklassen werden in Azure Stack nicht unterstützt. |
 | Öffentliche IP-Adresse | Version der öffentlichen IP-Adresse | Azure unterstützt sowohl IPv6 als auch IPv4. | Es wird nur IPv4 unterstützt. |
+| | SKU | Azure unterstützt Basic und Standard. | Nur Basic wird unterstützt. |
 | Netzwerkschnittstelle | Abrufen der effektiven Routentabelle | Unterstützt | Noch nicht unterstützt. |
 |  | Abrufen der effektiven ACLs | Unterstützt | Noch nicht unterstützt. |
 |  | Aktivieren des beschleunigten Netzwerkbetriebs | Unterstützt | Noch nicht unterstützt. |

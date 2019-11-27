@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/15/2019
 ms.author: mabrigg
-ms.reviewer: wfayed
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: e50f2cf722dc4a5b66dbc68c769127e346386134
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.reviewer: thoroet
+ms.lastreviewed: 11/15/2019
+ms.openlocfilehash: c2b6144311ce8f4309fdb968a500f6850080f309
+ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019311"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162967"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack-Firewallintegration
 Es empfiehlt sich, Azure Stack mit einem Firewallgerät zu schützen. Firewalls können bei der Verteidigung vor Dingen wie DDoS-Angriffen (Denial of Service), bei der Angriffserkennung sowie der Inhaltsuntersuchung helfen. Sie können allerdings auch zu einem Durchsatzengpass für Azure-Speicherdienste wie Blobs, Tabellen und Warteschlangen werden.
@@ -42,8 +42,8 @@ Die Verwendung der NAT für öffentliche VIPs hat folgende Nachteile:
 - Die Verwendung der NAT beeinträchtigt zwar die Benutzerfreundlichkeit, gibt dem Betreiber jedoch die volle Kontrolle über Veröffentlichungsanforderungen.
 - In Hybrid Cloud-Szenarien mit Azure wird die Einrichtung eines VPN-Tunnels zu einem Endpunkt mit NAT nicht unterstützt.
 
-### <a name="ssl-decryption"></a>SSL-Entschlüsselung
-Derzeit wird empfohlen, die SSL-Entschlüsselung für den gesamten Azure Stack-Datenverkehr zu deaktivieren. Wenn sie in zukünftigen Updates unterstützt wird, werden Anleitungen zum Aktivieren der SSL-Entschlüsselung für Azure Stack bereitgestellt.
+### <a name="ssl-interception"></a>Abfangen von SSL
+Zurzeit wird empfohlen, das Abfangen von SSL (z. B. Entschlüsselungsabladung) für den gesamten Azure Stack-Datenverkehr zu deaktivieren. Wenn diese Funktion in zukünftigen Updates unterstützt wird, werden Anleitungen zum Aktivieren von SSL-Abfangen für Azure Stack bereitgestellt.
 
 ## <a name="edge-firewall-scenario"></a>Szenario mit Edgefirewall
 Azure Stack wird in einer Edgebereitstellung direkt hinter dem Edgerouter oder der Firewall bereitgestellt. In diesen Szenarien kann die Firewall dem Border-Gerät übergeordnet sein (Szenario 1) und sowohl Aktiv/Aktiv- als auch Aktiv/Passiv-Firewallkonfigurationen unterstützen oder als Border-Gerät fungieren (Szenario 2) und nur eine Aktiv/Aktiv-Firewallkonfiguration unterstützen, wobei ECMP (Equal-Cost Multi-Path) mit BGP oder statischem Routing für Failover erforderlich ist.

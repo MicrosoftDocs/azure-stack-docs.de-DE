@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/15/2019
 ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 09/09/2019
-ms.openlocfilehash: cfd9434bc52684f89617eff3b62a7bf51fc68bcd
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.lastreviewed: 11/15/2019
+ms.openlocfilehash: d165b2c2ae2293f8549cf1c0d2f482801f645312
+ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277429"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162896"
 ---
 # <a name="publish-azure-stack-services-in-your-datacenter"></a>Veröffentlichen von Azure Stack-Diensten in Ihrem Rechenzentrum 
 
@@ -26,9 +26,12 @@ Das folgende Architekturdiagramm zeigt die verschiedenen Netzwerkebenen und ACLs
 ![Diagramm mit verschiedenen Netzwerkebenen und ACLs](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ### <a name="ports-and-urls"></a>Ports und URLs
+
 Damit Sie Azure Stack-Dienste (wie Portale, Azure Resource Manager, DNS, usw.) für externe Netzwerke zur Verfügung stellen können, müssen Sie für diese Endpunkte den eingehenden Datenverkehr für bestimmte URLs, Ports und Protokolle zulassen.
  
 In einer Bereitstellung mit einem Uplink zwischen einem transparenten Proxy und einem herkömmlichen Proxyserver bzw. wenn eine Firewall die Lösung schützt, müssen sowohl für die [eingehende](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) als auch die [ausgehende](azure-stack-integrate-endpoints.md#ports-and-urls-outbound) Kommunikation bestimmte Ports und URLs zugelassen werden. Dazu gehören Ports und URLs für Identität, der Marketplace, Patch und Update, Registrierung und Nutzungsdaten.
+
+Das Abfangen von SSL-Datenverkehr wird [nicht unterstützt](azure-stack-firewall.md#ssl-interception) und kann beim Zugriff auf Endpunkte zu Dienstfehlern führen. 
 
 ## <a name="ports-and-protocols-inbound"></a>Ports und Protokolle (eingehend)
 
@@ -70,6 +73,8 @@ Wenn der [Erweiterungshost](azure-stack-extension-host-prepare.md) hinzugefügt 
 ## <a name="ports-and-urls-outbound"></a>Ports und URLs (ausgehend)
 
 Azure Stack unterstützt nur transparente Proxyserver. In einer Bereitstellung mit einem Uplink zwischen einem transparenten Proxy und einem herkömmlichen Proxyserver müssen für die ausgehende Kommunikation die Ports und URLs in der folgenden Tabelle zugelassen werden.
+
+Das Abfangen von SSL-Datenverkehr wird [nicht unterstützt](azure-stack-firewall.md#ssl-interception) und kann beim Zugriff auf Endpunkte zu Dienstfehlern führen. Das maximal unterstützte Zeitlimit für die Kommunikation mit Endpunkten, die für die Identität erforderlich sind, ist 60 Sekunden.
 
 > [!Note]  
 > Azure Stack bietet keine Unterstützung für die Verwendung von ExpressRoute zur Kommunikation mit den in der folgenden Tabelle aufgeführten Azure-Diensten, weil ExpressRoute den Datenverkehr möglicherweise nicht an alle Endpunkte weiterleiten kann.

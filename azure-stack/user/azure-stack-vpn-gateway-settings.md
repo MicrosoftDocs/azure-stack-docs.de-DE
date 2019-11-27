@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 650257a0bfe94741d00345f98b40fddd8d00cb44
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: e6d7f2d46a578bbbc8527a5e69f441ec12f38b01
+ms.sourcegitcommit: ac7d98a2b58442e82798022d69ebfae6616a225f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961464"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239309"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack"></a>Konfigurieren von VPN-Gatewayeinstellungen für Azure Stack
 
@@ -171,9 +171,9 @@ Im Gegensatz zu Azure, das mehrere Angebote als Initiator und Antwortdienst unte
 | Eigenschaft              | Wert|
 |-|-|
 | IKE-Version           | IKEv2 |
-|Diffie-Hellman-Gruppe   | Gruppe 2 (1024 Bit) |
+|Diffie-Hellman-Gruppe   | ECP384 |
 | Authentifizierungsmethode | Vorab ausgetauschter Schlüssel |
-|Verschlüsselung und Hashalgorithmen | AES256, SHA256 |
+|Verschlüsselung und Hashalgorithmen | AES256, SHA384 |
 |SA-Gültigkeitsdauer (Zeit)     | 28.800 Sekunden|
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parameter der IKE-Phase 2 (Schnellmodus)
@@ -185,10 +185,8 @@ Im Gegensatz zu Azure, das mehrere Angebote als Initiator und Antwortdienst unte
 |Verschlüsselung und Hashalgorithmen (Authentifizierung) | GCMAES256|
 |SA-Gültigkeitsdauer (Zeit)  | 27.000 Sekunden  |
 |SA-Gültigkeitsdauer (KB) | 33.553.408     |
-|Perfect Forward Secrecy (PFS) |Keiner (siehe **Hinweis 1**) |
+|Perfect Forward Secrecy (PFS) | ECP384 |
 |Dead Peer Detection | Unterstützt|  
-
-**Hinweis 1:** Vor Version 1807 verwendete Azure Stack für „Perfect Forward Secrecy (PFS)“ den Wert „PFS2048“.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

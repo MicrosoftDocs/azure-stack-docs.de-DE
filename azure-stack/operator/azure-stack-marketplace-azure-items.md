@@ -16,12 +16,12 @@ ms.date: 10/17/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/17/2019
-ms.openlocfilehash: dac6b6dad423ab3d18e069a91d8bdd5a09498842
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: 84c5512c26ffe36e9f24811c3fc241675ae22181
+ms.sourcegitcommit: ac7d98a2b58442e82798022d69ebfae6616a225f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534200"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239367"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Für Azure Stack verfügbare Azure Marketplace-Elemente
 
@@ -33,7 +33,7 @@ Wann immer Updates der von Ihnen verwendeten Erweiterungen für virtuelle Comput
 
 |  | Name des Elements | BESCHREIBUNG | Herausgeber | OS Type (Betriebssystemtyp) |
 | --- | --- | --- | --- | --- |
-|![SQL-IaaS-Erweiterung](media/azure-stack-marketplace-azure-items/cse.png) | [SQL-IaaS-Erweiterung](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Laden Sie diese Erweiterung herunter, um eine SQL Server-Instanz auf einem Windows Marketplace-Element bereitzustellen. Diese Erweiterung ist erforderlich.** | Microsoft | Windows |
+|![SQL-IaaS-Erweiterung (SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [SQL-IaaS-Erweiterung (SqlIaasExtension)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Laden Sie diese Erweiterung herunter, um eine SQL Server-Instanz auf einem Windows Marketplace-Element bereitzustellen. Diese Erweiterung ist erforderlich.** | Microsoft | Windows |
 |![Benutzerdefinierte Skripterweiterung](media/azure-stack-marketplace-azure-items/cse.png) | [Benutzerdefinierte Skripterweiterung](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **Laden Sie dieses Update für die integrierte Version der benutzerdefinierten Skripterweiterung für Windows herunter.** | Microsoft | Windows |
 |![PowerShell DSC-Erweiterung](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC-Erweiterung](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **Laden Sie dieses Update für die integrierte Version der PowerShell DSC-Erweiterung herunter. Aktualisiert zur Unterstützung der TLS-Version 1.2.** | Microsoft | Windows |
 | ![Microsoft Antimalware-Erweiterung](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Antimalware-Erweiterung](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Microsoft Antimalware für Azure ist eine Lösung mit einem einzelnen Agent für Apps und Mandantenumgebungen, die im Hintergrund ohne Eingreifen des Benutzers ausgeführt wird. **Laden Sie dieses Update für die integrierte Version der Antimalware-Erweiterung herunter.** | Microsoft | Windows |
@@ -85,7 +85,7 @@ Microsoft Azure Stack unterstützt die folgenden VMs und Lösungsvorlagen von Az
 |  | Name des Elements | BESCHREIBUNG | Herausgeber |
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Eine für Intel-Architektur optimierte Linux-Referenzdistribution. | Clear Linux-Projekt |
-| ![Container Linux von CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Container Linux von CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Container Linux ist eine moderne und minimale Linux-Distribution, die eine einfache Möglichkeit zum Ausführen von Containern, zum Verwalten von Clustern und zum nahtlosem Update Ihrer Server bietet – also den Komponenten, die eine Computelösung auf Warehouse-Ebene ermöglichen. | CoreOS |
+| ![CoreOS Linux (stabil)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (stabil)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | CoreOS ist eine moderne und minimale Linux-Distribution, die eine einfache Möglichkeit zum Ausführen von Containern, Verwalten von Clustern und nahtlosen Aktualisieren Ihrer Server bietet – alle Komponenten, die eine Computelösung auf Warehouse-Ebene ermöglichen. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server ist das weltweit beliebteste Linux für Cloudumgebungen. | Canonical |
 | ![Debian 8 „Jessie“](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 „Jessie“](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux ist eine der am häufigsten verwendeten Linux-Distributionen. | credativ |
 | ![Oracle Linux](media/azure-stack-marketplace-azure-items/oracle.png) | [Oracle Linux](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oracle-linux) | Das Betriebssystem Oracle Linux ist auf eine Open Cloud-Infrastruktur ausgelegt. Es bietet höchste Leistung, Skalierbarkeit und Zuverlässigkeit für SaaS- und PaaS-Workloads von Unternehmen; herkömmliche Unternehmens-Apps werden ebenfalls unterstützt. | Oracle |
