@@ -14,13 +14,13 @@ ms.topic: tutorial
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 8a323bf5d767db288cd2d876f38119b61f577afa
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.lastreviewed: 09/25/2019
+ms.openlocfilehash: 1b6975490a876c0ff0b51fdf9f21ba010e14622d
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909673"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299117"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Bereitstellen eines Service Fabric-Clusters in Azure Stack
 
@@ -35,7 +35,7 @@ Für den Service Fabric-Cluster in Azure Stack wird der Ressourcenanbieter „Mi
 Folgendes ist für die Bereitstellung des Service Fabric-Clusters erforderlich:
 1. **Clusterzertifikat**  
    Dies ist das X.509-Serverzertifikat, das Sie Key Vault beim Bereitstellen von Service Fabric hinzufügen. 
-   - Der **CN** dieses Zertifikats muss mit dem vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) des von Ihnen erstellten Service Fabric-Clusters übereinstimmen. Weitere Hinweise zum FQDN finden Sie unter [Erforderliche Zertifikate für eine Azure Stack-Produktionsbereitstellung von Azure App Service](../operator/azure-stack-app-service-before-you-get-started.md#certificates-required-for-azure-stack-production-deployment-of-azure-app-service).
+   - Der **CN** dieses Zertifikats muss mit dem vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) des von Ihnen erstellten Service Fabric-Clusters übereinstimmen. 
    - Das Zertifikat muss im PFX-Format vorliegen, da sowohl der öffentliche als auch der private Schlüssel benötigt werden. 
      Informationen zum Erstellen dieses serverseitigen Zertifikats finden Sie unter [Szenarien für die Clustersicherheit in Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
 

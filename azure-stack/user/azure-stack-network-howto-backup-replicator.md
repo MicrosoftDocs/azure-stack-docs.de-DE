@@ -9,18 +9,18 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: e65943bd0b84d11e3696da206d360edc948c203f
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: 03388b08e6cc258437656f2e580b75de14b8cee5
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802258"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557686"
 ---
 # <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>Replizieren von Ressourcen mit dem Replikator für Azure Stack-Abonnements
 
 Sie können mit dem PowerShell-Skript des Replikators für Azure Stack-Abonnements die Ressourcen zwischen Azure Stack-Abonnements, Azure Stack-Stamps oder Azure Stack und Azure kopieren. Das Replikatorskript liest und erstellt die Azure Resource Manager-Ressourcen aus anderen Azure- und Azure Stack-Abonnements neu. In diesem Artikel wird die Funktionsweise des Skripts erläutert. Sie erfahren, wie Sie das Skript verwenden können. Außerdem finden Sie eine Referenz für Skriptvorgänge.
 
-Die in diesem Artikel verwendeten Skripts finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns). Die Skripts befinden sich im Ordner **Abonnementreplikator**.
+Die in diesem Artikel verwendeten Skripts finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns). Die Skripts befinden sich im Ordner [Abonnementreplikator](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/subscription%20replicator).
 
 ## <a name="subscription-replicator-overview"></a>Übersicht über den Abonnementreplikator
 

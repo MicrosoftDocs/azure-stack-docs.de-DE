@@ -11,26 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 22779072b2dfed018a2ff6d5eac5bf2c294ccd31
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: cb531570191216ea13a0b1a7a6d36738c0765cd3
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595121"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310250"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack"></a>Was ist die AKS-Engine in Azure Stack?
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
 Sie können mit dem AKS-Engine-Befehlszeilentool einen Kubernetes-Cluster in Azure und Azure Stack bereitstellen und verwalten. Verwenden Sie die AKS-Engine, um native Azure Resource Manager-Cluster zu erstellen, zu aktualisieren und zu skalieren. Sie können mit der Engine in verbundenen und nicht verbundenen Umgebungen einen Cluster bereitstellen. Dieser Artikel bietet eine Übersicht über die AKS-Engine, unterstützte Szenarien für die Verwendung der Engine mit Azure Stack und eine Einführung in Vorgänge wie Bereitstellung, Upgrade und Skalierung.
-
-> [!IMPORTANT]
-> Die AKS-Engine ist zurzeit als öffentliche Vorschauversion verfügbar.
-> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="overview-of-the-aks-engine"></a>Übersicht über die AKS-Engine
 

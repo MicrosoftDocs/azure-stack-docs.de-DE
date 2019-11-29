@@ -16,12 +16,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: f4fe915d07b81a6f99d9bd5a4b222590d1bb9a30
-ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
+ms.openlocfilehash: 88b92ce80475ba48b2570dc58082fa75983fdd9b
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70876586"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540268"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>Konfigurationen nach der Bereitstellung für das ASDK
 
@@ -56,7 +56,7 @@ Sie können das aktuelle Azure Stack PowerShell-Modul mit oder ohne Internetverb
 
   # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
   Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-  Install-Module -Name AzureStack -RequiredVersion 1.7.2
+  Install-Module -Name AzureStack -RequiredVersion 1.8.0
   ```
 
   War die Installation erfolgreich, werden die AzureRM- und AzureStack-Module in der Ausgabe angezeigt.

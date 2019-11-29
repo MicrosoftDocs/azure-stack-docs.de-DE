@@ -11,26 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: a847f04e3766e943aba78b567b0f21a99d0da860
-ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: aed53295b7c1748abd8ab3bd2862043d7d69e4b8
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74162945"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310341"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Problembehandlung bei der AKS-Engine in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
 Beim Bereitstellen oder Arbeiten mit der AKS-Engine in Azure Stack tritt möglicherweise ein Problem auf. In diesem Artikel werden die Schritte zur Problembehandlung bei der Bereitstellung der AKS-Engine, zum Sammeln von Informationen über Ihre AKS-Engine, zum Erfassen von Kubernetes-Protokollen, zum Überprüfen der Fehlercodes für die benutzerdefinierte Skripterweiterung und die Anweisungen zum Öffnen eines GitHub-Problems für die AKS-Engine behandelt.
-
-> [!IMPORTANT]
-> Die AKS-Engine ist zurzeit als öffentliche Vorschauversion verfügbar.
-> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="troubleshoot-the-aks-engine-install"></a>Problembehandlung bei der Installation der AKS-Engine
 

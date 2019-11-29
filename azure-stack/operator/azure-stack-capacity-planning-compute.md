@@ -16,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 17136cbe86029f0ea776d8dc8860ff96c82c756e
-ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
+ms.openlocfilehash: dac0360bba7c24c85d1f30efbfb7fad30eb97028
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71142591"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299152"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack-Compute
 
@@ -111,7 +111,7 @@ Der Wert V (größter virtueller Computer in der Skalierungseinheit) basiert dyn
 
 **F:** In welchem Zustand müssen sich Mandanten-VMs befinden, damit sie Arbeitsspeicher beanspruchen?
 
-A: Zusätzlich zur Ausführung von VMs wird Arbeitsspeicher von allen VMs verbraucht, die im Fabric angeordnet sind. Das bedeutet, dass virtuelle Computer mit dem Zustand „Wird erstellt“ oder „Fehler“ sowie virtuelle Computer, die über den Gast heruntergefahren werden, Arbeitsspeicher beanspruchen (im Gegensatz zu virtuellen Computern, deren Zuordnung mithilfe der entsprechenden Option über das Portal/mit PowerShell/über die Befehlszeilenschnittstelle aufgehoben wurde).
+**A:** Zusätzlich zur Ausführung von VMs wird Arbeitsspeicher von allen VMs verbraucht, die im Fabric angeordnet sind. Das bedeutet, dass virtuelle Computer mit dem Zustand „Wird erstellt“ oder „Fehler“ sowie virtuelle Computer, die über den Gast heruntergefahren werden, Arbeitsspeicher beanspruchen (im Gegensatz zu virtuellen Computern, deren Zuordnung mithilfe der entsprechenden Option über das Portal/mit PowerShell/über die Befehlszeilenschnittstelle aufgehoben wurde).
 
 **F:** Ich verfüge über eine Azure Stack-Instanz mit vier Hosts. Mein Mandant umfasst drei virtuelle Computer, die jeweils 56 GB RAM (D5_v2) beanspruchen. Nachdem die Größe eines der virtuellen Computer in 112 GB RAM (D14_v2) geändert wurde, wurde beim verfügbaren Arbeitsspeicher auf dem Kapazitätsblatt des Dashboards eine Spitzenauslastung von 168 GB gemeldet. Bei der späteren Änderung der Größe der anderen beiden virtuellen Computer von „D5_v2“ in „D14_v2“ wurde dagegen nur ein RAM-Zuwachs von jeweils 56 GB verzeichnet. Woran liegt das?
 

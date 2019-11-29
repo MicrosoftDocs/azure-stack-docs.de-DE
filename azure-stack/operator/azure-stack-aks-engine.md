@@ -11,28 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c21223ca8926a1e2b3ca1b06752a79a14adaeda1
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: ee19c6ee32960c52bcf7a4918c3d1e48406129c3
+ms.sourcegitcommit: 31e04af4d405215ef200aba0b40d601fc5ca7662
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73636879"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74391543"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Hinzufügen von Voraussetzungen für die Azure Kubernetes Services-Engine (AKS) zum Azure Stack-Marketplace
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
 Sie können es Ihren Benutzern ermöglichen, die Azure Kubernetes Service-Engine (AKS) einzurichten, indem Sie die in diesem Artikel beschriebenen Elemente zu Ihrer Azure Stack-Instanz hinzufügen. Ihre Benutzer können dann einen Kubernetes-Cluster in einem einzelnen, koordinierten Vorgang bereitstellen. In diesem Artikel werden die Schritte erläutert, die Sie ausführen müssen, um die AKS-Engine Ihren Benutzern sowohl in verbundenen als auch in nicht verbundenen Umgebungen zur Verfügung zu stellen. Die AKS-Engine benötigt eine Dienstprinzipalidentität sowie im Marketplace eine benutzerdefinierte Skripterweiterung und das AKS-Basisimage.
-
-Die [AKS-Engine](https://github.com/Azure/aks-engine) verwendet ein erstelltes Image, das AKS-Basisimage. Jede Version der AKS-Engine hängt von einer bestimmten Imageversion ab, die Sie in Ihrer Azure Stack-Instanz zur Verfügung stellen können. Eine Tabelle mit den AKS-Engine-Versionen und den entsprechenden Kubernetes-Versionen finden Sie unter [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) (Unterstützte Kubernetes-Versionen).
-
-> [!IMPORTANT]
-> Die AKS-Engine ist zurzeit als öffentliche Vorschauversion verfügbar.
-> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="check-your-users-service-offering"></a>Überprüfen des Dienstangebots für Ihre Benutzer
 

@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/22/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: a0218652e2dace72356a32fe99ac5f6ac450cc94
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 11/22/2019
+ms.openlocfilehash: a5a6cf3ef5c2c03992647c207422eb266f171ac4
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824788"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465489"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Verwalten und Bereitstellen von Ressourcen in Azure Stack mit Azure CLI
 
@@ -163,13 +163,6 @@ Zum Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack als v
 
 1. Registrieren Sie die Azure Stack-Umgebung, indem Sie den Befehl `az cloud register` ausführen.
 
-    In einigen Szenarien wird die direkte ausgehende Internetkonnektivität durch einen Proxy oder eine Firewall geleitet, die das Abfangen von SSL erzwingen. In diesen Fällen kann der Befehl `az cloud register` mit einem Fehler wie „Endpunkte können nicht aus der Cloud abgerufen werden“ fehlschlagen. Als Problemumgehung dieses Fehlers legen Sie die folgenden Umgebungsvariablen fest:
-
-    ```shell  
-    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-    set ADAL_PYTHON_SSL_NO_VERIFY=1
-    ```
-
 2. Registrieren Sie Ihre Umgebung. Verwenden Sie beim Ausführen von `az cloud register` die folgenden Parameter:
 
     | Wert | Beispiel | BESCHREIBUNG |
@@ -282,13 +275,6 @@ Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat a
 ### <a name="connect-to-azure-stack"></a>Herstellen einer Verbindung mit Azure Stack
 
 1. Registrieren Sie die Azure Stack-Umgebung, indem Sie den Befehl `az cloud register` ausführen.
-
-    In einigen Szenarien wird die direkte ausgehende Internetkonnektivität durch einen Proxy oder eine Firewall geleitet, die das Abfangen von SSL erzwingen. In diesen Fällen kann der Befehl `az cloud register` mit einem Fehler wie „Endpunkte können nicht aus der Cloud abgerufen werden“ fehlschlagen. Als Problemumgehung dieses Fehlers legen Sie die folgenden Umgebungsvariablen fest:
-
-    ```shell  
-    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-    set ADAL_PYTHON_SSL_NO_VERIFY=1
-    ```
 
 2. Registrieren Sie Ihre Umgebung. Verwenden Sie beim Ausführen von `az cloud register` die folgenden Parameter:
 
