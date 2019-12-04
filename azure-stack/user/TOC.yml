@@ -71,8 +71,9 @@
               href: azure-stack-develop-templates.md
             - name: Entwickeln von Vorlagen in Azure
               href: azure-stack-developer.md
-            - name: Bereitstellen von Vorlagen
+            - name: Überprüfen von Vorlagen
               href: azure-stack-validate-templates.md
+            - name: Bereitstellen von Vorlagen
               items:
                 - name: Bereitstellen über das Portal
                   href: azure-stack-deploy-template-portal.md
