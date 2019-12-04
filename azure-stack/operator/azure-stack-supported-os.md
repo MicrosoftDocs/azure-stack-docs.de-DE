@@ -16,12 +16,12 @@ ms.date: 08/14/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 25a32b1d73818e988a8bdf7fb565d06b06d53d68
-ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
+ms.openlocfilehash: fc3eecb8f4e06ce02737e513c48d946f2a667c21
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74100015"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298761"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Für Azure Stack unterstützte Gastbetriebssysteme
 
@@ -54,9 +54,9 @@ Datacenter-Editionen stehen im Marketplace zum Download zur Verfügung. Kunden k
 Die im Marketplace verfügbaren Linux-Distributionen enthalten den erforderlichen Windows Azure-Linux-Agent (WALA). Wenn Sie in Azure Stack Ihr eigenes Image verwenden möchten, beachten Sie die Richtlinien unter [Hinzufügen von Linux-Images zu Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Benutzerdefinierte Images müssen mit der neuesten öffentlichen WALA-Version (in Azure Stack Build 1903 und höher oder mit dem 1901/1902-Hotfix) oder mit Version 2.2.20 erstellt werden. Versionen vor 2.2.20 und zwischen 2.2.20 und 2.2.2.35 (exklusive) funktionieren in Azure Stack möglicherweise nicht ordnungsgemäß.
+> Benutzerdefinierte Images müssen mit der neuesten öffentlichen WALA-Version (in Azure Stack Build 1903 und höher oder mit dem 1901/1902-Hotfix) oder mit Version 2.2.20 erstellt werden. Versionen vor 2.2.20 und zwischen 2.2.21 und 2.2.2.34 (einschließlich) funktionieren in Azure Stack möglicherweise nicht ordnungsgemäß. Unter Azure Stack-Release 1910 und höher funktionieren alle Versionen von Azure WALA-Agentversionen mit Azure Stack.
 >
-> [cloud-init](https://cloud-init.io/) wird derzeit für Azure Stack nicht unterstützt.
+> [cloud-init](https://cloud-init.io/) wird derzeit ab Azure Stack-Release 1910 unterstützt.
 
 | Distribution | BESCHREIBUNG | Herausgeber | Marketplace |
 | --- | --- | --- | --- |

@@ -1,5 +1,6 @@
 ---
-title: Ersetzen einer Hardwarekomponente auf einem Azure Stack-Skalierungseinheitenknoten | Microsoft-Dokumentation
+title: Ersetzen einer Hardwarekomponente auf einem Azure Stack-Skalierungseinheitenknoten
+titleSuffix: Azure Stack
 description: Erfahren Sie, wie Sie eine Hardwarekomponente in einem System mit integriertem Azure Stack ersetzen.
 services: azure-stack
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 4cb8da451743bc6a8e15c57aacf28f0aa83258c9
-ms.sourcegitcommit: 4f3e161e7632c8a6e3d41946b09f22b5bdb08d36
+ms.openlocfilehash: ff78409ecdbdec8b7a6860db18244a4835351ed8
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413148"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465290"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Ersetzen einer Hardwarekomponente auf einem Azure Stack-Skalierungseinheitenknoten
 
@@ -41,7 +42,7 @@ In diesem Artikel wird das allgemeine Verfahren zum Ersetzen von Hardwarekompone
 | Lenovo | Alle | [ThinkAgile SXM – bewährte Vorgehensweisen](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
 | Wortmann |  | [OEM-/Firmwarepaket](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[Terra Azure Stack-Dokumentation (einschließlich FRU)](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
 
-Nicht im laufenden Betrieb austauschbare Komponenten umfassen Folgendes:
+Nicht im laufenden Betrieb austauschbare Komponenten umfassen folgende Elemente:
 
 - CPU*
 - Arbeitsspeicher*
@@ -67,7 +68,7 @@ Das Integritäts- und Überwachungssystem von Azure Stack verfolgt die Integrit�
 
 ## <a name="component-replacement-process"></a>Komponentenaustauschprozess
 
-Die folgenden Schritte ermöglichen eine allgemeine Übersicht über den Komponentenaustauschprozess. Befolgen Sie diese Schritte nicht, ohne zuvor die vom OEM-Anbieter bereitgestellte FRU-Dokumentation zu Rate zu ziehen.
+Die folgenden Schritte ermöglichen eine allgemeine Übersicht über den Komponentenaustauschprozess. Führen Sie diese Schritte nicht aus, ohne zuvor die vom OEM-Anbieter bereitgestellte FRU-Dokumentation zu Rate zu ziehen.
 
 1. Verwenden Sie die Herunterfahren-Aktion, um den Skalierungseinheitknoten ordnungsgemäß herunterzufahren. Diese Aktion ist abhängig vom physischen Zustand der Hardware möglicherweise nicht erforderlich.
 

@@ -3,7 +3,7 @@ title: Herunterladen von Marketplace-Elementen aus Azure und Veröffentlichen in
 description: Es wird beschrieben, wie Sie Marketplace-Elemente aus Azure herunterladen und in Azure Stack veröffentlichen.
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.date: 10/10/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 095744322937a34dffd680b886fd4b06ca65d7d6
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.openlocfilehash: bc696d4b14aecd5890893f00b64cf2c4a3804173
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618276"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299189"
 ---
 # <a name="download-existing-marketplace-items-from-azure-and-publish-to-azure-stack"></a>Herunterladen vorhandener Marketplace-Elemente aus Azure und Veröffentlichen in Azure Stack
 
@@ -58,17 +58,21 @@ Ihre Azure Stack-Bereitstellung muss über eine Internetverbindung verfügen und
 
     ![Hinzufügen von Marketplace-Elementen aus Azure](media/azure-stack-download-azure-marketplace-item/marketplace.png)
 
-4. Im Portal wird die Liste der Elemente angezeigt, die im Azure Marketplace zum Download zur Verfügung stehen. Sie können Produkte nach Name, Herausgeber und/oder Produkttyp filtern. Sie können auch auf die einzelnen Elemente klicken, um eine Beschreibung und zusätzliche Informationen anzuzeigen, u.a. die Downloadgröße:
+4. Im Portal wird die Liste der Elemente angezeigt, die im Azure Marketplace zum Download zur Verfügung stehen. Sie können Produkte nach Name, Herausgeber und/oder Produkttyp filtern. Jede Position zeigt auch die derzeit verfügbare Version. Wenn mehrere Versionen eines Marketplace-Elements verfügbar sind, ist in der Spalte **Version** **Mehrere** angegeben. Sie können auf die einzelnen Elemente klicken, um eine Beschreibung und zusätzliche Informationen anzuzeigen, u. a. die Downloadgröße:
 
-    ![Liste mit Azure Marketplace-Elementen ](media/azure-stack-download-azure-marketplace-item/image03.PNG)
+    [![Liste von Marketplace-Elementen](media/azure-stack-download-azure-marketplace-item/add-from-azure1sm.png "Liste von Marketplace-Elementen")](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png#lightbox)
 
-5. Wählen Sie das gewünschte Element aus, und klicken Sie auf **Weiter**. Die Downloadzeiten können variieren.
+5. Wenn die Version eines Elements als **Mehrere** angegeben ist, können Sie das Element auswählen und in der daraufhin angezeigten Dropdownliste eine bestimmte Version wählen:
+
+    [![Version auswählen](media/azure-stack-download-azure-marketplace-item/add-from-azure3sm.png "Version auswählen")](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png#lightbox)
+
+6. Wählen Sie das gewünschte Element aus, und klicken Sie auf **Weiter**. Die Downloadzeiten können variieren.
 
     ![Herunterladen des Azure Marketplace-Elements](media/azure-stack-download-azure-marketplace-item/image04.png)
 
     Wenn der Download abgeschlossen ist, können Sie das neue Marketplace-Element entweder als Azure Stack-Betreiber oder -Benutzer bereitstellen.
 
-6. Klicken Sie zum Bereitstellen des heruntergeladenen Elements auf **+ Ressource erstellen**, und suchen Sie in den Kategorien nach dem neuen Marketplace-Element. Wählen Sie als Nächstes das Element aus, um den Bereitstellungsprozess zu starten. Der Prozess variiert für verschiedene Marketplace-Elemente.
+7. Klicken Sie zum Bereitstellen des heruntergeladenen Elements auf **+ Ressource erstellen**, und suchen Sie in den Kategorien nach dem neuen Marketplace-Element. Wählen Sie als Nächstes das Element aus, um den Bereitstellungsprozess zu starten. Der Prozess variiert für verschiedene Marketplace-Elemente.
 
 ## <a name="disconnected-or-a-partially-connected-scenario"></a>Nicht verbundenes oder partiell verbundenes Szenario
 
@@ -150,7 +154,11 @@ Nach Ihrer Registrierung können Sie die folgende Meldung ignorieren, die auf de
 
 6. Wenn das Tool ausgeführt wird, wird ein Bildschirm mit der Liste verfügbarer Azure Marketplace-Elemente angezeigt, der in etwa wie auf der folgenden Abbildung aussieht:
 
-   [![Popup mit Azure Marketplace-Elementen](media/azure-stack-download-azure-marketplace-item/image05.png "Marketplace-Elemente")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
+   [![Popup mit Azure Marketplace-Elementen](media/azure-stack-download-azure-marketplace-item/tool1sm.png "Marketplace-Elemente")](media/azure-stack-download-azure-marketplace-item/tool1.png#lightbox)
+
+7. Wenn mehrere Versionen eines Marketplace-Elements verfügbar sind, ist in der Spalte **Version** **Mehrere Versionen** angegeben. Wenn die Version eines Elements als **Mehrere Versionen**  angegeben ist, können Sie das Element auswählen und im daraufhin angezeigten Auswahlfenster eine bestimmte Version wählen:
+
+   [![Versionsauswahl](media/azure-stack-download-azure-marketplace-item/tool2sm.png "Version auswählen")](media/azure-stack-download-azure-marketplace-item/tool2.png#lightbox)
 
 7. Wenn Sie die Azure Storage-Tools nicht installiert haben, erhalten Sie die folgende Meldung. Laden Sie zum Installieren dieser Tools [AzCopy](/azure/storage/common/storage-use-azcopy#download-azcopy) herunter:
 

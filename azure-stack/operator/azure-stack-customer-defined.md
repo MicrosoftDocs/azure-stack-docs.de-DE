@@ -15,12 +15,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1bd138be243c2803b5a280de2a3a8625e84db998
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 99d52dc7165fdd37a614c1396d7e5c1f0165e235
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955335"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299124"
 ---
 #  <a name="modify-specific-settings-on-your-azure-stack-switch-configuration"></a>Ändern bestimmter Einstellungen in der Azure Stack-Switchkonfiguration
 
@@ -53,7 +53,10 @@ Der Operator kann entweder RADIUS oder TACACS konfigurieren, um die Authentifizi
 
 ## <a name="access-control-list-updates"></a>Aktualisierungen von Zugriffssteuerungslisten
 
-Der Operator kann einige Zugriffssteuerungslisten (ACLs) so ändern, dass der Zugriff auf Verwaltungsschnittstellen für Netzwerkgeräte und den Hardwarelebenszyklus-Host (HLH) von einem Netzwerkbereich vertrauenswürdiger Datencenter gestattet wird. Der Operator kann auswählen, welche Komponente von welchem Ort aus zugänglich ist. Mithilfe der Zugriffssteuerungsliste kann der Operator seinen Jumpbox-VMs für die Verwaltung innerhalb eines bestimmten Netzwerkbereichs den Zugriff auf die Schnittstelle für die Switch-Verwaltung, das HLH-Betriebssystem und den HLH-BMC gewähren.
+> [!NOTE]
+> Ab 1910 befindet sich auf dem Arbeitsblatt für die Bereitstellung ein neues Feld für **zugelassene Netzwerke**, das die manuellen Schritte ersetzt, die für das Zulassen des Zugriffs auf Verwaltungsschnittstellen für Netzwerkgeräte und den Hardwarelebenszyklus-Host (HLH) von einem Netzwerkbereich vertrauenswürdiger Datencenter erforderlich sind. Weitere Informationen zu dieser neuen Funktion finden Sie unter [Planen der Netzwerkintegration für Azure Stack](azure-stack-network.md#permitted-networks).
+
+Der Operator kann einige Zugriffssteuerungslisten (ACLs) so ändern, dass der Zugriff auf Verwaltungsschnittstellen für Netzwerkgeräte und den Hardwarelebenszyklus-Host (HLH) von einem Netzwerkbereich vertrauenswürdiger Datencenter gestattet wird. Mithilfe der Zugriffssteuerungsliste kann der Operator seinen Jumpbox-VMs für die Verwaltung innerhalb eines bestimmten Netzwerkbereichs den Zugriff auf die Schnittstelle für die Switch-Verwaltung, das HLH-Betriebssystem und den HLH-BMC gewähren.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

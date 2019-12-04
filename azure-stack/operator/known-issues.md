@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: prchint
-ms.lastreviewed: 09/13/2019
-ms.openlocfilehash: 367a2cb5a07c0db2b272b8ffc951f51e5ed9cc0e
-ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 0621ca19f96e1c33a85ea5308346fafa2e4545f8
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74100035"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465370"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack – Bekannte Probleme
 
@@ -29,11 +29,11 @@ In diesem Artikel sind die bekannten Probleme in Releases von Azure Stack aufgel
 
 Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die Dropdown-Auswahlliste oberhalb des Inhaltsverzeichnisses auf der linken Seite.
 
-::: moniker range=">=azs-1905"
+::: moniker range=">=azs-1906"
 > [!IMPORTANT]  
 > Lesen Sie diesen Abschnitt, bevor Sie das Update anwenden.
 ::: moniker-end
-::: moniker range="<azs-1905"
+::: moniker range="<azs-1906"
 > [!IMPORTANT]  
 > Wenn die Version der Azure Stack-Instanz mehr als zwei Updates zurückliegt, wird sie als nicht konform eingestuft. Sie müssen [mindestens auf die niedrigste unterstützte Version aktualisieren, um Support zu erhalten](azure-stack-servicing-policy.md#keep-your-system-under-support). 
 ::: moniker-end
@@ -41,6 +41,209 @@ Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die
 <!---------------------------------------------------------->
 <!------------------- SUPPORTED VERSIONS ------------------->
 <!---------------------------------------------------------->
+
+::: moniker range="azs-1910"
+## <a name="portal"></a>Portal
+
+### <a name="administrative-subscriptions"></a>Verwaltungsabonnements
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Die beiden Verwaltungsabonnements, die in Version 1804 eingeführt wurden, sollten nicht verwendet werden. Die Abonnementtypen sind **Messungsabonnement** und **Verbrauchsabonnement**.
+- Abhilfe: Wenn Sie unter diesen beiden Abonnements Ressourcen ausführen, erstellen Sie sie in Benutzerabonnements neu.
+- Häufigkeit: Common
+
+### <a name="subscriptions-lock-blade"></a>Blatt für Abonnementsperre
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Im Administratorportal verfügt das Blatt **Sperren** für Benutzerabonnements über zwei Schaltflächen mit der Bezeichnung **Abonnement**.
+- Häufigkeit: Common
+
+### <a name="subscription-permissions"></a>Abonnementberechtigungen
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Sie können mit den Azure Stack-Portalen keine Berechtigungen für Ihr Abonnement anzeigen.
+- Abhilfe: Verwenden Sie [PowerShell zum Überprüfen der Berechtigungen](/powershell/module/azurerm.resources/get-azurermroleassignment).
+- Häufigkeit: Common
+
+### <a name="storage-account-settings"></a>Speicherkontoeinstellungen
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Im Benutzerportal wird auf dem Blatt **Konfiguration** des Speicherkontos eine Option zum Ändern des **Sicherheitsübertragungstyps** angezeigt. Die Funktion wird zurzeit in Azure Stack nicht unterstützt.
+- Häufigkeit: Common
+
+### <a name="upload-blob-with-oauth-error"></a>Fehler beim Hochladen eines Blobs mit OAuth
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn Sie im Benutzerportal versuchen, ein Blob mit der Option **OAuth (Vorschau)** hochzuladen, wird für die Aufgabe eine Fehlermeldung angezeigt.
+- Abhilfe: Laden Sie das Blob mit der SAS-Option hoch.
+- Häufigkeit: Common
+
+### <a name="upload-blob-option-unsupported"></a>Nicht unterstützte Blob-Uploadoption
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn Sie auf dem Uploadblatt des Benutzerportals ein Blob hochladen möchten, können Sie zwischen **AAD** und **Schlüsselauthentifizierung** wählen. **AAD** wird in Azure Stack jedoch nicht unterstützt.
+- Häufigkeit: Common
+
+### <a name="load-balancer-backend-pool"></a>Back-End-Pool für den Lastenausgleich
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn Sie im Benutzerportal einen Back-End-Pool vom Typ **Lastenausgleich** hinzufügen, wird die Fehlermeldung **Fehler beim Speichern des Back-End-Pools des Lastenausgleichs** angezeigt, obwohl der Vorgang erfolgreich war.
+- Häufigkeit: Common
+
+### <a name="incorrect-tooltip-when-creating-vm"></a>Falsche QuickInfo bei der VM-Erstellung
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn Sie im Benutzerportal einen verwalteten Datenträger vom Typ „SSD Premium“ auswählen, wird in der Dropdownliste **Betriebssystemdatenträger** angezeigt. Die QuickInfo neben dieser Option lautet: **Bestimmte Betriebssystemdatenträger sind mit dem kostenlosen Azure-Konto möglicherweise gebührenfrei verfügbar.** Dies gilt jedoch nicht für Azure Stack. Darüber hinaus enthält die Liste **Free account eligible** (Geeignet für kostenloses Konto), was ebenfalls nicht für Azure Stack gilt.
+- Häufigkeit: Common
+
+### <a name="vpn-troubleshoot-and-metrics"></a>VPN-Problembehandlung und Metriken
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Im Benutzerportal werden das Feature **VPN-Problembehandlung** sowie **Metriken** in einer VPN-Gatewayressource angezeigt. Dies wird in Azure Stack jedoch nicht unterstützt.
+- Häufigkeit: Common
+
+### <a name="adding-extension-to-vm-scale-set"></a>Hinzufügen einer Erweiterung zu einer VM-Skalierungsgruppe
+
+- Geltungsbereich: Dieses Problem betrifft das Release 1907 und spätere Releases.
+- Ursache: Nach Erstellung einer VM-Skalierungsgruppe kann über die Benutzeroberfläche des Benutzerportals keine Erweiterung mehr hinzugefügt werden.
+- Häufigkeit: Common
+
+### <a name="delete-a-storage-container"></a>Löschen eines Speichercontainers
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn ein Benutzer im Benutzerportal versucht, einen Speichercontainer zu löschen, ist der Vorgang nicht erfolgreich, wenn der Benutzer **Einstellungen für Azure Policy und RBAC-Rolle außer Kraft setzen** nicht aktiviert.
+- Abhilfe: Vergewissern Sie sich, dass das Kontrollkästchen für **Einstellungen für Azure Policy und RBAC-Rolle außer Kraft setzen** aktiviert ist.
+- Häufigkeit: Common
+
+### <a name="refresh-button-on-virtual-machines-fails"></a>Aktualisierungsschaltfläche für virtuelle Computer funktioniert nicht
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn Sie im Benutzerportal zu **Virtuelle Computer** navigieren und die Ansicht mithilfe der entsprechenden Schaltfläche im oberen Bereich aktualisieren, werden die Zustände nicht ordnungsgemäß aktualisiert.
+- Abhilfe: Der Status wird automatisch alle fünf Minuten aktualisiert – unabhängig davon, ob auf die Aktualisierungsschaltfläche geklickt wurde. Warten Sie fünf Minuten, und überprüfen Sie den Status.
+- Häufigkeit: Common
+
+### <a name="virtual-network-gateway"></a>Gateway des virtuellen Netzwerks
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn Sie im Benutzerportal eine Routingtabelle erstellen, wird **Gateway für virtuelle Netzwerke** als Option für den Typ des nächsten Hops angezeigt. Dies wird in Azure Stack jedoch nicht unterstützt.
+- Häufigkeit: Common
+
+### <a name="storage-account-options"></a>Speicherkontooptionen
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Im Benutzerportal wird der Name von Speicherkonten als **Speicherkonto – Blob, Datei, Tabelle, Warteschlange**angezeigt. **Datei** wird in Azure Stack jedoch nicht unterstützt.
+- Häufigkeit: Common
+
+### <a name="storage-account-configuration"></a>Speicherkontokonfiguration
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn Sie im Benutzerportal ein Speicherkonto erstellen und dessen **Konfiguration** anzeigen, können Sie keine Konfigurationsänderungen speichern, da dies einen AJAX-Fehler zur Folge hat.
+- Häufigkeit: Common
+
+### <a name="capacity-monitoring-in-sql-resource-provider-keeps-loading"></a>Kapazitätsüberwachung im SQL-Ressourcenanbieter wird weiterhin geladen
+
+- Geltungsbereich: Dieses Problem betrifft das Azure Stack-Update 1910 und höhere Versionen, bei denen maximal die SQL-Ressourcenanbieterversion 1.1.33.0 installiert ist.
+- Ursache: Die aktuelle Version des SQL-Ressourcenanbieters ist mit einigen der neuesten Portaländerungen des Updates 1910 nicht kompatibel.
+- Abhilfe: Führen Sie im Anschluss an das Azure Stack-Upgrade auf das Update 1910 ([SQL-Ressourcenanbieterversion 1.1.47.0](https://aka.ms/azurestacksqlrp11470)) die Schritte des Ressourcenanbieter-Updateprozesses aus, um den SQL-Ressourcenanbieter-Hotfix 1.1.47.0 anzuwenden. Für den MySQL-Ressourcenanbieter sollte im Anschluss an das Azure Stack-Upgrade auf das Update 1910 ([MySQL-Ressourcenanbieterversion 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)) auch der MySQL-Ressourcenanbieter-Hotfix 1.1.47.0 angewendet werden.
+- Häufigkeit: Common
+
+## <a name="networking"></a>Netzwerk
+
+### <a name="load-balancer"></a>Load Balancer
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn Sie dem Back-End-Pool eines Lastenausgleichs Verfügbarkeitsgruppen-VMs hinzufügen, wird im Portal die Fehlermeldung **Fehler beim Speichern des Back-End-Pools des Lastenausgleichs** angezeigt. Hierbei handelt es sich lediglich um ein kosmetisches Problem im Portal. Die Funktion wird dadurch nicht beeinträchtigt, und virtuelle Computer werden dem Back-End-Pool intern erfolgreich hinzugefügt.
+- Häufigkeit: Common
+
+### <a name="network-security-groups"></a>Netzwerksicherheitsgruppen
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen. 
+- Ursache: Eine explizite **DenyAllOutbound**-Regel kann nicht in einer Netzwerksicherheitsgruppe (NSG) erstellt werden, da dadurch die gesamte interne Kommunikation mit der Infrastruktur, die für die VM-Bereitstellung erforderlich ist, verhindert wird.
+- Häufigkeit: Common
+
+### <a name="service-endpoints"></a>Dienstendpunkte
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Im Benutzerportal wird auf dem Blatt **Virtuelles Netzwerk** eine Option zum Verwenden von **Dienstendpunkten** angezeigt. Diese Funktion wird zurzeit in Azure Stack nicht unterstützt.
+- Häufigkeit: Common
+
+### <a name="network-interface"></a>Netzwerkschnittstelle
+
+#### <a name="addingremoving-network-interface"></a>Hinzufügen/Entfernen einer Netzwerkschnittstelle
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Einer VM, die sich im Zustand **Wird ausgeführt** befindet, kann keine neue Netzwerkschnittstelle hinzugefügt werden.
+- Abhilfe: Beenden Sie den virtuellen Computer, bevor Sie eine Netzwerkschnittstelle hinzufügen oder entfernen.
+- Häufigkeit: Common
+
+#### <a name="primary-network-interface"></a>Primäre Netzwerkschnittstelle
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Der primäre Netzwerkadapter (Network Interface Card, NIC) einer VM kann nicht geändert werden. Das Löschen oder Trennen der primären NIC führt zu Problemen beim Starten des virtuellen Computers.
+- Häufigkeit: Common
+
+### <a name="virtual-network-gateway"></a>Gateway des virtuellen Netzwerks
+
+#### <a name="alerts"></a>Alerts
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Im Benutzerportal wird auf dem Blatt **Virtuelles Netzwerkgateway** eine Option zum Verwenden von **Warnungen** angezeigt. Diese Funktion wird zurzeit in Azure Stack nicht unterstützt.
+- Häufigkeit: Common
+
+#### <a name="active-active"></a>Aktiv/Aktiv
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Im Benutzerportal wird während der Erstellung und im Ressourcenmenü des **Virtual Networkgateways** eine Option zum Aktivieren von **Aktiv/Aktiv** angezeigt. Diese Funktion wird zurzeit in Azure Stack nicht unterstützt.
+- Häufigkeit: Common
+
+#### <a name="vpn-troubleshooter"></a>VPN-Problembehandlung
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Im Benutzerportal wird auf dem Blatt **Verbindungen** ein Feature namens **VPN-Problembehandlung** angezeigt. Diese Funktion wird zurzeit in Azure Stack nicht unterstützt.
+- Häufigkeit: Common
+
+#### <a name="documentation"></a>Dokumentation
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Die Dokumentationslinks auf der Übersichtsseite des virtuelle Netzwerkgateways verlinken mit Azure-spezifischer Dokumentation anstelle von Azure Stack. Verwenden Sie die folgenden Links für die Azure Stack-Dokumentation:
+
+  - [Gateway-SKUs](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
+  - [Hoch verfügbare Verbindungen](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
+  - [Konfigurieren von BGP in Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [ExpressRoute-Verbindungen](azure-stack-connect-expressroute.md)
+  - [Angeben von benutzerdefinierten IPsec/IKE-Richtlinien](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
+
+## <a name="compute"></a>Compute
+
+### <a name="vm-boot-diagnostics"></a>VM-Startdiagnose
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn Sie einen neuen virtuellen Windows-Computer (virtual machine, VM) erstellen, wird unter Umständen der folgende Fehler angezeigt: **Fehler beim Starten des virtuellen Computers „vm-name“. Fehler Fehler beim Aktualisieren der Einstellungen für die serielle Ausgabe für den virtuellen Computer „vm-name“** . Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer aktivieren, aber Ihr Startdiagnose-Speicherkonto löschen.
+- Abhilfe: Erstellen Sie das Speicherkonto unter dem zuvor verwendeten Namen neu.
+- Häufigkeit: Common
+
+### <a name="consumed-compute-quota"></a>Verbrauchtes Computekontingent
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Wenn Sie einen neuen virtuellen Computer erstellen, wird unter Umständen eine Fehlermeldung wie die folgende angezeigt: **Dieses Abonnement hat die Kapazität für „Regionale vCPUs gesamt“ an diesem Standort erreicht. 50 „Regionale vCPUs gesamt“ sind verfügbar, und alle werden verwendet.** Dies deutet darauf hin, dass das Kontingent für die Gesamtanzahl verfügbarer Kerne erreicht wurde.
+- Abhilfe: Erkundigen Sie sich bei Ihrem Betreiber nach einem Add-On-Plan mit zusätzlichem Kontingent. Das Kontingent des aktuellen Plans kann nicht bearbeitet werden, oder das höhere Kontingent wird nicht berücksichtigt.
+- Häufigkeit: Selten
+
+### <a name="virtual-machine-scale-set"></a>VM-Skalierungsgruppe
+
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Erstellungsfehler beim Patchen und Aktualisieren in Azure Stack-Umgebungen mit vier Knoten
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Bei der Erstellung von VMs in einer Verfügbarkeitsgruppe mit drei Fehlerdomänen und der Erstellung einer Instanz einer VM-Skalierungsgruppe tritt während des Updatevorgangs in einer Azure Stack-Umgebung mit vier Knoten der Fehler **FabricVmPlacementErrorUnsupportedFaultDomainSize** auf.
+- Abhilfe: Sie können einzelne VMs in einer Verfügbarkeitsgruppe mit zwei Fehlerdomänen erfolgreich durchführen. Die Erstellung der Skalierungsgruppeninstanz ist während des Updatevorgangs in einer Azure Stack-Bereitstellung mit vier Knoten aber immer noch nicht verfügbar.
+
+<!-- ## Storage -->
+<!-- ## SQL and MySQL-->
+<!-- ## App Service -->
+<!-- ## Usage -->
+<!-- ### Identity -->
+<!-- ### Marketplace -->
+::: moniker-end
 
 ::: moniker range="azs-1908"
 ## <a name="1908-update-process"></a>1908 – Updateprozess
@@ -69,7 +272,7 @@ Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die
 ### <a name="subscriptions-lock-blade"></a>Blatt für Abonnementsperre
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Im Administratorportal verfügt das Blatt **Sperren** für Benutzerabonnements über zwei Schaltflächen, die den Namen **Abonnement** haben.
+- Ursache: Im Administratorportal verfügt das Blatt **Sperren** für Benutzerabonnements über zwei Schaltflächen mit der Bezeichnung **Abonnement**.
 - Häufigkeit: Common
 
 ### <a name="subscription-permissions"></a>Abonnementberechtigungen
@@ -94,7 +297,14 @@ Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die
 
 ## <a name="networking"></a>Netzwerk
 
+### <a name="load-balancer"></a>Load Balancer
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen. 
+- Ursache: Wenn Sie dem Back-End-Pool eines Lastenausgleichs Verfügbarkeitsgruppen-VMs hinzufügen, wird im Portal die Fehlermeldung **Fehler beim Speichern des Back-End-Pools des Lastenausgleichs** angezeigt. Hierbei handelt es sich lediglich um ein kosmetisches Problem im Portal. Die Funktion wird dadurch nicht beeinträchtigt, und virtuelle Computer werden dem Back-End-Pool intern erfolgreich hinzugefügt. 
+- Häufigkeit: Common
+
 ### <a name="network-security-groups"></a>Netzwerksicherheitsgruppen
+
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen. 
 - Ursache: Eine explizite **DenyAllOutbound**-Regel kann nicht in einer Netzwerksicherheitsgruppe (NSG) erstellt werden, da dadurch die gesamte interne Kommunikation mit der Infrastruktur, die für die VM-Bereitstellung erforderlich ist, verhindert wird.
 - Häufigkeit: Common
@@ -107,23 +317,21 @@ Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die
 
 ### <a name="network-interface"></a>Netzwerkschnittstelle
 
+#### <a name="addingremoving-network-interface"></a>Hinzufügen/Entfernen einer Netzwerkschnittstelle
+
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Einer VM, die sich im Zustand **Wird ausgeführt** befindet, kann keine neue Netzwerkschnittstelle hinzugefügt werden.
 - Abhilfe: Beenden Sie den virtuellen Computer, bevor Sie eine Netzwerkschnittstelle hinzufügen/entfernen.
 - Häufigkeit: Common
 
+#### <a name="primary-network-interface"></a>Primäre Netzwerkschnittstelle
+
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Der primäre Netzwerkadapter (Network Interface Card, NIC) einer VM kann nicht geändert werden. Das Löschen/Trennen der primären NIC führt zu Problemen beim Starten der VM.
+- Ursache: Einer VM, die sich im Zustand **Wird ausgeführt** befindet, kann keine neue Netzwerkschnittstelle hinzugefügt werden.
+- Abhilfe: Beenden Sie den virtuellen Computer, bevor Sie eine Netzwerkschnittstelle hinzufügen/entfernen.
 - Häufigkeit: Common
 
 ### <a name="virtual-network-gateway"></a>Gateway des virtuellen Netzwerks
-
-#### <a name="local-network-gateway-deletion"></a>Löschung des lokalen Netzwerkgateways
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Im Benutzerportal wird beim Löschen des **lokalen Netzwerkgateways** die folgende Fehlermeldung angezeigt: **Ein lokales Netzwerkgateway mit einer aktiven Verbindung kann nicht gelöscht werden**, obwohl keine aktive Verbindung vorhanden ist.
-- Lösung: Die Lösung dieses Problems wird in Version 1907 veröffentlicht. Eine Problemumgehung besteht darin, ein neues lokales Netzwerkgateway mit der gleichen IP-Adresse, dem gleichen Adressraum und den gleichen Konfigurationsdetails, aber unter einem anderen Namen zu erstellen. Das alte LNG kann gelöscht werden, nachdem die Umgebung auf 1907 aktualisiert wurde.
-- Häufigkeit: Common
 
 #### <a name="alerts"></a>Alerts
 
@@ -253,6 +461,18 @@ Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die
 
 ## <a name="networking"></a>Netzwerk
 
+### <a name="load-balancer"></a>Load Balancer
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen. 
+- Ursache: Wenn Sie dem Back-End-Pool eines Lastenausgleichs Verfügbarkeitsgruppen-VMs hinzufügen, wird im Portal die Fehlermeldung **Fehler beim Speichern des Back-End-Pools des Lastenausgleichs** angezeigt. Hierbei handelt es sich lediglich um ein kosmetisches Problem im Portal. Die Funktion wird dadurch nicht beeinträchtigt, und virtuelle Computer werden dem Back-End-Pool intern erfolgreich hinzugefügt. 
+- Häufigkeit: Common
+
+### <a name="network-security-groups"></a>Netzwerksicherheitsgruppen
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen. 
+- Ursache: Eine explizite **DenyAllOutbound**-Regel kann nicht in einer Netzwerksicherheitsgruppe (NSG) erstellt werden, da dadurch die gesamte interne Kommunikation mit der Infrastruktur, die für die VM-Bereitstellung erforderlich ist, verhindert wird.
+- Häufigkeit: Common
+
 ### <a name="service-endpoints"></a>Dienstendpunkte
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
@@ -260,6 +480,15 @@ Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die
 - Häufigkeit: Common
 
 ### <a name="network-interface"></a>Netzwerkschnittstelle
+
+#### <a name="addingremoving-network-interface"></a>Hinzufügen/Entfernen einer Netzwerkschnittstelle
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Einer VM, die sich im Zustand **Wird ausgeführt** befindet, kann keine neue Netzwerkschnittstelle hinzugefügt werden.
+- Abhilfe: Beenden Sie den virtuellen Computer, bevor Sie eine Netzwerkschnittstelle hinzufügen/entfernen.
+- Häufigkeit: Common
+
+#### <a name="primary-network-interface"></a>Primäre Netzwerkschnittstelle
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Einer VM, die sich im Zustand **Wird ausgeführt** befindet, kann keine neue Netzwerkschnittstelle hinzugefügt werden.
@@ -529,160 +758,7 @@ Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die
 <!-- ### Marketplace -->
 ::: moniker-end
 
-::: moniker range="azs-1905"
-## <a name="1905-update-process"></a>1905 – Updateprozess
-
-### <a name="host-node-update-prerequisite-failure"></a>Update von Hostknoten: Fehler bei Voraussetzungen
-
-- Geltungsbereich: Dieses Problem gilt für das Update 1905.
-- Ursache: Beim Versuch, das Azure Stack-Update 1905 zu installieren, ist das Update aufgrund eines Fehlers bei den **Voraussetzungen für das Hostknoten-Update** unter Umständen nicht erfolgreich. Dies wird meist dadurch verursacht, dass ein Hostknoten nicht über genügend freien Speicherplatz verfügt.
-- Abhilfe: Wenden Sie sich an den Azure Stack-Support, um Hilfe beim Freigeben von Speicherplatz auf dem Hostknoten zu erhalten.
-- Häufigkeit: Selten
-
-### <a name="preparation-failed"></a>Fehler bei der Vorbereitung
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Wenn Sie versuchen, das Azure Stack-Update 1905 zu installieren, wird für den Status des Updates möglicherweise ein Fehler ausgegeben und der Zustand in **PreparationFailed** geändert. Der Grund dafür ist, dass der Updateressourcenanbieter (Update Resource Provider, URP) die Dateien aus dem Speichercontainer nicht ordnungsgemäß auf eine Infrastrukturfreigabe zur Verarbeitung übertragen kann. Da das Updatepaket 1905 größer als vorherige Updatepakete ist, kann dieses Problem häufiger auftreten.
-- Abhilfe: Ab Version 1901 (1.1901.0.95) können Sie dieses Problem umgehen, indem Sie auf **Jetzt aktualisieren** (nicht **Fortsetzen**) klicken. Der URP bereinigt dann die Dateien aus dem vorherigen Versuch und startet den Download neu. Falls das Problem weiterhin besteht, empfehlen wir Ihnen das manuelle Hochladen des Updatepakets gemäß der Anleitung im Abschnitt [Importieren und Installieren von Updates](azure-stack-apply-updates.md).
-- Häufigkeit: Common
-
-## <a name="portal"></a>Portal
-
-### <a name="subscription-resources"></a>Abonnementressourcen
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Das Löschen von Benutzerabonnements führt zu verwaisten Ressourcen.
-- Abhilfe: Löschen Sie zuerst die Benutzerressourcen oder die gesamte Ressourcengruppe und anschließend die Benutzerabonnements.
-- Häufigkeit: Common
-
-### <a name="subscription-permissions"></a>Abonnementberechtigungen
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Sie können mit den Azure Stack-Portalen keine Berechtigungen für Ihr Abonnement anzeigen.
-- Abhilfe: Verwenden Sie [PowerShell zum Überprüfen der Berechtigungen](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Häufigkeit: Common
-
-### <a name="marketplace-management"></a>Marketplace-Verwaltung
-
-- Geltungsbereich: Dieses Problem gilt für 1904 und 1905.
-- Ursache: Der Marketplace-Verwaltungsbildschirm ist nicht sichtbar, wenn Sie sich beim Administratorportal anmelden.
-- Abhilfe: Aktualisieren Sie den Browser, oder navigieren Sie zu **Einstellungen**, und wählen Sie die Option **Auf Standard zurücksetzen**.
-- Häufigkeit: Zeitweilig
-
-### <a name="docker-extension"></a>Docker-Erweiterung
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Wenn Sie im Administrator- oder Benutzerportal nach **Docker** suchen, wird das Element nicht richtig zurückgegeben. Sie ist in Azure Stack nicht verfügbar. Wenn Sie versuchen, es zu erstellen, wird ein Fehler angezeigt.
-- Abhilfe: Keine Lösung.
-- Häufigkeit: Common
-
-### <a name="upload-blob"></a>Blob hochladen
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Wenn Sie im Benutzerportal versuchen, ein Blob mit der Option **OAuth (Vorschau)** hochzuladen, wird für die Aufgabe eine Fehlermeldung angezeigt.
-- Abhilfe: Laden Sie das Blob mit der SAS-Option hoch.
-- Häufigkeit: Common
-
-### <a name="template"></a>Vorlage
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Im Benutzerportal füllt die Benutzeroberfläche für die Vorlagenbereitstellung Parameter für die Vorlagennamen, die mit „_“ (Unterstrich) beginnen, nicht auf.
-- Abhilfe: Entfernen Sie den „_“ (Unterstrich) aus dem Vorlagennamen.
-- Häufigkeit: Common
-
-## <a name="networking"></a>Netzwerk
-
-### <a name="load-balancer"></a>Load Balancer
-
-#### <a name="add-backend-pool"></a>Hinzufügen eines Back-End-Pools
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Wenn Sie im Benutzerportal versuchen, einen **Back-End-Pool** einem **Load Balancer** hinzuzufügen, wird für den Vorgang eine Fehlermeldung der Art **Fehler beim Aktualisieren des Lastenausgleichs...** angezeigt.
-- Abhilfe: Verwenden Sie PowerShell, die CLI oder eine Resource Manager-Vorlage, um den Back-End-Pool einer Lastenausgleichsressource zuzuordnen.
-- Häufigkeit: Common
-
-#### <a name="create-inbound-nat"></a>Erstellen von NAT-Regeln für eingehenden Datenverkehr
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Wenn Sie im Benutzerportal versuchen, eine **NAT-Regel für eingehenden Datenverkehr** für einen **Load Balancer** hinzuzufügen, wird für den Vorgang eine Fehlermeldung der Art **Fehler beim Aktualisieren des Lastenausgleichs...** angezeigt.
-- Abhilfe: Verwenden Sie PowerShell, die CLI oder eine Resource Manager-Vorlage, um den Back-End-Pool einer Lastenausgleichsressource zuzuordnen.
-- Häufigkeit: Common
-
-#### <a name="create-load-balancer"></a>Erstellen eines Load Balancers
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Im Benutzerportal wird im Fenster **Lastenausgleich erstellen** eine Option zum Erstellen einer Lastenausgleichs-SKU vom Typ **Standard** angezeigt. Diese Option wird in Azure Stack nicht unterstützt.
-- Abhilfe: Verwenden Sie stattdessen die Lastenausgleichsoptionen vom Typ **Basic**.
-- Häufigkeit: Common
-
-### <a name="public-ip-address"></a>Öffentliche IP-Adresse
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Im Benutzerportal wird im Fenster **Öffentliche IP-Adresse erstellen** eine Option zum Erstellen einer SKU vom Typ **Standard** angezeigt. Die SKU **Standard** wird in Azure Stack nicht unterstützt.
-- Abhilfe: Verwenden Sie die SKU **Basic** für die öffentliche IP-Adresse.
-- Häufigkeit: Common
-
-## <a name="compute"></a>Compute
-
-### <a name="vm-boot-diagnostics"></a>VM-Startdiagnose
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Wenn Sie einen neuen virtuellen Windows-Computer (VM) erstellen, wird unter Umständen der folgende Fehler angezeigt: **Fehler beim Starten des virtuellen Computers „vm-name“. Fehler Fehler beim Aktualisieren der Einstellungen für die serielle Ausgabe für den virtuellen Computer „vm-name“** .
-Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer aktivieren, aber Ihr Startdiagnose-Speicherkonto löschen.
-- Abhilfe: Erstellen Sie das Speicherkonto unter dem zuvor verwendeten Namen neu.
-- Häufigkeit: Common
-
-### <a name="vm-resize"></a>Ändern der Größe einer VM
-
-- Geltungsbereich: Dieses Problem gilt für Release 1905.
-- Ursache: Die Größe einer VM mit verwaltetem Datenträger lässt sich nicht erfolgreich ändern. Der Versuch, die Größe der VM zu ändern, generiert einen Fehler mit dem „Code“: „InternalOperationError“, „Meldung“: „Interner Fehler bei Vorgang.“
-- Abhilfe: Wir arbeiten daran, dieses Problem im nächsten Release zu beheben. Zurzeit müssen Sie den virtuellen Computer mit der neuen VM-Größe neu erstellen.
-- Häufigkeit: Common
-
-### <a name="virtual-machine-scale-set"></a>VM-Skalierungsgruppe
-
-#### <a name="centos"></a>CentOS
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Auf der Benutzeroberfläche zum Erstellen von VM-Skalierungsgruppen wird „CentOS 7.2-basiert“ als Option für die Bereitstellung angeboten. CentOS 7.2 ist im Azure Stack-Marketplace nicht verfügbar, sodass es zu Bereitstellungsfehlern mit dem Hinweis kommt, dass das Image nicht gefunden wurde.
-- Abhilfe: Wählen Sie entweder ein anderes Betriebssystem für Ihre Bereitstellung aus, oder verwenden Sie eine Azure Resource Manager-Vorlage mit einem anderen CentOS-Image, das vor der Bereitstellung vom Bediener aus dem Marketplace heruntergeladen wurde.
-- Häufigkeit: Common
-
-#### <a name="remove-scale-set"></a>Entfernen einer Skalierungsgruppe
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Sie können eine Skalierungsgruppe nicht über das Blatt **VM-Skalierungsgruppen** entfernen.
-- Abhilfe: Wählen Sie die Skalierungsgruppe aus, die Sie entfernen möchten, und klicken Sie dann im Bereich **Übersicht** auf die Schaltfläche **Löschen**.
-- Häufigkeit: Common
-
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Erstellungsfehler beim Patchen und Aktualisieren in Azure Stack-Umgebungen mit vier Knoten
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Bei der Erstellung von VMs in einer Verfügbarkeitsgruppe mit drei Fehlerdomänen und der Erstellung einer Instanz einer VM-Skalierungsgruppe tritt während des Updatevorgangs in einer Azure Stack-Umgebung mit vier Knoten der Fehler **FabricVmPlacementErrorUnsupportedFaultDomainSize** auf.
-- Abhilfe: Sie können einzelne VMs in einer Verfügbarkeitsgruppe mit zwei Fehlerdomänen erfolgreich durchführen. Die Erstellung der Skalierungsgruppeninstanz ist während des Updatevorgangs in einer Azure Stack-Umgebung mit vier Knoten aber immer noch nicht verfügbar.
-
-#### <a name="scale-set-instance-view-blade-doesnt-load"></a>Das Blatt mit der Instanzenansicht einer Skalierungsgruppe wird nicht geladen
-
-- Geltungsbereich: Dieses Problem gilt für das Release 1904 und 1905.
-- Ursache: Das Blatt mit der Instanzenansicht einer VM-Skalierungsgruppe im Azure Stack-Portal unter „Dashboard“ -> „VM-Skalierungsgruppen“-> „AnyScaleSet – Instanzen“ -> „AnyScaleSetInstance“ kann nicht geladen werden und zeigt das Bild einer weinenden Wolke an.
-- Abhilfe: Es gibt derzeit keine Abhilfe, und wir arbeiten an der Behebung des Fehlers. Verwenden Sie bis dahin den CLI-Befehl `az vmss get-instance-view`, um die Instanzenansicht einer Skalierungsgruppe abzurufen.
-
-### <a name="ubuntu-ssh-access"></a>Ubuntu-SSH-Zugriff
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Ein virtueller Ubuntu 18.04-Computer, der mit aktivierter SSH-Autorisierung erstellt wurde, lässt nicht zu, dass Sie die SSH-Schlüssel für die Anmeldung verwenden.
-- Abhilfe: Verwenden Sie VM-Zugriff für die Linux-Erweiterung, um SSH-Schlüssel nach der Bereitstellung zu implementieren, oder verwenden Sie die kennwortbasierte Authentifizierung.
-- Häufigkeit: Common
-
-<!-- ## Storage -->
-<!-- ## SQL and MySQL-->
-<!-- ## App Service -->
-<!-- ## Usage -->
-<!-- ### Identity -->
-<!-- ### Marketplace -->
-::: moniker-end
-
-::: moniker range=">=azs-1905"
+::: moniker range=">=azs-1906"
 ## <a name="archive"></a>Archivieren
 
 Um auf archivierte bekannte Probleme für eine ältere Version zuzugreifen, verwenden Sie die Dropdown-Auswahlliste oberhalb des Inhaltsverzeichnisses auf der linken Seite, und wählen Sie die gewünschte Version aus.
@@ -696,6 +772,9 @@ Um auf archivierte bekannte Probleme für eine ältere Version zuzugreifen, verw
 <!------------------------------------------------------------>
 <!------------------- UNSUPPORTED VERSIONS ------------------->
 <!------------------------------------------------------------>
+::: moniker range="azs-1905"
+## <a name="1905-archived-known-issues"></a>1905 – archivierte bekannte Probleme
+::: moniker-end
 ::: moniker range="azs-1904"
 ## <a name="1904-archived-known-issues"></a>1904 – archivierte bekannte Probleme
 ::: moniker-end
@@ -733,6 +812,6 @@ Um auf archivierte bekannte Probleme für eine ältere Version zuzugreifen, verw
 ## <a name="1802-archived-known-issues"></a>1802 – archivierte bekannte Probleme
 ::: moniker-end
 
-::: moniker range="<azs-1905"
+::: moniker range="<azs-1906"
 Sie können auf [ältere Versionen der bekannten Probleme in Azure Stack im TechNet-Katalog](https://aka.ms/azsarchivedrelnotes) zugreifen. Diese archivierten Dokumente werden nur zu Referenzzwecken bereitgestellt und bedeuten nicht, dass Support für diese Versionen geleistet wird. Informationen zum Azure Stack-Support finden Sie unter [Azure Stack-Wartungsrichtlinie](azure-stack-servicing-policy.md). Weitere Hilfe erhalten Sie beim Microsoft-Kundensupport (Microsoft Customer Support Services, CSS).
 ::: moniker-end

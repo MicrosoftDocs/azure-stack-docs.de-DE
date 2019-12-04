@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: 53390633cf1abb1508a87a10e8672d7a23772207
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.lastreviewed: 09/19/2019
+ms.openlocfilehash: ce827f900c6522d720f493c60495bd830cf328f4
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802362"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540291"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installieren von PowerShell für Azure Stack
 
@@ -94,7 +94,18 @@ Das API-Versionsprofil und die Azure Stack-PowerShell-Module, die Sie benötigen
 
 Führen Sie zum Installieren dieser Module auf der Entwicklungsarbeitsstation das folgende PowerShell-Skript aus:
 
-- Für Azure Stack 1904 oder höher:
+- Für Azure Stack 1910 oder höher:
+
+    ```powershell  
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
+
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.8.0
+    ```
+
+- Für Azure Stack 1908 oder nach 1903:
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -115,7 +126,8 @@ Führen Sie zum Installieren dieser Module auf der Entwicklungsarbeitsstation da
     ```
 
     > [!Note]  
-    > - Die Azure Stack-Modulversion 1.7.1 ist ein Breaking Change-Release. Informationen zum Migrieren von Azure Stack 1.6.0 finden Sie im [Migrationsleitfaden](https://aka.ms/azspshmigration171).
+    > - Azure Stack-Modulversion 1.8.0 ist ein Breaking Change-Release. Details finden Sie in den [Versionshinweisen](release-notes.md#changes).
+    > - Die Azure Stack-Modulversion 1.7.2 ist ein Breaking Change-Release. Informationen zum Migrieren von Azure Stack 1.6.0 finden Sie im [Migrationsleitfaden](https://aka.ms/azspshmigration171).
     > - Die AzureRM-Modulversion 2.4.0 enthält einen Breaking Change für das Cmdlet „Remove-AzureRmStorageAccount“. Von diesem Cmdlet wird die Angabe des Parameters `-Force` erwartet, um das Speicherkonto ohne Bestätigung zu entfernen.
     > - Zum Installieren der Module für Azure Stack-Versionen ab 1901 brauchen Sie **AzureRM.BootStrapper** nicht zu installieren.
     > - Installieren Sie das 2018-03-01-Hybridprofil nicht zusätzlich zur Verwendung der oben genannten AzureRM-Module für Azure Stack-Versionen ab 1901.
@@ -147,7 +159,18 @@ Die Installation umfasst vier Schritte:
 
 ### <a name="install-azure-stack-powershell"></a>Installieren von Azure Stack-PowerShell
 
-- Azure Stack 1904 oder höher
+- Azure Stack 1910 oder höher.
+
+    ```powershell
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.0
+    ```
+
+- Für Azure Stack 1908 oder nach 1903:
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -170,6 +193,7 @@ Die Installation umfasst vier Schritte:
     ```
 
     > [!Note]  
+    > - Azure Stack-Modulversion 1.8.0 ist ein Breaking Change-Release. Details finden Sie in den [Versionshinweisen](release-notes.md#changes).
     > Die Azure Stack-Modulversion 1.7.1 ist ein Breaking Change. Informationen zum Migrieren von Azure Stack 1.6.0 finden Sie im [Migrationsleitfaden](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
 
     > [!NOTE]

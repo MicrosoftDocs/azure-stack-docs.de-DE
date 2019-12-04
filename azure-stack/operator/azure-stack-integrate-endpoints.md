@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/15/2019
+ms.date: 11/22/2019
 ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: d165b2c2ae2293f8549cf1c0d2f482801f645312
-ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
+ms.lastreviewed: 11/22/2019
+ms.openlocfilehash: 4104698b8d615f1078573009a65bd26c361fb0f2
+ms.sourcegitcommit: b4de234174864659eb7e08aa5c10de59f5fa6f43
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74162896"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74478485"
 ---
 # <a name="publish-azure-stack-services-in-your-datacenter"></a>Veröffentlichen von Azure Stack-Diensten in Ihrem Rechenzentrum 
 
@@ -81,7 +81,7 @@ Das Abfangen von SSL-Datenverkehr wird [nicht unterstützt](azure-stack-firewall
 
 |Zweck|Ziel-URL|Protocol|Ports|Quellnetzwerk|
 |---------|---------|---------|---------|---------|
-|Identity|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//graph.windows.net/<br>**Azure China 21Vianet**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>**Azure Deutschland**<br>https:\//login.microsoftonline.de/<br>https:\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Öffentliche VIP - /27<br>Öffentliches Infrastrukturnetzwerk|
+|Identity|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>https:\//\*.msftauth.net<br>https:\//\*.msauth.net<br>https:\//\*.msocdn.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//graph.windows.net/<br>**Azure China 21Vianet**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>**Azure Deutschland**<br>https:\//login.microsoftonline.de/<br>https:\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Öffentliche VIP - /27<br>Öffentliches Infrastrukturnetzwerk|
 |Marketplace-Syndikation|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>https://&#42;.blob.core.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;.blob.core.chinacloudapi.cn|HTTPS|443|Öffentliche VIP - /27|
 |Patches und Updates|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Öffentliche VIP - /27|
 |Registrierung|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https:\//management.chinacloudapi.cn|HTTPS|443|Öffentliche VIP - /27|

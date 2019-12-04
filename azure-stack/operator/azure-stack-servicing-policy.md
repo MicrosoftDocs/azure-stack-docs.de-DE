@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 10/30/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 083d30e07d924e38f682785866b0739e4cdb36e6
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 28eb11be532608648761f5dcfe2d2d7f2337b80e
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019467"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298794"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack-Wartungsrichtlinie
 
@@ -53,10 +53,10 @@ Die Dokumentation zur Planung und Verwaltung von Updates sowie zur Ermittlung Ih
 
 Informationen zu einem bestimmten Update und darüber, wie sie es herunterladen, finden Sie in den Versionshinweisen zu diesem Update:
 
+- [Azure Stack-Update 1910](/azure-stack/operator/release-notes?view=azs-1910)
 - [Azure Stack-Update 1908](/azure-stack/operator/release-notes?view=azs-1908)
 - [Azure Stack-Update 1907](/azure-stack/operator/release-notes?view=azs-1907)
 - [Azure Stack-Update 1906](/azure-stack/operator/release-notes?view=azs-1906)
-- [Azure Stack-Update 1905](/azure-stack/operator/release-notes?view=azs-1905)
 
 ## <a name="hotfixes"></a>Hotfixes
 
@@ -68,10 +68,10 @@ Hotfixes werden wie die regulären Pakete mit vollständigen Updates für Azure 
 
 Informationen zu den derzeit verfügbaren Hotfixes finden Sie in den Versionshinweisen für das jeweilige Update:
 
-- [Azure Stack-Hotfix 1908](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-1908)
-- [Azure Stack-Hotfix 1907](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-1907)
-- [Azure Stack-Hotfix 1906](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-1906)
-- [Azure Stack-Hotfix 1905](/azure-stack/operator/release-notes?view=azs-1905#hotfixes-1905)
+- [Azure Stack-Hotfix 1910](/azure-stack/operator/release-notes?view=azs-1910#hotfixes)
+- [Azure Stack-Hotfix 1908](/azure-stack/operator/release-notes?view=azs-1908#hotfixes)
+- [Azure Stack-Hotfix 1907](/azure-stack/operator/release-notes?view=azs-1907#hotfixes)
+- [Azure Stack-Hotfix 1906](/azure-stack/operator/release-notes?view=azs-1906#hotfixes)
 
 ## <a name="keep-your-system-under-support"></a>Halten Sie den Support für Ihr System aufrecht
 

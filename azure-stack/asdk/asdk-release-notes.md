@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: e61c3dad2383f1b6471b784b303b9f22a7dfde51
-ms.sourcegitcommit: b28190b4e91cd0c045d019083e7e9203410d7c29
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: f5955751df89262441b7afc2381d34b6cc74691c
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71354553"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298740"
 ---
 # <a name="asdk-release-notes"></a>Versionshinweise zum ASDK
 
@@ -28,7 +28,28 @@ Dieser Artikel bietet Informationen zu Änderungen, Fehlerbehebungen und bekannt
 
 Abonnieren Sie den [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS-Feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#), um in Bezug auf Neuerungen im ASDK auf dem Laufenden zu bleiben.
 
+::: moniker range="azs-1910"
+## <a name="build-11910058"></a>Build 1.1910.0.58
+
+### <a name="new-features"></a>Neue Funktionen
+
+- Eine Liste der in diesem Release behobenen Probleme, Änderungen und neuen Features finden Sie in den entsprechenden Abschnitten in den [Azure Stack-Versionshinweisen](../operator/release-notes.md).
+
+### <a name="fixed-and-known-issues"></a>Behobene und bekannte Probleme
+
+- Ein Problem beim Sammeln von Protokollen und dem Speichern dieser Protokolle in einem Azure Storage-Blobcontainer wurde behoben. Die Syntax für diesen Vorgang lautet wie folgt:
+
+  ```powershell
+  Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
+  ``` 
+
+- Ein Bereitstellungsproblem behoben, bei dem ein langsamer ladender Spoolerdienst das Entfernen einiger Windows-Features verhindert und einen Neustart erfordert hat.
+- Eine Liste der bekannten Probleme bei Azure Stack in dieser Version finden Sie im Artikel [Bekannte Probleme](../operator/known-issues.md).
+- Beachten Sie, dass verfügbare Hotfixes für Azure Stack nicht für das ASDK gelten.
+::: moniker-end
+
 ::: moniker range="azs-1908"
+  
 ## <a name="build-11908020"></a>Build 1.1908.0.20
 
 ### <a name="new-features"></a>Neue Funktionen
@@ -78,21 +99,4 @@ Abonnieren Sie den [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](http
 - Eine Liste der in dieser Version behobenen Azure Stack-Probleme finden Sie [in diesem Abschnitt](/azure-stack/operator/release-notes?view=azs-1906#fixes-1906) der Azure Stack-Versionshinweise.
 - Eine Liste der bekannten Probleme finden Sie [in diesem Abschnitt](/azure-stack/operator/known-issues?view=azs-1906).
 - Beachten Sie, dass [verfügbare Hotfixes für Azure Stack](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-1906) nicht auf das Azure Stack ASDK anwendbar sind.
-::: moniker-end
-
-::: moniker range="azs-1905"
-## <a name="build-11905040"></a>Build 1.1905.0.40
-
-<!-- ### Changes -->
-
-### <a name="new-features"></a>Neue Funktionen
-
-- Eine Liste der neuen Funktionen in diesem Release finden Sie [in diesem Abschnitt](/azure-stack/operator/release-notes?view=azs-1905#whats-in-this-update-1905) der Anmerkungen zu dieser Version für Azure Stack.
-
-### <a name="fixed-and-known-issues"></a>Behobene und bekannte Probleme
-
-- Ein Problem wurde behoben, bei dem Sie das PowerShell-Skript **RegisterWithAzure.psm1** bearbeiten mussten, damit [das ASDK erfolgreich registriert](asdk-register.md) werden konnte.
-- Eine Liste anderer in dieser Version behobener Azure Stack-Probleme finden Sie [in diesem Abschnitt](/azure-stack/operator/release-notes?view=azs-1905#fixes-1905) der Azure Stack-Versionshinweise.
-- Eine Liste der bekannten Probleme finden Sie [in diesem Abschnitt](/azure-stack/operator/known-issues?view=azs-1905).
-- Beachten Sie, dass [verfügbare Hotfixes für Azure Stack](/azure-stack/operator/release-notes?view=azs-1905#hotfixes-1905) nicht auf das Azure Stack ASDK anwendbar sind.
 ::: moniker-end

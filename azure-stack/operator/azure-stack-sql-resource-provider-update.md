@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
-ms.reviewer: jiahan
+ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: b37e4c9f5e7b1aaa1a476b0665a9558e8e86365f
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 26ce99f87f1b0e1e379bad6276c88a8e6772c035
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955412"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465360"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aktualisieren des SQL-Ressourcenanbieters
 
@@ -67,10 +67,10 @@ Wenn Sie das PowerShell-Skript **UpdateSQLProvider.ps1** ausführen, können Sie
 | **DebugMode** | Verhindert die automatische Bereinigung nach einem Fehler. | Nein |
 
 ## <a name="update-script-powershell-example"></a>Beispiel für ein PowerShell-Aktualisierungsskript
-Nachstehend finden Sie ein Beispiel für das Skript *UpdateSQLProvider.ps1*, das Sie an einer PowerShell-Konsole mit erhöhten Rechten ausführen können. Achten Sie darauf, die Variableninformationen und Kennwörter wie erforderlich zu ändern:  
-
 > [!NOTE]
 > Dieser Updateprozess gilt nur für integrierte Azure Stack-Systeme.
+
+Wenn Sie auf Version 1.1.33.0 oder frühere Versionen des SQL-Ressourcenanbieters aktualisieren, müssen Sie bestimmte Versionen von „AzureRm.BootStrapper“ und Azure Stack-Modulen in PowerShell installieren. Wenn Sie auf Version 1.1.47.0 des SQL-Ressourcenanbieters aktualisieren, kann dieser Schritt übersprungen werden.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -78,7 +78,11 @@ Nachstehend finden Sie ein Beispiel für das Skript *UpdateSQLProvider.ps1*, das
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
+```
 
+Nachstehend finden Sie ein Beispiel für das Skript *UpdateSQLProvider.ps1*, das Sie an einer PowerShell-Konsole mit erhöhten Rechten ausführen können. Achten Sie darauf, die Variableninformationen und Kennwörter wie erforderlich zu ändern:  
+
+```powershell
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
 $domain = "AzureStack"
 

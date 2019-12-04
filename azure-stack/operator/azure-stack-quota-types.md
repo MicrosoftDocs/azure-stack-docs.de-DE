@@ -17,12 +17,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 29a154c5c446019e762b1312b9ef2f8a23cc4790
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 049e4577541dea4f41a8ad18fc7f61875109153e
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955305"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557548"
 ---
 # <a name="quota-types-in-azure-stack"></a>Kontingenttypen in Azure Stack
 

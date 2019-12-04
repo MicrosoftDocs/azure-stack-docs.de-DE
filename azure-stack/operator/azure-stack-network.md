@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 10/23/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 4894fb7184944095d968d08e2d668912a78119d4
-ms.sourcegitcommit: ef7efcde76d1d7875ca1c882afebfd6a27f1c686
+ms.openlocfilehash: 76bc9b83bf97c7817ff5c9cbf8bc0a3275a04d72
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72888046"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298849"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planen der Netzwerkintegration für Azure Stack
 
@@ -48,9 +48,12 @@ Die folgende Tabelle zeigt die logischen Netzwerke und die zugehörigen IPv4-Sub
 | Öffentliche VIP | Azure Stack verwendet insgesamt 31 Adressen aus diesem Netzwerk. Acht öffentliche IP-Adressen werden für ein paar Azure Stack-Dienste verwendet, und die restlichen Adressen werden von VMs von Mandanten verwendet. Wenn Sie App Service und SQL-Ressourcenanbieter verwenden möchten, werden sieben weitere Adressen verwendet. Die verbleibenden 15 IP-Adressen sind für zukünftige Azure-Dienste reserviert. | /26 (62 Hosts) - /22 (1022 Hosts)<br><br>Empfohlen = /24 (254 Hosts) | 
 | Switchinfrastruktur | Point-to-Point-IP-Adressen für Routingzwecke, dedizierte Switchverwaltungsschnittstellen und Loopbackadressen, die dem Switch zugewiesen sind. | /26 | 
 | Infrastruktur | Für die Kommunikation mit internen Azure Stack-Komponenten. | /24 |
-| Private | Für das Speichernetzwerk und die privaten virtuellen IP-Adressen. | /24 | 
+| Private | Wird für das Speichernetzwerk, für private VIPs, für Infrastrukturcontainer und für andere interne Funktionen verwendet. Ab 1910 wird die Größe dieses Subnetzes in „/20“ geändert. Weitere Informationen finden Sie in diesem Artikel im Abschnitt [Privates Netzwerk](#private-network). | /20 | 
 | BMC | Für die Kommunikation mit BMCs auf den physischen Hosts. | /26 | 
 | | | |
+
+> [!NOTE]
+> Wenn das System auf die Version 1910 aktualisiert wird, wird der Operator durch eine Warnung im Portal daran erinnert, das neue PEP-Cmdlet **Set-AzsPrivateNetwork** auszuführen, um einen neuen privaten IP-Adressbereich der Größe „/20“ hinzuzufügen. Anweisungen zum Ausführen des Cmdlets finden Sie in den [Versionshinweisen zu 1910](release-notes.md). Weitere Informationen und Anleitungen zum Auswählen des privaten IP-Adressraums der Größe „/20“ finden Sie in diesem Artikel im Abschnitt [Privates Netzwerk](#private-network).
 
 ## <a name="network-infrastructure"></a>Netzwerkinfrastruktur
 
@@ -66,13 +69,21 @@ Der HLH hostet auch den virtuellen Bereitstellungscomputer (Deployment VM, DVM).
 
 ### <a name="private-network"></a>Privates Netzwerk
 
-Dieses Netzwerk vom Typ „/24“ (254 Host-IP-Adressen) ist für die Azure Stack-Region privat (reicht also nicht über die Grenzswitches der Azure Stack-Region hinaus) und in zwei Subnetze aufgeteilt:
+Dieses Netzwerk der Größe „/20“ (4.096 IP-Adressen) ist für die Azure Stack-Region privat. (Das Routing geht also nicht über die Grenzswitchgeräte des Azure Stack-Systems hinaus.) Außerdem ist das Netzwerk in mehrere Subnetze unterteilt. Hierzu zählen beispielsweise:
 
-- **Speichernetzwerk:** Ein Netzwerk des Typs „/25“ (126 Host-IP-Adressen), das zur Unterstützung der Verwendung von „Direkte Speicherplätze“ und Server-Message-Block-Speicherdatenverkehr (SMB) sowie der Livemigration von VMs verwendet wird.
+- **Speichernetzwerk:** Ein Netzwerk der Größe „/25“ (128 Host-IP-Adressen), das zur Unterstützung der Verwendung von „Direkte Speicherplätze“ und SMB-Speicherdatenverkehr (Server Message Block) sowie der Livemigration von virtuellen Computern verwendet wird.
 - **Internes VIP-Netzwerk (Virtuelle IP-Adresse):** Ein Netzwerk des Typs „/25“, das ausschließlich internen VIPs für den softwaregestützten Lastenausgleich vorbehalten ist.
+- **Containernetzwerk:** Ein dediziertes Netzwerk der Größe „/23“ (512 IP-Adressen) für internen Datenverkehr zwischen Containern mit Infrastrukturdiensten.
+
+Ab 1910 ändert sich die Größe für das private Netzwerk in einen privaten IP-Adressraum der Größe „/20“ (4.096 IP-Adressen). Dieses Netzwerk ist für das Azure Stack-Region privat. (Das Routing geht also nicht über die Grenzswitchgeräte des Azure Stack-Systems hinaus.) Außerdem kann es für mehrere Azure Stack-Systeme innerhalb Ihres Rechenzentrums wiederverwendet werden. Das Netzwerk ist zwar ein privates Netzwerk für Azure Stack, es darf sich aber nicht mit anderen Netzwerken im Rechenzentrum überschneiden. Als Leitfaden für den privaten IP-Adressraum empfehlen wir [RFC 1918](https://tools.ietf.org/html/rfc1918).
+
+Dieser private IP-Adressraum der Größe „/20“ wird in mehrere Netzwerke unterteilt, die in zukünftigen Releases die Ausführung der internen Infrastruktur des Azure Stack-Systems in Containern ermöglichen. Weitere Informationen finden Sie in den [Versionshinweisen zu 1910](release-notes.md). Darüber hinaus ermöglicht dieser neue private IP-Adressbereich auch kontinuierliche Maßnahmen zur Verringerung des erforderlichen routingfähigen IP-Adressraums vor der Bereitstellung.
+
+Für Systeme, die vor 1910 bereitgestellt wurden, ist dieses Subnetz der Größe „/20“ ein zusätzliches Netzwerk, das nach dem Aktualisieren auf 1910 in Systemen eingerichtet werden muss. Das zusätzliche Netzwerk muss über das PEP-Cmdlet **Set-AzsPrivateNetwork** für das System bereitgestellt werden. Anleitungen zu diesem Cmdlet finden Sie in den [Versionshinweisen zu 1910](release-notes.md).
 
 ### <a name="azure-stack-infrastructure-network"></a>Azure Stack-Infrastrukturnetzwerk
-Dieses Netzwerk des Typs „/24“ ist internen Azure Stack-Komponenten zugeordnet, damit diese untereinander kommunizieren und Daten austauschen können. Dieses Subnetz kann extern von der Azure Stack-Lösung zu Ihrem Rechenzentrum geroutet werden. Von der Verwendung öffentlicher oder über das Internet routingfähiger IP-Adressen in diesem Subnetz wird abgeraten. Dieses Netzwerk wird für das Border-Gerät angekündigt, die meisten der zugehörigen IP-Adressen werden jedoch durch Zugriffssteuerungslisten (ACLs) geschützt. Die für den Zugriff zulässigen IP--Adressen befinden sich in einem kleinen Bereich, der einem Netzwerk des Typs „/27“ und Hostdiensten wie z. B. dem [privilegierten Endpunkt (PEP)](azure-stack-privileged-endpoint.md) und [Azure Stack Backup](azure-stack-backup-reference.md) entspricht.
+
+Dieses Netzwerk des Typs „/24“ ist internen Azure Stack-Komponenten zugeordnet, damit diese untereinander kommunizieren und Daten austauschen können. Dieses Subnetz kann extern von der Azure Stack-Lösung zu Ihrem Rechenzentrum geroutet werden. In diesem Subnetz sollten keine öffentlichen oder über das Internet gerouteten IP-Adressen verwendet werden. Dieses Netzwerk wird zwar für den Grenzbereich angekündigt, die meisten der zugehörigen IP-Adressen werden jedoch durch Zugriffssteuerungslisten (Access Control Lists, ACLs) geschützt. Die für den Zugriff zulässigen IP-Adressen befinden sich in einem kleinen Bereich, der einem Netzwerk der Größe „/27“ entspricht, und dienen zum Hosten von Diensten wie dem [privilegierten Endpunkt (PEP)](azure-stack-privileged-endpoint.md) und [Azure Stack Backup](azure-stack-backup-reference.md).
 
 ### <a name="public-vip-network"></a>Öffentliches VIP-Netzwerk
 
@@ -85,6 +96,10 @@ Dieses Netzwerk des Typs „/26“ ist das Subnetz, das die routingfähigen Punk
 ### <a name="switch-management-network"></a>Switchverwaltungsnetzwerk
 
 Dieses Netzwerk des Typs „/29“ (6 Host-IP-Adressen) dient zum Verbinden der Verwaltungsports der Switches. Sie erlaubt einen Out-of-band-Zugriff für Bereitstellung, Verwaltung und Problembehandlung. Sie wird anhand des oben erwähnten Switchinfrastrukturnetzwerks berechnet.
+
+## <a name="permitted-networks"></a>Zugelassene Netzwerke
+
+Ab 1910 steht auf dem Arbeitsblatt für die Bereitstellung ein neues Feld zur Verfügung, mit dem der Operator einige Zugriffssteuerungslisten (Access Control Lists, ACLs) ändern kann, um den Zugriff auf Verwaltungsschnittstellen für Netzwerkgeräte sowie auf den Hardwarelebenszyklus-Host (HLH) über einen vertrauenswürdigen Netzwerkbereich des Rechenzentrums zu ermöglichen. Durch die Änderung der Zugriffssteuerungsliste kann der Operator seinen Jumpbox-VMs für die Verwaltung innerhalb eines bestimmten Netzwerkbereichs Zugriff auf die Schnittstelle für die Switchverwaltung, das HLH-Betriebssystem und den HLH-BMC gewähren. Der Operator kann Subnetze für diese Liste angeben. Ist die Liste leer, wird der Zugriff standardmäßig verweigert. Dank dieser neuen Funktion ist nach der Bereitstellung kein manueller Eingriff mehr erforderlich, wie unter [Ändern bestimmter Einstellungen in der Azure Stack-Switchkonfiguration](azure-stack-customer-defined.md#access-control-list-updates) beschrieben.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
-ms.reviewer: jiahan
+ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0c37b61cf56b1b730ce36e0574fea5cea6e2e7ec
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 2fd85cb897f1d5e457183ffeeffc5340cbb48696
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682095"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557563"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack"></a>Aktualisieren des MySQL-Ressourcenanbieters in Azure Stack
 
@@ -64,10 +64,11 @@ Wenn Sie das PowerShell-Skript **UpdateMySQLProvider.ps1** ausführen, geben Sie
 | **AcceptLicense** | Überspringt die Aufforderung zum Akzeptieren der GPL-Lizenz.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
 ## <a name="update-script-example"></a>Beispiel für ein Updateskript
-Nachstehend finden Sie ein Beispiel für die Verwendung des Skripts *UpdateMySQLProvider.ps1*, das Sie an einer PowerShell-Konsole mit erhöhten Rechten ausführen können. Achten Sie darauf, die Variableninformationen und Kennwörter wie erforderlich zu ändern:
 
 > [!NOTE] 
 > Der Updateprozess gilt nur für integrierte Systeme.
+
+Wenn Sie auf 1.1.33.0 oder frühere Versionen des MySQL-Ressourcenanbieters aktualisieren, müssen Sie bestimmte Versionen von „AzureRm.BootStrapper“ und Azure Stack-Modulen in PowerShell installieren. Wenn Sie auf Version 1.1.47.0 des MySQL-Ressourcenanbieters aktualisieren, kann dieser Schritt übersprungen werden.
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -75,7 +76,11 @@ Nachstehend finden Sie ein Beispiel für die Verwendung des Skripts *UpdateMySQL
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
+```
 
+Nachstehend finden Sie ein Beispiel für die Verwendung des Skripts *UpdateMySQLProvider.ps1*, das Sie an einer PowerShell-Konsole mit erhöhten Rechten ausführen können. Achten Sie darauf, die Variableninformationen und Kennwörter wie erforderlich zu ändern:
+
+```powershell 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack" 
 
