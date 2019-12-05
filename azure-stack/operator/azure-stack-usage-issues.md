@@ -15,12 +15,12 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 265645b69e909c7c9762cd03e4f49035baa2872b
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 3c7b3dcd304b684170cec8974910a42f7f86e84f
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019428"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690083"
 ---
 # <a name="usage-connectivity-errors"></a>Verbindungsfehler bei der Nutzung
 
@@ -55,7 +55,7 @@ In diesem Abschnitt werden die Nutzungsfehlercodes beschrieben.
 | Nicht autorisiert               | Die Azure-Bridge kann keine Daten per Push an den Nutzungsdienst in Azure übertragen, weil der Azure-Dienst die Azure Stack-Bridge nicht authentifizieren kann. | Überprüfen Sie, ob die Registrierungsressource geändert wurde, und wenn dies der Fall ist, registrieren Sie Azure Stack erneut. <br><br> Manchmal kann ein Zeitsynchronisierungsproblem zwischen Azure Stack und Azure AD diesen Fehler verursachen. Stellen Sie in diesem Fall sicher, dass die Zeiten auf den XRP-VMs in Azure Stack mit Azure AD synchronisiert sind. |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
-Zusätzlich müssen Sie eventuell die Protokolldateien für die Azure-Bridge-, WAS- und WASPublic-Komponenten bereitstellen, indem Sie gemäß [diesen Schritten](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) vorgehen.
+Zusätzlich müssen Sie eventuell die Protokolldateien für die Azure-Bridge-, WAS- und WASPublic-Komponenten bereitstellen, indem Sie gemäß [diesen Schritten](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) vorgehen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

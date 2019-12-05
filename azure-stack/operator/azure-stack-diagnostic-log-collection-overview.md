@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: cd65f51867a4626e8f9b288c5113909bfa32b1c2
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 11/07/2019
+ms.openlocfilehash: 1d40c0c7884773cf1f10341a90c78531c07e13f8
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829193"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690003"
 ---
 # <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Übersicht zur Azure Stack-Diagnoseprotokollsammlung 
 
@@ -29,7 +29,7 @@ ms.locfileid: "71829193"
 
 Bei Azure Stack handelt es sich um eine große Sammlung von Komponenten, die zusammenarbeiten und miteinander interagieren. Alle diese Komponenten generieren eigene eindeutige Protokolle. Dies kann die Diagnose von Problemen zu einer Herausforderung machen – insbesondere bei Fehlern, die von verschiedenen interagierenden Azure Stack-Komponenten stammen. Um dieser Herausforderung Rechnung zu tragen, haben wir einen Prozess zur Sammlung von Diagnoseprotokollen entworfen. 
 
-Vor Version 1907 beinhaltete der Diagnoseprozess die Verwendung von [Test-AzureStack](azure-stack-diagnostic-test.md) zum Überprüfen der Systemintegrität und die Nutzung des [privilegierten Endpunkts (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) zum Sammeln von Protokollen zur Problembehandlung. 
+Vor Version 1907 beinhaltete der Diagnoseprozess die Verwendung von [Test-AzureStack](azure-stack-diagnostic-test.md) zum Überprüfen der Systemintegrität und die Nutzung des [privilegierten Endpunkts (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) zum Sammeln von Protokollen zur Problembehandlung. 
 
 Seit Version 1907 steht auf der Seite **Hilfe und Support** ein einfacherer Prozess zur Verfügung, der die **Sammlung von Diagnoseprotokollen** beinhaltet. 
 Die **Sammlung von Diagnoseprotokollen** ist Teil eines fortgesetzten Engagements zum Verbessern der Abläufe im Fehlerbehandlungsprozess für den Azure Stack-Operator. Dank dieser Verbesserungen können Operatoren schnell Diagnoseprotokolle sammeln und mit den Microsoft Customer Support Services (CSS) teilen. Die Protokolle können in einem Blobcontainer in Azure gespeichert werden, wo der Zugriff nach Bedarf angepasst werden kann.    
@@ -42,7 +42,7 @@ Die **Sammlung von Diagnoseprotokollen** funktioniert auf zwei verschiedene Arte
 ![Screenshot der Optionen für die Sammlung von Diagnoseprotokollen](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
 Die **Diagnoseprotokollsammlung** weist eine einfache Benutzeroberfläche auf und erfordert kein PowerShell. Protokolle werden zuverlässig erfasst, auch wenn die Infrastrukturdienste außer Betrieb sind.
-Wenn Ihre Richtlinie das Teilen von Diagnoseprotokollen mit CSS zulässt, ist die **Sammlung von Diagnoseprotokollen** ab der Version 1907 die empfohlene Sammlungsmethode. Sie sollten [den PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) zur Erfassung von Protokollen nur verwenden, wenn die **Sammlung von Diagnoseprotokollen** in Hilfe und Support nicht verfügbar ist.
+Wenn Ihre Richtlinie das Teilen von Diagnoseprotokollen mit CSS zulässt, ist die **Sammlung von Diagnoseprotokollen** ab der Version 1907 die empfohlene Sammlungsmethode. Sie sollten [den PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) zur Erfassung von Protokollen nur verwenden, wenn die **Sammlung von Diagnoseprotokollen** in Hilfe und Support nicht verfügbar ist.
 
 ## <a name="automatic-diagnostic-log-collection"></a>Automatische Sammlung von Diagnoseprotokollen 
 
