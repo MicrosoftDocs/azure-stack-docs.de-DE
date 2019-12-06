@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/08/2019
+ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 2669c8e9a4d684fbbd9340c6dbae43191f0261dc
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/27/2019
+ms.openlocfilehash: fb9dab302e20d436be7f3cf9a76de913bbfe22e3
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73594907"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689826"
 ---
 # <a name="what-is-the-azure-stack-hub-development-kit-asdk"></a>Was ist das Azure Stack Hub Development Kit (ASDK)?
 [Integrierte Microsoft Azure Stack Hub-Systeme](../operator/azure-stack-overview.md) haben eine Größe von 4 bis 16 Knoten, und der Support wird von einem Hardwarepartner und von Microsoft gemeinsam bereitgestellt. Mit integrierten Azure Stack Hub-Systemen ermöglichen Sie neue Szenarien für Ihre Produktionsworkloads. Wenn Sie ein Azure Stack Hub-Betreiber sind, der die Infrastruktur integrierter Systeme verwaltet und Dienste anbietet, hilft Ihnen die [Dokumentation für Betreiber](/azure-stack/operator) weiter.
@@ -49,7 +49,7 @@ Zwischen ASDK-Bereitstellungen mit einem einzelnen Knoten und Azure Stack Hub-
 |BESCHREIBUNG|ASDK|Azure Stack Hub mit mehreren Knoten|
 |-----|-----|-----|
 |**Skalieren**|Alle Komponenten werden auf einem Servercomputer mit einem einzelnen Knoten installiert.|Kann zwischen 4 und 16 Knoten umfassen.|
-|**Resilienz**|Die Konfiguration mit einem einzelnen Knoten bietet keine Hochverfügbarkeit.|Funktionen für [Hochverfügbarkeit](../operator/azure-stack-overview.md#providing-high-availability) werden unterstützt.|
+|**Resilienz**|Die Konfiguration mit einem einzelnen Knoten bietet keine Hochverfügbarkeit.|Funktionen für Hochverfügbarkeit werden unterstützt.|
 |**Netzwerk**|Der ASDK-Host leitet den gesamten ASDK-Netzwerkdatenverkehr weiter. Es müssen keine zusätzlichen Switchanforderungen erfüllt werden.|Bei Bereitstellungen mit mehreren Knoten ist eine komplexere [Netzwerkroutinginfrastruktur](../operator/azure-stack-network.md#network-infrastructure) erforderlich, einschließlich TOR-Switches (Top-Of-Rack), BMC-Switches (Baseboard Management Controller, Baseboard-Verwaltungscontroller) und Grenzswitches (Datencenter-Netzwerkswitches).|
 |**Patch- und Updateprozess**|Wenn Sie zu einer neuen ASDK-Version wechseln möchten, müssen Sie das ASDK erneut auf dem ASDK-Hostcomputer bereitstellen.|Zum Aktualisieren der installierten Azure Stack Hub-Version wird der Prozess zum [Patchen und Aktualisieren](../operator/azure-stack-updates.md) verwendet.|
 |**Unterstützung**|MSDN-Azure Stack-Forum. Microsoft-Kundendienst und -Support (Customer Service and Support, CSS) steht für produktionsfremde Umgebungen *nicht* zur Verfügung.|[MSDN-Azure Stack-Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) und uneingeschränkter CSS-Support.|
