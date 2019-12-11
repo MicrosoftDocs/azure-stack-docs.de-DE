@@ -1,6 +1,7 @@
 ---
-title: Verschlüsselung für ruhende Daten in Azure Stack
-description: Erfahren Sie, wie Azure Stack Ihre Daten mit Verschlüsselung ruhender Daten schützt.
+title: Verschlüsselung für ruhende Daten
+titleSuffix: Azure Stack
+description: Hier erfahren Sie, wie Azure Stack Ihre Daten mit Verschlüsselung ruhender Daten schützt.
 services: azure-stack
 author: PatAltimore
 ms.service: azure-stack
@@ -10,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
 keywords: ''
-ms.openlocfilehash: 0e21808ad82a61014b69cb26958a0c13518af13a
-ms.sourcegitcommit: 7fa9b64aeae2b22be7acfb5c4987d233303107c5
+ms.openlocfilehash: 13455668330571e9190d37ea0abb4de2a7b88a5d
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166498"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780710"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack"></a>Verschlüsselung für ruhende Daten in Azure Stack
 
@@ -44,7 +45,7 @@ Optionale Parameter für das Cmdlet *Get-AzsRecoveryKeys*:
 
 | Parameter | BESCHREIBUNG | type | Erforderlich |
 |---------|---------|---------|---------|
-|*raw* | Gibt Rohdaten der Zuordnung zwischen Wiederherstellungsschlüssel, Computername und Kennwort-ID(s) jedes verschlüsselten Volumes zurück.  | Schalter | keine (entwickelt für Suppportszenarios)|
+|*raw* | Gibt Rohdaten der Zuordnung zwischen Wiederherstellungsschlüssel, Computername und Kennwort-ID(s) jedes verschlüsselten Volumes zurück.  | Switch | Nein (entwickelt für Suppportszenarien)|
 
 ## <a name="troubleshoot-issues"></a>Behandeln von Problemen
 
@@ -53,9 +54,9 @@ In extremen Fällen kann eine BitLocker-Entsperranforderung fehlschlagen und daz
 > [!WARNING]
 > Rufen Sie Ihre BitLocker-Wiederherstellungsschlüssel ab, und speichern Sie sie an einem sicheren Ort außerhalb von Azure Stack. Wenn Sie bei bestimmten Supportszenarios keine Wiederherstellungsschlüssel haben, kann dies zu Datenverlusten führen und die Wiederherstellung des Systems aus einem Sicherungsimage erforderlich machen.
 
-Wenn Sie vermuten, dass Ihr System Probleme mit BitLocker hat, z. B. dass Azure Stack nicht starten kann, wenden Sie sich an den Support. Für Support benötigen Sie Ihre BitLocker-Wiederherstellungsschlüssel. Der Großteil der BitLocker-bezogenen Probleme lässt sich durch einen FRU-Vorgang für den/das spezifische/n VM/Host/Volume beheben. In den anderen Fällen kann ein manuelles Entsperrverfahren mithilfe der BitLocker-Wiederherstellungsschlüssel ausgeführt werden. Wenn die BitLocker-Wiederherstellungsschlüssel nicht verfügbar sind, ist die einzige Möglichkeit die Wiederherstellung aus einem Sicherungsimage. Je nachdem, wann die letzte Sicherung durchgeführt wurde können Datenverluste auftreten.
+Wenn Sie vermuten, dass Ihr System Probleme mit BitLocker hat, z. B. dass Azure Stack nicht starten kann, wenden Sie sich an den Support. Für Support benötigen Sie Ihre BitLocker-Wiederherstellungsschlüssel. Der Großteil der BitLocker-bezogenen Probleme lässt sich durch einen FRU-Vorgang für den/das spezifische/n VM/Host/Volume beheben. In den anderen Fällen kann ein manuelles Entsperrverfahren mithilfe der BitLocker-Wiederherstellungsschlüssel ausgeführt werden. Wenn die BitLocker-Wiederherstellungsschlüssel nicht verfügbar sind, ist die einzige Möglichkeit die Wiederherstellung aus einem Sicherungsimage. Je nachdem, wann die letzte Sicherung durchgeführt wurde, können Datenverluste auftreten.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Informieren Sie sich ausführlicher über die Sicherheit von Azure Stack.](azure-stack-security-foundations.md)
+- [Weitere Informationen zur Sicherheit von Azure Stack](azure-stack-security-foundations.md)
 - Weitere Informationen dazu, wie BitLocker CSVs schützt, finden Sie unter [Schützen von freigegebenen Clustervolumes (Cluster Shared Volumes, CSVs) und Storage Area Networks (SANs) mit BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker).

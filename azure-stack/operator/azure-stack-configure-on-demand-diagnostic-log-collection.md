@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2019
+ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 830693989f213f509152499cc16fff086b90afaa
-ms.sourcegitcommit: cc5c965b13bc3dae9a4f46a899e602f41dc66f78
+ms.lastreviewed: 11/07/2019
+ms.openlocfilehash: ccc552e6daee4f1492d1070a08f5be19e41217dd
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73236223"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690018"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>Bedarfsgesteuertes Sammeln von Azure Stack-Diagnoseprotokollen
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme*
 
-Im Rahmen der Problembehandlung muss der Microsoft-Kundensupport (Customer Support Services, CSS) möglicherweise Diagnoseprotokolle analysieren. Ab Version 1907 können Azure Stack-Operatoren bei Bedarf Diagnoseprotokolle mithilfe von **Hilfe und Support** in einen Blobcontainer in Azure hochladen. Wenn das Portal nicht verfügbar ist, können Operatoren Protokolle mithilfe von „Get-AzureStackLog“ über den privilegierten Endpunkt (PEP) erfassen. In diesem Thema werden beide Verfahren zum bedarfsgesteuerten Sammeln von Diagnoseprotokollen behandelt.
+Im Rahmen der Problembehandlung muss der Microsoft-Kundensupport (Customer Support Services, CSS) möglicherweise Diagnoseprotokolle analysieren. Ab Version 1907 können Azure Stack-Betreiber Diagnoseprotokolle mithilfe von **Hilfe und Support** in einen Blobcontainer in Azure hochladen. Die Verwendung von **Hilfe und Support** ist einfacher und daher der Verwendung von PowerShell vorzuziehen. Wenn das Portal jedoch nicht verfügbar ist, können Betreiber Protokolle weiterhin wie in vorherigen Versionen mithilfe von **Get-AzureStackLog** über den privilegierten Endpunkt (PEP) erfassen. In diesem Thema werden beide Verfahren zum bedarfsgesteuerten Sammeln von Diagnoseprotokollen behandelt.
 
 >[!Note]
 >Als Alternative zum bedarfsgesteuerten Sammeln von Protokollen können Sie den Problembehandlungsprozess auch optimieren, indem Sie die [automatische Sammlung von Diagnoseprotokollen](azure-stack-configure-automatic-diagnostic-log-collection.md) aktivieren. Wenn die Integritätsbedingungen des Systems untersucht werden müssen, werden die Protokolle automatisch zur Analyse durch den Microsoft-Kundensupport (Microsoft Customer Support Services, CSS) hochgeladen. 
@@ -46,37 +46,13 @@ Zur Behandlung eines Problems fordert CSS einen Azure Stack-Operator möglicherw
 >[!NOTE]
 >Wenn die automatische Diagnoseprotokollsammlung aktiviert ist, wird es in **Hilfe und Support** angezeigt, wenn die Protokollsammlung erfolgt. Wenn Sie auf **Jetzt Protokolle sammeln** klicken, um Protokolle eines bestimmten Zeitfensters zu erfassen, während die automatische Protokollsammlung ausgeführt wird, beginnt die bedarfsgesteuerte Protokollsammlung nach dem Abschluss der automatischen Protokollsammlung. 
 
-## <a name="using-pep-to-collect-diagnostic-logs"></a>Verwenden eines PEP zum Sammeln von Diagnoseprotokollen
+## <a name="use-the-privileged-endpoint-pep-to-collect-diagnostic-logs"></a>Verwenden des privilegierten Endpunkts (PEP) zum Erfassen von Diagnoseprotokollen
 
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
 
-Die Azure Stack-Diagnosetools helfen dabei, die Erfassung von Protokollen einfach und effizient zu machen. Im folgenden Diagramm ist dargestellt, wie die Diagnosetools funktionieren:
 
-![Azure Stack-Diagnosetools: Workflowdiagramm](media/azure-stack-diagnostics/get-azslogs.png)
 
-### <a name="trace-collector"></a>Collector der Ablaufverfolgung
-
-Der Collector der Ablaufverfolgung ist standardmäßig aktiviert und wird dauerhaft im Hintergrund ausgeführt, um alle ETW-Protokolle (Ereignisablaufverfolgung für Windows) von Azure Stack-Komponentendiensten zu sammeln. ETW-Protokolle werden maximal fünf Tage lang auf einer gemeinsam genutzten lokalen Freigabe gespeichert. Nachdem dieser Grenzwert erreicht wurde, werden die ältesten Dateien gelöscht, wenn neue Dateien erstellt werden. Die maximal zulässige Standardgröße pro Datei beträgt 200 MB. Die Größe wird alle zwei Minuten überprüft. Ab einer Größe von 200 MB wird die aktuelle Datei gespeichert und eine neue Datei generiert. Für die Gesamtdateigröße, die pro Ereignissitzung generiert werden kann, gilt außerdem eine Obergrenze von 8 GB.
-
-### <a name="get-azurestacklog"></a>Get-AzureStackLog
-
-Das PowerShell-Cmdlet „Get-AzureStackLog“ kann verwendet werden, um Protokolle für alle Komponenten einer Azure Stack-Umgebung zu sammeln. Sie werden an einem vom Benutzer angegebenen Ort in ZIP-Dateien gespeichert. Wenn das Team für den technischen Support für Azure Stack Ihre Protokolle für die Behandlung eines Problems benötigt, werden Sie unter Umständen gebeten, „Get-AzureStackLog“ auszuführen.
-
-> [!CAUTION]
-> Es kann sein, dass diese Protokolldateien personenbezogene Informationen enthalten. Berücksichtigen Sie dies, bevor Sie Protokolldateien öffentlich bereitstellen.
-
-Es folgen einige Beispiele für die gesammelten Protokolltypen:
-
-* **Azure Stack-Bereitstellungsprotokolle**
-* **Windows-Ereignisprotokolle**
-* **Panther-Protokolle**
-* **Clusterprotokolle**
-* **Speicherdiagnoseprotokolle**
-* **ETW-Protokolle**
-
-Diese Dateien werden vom Collector der Ablaufverfolgung gesammelt und in einer Freigabe gespeichert. „Get-AzureStackLog“ kann dann verwendet werden, um sie bei Bedarf zu sammeln.
-
-#### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>So führen Sie „Get-AzureStackLog“ in integrierten Azure Stack-Systemen aus
+### <a name="run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Ausführen von „Get-AzureStackLog“ in integrierten Azure Stack-Systemen
 
 Um „Get-AzureStackLog“ auf einem integrierten System auszuführen, benötigen Sie Zugriff auf den privilegierten Endpunkt (PEP). Das folgende Beispielskript können Sie mit dem PEP ausführen, um Protokolldaten in einem integrierten System zu erfassen:
 
@@ -100,7 +76,7 @@ if ($session) {
 }
 ```
 
-#### <a name="run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Ausführen von Get-AzureStackLog in einem System mit dem Azure Stack Development Kit (ASDK)
+### <a name="run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Ausführen von Get-AzureStackLog in einem System mit dem Azure Stack Development Kit (ASDK)
 
 Verwenden Sie diese Schritte zum Ausführen von `Get-AzureStackLog` auf einem ASDK-Hostcomputer.
 
@@ -275,4 +251,34 @@ if ($session) {
    Remove-PSSession -Session $session
 }
 ```
+
+### <a name="how-diagnostic-log-collection-using-the-pep-works"></a>Funktionsweise der Diagnoseprotokollerfassung mit dem PEP
+
+Die Azure Stack-Diagnosetools helfen dabei, die Erfassung von Protokollen einfach und effizient zu machen. Im folgenden Diagramm ist dargestellt, wie die Diagnosetools funktionieren:
+
+![Azure Stack-Diagnosetools: Workflowdiagramm](media/azure-stack-diagnostics/get-azslogs.png)
+
+
+#### <a name="trace-collector"></a>Collector der Ablaufverfolgung
+
+Der Collector der Ablaufverfolgung ist standardmäßig aktiviert und wird dauerhaft im Hintergrund ausgeführt, um alle ETW-Protokolle (Ereignisablaufverfolgung für Windows) von Azure Stack-Komponentendiensten zu sammeln. ETW-Protokolle werden maximal fünf Tage lang auf einer gemeinsam genutzten lokalen Freigabe gespeichert. Nachdem dieser Grenzwert erreicht wurde, werden die ältesten Dateien gelöscht, wenn neue Dateien erstellt werden. Die maximal zulässige Standardgröße pro Datei beträgt 200 MB. Die Größe wird alle zwei Minuten überprüft. Ab einer Größe von 200 MB wird die aktuelle Datei gespeichert und eine neue Datei generiert. Für die Gesamtdateigröße, die pro Ereignissitzung generiert werden kann, gilt außerdem eine Obergrenze von 8 GB.
+
+#### <a name="get-azurestacklog"></a>Get-AzureStackLog
+
+Das PowerShell-Cmdlet „Get-AzureStackLog“ kann verwendet werden, um Protokolle für alle Komponenten einer Azure Stack-Umgebung zu sammeln. Sie werden an einem vom Benutzer angegebenen Ort in ZIP-Dateien gespeichert. Wenn das Team für den technischen Support für Azure Stack Ihre Protokolle für die Behandlung eines Problems benötigt, werden Sie unter Umständen gebeten, „Get-AzureStackLog“ auszuführen.
+
+> [!CAUTION]
+> Es kann sein, dass diese Protokolldateien personenbezogene Informationen enthalten. Berücksichtigen Sie dies, bevor Sie Protokolldateien öffentlich bereitstellen.
+
+Es folgen einige Beispiele für die gesammelten Protokolltypen:
+
+* **Azure Stack-Bereitstellungsprotokolle**
+* **Windows-Ereignisprotokolle**
+* **Panther-Protokolle**
+* **Clusterprotokolle**
+* **Speicherdiagnoseprotokolle**
+* **ETW-Protokolle**
+
+Diese Dateien werden vom Collector der Ablaufverfolgung gesammelt und in einer Freigabe gespeichert. „Get-AzureStackLog“ kann dann verwendet werden, um sie bei Bedarf zu sammeln.
+
 

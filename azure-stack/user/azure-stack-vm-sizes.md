@@ -9,23 +9,23 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/11/2019
+ms.topic: reference
+ms.date: 12/3/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 3e91b4baae4dc844cedebb22ca323005ea0e76fa
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.lastreviewed: 12/3/2019
+ms.openlocfilehash: d38168fee437b27dfde8d5381c960b8e2a237487
+ms.sourcegitcommit: 757f612663059f1af8c535d8b37f63a8cf4a5e7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955662"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784094"
 ---
 # <a name="vm-sizes-supported-in-azure-stack"></a>In Azure Stack unterstützte VM-Größen
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-In diesem Artikel sind die in Azure Stack verfügbaren VM-Größen aufgeführt.
+In diesem Artikel sind die in Azure Stack verfügbaren VM-Größen aufgeführt. Dieser Artikel kann Ihnen bei der Auswahl eines virtuellen Computers zur Unterstützung Ihrer Azure Stack-Lösung helfen.
 
 Die Datenträger-IOPS (Input/Output Operations Per Second, Ein-/Ausgabevorgänge pro Sekunde) in Azure Stack sind eine Funktion der VM-Größe, nicht des Datenträgertyps. Dies bedeutet, dass der IOPS-Grenzwert für einen einzelnen zusätzlichen Datenträger für einen virtuellen Computer der Standard_Fs-Reihe 2.300 IOPS beträgt – unabhängig davon, ob Sie einen Datenträger des Typs SSD oder HDD auswählen. Die IOPS-Grenzwerte bilden eine Obergrenze (zulässiges Maximum), um den „Noisy Neighbour“-Effekt zu verhindern. Sie sind keine IOPS-Garantie für eine VM mit einer bestimmten Größe.
 

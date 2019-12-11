@@ -1,6 +1,7 @@
 ---
-title: Hinzufügen von Kubernetes zum Azure Stack-Marketplace | Microsoft Docs
-description: Erfahren Sie, wie Sie dem Azure Stack-Marketplace Kubernetes hinzufügen.
+title: Hinzufügen von Kubernetes zum Azure Stack-Marketplace
+titleSuffix: Azure Stack
+description: Hier erfahren Sie, wie Sie dem Azure Stack-Marketplace Kubernetes hinzufügen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +16,14 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: fc83c8c68402622d721864f24a3ef9c5bab10479
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 985d0e33fd5a15329a1a47bd2d6b11e50cd82a1c
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047183"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780812"
 ---
-# <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Hinzufügen von Kubernetes zum Azure Stack-Marketplace
+# <a name="add-kubernetes-to-azure-stack-marketplace"></a>Hinzufügen von Kubernetes zum Azure Stack-Marketplace
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -31,13 +32,13 @@ ms.locfileid: "73047183"
 
 Sie können Kubernetes als ein Marketplace-Element für Ihre Benutzer anbieten. Ihre Benutzer können dann Kubernetes in einem einzelnen, koordinierten Vorgang bereitstellen.
 
-Im folgenden Artikel wird das Bereitstellen der Ressourcen für einen eigenständigen Kubernetes-Cluster mithilfe einer Azure Resource Manager-Vorlage betrachtet. Bevor Sie beginnen, überprüfen Sie Ihren Azure Stack und Ihre globalen Azure-Mandanteneinstellungen. Sammeln Sie die erforderlichen Informationen zu Ihrem Azure Stack. Fügen Sie Ihrem Mandanten und dem Azure Stack Marketplace erforderliche Ressourcen hinzu. Der Cluster ist von einem Ubuntu-Server, einem benutzerdefinierten Skript und davon abhängig, dass das Marketplace-Element „Kubernetes-Cluster“ im Marketplace vorhanden ist.
+In diesem Artikel wird das Bereitstellen der Ressourcen für einen eigenständigen Kubernetes-Cluster mithilfe einer Azure Resource Manager-Vorlage betrachtet. Bevor Sie beginnen, überprüfen Sie Ihren Azure Stack und Ihre globalen Azure-Mandanteneinstellungen. Sammeln Sie die erforderlichen Informationen zu Ihrem Azure Stack. Fügen Sie Ihrem Mandanten und dem Azure Stack-Marketplace erforderliche Ressourcen hinzu. Der Cluster ist von einem Ubuntu-Server, einem benutzerdefinierten Skript und davon abhängig, dass das Marketplace-Element „Kubernetes-Cluster“ im Azure Stack-Marketplace vorhanden ist.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Erstellen eines Plans, eines Angebots und eines Abonnements
 
 Erstellen Sie einen Plan, ein Angebot und ein Abonnement für das Marketplace-Element für Kubernetes. Sie können auch einen vorhandenen Plan und ein vorhandenes Angebot verwenden.
 
-1. Melden Sie sich beim [Verwaltungsportal](https://adminportal.local.azurestack.external) an.
+1. Melden Sie sich beim [Administratorportal](https://adminportal.local.azurestack.external) an.
 
 1. Erstellen Sie einen Plan als Basisplan. Anweisungen hierzu finden Sie unter [Erstellen von Plänen in Azure Stack](azure-stack-create-plan.md).
 
@@ -67,9 +68,9 @@ Wenn Sie Active Directory-Verbunddienste (AD FS) als Ihren Identitätsverwaltung
 
 ## <a name="add-an-ubuntu-server-image"></a>Fügen Sie ein Ubuntu-Serverimage hinzu.
 
-Fügen Sie dem Marketplace das folgende Ubuntu-Serverimage hinzu:
+Fügen Sie dem Azure Stack-Marketplace das folgende Ubuntu-Serverimage hinzu:
 
-1. Melden Sie sich beim [Verwaltungsportal](https://adminportal.local.azurestack.external) an.
+1. Melden Sie sich beim [Administrator Portal](https://adminportal.local.azurestack.external) an.
 
 1. Wählen Sie **Alle Dienste** aus, und wählen Sie dann unter der Kategorie **VERWALTUNG** die Option **Marketplace-Verwaltung** aus.
 
@@ -87,9 +88,9 @@ Fügen Sie dem Marketplace das folgende Ubuntu-Serverimage hinzu:
 
 ## <a name="add-a-custom-script-for-linux"></a>Hinzufügen eines benutzerdefinierten Skripts für Linux
 
-Fügen Sie Kubernetes aus dem Marketplace hinzu:
+Fügen Sie Kubernetes aus dem Azure Stack-Marketplace hinzu:
 
-1. Öffnen Sie das [Verwaltungsportal](https://adminportal.local.azurestack.external).
+1. Öffnen Sie das [Administratorportal](https://adminportal.local.azurestack.external).
 
 1. Wählen Sie **Alle Dienste** aus, und wählen Sie dann unter der Kategorie **VERWALTUNG** die Option **Marketplace-Verwaltung** aus.
 
@@ -107,10 +108,9 @@ Fügen Sie Kubernetes aus dem Marketplace hinzu:
 
 1. Wählen Sie **Herunterladen** aus.
 
-
 ## <a name="add-kubernetes-to-the-marketplace"></a>Hinzufügen von Kubernetes zum Marketplace
 
-1. Öffnen Sie das [Verwaltungsportal](https://adminportal.local.azurestack.external).
+1. Öffnen Sie das [Administratorportal](https://adminportal.local.azurestack.external).
 
 1. Wählen Sie **Alle Dienste** aus, und wählen Sie dann unter der Kategorie **VERWALTUNG** die Option **Marketplace-Verwaltung** aus.
 
@@ -123,13 +123,13 @@ Fügen Sie Kubernetes aus dem Marketplace hinzu:
 1. Wählen Sie **Herunterladen** aus.
 
     > [!note]  
-    > Es kann fünf Minuten dauern, bis das Marketplace-Element im Marketplace angezeigt wird.
+    > Es kann fünf Minuten dauern, bis das Marketplace-Element im Azure Stack-Marketplace angezeigt wird.
 
-    ![kubernetes](../user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
+    ![Kubernetes-Element im Azure Stack-Marketplace](../user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
 
-## <a name="update-or-remove-the-kubernetes"></a>Aktualisieren oder Entfernen von Kubernetes 
+## <a name="update-or-remove-the-kubernetes"></a>Aktualisieren oder Entfernen von Kubernetes
 
-Beim Aktualisieren des Kubernetes-Elements müssen Sie das vorherige Element im Marketplace entfernen. Befolgen Sie die Anweisungen in diesem Artikel, um das Kubernetes-Update zum Marketplace hinzuzufügen.
+Beim Aktualisieren des Kubernetes-Elements müssen Sie das vorherige Element im Azure Stack-Marketplace entfernen. Befolgen Sie die folgenden Anweisungen, um das Kubernetes-Update zum Azure Stack-Marketplace hinzuzufügen.
 
 So entfernen Sie das Kubernetes-Element:
 
@@ -141,7 +141,7 @@ So entfernen Sie das Kubernetes-Element:
     Get-AzsGalleryItem | Select Name
     ```
     
-3. Notieren Sie sich den Namen des aktuellen Elements, z.B. `Microsoft.AzureStackKubernetesCluster.0.3.0`.
+3. Notieren Sie sich den Namen des aktuellen Elements, z. B. `Microsoft.AzureStackKubernetesCluster.0.3.0`.
 
 4. Verwenden Sie das folgende PowerShell-Cmdlet, um das Element zu entfernen:
 

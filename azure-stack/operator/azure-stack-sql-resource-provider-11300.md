@@ -1,6 +1,7 @@
 ---
-title: Azure Stack-SQL-Ressourcenanbieter 1.1.30.0 – Versionshinweise | Microsoft-Dokumentation
-description: Es wird beschrieben, was im neuesten Update für den Azure Stack-SQL-Ressourcenanbieter enthalten ist, z.B. bekannte Probleme und der Downloadort.
+title: 'Azure Stack-SQL-Ressourcenanbieter 1.1.30.0: Versionshinweise'
+titleSuffix: Azure Stack
+description: Sehen Sie sich hier die Versionshinweise für das Update des Azure Stack-SQL-Ressourcenanbieters 1.1.30.0 an.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,12 +17,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: f17c2ba41097d5b9bda903ae5d95c62e0ac9f53a
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: c1c2b824b8cf44a983c851f20337658d020de4c8
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829360"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780625"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Versionshinweise zum SQL-Ressourcenanbieter 1.1.30.0
 
@@ -55,13 +56,13 @@ Diese Version des Azure Stack-SQL-Ressourcenanbieters enthält die folgenden Ver
 
 - **Aktualisierung des Blatts mit SQL-Hostservereinstellungen**: Es wurde ein Problem behoben, bei dem das Blatt mit den Einstellungen fälschlicherweise den Titel „Kennwort“ erhalten hat.
 
-## <a name="known-issues"></a>Bekannte Probleme 
+## <a name="known-issues"></a>Bekannte Probleme
 
-- **Dauer von bis zu einer Stunde bis zur Anzeige von SQL SKUs im Portal**: Es kann bis zu einer Stunde dauern, bis die neu erstellten SKUs beim Erstellen neuer SQL-Datenbanken angezeigt werden. 
+- **Dauer von bis zu einer Stunde bis zur Anzeige von SQL SKUs im Portal**: Es kann bis zu einer Stunde dauern, bis die neu erstellten SKUs beim Erstellen neuer SQL-Datenbanken angezeigt werden.
 
     **Problemumgehung**: None (Keine):
 
-- **Wiederverwendung von SQL-Anmeldungen**: Der Versuch einer neuen SQL-Anmeldung mit dem gleichen Benutzernamen wie eine vorhandene Anmeldung unter demselben Abonnement führt dazu, dass die gleiche Anmeldung und das vorhandene Kennwort wiederverwendet werden. 
+- **Wiederverwendung von SQL-Anmeldungen**: Der Versuch einer neuen SQL-Anmeldung mit dem gleichen Benutzernamen wie eine vorhandene Anmeldung unter demselben Abonnement führt dazu, dass die gleiche Anmeldung und das vorhandene Kennwort wiederverwendet werden.
 
     **Problemumgehung**: Verwenden Sie unterschiedliche Benutzernamen, wenn Sie neue Anmeldungen unter demselben Abonnement oder Anmeldungen mit demselben Benutzernamen unter unterschiedlichen Abonnements erstellen.
 
@@ -82,10 +83,11 @@ Diese Version des Azure Stack-SQL-Ressourcenanbieters enthält die folgenden Ver
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
+
 - **SQL-Ressourcenanbieter kann SQL Server Always On-Listener nicht hinzufügen.** Bei Verwendung der Listener-IP-Adresse des SQL Server Always On-Listeners kann die SQL-Ressourcenanbieter-VM den Hostnamen des Listeners nicht auflösen.
 
     **Problemumgehung**: Stellen Sie sicher, dass DNS ordnungsgemäß funktioniert, um die Listener-IP-Adresse in den Hostnamen des Listeners aufzulösen.
-    
+
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Bekannte Probleme von Cloudadministratoren, die Azure Stack betreiben
 Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack](azure-stack-servicing-policy.md).
 
@@ -94,4 +96,4 @@ Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack](azure-stac
 
 [Bereiten Sie sich auf die Bereitstellung des SQL-Ressourcenanbieters vor](azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-[Führen Sie für den SQL-Ressourcenanbieter ein Upgrade von einer früheren Version durch](azure-stack-sql-resource-provider-update.md). 
+[Führen Sie für den SQL-Ressourcenanbieter ein Upgrade von einer früheren Version durch](azure-stack-sql-resource-provider-update.md).

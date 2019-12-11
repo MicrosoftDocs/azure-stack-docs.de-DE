@@ -14,12 +14,12 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 194af241480cce42273ff81d91213a63b1b9fd59
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 98732c3eb5933e1fd6d7ce42d726d3f5019c97eb
+ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829165"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74830958"
 ---
 # <a name="validate-azure-stack-system-state"></a>Überprüfen des Azure Stack-Systemstatus
 
@@ -48,7 +48,7 @@ Wie oben bereits erwähnt, wird das Überprüfungstool über den PEP ausgeführt
 
    Weitere Informationen finden Sie unter [Überlegungen zu Parametern](azure-stack-diagnostic-test.md#parameter-considerations) und [Beispiele für Anwendungsfälle](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Führen Sie `Get-AzureStackLog` aus, wenn für Tests **FAIL** (FEHLER) gemeldet wird. Eine Anleitung zu einem integrierten System finden Sie unter [So führen Sie „Get-AzureStackLog“ in integrierten Azure Stack-Systemen aus](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems) oder im ASDK unter [Ausführen von Get-AzureStackLog in einem System mit dem Azure Stack Development Kit (ASDK)](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+3. Führen Sie `Get-AzureStackLog` aus, wenn für Tests **FAIL** (FEHLER) gemeldet wird. Eine Anleitung zu einem integrierten System finden Sie unter [So führen Sie „Get-AzureStackLog“ in integrierten Azure Stack-Systemen aus](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) oder im ASDK unter [Ausführen von Get-AzureStackLog in einem System mit dem Azure Stack Development Kit (ASDK)](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
    Das Cmdlet sammelt Protokolle, die von Test-AzureStack generiert wurden. Wir empfehlen Ihnen, keine Protokolle zu erfassen und sich stattdessen an den Microsoft-Kundendienst und -Support (CSS) zu wenden, wenn bei Tests eine **WARNUNG** gemeldet wird.
 
@@ -167,16 +167,11 @@ Der Benutzername des Cloudadministrators muss im UPN-Format eingegeben werden: s
 Um die Bedienerfreundlichkeit zu verbessern, wurde ein Parameter **Gruppe** eingeführt, um mehrere Testkategorien gleichzeitig auszuführen. Derzeit sind drei Gruppen definiert: **Default**, **UpdateReadiness** und **SecretRotationReadiness**.
 
 - **Standard:** Standardausführung von **Test-AzureStack**. Diese Gruppe wird standardmäßig ausgeführt, wenn keine anderen Gruppen ausgewählt werden.
-- **UpdateReadiness**: Hierbei wird überprüft, ob die Azure Stack-Instanz aktualisiert werden kann. Wird die Gruppe **UpdateReadiness** ausgeführt, werden Warnungen als Fehler in der Konsolenausgabe angezeigt und sollten als Hindernisse für die Aktualisierung angesehen werden. Die folgenden Kategorien sind Teil der **UpdateReadiness**-Gruppe:
+- **UpdateReadiness**: Hierbei wird überprüft, ob die Azure Stack-Instanz aktualisiert werden kann. Wird die Gruppe **UpdateReadiness** ausgeführt, werden Warnungen als Fehler in der Konsolenausgabe angezeigt und sollten als Hindernisse für die Aktualisierung angesehen werden. Ab Azure Stack-Version 1910 sind die folgenden Kategorien Teil der Gruppe **UpdateReadiness**:
 
-  - **AzsAcsSummary**
-  - **AzsDefenderSummary**
-  - **AzsHostingInfraSummary**
-  - **AzsInfraCapacity**
-  - **AzsInfraRoleSummary**
-  - **AzsPortalAPISummary**
-  - **AzsSFRoleSummary**
-  - **AzsStoreSummary**
+  - **AzsInfraFileValidation**
+  - **AzsActionPlanStatus**
+  - **AzsStampBMCSummary**
 
 - **SecretRotationReadiness**: Hierbei wird überprüft, ob sich die Azure Stack-Instanz in einem Status befindet, in dem die Geheimnisrotation durchgeführt werden kann. Wird die Gruppe **SecretRotationReadiness** ausgeführt, werden Warnungen als Fehler in der Konsolenausgabe angezeigt und sollten als Hindernisse für die Geheimnisrotation angesehen werden. Die folgenden Kategorien sind Teil der SecretRotationReadiness-Gruppe:
 
@@ -240,6 +235,6 @@ Test-AzureStack -Include AzsNetworkInfra -Debug
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zu Azure Stack-Diagnosetools und zur Protokollierung von Problemen finden Sie unter [Azure Stack-Diagnosetools](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
+Weitere Informationen zu Azure Stack-Diagnosetools und zur Protokollierung von Problemen finden Sie unter [Azure Stack-Diagnosetools](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
 
 Weitere Informationen zur Problembehandlung finden Sie unter [Problembehandlung von Microsoft Azure Stack](azure-stack-troubleshooting.md).

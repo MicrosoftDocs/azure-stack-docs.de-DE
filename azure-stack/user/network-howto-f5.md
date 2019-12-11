@@ -1,6 +1,6 @@
 ---
-title: Sichern Ihrer VM in Azure Stack Hub mit Commvault | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie Ihre VM in Azure Stack Hub mit Commvault sichern.
+title: Bereitstellen von F5 in zwei Azure Stack Hub-Instanzen | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie F5 in zwei Azure Stack Hub-Instanzen bereitstellen.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,12 +9,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 64fef6bdcd0315bc9dc289b48f80b406cefba0eb
-ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
+ms.openlocfilehash: c1166b1755b33687757b4587942c5472413e2b3e
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74103220"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780880"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Bereitstellen von F5 in zwei Azure Stack Hub-Instanzen
 

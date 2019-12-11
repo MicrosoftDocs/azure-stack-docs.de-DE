@@ -16,12 +16,12 @@ ms.date: 10/23/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 76bc9b83bf97c7817ff5c9cbf8bc0a3275a04d72
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: 87afcdb3508f66c69477f0109c2c86d03a6b04e0
+ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74298849"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810171"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planen der Netzwerkintegration für Azure Stack
 
@@ -75,7 +75,7 @@ Dieses Netzwerk der Größe „/20“ (4.096 IP-Adressen) ist für die Azure S
 - **Internes VIP-Netzwerk (Virtuelle IP-Adresse):** Ein Netzwerk des Typs „/25“, das ausschließlich internen VIPs für den softwaregestützten Lastenausgleich vorbehalten ist.
 - **Containernetzwerk:** Ein dediziertes Netzwerk der Größe „/23“ (512 IP-Adressen) für internen Datenverkehr zwischen Containern mit Infrastrukturdiensten.
 
-Ab 1910 ändert sich die Größe für das private Netzwerk in einen privaten IP-Adressraum der Größe „/20“ (4.096 IP-Adressen). Dieses Netzwerk ist für das Azure Stack-Region privat. (Das Routing geht also nicht über die Grenzswitchgeräte des Azure Stack-Systems hinaus.) Außerdem kann es für mehrere Azure Stack-Systeme innerhalb Ihres Rechenzentrums wiederverwendet werden. Das Netzwerk ist zwar ein privates Netzwerk für Azure Stack, es darf sich aber nicht mit anderen Netzwerken im Rechenzentrum überschneiden. Als Leitfaden für den privaten IP-Adressraum empfehlen wir [RFC 1918](https://tools.ietf.org/html/rfc1918).
+Ab 1910 ändert sich die Größe für das private Netzwerk in einen privaten IP-Adressraum der Größe „/20“ (4.096 IP-Adressen). Dieses Netzwerk ist für das Azure Stack-Region privat. (Das Routing geht also nicht über die Grenzswitchgeräte des Azure Stack-Systems hinaus.) Außerdem kann es für mehrere Azure Stack-Systeme innerhalb Ihres Rechenzentrums wiederverwendet werden. Das Netzwerk ist zwar ein privates Netzwerk für Azure Stack, es darf sich aber nicht mit anderen Netzwerken im Rechenzentrum überschneiden. Treten Überschneidungen auf, leitet Azure Stack unter Umständen Netzwerkdatenverkehr des Unternehmens extern nicht weiter. Als Leitfaden für den privaten IP-Adressraum empfehlen wir [RFC 1918](https://tools.ietf.org/html/rfc1918).
 
 Dieser private IP-Adressraum der Größe „/20“ wird in mehrere Netzwerke unterteilt, die in zukünftigen Releases die Ausführung der internen Infrastruktur des Azure Stack-Systems in Containern ermöglichen. Weitere Informationen finden Sie in den [Versionshinweisen zu 1910](release-notes.md). Darüber hinaus ermöglicht dieser neue private IP-Adressbereich auch kontinuierliche Maßnahmen zur Verringerung des erforderlichen routingfähigen IP-Adressraums vor der Bereitstellung.
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: b42f21a3225194cfe50b5ae7d39d8d1a7cffb6d0
-ms.sourcegitcommit: e6a738f674634e1d5dd4eb23b6c44b660ea2fe84
+ms.openlocfilehash: 049698c1b4e19dc3567c07bb8a433c0fcf9208d8
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72891264"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780778"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack"></a>Erstellen von VM-Datenträgerspeicher in Azure Stack
 
@@ -36,15 +36,17 @@ Ab Version 1808 können in Azure Stack verwaltete und nicht verwaltete Datentr
 
 Für nicht verwaltete Datenträger müssen Sie ein Speicherkonto erstellen, unter dem die Datenträger gespeichert werden können. Die von Ihnen erstellten Datenträger werden als VM-Datenträger bezeichnet und in Containern im Speicherkonto gespeichert.
 
-### <a name="best-practice-guidelines"></a>Richtlinien zu bewährten Methoden
+## <a name="best-practice-guidelines"></a>Richtlinien zu bewährten Methoden
 
-Zur Verbesserung der Leistung und Reduzierung der Gesamtkosten empfehlen wir Ihnen, jeden VM-Datenträger in einem separaten Container anzuordnen. Ein Container sollte entweder einen Betriebssystem-Datenträger oder einen Datenträger für Daten enthalten, aber nicht beides gleichzeitig. Sie können jedoch auch beide Datenträgertypen im gleichen Container speichern.
+Es wird empfohlen, Managed Disks für virtuelle Computer zu verwenden, um die Verwaltung und den Kapazitätsausgleich zu erleichtern. Sie müssen vor der Verwendung von Managed Disks kein Speicherkonto und keine Container vorbereiten. Beim Erstellen mehrerer verwalteter Datenträger werden die Datenträger auf mehrere Volumes verteilt, wodurch die Kapazität der Volumes ausgeglichen werden kann.  
+
+Zur Verbesserung der Leistung und Reduzierung der Gesamtkosten empfehlen wir Ihnen bei der Verwendung von nicht verwalteten Datenträgern, jeden nicht verwalteten Datenträger in einem separaten Container zu platzieren. Sie können Betriebssystem-Datenträger und Datenträger zwar im gleichen Container ablegen, es empfiehlt sich aber, in einem Container entweder einen Betriebssystem-Datenträger oder einen Datenträger zu platzieren und nicht beide gleichzeitig.
 
 Wenn Sie einem virtuellen Computer Datenträger für Daten hinzufügen, sollten Sie als Speicherort für diese Datenträger zusätzliche Container verwenden. Der Betriebssystemdatenträger für zusätzliche virtuelle Computer sollte sich ebenfalls in einem eigenen Container befinden.
 
 Wenn Sie virtuelle Computer erstellen, können Sie für jeden neuen virtuellen Computer das gleiche Speicherkonto wiederverwenden. Lediglich die erstellten Container sollten getrennt sein.
 
-### <a name="adding-new-disks"></a>Hinzufügen von neuen Datenträgern
+## <a name="adding-new-disks"></a>Hinzufügen von neuen Datenträgern
 
 In der folgenden Tabelle ist zusammengefasst, wie Sie Datenträger über das Portal und mit PowerShell hinzufügen:
 

@@ -16,12 +16,12 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 0621ca19f96e1c33a85ea5308346fafa2e4545f8
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 4b27d5195159b809c3ad439054c88d675ab99164
+ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465370"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810223"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack – Bekannte Probleme
 
@@ -146,6 +146,12 @@ Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die
 - Ursache: Die aktuelle Version des SQL-Ressourcenanbieters ist mit einigen der neuesten Portaländerungen des Updates 1910 nicht kompatibel.
 - Abhilfe: Führen Sie im Anschluss an das Azure Stack-Upgrade auf das Update 1910 ([SQL-Ressourcenanbieterversion 1.1.47.0](https://aka.ms/azurestacksqlrp11470)) die Schritte des Ressourcenanbieter-Updateprozesses aus, um den SQL-Ressourcenanbieter-Hotfix 1.1.47.0 anzuwenden. Für den MySQL-Ressourcenanbieter sollte im Anschluss an das Azure Stack-Upgrade auf das Update 1910 ([MySQL-Ressourcenanbieterversion 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)) auch der MySQL-Ressourcenanbieter-Hotfix 1.1.47.0 angewendet werden.
 - Häufigkeit: Common
+
+### <a name="access-control-iam"></a>Zugriffssteuerung (IAM)
+
+- Geltungsbereich: Dieses Problem betrifft das Release 1903 und spätere Releases.
+- Ursache: Die IAM-Version ist veraltet. Ibiza ist im Lieferumfang von Azure Stack enthalten und führt ein neues Verhalten ein, das eine Unterbrechung der RBAC-Erweiterung verursacht, wenn Benutzer die RBAC-Erweiterung über ein Abonnement öffnen, das nicht in der Auswahl für globale Abonnements ausgewählt ist.
+- Abhilfe: Stellen Sie sicher, dass das Abonnement in der Auswahl für globale Abonnements aktiviert ist. 
 
 ## <a name="networking"></a>Netzwerk
 

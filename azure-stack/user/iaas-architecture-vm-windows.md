@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 11/01/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: f3c16e202b43f9d672d9f3e385c3f14cf30935e7
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: 5f9d8de7c08e8cfa0ad2af9bcb8f898fc32848a3
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569313"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690218"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack"></a>Ausführen eines virtuellen Windows-Computers in Azure Stack
 
@@ -68,7 +68,14 @@ Alle Netzwerksicherheitsgruppen enthalten eine Reihe von [Standardregeln](https:
 
 **Diagnose**: Aktivieren Sie die Überwachung und Diagnose, einschließlich grundlegender Integritätsmetriken, Infrastrukturprotokolle zur Diagnose sowie der [Startdiagnose](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Startdiagnosen dienen dazu, einen Fehler beim Startvorgang zu untersuchen, wenn Ihre VM einen nicht startfähigen Zustand hat. Erstellen Sie ein Azure Storage-Konto zum Speichern der Protokolle. Ein standardmäßiger lokal redundanter Speicher (LRS) reicht für Diagnoseprotokolle aus. Weitere Informationen finden Sie unter [Aktivieren von Überwachung und Diagnose](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data).
 
-**Verfügbarkeit**: Ihre VM kann aufgrund geplanter Wartungsarbeiten, die vom Azure Stack-Betreiber geplant sind, neu gestartet werden. Stellen Sie mehrere VMs in einer [Verfügbarkeitsgruppe](https://docs.microsoft.com/azure-stack/operator/azure-stack-overview#providing-high-availability) bereit, um eine höhere Verfügbarkeit zu erzielen.
+**Verfügbarkeit**: Ihre VM kann aufgrund geplanter Wartungsarbeiten, die vom Azure Stack-Betreiber geplant sind, neu gestartet werden. Zur Erreichung von Hochverfügbarkeit für ein Produktionssystem mit mehreren VMs in Azure werden die VMs in einer [Verfügbarkeitsgruppe](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) angeordnet, um sie auf mehrere Fehlerdomänen und Updatedomänen zu verteilen. Im kleineren Rahmen von Azure Stack Hub ist eine Fehlerdomäne in einer Verfügbarkeitsgruppe als einzelner Knoten in der Skalierungseinheit definiert.  
+
+Die Infrastruktur von Azure Stack Hub verfügt zwar bereits über Resilienz gegenüber Ausfällen, aber bei einem Hardwarefehler kommt es bei der zugrunde liegenden Technologie (Failoverclustering) für VMs auf einem betroffenen physischen Server trotzdem noch zu Ausfallzeiten. Azure Stack Hub unterstützt die Verwendung einer Verfügbarkeitsgruppe mit maximal drei Fehlerdomänen, um Konsistenz mit Azure zu erzielen.
+
+|                   |             |
+|-------------------|-------------|
+| **Fehlerdomänen** | In einer Verfügbarkeitsgruppe angeordnete VMs werden physisch voneinander isoliert, indem sie so gleichmäßig wie möglich auf mehrere Fehlerdomänen (Azure Stack Hub-Knoten) verteilt werden. Bei einem Hardwarefehler werden VMs aus der fehlerhaften Fehlerdomäne in anderen Fehlerdomänen neu gestartet. Sie werden getrennt von den anderen VMs in separaten Fehlerdomänen, aber nach Möglichkeit in derselben Verfügbarkeitsgruppe gespeichert. Nachdem die Hardware wieder in den Onlinezustand versetzt wurde, wird für die VMs ein neuer Ausgleichsvorgang durchgeführt, um die Hochverfügbarkeit sicherzustellen. |
+| **Updatedomänen**| Updatedomänen sind eine andere Option von Azure, mit der für Hochverfügbarkeit in Verfügbarkeitsgruppen gesorgt wird. Eine Updatedomäne ist eine logische Gruppe von zugrunde liegender Hardware, die zur gleichen Zeit gewartet werden kann. VMs in derselben Updatedomäne werden während einer geplanten Wartung gemeinsam neu gestartet. Wenn Mandanten VMs in einer Verfügbarkeitsgruppe erstellen, werden die VMs von der Azure-Plattform automatisch auf diese Updatedomänen verteilt. <br>In Azure Stack Hub wird für VMs eine Livemigration über die anderen Onlinehosts im Cluster durchgeführt, bevor der zugrunde liegende Host aktualisiert wird. Da es während eines Hostupdates nicht zu Mandantenausfallzeiten kommt, ist das Updatedomänenfeature in Azure Stack Hub nur für die Vorlagenkompatibilität mit Azure vorhanden. Virtuelle Computer in einer Verfügbarkeitsgruppe zeigen im Portal „0“ als Nummer der Updatedomäne an. |
 
 **Sicherungen** In diesem Artikel finden Sie Empfehlungen zum Schutz Ihrer Azure Stack-IaaS-VMs.
 
@@ -91,7 +98,7 @@ Führen Sie für Ihre VMs ein Onboarding bei [Azure Security Center](https://doc
 
 **Überwachungsprotokolle:** Verwenden Sie [Aktivitätsprotokolle](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data?#activity-log), um Bereitstellungsaktionen und andere VM-Ereignisse anzuzeigen.
 
-**Datenverschlüsselung:** Azure Stack schützt Benutzer- und Infrastrukturdaten auf der Ebene des Speichersubsystems unter Verwendung von Verschlüsselung ruhender Daten. Das Speichersubsystem von Azure Stack wird mithilfe von BitLocker mit 128-Bit-AES-Verschlüsselung verschlüsselt. Weitere Informationen finden Sie in [diesem](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker) Artikel.
+**Datenverschlüsselung:** Azure Stack nutzt BitLocker-128-Bit-AES-Verschlüsselung, um ruhende Benutzer- und Infrastrukturdaten im Speichersubsystem zu schützen. Weitere Informationen finden Sie unter [Verschlüsselung für ruhende Daten in Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker).
 
 
 ## <a name="next-steps"></a>Nächste Schritte
