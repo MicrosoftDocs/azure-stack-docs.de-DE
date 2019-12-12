@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6fe2f8e7ab435cae3517890f79c26611a80c8a60
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 3399288b801114f076afe3b68d3f9790bfe2af29
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167155"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954484"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Überprüfen der Softwareupdates von Microsoft
 
@@ -35,15 +35,12 @@ Den Namen von Microsoft-Softwareupdates für Azure Stack liegt eine Benennungsko
 Machen Sie sich zunächst mit Folgendem vertraut, bevor Sie den monatlichen Aktualisierungsprozess in VaaS ausführen:
 
 - [Validation-as-a-Service – wichtige Begriffe](azure-stack-vaas-key-concepts.md)
-- [Testen der interaktiven Featureüberprüfung](azure-stack-vaas-interactive-feature-verification.md)
 
 ## <a name="required-tests"></a>Erforderliche Tests
 
 Für die monatliche Softwareüberprüfung müssen die folgenden Tests in der angegebenen Reihenfolge ausgeführt werden:
 
-- Schritt 1: Monatliche Azure Stack-Updateüberprüfung
-- Schritt 2: Überprüfung des OEM-Erweiterungspakets
-- Schritt 3: OEM – Cloud-Simulationsmodul
+- OEM-Validierungsworkflow
 
 ## <a name="validating-software-updates"></a>Überprüfen von Softwareupdates
 

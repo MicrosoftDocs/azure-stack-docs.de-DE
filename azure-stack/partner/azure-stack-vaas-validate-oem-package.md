@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: dcfd50c533558bff0bdac75dfa3231d5196039cc
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 774778e382526cffb30e2a69d16c32cc1e548225
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955819"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954552"
 ---
 # <a name="validate-oem-packages"></a>Überprüfen von OEM-Paketen
 
@@ -148,30 +148,30 @@ Verwenden Sie diese Option, wenn es akzeptabel ist, nicht authentifizierten Clie
 
 5. Geben Sie die Azure Storage-Blob-URL für das signierte OEM-Testpaket ein, für das eine Signatur von Microsoft benötigt wird. Eine entsprechende Anleitung finden Sie unter [Generieren der Paketblob-URL für VaaS](#generate-package-blob-url-for-vaas).
 
-6. Kopieren Sie den AzureStack-Updatepaketordner in ein lokales Verzeichnis auf der DVM. Geben Sie für den Pfad des AzureStack-Updatepaketordners den übergeordneten Verzeichnispfad ein.
+6. Kopieren Sie den AzureStack-Updatepaketordner in ein lokales Verzeichnis auf der DVM. Geben Sie für den Pfad des AzureStack-Updatepaketordners den Pfad zum **Ordner mit der ZIP-Paketdatei und der Metadatendatei** ein.
 
-7. Kopieren Sie den oben erstellten OEM-Updatepaketordner in ein lokales Verzeichnis auf der DVM. Geben Sie für den Pfad des OEM-Updatepaketordners den übergeordneten Verzeichnispfad ein.
+7. Kopieren Sie den oben erstellten OEM-Updatepaketordner in ein lokales Verzeichnis auf der DVM. Geben Sie für den Pfad des OEM-Updatepaketordners den Pfad zum **Ordner mit der ZIP-Paketdatei und der Metadatendatei** ein.
 
     > [!NOTE]
-    > Kopieren Sie das AzureStack-Update und das OEM-Update in **zwei separate** übergeordnete Verzeichnisse.
+    > Kopieren Sie das AzureStack-Update und das OEM-Update in **zwei separate** Verzeichnisse.
 
-8. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+8. RequireDigitalSignature: Geben Sie **true** an, wenn das Paket von Microsoft signiert sein muss (Ausführen des OEM-Validierungsworkflows). Wenn Sie ein von Microsoft signiertes Paket für das aktuelle AzureStack-Update überprüfen, geben Sie für diesen Wert „false“ an (Ausführen der monatlichen AzureStack-Updateüberprüfung).
+
+9. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
     > Umgebungsparameter können nach der Workflowerstellung nicht mehr geändert werden.
 
-9. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+10. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
 
-10. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+11. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     Sie werden auf die Seite mit der Testzusammenfassung umgeleitet.
 
 ## <a name="required-tests"></a>Erforderliche Tests
 
-Die folgenden Tests müssen in der angegebenen Reihenfolge für die OEM-Paketvalidierung ausgeführt werden:
+Für die OEM-Paketvalidierung müssen die folgenden Tests ausgeführt werden:
 
-- Schritt 1: Monatliche Azure Stack-Updateüberprüfung
-- Schritt 2: Überprüfung des OEM-Erweiterungspakets
-- Schritt 3: OEM – Cloud-Simulationsmodul
+- OEM-Validierungsworkflow
 
 ## <a name="run-package-validation-tests"></a>Ausführen von Paketvalidierungstests
 
@@ -183,20 +183,13 @@ Die folgenden Tests müssen in der angegebenen Reihenfolge für die OEM-Paketval
     > Wenn Sie einen Validierungstest für eine bereits vorhandene Instanz planen, wird die alte Instanz im Portal durch eine neu erstellte Instanz ersetzt. Die Protokolle für die alte Instanz bleiben erhalten, können aber nicht über das Portal verwendet werden.  
     > Nach erfolgreicher Ausführung eines Tests wird die **Planungsoption** deaktiviert.
 
-2. Bei der Paketüberprüfung führen Sie die **erforderlichen Tests** in der angegebenen Reihenfolge aus.
+2. Wählen Sie den Agent aus, der den Test ausführt. Informationen zum Hinzufügen lokaler Agents für die Ausführung von Tests finden Sie unter [Bereitstellen des lokalen Agents](azure-stack-vaas-local-agent.md).
 
-    > [!CAUTION]
-    > VaaS führt die Tests in der geplanten Reihenfolge aus. Die Tests müssen in der angegebenen Reihenfolge geplant werden.
+3. Wählen Sie zum Planen des Testlaufs im Kontextmenü **Planen** aus, um eine Eingabeaufforderung für die Planung der Testinstanz zu öffnen.
 
-3. Wählen Sie den Agent aus, der den Test ausführt. Informationen zum Hinzufügen lokaler Agents für die Ausführung von Tests finden Sie unter [Bereitstellen des lokalen Agents](azure-stack-vaas-local-agent.md).
+4. Überprüfen Sie die Testparameter, und wählen Sie anschließend **Absenden** aus, um den Test zu planen.
 
-4. Wählen Sie zum Planen des Testlaufs im Kontextmenü **Planen** aus, um eine Eingabeaufforderung für die Planung der Testinstanz zu öffnen.
-
-5. Überprüfen Sie die Testparameter, und wählen Sie anschließend **Absenden** aus, um den Test zu planen.
-
-6. Sie müssen nicht warten, bis der Test abgeschlossen ist, bevor Sie den nächsten Test planen. Planen Sie alle **erforderlichen** Tests in der oben angegebenen Reihenfolge.
-
-7. Überprüfen Sie die Ergebnisse für die **erforderlichen** Tests.
+5. Überprüfen Sie die Ergebnisse für die **erforderlichen** Tests.
 
 Um eine Anforderung zur Paketsignierung zu übermitteln, senden Sie den Lösungsnamen und Paketvalidierungsnamen, die dieser Ausführung zugeordnet sind, an [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
 
