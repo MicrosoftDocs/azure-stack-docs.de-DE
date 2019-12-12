@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 12/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: a5a6cf3ef5c2c03992647c207422eb266f171ac4
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.lastreviewed: 12/10/2019
+ms.openlocfilehash: f8acc74aed978b3672dacd65524a8f1dbb5e6909
+ms.sourcegitcommit: 3c40e6df2447531a69e33b2fd0f2365b7dcf8892
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465489"
+ms.lasthandoff: 12/11/2019
+ms.locfileid: "75005377"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Verwalten und Bereitstellen von Ressourcen in Azure Stack mit Azure CLI
 
@@ -362,7 +362,7 @@ Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack als vertr
 1. Suchen Sie den Speicherort des Zertifikats auf Ihrem Computer. Der Speicherort kann je nachdem, wo Sie Python installiert haben, variieren. Die Module „pip“ und „certifi“ müssen installiert sein. Verwenden Sie den folgenden Python-Befehl über die Bash-Eingabeaufforderung:
 
     ```bash  
-    python3 -c "import certifi; print(certifi.where())"
+    az --version
     ```
 
     Notieren Sie sich den Speicherort des Zertifikats. Beispiel: `~/lib/python3.5/site-packages/certifi/cacert.pem`. Ihr eigener Pfad hängt von Ihrem Betriebssystem und der installierten Python-Version ab.
@@ -385,12 +385,7 @@ Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack als vertr
 
 Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack herzustellen:
 
-1. Registrieren Sie die Azure Stack-Umgebung, indem Sie den Befehl `az cloud register` ausführen. In einigen Szenarien wird die direkte ausgehende Internetkonnektivität durch einen Proxy oder eine Firewall geleitet, die das Abfangen von SSL erzwingen. In diesen Fällen kann der Befehl `az cloud register` mit einem Fehler wie „Endpunkte können nicht aus der Cloud abgerufen werden“ fehlschlagen. Als Problemumgehung dieses Fehlers legen Sie die folgenden Umgebungsvariablen fest:
-
-   ```shell
-   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
-   export ADAL_PYTHON_SSL_NO_VERIFY=1
-   ```
+1. Registrieren Sie die Azure Stack-Umgebung, indem Sie den Befehl `az cloud register` ausführen.
 
 2. Registrieren Sie Ihre Umgebung. Verwenden Sie beim Ausführen von `az cloud register` die folgenden Parameter:
 
@@ -473,7 +468,7 @@ Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack als vertr
 1. Suchen Sie den Speicherort des Zertifikats auf Ihrem Computer. Der Speicherort kann je nachdem, wo Sie Python installiert haben, variieren. Die Module „pip“ und „certifi“ müssen installiert sein. Verwenden Sie den folgenden Python-Befehl über die Bash-Eingabeaufforderung:
 
     ```bash  
-    python3 -c "import certifi; print(certifi.where())"
+    az --version 
     ```
 
     Notieren Sie sich den Speicherort des Zertifikats. Beispiel: `~/lib/python3.5/site-packages/certifi/cacert.pem`. Ihr eigener Pfad hängt von Ihrem Betriebssystem und der installierten Python-Version ab.
@@ -496,12 +491,7 @@ Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack als vertr
 
 Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack herzustellen:
 
-1. Registrieren Sie die Azure Stack-Umgebung, indem Sie den Befehl `az cloud register` ausführen. In einigen Szenarien wird die direkte ausgehende Internetkonnektivität durch einen Proxy oder eine Firewall geleitet, die das Abfangen von SSL erzwingen. In diesen Fällen kann der Befehl `az cloud register` mit einem Fehler wie „Endpunkte können nicht aus der Cloud abgerufen werden“ fehlschlagen. Als Problemumgehung dieses Fehlers legen Sie die folgenden Umgebungsvariablen fest:
-
-   ```shell
-   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
-   export ADAL_PYTHON_SSL_NO_VERIFY=1
-   ```
+1. Registrieren Sie die Azure Stack-Umgebung, indem Sie den Befehl `az cloud register` ausführen.
 
 2. Registrieren Sie Ihre Umgebung. Verwenden Sie beim Ausführen von `az cloud register` die folgenden Parameter.
 

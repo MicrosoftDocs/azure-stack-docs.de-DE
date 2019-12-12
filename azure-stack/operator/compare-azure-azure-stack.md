@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 8badb1fbcabc6f1a3ffbef0b8489dea0f06e649c
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.openlocfilehash: 1a847e842dff8b8b2b3032ded2466402897a3ae4
+ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453433"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995602"
 ---
 # <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>Unterschiede zwischen der globalen Azure-Infrastruktur, Azure Stack und Azure Stack HCI
 
@@ -50,7 +50,6 @@ Azure Stack ist eine Erweiterung von Azure, die für Ihre lokale Umgebung die Fl
 - Azure Resource Manager
 - Azure Marketplace
 - Container
-- Azure IoT Hub und Event Hubs
 - Verwaltungstools (Pläne, Angebote, rollenbasierte Zugriffssteuerung usw.)
 
 Die PaaS-Funktionen von Azure Stack sind optional, weil Azure Stack nicht von Microsoft betrieben wird, sondern von unseren Kunden. Dies bedeutet, dass Sie Endbenutzern jeden gewünschten PaaS-Dienst anbieten können, wenn Sie darauf vorbereitet sind, die zugrunde liegende Infrastruktur und die Prozesse für den Endbenutzer zu abstrahieren. Azure Stack verfügt aber über mehrere optionale PaaS-Dienstanbieter, z. B. App Service, SQL-Datenbanken und MySQL-Datenbanken. Diese werden als Ressourcenanbieter bereitgestellt. Sie sind daher mehrinstanzenfähig, werden regelmäßig mit Azure Stack-Standardupdates aktualisiert, sind im Azure Stack-Portal sichtbar und sind gut in Azure Stack integriert.

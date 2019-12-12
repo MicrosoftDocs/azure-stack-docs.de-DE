@@ -9,12 +9,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: e51f1bd10ad53671d4e3b60e448141207bf2f6e0
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: 6797f95b672b12bfe08fd4070bef2501367fc389
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569319"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993820"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack"></a>Ausführen eines virtuellen Linux-Computers in Azure Stack
 
@@ -84,7 +84,7 @@ Alle Netzwerksicherheitsgruppen enthalten eine Reihe von [Standardregeln](https:
 
 **Diagnose**: Aktivieren Sie die Überwachung und Diagnose, einschließlich grundlegender Integritätsmetriken, Infrastrukturprotokolle zur Diagnose sowie der [Startdiagnose](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Startdiagnosen dienen dazu, einen Fehler beim Startvorgang zu untersuchen, wenn Ihre VM einen nicht startfähigen Zustand hat. Erstellen Sie ein Azure Storage-Konto zum Speichern der Protokolle. Ein standardmäßiger lokal redundanter Speicher (LRS) reicht für Diagnoseprotokolle aus. Weitere Informationen finden Sie unter [Aktivieren von Überwachung und Diagnose](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data).
 
-**Verfügbarkeit**: Ihre VM kann aufgrund geplanter Wartungsarbeiten, die vom Azure Stack-Betreiber geplant sind, neu gestartet werden. Stellen Sie mehrere VMs in einer [Verfügbarkeitsgruppe](https://docs.microsoft.com/azure-stack/operator/azure-stack-overview#providing-high-availability) bereit, um eine höhere Verfügbarkeit zu erzielen.
+**Verfügbarkeit**: Ihre VM kann aufgrund geplanter Wartungsarbeiten, die vom Azure Stack-Betreiber geplant sind, neu gestartet werden. Stellen Sie mehrere VMs in einer [Verfügbarkeitsgruppe](https://docs.microsoft.com/azure-stack/operator/app-service-deploy-ha) bereit, um eine höhere Verfügbarkeit zu erzielen.
 
 **Sicherungen** In [diesem](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-protect) Artikel finden Sie Empfehlungen zum Schutz Ihrer Azure Stack-IaaS-VMS.
 
