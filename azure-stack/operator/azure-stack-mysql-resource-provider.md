@@ -15,21 +15,28 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 8f498896489a0c217b1f7c51ec4dda6b493ddda7
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: b66a72ce872d64f8fde3cb80ced5e6ad33d80b4d
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534028"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993780"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Verwenden von MySQL-Datenbanken in Microsoft Azure Stack
 
 MySQL-Datenbanken werden häufig mit Websites verwendet und unterstützen zahlreiche Websiteplattformen. Beispielsweise können Sie WordPress-Websites mit dem App Services-Ressourcenanbieter (PaaS)-Add-On (Plattform als Dienst) erstellen.
 
-Nachdem Sie den Ressourcenanbieter bereitgestellt haben, können Sie folgende Schritte ausführen:
+Nachdem Sie den Ressourcenanbieter bereitgestellt und mit mindestens einer MySQL-Serverinstanz verbunden haben, haben Sie folgende Möglichkeiten:
 
-* Erstellen von MySQL-Servern und -Datenbanken mithilfe von Azure Resource Manager-Bereitstellungsvorlagen
+* Erstellen von MySQL-Datenbanken mithilfe von Azure Resource Manager-Bereitstellungsvorlagen
 * Bereitstellen von MySQL-Datenbanken als Dienst  
+
+Vor der Installation des MySQL-Ressourcenanbieters sind einige Einschränkungen zu beachten:
+
+- Benutzer können nur einzelne Datenbanken erstellen und verwalten. Endbenutzer können nicht auf die Datenbankserverinstanz zugreifen. Dies schränkt unter Umständen die Kompatibilität mit lokalen Datenbankanwendungen ein, die Zugriff auf den Master oder auf die temporäre Datenbank oder für die dynamische Verwaltung von Datenbanken benötigen.
+- Ihr Azure Stack-Operator ist für die Bereitstellung, Aktualisierung, Absicherung, Konfiguration und Wartung der MySQL-Datenbankserver und Hosts verantwortlich. Der Ressourcenanbieterdienst bietet keine Funktionen für die Verwaltung von Host- und Datenbankserverinstanzen. 
+- Datenbanken unterschiedlicher Benutzer in verschiedenen Abonnements können sich in der gleichen Datenbankserverinstanz befinden. Der Ressourcenanbieter bietet keinen Mechanismus zur Isolierung von Datenbanken auf verschiedenen Hosts oder in verschiedenen Datenbankserverinstanzen.
+- Der Ressourcenanbieter bietet keine Berichte zur Mandantennutzung von Datenbanken.
 
 ## <a name="mysql-resource-provider-adapter-architecture"></a>Architektur des MySQL-Ressourcenanbieteradapters
 

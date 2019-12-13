@@ -1,6 +1,7 @@
 ---
-title: Aktualisieren des SQL-Ressourcenanbieters in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie den SQL-Ressourcenanbieter in Azure Stack aktualisieren können.
+title: Aktualisieren des SQL-Ressourcenanbieters in Azure Stack
+titleSuffix: Azure Stack
+description: Hier erfahren Sie, wie Sie den SQL-Ressourcenanbieter in Azure Stack aktualisieren.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,20 +16,20 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 26ce99f87f1b0e1e379bad6276c88a8e6772c035
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 2669ed87e46307bb84aa9639d42b100cdc0cfd46
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465360"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954433"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aktualisieren des SQL-Ressourcenanbieters
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme.*
 
-Unter Umständen wird ein neuer SQL-Ressourcenanbieter veröffentlicht, wenn Azure Stack auf einen neuen Build aktualisiert wird. Auch wenn der vorhandene Ressourcenanbieter weiterhin funktioniert, ist es ratsam, so schnell wie möglich das Update auf den aktuellen Build durchzuführen. 
+Unter Umständen wird ein neuer SQL-Ressourcenanbieter veröffentlicht, wenn Azure Stack auf einen neuen Build aktualisiert wird. Auch wenn der vorhandene Ressourcenanbieter weiterhin funktioniert, ist es ratsam, so schnell wie möglich das Update auf den aktuellen Build durchzuführen.
 
-Ab Ressourcenanbieter SQL RP Version 1.1.33.0 sind die Updates kumulativ und müssen nicht in der Reihenfolge installiert werden, in der sie veröffentlicht wurden, sofern Sie mit Version 1.1.24.0 oder höher beginnen. Wenn Sie beispielsweise Version 1.1.24.0 des SQL-Ressourcenanbieters ausführen, können Sie dann ein Upgrade auf Version 1.1.33.0 oder höher ausführen, ohne zuerst Version 1.1.30.0 installieren zu müssen. In der Versionsliste unter [Bereitstellen des Ressourcenanbieters – Voraussetzungen](./azure-stack-sql-resource-provider-deploy.md#prerequisites) finden Sie die verfügbaren Ressourcenanbieterversionen und die jeweilige Azure Stack-Version, auf der sie unterstützt werden.
+Ab der Version 1.1.33.0 des SQL-Ressourcenanbieters sind Updates kumulativ und müssen nicht mehr in der Reihenfolge installiert werden, in der sie veröffentlicht wurden (vorausgesetzt, Sie verfügen mindestens über die Version 1.1.24.0). Wenn Sie also beispielsweise die Version 1.1.24.0 des SQL-Ressourcenanbieters verwenden, können Sie auf die Version 1.1.33.0 oder höher upgraden, ohne zuvor die Version 1.1.30.0 installieren zu müssen. In der Versionsliste unter [Bereitstellen des Ressourcenanbieters – Voraussetzungen](./azure-stack-sql-resource-provider-deploy.md#prerequisites) finden Sie die verfügbaren Ressourcenanbieterversionen und die jeweilige Azure Stack-Version, unter der sie unterstützt werden.
 
 Verwenden Sie zum Aktualisieren des Ressourcenanbieters das Skript *UpdateSQLProvider.ps1*. Das Skript ist im Download des neuen SQL-Ressourcenanbieters enthalten. Der Updateprozess ähnelt dem Prozess zum [Bereitstellen des Ressourcenanbieters](./azure-stack-sql-resource-provider-deploy.md). Das Updateskript verwendet die gleichen Argumente wie das Skript „DeploySqlProvider.ps1“, und Sie müssen Zertifikatinformationen angeben.
 
@@ -70,10 +71,10 @@ Wenn Sie das PowerShell-Skript **UpdateSQLProvider.ps1** ausführen, können Sie
 > [!NOTE]
 > Dieser Updateprozess gilt nur für integrierte Azure Stack-Systeme.
 
-Wenn Sie auf Version 1.1.33.0 oder frühere Versionen des SQL-Ressourcenanbieters aktualisieren, müssen Sie bestimmte Versionen von „AzureRm.BootStrapper“ und Azure Stack-Modulen in PowerShell installieren. Wenn Sie auf Version 1.1.47.0 des SQL-Ressourcenanbieters aktualisieren, kann dieser Schritt übersprungen werden.
+Wenn Sie auf die Version 1.1.33.0 oder auf frühere Versionen des SQL-Ressourcenanbieters aktualisieren, müssen Sie bestimmte Versionen von „AzureRm.BootStrapper“ und Azure Stack-Modulen in PowerShell installieren. Wenn Sie auf die Version 1.1.47.0 des SQL-Ressourcenanbieters aktualisieren, kann dieser Schritt übersprungen werden.
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module.
 # Note that this might not be the most currently available version of Azure Stack PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
@@ -86,16 +87,16 @@ Nachstehend finden Sie ein Beispiel für das Skript *UpdateSQLProvider.ps1*, das
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
 $domain = "AzureStack"
 
-# For integrated systems, use the IP address of one of the ERCS virtual machines.
+# For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01"
 
-# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using. 
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
 $AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
 
-# The service administrator account (this can be Azure AD or AD FS).
+# The service admin account (this can be Azure AD or AD FS).
 $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
@@ -119,7 +120,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -PrivilegedEndpoint $privilegedEndpoint `
   -AzureEnvironment $AzureEnvironment `
   -DefaultSSLCertificatePassword $PfxPass `
-  -DependencyFilesLocalPath $tempDir\cert 
+  -DependencyFilesLocalPath $tempDir\cert
 
  ```
 

@@ -14,18 +14,33 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: aa85310314a09db47f10424e84fe40e355bacb25
-ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
+ms.openlocfilehash: 963944f2ade4db168c1b7f9070e72fe503bdfcf9
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846234"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954467"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Versionshinweise zu Validation-as-a-Service
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Dieser Artikel enthält die Versionshinweise zu Validation-as-a-Service in Azure Stack.
+
+## <a name="version-4421"></a>Version 4.4.2.1
+
+3\. Dezember 2019
+
+- Updates für Testinhalte
+  - Die Onlinedokumentation für den Workflow des monatlichen Azure Stack-Updates und den Workflow der OEM-Paketüberprüfung wurde aktualisiert. Lesen Sie hier die aktualisierte Dokumentation zum Überprüfen von OEM-Paketen und hier die aktualisierte Dokumentation zum Überprüfen der Softwareupdates von Microsoft.
+  - Aktualisierung des Workflows für die VaaS-Paketvalidierung: Für die monatliche Azure Stack-Updateüberprüfung und die OEM-Paketvalidierung ist lediglich der OEM-Validierungsworkflow als Test erforderlich. Der Test aktualisiert den Stempel mit den bereitgestellten Azure Stack-/OEM-Paketen und führt Überprüfungstests des Cloud-Simulationsmoduls durch.
+  - Aktualisierung der VaaS-PowerShell-Erweiterung: Die Automatisierung des Paketvalidierungsworkflows wird nun unterstützt. Ausführliche Informationen zum Ort dieser Erweiterung sowie eine ausführliche Verwendungsanleitung finden Sie im Artikel zur Automatisierung von Azure Stack VaaS mit PowerShell.
+
+- Bekannte Probleme
+  - Wenden Sie sich an vaashelp@microsoft.com, wenn die folgenden Testfälle im Rahmen des OEM-Validierungsworkflows nicht ausgeführt werden können:
+    - Test101LinuxEmptyAttachedDiskManagedDisk
+    - Test101WindowsEmptyAttachedDiskManagedDisk
+
 
 ## <a name="version-4353"></a>Version 4.3.5.3
 
@@ -66,7 +81,7 @@ Dieser Artikel enthält die Versionshinweise zu Validation-as-a-Service in Azure
 - Das Cloud-Simulationsmodul im OEM-Paketüberprüfungsworkflow und im Azure Stack-Updateworkflow (Version 5.1.30.0 bis 5.1.46.0) setzt voraus, dass die Tests in der folgenden Reihenfolge geplant werden: Test für die monatliche Azure Stack-Updateüberprüfung, Test für die OEM-Erweiterungspaketüberprüfung und Cloud-Simulationsmodul.
 - Aktualisierung des VaaS-Agents: Der aktualisierte VaaS-Agent nutzt nun die Anmeldeinformationen des Azure Stack-Cloudadministrators, um den Stempel abzufragen und die Stempelinformationen zum automatischen Auffüllen der Workflows zu erhalten. 
 
-    Bei diesem Update müssen alle Agents aktualisiert und neu gestartet werden. Weitere Informationen zum Aktualisieren des VaaS-Agents finden Sie in den folgenden Anweisungen: https://docs.microsoft.com/en-us/azure-stack/partner/azure-stack-vaas-local-agent.
+    Bei diesem Update müssen alle Agents aktualisiert und neu gestartet werden. Weitere Informationen zum Aktualisieren des VaaS-Agents finden Sie in den folgenden Anweisungen: https://docs.microsoft.com/azure-stack/partner/azure-stack-vaas-local-agent.
 - Aktualisierung der VaaS-Portalbenutzeroberfläche: Die Agent-Auswahltabelle wurde verschoben und befindet sich nun oberhalb des Bereichs für die Testplanung, um die Ausführung von Tests zu erleichtern.
 
     Beim Planen eines Auftrags müssen keine Stempelinformationen mehr eingegeben werden, wenn die VaaS-Agents ordnungsgemäß aktualisiert wurden.
@@ -149,7 +164,7 @@ Wenn Sie den Workflow für die monatliche Updateüberprüfung für Azure Stack a
 
 - Update der PowerShell-Automatisierung
 
-    Es wurden Änderungen an den PowerShell-Skripts `LaunchVaaSTests` vorgenommen, die die neueste Version der Skripterstellungspakete erfordern. Anweisungen zum Installieren der neuesten Version des Skripterstellungspakets finden Sie unter [Starten des Testdurchlauf-Workflows](azure-stack-vaas-automate-with-powershell.md#launch-the-test-pass-workflow).
+    Es wurden Änderungen an den PowerShell-Skripts `LaunchVaaSTests` vorgenommen, die die neueste Version der Skripterstellungspakete erfordern. Anweisungen zum Installieren der neuesten Version des Skripterstellungspakets finden Sie unter [Starten des Testdurchlauf-Workflows](azure-stack-vaas-automate-with-powershell.md).
 
 - Validation-as-a-Service-Portal
 

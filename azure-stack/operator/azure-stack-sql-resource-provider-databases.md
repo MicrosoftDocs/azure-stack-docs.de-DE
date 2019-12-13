@@ -1,6 +1,7 @@
 ---
-title: Verwenden von Datenbanken, die vom SQL-Adapter-Ressourcenanbieter in Azure Stack bereitgestellt werden | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie SQL-Datenbanken erstellen und verwalten, die mit dem SQL-Adapter-Ressourcenanbieter bereitgestellt wurden.
+title: Erstellen von SQL-Datenbanken
+titleSuffix: Azure Stack
+description: Hier erfahren Sie, wie Sie mit dem SQL-Ressourcenanbieteradapter bereitgestellte SQL-Datenbanken erstellen und verwalten.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: ceeca4f42f728bdcd9496b735704bfef6d98f25c
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 97d53772127cbae66e95159617cb9e50e21176ac
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283392"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954535"
 ---
 # <a name="create-sql-databases"></a>Erstellen von SQL-Datenbanken
 
@@ -39,25 +40,27 @@ Self-Service-Datenbanken können im Benutzerportal erstellt und verwaltet werden
 
 4. Klicken Sie unter **Datenbank erstellen** auf **SKU**. Wählen Sie unter **SKU auswählen** die SKU für Ihre Datenbank aus.
 
-   ![Erstellen einer Datenbank](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+   ![Erstellen einer Datenbank im Azure Stack-Benutzerportal](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
    >[!NOTE]
    >Wenn Hostserver in Azure Stack hinzugefügt werden, wird ihnen eine SKU zugewiesen. Datenbanken werden im Pool von Hostservern in einer SKU erstellt.
 
 5. Wählen Sie **Anmelden**.
+
 6. Wählen Sie unter **Anmeldung auswählen** eine vorhandene Anmeldung aus, oder wählen Sie **+ Neue Anmeldung erstellen**.
+
 7. Geben Sie unter **Neue Anmeldung** einen Namen für **Datenbankanmeldung** und ein **Kennwort** ein.
 
    >[!NOTE]
-   >Bei diesen Einstellungen handelt es sich um Anmeldeinformationen für die SQL-Authentifizierung, die nur für Ihren Zugriff auf diese Datenbank erstellt werden. Der Benutzername für die Anmeldung muss global eindeutig sein. Sie können die Anmeldeeinstellungen für andere Datenbanken wiederverwenden, die dieselbe SKU verwenden.
+   >Bei diesen Einstellungen handelt es sich um die Anmeldeinformationen für die SQL-Authentifizierung, die nur für Ihren Zugriff auf diese Datenbank erstellt werden. Der Benutzername für die Anmeldung muss global eindeutig sein. Sie können die Anmeldeeinstellungen für andere Datenbanken wiederverwenden, die dieselbe SKU verwenden.
 
-   ![Erstellen einer neuen Datenbankanmeldung](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+   ![Erstellen einer neuen Datenbankanmeldung im Azure Stack-Benutzerportal](./media/azure-stack-sql-rp-deploy/create-new-login.png)
 
 8. Wählen Sie **OK**, um die Bereitstellung der Datenbank abzuschließen.
 
-Notieren Sie sich die **Verbindungszeichenfolge** aus der **Zusammenfassung**, die nach Bereitstellung der Datenbank angezeigt wird. Sie können diese Zeichenfolge in jeder Anwendung verwenden, die auf die SQL Server-Datenbank zugreifen muss.
+Notieren Sie sich die **Verbindungszeichenfolge** aus der **Zusammenfassung**, die nach Bereitstellung der Datenbank angezeigt wird. Sie können diese Zeichenfolge in jeder App verwenden, die auf die SQL Server-Datenbank zugreifen muss.
 
-![Abrufen der Verbindungszeichenfolge](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+![Abrufen der Verbindungszeichenfolge für die SQL Server-Datenbank](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
 
 ## <a name="sql-always-on-databases"></a>SQL Always On-Datenbanken
 
@@ -67,15 +70,15 @@ Entwurfsbedingt werden Always On-Datenbanken anders behandelt als in einer eigen
 
 Die folgende Bildschirmaufnahme zeigt, wie Sie den Status der Datenbank in SQL Always On mithilfe von SQL Server Management Studio anzeigen können.
 
-![Always On-Datenbankstatus](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+![AlwaysOn-Datenbankstatus in SQL Server Management Studio](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
 
-Always On-Datenbanken sollten als synchronisiert und für alle SQL-Instanzen verfügbar dargestellt und in den Verfügbarkeitsgruppen angezeigt werden. In der vorherigen Bildschirmaufnahme heißt das Beispiel für die Datenbank „newdb1“ und ihr Status lautet **newdb1 (synchronisiert)** .
+Always On-Datenbanken sollten als **Synchronisiert** und für alle SQL-Instanzen verfügbar dargestellt und in **Verfügbarkeitsgruppen** angezeigt werden. Auf dem vorherigen Screenshot ist „newdb1“ das Beispiel für die Datenbank, und der Status lautet **newdb1 (synchronisiert)** .
 
 ### <a name="delete-an-alwayson-database"></a>Löschen einer Always On-Datenbank
 
-Wenn Sie eine SQL Always On-Datenbank aus dem Ressourcenanbieter löschen, löscht SQL die Datenbank vom primären Replikat und aus der Verfügbarkeitsgruppe.
+Wenn Sie eine SQL AlwaysOn-Datenbank aus dem Ressourcenanbieter löschen, löscht SQL die Datenbank aus dem **primären** Replikat und aus der Verfügbarkeitsgruppe.
 
-Auf den anderen Replikaten versetzt SQL die Datenbank in den Wiederherstellungsstatus und löscht die Datenbank erst, wenn der Löschvorgang ausgelöst wird. Wenn die Datenbank nicht gelöscht wird, wechseln die sekundären Replikate in den nicht synchronisierten Zustand.
+Für die anderen Replikate versetzt SQL die Datenbank in den Zustand **Wird wiederhergestellt** und löscht die Datenbank nur, wenn ein entsprechender Löschvorgang ausgelöst wird. Wird die Datenbank nicht gelöscht, wechseln die sekundären Replikate in den Zustand **Synchronisierung wird nicht ausgeführt**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

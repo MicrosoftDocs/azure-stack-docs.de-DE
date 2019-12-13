@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2019
+ms.date: 12/10/2019
 ms.author: sethm
 ms.reviewer: ppacent
-ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 077d50da935a3ee8de0967c51920ede69125c816
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.lastreviewed: 12/10/2019
+ms.openlocfilehash: a560b37051cf3b8b54e3cfec69dc6a9b28cc1cfb
+ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74299040"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995568"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack-Checkliste für Updateaktivitäten
 
@@ -36,6 +36,7 @@ Nutzen Sie diese Checkliste, um ein Azure Stack-Update vorzubereiten. Dieser Art
 | Überprüfen bekannter Probleme     | [Liste mit bekannten Problemen](known-issues.md)                |
 | Überprüfen von Sicherheitsupdates | [Liste mit Sicherheitsupdates](release-notes-security-updates.md)      |
 | Anwenden des aktuellen OEM-Pakets | Wenden Sie sich an ihren OEM, um sicherzustellen, dass Ihr System die Mindestanforderungen für OEM-Pakete für die Azure Stack-Version des Updates für Ihr System erfüllt. Stellen Sie sicher, dass Ihr OEM-Paket mit der Azure Stack-Version, auf die Sie aktualisieren, kompatibel ist. Wenn das OEM-Paket nicht mit der Azure Stack-Version, auf die Sie aktualisieren, kompatibel ist, müssen Sie vor dem Ausführen eines Azure Stack-Updates ein Update des OEM-Pakets durchführen. Anweisungen finden Sie unter „Anwenden von OEM-Updates (Originalgerätehersteller) auf Azure Stack“. |
+| Optional: Konfigurieren der automatischen Protokollsammlung | Es empfiehlt sich, die automatische Protokollsammlung für Ihre Azure Stack Hub-Umgebung zu konfigurieren, um die Sammlung von Systemprotokollen zu optimieren, falls Sie einmal ein Supportticket erstellen müssen. Eine Konfigurationsanleitung für die automatische Protokollsammlung finden Sie unter [Konfigurieren der automatischen Azure Stack-Diagnoseprotokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection.md). |
 | Anwenden aktueller Hotfixes | Wenden Sie die neuesten Hotfixes an, die für die derzeit installierte Version gelten. Eine Liste der neuesten Hotfixes finden Sie im Abschnitt mit den Versionshinweisen zum jeweiligen Hotfix. |
 | Ausführen des Capacity Planner-Tools | Achten Sie darauf, dass Sie für die Planung und Größenanpassung Ihrer Workloads die neueste Version des Tools [Azure Stack Capacity Planner](azure-stack-capacity-planning-overview.md) verwenden. Die neueste Version umfasst Fehlerbehebungen und neue Features, die mit jedem Azure Stack-Update veröffentlicht werden. |
 | Ausführen von „Test-AzureStack“ | Führen Sie `Test-AzureStack -Group UpdateReadiness` aus, um Betriebsprobleme zu ermitteln. Auf das Cmdlet kann über die Sitzung des privilegierten Endpunkts (Privileged Endpoint Session, PEP) zugegriffen werden. Weitere Informationen finden Sie unter [Überprüfen des Azure Stack-Systemstatus](azure-stack-diagnostic-test.md). |

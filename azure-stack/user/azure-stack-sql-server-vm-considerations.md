@@ -16,21 +16,21 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: eca886314388f404e7a26a22f7a3b03294ff0577
-ms.sourcegitcommit: 5e53eb5d43d28ab07b4f84891dd269bbfcf65622
+ms.openlocfilehash: 96dbca8c3b834565d2fafb73aa02b870cb2bc9a6
+ms.sourcegitcommit: 6bb20ed3dcbd64231331a8e807ba69eff8b7439b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71311306"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74946817"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Bewährte SQL Server-Methoden zum Optimieren der Leistung in Azure Stack
 
 Dieser Artikel enthält bewährte SQL Server-Methoden zur Optimierung von SQL Server und zur Leistungsverbesserung in virtuellen Microsoft Azure Stack-Computern (VMs). Verwenden Sie beim Ausführen von SQL Server auf Azure Stack-VMs die gleichen Optionen zur Optimierung der Datenbankleistung, die für SQL Server in einer lokalen Serverumgebung gelten. Die Leistung einer relationalen Datenbank in einer Azure Stack-Cloud hängt von vielen Faktoren ab, z. B. der Größe der Familie einer VM und der Konfiguration der Datenträger.
 
-Wenn Sie SQL Server-Images erstellen, [empfiehlt sich die Bereitstellung der virtuellen Computer im Azure Stack-Portal](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Laden Sie im Azure Stack-Administratorportal die SQL-IaaS-Erweiterung unter „Marketplace Management“ (Marketplace-Verwaltung) und Ihre Auswahl an virtuellen Festplatten (VHDs) für SQL-VMs herunter. Dazu gehören SQL2014SP2, SQL2016SP1 und SQL2017.
+Wenn Sie SQL Server-Images erstellen, [empfiehlt sich die Bereitstellung der virtuellen Computer im Azure Stack-Portal](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Laden Sie im Azure Stack-Administratorportal die SQL-IaaS-Erweiterung unter „Marketplace Management“ (Marketplace-Verwaltung) sowie die gewünschten SQL Server-VM-Images herunter. Zur Auswahl stehen SQL Server 2016 SP1, SQL Server 2016 SP2 und SQL Server 2017.
 
 > [!NOTE]  
-> Im Artikel wird zwar die Bereitstellung einer SQL Server-VM mit dem globalen Azure-Portal beschrieben, aber die Anweisungen gelten auch für Azure Stack. Es sollten nur die folgenden Unterschiede beachtet werden: SSD ist nicht für den Betriebssystem-Datenträger verfügbar, verwaltete Datenträger sind nicht verfügbar, und es gibt kleinere Unterschiede bei der Speicherkonfiguration.
+> Im Artikel wird zwar die Bereitstellung einer SQL Server-VM mit dem globalen Azure-Portal beschrieben, aber die Anweisungen gelten auch für Azure Stack. Es sollten nur die folgenden Unterschiede beachtet werden: Für den Betriebssystem-Datenträger ist keine SSD verfügbar, und es gibt kleinere Unterschiede bei der Speicherkonfiguration.
 
 Schwerpunkt dieses Artikels ist die *bestmögliche* Leistung für SQL Server auf Azure Stack-VMs. Wenn Ihre Workload weniger anspruchsvoll ist, sind möglicherweise nicht alle empfohlenen Optimierungen erforderlich. Berücksichtigen Sie bei der Evaluierung dieser Empfehlungen Ihre Leistungsanforderungen und Workloadmuster.
 

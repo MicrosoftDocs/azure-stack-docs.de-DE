@@ -14,16 +14,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 12/11/2019
 ms.author: mabrigg
-ms.reviewer: jeffgo
-ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: d8b986dede7e55cb0418219fce6ac78673eeff60
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.reviewer: kivenkat
+ms.lastreviewed: 12/11/2019
+ms.openlocfilehash: deea66ed257ecab933c294022fbdd07d1ccb137b
+ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802290"
+ms.lasthandoff: 12/12/2019
+ms.locfileid: "75007961"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Vorbereiten eines auf Red Hat basierenden virtuellen Computers für Azure Stack
 
@@ -44,7 +44,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
 * Kernel-Unterstützung für die Bereitstellung von UDF-Dateisystemen (Universal Disk Format) ist erforderlich. Beim ersten Starten übergibt das Medium im UDF-Format, das an den Gast angefügt ist, die Bereitstellungskonfiguration an den virtuellen Linux-Computer. Der Azure Linux-Agent muss das UDF-Dateisystem einbinden, um die Konfiguration zu lesen und den virtuellen Computer bereitzustellen.
 * Konfigurieren Sie auf dem Betriebssystemdatenträger keine Swap-Partition. Der Linux-Agent kann so konfiguriert werden, dass auf dem temporären Ressourcendatenträger eine Auslagerungsdatei erstellt wird. Weitere Informationen hierzu finden Sie in den folgenden Schritten.
 * Alle VHDs in Azure benötigen eine virtuelle Größe, die auf 1 MB ausgerichtet ist. Stellen Sie beim Konvertieren von einem RAW-Datenträger in VHD sicher, dass die Größe des RAW-Datenträgers vor der Konvertierung ein Vielfaches von 1 MB beträgt. Einzelheiten erfahren Sie im folgenden Schritt.
-* cloud-init wird von Azure Stack nicht unterstützt. Ihre VM muss mit einer unterstützten Version des Microsoft Azure Linux-Agents konfiguriert sein.
+* Azure Stack unterstützt cloud-init. [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) ist ein weit verbreiteter Ansatz zum Anpassen einer Linux-VM beim ersten Start. Sie können mit cloud-init Pakete installieren und Dateien schreiben oder Benutzer und Sicherheit konfigurieren. Da cloud-init während des ersten Startvorgangs aufgerufen wird, müssen Sie keine zusätzlichen Schritte oder Agents auf Ihre Konfiguration anwenden.
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>Vorbereiten eines virtuellen RHEL 7-Computers über den Hyper-V-Manager
 

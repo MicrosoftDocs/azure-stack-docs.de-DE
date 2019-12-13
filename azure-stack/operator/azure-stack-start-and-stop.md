@@ -1,6 +1,7 @@
 ---
-title: Starten und Beenden von Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Azure Stack starten und herunterfahren.
+title: Starten und Beenden
+titleSuffix: Azure Stack
+description: Hier erfahren Sie, wie Sie Azure Stack starten und beenden.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,23 +17,24 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: e0e23ca6d469e33adbcd47bc66125d6af92f0123
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: dbd85b4d7b63edb89cc327fd5b1f5592c24db508
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689971"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954382"
 ---
 # <a name="start-and-stop-azure-stack"></a>Starten und Beenden von Azure Stack
-Sie sollten die Verfahren in diesem Artikel befolgen, um Azure Stack-Dienste ordnungsgemäß herunterzufahren und neu zu starten. Durch das Herunterfahren wird die gesamte Azure Stack-Umgebung physisch ausgeschaltet. Beim Starten werden alle Infrastrukturrollen eingeschaltet, und die Mandantenressourcen werden wieder in den Betriebszustand versetzt, in dem Sie sich vor dem Herunterfahren befunden haben.
 
-## <a name="stop-azure-stack"></a>Beenden von Azure Stack 
+Gehen Sie wie in diesem Artikel beschrieben vor, um Azure Stack-Dienste ordnungsgemäß herunterzufahren und neu zu starten. Beim *Beenden* wird die gesamte Azure Stack-Umgebung physisch heruntergefahren und ausgeschaltet. Beim *Starten* werden alle Infrastrukturrollen aktiviert, und die Mandantenressourcen werden wieder in den Betriebszustand versetzt, in dem Sie sich vor dem Herunterfahren befunden haben.
 
-Fahren Sie Azure Stack mithilfe der folgenden Schritte herunter:
+## <a name="stop-azure-stack"></a>Beenden von Azure Stack
 
-1. Bereiten Sie alle Workloads, die auf den Mandantenressourcen in Ihrer Azure Stack-Umgebung ausgeführt werden, auf das bevorstehende Herunterfahren vor. 
+Gehen Sie zum Beenden oder Herunterfahren von Azure Stack wie folgt vor:
 
-2. Öffnen Sie auf einem Computer mit Netzwerkzugriff auf die Azure Stack ERCS-VMs eine PEP-Sitzung (privilegierter Endpunkt). Anweisungen finden Sie unter [Verwenden des privilegierten Endpunkts in Azure Stack](azure-stack-privileged-endpoint.md).
+1. Bereiten Sie alle Workloads, die auf den Mandantenressourcen in Ihrer Azure Stack-Umgebung ausgeführt werden, auf das bevorstehende Herunterfahren vor.
+
+2. Öffnen Sie auf einem Computer, der über Netzwerkzugriff auf die Azure Stack-ERCS-VMs verfügt, eine PEP-Sitzung (privilegierter Endpunkt). Anweisungen finden Sie unter [Verwenden des privilegierten Endpunkts in Azure Stack](azure-stack-privileged-endpoint.md).
 
 3. Führen Sie in der PEP-Sitzung Folgendes aus:
 
@@ -42,24 +44,24 @@ Fahren Sie Azure Stack mithilfe der folgenden Schritte herunter:
 
 4. Warten Sie, bis alle physischen Azure Stack-Knoten ausgeschaltet sind.
 
-> [!Note]  
-> Sie können den Status eines physischen Knotens überprüfen, indem Sie die Anweisungen des Originalgeräteherstellers befolgen, der Ihre Azure Stack-Hardware bereitgestellt hat. 
+> [!Note]
+> Sie können den Status eines physischen Knotens überprüfen, indem Sie die Anweisungen des Originalgeräteherstellers (Original Equipment Manufacturer, OEM) befolgen, der Ihre Azure Stack-Hardware bereitgestellt hat.
 
-## <a name="start-azure-stack"></a>Starten von Azure Stack 
+## <a name="start-azure-stack"></a>Starten von Azure Stack
 
 Starten Sie Azure Stack mithilfe der folgenden Schritte. Führen Sie diese Schritte unabhängig davon aus, wie Azure Stack beendet wurde.
 
-1. Schalten Sie jeden der physischen Knoten in Ihrer Azure Stack-Umgebung ein. Lesen Sie zum Einschalten der physischen Knoten die Anweisungen des Originalgeräteherstellers, der die Hardware für Azure Stack bereitgestellt hat.
+1. Schalten Sie jeden der physischen Knoten in Ihrer Azure Stack-Umgebung ein. Halten Sie sich zum Einschalten der physischen Knoten an die Anweisungen des OEM, der die Hardware für Azure Stack bereitgestellt hat.
 
-2. Warten Sie, bis die Azure Stack-Infrastrukturdienste gestartet wurden. Es kann zwei Stunden dauern, bis der Startvorgang der Azure Stack-Infrastrukturdienste abgeschlossen ist. Sie können den Status von Azure Stack mit dem Cmdlet [**Get-ActionStatus**](#get-the-startup-status-for-azure-stack) überprüfen.
+2. Warten Sie, bis die Azure Stack-Infrastrukturdienste gestartet wurden. Es kann zwei Stunden dauern, bis der Startvorgang der Azure Stack-Infrastrukturdienste abgeschlossen ist. Sie können den Status von Azure Stack mit dem Cmdlet [**Get-ActionStatus**](#get-the-startup-status-for-azure-stack) überprüfen.
 
-3. Stellen Sie sicher, dass sich alle Ihre Mandantenressourcen wieder in dem Zustand befinden, in dem sie sich vor dem Herunterfahren befunden haben. Workloads, die auf Mandantenressourcen ausgeführt werden, müssen möglicherweise nach dem Start vom Workload-Manager neu konfiguriert werden.
+3. Vergewissern Sie sich, dass sich alle Ihre Mandantenressourcen wieder in dem Zustand befinden, in dem sie sich vor dem Herunterfahren befunden haben. Workloads, die auf Mandantenressourcen ausgeführt werden, müssen möglicherweise nach dem Start vom Workload-Manager neu konfiguriert werden.
 
 ## <a name="get-the-startup-status-for-azure-stack"></a>Abrufen des Startstatus für Azure Stack
 
 Rufen Sie den Startstatus für die Azure Stack-Startroutine mit den folgenden Schritten ab:
 
-1. Öffnen Sie auf einem Computer mit Netzwerkzugriff auf die Azure Stack ERCS-VMs eine PEP-Sitzung (privilegierter Endpunkt).
+1. Öffnen Sie auf einem Computer, der über Netzwerkzugriff auf die Azure Stack-ERCS-VMs verfügt, eine PEP-Sitzung.
 
 2. Führen Sie in der PEP-Sitzung Folgendes aus:
 
@@ -69,11 +71,11 @@ Rufen Sie den Startstatus für die Azure Stack-Startroutine mit den folgenden Sc
 
 ## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Problembehandlung für das Starten und Herunterfahren von Azure Stack
 
-Führen Sie die folgenden Schritte aus, wenn die Infrastruktur- und Mandantendienste zwei Stunden nach dem Einschalten der Azure Stack-Umgebung nicht erfolgreich gestartet werden. 
+Führen Sie die folgenden Schritte aus, wenn die Infrastruktur- und Mandantendienste zwei Stunden nach dem Einschalten der Azure Stack-Umgebung nicht erfolgreich gestartet werden.
 
-1. Öffnen Sie auf einem Computer mit Netzwerkzugriff auf die Azure Stack ERCS-VMs eine PEP-Sitzung (privilegierter Endpunkt).
+1. Öffnen Sie auf einem Computer, der über Netzwerkzugriff auf die Azure Stack-ERCS-VMs verfügt, eine PEP-Sitzung.
 
-2. Führen Sie folgenden Befehl aus: 
+2. Führen Sie folgenden Befehl aus:
 
     ```powershell
       Test-AzureStack
@@ -87,8 +89,8 @@ Führen Sie die folgenden Schritte aus, wenn die Infrastruktur- und Mandantendie
       Start-AzureStack
     ```
 
-5. Wenn die Ausführung von **Start-AzureStack** zu einem Fehler führt, wenden Sie sich an den Microsoft-Kundendienst. 
+5. Wenn die Ausführung von **Start-AzureStack** zu einem Fehler führt, wenden Sie sich an den Microsoft-Support.
 
-## <a name="next-steps"></a>Nächste Schritte 
+## <a name="next-steps"></a>Nächste Schritte
 
 Weitere Informationen zu [Azure Stack-Diagnosetools](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)

@@ -16,22 +16,27 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: d2ce6c0af2912a2658db80301c9a64c8e3d5c066
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 438cf2d8a34046f29d156aadc1cc82571e4b8a12
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780727"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993886"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>Verwenden von SQL-Datenbanken in Azure Stack
 
-Verwenden Sie den SQL Server-Ressourcenanbieter, um SQL-Datenbanken als Dienst in [Azure Stack](azure-stack-overview.md) anzubieten. Nachdem Sie den Ressourcenanbieter installiert und mit mindestens einer SQL Server-Instanz verbunden haben, können Sie und Ihre Benutzer damit Folgendes erstellen:
+Verwenden Sie den SQL-Ressourcenanbieter, um SQL-Datenbanken als Dienst in [Azure Stack](azure-stack-overview.md) anzubieten. Nachdem Sie den Ressourcenanbieter installiert und mit mindestens einer SQL Server-Instanz verbunden haben, können Sie und Ihre Benutzer damit Folgendes erstellen:
 
 - Datenbanken für native Cloud-Apps.
 - Websites, die SQL verwenden.
 - Workloads, die SQL verwenden.
 
-Der Ressourcenanbieter bietet nicht alle Datenbankverwaltungsfunktionen von [Azure SQL-Datenbank](https://azure.microsoft.com/services/sql-database/). Zum Beispiel werden Pools für elastische Datenbanken, die automatisch Ressourcen zuordnen, nicht unterstützt. Der Ressourcenanbieter unterstützt jedoch ähnliche Vorgänge für das Erstellen, Lesen, Aktualisieren und Löschen in einer SQL Server-Datenbank.
+Vor der Installation des MySQL-Ressourcenanbieters sind einige Einschränkungen zu beachten:
+
+- Benutzer können nur einzelne Datenbanken erstellen und verwalten. Endbenutzer können nicht auf die Datenbankserverinstanz zugreifen. Dies schränkt unter Umständen die Kompatibilität mit lokalen Datenbankanwendungen ein, die Zugriff auf den Master oder auf die temporäre Datenbank oder für die dynamische Verwaltung von Datenbanken benötigen.
+- Ihr Azure Stack-Operator ist für die Bereitstellung, Aktualisierung, Absicherung, Konfiguration und Wartung der SQL-Datenbankserver und Hosts verantwortlich. Der Ressourcenanbieterdienst bietet keine Funktionen für die Verwaltung von Host- und Datenbankserverinstanzen. 
+- Datenbanken unterschiedlicher Benutzer in verschiedenen Abonnements können sich in der gleichen Datenbankserverinstanz befinden. Der Ressourcenanbieter bietet keinen Mechanismus zur Isolierung von Datenbanken auf verschiedenen Hosts oder in verschiedenen Datenbankserverinstanzen.
+- Der Ressourcenanbieter bietet keine Berichte zur Mandantennutzung von Datenbanken.
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>Architektur des SQL-Ressourcenanbieteradapters
 
