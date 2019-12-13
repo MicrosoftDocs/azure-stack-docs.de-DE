@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Dokumentation zum Azure Stack Hub Development Kit
 metadata:
-  document_id: null
   title: 'Dokumentation zum Azure Stack Hub Development Kit: Tutorials, API-Referenz'
   description: Informationen zum Bereitstellen und Verwenden des Azure Stack Hub Development Kit
   services: azure-stack
