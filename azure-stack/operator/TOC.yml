@@ -346,6 +346,8 @@
               href: azure-stack-mysql-resource-provider-remove.md
             - name: Versionsanmerkungen zum MySQL-Ressourcenanbieter
               items:
+                - name: Versionshinweise zum MySQL-Ressourcenanbieter 1.1.47.0
+                  href: azure-stack-mysql-resource-provider-11470.md
                 - name: Versionsanmerkungen zum MySQL-Ressourcenanbieter 1.1.33.0
                   href: azure-stack-mysql-resource-provider-11330.md
                 - name: Versionsanmerkungen zum MySQL-Ressourcenanbieter 1.1.30.0
@@ -370,6 +372,8 @@
               href: azure-stack-sql-resource-provider-remove.md
             - name: Versionsanmerkungen zum SQL-Ressourcenanbieter
               items:
+                - name: Versionshinweise zum SQL-Ressourcenanbieter 1.1.47.0
+                  href: azure-stack-sql-resource-provider-11470.md
                 - name: Versionshinweise zum SQL-Ressourcenanbieter 1.1.33.0
                   href: azure-stack-sql-resource-provider-11330.md
                 - name: Versionshinweise zum SQL-Ressourcenanbieter 1.1.30.0
@@ -403,7 +407,6 @@
                 - name: Fehlercodes für die Nutzungsregistrierung
                   href: azure-stack-registration-errors.md
     - name: Sichern von Azure Stack
-      href: azure-stack-backup-infrastructure-backup.md
       items:
         - name: Aktivieren der Sicherung für Azure Stack über die Verwaltungskonsole
           href: azure-stack-backup-enable-backup-console.md
@@ -411,6 +414,8 @@
           href: azure-stack-backup-enable-backup-powershell.md
         - name: Sichern von Azure Stack
           href: azure-stack-backup-back-up-azure-stack.md
+        - name: Wiederherstellen von Daten mit dem Sicherungsdienst
+          href: azure-stack-backup-infrastructure-backup.md
         - name: Sichern von Dateien und Anwendungen in Azure Stack
           href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Replizieren virtueller Azure Stack-Computer in Azure
