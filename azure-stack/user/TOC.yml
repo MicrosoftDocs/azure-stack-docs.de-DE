@@ -254,30 +254,35 @@
               href: azure-stack-dev-start-howto-vm-nodejs.md
     - name: Bereitstellen grundlegender Muster
       items:
-        - name: VNET-Peering
+        - name: Netzwerkmuster
           items:
-            - name: VNET-Peering mit FortiGate
-              href: azure-stack-network-howto-vnet-to-vnet.md
             - name: VNET-Peering mit VMs
               href: azure-stack-network-howto-vnet-peering.md
-        - name: Einrichten einer VPN-Verbindung mit einer lokalen Ressource
-          href: azure-stack-network-howto-vnet-to-onprem.md
-        - name: VNet-zu-VNet-Verbindung
-          href: azure-stack-network-howto-vnet-to-vnet-stacks.md
-        - name: Erweitern des Rechenzentrums
-          href: azure-stack-network-howto-extend-datacenter.md
+            - name: Verwenden von Drittanbieter-NVAs (Fortinet Fortigate NVA)
+              items:
+                - name: VNET-Peering mit FortiGate
+                  href: azure-stack-network-howto-vnet-to-vnet.md
+                - name: Einrichten einer VPN-Verbindung mit einer lokalen Ressource
+                  href: azure-stack-network-howto-vnet-to-onprem.md
+                - name: VNet-zu-VNet-Verbindung
+                  href: azure-stack-network-howto-vnet-to-vnet-stacks.md
+            - name: Verwenden von RRAS
+              items:
+                - name: Einrichten eines VPN mit mehreren Site-to-Site-Verbindungen
+                  href: network-howto-vpn-tunnel.md
+                - name: Erstellen eines VPN-Tunnels (GRE)
+                  href: network-howto-vpn-tunnel-gre.md
+                - name: Erstellen eines VPN-Tunnels (IPSEC)
+                  href: network-howto-vpn-tunnel-ipsec.md
         - name: F5-Lastenausgleich
           href: network-howto-f5.md
-        - name: Verbinden mit iSCSI-Speicher
-          href: azure-stack-network-howto-iscsi-storage.md
-        - name: Einrichten von Tunneln
+        - name: Herstellen einer Verbindung mit externem Speicher
           items:
-            - name: Einrichten eines VPN mit mehreren Site-to-Site-Verbindungen
-              href: network-howto-vpn-tunnel.md
-            - name: Erstellen eines VPN-Tunnels (GRE)
-              href: network-howto-vpn-tunnel-gre.md
-            - name: Erstellen eines VPN-Tunnels (IPSEC)
-              href: network-howto-vpn-tunnel-ipsec.md
+            - name: Verbinden mit iSCSI-Speicher
+              href: azure-stack-network-howto-iscsi-storage.md
+            - name: Erweitern des Rechenzentrums
+              href: azure-stack-network-howto-extend-datacenter.md
+        - name: VNET-Peering
         - name: Sicherung und Wiederherstellung
           items:
             - name: Sichern Ihres virtuellen Computers in Azure Stack mit Commvault
