@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 12/13/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
-ms.lastreviewed: 09/30/2019
+ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 14c1d6ba96cd8c9671b28f435db90b7b3ce3ad34
-ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
+ms.openlocfilehash: 2d6329a150e4ab1a81e9c9d092101a085d00afd0
+ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2019
-ms.locfileid: "75007978"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75033961"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotieren von Geheimnissen in Azure Stack
 
@@ -386,6 +386,10 @@ Der Baseboard-Verwaltungscontroller (Baseboard Management Controller, BMC) über
 1. **Versionen vor 1910:** Aktualisieren Sie den BMC auf den physischen Azure Stack-Servern gemäß den Anweisungen des OEM. Benutzername und Kennwort für jeden BMC in Ihrer Umgebung müssen identisch sein. BMC-Benutzernamen dürfen nicht länger als 16 Zeichen sein.
 
    **Ab Version 1910:** Es ist nicht mehr erforderlich, zuerst die BMC-Anmeldeinformationen für die physischen Azure Stack-Server gemäß den OEM-Anweisungen zu aktualisieren. Benutzername und Kennwort für jeden BMC in Ihrer Umgebung müssen identisch sein. BMC-Benutzernamen dürfen nicht länger als 16 Zeichen sein.
+
+    | Parameter | BESCHREIBUNG | State |
+    | --- | --- | --- |
+    | BypassBMCUpdate | Wenn Sie diesen Parameter verwenden, werden die Anmeldeinformationen im BMC nicht aktualisiert. Nur der Azure Stack-interne Datenspeicher wird aktualisiert. | Optional |
 
 2. Öffnen Sie in Azure Stack einen privilegierten Endpunkt. Anweisungen finden Sie unter [Verwenden des privilegierten Endpunkts in Azure Stack](azure-stack-privileged-endpoint.md).
 

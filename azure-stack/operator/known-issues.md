@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 12/13/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 684f6925c32eabca51fa89776ec95b57a852a987
-ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
+ms.openlocfilehash: 755bd556d9e4643ff5e17d900cdf7e5245f1894e
+ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995585"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75033944"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack – Bekannte Probleme
 
@@ -46,7 +46,6 @@ Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die
 ## <a name="update"></a>Aktualisieren
 
 Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub finden Sie unter [Behandeln von Patch- und Updateproblemen bei Azure Stack](azure-stack-updates-troubleshoot.md).
-
 
 ## <a name="portal"></a>Portal
 
@@ -154,9 +153,9 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 
 ### <a name="access-control-iam"></a>Zugriffssteuerung (IAM)
 
-- Geltungsbereich: Dieses Problem betrifft das Release 1903 und spätere Releases.
-- Ursache: Die IAM-Version ist veraltet. Ibiza ist im Lieferumfang von Azure Stack enthalten und führt ein neues Verhalten ein, das eine Unterbrechung der RBAC-Erweiterung verursacht, wenn Benutzer die RBAC-Erweiterung über ein Abonnement öffnen, das nicht in der Auswahl für globale Abonnements ausgewählt ist.
-- Abhilfe: Stellen Sie sicher, dass das Abonnement in der Auswahl für globale Abonnements aktiviert ist. 
+- Geltungsbereich: Dieses Problem betrifft Skalierungseinheiten, die mit dem Basisimage 1903 (oder einer früheren Version) bereitgestellt wurden.
+- Ursache: Die IAM-Erweiterung ist veraltet. Das Ibiza-Portal ist im Lieferumfang von Azure Stack enthalten und führt ein neues Verhalten ein, das einen Fehler der RBAC-Erweiterung verursacht, wenn Benutzer das Blatt **Zugriffssteuerung (IAM)** für ein Abonnement öffnen, das nicht in der Auswahl für globale Abonnements ausgewählt ist (**Verzeichnis + Abonnement** im Benutzerportal). Auf dem Blatt wird **Laden** in einer Schleife angezeigt, und Benutzer können dem Abonnement keine neuen Rollen hinzufügen. Auf dem Blatt **Hinzufügen** wird ebenfalls **Laden** in einer Schleife angezeigt.
+- Abhilfe: Stellen Sie sicher, dass das Abonnement im Menü **Verzeichnis + Abonnement** aktiviert ist. Sie können wie folgt auf das Menü zugreifen: Über den oberen Portalbereich (in der Nähe der Schaltfläche **Benachrichtigungen**) oder über die Verknüpfung auf dem Blatt **Alle Ressourcen**, die **Wird kein Abonnement angezeigt? Verzeichnis- und Abonnementeinstellungen öffnen** lautet. Das Abonnement muss in diesem Menü ausgewählt werden.
 
 ## <a name="networking"></a>Netzwerk
 
@@ -236,8 +235,15 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 ### <a name="consumed-compute-quota"></a>Verbrauchtes Computekontingent
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Wenn Sie einen neuen virtuellen Computer erstellen, wird unter Umständen eine Fehlermeldung wie die folgende angezeigt: **Dieses Abonnement hat die Kapazität für „Regionale vCPUs gesamt“ an diesem Standort erreicht. 50 „Regionale vCPUs gesamt“ sind verfügbar, und alle werden verwendet.** Dies deutet darauf hin, dass das Kontingent für die Gesamtanzahl verfügbarer Kerne erreicht wurde.
+- Ursache: Wenn Sie einen neuen virtuellen Computer erstellen, wird unter Umständen eine Fehlermeldung wie die folgende angezeigt: **Dieses Abonnement hat die Kapazität für „Regionale vCPUs gesamt“ an diesem Standort erreicht. 50 „Regionale vCPUs gesamt“ sind verfügbar, und alle werden verwendet.** Dies deutet darauf hin, dass das Kontingent für die Gesamtanzahl verfügbarer Kerne erreicht wurde.
 - Abhilfe: Erkundigen Sie sich bei Ihrem Betreiber nach einem Add-On-Plan mit zusätzlichem Kontingent. Das Kontingent des aktuellen Plans kann nicht bearbeitet werden, oder das höhere Kontingent wird nicht berücksichtigt.
+- Häufigkeit: Selten
+
+### <a name="privileged-endpoint"></a>Privilegierter Endpunkt
+
+- Geltungsbereich: Dieses Problem betrifft das Release 1910 und ältere Releases.
+- Ursache: Von einem Computer, auf dem eine nicht englischsprachige Windows-Version ausgeführt wird, kann keine Verbindung mit dem privilegierten Endpunkt (ERC-VMs) hergestellt werden.
+- Abhilfe: Dies ist ein bekanntes Problem, das in neueren Releases als 1910 behoben wurde. Zur Problemumgehung können Sie die PowerShell-Cmdlets **New-PSSession** und **Enter-PSSession** unter Verwendung der Kultur **en-US** ausführen. Legen Sie die Kultur beispielsweise mit diesem Skript fest: https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1.
 - Häufigkeit: Selten
 
 ### <a name="virtual-machine-scale-set"></a>VM-Skalierungsgruppe

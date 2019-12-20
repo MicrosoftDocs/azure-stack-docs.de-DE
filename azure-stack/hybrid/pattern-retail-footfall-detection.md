@@ -8,12 +8,12 @@ ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: a7a7563db3c315c4913287e8f286f07abd633602
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: d165381b6f8f3138d434b8d62376feb8879a21b3
+ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73639999"
+ms.lasthandoff: 12/18/2019
+ms.locfileid: "75187281"
 ---
 # <a name="footfall-detection-pattern"></a>Muster zur Ermittlung der Kundenfrequenz
 
@@ -37,8 +37,8 @@ So funktioniert die Lösung:
 2. Wenn das Modell eine Person sieht, nimmt es ein Bild auf und lädt es in Blob Storage für Azure Stack Hub hoch. 
 3. Der Blobdienst löst eine Azure-Funktion in Azure Stack Hub aus. 
 4. Die Azure-Funktion ruft einen Container mit der Gesichtserkennungs-API auf, um demografische und emotionsbezogene Daten aus dem Bild abzurufen.
-5. Diese Daten werden anonymisiert und an einen Azure Event Hub gesendet.
-6. Der Event Hub pusht die Daten in Stream Analytics.
+5. Die Daten werden anonymisiert und an einen Azure Event Hubs-Cluster gesendet.
+6. Der Event Hubs-Cluster pusht die Daten in Stream Analytics.
 7. Stream Analytics aggregiert die Daten und pusht sie in Power BI.
 
 ## <a name="components"></a>Komponenten
@@ -55,7 +55,7 @@ Diese Lösung verwendet die folgenden Komponenten:
 | | Cluster für die [AKS-Engine](https://github.com/Azure/aks-engine) (Azure Kubernetes Service) | Der AKS-Ressourcenanbieter mit dem in Azure Stack Hub bereitgestellten AKS-Engine-Cluster bietet eine skalierbare, resiliente Engine für die Ausführung des Containers der Gesichtserkennungs-API. |
 | | [Container der Gesichtserkennungs-API](/azure/cognitive-services/face/face-how-to-install-containers) in Azure Cognitive Services| Der Azure Cognitive Services-Ressourcenanbieter mit Containern der Gesichtserkennungs-API liefert demografische und emotionsbezogene Daten sowie Daten zur Erkennung einmaliger Besucher in das private Netzwerk von Contoso. |
 | | Blob Storage | Die vom AI Dev Kit erfassten Bilder werden in Blob Storage von Azure Stack Hub hochgeladen. |
-| | Azure-Funktionen | Eine in Azure Stack Hub ausgeführte Azure-Funktion empfängt Eingangsdaten aus Blob Storage und verarbeitet die Interaktionen mit der Gesichtserkennungs-API. Die Funktion gibt anonymisierte Daten an einen in Azure befindlichen Event Hub aus.<br><br>|
+| | Azure-Funktionen | Eine in Azure Stack Hub ausgeführte Azure-Funktion empfängt Eingangsdaten aus Blob Storage und verarbeitet die Interaktionen mit der Gesichtserkennungs-API. Die Funktion gibt anonymisierte Daten an einen Event Hubs-Cluster in Azure aus.<br><br>|
 
 ## <a name="issues-and-considerations"></a>Probleme und Überlegungen
 
@@ -67,7 +67,7 @@ Um diese Lösung auf mehrere Kameras und Standorte zu skalieren, müssen Sie sic
 
 - Erhöhen der Anzahl von Stream Analytics-Streamingeinheiten
 - Horizontales Hochskalieren der Bereitstellung der Gesichtserkennungs-API
-- Erhöhen des Event Hubs-Durchsatzes
+- Erhöhen des Durchsatzes des Event Hubs-Clusters
 - In Extremfällen ist möglicherweise eine Migration von Azure Functions zu einem virtuellen Computer erforderlich.
 
 ### <a name="availability"></a>Verfügbarkeit

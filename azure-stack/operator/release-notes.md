@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: db050565b7ef2b1b22192e7f39366ac1e341cd0f
-ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.openlocfilehash: 8c124f44ed938108a4b23cea44642b7e275eb04d
+ms.sourcegitcommit: c0fe1ac8c38d0475621ad8022db96983f9e5ae79
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74830968"
+ms.lasthandoff: 12/18/2019
+ms.locfileid: "75188386"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack-Updates: Versionshinweise
 
@@ -211,14 +211,14 @@ Azure Stack-Hotfixes gelten nur für integrierte Azure Stack-Systeme. Versuchen 
 Das Release 1910 von Azure Stack muss auf das Release 1908 mit den folgenden Hotfixes angewendet werden:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack-Hotfix 1.1908.9.43](https://support.microsoft.com/help/4531007)
+- [Azure Stack-Hotfix 1.1908.11.47](https://support.microsoft.com/help/4535000)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>Nach erfolgreicher Anwendung des Updates 1910
 
 Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes. Weitere Informationen finden Sie in unserer [Wartungsrichtlinie](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- Für 1910 ist kein Hotfix verfügbar.
+- [Azure Stack-Hotfix 1.1910.8.76](https://support.microsoft.com/help/4534999)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -295,7 +295,7 @@ Für das Azure Stack-Update 1908 ist **Azure Stack-OEM-Version 2.1 oder höher*
 Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes. Weitere Informationen finden Sie in unserer [Wartungsrichtlinie](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack-Hotfix 1.1908.9.43](https://support.microsoft.com/help/4531007)
+- [Azure Stack-Hotfix 1.1908.11.47](https://support.microsoft.com/help/4535000)
 ::: moniker-end
 
 ::: moniker range="azs-1907"

@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9dc2de86828e188aa82b44d376e693be887717d8
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 75135801bf5762f597ae70d980588dedadf31b36
+ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682190"
+ms.lasthandoff: 12/17/2019
+ms.locfileid: "75183439"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack
 
@@ -225,6 +225,32 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 $session | Remove-PSSession
 
 ```
+
+## <a name="configure-azure-diagnostics-extension-for-mysql-resource-provider"></a>Konfigurieren der Azure-Diagnoseerweiterung für den MySQL-Ressourcenanbieter
+
+Die Azure-Diagnoseerweiterung wird standardmäßig auf dem virtuellen Computer des MySQL-Ressourcenanbieteradapters installiert. In den folgenden Schritten wird gezeigt, wie Sie die Erweiterung zum Sammeln von Betriebsereignisprotokollen des MySQL-Ressourcenanbieters und von IIS-Protokollen zur Problembehandlung und Überwachung anpassen.
+
+1. Melden Sie sich beim Azure Stack Hub-Administratorportal an.
+
+2. Wählen Sie im linken Bereich **Virtuelle Computer** aus, suchen Sie nach dem virtuellen Computer des MySQL-Ressourcenanbieteradapters, und wählen Sie ihn aus.
+
+3. Navigieren Sie in den **Diagnoseeinstellungen** des virtuellen Computers zur Registerkarte **Protokolle**, und wählen Sie **Benutzerdefiniert** aus, um die zu erfassenden Ereignisprotokolle anzupassen.
+   
+   ![Navigieren zu den Diagnoseeinstellungen](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
+
+4. Fügen Sie **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** hinzu, um Betriebsereignisprotokolle des MySQL-Ressourcenanbieters zu sammeln.
+
+   ![Hinzufügen von Ereignisprotokollen](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
+
+5. Wenn Sie die Sammlung von IIS-Protokollen aktivieren möchten, aktivieren Sie die Optionen **IIS-Protokolle** und **Protokolle zu fehlerhaften Anforderungen**.
+
+   ![Hinzufügen von IIS-Protokollen](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
+
+6. Wählen Sie abschließend **Speichern** aus, um alle Diagnoseeinstellungen zu speichern.
+
+Wenn die Sammlung von Ereignisprotokollen und IIS-Protokollen für den MySQL-Ressourcenanbieter konfiguriert wurde, finden Sie die Protokolle in einem Systemspeicherkonto mit dem Namen **mysqladapterdiagaccount**.
+
+Weitere Informationen zur Azure-Diagnoseerweiterung finden Sie unter [Was ist die Azure-Diagnoseerweiterung?](/azure-monitor/platform/diagnostics-extension-overview).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

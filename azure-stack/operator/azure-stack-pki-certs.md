@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 12/16/2019
 ms.author: justinha
 ms.reviewer: ppacent
-ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: f306391451c4d04af3b5a37645f145fb732714f0
-ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
+ms.lastreviewed: 12/16/2019
+ms.openlocfilehash: e9276d67c767ec6a08549be830c52bbbe03230ec
+ms.sourcegitcommit: 50b7974454e008724817cbb4416ce40368b31ef4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72813995"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75035505"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack-PKI-Zertifikatanforderungen
 
@@ -56,7 +56,8 @@ Die folgende Liste beschreibt die Zertifikatsanforderungen, die für die Bereits
 - Stellen Sie sicher, dass die Antragstellernamen und alternativen Antragstellernamen in der Erweiterung für alternative Antragstellernamen (x509v3_config) übereinstimmen. Im Feld für den alternativen Antragstellernamen können Sie zusätzliche Hostnamen (Websites, IP-Adressen, allgemeine Namen) angeben, die durch ein einzelnes SSL-Zertifikat geschützt werden sollen.
 
 > [!NOTE]  
-> Selbstsignierte Zertifikate werden nicht unterstützt.
+> Selbstsignierte Zertifikate werden nicht unterstützt.  
+> Bei der Bereitstellung von Azure Stack Hub im getrennten Modus wird die Verwendung von Zertifikaten empfohlen, die von einer Unternehmenszertifizierungsstelle ausgestellt wurden. Dies ist wichtig, da Clients, die auf Azure Stack-Endpunkte zugreifen, in der Lage sein müssen, eine Verbindung mit der Zertifikatsperrliste (Certificate Revocation List, CRL) herzustellen.
 
 > [!NOTE]  
 > Das Vorhandensein von Zwischenzertifizierungsstellen in der Vertrauenskette eines Zertifikats *wird unterstützt*.
