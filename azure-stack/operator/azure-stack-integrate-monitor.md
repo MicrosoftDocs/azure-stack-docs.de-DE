@@ -15,12 +15,12 @@ ms.date: 06/05/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: aa9b20b9ee80cfdb17dba3020c03718085d8b625
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 69522b0a32d2044ff334b91ea3142aadb11c89c8
+ms.sourcegitcommit: 7626143e5d2a5e32a43162692f59306182fec854
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277181"
+ms.lasthandoff: 12/24/2019
+ms.locfileid: "75333092"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrieren einer externen Überwachungslösung mit Azure Stack
 
@@ -81,9 +81,9 @@ Das Plug-In funktioniert für Nagios 4x und XI. Informationen zum Herunterladen
 
 ### <a name="requirements-for-nagios"></a>Anforderungen für Nagios
 
-1.  Nagios-Mindestversion: 4.x
+1. Nagios-Mindestversion: 4.x
 
-2.  Microsoft Azure Active Directory-Python-Bibliothek. Für die Installation dieser Bibliothek kann Python PIP verwendet werden.
+2. Microsoft Azure Active Directory-Python-Bibliothek. Für die Installation dieser Bibliothek kann Python PIP verwendet werden.
 
     ```bash  
     sudo pip install adal pyyaml six
@@ -105,11 +105,11 @@ samples/etc/azurestack_hosts.cfg
 samples/etc/azurestack_services.cfg
 ```
 
-1.  Kopieren Sie das Plug-In `azurestack_plugin.py` in das Verzeichnis `/usr/local/nagios/libexec`.
+1. Kopieren Sie das Plug-In `azurestack_plugin.py` in das Verzeichnis `/usr/local/nagios/libexec`.
 
-2.  Kopieren Sie den Handler `azurestack_handler.sh` in das Verzeichnis `/usr/local/nagios/libexec/eventhandlers`.
+2. Kopieren Sie den Handler `azurestack_handler.sh` in das Verzeichnis `/usr/local/nagios/libexec/eventhandlers`.
 
-3.  Legen Sie unbedingt fest, dass die Plug-In-Datei ausführbar ist:
+3. Legen Sie unbedingt fest, dass die Plug-In-Datei ausführbar ist:
 
     ```bash
     sudo cp azurestack_plugin.py <PLUGINS_DIR>
@@ -120,7 +120,7 @@ samples/etc/azurestack_services.cfg
 
 Die folgenden Parameter können in der Datei „azurestack.cfg“ konfiguriert werden. Fett formatierte Parameter müssen unabhängig vom gewählten Authentifizierungsmodell konfiguriert werden.
 
-Weitere Informationen zum Erstellen eines SPN finden Sie unter [Verwenden einer App-Identität für den Ressourcenzugriff](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals).
+Weitere Informationen zum Erstellen eines SPN finden Sie unter [Verwenden einer App-Identität für den Ressourcenzugriff](azure-stack-create-service-principals.md).
 
 | Parameter | BESCHREIBUNG | Authentication |
 | --- | --- | --- |
@@ -150,35 +150,35 @@ Die anderen Konfigurationsdateien enthalten optionale Konfigurationseinstellunge
 
 ### <a name="setup-steps"></a>Einrichtungsschritte
 
-1.  Ändern Sie die Konfigurationsdatei.
+1. Ändern Sie die Konfigurationsdatei.
 
-2.  Kopieren Sie die geänderten Konfigurationsdateien in den Ordner `/usr/local/nagios/etc/objects`.
+2. Kopieren Sie die geänderten Konfigurationsdateien in den Ordner `/usr/local/nagios/etc/objects`.
 
 ### <a name="update-nagios-configuration"></a>Aktualisieren der Nagios-Konfiguration
 
 Die Nagios-Konfiguration muss aktualisiert werden, um sicherzustellen, dass das Azure Stack-Nagios-Plug-In geladen wird.
 
-1.  Öffnen Sie die folgende Datei:
+1. Öffnen Sie die folgende Datei:
 
-```bash  
-/usr/local/nagios/etc/nagios.cfg
-```
+   ```bash  
+   /usr/local/nagios/etc/nagios.cfg
+   ```
 
-2.  Fügen Sie den folgenden Eintrag hinzu:
+2. Fügen Sie den folgenden Eintrag hinzu:
 
-```bash  
-# Load the Azure Stack Plugin Configuration
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
-```
+   ```bash  
+   # Load the Azure Stack Plugin Configuration
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
+   ```
 
-3.  Laden Sie Nagios neu.
+3. Laden Sie Nagios neu.
 
-```bash  
-sudo service nagios reload
-```
+   ```bash  
+   sudo service nagios reload
+   ```
 
 ### <a name="manually-close-active-alerts"></a>Manuelles Schließen von aktiven Warnungen
 

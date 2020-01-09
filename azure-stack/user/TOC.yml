@@ -23,7 +23,7 @@
   items:
     - name: Erstellen eines virtuellen Computers über eine Vorlage
       href: azure-stack-create-vm-template.md
-- name: Anleitungen
+- name: Gewusst-wie-Anleitungen
   items:
     - name: Erste Schritte mit dem Erstellen von Lösungen für Hybrid Cloud
       items:
@@ -212,7 +212,7 @@
                       href: azure-stack-kubernetes-aks-engine-deploy-cluster.md
                     - name: Skalieren eines Clusters
                       href: azure-stack-kubernetes-aks-engine-scale.md
-                    - name: Aktualisieren eines Clusters
+                    - name: Durchführen eines Clusterupgrades
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: Problembehandlung für die AKS-Engine
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md

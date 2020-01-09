@@ -16,12 +16,12 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: dcc473d270d0a72b2ebf5f31c67fffa6827c9ecc
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: 9945113e778f69000a720d5f5045f691f439d076
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828419"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718537"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>Überprüfen der AD FS-Integration für Azure Stack
 
@@ -54,7 +54,7 @@ Die folgenden Voraussetzungen müssen erfüllt werden:
 
 Sie benötigen mindestens eine der folgenden Formen von Metadaten:
 
-* Die URL für AD FS-Verbundmetadaten. Ein Beispiel ist `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
+* Die URL für AD FS-Verbundmetadaten. z. B. `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
 * Die Verbundmetadaten-XML-Datei. Beispiel: „FederationMetadata.xml“.
 
 ## <a name="validate-ad-fs-integration"></a>Überprüfen der AD FS-Integration
@@ -81,7 +81,7 @@ Sie benötigen mindestens eine der folgenden Formen von Metadaten:
             Test Certificate Expiry:               OK
 
     Details:
-    [-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Data Center Integration.
+    [-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Datacenter Integration.
     Additional help URL: https://aka.ms/AzsADFSIntegration
 
     Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log

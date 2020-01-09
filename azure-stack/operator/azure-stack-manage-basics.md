@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: justinha
 ms.lastreviewed: 05/29/2019
-ms.openlocfilehash: f9b9d6d1474c22c8e31d24ae08faf1aac6d5e9c1
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 32f82a832b150c4512c854d2ddbfc24941bf7228
+ms.sourcegitcommit: 7626143e5d2a5e32a43162692f59306182fec854
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283488"
+ms.lasthandoff: 12/24/2019
+ms.locfileid: "75333046"
 ---
 # <a name="azure-stack-administration-basics"></a>Grundlagen zur Verwaltung von Azure Stack
 
@@ -68,8 +68,8 @@ Bevor Sie diese Dienste Ihren Benutzern zur Verfügung stellen können, sind zus
 In Azure Stack wird laufend die Unterstützung für Azure-Dienste erweitert. Die geplante Roadmap finden Sie im Whitepaper [Azure Stack: Eine Erweiterung von Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409). Zudem können Sie sich durch die [Blogbeiträge zu Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) über neue Ankündigungen auf dem Laufenden halten.
 
 ## <a name="what-account-should-i-use"></a>Welches Konto sollte verwendet werden?
-Es gibt einige Aspekte in Bezug auf Konten, die Sie beim Verwalten von Azure Stack beachten sollten. Sie gelten insbesondere für Bereitstellungen, in denen Windows Server Active Directory-Verbunddienste (AD FS) als Identitätsanbieter verwendet wird, und nicht Azure Active Directory (Azure AD). Die folgenden Überlegungen zu Konten gelten für integrierte Azure Stack-Systeme und ASDK-Bereitstellungen:
 
+Es gibt einige Aspekte in Bezug auf Konten, die Sie beim Verwalten von Azure Stack beachten sollten. Sie gelten insbesondere für Bereitstellungen, in denen Windows Server Active Directory-Verbunddienste (AD FS) als Identitätsanbieter verwendet wird, und nicht Azure Active Directory (Azure AD). Die folgenden Überlegungen zu Konten gelten für integrierte Azure Stack-Systeme und ASDK-Bereitstellungen:
 
 |Konto|Azure AD|AD FS|
 |-----|-----|-----|
@@ -104,7 +104,7 @@ Neben der Bereitstellung von Diensten müssen Sie die regulären Aufgaben eines 
 
 ## <a name="what-to-tell-your-users"></a>Wichtige Informationen für Ihre Benutzer
 
-Sie müssen Ihre Benutzer über verschiedene Punkte informieren, z.B. die Arbeit mit Diensten in Azure Stack, das Herstellen einer Verbindung mit der Umgebung und das Abonnieren von Angeboten. Zusätzlich zu benutzerdefinierter Dokumentation, die Sie ggf. für Ihre Benutzer bereitstellen möchten, können Sie Benutzer auch an die [Benutzerdokumentation zu Azure Stack](https://docs.microsoft.com/en-us/azure-stack/user/) weiterleiten.
+Sie müssen Ihre Benutzer über verschiedene Punkte informieren, z.B. die Arbeit mit Diensten in Azure Stack, das Herstellen einer Verbindung mit der Umgebung und das Abonnieren von Angeboten. Zusätzlich zu benutzerdefinierter Dokumentation, die Sie ggf. für Ihre Benutzer bereitstellen möchten, können Sie Benutzer auch an die [Benutzerdokumentation zu Azure Stack](/azure-stack/user/) weiterleiten.
 
 **Grundlegendes zum Arbeiten mit Diensten in Azure Stack**
 

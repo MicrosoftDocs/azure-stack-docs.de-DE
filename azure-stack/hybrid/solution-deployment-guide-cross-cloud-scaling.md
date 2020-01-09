@@ -8,16 +8,16 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 54d79742ab39a2732a774401a1765b7a264e1fab
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: d6adbc374cbd2472ceed1895fe7efb34ab5b9d64
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640053"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654915"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Bereitstellen einer App, die mithilfe von Azure und Azure Stack Hub cloudübergreifend skaliert wird
 
-*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme und Azure Stack Development Kit*
+*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme und Azure Stack Development Kit*
 
 Es wird beschrieben, wie Sie eine cloudübergreifende Lösung erstellen, um einen manuell ausgelösten Prozess zum Umschalten von einer unter Azure Stack Hub gehosteten Web-App zu einer unter Azure gehosteten Web-App mit automatischer Skalierung per Traffic Manager bereitzustellen. So wird sichergestellt, dass das Cloudhilfsprogramm auch bei hoher Last flexibel und skalierbar bleibt.
 
@@ -59,7 +59,7 @@ In dieser Lösung erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht
 
 -   Es wird ein virtueller Windows Server 2016-Computer mit .NET 3.5 benötigt. Diese VM wird im Mandantenabonnement unter Azure Stack Hub als privater Build-Agent erstellt.
 
--   Das [Image „Windows Server 2016 mit SQL 2017-VM“](../operator/azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal) ist auf dem Azure Stack Hub Marketplace verfügbar. Falls dieses Image nicht verfügbar sein sollte, können Sie einen Azure Stack Hub-Bediener bitten, es der Umgebung hinzuzufügen.
+-   Das [Image „Windows Server 2016 mit SQL 2017-VM“](../operator/azure-stack-add-vm-image.md) ist auf dem Azure Stack Hub Marketplace verfügbar. Falls dieses Image nicht verfügbar sein sollte, können Sie einen Azure Stack Hub-Bediener bitten, es der Umgebung hinzuzufügen.
 
 ## <a name="issues-and-considerations"></a>Probleme und Überlegungen
 

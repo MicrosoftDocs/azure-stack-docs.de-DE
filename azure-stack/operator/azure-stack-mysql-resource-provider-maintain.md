@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 75135801bf5762f597ae70d980588dedadf31b36
-ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
+ms.openlocfilehash: fea4d8abcb0b8bb4f541105d782d2adbdc1f0f4c
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75183439"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756864"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack
 
@@ -250,7 +250,7 @@ Die Azure-Diagnoseerweiterung wird standardmäßig auf dem virtuellen Computer d
 
 Wenn die Sammlung von Ereignisprotokollen und IIS-Protokollen für den MySQL-Ressourcenanbieter konfiguriert wurde, finden Sie die Protokolle in einem Systemspeicherkonto mit dem Namen **mysqladapterdiagaccount**.
 
-Weitere Informationen zur Azure-Diagnoseerweiterung finden Sie unter [Was ist die Azure-Diagnoseerweiterung?](/azure-monitor/platform/diagnostics-extension-overview).
+Weitere Informationen zur Azure-Diagnoseerweiterung finden Sie unter [Was ist die Azure-Diagnoseerweiterung?](/azure/azure-monitor/platform/diagnostics-extension-overview).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

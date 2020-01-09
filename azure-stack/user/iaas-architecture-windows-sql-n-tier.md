@@ -9,18 +9,18 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: ced042ac48017a8191d02e48de12e107677051fc
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: 65ec9942b765eddcfda42056b47da60481d38ff4
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569301"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756983"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-with-sql-server"></a>n-schichtige Windows-Anwendung in Azure Stack mit SQL Server
 
 Diese Referenzarchitektur zeigt, wie Sie für eine [n-schichtige](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/n-tier) Anwendung konfigurierte virtuelle Computer (VMs) und ein entsprechendes virtuelles Netzwerk mit SQL Server unter Windows für die Datenschicht bereitstellen. 
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Aufbau
 
 Diese Architektur besteht aus den folgenden Komponenten.
 
@@ -82,7 +82,7 @@ Entwerfen Sie Subnetze unter Berücksichtigung der Funktionalität und Sicherhei
 
 Machen Sie die VMs nicht direkt über das Internet verfügbar. Weisen Sie stattdessen jeder VM eine private IP-Adresse zu. Clients stellen über die öffentliche IP-Adresse eine Verbindung her, die dem Layer 7-Lastenausgleich zugeordnet ist.
 
-Definieren Sie Lastenausgleichsregeln, um Netzwerkdatenverkehr an die virtuellen Computer weiterzuleiten. Um HTTP-Datenverkehr zuzulassen, ordnen Sie beispielsweise den Port 80 in der Front-End-Konfiguration dem Port 80 im Back-End-Adresspool zu. Wenn ein Client eine HTTP-Anforderung an Port 80 sendet, wählt der Lastenausgleich mithilfe eines [Hashalgorithmus](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#fundamental-load-balancer-features), der die Quell-IP-Adresse enthält, eine Back-End-IP-Adresse aus. So werden Clientanforderungen auf alle VMs im Back-End-Adresspool verteilt.
+Definieren Sie Lastenausgleichsregeln, um Netzwerkdatenverkehr an die virtuellen Computer weiterzuleiten. Um HTTP-Datenverkehr zuzulassen, ordnen Sie beispielsweise den Port 80 in der Front-End-Konfiguration dem Port 80 im Back-End-Adresspool zu. Wenn ein Client eine HTTP-Anforderung an Port 80 sendet, wählt der Lastenausgleich mithilfe eines [Hashalgorithmus](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#load-balancer-concepts), der die Quell-IP-Adresse enthält, eine Back-End-IP-Adresse aus. So werden Clientanforderungen auf alle VMs im Back-End-Adresspool verteilt.
 
 ### <a name="network-security-groups"></a>Netzwerksicherheitsgruppen
 

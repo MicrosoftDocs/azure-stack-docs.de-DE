@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ae2e5ec161be9dace70746c5b5460964d2348272
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: d486eaef122e1a66cca3725743d7772107e55107
+ms.sourcegitcommit: 4cd33bcb1bb761a424afd51f511b093543786d76
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954569"
+ms.lasthandoff: 12/21/2019
+ms.locfileid: "75325126"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Bereitstellen des SQL Server-Ressourcenanbieters in Azure Stack
 
@@ -71,7 +71,7 @@ _Nur bei Installationen in integrierten Systemen_. Sie müssen das SQL-PaaS-PKI-
 Nachdem Sie alle erforderlichen Komponenten installiert haben, führen Sie das Skript **DeploySqlProvider.ps1** aus, um den SQL-Ressourcenanbieter bereitzustellen. Das Skript „DeploySqlProvider.ps1“ wird als Teil der Binärdatei vom SQL-Ressourcenanbieter extrahiert, die Sie entsprechend Ihrer Azure Stack-Version heruntergeladen haben.
 
  > [!IMPORTANT]
- > Überprüfen Sie vor der Bereitstellung des Ressourcenanbieters die Versionshinweise auf Informationen zu neuen Funktionen, Fehlerbehebungen und bekannten Problemen, die sich auf die Bereitstellung auswirken können.
+ > Überprüfen Sie vor der Bereitstellung des Ressourcenanbieters die Anmerkungen zu dieser Version auf Informationen zu neuen Funktionen, Fehlerbehebungen und bekannten Problemen, die sich auf die Bereitstellung auswirken können.
 
 Öffnen Sie ein **neues** PowerShell-Fenster mit erhöhten Rechten (nicht PowerShell ISE), und wechseln Sie zu dem Verzeichnis, in das Sie die Binärdateien des SQL-Ressourcenanbieters extrahiert haben, um den SQL-Ressourcenanbieter bereitzustellen. Die Verwendung eines neuen PowerShell-Fensters wird empfohlen, um mögliche Probleme durch bereits geladene PowerShell-Module zu vermeiden.
 
@@ -149,10 +149,6 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-
-# Clear the existing login information from the Azure PowerShell context.
-Clear-AzureRMContext -Scope CurrentUser -Force
-Clear-AzureRMContext -Scope Process -Force
 
 # Change to the directory folder where you extracted the installation files. Don't provide a certificate on ASDK!
 . $tempDir\DeploySQLProvider.ps1 `

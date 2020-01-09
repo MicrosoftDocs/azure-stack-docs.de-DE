@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 01/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: c7db293cb1a24079f66dcf0b047cf66218857003
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.lastreviewed: 01/02/2020
+ms.openlocfilehash: fb51e49f449896fde6262790972c958b230d3175
+ms.sourcegitcommit: a37d3d78ed683e783681c567c989cb2b9ad0de0c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310140"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75605873"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Aktualisieren eines Kubernetes-Clusters in Azure Stack
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-## <a name="upgrade-a-cluster"></a>Aktualisieren eines Clusters
+## <a name="upgrade-a-cluster"></a>Durchführen eines Clusterupgrades
 
 Mit der AKS-Engine können Sie den Cluster aktualisieren, der ursprünglich mit dem Tool bereitgestellt wurde. Sie können die Cluster mithilfe der AKS-Engine verwalten. Die Verwaltungsaufgaben ähneln den IaaS-Systemen. Beachten Sie die Verfügbarkeit neuer Updates, und wenden Sie sie mit der AKS-Engine an.
 
@@ -36,7 +36,7 @@ Microsoft verwaltet Ihren Cluster nicht. Microsoft stellt jedoch das Tool und da
 
 Für ein bereitgestelltes Cluster decken Upgrades Folgendes ab:
 
--   kubernetes
+-   Kubernetes
 -   Azure Stack-Kubernetes-Anbieter
 -   Basisbetriebssystem
 
@@ -99,7 +99,7 @@ In den folgenden Anweisungen werden die minimalen Schritte zum Ausführen des Up
 
     ```bash  
     aks-engine upgrade \
-    --azure-env AzureStackCloud   
+    --azure-env AzureStackCloud \
     --location <for an ASDK is local> \
     --resource-group kube-rg \
     --subscription-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
