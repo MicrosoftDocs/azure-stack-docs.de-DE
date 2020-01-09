@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 63c8e37c19b46f5cabe197dd55875e9bcbd5cb12
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 9e41cae53612cdf412840eb63d648a9c73260fa6
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286824"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727461"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Tutorial: Testen eines Dienstangebots
 
@@ -60,7 +60,7 @@ Bevor Sie mit diesem Tutorial beginnen, müssen folgende Schritte ausgeführt we
 
 1. Melden Sie sich mit einem Benutzerkonto beim Benutzerportal an.
 
-1. Wählen Sie **+Ressource erstellen** > **Daten und Speicher** > **Speicherkonto – Blob, Datei, Tabelle, Warteschlange**.
+1. Wählen Sie **+Ressource erstellen** > **Daten und Speicher** > **Speicherkonto – Blob, Datei, Tabelle, Warteschlange** aus.
 
 1. Geben Sie in **Speicherkonto erstellen** die folgenden Informationen an:
   
@@ -106,7 +106,7 @@ Bevor Sie mit diesem Tutorial beginnen, müssen folgende Schritte ausgeführt we
 
 1. Melden Sie sich mit einem Benutzerkonto beim Benutzerportal an.
 
-1. Klicken Sie auf dem Dashboard auf **+ Eine Ressource erstellen** > **Compute** > **Windows Server 2016 Datacenter Eval** und dann auf **Erstellen**.
+1. Wählen Sie auf dem Dashboard **+ Eine Ressource erstellen** > **Compute** > **Windows Server 2016 Datacenter Eval** und dann **Erstellen** aus.
 
 1. Geben Sie unter **Grundlagen** die folgenden Informationen ein:
   
@@ -139,7 +139,7 @@ In diesem Tutorial haben Sie Folgendes gelernt:
 > * Erstellen eines Abonnements
 > * Erstellen und Bereitstellen von Ressourcen 
 
-Als Nächstes erfahren Sie mehr über das Bereitstellen von Ressourcenanbietern für Add-on-Dienste. Mit diesen können Sie Benutzern in ihren Plänen sogar noch mehr Dienste anbieten:
+Als Nächstes erfahren Sie mehr über das Bereitstellen von Ressourcenanbietern für Mehrwertdienste. Mit diesen können Sie Benutzern in ihren Plänen sogar noch mehr Dienste anbieten:
 
 - [Anbieten von SQL in Azure Stack](azure-stack-sql-resource-provider.md)
 - [Anbieten von MySQL in Azure Stack](azure-stack-mysql-resource-provider.md)

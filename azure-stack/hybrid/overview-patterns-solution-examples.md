@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 134171c85f91801f83965d376f79d09f6e8e3ac8
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 82f933babd0be4c001bd3001a631a4345bd0e488
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640839"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718061"
 ---
 # <a name="hybrid-patterns-and-solution-examples-for-azure-and-azure-stack"></a>Beispiele für Hybridmuster und -lösungen für Azure und Azure Stack
 
@@ -47,7 +47,7 @@ Schritt-für-Schritt-Anleitungen unterstützen Sie bei der Bereitstellung eines 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Sehen Sie sich die [Produkt- und Lösungsfamilien von Azure Stack](/azure-stack) an, um mehr über das gesamte Portfolio von Produkten und Lösungen zu erfahren.
+- Siehe die [Azure Stack-Familie mit Produkten und Lösungen](/azure-stack), um mehr über das gesamte Portfolio von Produkten und Lösungen zu erfahren.
 - In den Abschnitten „Muster“ und „Leitfäden zur Lösungsbereitstellung“ des Inhaltsverzeichnisses erfahren Sie mehr über Muster und Lösungen.
 - Im Artikel mit [Entwurfsüberlegungen für Hybridanwendungen](overview-app-design-considerations.md) werden die wichtigen Aspekte in Bezug auf die Softwarequalität beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind.
 - [Richten Sie eine Entwicklungsumgebung in Azure Stack ein](../user/azure-stack-dev-start.md), und [stellen Sie Ihre erste App in Azure Stack bereit](../user/azure-stack-dev-start-deploy-app.md).

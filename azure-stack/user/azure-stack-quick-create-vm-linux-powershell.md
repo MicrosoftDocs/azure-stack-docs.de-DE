@@ -15,12 +15,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9d1c9f963433e0a41218bb1984d07f0b47d032eb
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 2bd72ad2de570eeb3089645c5ee7c9dd3784e83c
+ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955705"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75677670"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack"></a>Schnellstart: Erstellen eines virtuellen Linux-Servers mit PowerShell in Azure Stack
 
@@ -61,7 +61,7 @@ New-AzureRmResourceGroup `
 
 ## <a name="create-storage-resources"></a>Erstellen von Speicherressourcen
 
-Erstellen Sie ein Speicherkonto und dann einen Speichercontainer für das Ubuntu Server 16.04 LTS-Image.
+Erstellen Sie ein Speicherkonto, das zum Speichern der Startdiagnoseausgabe verwendet wird.
 
 ```powershell  
 # Create variables to store the storage account name and the storage account SKU information

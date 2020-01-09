@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 87542483f2a35fba315258e9ba66b1792739033b
-ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
+ms.openlocfilehash: 03be52d653fe6340a88a9c466fef8c9b1ccc9256
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72445344"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727427"
 ---
 # <a name="tutorial-offer-a-service-to-users"></a>Tutorial: Anbieten eines Diensts für Benutzer
 
@@ -37,7 +37,7 @@ Ein Angebot besteht aus mindestens einem Plan. Ein Plan berechtigt zum Zugriff a
 
 Ein Ressourcenanbieter unterstützt die Erstellung, Bereitstellung und Verwaltung seiner Ressourcen als Dienste. Ein gängiges Beispiel ist der Ressourcenanbieter „Microsoft.Compute“, der die Möglichkeit bietet, virtuelle Computer (VMs) zu erstellen und bereitzustellen. Eine Übersicht über das Azure-Ressourcenverwaltungsmodell finden Sie unter [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview).
 
-In Azure Stack gibt es zwei allgemeine Kategorien von Ressourcenanbietern: solche, die Ressourcen als grundlegende Dienste bereitstellen, und solche, die sie als Add-On-Dienste bereitstellen.
+In Azure Stack gibt es zwei allgemeine Kategorien von Ressourcenanbietern: solche, die Ressourcen als grundlegende Dienste bereitstellen, und solche, die sie als Mehrwertdienste bereitstellen.
 
 ### <a name="foundational-services"></a>Grundlegende Dienste
 
@@ -53,12 +53,12 @@ Grundlegende Dienste werden von den folgenden Ressourcenanbietern unterstützt, 
 | Microsoft.Network | Virtuelle Netzwerke, öffentliche IP-Adressen, Lastenausgleichsmodule |
 | Microsoft.Storage | Speicherkonten, Blobs, Warteschlangen, Tabellen |
 
-### <a name="add-on-services"></a>Add-On-Dienste
+### <a name="value-add-services"></a>Mehrwertdienste
 
 >[!NOTE]
-> Damit ein Add-On-Dienst angeboten werden kann, muss zunächst der entsprechende Ressourcenanbieter im Azure Stack-Marketplace installiert werden. Nachdem der Anbieter installiert wurde, werden seine Ressourcen den Benutzern auf die gleiche Weise wie grundlegende Dienste angeboten. Im Abschnitt **Schrittanleitungen** im Inhaltsverzeichnis finden Sie die aktuellen Ressourcenanbieter, die Add-On-Dienstangebote unterstützen.
+> Damit ein Mehrwertdienst angeboten werden kann, muss zunächst der entsprechende Ressourcenanbieter im Azure Stack-Marketplace installiert werden. Nachdem der Anbieter installiert wurde, werden seine Ressourcen den Benutzern auf die gleiche Weise wie grundlegende Dienste angeboten. Im Abschnitt **Schrittanleitungen** im Inhaltsverzeichnis finden Sie die aktuellen Ressourcenanbieter, die Angebote für Mehrwertdienste unterstützen.
 
-Add-On-Dienste werden von Ressourcenanbietern unterstützt, die nach der Bereitstellung von Azure Stack installiert wurden. Beispiele:
+Mehrwertdienste werden von Ressourcenanbietern unterstützt, die nach der Bereitstellung von Azure Stack installiert wurden. Beispiele:
 
 | Ressourcenanbieter | Beispielressourcen |
 | ----------------- | ------------------------- |
