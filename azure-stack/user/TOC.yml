@@ -43,7 +43,7 @@
               items:
                 - name: Übersicht über Azure Stack Hub PowerShell
                   href: azure-stack-powershell-overview.md
-                - name: Installieren von Azure Stack-PowerShell
+                - name: Installieren von Azure Stack Hub PowerShell
                   href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: Verbinden mit PowerShell
@@ -285,9 +285,9 @@
         - name: VNET-Peering
         - name: Sicherung und Wiederherstellung
           items:
-            - name: Sichern Ihres virtuellen Computers in Azure Stack mit Commvault
+            - name: Sichern Ihres virtuellen Computers in Azure Stack Hub mit Commvault
               href: azure-stack-network-howto-backup-commvault.md
-            - name: Sichern Ihrer Speicherkonten in Azure Stack
+            - name: Sichern Ihrer Speicherkonten in Azure Stack Hub
               href: azure-stack-network-howto-backup-storage.md
             - name: Kopieren der Abonnementressourcen
               href: azure-stack-network-howto-backup-replicator.md
@@ -307,7 +307,7 @@
           href: iaas-architecture-nva-architecture.md
 - name: Verweis
   items:
-    - name: Azure Stack PowerShell
+    - name: Azure Stack Hub PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
     - name: Azure Stack Hub-REST-API-Browser
       href: /rest/api/
@@ -321,11 +321,11 @@
       href: /azure-stack/asdk/
 - name: Ressourcen
   items:
-    - name: Roadmap für Azure Stack
+    - name: "Roadmap für Azure\_Stack\_Hub"
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: MSDN-Forum für Azure Stack
+    - name: MSDN-Forum für Azure Stack Hub
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Feedback zur Azure Stack-Dokumentation
+    - name: Feedback zur Azure Stack Hub-Dokumentation
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Preisinformationen
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
