@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 0bf89b0f80557f99c83fb5ad6afd0c4a5dcd3849
-ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
+ms.lastreviewed: 01/02/2020
+ms.openlocfilehash: 9e5b99a5787e6472b2e9d25a509f615a1b02a732
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165010"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75655057"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Bereitstellen von App Service in einer Hochverfügbarkeitskonfiguration
 
@@ -78,7 +78,7 @@ Gehen Sie wie in diesem Abschnitt beschrieben vor, um mithilfe der Azure Stack-
    > [!NOTE]
    > Die Vorlagenbereitstellung dauert etwa eine Stunde.
 
-   [![](media/app-service-deploy-ha/5-sm.png "Überprüfen des Status der Vorlagenbereitstellung")](media/app-service-deploy-ha/5-lg.png#lightbox)
+   [![](media/app-service-deploy-ha/5-sm.png "Review template deployment status")](media/app-service-deploy-ha/5-lg.png#lightbox)
 
 
 ### <a name="record-template-outputs"></a>Erfassen der Vorlagenausgaben
@@ -210,13 +210,13 @@ Führen Sie zum Bereitstellen des App Service-Ressourcenanbieters die folgenden 
     |Verwaltungsrolle|1|3|
     |Herausgeberrolle|1|3|
     |FrontEnd-Rolle|1|3|
-    |Freigegebene Workerrolle|1|10|
+    |Freigegebene Workerrolle|1|2|
     |     |     |     |
 
     ![Werte der Infrastrukturrolleninstanzen für App Service](media/app-service-deploy-ha/12.png)
 
     > [!NOTE]
-    > Wenn Sie anstelle der Standardwerte die in diesem Tutorial empfohlenen Werte verwenden, erhöhen sich die Hardwareanforderungen für die App Service-Installation. Für die empfohlenen 21 virtuellen Computer werden insgesamt 26 Kerne und 46.592 MB RAM benötigt (anstelle der standardmäßigen 18 Kerne und 32.256 MB RAM für 15 virtuelle Computer).
+    > Wenn Sie anstelle der Standardwerte die in diesem Tutorial empfohlenen Werte verwenden, erhöhen sich die Hardwareanforderungen für die App Service-Installation. Für die empfohlenen 13 virtuellen Computer werden insgesamt 18 Kerne und 32.256 MB RAM benötigt (anstelle der standardmäßigen 9 Kerne und 16.128 MB RAM für 6 virtuelle Computer).
 
 15. Wählen Sie das gewünschte Plattformimage für die Installation der App Service-Infrastruktur-VMs aus, und klicken Sie auf **Weiter**:
 

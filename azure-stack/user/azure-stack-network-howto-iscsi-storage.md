@@ -9,12 +9,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: bed928bdd8ed7c521bd95ec005baafd42eb93047
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 0fe542cf17ce5b47436c8838c8d7c61b22e2fda8
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064973"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718452"
 ---
 # <a name="how-to-connect-to-iscsi-storage-with-azure-stack"></a>Herstellen einer Verbindung mit dem iSCSI-Speicher mit Azure Stack
 
@@ -49,7 +49,7 @@ In der Abbildung ist ein virtueller Computer dargestellt, der über einen (virtu
 - In dieser Vorlage wird die Lizenz für BYOL-Fenster verwendet.
 - Sie können außerdem Linux-basierte Systeme mit den iSCSI-Zielen verbinden. Anweisungen finden Sie im Artikel [iSCSI Initiator](https://help.ubuntu.com/lts/serverguide/iscsi-initiator.html) in der Ubuntu-Dokumentation.
 
-### <a name="options"></a>Optionen
+### <a name="options"></a>Tastatur
 
 - Mit den Parametern **_artifactsLocation** und **_artifactsLocationSasToken** können Sie Ihr eigenes Blob Storage-Konto mit SAS-Token verwenden.
 - Diese Vorlage enthält Standardwerte für die VNET-Benennung und die IP-Adressierung.
@@ -65,7 +65,7 @@ In der Abbildung sind die mithilfe der Vorlage zum Erstellen des iSCSI-Clients b
 
 ### <a name="the-deployment-process"></a>Bereitstellungsprozess
 
-Mit der Ressourcengruppenvorlage wird eine Ausgabe generiert, die als Eingabe für den nächsten Schritt dienen soll. Sie ist hauptsächlich auf den Servernamen und die öffentliche IP-Adresse für Azure Stack konzentriert, von denen der iSCSI-Datenverkehr stammt. Zu diesem Beispiel:
+Mit der Ressourcengruppenvorlage wird eine Ausgabe generiert, die als Eingabe für den nächsten Schritt dienen soll. Sie ist hauptsächlich auf den Servernamen und die öffentliche IP-Adresse für Azure Stack konzentriert, von denen der iSCSI-Datenverkehr stammt. In diesem Beispiel:
 
 1. Stellen Sie die Infrastrukturvorlage bereit.
 2. Stellen Sie einen virtuellen Azure Stack-Computer auf einem virtuellen Computer bereit, der an anderer Stelle in Ihrem Rechenzentrum gehostet wird. 

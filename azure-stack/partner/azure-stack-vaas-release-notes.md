@@ -14,12 +14,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 963944f2ade4db168c1b7f9070e72fe503bdfcf9
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: eb676d914a345c5fe36e063ee08ea226cd1e3209
+ms.sourcegitcommit: 1cb84d8417367b553194614d53a477a94a8e9be9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954467"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75755171"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Versionshinweise zu Validation-as-a-Service
 
@@ -28,6 +28,17 @@ ms.locfileid: "74954467"
 Dieser Artikel enthält die Versionshinweise zu Validation-as-a-Service in Azure Stack.
 
 ## <a name="version-4421"></a>Version 4.4.2.1
+
+9\. Januar 2020
+
+- Updates für Testinhalte
+  - OEM-Validierungsworkflow (Version 5.1.52.0 -> 5.1.53.0): Verringern Sie die Anzahl der erforderlichen Parameter aus dem Bereich für den Testzeitplan. 
+  - Fehlerbehebung für Compute-Test – TestVMOperations
+    
+- Bekannte Probleme
+  - Wenden Sie sich an vaashelp@microsoft.com, wenn die folgenden Testfälle im Rahmen des OEM-Validierungsworkflows nicht ausgeführt werden können:
+    - Test101LinuxEmptyAttachedDiskManagedDisk
+    - Test101WindowsEmptyAttachedDiskManagedDisk
 
 3\. Dezember 2019
 
@@ -51,7 +62,7 @@ Dieser Artikel enthält die Versionshinweise zu Validation-as-a-Service in Azure
   - Überprüfung des OEM-Erweiterungspakets (Version 5.1.46.0 bis 5.1.49.0)
   - Ergebnisse für 5.1.46.0 wurden beibehalten. Benachrichtigen Sie bei erfolgreichen Ausführungen unter 5.1.46.0 vaashelp@microsoft.com bei der Ergebnisübermittlung.
 
-- Fehlerbehebungen
+- Behebung von Programmfehlern
   - Problem behoben, aufgrund dessen bei der Ausführung der monatlichen Azure Stack-Updateüberprüfung ein Fehler auftrat, wenn die ZIP-Datei mit dem Update Sonderzeichen enthielt
 
 - Bekannte Probleme

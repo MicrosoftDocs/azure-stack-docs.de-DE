@@ -18,12 +18,12 @@ ms.date: 12/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: deea66ed257ecab933c294022fbdd07d1ccb137b
-ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
+ms.openlocfilehash: be51964d4416e632f5ef3462c3c42861a82e47d5
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2019
-ms.locfileid: "75007961"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654898"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Vorbereiten eines auf Red Hat basierenden virtuellen Computers für Azure Stack
 
@@ -44,7 +44,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
 * Kernel-Unterstützung für die Bereitstellung von UDF-Dateisystemen (Universal Disk Format) ist erforderlich. Beim ersten Starten übergibt das Medium im UDF-Format, das an den Gast angefügt ist, die Bereitstellungskonfiguration an den virtuellen Linux-Computer. Der Azure Linux-Agent muss das UDF-Dateisystem einbinden, um die Konfiguration zu lesen und den virtuellen Computer bereitzustellen.
 * Konfigurieren Sie auf dem Betriebssystemdatenträger keine Swap-Partition. Der Linux-Agent kann so konfiguriert werden, dass auf dem temporären Ressourcendatenträger eine Auslagerungsdatei erstellt wird. Weitere Informationen hierzu finden Sie in den folgenden Schritten.
 * Alle VHDs in Azure benötigen eine virtuelle Größe, die auf 1 MB ausgerichtet ist. Stellen Sie beim Konvertieren von einem RAW-Datenträger in VHD sicher, dass die Größe des RAW-Datenträgers vor der Konvertierung ein Vielfaches von 1 MB beträgt. Einzelheiten erfahren Sie im folgenden Schritt.
-* Azure Stack unterstützt cloud-init. [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) ist ein weit verbreiteter Ansatz zum Anpassen einer Linux-VM beim ersten Start. Sie können mit cloud-init Pakete installieren und Dateien schreiben oder Benutzer und Sicherheit konfigurieren. Da cloud-init während des ersten Startvorgangs aufgerufen wird, müssen Sie keine zusätzlichen Schritte oder Agents auf Ihre Konfiguration anwenden.
+* Azure Stack unterstützt cloud-init. [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) ist ein weit verbreiteter Ansatz zum Anpassen einer Linux-VM beim ersten Start. Sie können mit cloud-init Pakete installieren und Dateien schreiben oder Benutzer und Sicherheit konfigurieren. Da cloud-init während des ersten Startvorgangs aufgerufen wird, müssen Sie keine zusätzlichen Schritte oder Agents auf Ihre Konfiguration anwenden. Anweisungen zum Hinzufügen von cloud-init zu Ihrem Image finden Sie unter [Vorbereiten eines vorhandenen Linux-Azure-VM-Images für die Verwendung mit cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image).
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>Vorbereiten eines virtuellen RHEL 7-Computers über den Hyper-V-Manager
 
@@ -104,7 +104,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-1. Beenden und deinstallieren Sie die Cloudinitialisierung:
+1. [Optional nach Release 1910] Entfernen und Deinstallieren von cloud-init:
 
     ```bash
     systemctl stop cloud-init
@@ -117,18 +117,59 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
     ClientAliveInterval 180
     ```
 
-1. Das WALinuxAgent-Paket `WALinuxAgent-<version>` wurde in das Red Hat Extras-Repository übertragen. Aktivieren Sie das Extras-Repository, indem Sie den folgenden Befehl ausführen:
+1. Wenn Sie eine benutzerdefinierte VHD für Azure Stack erstellen, denken Sie daran, dass die WALinuxAgent-Versionen zwischen 2.2.20 und 2.2.35 (beide exklusiv) in Azure Stack-Umgebungen vor dem Release 1910 nicht funktionieren. Sie können die Versionen 2.2.20/2.2.35 zum Vorbereiten des Images verwenden. Um zum Vorbereiten Ihres benutzerdefinierten Images Versionen ab 2.2.35 zu verwenden, aktualisieren Sie Ihre Azure Stack-Version auf Release 1903 oder höher, oder installieren Sie den 1901/1902-Hotfix.
+
+    [Vor Release 1910] Befolgen Sie diese Anweisungen, um einen kompatiblen WALinuxAgent herunterzuladen:
+
+    1. Laden Sie die Setuptools herunter:
+
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+
+    1. Laden Sie die Version 2.2.20 des Agents von unserem GitHub herunter, und entpacken Sie sie.
+
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+    unzip v2.2.20.zip
+    cd WALinuxAgent-2.2.20
+    ```
+
+    1. Installieren Sie „setup.py“:
+
+    ```bash
+    sudo python setup.py install
+    ```
+
+    1. Starten Sie „waagent“ neu:
+
+    ```bash
+    sudo systemctl restart waagent
+    ```
+
+    1. Testen Sie, ob die Agent-Version mit der heruntergeladenen Version übereinstimmt. In diesem Beispiel sollte es Version 2.2.20 sein.
+
+    ```bash
+    waagent -version
+    ```
+    
+    [Nach Release 1910] Befolgen Sie diese Anweisungen, um einen kompatiblen WALinuxAgent herunterzuladen:
+    
+    1. Das WALinuxAgent-Paket `WALinuxAgent-<version>` wurde in das Red Hat Extras-Repository übertragen. Aktivieren Sie das Extras-Repository, indem Sie den folgenden Befehl ausführen:
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. Installieren Sie den Azure Linux-Agent, indem Sie den folgenden Befehl ausführen:
+    1. Installieren Sie den Azure Linux-Agent, indem Sie den folgenden Befehl ausführen:
 
     ```bash
     sudo yum install WALinuxAgent
     sudo systemctl enable waagent.service
     ```
+
 
 1. Erstellen Sie auf dem Betriebssystemdatenträger keinen Auslagerungsbereich.
 
@@ -255,7 +296,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
     dracut -f -v
     ```
 
-1. Beenden und deinstallieren Sie die Cloudinitialisierung:
+1. [Optional nach Release 1910] Beenden und Deinstallieren von cloud-init:
 
     ```bash
     systemctl stop cloud-init
@@ -275,11 +316,11 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
     ClientAliveInterval 180
     ```
 
-1. Wenn Sie eine benutzerdefinierte VHD für Azure Stack erstellen, denken Sie daran, dass die WALinuxAgent-Versionen zwischen 2.2.20 und 2.2.35 (beide exklusiv) in Azure Stack-Umgebungen nicht funktionieren. Sie können die Versionen 2.2.20/2.2.35 zum Vorbereiten des Images verwenden. Um zum Vorbereiten Ihres benutzerdefinierten Images Versionen ab 2.2.35 zu verwenden, aktualisieren Sie Ihre Azure Stack-Version auf Version 1903, oder installieren Sie den 1901/1902-Hotfix.
+1. Wenn Sie eine benutzerdefinierte VHD für Azure Stack erstellen, denken Sie daran, dass die WALinuxAgent-Versionen zwischen 2.2.20 und 2.2.35 (beide exklusiv) in Azure Stack-Umgebungen vor dem Release 1910 nicht funktionieren. Sie können die Versionen 2.2.20/2.2.35 zum Vorbereiten des Images verwenden. Um zum Vorbereiten Ihres benutzerdefinierten Images Versionen ab 2.2.35 zu verwenden, aktualisieren Sie Ihre Azure Stack-Version auf Release 1903 oder höher, oder installieren Sie den 1901/1902-Hotfix.
 
-    Folgen Sie den Anweisungen zum Herunterladen von WALinuxAgent:
+    [Vor Release 1910] Befolgen Sie diese Anweisungen, um einen kompatiblen WALinuxAgent herunterzuladen:
 
-    a. Laden Sie die Setuptools herunter:
+    1. Laden Sie die Setuptools herunter:
 
     ```bash
     wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
@@ -287,7 +328,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
     cd setuptools-7.0
     ```
 
-   b. Laden Sie die Version 2.2.20 des Agents von unserem GitHub herunter, und entpacken Sie sie.
+    1. Laden Sie die Version 2.2.20 des Agents von unserem GitHub herunter, und entpacken Sie sie.
 
     ```bash
     wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
@@ -295,22 +336,37 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
     cd WALinuxAgent-2.2.20
     ```
 
-    c. Installieren Sie „setup.py“:
+    1. Installieren Sie „setup.py“:
 
     ```bash
     sudo python setup.py install
     ```
 
-    d. Starten Sie „waagent“ neu:
+    1. Starten Sie „waagent“ neu:
 
     ```bash
     sudo systemctl restart waagent
     ```
 
-    e. Testen Sie, ob die Agent-Version mit der heruntergeladenen Version übereinstimmt. In diesem Beispiel sollte es Version 2.2.20 sein.
+    1. Testen Sie, ob die Agent-Version mit der heruntergeladenen Version übereinstimmt. In diesem Beispiel sollte es Version 2.2.20 sein.
 
     ```bash
     waagent -version
+    ```
+    
+    [Nach Release 1910] Befolgen Sie diese Anweisungen, um einen kompatiblen WALinuxAgent herunterzuladen:
+    
+    1. Das WALinuxAgent-Paket `WALinuxAgent-<version>` wurde in das Red Hat Extras-Repository übertragen. Aktivieren Sie das Extras-Repository, indem Sie den folgenden Befehl ausführen:
+
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```
+
+    1. Installieren Sie den Azure Linux-Agent, indem Sie den folgenden Befehl ausführen:
+
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent.service
     ```
 
 1. Erstellen Sie auf dem Betriebssystemdatenträger keinen Auslagerungsbereich.
@@ -452,7 +508,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits einen virtuellen RH
     dracut -f -v
     ```
 
-1. Beenden und deinstallieren Sie cloud-init:
+1. [Optional nach Release 1910] Beenden und Deinstallieren von cloud-init:
 
     ```bash
     systemctl stop cloud-init
@@ -465,13 +521,53 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits einen virtuellen RH
     ClientAliveInterval 180
     ```
 
-1. Das WALinuxAgent-Paket `WALinuxAgent-<version>` wurde in das Red Hat Extras-Repository übertragen. Aktivieren Sie das Extras-Repository, indem Sie den folgenden Befehl ausführen:
+1. Wenn Sie eine benutzerdefinierte VHD für Azure Stack erstellen, denken Sie daran, dass die WALinuxAgent-Versionen zwischen 2.2.20 und 2.2.35 (beide exklusiv) in Azure Stack-Umgebungen vor dem Release 1910 nicht funktionieren. Sie können die Versionen 2.2.20/2.2.35 zum Vorbereiten des Images verwenden. Um zum Vorbereiten Ihres benutzerdefinierten Images Versionen ab 2.2.35 zu verwenden, aktualisieren Sie Ihre Azure Stack-Version auf Release 1903 oder höher, oder installieren Sie den 1901/1902-Hotfix.
+
+    [Vor Release 1910] Befolgen Sie diese Anweisungen, um einen kompatiblen WALinuxAgent herunterzuladen:
+
+    1. Laden Sie die Setuptools herunter:
+
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+
+    1. Laden Sie die Version 2.2.20 des Agents von unserem GitHub herunter, und entpacken Sie sie.
+
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+    unzip v2.2.20.zip
+    cd WALinuxAgent-2.2.20
+    ```
+
+    1. Installieren Sie „setup.py“:
+
+    ```bash
+    sudo python setup.py install
+    ```
+
+    1. Starten Sie „waagent“ neu:
+
+    ```bash
+    sudo systemctl restart waagent
+    ```
+
+    1. Testen Sie, ob die Agent-Version mit der heruntergeladenen Version übereinstimmt. In diesem Beispiel sollte es Version 2.2.20 sein.
+
+    ```bash
+    waagent -version
+    ```
+    
+    [Nach Release 1910] Befolgen Sie diese Anweisungen, um einen kompatiblen WALinuxAgent herunterzuladen:
+    
+    1. Das WALinuxAgent-Paket `WALinuxAgent-<version>` wurde in das Red Hat Extras-Repository übertragen. Aktivieren Sie das Extras-Repository, indem Sie den folgenden Befehl ausführen:
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. Installieren Sie den Azure Linux-Agent, indem Sie den folgenden Befehl ausführen:
+    1. Installieren Sie den Azure Linux-Agent, indem Sie den folgenden Befehl ausführen:
 
     ```bash
     sudo yum install WALinuxAgent
@@ -541,7 +637,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits einen virtuellen RH
 
 ## <a name="prepare-a-red-hat-based-vm-from-an-iso-by-using-a-kickstart-file-automatically"></a>Automatisches Vorbereiten eines auf Red Hat basierenden virtuellen Computers aus einer ISO-Datei mit einer Kickstart-Datei
 
-1. Erstellen Sie eine Kickstart-Datei mit dem folgenden Inhalt, und speichern Sie die Datei. Weitere Informationen zur Kickstart-Installation finden Sie im [Kickstart-Installationshandbuch](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1. Erstellen Sie eine Kickstart-Datei mit dem folgenden Inhalt, und speichern Sie die Datei. Das Beenden und Deinstallieren von cloud-init ist optional (cloud-init wird in Azure Stack nach Release 1910 unterstützt). Installieren Sie den Agent erst nach Release 1910 aus dem RedHat-Repository. Verwenden Sie vor Release 1910 das Azure-Repository wie im vorherigen Abschnitt beschrieben. Weitere Informationen zur Kickstart-Installation finden Sie im [Kickstart-Installationshandbuch](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
     ```sh
     Kickstart for provisioning a RHEL 7 Azure VM

@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f845aee01e4c87bc877eb77fb793b32472f9f222
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 3f16b543751ac4bee94cc05045c03de7230f9a3c
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640467"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75717976"
 ---
 # <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>Muster zum Trainieren eines Machine Learning-Modells (ML) im Edge-Bereich
 
@@ -21,7 +21,7 @@ Generieren Sie portierbare ML-Modelle anhand von Daten, die nur lokal vorhanden 
 
 ## <a name="context-and-problem"></a>Kontext und Problem
 
-Viele Organisationen möchten mithilfe von Tools, die ihre Datenanalysten verstehen, Erkenntnisse aus ihren lokalen oder älteren Datenbeständen gewinnen. [Azure Machine Learning Service](/azure/machine-learning/) bietet native Cloudtools zum Trainieren, Optimieren und Bereitstellen von ML- und Deep Learning-Modellen.  
+Viele Organisationen möchten mithilfe von Tools, die ihre Datenanalysten verstehen, Erkenntnisse aus ihren lokalen oder älteren Datenbeständen gewinnen. [Azure Machine Learning](/azure/machine-learning/) bietet native Cloudtools zum Trainieren, Optimieren und Bereitstellen von ML- und Deep Learning-Modellen.  
 
 Einige Datenmengen sind jedoch zu groß, um sie in die Cloud zu senden, oder können aus rechtlichen Gründen nicht in die Cloud übertragen werden. Anhand dieses Musters können Datenanalysten mit Azure Machine Learning Modelle trainieren, die lokale Daten und Computeressourcen nutzen. 
 

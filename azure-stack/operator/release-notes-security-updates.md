@@ -1,6 +1,6 @@
 ---
-title: 'Versionshinweise für Azure Stack: Sicherheitsupdates für 1910 | Microsoft-Dokumentation'
-description: Erfahren Sie mehr über die Sicherheitsupdates aus Update 1909 für Azure Stack.
+title: 'Versionshinweise für Azure Stack Hub: Sicherheitsupdates für 1910 | Microsoft-Dokumentation'
+description: Erfahren Sie mehr über die Sicherheitsupdates aus Update 1910 für Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,21 +16,21 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 9294e0fad863345758527fb622fd5f3e753a29d1
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: 9766c1fb0c5186f33038716f0d56d1ccac9d90cb
+ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74299084"
+ms.lasthandoff: 12/20/2019
+ms.locfileid: "75303678"
 ---
-# <a name="azure-stack-security-updates"></a>Azure Stack-Sicherheitsupdates
+# <a name="azure-stack-hub-security-updates"></a>Sicherheitsupdates für Azure Stack Hub
 
-Dieser Artikel enthält alle Sicherheitsupdates der letzten vier Updates von Azure Stack. Diese Informationen werden nur zu Informationszwecken bereitgestellt.
+Dieser Artikel enthält alle Sicherheitsupdates der letzten vier Updates von Azure Stack Hub. Diese Informationen werden nur zu Informationszwecken bereitgestellt.
 
 ::: moniker range="azs-1910"
 ## <a name="1910-update"></a>1910-Update
 
-Dieses Update von Azure Stack enthält keine Sicherheitsupdates für das zugrunde liegende Betriebssystem, von dem Azure Stack gehostet wird. Dieses Update enthält ein Sicherheitsupdate für eine Komponente der Azure Stack-Infrastruktur:
+Dieses Update von Azure Stack Hub enthält keine Sicherheitsupdates für das zugrunde liegende Betriebssystem, von dem Azure Stack Hub gehostet wird. Dieses Update enthält ein Sicherheitsupdate für eine Komponente der Azure Stack Hub-Infrastruktur:
 
 - [CVE-2019-1234](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1234)
 

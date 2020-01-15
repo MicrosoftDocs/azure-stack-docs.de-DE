@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 0fbb57771976b896f8f6b37b62780e34d6635d78
-ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
+ms.lastreviewed: 01/08/2020
+ms.openlocfilehash: 759e25155abcc65bd2d671b310d6b93900b832db
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70386240"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756966"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack"></a>Voraussetzungen für das Bereitstellen von App Service unter Azure Stack
 
@@ -152,7 +152,7 @@ Das Zertifikat für die Identität muss einen Antragsteller enthalten und dem fo
 
 ### <a name="validate-certificates"></a>Überprüfen von Zertifikaten
 
-Vor der Bereitstellung des App Service-Ressourcenanbieters sollten Sie [die zu verwendenden Zertifikate überprüfen](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation). Verwenden Sie hierfür das Azure Stack Readiness Checker-Tool, das im [PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) zur Verfügung steht. Das Azure Stack Readiness Checker-Tool überprüft, ob die generierten PKI-Zertifikate für die App Service-Bereitstellung geeignet sind.
+Vor der Bereitstellung des App Service-Ressourcenanbieters sollten Sie [die zu verwendenden Zertifikate überprüfen](azure-stack-validate-pki-certs.md#using-validated-certificates). Verwenden Sie hierfür das Azure Stack Readiness Checker-Tool, das im [PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) zur Verfügung steht. Das Azure Stack Readiness Checker-Tool überprüft, ob die generierten PKI-Zertifikate für die App Service-Bereitstellung geeignet sind.
 
 Als bewährte Methode sollten Sie bei der Arbeit mit einem der erforderlichen [Azure Stack-PKI-Zertifikate](azure-stack-pki-certs.md) ausreichend Zeit zum Testen und (falls erforderlich) erneuten Ausstellen von Zertifikaten einplanen.
 
@@ -345,7 +345,7 @@ Administratoren müssen einmaliges Anmelden konfigurieren, um Folgendes zu ermö
 - Aktivieren der erweiterten Entwicklertools in App Service (Kudu)
 - Aktivieren der Verwendung des Azure Functions-Portals
 
-Folgen Sie diesen Schritten:
+Führen Sie die folgenden Schritte aus, um den Dienstprinzipal in Ihrem Azure AD-Mandanten erstellen:
 
 1. Öffnen Sie eine PowerShell-Instanz als „azurestack\AzureStackAdmin“.
 2. Wechseln Sie zum Speicherort der Skripts, die im [Vorbereitungsschritt](azure-stack-app-service-before-you-get-started.md) heruntergeladen und extrahiert wurden.
@@ -353,14 +353,14 @@ Folgen Sie diesen Schritten:
 4. Führen Sie das Skript **Create-AADIdentityApp.ps1** aus. Geben Sie bei entsprechender Aufforderung die Azure AD-Mandanten-ID ein, die Sie für Ihre Azure Stack-Bereitstellung verwenden. Geben Sie beispielsweise **myazurestack.onmicrosoft.com** ein.
 5. Geben Sie im Fenster **Anmeldeinformationen** das Administratorkonto und -kennwort Ihres Azure AD-Diensts ein. Klicken Sie auf **OK**.
 6. Geben Sie den Zertifikatdateipfad und das Zertifikatkennwort für das [zuvor erstellte Zertifikat](azure-stack-app-service-before-you-get-started.md) ein. Das für diesen Schritt standardmäßig erstellte Zertifikat lautet **sso.appservice.local.azurestack.external.pfx**.
-7. Das Skript erstellt eine neue App in der Azure AD-Instanz des Mandanten. Notieren Sie sich die Anwendungs-ID, die in der PowerShell-Ausgabe zurückgegeben wird. Sie benötigen diese Informationen bei der Installation.
+7. Notieren Sie sich die Anwendungs-ID, die in der PowerShell-Ausgabe zurückgegeben wird. Mit der ID in den folgenden Schritten erteilen Sie die Zustimmung für die Berechtigungen der Anwendung und während der Installation. 
 8. Öffnen Sie ein neues Browserfenster, und melden Sie sich als Azure Active Directory-Dienstadministrator beim [Azure-Portal](https://portal.azure.com) an.
-9. Öffnen Sie den Azure AD-Ressourcenanbieter.
-10. Klicken Sie auf **App-Registrierungen**.
-11. Suchen Sie nach der Anwendungs-ID, die in Schritt 7 zurückgegeben wurde. Es wird eine App Service-Anwendung aufgeführt.
-12. Klicken Sie in der Liste auf **Anwendung**.
-13. Wählen Sie **Settings**aus.
-14. Klicken Sie auf **Erforderliche Berechtigungen** > **Berechtigungen erteilen** > **Ja**.
+9. Öffnen Sie den Dienst Azure Active Directory.
+10. Wählen Sie im linken Bereich die Option **App-Registrierungen** aus.
+11. Suchen Sie nach der Anwendungs-ID, die Sie in Schritt 7 notiert haben. 
+12. Wählen Sie in der Liste die App Service-Anwendungsregistrierung aus.
+13. Wählen Sie im linken Bereich **API-Berechtigungen** aus.
+14. Wählen Sie **Administratorzustimmung für \<Mandant\> erteilen** aus, wobei \<Mandant\> der Name Ihres Azure AD Mandanten ist. Bestätigen Sie die Gewährung der Zustimmung, indem Sie **Ja** auswählen.
 
 ```powershell
     Create-AADIdentityApp.ps1

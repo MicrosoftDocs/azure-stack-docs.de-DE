@@ -11,12 +11,12 @@ ms.date: 12/04/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 97a9fe73eb83df07a9b24dc130c8295218cda7ad
-ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.openlocfilehash: fb6271114f27b16b9cb7a660deb7d6bcee197ca2
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74831029"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718129"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack-hub"></a>Aktualisieren von Windows Defender Antivirus in Azure Stack Hub
 
@@ -30,7 +30,7 @@ Wenden Sie für die Azure Stack Hub-Bereitstellungen, die mit dem öffentlichen 
 
 ## <a name="disconnected-scenario"></a>Nicht verbundenes Szenario
 
-Bei Azure Stack Hub-Bereitstellungen, die nicht mit dem öffentlichen Internet verbunden sind (etwa Rechenzentren mit Air Gap), haben Kunden ab Release 1910 die Möglichkeit, die Antischadsoftwaredefinitionen und Engineupdates bei ihrer Veröffentlichung anzuwenden. 
+Bei Azure Stack Hub-Bereitstellungen, die nicht mit dem öffentlichen Internet verbunden sind (etwa Rechenzentren mit Air Gap), haben Kunden ab Release 1910 die Möglichkeit, die Antischadsoftwaredefinitionen und Engineupdates bei ihrer Veröffentlichung anzuwenden. 
 
 Wenn Sie die Updates auf Ihre Azure Stack Hub-Lösung anwenden möchten, müssen Sie sie zuerst von der Microsoft-Website (Links siehe unten) herunterladen und anschließend unter *updateadminaccount* in einen Speicherblobcontainer importieren. Eine geplante Aufgabe überprüft den Blobcontainer alle 30 Minuten. Werden neue Defender-Definitionen und Engineupdates gefunden, werden diese auf die Azure Stack Hub-Infrastruktur angewendet. 
 

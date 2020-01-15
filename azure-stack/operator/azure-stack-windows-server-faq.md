@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: b71065d4a5af880fe5fb9a48d78a0e2821822b56
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 8110f48ef9e42ef2ee89b4766164b5005c7d51fa
+ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143985"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75503605"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Häufig gestellte Fragen zum Azure Stack-Marketplace für Windows Server
 
@@ -56,7 +56,7 @@ Wenn Sie beide Versionen des Images herunterladen, ist nur die neueste Version f
 Durch Ausführen des folgenden Skripts können Sie das Lizenzmodellattribut ändern, um vom BYOL-Modell (Bring Your Own License) zum Modell mit nutzungsbasierter Bezahlung (Pay As You Go) zu wechseln:
 
 ```powershell
-vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "None"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
@@ -81,6 +81,8 @@ Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 
 Diese Images wenden den **licenseType**-Parameter an, weshalb das nutzungsbasierte Modell angewendet wird. Sie können diesen Parameter festlegen (siehe hierzu die Antwort zur vorherigen häufig gestellten Frage). Dies gilt nur für die Windows Server-Software, nicht für sich überlagernde Produkte wie SQL, für das Bring Your Own License erforderlich ist. Die benutzerdefinierte Lizenzierung gilt nicht für sich überlagernde Softwareprodukte.
 
+Beachten Sie, dass Sie die **licenseType**-Eigenschaft für SQL Server-Images aus dem Marketplace nur ändern können, wenn die Version XX.X.20190410 oder höher lautet. Wenn Sie eine ältere Version der SQL Server-Images aus dem Marketplace ausführen, können Sie das **licenseType**-Attribut nicht ändern, und Sie müssen die Bereitstellung mit den neuesten SQL Server-Images aus dem Marketplace erneut ausführen.
+
 ### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>Ich besitze ein Enterprise Agreement (EA) und verwende meine Windows Server-EA-Lizenz. Wie stelle ich sicher, dass die Images ordnungsgemäß abgerechnet werden?
 
 Sie können **licenseType: Windows_Server** in einer Azure Resource Manager-Vorlage hinzufügen. Diese Einstellung muss jedem Ressourcenblock eines virtuellen Computers hinzugefügt werden.
@@ -100,7 +102,7 @@ Führen Sie den folgenden Befehl in einer Eingabeaufforderung mit erhöhten Rech
 slmgr /dlv
 ```
 
-Wenn er richtig aktiviert ist, wird dies klar und deutlich mit dem Hostnamen in der `slmgr`-Ausgabe angezeigt. Verlassen Sie sich nicht auf Wasserzeichen in der Anzeige, da sie möglicherweise nicht auf dem neuesten Stand sind oder von einem anderen hinter Ihrem geschalteten virtuellen Computer angezeigt werden.
+Wenn er richtig aktiviert ist, wird dies klar und deutlich mit dem Hostnamen in der `slmgr`-Ausgabe angezeigt. Verlassen Sie sich nicht auf Wasserzeichen in der Anzeige, da sie möglicherweise nicht auf dem neuesten Stand sind oder von einem anderen virtuellen Computer angezeigt werden, der sich hinter dem Ihren befindet.
 
 ### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>Meine VM ist nicht für die Verwendung von AVMA konfiguriert. Wie kann ich dies beheben?
 

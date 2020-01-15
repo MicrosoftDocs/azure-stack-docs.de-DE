@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 75a72deac409013b3fcd77693c3a7ceb2d2497cc
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: fbf25d49539ebe244b44681ca3207badf744b99b
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640179"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718282"
 ---
 # <a name="cross-cloud-scaling-on-premises-data-pattern"></a>Muster für die cloudübergreifende Skalierung (lokale Daten)
 
@@ -37,7 +37,7 @@ Diese Lösung verwendet die folgenden Komponenten:
 
 | Ebene | Komponente | BESCHREIBUNG |
 |----------|-----------|-------------|
-| Azure | Azure App Service | Mit [Azure App Service](/azure/app-service/) können Sie Web-Apps, Rest-API- und Azure Functions-Apps erstellen und hosten, und zwar in der Programmiersprache Ihrer Wahl, ohne dass Infrastruktur verwaltet werden muss. |
+| Azure | Azure App Service | Mit [Azure App Service](/azure/app-service/) können Sie Web-Apps, Rest-API-Apps und Azure Functions erstellen und hosten. Und dies in der Programmiersprache Ihrer Wahl, ohne Infrastruktur verwalten zu müssen. |
 | | Virtuelles Azure-Netzwerk| [Azure Virtual Network (VNET)](/azure/virtual-network/virtual-networks-overview) ist der grundlegende Baustein für private Netzwerke in Azure. Mit VNET können zahlreiche Arten von Azure-Ressourcen, beispielsweise virtuelle Computer (VMs) sicher untereinander sowie mit dem Internet und lokalen Netzwerken kommunizieren. Die Lösung veranschaulicht außerdem die Nutzung weiterer Netzwerkkomponenten:<br>Anwendungs- und Gatewaysubnetze<br>Lokales Netzwerkgateway<br>Gateway für virtuelle Netzwerke, das als Site-to-Site-VPN-Gatewayverbindung fungiert<br>Öffentliche IP-Adresse<br>Point-to-Site-VPN-Verbindung<br>Azure DNS zum Hosten von DNS-Domänen und Bereitstellen der Namensauflösung |
 | | Azure Traffic Manager | [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) ist ein auf DNS basierender Lastenausgleichsdienst. Der Dienst ermöglicht die Verteilung von Benutzerdatenverkehr für Dienstendpunkte in unterschiedlichen Rechenzentren. |
 | | Azure Application Insights | [Application Insights](/azure/azure-monitor/app/app-insights-overview) ist ein erweiterbarer Dienst zur Verwaltung der Anwendungsleistung für Webentwickler, die Apps auf mehreren Plattformen erstellen und verwalten.|

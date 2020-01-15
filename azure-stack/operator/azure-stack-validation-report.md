@@ -1,5 +1,5 @@
 ---
-title: Überprüfungsbericht für Azure Stack | Microsoft-Dokumentation
+title: Überprüfungsbericht für Azure Stack Hub | Microsoft-Dokumentation
 description: Verwenden Sie den Azure Stack Readiness Checker-Bericht für die Durchsicht von Überprüfungsergebnissen.
 services: azure-stack
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: c00ce005ac72fcde34b58a1afe7e134c27274247
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: e699ab75225e0590d287ddadd8b35b67bfac8479
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991718"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718384"
 ---
-# <a name="azure-stack-validation-report"></a>Azure Stack-Überprüfungsbericht
+# <a name="azure-stack-hub-validation-report"></a>Azure Stack Hub-Überprüfungsbericht
 
-Verwenden Sie das *Azure Stack Readiness Checker*-Tool, um Überprüfungen auszuführen, die die Bereitstellung und Wartung einer Azure Stack-Umgebung unterstützen. Das Tool schreibt die Ergebnisse in eine JSON-Berichtsdatei. Der Bericht zeigt detaillierte und zusammengefasste Daten über den Stand der Voraussetzungen für die Bereitstellung von Azure Stack. Darüber hinaus enthält er Informationen zur Geheimnisrotation für vorhandene Azure Stack-Bereitstellungen.  
+Verwenden Sie das *Azure Stack Hub Readiness Checker*-Tool, um Überprüfungen auszuführen, die die Bereitstellung und Wartung einer Azure Stack Hub-Umgebung unterstützen. Das Tool schreibt die Ergebnisse in eine JSON-Berichtsdatei. Der Bericht zeigt detaillierte und zusammengefasste Daten über den Stand der Voraussetzungen für die Bereitstellung von Azure Stack Hub. Darüber hinaus enthält er Informationen zur Geheimnisrotation für vorhandene Azure Stack Hub-Bereitstellungen.  
 
 ## <a name="where-to-find-the-report"></a>Hier finden Sie den Bericht
 
@@ -137,8 +137,8 @@ Verwenden Sie zum Anzeigen eines Berichts, der nach einem bestimmten Überprüfu
 - AzureIdentity
 - Graph
 - ADFS
-- Aufträge
-- Alle  
+- Jobs
+- All  
 
 Um beispielsweise die Berichtzusammenfassung nur für Zertifikate anzuzeigen, verwenden Sie die folgende PowerShell-Befehlszeile:
 

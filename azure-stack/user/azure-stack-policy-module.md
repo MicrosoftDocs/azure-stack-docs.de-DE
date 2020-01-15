@@ -1,39 +1,38 @@
 ---
-title: Verwenden des Azure Stack-Richtlinienmoduls | Microsoft-Dokumentation
+title: Verwenden des Azure Stack Hub-Richtlinienmoduls | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie ein Azure-Abonnement so beschränken, dass es sich wie ein Azure Stack-Abonnement verhält.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 manager: femila
 editor: ''
-ms.assetid: 937ef34f-14d4-4ea9-960b-362ba986f000
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: c0872c598cc621250c3b2c5d39aca0e392f71b29
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 1df2cf3eb403aabf320a226b5c184654b0b6169a
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991603"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718435"
 ---
-# <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Verwalten von Azure-Richtlinien mithilfe des Azure Stack-Richtlinienmoduls
+# <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>Verwalten von Azure-Richtlinien mithilfe des Azure Stack Hub-Richtlinienmoduls
 
-*Gilt für: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
-Das Azure Stack-Richtlinienmodul ermöglicht Ihnen die Konfiguration eines Azure-Abonnements mit der gleichen Versionsverwaltung und Dienstverfügbarkeit wie Azure Stack. Das Modul verwendet das PowerShell-Cmdlet [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) zum Erstellen einer Azure-Richtlinie, mit der die in einem Abonnement verfügbaren Ressourcentypen und Dienste eingeschränkt werden. Anschließend erstellen Sie eine Richtlinienzuweisung im geeigneten Bereich, indem Sie das Cmdlet [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) verwenden. Nach Konfigurieren der Richtlinie können Sie Ihr Azure-Abonnement zum Entwickeln von Apps für Azure Stack verwenden.
+Das Azure Stack Hub-Richtlinienmodul ermöglicht Ihnen die Konfiguration eines Azure-Abonnements mit der gleichen Versionsverwaltung und Dienstverfügbarkeit wie Azure Stack Hub. Das Modul verwendet das PowerShell-Cmdlet [**New-AzureRmPolicyDefinition**](/powershell/module/azurerm.resources/new-azurermpolicydefinition) zum Erstellen einer Azure-Richtlinie, mit der die in einem Abonnement verfügbaren Ressourcentypen und Dienste eingeschränkt werden. Anschließend erstellen Sie eine Richtlinienzuweisung im geeigneten Bereich, indem Sie das Cmdlet [**New-AzureRmPolicyAssignment**](/powershell/module/azurerm.resources/new-azurermpolicyassignment) verwenden. Nach Konfigurieren der Richtlinie können Sie Ihr Azure-Abonnement zum Entwickeln von Apps für Azure Stack Hub verwenden.
 
 ## <a name="install-the-module"></a>Installieren des Moduls
 
-1. Installieren Sie die erforderliche Version des AzureRM PowerShell-Moduls, wie in Schritt 1 von [Installieren von PowerShell für Azure Stack](../operator/azure-stack-powershell-install.md) beschrieben.
-2. [Laden Sie die Azure Stack-Tools aus GitHub herunter](../operator/azure-stack-powershell-download.md).
-3. [Konfigurieren Sie PowerShell für die Verwendung mit Azure Stack](azure-stack-powershell-configure-user.md).
-4. Importieren Sie das *AzureStack.Policy.psm1*-Modul:
+1. Installieren Sie die erforderliche Version des AzureRM PowerShell-Moduls, wie in Schritt 1 von [Installieren von PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md) beschrieben.
+2. [Laden Sie die Azure Stack Hub-Tools aus GitHub herunter](../operator/azure-stack-powershell-download.md).
+3. [Konfigurieren Sie PowerShell für die Verwendung mit Azure Stack Hub](azure-stack-powershell-configure-user.md).
+4. Importieren Sie das **AzureStack.Policy.psm1**-Modul:
 
    ```powershell
    Import-Module .\Policy\AzureStack.Policy.psm1
@@ -41,7 +40,7 @@ Das Azure Stack-Richtlinienmodul ermöglicht Ihnen die Konfiguration eines Azure
 
 ## <a name="apply-policy-to-azure-subscription"></a>Übernehmen der Richtlinie für das Azure-Abonnement
 
-Mit den folgenden Befehlen können Sie eine Azure Stack-Standardrichtlinie auf Ihr Azure-Abonnement anwenden. Ersetzen Sie vor der Ausführung dieser Befehle `Azure subscription name` durch den Namen Ihres Azure-Abonnements:
+Mit den folgenden Befehlen können Sie eine Azure Stack Hub-Standardrichtlinie auf Ihr Azure-Abonnement anwenden. Ersetzen Sie vor der Ausführung dieser Befehle `Azure subscription name` durch den Namen Ihres Azure-Abonnements:
 
 ```powershell
 Add-AzureRmAccount
@@ -53,7 +52,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 
 ## <a name="apply-policy-to-a-resource-group"></a>Übernehmen einer Richtlinie für eine Ressourcengruppe
 
-Möglicherweise möchten Sie präzisere Richtlinien anwenden. Beispielsweise könnten andere Ressourcen im selben Abonnement ausgeführt werden. Sie können die Anwendung der Richtlinie auf eine bestimmte Ressourcengruppe beschränken, was es Ihnen ermöglicht, Ihre Apps für Azure Stack mithilfe von Azure-Ressourcen zu testen. Ersetzen Sie vor der Ausführung der folgenden Befehle `Azure subscription name` durch den Namen Ihres Azure-Abonnements:
+Möglicherweise möchten Sie präzisere Richtlinien anwenden. Beispielsweise könnten andere Ressourcen im selben Abonnement ausgeführt werden. Sie können die Anwendung der Richtlinie auf eine bestimmte Ressourcengruppe beschränken, was es Ihnen ermöglicht, Ihre Apps für Azure Stack Hub mithilfe von Azure-Ressourcen zu testen. Ersetzen Sie vor der Ausführung der folgenden Befehle `Azure subscription name` durch den Namen Ihres Azure-Abonnements:
 
 ```powershell
 Add-AzureRmAccount

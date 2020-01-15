@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e1afb19c1ff7c32bbc15e40ce4fbe898be01ca0e
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 46044559e400e77098bdae038c87df88f1866127
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640137"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75717993"
 ---
 # <a name="geo-distributed-pattern"></a>Geografisch verteiltes Muster
 

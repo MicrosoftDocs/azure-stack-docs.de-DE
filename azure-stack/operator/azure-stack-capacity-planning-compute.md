@@ -16,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: dac0360bba7c24c85d1f30efbfb7fad30eb97028
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: 02cd98891f825714e63b29502f46e9847548d3a3
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74299152"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727393"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack-Compute
 
@@ -74,7 +74,7 @@ Der verwendete Arbeitsspeicher besteht aus mehreren Komponenten. Die folgenden K
  - Infrastrukturdienste: Dies sind die Infrastruktur-VMs, aus denen Azure Stack besteht. Ab der Releaseversion 1904 von Azure Stack sind dies ~31 virtuelle Computer, die 242 GB (+ 4 GB pro Knoten) beanspruchen. Wir arbeiten weiter an der Verbesserung der Skalierbarkeit und Resilienz unserer Infrastrukturdienste, weshalb sich die Arbeitsspeicherverwendung dieser Komponente noch ändern kann.
  - Resilienzreserve: Azure Stack reserviert einen Teil des Arbeitsspeichers, um die Mandantenverfügbarkeit während des Ausfalls eines einzelnen Hosts und beim Patchen und Aktualisieren sicherzustellen und so die erfolgreiche Livemigration von VMs zu ermöglichen.
  - Mandanten-VMs: Dies sind die virtuellen Mandantencomputer, die von Azure Stack-Benutzern erstellt werden. Zusätzlich zur Ausführung von VMs wird Arbeitsspeicher von allen VMs verbraucht, die im Fabric angeordnet sind. Das bedeutet, dass virtuelle Computer mit dem Zustand „Wird erstellt“ oder „Fehler“ sowie virtuelle Computer, die über den Gast heruntergefahren werden, Arbeitsspeicher beanspruchen. Virtuelle Computer, deren Zuordnung mithilfe der entsprechenden Option über das Portal/mit PowerShell/über die Befehlszeilenschnittstelle aufgehoben wurde, beanspruchen allerdings keinen Arbeitsspeicher von Azure Stack mehr.
- - Add-On-Ressourcenanbieter: Virtuelle Computer, die für die Add-On-Ressourcenanbieter bereitgestellt wurden (etwa SQL, MySQL, App Service usw).
+ - Mehrwert-Ressourcenanbieter: virtuelle Computer, die für wertschöpfende Ressourcenanbieter, z. B. SQL, MySQL, App Service usw., bereitgestellt werden.
 
 
 Die beste Möglichkeit, den Arbeitsspeicherverbrauch im Portal zu verstehen, ist die Nutzung des [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner). Hiermit können Sie die Auswirkungen der unterschiedlichen Workloads verfolgen. Die folgende Berechnung wird auch vom Planner verwendet.

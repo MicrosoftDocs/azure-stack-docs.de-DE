@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: d03049fd6dea5f5d7a10a61a25639cb1de3d67ad
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 5740ff6bc550aa27f15761e6be2c69247eecaf03
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73057776"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654881"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack-Marketplace-Elements
 
@@ -35,11 +35,11 @@ In den Beispielen in diesem Artikel wird veranschaulicht, wie Sie ein einzelnes 
 ## <a name="create-a-marketplace-item"></a>Erstellen von Marketplace-Elementen
 
 > [!IMPORTANT]
-> Vor dem Erstellen des VM-Marketplace-Elements laden Sie das benutzerdefinierte VM-Image in das Azure Stack-Portal hoch. Dabei gehen Sie nach den Anweisungen unter [Hinzufügen eines VM-Images zu Azure Stack](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal) vor. Befolgen Sie dann die Anweisungen in diesem Artikel, um das Image zu verpacken (Erstellen einer AZPKG-Datei) und in den Azure Stack-Marketplace hochzuladen.
+> Vor dem Erstellen des VM-Marketplace-Elements laden Sie das benutzerdefinierte VM-Image in das Azure Stack-Portal hoch. Dabei gehen Sie nach den Anweisungen unter [Hinzufügen eines VM-Images zu Azure Stack](azure-stack-add-vm-image.md) vor. Befolgen Sie dann die Anweisungen in diesem Artikel, um das Image zu verpacken (Erstellen einer AZPKG-Datei) und in den Azure Stack-Marketplace hochzuladen.
 
 Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-Element zu erstellen:
 
-1. Laden Sie das [Azure Gallery Packager-Tool](https://aka.ms/azsmarketplaceitem) und das Azure Stack-Katalogpaket herunter. Dieser Download umfasst benutzerdefinierte VM-Vorlagen. Extrahieren Sie die ZIP-Datei, und benennen Sie den Ordner **SimpleVMTemplate**  in den Namen des Elements um, das Sie im Azure Stack-Portal anzeigen möchten.
+1. Laden Sie das [Azure Gallery Packager-Tool](https://aka.ms/azsmarketplaceitem) und das Azure Stack-Katalogpaket herunter. Dieser Download umfasst benutzerdefinierte VM-Vorlagen. Extrahieren Sie die ZIP-Datei. Sie können unter dem Ordner **Custom VMs** die verfügbaren Linux- oder Windows-Vorlagen verwenden. Sie können die vordefinierten Vorlagen wiederverwenden und die entsprechenden Parameter mit den Produktdetails des Elements ändern, das im Azure Stack-Portal angezeigt wird. Oder Sie können einfach die AZPKG-Datei wiederverwenden und die folgenden Schritte überspringen, um das eigene Katalogpaket anzupassen.
 
 2. Erstellen Sie eine Azure Resource Manager Vorlage, oder verwenden Sie unsere Beispielvorlagen für Windows/Linux. Diese Beispielvorlagen werden in der ZIP-Datei des Packager-Tools bereitgestellt, die Sie in Schritt 1 heruntergeladen haben. Sie können entweder die Vorlage verwenden und die Textfelder ändern, oder Sie können eine vorkonfigurierte Vorlage von GitHub herunterladen. Weitere Informationen zu den Azure Resource Manager-Vorlagen finden Sie unter [Azure Resource Manager-Vorlagen](/azure/azure-resource-manager/resource-group-authoring-templates).
 
@@ -51,7 +51,7 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
    ![Screenshot: Struktur der Bereitstellungsvorlagen](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
-4. Ersetzen Sie die folgenden markierten Werte (mit Zahlen) in der Vorlage „Manifest.json“ durch den Wert, den Sie beim [Hochladen des benutzerdefinierten Images ](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal) angegeben haben.
+4. Ersetzen Sie die folgenden markierten Werte (mit Zahlen) in der Vorlage „Manifest.json“ durch den Wert, den Sie beim [Hochladen des benutzerdefinierten Images ](azure-stack-add-vm-image.md) angegeben haben.
 
    > [!NOTE]  
    > Führen Sie in der Azure Resource Manager-Vorlage niemals eine Hartcodierung von Geheimnissen wie Produktschlüsseln, Kennwörtern oder anderen kundenbezogenen Informationen durch. JSON-Vorlagendateien sind nach der Veröffentlichung im Katalog ohne Authentifizierung zugänglich. Speichern Sie alle Geheimnisse in [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter), und rufen Sie sie in der Vorlage auf.
@@ -216,36 +216,36 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
 ### <a name="identity-information"></a>Identitätsinformationen
 
-| NAME | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
+| Name | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
-| NAME |X |Zeichenfolge |[A-Za-z0-9]+ | |
-| Herausgeber |X |Zeichenfolge |[A-Za-z0-9]+ | |
-| Version |X |Zeichenfolge |[SemVer, v2](https://semver.org/) | |
+| Name |X |String |[A-Za-z0-9]+ | |
+| Herausgeber |X |String |[A-Za-z0-9]+ | |
+| Version |X |String |[SemVer, v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadaten
 
-| NAME | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
+| Name | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Zeichenfolge |Empfehlung: 80 Zeichen |Im Portal wird der Elementname möglicherweise nicht richtig angezeigt, wenn er länger als 80 Zeichen ist. |
-| PublisherDisplayName |X |Zeichenfolge |Empfehlung: 30 Zeichen |Im Portal wird der Herausgebername möglicherweise nicht richtig angezeigt, wenn er länger als 30 Zeichen ist. |
-| PublisherLegalName |X |Zeichenfolge |Maximal 256 Zeichen | |
-| Zusammenfassung |X |Zeichenfolge |60–100 Zeichen | |
-| LongSummary |X |Zeichenfolge |140–256 Zeichen |Noch nicht für Azure Stack gültig |
+| DisplayName |X |String |Empfehlung: 80 Zeichen |Im Portal wird der Elementname möglicherweise nicht richtig angezeigt, wenn er länger als 80 Zeichen ist. |
+| PublisherDisplayName |X |String |Empfehlung: 30 Zeichen |Im Portal wird der Herausgebername möglicherweise nicht richtig angezeigt, wenn er länger als 30 Zeichen ist. |
+| PublisherLegalName |X |String |Maximal 256 Zeichen | |
+| Zusammenfassung |X |String |60–100 Zeichen | |
+| LongSummary |X |String |140–256 Zeichen |Noch nicht für Azure Stack gültig |
 | BESCHREIBUNG |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 bis 5.000 Zeichen | |
 
 ### <a name="images"></a>Bilder
 
 Marketplace verwendet die folgenden Symbole:
 
-| NAME | Breite | Höhe | Notizen |
+| Name | Breite | Höhe | Notizen |
 | --- | --- | --- | --- |
 | Breite |255 px |115 px |Immer erforderlich |
 | Groß |115 px |115 px |Immer erforderlich |
-| Mittel |90 px |90 px |Immer erforderlich |
+| Medium |90 px |90 px |Immer erforderlich |
 | Klein |40 px |40 px |Immer erforderlich |
 | Screenshot |533 px |324 px |Immer erforderlich |
 
-### <a name="categories"></a>Categories
+### <a name="categories"></a>Kategorien
 
 Jedes Marketplace-Element muss mit einer Kategorie gekennzeichnet werden, die die Position des Elements auf der Portalbenutzeroberfläche angibt. Sie können eine der vorhandenen Kategorien in Azure Stack auswählen (**Compute**, **Daten und Speicher** usw.) oder eine neue erstellen.
 
@@ -253,19 +253,19 @@ Jedes Marketplace-Element muss mit einer Kategorie gekennzeichnet werden, die di
 
 Jedes Marketplace-Element kann verschiedene Links zu zusätzlichen Inhalten enthalten. Die Links werden als Liste der Namen und URIs angegeben:
 
-| NAME | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
+| Name | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Zeichenfolge |Maximal 64 Zeichen. | |
+| DisplayName |X |String |Maximal 64 Zeichen. | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>Zusätzliche Eigenschaften
 
 Zusätzlich zu den oben genannten Metadaten können Marketplace-Autoren benutzerdefinierte Schlüssel-Wert-Paare mit Daten in der folgenden Form angeben.
 
-| NAME | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
+| Name | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Zeichenfolge |Maximal 25 Zeichen. | |
-| Wert |X |Zeichenfolge |Maximal 30 Zeichen. | |
+| DisplayName |X |String |Maximal 25 Zeichen. | |
+| value |X |String |Maximal 30 Zeichen. | |
 
 ### <a name="html-sanitization"></a>HTML-Bereinigung
 

@@ -15,12 +15,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 509f6509b00a3bccd005fd93b69006ebbfd2f2f0
-ms.sourcegitcommit: 8203490cf3ab8a8e6d39b137c8c31e3baec52298
+ms.openlocfilehash: 897cb42ad2a84f3802f4d35e97a03d4976800121
+ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73712716"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75677874"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack"></a>Hinzufügen für MySQL-Hostserver in Azure Stack
 
@@ -33,7 +33,12 @@ Die MySQL-Versionen 5.6, 5.7 und 8.0 können für Ihre Hostingserver verwendet w
 
 ## <a name="connect-to-a-mysql-hosting-server"></a>Mit einem MySQL-Hostserver verbinden
 
-Stellen Sie sicher, dass Sie über die Anmeldeinformationen für ein Konto mit Systemadministratorrechten verfügen. Gehen Sie folgendermaßen vor, um einen Hostserver hinzuzufügen:
+Stellen Sie sicher, dass Sie über die Anmeldeinformationen für ein Konto mit Systemadministratorrechten verfügen.
+
+> [!NOTE]
+> Für MySQL 8.0 und höhere Versionen ist der Remotezugriff standardmäßig nicht aktiviert. Sie müssen ein neues Benutzerkonto erstellen und die Berechtigung für den Remotezugriff auf dieses Benutzerkonto gewähren, bevor Sie es als Hostserver hinzufügen.
+
+Gehen Sie folgendermaßen vor, um einen Hostserver hinzuzufügen:
 
 1. Anmelden beim Azure Stack-Administratorportal als Dienstadministrator
 2. Wählen Sie **Alle Dienste** aus.

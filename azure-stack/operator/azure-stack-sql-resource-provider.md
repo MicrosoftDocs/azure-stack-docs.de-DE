@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 438cf2d8a34046f29d156aadc1cc82571e4b8a12
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: 9e7800c018816155205569397520271fb86c4c12
+ms.sourcegitcommit: dc3d0b77ee77742525fa0cd72d8547d25393022f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993886"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75492765"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>Verwenden von SQL-Datenbanken in Azure Stack
 
@@ -31,7 +31,7 @@ Verwenden Sie den SQL-Ressourcenanbieter, um SQL-Datenbanken als Dienst in [Azur
 - Websites, die SQL verwenden.
 - Workloads, die SQL verwenden.
 
-Vor der Installation des MySQL-Ressourcenanbieters sind einige Einschränkungen zu beachten:
+Vor der Installation des SQL-Ressourcenanbieters sind einige Einschränkungen zu beachten:
 
 - Benutzer können nur einzelne Datenbanken erstellen und verwalten. Endbenutzer können nicht auf die Datenbankserverinstanz zugreifen. Dies schränkt unter Umständen die Kompatibilität mit lokalen Datenbankanwendungen ein, die Zugriff auf den Master oder auf die temporäre Datenbank oder für die dynamische Verwaltung von Datenbanken benötigen.
 - Ihr Azure Stack-Operator ist für die Bereitstellung, Aktualisierung, Absicherung, Konfiguration und Wartung der SQL-Datenbankserver und Hosts verantwortlich. Der Ressourcenanbieterdienst bietet keine Funktionen für die Verwaltung von Host- und Datenbankserverinstanzen. 

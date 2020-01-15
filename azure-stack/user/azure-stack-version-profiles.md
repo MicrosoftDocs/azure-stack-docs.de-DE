@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2019
+ms.date: 01/06/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 2d57c0ff71cd0aa4280e6a21df4727ee4bbe7fb6
-ms.sourcegitcommit: 7961fda0bfcdd3db8cf94a8c405b5c23a23643af
+ms.openlocfilehash: 49cc9447ee077b49dc08bee1497497ef94a9e109
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616486"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718367"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Verwalten von API-Versionsprofilen in Azure Stack
 
@@ -31,9 +31,9 @@ Sie können eine App für die Verwendung mit Azure-Ressourcenanbietern erstellen
 
 Dieses Thema enthält folgende Informationen:
 
- - Grundlegende Informationen zu API-Profilen für Azure Stack
- - Informationen zur Verwendung von API-Profilen für die Entwicklung Ihrer Lösungen
- - Informationen dazu, wo Sie codespezifische Anleitungen finden
+- Grundlegende Informationen zu API-Profilen für Azure Stack
+- Informationen zur Verwendung von API-Profilen für die Entwicklung Ihrer Lösungen
+- Informationen dazu, wo Sie codespezifische Anleitungen finden
 
 ## <a name="summary-of-api-profiles"></a>Zusammenfassung zu API-Profilen
 
@@ -41,11 +41,11 @@ Dieses Thema enthält folgende Informationen:
 - API-Profile wurden erstellt, damit Sie Vorlagen für mehrere Azure-Clouds generieren können. Profile bieten eine kompatible und stabile Schnittstelle.
 - Profile werden viermal pro Jahr veröffentlicht.
 - Drei Benennungskonventionen für Profile werden verwendet:
-    - **Neueste**  
+  - **Neueste**  
         Enthält die neuesten in der globalen Azure-Umgebung veröffentlichen API-Versionen.
-    - **jjjj-mm-tt-hybrid**  
+  - **jjjj-mm-tt-hybrid**  
     Halbjährliche Veröffentlichung. Bei dieser Veröffentlichung stehen die cloudübergreifende Konsistenz und Stabilität im Vordergrund. Das Ziel dieses Profils ist die optimale Kompatibilität mit Azure Stack.
-    - **jjjj-mm-tt-profile** <br>
+  - **jjjj-mm-tt-profile** <br>
     Stellt einen Kompromiss zwischen optimaler Stabilität und neuesten Features dar.
 
 ## <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Azure-API-Profile und Azure Stack-Kompatibilität
@@ -53,10 +53,10 @@ Dieses Thema enthält folgende Informationen:
 Die neuesten Azure-API-Profile sind nicht mit Azure Stack kompatibel. Verwenden Sie die folgenden Benennungskonventionen, um die Profile für Ihre Azure Stack-Lösungen zu identifizieren:
 
 **Neueste**  
-Dieses Profil enthält die aktuellen API-Versionen in der globalen Azure-Umgebung, die in Azure Stack nicht funktionieren. **Neueste** weist die größte Anzahl von aktuellen Änderungen auf. Das Profil vernachlässigt die Stabilität und Kompatibilität mit anderen Clouds. Wenn Sie versuchen, die aktuellsten API-Versionen zu verwenden, ist **Neueste** das Profil, das Sie verwenden sollten.
+Dieses Profil enthält die aktuellsten API-Versionen in der globalen Azure-Umgebung, die in Azure Stack nicht funktionieren. **Neueste** weist die größte Anzahl von aktuellen Änderungen auf. Das Profil vernachlässigt die Stabilität und Kompatibilität mit anderen Clouds. Wenn Sie versuchen, die aktuellsten API-Versionen zu verwenden, ist **Neueste** das Profil, das Sie verwenden sollten.
 
 **jjjj-mm-tt-hybrid**  
-Dieses Profil wird jedes Jahr im März und im September veröffentlicht. Es bietet optimale Stabilität und Kompatibilität mit verschiedenen Clouds. **jjjj-mm-tt-hybrid** eignet sich für die globale Azure-Umgebung und Azure Stack. Die in diesem Profil aufgeführten Azure-API-Versionen sind mit den Versionen identisch, die in Azure Stack aufgeführt werden. Verwenden Sie dieses Profil, um Code für Hybridcloudlösungen zu entwickeln.
+Dieses Profil wird jedes Jahr im März und im September veröffentlicht. Es verfügt über eine optimale Stabilität und Kompatibilität mit verschiedenen Clouds und ist für die Verwendung von globalem Azure und Azure Stack konzipiert. Die in diesem Profil aufgeführten Azure-API-Versionen sind mit den Versionen identisch, die in Azure Stack aufgeführt werden. Verwenden Sie dieses Profil, um Code für Hybridcloudlösungen zu entwickeln.
 
 **jjjj-mm-tt-profile**  
 Dieses Profil wird für die globale Azure-Umgebung im Juni und Dezember veröffentlicht. Es funktioniert nicht für Azure Stack. In der Regel kommt es zu zahlreichen Breaking Changes. Das Profil sorgt für ein ausgewogenes Verhältnis zwischen optimaler Stabilität und den neuesten Features. Der Unterschied zwischen **Neueste** und diesem Profil besteht darin, dass **Neueste** immer aus den neuesten API-Versionen besteht, und zwar unabhängig davon, wann die API veröffentlicht wird. Wenn beispielsweise morgen eine neue API-Version für die Compute-API erstellt wird, wird diese API-Version im Profil **Neueste** aufgeführt, aber nicht im Profil **jjjj-mm-tt-profile**, weil dieses Profil bereits vorhanden ist. **jjjj-mm-tt-profile** umfasst die neuesten Versionen, die vor Juni oder vor Dezember veröffentlicht wurden.
@@ -96,6 +96,6 @@ Das Node.js SDK für Azure Stack Resource Manager umfasst Tools zum Erstellen un
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Installieren von PowerShell für Azure Stack](../operator/azure-stack-powershell-install.md)
-* [Konfigurieren der PowerShell-Umgebung des Azure Stack-Benutzers](azure-stack-powershell-configure-user.md)
-* [Lesen Sie ausführliche Informationen zu den von den Profilen unterstützten API-Versionen für Ressourcenanbieter.](azure-stack-profiles-azure-resource-manager-versions.md)
+- [Installieren von PowerShell für Azure Stack](../operator/azure-stack-powershell-install.md)
+- [Konfigurieren der PowerShell-Umgebung des Azure Stack-Benutzers](azure-stack-powershell-configure-user.md)
+- [Lesen Sie ausführliche Informationen zu den von den Profilen unterstützten API-Versionen für Ressourcenanbieter.](azure-stack-profiles-azure-resource-manager-versions.md)

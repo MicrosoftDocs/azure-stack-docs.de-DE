@@ -15,18 +15,16 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: b66a72ce872d64f8fde3cb80ced5e6ad33d80b4d
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: ceda705c4a06ac9465c3f017a87986ba6e20e4b3
+ms.sourcegitcommit: e57a53caac50d1f8762307e065fe886fcda7eadf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993780"
+ms.lasthandoff: 12/19/2019
+ms.locfileid: "75190861"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Verwenden von MySQL-Datenbanken in Microsoft Azure Stack
 
-MySQL-Datenbanken werden häufig mit Websites verwendet und unterstützen zahlreiche Websiteplattformen. Beispielsweise können Sie WordPress-Websites mit dem App Services-Ressourcenanbieter (PaaS)-Add-On (Plattform als Dienst) erstellen.
-
-Nachdem Sie den Ressourcenanbieter bereitgestellt und mit mindestens einer MySQL-Serverinstanz verbunden haben, haben Sie folgende Möglichkeiten:
+Verwenden Sie den MySQL-Ressourcenanbieter, um den MySQL-Datenbankdienst in [Azure Stack](azure-stack-overview.md) anzubieten. Nachdem Sie den Ressourcenanbieter bereitgestellt und mit mindestens einer MySQL-Serverinstanz verbunden haben, haben Sie folgende Möglichkeiten:
 
 * Erstellen von MySQL-Datenbanken mithilfe von Azure Resource Manager-Bereitstellungsvorlagen
 * Bereitstellen von MySQL-Datenbanken als Dienst  

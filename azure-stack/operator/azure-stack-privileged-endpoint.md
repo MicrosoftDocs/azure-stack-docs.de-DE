@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: f77a497960b49e3a212ea5cc2b63c18d8382a99c
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.lastreviewed: 1/8/2020
+ms.openlocfilehash: 19783172dd402d7ea80dcbfc226aefb44846182f
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689982"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727087"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack"></a>Verwenden des privilegierten Endpunkts in Azure Stack
 
@@ -45,48 +45,56 @@ Der Zugriff auf den PEP erfolgt über eine PowerShell-Remotesitzung auf dem virt
 
 Bevor Sie dieses Verfahren für das integrierte System beginnen, sollten Sie sich vergewissern, dass Sie anhand der IP-Adresse oder per DNS auf den PEP zugreifen können. Nach der erstmaligen Bereitstellung von Azure Stack können Sie nur über die IP-Adresse auf den PEP zugreifen, da die DNS-Integration noch nicht eingerichtet wurde. Ihr OEM-Hardwarehersteller stellt eine JSON-Datei namens **AzureStackStampDeploymentInfo** bereit, die die IP-Adressen des PEPs enthält.
 
+Sie finden die IP-Adresse auch im Azure Stack Hub-Administratorportal. Öffnen Sie das Portal, z. B. `https://adminportal.local.azurestack.external`. Wählen Sie **Regionsverwaltung** > **Eigenschaften** aus.
+
+Sie müssen die aktuelle Kultureinstellung auf `en-US` festlegen, wenn Sie den privilegierten Endpunkt ausführen. Andernfalls werden Cmdlets wie „Test-AzureStack“ oder „Get-AzureStackLog“ nicht wie erwartet ausgeführt.
 
 > [!NOTE]
 > Aus Sicherheitsgründen darf mit dem PEP nur über eine gehärtete VM, die auf dem Hardwarelebenszyklus-Host basiert, oder über einen dedizierten, sicheren Computer (beispielsweise eine [Arbeitsstation mit privilegiertem Zugriff](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)) eine Verbindung hergestellt werden. Die ursprüngliche Konfiguration des Hardwarelebenszyklus-Hosts darf nicht geändert werden (einschließlich der Installation neuer Software), und er darf nicht zum Herstellen einer Verbindung mit dem PEP verwendet werden.
 
 1. Richten Sie die Vertrauensstellung ein.
 
-    - Führen Sie auf einem integrierten System in einer Windows PowerShell-Sitzung mit erhöhten Rechten den folgenden Befehl aus, um den PEP als vertrauenswürdigen Host auf der gehärteten virtuellen VM hinzuzufügen, die auf dem Hardwarelebenszyklus-Host oder der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird.
+      - Führen Sie auf einem integrierten System in einer Windows PowerShell-Sitzung mit erhöhten Rechten den folgenden Befehl aus, um den PEP als vertrauenswürdigen Host auf der gehärteten virtuellen VM hinzuzufügen, die auf dem Hardwarelebenszyklus-Host oder der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird.
 
-      ```powershell
+      ```powershell  
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
-    - Wenn Sie das ASDK ausführen, melden Sie sich beim Development Kit-Host an.
+
+      - Wenn Sie das ASDK ausführen, melden Sie sich beim Development Kit-Host an.
 
 2. Öffnen Sie auf der gehärteten virtuellen VM, die auf dem Hardwarelebenszyklus-Host oder der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird, eine Windows PowerShell-Sitzung. Führen Sie die folgenden Befehle aus, um eine Remotesitzung auf der VM einzurichten, die den PEP hostet:
  
-   - In einem integrierten System:
-     ```powershell
-       $cred = Get-Credential
+  - In einem integrierten System:
 
-       Enter-PSSession -ComputerName <IP_address_of_ERCS> `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ```
-     Der Parameter `ComputerName` kann die IP-Adresse oder der DNS-Name einer VM sein, auf der der PEP gehostet wird.
+    ```powershell  
+    $cred = Get-Credential
 
-     >[!NOTE]
-     >Azure Stack führt beim Überprüfen der PEP-Anmeldeinformationen keinen Remoteaufruf durch. Für die Überprüfung wird ein lokal gespeicherter öffentlicher RSA-Schlüssel verwendet.
-     
+    $pep = New-PSSession -ComputerName <IP_address_of_ERCS> -ConfigurationName PrivilegedEndpoint -Credential $cred -SessionOption (New-PSSessionOption -Culture en-US -UICulture en-US)
+    Enter-PSSession $pep
+    ```
+    
+    Der Parameter `ComputerName` kann die IP-Adresse oder der DNS-Name einer VM sein, auf der der PEP gehostet wird.
+
+    > [!NOTE]  
+    >Azure Stack führt beim Überprüfen der PEP-Anmeldeinformationen keinen Remoteaufruf durch. Für die Überprüfung wird ein lokal gespeicherter öffentlicher RSA-Schlüssel verwendet.
+
    - Bei Ausführung des ASDK:
-     
-     ```powershell
-       $cred = Get-Credential
 
-       Enter-PSSession -ComputerName azs-ercs01 `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ``` 
-     Wenn Sie zur Eingabe von Anmeldeinformationen aufgefordert werden, geben Sie Folgendes ein:
+     ```powershell  
+      $cred = Get-Credential
+    
+      $pep = New-PSSession -ComputerName azs-ercs01 -ConfigurationName PrivilegedEndpoint -Credential $cred -SessionOption (New-PSSessionOption -Culture en-US -UICulture en-US)
+      Enter-PSSession $pep
+     ```
+    
+   - Wenn Sie zur Eingabe von Anmeldeinformationen aufgefordert werden, geben Sie Folgendes ein:
+   
+       - **Benutzername**: Geben Sie das CloudAdmin-Konto im Format **&lt;*Azure Stack-Domäne*&gt;\cloudadmin** an. (Für ASDK lautet der Benutzername **Azurestack\cloudadmin**.)
+  
+        - **Kennwort**: Geben Sie das gleiche Kennwort ein, das während der Installation für das AzureStackAdmin-Domänenadministratorkonto bereitgestellt wurde.
 
-     - **Benutzername**: Geben Sie das CloudAdmin-Konto im Format **&lt;*Azure Stack-Domäne*&gt;\cloudadmin** an. (Für ASDK lautet der Benutzername **Azurestack\cloudadmin**.)
-     - **Kennwort**: Geben Sie das gleiche Kennwort ein, das während der Installation für das AzureStackAdmin-Domänenadministratorkonto bereitgestellt wurde.
-
-     > [!NOTE]
-     > Wenn Sie keine Verbindung mit dem ERCS-Endpunkt herstellen können, wiederholen Sie die Schritte 1 und 2 mit einer anderen ERCS-VM-IP-Adresse.
+      > [!NOTE]
+      > Wenn Sie keine Verbindung mit dem ERCS-Endpunkt herstellen können, wiederholen Sie die Schritte 1 und 2 mit einer anderen ERCS-VM-IP-Adresse.
 
 3. Nachdem Sie eine Verbindung hergestellt haben, ändert sich die Eingabeaufforderung in **[*IP-Adresse oder ERCS-VM-Name*]: PS>** oder zu **[azs-ercs01]: PS>** (abhängig von der Umgebung). Führen Sie `Get-Command` aus, um die Liste der verfügbaren Cmdlets anzuzeigen.
 
@@ -127,42 +135,48 @@ Wenn Sie die PEP-Sitzung in Ihren lokalen Computer importieren möchten, führen
 
 1. Richten Sie die Vertrauensstellung ein.
 
-    Führen Sie auf einem integrierten System in einer Windows PowerShell-Sitzung mit erhöhten Rechten den folgenden Befehl aus, um den PEP als vertrauenswürdigen Host auf der gehärteten virtuellen VM hinzuzufügen, die auf dem Hardwarelebenszyklus-Host oder der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird.
+    - Führen Sie auf einem integrierten System in einer Windows PowerShell-Sitzung mit erhöhten Rechten den folgenden Befehl aus, um den PEP als vertrauenswürdigen Host auf der gehärteten virtuellen VM hinzuzufügen, die auf dem Hardwarelebenszyklus-Host oder der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird.
 
-      ```powershell
-        winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-      ```
+    ```powershell
+    winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+    ```
+
     - Wenn Sie das ASDK ausführen, melden Sie sich beim Development Kit-Host an.
 
 2. Öffnen Sie auf der gehärteten virtuellen VM, die auf dem Hardwarelebenszyklus-Host oder der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird, eine Windows PowerShell-Sitzung. Führen Sie die folgenden Befehle aus, um eine Remotesitzung auf dem virtuellen Computer einzurichten, der den PEP hostet:
- 
-   - In einem integrierten System:
-     ```powershell
-       $cred = Get-Credential
 
-       $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ```
-     Der Parameter `ComputerName` kann die IP-Adresse oder der DNS-Name einer VM sein, auf der der PEP gehostet wird.
-   - Bei Ausführung des ASDK:
+    - In einem integrierten System:
+    
+      ```powershell  
+        $cred = Get-Credential
+      
+        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
+          -ConfigurationName PrivilegedEndpoint -Credential $cred
+      ```
+    
+      Der Parameter `ComputerName` kann die IP-Adresse oder der DNS-Name einer VM sein, auf der der PEP gehostet wird.
+
+    - Bei Ausführung des ASDK:
      
-     ```powershell
-      $cred = Get-Credential
+        ```powershell  
+          $cred = Get-Credential
+    
+          $session = New-PSSession -ComputerName azs-ercs01 `
+             -ConfigurationName PrivilegedEndpoint -Credential $cred
+        ```
 
-      $session = New-PSSession -ComputerName azs-ercs01 `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ``` 
      Wenn Sie zur Eingabe von Anmeldeinformationen aufgefordert werden, geben Sie Folgendes ein:
 
      - **Benutzername**: Geben Sie das CloudAdmin-Konto im Format **&lt;*Azure Stack-Domäne*&gt;\cloudadmin** an. (Für ASDK lautet der Benutzername **Azurestack\cloudadmin**.)
      - **Kennwort**: Geben Sie das gleiche Kennwort ein, das während der Installation für das AzureStackAdmin-Domänenadministratorkonto bereitgestellt wurde.
 
-3. Importieren der PEP-Sitzung in Ihren lokalen Computer
-     ```powershell 
-        Import-PSSession $session
-   ```
-4. Nun können Sie in Ihrer lokalen PowerShell-Sitzung die Ergänzung mittels TAB-TASTE nutzen und wie gewohnt Skripts verwenden – zusammen mit allen Funktionen und Cmdlets des PEPs und ohne Beeinträchtigung der Sicherheit von Azure Stack. Viel Spaß!
+3. Importieren Sie die PEP-Sitzung in Ihren lokalen Computer:
 
+    ```powershell 
+      Import-PSSession $session
+    ```
+
+4. Nun können Sie in Ihrer lokalen PowerShell-Sitzung die Ergänzung mittels TAB-TASTE nutzen und wie gewohnt Skripts verwenden – zusammen mit allen Funktionen und Cmdlets des PEPs und ohne Beeinträchtigung der Sicherheit von Azure Stack. Viel Spaß!
 
 ## <a name="close-the-privileged-endpoint-session"></a>Schließen der Sitzung mit dem privilegierten Endpunkt
 
@@ -172,14 +186,16 @@ Schließen der Endpunktsitzung:
 
 1. Erstellen Sie eine externe Dateifreigabe, auf die der PEP zugreifen kann. In einer Development Kit-Umgebung können Sie nur eine Dateifreigabe auf dem Development Kit-Host erstellen.
 2. Führen Sie das folgende Cmdlet aus:
-     ```powershell
+
+  ```powershell  
      Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
-     ```
+  ```
+
    Das Cmdlet verwendet die Parameter in der folgenden Tabelle:
 
    | Parameter | BESCHREIBUNG | type | Erforderlich |
    |---------|---------|---------|---------|
-   | *TranscriptsPathDestination* | Pfad zur externen Dateifreigabe, die als „fileshareIP\sharefoldername“ definiert ist. | Zeichenfolge | Ja|
+   | *TranscriptsPathDestination* | Pfad zur externen Dateifreigabe, die als „fileshareIP\sharefoldername“ definiert ist. | String | Ja|
    | *Credential* | Anmeldeinformationen für den Zugriff auf die Dateifreigabe | SecureString |   Ja |
 
 

@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 5841509f9c5c9aef20dd2687adb0e54856fa5d3e
-ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
+ms.openlocfilehash: d5467974a6b9164d92a2281fd94973835bc21993
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75183534"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756881"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Wartungsvorgänge von SQL-Ressourcenanbietern
 
@@ -114,7 +114,7 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
 
 ### <a name="known-issues"></a>Bekannte Probleme
 
-**Problem**:<br>
+**Problem:**<br>
 Protokolle für Geheimnisrotation. Die Protokolle für die Geheimnisrotation werden nicht automatisch erfasst, wenn beim Ausführen des benutzerdefinierten Skripts für die Geheimnisrotation ein Fehler auftritt.
 
 **Problemumgehung**:<br>
@@ -251,7 +251,7 @@ Die Azure-Diagnoseerweiterung wird standardmäßig auf dem virtuellen Computer d
 
 Wenn die Sammlung von Ereignisprotokollen und IIS-Protokollen für den SQL-Ressourcenanbieter konfiguriert wurde, finden Sie die Protokolle in einem Systemspeicherkonto mit dem Namen **sqladapterdiagaccount**.
 
-Weitere Informationen zur Azure-Diagnoseerweiterung finden Sie unter [Was ist die Azure-Diagnoseerweiterung?](/azure-monitor/platform/diagnostics-extension-overview).
+Weitere Informationen zur Azure-Diagnoseerweiterung finden Sie unter [Was ist die Azure-Diagnoseerweiterung?](/azure/azure-monitor/platform/diagnostics-extension-overview).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

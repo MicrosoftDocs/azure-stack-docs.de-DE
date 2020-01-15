@@ -12,12 +12,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: a228e20de1786529374e5e2431ca7bb79a9c14bf
-ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
+ms.openlocfilehash: c1311836487dc11e1e95307181cb02fafa511a6b
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/18/2019
-ms.locfileid: "75187275"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727410"
 ---
 # <a name="azure-stack-services-plans-offers-subscriptions-overview"></a>Übersicht: Azure Stack-Dienste, -Pläne, -Angebote und Abonnements
 
@@ -38,7 +38,7 @@ Die Bereitstellung eines Diensts umfasst folgende allgemeine Schritte:
 1. Planen Ihrer Dienstangebote mit:
 
    - Grundlegenden Diensten, z. B. Compute, Speicher, Netzwerk oder Key Vault
-   - Add-On-Diensten, z. B. App Service, SQL Server oder MySQL Server
+   - Mehrwertdienste, z. B. App Service, SQL Server oder MySQL Server.
 
 2. Erstellen Sie einen Plan, der mindestens einen Dienst umfasst. Wählen Sie beim Erstellen eines Plans Kontingente aus, mit denen die Ressourceneinschränkungen der einzelnen Dienste des Plans definiert werden, oder erstellen Sie eigene Kontingente.
 3. Erstellen Sie ein Angebot, das mindestens einen Plan umfasst. Das Angebot kann Basispläne und optionale Add-On-Pläne enthalten.

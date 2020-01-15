@@ -1,6 +1,6 @@
 ---
 title: Referenz zum Cmdlet „Start-AzsReadinessChecker“ | Microsoft-Dokumentation
-description: Hilfe zum PowerShell-Cmdlet für das Azure Stack-Modul für die Bereitschaftsüberprüfung.
+description: Hilfe zum PowerShell-Cmdlet für das Azure Stack Hub Readiness Checker-Tool-Modul.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: f60ee96673b5574f0cd0393dc6a53a2d7937c04f
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: d6b7525657696792bd72d968e8888bd8f7bc62fb
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159157"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727444"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Referenz zum Cmdlet „Start-AzsReadinessChecker“
 
 Modul: **Microsoft.AzureStack.ReadinessChecker**
 
-Dieses Modul enthält nur ein einzelnes Cmdlet. Das Cmdlet führt eine oder mehrere Funktionen vor der Bereitstellung oder Wartung für Azure Stack durch.
+Dieses Modul enthält nur ein einzelnes Cmdlet. Das Cmdlet führt eine oder mehrere Funktionen vor der Bereitstellung oder Wartung für Azure Stack Hub durch.
 
 ## <a name="syntax"></a>Syntax
 
@@ -166,7 +166,7 @@ Start-AzsReadinessChecker
 
 ## <a name="description"></a>BESCHREIBUNG
 
-Das Cmdlet **Start-AzsReadinessChecker** überprüft Zertifikate, Azure-Konten, Azure-Abonnements und Azure Active Directory-Instanzen (Azure AD). Führen Sie vor dem Bereitstellen von Azure Stack oder vor Azure Stack-Wartungsaktionen wie etwa der Geheimnisrotation eine Überprüfung aus. Das Cmdlet kann auch zum Generieren von Zertifikatsignieranforderungen für Infrastrukturzertifikate (und optional für PaaS-Zertifikate) verwendet werden. Zu guter Letzt kann das Cmdlet PFX-Zertifikate neu packen, um häufige Probleme mit der Paketerstellung zu beheben.
+Das Cmdlet **Start-AzsReadinessChecker** überprüft Zertifikate, Azure-Konten, Azure-Abonnements und Azure Active Directory-Instanzen (Azure AD). Führen Sie vor dem Bereitstellen von Azure Stack Hub oder vor Azure Stack Hub-Wartungsaktionen wie etwa der Geheimnisrotation eine Überprüfung aus. Das Cmdlet kann auch zum Generieren von Zertifikatsignieranforderungen für Infrastrukturzertifikate (und optional für PaaS-Zertifikate) verwendet werden. Zu guter Letzt kann das Cmdlet PFX-Zertifikate neu packen, um häufige Probleme mit der Paketerstellung zu beheben.
 
 ## <a name="examples"></a>Beispiele
 
@@ -179,7 +179,7 @@ $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="
 Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subject $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
 ```
 
-In diesem Beispiel generiert `Start-AzsReadinessChecker` mehrere Zertifikatsignieranforderungen (Certificate Signing Requests, CSRs) für Zertifikate, die für eine AD FS-Azure Stack-Bereitstellung mit dem Regionsnamen **east** und dem externen FQDN **azurestack.contoso.com** geeignet sind.
+In diesem Beispiel generiert `Start-AzsReadinessChecker` mehrere Zertifikatsignieranforderungen (Certificate Signing Requests, CSRs) für Zertifikate, die für eine AD FS-Azure Stack Hub-Bereitstellung mit dem Regionsnamen **east** und dem externen FQDN **azurestack.contoso.com** geeignet sind.
 
 ### <a name="example-validate-certificates"></a>Beispiel: Überprüfen von Zertifikaten
 
@@ -257,7 +257,7 @@ $subscriptionID = "<subscription ID"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment "<environment name>"
 ```
 
-In diesem Beispiel werden aus Sicherheitsgründen die Anmeldeinformationen des Abonnementbesitzers benötigt, und `Start-AzsReadinessChecker` führt eine Überprüfung anhand des angegebenen Kontos und Abonnements aus, um sicherzustellen, dass diese für die Azure Stack-Registrierung verwendet werden können.
+In diesem Beispiel werden aus Sicherheitsgründen die Anmeldeinformationen des Abonnementbesitzers benötigt, und `Start-AzsReadinessChecker` führt eine Überprüfung anhand des angegebenen Kontos und Abonnements aus, um sicherzustellen, dass diese für die Azure Stack Hub-Registrierung verwendet werden können.
 
 ### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>Beispiel: Überprüfen der Azure-Registrierung mit Bereitstellungsdaten (Bereitstellungsteam)
 
@@ -267,7 +267,7 @@ $subscriptionID = "<subscription ID>"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-In diesem Beispiel werden aus Sicherheitsgründen die Anmeldeinformationen des Abonnementbesitzers benötigt, und `Start-AzsReadinessChecker` führt eine Überprüfung anhand des angegebenes Kontos und Abonnements aus, um sicherzustellen, dass diese für die Azure Stack-Registrierung verwendet werden können, wobei zusätzliche Details aus der für die Bereitstellung generierten JSON-Datei mit Bereitstellungsdaten gelesen werden.
+In diesem Beispiel werden aus Sicherheitsgründen die Anmeldeinformationen des Abonnementbesitzers benötigt, und `Start-AzsReadinessChecker` führt eine Überprüfung anhand des angegebenes Kontos und Abonnements aus, um sicherzustellen, dass diese für die Azure Stack Hub-Registrierung verwendet werden können, wobei zusätzliche Details aus der für die Bereitstellung generierten JSON-Datei mit Bereitstellungsdaten gelesen werden.
 
 ### <a name="example-importexport-pfx-package"></a>Beispiel: Importieren/Exportieren eines PFX-Pakets
 
@@ -298,11 +298,11 @@ In diesem Beispiel erhält das Bereitstellungs- oder Supportteam den Bereitschaf
 
 ### <a name="-regionname"></a>-RegionName
 
-Gibt den Regionsnamen der Azure Stack-Bereitstellung an.
+Gibt den Regionsnamen der Azure Stack Hub-Bereitstellung an.
 
 |  |  |
 |----------------------------|--------------|
-|Geben Sie Folgendes ein:                       |Zeichenfolge        |
+|Typ:                       |String        |
 |Position:                   |benannt         |
 |Standardwert:              |Keine          |
 |Pipelineeingabe akzeptieren:      |False         |
@@ -310,11 +310,11 @@ Gibt den Regionsnamen der Azure Stack-Bereitstellung an.
 
 ### <a name="-fqdn"></a>-FQDN
 
-Gibt den externen FQDN der Azure Stack-Bereitstellung an, der auch als Alias für **ExternalFQDN** und **ExternalDomainName** verwendet wird.
+Gibt den externen FQDN der Azure Stack Hub-Bereitstellung an, der auch als Alias für **ExternalFQDN** und **ExternalDomainName** verwendet wird.
 
 |  |  |
 |----------------------------|--------------|
-|Geben Sie Folgendes ein:                       |Zeichenfolge        |
+|Typ:                       |String        |
 |Position:                   |benannt         |
 |Standardwert:              |ExternalFQDN, ExternalDomainName |
 |Pipelineeingabe akzeptieren:      |False         |
@@ -322,11 +322,11 @@ Gibt den externen FQDN der Azure Stack-Bereitstellung an, der auch als Alias f�
 
 ### <a name="-identitysystem"></a>-IdentitySystem
 
-Gibt die gültigen Werte des Identitätssystems der Azure Stack-Bereitstellung an: „AAD“ für Azure Active Directory oder „ADFS“ für Active Directory-Verbunddienste.
+Gibt die gültigen Werte des Identitätssystems der Azure Stack Hub-Bereitstellung an: „AAD“ für Azure Active Directory oder „ADFS“ für Active Directory-Verbunddienste.
 
 |  |  |
 |----------------------------|--------------|
-|Geben Sie Folgendes ein:                       |Zeichenfolge        |
+|Typ:                       |String        |
 |Position:                   |benannt         |
 |Standardwert:              |Keine          |
 |Gültige Werte:               |'AAD','ADFS'  |
@@ -339,7 +339,7 @@ Gibt das den PFX-Zertifikatdateien zugeordnete Kennwort an.
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |SecureString |
+|Typ:                       |SecureString |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -351,7 +351,7 @@ Gibt die Hashtabelle an, die Pfade und Kennwörter für PaaS-Zertifikate enthäl
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |Hashtable |
+|Typ:                       |Hashtable |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -359,11 +359,11 @@ Gibt die Hashtabelle an, die Pfade und Kennwörter für PaaS-Zertifikate enthäl
 
 ### <a name="-deploymentdatajsonpath"></a>-DeploymentDataJSONPath
 
-Gibt die JSON-Konfigurationsdatei mit Azure Stack-Bereitstellungsdaten an. Diese Datei wird für die Bereitstellung generiert.
+Gibt die JSON-Konfigurationsdatei mit Azure Stack Hub-Bereitstellungsdaten an. Diese Datei wird für die Bereitstellung generiert.
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |Zeichenfolge   |
+|Typ:                       |String   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -375,7 +375,7 @@ Gibt den Pfad zu einem problematischen Zertifikat an, für dessen Korrektur eine
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |Zeichenfolge   |
+|Typ:                       |String   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -387,7 +387,7 @@ Gibt den Zielpfad für die resultierende PFX-Datei der Import-/Exportroutine an.
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |Zeichenfolge   |
+|Typ:                       |String   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -399,7 +399,7 @@ Gibt ein sortiertes Wörterbuch des Fachgebiets für die Generierung von Zertifi
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |OrderedDictionary   |
+|Typ:                       |OrderedDictionary   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -414,7 +414,7 @@ Gibt den SAN-Typ der Zertifikatanforderung an. Gültige Werte: **MultipleCSR**, 
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |Zeichenfolge   |
+|Typ:                       |String   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Gültige Werte:               |'MultipleCSR','SingleCSR' |
@@ -427,7 +427,7 @@ Gibt den Zielpfad für die Zertifikatanforderungsdateien an. Das Verzeichnis mus
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |Zeichenfolge   |
+|Typ:                       |String   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -435,11 +435,11 @@ Gibt den Zielpfad für die Zertifikatanforderungsdateien an. Das Verzeichnis mus
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
-Gibt den für die Azure Stack-Bereitstellung zu verwendenden Azure AD-Dienstadministrator an.
+Gibt den für die Azure Stack Hub-Bereitstellung zu verwendenden Azure AD-Dienstadministrator an.
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |PSCredential   |
+|Typ:                       |PSCredential   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -447,11 +447,11 @@ Gibt den für die Azure Stack-Bereitstellung zu verwendenden Azure AD-Dienstadm
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
-Gibt den für die Azure Stack-Bereitstellung zu verwendenden Azure AD-Namen an.
+Gibt den für die Azure Stack Hub-Bereitstellung zu verwendenden Azure AD-Namen an.
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |Zeichenfolge   |
+|Typ:                       |String   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -459,11 +459,11 @@ Gibt den für die Azure Stack-Bereitstellung zu verwendenden Azure AD-Namen an.
 
 ### <a name="-azureenvironment"></a>-AzureEnvironment
 
-Gibt die Instanz der Azure-Dienste mit den Konten, Verzeichnissen und Abonnements an, die für die Azure Stack-Bereitstellung und -Registrierung verwendet werden sollen.
+Gibt die Instanz der Azure-Dienste mit den Konten, Verzeichnissen und Abonnements an, die für die Azure Stack Hub-Bereitstellung und -Registrierung verwendet werden sollen.
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |Zeichenfolge   |
+|Typ:                       |String   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Gültige Werte:               |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
@@ -472,11 +472,11 @@ Gibt die Instanz der Azure-Dienste mit den Konten, Verzeichnissen und Abonnement
 
 ### <a name="-registrationaccount"></a>-RegistrationAccount
 
-Gibt das Registrierungskonto an, das für die Azure Stack-Registrierung verwendet werden soll.
+Gibt das Registrierungskonto an, das für die Azure Stack Hub-Registrierung verwendet werden soll.
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |Zeichenfolge   |
+|Typ:                       |String   |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -484,11 +484,11 @@ Gibt das Registrierungskonto an, das für die Azure Stack-Registrierung verwend
 
 ### <a name="-registrationsubscriptionid"></a>-RegistrationSubscriptionID
 
-Gibt die Registrierungsabonnement-ID an, die für die Azure Stack-Registrierung verwendet werden soll.
+Gibt die Registrierungsabonnement-ID an, die für die Azure Stack Hub-Registrierung verwendet werden soll.
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |Guid     |
+|Typ:                       |Guid     |
 |Position:                   |benannt    |
 |Standardwert:              |Keine     |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -500,9 +500,9 @@ Gibt den Pfad für den Bereitschaftsbericht an. Standardmäßig werden das aktue
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |Zeichenfolge   |
+|Typ:                       |String   |
 |Position:                   |benannt    |
-|Standardwert:              |Alle      |
+|Standardwert:              |All      |
 |Pipelineeingabe akzeptieren:      |False    |
 |Platzhalterzeichen akzeptieren: |False    |
 
@@ -512,17 +512,17 @@ Gibt den Pfad für den Bereitschaftsbericht an. Standardmäßig werden das aktue
 
 Gibt den Pfad an, unter dem nur die für das Zertifikat erforderlichen Zertifikatordner enthalten sind.
 
-Folgende Ordner sind für die Azure Stack-Bereitstellung mit dem Azure AD-Identitätssystem erforderlich:
+Folgende Ordner sind für die Azure Stack Hub-Bereitstellung mit dem Azure AD-Identitätssystem erforderlich:
 
 - ACSBlob, ACSQueue, ACSTable, Admin Portal, ARM Admin, ARM Public, KeyVault, KeyVaultInternal, Public Portal
 
-Zu den erforderlichen Ordnern für die Azure Stack-Bereitstellung mit dem Identitätssystem der Active Directory-Verbunddienste (AD FS) zählen Folgende:
+Zu den erforderlichen Ordnern für die Azure Stack Hub-Bereitstellung mit dem Identitätssystem der Active Directory-Verbunddienste (AD FS) zählen Folgende:
 
 - ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, KeyVault, KeyVaultInternal, Public Portal
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |Zeichenfolge   |
+|Typ:                       |String   |
 |Position:                   |benannt    |
 |Standardwert:              |.\Certificates |
 |Pipelineeingabe akzeptieren:      |False    |
@@ -534,7 +534,7 @@ Gibt an, ob PaaS-Dienste/-Hostnamen zu Zertifikatanforderungen hinzugefügt werd
 
 |  |  |
 |----------------------------|------------------|
-|Geben Sie Folgendes ein:                       |SwitchParameter   |
+|Typ:                       |SwitchParameter   |
 |Position:                   |benannt             |
 |Standardwert:              |False             |
 |Pipelineeingabe akzeptieren:      |False             |
@@ -546,9 +546,9 @@ Gibt an, ob nur die Berichtszusammenfassung angezeigt werden soll und Details au
 
 |  |  |
 |----------------------------|---------|
-|Geben Sie Folgendes ein:                       |Zeichenfolge   |
+|Typ:                       |String   |
 |Position:                   |benannt    |
-|Standardwert:              |Alle      |
+|Standardwert:              |All      |
 |Gültige Werte:               |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
 |Pipelineeingabe akzeptieren:      |False    |
 |Platzhalterzeichen akzeptieren: |False    |
@@ -559,7 +559,7 @@ Gibt an, ob nur die Berichtszusammenfassung angezeigt werden soll und Details au
 
 |  |  |
 |----------------------------|------------------|
-|Geben Sie Folgendes ein:                       |SwitchParameter   |
+|Typ:                       |SwitchParameter   |
 |Position:                   |benannt             |
 |Standardwert:              |False             |
 |Pipelineeingabe akzeptieren:      |False             |
@@ -571,7 +571,7 @@ Entfernt die vorherige Ausführung und den Überprüfungsverlauf und schreibt Ü
 
 |  |  |
 |----------------------------|------------------|
-|Geben Sie Folgendes ein:                       |SwitchParameter   |
+|Typ:                       |SwitchParameter   |
 |Aliase:                    |cf                |
 |Position:                   |benannt             |
 |Standardwert:              |False             |
@@ -584,7 +584,7 @@ Gibt einen benutzerdefinierte Pfad zum Speichern des JSON-Bereitschaftsberichts 
 
 |  |  |
 |----------------------------|------------------|
-|Geben Sie Folgendes ein:                       |Zeichenfolge            |
+|Typ:                       |String            |
 |Position:                   |benannt             |
 |Standardwert:              |$ENV:TEMP\AzsReadinessChecker  |
 |Pipelineeingabe akzeptieren:      |False             |
@@ -596,7 +596,7 @@ Fordert vor der Ausführung des Cmdlets zur Bestätigung auf.
 
 |  |  |
 |----------------------------|------------------|
-|Geben Sie Folgendes ein:                       |SwitchParameter   |
+|Typ:                       |SwitchParameter   |
 |Aliase:                    |cf                |
 |Position:                   |benannt             |
 |Standardwert:              |False             |
@@ -609,7 +609,7 @@ Zeigt, was geschieht, wenn das Cmdlet ausgeführt wird. Das Cmdlet wird nicht au
 
 |  |  |
 |----------------------------|------------------|
-|Geben Sie Folgendes ein:                       |SwitchParameter   |
+|Typ:                       |SwitchParameter   |
 |Aliase:                    |wi                |
 |Position:                   |benannt             |
 |Standardwert:              |False             |

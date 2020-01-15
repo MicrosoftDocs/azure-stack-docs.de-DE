@@ -1,7 +1,6 @@
 ---
-title: Kontingenttypen in Azure Stack | Microsoft-Dokumentation
-titleSuffix: Azure Stack
-description: Anzeigen und Bearbeiten der unterschiedlichen Kontingenttypen, die für Dienste und Ressourcen in Azure Stack verfügbar sind.
+title: Kontingenttypen in Azure Stack Hub | Microsoft-Dokumentation
+description: Anzeigen und Bearbeiten der unterschiedlichen Kontingenttypen, die für Dienste und Ressourcen in Azure Stack Hub verfügbar sind.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -13,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 049e4577541dea4f41a8ad18fc7f61875109153e
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: d6068ef98d4fe2d575f5501ad6760d4b408385cd
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557548"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718095"
 ---
-# <a name="quota-types-in-azure-stack"></a>Kontingenttypen in Azure Stack
+# <a name="quota-types-in-azure-stack-hub"></a>Kontingenttypen in Azure Stack Hub
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
@@ -80,7 +79,7 @@ Es gibt zwei verschiedene Möglichkeiten, ein vorhandenes Kontingent anzuzeigen:
 3. Wählen Sie in dem Blatt, das geöffnet wird, **Dienste und Kontingente** aus.
 4. Wählen Sie das Kontingent aus, das Sie anzeigen möchten, indem Sie in der Spalte **Name** darauf klicken.
 
-    [![Kontingente im Azure Stack-Administratorportal](media/azure-stack-quota-types/quotas1sm.png "Anzeigen von Kontingenten im Administratorportal")](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Kontingente im Azure Stack Hub-Administratorportal](media/azure-stack-quota-types/quotas1sm.png "Anzeigen von Kontingenten im Administratorportal")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>Ressourcenanbieter
 
@@ -99,11 +98,11 @@ Es gibt zwei Möglichkeiten, ein Kontingent zu bearbeiten:
 3. Wählen Sie in dem Blatt, das geöffnet wird, **Dienste und Kontingente** aus.
 4. Wählen Sie das Kontingent aus, das Sie bearbeiten möchten, indem Sie in der Spalte **Name** darauf klicken.
 
-    [![Kontingente im Azure Stack-Administratorportal](media/azure-stack-quota-types/quotas1sm.png "Anzeigen von Kontingenten im Administratorportal")](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Kontingente im Azure Stack Hub-Administratorportal](media/azure-stack-quota-types/quotas1sm.png "Anzeigen von Kontingenten im Administratorportal")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5. Wählen Sie auf dem Blatt, das geöffnet wird, **In Compute bearbeiten**, **Im Netzwerk bearbeiten** oder **Im Speicher bearbeiten** aus.
 
-    ![Bearbeiten eines Plans im Azure Stack-Administratorportal](media/azure-stack-quota-types/quotas3.png "Bearbeiten eines Plans im Azure Stack-Administratorportal")
+    ![Bearbeiten eines Plans im Azure Stack Hub-Administratorportal](media/azure-stack-quota-types/quotas3.png "Bearbeiten eines Plans im Azure Stack Hub-Administratorportal")
 
 Alternativ können Sie dieses Verfahren verwenden, um ein Kontingent zu bearbeiten:
 

@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ddc8218aadbf3940ea18ce80012441c5e43c7472
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 3bd29e8625fac818d05954720d84d572b684c92e
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640239"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718010"
 ---
 # <a name="cross-cloud-scaling-pattern"></a>Cloudübergreifendes Skalierungsmuster
 
@@ -109,7 +109,7 @@ Verwenden Sie dieses Muster in folgenden Fällen nicht:
 ## <a name="next-steps"></a>Nächste Schritte
 
 Weitere Informationen zu den in diesem Artikel behandelten Themen:
-- In der [Übersicht über Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview), in der Sie mehr dazu erfahren, wie dieser DNS-basierte Lastenausgleich für Datenverkehr funktioniert.
+- In der [Übersicht über Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) erfahren Sie mehr dazu, wie dieser DNS-basierte Lastenausgleich für Datenverkehr funktioniert.
 - Unter [Überlegungen zum Entwurf von Hybridanwendungen](overview-app-design-considerations.md) erfahren Sie mehr zu bewährten Methoden und erhalten Antworten auf weitere Fragen.
 - Siehe die [Azure Stack-Familie mit Produkten und Lösungen](/azure-stack), um mehr über das gesamte Portfolio von Produkten und Lösungen zu erfahren.
 

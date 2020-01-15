@@ -1,6 +1,6 @@
 ---
-title: Von Profilen in Azure Stack unterstützte API-Versionen von Ressourcenanbietern | Microsoft-Dokumentation
-description: Erfahren Sie mehr über die Azure Resource Manager-API-Versionen, die von Profilen in Azure Stack unterstützt werden.
+title: Von Profilen in Azure Stack Hub unterstützte API-Versionen von Ressourcenanbietern | Microsoft-Dokumentation
+description: Erfahren Sie mehr über die Azure Resource Manager-API-Versionen, die von Profilen in Azure Stack Hub unterstützt werden.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -10,20 +10,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: f7d32fde9cba051297165e2e491f5c92115a8a0d
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: ca8b1dc5fd3b8f7f029498145a692b7a8414c053
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579040"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727495"
 ---
-# <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Von Profilen in Azure Stack unterstützte API-Versionen von Ressourcenanbietern
+# <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Von Profilen in Azure Stack Hub unterstützte API-Versionen von Ressourcenanbietern
 
-In diesem Artikel finden Sie den Ressourcenanbieter und die Versionsnummern für jedes API-Profil, das von Azure Stack verwendet wird. In den Tabellen in diesem Artikel sind die Versionen aufgeführt, die für die einzelnen Ressourcenanbieter und die API-Versionen der Profile unterstützt werden. Jeder Ressourcenanbieter enthält einen Satz mit Ressourcentypen und spezifischen Versionsnummern.
+In diesem Artikel finden Sie den Ressourcenanbieter und die Versionsnummern für jedes API-Profil, das von Azure Stack Hub verwendet wird. In den Tabellen in diesem Artikel sind die Versionen aufgeführt, die für die einzelnen Ressourcenanbieter und die API-Versionen der Profile unterstützt werden. Jeder Ressourcenanbieter enthält einen Satz mit Ressourcentypen und spezifischen Versionsnummern.
 
 Für das API-Profil gelten drei Benennungskonventionen:
 
@@ -31,7 +31,7 @@ Für das API-Profil gelten drei Benennungskonventionen:
 - **jjjj-mm-tt-hybrid**
 - **jjjj-mm-tt-profile**
 
-Eine Erklärung der API-Profile und des Rhythmus der Versionsveröffentlichung für Azure Stack finden Sie unter [Verwalten von API-Versionsprofilen in Azure Stack](azure-stack-version-profiles.md).
+Eine Erklärung der API-Profile und des Rhythmus der Versionsveröffentlichung für Azure Stack Hub finden Sie unter [Verwalten von API-Versionsprofilen in Azure Stack Hub](azure-stack-version-profiles.md).
 
 > [!NOTE]
 > Das API-Profil **latest** enthält die neueste Version der Ressourcenanbieter-API und ist in diesem Artikel nicht aufgeführt.
@@ -60,8 +60,8 @@ Mit der rollenbasierten Zugriffssteuerung können Sie die Aktionen verwalten, di
 
 | Ressourcentypen | API-Versionen |
 |---------------------|--------------------|
-| Sperren | 2016-09-01 |
-| Vorgänge | 2015-07-01 |
+| Locks | 2016-09-01 |
+| Operationen (Operations) | 2015-07-01 |
 | Berechtigungen | 2015-07-01 |
 | Richtlinienzuweisungen | 2016-12-01 |
 | Richtliniendefinitionen | 2016-12-01 |
@@ -76,7 +76,7 @@ Mit der rollenbasierten Zugriffssteuerung können Sie die Aktionen verwalten, di
 | Delegierte Anbieterabonnements | 2015-06-01 – Vorschauversion |
 | Delegierte Nutzungsaggregate | 2015-06-01 – Vorschauversion |
 | Geschätzter Ressourcenaufwand | 2015-06-01 – Vorschauversion |
-| Vorgänge | 2015-06-01 – Vorschauversion |
+| Operationen (Operations) | 2015-06-01 – Vorschauversion |
 | Nutzungsaggregate von Abonnenten | 2015-06-01 – Vorschauversion |
 | Nutzungsaggregate | 2015-06-01 – Vorschauversion |
 
@@ -92,7 +92,7 @@ Die Azure Compute-APIs ermöglichen Ihnen den programmgesteuerten Zugriff auf vi
 | Speicherorte/Herausgeber | 2017-12-01 |
 | Speicherorte/Verwendungen | 2017-12-01 |
 | Speicherorte/VM-Größen | 2017-12-01 |
-| Vorgänge | 2017-12-01 |
+| Operationen (Operations) | 2017-12-01 |
 | Virtual Machines | 2017-12-01 |
 | Virtuelle Computer/Erweiterungen | 2017-12-01 |
 | Virtual Machine Scale Sets | 2017-12-01 |
@@ -109,7 +109,7 @@ Die Azure Compute-APIs ermöglichen Ihnen den programmgesteuerten Zugriff auf vi
 | Inhalt der Zusammenstellung | 2015-04-01 |
 | Auszug aus Zusammenstellung | 2015-04-01 |
 | Katalogelemente | 2015-04-01 |
-| Vorgänge | 2015-04-01 |
+| Operationen (Operations) | 2015-04-01 |
 | Portal | 2015-04-01 |
 | Suchen, | 2015-04-01 |
 | Vorschlagen | 2015-04-01 |
@@ -118,7 +118,7 @@ Die Azure Compute-APIs ermöglichen Ihnen den programmgesteuerten Zugriff auf vi
 
 | Ressourcentypen | API-Versionen |
 |--------------------|--------------------|
-| Vorgänge | 2015-04-01 |
+| Operationen (Operations) | 2015-04-01 |
 | Ereignistypen | 2015-04-01 |
 | Ereigniskategorien | 2015-04-01 |
 | Metrikdefinitionen | 2018-01-01 |
@@ -132,7 +132,7 @@ Hiermit verwalten Sie Ihren Schlüsseltresor sowie die Schlüssel, Geheimnisse u
 
 | Ressourcentypen | API-Versionen |
 |-------------------------|--------------|
-| Vorgänge | 2016-10-01 |
+| Operationen (Operations) | 2016-10-01 |
 | Tresore | 2016-10-01 |
 | Tresore/Zugriffsrichtlinien | 2016-10-01 |
 | Tresore/Geheimnisse | 2016-10-01 |
@@ -153,7 +153,7 @@ Das Ergebnis des Vorgangsaufrufs ist eine Darstellung der Liste verfügbarer Net
 | Speicherorte/Verwendungen |2017-10-01 |
 | Netzwerkschnittstellen | 2017-10-01 |
 | Netzwerksicherheitsgruppen | 2017-10-01 |
-| Vorgänge | 2017-10-01 |
+| Operationen (Operations) | 2017-10-01 |
 | Öffentliche IP-Adresse | 2017-10-01 |
 | Routingtabellen | 2017-10-01 |
 | Gateway des virtuellen Netzwerks | 2017-10-01 |
@@ -169,7 +169,7 @@ Mit Azure Resource Manager können Sie die Infrastruktur für Ihre Azure-Lösung
 | Bereitstellungen/Vorgänge | 2018-05-01 |
 | Links | 2018-05-01 |
 | Standorte | 2018-05-01 |
-| Vorgänge | 2018-05-01 |
+| Operationen (Operations) | 2018-05-01 |
 | Anbieter | 2018-05-01 |
 | ResourceGroups| 2018-05-01 |
 | Ressourcen | 2018-05-01/ |
@@ -193,11 +193,11 @@ Mit dem Speicherressourcenanbieter (Storage Resource Provider, SRP) können Sie 
 | CheckNameAvailability | 2017-10-01 |
 | Standorte | 2017-10-01 |
 | Speicherorte/Kontingente | 2017-10-01 |
-| Vorgänge | 2017-10-01 |
+| Operationen (Operations) | 2017-10-01 |
 | Speicherkonten | 2017-10-01 |
 | Verwendungen | 2017-10-01 |
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Installieren von PowerShell für Azure Stack](../operator/azure-stack-powershell-install.md)
-- [Konfigurieren der PowerShell-Umgebung des Azure Stack-Benutzers](azure-stack-powershell-configure-user.md)  
+- [Installieren von PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md)
+- [Konfigurieren der Azure Stack Hub-PowerShell-Umgebung](azure-stack-powershell-configure-user.md)  

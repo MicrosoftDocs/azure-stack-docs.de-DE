@@ -15,20 +15,30 @@ ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: d5606e7904fe311a54d792a18e5d4029c709b33c
-ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
+ms.openlocfilehash: b9e8012e71e5211921a35792cb3e2e1039e5d9e1
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72257746"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756803"
 ---
-# <a name="troubleshooting-patch-and-update-issues-for-azure-stack"></a>Behandeln von Patch- und Updateproblemen bei Azure Stack
+# <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Bewährte Methoden für die Behandlung von Problemen bei Azure Stack Hub-Patches und Updates
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme*
+Dieser Artikel bietet eine Übersicht über bewährte Methoden zur Behandlung von Problemen bei Azure Stack Hub-Patches und Updates sowie Korrekturen bei häufigen Patch- und Updateproblemen.
 
-Nutzen Sie die Hinweise in diesem Artikel, um mögliche Probleme beim Aktualisieren von Azure Stack zu beheben.
 
-## <a name="preparationfailed"></a>PreparationFailed
+Der Azure Stack Hub-Patch und -Updatevorgang ermöglicht den Betreibern das konsistente und optimierte Anwenden von Updatepaketen. Probleme bei Patches und Updates sind zwar selten, können jedoch auftreten. Die folgenden Schritte werden empfohlen, wenn während des Patch- und Updatevorgangs ein Problem auftritt:
+
+0. **Voraussetzungen:** Stellen Sie sicher, dass Sie die [Checkliste für Updateaktivitäten](release-notes-checklist.md) befolgt und die [automatische Protokollsammlung konfiguriert](azure-stack-configure-automatic-diagnostic-log-collection.md) haben.
+1. Führen Sie die Behebungsschritte in der Fehlerwarnung aus, die beim Fehlschlagen des Updates erstellt wurde.
+2. Lesen Sie [Häufige Probleme bei Azure Stack Hub-Patches und -Updates](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates-troubleshoot#common-azure-stack-hub-patch-and-update-issues), und führen Sie die empfohlenen Aktionen aus, wenn Ihr Problem aufgeführt ist.
+3. Wenn Sie das Problem mit den oben beschriebenen Schritten nicht beheben konnten, erstellen Sie ein [Azure Stack-Supportticket](azure-stack-help-and-support-overview.md). Stellen Sie sicher, dass für die Zeitspanne, in der das Problem aufgetreten ist, [Protokolle gesammelt](https://docs.microsoft.com/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection) wurden.
+
+## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Häufige Probleme bei Azure Stack Hub-Patches und -Updates
+
+*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme*
+
+### <a name="preparationfailed"></a>PreparationFailed
 
 **Geltungsbereich**: Dieses Problem gilt für alle unterstützten Versionen.
 
@@ -36,9 +46,9 @@ Nutzen Sie die Hinweise in diesem Artikel, um mögliche Probleme beim Aktualisie
 
 **Abhilfe**: Sie können dieses Problem umgehen, indem Sie erneut auf **Jetzt installieren** klicken. Falls das Problem weiterhin besteht, empfehlen wir Ihnen das manuelle Hochladen des Updatepakets gemäß der Anleitung im Abschnitt [Installieren von Updates](azure-stack-apply-updates.md?#install-updates-and-monitor-progress).
 
-**Häufigkeit**: Common
+**Häufigkeit**: Allgemein
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Aktualisieren von Azure Stack](azure-stack-updates.md)  
-- [Microsoft Azure Stack: Hilfe und Support](azure-stack-help-and-support-overview.md)
+- [Aktualisieren von Azure Stack Hub](azure-stack-updates.md)  
+- [Microsoft Azure Stack Hub: Hilfe und Support](azure-stack-help-and-support-overview.md)

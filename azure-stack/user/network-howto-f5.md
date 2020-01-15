@@ -9,12 +9,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: c1166b1755b33687757b4587942c5472413e2b3e
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 60e6330aa492539a3b4e89a390ddcad5650cac92
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780880"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718418"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Bereitstellen von F5 in zwei Azure Stack Hub-Instanzen
 
@@ -24,7 +24,7 @@ Die Azure Resource Manager-Vorlagen finden Sie im GitHub-Repository [f5-azurest
 
 ## <a name="overview-of-load-balancing-with-f5"></a>Übersicht über den Lastenausgleich mit F5
 
-Die F5-Hardware (der Lastenausgleich) kann sich außerhalb von Azure Stack und innerhalb des Rechenzentrums befinden, das Azure Stack hostet. Azure Stack verfügt nicht über eine native Funktion für den Lastenausgleich von Workloads in zwei separaten Azure Stack-Bereitstellungen. Die BIG-IP Virtual Edition (VE) von F5 wird auf beiden Plattformen ausgeführt. Diese Konfiguration unterstützt die Parität zwischen Azure- und Azure Stack-Architekturen durch Replikation der unterstützenden Anwendungsdienste. Sie können eine App in einer Umgebung entwickeln und in eine andere verschieben. Sie können auch die gesamte produktionsreife Azure Stack-Umgebung spiegeln, einschließlich der BIG-IP-Konfigurationen, Richtlinien und Anwendungsdienste. Bei diesem Ansatz ist es nicht notwendig, die Anwendung zeitaufwändig umzugestalten und zu testen, sodass Sie sich ganz dem Schreiben von Code widmen können.
+Die F5-Hardware (der Lastenausgleich) kann sich außerhalb von Azure Stack und innerhalb des Rechenzentrums befinden, das Azure Stack hostet. Azure Stack verfügt nicht über eine native Funktion für den Lastenausgleich von Workloads in zwei separaten Azure Stack-Bereitstellungen. Die BIG-IP Virtual Edition (VE) von F5 wird auf beiden Plattformen ausgeführt. Diese Konfiguration unterstützt die Parität zwischen Azure- und Azure Stack-Architekturen durch Replikation der unterstützenden Anwendungsdienste. Sie können eine App in einer Umgebung entwickeln und in eine andere verschieben. Sie können auch die gesamte produktionsreife Azure Stack-Umgebung spiegeln, einschließlich der BIG-IP-Konfigurationen, Richtlinien und Anwendungsdienste. Bei diesem Ansatz ist es nicht notwendig, die Anwendung zeitaufwändig umzugestalten und zu testen, sodass Sie sich ganz dem Schreiben von Code widmen können.
 
 Das Schützen von Anwendungen und der zugehörigen Daten ist häufig ein Problem für Entwickler, die Apps in die Public Cloud verschieben. Das muss nicht so sein. Sie können eine App in Ihrer Azure Stack-Umgebung erstellen, während ein Sicherheitsarchitekt die erforderlichen Einstellungen für die Web Application Firewall (WAF) von F5 konfiguriert. Der gesamte Stapel kann dann mit dem sicheren Wissen, dass die Anwendung durch die gleiche branchenführende WAF geschützt wird, in Azure Stack repliziert werden. Bei identischen Richtlinien und Regelsätzen gibt es keine Sicherheitslücken oder -risiken, die andernfalls bei der Verwendung unterschiedlicher WAFs entstehen könnten.
 
@@ -140,9 +140,9 @@ Nach der Installation müssen Sie Ihre Azure Stack-Netzwerksicherheitsgruppen (
 
     ![](./media/network-howto-f5/image11.png)
     
-    | Schlüssel | Wert |
+    | Key | value |
     | --- | --- |
-    | NAME | NGINX_Pool |
+    | Name | NGINX_Pool |
     | Health Monitors (Integritätsüberwachungen) | HTTPS |
     | Node Name (Knotenname) | NGINX |
     | Adresse | \<Ihre private NGINX-IP-Adresse> |
@@ -160,9 +160,9 @@ Nach der Installation müssen Sie Ihre Azure Stack-Netzwerksicherheitsgruppen (
 
 13. Erstellen Sie einen virtuellen Server, indem Sie zu **Local Traffic** > **Virtual Servers** > **Virtual Server List** (Lokaler Datenverkehr > Virtuelle Server > Liste virtueller Server) navigieren und **+** auswählen. Konfigurieren Sie den Pool mit den Werten in der Tabelle. Übernehmen Sie bei allen anderen Feldern die Standardwerte.
 
-    | Schlüssel | Wert |
+    | Key | value |
     | --- | --- |
-    |NAME | NGINX |
+    |Name | NGINX |
     |Destination Address (Zieladresse) | \<Eigene IP-Adresse der BIG-IP-Instanz> |
     |Service Port (Dienstport) | 443 |
     |SSL Profile (Client) (SSL-Profil (Client)) | clientssl |
@@ -185,11 +185,11 @@ Nach der Installation müssen Sie Ihre Azure Stack-Netzwerksicherheitsgruppen (
     ![](./media/network-howto-f5/image17.png)
 
 
-## <a name="for-more-information"></a>Weitere Informationen
+## <a name="for-more-information"></a>Weitere Informationen finden Sie unter
 
 Referenzartikel zur Verwendung von F5 finden Sie hier:
 
-- [Verfügbarkeitsdienste für Rechenzentren mit Big-IP DNS](https://clouddocs.f5.com/training/community/dns/html/class3/class3.html)
+- [Verfügbarkeitsdienste für Rechenzentren mit Big-IP DNS](https://clouddocs.f5.com/training/community/dns/html/class3/class3.html)
 - [Bereitstellen des BIG-IP-Systems mit HTTP-Anwendungen](https://www.f5.com/content/dam/f5/corp/global/pdf/deployment-guides/iapp-http-dg.pdf)
 - [Erstellen einer WIP (Wide IP) für GSLB](https://clouddocs.f5.com/training/community/big-iq-cloud-edition/html/class10/module2/lab1.html)
 
