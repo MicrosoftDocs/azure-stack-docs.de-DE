@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d6adbc374cbd2472ceed1895fe7efb34ab5b9d64
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 3a8edb749ba995636f8e2fe626063ff4c495bb7b
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654915"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881755"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Bereitstellen einer App, die mithilfe von Azure und Azure Stack Hub cloudübergreifend skaliert wird
-
-*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme und Azure Stack Development Kit*
 
 Es wird beschrieben, wie Sie eine cloudübergreifende Lösung erstellen, um einen manuell ausgelösten Prozess zum Umschalten von einer unter Azure Stack Hub gehosteten Web-App zu einer unter Azure gehosteten Web-App mit automatischer Skalierung per Traffic Manager bereitzustellen. So wird sichergestellt, dass das Cloudhilfsprogramm auch bei hoher Last flexibel und skalierbar bleibt.
 
