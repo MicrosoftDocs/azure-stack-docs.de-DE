@@ -4,7 +4,6 @@ description: Dieser Artikel beschreibt die grundlegenden Verwaltungsaufgaben fü
 services: azure-stack
 documentationcenter: ''
 author: justinha
-manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -16,12 +15,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 1074f359063855ef5f80ef6f1e3807b87184a4ca
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 785b787702f173fe3f30b53f29f8770f9f039b1b
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974877"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881619"
 ---
 # <a name="asdk-admin-basics"></a>Grundlagen der ASDK-Verwaltung
 Wenn Sie mit der Verwaltung des Azure Stack Development Kits (ASDK) noch nicht vertraut sind, gibt es verschiedene Aspekte, die Sie kennen müssen. Dieser Leitfaden bietet eine Übersicht über Ihre Rolle als Azure Stack-Operator in der Evaluierungsumgebung. Wenn Sie sich mit diesen Informationen vertraut machen, stellen Sie sicher, dass Ihre Testbenutzer schnell produktiv arbeiten können.
@@ -38,7 +37,7 @@ Es gibt einige Überlegungen zu Konten, die Sie beim Verwalten von Azure Stack b
 |Lokaler Administrator (.\Administrator)|ASDK-Hostadministrator|ASDK-Hostadministrator|
 |AzureStack\AzureStackAdmin|ASDK-Hostadministrator<br><br>Kann zum Anmelden beim Azure Stack-Administratorportal verwendet werden<br><br>Zugriff zum Anzeigen und Verwalten von Service Fabric-Ringen|ASDK-Hostadministrator<br><br>Kein Zugriff auf das Azure Stack-Administratorportal<br><br>Zugriff zum Anzeigen und Verwalten von Service Fabric-Ringen<br><br>Nicht mehr Besitzer des Standardabonnements des Anbieters (DPS)|
 |AzureStack\CloudAdmin|Kann auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen|Kann auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen<br><br>Kann sich nicht beim ASDK-Host anmelden<br><br>Besitzer des Standardabonnements des Anbieters (DPS)|
-|Globaler Azure AD-Administrator|Während der Installation verwendet<br><br>Besitzer des Standardabonnements des Anbieters (DPS)|Nicht zutreffend|
+|Globaler Azure AD-Administrator|Während der Installation verwendet<br><br>Besitzer des Standardabonnements des Anbieters (DPS)|Nicht verfügbar|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Welche Tools verwende ich für die Verwaltung?

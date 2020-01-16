@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 88355951ea5cffc147ef9644a6e35b78bb80a02c
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 26895aeaf55c466d5800e52c7c482d4516f3f244
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640047"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881636"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Konfigurieren der Hybrid Cloud-Konnektivität mithilfe von Azure und Azure Stack Hub
-
-*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme und Azure Stack Development Kit*
 
 Mithilfe des Hybridkonnektivitätsmusters können Sie auf Ressourcen mit Sicherheit in globalen Azure- und Azure Stack Hub-Instanzen zugreifen.
 
@@ -90,7 +88,7 @@ Verbindungsangaben:
 
 Netzwerk- und Subnetz-IP-Adressen:
 
-| Azure-/Azure Stack Hub-Verbindung | NAME | Subnet | IP-Adresse |
+| Azure-/Azure Stack Hub-Verbindung | Name | Subnet | IP-Adresse |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
 | Azure: VNet | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |

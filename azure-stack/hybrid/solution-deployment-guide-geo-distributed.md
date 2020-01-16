@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 11da2f86bcfce1473e5fabe3712281fa3e9e68b2
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: c18e510d32773905b59cd756ed49daf59a0d03e9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640425"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881857"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Erstellen einer geografisch verteilten App-Lösung, um Datenverkehr mit Azure und Azure Stack Hub weiterzuleiten
-
-*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme und Azure Stack Development Kit*
 
 Es wird beschrieben, wie Sie Datenverkehr basierend auf unterschiedlichen Metriken an bestimmte Endpunkte weiterleiten, indem Sie das Muster für geografisch verteilte Apps verwenden. Durch die Erstellung eines Traffic Manager-Profils mit Weiterleitung und Endpunktkonfiguration anhand der Geografie wird sichergestellt, dass Informationen basierend auf regionalen Anforderungen, unternehmensinternen und internationalen Bestimmungen und Ihren Datenanforderungen an Endpunkte weitergeleitet werden.
 
@@ -315,7 +313,7 @@ Nach dem Hinzufügen des CNAME-Eintrags sieht die Seite mit den DNS-Einträgen w
 
 6. Geben Sie den vollqualifizierten Domänennamen ein, z.B. `www.northwindcloud.com`.
 
-7. Wählen Sie **Überprüfen**.
+7. Wählen Sie **Überprüfen** aus.
 
 8. Fügen Sie, falls angegeben, den DNS-Einträgen der Domänennamen-Registrierungsstelle weitere Einträge mit anderen Typen (`A` oder `TXT`) hinzu. Azure stellt die Werte und Typen dieser Einträge bereit:
 
@@ -331,7 +329,7 @@ Nach dem Hinzufügen des CNAME-Eintrags sieht die Seite mit den DNS-Einträgen w
 
 12. Geben Sie den vollqualifizierten Domänennamen ein, z.B. `northwindcloud.com`.
 
-13. Wählen Sie **Überprüfen**. Die Schaltfläche **Hinzufügen** wird aktiviert.
+13. Wählen Sie **Überprüfen** aus. Die Schaltfläche **Hinzufügen** wird aktiviert.
 
 14. Stellen Sie sicher, dass die Option für den **Typ des Hostnamenseintrags** auf **A-Eintrag** (beispiel.com) festgelegt ist.
 

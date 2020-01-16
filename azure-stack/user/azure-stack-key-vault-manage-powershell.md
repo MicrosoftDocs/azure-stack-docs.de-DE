@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 4762cb77583d0a8e026528c47ffce6bc93c7b005
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 64ff69f87daa2451ab61fd2e950c5688903a955e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727597"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883676"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>Verwalten von Key Vault in Azure Stack Hub mithilfe von PowerShell
-
-*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme und Azure Stack Development Kit*
 
 In diesem Artikel wird beschrieben, wie Sie einen Schlüsseltresor in Azure Stack Hub mithilfe von PowerShell erstellen und verwalten. Sie erfahren, wie Sie Key Vault-PowerShell-Cmdlets für Folgendes verwenden:
 

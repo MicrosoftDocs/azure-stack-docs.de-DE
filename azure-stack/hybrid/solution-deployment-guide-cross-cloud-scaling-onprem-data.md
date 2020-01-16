@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d74d2f70ec172ecc2dc640958cb01143ec80af31
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 1b21766561c39cf795665e8229eb1763acb89465
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640503"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881789"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Bereitstellen einer App, die lokale Daten verwendet und mithilfe von Azure und Azure Stack Hub cloudübergreifend skaliert wird
-
-*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme und Azure Stack Development Kit*
 
 In diesem Lösungsleitfaden erfahren Sie, wie Sie eine Hybridanwendung implementieren, die sowohl Azure als auch Azure Stack Hub umspannt und eine einzige lokale Datenquelle verwendet.
 

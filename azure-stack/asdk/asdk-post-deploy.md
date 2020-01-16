@@ -16,12 +16,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 88b92ce80475ba48b2570dc58082fa75983fdd9b
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: 9408fb5ba7ffa181acc28e78576c9eda2262dc81
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540268"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804553"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>Konfigurationen nach der Bereitstellung für das ASDK
 
@@ -42,7 +42,7 @@ Verwenden Sie API-Versionsprofile, um mit Azure Stack kompatible AzureRM-Module 
 Sie können das aktuelle Azure Stack PowerShell-Modul mit oder ohne Internetverbindung mit dem ASDK-Hostcomputer installieren:
 
 > [!IMPORTANT]
-> Vor der Installation der erforderlichen Version [deinstallieren Sie unbedingt alle vorhandenen Azure PowerShell-Module](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
+> Vor der Installation der erforderlichen Version [deinstallieren Sie unbedingt alle vorhandenen Azure PowerShell-Module](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules).
 
 - **Mit Internetverbindung** auf dem ASDK-Hostcomputer: Führen Sie zum Installieren dieser Module in Ihrer ASDK-Installation das folgende PowerShell-Skript aus:
 
@@ -113,8 +113,8 @@ Um sicherzustellen, dass Ihre ASDK-Bereitstellung erfolgreich durchgeführt wurd
 
 1. Melden Sie sich auf dem ASDK-Hostcomputer als „AzureStack\AzureStackAdmin“ an.
 2. Öffnen Sie PowerShell als Administrator (nicht PowerShell ISE).
-3. Führen Sie diesen Befehl aus: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
-4. Führen Sie diesen Befehl aus: `Test-AzureStack`
+3. Führen Sie `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint` aus.
+4. Führen Sie `Test-AzureStack` aus.
 
 Die Tests dauern einige Minuten. Wenn die Installation erfolgreich war, sieht die Ausgabe in etwa wie folgt aus:
 
