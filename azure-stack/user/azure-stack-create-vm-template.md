@@ -17,38 +17,38 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 02300ae5c3a6ef7fd104dfb59e179b557e0c8778
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: b709d51a430530c50cf9a6e06896d405c435383e
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961712"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023241"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Tutorial: Erstellen eines virtuellen Computers mit einer Communityvorlage
 
-Als Azure Stack-Bediener oder -Benutzer können Sie einen virtuellen Computer (Virtual Machine, VM) erstellen, indem Sie [benutzerdefinierte GitHub-Schnellstartvorlagen](https://github.com/Azure/AzureStack-QuickStart-Templates) verwenden, anstatt eine Vorlage manuell über den Azure Stack-Marketplace bereitzustellen.
+Als Azure Stack Hub-Betreiber oder -Benutzer können Sie einen virtuellen Computer (Virtual Machine, VM) erstellen, indem Sie [benutzerdefinierte GitHub-Schnellstartvorlagen](https://github.com/Azure/AzureStack-QuickStart-Templates) verwenden, anstatt eine Vorlage manuell über den Azure Stack Hub-Marketplace bereitzustellen.
 
 In diesem Tutorial lernen Sie Folgendes:
 
 > [!div class="checklist"]
-> * Verwenden von Azure Stack-Schnellstartvorlagen
+> * Verwenden von Azure Stack Hub-Schnellstartvorlagen
 > * Erstellen einer VM mit einer benutzerdefinierten GitHub-Vorlage
 > * Starten von Minikube und Installieren einer Anwendung
 
-## <a name="azure-stack-quickstart-templates"></a>Azure Stack-Schnellstartvorlagen
+## <a name="azure-stack-hub-quickstart-templates"></a>Azure Stack Hub-Schnellstartvorlagen
 
-Azure Stack-Schnellstartvorlagen werden auf GitHub im [globalen Repository für Azure Stack-Schnellstartvorlagen](https://github.com/Azure/AzureStack-QuickStart-Templates) gespeichert. Dieses Repository enthält Azure Resource Manager-Bereitstellungsvorlagen, die mit dem Microsoft Azure Stack Development Kit (ASDK) getestet wurden. Sie können sie verwenden, um Ihnen das Auswerten von Azure Stack und Verwenden der ASDK-Umgebung zu vereinfachen.
+Azure Stack Hub-Schnellstartvorlagen werden auf GitHub im [globalen Repository für Azure Stack Hub-Schnellstartvorlagen](https://github.com/Azure/AzureStack-QuickStart-Templates) gespeichert. Dieses Repository enthält Azure Resource Manager-Bereitstellungsvorlagen, die mit dem Microsoft Azure Stack Development Kit (ASDK) getestet wurden. Sie können sie verwenden, um Ihnen das Auswerten von Azure Stack Hub und das Verwenden der ASDK-Umgebung zu erleichtern.
 
-Im Laufe der Zeit haben viele GitHub-Benutzer einen Beitrag zum Repository geleistet, wodurch eine Sammlung mit mehr als 400 Bereitstellungsvorlagen entstanden ist. Dieses Repository ist ein guter Ausgangspunkt, um ein Verständnis dafür zu entwickeln, wie Sie verschiedene Arten von Umgebungen in Azure Stack bereitstellen können.
+Im Laufe der Zeit haben viele GitHub-Benutzer einen Beitrag zum Repository geleistet, wodurch eine Sammlung mit mehr als 400 Bereitstellungsvorlagen entstanden ist. Dieses Repository ist ein guter Ausgangspunkt, um ein Verständnis dafür zu entwickeln, wie Sie verschiedene Arten von Umgebungen in Azure Stack Hub bereitstellen können.
 
 >[!IMPORTANT]
 > Einige dieser Vorlagen wurden von Mitgliedern der Community und nicht von Microsoft erstellt. Jede Vorlage wird von dessen Besitzer, nicht von Microsoft, unter einem Lizenzvertrag lizenziert. Microsoft ist für diese Vorlagen nicht verantwortlich und führt dafür keine Tests in Bezug auf die Sicherheit, Kompatibilität oder Leistung durch. Vorlagen aus der Community werden von keinem Microsoft-Supportprogramm oder -Dienst unterstützt und „wie besehen“ ohne jegliche Gewährleistung zur Verfügung gestellt.
 
-Wenn Sie Azure Resource Manager-Vorlagen für GitHub beitragen möchten, stellen Sie sie im Repository [AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates) bereit. Weitere Informationen zu diesem Repository und zu Beiträgen dafür finden Sie in der [Infodatei](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md).
+Wenn Sie Azure Resource Manager-Vorlagen für GitHub beitragen möchten, stellen Sie sie im Repository [AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates) bereit. Weitere Informationen zu diesem Repository und zu Beiträgen dafür finden Sie in der [Infodatei](https://aka.ms/aa6zktg).
 
 ## <a name="create-a-vm-using-a-custom-github-template"></a>Erstellen einer VM mit einer benutzerdefinierten GitHub-Vorlage
 
-In diesem Beispieltutorial wird die Azure Stack-Schnellstartvorlage [101-vm-linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) verwendet, um einen virtuellen Ubuntu 16.04-Computer unter Azure Stack bereitzustellen, auf dem Minikube zum Verwalten eines Kubernetes-Clusters ausgeführt wird.
+In diesem Beispieltutorial wird die Azure Stack Hub-Schnellstartvorlage [101-vm-linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) verwendet, um einen virtuellen Ubuntu 16.04-Computer unter Azure Stack Hub bereitzustellen, auf dem Minikube zum Verwalten eines Kubernetes-Clusters ausgeführt wird.
 
 Minikube ist ein Tool, mit dem die lokale Ausführung von Kubernetes leicht möglich ist. Minikube führt einen Kubernetes-Cluster mit nur einem Knoten auf einer VM aus, wodurch Sie Kubernetes ausprobieren oder damit tägliche Entwicklungsarbeiten leisten können. Das Tool unterstützt einen einfachen Kubernetes-Cluster mit einem Knoten, der auf einer Linux-VM ausgeführt wird. Minikube ist die schnellste und einfachste Möglichkeit zum Ausführen eines voll funktionsfähigen Kubernetes-Clusters. Entwickler können hiermit ihre Bereitstellungen von Kubernetes-basierten Anwendungen auf ihren lokalen Computern entwickeln und testen. Im Hinblick auf die Architektur führt der virtuelle Minikube-Computer sowohl Master- als auch Agent-Knotenkomponenten lokal aus:
 
@@ -65,7 +65,7 @@ Mit dieser Vorlage werden die folgenden Komponenten installiert:
 * xRDP
 
 > [!IMPORTANT]
-> Das Ubuntu-VM-Image (hier: Ubuntu Server 16.04 LTS) muss dem Azure Stack-Marketplace bereits hinzugefügt worden sein, bevor Sie diese Schritte ausführen.
+> Das Ubuntu-VM-Image (hier: Ubuntu Server 16.04 LTS) muss dem Azure Stack Hub-Marketplace bereits hinzugefügt worden sein, bevor Sie diese Schritte ausführen.
 
 1. Wählen Sie **+ Ressource erstellen** > **Benutzerdefiniert** > **Vorlagenbereitstellung** aus.
 
@@ -135,6 +135,6 @@ Nachdem der virtuelle Linux-Computer nun erfolgreich erstellt wurde, können Sie
 In diesem Tutorial haben Sie Folgendes gelernt:
 
 > [!div class="checklist"]
-> * Verwenden von Azure Stack-Schnellstartvorlagen
+> * Verwenden von Azure Stack Hub-Schnellstartvorlagen
 > * Erstellen einer VM mit einer benutzerdefinierten GitHub-Vorlage
 > * Starten von Minikube und Installieren einer Anwendung

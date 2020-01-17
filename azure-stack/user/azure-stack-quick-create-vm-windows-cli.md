@@ -1,6 +1,6 @@
 ---
-title: Erstellen eines virtuellen Windows-Computers in Azure Stack mithilfe der Azure CLI | Microsoft-Dokumentation
-description: Erstellen eines virtuellen Windows-Computers in Azure Stack mithilfe der Azure CLI
+title: Erstellen eines virtuellen Windows-Computers in Azure Stack Hub mithilfe der Azure CLI | Microsoft-Dokumentation
+description: Erstellen eines virtuellen Windows-Computers in Azure Stack Hub mithilfe der Azure CLI
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b88d65806abfe83dfff59307d3bdcd4e99adf96d
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 6a5a389082fa89162023205a2784457b15ccca6b
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824263"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023088"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>Schnellstart: Erstellen eines virtuellen Windows-Servers mithilfe der Azure CLI in Azure Stack
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>Schnellstart: Erstellen eines virtuellen Windows Server-Computers mithilfe der Azure CLI in Azure Stack Hub
 
 Sie können einen virtuellen Windows Server 2016-Computer mithilfe der Azure CLI erstellen. Befolgen Sie die Schritte in diesem Artikel zum Erstellen und Verwenden eines virtuellen Computers. In diesem Artikel führen Sie auch die folgenden Schritte aus:
 
@@ -34,13 +32,13 @@ Sie können einen virtuellen Windows Server 2016-Computer mithilfe der Azure CLI
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Stellen Sie sicher, dass Ihr Azure Stack-Bediener das Image **Windows Server 2016** dem Azure Stack-Marketplace hinzugefügt hat.
+* Stellen Sie sicher, dass Ihr Azure Stack Hub-Betreiber das Image **Windows Server 2016** dem Azure Stack Hub-Marketplace hinzugefügt hat.
 
-* Azure Stack erfordert eine spezifische Version der Azure CLI, um die Ressourcen zu erstellen und zu verwalten. Wenn Sie die Azure CLI nicht für Azure Stack konfiguriert haben, führen Sie die Schritte zum [Installieren und Konfigurieren der Azure CLI](azure-stack-version-profiles-azurecli2.md) aus.
+* Azure Stack Hub erfordert eine spezifische Version der Azure CLI, um die Ressourcen zu erstellen und zu verwalten. Wenn Sie die Azure CLI nicht für Azure Stack Hub konfiguriert haben, führen Sie die Schritte zum [Installieren und Konfigurieren der Azure CLI](azure-stack-version-profiles-azurecli2.md) aus.
 
 ## <a name="create-a-resource-group"></a>Erstellen einer Ressourcengruppe
 
-Eine Ressourcengruppe ist ein logischer Container, in dem Sie Azure Stack-Ressourcen bereitstellen und verwalten können. Führen Sie in Ihrer Azure Stack-Umgebung den Befehl [az group create](/cli/azure/group#az-group-create) aus, um eine Ressourcengruppe zu erstellen.
+Eine Ressourcengruppe ist ein logischer Container, in dem Sie Azure Stack Hub-Ressourcen bereitstellen und verwalten können. Führen Sie in Ihrer Azure Stack Hub-Umgebung den Befehl [az group create](/cli/azure/group#az-group-create) aus, um eine Ressourcengruppe zu erstellen.
 
 > [!NOTE]
 >  Allen Variablen in den Codebeispielen sind Werte zugewiesen. Sie können bei Bedarf aber auch neue Werte zuweisen.
@@ -77,7 +75,7 @@ Verwenden Sie zum Öffnen von Port 80 den Befehl [az vm open-port](/cli/azure/v
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="connect-to-the-virtual-machine"></a>Herstellen einer Verbindung mit dem virtuellen Computer
+## <a name="connect-to-the-virtual-machine"></a>Verbinden mit dem virtuellen Computer
 
 Erstellen Sie mit dem nächsten Befehl eine Remotedesktopverbindung mit Ihrem virtuellen Computer. Ersetzen Sie „Öffentliche IP-Adresse“ durch die IP-Adresse Ihres virtuellen Computers. Geben Sie bei entsprechender Aufforderung den Benutzernamen und das Kennwort für den virtuellen Computer ein.
 
@@ -109,4 +107,4 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Schnellstart haben Sie einen einfachen virtuellen Windows Server-Computer bereitgestellt. Um weitere Informationen zu virtuellen Computern unter Azure Stack zu erhalten, fahren Sie mit [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md) (Überlegungen zu virtuellen Computern in Azure Stack) fort.
+In diesem Schnellstart haben Sie einen einfachen virtuellen Windows Server-Computer bereitgestellt. Um weitere Informationen zu virtuellen Computern unter Azure Stack Hub zu erhalten, fahren Sie mit [Überlegungen zu virtuellen Computern in Azure Stack Hub](azure-stack-vm-considerations.md) fort.

@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen einer Linux-VM in Azure Stack | Microsoft-Dokumentation
-description: Bereitstellen einer App in Azure Stack.
+title: Bereitstellen einer Linux-VM in Azure Stack Hub | Microsoft-Dokumentation
+description: Stellen Sie eine App in Azure Stack Hub bereit.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,14 +9,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: d1fae6caf6ac37f29382f4d24ce0d8b2299aa1d7
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: f87c25cd1955f3d0122ea716b2a7a1084af443c7
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824831"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023285"
 ---
-# <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack"></a>Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack
+# <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack Hub
 
 Sie können einen einfachen virtuellen Linux-Computer mit dem Ubuntu-Image im Azure Marketplace erstellen und bereitstellen, um eine Web-App zu hosten, die Sie mit einem Webframework erstellt haben. 
 
@@ -27,17 +27,17 @@ Dieser virtuelle Computer kann Web-Apps mithilfe folgender Komponenten hosten:
 - **Ruby**: Richten Sie Ruby on Rails als Framework zum Bereitstellen Ihrer Ruby-Web-Apps ein. 
 - **Java**: Verwenden Sie Java zum Entwickeln von Web-Apps, die Sie auf einem Apache Tomcat-Server veröffentlichen. Sie können Tomcat auf Linux installieren und Ihre Java-WAR-Dateien dann direkt auf dem Server bereitstellen. 
 
-Lesen Sie die Anleitungen in diesem Artikel, um beliebige Web-Apps, Frameworks und Back-End-Technologien einzurichten und auszuführen, die das Linux-Betriebssystem verwenden. Mit Azure Stack verwalten Sie Ihre Infrastruktur, und mit den Verwaltungstools der von Ihnen verwendeten Technologie führen Sie Wartungsaufgaben für Ihre App aus.
+Lesen Sie die Anleitungen in diesem Artikel, um beliebige Web-Apps, Frameworks und Back-End-Technologien einzurichten und auszuführen, die das Linux-Betriebssystem verwenden. Mit Azure Stack Hub verwalten Sie Ihre Infrastruktur, und mit den Verwaltungstools der von Ihnen verwendeten Technologie führen Sie Wartungsaufgaben für Ihre App aus.
 
 ## <a name="deploy-a-linux-vm-for-a-web-app"></a>Bereitstellen einer Linux-VM für eine Web-App
 
-Sie erstellen in diesem Prozess einen geheimen Schlüssel, verwenden das Basisimage der Linux-VM, geben die spezifischen Attribute der VM an und erstellen dann die VM. Nachdem Sie den virtuellen Computer erstellt haben, öffnen Sie die Ports, die zum Arbeiten mit dem virtuellen Computer und für den virtuellen Computer zum Hosten Ihrer App erforderlich sind. Als Nächstes erstellen Sie den DNS-Namen. Dann stellen Sie eine Verbindung mit dem virtuellen Computer her und aktualisieren den Computer mithilfe von „apt-get“. Nachdem Sie den Vorgang abgeschlossen haben, benötigen Sie einen virtuellen Computer in Ihrer Azure Stack-Instanz, der zum Hosten Ihrer Web-App bereit ist.
+Sie erstellen in diesem Prozess einen geheimen Schlüssel, verwenden das Basisimage der Linux-VM, geben die spezifischen Attribute der VM an und erstellen dann die VM. Nachdem Sie den virtuellen Computer erstellt haben, öffnen Sie die Ports, die zum Arbeiten mit dem virtuellen Computer und für den virtuellen Computer zum Hosten Ihrer App erforderlich sind. Als Nächstes erstellen Sie den DNS-Namen. Dann stellen Sie eine Verbindung mit dem virtuellen Computer her und aktualisieren den Computer mithilfe von „apt-get“. Nachdem Sie den Vorgang abgeschlossen haben, besitzen Sie einen virtuellen Computer in Ihrer Azure Stack Hub-Instanz, der zum Hosten Ihrer Web-App bereit ist.
 
 Stellen Sie zu Beginn sicher, dass alle erforderlichen Komponenten vorhanden sind.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- Ein Azure Stack-Abonnement mit Zugriff auf das Ubuntu Server 16.04 LTS-Image. Sie können eine höhere Version dieses Images verwenden, die vorliegenden Anleitungen wurden aber für 16.04 LTS konzipiert. Wenn Sie nicht über dieses Image verfügen, wenden Sie sich an Ihren Cloudbetreiber, damit das Image in Ihrem Azure Stack Marketplace bereitgestellt wird.
+- Ein Azure Stack Hub-Abonnement mit Zugriff auf das Ubuntu Server 16.04 LTS-Image. Sie können eine höhere Version dieses Images verwenden, die vorliegenden Anleitungen wurden aber für 16.04 LTS konzipiert. Wenn Sie nicht über dieses Image verfügen, wenden Sie sich an Ihren Cloudbetreiber, damit das Image in Ihrem Azure Stack Hub-Marketplace bereitgestellt wird.
 
 ## <a name="deploy-the-vm-by-using-the-portal"></a>Bereitstellen des virtuellen Computers über das Portal
 
@@ -46,9 +46,9 @@ Führen Sie zum Bereitstellen des virtuellen Computers die Anweisungen in den fo
 ### <a name="create-your-vm"></a>Erstellen Ihres virtuellen Computers
 
 1. Erstellen Sie einen öffentlichen SSH-Schlüssel (Secure Shell) für Ihren Server. Weitere Informationen finden Sie unter [Verwenden eines öffentlichen SSH-Schlüssels](azure-stack-dev-start-howto-ssh-public-key.md).
-1. Wählen Sie im Azure Stack-Portal **Ressource erstellen** > **Compute** > **Ubuntu Server 16.04 LTS** aus.
+1. Wählen Sie im Azure Stack Hub-Portal **Ressource erstellen** > **Compute** > **Ubuntu Server 16.04 LTS** aus.
 
-    ![Bereitstellen einer Web-App auf einer Azure Stack-VM](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
+    ![Bereitstellen einer Web-App auf einer Azure Stack Hub-VM](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
 
 4. Gehen Sie im Bereich **Erstellen eines virtuellen Computers** für **1. Grundeinstellungen konfigurieren** folgendermaßen vor:
 
@@ -69,13 +69,13 @@ Führen Sie zum Bereitstellen des virtuellen Computers die Anweisungen in den fo
     ---- END SSH2 PUBLIC KEY ----
     ```
 
-    f. Wählen Sie das Abonnement für Ihre Azure Stack-Instanz aus.
+    f. Wählen Sie das Abonnement für Ihre Azure Stack Hub-Instanz aus.
 
     g. Erstellen Sie eine neue Ressourcengruppe, oder verwenden Sie eine vorhandene Ressourcengruppe – je nachdem, wie Sie Ressourcen für Ihre App organisieren möchten.
 
-    h. Wählen Sie Ihren Standort aus. Das Azure Stack Development Kit (ASDK) befindet sich in der Regel in einer *lokalen* Region. Der Standort hängt von Ihrer Azure Stack-Instanz ab.
+    h. Wählen Sie Ihren Standort aus. Das Azure Stack Development Kit (ASDK) befindet sich in der Regel in einer *lokalen* Region. Der Standort hängt von Ihrer Azure Stack Hub-Instanz ab.
 1. Geben Sie für **2. Größe** Folgendes ein:
-    - Wählen Sie die Größe der Daten und den Arbeitsspeicher für Ihren virtuellen Computer aus, der in Ihrer Azure Stack-Instanz verfügbar ist.
+    - Wählen Sie die Größe der Daten und den Arbeitsspeicher für Ihren virtuellen Computer aus, der in Ihrer Azure Stack Hub-Instanz verfügbar ist.
     - Sie können die Liste durchsuchen oder nach der Größe Ihres virtuellen Computers filtern, indem Sie **Computetyp**, **CPUs** und **Speicherplatz** auswählen.
     
     > [!NOTE]
@@ -123,7 +123,7 @@ Wenn Sie Benutzern in Ihrem Netzwerk Ihre Web-App zur Verfügung stellen möchte
 
 Sie können das Zielprotokoll und den Portbereich für einen vordefinierten Dienst wie RDP oder SSH ändern oder einen benutzerdefinierten Portbereich angeben. Beispielsweise möchten Sie mit dem Portbereich Ihres Webframeworks arbeiten. GO kommuniziert beispielsweise über Port 3000.
 
-1. Öffnen Sie das Azure Stack-Portal für Ihren Mandanten.
+1. Öffnen Sie das Azure Stack Hub-Portal für Ihren Mandanten.
 
 1. Suchen Sie Ihren virtuellen Computer. Möglicherweise haben Sie den virtuellen Computer an Ihr Dashboard angeheftet. Sie können auch über das Feld **Ressourcen suchen** danach suchen.
 
@@ -151,7 +151,7 @@ Sie können das Zielprotokoll und den Portbereich für einen vordefinierten Dien
 
 Darüber hinaus können Sie einen DNS-Namen für Ihren Server erstellen, sodass Benutzer mithilfe einer URL eine Verbindung mit Ihrer Website herstellen können.
 
-1. Öffnen Sie das Azure Stack-Portal für Ihren Mandanten.
+1. Öffnen Sie das Azure Stack Hub-Portal für Ihren Mandanten.
 
 1. Suchen Sie Ihren virtuellen Computer. Möglicherweise haben Sie den virtuellen Computer an Ihr Dashboard angeheftet. Sie können auch über das Feld **Ressourcen suchen** danach suchen.
 
@@ -165,7 +165,7 @@ Darüber hinaus können Sie einen DNS-Namen für Ihren Server erstellen, sodass 
 
 ### <a name="connect-via-ssh-to-update-your-vm"></a>Herstellen einer Verbindung über SSH zum Aktualisieren des virtuellen Computers
 
-1. Öffnen Sie Ihren SSH-Client im gleichen Netzwerk wie Ihre Azure Stack-Instanz. Weitere Informationen finden Sie unter [Verwenden eines öffentlichen SSH-Schlüssels](azure-stack-dev-start-howto-ssh-public-key.md).
+1. Öffnen Sie Ihren SSH-Client im gleichen Netzwerk wie Ihre Azure Stack Hub-Instanz. Weitere Informationen finden Sie unter [Verwenden eines öffentlichen SSH-Schlüssels](azure-stack-dev-start-howto-ssh-public-key.md).
 
 1. Geben Sie die folgenden Befehle ein:
 
@@ -176,4 +176,4 @@ Darüber hinaus können Sie einen DNS-Namen für Ihren Server erstellen, sodass 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erfahren Sie mehr über das [Einrichten einer Entwicklungsumgebung in Azure Stack](azure-stack-dev-start.md).
+Erfahren Sie mehr über das [Einrichten einer Entwicklungsumgebung in Azure Stack Hub](azure-stack-dev-start.md).

@@ -1,6 +1,6 @@
 ---
-title: Erstellen eines virtuellen Linux-Computers mithilfe der Azure CLI in Azure Stack | Microsoft-Dokumentation
-description: Erstellen Sie einen virtuellen Linux-Computer mithilfe der Azure CLI in Azure Stack.
+title: Erstellen eines virtuellen Linux-Computers mithilfe der Azure CLI in Azure Stack Hub | Microsoft-Dokumentation
+description: Erstellen Sie einen virtuellen Linux-Computer mithilfe der Azure CLI in Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 84689e45bff8150616f37205eaa4a9bd9b25ff04
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: c82dc8dce4f2d72ee5d30379c554c495cfdec28f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824247"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883472"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack"></a>Schnellstart: Erstellen eines virtuellen Linux-Servers mithilfe der Azure CLI in Azure Stack
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack-hub"></a>Schnellstart: Erstellen eines virtuellen Linux-Servers mithilfe der Azure CLI in Azure Stack Hub
 
 Sie können mithilfe der Azure CLI einen virtuellen Computer mit Ubuntu Server 16.04 LTS erstellen. In diesem Artikel erstellen und verwenden Sie einen virtuellen Computer. In diesem Artikel erhalten Sie außerdem Informationen zu den folgenden Schritten:
 
@@ -34,17 +32,17 @@ Sie können mithilfe der Azure CLI einen virtuellen Computer mit Ubuntu Server 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Ein Linux-Image im Azure Stack-Marketplace
+* Ein Linux-Image im Azure Stack Hub-Marketplace
 
-   Im Azure Stack-Marketplace ist nicht standardmäßig ein Linux-Image enthalten. Bitten Sie den Azure Stack-Bediener, das benötigte Image „Ubuntu Server 16.04 LTS“ bereitzustellen. Hierzu kann der Operator die Anweisungen unter [Herunterladen von Marketplace-Elementen von Azure in Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md) befolgen.
+   Im Azure Stack Hub-Marketplace ist nicht standardmäßig ein Linux-Image enthalten. Bitten Sie den Azure Stack Hub-Betreiber, das benötigte Image „Ubuntu Server 16.04 LTS“ bereitzustellen. Hierzu kann der Betreiber die Anweisungen unter [Herunterladen von Marketplace-Elementen in Azure Stack Hub](../operator/azure-stack-download-azure-marketplace-item.md) befolgen.
 
-* Azure Stack erfordert für die Ressourcenerstellung und -verwaltung eine spezifische Version der Azure CLI. Falls die Azure CLI nicht für Azure Stack konfiguriert ist, melden Sie sich beim [Azure Stack Development Kit](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) (oder im Falle einer [VPN-Verbindung](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) bei einem Windows-basierten externen Client) an, und befolgen Sie die Anweisungen zum [Installieren und Konfigurieren der Azure CLI](azure-stack-version-profiles-azurecli2.md).
+* Azure Stack Hub erfordert für die Ressourcenerstellung und -verwaltung eine spezifische Version der Azure CLI. Falls die Azure CLI nicht für Azure Stack Hub konfiguriert ist, melden Sie sich beim [Azure Stack Development Kit](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) (oder im Falle einer [VPN-Verbindung](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) bei einem Windows-basierten externen Client) an, und befolgen Sie die Anweisungen zum [Installieren und Konfigurieren der Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
 * Ein öffentlicher SSH-Schlüssel (Secure Shell) mit dem Namen *id_rsa.pub* im SSH-Verzeichnis ( *.ssh*) Ihres Windows-Benutzerprofils. Ausführliche Informationen zum Erstellen von SSH-Schlüsseln finden Sie unter [Verwenden eines öffentlichen SSH-Schlüssels](azure-stack-dev-start-howto-ssh-public-key.md).
 
 ## <a name="create-a-resource-group"></a>Erstellen einer Ressourcengruppe
 
-Eine Ressourcengruppe ist ein logischer Container, in dem Sie Azure Stack-Ressourcen bereitstellen und verwalten können. Führen Sie im Development Kit oder im integrierten Azure Stack-System den Befehl [az group create](/cli/azure/group#az-group-create) aus, um eine Ressourcengruppe zu erstellen.
+Eine Ressourcengruppe ist ein logischer Container, in dem Sie Azure Stack Hub-Ressourcen bereitstellen und verwalten können. Führen Sie im Development Kit oder im integrierten Azure Stack Hub-System den Befehl [az group create](/cli/azure/group#az-group-create) aus, um eine Ressourcengruppe zu erstellen.
 
 > [!NOTE]
 > Allen Variablen in den folgenden Codebeispielen wurden Werte zugewiesen. Sie können jedoch Ihre eigenen Werte zuweisen.
@@ -117,4 +115,4 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In dieser Schnellstartanleitung haben Sie einen einfachen virtuellen Linux-Server mit einem Webserver bereitgestellt. Weitere Informationen zu virtuellen Azure Stack-Computern finden Sie unter [Features von Azure Stack-VMs](azure-stack-vm-considerations.md).
+In dieser Schnellstartanleitung haben Sie einen einfachen virtuellen Linux-Server mit einem Webserver bereitgestellt. Weitere Informationen zu virtuellen Azure Stack Hub-Computern finden Sie unter [Features von Azure Stack Hub-VMs](azure-stack-vm-considerations.md).

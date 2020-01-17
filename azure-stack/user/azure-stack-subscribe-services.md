@@ -1,6 +1,6 @@
 ---
-title: Erstellen eines Abonnements mit einem Angebot in Azure Stack | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie ein neues Abonnement mit einem Angebot in Azure Stack erstellen und das Angebot dann mit einem virtuellen Testcomputer testen.
+title: Erstellen eines Abonnements mit einem Angebot in Azure Stack Hub | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie ein neues Abonnement mit einem Angebot in Azure Stack Hub erstellen und das Angebot dann mit einem virtuellen Testcomputer testen.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -17,21 +17,21 @@ ms.date: 06/04/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: e6e09dffa6682a615c01e6fee841a5d736054546
-ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
+ms.openlocfilehash: 216fe342bcda090d69452e8623f34f6c43cf70b9
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72164996"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023193"
 ---
-# <a name="tutorial-create-and-test-a-subscription-in-azure-stack"></a>Tutorial: Erstellen und Testen eines Abonnements in Azure Stack
+# <a name="tutorial-create-and-test-a-subscription-in-azure-stack-hub"></a>Tutorial: Erstellen und Testen eines Abonnements in Azure Stack Hub
 
-In diesem Tutorial erfahren Sie, wie Sie ein Abonnement mit einem Angebot erstellen und es anschließend testen. Für den Test melden Sie sich beim Azure Stack-Benutzerportal als Cloudadministrator an, abonnieren das Angebot und erstellen dann einen virtuellen Computer.
+In diesem Tutorial erfahren Sie, wie Sie ein Abonnement mit einem Angebot erstellen und es anschließend testen. Für den Test melden Sie sich beim Azure Stack Hub-Benutzerportal als Cloudadministrator an, abonnieren das Angebot und erstellen dann einen virtuellen Computer.
 
 > [!TIP]
 > Für eine komplexere Evaluierung können Sie [ein Abonnement für einen bestimmten Benutzer erstellen](../operator/azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) und sich dann als dieser Benutzer beim Benutzerportal anmelden.
 
-In diesem Tutorial erfahren Sie, wie Sie ein Azure Stack-Angebot abonnieren.
+In diesem Tutorial erfahren Sie, wie Sie ein Azure Stack Hub-Angebot abonnieren.
 
 Sie lernen Folgendes:
 
@@ -41,7 +41,7 @@ Sie lernen Folgendes:
 
 ## <a name="subscribe-to-an-offer"></a>Abonnieren von Angeboten
 
-Wenn Sie als Benutzer ein Angebot abonnieren möchten, müssen Sie sich beim Azure Stack-Benutzerportal anmelden, um festzustellen, welche Dienste vom Azure Stack-Betreiber angeboten werden.
+Wenn Sie als Benutzer ein Angebot abonnieren möchten, müssen Sie sich beim Azure Stack Hub-Benutzerportal anmelden, um festzustellen, welche Dienste vom Azure Stack Hub-Betreiber angeboten werden.
 
 1. Melden Sie sich beim Benutzerportal an, und wählen Sie **Abonnement erwerben** aus.
 
@@ -63,7 +63,7 @@ Wenn Sie als Benutzer ein Angebot abonnieren möchten, müssen Sie sich beim Azu
 Wenn Sie beim Benutzerportal angemeldet sind, testen Sie das Angebot, indem Sie einen virtuellen Computer mit den Funktionen des neuen Abonnements bereitstellen.
 
 > [!NOTE]
-> Dieser Test setzt voraus, dass dem Azure Stack-Marketplace ein virtueller Windows Server 2016 Datacenter-Computer hinzugefügt wurde.
+> Dieser Test setzt voraus, dass dem Azure Stack Hub-Marketplace ein virtueller Windows Server 2016 Datacenter-Computer hinzugefügt wurde.
 
 1. Melden Sie sich am Benutzerportal an.
 

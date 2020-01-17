@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen einer Ruby-App auf einem virtuellen Computer in Azure Stack | Microsoft-Dokumentation
-description: Es wird beschrieben, wie Sie eine Ruby-App auf einem virtuellen Computer in Azure Stack bereitstellen.
+title: Bereitstellen einer Ruby-App auf einem virtuellen Computer in Azure Stack Hub | Microsoft-Dokumentation
+description: Hier wird beschrieben, wie Sie eine Ruby-App auf einem virtuellen Computer in Azure Stack Hub bereitstellen.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,26 +9,26 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: e54fc1cd1e8fe8588a9498b5af8476437880e988
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 1490a571078556d5fd958ecf9717a21f5607ab79
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824186"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820541"
 ---
-# <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack"></a>Bereitstellen einer Ruby-Web-App auf einer VM in Azure Stack
+# <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack-hub"></a>Bereitstellen einer Ruby-Web-App auf einer VM in Azure Stack Hub
 
-Sie können eine VM erstellen, um Ihre Ruby-Web-App in Azure Stack zu hosten. In diesem Artikel richten Sie einen Server ein, konfigurieren den Server zum Hosten Ihrer Ruby-Web-App und stellen die App dann unter Azure Stack bereit.
+Sie können eine VM erstellen, um Ihre Ruby-Web-App in Azure Stack Hub zu hosten. In diesem Artikel richten Sie einen Server ein, konfigurieren den Server zum Hosten Ihrer Ruby-Web-App und stellen die App dann unter Azure Stack Hub bereit.
 
 In diesem Artikel werden Ruby und ein Ruby on Rails-Framework verwendet.
 
 ## <a name="create-a-vm"></a>Erstellen einer VM
 
-1. Richten Sie Ihren virtuellen Computer in Azure Stack ein. Eine Anleitung finden Sie unter [Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
+1. Richten Sie Ihren virtuellen Computer in Azure Stack Hub ein. Eine Anleitung finden Sie unter [Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack Hub](azure-stack-dev-start-howto-deploy-linux.md).
 
 2. Stellen Sie auf dem Blatt für das VM-Netzwerk sicher, dass auf die folgenden Ports zugegriffen werden kann:
 
-    | Port | Protocol | BESCHREIBUNG |
+    | Port | Protocol | Beschreibung |
     | --- | --- | --- |
     | 80 | HTTP | Das Hypertext Transfer-Protokoll (HTTP) wird zum Bereitstellen von Webseiten über Server verwendet. Clients stellen eine Verbindung per HTTP über einen DNS-Namen oder eine IP-Adresse her. |
     | 443 | HTTPS | Das Hypertext Transfer-Protokoll Secure (HTTPS) ist eine sichere Version von HTTP, für die ein Sicherheitszertifikat benötigt wird und die die verschlüsselte Übertragung von Informationen ermöglicht. |
@@ -100,6 +100,6 @@ In diesem Artikel werden Ruby und ein Ruby on Rails-Framework verwendet.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Weitere Informationen zum [Entwickeln für Azure Stack](azure-stack-dev-start.md)
-- Weitere Informationen zu [häufigen Bereitstellungen für Azure Stack als IaaS](azure-stack-dev-start-deploy-app.md)
+- Weitere Informationen zum [Entwickeln für Azure Stack Hub](azure-stack-dev-start.md)
+- Weitere Informationen zu [häufigen Bereitstellungen für Azure Stack Hub als IaaS](azure-stack-dev-start-deploy-app.md)
 - Besuchen Sie die Website [Ruby-lang.org](https://www.ruby-lang.org), um die Programmiersprache Ruby zu erlernen und weitere Ressourcen für Ruby zu finden.

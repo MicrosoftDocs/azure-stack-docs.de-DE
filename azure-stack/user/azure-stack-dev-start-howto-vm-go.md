@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen einer Go-Web-App auf einem virtuellen Computer in Azure Stack | Microsoft-Dokumentation
-description: Bereitstellen einer Go-Web-App auf einer VM in Azure Stack
+title: Bereitstellen einer Go-Web-App auf einem virtuellen Computer in Azure Stack Hub | Microsoft-Dokumentation
+description: Bereitstellen einer Go-Web-App auf einer VM in Azure Stack Hub
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,24 +9,24 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: b3db83ca42c25503be4ddd2053a011a85ffd7034
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 1f05b147af4ddd72e9d70eab69150ce442b7b458
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824427"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820643"
 ---
-# <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack"></a>Bereitstellen einer Go-Web-App auf einer VM in Azure Stack
+# <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack-hub"></a>Bereitstellen einer Go-Web-App auf einer VM in Azure Stack Hub
 
-Sie können einen virtuellen Computer erstellen, um eine Go-Web-App in Azure Stack zu hosten. In diesem Artikel richten Sie einen Server ein, konfigurieren den Server zum Hosten Ihrer Go-Web-App und stellen die App dann unter Azure Stack bereit.
+Sie können einen virtuellen Computer erstellen, um eine Go-Web-App in Azure Stack Hub zu hosten. In diesem Artikel richten Sie einen Server ein, konfigurieren den Server zum Hosten Ihrer Go-Web-App und stellen die App dann unter Azure Stack Hub bereit.
 
 ## <a name="create-a-vm"></a>Erstellen einer VM
 
-1. Richten Sie Ihre VM in Azure Stack ein, indem Sie die Anleitung unter [Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack](azure-stack-dev-start-howto-deploy-linux.md) befolgen.
+1. Richten Sie Ihre VM in Azure Stack Hub ein, indem Sie die Anleitung unter [Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack Hub](azure-stack-dev-start-howto-deploy-linux.md) befolgen.
 
 2. Stellen Sie im Bereich für das VM-Netzwerk sicher, dass auf die folgenden Ports zugegriffen werden kann:
 
-    | Port | Protocol | BESCHREIBUNG |
+    | Port | Protocol | Beschreibung |
     | --- | --- | --- |
     | 80 | HTTP | Das Hypertext Transfer-Protokoll (HTTP) wird zum Bereitstellen von Webseiten über Server verwendet. Clients stellen eine Verbindung per HTTP über einen DNS-Namen oder eine IP-Adresse her. |
     | 443 | HTTPS | Das Hypertext Transfer-Protokoll Secure (HTTPS) ist eine sichere Version von HTTP, für die ein Sicherheitszertifikat benötigt wird und die die verschlüsselte Übertragung von Informationen ermöglicht. |
@@ -93,6 +93,6 @@ Sie können einen virtuellen Computer erstellen, um eine Go-Web-App in Azure Sta
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Weitere Informationen zum [Entwickeln für Azure Stack](azure-stack-dev-start.md)
-- Weitere Informationen zu [häufigen Bereitstellungen für Azure Stack als IaaS](azure-stack-dev-start-deploy-app.md)
+- Weitere Informationen zum [Entwickeln für Azure Stack Hub](azure-stack-dev-start.md)
+- Weitere Informationen zu [häufigen Bereitstellungen für Azure Stack Hub als IaaS](azure-stack-dev-start-deploy-app.md)
 - Besuchen Sie die Website [Golang.org](https://golang.org), um die Programmiersprache Go zu erlernen und auf weitere Go-Ressourcen zuzugreifen.

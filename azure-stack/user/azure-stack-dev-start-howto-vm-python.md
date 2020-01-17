@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen einer Python-Web-App auf einem virtuellen Computer in Azure Stack | Microsoft-Dokumentation
-description: Bereitstellen einer Python-Web-App auf einem virtuellen Computer in Azure Stack.
+title: Bereitstellen einer Python-Web-App auf einem virtuellen Computer in Azure Stack Hub | Microsoft-Dokumentation
+description: Stellen Sie eine Python-Web-App auf einem virtuellen Computer in Azure Stack Hub bereit.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,26 +9,26 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 9fdb5767e225f9d5d8372058984c9128609339f1
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 6beefec2f912d69e6772980f54c84e93f615de02
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824227"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820558"
 ---
-# <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack"></a>Bereitstellen einer Python-Web-App auf einer VM in Azure Stack
+# <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack-hub"></a>Bereitstellen einer Python-Web-App auf einer VM in Azure Stack Hub
 
-Sie können eine VM erstellen, um Ihre Python-Web-App in Azure Stack zu hosten. In diesem Artikel richten Sie einen Server ein, konfigurieren den Server zum Hosten Ihrer Python-Web-App und stellen die App dann unter Azure Stack bereit.
+Sie können eine VM erstellen, um Ihre Python-Web-App in Azure Stack Hub zu hosten. In diesem Artikel richten Sie einen Server ein, konfigurieren den Server zum Hosten Ihrer Python-Web-App und stellen die App dann unter Azure Stack Hub bereit.
 
 In diesem Artikel wird Python 3.x mit Flask in einer virtuellen Umgebung auf einem Ngnix-Server verwendet.
 
 ## <a name="create-a-vm"></a>Erstellen einer VM
 
-1. Richten Sie Ihre VM in Azure Stack ein, indem Sie die Anleitung unter [Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack](azure-stack-dev-start-howto-deploy-linux.md) befolgen.
+1. Richten Sie Ihre VM in Azure Stack Hub ein, indem Sie die Anleitung unter [Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack Hub](azure-stack-dev-start-howto-deploy-linux.md) befolgen.
 
 2. Stellen Sie im Bereich für das VM-Netzwerk sicher, dass auf die folgenden Ports zugegriffen werden kann:
 
-    | Port | Protocol | BESCHREIBUNG |
+    | Port | Protocol | Beschreibung |
     | --- | --- | --- |
     | 80 | HTTP | Das Hypertext Transfer-Protokoll (HTTP) wird zum Bereitstellen von Webseiten über Server verwendet. Clients stellen eine Verbindung per HTTP über einen DNS-Namen oder eine IP-Adresse her. |
     | 443 | HTTPS | Das Hypertext Transfer-Protokoll Secure (HTTPS) ist eine sichere Version von HTTP, für die ein Sicherheitszertifikat benötigt wird und die die verschlüsselte Übertragung von Informationen ermöglicht. |
@@ -113,6 +113,6 @@ In diesem Artikel wird Python 3.x mit Flask in einer virtuellen Umgebung auf ei
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Weitere Informationen zum [Entwickeln für Azure Stack](azure-stack-dev-start.md)
-- Weitere Informationen zu [häufigen Bereitstellungen für Azure Stack als IaaS](azure-stack-dev-start-deploy-app.md)
+- Weitere Informationen zum [Entwickeln für Azure Stack Hub](azure-stack-dev-start.md)
+- Weitere Informationen zu [häufigen Bereitstellungen für Azure Stack Hub als IaaS](azure-stack-dev-start-deploy-app.md)
 - Besuchen Sie die Website [Python.org](https://www.python.org), um die Programmiersprache Python zu erlernen und weitere Ressourcen für Python zu finden.

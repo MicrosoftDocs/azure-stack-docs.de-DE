@@ -1,5 +1,5 @@
 ---
-title: Verwenden eines öffentlichen SSH-Schlüssels mit Azure Stack | Microsoft-Dokumentation
+title: Verwenden eines öffentlichen SSH-Schlüssels mit Azure Stack Hub | Microsoft-Dokumentation
 description: Verwenden eines öffentlichen SSH-Schlüssels
 services: azure-stack
 author: mattbriggs
@@ -9,22 +9,22 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 3d2854511415421b69a6972cd807132639300f96
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: b40fb92eefa696369ed57aabefb4e8298dad3eea
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824508"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820694"
 ---
 # <a name="use-an-ssh-public-key"></a>Verwenden eines öffentlichen SSH-Schlüssels
 
-Zur Verwendung einer offenen SSH-Verbindung zwischen Ihrem Entwicklungscomputer und der Server-VM auf Ihrer Azure Stack-Instanz, auf der Ihre Web-App gehostet wird, müssen Sie unter Umständen ein öffentlich-privates SSH-Schlüsselpaar (Secure Shell) erstellen. 
+Zur Verwendung einer offenen SSH-Verbindung zwischen Ihrem Entwicklungscomputer und der Server-VM in Ihrer Azure Stack Hub-Instanz, in der Ihre Web-App gehostet wird, müssen Sie unter Umständen ein öffentlich-privates SSH-Schlüsselpaar (Secure Shell) erstellen. 
 
 In diesem Artikel erstellen Sie Ihre Schlüssel und verwenden diese dann, um eine Verbindung mit Ihrem Server herzustellen. Sie können einen SSH-Client verwenden, um eine Bash-Eingabeaufforderung auf dem Linux-Server zu öffnen. Sie können auch einen SFTP-Client (Secure FTP) verwenden, um Dateien auf den und vom Server zu verschieben.
 
 ## <a name="create-an-ssh-public-key-on-windows"></a>Erstellen eines öffentlichen SSH-Schlüssels auf Windows
 
-In diesem Abschnitt verwenden Sie den Schlüsselgenerator von PuTTY, um ein öffentlich-privates SSH-Schlüsselpaar zu erstellen, das Sie beim Erstellen einer sicheren Verbindung mit Linux-Computern auf Ihrer Azure Stack-Instanz verwenden. Bei PuTTY handelt es sich um einen kostenlosen Terminalemulator, mit dem Sie per SSH und Telnet eine Verbindung mit einem Server herstellen können.
+In diesem Abschnitt verwenden Sie den Schlüsselgenerator von PuTTY, um ein öffentlich-privates SSH-Schlüsselpaar zu erstellen, das Sie beim Erstellen einer sicheren Verbindung mit Linux-Computern in Ihrer Azure Stack Hub-Instanz verwenden. Bei PuTTY handelt es sich um einen kostenlosen Terminalemulator, mit dem Sie per SSH und Telnet eine Verbindung mit einem Server herstellen können.
 
 1. [Laden Sie PuTTY für Windows herunter, und installieren Sie es](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
@@ -66,14 +66,14 @@ Wenn eine Anwendung den Schlüssel anfordert, können Sie den gesamten Inhalt de
 
 ## <a name="connect-with-ssh-by-using-putty"></a>Herstellen einer SSH-Verbindung mithilfe von PuTTY
 
-Nach der Installation von PuTTY verfügen Sie sowohl über den PuTTY-Schlüsselgenerator als auch über einen SSH-Client. In diesem Abschnitt öffnen Sie den SSH-Client und PuTTY und konfigurieren Ihre Verbindungswerte und den SSH-Schlüssel. Stellen Sie eine Verbindung mit Ihrem virtuellen Computer her, wenn Sie sich in demselben Netzwerk befinden.
+Nach der Installation von PuTTY verfügen Sie sowohl über den PuTTY-Schlüsselgenerator als auch über einen SSH-Client. In diesem Abschnitt öffnen Sie den SSH-Client und PuTTY und konfigurieren Ihre Verbindungswerte und den SSH-Schlüssel. Stellen Sie eine Verbindung mit Ihrem virtuellen Computer her, wenn Sie sich in demselben Netzwerk wie die Azure Stack Hub-Instanz befinden.
 
 Bevor Sie die Verbindung herstellen, benötigen Sie Folgendes:
 - PuTTY.
-- Die IP-Adresse und der Benutzername für den Linux-Computer in Ihrer Azure Stack-Instanz, die einen öffentlichen SSH-Schlüssel als Authentifizierungstyp verwendet.
+- Die IP-Adresse und der Benutzername für den Linux-Computer in Ihrer Azure Stack Hub-Instanz, die einen öffentlichen SSH-Schlüssel als Authentifizierungstyp verwendet
 - Port 22 muss für den Computer geöffnet sein.
 - Der öffentliche SSH-Schlüssel, den Sie beim Erstellen des Computers verwendet haben.
-- Der Clientcomputer, auf dem PuTTY ausgeführt wird, muss sich in demselben Netzwerk wie Ihre Azure Stack-Instanz befinden.
+- Der Clientcomputer, auf dem PuTTY ausgeführt wird, muss sich in demselben Netzwerk wie Ihre Azure Stack Hub-Instanz befinden.
 
 1. Öffnen Sie PuTTY.
 
@@ -127,4 +127,4 @@ Zum Verschieben von Dateien für Ihren Linux-Computer können Sie FileZilla nutz
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erfahren Sie mehr über das [Einrichten einer Entwicklungsumgebung in Azure Stack](azure-stack-dev-start.md).
+Erfahren Sie mehr über das [Einrichten einer Entwicklungsumgebung in Azure Stack Hub](azure-stack-dev-start.md).

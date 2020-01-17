@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen einer Node.js-Web-App auf einem virtuellen Computer in Azure Stack | Microsoft-Dokumentation
-description: Bereitstellen einer Node.js-App in Azure Stack.
+title: Bereitstellen einer Node.js-App auf einem virtuellen Computer in Azure Stack Hub | Microsoft-Dokumentation
+description: Stellen Sie eine Node.js-App in Azure Stack Hub bereit.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,24 +9,24 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 0b145ab315e855ee08b25ea4980bdde40d0bfc1c
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: b848678eab2b913331208e13882c3b8b125c51a8
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824192"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820592"
 ---
-# <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack"></a>Bereitstellen einer Node.js-Web-App auf einer VM in Azure Stack
+# <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>Bereitstellen einer Node.js-Web-App auf einer VM in Azure Stack Hub
 
-Sie können einen virtuellen Computer erstellen, um Ihre Node.js-Web-App in Azure Stack zu hosten. In diesem Artikel richten Sie einen Server ein, konfigurieren den Server zum Hosten Ihrer Node.js-Web-App und stellen die App dann unter Azure Stack bereit.
+Sie können einen virtuellen Computer erstellen, um eine Node.js-Web-App in Azure Stack Hub zu hosten. In diesem Artikel richten Sie einen Server ein, konfigurieren den Server zum Hosten Ihrer Node.js-Web-App und stellen die App dann unter Azure Stack Hub bereit.
 
 ## <a name="create-a-vm"></a>Erstellen einer VM
 
-1. Richten Sie Ihre VM in Azure Stack ein, indem Sie die Anleitung unter [Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack](azure-stack-dev-start-howto-deploy-linux.md) befolgen.
+1. Richten Sie Ihre VM in Azure Stack Hub ein, indem Sie die Anleitung unter [Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack Hub](azure-stack-dev-start-howto-deploy-linux.md) befolgen.
 
 2. Stellen Sie im Bereich für das VM-Netzwerk sicher, dass auf die folgenden Ports zugegriffen werden kann:
 
-    | Port | Protocol | BESCHREIBUNG |
+    | Port | Protocol | Beschreibung |
     | --- | --- | --- |
     | 80 | HTTP | Das Hypertext Transfer-Protokoll (HTTP) wird zum Bereitstellen von Webseiten über Server verwendet. Clients stellen eine Verbindung per HTTP über einen DNS-Namen oder eine IP-Adresse her. |
     | 443 | HTTPS | Das Hypertext Transfer-Protokoll Secure (HTTPS) ist eine sichere Version von HTTP, für die ein Sicherheitszertifikat benötigt wird und die die verschlüsselte Übertragung von Informationen ermöglicht. |
@@ -87,6 +87,6 @@ Sie können einen virtuellen Computer erstellen, um Ihre Node.js-Web-App in Azur
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Weitere Informationen zum [Entwickeln für Azure Stack](azure-stack-dev-start.md)
-- Weitere Informationen zu [häufigen Bereitstellungen für Azure Stack als IaaS](azure-stack-dev-start-deploy-app.md)
+- Weitere Informationen zum [Entwickeln für Azure Stack Hub](azure-stack-dev-start.md)
+- Weitere Informationen zu [häufigen Bereitstellungen für Azure Stack Hub als IaaS](azure-stack-dev-start-deploy-app.md)
 - Besuchen Sie die Website [Nodejs.org](https://nodejs.org), um die Programmiersprache Node.js zu erlernen und weitere Ressourcen für Node.js zu finden.

@@ -1,5 +1,5 @@
 ---
-title: Testen Sie ein Azure Stack-Dienstangebot.
+title: Testen Sie ein Azure Stack Hub-Dienstangebot.
 description: Erfahren Sie, wie Sie ein Dienstangebot testen, indem Sie ein Abonnement erstellen und Ressourcen bereitstellen.
 author: BryanLa
 ms.author: bryanla
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 9e41cae53612cdf412840eb63d648a9c73260fa6
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: fd14a6099c9906a0b37c8227164b213235dcfee3
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727461"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820932"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Tutorial: Testen eines Dienstangebots
 
@@ -31,7 +31,7 @@ Bevor Sie mit diesem Tutorial beginnen, müssen folgende Schritte ausgeführt we
 
 - Schließen Sie das Tutorial [Anbieten eines Diensts für Benutzer](tutorial-offer-services.md) ab. Darin erfahren Sie, wie Sie das von diesem Tutorial verwendete Angebot erstellen.
 
-- Das Angebot, das Sie in diesem Tutorial abonnieren, ermöglicht die Bereitstellung einer Ressource eines virtuellen Computers (VM). Wenn Sie die VM-Bereitstellung testen möchten, müssen Sie zunächst ein VM-Image in Azure Stack Marketplace bereitstellen, indem Sie es von Azure Marketplace herunterladen. Die entsprechenden Anweisungen finden Sie unter [Herunterladen von Marketplace-Elementen von Azure in Azure Stack](azure-stack-download-azure-marketplace-item.md). 
+- Das Angebot, das Sie in diesem Tutorial abonnieren, ermöglicht die Bereitstellung einer Ressource eines virtuellen Computers (VM). Wenn Sie die VM-Bereitstellung testen möchten, müssen Sie zunächst ein VM-Image in Azure Stack Hub Marketplace bereitstellen, indem Sie es von Azure Marketplace herunterladen. Die entsprechenden Anweisungen finden Sie unter [Herunterladen von Marketplace-Elementen von Azure in Azure Stack Hub](azure-stack-download-azure-marketplace-item.md). 
 
 ## <a name="subscribe-to-the-offer"></a>Abonnieren des Angebots
 
@@ -141,6 +141,6 @@ In diesem Tutorial haben Sie Folgendes gelernt:
 
 Als Nächstes erfahren Sie mehr über das Bereitstellen von Ressourcenanbietern für Mehrwertdienste. Mit diesen können Sie Benutzern in ihren Plänen sogar noch mehr Dienste anbieten:
 
-- [Anbieten von SQL in Azure Stack](azure-stack-sql-resource-provider.md)
-- [Anbieten von MySQL in Azure Stack](azure-stack-mysql-resource-provider.md)
-- [Anbieten von App Service in Azure Stack](azure-stack-app-service-overview.md)
+- [Anbieten von SQL in Azure Stack Hub](azure-stack-sql-resource-provider.md)
+- [Anbieten von MySQL in Azure Stack Hub](azure-stack-mysql-resource-provider.md)
+- [Anbieten von App Service in Azure Stack Hub](azure-stack-app-service-overview.md)

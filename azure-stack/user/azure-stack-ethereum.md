@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen eines Ethereum-Blockchainnetzwerks in Azure Stack | Microsoft-Dokumentation
-description: Tutorial mit Verwendung von benutzerdefinierten Projektmappenvorlagen zum Bereitstellen und Konfigurieren eines Ethereum-Blockchainnetzwerks in Azure Stack
+title: Bereitstellen eines Ethereum-Blockchainnetzwerks in Azure Stack Hub | Microsoft-Dokumentation
+description: Tutorial mit Verwendung von benutzerdefinierten Projektmappenvorlagen zum Bereitstellen und Konfigurieren eines Ethereum-Blockchainnetzwerks in Azure Stack Hub
 services: azure-stack
 keywords: ''
 author: PatAltimore
@@ -12,18 +12,18 @@ ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: b68a6df35b5345d3e1f00be126cdae24e87d3d0b
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 86e9f6fb78275678f8072573f83696d3ea79184f
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842987"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924152"
 ---
-# <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Bereitstellen eines Ethereum-Blockchainnetzwerks in Azure Stack
+# <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>Bereitstellen eines Ethereum-Blockchainnetzwerks in Azure Stack Hub
 
 Mit der Ethereum-Projektmappenvorlage lässt sich ein Multimember-Blockchainnetzwerk für Konsortien von Ethereum mit minimalen Kenntnissen im Bereich Azure und Ethereum schneller und einfacher bereitstellen und konfigurieren.
 
-Mit einigen wenigen Benutzereingaben und einer Bereitstellung mit nur einem Klick über das Azure Stack-Mandantenportal kann jedes Member seinen Netzwerkfußabdruck bereitstellen. Der Netzerkfußabdruck jedes Mitglieds umfasst drei Dinge:
+Mit einigen wenigen Benutzereingaben und einer Bereitstellung mit nur einem Klick über das Azure Stack Hub-Mandantenportal kann jedes Mitglied seinen Netzwerkfußabdruck bereitstellen. Der Netzerkfußabdruck jedes Mitglieds umfasst drei Dinge:
 
 1. Eine Reihe von Transaktionsknoten mit Lastenausgleich, über die eine Anwendung oder ein Benutzer interaktiv Transaktionen übermitteln kann
 2. Eine Reihe von Miningknoten zum Aufzeichnen von Transaktionen
@@ -55,15 +55,15 @@ Mit dieser Projektmappenvorlage können Single- oder Multimembernetzwerke für E
 
 Mit der Vorlage können Leader- und Memberverknüpfungen für Ethereum-Konsortien auf verschiedene Art und Weise bereitgestellt werden. Nachfolgend werden die von uns getesteten beschrieben:
 
-- In einem Azure Stack mit mehreren Knoten und Azure AD oder AD FS stellen Sie Leader und Member unter Verwendung des gleichen Abonnements oder verschiedener Abonnements bereit.
-- In einer Azure Stack-Instanz mit einem Knoten (mit Azure AD) stellen Sie Leader und Mitglieder unter Verwendung des gleichen Abonnements bereit.
+- In einer Azure Stack Hub-Instanz mit mehreren Knoten und Azure AD oder AD FS stellen Sie Leader und Member unter Verwendung des gleichen Abonnements oder verschiedener Abonnements bereit.
+- In einer Azure Stack Hub-Instanz mit einem Knoten (mit Azure AD) stellen Sie Leader und Mitglieder unter Verwendung des gleichen Abonnements bereit.
 
 ### <a name="standalone-and-consortium-leader-deployment"></a>Eigenständige und Konsortium-Leaderbereitstellung
 
 Die Konsortium-Leadervorlage konfiguriert den Speicherbedarf für das erste Member im Netzwerk. 
 
-1. Laden Sie die [Leadervorlage von GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json) herunter.
-2. Wählen Sie im Azure Stack-Mandantenportal **+ Ressource erstellen > Vorlagenbereitstellung**, um die Bereitstellung über eine benutzerdefinierte Vorlage durchzuführen.
+1. Laden Sie die [Leadervorlage von GitHub](https://aka.ms/aa6z619) herunter.
+2. Wählen Sie im Azure Stack Hub-Mandantenportal **+ Ressource erstellen > Vorlagenbereitstellung** aus, um die Bereitstellung über eine benutzerdefinierte Vorlage durchzuführen.
 3. Klicken Sie auf **Vorlage bearbeiten**, um die neue benutzerdefinierte Vorlage zu bearbeiten.
 4. Wenn Sie sich im rechten Bearbeitungsbereich befinden, kopieren Sie die zuvor heruntergeladene Leader-JSON-Vorlagendatei, und fügen Sie sie ein.
     
@@ -74,7 +74,7 @@ Die Konsortium-Leadervorlage konfiguriert den Speicherbedarf für das erste Memb
     
     ![Bearbeiten der Leadervorlagenparameter](./media/azure-stack-ethereum/edit-leader-parameters.png)
 
-    Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
+    Parametername | Beschreibung | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
     NAMEPREFIX | Zeichenfolge, die als Grundlage für die Benennung der bereitgestellten Ressourcen verwendet wird. | Alphanumerische Zeichen (1 bis 6) | eth
     AUTHTYPE | Die Methode zur Authentifizierung des virtuellen Computers | Kennwort oder öffentlicher SSH-Schlüssel | Kennwort
@@ -99,7 +99,7 @@ Die Konsortium-Leadervorlage konfiguriert den Speicherbedarf für das erste Memb
     
     ![Leaderbereitstellungsparameter](./media/azure-stack-ethereum/leader-deployment-parameters.png)
 
-    Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
+    Parametername | Beschreibung | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
     Subscription | Das Abonnement, für das das Konsortiumsnetzwerk bereitgestellt wird | | Verbrauchsabonnement
     Ressourcengruppe | Die Ressourcengruppe, für die das Konsortiumsnetzwerk bereitgestellt wird. | | EthereumResources
@@ -117,14 +117,14 @@ Navigieren Sie zum Überprüfen der Leaderbereitstellung zur Leader-Administrato
 
 ### <a name="joining-consortium-member-deployment"></a>Verknüpfen der Konsortiums-Memberbereitstellung
 
-1. Laden Sie die [Konsortiumsmembervorlage von GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json) herunter.
-2. Wählen Sie im Azure Stack-Mandantenportal **+ Ressource erstellen > Vorlagenbereitstellung**, um die Bereitstellung über eine benutzerdefinierte Vorlage durchzuführen.
+1. Laden Sie die [Konsortiumsmembervorlage von GitHub](https://aka.ms/aa6zkua) herunter.
+2. Wählen Sie im Azure Stack Hub-Mandantenportal **+ Ressource erstellen > Vorlagenbereitstellung** aus, um die Bereitstellung über eine benutzerdefinierte Vorlage durchzuführen.
 3. Klicken Sie auf **Vorlage bearbeiten**, um die neue benutzerdefinierte Vorlage zu bearbeiten.
 4. Wenn Sie sich im rechten Bearbeitungsbereich befinden, kopieren Sie die zuvor heruntergeladene Leader-JSON-Vorlagendatei, und fügen Sie sie ein.
 5. Wählen Sie **Speichern** aus.
 6. Klicken Sie auf **Parameter bearbeiten**, um die Vorlagenparameter für Ihre Bereitstellung einzugeben.
 
-    Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
+    Parametername | Beschreibung | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
     NAMEPREFIX | Zeichenfolge, die als Grundlage für die Benennung der bereitgestellten Ressourcen verwendet wird. | Alphanumerische Zeichen (1 bis 6) | eth
     AUTHTYPE | Die Methode zur Authentifizierung des virtuellen Computers | Kennwort oder öffentlicher SSH-Schlüssel | Kennwort
@@ -147,7 +147,7 @@ Navigieren Sie zum Überprüfen der Leaderbereitstellung zur Leader-Administrato
 7. Klicken Sie auf **OK**.
 8. Geben Sie unter **Benutzerdefinierte Bereitstellung** **Abonnement**, **Ressourcengruppe** und **Ressourcengruppenstandort** an.
 
-    Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
+    Parametername | Beschreibung | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
     Subscription | Das Abonnement, für das das Konsortiumsnetzwerk bereitgestellt wird | | Verbrauchsabonnement
     Ressourcengruppe | Die Ressourcengruppe, für die das Konsortiumsnetzwerk bereitgestellt wird. | | MemberResources
@@ -169,8 +169,8 @@ Wie in der Abbildung gezeigt wird, lautet der Knotenstatus des Members **Wird ni
 
 Mit dieser Vorlage erstellen Sie eine Verbindung vom Leader zu einem Remotemember. 
 
-1. Laden Sie die [Vorlage zum Verbinden von Member und Leader von GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json) herunter.
-2. Wählen Sie im Azure Stack-Mandantenportal **+ Ressource erstellen > Vorlagenbereitstellung**, um die Bereitstellung über eine benutzerdefinierte Vorlage durchzuführen.
+1. Laden Sie die [Vorlage zum Verbinden von Member und Leader von GitHub](https://aka.ms/aa6zdyt) herunter.
+2. Wählen Sie im Azure Stack Hub-Mandantenportal **+ Ressource erstellen > Vorlagenbereitstellung** aus, um die Bereitstellung über eine benutzerdefinierte Vorlage durchzuführen.
 3. Klicken Sie auf **Vorlage bearbeiten**, um die neue benutzerdefinierte Vorlage zu bearbeiten.
 4. Wenn Sie sich im rechten Bearbeitungsbereich befinden, kopieren Sie die zuvor heruntergeladene Leader-JSON-Vorlagendatei, und fügen Sie sie ein.
     
@@ -181,7 +181,7 @@ Mit dieser Vorlage erstellen Sie eine Verbindung vom Leader zu einem Remotemembe
     
     ![Bearbeiten der Vorlagenparameterdatei](./media/azure-stack-ethereum/edit-connect-parameters.png)
 
-    Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
+    Parametername | Beschreibung | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
     MEMBERNAMEPREFIX | Namenspräfix des Leaders. Der Wert befindet sich in der Bereitstellungsausgabe des Leaders.  | Alphanumerische Zeichen (1 bis 6) | |
     MEMBERROUTETABLENAME | Name der Routentabelle des Leaders. Der Wert befindet sich in der Bereitstellungsausgabe des Leaders. |  | 
@@ -189,7 +189,7 @@ Mit dieser Vorlage erstellen Sie eine Verbindung vom Leader zu einem Remotemembe
     CONNECTIONSHAREDKEY | Ein vorab festgelegter, geheimer Schlüssel zwischen zwei Membern des Konsortiumsnetzwerks, zwischen denen eine Verbindung hergestellt wird.  | |
     REMOTEMEMBERNVAPUBLICIP | Die NVA-IP-Adresse des Members. Dieser Wert befindet sich in der Bereitstellungsausgabe des Members. | |
     MEMBERNVAPRIVATEIP | Die private NVA-IP-Adresse des Leaders. Der Wert befindet sich in der Bereitstellungsausgabe des Leaders. | |
-    LOCATION | Standort Ihrer Azure Stack-Umgebung. | | local
+    LOCATION | Standort Ihrer Azure Stack Hub-Umgebung | | local
     BASEURL | Basis-URL für die Vorlage. | Verwenden Sie den Standardwert, sofern Sie die Bereitstellungsvorlagen nicht anpassen möchten. | 
 
 7. Klicken Sie auf **OK**.
@@ -197,7 +197,7 @@ Mit dieser Vorlage erstellen Sie eine Verbindung vom Leader zu einem Remotemembe
     
     ![Verbinden der Bereitstellungsparameter](./media/azure-stack-ethereum/connect-deployment-parameters.png)
 
-    Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
+    Parametername | Beschreibung | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
     Subscription | Das Abonnement des Leaders. | | Verbrauchsabonnement
     Ressourcengruppe | Ressourcengruppe des Leaders. | | EthereumResources

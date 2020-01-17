@@ -1,5 +1,5 @@
 ---
-title: Bieten Sie Azure Stack-Dienste als Abonnement an.
+title: Bieten Sie Azure Stack Hub-Dienste als Abonnement an.
 description: Erfahren Sie, wie Sie mit Angeboten, Plänen und Diensten ein Dienstangebot erstellen.
 author: BryanLa
 ms.author: bryanla
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 03be52d653fe6340a88a9c466fef8c9b1ccc9256
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 331d76a61ec67165473702d47f35c02533dcd0b8
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727427"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816563"
 ---
 # <a name="tutorial-offer-a-service-to-users"></a>Tutorial: Anbieten eines Diensts für Benutzer
 
@@ -37,14 +37,14 @@ Ein Angebot besteht aus mindestens einem Plan. Ein Plan berechtigt zum Zugriff a
 
 Ein Ressourcenanbieter unterstützt die Erstellung, Bereitstellung und Verwaltung seiner Ressourcen als Dienste. Ein gängiges Beispiel ist der Ressourcenanbieter „Microsoft.Compute“, der die Möglichkeit bietet, virtuelle Computer (VMs) zu erstellen und bereitzustellen. Eine Übersicht über das Azure-Ressourcenverwaltungsmodell finden Sie unter [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview).
 
-In Azure Stack gibt es zwei allgemeine Kategorien von Ressourcenanbietern: solche, die Ressourcen als grundlegende Dienste bereitstellen, und solche, die sie als Mehrwertdienste bereitstellen.
+In Azure Stack Hub gibt es zwei allgemeine Kategorien von Ressourcenanbietern: solche, die Ressourcen als grundlegende Dienste bereitstellen, und solche, die sie als Mehrwertdienste bereitstellen.
 
 ### <a name="foundational-services"></a>Grundlegende Dienste
 
 >[!NOTE]
 > In diesem Tutorial erfahren Sie, wie Sie ein Angebot erstellen, das auf grundlegenden Diensten basiert. 
 
-Grundlegende Dienste werden von den folgenden Ressourcenanbietern unterstützt, die bei jeder Installation von Azure Stack nativ verfügbar sind:
+Grundlegende Dienste werden von den folgenden Ressourcenanbietern unterstützt, die bei jeder Installation von Azure Stack Hub nativ verfügbar sind:
 
 | Ressourcenanbieter | Beispielressourcen |
 | ----------------- | ------------------|
@@ -56,9 +56,9 @@ Grundlegende Dienste werden von den folgenden Ressourcenanbietern unterstützt, 
 ### <a name="value-add-services"></a>Mehrwertdienste
 
 >[!NOTE]
-> Damit ein Mehrwertdienst angeboten werden kann, muss zunächst der entsprechende Ressourcenanbieter im Azure Stack-Marketplace installiert werden. Nachdem der Anbieter installiert wurde, werden seine Ressourcen den Benutzern auf die gleiche Weise wie grundlegende Dienste angeboten. Im Abschnitt **Schrittanleitungen** im Inhaltsverzeichnis finden Sie die aktuellen Ressourcenanbieter, die Angebote für Mehrwertdienste unterstützen.
+> Damit ein Mehrwertdienst angeboten werden kann, muss zunächst der entsprechende Ressourcenanbieter im Azure Stack Hub-Marketplace installiert werden. Nachdem der Anbieter installiert wurde, werden seine Ressourcen den Benutzern auf die gleiche Weise wie grundlegende Dienste angeboten. Im Abschnitt **Schrittanleitungen** im Inhaltsverzeichnis finden Sie die aktuellen Ressourcenanbieter, die Angebote für Mehrwertdienste unterstützen.
 
-Mehrwertdienste werden von Ressourcenanbietern unterstützt, die nach der Bereitstellung von Azure Stack installiert wurden. Beispiele:
+Mehrwertdienste werden von Ressourcenanbietern unterstützt, die nach der Bereitstellung von Azure Stack Hub installiert wurden. Beispiele:
 
 | Ressourcenanbieter | Beispielressourcen |
 | ----------------- | ------------------------- |

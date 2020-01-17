@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen einer App in Azure Stack | Microsoft-Dokumentation
-description: Bereitstellen einer App in Azure Stack.
+title: Bereitstellen einer App in Azure Stack Hub | Microsoft-Dokumentation
+description: Stellen Sie eine App in Azure Stack Hub bereit.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,24 +9,24 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 4d8dbc22a69c204b8d6a755d2a8402ba7185d03e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 5f29fd7a0d2ab8df9d713927b7e9bada38d0e249
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824733"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820677"
 ---
-# <a name="common-deployments-for-azure-stack"></a>Häufige Bereitstellungen für Azure Stack
+# <a name="common-deployments-for-azure-stack-hub"></a>Häufige Bereitstellungen für Azure Stack Hub
 
-Azure Stack unterstützt sowohl Infrastructure-as-a-Service (IaaS) als auch Platform-as-a-Service (PaaS). In diesem Artikel lernen Sie die Ressourcen kennen, mit denen Sie einen virtuellen Computer einrichten und dann in Azure Stack bereitstellen können.
+Azure Stack Hub unterstützt sowohl Infrastructure-as-a-Service (IaaS) als auch Platform-as-a-Service (PaaS). In diesem Artikel lernen Sie die Ressourcen kennen, mit denen Sie einen virtuellen Computer einrichten und dann in Azure Stack Hub bereitstellen können.
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-Bevor Sie mit der Bereitstellung einer App in Azure Stack beginnen, richten Sie Ihren Entwicklungscomputer ein. Anleitungen zur Vorbereitung auf die Arbeit mit Azure Stack als Entwickler finden Sie unter [Einrichten einer Entwicklungsumgebung in Azure Stack](azure-stack-dev-start.md).
+Bevor Sie mit der Bereitstellung einer App in Azure Stack Hub beginnen, richten Sie Ihren Entwicklungscomputer ein. Anleitungen zur Vorbereitung auf die Arbeit mit Azure Stack Hub als Entwickler finden Sie unter [Einrichten einer Entwicklungsumgebung in Azure Stack Hub](azure-stack-dev-start.md).
 
 ## <a name="deploy-an-app-to-a-vm"></a>Bereitstellen einer App auf einer VM
 
-In den folgenden Artikeln erfahren Sie mehr über das Einrichten von virtuellen Computern in Azure Stack und das Bereitstellen Ihrer App von Ihrer Entwicklungsarbeitsstation für Azure Stack.
+In den folgenden Artikeln erfahren Sie mehr über das Einrichten von virtuellen Computern in Azure Stack Hub und das Bereitstellen Ihrer App über Ihre Entwicklungsarbeitsstation für Azure Stack Hub.
 
 - [.NET Core (C#)](azure-stack-dev-start-howto-vm-dotnet.md)
 - [Java](azure-stack-dev-start-howto-vm-java.md)
@@ -37,5 +37,5 @@ In den folgenden Artikeln erfahren Sie mehr über das Einrichten von virtuellen 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Richten Sie eine [Entwicklungsumgebung in Azure Stack](azure-stack-dev-start.md) ein.
-- Richten Sie eine [CI/CD-Pipeline (Continuous Integration/Continuous Delivery) in Azure Stack](azure-stack-solution-pipeline.md) ein.
+- Einrichten einer [Entwicklungsumgebung in Azure Stack Hub](azure-stack-dev-start.md)
+- Einrichten einer [CI/CD-Pipeline (Continuous Integration/Continuous Delivery) in Azure Stack Hub](azure-stack-solution-pipeline.md)
