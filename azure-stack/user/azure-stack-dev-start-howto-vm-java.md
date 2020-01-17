@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen einer Java-Webanwendungsressource auf einem virtuellen Computer in Azure Stack | Microsoft-Dokumentation
-description: Es wird beschrieben, wie Sie eine Java-Webanwendungsressource auf einem virtuellen Computer in Azure Stack bereitstellen.
+title: Bereitstellen einer Java-Webanwendungsressource auf einem virtuellen Computer in Azure Stack Hub | Microsoft-Dokumentation
+description: Hier wird beschrieben, wie Sie eine Java-Webanwendungsressource auf einem virtuellen Computer in Azure Stack Hub bereitstellen.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,24 +9,24 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 2c9c43439872a19ba590fb22059969f9a7c742f0
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 75633b7e695db3c6b1e48b7e5f98e9145b6b1fc9
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824445"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820626"
 ---
-# <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>Bereitstellen einer Java-Web-App auf einer VM in Azure Stack
+# <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Bereitstellen einer Java-Web-App auf einer VM in Azure Stack Hub
 
-Sie können einen virtuellen Computer erstellen, um Ihre Python-Web-App in Azure Stack zu hosten. In diesem Artikel installieren und konfigurieren Sie einen Apache Tomcat-Server auf einer Linux-VM in Azure Stack. Anschließend laden Sie eine Java-Webanwendungsressource (WAR-Datei) auf den Server. Eine WAR-Datei wird zum Verteilen einer Sammlung mit Java-Archivdateien (JAR), komprimierten Dateien mit Java-Ressourcen, z. B. Klassen, Text, Bildern, XML- und HTML-Code, sowie anderen Ressourcen zum Bereitstellen einer Webanwendung verwendet.
+Sie können einen virtuellen Computer erstellen, um Ihre Python-Web-App in Azure Stack Hub zu hosten. In diesem Artikel installieren und konfigurieren Sie einen Apache Tomcat-Server auf einer Linux-VM in Azure Stack Hub. Anschließend laden Sie eine Java-Webanwendungsressource (WAR-Datei) auf den Server. Eine WAR-Datei wird zum Verteilen einer Sammlung mit Java-Archivdateien (JAR), komprimierten Dateien mit Java-Ressourcen, z. B. Klassen, Text, Bildern, XML- und HTML-Code, sowie anderen Ressourcen zum Bereitstellen einer Webanwendung verwendet.
 
 ## <a name="create-a-vm"></a>Erstellen einer VM
 
-1. Richten Sie Ihre VM in Azure Stack ein, indem Sie die Anleitung unter [Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack](azure-stack-dev-start-howto-deploy-linux.md) befolgen.
+1. Richten Sie Ihre VM in Azure Stack Hub ein, indem Sie die Anleitung unter [Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack Hub](azure-stack-dev-start-howto-deploy-linux.md) befolgen.
 
 2. Stellen Sie im Bereich für das VM-Netzwerk sicher, dass auf die folgenden Ports zugegriffen werden kann:
 
-    | Port | Protocol | BESCHREIBUNG |
+    | Port | Protocol | Beschreibung |
     | --- | --- | --- |
     | 80 | HTTP | Das Hypertext Transfer-Protokoll (HTTP) wird zum Bereitstellen von Webseiten über Server verwendet. Clients stellen eine Verbindung per HTTP über einen DNS-Namen oder eine IP-Adresse her. |
     | 443 | HTTPS | Das Hypertext Transfer-Protokoll Secure (HTTPS) ist eine sichere Version von HTTP, für die ein Sicherheitszertifikat benötigt wird und die die verschlüsselte Übertragung von Informationen ermöglicht. |
@@ -174,11 +174,11 @@ Sie können einen virtuellen Computer erstellen, um Ihre Python-Web-App in Azure
         sudo ufw allow 8080
     ```
 
-    Wenn Sie die *Regeln für eingehende Ports* für Ihre Azure Stack-VM noch nicht hinzugefügt haben, sollten Sie dies jetzt nachholen. Weitere Informationen finden Sie unter [Erstellen einer VM](#create-a-vm).
+    Wenn Sie die *Regeln für eingehende Ports* für Ihre Azure Stack Hub-VM noch nicht hinzugefügt haben, sollten Sie dies jetzt nachholen. Weitere Informationen finden Sie unter [Erstellen einer VM](#create-a-vm).
 
-1. Öffnen Sie einen Browser in demselben Netzwerk wie Ihre Azure Stack-Instanz, und öffnen Sie dann Ihren Server *yourmachine.local.cloudapp.azurestack.external:8080*.
+1. Öffnen Sie einen Browser in demselben Netzwerk wie Ihre Azure Stack Hub-Instanz, und öffnen Sie dann Ihren Server: *yourmachine.local.cloudapp.azurestack.external:8080*.
 
-    ![Apache Tomcat auf einer Azure Stack-VM](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
+    ![Apache Tomcat auf einer Azure Stack Hub-VM](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
 
     Die Apache Tomcat-Seite auf Ihrem Server wird geladen. Als Nächstes konfigurieren Sie den Server so, dass Sie auf „Server Status“, „Manager“ und „Host Manager“ zugreifen können.
 
@@ -217,7 +217,7 @@ Sie können einen virtuellen Computer erstellen, um Ihre Python-Web-App in Azure
 
     c. Speichern und schließen Sie die Datei.
 
-1. Tomcat beschränkt den Zugriff auf die Apps *Manager* und *Host Manager* auf vom Server eingehende Verbindungen. Da Sie Tomcat auf einer VM in Azure Stack installieren, kann es ratsam sein, diese Einschränkung zu entfernen. Ändern Sie die Einschränkungen in Bezug auf die IP-Adresse für diese Apps, indem Sie die entsprechenden *context.xml*-Dateien bearbeiten.
+1. Tomcat beschränkt den Zugriff auf die Apps *Manager* und *Host Manager* auf vom Server eingehende Verbindungen. Da Sie Tomcat auf einer VM in Azure Stack Hub installieren, kann es ratsam sein, diese Einschränkung zu entfernen. Ändern Sie die Einschränkungen in Bezug auf die IP-Adresse für diese Apps, indem Sie die entsprechenden *context.xml*-Dateien bearbeiten.
 
     a. Aktualisieren Sie *context.xml* in der Manager-App:
 
@@ -250,13 +250,13 @@ Sie können einen virtuellen Computer erstellen, um Ihre Python-Web-App in Azure
         sudo systemctl restart tomcat
     ```
 
-1. Öffnen Sie einen Browser in demselben Netzwerk wie Ihre Azure Stack-Instanz, und öffnen Sie dann Ihren Server: *yourmachine.local.cloudapp.azurestack.external:8080*.
+1. Öffnen Sie einen Browser in demselben Netzwerk wie Ihre Azure Stack Hub-Instanz, und öffnen Sie dann Ihren Server: *yourmachine.local.cloudapp.azurestack.external:8080*.
 
     a. Wählen Sie **Server Status**, um den Status des Tomcat-Servers zu überprüfen und sicherzustellen, dass Sie Zugriff haben.
 
     b. Melden Sie sich mit Ihren Tomcat-Anmeldeinformationen an.
 
-    ![Apache Tomcat auf einer Azure Stack-VM](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
+    ![Apache Tomcat auf einer Azure Stack Hub-VM](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
 
 ## <a name="create-an-app"></a>Erstellen einer App
 
@@ -274,7 +274,7 @@ Anleitungen zum Entwickeln von Java-Apps in Azure finden Sie unter [Erstellen un
         sudo systemctl stop tomcat
     ```
 
-1. Fügen Sie Ihren FTP-Benutzer der Tomcat-Gruppe hinzu, um in den Ordner „webapps“ schreiben zu können. Der FTP-Benutzer ist der Benutzer, den Sie beim Erstellen Ihrer VM in Azure Stack definiert haben.
+1. Fügen Sie Ihren FTP-Benutzer der Tomcat-Gruppe hinzu, um in den Ordner „webapps“ schreiben zu können. Der FTP-Benutzer ist der Benutzer, den Sie beim Erstellen Ihrer VM in Azure Stack Hub definiert haben.
 
     ```bash  
         sudo usermod -a -G tomcat <VM-user>
@@ -294,6 +294,6 @@ Anleitungen zum Entwickeln von Java-Apps in Azure finden Sie unter [Erstellen un
     
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Weitere Informationen zum [Entwickeln für Azure Stack](azure-stack-dev-start.md)
-- Weitere Informationen zu [häufigen Bereitstellungen für Azure Stack als IaaS](azure-stack-dev-start-deploy-app.md)
+- Weitere Informationen zum [Entwickeln für Azure Stack Hub](azure-stack-dev-start.md)
+- Weitere Informationen zu [häufigen Bereitstellungen für Azure Stack Hub als IaaS](azure-stack-dev-start-deploy-app.md)
 - Besuchen Sie die Website [Java.com](https://www.java.com), um die Programmiersprache Java zu erlernen und weitere Ressourcen für Java zu finden.
