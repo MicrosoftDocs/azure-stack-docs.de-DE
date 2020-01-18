@@ -19,16 +19,16 @@
       href: azure-stack-quick-create-vm-linux-powershell.md
     - name: Erstellen einer Linux-VM – CLI
       href: azure-stack-quick-create-vm-linux-cli.md
-- name: Lernprogramme
+- name: Tutorials
   items:
+    - name: Abonnieren von Angeboten
+      href: azure-stack-subscribe-services.md
     - name: Erstellen eines virtuellen Computers über eine Vorlage
       href: azure-stack-create-vm-template.md
-- name: Gewusst-wie-Anleitungen
+- name: Anleitungen
   items:
     - name: Erste Schritte mit dem Erstellen von Lösungen für Hybrid Cloud
       items:
-        - name: Abonnieren von Angeboten
-          href: azure-stack-subscribe-services.md
         - name: Aktivieren von Cloud Solution Provider
           href: azure-stack-csp-enable-billing-usage-tracking.md
         - name: Verwenden des Azure Stack Hub-Portals
