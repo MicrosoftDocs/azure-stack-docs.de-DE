@@ -161,7 +161,11 @@
                 - name: Anwenden von OEM-Updates
                   href: azure-stack-update-oem.md
             - name: Überwachen des Updatestatus
-              href: azure-stack-update-monitor.md
+              items:
+                - name: Verwenden von PowerShell
+                  href: azure-stack-update-monitor.md
+                - name: Verwenden eines privilegierten Endpunkts
+                  href: azure-stack-monitor-update.md
             - name: Problembehandlung bei Updates
               href: azure-stack-updates-troubleshoot.md
         - name: Überwachen von Integrität und Warnungen
