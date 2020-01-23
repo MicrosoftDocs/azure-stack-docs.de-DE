@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: e36235af4dea72ae6d8016085ee18aec819ae4dd
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.openlocfilehash: b187194dd63e95fa922000b68dbb701914d10465
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618239"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535908"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutorial: Einrichten von Ressourcen für Validation-as-a-Service
 
@@ -48,9 +48,9 @@ Erstellen Sie einen Mandanten, mit dem Ihre Organisation auf VaaS-Dienste zugrei
 
     Weisen Sie den Benutzern in Ihrem Mandanten eine der folgenden Rollen zu, um die Ausführung von Aktionen in VaaS für sie zu autorisieren:
 
-    | Rollenname | BESCHREIBUNG |
+    | Rollenname | Beschreibung |
     |---------------------|------------------------------------------|
-    | Owner (Besitzer) | Verfügt über Vollzugriff auf alle Ressourcen. |
+    | Besitzer | Verfügt über Vollzugriff auf alle Ressourcen. |
     | Leser | Kann alle Ressourcen anzeigen, aber nicht erstellen oder verwalten. |
     | Test Contributor (Testmitwirkender) | Kann Testressourcen erstellen und verwalten. |
 
@@ -70,7 +70,7 @@ Dieser Prozess autorisiert Ihren Mandanten in der Azure AD-Anwendung **Azure Sta
 
 1. Senden Sie die folgenden Mandanteninformationen unter [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) an Microsoft.
 
-    | Data | BESCHREIBUNG |
+    | Daten | Beschreibung |
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Name der Organisation | Offizieller Organisationsname |
     | Name des Azure AD-Mandantenverzeichnisses | Registrierter Name des Azure AD-Mandantenverzeichnisses |
