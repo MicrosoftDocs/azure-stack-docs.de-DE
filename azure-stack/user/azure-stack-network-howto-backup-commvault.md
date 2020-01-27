@@ -1,6 +1,6 @@
 ---
-title: Sichern Ihres virtuellen Computers in Azure Stack mit Commvault | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Ihren virtuellen Computer in Azure Stack mit Commvault sichern.
+title: Sichern Ihrer VM in Azure Stack Hub mit Commvault | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie Ihre VM in Azure Stack Hub mit Commvault sichern.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,20 +9,18 @@ ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 4294f7f1d53f77c55532645de428678cf42be531
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.openlocfilehash: b2e9871d48352d2e6a5f6d312a4d98cc3ace37ce
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618287"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878695"
 ---
-# <a name="back-up-your-vm-on-azure-stack-with-commvault"></a>Sichern Ihres virtuellen Computers in Azure Stack mit Commvault
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+# <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Sichern Ihres virtuellen Computers in Azure Stack Hub mit Commvault
 
 ## <a name="overview-of-backing-up-a-vm-with-commvault"></a>Übersicht über das Sichern eines virtuellen Computers mit Commvault
 
-In diesem Artikel wird beschrieben, wie Sie Commvault Live Sync konfigurieren, um einen virtuellen Computer für die Wiederherstellung zu aktualisieren, der sich in einer separaten Azure Stack-Skalierungseinheit befindet. In diesem Artikel wird ausführlich erläutert, wie eine allgemeine Partnerlösung konfiguriert wird, um die Daten und den Systemstatus von in Azure Stack bereitgestellten virtuellen Computern zu schützen und wiederherzustellen.
+In diesem Artikel wird beschrieben, wie Sie Commvault Live Sync konfigurieren, um einen virtuellen Computer für die Wiederherstellung zu aktualisieren, der sich in einer separaten Azure Stack Hub-Skalierungseinheit befindet. In diesem Artikel wird ausführlich erläutert, wie eine allgemeine Partnerlösung konfiguriert wird, um die Daten und den Systemstatus von in Azure Stack Hub bereitgestellten virtuellen Computern zu schützen und wiederherzustellen.
 
 In der folgenden Abbildung ist die allgemeine Lösung bei der Verwendung von Commvault zum Sichern Ihrer virtuellen Computer dargestellt.
 
@@ -30,15 +28,15 @@ In der folgenden Abbildung ist die allgemeine Lösung bei der Verwendung von Com
 
 In diesem Artikel werden die folgenden Themen behandelt:
 
-1. Erstellen eines virtuellen Computers, auf dem die Commvault-Software ausgeführt wird, in Ihrer Azure Stack-Quellinstanz
+1. Erstellen eines virtuellen Computers, auf dem die Commvault-Software ausgeführt wird, in Ihrer Azure Stack Hub-Quellinstanz
 
-2. Erstellen eines Speicherkontos an einem sekundären Speicherort. In diesem Artikel wird davon ausgegangen, dass Sie einen Blobcontainer in einem Speicherkonto in einer separaten Azure Stack-Instanz (Ziel) erstellen und dass die Azure Stack-Zielinstanz über die Azure Stack-Quellinstanz erreichbar ist.
+2. Erstellen eines Speicherkontos an einem sekundären Speicherort. In diesem Artikel wird davon ausgegangen, dass Sie einen Blobcontainer in einem Speicherkonto in einer separaten Azure Stack Hub-Instanz (Ziel) erstellen und dass die Azure Stack Hub-Zielinstanz über die Azure Stack Hub-Quellinstanz erreichbar ist.
 
-3. Konfigurieren von Commvault für die Azure Stack-Quellinstanz und Hinzufügen der virtuellen Computer in der Azure Stack-Zielinstanz zur VM-Gruppe
+3. Konfigurieren von Commvault für die Azure Stack Hub-Quellinstanz und Hinzufügen der virtuellen Computer in der Azure Stack Hub-Zielinstanz zur VM-Gruppe
 
 4. Konfigurieren von Commvault Live Sync
 
-Sie können auch kompatible Partner-VM-Images herunterladen und bereitstellen, um Ihre virtuellen Azure Stack-Computer in einer Azure-Cloud oder einer anderen Azure Stack-Instanz zu schützen. In diesem Artikel wird der Schutz der virtuellen Computer mithilfe von Commvault Live Sync erläutert.
+Sie können auch kompatible Partner-VM-Images herunterladen und bereitstellen, um Ihre virtuellen Azure Stack Hub-Computer in einer Azure-Cloud oder einer anderen Azure Stack Hub-Instanz zu schützen. In diesem Artikel wird der Schutz der virtuellen Computer mithilfe von Commvault Live Sync erläutert.
 
 Die Topologie dieses Ansatzes ist in der folgenden Abbildung dargestellt:
 
@@ -46,7 +44,7 @@ Die Topologie dieses Ansatzes ist in der folgenden Abbildung dargestellt:
 
 ## <a name="create-the-commvault-vm-form-the-commvault-marketplace-item"></a>Erstellen des virtuellen Commvault-Computers über das Commvault-Marketplace-Element
 
-1. Öffnen Sie das Azure Stack-Benutzerportal.
+1. Öffnen Sie das Azure Stack Hub-Benutzerportal.
 
 2. Wählen Sie **Ressource erstellen** > **Compute** > **Commvault** aus.
 
@@ -71,7 +69,7 @@ Die Topologie dieses Ansatzes ist in der folgenden Abbildung dargestellt:
     
     g. Wählen Sie eine **Ressourcengruppe** aus.
     
-    h. Wählen Sie den **Speicherort** der Azure Stack-Instanz aus. Wählen Sie bei Verwendung des ASDK die Option **Lokal** aus.
+    h. Wählen Sie den **Speicherort** der Azure Stack Hub-Instanz aus. Wählen Sie bei Verwendung des ASDK die Option **Lokal** aus.
     
     i. Klicken Sie auf **OK**.
 
@@ -111,39 +109,39 @@ Die Topologie dieses Ansatzes ist in der folgenden Abbildung dargestellt:
 
 ## <a name="get-your-service-principal"></a>Abrufen des Dienstprinzipals
 
-Sie müssen wissen, ob Azure AD oder AD FS als Identity Manager festgelegt ist. In der folgenden Tabelle sind die Informationen aufgeführt, die Sie zum Einrichten von Commvault in Ihrer Azure Stack-Instanz benötigen.
+Sie müssen wissen, ob Azure AD oder AD FS als Identity Manager festgelegt ist. In der folgenden Tabelle sind die Informationen aufgeführt, die Sie zum Einrichten von Commvault in Ihrer Azure Stack Hub-Instanz benötigen.
 
-| Element | BESCHREIBUNG | `Source` |
+| Element | Beschreibung | `Source` |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Resource Manager-URL | Azure Stack Resource Manager-Endpunkt | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1908#the-azure-stack-resource-manager-endpoint |
+| Azure Resource Manager-URL | Der Resource Manager-Endpunkt von Azure Stack Hub. | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1908#the-azure-stack-hub-resource-manager-endpoint |
 | Anwendungsname |  |  |
 | Anwendungs-ID | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
-| Abonnement-ID | Sie verwenden die Abonnement-ID, um in Azure Stack auf Angebote zuzugreifen. | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview?view=azs-1908#subscriptions |
-| Mandanten-ID (Verzeichnis-ID) | Ihre Azure Stack-Mandanten-ID | https://docs.microsoft.com/azure-stack/operator/azure-stack-identity-overview?view=azs-1908 |
+| Abonnement-ID | Sie verwenden die Abonnement-ID, um in Azure Stack Hub auf Angebote zuzugreifen. | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview?view=azs-1908#subscriptions |
+| Mandanten-ID (Verzeichnis-ID) | Ihre Mandanten-ID für Azure Stack Hub. | https://docs.microsoft.com/azure-stack/operator/azure-stack-identity-overview?view=azs-1908 |
 | Anwendungskennwort | Das App-Geheimnis des Dienstprinzipals, das bei der Erstellung des Dienstprinzipals gespeichert wurde. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
 
 ## <a name="configure-backup-using-the-commvault-console"></a>Konfigurieren der Sicherung über die Commvault-Konsole
 
-1. Öffnen Sie den RDP-Client, und stellen Sie eine Verbindung mit dem virtuellen Commvault-Computer in Ihrer Azure Stack-Instanz her. Geben Sie Ihre Anmeldeinformationen ein.
+1. Öffnen Sie den RDP-Client, und stellen Sie eine Verbindung mit dem virtuellen Commvault-Computer in Ihrer Azure Stack Hub-Instanz her. Geben Sie Ihre Anmeldeinformationen ein.
 
-2. Installieren Sie Azure Stack PowerShell und Azure Stack-Tools auf dem virtuellen Commvault-Computer.
+2. Installieren Sie Azure Stack Hub PowerShell und Azure Stack Hub-Tools auf dem virtuellen Commvault-Computer.
 
-    a. Anweisungen zum Installieren von Azure Stack PowerShell finden Sie unter [Installieren von PowerShell für Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
-    b. Anweisungen zum Installieren von Azure Stack-Tools finden Sie unter [Herunterladen von Azure Stack-Tools von GitHub](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908).
+    a. Anweisungen zum Installieren von Azure Stack Hub PowerShell finden Sie unter [Installieren von PowerShell für Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
+    b. Anweisungen zum Installieren von Azure Stack Hub-Tools finden Sie unter [Herunterladen von Azure Stack Hub-Tools von GitHub](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908).
 
 3. Öffnen Sie nach der Installation von Commvault auf dem virtuellen Commvault-Computer die CommCell Console. Wählen Sie unter „Start“ die Option **Commvault** > **Commvault CommCell Console** aus.
 
     ![](./media/azure-stack-network-howto-backup-commvault/commcell-console.png)
 
-4. Konfigurieren Sie die Sicherungsrepositorys so, dass externer Speicher von Azure Stack in der Commvault CommCell Console verwendet wird. Wählen Sie im CommCell-Browser die Optionen „Storage Resources“ (Speicherressourcen) > „Storage Pools“ (Speicherpools) aus. Klicken Sie mit der rechten Maustaste, und wählen Sie **Add Storage Pool** (Speicherpool hinzufügen) aus. Wählen Sie **Cloud** aus.
+4. Konfigurieren Sie die Sicherungsrepositorys so, dass externer Speicher von Azure Stack Hub in der Commvault CommCell Console verwendet wird. Wählen Sie im CommCell-Browser die Optionen „Storage Resources“ (Speicherressourcen) > „Storage Pools“ (Speicherpools) aus. Klicken Sie mit der rechten Maustaste, und wählen Sie **Add Storage Pool** (Speicherpool hinzufügen) aus. Wählen Sie **Cloud** aus.
 
-5. Geben Sie den Namen des Speicherpools ein. Klicken Sie auf **Weiter**.
+5. Geben Sie den Namen des Speicherpools ein. Wählen Sie **Weiter** aus.
 
 6. Wählen Sie **Create** > **Cloud Storage** (Erstellen > Cloudspeicher) aus.
 
     ![](./media/azure-stack-network-howto-backup-commvault/commcell-storage-add-storage-device.png)
 
-7. Wählen Sie Ihren Cloud-Dienstanbieter aus. In diesem Verfahren wählen Sie eine zweite Azure Stack-Instanz an einem anderen Speicherort aus. Wählen Sie „Microsoft Azure Storage“ aus.
+7. Wählen Sie Ihren Cloud-Dienstanbieter aus. In diesem Verfahren wählen Sie eine zweite Azure Stack Hub-Instanz an einem anderen Speicherort aus. Wählen Sie „Microsoft Azure Storage“ aus.
 
 8. Wählen Sie den virtuellen Commvault-Computer als MediaAgent aus.
 
@@ -159,7 +157,7 @@ Sie müssen wissen, ob Azure AD oder AD FS als Identity Manager festgelegt ist
     
     -   **Speicherklasse:** Behalten Sie die Standardspeicherklasse des Benutzercontainers bei.
 
-10. Erstellen Sie einen Microsoft Azure Stack-Client, indem Sie die Anweisungen unter [Creating a Microsoft Azure Stack Client](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm) (Erstellen eines Microsoft Azure Stack-Clients) befolgen.
+10. Erstellen Sie einen Microsoft Azure Stack Hub-Client, indem Sie die Anweisungen unter [Creating a Microsoft Azure Hub Stack Client](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm) (Erstellen eines Microsoft Azure Stack Hub-Clients) befolgen.
 
     ![](./media/azure-stack-network-howto-backup-commvault/commcell-ceate-client.png)
 
@@ -173,13 +171,13 @@ Sie müssen wissen, ob Azure AD oder AD FS als Identity Manager festgelegt ist
 
 Für die Konfiguration haben Sie zwei Möglichkeiten. Sie können die Änderungen von der primären Kopie der Sicherungen oder von einer sekundären Kopie auf dem virtuellen Computer für die Wiederherstellung replizieren. Durch die Replikation von einem Sicherungssatz werden die Auswirkungen von E/A-Lesevorgängen auf dem Quellcomputer unterbunden.
 
-1. Bei der Konfiguration von Live Sync müssen Sie die Details zur Azure Stack-Quellinstanz (Agent des virtuellen Servers) und zur Azure Stack-Zielinstanz angeben.
+1. Bei der Konfiguration von Live Sync müssen Sie die Details zur Azure Stack Hub-Quellinstanz (Agent des virtuellen Servers) und zur Azure Stack Hub-Zielinstanz angeben.
 
-2. Die entsprechenden Schritte zum Konfigurieren von Commvault Live Sync finden Sie unter [Live Sync Replication for Microsoft Azure Stack](https://documentation.commvault.com/commvault/v11_sp13/article?p=94386.htm) (Live Sync-Replikation für Microsoft Azure Stack).
+2. Die entsprechenden Schritte zum Konfigurieren von Commvault Live Sync finden Sie unter [Live Sync Replication for Microsoft Azure Stack Hub](https://documentation.commvault.com/commvault/v11_sp13/article?p=94386.htm) (Live Sync-Replikation für Microsoft Azure Stack Hub).
 
     ![](./media/azure-stack-network-howto-backup-commvault/live-sync-1.png)
  
-3. Bei der Konfiguration von Live Sync müssen Sie die Details zur Azure Stack-Zielinstanz und zum Agent des virtuellen Servers angeben.
+3. Bei der Konfiguration von Live Sync müssen Sie die Details zur Azure Stack Hub-Zielinstanz und zum Agent des virtuellen Servers angeben.
 
     ![](./media/azure-stack-network-howto-backup-commvault/live-sync-2.png)
 
@@ -189,7 +187,7 @@ Für die Konfiguration haben Sie zwei Möglichkeiten. Sie können die Änderunge
 
 5. Sie können außerdem die VM-Größe ändern und die Netzwerkeinstellungen konfigurieren, indem Sie neben den einzelnen virtuellen Computern **Konfigurieren** auswählen.
 
-6. Legen Sie die Häufigkeit der Replikation auf der Azure Stack-Zielinstanz fest.
+6. Legen Sie die Häufigkeit der Replikation auf der Azure Stack Hub-Zielinstanz fest.
 
     ![](./media/azure-stack-network-howto-backup-commvault/live-sync-5.png)
 
@@ -198,11 +196,11 @@ Für die Konfiguration haben Sie zwei Möglichkeiten. Sie können die Änderunge
 
 ## <a name="set-up-failover-behavior-using-live-sync"></a>Einrichten des Failoververhaltens mithilfe von Live Sync
 
-In Commvault Live Sync können Sie ein Failover für Computer zwischen verschiedenen Azure Stack-Instanzen sowie ein Failback ausführen, um Vorgänge auf der ursprünglichen Azure Stack-Instanz fortzusetzen. Der Workflow wird automatisiert und protokolliert.
+In Commvault Live Sync können Sie ein Failover für Computer zwischen verschiedenen Azure Stack Hub-Instanzen sowie ein Failback ausführen, um Vorgänge auf der ursprünglichen Azure Stack Hub-Instanz fortzusetzen. Der Workflow wird automatisiert und protokolliert.
 
 ![](./media/azure-stack-network-howto-backup-commvault/back-up-live-sync-panel.png)
 
-Wählen Sie die virtuellen Computer aus, für die ein Failover auf der Azure Stack-Instanz für die Wiederherstellung ausgeführt werden soll, und legen Sie fest, ob ein geplantes oder ungeplantes Failover ausgeführt werden soll. Ein geplantes Failover ist angebracht, wenn Zeit bleibt, um die Produktionsumgebung ordnungsgemäß herunterzufahren, bevor der Betrieb am Wiederherstellungsstandort wieder aufgenommen wird. Bei einem geplanten Failover werden die virtuellen Produktionscomputer heruntergefahren, endgültige Änderungen am Wiederherstellungsstandort repliziert sowie die virtuellen Computer für die Wiederherstellung mit den neuesten Daten online geschaltet und die bei der Konfiguration von Live Sync angegebene VM-Größe und Netzwerkkonfiguration angewandt. Bei einem ungeplanten Failover wird versucht, die virtuellen Produktionscomputer herunterzufahren. Wenn die Produktionsumgebung nicht verfügbar ist, wird der Vorgang jedoch fortgesetzt, um lediglich die virtuellen Computer für die Wiederherstellung mit dem zuletzt empfangenen auf den virtuellen Computer angewandten Replikationsdataset sowie der zuvor ausgewählten Größe und Netzwerkkonfiguration online zu schalten. In den folgenden Abbildungen wird ein ungeplantes Failover gezeigt, bei dem die virtuellen Computer für die Wiederherstellung mithilfe von Commvault Live Sync online geschaltet wurden.
+Wählen Sie die virtuellen Computer aus, für die ein Failover auf der Azure Stack Hub-Instanz für die Wiederherstellung ausgeführt werden soll, und legen Sie fest, ob ein geplantes oder ungeplantes Failover ausgeführt werden soll. Ein geplantes Failover ist angebracht, wenn Zeit bleibt, um die Produktionsumgebung ordnungsgemäß herunterzufahren, bevor der Betrieb am Wiederherstellungsstandort wieder aufgenommen wird. Bei einem geplanten Failover werden die virtuellen Produktionscomputer heruntergefahren, endgültige Änderungen am Wiederherstellungsstandort repliziert sowie die virtuellen Computer für die Wiederherstellung mit den neuesten Daten online geschaltet und die bei der Konfiguration von Live Sync angegebene VM-Größe und Netzwerkkonfiguration angewandt. Bei einem ungeplanten Failover wird versucht, die virtuellen Produktionscomputer herunterzufahren. Wenn die Produktionsumgebung nicht verfügbar ist, wird der Vorgang jedoch fortgesetzt, um lediglich die virtuellen Computer für die Wiederherstellung mit dem zuletzt empfangenen auf den virtuellen Computer angewandten Replikationsdataset sowie der zuvor ausgewählten Größe und Netzwerkkonfiguration online zu schalten. In den folgenden Abbildungen wird ein ungeplantes Failover gezeigt, bei dem die virtuellen Computer für die Wiederherstellung mithilfe von Commvault Live Sync online geschaltet wurden.
 
 ![](./media/azure-stack-network-howto-backup-commvault/unplanned-failover.png)
 
@@ -212,4 +210,4 @@ Wählen Sie die virtuellen Computer aus, für die ein Failover auf der Azure Sta
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Azure Stack-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)  
+[Azure Stack Hub-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)  

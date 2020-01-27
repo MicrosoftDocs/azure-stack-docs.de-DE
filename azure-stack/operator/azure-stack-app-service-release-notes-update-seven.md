@@ -1,6 +1,6 @@
 ---
-title: App Service in Azure Stack – Versionshinweise zu Update 7 | Microsoft-Dokumentation
-description: Erfahren Sie, was in Update 7 für App Service in Azure Stack enthalten ist, welche bekannten Probleme es gibt und wo das Update heruntergeladen werden kann.
+title: 'App Service in Azure Stack Hub: Versionshinweise zu Update 7 | Microsoft-Dokumentation'
+description: Erfahren Sie, was in Update 7 für App Service in Azure Stack Hub enthalten ist, welche bekannten Probleme es gibt und wo das Update heruntergeladen werden kann.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -15,34 +15,32 @@ ms.topic: article
 ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 77fb9772f027d25b0d8c0d8355e3a868c2142d6c
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 87a2fae4c2020b9c37a2907b42299871b0c85095
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282601"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880259"
 ---
-# <a name="app-service-on-azure-stack-update-7-release-notes"></a>App Service in Azure Stack: Versionshinweise zu Update 7
+# <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 7
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-In diesen Versionshinweisen werden die Verbesserungen und Fehlerbehebungen in Update 7 für Azure App Service in Azure Stack sowie bekannte Probleme beschrieben. Die bekannten Probleme sind in Probleme unterteilt, die sich direkt auf die Bereitstellung und den Updateprozess beziehen, und in Probleme mit dem Build (nach der Installation).
+In diesen Versionshinweisen werden die Verbesserungen und Fehlerbehebungen in Update 7 für Azure App Service in Azure Stack Hub sowie bekannte Probleme beschrieben. Die bekannten Probleme sind in Probleme unterteilt, die sich direkt auf die Bereitstellung und den Updateprozess beziehen, und in Probleme mit dem Build (nach der Installation).
 
 > [!IMPORTANT]
-> Wenden Sie das Update 1907 auf Ihr integriertes Azure Stack-System an, oder stellen Sie das aktuelle Azure Stack Development Kit bereit, bevor Sie Azure App Service 1.7 bereitstellen.
+> Wenden Sie das Update 1907 auf Ihr integriertes Azure Stack Hub-System an, oder stellen Sie das aktuelle Azure Stack Development Kit bereit, bevor Sie Azure App Service 1.7 bereitstellen.
 
 
 ## <a name="build-reference"></a>Buildreferenz
 
-Die Buildnummer von Update 7 für App Service in Azure Stack lautet **84.0.2.10**.
+Die Buildnummer von Update 7 für App Service in Azure Stack Hub lautet **84.0.2.10**.
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
 Lesen Sie die Dokumentation [Vor den ersten Schritten mit App Service in Azure Stack](azure-stack-app-service-before-you-get-started.md), bevor Sie mit der Bereitstellung beginnen.
 
-Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack auf 1.7 beginnen:
+Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack Hub auf 1.7 beginnen:
 
-- Stellen Sie sicher, dass alle Rollen in der Azure App Service-Verwaltung im Azure Stack-Verwaltungsportal bereit sind.
+- Stellen Sie sicher, dass alle Rollen in der Azure App Service-Verwaltung im Azure Stack Hub-Verwaltungsportal bereit sind.
 
 - Sichern Sie App Service- und Masterdatenbanken:
   - AppService_Hosting
@@ -55,11 +53,11 @@ Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack auf 1.7 beginnen
 
 ### <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
 
-Update 7 für Azure App Service in Azure Stack enthält folgende Verbesserungen und Fehlerbehebungen:
+Update 7 für Azure App Service in Azure Stack Hub enthält folgende Verbesserungen und Fehlerbehebungen:
 
 - Lösung für [CVE-2019-1372](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1372) (Sicherheitsanfälligkeit bezüglich Remotecodeausführung)
 
-- Updates für **App Service-Mandanten, Admin, Functions-Portale und Kudu-Tools**. Mit Azure Stack-Portal-SDK-Version konsistent.
+- Updates für **App Service-Mandanten, Admin, Functions-Portale und Kudu-Tools**. Konsistent mit Azure Stack Hub-Portal-SDK-Version.
 
 - Aktualisiert **Azure Functions Runtime** auf **v1.0.12582**.
 
@@ -79,7 +77,7 @@ Update 7 für Azure App Service in Azure Stack enthält folgende Verbesserungen
   - [Samstag, 17. August 2019 – KB4512495 (BS-Build 14393.3181)](https://support.microsoft.com/help/4512495)
 
 - **Zugriffseinschränkungen sind im Benutzerportal jetzt aktiviert**:
-  - Ab diesem Release können Benutzer Zugriffseinschränkungen für ihre Web-, API- und Functions-Anwendungen gemäß der veröffentlichten Dokumentation konfigurieren: [Azure App Service – Zugriffseinschränkungen](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions). **HINWEIS**: Azure App Service unter Azure Stack unterstützt keine Dienstendpunkte.
+  - Ab diesem Release können Benutzer Zugriffseinschränkungen für ihre Web-, API- und Functions-Anwendungen gemäß der veröffentlichten Dokumentation konfigurieren: [Azure App Service – Zugriffseinschränkungen](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions). **HINWEIS**: Azure App Service unter Azure Stack Hub unterstützt keine Dienstendpunkte.
 
 - **Funktionalität der Bereitstellungsoptionen (klassisch) wiederhergestellt**:
   - Benutzer können wieder die Bereitstellungsoptionen (klassisch) verwenden, um die Bereitstellung ihrer Apps über GitHub, Bitbucket, Dropbox, OneDrive und lokale und externe Repositorys zu konfigurieren und die Bereitstellungsanmeldeinformationen für ihre Anwendungen festzulegen.
@@ -88,7 +86,7 @@ Update 7 für Azure App Service in Azure Stack enthält folgende Verbesserungen
 
 - **Windows Update-Verhalten**: Anhand des Feedbacks von Kunden haben wir ab Update 7 geändert, wie Windows Update für App Service-Rollen konfiguriert ist:
   - Es gibt drei Modi:
-    - **Deaktiviert**: Der Windows Update-Dienst ist deaktiviert. Windows wird mit der KB aktualisiert, die im Lieferumfang von Azure App Service für Azure Stack-Releases enthalten ist.
+    - **Deaktiviert**: Der Windows Update-Dienst ist deaktiviert. Windows wird mit der KB aktualisiert, die im Lieferumfang von Azure App Service für Azure Stack Hub -Releases enthalten ist.
     - **Automatisch**: Der Windows Update-Dienst ist aktualisiert, und Windows Update bestimmt, wie und wann Updates durchgeführt werden.
     - **Verwaltet**: Der Windows Update-Dienst ist deaktiviert. Azure App Service führt während des OnStart-Vorgangs der individuellen Rolle einen Windows Update-Zyklus durch.
 
@@ -103,7 +101,7 @@ Update 7 für Azure App Service in Azure Stack enthält folgende Verbesserungen
 
 ### <a name="known-issues-post-installation"></a>Bekannte Probleme (nach der Installation)
 
-- Worker können den Dateiserver nicht erreichen, wenn App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist. Dies ist in der Bereitstellungsdokumentation zu Azure App Service in Azure Stack dargestellt.
+- Worker können den Dateiserver nicht erreichen, wenn App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist. Dies ist in der Bereitstellungsdokumentation zu Azure App Service in Azure Stack Hub dargestellt.
 
 Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk und eine interne IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Verwaltungsportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
  * Quelle: Any
@@ -116,11 +114,11 @@ Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk u
  * Priorität: 700
  * Name: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack betreiben
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
 
-Sehen Sie sich die Dokumentation in den [Versionshinweisen zum Azure Stack-Update 1907](azure-stack-release-notes-1907.md) an.
+Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1907](azure-stack-release-notes-1907.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Einen Überblick über Azure App Service finden Sie unter [Übersicht über App Service in Azure Stack](azure-stack-app-service-overview.md).
-- Weitere Informationen zum Vorbereiten der Bereitstellung von App Service in Azure Stack finden Sie unter [Vor den ersten Schritten mit App Service in Azure Stack](azure-stack-app-service-before-you-get-started.md).
+- Einen Überblick über Azure App Service finden Sie unter [Übersicht über App Service in Azure Stack Hub](azure-stack-app-service-overview.md).
+- Weitere Informationen zum Vorbereiten der Bereitstellung von App Service in Azure Stack Hub finden Sie unter [Vor den ersten Schritten mit App Service in Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).

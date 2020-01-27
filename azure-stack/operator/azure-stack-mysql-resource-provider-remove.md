@@ -1,6 +1,6 @@
 ---
-title: Entfernen des MySQL-Ressourcenanbieters in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie den MySQL-Ressourcenanbieter aus Ihrer Azure Stack-Bereitstellung entfernen können.
+title: Entfernen des MySQL-Ressourcenanbieters in Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie den MySQL-Ressourcenanbieter aus Ihrer Azure Stack Hub-Bereitstellung entfernen können.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: a2b55707bc05aecf8681cb866c58b0ed34fb87cd
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: c1551badd87ba55432ff416aae1230abf317e1b3
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682164"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811038"
 ---
-# <a name="remove-the-mysql-resource-provider-in-azure-stack"></a>Entfernen des MySQL-Ressourcenanbieters in Azure Stack
+# <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>Entfernen des MySQL-Ressourcenanbieters in Azure Stack Hub
 
 Bevor Sie den MySQL-Ressourcenanbieter entfernen, müssen Sie alle Anbieterabhängigkeiten entfernen. Außerdem benötigen Sie eine Kopie des Bereitstellungspakets, mit dem der Ressourcenanbieter installiert wurde.
 
@@ -35,7 +35,7 @@ Wenn Sie den MySQL-Ressourcenanbieter löschen, werden die Mandantendatenbanken 
 
 Es müssen verschiedene Bereinigungsaufgaben durchgeführt werden, bevor Sie das Skript „DeployMySqlProvider.ps1 script“ zum Entfernen des Ressourcenanbieters ausführen können.
 
-Der Azure Stack-Bediener ist für die folgenden Bereinigungsaufgaben verantwortlich:
+Der Azure Stack Hub-Operator ist für die folgenden Bereinigungsaufgaben zuständig:
 
 * Löschen aller Pläne, die auf den MySQL-Adapter verweisen
 * Löschen aller Kontingente, die dem MySQL-Adapter zugeordnet sind
@@ -52,10 +52,10 @@ Der Azure Stack-Bediener ist für die folgenden Bereinigungsaufgaben verantwortl
 4. Führen Sie das Skript „DeployMySqlProvider.ps1“ mit den folgenden Parametern aus:
     - **Uninstall**: Entfernt den Ressourcenanbieter und alle zugeordneten Ressourcen.
     - **PrivilegedEndpoint**: Die IP-Adresse oder der DNS-Name des privilegierten Endpunkts.
-    - **AzureEnvironment**: Die Azure-Umgebung, die für die Bereitstellung von Azure Stack verwendet wird. Nur für Azure AD-Bereitstellungen erforderlich.
+    - **AzureEnvironment**: Die Azure-Umgebung, die für die Bereitstellung von Azure Stack Hub verwendet wird. Nur für Azure AD-Bereitstellungen erforderlich.
     - **CloudAdminCredential**: Die Anmeldeinformationen für den Cloudadministrator, die für den Zugriff auf den privilegierten Endpunkt erforderlich sind.
     - **DirectoryTenantID**
-    - **AzCredential**: Die Anmeldeinformationen für das Azure Stack-Dienstadministratorkonto. Verwenden Sie die gleichen Anmeldeinformationen wie bei der Bereitstellung von Azure Stack.
+    - **AzCredential**: Die Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto. Verwenden Sie die gleichen Anmeldeinformationen wie bei der Bereitstellung von Azure Stack Hub.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

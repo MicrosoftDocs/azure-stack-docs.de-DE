@@ -1,6 +1,6 @@
 ---
-title: Verwenden des privilegierten Endpunkts in Azure Stack | Microsoft-Dokumentation
-description: Es wird beschrieben, wie Sie als Bediener den privilegierten Endpunkt (PEP) in Azure Stack verwenden.
+title: Verwenden des privilegierten Endpunkts in Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie den privilegierten Endpunkt (PEP) in Azure Stack Hub als Operator verwenden.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,16 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 19783172dd402d7ea80dcbfc226aefb44846182f
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 665e0a32abfbdce3953423135600eed98cbc2eef
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727087"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882129"
 ---
-# <a name="use-the-privileged-endpoint-in-azure-stack"></a>Verwenden des privilegierten Endpunkts in Azure Stack
+# <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Verwenden des privilegierten Endpunkts in Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-Als Azure Stack-Operator sollten Sie das Administratorportal, PowerShell oder APIs des Azure Resource Manager für die meisten alltäglichen Verwaltungsaufgaben verwenden. Für einige weniger häufig ausgeführten Vorgänge müssen Sie jedoch den *privilegierten Endpunkt* (PEP) verwenden. Bei dem PEP handelt es sich um eine vorkonfigurierte PowerShell-Remotekonsole, die Ihnen gerade so viele Funktionen zur Verfügung stellt, wie Sie zur Ausführung einer erforderlichen Aufgabe benötigen. Der Endpunkt nutzt [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview), um nur einen eingeschränkten Satz von Cmdlets verfügbar zu machen. Es wird ein Konto mit geringen Berechtigungen verwendet, um auf den PEP zuzugreifen und den eingeschränkten Satz von Cmdlets aufzurufen. Es sind keine Administratorkonten erforderlich. Die Skripterstellung ist nicht zulässig, um die Sicherheit zu erhöhen.
+Als Azure Stack Hub-Operator verwenden Sie das Administratorportal, PowerShell oder Azure Resource Manager-APIs für die meisten alltäglichen Verwaltungsaufgaben. Für einige weniger häufig ausgeführten Vorgänge müssen Sie jedoch den *privilegierten Endpunkt* (PEP) verwenden. Bei dem PEP handelt es sich um eine vorkonfigurierte PowerShell-Remotekonsole, die Ihnen gerade so viele Funktionen zur Verfügung stellt, wie Sie zur Ausführung einer erforderlichen Aufgabe benötigen. Der Endpunkt nutzt [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview), um nur einen eingeschränkten Satz von Cmdlets verfügbar zu machen. Es wird ein Konto mit geringen Berechtigungen verwendet, um auf den PEP zuzugreifen und den eingeschränkten Satz von Cmdlets aufzurufen. Es sind keine Administratorkonten erforderlich. Die Skripterstellung ist nicht zulässig, um die Sicherheit zu erhöhen.
 
 Sie können den PEP nutzen, um diese Aufgaben durchzuführen:
 
@@ -43,7 +41,7 @@ Der PEP protokolliert jede Aktion, die Sie in der PowerShell-Sitzung ausführen 
 
 Der Zugriff auf den PEP erfolgt über eine PowerShell-Remotesitzung auf dem virtuellen Computer (VM), auf dem der PEP gehostet wird. Im ASDK hat diese VM den Namen **AzS-ERCS01**. Wenn Sie ein integriertes System verwenden, gibt es drei Instanzen des PEPs. Aus Resilienzgründen werden diese jeweils auf einer VM („*Präfix*-ERCS01“, „*Präfix*-ERCS02“ und „*Präfix*-ERCS03“) auf unterschiedlichen Hosts ausgeführt.
 
-Bevor Sie dieses Verfahren für das integrierte System beginnen, sollten Sie sich vergewissern, dass Sie anhand der IP-Adresse oder per DNS auf den PEP zugreifen können. Nach der erstmaligen Bereitstellung von Azure Stack können Sie nur über die IP-Adresse auf den PEP zugreifen, da die DNS-Integration noch nicht eingerichtet wurde. Ihr OEM-Hardwarehersteller stellt eine JSON-Datei namens **AzureStackStampDeploymentInfo** bereit, die die IP-Adressen des PEPs enthält.
+Bevor Sie dieses Verfahren für das integrierte System beginnen, sollten Sie sich vergewissern, dass Sie anhand der IP-Adresse oder per DNS auf den PEP zugreifen können. Nach der erstmaligen Bereitstellung von Azure Stack Hub können Sie nur über die IP-Adresse auf den PEP zugreifen, da die DNS-Integration noch nicht eingerichtet wurde. Ihr OEM-Hardwarehersteller stellt eine JSON-Datei namens **AzureStackStampDeploymentInfo** bereit, die die IP-Adressen des PEPs enthält.
 
 Sie finden die IP-Adresse auch im Azure Stack Hub-Administratorportal. Öffnen Sie das Portal, z. B. `https://adminportal.local.azurestack.external`. Wählen Sie **Regionsverwaltung** > **Eigenschaften** aus.
 
@@ -76,7 +74,7 @@ Sie müssen die aktuelle Kultureinstellung auf `en-US` festlegen, wenn Sie den p
     Der Parameter `ComputerName` kann die IP-Adresse oder der DNS-Name einer VM sein, auf der der PEP gehostet wird.
 
     > [!NOTE]  
-    >Azure Stack führt beim Überprüfen der PEP-Anmeldeinformationen keinen Remoteaufruf durch. Für die Überprüfung wird ein lokal gespeicherter öffentlicher RSA-Schlüssel verwendet.
+    >Azure Stack Hub führt beim Überprüfen der PEP-Anmeldeinformationen keinen Remoteaufruf durch. Für die Überprüfung wird ein lokal gespeicherter öffentlicher RSA-Schlüssel verwendet.
 
    - Bei Ausführung des ASDK:
 
@@ -89,7 +87,7 @@ Sie müssen die aktuelle Kultureinstellung auf `en-US` festlegen, wenn Sie den p
     
    - Wenn Sie zur Eingabe von Anmeldeinformationen aufgefordert werden, geben Sie Folgendes ein:
    
-       - **Benutzername**: Geben Sie das CloudAdmin-Konto im Format **&lt;*Azure Stack-Domäne*&gt;\cloudadmin** an. (Für ASDK lautet der Benutzername **Azurestack\cloudadmin**.)
+       - **Benutzername**: Geben Sie das Cloudadministratorkonto im Format **&lt;*Azure Stack Hub-Domäne*&gt;\cloudadmin** an. (Für ASDK lautet der Benutzername **Azurestack\cloudadmin**.)
   
         - **Kennwort**: Geben Sie das gleiche Kennwort ein, das während der Installation für das AzureStackAdmin-Domänenadministratorkonto bereitgestellt wurde.
 
@@ -167,7 +165,7 @@ Wenn Sie die PEP-Sitzung in Ihren lokalen Computer importieren möchten, führen
 
      Wenn Sie zur Eingabe von Anmeldeinformationen aufgefordert werden, geben Sie Folgendes ein:
 
-     - **Benutzername**: Geben Sie das CloudAdmin-Konto im Format **&lt;*Azure Stack-Domäne*&gt;\cloudadmin** an. (Für ASDK lautet der Benutzername **Azurestack\cloudadmin**.)
+     - **Benutzername**: Geben Sie das Cloudadministratorkonto im Format **&lt;*Azure Stack Hub-Domäne*&gt;\cloudadmin** an. (Für ASDK lautet der Benutzername **Azurestack\cloudadmin**.)
      - **Kennwort**: Geben Sie das gleiche Kennwort ein, das während der Installation für das AzureStackAdmin-Domänenadministratorkonto bereitgestellt wurde.
 
 3. Importieren Sie die PEP-Sitzung in Ihren lokalen Computer:
@@ -176,7 +174,7 @@ Wenn Sie die PEP-Sitzung in Ihren lokalen Computer importieren möchten, führen
       Import-PSSession $session
     ```
 
-4. Nun können Sie in Ihrer lokalen PowerShell-Sitzung die Ergänzung mittels TAB-TASTE nutzen und wie gewohnt Skripts verwenden – zusammen mit allen Funktionen und Cmdlets des PEPs und ohne Beeinträchtigung der Sicherheit von Azure Stack. Viel Spaß!
+4. Nun können Sie in Ihrer lokalen PowerShell-Sitzung wie gewohnt die Ergänzung mittels TAB-TASTE sowie Skripts verwenden – zusammen mit allen Funktionen und Cmdlets des privilegierten Endpunkts und ohne Beeinträchtigung der Sicherheit von Azure Stack Hub. Viel Spaß!
 
 ## <a name="close-the-privileged-endpoint-session"></a>Schließen der Sitzung mit dem privilegierten Endpunkt
 
@@ -193,7 +191,7 @@ Schließen der Endpunktsitzung:
 
    Das Cmdlet verwendet die Parameter in der folgenden Tabelle:
 
-   | Parameter | BESCHREIBUNG | type | Erforderlich |
+   | Parameter | Beschreibung | type | Erforderlich |
    |---------|---------|---------|---------|
    | *TranscriptsPathDestination* | Pfad zur externen Dateifreigabe, die als „fileshareIP\sharefoldername“ definiert ist. | String | Ja|
    | *Credential* | Anmeldeinformationen für den Zugriff auf die Dateifreigabe | SecureString |   Ja |
@@ -207,4 +205,4 @@ Nachdem die Aufzeichnungsprotokolldateien erfolgreich in die Dateifreigabe über
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Azure Stack-Diagnosetools](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)
+[Azure Stack Hub-Diagnosetools](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)

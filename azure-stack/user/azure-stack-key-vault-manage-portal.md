@@ -1,6 +1,6 @@
 ---
-title: Verwalten von Key Vault in Azure Stack über das Portal | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Key Vault in Azure Stack über das Azure Stack-Portal verwalten.
+title: Verwalten von Key Vault in Azure Stack Hub über das Portal | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Key Vault in Azure Stack Hub über das Azure Stack Hub-Portal verwalten.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/10/2020
 ms.author: sethm
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: fc0907ffb905012043a3e446fcc29cc9e06f6932
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.lastreviewed: 1/10/2020
+ms.openlocfilehash: 1ba2be2d37cfa0b0d850f67124440fb9de13a23f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961504"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879154"
 ---
-# <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Verwalten von Key Vault in Azure Stack über das Portal
+# <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>Verwalten von Key Vault in Azure Stack Hub über das Portal
 
-In diesem Artikel wird beschrieben, wie Sie einen Schlüsseltresor mithilfe des Azure Stack-Portals in Azure Stack erstellen und verwalten.
+In diesem Artikel wird beschrieben, wie Sie einen Schlüsseltresor mithilfe des Azure Stack Hub-Portals in Azure Stack Hub erstellen und verwalten.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -58,11 +58,11 @@ Gehen Sie nach dem Erstellen eines Schlüsseltresors wie folgt vor, um Schlüsse
 
 ### <a name="create-a-key"></a>Erstellen eines Schlüssels
 
-1. Melden Sie sich am [Benutzerportal](https://portal.local.azurestack.external) an.
+1. Melden Sie sich beim Azure Stack Hub-[Benutzerportal](https://portal.local.azurestack.external) an.
 
 2. Wählen Sie im Dashboard **Alle Ressourcen** aus, wählen Sie den zuvor erstellten Schlüsseltresor aus, und klicken Sie dann auf die Kachel **Schlüssel**.
 
-3. Wählen Sie im Bereich **Schlüssel** die Option **Hinzufügen** aus.
+3. Wählen Sie im Bereich **Schlüssel** die Option **Generieren/importieren** aus.
 
 4. Wählen Sie im Bereich **Schlüssel erstellen** in der Liste mit den **Optionen** die gewünschte Schlüsselerstellungsmethode aus. Sie können einen neuen Schlüssel **generieren**, einen vorhandenen Schlüssel **hochladen** oder **Sicherung wiederherstellen** verwenden, um eine Sicherung eines Schlüssels auszuwählen.
 

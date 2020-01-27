@@ -1,6 +1,6 @@
 ---
-title: Aktualisieren der DNS-Weiterleitung in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie die DNS-Weiterleitung in Azure Stack aktualisieren.
+title: Aktualisieren der DNS-Weiterleitung in Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie die DNS-Weiterleitung in Azure Stack Hub aktualisieren.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,20 +14,20 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 22e49f28dee6b4aa97b9e84cf52950dd678450e4
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: b16eade221c51664205e865d1680e7f048fbfc7a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74308243"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817583"
 ---
-# <a name="update-the-dns-forwarder-in-azure-stack"></a>Aktualisieren der DNS-Weiterleitung in Azure Stack
+# <a name="update-the-dns-forwarder-in-azure-stack-hub"></a>Aktualisieren der DNS-Weiterleitung in Azure Stack Hub
 
-Mindestens eine erreichbare DNS-Weiterleitung ist erforderlich, damit die Azure Stack-Infrastruktur externe Namen auflösen kann. Für die Bereitstellung von Azure Stack muss eine DNS-Weiterleitung verfügbar gemacht werden. Diese Eingabe wird als Weiterleitung für die internen Azure Stack-DNS-Server verwendet und ermöglicht die externe Namensauflösung für Dienste wie Authentifizierung, Marketplace-Verwaltung oder Nutzung.
+Mindestens eine erreichbare DNS-Weiterleitung ist erforderlich, damit die Azure Stack Hub-Infrastruktur externe Namen auflösen kann. Für die Bereitstellung von Azure Stack Hub muss eine DNS-Weiterleitung verfügbar gemacht werden. Diese Eingabe wird als Weiterleitung für die internen Azure Stack Hub-DNS-Server verwendet und ermöglicht die externe Namensauflösung für Dienste wie Authentifizierung, Marketplace-Verwaltung oder Nutzung.
 
-DNS ist ein kritischer Dienst der Rechenzentrumsinfrastruktur, der sich ändern kann. Wenn dies der Fall ist, muss Azure Stack aktualisiert werden.
+DNS ist ein kritischer Dienst der Rechenzentrumsinfrastruktur, der sich ändern kann. Wenn dies der Fall ist, muss Azure Stack Hub aktualisiert werden.
 
-In diesem Artikel wird beschrieben, wie Sie den privilegierten Endpunkt (PEP) zum Aktualisieren der DNS-Weiterleitung in Azure Stack verwenden. Es wird empfohlen, zwei zuverlässige IP-Adressen für die DNS-Weiterleitung zu verwenden.
+In diesem Artikel wird beschrieben, wie Sie den privilegierten Endpunkt (PEP) zum Aktualisieren der DNS-Weiterleitung in Azure Stack Hub verwenden. Es wird empfohlen, zwei zuverlässige IP-Adressen für die DNS-Weiterleitung zu verwenden.
 
 1. Stellen Sie eine Verbindung mit dem [privilegierten Endpunkt](azure-stack-privileged-endpoint.md) her. Hinweis: Es ist nicht erforderlich, den privilegierten Endpunkt durch Erstellen eines Supporttickets zu entsperren.
 
@@ -37,7 +37,7 @@ In diesem Artikel wird beschrieben, wie Sie den privilegierten Endpunkt (PEP) zu
    Get-AzsDnsForwarder
    ```
 
-3. Führen Sie den folgenden Befehl aus, um Azure Stack zu aktualisieren und die neue DNS-Weiterleitung zu verwenden:
+3. Führen Sie den folgenden Befehl aus, um Azure Stack Hub zu aktualisieren und die neue DNS-Weiterleitung zu verwenden:
 
    ```powershell
     Set-AzsDnsForwarder -IPAddress "IPAddress 1","IPAddress 2"

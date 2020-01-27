@@ -1,6 +1,6 @@
 ---
-title: 'Übersicht: Azure Stack-Dienste, -Pläne, -Angebote und Abonnements | Microsoft-Dokumentation'
-description: Übersicht über Azure Stack-Dienste, -Pläne, -Angebote und Abonnements
+title: 'Übersicht: Azure Stack Hub-Dienste, -Pläne, -Angebote und Abonnements | Microsoft-Dokumentation'
+description: Hier erhalten Sie eine Übersicht über Azure Stack Hub-Dienste, -Pläne, -Angebote und Abonnements.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -12,22 +12,20 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: c1311836487dc11e1e95307181cb02fafa511a6b
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 4f7cb6bf451ad04a8c6365e5c39a714902f3d0b4
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727410"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880004"
 ---
-# <a name="azure-stack-services-plans-offers-subscriptions-overview"></a>Übersicht: Azure Stack-Dienste, -Pläne, -Angebote und Abonnements
+# <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Übersicht: Azure Stack Hub-Dienste, -Pläne, -Angebote und Abonnements
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-[Microsoft Azure Stack](azure-stack-overview.md) ist eine Hybrid-Cloudplattform, die das Bereitstellen von Diensten aus Ihrem Datencenter ermöglicht. Zu diesen Diensten gehören u. a. VMs, SQL Server-Datenbanken, SharePoint, Exchange und sogar [Azure Marketplace-Elemente](azure-stack-marketplace-azure-items.md). Als Dienstanbieter können Sie Dienste für Ihre Mandanten anbieten. Innerhalb eines Unternehmens oder einer Behörde ist es möglich, den Mitarbeitern lokale Dienste anzubieten.
+[Microsoft Azure Stack Hub](azure-stack-overview.md) ist eine Hybrid-Cloudplattform, die das Bereitstellen von Diensten aus Ihrem Datencenter ermöglicht. Zu diesen Diensten gehören u. a. VMs, SQL Server-Datenbanken, SharePoint, Exchange und sogar [Azure Marketplace-Elemente](azure-stack-marketplace-azure-items.md). Als Dienstanbieter können Sie Dienste für Ihre Mandanten anbieten. Innerhalb eines Unternehmens oder einer Behörde ist es möglich, den Mitarbeitern lokale Dienste anzubieten.
 
 ## <a name="overview"></a>Übersicht
 
-Als Azure Stack-Betreiber verwenden Sie Angebote, Pläne und Abonnements, um Dienste zu konfigurieren und bereitzustellen. Angebote enthalten mindestens einen Plan, und jeder Plan enthält einen oder mehrere Dienste, die jeweils mit Kontingenten konfiguriert sind. Indem Sie Pläne erstellen und diese in verschiedenen Angeboten kombinieren, können Benutzer Ihre Angebote abonnieren und Ressourcen bereitstellen. Diese Struktur ermöglicht Ihnen die Verwaltung von Folgendem:
+Als Azure Stack Hub-Bediener verwenden Sie Angebote, Pläne und Abonnements, um Dienste zu konfigurieren und bereitzustellen. Angebote enthalten mindestens einen Plan, und jeder Plan enthält einen oder mehrere Dienste, die jeweils mit Kontingenten konfiguriert sind. Indem Sie Pläne erstellen und diese in verschiedenen Angeboten kombinieren, können Benutzer Ihre Angebote abonnieren und Ressourcen bereitstellen. Diese Struktur ermöglicht Ihnen die Verwaltung von Folgendem:
 
 - Dienste und Ressourcen, auf die Ihre Benutzer zugreifen können
 - Menge der Ressourcen, die von Benutzern genutzt werden können
@@ -49,9 +47,9 @@ Nachdem Sie das Angebot erstellt haben, können Ihre Benutzer es abonnieren, um 
 
 ## <a name="services"></a>Dienste
 
-Sie können [IaaS-Dienste](https://azure.microsoft.com/overview/what-is-iaas/) (Infrastructure-as-a-Service) anbieten, mit denen Benutzer bedarfsgesteuert eine Computinginfrastruktur erstellen können, die über das Azure Stack-Benutzerportal bereitgestellt und verwaltet wird.
+Sie können [IaaS-Dienste](https://azure.microsoft.com/overview/what-is-iaas/) (Infrastructure-as-a-Service) anbieten, mit denen Benutzer bedarfsgesteuert eine Computinginfrastruktur erstellen können, die über das Azure Stack Hub-Benutzerportal bereitgestellt und verwaltet wird.
 
-Sie können auch [PaaS-Dienste](https://azure.microsoft.com/overview/what-is-paas/) (Platform-as-a-Service) von Microsoft und anderen Drittanbietern für Azure Stack bereitstellen. Die PaaS-Dienste, die Sie bereitstellen können, umfassen u.a.:
+Sie können auch [PaaS-Dienste](https://azure.microsoft.com/overview/what-is-paas/) (Platform-as-a-Service) von Microsoft und anderen Drittanbietern für Azure Stack Hub bereitstellen. Die PaaS-Dienste, die Sie bereitstellen können, umfassen u.a.:
 
 - [App Service](azure-stack-app-service-overview.md)
 - [SQL Server](azure-stack-sql-resource-provider-deploy.md)
@@ -71,11 +69,11 @@ Sie können Kontingente nach Region einrichten. Beispielsweise kann für einen P
 >[!NOTE]
 >Im Azure Stack Development Kit (ASDK) ist nur eine Region verfügbar (mit dem Namen *local*).
 
-Weitere Informationen zu Kontingenttypen in Azure Stack finden Sie [hier](azure-stack-quota-types.md).
+Weitere Informationen zu Kontingenttypen in Azure Stack Hub finden Sie [hier](azure-stack-quota-types.md).
 
 ## <a name="plans"></a>Pläne
 
-Pläne sind Gruppen von einem oder mehreren Diensten. Als Azure Stack-Bediener [erstellen Sie Pläne](azure-stack-create-plan.md), die Sie Ihren Benutzern anbieten können. Im Gegenzug abonnieren Ihre Benutzer die Angebote, um die darin enthaltenen Pläne und Dienste zu verwenden. Stellen Sie beim Erstellen von Plänen sicher, dass Sie Ihre Kontingente festlegen und Ihre Basispläne definieren. Außerdem können Sie erwägen, optionale Add-On-Pläne einzubinden.
+Pläne sind Gruppen von einem oder mehreren Diensten. Als Azure Stack Hub-Bediener [erstellen Sie Pläne](azure-stack-create-plan.md), die Sie Ihren Benutzern anbieten können. Im Gegenzug abonnieren Ihre Benutzer die Angebote, um die darin enthaltenen Pläne und Dienste zu verwenden. Stellen Sie beim Erstellen von Plänen sicher, dass Sie Ihre Kontingente festlegen und Ihre Basispläne definieren. Außerdem können Sie erwägen, optionale Add-On-Pläne einzubinden.
 
 ### <a name="base-plan"></a>Basisplan
 
@@ -101,13 +99,13 @@ Berücksichtigen Sie beim Planen Ihrer Angebote Folgendes:
 
 ## <a name="subscriptions"></a>Abonnements
 
-Über Abonnements können Benutzer auf Ihre Angebote zugreifen. Wenn Sie ein Azure Stack-Bediener bei einem Dienstanbieter sind, erwerben Benutzer (Mandanten) Ihre Dienste, indem sie Ihre Angebote abonnieren. Wenn Sie ein Azure Stack-Bediener in einer Organisation sind, können Ihre Benutzer (Mitarbeiter) die von Ihnen angebotenen Dienste abonnieren, ohne dafür zu bezahlen.
+Über Abonnements können Benutzer auf Ihre Angebote zugreifen. Wenn Sie ein Azure Stack Hub-Bediener bei einem Dienstanbieter sind, erwerben Benutzer (Mandanten) Ihre Dienste, indem sie Ihre Angebote abonnieren. Wenn Sie ein Azure Stack Hub-Bediener in einer Organisation sind, können Ihre Benutzer (Mitarbeiter) die von Ihnen angebotenen Dienste abonnieren, ohne dafür zu bezahlen.
 
-Benutzer erstellen neue Abonnements und erhalten Zugriff auf vorhandene Abonnements, indem sie sich bei Azure Stack anmelden. Jedes Abonnement stellt eine Zuordnung zu einem einzelnen Angebot dar. Das Angebot (und seine Pläne und Kontingente), das einem Abonnement zugewiesen ist, kann nicht mit anderen Abonnements gemeinsam genutzt werden. Jede Ressource, die von einem Benutzer erstellt wird, ist einem Abonnement zugeordnet.
+Benutzer erstellen neue Abonnements und erhalten Zugriff auf vorhandene Abonnements, indem sie sich bei Azure Stack Hub anmelden. Jedes Abonnement stellt eine Zuordnung zu einem einzelnen Angebot dar. Das Angebot (und seine Pläne und Kontingente), das einem Abonnement zugewiesen ist, kann nicht mit anderen Abonnements gemeinsam genutzt werden. Jede Ressource, die von einem Benutzer erstellt wird, ist einem Abonnement zugeordnet.
 
 ### <a name="default-provider-subscription"></a>Standardabonnement des Anbieters
 
-Das Standardabonnement des Anbieters wird automatisch erstellt, wenn Sie das ASDK bereitstellen. Dieses Abonnement kann zum Verwalten von Azure Stack, zum Bereitstellen weiterer Ressourcenanbieter sowie zum Erstellen von Plänen und Angeboten für Benutzer verwendet werden. Aus Sicherheits- und Lizenzierungsgründen darf es nicht eingesetzt werden, um Kundenworkloads und -Apps auszuführen. Das Kontingent für das Standardabonnement des Anbieters kann nicht geändert werden.
+Das Standardabonnement des Anbieters wird automatisch erstellt, wenn Sie das ASDK bereitstellen. Dieses Abonnement kann zum Verwalten von Azure Stack Hub, zum Bereitstellen weiterer Ressourcenanbieter sowie zum Erstellen von Plänen und Angeboten für Benutzer verwendet werden. Aus Sicherheits- und Lizenzierungsgründen darf es nicht eingesetzt werden, um Kundenworkloads und -Apps auszuführen. Das Kontingent für das Standardabonnement des Anbieters kann nicht geändert werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

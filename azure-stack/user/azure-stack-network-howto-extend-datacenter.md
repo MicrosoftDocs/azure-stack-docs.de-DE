@@ -1,6 +1,6 @@
 ---
 title: Erweitern des Rechenzentrums in Azure Stack Hub | Microsoft-Dokumentation
-description: In diesem Artikel erfahren Sie, wie Sie das Rechenzentrum in Azure Stack erweitern.
+description: In diesem Artikel erfahren Sie, wie Sie das Rechenzentrum in Azure Stack Hub erweitern.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,50 +9,48 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: b0c676033a5690025fb2d8f5c3aa203766ae67fd
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 292f210d8145bdac64e2f50f4c8ef85dc79d1a77
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718469"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883642"
 ---
-# <a name="extending-storage-to-azure-stack"></a>Erweitern von Speicher auf Azure Stack
+# <a name="extending-storage-to-azure-stack-hub"></a>Erweitern von Speicher auf Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme und Azure Stack Development Kit*
-
-Dieser Artikel enthält Informationen zur Speicherinfrastruktur von Azure Stack Hub, die Sie bei der Entscheidung unterstützen, wie Sie Azure Stack in Ihre bestehende Netzwerkumgebung integrieren. Nach allgemeinen Darlegungen zum Erweitern Ihres Rechenzentrums werden im Artikel zwei unterschiedliche Szenarien vorgestellt. Sie können eine Verbindung mit einem Windows File Storage-Server herstellen. Sie können auch eine Verbindung mit einem Windows iSCSI-Server herstellen.
+Dieser Artikel enthält Informationen zur Speicherinfrastruktur von Azure Stack Hub, die Sie bei der Entscheidung unterstützen, wie Sie Azure Stack Hub in Ihre bestehende Netzwerkumgebung integrieren. Nach allgemeinen Darlegungen zum Erweitern Ihres Rechenzentrums werden im Artikel zwei unterschiedliche Szenarien vorgestellt. Sie können eine Verbindung mit einem Windows File Storage-Server herstellen. Sie können auch eine Verbindung mit einem Windows iSCSI-Server herstellen.
 
 ## <a name="overview-of-extending-storage-to-azure-stack-hub"></a>Übersicht über das Erweitern von Speicher auf Azure Stack Hub
 
 Es gibt Szenarien, in denen es nicht ausreicht, wenn sich die Daten in der öffentlichen Cloud befinden. Vielleicht besitzen Sie eine rechenintensive virtualisierte Datenbankworkload, die empfindlich auf Wartezeiten reagiert, und die Roundtripzeit zur öffentlichen Cloud könnte sich auf die Leistung der Datenbankworkload auswirken. Oder es sind unter Umständen auf einem Dateiserver, einem NAS-Gerät oder in einem iSCSI-Speicherarray gespeicherte lokale Daten vorhanden, auf die von lokalen Workloads zugegriffen werden muss und die sich in der lokalen Umgebung befinden müssen, um gesetzliche Bestimmungen einzuhalten oder Complianceziele zu erreichen. Dies sind nur zwei Szenarien, in denen es für viele Organisationen wichtig ist, dass sich die Daten lokal befinden.
 
-Warum hosten Sie also diese Daten nicht einfach in Speicherkonten in Azure Stack oder auf virtualisierten Dateiservern, die im Azure Stack-System ausgeführt werden? Im Gegensatz zu Azure ist der Azure Stack-Speicher endlich. Die für die Nutzung verfügbare Kapazität hängt gänzlich von der von Ihnen erworbenen Kapazität pro Knoten sowie der Anzahl Ihrer Knoten ab. Und da es sich bei Azure Stack um eine hyperkonvergierte Lösung handelt, müssen Sie zur Erweiterung Ihrer Speicherkapazität auch Ihre Computekapazität erhöhen, indem Sie weitere Knoten hinzufügen, um den Nutzungsanforderungen gerecht zu werden. Dies scheitert unter Umständen an den Kosten, insbesondere, wenn Bedarf an zusätzlicher Kapazität für kalten Speicher oder Archivspeicher besteht, der zu geringen Kosten außerhalb des Azure Stack-Systems hinzugefügt werden könnte.
+Warum hosten Sie also diese Daten nicht einfach in Speicherkonten in Azure Stack Hub oder auf virtualisierten Dateiservern, die im Azure Stack Hub-System ausgeführt werden? Im Gegensatz zu Azure ist der Azure Stack Hub-Speicher endlich. Die für die Nutzung verfügbare Kapazität hängt gänzlich von der von Ihnen erworbenen Kapazität pro Knoten sowie der Anzahl Ihrer Knoten ab. Und da es sich bei Azure Stack Hub um eine hyperkonvergierte Lösung handelt, müssen Sie zur Erweiterung Ihrer Speicherkapazität auch Ihre Computekapazität erhöhen, indem Sie weitere Knoten hinzufügen, um den Nutzungsanforderungen gerecht zu werden. Dies scheitert unter Umständen an den Kosten, insbesondere, wenn Bedarf an zusätzlicher Kapazität für kalten Speicher oder Archivspeicher besteht, der zu geringen Kosten außerhalb des Azure Stack Hub-Systems hinzugefügt werden könnte.
 
-Und das bringt uns zum folgenden Szenario: Wie können Sie Azure Stack-Systeme und ihre in Azure Stack ausgeführten virtualisierten Workloads einfach und effizient mit Speichersystemen außerhalb von Azure Stack verbinden, auf die über das Netzwerk zugegriffen wird?
+Und das bringt uns zum folgenden Szenario: Wie können Sie Azure Stack Hub-Systeme und ihre in Azure Stack Hub ausgeführten virtualisierten Workloads einfach und effizient mit Speichersystemen außerhalb von Azure Stack Hub verbinden, auf die über das Netzwerk zugegriffen wird?
 
 ### <a name="design-for-extending-storage"></a>Entwurf für die Erweiterung des Speichers
 
-In der Abbildung wird ein Szenario veranschaulicht, in dem eine einzelne VM mit einer Workload zum Lesen/Schreiben von Daten und andere Zwecke eine Verbindung mit externem Speicher herstellt (extern für die VM und die Azure Stack-Instanz selbst). In diesem Artikel konzentrieren wir uns auf das einfache Abrufen von Dateien. Sie können dieses Beispiel jedoch auch auf komplexere Szenarien ausweiten, z. B. die Remotespeicherung von Datenbankdateien.
+In der Abbildung wird ein Szenario veranschaulicht, in dem eine einzelne VM mit einer Workload zum Lesen/Schreiben von Daten und andere Zwecke eine Verbindung mit externem Speicher herstellt (extern für die VM und die Azure Stack Hub-Instanz selbst). In diesem Artikel konzentrieren wir uns auf das einfache Abrufen von Dateien. Sie können dieses Beispiel jedoch auch auf komplexere Szenarien ausweiten, z. B. die Remotespeicherung von Datenbankdateien.
 
 ![](./media/azure-stack-network-howto-extend-datacenter/image1.png)
 
-In der Abbildung ist ersichtlich, dass die VM im Azure Stack-System mit mehreren Netzwerkadaptern bereitgestellt wurde. Sowohl wegen der Redundanz als auch der bewährten Methode hinsichtlich des Speichers ist es unerlässlich, dass zwischen Quelle und Ziel mehrere Pfade vorhanden sind. Komplexer werden die Dinge jedoch, wenn VMs in Azure Stack über öffentliche und auch über private IP-Adressen verfügen, wie z. B. in Azure. Wenn eine Verbindung zwischen externem Speicher und VM erforderlich ist, ist dies nur über die öffentliche IP-Adresse möglich, da die privaten IP-Adressen hauptsächlich in den Azure Stack-Systemen, in VNETs und den Subnetzen verwendet werden. Der externe Speicher wäre nicht in der Lage, mit dem privaten IP-Adressbereich der VM zu kommunizieren, sofern er kein Site-to-Site-VPN durchläuft, um eine Verbindung mit dem VNET selbst herzustellen. Daher konzentrieren wir uns in diesem Beispiel auf die Kommunikation mit dem öffentlichen IP-Adressraum. Ein bemerkenswerter Aspekt des öffentlichen IP-Adressraums in der Abbildung ist, dass zwei unterschiedliche Subnetze für öffentliche IP-Adresspools vorhanden sind. Standardmäßig ist in Azure Stack nur ein Pool für öffentliche IP-Adressen erforderlich, aber für das redundante Routing empfiehlt es sich möglicherweise, einen zweiten hinzuzufügen. Es ist derzeit jedoch nicht möglich, eine IP-Adresse aus einem bestimmten Pool auszuwählen, und sie erhalten unter Umständen tatsächlich VMs mit öffentlichen IP-Adressen aus demselben Pool für mehrere virtuelle Netzwerkkarten.
+In der Abbildung ist ersichtlich, dass die VM im Azure Stack Hub-System mit mehreren Netzwerkadaptern bereitgestellt wurde. Sowohl wegen der Redundanz als auch der bewährten Methode hinsichtlich des Speichers ist es unerlässlich, dass zwischen Quelle und Ziel mehrere Pfade vorhanden sind. Komplexer werden die Dinge jedoch, wenn VMs in Azure Stack Hub über öffentliche und auch über private IP-Adressen verfügen, wie z. B. in Azure. Wenn eine Verbindung zwischen externem Speicher und VM erforderlich ist, ist dies nur über die öffentliche IP-Adresse möglich, da die privaten IP-Adressen hauptsächlich in den Azure Stack Hub-Systemen, in VNETs und den Subnetzen verwendet werden. Der externe Speicher wäre nicht in der Lage, mit dem privaten IP-Adressbereich der VM zu kommunizieren, sofern er kein Site-to-Site-VPN durchläuft, um eine Verbindung mit dem VNET selbst herzustellen. Daher konzentrieren wir uns in diesem Beispiel auf die Kommunikation mit dem öffentlichen IP-Adressraum. Ein bemerkenswerter Aspekt des öffentlichen IP-Adressraums in der Abbildung ist, dass zwei unterschiedliche Subnetze für öffentliche IP-Adresspools vorhanden sind. Standardmäßig ist in Azure Stack Hub nur ein Pool für öffentliche IP-Adressen erforderlich, aber für das redundante Routing empfiehlt es sich möglicherweise, einen zweiten hinzuzufügen. Es ist derzeit jedoch nicht möglich, eine IP-Adresse aus einem bestimmten Pool auszuwählen, und sie erhalten unter Umständen tatsächlich VMs mit öffentlichen IP-Adressen aus demselben Pool für mehrere virtuelle Netzwerkkarten.
 
 Hier wird davon ausgegangen, dass das Routing zwischen den Peripheriegeräten und dem externen Speicher erfolgt und der Datenverkehr das Netzwerk entsprechend durchlaufen kann. Für dieses Beispiel ist es unerheblich, ob der Backbone eine Geschwindigkeit von 1 GbE, 10 GbE, 25 GbE oder sogar mehr hat. Dies sollte jedoch bedacht werden, wenn Sie die Integration planen, damit die Leistungsanforderungen von Anwendungen berücksichtigt werden, die auf diesen externen Speicher zugreifen.
 
 ## <a name="connect-to-a-windows-server-iscsi-target"></a>Herstellen einer Verbindung mit einem iSCSI-Ziel von Windows Server
 
-In diesem Szenario wird eine Windows Server 2019-VM in Azure Stack bereitgestellt, konfiguriert und für das Herstellen einer Verbindung mit einem externen iSCSI-Ziel vorbereitet. Dadurch wird auch Windows Server 2019 ausgeführt. Aktivieren Sie ggf. Schlüsselfunktionen wie MPIO, um Leistung und Konnektivität zwischen der VM und dem externen Speicher zu optimieren.
+In diesem Szenario wird eine Windows Server 2019-VM in Azure Stack Hub bereitgestellt, konfiguriert und für das Herstellen einer Verbindung mit einem externen iSCSI-Ziel vorbereitet. Dadurch wird auch Windows Server 2019 ausgeführt. Aktivieren Sie ggf. Schlüsselfunktionen wie MPIO, um Leistung und Konnektivität zwischen der VM und dem externen Speicher zu optimieren.
 
-### <a name="deploy-the-windows-server-2019-vm-on-azure-stack"></a>Bereitstellen der Windows Server 2019-VM in Azure Stack
+### <a name="deploy-the-windows-server-2019-vm-on-azure-stack-hub"></a>Bereitstellen der Windows Server 2019-VM in Azure Stack Hub
 
-1.  Es wird davon ausgegangen, dass das System ordnungsgemäß registriert wurde und mit dem Marketplace verbunden ist. Wählen Sie im **Azure Stack-Verwaltungsportal** die Option **Marketplace Management** (Marketplace-Verwaltung) und – da Sie noch nicht über ein Windows Server 2019-Image verfügen – die Option **Add from Azure** (Aus Azure hinzufügen) aus. Suchen Sie dann nach **Windows Server 2019**, und fügen Sie das Image **Windows Server 2019 Datacenter** hinzu.
+1.  Es wird davon ausgegangen, dass das System ordnungsgemäß registriert wurde und mit dem Marketplace verbunden ist. Wählen Sie im **Azure Stack Hub-Verwaltungsportal** die Option **Marketplace Management** (Marketplace-Verwaltung) und – da Sie noch nicht über ein Windows Server 2019-Image verfügen – die Option **Add from Azure** (Aus Azure hinzufügen) aus. Suchen Sie dann nach **Windows Server 2019**, und fügen Sie das Image **Windows Server 2019 Datacenter** hinzu.
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image2.png)
 
     Das Herunterladen eines Windows Server 2019-Images kann eine gewisse Zeit dauern.
 
-2.  Wenn Sie über ein Windows Server 2019-Image in Ihrer Azure Stack-Umgebung verfügen, **melden Sie sich beim Azure Stack Hub-Benutzerportal an**.
+2.  Wenn Sie über ein Windows Server 2019-Image in Ihrer Azure Stack Hub-Umgebung verfügen, **melden Sie sich beim Azure Stack Hub-Benutzerportal an**.
 
 3.  Stellen Sie nach der Anmeldung beim Azure Stack Hub-Benutzerportal sicher, dass Sie über ein [Abonnement eines Angebots](https://docs.microsoft.com/azure-stack/operator/azure-stack-subscribe-plan-provision-vm?view=azs-1908) verfügen, das Ihnen die Bereitstellung von IaaS-Ressourcen (Compute, Speicher und Netzwerk) ermöglicht.
 
@@ -136,9 +134,9 @@ In diesem Szenario wird eine Windows Server 2019-VM in Azure Stack bereitgestel
 
 27. Sobald die Verbindung auf der VM hergestellt wurde, öffnen Sie **CMD** (als Administrator) und geben **hostname** ein, um den Computernamen des Betriebssystems abzurufen. **Er sollte mit VM001 übereinstimmen.** Notieren Sie sich diesen Namen zur späteren Verwendung.
 
-### <a name="configure-second-network-adapter-on-windows-server-2019-vm-on-azure-stack"></a>Konfigurieren eines zweiten Netzwerkadapters auf der Windows Server 2019-VM in Azure Stack
+### <a name="configure-second-network-adapter-on-windows-server-2019-vm-on-azure-stack-hub"></a>Konfigurieren eines zweiten Netzwerkadapters auf der Windows Server 2019-VM in Azure Stack Hub
 
-Azure Stack weist der ersten (primären) Netzwerkschnittstelle, die an den virtuellen Computer angefügt ist, standardmäßig ein Standardgateway zu. Azure Stack weist zusätzlichen (sekundären) Netzwerkschnittstellen, die an einen virtuellen Computer angefügt sind, kein Standardgateway zu. Daher können Sie standardmäßig nicht mit Ressourcen außerhalb des Subnetzes kommunizieren, in dem sich eine sekundäre Netzwerkschnittstelle befindet. Sekundäre Netzwerkschnittstellen können jedoch mit Ressourcen außerhalb ihres Subnetzes kommunizieren. Die Schritte zum Aktivieren der Kommunikation unterscheiden sich allerdings je nach Betriebssystem.
+Azure Stack Hub weist der ersten (primären) Netzwerkschnittstelle, die an den virtuellen Computer angefügt ist, standardmäßig ein Standardgateway zu. Azure Stack Hub weist zusätzlichen (sekundären) Netzwerkschnittstellen, die an einen virtuellen Computer angefügt sind, kein Standardgateway zu. Daher können Sie standardmäßig nicht mit Ressourcen außerhalb des Subnetzes kommunizieren, in dem sich eine sekundäre Netzwerkschnittstelle befindet. Sekundäre Netzwerkschnittstellen können jedoch mit Ressourcen außerhalb ihres Subnetzes kommunizieren. Die Schritte zum Aktivieren der Kommunikation unterscheiden sich allerdings je nach Betriebssystem.
 
 1.  Ist noch keine Verbindung geöffnet, stellen Sie eine RDP-Verbindung mit **VM001** her.
 
@@ -172,11 +170,11 @@ Azure Stack weist der ersten (primären) Netzwerkschnittstelle, die an den virtu
 
 ### <a name="configure-the-windows-server-2019-iscsi-target"></a>Konfigurieren des iSCSI-Ziels von Windows Server 2019
 
-Überprüfen Sie für dieses Szenario eine Konfiguration, bei der das iSCSI-Ziel von Windows Server 2019 eine VM ist, die außerhalb der Azure Stack-Umgebung unter Hyper-V ausgeführt wird. Diese VM wird mit acht virtuellen Prozessoren und einer einzelnen VHDX-Datei und vor allem mit zwei virtuellen Netzwerkadaptern konfiguriert. In einem idealen Szenario verfügen diese Netzwerkadapter über unterschiedliche routingfähige Subnetze, in dieser Validierung haben sie jedoch Netzwerkadapter im gleichen Subnetz.
+Überprüfen Sie für dieses Szenario eine Konfiguration, bei der das iSCSI-Ziel von Windows Server 2019 eine VM ist, die außerhalb der Azure Stack Hub-Umgebung unter Hyper-V ausgeführt wird. Diese VM wird mit acht virtuellen Prozessoren und einer einzelnen VHDX-Datei und vor allem mit zwei virtuellen Netzwerkadaptern konfiguriert. In einem idealen Szenario verfügen diese Netzwerkadapter über unterschiedliche routingfähige Subnetze, in dieser Validierung haben sie jedoch Netzwerkadapter im gleichen Subnetz.
 
 ![](./media/azure-stack-network-howto-extend-datacenter/image9.png)
 
-Für Ihren iSCSI-Zielserver könnte dies Windows Server 2016 oder 2019 sein, physisch oder virtuell, ausgeführt unter Hyper-V, VMware oder einer alternativen Appliance Ihrer Wahl, etwa einem dedizierten physischen iSCSI-SAN. Der Schwerpunkt sind ein- und ausgehende Verbindungen mit dem Azure Stack-System. Mehrere vorhandene Pfade zwischen Quelle und Ziel wären jedoch von Vorteil, da damit zusätzliche Redundanz gegeben ist und fortgeschrittenere Funktionen zum Optimieren der Leistung verwendet werden können, z. B. MPIO.
+Für Ihren iSCSI-Zielserver könnte dies Windows Server 2016 oder 2019 sein, physisch oder virtuell, ausgeführt unter Hyper-V, VMware oder einer alternativen Appliance Ihrer Wahl, etwa einem dedizierten physischen iSCSI-SAN. Der Schwerpunkt sind ein- und ausgehende Verbindungen mit dem Azure Stack Hub-System. Mehrere vorhandene Pfade zwischen Quelle und Ziel wären jedoch von Vorteil, da damit zusätzliche Redundanz gegeben ist und fortgeschrittenere Funktionen zum Optimieren der Leistung verwendet werden können, z. B. MPIO.
 
 Es empfiehlt sich, das iSCSI-Ziel von Windows Server 2019 mit den neuesten kumulativen Updates und Fixes zu aktualisieren und ggf. einen Neustart auszuführen, bevor Sie mit dem Konfigurieren von Dateifreigaben fortfahren.
 
@@ -224,7 +222,7 @@ Nach dem Aktualisieren und Neustarten können Sie diesen Server als iSCSI-Ziel k
 
 ### <a name="configure-the-windows-server-2019-iscsi-initiator-and-mpio"></a>Konfigurieren des iSCSI-Initiators und von Multipfad-E/A unter Windows Server 2019
 
-Melden Sie sich zum Einrichten des iSCSI-Initiators zunächst in Ihrem **Azure Stack**-System erneut beim **Azure Stack Hub-Benutzerportal** an, und navigieren Sie zum Blatt **Übersicht** für **VM001**.
+Melden Sie sich zum Einrichten des iSCSI-Initiators zunächst in Ihrem **Azure Stack Hub**-System erneut beim **Azure Stack Hub-Benutzerportal** an, und navigieren Sie zum Blatt **Übersicht** für **VM001**.
 
 1.  Stellen Sie eine RDP-Verbindung mit VM001 her. Wenn die Verbindung hergestellt wurde, öffnen Sie **Server-Manager**.
 
@@ -334,7 +332,7 @@ Melden Sie sich zum Einrichten des iSCSI-Initiators zunächst in Ihrem **Azure S
 
 ### <a name="testing-external-storage-connectivity"></a>Testen der Konnektivität des externen Speichers
 
-Melden Sie sich zum Überprüfen der Kommunikation und Ausführen eines grundlegenden Dateikopiertests zunächst im **Azure Stack**-System erneut beim **Azure Stack Hub-Benutzerportal** an, und navigieren Sie zum Blatt **Übersicht** für **VM001**.
+Melden Sie sich zum Überprüfen der Kommunikation und Ausführen eines grundlegenden Dateikopiertests zunächst im **Azure Stack Hub**-System erneut beim **Azure Stack Hub-Benutzerportal** an, und navigieren Sie zum Blatt **Übersicht** für **VM001**.
 
 1.  Wählen Sie **Verbinden** aus, um eine RDP-Verbindung mit **VM001** herzustellen.
 
@@ -365,8 +363,8 @@ Melden Sie sich zum Überprüfen der Kommunikation und Ausführen eines grundleg
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image29.png)
 
-Mit diesem Szenario soll die Konnektivität zwischen einer in Azure Stack ausgeführten Workload und einem externen Speicherarray (in diesem Fall ein Windows Server-basiertes iSCSI-Ziel) veranschaulicht werden. Es ist weder als Leistungstest ausgelegt noch spiegelt es die Schritte wider, die Sie bei Verwendung einer alternativen iSCSI-basierten Appliance ausführen müssen. Es werden jedoch einige der wichtigsten Aspekte behandelt, die beim Bereitstellen von Workloads in Azure Stack und beim Verbinden dieser Workloads mit Speichersystemen außerhalb der Azure Stack-Umgebung berücksichtigt werden müssen.
+Mit diesem Szenario soll die Konnektivität zwischen einer in Azure Stack Hub ausgeführten Workload und einem externen Speicherarray (in diesem Fall ein Windows Server-basiertes iSCSI-Ziel) veranschaulicht werden. Es ist weder als Leistungstest ausgelegt noch spiegelt es die Schritte wider, die Sie bei Verwendung einer alternativen iSCSI-basierten Appliance ausführen müssen. Es werden jedoch einige der wichtigsten Aspekte behandelt, die beim Bereitstellen von Workloads in Azure Stack Hub und beim Verbinden dieser Workloads mit Speichersystemen außerhalb der Azure Stack Hub-Umgebung berücksichtigt werden müssen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Azure Stack-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)
+[Azure Stack Hub-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)

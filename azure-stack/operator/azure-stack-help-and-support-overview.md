@@ -1,6 +1,6 @@
 ---
-title: 'Microsoft Azure Stack: Hilfe und Support – Übersicht | Microsoft-Dokumentation'
-description: Enthält Informationen zum Support für Microsoft Azure Stack.
+title: 'Microsoft Azure Stack Hub: Hilfe und Support – Übersicht | Microsoft-Dokumentation'
+description: Enthält Informationen zum Support für Microsoft Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,20 +16,20 @@ ms.date: 07/24/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: ff7911f64cf7c1413e623cd84cebe3d26585a3e5
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 65e4879be05141540e8f2e20e2a5a156f6368629
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493860"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818161"
 ---
-# <a name="microsoft-azure-stack-help-and-support"></a>Microsoft Azure Stack: Hilfe und Support
+# <a name="microsoft-azure-stack-hub-help-and-support"></a>Microsoft Azure Stack Hub: Hilfe und Support
 
-**Hilfe und Support** im Azure Stack-Portal enthält Ressourcen, mit denen Operatoren mehr über Azure Stack erfahren, die bestehenden Supportoptionen prüfen und die Hilfe von Experten anfordern können. Ab Version 1907 können Operatoren Hilfe und Support außerdem verwenden, um Diagnoseprotokolle für die Problembehandlung zu sammeln.  
+**Hilfe und Support** im Azure Stack Hub-Portal enthält Ressourcen, mit denen Operatoren mehr über Azure Stack Hub erfahren, die bestehenden Supportoptionen prüfen und die Hilfe von Experten anfordern können. Ab Version 1907 können Operatoren Hilfe und Support außerdem verwenden, um Diagnoseprotokolle für die Problembehandlung zu sammeln.  
 
 ## <a name="help-resources"></a>Hilferessourcen 
 
-Operatoren können **Hilfe und Support** auch verwenden, um mehr über Azure Stack zu erfahren, ihre Supportoptionen zu prüfen und Hilfe von Experten anzufordern. 
+Operatoren können **Hilfe und Support** auch verwenden, um mehr über Azure Stack Hub zu erfahren, ihre Supportoptionen zu prüfen und Hilfe von Experten anzufordern. 
 
 ### <a name="things-to-try-first"></a>Was Sie zuerst ausprobieren sollten
 
@@ -37,23 +37,23 @@ Der Bereich **Hilfe und Support** verfügt oben über Links, die Sie zuerst ausp
 
 ![Self-Service-Support](media/azure-stack-help-and-support/get-support-tiles.png)
 
-- **Dokumentation**: Die [Dokumentation für Azure Stack-Betreiber](index.yml) enthält Konzepte, Themen zur Vorgehensweise und Tutorials mit Informationen dazu, wie Sie Azure Stack-Dienste anbieten, z. B. virtuelle Computer, SQL-Datenbanken, Web-Apps und mehr. 
+- **Dokumentation**: Die [Dokumentation für Azure Stack Hub-Operatoren](index.yml) enthält Konzepte, Themen zur Vorgehensweise und Tutorials mit Informationen dazu, wie Sie Azure Stack Hub-Dienste anbieten, z. B. virtuelle Computer, SQL-Datenbanken, Web-Apps und mehr. 
 
 - **Informationen zur Abrechnung**: Sehen Sie sich die Tipps zu [Nutzung und Abrechnung](azure-stack-billing-and-chargeback.md) an.
 
-- **Supportoptionen**: Azure Stack-Betreiber können unter verschiedenen [Azure-Supportoptionen](https://aka.ms/azstacksupport) wählen, die die Anforderungen jedes Unternehmens erfüllen. 
+- **Supportoptionen**: Azure Stack Hub-Operatoren können unter verschiedenen [Azure-Supportoptionen](https://aka.ms/azstacksupport) wählen, die die Anforderungen jedes Unternehmens erfüllen. 
 
 ### <a name="get-expert-help"></a>Inanspruchnehmen von Expertenhilfe 
 
 Für ein integriertes System besteht ein koordinierter Eskalations- und Lösungsprozess zwischen Microsoft und seinen OEM-Hardwarepartnern (Original Equipment Manufacturer).
 
-Wenn es zu einem Problem mit einem Clouddienst kommt, wird Support über den Microsoft-Kundensupport (Microsoft Customer Support Services, CSS) angeboten. Sie können oben rechts im Administratorportal auf **Hilfe** (Fragezeichen) und dann auf **Hilfe und Support** klicken, um die zugehörige **Übersicht** zu öffnen und eine neue Supportanfrage zu übermitteln. Beim Erstellen einer Supportanfrage wird der Azure Stack-Dienst vorab ausgewählt. Wir empfehlen dringend, dass Kunden anstelle des öffentlichen Azure-Portals diese Vorgehensweise zum Übermitteln von Tickets nutzen. 
+Wenn es zu einem Problem mit einem Clouddienst kommt, wird Support über den Microsoft-Kundensupport (Microsoft Customer Support Services, CSS) angeboten. Sie können oben rechts im Administratorportal auf **Hilfe** (Fragezeichen) und dann auf **Hilfe und Support** klicken, um die zugehörige **Übersicht** zu öffnen und eine neue Supportanfrage zu übermitteln. Beim Erstellen einer Supportanfrage wird der Azure Stack Hub-Dienst vorab ausgewählt. Wir empfehlen dringend, dass Kunden anstelle des öffentlichen Azure-Portals diese Vorgehensweise zum Übermitteln von Tickets nutzen. 
 
 Wenden Sie sich zuerst an Ihren OEM-Hardwareanbieter, falls ein Problem in den folgenden Bereichen besteht: Bereitstellung, Patches und Updates, Hardware (einschließlich der vor Ort austauschbaren Teile (Field Replaceable Units)) und Software mit Hardware-Branding, z.B. auf dem Hardware-Lebenszyklushost ausgeführte Software. Wenden Sie sich bei allen anderen Problemen an Microsoft CSS.
 
 ![Inanspruchnehmen von Expertenhilfe für integrierte Systeme](media/azure-stack-help-and-support/get-support-integrated.png)
 
-Fragen rund um den Support für das ASDK können Sie im [Azure Stack-MSDN-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) stellen. 
+Fragen rund um den Support für das ASDK können Sie im [Azure Stack Hub-MSDN-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) stellen. 
 
 Sie können oben rechts im Administratorportal auf **Hilfe** (Fragezeichen) und dann auf **Hilfe und Support** klicken, um die zugehörige **Übersicht** mit einem Link zum Forum zu öffnen. MSDN-Foren werden regelmäßig überprüft.  
 Da das Development Kit eine Evaluierungsumgebung ist, wird über den Microsoft CSS kein offizieller Support angeboten.
@@ -64,7 +64,7 @@ Sie können auch in den MSDN-Foren ein Problem zur Diskussion stellen oder das O
 
 ![Inanspruchnehmen von Expertenhilfe](media/azure-stack-help-and-support/get-support-cards.png)
 
-### <a name="get-up-to-speed-with-azure-stack"></a>Einsteigen in Azure Stack
+### <a name="get-up-to-speed-with-azure-stack-hub"></a>Einsteigen in Azure Stack Hub
 
 Diese Tutorialreihe wird in Abhängigkeit davon angepasst, ob Sie das ASDK oder integrierte Systeme ausführen, damit Sie sich ohne Zeitverlust über Ihre jeweilige Umgebung informieren können. 
 
@@ -79,13 +79,13 @@ Ab Version 1907 gibt es zwei neue Möglichkeiten, Protokolle in **Hilfe und Supp
 
 ![Screenshot der Optionen für die Sammlung von Diagnoseprotokollen](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
-Integrierte Systeme können die Diagnoseprotokolle mit dem Microsoft-Kundensupport (Customer Support Service, CSS) teilen. Da das ASDK (Azure Stack Development Kit) eine Evaluierungsumgebung ist, wird es von CSS nicht unterstützt. Weitere Informationen finden Sie unter [Sammlung von Azure Stack-Diagnoseprotokollen](azure-stack-diagnostic-log-collection-overview.md).
+Integrierte Systeme können die Diagnoseprotokolle mit dem Microsoft-Kundensupport (Customer Support Service, CSS) teilen. Da das ASDK (Azure Stack Development Kit) eine Evaluierungsumgebung ist, wird es von CSS nicht unterstützt. Weitere Informationen finden Sie unter [Sammlung von Azure Stack Hub-Diagnoseprotokollen – Übersicht ](azure-stack-diagnostic-log-collection-overview.md).
 
 
 
-## <a name="help-and-support-for-earlier-releases-azure-stack-pre-1905"></a>Hilfe und Support für frühere Versionen von Azure Stack (vor 1905)
+## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>Hilfe und Support für frühere Releases von Azure Stack Hub (vor 1905)
 
-Vorherige Azure Stack-Versionen verfügen ebenfalls über einen Link zu **Hilfe und Support**, der zur [Dokumentation für Azure Stack-Betreiber](https://aka.ms/adminportaldocs) führt.
+Vorherige Azure Stack Hub-Releases verfügen ebenfalls über einen Link zu **Hilfe und Support**, der zur [Dokumentation für Azure Stack Hub-Operatoren](https://aka.ms/adminportaldocs) führt.
 
 ![Tutorials zum Support](media/azure-stack-help-and-support/get-support-previous.png)
 
@@ -95,9 +95,9 @@ Für ein integriertes System besteht ein koordinierter Eskalations- und Lösungs
 
 Wenden Sie sich zuerst an Ihren OEM-Hardwareanbieter, falls ein Problem in den folgenden Bereichen besteht: Bereitstellung, Patches und Updates, Hardware (einschließlich der vor Ort austauschbaren Teile (Field Replaceable Units)) und Software mit Hardware-Branding, z.B. auf dem Hardware-Lebenszyklushost ausgeführte Software. Wenden Sie sich bei allen anderen Problemen an Microsoft CSS.
 
-Fragen rund um den Support für das Development Kit können Sie im [Azure Stack-MSDN-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) stellen. Sie können im Administratorportal oben rechts auf **Hilfe** (Fragezeichen) und dann auf **Neue Supportanfrage** klicken, um Hilfe von Experten der Azure Stack-Community zu erhalten.
+Fragen rund um den Support für das Development Kit können Sie im [Azure Stack Hub-MSDN-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) stellen. Sie können im Administratorportal oben rechts auf **Hilfe** (Fragezeichen) und dann auf **Neue Supportanfrage** klicken, um Hilfe von Experten der Azure Stack Hub-Community zu erhalten.
 Da das Development Kit eine Evaluierungsumgebung ist, wird über den Microsoft CSS kein offizieller Support angeboten.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Informieren Sie sich über die [Problembehandlung für Azure Stack](azure-stack-troubleshooting.md).
+- Informieren Sie sich über die [Problembehandlung für Azure Stack Hub](azure-stack-troubleshooting.md).

@@ -1,6 +1,6 @@
 ---
 title: Häufig gestellte Fragen zur Nutzungs-API | Microsoft-Dokumentation
-description: Liste der Azure Stack-Verbrauchseinheiten, Vergleich mit der Azure Nutzungs-API, Nutzungszeit und gemeldete Zeit, Fehlercodes.
+description: Liste der Azure Stack Hub-Verbrauchseinheiten, Vergleich mit der Azure-Nutzungs-API, Nutzungszeit und gemeldete Zeit, Fehlercodes.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: b4780077f015c060c63abc3abd33bd3e71c63e15
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: dea410ab514f095f7ed68a0617b2dd7816544f80
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019321"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75813061"
 ---
-# <a name="frequently-asked-questions-about-azure-stack-usage"></a>Häufig gestellte Fragen zur Nutzung von Azure Stack
+# <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Häufig gestellte Fragen zur Nutzung von Azure Stack Hub
 
-In diesem Artikel werden einige häufig gestellte Fragen zur Nutzung von Azure Stack und zur Azure Stack-Nutzungs-API beantwortet.
+In diesem Artikel werden einige häufig gestellte Fragen zur Nutzung von Azure Stack Hub und zur Azure Stack Hub-Nutzungs-API beantwortet.
 
 ## <a name="what-meter-ids-can-i-see"></a>Welche Verbrauchseinheits-IDs kann ich sehen?
 
@@ -322,7 +322,7 @@ Der Verbrauch wird für die folgenden Ressourcenanbieter gemeldet:
 **ID der Verbrauchseinheit**: 190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **Name der Verbrauchseinheit**: App Service  
 **Einheit:** Virtueller Kern Stunden  
-**Hinweise**: Anzahl der virtuellen Kerne, die zum Ausführen des App-Diensts verwendet werden Hinweis: Microsoft verwendet diese Verbrauchseinheit, um App Service in Azure Stack in Rechnung zu stellen. Cloudlösungsanbieter können die anderen App Service-Verbrauchseinheiten (unten) zum Berechnen der Nutzung für ihre Mandanten verwenden.  
+**Hinweise**: Anzahl der virtuellen Kerne, die zum Ausführen des App-Diensts verwendet werden Hinweis: Microsoft verwendet diese Verbrauchseinheit, um die App Service-Instanz in Azure Stack Hub in Rechnung zu stellen. Cloudlösungsanbieter können die anderen App Service-Verbrauchseinheiten (unten) zum Berechnen der Nutzung für ihre Mandanten verwenden.  
   
 **ID der Verbrauchseinheit**: 67CC4AFC-0691-48E1-A4B8-D744D1FEDBDE  
 **Name der Verbrauchseinheit**: Functions-Anforderungen  
@@ -386,18 +386,18 @@ Der Verbrauch wird für die folgenden Ressourcenanbieter gemeldet:
 **Einheit:** GB  
 **Hinweise**: Gesamtanzahl der eingehenden Anforderungsantwortbytes + Gesamtanzahl der ausgehenden Anforderungsantwortbytes + Gesamtanzahl der eingehenden FTP-Anforderungsantwortbytes + Gesamtanzahl der eingehenden Web Deploy-Anforderungsantwortbytes  
   
-## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Wie unterscheiden sich die Azure Stack-Nutzungs-APIs von der [Azure-Nutzungs-API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (aktuell in der öffentlichen Vorschau)?
+## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Wie unterscheiden sich die Azure Stack Hub-Nutzungs-APIs von der [Azure-Nutzungs-API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (aktuell in der öffentlichen Vorschau)?
 
-* Die Nutzungs-API für Mandanten stimmt in den meisten Punkten mit der Azure-API überein. Der einzige Unterschied besteht darin, dass das Flag *showDetails* aktuell in Azure Stack nicht unterstützt wird.
-* Die Nutzungs-API für Anbieter gibt es nur in Azure Stack.
-* Die [RateCard-API](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) ist zwar in Azure verfügbar, aber noch nicht in Azure Stack.
+* Die Nutzungs-API für Mandanten stimmt in den meisten Punkten mit der Azure-API überein. Der einzige Unterschied besteht darin, dass das Flag *showDetails* derzeit in Azure Stack Hub nicht unterstützt wird.
+* Die Nutzungs-API für Anbieter gibt es nur in Azure Stack Hub.
+* Die [RateCard-API](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) ist derzeit zwar in Azure verfügbar, aber noch nicht in Azure Stack Hub.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>Was ist der Unterschied zwischen der Nutzungszeit und der gemeldeten Zeit?
 
 Nutzungsdatenberichte haben zwei Hauptzeitwerte:
 
 * **Gemeldete Zeit**. Der Zeitpunkt, zu dem das Nutzungsereignis im Nutzungssystem begonnen hat
-* **Nutzungszeit**. Der Zeitpunkt, an dem die Azure Stack-Ressource verwendet wurde
+* **Nutzungszeit**. Der Zeitpunkt, zu dem die Azure Stack Hub-Ressource verwendet wurde
 
 Unter Umständen besteht für ein spezifisches Nutzungsereignis eine Diskrepanz zwischen der Nutzungszeit und der gemeldeten Zeit. Die Verzögerung kann in jeder Umgebung mehrere Stunden betragen.
 
@@ -419,18 +419,18 @@ Aktuell können Sie nur nach *gemeldeter Zeit* abfragen.
 
 Aktive und beendete virtuelle Computer generieren Nutzungsdaten. Um die Generierung von Nutzungsdaten zu beenden, ist genau wie bei Azure eine Aufhebung der Zuordnung erforderlich. Sollte das Portal nicht verfügbar sein und der Computeressourcenanbieter weiterhin ausgeführt werden, werden weiter Nutzungsdaten ausgegeben.
 
-## <a name="how-do-i-extract-usage-data-from-the-azure-stack-usage-apis"></a>Wie extrahiere ich Nutzungsdaten aus den Azure Stack-Nutzungs-APIs?
+## <a name="how-do-i-extract-usage-data-from-the-azure-stack-hub-usage-apis"></a>Wie extrahiere ich Nutzungsdaten aus den Azure Stack Hub-Nutzungs-APIs?
 
-Nutzungsdaten aus lokalen Nutzungs-APIs in einer Azure Stack-Instanz lassen sich am einfachsten mit dem [Skript zur Nutzungszusammenfassung auf GitHub](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/Usagesummary.ps1) extrahieren. Das Skript erfordert das Start- und Enddatum als Eingabeparameter.
+Nutzungsdaten aus lokalen Nutzungs-APIs in einer Azure Stack Hub-Instanz lassen sich am einfachsten mit dem [Skript zur Nutzungszusammenfassung auf GitHub](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/Usagesummary.ps1) extrahieren. Das Skript erfordert das Start- und Enddatum als Eingabeparameter.
 
 Alternativ dazu können Sie auch REST-APIs verwenden, wie in den Artikeln [Ressourcennutzungs-API für Anbieter](azure-stack-provider-resource-api.md) und [Ressourcennutzungs-API für Mandanten](azure-stack-tenant-resource-usage-api.md) erläutert.
 
-## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-user-subscription"></a>Wie kann ich die aus Azure-Nutzungs-APIs extrahierte Nutzung einem bestimmten Azure Stack-Benutzerabonnement zuordnen?
+## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-hub-user-subscription"></a>Wie kann ich die aus Azure-Nutzungs-APIs extrahierte Nutzung einem bestimmten Azure Stack Hub-Benutzerabonnement zuordnen?
 
-Die Nutzungsdaten beinhalten einen Eigenschaftenbehälter namens **additionalInfo**, der die Azure Stack-Abonnement-ID enthält. Dies ist das Benutzerabonnement, dem der entsprechende Nutzungsdatensatz entspringt.
+Die Nutzungsdaten beinhalten einen Eigenschaftenbehälter namens **additionalInfo**, der die Azure Stack Hub-Abonnement-ID enthält. Dies ist das Benutzerabonnement, dem der entsprechende Nutzungsdatensatz entspringt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Kundenabrechnung und verbrauchsbasierte Kostenzuteilung in Azure Stack](azure-stack-billing-and-chargeback.md)
+* [Kundenabrechnung und verbrauchsbasierte Kostenzuteilung in Azure Stack Hub](azure-stack-billing-and-chargeback.md)
 * [Ressourcennutzungs-API für Anbieter](azure-stack-provider-resource-api.md)
 * [Ressourcennutzungs-API für Mandanten](azure-stack-tenant-resource-usage-api.md)

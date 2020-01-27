@@ -1,6 +1,6 @@
 ---
-title: Verwenden von API-Versionsprofilen mit Ruby in Azure Stack | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie API-Versionsprofile mit Ruby in Azure Stack verwenden.
+title: Verwenden von API-Versionsprofilen mit Ruby in Azure Stack Hub | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie API-Versionsprofile mit Ruby in Azure Stack Hub verwenden.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,25 +16,23 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 32a81fc86399c44362d82f1dc602f87b16d16484
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: d1109d2b0e8e8cffc1bf03c2e897c6c0230084c4
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282854"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878339"
 ---
-# <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit Ruby in Azure Stack
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+# <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Ruby in Azure Stack Hub
 
 ## <a name="ruby-and-api-version-profiles"></a>Ruby und API-Versionsprofile
 
-Das Ruby-SDK für Azure Stack Resource Manager umfasst Tools zum Erstellen und Verwalten Ihrer Infrastruktur. Im SDK enthaltene Ressourcenanbieter sind beispielsweise Compute, Virtual Network und Storage mit der Sprache Ruby. API-Profile im Ruby-SDK ermöglichen die Entwicklung einer Hybrid Cloud, indem es Ihnen ermöglicht wird, zwischen globalen Azure-Ressourcen und Ressourcen unter Azure Stack zu wechseln.
+Das Ruby-SDK für den Azure Stack Hub Resource Manager umfasst Tools zum Erstellen und Verwalten Ihrer Infrastruktur. Im SDK enthaltene Ressourcenanbieter sind beispielsweise Compute, Virtual Network und Storage mit der Sprache Ruby. API-Profile im Ruby-SDK ermöglichen die Entwicklung einer Hybrid Cloud, indem Ihnen ermöglicht wird, zwischen globalen Azure-Ressourcen und Ressourcen unter Azure Stack Hub zu wechseln.
 
 Ein API-Profil ist eine Kombination aus Ressourcenanbietern und Dienstversionen. Sie können ein API-Profil verwenden, um unterschiedliche Ressourcentypen zu kombinieren.
 
 - Verwenden Sie das Profil **Latest** des Azure SDK-Rollup-Gem, um die aktuellen Versionen aller Dienste zu nutzen.
-- Verwenden Sie das Profil **V2019_03_01_Hybrid** oder **V2018_03_01** des Azure SDK-Rollup-Gems, um die Dienste zu nutzen, die mit Azure Stack kompatibel sind.
+- Verwenden Sie das Profil **V2019_03_01_Hybrid** oder **V2018_03_01** des Azure SDK-Rollup-Gems, um die Dienste zu nutzen, die mit Azure Stack Hub kompatibel sind.
 - Verwenden Sie das Profil **Latest** des spezifischen Gem, um die aktuelle **API-Version** eines Diensts zu nutzen. Wenn Sie beispielsweise nur die aktuelle **API-Version** des Computediensts nutzen möchten, können Sie das Profil **Latest** des Gem **Compute** verwenden.
 - Verwenden Sie die im Gem definierten spezifischen **API-Versionen**, um eine bestimmte API-Version für einen Dienst zu nutzen.
 
@@ -53,8 +51,8 @@ Ein API-Profil ist eine Kombination aus Ressourcenanbietern und Dienstversionen.
        Gem install bundler
        ```
 
-- Erstellen Sie ein Abonnement, wenn keins verfügbar ist, und speichern Sie die Abonnement-ID zur späteren Verwendung. Eine Anleitung zum Erstellen eines Abonnements finden Sie im Artikel [Erstellen von Abonnements für Angebote in Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
-- Erstellen Sie einen Dienstprinzipal, und speichern Sie die ID und das Geheimnis. Eine Anleitung zum Erstellen eines Dienstprinzipals für Azure Stack finden Sie im Artikel [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md).
+- Erstellen Sie ein Abonnement, wenn keins verfügbar ist, und speichern Sie die Abonnement-ID zur späteren Verwendung. Eine Anleitung zum Erstellen eines Abonnements finden Sie im Artikel [Erstellen von Abonnements für Angebote in Azure Stack Hub](../operator/azure-stack-subscribe-plan-provision-vm.md).
+- Erstellen Sie einen Dienstprinzipal, und speichern Sie die ID und das Geheimnis. Eine Anleitung zum Erstellen eines Dienstprinzipals für Azure Stack Hub finden Sie im Artikel [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md).
 - Stellen Sie sicher, dass Ihrem Dienstprinzipal die Rolle „Mitwirkender“ bzw. „Besitzer“ für Ihr Abonnement zugewiesen ist. Eine Anleitung zum Zuweisen einer Rolle zu einem Dienstprinzipal finden Sie unter [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md).
 
 ## <a name="install-the-rubygem-packages"></a>Installieren der RubyGem-Pakete
@@ -81,7 +79,7 @@ Das Azure Resource Manager Ruby SDK befindet sich in der Vorschauphase und es ko
 
 ## <a name="use-the-azure_sdk-gem"></a>Verwendung des Gem „azure_sdk“
 
-Das Gem **azure_sdk** ist ein Rollup aller unterstützten Gems im Ruby SDK. Dieses Gem enthält das Profil  **Latest** , das die aktuelle Version aller Dienste unterstützt. Es enthält die mit Versionsangabe versehenen Profile **V2017_03_09** und **V2019_03_01_Hybrid**, die für Azure Stack erstellt werden.
+Das Gem **azure_sdk** ist ein Rollup aller unterstützten Gems im Ruby SDK. Dieses Gem enthält das Profil  **Latest** , das die aktuelle Version aller Dienste unterstützt. Es enthält die mit Versionsangabe versehenen Profile **V2017_03_09** und **V2019_03_01_Hybrid**, die für Azure Stack Hub erstellt werden.
 
 Sie können das Rollup-Gem „azure_sdk“ mit dem folgenden Befehl installieren:  
 
@@ -91,17 +89,17 @@ gem install 'azure_sdk'
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Um das Ruby Azure SDK mit Azure Stack zu verwenden, müssen Sie die folgenden Werte angeben und dann Werte mit Umgebungsvariablen festlegen. Befolgen Sie die Anweisungen in der Tabelle für Ihr Betriebssystem, um die Umgebungsvariablen festzulegen.
+Um das Ruby Azure SDK mit Azure Stack Hub zu verwenden, müssen Sie die folgenden Werte angeben und dann Werte mit Umgebungsvariablen festlegen. Befolgen Sie die Anweisungen in der Tabelle für Ihr Betriebssystem, um die Umgebungsvariablen festzulegen.
 
-| Wert | Umgebungsvariablen | BESCHREIBUNG |
+| value | Umgebungsvariablen | Beschreibung |
 | --- | --- | --- |
-| Mandanten-ID | `AZURE_TENANT_ID` | Ihre Azure Stack-[Mandanten-ID](../operator/azure-stack-identity-overview.md). |
+| Mandanten-ID | `AZURE_TENANT_ID` | Ihre [Mandanten-ID](../operator/azure-stack-identity-overview.md) für Azure Stack Hub. |
 | Client-ID | `AZURE_CLIENT_ID` | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde.  |
-| Abonnement-ID | `AZURE_SUBSCRIPTION_ID` | Sie verwenden die [Abonnement-ID](../operator/service-plan-offer-subscription-overview.md#subscriptions), um in Azure Stack auf Angebote zuzugreifen. |
+| Abonnement-ID | `AZURE_SUBSCRIPTION_ID` | Sie verwenden die [Abonnement-ID](../operator/service-plan-offer-subscription-overview.md#subscriptions), um in Azure Stack Hub auf Angebote zuzugreifen. |
 | Geheimer Clientschlüssel | `AZURE_CLIENT_SECRET` | Das App-Geheimnis des Dienstprinzipals, das bei der Erstellung des Dienstprinzipals gespeichert wurde. |
-| Resource Manager-Endpunkt | `ARM_ENDPOINT` | Siehe [Azure Stack-Resource Manager-Endpunkt](#the-azure-stack-resource-manager-endpoint).  |
+| Resource Manager-Endpunkt | `ARM_ENDPOINT` | Siehe [Der Resource Manager-Endpunkt von Azure Stack Hub](#the-azure-stack-hub-resource-manager-endpoint).  |
 
-### <a name="the-azure-stack-resource-manager-endpoint"></a>Der Azure Stack-Resource Manager-Endpunkt
+### <a name="the-azure-stack-hub-resource-manager-endpoint"></a>Der Resource Manager-Endpunkt von Azure Stack Hub
 
 Microsoft Azure Resource Manager ist ein Verwaltungsframework, mit dem Administratoren Azure-Ressourcen bereitstellen, verwalten und überwachen können. Azure Resource Manager kann diese Aufgaben als Gruppe – anstatt einzeln – in einem gemeinsamen Vorgang verarbeiten.
 
@@ -147,15 +145,15 @@ export AZURE_TENANT_ID=<YOUR_TENANT_ID>
 
 Das Rollup-Gem **Azure_sdk** enthält die folgenden drei Profile:
 
-- **V2019_03_01_Hybrid**: Für Azure Stack erstelltes Profil. Verwenden Sie dieses Profil für alle neuesten Versionen der Dienste, die in Azure Stack Version 1904 oder höher verfügbar sind.
-- **V2017_03_09**: Für Azure Stack erstelltes Profil. Verwenden Sie dieses Profil für Dienste, um die beste Kompatibilität mit Azure Stack Version 1808 oder niedriger zu erzielen.
+- **V2019_03_01_Hybrid**: Für Azure Stack Hub erstelltes Profil. Verwenden Sie dieses Profil für alle neuesten Versionen der Dienste, die in Azure Stack Hub Version 1904 oder höher verfügbar sind.
+- **V2017_03_09**: Für Azure Stack Hub erstelltes Profil. Verwenden Sie dieses Profil für Dienste, um die beste Kompatibilität mit Azure Stack Hub Version 1808 oder niedriger zu erzielen.
 - **Aktuell**: Das Profil umfasst die aktuellen Versionen aller Dienste. Verwenden Sie die neuesten Versionen aller Dienste.
 
-Weitere Informationen zu Azure Stack und API-Profilen finden Sie in der [Zusammenfassung zu API-Profilen](azure-stack-version-profiles.md#summary-of-api-profiles).
+Weitere Informationen zu Azure Stack Hub und API-Profilen finden Sie in der [Zusammenfassung zu API-Profilen](azure-stack-version-profiles.md#summary-of-api-profiles).
 
 ## <a name="azure-ruby-sdk-api-profile-usage"></a>Verwendung des API-Profils aus dem Azure Ruby-SDK
 
-Verwenden Sie den folgenden Code, um einen Profilclient zu instanziieren. Dieser Parameter ist nur für Azure Stack oder andere private Clouds erforderlich. Für Azure sind diese Einstellungen standardmäßig global vorhanden.
+Verwenden Sie den folgenden Code, um einen Profilclient zu instanziieren. Dieser Parameter ist nur für Azure Stack Hub oder andere private Clouds erforderlich. Für Azure sind diese Einstellungen standardmäßig global vorhanden.
 
 ```Ruby  
 active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
@@ -174,7 +172,7 @@ options = {
   base_url: ENV['ARM_ENDPOINT']
 }
 
-# Target profile built for Azure Stack
+# Target profile built for Azure Stack Hub
 client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
 ```
 
@@ -192,9 +190,9 @@ purchase_plan_obj = profile_client.compute.model_classes.purchase_plan.new
 purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::PurchasePlan.new
 ```
 
-## <a name="define-azure-stack-environment-setting-functions"></a>Definieren von Einstellungsfunktionen für die Azure Stack-Umgebung
+## <a name="define-azure-stack-hub-environment-setting-functions"></a>Definieren von Einstellungsfunktionen für die Azure Stack Hub-Umgebung
 
-Definieren Sie die Endpunkte mit `get_active_directory_settings()`, um den Dienstprinzipal für die Azure Stack-Umgebung zu authentifizieren. Bei dieser Methode wird die Umgebungsvariable **ARM_Endpoint** genutzt, die Sie zuvor festgelegt haben:
+Definieren Sie die Endpunkte mit `get_active_directory_settings()`, um den Dienstprinzipal für die Azure Stack Hub-Umgebung zu authentifizieren. Bei dieser Methode wird die Umgebungsvariable **ARM_Endpoint** genutzt, die Sie zuvor festgelegt haben:
 
 ```Ruby  
 # Get Authentication endpoints using Arm Metadata Endpoints
@@ -205,7 +203,7 @@ def get_active_directory_settings(armEndpoint)
   response_content = response.body
   unless status_code == "200"
     error_model = JSON.load(response_content)
-    fail MsRestAzure::AzureOperationError.new("Getting Azure Stack Metadata Endpoints", response, error_model)
+    fail MsRestAzure::AzureOperationError.new("Getting Azure Stack Hub Metadata Endpoints", response, error_model)
   end
   result = JSON.load(response_content)
   settings.authentication_endpoint = result['authentication']['loginEndpoint'] unless result['authentication']['loginEndpoint'].nil?
@@ -216,10 +214,10 @@ end
 
 ## <a name="samples-using-api-profiles"></a>Beispiele für die Verwendung von API-Profilen
 
-Verwenden Sie die folgenden Beispiele auf GitHub als Referenz für die Erstellung von Lösungen mit Ruby und Azure Stack-API-Profilen:
+Verwenden Sie die folgenden Beispiele auf GitHub als Referenz für die Erstellung von Lösungen mit Ruby und Azure Stack Hub-API-Profilen:
 
 - [Verwalten von Azure-Ressourcen und -Ressourcengruppen mit Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups).
-- [Manage virtual machines using Ruby](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM) (Verwalten von virtuellen Computern mit Ruby) (Beispiel, in dem das Profil „2019-03-01-hybrid“ für die aktuellsten API-Versionen verwendet wird, die von Azure Stack unterstützt werden.)
+- [Manage virtual machines using Ruby](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM) (Verwalten von virtuellen Computern mit Ruby): Beispiel, in dem das Profil „2019-03-01-hybrid“ für die aktuellsten API-Versionen verwendet wird, die von Azure Stack Hub unterstützt werden.
 - [Deploy an SSH Enabled VM with a Template in Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Template-Deployment) (Bereitstellen eines SSH-fähigen virtuellen Computers mit einer Vorlage in Ruby).
 
 ### <a name="sample-resource-manager-and-groups"></a>Beispiel für Resource Manager und Gruppen
@@ -260,20 +258,20 @@ Vergewissern Sie sich, dass Sie Ruby installiert haben, um das Beispiel auszufü
    - `export AZURE_CLIENT_ID={your client ID}`
    - `export AZURE_CLIENT_SECRET={your client secret}`
    - `export AZURE_SUBSCRIPTION_ID={your subscription ID}`
-   - `export ARM_ENDPOINT={your Azure Stack Resource Manager URL}`
+   - `export ARM_ENDPOINT={your Azure Stack Hub Resource Manager URL}`
 
    > [!NOTE]  
    > Verwenden Sie unter Windows `set` anstelle von `export`.
 
-4. Stellen Sie sicher, dass die Standortvariable auf Ihren Azure Stack-Standort festgelegt ist, zum Beispiel `LOCAL="local"`.
+4. Stellen Sie sicher, dass die Standortvariable auf Ihren Azure Stack Hub-Standort festgelegt ist, z. B. `LOCAL="local"`.
 
-5. Fügen Sie die folgende Codezeile hinzu, wenn Sie Azure Stack oder andere private Clouds nutzen, um auf die richtigen Active Directory-Endpunkte abzuzielen:
+5. Fügen Sie die folgende Codezeile hinzu, wenn Sie Azure Stack Hub oder andere private Clouds nutzen, um auf die richtigen Active Directory-Endpunkte abzuzielen:
 
    ```Ruby  
    active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
    ```
 
-6. Fügen Sie in der Variablen `options` die Active Directory-Einstellungen und die Basis-URL hinzu, um Azure Stack zu verwenden:
+6. Fügen Sie in der Variablen `options` die Active Directory-Einstellungen und die Basis-URL hinzu, um Azure Stack Hub zu verwenden:
 
    ```ruby  
    options = {
@@ -284,13 +282,13 @@ Vergewissern Sie sich, dass Sie Ruby installiert haben, um das Beispiel auszufü
    }
    ```
 
-7. Erstellen Sie einen Profilclient, der auf das Azure Stack-Profil ausgerichtet ist:
+7. Erstellen Sie einen Profilclient, der auf das Azure Stack Hub-Profil ausgerichtet ist:
 
    ```ruby  
    client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
    ```
 
-8. Für die Authentifizierung des Dienstprinzipals mit Azure Stack sollten die Endpunkte mit **get_active_directory_settings()** definiert werden. Bei dieser Methode wird die Umgebungsvariable **ARM_Endpoint** genutzt, die Sie zuvor festgelegt haben:
+8. Für die Authentifizierung des Dienstprinzipals mit Azure Stack Hub sollten die Endpunkte mit **get_active_directory_settings()** definiert werden. Bei dieser Methode wird die Umgebungsvariable **ARM_Endpoint** genutzt, die Sie zuvor festgelegt haben:
 
    ```ruby  
    def get_active_directory_settings(armEndpoint)
@@ -300,7 +298,7 @@ Vergewissern Sie sich, dass Sie Ruby installiert haben, um das Beispiel auszufü
      response_content = response.body
      unless status_code == "200"
        error_model = JSON.load(response_content)
-       fail MsRestAzure::AzureOperationError.new("Getting Azure Stack Metadata Endpoints", response, error_model)
+       fail MsRestAzure::AzureOperationError.new("Getting Azure Stack Hub Metadata Endpoints", response, error_model)
      end
      result = JSON.load(response_content)
      settings.authentication_endpoint = result['authentication']['loginEndpoint'] unless result['authentication']['loginEndpoint'].nil?
@@ -317,5 +315,5 @@ Vergewissern Sie sich, dass Sie Ruby installiert haben, um das Beispiel auszufü
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Installieren von PowerShell für Azure Stack](../operator/azure-stack-powershell-install.md)
-- [Konfigurieren der PowerShell-Umgebung des Azure Stack-Benutzers](azure-stack-powershell-configure-user.md)  
+- [Installieren von PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md)
+- [Konfigurieren der PowerShell-Umgebung des Azure Stack Hub-Benutzers](azure-stack-powershell-configure-user.md)  

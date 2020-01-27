@@ -1,6 +1,6 @@
 ---
-title: Verwenden des Azure Stack-Überprüfungstools zum Überprüfen des Systemstatus | Microsoft-Dokumentation
-description: Es wird beschrieben, wie Sie das Azure Stack-Überprüfungstool zum Überprüfen des Systemstatus verwenden.
+title: Verwenden des Azure Stack Hub-Überprüfungstools zum Überprüfen des Systemstatus | Microsoft-Dokumentation
+description: Es wird beschrieben, wie Sie das Azure Stack Hub-Überprüfungstool zum Überprüfen des Systemstatus verwenden.
 services: azure-stack
 author: justinha
 manager: femila
@@ -10,26 +10,32 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
-ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 98732c3eb5933e1fd6d7ce42d726d3f5019c97eb
-ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.lastreviewed: 01/10/2020
+ms.openlocfilehash: 778f38f0ed3d1b1801b162624daa365ed6d1f09c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74830958"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882503"
 ---
-# <a name="validate-azure-stack-system-state"></a>Überprüfen des Azure Stack-Systemstatus
+# <a name="validate-azure-stack-hub-system-state"></a>Überprüfen des Azure Stack Hub-Systemstatus
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-Es ist sehr wichtig, dass Sie als Azure Stack-Betreiber bei Bedarf die Integrität und den Status Ihres Systems ermitteln können. Das Azure Stack-Überprüfungstool (**Test-AzureStack**) ist ein PowerShell-Cmdlet, mit dem Sie eine Reihe von Tests auf Ihrem System ausführen können, um vorliegende Fehler zu identifizieren. In der Regel werden Sie aufgefordert, dieses Tool über den [privilegierten Endpunkt (PEP)](azure-stack-privileged-endpoint.md) auszuführen, wenn Sie sich wegen eines Problems an den Microsoft-Kundendienst und -Support (Microsoft Customer Services Support, CSS) wenden. Wenn die systemweiten Integritäts- und Statusinformationen vorliegen, kann CSS detaillierte Protokolle sammeln und analysieren, sich auf den Bereich konzentrieren, in dem der Fehler aufgetreten ist, und mit Ihnen zusammenarbeiten, um das Problem zu beheben.
+Es ist sehr wichtig, dass Sie als Azure Stack Hub-Operator bei Bedarf die Integrität und den Status Ihres Systems ermitteln können. Das Azure Stack Hub-Überprüfungstool (**Test-AzureStack**) ist ein PowerShell-Cmdlet, mit dem Sie eine Reihe von Tests auf Ihrem System ausführen können, um vorliegende Fehler zu identifizieren. In der Regel werden Sie aufgefordert, dieses Tool über den [privilegierten Endpunkt (PEP)](azure-stack-privileged-endpoint.md) auszuführen, wenn Sie sich wegen eines Problems an den Microsoft-Kundendienst und -Support (Microsoft Customer Services Support, CSS) wenden. Wenn die systemweiten Integritäts- und Statusinformationen vorliegen, kann CSS detaillierte Protokolle sammeln und analysieren, sich auf den Bereich konzentrieren, in dem der Fehler aufgetreten ist, und mit Ihnen zusammenarbeiten, um das Problem zu beheben.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Ausführen des Überprüfungstools und Zugreifen auf die Ergebnisse
 
 Wie oben bereits erwähnt, wird das Überprüfungstool über den PEP ausgeführt. Jeder Test gibt im PowerShell-Fenster einen **PASS/FAIL**-Status zurück. Hier ist eine Gliederung des Prozesses für End-to-End-Validierungstests angegeben:
+
+1. Richten Sie die Vertrauensstellung ein. Führen Sie auf einem integrierten System in einer Windows PowerShell-Sitzung mit erhöhten Rechten den folgenden Befehl aus, um den PEP als vertrauenswürdigen Host auf der gehärteten virtuellen VM hinzuzufügen, die auf dem Hardwarelebenszyklus-Host oder der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird.
+
+   ```powershell
+   winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+   ```
+
+   Wenn Sie das ASDK (Azure Stack Development Kit) ausführen, melden Sie sich beim Development Kit-Host an.
 
 1. Greifen Sie auf den PEP zu. Führen Sie die folgenden Befehle aus, um eine PEP-Sitzung einzurichten:
 
@@ -40,7 +46,7 @@ Wie oben bereits erwähnt, wird das Überprüfungstool über den PEP ausgeführt
    > [!TIP]
    > Verwenden Sie „AzS-ERCS01“ als „-ComputerName“, um auf den PEP auf einem ASDK-Hostcomputer (Azure Stack Development Kit) zuzugreifen.
 
-2. Führen Sie auf dem PEP Folgendes aus:
+1. Führen Sie auf dem PEP Folgendes aus:
 
    ```powershell
    Test-AzureStack
@@ -48,11 +54,11 @@ Wie oben bereits erwähnt, wird das Überprüfungstool über den PEP ausgeführt
 
    Weitere Informationen finden Sie unter [Überlegungen zu Parametern](azure-stack-diagnostic-test.md#parameter-considerations) und [Beispiele für Anwendungsfälle](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Führen Sie `Get-AzureStackLog` aus, wenn für Tests **FAIL** (FEHLER) gemeldet wird. Eine Anleitung zu einem integrierten System finden Sie unter [So führen Sie „Get-AzureStackLog“ in integrierten Azure Stack-Systemen aus](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) oder im ASDK unter [Ausführen von Get-AzureStackLog in einem System mit dem Azure Stack Development Kit (ASDK)](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+1. Führen Sie `Get-AzureStackLog` aus, wenn für Tests **FAIL** (FEHLER) gemeldet wird. Eine Anleitung zu einem integrierten System finden Sie unter [So führen Sie „Get-AzureStackLog“ in integrierten Azure Stack Hub-Systemen aus](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) oder im ASDK unter [Ausführen von Get-AzureStackLog in einem System mit dem Azure Stack Development Kit (ASDK)](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
    Das Cmdlet sammelt Protokolle, die von Test-AzureStack generiert wurden. Wir empfehlen Ihnen, keine Protokolle zu erfassen und sich stattdessen an den Microsoft-Kundendienst und -Support (CSS) zu wenden, wenn bei Tests eine **WARNUNG** gemeldet wird.
 
-4. Wenn Sie durch den CSS angewiesen wurden, das Überprüfungstool auszuführen, fordert der CSS-Mitarbeiter die von Ihnen gesammelten Protokolle an, um die Behebung Ihres Problems fortsetzen zu können.
+1. Wenn Sie durch den CSS angewiesen wurden, das Überprüfungstool auszuführen, fordert der CSS-Mitarbeiter die von Ihnen gesammelten Protokolle an, um die Behebung Ihres Problems fortsetzen zu können.
 
 ## <a name="tests-available"></a>Verfügbare Tests
 
@@ -64,32 +70,32 @@ Diese Tests mit geringer Auswirkung arbeiten auf einer Infrastrukturebene und li
 
 | Testkategorie                                        | Argument für „-Include“ und „-Ignore“ |
 | :--------------------------------------------------- | :-------------------------------- |
-| Zusammenfassung des Azure Stack ACS                              | AzsAcsSummary                     |
-| Zusammenfassung von Azure Stack: Active Directory                 | AzsAdSummary                      |
-| Zusammenfassung der Azure Stack-Warnung                            | AzsAlertSummary                   |
-| Zusammenfassung der Azure Stack-Anwendungsabstürze                | AzsApplicationCrashSummary        |
-| Zusammenfassung der Verfügbarkeit von Azure Stack-Sicherungsfreigaben       | AzsBackupShareAccessibility       |
-| Zusammenfassung des Azure Stack BMC                              | AzsStampBMCSummary                |
-| Zusammenfassung der Cloudhostinginfrastruktur für Azure Stack     | AzsHostingInfraSummary            |
-| Nutzung der Cloudhostinginfrastruktur für Azure Stack | AzsHostingInfraUtilization        |
-| Zusammenfassung der Azure Stack-Steuerungsebene                    | AzsControlPlane                   |
-| Zusammenfassung von Azure Stack Defender                         | AzsDefenderSummary                |
-| Zusammenfassung Hostinginfrastruktur-Firmware für Azure Stack  | AzsHostingInfraFWSummary          |
-| Kapazität der Azure Stack-Infrastruktur                  | AzsInfraCapacity                  |
-| Leistung der Azure Stack-Infrastruktur               | AzsInfraPerformance               |
-| Zusammenfassung der Infrastrukturrolle von Azure Stack              | AzsInfraRoleSummary               |
-| Azure Stack-Netzwerkinfrastruktur                            | AzsNetworkInfra                   |
-| Zusammenfassung von Azure Stack-Portal und API                   | AzsPortalAPISummary               |
-| VM-Ereignisse der Azure Stack-Skalierungseinheit                     | AzsScaleUnitEvents                |
-| VM-Ressourcen der Azure Stack-Skalierungseinheit                  | AzsScaleUnitResources             |
-| Azure Stack-Szenarien                                | AzsScenarios                      |
-| Zusammenfassung der Azure Stack SDN-Überprüfung                   | AzsSDNValidation                  |
-| Zusammenfassung der Azure Stack Service Fabric-Rolle              | AzsSFRoleSummary                  |
-| Azure Stack-Speicherdatenebene                       | AzsStorageDataPlane               |
-| Zusammenfassung der Azure Stack-Speicherdienste                 | AzsStorageSvcsSummary             |
-| Zusammenfassung des Azure Stack SQL-Stores                        | AzsStoreSummary                   |
-| Zusammenfassung des Azure Stack-Updates                           | AzsInfraUpdateSummary             |
-| Zusammenfassung der Azure Stack VM-Platzierung                     | AzsVmPlacement                    |
+| Zusammenfassung des Azure Stack Hub ACS                              | AzsAcsSummary                     |
+| Zusammenfassung von Azure Stack Hub: Active Directory                 | AzsAdSummary                      |
+| Azure Stack Hub: Benachrichtigungszusammenfassung                            | AzsAlertSummary                   |
+| Zusammenfassung der Azure Stack Hub-Anwendungsabstürze                | AzsApplicationCrashSummary        |
+| Zusammenfassung der Verfügbarkeit von Azure Stack Hub-Sicherungsfreigaben       | AzsBackupShareAccessibility       |
+| Zusammenfassung des Azure Stack Hub BMC                              | AzsStampBMCSummary                |
+| Zusammenfassung der Cloudhostinginfrastruktur für Azure Stack Hub     | AzsHostingInfraSummary            |
+| Nutzung der Cloudhostinginfrastruktur für Azure Stack Hub | AzsHostingInfraUtilization        |
+| Zusammenfassung der Azure Stack Hub-Steuerungsebene                    | AzsControlPlane                   |
+| Zusammenfassung von Azure Stack Hub Defender                         | AzsDefenderSummary                |
+| Zusammenfassung Hostinginfrastruktur-Firmware für Azure Stack Hub  | AzsHostingInfraFWSummary          |
+| Kapazität der Azure Stack Hub-Infrastruktur                  | AzsInfraCapacity                  |
+| Leistung der Azure Stack Hub-Infrastruktur               | AzsInfraPerformance               |
+| Zusammenfassung der Infrastrukturrolle von Azure Stack Hub              | AzsInfraRoleSummary               |
+| Azure Stack Hub-Netzwerkinfrastruktur                            | AzsNetworkInfra                   |
+| Zusammenfassung von Azure Stack Hub-Portal und API                   | AzsPortalAPISummary               |
+| VM-Ereignisse der Azure Stack Hub-Skalierungseinheit                     | AzsScaleUnitEvents                |
+| VM-Ressourcen der Azure Stack Hub-Skalierungseinheit                  | AzsScaleUnitResources             |
+| Azure Stack Hub-Szenarien                                | AzsScenarios                      |
+| Zusammenfassung der Azure Stack Hub SDN-Überprüfung                   | AzsSDNValidation                  |
+| Zusammenfassung der Azure Stack Hub Service Fabric-Rolle              | AzsSFRoleSummary                  |
+| Azure Stack Hub-Speicherdatenebene                       | AzsStorageDataPlane               |
+| Zusammenfassung der Azure Stack Hub-Speicherdienste                 | AzsStorageSvcsSummary             |
+| Zusammenfassung des Azure Stack Hub-SQL-Stores                        | AzsStoreSummary                   |
+| Zusammenfassung des Azure Stack Hub-Updates                           | AzsInfraUpdateSummary             |
+| Zusammenfassung der Azure Stack Hub-VM-Platzierung                     | AzsVmPlacement                    |
 
 ### <a name="cloud-scenario-tests"></a>Cloudszenariotests
 
@@ -167,13 +173,13 @@ Der Benutzername des Cloudadministrators muss im UPN-Format eingegeben werden: s
 Um die Bedienerfreundlichkeit zu verbessern, wurde ein Parameter **Gruppe** eingeführt, um mehrere Testkategorien gleichzeitig auszuführen. Derzeit sind drei Gruppen definiert: **Default**, **UpdateReadiness** und **SecretRotationReadiness**.
 
 - **Standard:** Standardausführung von **Test-AzureStack**. Diese Gruppe wird standardmäßig ausgeführt, wenn keine anderen Gruppen ausgewählt werden.
-- **UpdateReadiness**: Hierbei wird überprüft, ob die Azure Stack-Instanz aktualisiert werden kann. Wird die Gruppe **UpdateReadiness** ausgeführt, werden Warnungen als Fehler in der Konsolenausgabe angezeigt und sollten als Hindernisse für die Aktualisierung angesehen werden. Ab Azure Stack-Version 1910 sind die folgenden Kategorien Teil der Gruppe **UpdateReadiness**:
+- **UpdateReadiness**: Hierbei wird überprüft, ob die Azure Stack Hub-Instanz aktualisiert werden kann. Wird die Gruppe **UpdateReadiness** ausgeführt, werden Warnungen als Fehler in der Konsolenausgabe angezeigt und sollten als Hindernisse für die Aktualisierung angesehen werden. Ab Azure Stack Hub-Version 1910 sind die folgenden Kategorien Teil der Gruppe **UpdateReadiness**:
 
   - **AzsInfraFileValidation**
   - **AzsActionPlanStatus**
   - **AzsStampBMCSummary**
 
-- **SecretRotationReadiness**: Hierbei wird überprüft, ob sich die Azure Stack-Instanz in einem Status befindet, in dem die Geheimnisrotation durchgeführt werden kann. Wird die Gruppe **SecretRotationReadiness** ausgeführt, werden Warnungen als Fehler in der Konsolenausgabe angezeigt und sollten als Hindernisse für die Geheimnisrotation angesehen werden. Die folgenden Kategorien sind Teil der SecretRotationReadiness-Gruppe:
+- **SecretRotationReadiness**: Hierbei wird überprüft, ob sich die Azure Stack Hub-Instanz in einem Status befindet, in dem die Geheimnisrotation durchgeführt werden kann. Wird die Gruppe **SecretRotationReadiness** ausgeführt, werden Warnungen als Fehler in der Konsolenausgabe angezeigt und sollten als Hindernisse für die Geheimnisrotation angesehen werden. Die folgenden Kategorien sind Teil der SecretRotationReadiness-Gruppe:
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -187,13 +193,13 @@ Um die Bedienerfreundlichkeit zu verbessern, wurde ein Parameter **Gruppe** eing
 
 #### <a name="group-parameter-example"></a>Beispiel für Gruppenparameter
 
-Im folgenden Beispiel wird **Test-AzureStack** ausgeführt, um die Systembereitschaft zu testen, bevor ein Update oder Hotfix mit **Gruppe** installiert wird. Führen Sie vor dem Starten einer Update- oder Hotfixinstallation **Test-AzureStack** aus, um den Status Ihrer Azure Stack-Instanz zu überprüfen:
+Im folgenden Beispiel wird **Test-AzureStack** ausgeführt, um die Systembereitschaft zu testen, bevor ein Update oder Hotfix mit **Gruppe** installiert wird. Führen Sie vor dem Starten einer Update- oder Hotfixinstallation **Test-AzureStack** aus, um den Status Ihrer Azure Stack Hub-Instanz zu überprüfen:
 
 ```powershell
 Test-AzureStack -Group UpdateReadiness
 ```
 
-Wenn für Ihre Azure Stack-Instanz eine ältere Version als 1811 verwendet wird, sollten Sie die folgenden PowerShell-Befehle verwenden, um **Test-AzureStack** auszuführen:
+Wenn für Ihre Azure Stack Hub-Instanz eine ältere Version als 1811 verwendet wird, sollten Sie die folgenden PowerShell-Befehle verwenden, um **Test-AzureStack** auszuführen:
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -225,7 +231,7 @@ Um neue Anmeldeinformationen mit der konfigurierten Sicherungsfreigabe zu testen
 
 ### <a name="run-validation-tool-to-test-network-infrastructure"></a>Ausführen des Überprüfungstools zum Testen der Netzwerkinfrastruktur
 
-Dieser Test überprüft die Konnektivität der Netzwerkinfrastruktur, indem er das softwaredefinierte Netzwerk (SDN) von Azure Stack umgeht. Er veranschaulicht Verbindungen von einer öffentlichen VIP mit den konfigurierten DNS-Forwardern, NTP-Servern und Authentifizierungsendpunkten. Dies schließt die Konnektivität mit Azure ein, wenn Azure AD als Identitätsanbieter verwendet wird, oder mit dem Partnerserver, wenn AD FS als Identitätsanbieter verwendet wird.
+Dieser Test überprüft die Konnektivität der Netzwerkinfrastruktur, indem er das softwaredefinierte Netzwerk (SDN) von Azure Stack Hub umgeht. Er veranschaulicht Verbindungen von einer öffentlichen VIP mit den konfigurierten DNS-Forwardern, NTP-Servern und Authentifizierungsendpunkten. Dies schließt die Konnektivität mit Azure ein, wenn Azure AD als Identitätsanbieter verwendet wird, oder mit dem Partnerserver, wenn AD FS als Identitätsanbieter verwendet wird.
 
 Schließen Sie den Debug-Parameter ein, um eine detaillierte Ausgabe des Befehls zu erhalten:
 
@@ -235,6 +241,6 @@ Test-AzureStack -Include AzsNetworkInfra -Debug
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zu Azure Stack-Diagnosetools und zur Protokollierung von Problemen finden Sie unter [Azure Stack-Diagnosetools](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+Weitere Informationen zu Azure Stack Hub-Diagnosetools und zur Protokollierung von Problemen finden Sie unter [Azure Stack Hub-Diagnosetools](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
 
-Weitere Informationen zur Problembehandlung finden Sie unter [Problembehandlung von Microsoft Azure Stack](azure-stack-troubleshooting.md).
+Weitere Informationen zur Problembehandlung finden Sie unter [Problembehandlung von Microsoft Azure Stack Hub](azure-stack-troubleshooting.md).

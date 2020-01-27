@@ -1,6 +1,6 @@
 ---
-title: Verwalten der Speicherkapazität in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie die Speicherkapazität und -verfügbarkeit in Azure Stack überwachen und verwalten können.
+title: Verwalten der Speicherkapazität in Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie die Speicherkapazität und -verfügbarkeit in Azure Stack Hub überwachen und verwalten können.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,26 +11,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: f569d5dbffaec772657a6fc67b82c9be78f35800
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: 56c6ee17ed569689267bffc79aadece0e451897c
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540317"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535245"
 ---
-# <a name="manage-storage-capacity-for-azure-stack"></a>Verwalten der Speicherkapazität für Azure Stack
+# <a name="manage-storage-capacity-for-azure-stack-hub"></a>Verwalten der Speicherkapazität für Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-Die Informationen in diesem Artikel helfen Azure Stack-Cloudbetreibern bei der Überwachung und Verwaltung der Speicherkapazität ihrer Azure Stack-Bereitstellung. Die Speicherinfrastruktur von Azure Stack ordnet einen Teil der Gesamtspeicherkapazität der Azure Stack-Bereitstellung für die Verwendung durch **Speicherdienste** zu. Die Speicherdienste speichern Daten eines Mandanten in Freigaben auf Volumes, die den Knoten der Bereitstellung entsprechen.
+Die Informationen in diesem Artikel helfen Azure Stack Hub-Cloudoperatoren bei der Überwachung und Verwaltung der Speicherkapazität ihrer Azure Stack Hub-Bereitstellung. Die Speicherinfrastruktur von Azure Stack Hub ordnet einen Teil der Gesamtspeicherkapazität der Azure Stack Hub-Bereitstellung für die Verwendung durch **Speicherdienste** zu. Die Speicherdienste speichern Daten eines Mandanten in Freigaben auf Volumes, die den Knoten der Bereitstellung entsprechen.
 
 Cloudbetreibern steht nur eine begrenzte Menge an Speicherplatz zur Verfügung. Die Speicherplatzmenge hängt von der implementierten Lösung ab. Ihre Lösung wird entweder von Ihrem OEM-Anbieter (bei Verwendung einer Lösung mit mehreren Knoten) oder von der Hardware bereitgestellt, auf der Sie das Azure Stack Development Kit (ASDK) installieren.
 
-Da Azure Stack die Erweiterung der Speicherkapazität nicht unterstützt, ist es wichtig, den verfügbaren Speicherplatz zu [überwachen](#monitor-shares), um einen effizienten Betrieb zu gewährleisten.
+Da Azure Stack Hub die Erweiterung der Speicherkapazität nicht unterstützt, ist es wichtig, den verfügbaren Speicherplatz zu [überwachen](#monitor-shares), um einen effizienten Betrieb zu gewährleisten.
 
 Sollte die freie Kapazität einer Freigabe knapp werden, sollten Sie den [Speicherplatz verwalten](#manage-available-space), um eine Erschöpfung der Kapazität von Freigaben zu verhindern.
 
@@ -42,7 +40,7 @@ Wenn eine Freigabe vollständig belegt ist, funktioniert der Speicherdienst für
 
 ## <a name="understand-volumes-and-shares-containers-and-disks"></a>Grundlegendes zu Volumes und Freigaben, Containern und Datenträgern
 ### <a name="volumes-and-shares"></a>Volumes und Freigaben
-Der *Speicherdienst* partitioniert den verfügbaren Speicher in separate und gleiche Volumes, die zum Speichern von Mandantendaten zugewiesen werden. Die Anzahl an Volumes entspricht der Anzahl an Knoten in der Azure Stack-Bereitstellung:
+Der *Speicherdienst* partitioniert den verfügbaren Speicher in separate und gleiche Volumes, die zum Speichern von Mandantendaten zugewiesen werden. Die Anzahl an Volumes entspricht der Anzahl an Knoten in der Azure Stack Hub-Bereitstellung:
 
 - Bei einer Bereitstellung mit vier Knoten sind vier Volumes vorhanden. Jedes Volume verfügt über eine einzelne Freigabe. Bei einer Bereitstellung mit mehreren Knoten verringert sich die Anzahl von Freigaben nicht, wenn ein Knoten entfernt wird oder fehlerhaft ist.
 - Wenn Sie das ASDK verwenden, liegt ein einzelnes Volume mit einer einzelnen Freigabe vor.
@@ -51,9 +49,9 @@ Da die Speicherdienstfreigaben ausschließlich von den Speicherdiensten genutzt 
 
 Freigaben auf Volumes enthalten Mandantendaten. Zu Mandantendaten zählen Seitenblobs, Blockblobs, Anfügeblobs, Tabellen, Warteschlangen, Datenbanken sowie dazugehörige Metadatenspeicher. Da die Speicherobjekte (Blobs usw.) jeweils in einer einzelnen Freigabe enthalten sind, darf die maximale Größe der jeweiligen Objekte die Größe einer Freigabe nicht übersteigen. Die maximale Größe neuer Objekte hängt von der Restkapazität ab, die in einer Freigabe zum Zeitpunkt der Objekterstellung in Form von nicht genutztem Speicherplatz zur Verfügung steht.
 
-Wenn der freie Speicherplatz einer Freigabe knapp wird und Aktionen zum [Freigeben](#reclaim-capacity) von Speicherplatz nicht erfolgreich oder verfügbar sind, kann der Azure Stack-Cloudbetreiber die Blobcontainer zwischen Freigaben migrieren.
+Wenn der freie Speicherplatz einer Freigabe knapp wird und Aktionen zum [Freigeben](#reclaim-capacity) von Speicherplatz nicht erfolgreich oder verfügbar sind, kann der Azure Stack Hub-Cloudoperator die Blobcontainer zwischen Freigaben migrieren.
 
-- Informationen zur Verwendung von Blobspeicher in Azure Stack durch Mandantenbenutzer finden Sie unter [Azure Stack-Speicherdienste](/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
+- Informationen zur Verwendung von Blobspeicher in Azure Stack Hub durch Mandantenbenutzer finden Sie unter [Azure Stack Hub-Speicherdienste](/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
 ### <a name="containers"></a>Container
@@ -63,7 +61,7 @@ Nachdem ein Blob in einem Container platziert wurde, kann dieses Blob weiter wac
 
 Container sind nicht auf eine einzelne Freigabe beschränkt. Wenn die kombinierten Blobdaten in einem Container 80 % oder mehr des verfügbaren Speicherplatzes beanspruchen, wechselt der Container in den *Überlaufmodus*. Im Überlaufmodus werden alle neuen Blobs, die in diesem Container erstellt werden, einem anderen Volume mit genügend Speicherplatz zugeordnet. Im Laufe der Zeit kann ein Container im Überlaufmodus über Blobs verfügen, die auf mehrere Volumes verteilt sind.
 
-Bei einer Belegung von 80 % (und anschließend 90 %) des verfügbaren Speicherplatzes gibt das System Warnungen im Azure Stack-Administratorportal aus. Cloudbetreiber sollten die verfügbare Speicherkapazität prüfen und eine Neuverteilung der Inhalte planen. Der Speicherdienst funktioniert nicht mehr, wenn ein Datenträger zu 100 % belegt ist. Dann werden keine weiteren Benachrichtigungen ausgegeben.
+Bei einer Belegung von 80 % (und anschließend 90 %) des verfügbaren Speicherplatzes gibt das System Warnungen im Azure Stack Hub-Administratorportal aus. Cloudbetreiber sollten die verfügbare Speicherkapazität prüfen und eine Neuverteilung der Inhalte planen. Der Speicherdienst funktioniert nicht mehr, wenn ein Datenträger zu 100 % belegt ist. Dann werden keine weiteren Benachrichtigungen ausgegeben.
 
 ### <a name="disks"></a>Datenträger
 VM-Datenträger werden Containern durch Mandanten hinzugefügt und enthalten einen Betriebssystem-Datenträger. Virtuelle Computer können auch über Datenträger für Daten verfügen. Beide Arten von Datenträgern werden als Seitenblobs gespeichert. Für Mandanten empfiehlt es sich, die einzelnen Datenträger in separaten Containern zu platzieren, um die Leistung des virtuellen Computers zu verbessern.
@@ -93,7 +91,7 @@ Als Cloudbetreiber können Sie die Speicherkapazität für alle Freigaben im Adm
 1. Melden Sie sich beim [Administrator Portal](https://adminportal.local.azurestack.external) an.
 2. Wählen Sie **Alle Dienst** > **Speicher** > **Dateifreigaben** aus, um die Dateifreigabeliste mit den Nutzungsinformationen zu öffnen.
 
-    ![Beispiel: Speicherdateifreigaben im Azure Stack-Administratorportal](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+    ![Beispiel: Speicherdateifreigaben im Azure Stack Hub-Administratorportal](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
    - **GESAMT** ist der gesamte Speicherplatz (in Bytes), der auf der Freigabe zur Verfügung steht. Dieser Speicherplatz wird für Daten und Metadaten verwendet, die von den Speicherdiensten verwaltet werden.
    - **VERWENDET** ist die Menge von Daten (in Bytes), die von allen Erweiterungen für die Dateien genutzt wird, in denen die Mandantendaten und die dazugehörigen Metadaten gespeichert sind.
@@ -104,15 +102,15 @@ Bei Verwendung des Administratorportals erhalten Sie Benachrichtigungen zu Freig
 > [!IMPORTANT]
 > Achten Sie als Cloudbetreiber darauf, dass Freigaben nicht vollständig belegt sind. Wenn eine Freigabe vollständig belegt ist, funktioniert der Speicherdienst für diese Freigabe nicht mehr. Wenden Sie sich an den Support von Microsoft, um Speicherplatz freizugeben und wieder Vorgänge für eine Freigabe zu ermöglichen.
 
-**Warnung**: Wenn eine Dateifreigabe zu mehr als 80 % belegt ist, erhalten Sie im Administratorportal eine Benachrichtigung vom Typ *Warnung*:
+**Warnung:** Wenn eine Dateifreigabe zu mehr als 80 % belegt ist, erhalten Sie im Administratorportal eine Benachrichtigung vom Typ *Warnung*:
 
-![Beispiel: Benachrichtigung vom Typ „Warnung“ im Azure Stack-Administratorportal](media/azure-stack-manage-storage-shares/alert-warning.png)
+![Beispiel: Benachrichtigung vom Typ „Warnung“ im Azure Stack Hub-Administratorportal](media/azure-stack-manage-storage-shares/alert-warning.png)
 
 **Kritisch**: Wenn eine Dateifreigabe zu mehr als 90 % belegt ist, erhalten Sie im Administratorportal eine Benachrichtigung vom Typ *Kritisch*:
 
-![Beispiel: Benachrichtigung vom Typ „Kritisch“ im Azure Stack-Administratorportal](media/azure-stack-manage-storage-shares/alert-critical.png)
+![Beispiel: Benachrichtigung vom Typ „Kritisch“ im Azure Stack Hub-Administratorportal](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-**Anzeigen von Details:** Im Administratorportal können Sie Details zu einer Benachrichtigung öffnen, um mögliche Maßnahmen anzuzeigen: ![Beispiel: Warnungsdetails im Azure Stack-Administratorportal abrufen](media/azure-stack-manage-storage-shares/alert-details.png)
+**Anzeigen von Details:** Im Administratorportal können Sie Details zu einer Benachrichtigung öffnen, um mögliche Maßnahmen anzuzeigen: ![Beispiel: Warnungsdetails im Azure Stack Hub-Administratorportal abrufen](media/azure-stack-manage-storage-shares/alert-details.png)
 
 ## <a name="manage-available-space"></a>Verwalten des verfügbaren Speicherplatzes
 Wenn Speicherplatz auf einer Freigabe freigegeben werden muss, beginnen Sie mit den am wenigsten invasiven Methoden. Versuchen Sie also beispielsweise zunächst, Speicherplatz freizugeben, bevor Sie sich dafür entscheiden, einen Container zu migrieren.  
@@ -125,7 +123,7 @@ Sie können die Kapazität freigeben, die von gelöschten Mandantenkonten beansp
 Weitere Informationen finden Sie im Artikel „Verwalten von Speicherkonten in Azure Stack“ unter [Freigeben von Kapazität](azure-stack-manage-storage-accounts.md#reclaim).
 
 ### <a name="migrate-a-container-between-volumes"></a>Migrieren eines Containers zwischen Volumes
-*Diese Option gilt nur für in Azure Stack integrierte Systeme.*
+*Diese Option gilt nur für in Azure Stack Hub integrierte Systeme.*
 
 Aufgrund der Verwendungsmuster von Mandanten benötigen einige Mandantenfreigaben mehr Speicherplatz als andere. Dies kann dazu führen, dass bei einigen Freigaben der Speicherplatz knapp wird, während andere Freigaben noch kaum genutzt werden.
 
@@ -140,7 +138,7 @@ Durch die Migration werden alle Containerblobs in der neuen Freigabe konsolidier
 - Wenn Ihnen Berechtigungen für eine Ressourcengruppe fehlen und Sie die zusätzlichen Volumes für Überlaufdaten nicht mithilfe von PowerShell abfragen können, ermitteln Sie die Gesamtgröße der Daten in Zusammenarbeit mit dem Besitzer der entsprechenden Ressourcengruppen und Container, bevor Sie die Daten migrieren.  
 
 > [!IMPORTANT]
-> Bei der Migration von Blobs für einen Container handelt es sich um einen Offlinevorgang, der die Verwendung von PowerShell erfordert. Bis zum Abschluss der Migration sind alle Blobs für den Container, den Sie migrieren, offline und können nicht verwendet werden. Außerdem sollten Sie es vermeiden, für Azure Stack ein Upgrade durchzuführen, bis alle Migrationsvorgänge abgeschlossen sind.
+> Bei der Migration von Blobs für einen Container handelt es sich um einen Offlinevorgang, der die Verwendung von PowerShell erfordert. Bis zum Abschluss der Migration sind alle Blobs für den Container, den Sie migrieren, offline und können nicht verwendet werden. Außerdem sollten Sie es vermeiden, für Azure Stack Hub ein Upgrade durchzuführen, bis alle Migrationsvorgänge abgeschlossen sind.
 
 #### <a name="to-migrate-containers-using-powershell"></a>So migrieren Sie Container mithilfe von PowerShell
 1. Vergewissern Sie sich, dass [Azure PowerShell installiert und konfiguriert](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) ist. Weitere Informationen finden Sie unter [Verwenden von Azure PowerShell mit dem Azure-Ressourcen-Manager](https://go.microsoft.com/fwlink/?LinkId=394767).
@@ -207,7 +205,7 @@ Durch die Migration werden alle Containerblobs in der neuen Freigabe konsolidier
     ![Beispiel: Status „Abgebrochen“](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>Verschieben von VM-Datenträgern
-*Diese Option gilt nur für in Azure Stack integrierte Systeme.*
+*Diese Option gilt nur für in Azure Stack Hub integrierte Systeme.*
 
 Die extremste Methode zur Speicherplatzverwaltung ist die Verschiebung von VM-Datenträgern. Bei der Verschiebung eines angefügten Containers (Container mit einem VM-Datenträger) handelt es sich um einen komplexen Vorgang. Lassen Sie sich daher vom Microsoft-Support dabei unterstützen.
 

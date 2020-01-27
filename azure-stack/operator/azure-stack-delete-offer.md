@@ -1,6 +1,6 @@
 ---
 title: Löschen von Kontingenten, Plänen, Angeboten und Abonnements | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Azure Stack-Kontingente, -Pläne, -Angebote und -Abonnements löschen.Löschen Sie Quoten, Pläne, Angebote und Abonnements.
+description: Erfahren Sie, wie Sie Azure Stack Hub-Kontingente, -Pläne, -Angebote und -Abonnements löschen.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -15,16 +15,14 @@ ms.date: 08/13/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: e89fcb3c218ab8b7228b63211b9f94c7e03d9865
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: 7184972e6b486ee696b4edb621046d1b41f677a9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319127"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882537"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>Löschen von Kontingenten, Plänen, Angeboten und Abonnements
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
 In diesem Artikel wird beschrieben, wie Sie nicht mehr benötigte Kontingente, Pläne, Angebote und Abonnements löschen können. Im Allgemeinen können Sie nur das löschen, was nicht verwendet wird. Beispielsweise ist das Löschen eines Angebots nur möglich, wenn es keine Abonnements gibt, die zu diesem Angebot gehören.
 
@@ -70,8 +68,8 @@ Sie können bestehende Kontingente über das Administratorportal anzeigen und be
 Alternativ können Sie bestimmte Kontingente mithilfe dieser REST-APIs löschen:
 
 - [Compute](/rest/api/azurestack/quotas%20(compute)/delete)
-- [Netzwerk](/rest/api/azurestack/quotas%20(network)/delete)
-- [Speicher](/rest/api/azurestack/storagequotas/delete)
+- [Network](/rest/api/azurestack/quotas%20(network)/delete)
+- [Storage](/rest/api/azurestack/storagequotas/delete)
 
 > [!NOTE]
 > Ein Kontingent kann nicht gelöscht werden, wenn es von aktuellen Plänen verwendet wird. Sie müssen zuerst den Plan löschen, der auf das Kontingent verweist.

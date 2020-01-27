@@ -1,7 +1,7 @@
 ---
 title: Beheben allgemeiner Probleme mit PKI-Zertifikaten
-titleSuffix: Azure Stack
-description: Hier erfahren Sie, wie Sie mithilfe von Azure Stack Readiness Checker allgemeine Probleme mit Azure Stack-PKI-Zertifikaten beheben.
+titleSuffix: Azure Stack Hub
+description: Hier erfahren Sie, wie Sie mithilfe von Azure Stack Hub Readiness Checker allgemeine Probleme mit Azure Stack Hub-PKI-Zertifikaten beheben.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,16 +17,16 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: 449a734f2b98328d0a5ed046f0c387e6cfdf8a97
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: bc0ad732005db5571d81d71536edf2384cd80537
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780863"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75808378"
 ---
-# <a name="fix-common-issues-with-azure-stack-pki-certificates"></a>Beheben allgemeiner Probleme mit Azure Stack-PKI-Zertifikaten
+# <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Beheben allgemeiner Probleme mit Azure Stack Hub-PKI-Zertifikaten
 
-In diesem Artikel werden allgemeine Probleme mit Azure Stack-PKI-Zertifikaten sowie entsprechende Problemlösungen beschrieben. Sie können Probleme ermitteln, indem Sie das Tool Azure Stack Readiness Checker zur [Überprüfung von Azure Stack-PKI-Zertifikaten](azure-stack-validate-pki-certs.md) verwenden. Das Tool überprüft, ob die Zertifikate die PKI-Anforderungen einer Azure Stack-Bereitstellung und einer Azure Stack-Geheimnisrotation erfüllen, und protokolliert die Ergebnisse in einer Datei vom Typ [report.json](azure-stack-validation-report.md).  
+In diesem Artikel werden allgemeine Probleme mit Azure Stack Hub-PKI-Zertifikaten sowie entsprechende Problemlösungen beschrieben. Sie können Probleme ermitteln, indem Sie das Tool „Azure Stack Hub Readiness Checker“ zur [Überprüfung von Azure Stack Hub-PKI-Zertifikaten](azure-stack-validate-pki-certs.md) verwenden. Das Tool überprüft, ob die Zertifikate die PKI-Anforderungen einer Azure Stack Hub-Bereitstellung und einer Azure Stack Hub-Geheimnisrotation erfüllen, und protokolliert die Ergebnisse in einer Datei vom Typ [report.json](azure-stack-validation-report.md).  
 
 ## <a name="pfx-encryption"></a>PFX-Verschlüsselung
 
@@ -42,55 +42,55 @@ In diesem Artikel werden allgemeine Probleme mit Azure Stack-PKI-Zertifikaten s
 
 **Problem:** Die PFX-Datei ist ungültig.  
 
-**Lösung:** Exportieren Sie das Zertifikat mithilfe der Schritte unter [Vorbereiten von Azure Stack-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md) erneut.
+**Lösung:** Exportieren Sie das Zertifikat mithilfe der Schritte unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md) erneut.
 
 ## <a name="signature-algorithm"></a>Signaturalgorithmus
 
 **Problem:** Der Signaturalgorithmus ist SHA1.
 
-**Lösung:** Führen Sie die Schritte unter „Generieren von Zertifikatsignieranforderungen für Azure Stack“ aus, um die Zertifikatsignieranforderung (Certificate Signing Request, CSR) mit dem Signaturalgorithmus SHA256 zu generieren. Senden Sie die CSR dann erneut an die Zertifizierungsstelle, um das Zertifikat neu auszustellen.
+**Lösung:** Führen Sie die Schritte unter „Generieren von Zertifikatsignieranforderungen für Azure Stack Hub“ aus, um die Zertifikatsignieranforderung (Certificate Signing Request, CSR) mit dem Signaturalgorithmus SHA256 zu generieren. Senden Sie die CSR dann erneut an die Zertifizierungsstelle, um das Zertifikat neu auszustellen.
 
 ## <a name="private-key"></a>Privater Schlüssel
 
 **Problem:** Der private Schlüssel fehlt oder enthält nicht das Attribut des lokalen Computers.  
 
-**Lösung:** Exportieren Sie über den Computer, mit dem die CSR generiert wurde, das Zertifikat mithilfe der Schritte unter [Vorbereiten von Azure Stack-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) erneut. Diese Schritte umfassen das Exportieren aus dem Zertifikatspeicher des lokalen Computers.
+**Lösung:** Exportieren Sie über den Computer, mit dem die CSR generiert wurde, das Zertifikat mithilfe der Schritte unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) erneut. Diese Schritte umfassen das Exportieren aus dem Zertifikatspeicher des lokalen Computers.
 
 ## <a name="certificate-chain"></a>Zertifikatkette
 
 **Problem:** Die Vertrauenskette ist nicht vollständig.  
 
-**Lösung:** Zertifikate müssen eine vollständige Vertrauenskette enthalten. Exportieren Sie das Zertifikat erneut wie unter [Vorbereiten von Azure Stack-PKI-Zertifikaten für die Bereitstellung](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) beschrieben, und wählen Sie die Option **Wenn möglich, alle Zertifikate im Zertifizierungspfad einbeziehen** aus.
+**Lösung:** Zertifikate müssen eine vollständige Vertrauenskette enthalten. Exportieren Sie das Zertifikat wie unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) beschrieben erneut, und wählen Sie die Option **Wenn möglich, alle Zertifikate im Zertifizierungspfad einbeziehen** aus.
 
 ## <a name="dns-names"></a>DNS-Namen
 
-**Problem:** **DNSNameList** für das Zertifikat enthält nicht den Namen des Azure Stack-Dienstendpunkts oder einen gültigen Platzhalter. Platzhalterübereinstimmungen gelten nur für den Namespace der ganz links vom DNS-Namen steht. `*.region.domain.com` gilt beispielsweise nur für `portal.region.domain.com`, aber nicht für `*.table.region.domain.com`.
+**Problem:** **DNSNameList** für das Zertifikat enthält nicht den Namen des Azure Stack Hub-Dienstendpunkts oder einen gültigen Platzhalter. Platzhalterübereinstimmungen gelten nur für den Namespace der ganz links vom DNS-Namen steht. `*.region.domain.com` gilt beispielsweise nur für `portal.region.domain.com`, aber nicht für `*.table.region.domain.com`.
 
-**Lösung:** Führen Sie die Schritte unter „Generieren von Zertifikatsignieranforderungen für Azure Stack“ aus, um die CSR zur Unterstützung von Azure Stack-Endpunkten mit den richtigen DNS-Namen erneut zu generieren. Übermitteln Sie die CSR erneut an eine Zertifizierungsstelle. Führen Sie dann die Schritte unter [Vorbereiten von Azure Stack-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) aus, um das Zertifikat über den Computer, mit dem die CSR generiert wurde, zu exportieren.  
+**Lösung:** Führen Sie die Schritte unter „Generieren von Zertifikatsignieranforderungen für Azure Stack Hub“ aus, um die CSR zur Unterstützung von Azure Stack Hub-Endpunkten mit den richtigen DNS-Namen erneut zu generieren. Übermitteln Sie die CSR erneut an eine Zertifizierungsstelle. Führen Sie dann die Schritte unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) aus, um das Zertifikat über den Computer, mit dem die CSR generiert wurde, zu exportieren.  
 
 ## <a name="key-usage"></a>Schlüsselverwendung
 
 **Problem:** Bei der Schlüsselverwendung fehlt die digitale Signatur oder Schlüsselverschlüsselung. Oder: Bei der erweiterten Schlüsselverwendung fehlt die Server- oder Clientauthentifizierung.  
 
-**Lösung:** Führen Sie die Schritte unter [Generieren von Zertifikatsignieranforderungen für Azure Stack](azure-stack-get-pki-certs.md) aus, um die CSR mit den richtigen Schlüsselverwendungsattributen erneut zu generieren. Übermitteln Sie die Zertifikatsignieranforderung erneut an die Zertifizierungsstelle, und vergewissern Sie sich, dass die Schlüsselverwendung in der Anforderung nicht durch eine Zertifikatvorlage überschrieben wird.
+**Lösung:** Führen Sie die Schritte unter [Generieren von Zertifikatsignieranforderungen für Azure Stack Hub](azure-stack-get-pki-certs.md) aus, um die CSR mit den richtigen Schlüsselverwendungsattributen erneut zu generieren. Übermitteln Sie die Zertifikatsignieranforderung erneut an die Zertifizierungsstelle, und vergewissern Sie sich, dass die Schlüsselverwendung in der Anforderung nicht durch eine Zertifikatvorlage überschrieben wird.
 
 ## <a name="key-size"></a>Schlüsselgröße
 
 **Problem:** Die Schlüsselgröße ist kleiner als 2.048.
 
-**Lösung**: Führen Sie die Schritte unter [Generieren von Zertifikatsignieranforderungen für Azure Stack](azure-stack-get-pki-certs.md) aus, um die Zertifikatsignieranforderung mit der richtigen Schlüssellänge (2.048) erneut zu generieren, und übermitteln Sie die Zertifikatsignieranforderung anschließend erneut an die Zertifizierungsstelle.
+**Lösung**: Führen Sie die Schritte unter [Generieren von Zertifikatsignieranforderungen für Azure Stack Hub](azure-stack-get-pki-certs.md) aus, um die Zertifikatsignieranforderung mit der richtigen Schlüssellänge (2048) erneut zu generieren, und übermitteln Sie die Zertifikatsignieranforderung anschließend erneut an die Zertifizierungsstelle.
 
 ## <a name="chain-order"></a>Kettenreihenfolge
 
 **Problem:** Die Reihenfolge der Vertrauenskette ist falsch.  
 
-**Lösung:** Exportieren Sie das Zertifikat wie unter [Vorbereiten von Azure Stack-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) beschrieben erneut, und wählen Sie die Option **Wenn möglich, alle Zertifikate im Zertifizierungspfad einbeziehen** aus. Stellen Sie sicher, dass nur das untergeordnete Zertifikat für den Export ausgewählt ist.
+**Lösung:** Exportieren Sie das Zertifikat wie unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) beschrieben erneut, und wählen Sie die Option **Wenn möglich, alle Zertifikate im Zertifizierungspfad einbeziehen** aus. Stellen Sie sicher, dass nur das untergeordnete Zertifikat für den Export ausgewählt ist.
 
 ## <a name="other-certificates"></a>Andere Zertifikate
 
 **Problem:** Das PFX-Paket enthält Zertifikate, bei denen es sich nicht um das untergeordnete Zertifikat handelt oder die nicht der Vertrauenskette angehören.  
 
-**Lösung:** Exportieren Sie das Zertifikat wie unter [Vorbereiten von Azure Stack-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) beschrieben erneut, und wählen Sie die Option **Wenn möglich, alle Zertifikate im Zertifizierungspfad einbeziehen** aus. Stellen Sie sicher, dass nur das untergeordnete Zertifikat für den Export ausgewählt ist.
+**Lösung:** Exportieren Sie das Zertifikat wie unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) beschrieben erneut, und wählen Sie die Option **Wenn möglich, alle Zertifikate im Zertifizierungspfad einbeziehen** aus. Stellen Sie sicher, dass nur das untergeordnete Zertifikat für den Export ausgewählt ist.
 
 ## <a name="fix-common-packaging-issues"></a>Beheben von häufigen Problemen beim Packen
 
@@ -114,12 +114,12 @@ Auf dem Computer, auf dem das Tool ausgeführt wird, müssen folgende erforderli
    $PSVersionTable.PSVersion
    ```
 
-- Konfigurieren Sie [PowerShell für Azure Stack](azure-stack-powershell-install.md).
-- Laden Sie die aktuelle Version des Tools [Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker) herunter.
+- Konfigurieren Sie [PowerShell für Azure Stack Hub](azure-stack-powershell-install.md).
+- Laden Sie die aktuelle Version des Tools [Azure Stack Hub Readiness Checker](https://aka.ms/AzsReadinessChecker) herunter.
 
 ### <a name="import-and-export-an-existing-pfx-file"></a>Importieren und Exportieren einer vorhandenen PFX-Datei
 
-1. Öffnen Sie auf einem Computer, der die Voraussetzungen erfüllt, eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie den folgenden Befehl zum Installieren von „Azure Stack Readiness Checker“ aus:
+1. Öffnen Sie auf einem Computer, der die Voraussetzungen erfüllt, eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie den folgenden Befehl zum Installieren von „Azure Stack Hub Readiness Checker“ aus:
 
    ```powershell
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
@@ -144,7 +144,7 @@ Auf dem Computer, auf dem das Tool ausgeführt wird, müssen folgende erforderli
 
    ```shell
    Repair-AzsPfxCertificate v1.1809.1005.1 started.
-   Starting Azure Stack Certificate Import/Export
+   Starting Azure Stack Hub Certificate Import/Export
    Importing PFX .\certificates\ssl.pfx into Local Machine Store
    Exporting certificate to .\certificates\ssl_new.pfx
    Export complete. Removing certificate from the local machine store.
@@ -155,4 +155,4 @@ Auf dem Computer, auf dem das Tool ausgeführt wird, müssen folgende erforderli
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Informieren Sie sich ausführlicher über die Sicherheit von Azure Stack.](azure-stack-rotate-secrets.md)
+- [Weitere Informationen zur Sicherheit von Azure Stack Hub](azure-stack-rotate-secrets.md)

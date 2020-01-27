@@ -1,6 +1,6 @@
 ---
-title: Ändern des Abrechnungsbesitzers für ein Azure Stack-Benutzerabonnement | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie den Abrechnungsbesitzer für ein Azure Stack-Benutzerabonnement ändern.
+title: Ändern des Abrechnungsbesitzers für ein Azure Stack Hub-Benutzerabonnement | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie den Abrechnungsbesitzer für ein Azure Stack Hub-Benutzerabonnement ändern.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,16 +16,16 @@ ms.date: 09/17/2019
 ms.author: justinha
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: 3c4453974092fd1873e5f77b1074c82851fc1be1
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: 65a47ac3fa9c146060dc05962c84ca60a17f898e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094375"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804587"
 ---
-# <a name="change-the-billing-owner-for-an-azure-stack-user-subscription"></a>Ändern des Abrechnungsbesitzers für ein Azure Stack-Benutzerabonnement
+# <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>Ändern des Abrechnungsbesitzers für ein Azure Stack Hub-Benutzerabonnement
 
-Azure Stack-Bediener können mithilfe von PowerShell den Abrechnungsbesitzer eines Benutzerabonnements ändern. Das Ändern des Besitzers kann beispielsweise erforderlich sein, wenn ein Benutzer aus Ihrer Organisation ausscheidet.
+Azure Stack Hub-Operatoren können mithilfe von PowerShell den Abrechnungsbesitzer eines Benutzerabonnements ändern. Das Ändern des Besitzers kann beispielsweise erforderlich sein, wenn ein Benutzer aus Ihrer Organisation ausscheidet.
 
 Einem Abonnement sind zwei Arten von *Besitzern* zugewiesen:
 
@@ -39,10 +39,10 @@ Einem Abonnement sind zwei Arten von *Besitzern* zugewiesen:
 
 ## <a name="change-the-billing-owner"></a>Ändern des Abrechnungsbesitzers
 
-Führen Sie das folgende Skript aus, um den Abrechnungsbesitzer eines Benutzerabonnements zu ändern. Der für die Skriptausführung verwendete Computer muss eine Verbindung mit Azure Stack herstellen und mindestens Version 1.3.0 des Azure Stack PowerShell-Moduls ausführen. Weitere Informationen finden Sie unter [Installieren von Azure Stack PowerShell](azure-stack-powershell-install.md).
+Führen Sie das folgende Skript aus, um den Abrechnungsbesitzer eines Benutzerabonnements zu ändern. Der für die Skriptausführung verwendete Computer muss eine Verbindung mit Azure Stack Hub herstellen und mindestens Version 1.3.0 des Azure Stack Hub PowerShell-Moduls ausführen. Weitere Informationen finden Sie unter [Installieren von Azure Stack Hub PowerShell](azure-stack-powershell-install.md).
 
 >[!NOTE]
->In einer mehrinstanzenfähigen Azure Stack-Instanz muss sich der neue Besitzer im gleichen Verzeichnis befinden wie der aktuelle Besitzer. Wenn Sie die Besitzerrolle für das Abonnement einem Benutzer zuweisen möchten, der sich in einem anderen Verzeichnis befindet, müssen Sie zuerst den [Benutzer als Gast in Ihr Verzeichnis einladen](/azure/active-directory/b2b/add-users-administrator).
+>In einer mehrinstanzenfähigen Azure Stack Hub-Instanz muss sich der neue Besitzer in demselben Verzeichnis wie der aktuelle Besitzer befinden. Wenn Sie die Besitzerrolle für das Abonnement einem Benutzer zuweisen möchten, der sich in einem anderen Verzeichnis befindet, müssen Sie zuerst den [Benutzer als Gast in Ihr Verzeichnis einladen](/azure/active-directory/b2b/add-users-administrator).
 
 Ersetzen Sie vor der Skriptausführung die folgenden Werte im Skript:
 
@@ -52,7 +52,7 @@ Ersetzen Sie vor der Skriptausführung die folgenden Werte im Skript:
 - **$OwnerUpn**: Ein Konto (beispielsweise **Benutzer\@example.com**), das als neuer Abrechnungsbesitzer hinzufügt wird
 
 ```powershell
-# Set up Azure Stack admin environment
+# Set up Azure Stack Hub admin environment
 Add-AzureRmEnvironment -ARMEndpoint $ArmEndpoint -Name AzureStack-admin
 Add-AzureRmAccount -Environment AzureStack-admin -TenantId $TenantId
 

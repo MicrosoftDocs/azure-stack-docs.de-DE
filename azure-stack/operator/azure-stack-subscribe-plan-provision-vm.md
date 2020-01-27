@@ -1,6 +1,7 @@
 ---
-title: Abonnieren von Angeboten in Azure Stack
-description: Erstellen von Abonnements für Angebote in Azure Stack
+title: Erstellen von Abonnements für Angebote in Azure Stack Hub.
+titleSuffix: Azure Stack
+description: Erfahren Sie, wie Sie Abonnements für Angebote in Azure Stack Hub erstellen.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -10,16 +11,14 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: c69c8a4be93cc392ca1eaf4edb70fb7fb4fc8676
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 357b44e5a9860f8626c7b17e215ee773e4e4ebca
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283371"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914791"
 ---
-# <a name="create-subscriptions-to-offers-in-azure-stack"></a>Erstellen von Abonnements für Angebote in Azure Stack
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+# <a name="create-subscriptions-to-offers-in-azure-stack-hub"></a>Erstellen von Abonnements für Angebote in Azure Stack Hub
 
 Nachdem Sie ein [Angebot erstellt](azure-stack-create-offer.md) haben, benötigen Benutzer ein Abonnement für dieses Angebot, damit sie es nutzen können. Ein Benutzer kann auf zwei Arten ein Abonnement für ein Angebot erhalten:
 
@@ -30,13 +29,13 @@ Nachdem Sie ein [Angebot erstellt](azure-stack-create-offer.md) haben, benötige
 
 Cloudbetreiber erstellen im Verwaltungsportal ein Angebotsabonnement für Benutzer. Abonnements können für Mitglieder Ihres eigenen Verzeichnismandanten erstellt werden. Wenn die [Mehrinstanzenfähigkeit](azure-stack-enable-multitenancy.md) aktiviert ist, können Sie auch Abonnements für Benutzer in zusätzlichen Verzeichnismandanten erstellen.
 
-Wenn Ihre Mandanten keine eigenen Abonnements erstellen sollen, legen Sie Ihre Angebote als privat fest, und erstellen Sie anschließend Abonnements für Ihre Mandanten. Dieser Ansatz kommt häufig beim Integrieren von Azure Stack in externe Abrechnungs- oder Dienstkatalogsysteme zum Einsatz.
+Wenn Ihre Mandanten keine eigenen Abonnements erstellen sollen, legen Sie Ihre Angebote als privat fest, und erstellen Sie anschließend Abonnements für Ihre Mandanten. Dieser Ansatz kommt häufig beim Integrieren von Azure Stack Hub in externe Abrechnungs- oder Dienstkatalogsysteme zum Einsatz.
 
 Nachdem Sie ein Abonnement für einen Benutzer erstellt haben, kann er sich beim Benutzerportal anmelden. Dort sieht er, dass er über ein Abonnement für das Angebot verfügt.  
 
 ### <a name="to-create-a-subscription-for-a-user"></a>So erstellen Sie ein Abonnement für einen Benutzer
 
-1. Navigieren Sie im Verwaltungsportal zu **Benutzerabonnements**.
+1. Navigieren Sie im Administratorportal zu **Benutzerabonnements**.
 2. Wählen Sie **Hinzufügen**. Geben Sie unter **Neues Benutzerabonnement** folgende Informationen ein:  
 
    - **Anzeigename**: Ein Anzeigename zum Identifizieren des Abonnements, der als *Name des Benutzerabonnements* angezeigt wird.
@@ -56,7 +55,7 @@ Nachdem Sie ein Abonnement für einen Benutzer erstellt haben, kann er sich beim
 
 Ein Cloudbediener kann einem zuvor erstellten Abonnement jederzeit einen Plan hinzufügen:
 
-1. Klicken Sie im Verwaltungsportal auf **Alle Dienste** und anschließend unter der Kategorie **VERWALTUNGSRESSOURCEN** auf **Benutzerabonnements**. Wählen Sie das Abonnement aus, das Sie ändern möchten.
+1. Wählen Sie im Administratorportal **Alle Dienste** und anschließend unter der Kategorie **VERWALTUNGSRESSOURCEN** die Option **Benutzerabonnements** aus. Wählen Sie das Abonnement aus, das Sie ändern möchten.
 
 2. Klicken Sie auf **Add-Ons** und anschließend auf **+Hinzufügen**.  
 
@@ -67,17 +66,17 @@ Ein Cloudbediener kann einem zuvor erstellten Abonnement jederzeit einen Plan hi
 Als Benutzer können Sie sich beim Benutzerportal anmelden, um öffentliche Angebote und Add-On-Pläne für Ihren Verzeichnismandanten (Organisation) zu suchen und zu abonnieren.
 
 >[!NOTE]
->Wenn Ihre Azure Stack-Umgebung [Mehrinstanzenfähigkeit](azure-stack-enable-multitenancy.md) unterstützt, können Sie auch Angebote aus einem Remoteverzeichnismandanten abonnieren.
+>Wenn Ihre Azure Stack Hub-Umgebung [Mehrinstanzenfähigkeit](azure-stack-enable-multitenancy.md) unterstützt, können Sie auch Angebote aus einem Remoteverzeichnismandanten abonnieren.
 
 ### <a name="to-subscribe-to-an-offer"></a>So abonnieren Sie ein Angebot
 
-1. [Melden Sie sich](../asdk/asdk-connect.md) beim [Azure Stack-Benutzerportal](https://portal.local.azurestack.external) an, und wählen Sie **Abonnement erwerben** aus.
+1. Melden Sie sich beim Azure Stack Hub-Benutzerportal an, und wählen Sie **Abonnement erwerben** aus.
 
-   ![Erwerben eines Abonnements](media/azure-stack-subscribe-plan-provision-vm/image01.png)
+   ![Erwerben eines Abonnements im Azure Stack Hub-Benutzerportal](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   
 2. Geben Sie unter **Abonnement erwerben** den Anzeigenamen des Abonnements in das Feld **Anzeigename** ein. Klicken Sie auf **Angebot**, und wählen Sie unter **Angebot wählen** ein Angebot aus. Wählen Sie **Erstellen**, um das Abonnement zu erstellen.
 
-   ![Erstellen von Angeboten](media/azure-stack-subscribe-plan-provision-vm/image02.png)
+   ![Wählen Sie im Azure Stack Hub-Benutzerportal ein Angebot aus.](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   
 3. Aktualisieren Sie nach dem Abonnieren eines Angebots das Portal, um anzuzeigen, welche Dienste zum neuen Abonnement gehören.
 
@@ -95,6 +94,7 @@ Wenn das Angebot, das Sie abonnieren, einen Add-On-Plan enthält, können Sie di
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erfahren Sie mehr darüber, wie ein Benutzer nun Ressourcen in seinem Abonnement bereitstellen kann: 
-  - In [verschiedenen Benutzerschnellstarts](../user/azure-stack-quick-windows-portal.md) wird gezeigt, wie Sie virtuelle Windows- und Linux-Computer mit PowerShell, der Azure CLI und dem Benutzerportal bereitstellen. 
-  - Ein [Tutorial, in dem eine Azure Resource Manager-Vorlage verwendet wird](../user/azure-stack-create-vm-template.md), veranschaulicht, wie Sie einen virtuellen Ubuntu 16.04-Computer mit Minikube zum Verwalten eines Kubernetes-Clusters bereitstellen. 
+Erfahren Sie mehr darüber, wie ein Benutzer nun Ressourcen in seinem Abonnement bereitstellen kann:
+
+- In [verschiedenen Benutzerschnellstarts](../user/azure-stack-quick-windows-portal.md) wird gezeigt, wie Sie virtuelle Windows- und Linux-Computer mit PowerShell, der Azure CLI und dem Benutzerportal bereitstellen.
+- Ein [Tutorial, in dem eine Azure Resource Manager-Vorlage verwendet wird](../user/azure-stack-create-vm-template.md), veranschaulicht, wie Sie einen virtuellen Ubuntu 16.04-Computer mit Minikube zum Verwalten eines Kubernetes-Clusters bereitstellen.

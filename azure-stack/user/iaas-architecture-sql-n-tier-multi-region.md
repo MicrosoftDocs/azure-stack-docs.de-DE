@@ -1,6 +1,6 @@
 ---
-title: Ausführen einer n-schichtigen Anwendung in mehreren Azure Stack-Regionen für Hochverfügbarkeit | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie eine n-schichtige Anwendung in mehreren Azure-Regionen für Hochverfügbarkeit ausführen.
+title: Ausführen einer n-schichtigen Anwendung in mehreren Azure Stack Hub-Regionen für Hochverfügbarkeit | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie eine n-schichtige Anwendung in mehreren Azure Stack Hub-Regionen für Hochverfügbarkeit ausführen.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,21 +9,21 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: acfeebe626d7745fe200724c8c53c632bada1466
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: fc3b9d3e620bfd017f7d5870a8e334c1d9ace579
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569325"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818501"
 ---
-# <a name="run-an-n-tier-application-in-multiple-azure-stack-regions-for-high-availability"></a>Ausführen einer n-schichtigen Anwendung in mehreren Azure Stack-Regionen für Hochverfügbarkeit
+# <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>Ausführen einer n-schichtigen Anwendung in mehreren Azure Stack Hub-Regionen für Hochverfügbarkeit
 
-Diese Referenzarchitektur zeigt eine Reihe bewährter Methoden zum Ausführen einer n-schichtigen Anwendung in mehreren Azure Stack-Regionen, um Verfügbarkeit und eine stabile Infrastruktur für die Notfallwiederherstellung zu erzielen. In diesem Dokument wird Traffic Manager verwendet, um Hochverfügbarkeit zu erreichen. Wenn Traffic Manager jedoch keine bevorzugte Lösung in Ihrer Umgebung ist, kann auch ein Paar hochverfügbarer Lastenausgleiche eingesetzt werden.
+Diese Referenzarchitektur zeigt eine Reihe bewährter Methoden zum Ausführen einer n-schichtigen Anwendung in mehreren Azure Stack Hub-Regionen, um Verfügbarkeit und eine stabile Infrastruktur für die Notfallwiederherstellung zu erzielen. In diesem Dokument wird Traffic Manager verwendet, um Hochverfügbarkeit zu erreichen. Wenn Traffic Manager jedoch keine bevorzugte Lösung in Ihrer Umgebung ist, kann auch ein Paar hochverfügbarer Lastenausgleiche eingesetzt werden.
 
 > [!Note]  
 > Beachten Sie bitte, dass der in der folgenden Architektur verwendete Traffic Manager in Azure konfiguriert werden muss und die Endpunkte, die zur Konfiguration des Traffic Manager-Profils verwendet werden, öffentlich routingfähige IP-Adressen sein müssen.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Aufbau
 
 Diese Architektur basiert auf der Architektur aus [N-schichtige Anwendung mit SQL Server](iaas-architecture-windows-sql-n-tier.md).
 
@@ -39,7 +39,7 @@ Diese Architektur basiert auf der Architektur aus [N-schichtige Anwendung mit SQ
 
 -   **SQL Server Always On-Verfügbarkeitsgruppe**. Bei Verwendung von SQL Server werden [SQL Always On-Verfügbarkeitsgruppen](https://msdn.microsoft.com/library/hh510230.aspx) empfohlen, um Hochverfügbarkeit zu erzielen. Erstellen Sie eine einzelne Verfügbarkeitsgruppe, die SQL Server-Instanzen in beiden Regionen enthält.
 
--   **VNET-zu-VNET-VPN-Verbindung**. Da VNET-Peering noch nicht für Azure Stack verfügbar ist, verwenden Sie eine VNET-zu-VNET-VPN-Verbindung, um die beiden VNETs zu verbinden. Weitere Informationen finden Sie unter [Gewusst wie: Verbinden von zwei VNETs per Peering](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908).
+-   **VNET-zu-VNET-VPN-Verbindung**. Da VNET-Peering noch nicht für Azure Stack Hub verfügbar ist, verwenden Sie eine VNET-zu-VNET-VPN-Verbindung, um die beiden VNETs zu verbinden. Weitere Informationen finden Sie unter [Gewusst wie: Verbinden von zwei VNETs per Peering](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908).
 
 ## <a name="recommendations"></a>Empfehlungen
 
@@ -132,7 +132,7 @@ So konfigurieren Sie die Verfügbarkeitsgruppe:
 
 Bei einer komplexen n-schichtigen Anwendung müssen Sie möglicherweise nicht die gesamte Anwendung in der sekundären Region replizieren. Stattdessen replizieren Sie nur ein kritisches Subsystem, das zur Unterstützung der Geschäftskontinuität erforderlich ist.
 
-Traffic Manager ist eine mögliche Schwachstelle im System. Wenn beim Traffic Manager-Dienst ein Fehler auftritt, können Clients während der Ausfallzeit nicht auf Ihre Anwendung zugreifen. In der [Vereinbarung zum Servicelevel (SLA) für Traffic Manager](https://azure.microsoft.com/support/legal/sla/traffic-manager) erfahren Sie, ob Ihre geschäftlichen Anforderungen für Hochverfügbarkeit mit Traffic Manager allein erfüllt werden. Wenn dies nicht der Fall ist, erwägen Sie als Failback eine andere Verwaltungslösung für den Datenverkehr. Wenn der Azure Traffic Manager-Dienst fehlerhaft ist, ändern Sie die CNAME-Einträge im DNS, sodass diese auf die andere Verwaltungslösung für den Datenverkehr verweisen. (Dieser Schritt muss manuell durchgeführt werden. Bis die DNS-Änderungen weitergegeben wurden, ist die Anwendung nicht verfügbar.)
+Traffic Manager ist eine mögliche Schwachstelle im System. Wenn beim Traffic Manager-Dienst ein Fehler auftritt, können Clients während der Ausfallzeit nicht auf Ihre Anwendung zugreifen. In der [Vereinbarung zum Servicelevel (SLA) für Traffic Manager](https://azure.microsoft.com/support/legal/sla/traffic-manager) erfahren Sie, ob Ihre geschäftlichen Anforderungen für Hochverfügbarkeit mit Traffic Manager allein erfüllt werden. Wenn dies nicht der Fall ist, erwägen Sie als Failback eine andere Verwaltungslösung für den Datenverkehr. Wenn der Azure Traffic Manager-Dienst fehlerhaft ist, ändern Sie die CNAME-Einträge im DNS so, dass diese auf die andere Verwaltungslösung für den Datenverkehr verweisen. (Dieser Schritt muss manuell durchgeführt werden. Bis die DNS-Änderungen weitergegeben wurden, ist die Anwendung nicht verfügbar.)
 
 Für den SQL Server-Cluster sind zwei Failoverszenarien zu berücksichtigen:
 

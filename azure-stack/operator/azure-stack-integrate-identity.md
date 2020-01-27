@@ -1,6 +1,6 @@
 ---
-title: Integrieren der AD FS-Identität in Ihr Azure Stack-Rechenzentrum | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie den Azure Stack AD FS-Identitätsanbieter in die AD FS des Rechenzentrums integrieren.
+title: Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie den Azure Stack Hub-AD FS-Identitätsanbieter in die Active Directory-Verbunddienste (AD FS) Ihres Rechenzentrums integrieren.
 services: azure-stack
 author: PatAltimore
 manager: femila
@@ -10,37 +10,37 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 4d4ece9946d257bce5cf19876b940cf4d828872d
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 4d1ca3a04e838743983a7ed9d68fde5b1b189ff6
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167171"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817379"
 ---
-# <a name="integrate-ad-fs-identity-with-your-azure-stack-datacenter"></a>Integrieren der AD FS-Identität in Ihr Azure Stack-Rechenzentrum
+# <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum
 
-Azure Stack kann mithilfe von Azure Active Directory (Azure AD) oder den Active Directory-Verbunddiensten (AD FS) als Identitätsanbieter bereitgestellt werden. Sie müssen die entsprechende Entscheidung treffen, bevor Sie Azure Stack bereitstellen. In einem verbundenen Szenario können Sie zwischen Azure AD und AD FS wählen. In einem nicht verbundenen Szenario wird nur AD FS unterstützt. In diesem Artikel erfahren Sie, wie Sie Azure Stack AD FS in die AD FS des Rechenzentrums integrieren.
+Azure Stack Hub kann mithilfe von Azure Active Directory (Azure AD) oder den Active Directory-Verbunddiensten (AD FS) als Identitätsanbieter bereitgestellt werden. Sie müssen die Entscheidung zum verwendeten Identitätsanbieter treffen, bevor Sie Azure Stack Hub bereitstellen. In einem verbundenen Szenario können Sie zwischen Azure AD und AD FS wählen. In einem nicht verbundenen Szenario wird nur AD FS unterstützt. In diesem Artikel erfahren Sie, wie Sie Azure Stack Hub-AD FS in die AD FS des Rechenzentrums integrieren.
 
 > [!IMPORTANT]
-> Sie können den Identitätsanbieter nicht wechseln, ohne die gesamte Azure Stack-Lösung erneut bereitzustellen.
+> Sie können den Identitätsanbieter nicht wechseln, ohne die gesamte Azure Stack Hub-Lösung erneut bereitzustellen.
 
 ## <a name="active-directory-federation-services-and-graph"></a>Active Directory-Verbunddienste (AD FS) und Graph
 
-Die Bereitstellung mit AD FS gestattet Identitäten in einer vorhandenen Active Directory-Gesamtstruktur die Authentifizierung mit Ressourcen in Azure Stack. Diese vorhandene Active Directory-Gesamtstruktur erfordert eine Bereitstellung von AD FS, um das Erstellen einer AD FS-Verbundvertrauensstellung zu ermöglichen.
+Die Bereitstellung mit AD FS gestattet Identitäten in einer vorhandenen Active Directory-Gesamtstruktur die Authentifizierung mit Ressourcen in Azure Stack Hub. Diese vorhandene Active Directory-Gesamtstruktur erfordert eine Bereitstellung von AD FS, um das Erstellen einer AD FS-Verbundvertrauensstellung zu ermöglichen.
 
-Authentifizierung ist ein Teil der Identität. Damit rollenbasierte Zugriffssteuerung (Role Based Access Control, RBAC) in Azure Stack verwaltet werden kann, muss die Graph-Komponente konfiguriert werden. Wenn der Zugriff auf eine Ressource delegiert wird, sucht die Graph-Komponente das Benutzerkonto mithilfe des LDAP-Protokolls in der vorhandenen Active Directory-Gesamtstruktur.
+Authentifizierung ist ein Teil der Identität. Damit die rollenbasierte Zugriffssteuerung (Role Based Access Control, RBAC) in Azure Stack Hub verwaltet werden kann, muss die Graph-Komponente konfiguriert werden. Wenn der Zugriff auf eine Ressource delegiert wird, sucht die Graph-Komponente das Benutzerkonto mithilfe des LDAP-Protokolls in der vorhandenen Active Directory-Gesamtstruktur.
 
-![AD FS-Architektur von Azure Stack](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
+![AD FS-Architektur von Azure Stack Hub](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
 
-Die vorhandenen AD FS sind der Konto-Sicherheitstokendienst (STS), der Ansprüche an Azure Stack AD FS (den Ressourcen-STS) sendet. In Azure Stack erstellt die Automatisierung die Anspruchsanbieter-Vertrauensstellung mit dem Metadatenendpunkt für die vorhandenen AD FS.
+Die vorhandenen AD FS sind der Konto-Sicherheitstokendienst (STS), der Ansprüche an Azure Stack Hub-AD FS (den Ressourcen-STS) sendet. In Azure Stack Hub wird mithilfe der Automatisierung die Anspruchsanbieter-Vertrauensstellung mit dem Metadatenendpunkt für die vorhandenen AD FS erstellt.
 
-Für die vorhandenen AD FS muss eine Vertrauensstellung der vertrauenden Seite konfiguriert werden. Dieser Schritt erfolgt nicht durch die Automatisierung und muss vom Betreiber konfiguriert werden. Der Azure Stack-VIP-Endpunkt für AD FS kann mithilfe des Musters `https://adfs.<Region>.<ExternalFQDN>/` erstellt werden.
+Für die vorhandenen AD FS muss eine Vertrauensstellung der vertrauenden Seite konfiguriert werden. Dieser Schritt erfolgt nicht durch die Automatisierung und muss vom Betreiber konfiguriert werden. Der Azure Stack Hub-VIP-Endpunkt für AD FS kann mithilfe des Musters `https://adfs.<Region>.<ExternalFQDN>/` erstellt werden.
 
 Die Vertrauensstellungskonfiguration der vertrauenden Seite erfordert außerdem, dass die Regeln für die Anspruchstransformation konfiguriert werden, die von Microsoft bereitgestellt werden.
 
 Für die Graph-Konfiguration muss ein Dienstkonto bereitgestellt werden, das über Leseberechtigung im vorhandenen Active Directory verfügt. Dieses Konto ist als Eingabe für die Automatisierung erforderlich, um RBAC-Szenarien zu ermöglichen.
 
-Im letzten Schritt wird ein neuer Besitzer für das Anbieterstandardabonnement konfiguriert. Dieses Konto verfügt über Vollzugriff auf alle Ressourcen, wenn es am Azure Stack-Verwaltungsportal angemeldet ist.
+Im letzten Schritt wird ein neuer Besitzer für das Anbieterstandardabonnement konfiguriert. Dieses Konto verfügt über Vollzugriff auf alle Ressourcen, wenn es am Azure Stack Hub-Administratorportal angemeldet ist.
 
 Anforderungen:
 
@@ -55,21 +55,21 @@ Graph unterstützt nur die Integration in eine einzelne Active Directory-Gesamts
 
 Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter erforderlich:
 
-|Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|BESCHREIBUNG|Beispiel|
+|Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|Beschreibung|Beispiel|
 |---------|---------|---------|---------|
 |`CustomADGlobalCatalog`|FQDN der AD FS-Gesamtstruktur|FQDN der Active Directory-Zielgesamtstruktur, mit der die Integration erfolgen soll|Contoso.com|
 |`CustomADAdminCredentials`| |Ein Benutzer mit LDAP-Leseberechtigung.|IHREDOMAENE\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>Konfigurieren von Active Directory-Standorten
 
-Bei Active Directory-Bereitstellungen mit mehreren Standorten sollten Sie den Active Directory-Standort konfigurieren, der Ihrer Azure Stack-Bereitstellung am nächsten gelegen ist. Durch die Konfiguration wird vermieden, dass der Azure Stack-Graph-Dienst Abfragen über einen globalen Katalogserver von einem Remotestandort auflöst.
+Bei Active Directory-Bereitstellungen mit mehreren Standorten sollten Sie den Active Directory-Standort konfigurieren, der Ihrer Azure Stack Hub-Bereitstellung am nächsten liegt. Durch die Konfiguration wird vermieden, dass der Azure Stack Hub-Graph-Dienst Abfragen über einen globalen Katalogserver von einem Remotestandort auflöst.
 
-Fügen Sie das Azure Stack-Subnetz [mit öffentlicher VIP](azure-stack-network.md#public-vip-network) dem Active Directory-Standort hinzu, der Azure Stack am nächsten gelegen ist. Nehmen wir beispielsweise an, dass Ihr Active Directory zwei Standorte hat: Seattle und Redmond. Wenn Azure Stack am Standort Seattle bereitgestellt ist, fügen Sie das Azure Stack-Subnetz mit öffentlicher VIP dem Azure Active Directory-Standort für Seattle hinzu.
+Fügen Sie das Azure Stack Hub-Subnetz [mit öffentlicher VIP](azure-stack-network.md#public-vip-network) dem Active Directory-Standort hinzu, der Azure Stack Hub am nächsten liegt. Nehmen wir beispielsweise an, dass Ihr Active Directory zwei Standorte hat: Seattle und Redmond. Wenn Azure Stack Hub am Standort „Seattle“ bereitgestellt wurde, fügen Sie das Azure Stack Hub-Subnetz mit öffentlicher VIP dem Azure Active Directory-Standort für „Seattle“ hinzu.
 
 Weitere Informationen zu Active Directory-Standorten finden Sie unter [Entwerfen der Standorttopologie](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 
 > [!Note]  
-> Wenn Ihr Active Directory aus einem einzigen Standort besteht, können Sie diesen Schritt überspringen. Wenn Sie ein Catch-All-Subnetz konfiguriert haben, vergewissern Sie sich, dass das Azure Stack-Subnetz mit öffentlicher VIP-Adresse kein Teil davon ist.
+> Wenn Ihr Active Directory aus einem einzigen Standort besteht, können Sie diesen Schritt überspringen. Wenn Sie ein Catch-All-Subnetz konfiguriert haben, vergewissern Sie sich, dass das Azure Stack Hub-Subnetz mit öffentlicher VIP-Adresse kein Teil davon ist.
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Erstellen eines Benutzerkontos im vorhandenen Active Directory (optional)
 
@@ -83,7 +83,7 @@ Optional können Sie ein Konto für den Graph-Dienst im vorhandenen Active Direc
 
 #### <a name="trigger-automation-to-configure-graph"></a>Auslösen der Automatisierung zum Konfigurieren von Graph
 
-Verwenden Sie für diesen Vorgang einen Computer in Ihrem Datencenternetzwerk, der mit dem privilegierten Endpunkt in Azure Stack kommunizieren kann.
+Verwenden Sie für diesen Vorgang einen Computer in Ihrem Rechenzentrumsnetzwerk, der mit dem privilegierten Endpunkt in Azure Stack Hub kommunizieren kann.
 
 1. Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Rechten (Als Administrator ausführen), und stellen Sie eine Verbindung zur IP-Adresse des privilegierten Endpunkts her. Verwenden Sie die Anmeldeinformationen für die **CloudAdmin**-Authentifizierung.
 
@@ -105,16 +105,16 @@ Verwenden Sie für diesen Vorgang einen Computer in Ihrem Datencenternetzwerk, d
 
 3. Das Cmdlet **Register-DirectoryService** verfügt über optionale Parameter, die Sie in bestimmten Szenarien verwenden können, in denen die vorhandene Active Directory-Überprüfung einen Fehler ergibt. Bei Ausführung dieses Cmdlets wird überprüft, ob die angegebene Domäne die Stammdomäne ist, ein globaler Katalogserver erreichbar ist und für das angegebene Konto Lesezugriff gewährt wird.
 
-   |Parameter|BESCHREIBUNG|
+   |Parameter|Beschreibung|
    |---------|---------|
    |`-SkipRootDomainValidation`|Gibt an, dass anstelle der empfohlenen Stammdomäne eine untergeordnete Domäne verwendet werden muss.|
    |`-Force`|Alle Überprüfungen werden umgangen.|
 
 #### <a name="graph-protocols-and-ports"></a>Graph-Protokolle und -Ports
 
-Der Graph-Dienst in Azure Stack verwendet die folgenden Protokolle und Ports für die Kommunikation mit einem beschreibbaren globalen Katalog Server (Global Catalog Server, GC) und Schlüsselverteilungscenter (Key Distribution Center, KDC), die Anmeldeanforderungen in der gewünschten Active Directory-Gesamtstruktur verarbeiten können.
+Der Graph-Dienst in Azure Stack Hub verwendet die folgenden Protokolle und Ports für die Kommunikation mit einem beschreibbaren globalen Katalog Server (Global Catalog Server, GC) und Schlüsselverteilungscenter (Key Distribution Center, KDC), die Anmeldeanforderungen in der gewünschten Active Directory-Gesamtstruktur verarbeiten können.
 
-Der Graph-Dienst in Azure Stack verwendet die folgenden Protokolle und Ports für die Kommunikation mit dem Ziel-Active Directory:
+Der Graph-Dienst in Azure Stack Hub verwendet die folgenden Protokolle und Ports für die Kommunikation mit der Active Directory-Zielinstanz:
 
 |type|Port|Protocol|
 |---------|---------|---------|
@@ -127,16 +127,16 @@ Der Graph-Dienst in Azure Stack verwendet die folgenden Protokolle und Ports fü
 
 Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter erforderlich:
 
-|Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|BESCHREIBUNG|Beispiel|
+|Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|Beschreibung|Beispiel|
 |---------|---------|---------|---------|
 |CustomAdfsName|AD FS-Anbietername|Der Name der Anspruchsanbieter-Vertrauensstellung.<br>Er wird wie hier angegeben auf der AD FS-Startseite angezeigt.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|AD FS-Metadaten-URI|Verbundmetadatenlink.| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 |SigningCertificateRevocationCheck|Nicht verfügbar|Optionaler Parameter, um die CRL-Überprüfung zu überspringen.|Keine|
 
 
-### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Auslösen der Automatisierung zum Konfigurieren der Anspruchsanbieter-Vertrauensstellung in Azure Stack
+### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>Auslösen der Automatisierung zum Konfigurieren der Anspruchsanbieter-Vertrauensstellung in Azure Stack Hub
 
-Verwenden Sie für diesen Vorgang einen Computer, der mit dem privilegierten Endpunkt in Azure Stack kommunizieren kann. Es wird erwartet, dass Azure Stack dem vom Konto **STS AD FS** verwendeten Zertifikat vertraut.
+Verwenden Sie für diesen Vorgang einen Computer, der mit dem privilegierten Endpunkt in Azure Stack Hub kommunizieren kann. Es wird erwartet, dass Azure Stack Hub dem vom Konto **STS AD FS** verwendeten Zertifikat vertraut.
 
 1. Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Rechten, und stellen Sie eine Verbindung mit dem privilegierten Endpunkt her.
 
@@ -161,13 +161,13 @@ Verwenden Sie für diesen Vorgang einen Computer, der mit dem privilegierten End
 
 Verwenden Sie ab Version 1807 diese Methode, wenn eine der folgenden Bedingungen erfüllt ist:
 
-- Die Zertifikatskette ist für AD FS im Vergleich zu allen anderen Endpunkten in Azure Stack unterschiedlich.
-- Es gibt keine Netzwerkkonnektivität mit dem vorhandenen AD FS-Server aus der AD FS-Instanz von Azure Stack.
+- Die Zertifikatkette für AD FS unterscheidet sich im Vergleich zu allen anderen Endpunkten in Azure Stack Hub.
+- Es ist keine Netzwerkkonnektivität mit dem vorhandenen AD FS-Server aus der AD FS-Instanz von Azure Stack Hub gegeben.
 
 Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter erforderlich:
 
 
-|Parameter|BESCHREIBUNG|Beispiel|
+|Parameter|Beschreibung|Beispiel|
 |---------|---------|---------|
 |CustomAdfsName|Der Name der Anspruchsanbieter-Vertrauensstellung. Er wird wie hier angegeben auf der AD FS-Startseite angezeigt.|Contoso|
 |CustomADFSFederationMetadataFileContent|Metadateninhalte.|$using:federationMetadataFileContent|
@@ -188,9 +188,9 @@ Für das folgende Verfahren müssen Sie einen Computer verwenden, der über eine
 
 2. Kopieren Sie die Metadatendatei auf einen Computer, der mit dem privilegierten Endpunkt kommunizieren kann.
 
-### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Auslösen der Automatisierung zum Konfigurieren der Anspruchsanbieter-Vertrauensstellung in Azure Stack
+### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>Auslösen der Automatisierung zum Konfigurieren der Anspruchsanbieter-Vertrauensstellung in Azure Stack Hub
 
-Verwenden Sie für diese Prozedur einen Computer, der mit dem privilegierten Endpunkt in Azure Stack kommunizieren kann und Zugriff auf die Metadatendatei hat, die Sie zuvor erstellt haben.
+Verwenden Sie für diese Prozedur einen Computer, der mit dem privilegierten Endpunkt in Azure Stack Hub kommunizieren kann und Zugriff auf die Metadatendatei hat, die Sie zuvor erstellt haben.
 
 1. Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Rechten, und stellen Sie eine Verbindung mit dem privilegierten Endpunkt her.
 
@@ -219,7 +219,7 @@ Verwenden Sie für diese Prozedur einen Computer, der mit dem privilegierten End
 
 Microsoft stellt ein Skript zur Verfügung, das die Vertrauensstellung der vertrauenden Seite (einschließlich der Anspruchstransformationsregeln) konfiguriert. Die Verwendung des Skripts ist optional, da Sie die Befehle auch manuell ausführen können.
 
-Sie können das Hilfsskript unter [Azure Stack-Tools](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) auf GitHub herunterladen.
+Sie können das Hilfsskript unter [Azure Stack Hub-Tools](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) auf GitHub herunterladen.
 
 Wenn Sie die Befehle manuell ausführen möchten, gehen Sie folgendermaßen vor:
 
@@ -282,7 +282,7 @@ Wenn Sie die Befehle manuell ausführen möchten, gehen Sie folgendermaßen vor:
    > [!IMPORTANT]  
    > Sie müssen das AD FS MMC-Snap-In verwenden, um die Ausstellungsautorisierungsregeln zu konfigurieren, wenn Windows Server 2012 oder 2012 R2 AD FS verwendet wird.
 
-4. Wenn Sie einen der Browser Internet Explorer oder Microsoft Edge verwenden, um auf Azure Stack zuzugreifen, müssen Sie Tokenbindungen ignorieren. Andernfalls tritt beim Anmeldeversuch ein Fehler auf. Führen Sie für Ihre AD FS-Instanz oder Ihr Farmmitglied den folgenden Befehl aus:
+4. Wenn Sie als Browser Internet Explorer oder Microsoft Edge verwenden, um auf Azure Stack Hub zuzugreifen, müssen Sie Tokenbindungen ignorieren. Andernfalls tritt beim Anmeldeversuch ein Fehler auf. Führen Sie für Ihre AD FS-Instanz oder Ihr Farmmitglied den folgenden Befehl aus:
 
    > [!note]  
    > Dies gilt nicht, wenn Sie Windows Server 2012 oder 2012 R2 AD FS verwenden. In diesem Fall können Sie diesen Befehl problemlos überspringen und die Integration fortsetzen.
@@ -295,9 +295,9 @@ Wenn Sie die Befehle manuell ausführen möchten, gehen Sie folgendermaßen vor:
 
 Es gibt viele Szenarien, die die Verwendung eines Dienstprinzipalnamens (SPN) für die Authentifizierung erfordern. Hier einige Beispiele:
 
-- Verwendung der CLI mit der AD FS-Bereitstellung von Azure Stack
-- System Center Management Pack für Azure Stack bei der Bereitstellung mit AD FS
-- Ressourcenanbieter in Azure Stack bei der Bereitstellung mit AD FS
+- Verwendung der CLI mit der AD FS-Bereitstellung von Azure Stack Hub
+- System Center Management Pack für Azure Stack Hub bei der Bereitstellung mit AD FS
+- Ressourcenanbieter in Azure Stack Hub bei der Bereitstellung mit AD FS
 - Verschiedene Apps
 - Sie benötigen eine nicht interaktive Anmeldung.
 

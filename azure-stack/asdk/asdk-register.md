@@ -15,12 +15,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 2dea14ab5d43aab8deab2632b07277d7094e33c4
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: c12882ea5f26589c18abaf016ba09b17d02bdcab
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974622"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022935"
 ---
 # <a name="register-the-asdk-with-azure"></a>Registrieren des ASDK bei Azure
 
@@ -221,9 +221,9 @@ Sie können die Kachel **Regionsverwaltung** verwenden, um zu überprüfen, ob d
 
 2. Wählen Sie im Dashboard **Regionsverwaltung** aus.
 
-    [![Kachel für Regionsverwaltung im Azure Stack-Administratorportal](media/asdk-register/admin1sm.png "Kachel für Regionsverwaltung")](media/asdk-register/admin1.png#lightbox)
+    [![Kachel „Regionsverwaltung“ im Azure Stack-Administratorportal](media/asdk-register/admin1sm.png "Kachel „Regionsverwaltung“")](media/asdk-register/admin1.png#lightbox)
 
-3. Wählen Sie **Eigenschaften** aus. Auf diesem Blatt werden der Status und Details Ihrer Umgebung angezeigt. Der Status kann **registriert** oder **nicht registriert** lauten. Wenn er „Registriert“ ist, wird außerdem die ID des Azure-Abonnements angezeigt, mit dem Sie Ihren Azure Stack registriert haben, zusammen mit der Registrierungsressourcengruppe und dem Namen.
+3. Wählen Sie **Eigenschaften** aus. Auf diesem Blatt werden der Status und Details Ihrer Umgebung angezeigt. Der Status kann **registriert** oder **nicht registriert** lauten. Beim Status „registriert“ wird außerdem die ID des Azure-Abonnements angezeigt, mit dem Sie Ihren Azure Stack registriert haben, sowie die Gruppe und der Name der Registrierungsressource.
 
 ## <a name="move-a-registration-resource"></a>Verschieben einer Registrierungsressource
 Das Verschieben einer Registrierungsressource zwischen Ressourcengruppen im gleichen Abonnement **wird unterstützt**. Weitere Informationen zum Verschieben von Ressourcen in eine neue Ressourcengruppe finden Sie unter [Verschieben von Ressourcen in eine neue Ressourcengruppe oder ein neues Abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
@@ -231,4 +231,4 @@ Das Verschieben einer Registrierungsressource zwischen Ressourcengruppen im glei
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Hinzufügen eines Azure Stack-Marketplace-Elements](../operator/azure-stack-marketplace.md)
+- [Hinzufügen eines Azure Stack Hub-Marketplace-Elements](../operator/azure-stack-marketplace.md)

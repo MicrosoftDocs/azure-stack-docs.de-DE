@@ -1,6 +1,6 @@
 ---
-title: 'Gewusst wie: Verbinden von zwei Azure Stack-Instanzen per VNET-Peering | Microsoft-Dokumentation'
-description: Es wird beschrieben, wie Sie zwei Azure Stack-Instanzen per VNET-Peering verbinden.
+title: 'Gewusst wie: Verbinden von zwei Azure Stack Hub-Instanzen per VNET-Peering | Microsoft-Dokumentation'
+description: Es wird beschrieben, wie Sie zwei Azure Stack Hub-Instanzen per VNET-Peering verbinden.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,26 +9,26 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 7a9f293c35856a9d1e29652a097d789f86b7b03c
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: e692d44f94aefdb28c447c9cff15f88af0d1827a
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71962472"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878776"
 ---
 # <a name="how-to-connect-two-vnets-through-peering"></a>Gewusst wie: Verbinden von zwei VNETs per Peering
 
-In diesem Artikel wird beschrieben, wie Sie eine Verbindung zwischen zwei virtuellen Netzwerken in derselben Umgebung herstellen. Im Rahmen der Verbindungseinrichtung werden Sie auch mit der Funktionsweise von VPN-Gateways in Azure Stack vertraut gemacht. Verbinden Sie zwei VNETs in derselben Azure Stack-Umgebung, indem Sie Fortinet FortiGate verwenden. Bei diesem Verfahren werden zwei VNETs mit einer FortiGate NVA (virtuelles Netzwerkgerät, Network Virtual Appliance) in jedem VNET bereitgestellt – jeweils in einer separaten Ressourcengruppe. Darüber hinaus werden die Änderungen beschrieben, die für die Einrichtung eines IPSec-VPN zwischen den beiden VNETs vorgenommen werden müssen. Wiederholen Sie die Schritte in diesem Artikel für jede VNET-Bereitstellung.
+In diesem Artikel wird beschrieben, wie Sie eine Verbindung zwischen zwei virtuellen Netzwerken in derselben Umgebung herstellen. Im Rahmen der Verbindungseinrichtung werden Sie auch mit der Funktionsweise von VPN-Gateways in Azure Stack Hub vertraut gemacht. Verbinden Sie zwei VNETs in derselben Azure Stack Hub-Umgebung, indem Sie Fortinet FortiGate verwenden. Bei diesem Verfahren werden zwei VNETs mit einer FortiGate NVA (virtuelles Netzwerkgerät, Network Virtual Appliance) in jedem VNET bereitgestellt – jeweils in einer separaten Ressourcengruppe. Darüber hinaus werden die Änderungen beschrieben, die für die Einrichtung eines IPSec-VPN zwischen den beiden VNETs vorgenommen werden müssen. Wiederholen Sie die Schritte in diesem Artikel für jede VNET-Bereitstellung.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
--   Zugriff auf ein integriertes Azure Stack-System oder ASDK mit verfügbarer Kapazität, um die erforderlichen Compute-, Netzwerk- und Ressourcenanforderungen für diese Lösung zu erfüllen.
+-   Zugriff auf ein System mit verfügbarer Kapazität, um die Compute-, Netzwerk- und Ressourcenanforderungen für diese Lösung zu erfüllen.
 
--  Eine Lösung für ein virtuelles Netzwerkgerät (Network Virtual Appliance, NVA), die heruntergeladen und im Azure Stack-Marketplace veröffentlicht wird. Mit einem virtuellen Netzwerkgerät (Network Virtual Appliance, NVA) wird der Fluss des Netzwerkdatenverkehrs aus einem Umkreisnetzwerk in andere Netzwerke oder Subnetze gesteuert. In diesem Verfahren wird die Lösung [FortiGate Next-Generation Firewall – Single VM](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm) genutzt.
+-  Eine Lösung für ein virtuelles Netzwerkgerät (Network Virtual Appliance, NVA), die heruntergeladen und im Azure Stack Hub-Marketplace veröffentlicht wird. Mit einem virtuellen Netzwerkgerät (Network Virtual Appliance, NVA) wird der Fluss des Netzwerkdatenverkehrs aus einem Umkreisnetzwerk in andere Netzwerke oder Subnetze gesteuert. In diesem Verfahren wird die Lösung [FortiGate Next-Generation Firewall – Single VM](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm) genutzt.
 
 -  Mindestens zwei verfügbare FortiGate-Lizenzdateien zum Aktivieren der FortiGate NVA. Informationen zur Beschaffung dieser Lizenzen finden Sie in der Fortinet-Dokumentbibliothek im Artikel zum [Registrieren und Herunterladen Ihrer Lizenz](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license).
 
-    In diesem Verfahren wird die [Bereitstellung einer einzelnen FortiGate-VM](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment) durchgeführt. Sie finden die Schritte zum Herstellen einer Verbindung zwischen der FortiGate NVA und dem Azure Stack-VNET in Ihrem lokalen Netzwerk.
+    In diesem Verfahren wird die [Bereitstellung einer einzelnen FortiGate-VM](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment) durchgeführt. Sie finden die Schritte zum Herstellen einer Verbindung zwischen der FortiGate NVA und dem Azure Stack Hub-VNET in Ihrem lokalen Netzwerk.
 
     Weitere Informationen zur Bereitstellung der FortiGate-Lösung als Aktiv/Passiv-Setup (zur Erzielung von Hochverfügbarkeit) finden Sie in der Fortinet-Dokumentbibliothek im Artikel zur [Hochverfügbarkeit für FortiGate-VM in Azure](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/983245/ha-for-FortiGate-vm-on-azure).
 
@@ -71,11 +71,11 @@ In der folgenden Tabelle sind als Referenz die Parameter zusammengefasst, die in
 | Typ der öffentlichen IP-Adresse | statischen |
 
 > [!Note]
-> \* Wählen Sie andere Adressräume und Subnetzpräfixe aus, falls es für die obigen Angaben zu Überschneidungen mit der lokalen Netzwerkumgebung kommt, einschließlich dem VIP-Pool der beiden Azure Stack-Instanzen. Stellen Sie auch sicher, dass sich die Adressbereiche nicht gegenseitig überschneiden.
+> \* Wählen Sie andere Adressräume und Subnetzpräfixe aus, falls es für die obigen Angaben zu Überschneidungen mit der lokalen Netzwerkumgebung kommt, einschließlich dem VIP-Pool der beiden Azure Stack Hub-Instanzen. Stellen Sie auch sicher, dass sich die Adressbereiche nicht gegenseitig überschneiden.
 
 ## <a name="deploy-the-fortigate-ngfw"></a>Bereitstellen der FortiGate NGFW
 
-1.  Öffnen Sie das Azure Stack-Benutzerportal.
+1.  Öffnen Sie das Azure Stack Hub-Benutzerportal.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
@@ -112,7 +112,7 @@ Die Bereitstellung dauert ungefähr zehn Minuten.
 
 Führen Sie diese Schritte für beide Bereitstellungen aus („forti1-rg1“ und „forti2-rg1“).
 
-1. Öffnen Sie das Azure Stack-Benutzerportal.
+1. Öffnen Sie das Azure Stack Hub-Benutzerportal.
 
 2. Wählen Sie die Option „Ressourcengruppen“ aus. Geben Sie `forti1-rg1` in den Filter ein, und doppelklicken Sie auf die Ressourcengruppe „forti1-rg1“.
 
@@ -180,7 +180,7 @@ Führen Sie die unten angegebenen Schritte jeweils für die forti1-NVA und die f
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image16.png)
 
-13. Klicken Sie auf **Weiter**.
+13. Wählen Sie **Weiter** aus.
 
 14. Geben Sie die Remote-IP-Adresse des lokalen VPN-Geräts ein, mit dem Sie eine Verbindung herstellen möchten.
 
@@ -193,7 +193,7 @@ Führen Sie die unten angegebenen Schritte jeweils für die forti1-NVA und die f
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image17.png)
 
-17. Klicken Sie auf **Weiter**.
+17. Wählen Sie **Weiter** aus.
 
 18. Wählen Sie unter **Lokale Schnittstelle** die Option **port2** aus.
 
@@ -239,9 +239,9 @@ Gehen Sie wie folgt vor, nachdem die obigen Vorgänge für *beide* NVAs abgeschl
 
 ## <a name="test-and-validate-connectivity"></a>Testen und Überprüfen der Konnektivität
 
-Sie sollten jetzt in der Lage sein, zwischen den VNETs über die FortiGate NVAs eine Weiterleitung durchzuführen. Erstellen Sie zum Überprüfen der Verbindung im InsideSubnet jedes VNET eine Azure Stack-VM. Die Erstellung einer Azure Stack-VM kann über das Portal, die CLI oder PowerShell durchgeführt werden. Für die VM-Erstellung gilt Folgendes:
+Sie sollten jetzt in der Lage sein, zwischen den VNETs über die FortiGate NVAs eine Weiterleitung durchzuführen. Erstellen Sie zum Überprüfen der Verbindung im InsideSubnet jedes VNET eine Azure Stack Hub-VM. Die Erstellung einer Azure Stack Hub-VM kann über das Portal, die CLI oder PowerShell durchgeführt werden. Für die VM-Erstellung gilt Folgendes:
 
--   Die Azure Stack-VMs sind jeweils im **InsideSubnet** eines VNET angeordnet.
+-   Die Azure Stack Hub-VMs sind jeweils im **InsideSubnet** eines VNET angeordnet.
 
 -   Sie wenden während der Erstellung **keine** NSGs auf die VM an. (Entfernen Sie also die NSG, die standardmäßig hinzugefügt wird, falls Sie die VM über das Portal erstellen.)
 
@@ -249,5 +249,5 @@ Sie sollten jetzt in der Lage sein, zwischen den VNETs über die FortiGate NVAs 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Azure Stack-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)  
-[Anbieten einer Netzwerklösung in Azure Stack mit Fortinet FortiGate](../operator/azure-stack-network-solutions-enable.md)  
+[Azure Stack Hub-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)  
+[Anbieten einer Netzwerklösung in Azure Stack Hub mit Fortinet FortiGate](../operator/azure-stack-network-solutions-enable.md)  

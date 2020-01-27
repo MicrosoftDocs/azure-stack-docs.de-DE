@@ -1,6 +1,6 @@
 ---
-title: Einführung zu Azure Stack-Speicher | Microsoft-Dokumentation
-description: Informieren Sie sich über Azure Stack-Speicherdienste.
+title: Einführung zu Azure Stack Hub-Speicher | Microsoft-Dokumentation
+description: Informieren Sie sich über Azure Stack Hub-Speicherdienste.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,27 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: dfa9666387093f60dfd41e371707dff23119dc9a
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: cb58b2edc8a7a9ec96317a902ad79b8bacce89ec
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909586"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536418"
 ---
-# <a name="introduction-to-azure-stack-storage"></a>Einführung zu Azure Stack-Speicher
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+# <a name="introduction-to-azure-stack-hub-storage"></a>Einführung in Azure Stack Hub-Speicher
 
 ## <a name="overview"></a>Übersicht
 
-Bei Azure Stack-Speicher handelt es sich um eine Reihe von Cloudspeicherdiensten, die mit den von Azure Storage bereitgestellten Diensten konsistent sind. Diese Dienste umfassen Blobtabellen, Tabellen und Warteschlangen.
+Bei Azure Stack Hub-Speicher handelt es sich um eine Reihe von Cloudspeicherdiensten, die mit den von Azure Storage bereitgestellten Diensten konsistent sind. Diese Dienste umfassen Blobtabellen, Tabellen und Warteschlangen.
 
-## <a name="azure-stack-storage-services"></a>Azure Stack-Speicherdienste
+## <a name="azure-stack-hub-storage-services"></a>Azure Stack Hub-Speicherdienste
 
-Azure Stack-Speicher bietet die folgenden drei Dienste:
+Azure Stack Hub-Speicher bietet die folgenden drei Dienste:
 
 - **Blob Storage**
 
@@ -45,9 +43,9 @@ Azure Stack-Speicher bietet die folgenden drei Dienste:
 
     Queue Storage bietet zuverlässiges Messaging für die Workflowverarbeitung und für die Kommunikation zwischen Komponenten von Clouddiensten.
 
-Ein Azure Stack-Speicherkonto ist ein sicheres Konto, mit dem Sie auf Dienste in Azure Stack-Speicher zugreifen können. Ihr Speicherkonto stellt den eindeutigen Namespace für Ihre Speicherressourcen bereit. Das folgende Diagramm zeigt die Beziehungen zwischen den Azure Stack-Speicherressourcen in einem Speicherkonto:
+Ein Azure Stack Hub-Speicherkonto ist ein sicheres Konto, mit dem Sie auf Dienste in Azure Stack Hub-Speicher zugreifen können. Ihr Speicherkonto stellt den eindeutigen Namespace für Ihre Speicherressourcen bereit. Das folgende Diagramm zeigt die Beziehungen zwischen den Azure Stack Hub-Speicherressourcen in einem Speicherkonto:
 
-![Übersicht zu Azure Stack-Speicher](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
+![Übersicht zu Azure Stack Hub-Speicher](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
 
 ### <a name="blob-storage"></a>Blob Storage
 
@@ -74,7 +72,7 @@ Blob Storage bietet drei Typen von Blobs:
 
 - **Seitenblobs**
 
-    Seitenblobs sind für die Darstellung von IaaS-Festplatten und für die Unterstützung zufallsgesteuerter Schreibzugriffe mit einer Größe von bis zu 1 TB optimiert. Bei einer mit dem virtuellen Azure Stack-Computer verbundenen IaaS-Festplatte handelt es sich um eine als Seitenblob gespeicherte virtuelle Festplatte.
+    Seitenblobs sind für die Darstellung von IaaS-Festplatten und für die Unterstützung zufallsgesteuerter Schreibzugriffe mit einer Größe von bis zu 1 TB optimiert. Bei einer mit dem virtuellen Azure Stack Hub-Computer verbundenen IaaS-Festplatte handelt es sich um eine als Seitenblob gespeicherte virtuelle Festplatte.
 
 ### <a name="table-storage"></a>Table Storage
 

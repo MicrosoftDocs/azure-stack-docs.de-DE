@@ -1,6 +1,6 @@
 ---
-title: Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie den MySQL-Ressourcenanbieterdienst in Azure Stack verwalten können.
+title: Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie den MySQL-Ressourcenanbieterdienst in Azure Stack Hub verwalten können.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: fea4d8abcb0b8bb4f541105d782d2adbdc1f0f4c
-ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
+ms.openlocfilehash: aaa352dedeed36335302a990b6a3bc3f37851f47
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75756864"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811089"
 ---
-# <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack
+# <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack Hub
 
 Der MySQL-Ressourcenanbieter wird auf einer gesperrten VM ausgeführt. Damit Wartungsvorgänge durchgeführt werden können, müssen Sie die Sicherheit der VM aktualisieren. Dies kann nach dem Prinzip der geringsten Rechte über den PowerShell JEA-Endpunkt (Just Enough Administration) „DBAdapterMaintenance“ erfolgen. Das Ressourcenanbieter-Installationspaket enthält ein Skript für diese Vorgänge.
 
@@ -93,9 +93,9 @@ $session | Remove-PSSession
 
 ## <a name="secrets-rotation"></a>Geheimnisrotation
 
-*Diese Anweisungen gelten nur für integrierte Azure Stack-Systeme.*
+*Diese Anweisungen gelten nur für integrierte Azure Stack Hub-Systeme.*
 
-Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stack-Systemen ist der Azure Stack-Operator dafür verantwortlich, die folgenden Geheimnisse der Ressourcenanbieterinfrastruktur zu rotieren, um sicherzustellen, dass sie nicht ablaufen:
+Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stack Hub-Systemen ist der Azure Stack Hub-Operator dafür verantwortlich, die folgenden Geheimnisse der Ressourcenanbieterinfrastruktur zu rotieren, um sicherzustellen, dass sie nicht ablaufen:
 
 - Das [während der Bereitstellung angegebene](azure-stack-pki-certs.md) externe SSL-Zertifikat
 - Das während der Bereitstellung angegebene Kennwort des lokalen Administratorkontos für den virtuellen Computer des Ressourcenanbieters
@@ -153,10 +153,10 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
 
 ### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider.ps1-Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-----|-----|
-|AzCredential|Anmeldeinformationen für das Azure Stack-Dienstadministratorkonto|
-|CloudAdminCredential|Anmeldeinformationen für das Domänenkonto des Azure Stack-Cloudadministrators|
+|AzCredential|Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto|
+|CloudAdminCredential|Anmeldeinformationen für das Domänenkonto des Azure Stack Hub-Cloudadministrators|
 |PrivilegedEndpoint|Privilegierter Endpunkt für den Zugriff auf „Get-AzureStackStampInformation“|
 |DiagnosticsUserPassword|Kennwort des Diagnosebenutzerkontos|
 |VMLocalCredential|Das lokale Administratorkonto auf der MySQLAdapter-VM.|

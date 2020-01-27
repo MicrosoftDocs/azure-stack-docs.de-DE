@@ -1,6 +1,6 @@
 ---
-title: Erstellen eines VPN-Tunnels mithilfe von IPsec in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie einen VPN-Tunnel mithilfe von IPsec in Azure Stack erstellen.
+title: Erstellen eines VPN-Tunnels mithilfe von IPsec in Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie einen VPN-Tunnel mithilfe von IPsec in Azure Stack Hub erstellen.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,20 +9,18 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 762d3f631823d1acb8445148a164a18605fa3762
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: a0716d4997a49c2146d64c23defdd6b2f36c0b95
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73168229"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878457"
 ---
-# <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack"></a>Erstellen eines VPN-Tunnels mithilfe von IPsec in Azure Stack
+# <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>Erstellen eines VPN-Tunnels mithilfe von IPsec in Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+Mithilfe der Azure Stack Hub-Resource Manager-Vorlage in dieser Lösung können Sie zwei Azure Stack Hub-VNETs in derselben Azure Stack Hub-Umgebung verbinden. Sie können Azure Stack Hub-VNETs [nicht](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) mithilfe des integrierten Gateways des virtuellen Netzwerks verbinden. Zum jetzigen Zeitpunkt müssen Sie virtuelle Netzwerkgeräte verwenden, um einen VPN-Tunnel zwischen zwei Azure Stack Hub-VNETs zu erstellen. Mit der Lösungsvorlage werden zwei virtuelle Windows Server 2016-Computer mit installiertem RRAS bereitgestellt. Mit der Lösung werden die beiden RRAS-Server für die Verwendung eines IKEv2-Tunnels für Site-to-Site-VPNs zwischen den beiden VNETs konfiguriert. Die entsprechenden NSG- und UDR-Regeln werden erstellt, um das Routing zwischen den Subnetzen in jedem VNET zuzulassen, das als **intern** festgelegt ist. 
 
-Mithilfe der Azure Stack-Resource Manager-Vorlage in dieser Lösung können Sie zwei Azure Stack-VNETs in derselben Azure Stack-Umgebung verbinden. Sie können Azure Stack-VNETs [nicht](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) mithilfe des integrierten Gateways des virtuellen Netzwerks verbinden. Zum jetzigen Zeitpunkt müssen Sie virtuelle Netzwerkgeräte verwenden, um einen VPN-Tunnel zwischen zwei Azure Stack-VNETs zu erstellen. Mit der Lösungsvorlage werden zwei virtuelle Windows Server 2016-Computer mit installiertem RRAS bereitgestellt. Mit der Lösung werden die beiden RRAS-Server für die Verwendung eines IKEv2-Tunnels für Site-to-Site-VPNs zwischen den beiden VNETs konfiguriert. Die entsprechenden NSG- und UDR-Regeln werden erstellt, um das Routing zwischen den Subnetzen in jedem VNET zuzulassen, das als **intern** festgelegt ist. 
-
-Diese Lösung bildet die Grundlage, auf der Sie VPN-Tunnel nicht nur innerhalb der Azure Stack-Instanz, sondern auch zwischen Azure Stack-Instanzen und mit anderen Ressourcen erstellen können, z. B. mit lokalen Netzwerken unter Verwendung von Windows-RRAS-Tunnel für Site-to-Site-VPNs.
+Diese Lösung bildet die Grundlage, auf der Sie VPN-Tunnel nicht nur innerhalb der Azure Stack Hub-Instanz, sondern auch zwischen Azure Stack Hub-Instanzen und mit anderen Ressourcen erstellen können, z. B. mit lokalen Netzwerken unter Verwendung von Windows-RRAS-Tunnel für Site-to-Site-VPNs.
 
 Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns). Die Vorlage befindet sich im Ordner **rras-gre-vnet-vnet**. 
 
@@ -30,8 +28,8 @@ Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](h
 
 ## <a name="requirements"></a>Requirements (Anforderungen)
 
-- ASDK oder integriertes Azure Stack-System mit den neuesten Updates 
-- Erforderliche Azure Stack-Marketplace-Elemente:
+- Ein System, das mit den neuesten Updates bereitgestellt wird. 
+- Erforderliche Azure Stack Hub-Marketplace-Elemente:
     -  Windows Server 2016 Datacenter oder Windows Server 2019 Datacenter (neuester Build empfohlen)
     -  Benutzerdefinierte Skripterweiterung
 
@@ -58,6 +56,6 @@ Diese Vorlage enthält Standardwerte für die VNET-Benennung und die IP-Adressie
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Azure Stack-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)  
+[Azure Stack Hub-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)  
 [Einrichten eines VPN-Tunnels zwischen mehreren Standorten](network-howto-vpn-tunnel.md)  
 [Erstellen eines VPN-Tunnels mithilfe von GRE](network-howto-vpn-tunnel-gre.md)

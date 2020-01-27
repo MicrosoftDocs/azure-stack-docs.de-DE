@@ -1,6 +1,6 @@
 ---
-title: Erstellen und Veröffentlichen eines Marketplace-Elements in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie ein Azure Stack-Marketplace-Element erstellen und veröffentlichen.
+title: Erstellen und Veröffentlichen eines Marketplace-Elements in Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie ein Azure Stack Hub-Marketplace-Element erstellen und veröffentlichen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,18 +15,16 @@ ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 5740ff6bc550aa27f15761e6be2c69247eecaf03
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: aa308690caa875d2ab22ca0b987634c2d29795fa
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654881"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882758"
 ---
-# <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack-Marketplace-Elements
+# <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack Hub-Marketplace-Elements
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-Jedes im Azure Stack-Marketplace veröffentlichte Element verwendet das Azure Gallery Package-Format (AZPKG). Mit dem *Azure Gallery Packager*-Tool können Sie ein benutzerdefiniertes Azure Gallery-Paket erstellen, das Sie in den Azure Stack-Marketplace hochladen können, wo es dann von Benutzern heruntergeladen werden kann. Beim Bereitstellungsprozess wird eine Azure Resource Manager-Vorlage verwendet.
+Jedes im Azure Stack Hub-Marketplace veröffentlichte Element verwendet das Azure Gallery Package-Format (AZPKG). Mit dem *Azure Gallery Packager*-Tool können Sie ein benutzerdefiniertes Azure Gallery-Paket erstellen, das Sie in den Azure Stack Hub-Marketplace hochladen können, wo es dann von Benutzern heruntergeladen werden kann. Beim Bereitstellungsprozess wird eine Azure Resource Manager-Vorlage verwendet.
 
 ## <a name="marketplace-items"></a>Marketplace-Elemente
 
@@ -35,11 +33,11 @@ In den Beispielen in diesem Artikel wird veranschaulicht, wie Sie ein einzelnes 
 ## <a name="create-a-marketplace-item"></a>Erstellen von Marketplace-Elementen
 
 > [!IMPORTANT]
-> Vor dem Erstellen des VM-Marketplace-Elements laden Sie das benutzerdefinierte VM-Image in das Azure Stack-Portal hoch. Dabei gehen Sie nach den Anweisungen unter [Hinzufügen eines VM-Images zu Azure Stack](azure-stack-add-vm-image.md) vor. Befolgen Sie dann die Anweisungen in diesem Artikel, um das Image zu verpacken (Erstellen einer AZPKG-Datei) und in den Azure Stack-Marketplace hochzuladen.
+> Vor dem Erstellen des VM-Marketplace-Elements laden Sie das benutzerdefinierte VM-Image in das Azure Stack Hub-Portal hoch. Dabei gehen Sie nach den Anweisungen unter [Hinzufügen eines VM-Images zu Azure Stack Hub](azure-stack-add-vm-image.md) vor. Befolgen Sie dann die Anweisungen in diesem Artikel, um das Image zu verpacken (Erstellen einer AZPKG-Datei) und in den Azure Stack Hub-Marketplace hochzuladen.
 
 Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-Element zu erstellen:
 
-1. Laden Sie das [Azure Gallery Packager-Tool](https://aka.ms/azsmarketplaceitem) und das Azure Stack-Katalogpaket herunter. Dieser Download umfasst benutzerdefinierte VM-Vorlagen. Extrahieren Sie die ZIP-Datei. Sie können unter dem Ordner **Custom VMs** die verfügbaren Linux- oder Windows-Vorlagen verwenden. Sie können die vordefinierten Vorlagen wiederverwenden und die entsprechenden Parameter mit den Produktdetails des Elements ändern, das im Azure Stack-Portal angezeigt wird. Oder Sie können einfach die AZPKG-Datei wiederverwenden und die folgenden Schritte überspringen, um das eigene Katalogpaket anzupassen.
+1. Laden Sie das [Azure Gallery Packager-Tool](https://aka.ms/azsmarketplaceitem) und das Azure Stack Hub-Katalogpaket herunter. Dieser Download umfasst benutzerdefinierte VM-Vorlagen. Extrahieren Sie die ZIP-Datei. Sie können unter dem Ordner **Custom VMs** die verfügbaren Linux- oder Windows-Vorlagen verwenden. Sie können die vordefinierten Vorlagen wiederverwenden und die entsprechenden Parameter mit den Produktdetails des Elements ändern, das im Azure Stack Hub-Portal angezeigt wird. Oder Sie können einfach die AZPKG-Datei wiederverwenden und die folgenden Schritte überspringen, um das eigene Katalogpaket anzupassen.
 
 2. Erstellen Sie eine Azure Resource Manager Vorlage, oder verwenden Sie unsere Beispielvorlagen für Windows/Linux. Diese Beispielvorlagen werden in der ZIP-Datei des Packager-Tools bereitgestellt, die Sie in Schritt 1 heruntergeladen haben. Sie können entweder die Vorlage verwenden und die Textfelder ändern, oder Sie können eine vorkonfigurierte Vorlage von GitHub herunterladen. Weitere Informationen zu den Azure Resource Manager-Vorlagen finden Sie unter [Azure Resource Manager-Vorlagen](/azure/azure-resource-manager/resource-group-authoring-templates).
 
@@ -143,9 +141,9 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
     ![Paketanzeige](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![Paketanzeige](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
-6. Testen Sie die Vorlage mit den [Azure Stack-APIs](../user/azure-stack-profiles-azure-resource-manager-versions.md), um sicherzustellen, dass die Ressource bereitgestellt werden kann.
+6. Testen Sie die Vorlage mit den [Azure Stack Hub-APIs](../user/azure-stack-profiles-azure-resource-manager-versions.md), um sicherzustellen, dass die Ressource bereitgestellt werden kann.
 
-7. Wenn Ihre Vorlage auf einem VM-Image basiert, befolgen Sie die Anweisungen zum [Hinzufügen eines VM-Images zu Azure Stack](azure-stack-add-vm-image.md).
+7. Wenn Ihre Vorlage auf einem VM-Image basiert, befolgen Sie die Anweisungen zum [Hinzufügen eines VM-Images zu Azure Stack Hub](azure-stack-add-vm-image.md).
 
 8. Speichern Sie die Azure Resource Manager-Vorlage im Ordner **/Contoso.TodoList/DeploymentTemplates/** .
 
@@ -169,9 +167,9 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
 ## <a name="publish-a-marketplace-item"></a>Veröffentlichen von Marketplace-Elementen
 
-1. Verwenden Sie PowerShell oder Azure Storage-Explorer, um Ihr Marketplace-Element (.azpkg) in Azure Blob Storage hochzuladen. Sie können es in einen lokalen Azure Stack-Speicher oder in Azure Storage hochladen – ein temporärer Speicherort für das Paket. Stellen Sie sicher, dass das Blob öffentlich zugänglich ist.
+1. Verwenden Sie PowerShell oder Azure Storage-Explorer, um Ihr Marketplace-Element (.azpkg) in Azure Blob Storage hochzuladen. Sie können es in einen lokalen Azure Stack Hub-Speicher oder in Azure Storage hochladen – ein temporärer Speicherort für das Paket. Stellen Sie sicher, dass das Blob öffentlich zugänglich ist.
 
-2. Der erste Schritt beim Importieren des Katalogpakets in Azure Stack ist das Herstellen einer Remoteverbindung (RDP) mit dem virtuellen Clientcomputer, um die soeben von Ihnen erstellte Datei in Ihre Azure Stack-Instanz zu kopieren.
+2. Der erste Schritt beim Importieren des Katalogpakets in Azure Stack Hub ist das Herstellen einer Remoteverbindung (RDP) mit dem virtuellen Clientcomputer, um die soeben von Ihnen erstellte Datei in Ihre Azure Stack Hub-Instanz zu kopieren.
 
 3. Hinzufügen eines Kontexts:
 
@@ -188,7 +186,7 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
     https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
     ```
 
-5. Vergewissern Sie sich, dass Sie über ein gültiges Speicherkonto verfügen, das zum Speichern des Elements verfügbar ist. Den `GalleryItemURI`-Wert erhalten Sie über das Azure Stack-Administratorportal. Wählen **Speicherkonto -> Blobeigenschaften -> URL** mit der Erweiterung „.azpkg“ aus. Das Speicherkonto ist nur für die temporäre Verwendung zum Veröffentlichen im Marketplace vorgesehen.
+5. Vergewissern Sie sich, dass Sie über ein gültiges Speicherkonto verfügen, das zum Speichern des Elements verfügbar ist. Den `GalleryItemURI`-Wert erhalten Sie über das Azure Stack Hub-Administratorportal. Wählen **Speicherkonto -> Blobeigenschaften -> URL** mit der Erweiterung „.azpkg“ aus. Das Speicherkonto ist nur für die temporäre Verwendung zum Veröffentlichen im Marketplace vorgesehen.
 
    Nachdem Sie Ihr Katalogpaket fertiggestellt und mit **Add-AzsGalleryItem** hochgeladen haben, sollte Ihr benutzerdefinierter virtueller Computer nun sowohl im Marketplace als auch in der Ansicht **Erstellen einer Ressource** angezeigt werden. Beachten Sie, dass das benutzerdefinierte Katalogpaket unter **Marketplace-Verwaltung** nicht angezeigt wird.
 
@@ -216,7 +214,7 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
 ### <a name="identity-information"></a>Identitätsinformationen
 
-| Name | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
+| Name | Erforderlich | type | Einschränkungen | Beschreibung |
 | --- | --- | --- | --- | --- |
 | Name |X |String |[A-Za-z0-9]+ | |
 | Herausgeber |X |String |[A-Za-z0-9]+ | |
@@ -224,14 +222,14 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
 ### <a name="metadata"></a>Metadaten
 
-| Name | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
+| Name | Erforderlich | type | Einschränkungen | Beschreibung |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |Empfehlung: 80 Zeichen |Im Portal wird der Elementname möglicherweise nicht richtig angezeigt, wenn er länger als 80 Zeichen ist. |
 | PublisherDisplayName |X |String |Empfehlung: 30 Zeichen |Im Portal wird der Herausgebername möglicherweise nicht richtig angezeigt, wenn er länger als 30 Zeichen ist. |
 | PublisherLegalName |X |String |Maximal 256 Zeichen | |
 | Zusammenfassung |X |String |60–100 Zeichen | |
-| LongSummary |X |String |140–256 Zeichen |Noch nicht für Azure Stack gültig |
-| BESCHREIBUNG |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 bis 5.000 Zeichen | |
+| LongSummary |X |String |140–256 Zeichen |Noch nicht für Azure Stack Hub gültig |
+| Beschreibung |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 bis 5.000 Zeichen | |
 
 ### <a name="images"></a>Bilder
 
@@ -247,13 +245,13 @@ Marketplace verwendet die folgenden Symbole:
 
 ### <a name="categories"></a>Kategorien
 
-Jedes Marketplace-Element muss mit einer Kategorie gekennzeichnet werden, die die Position des Elements auf der Portalbenutzeroberfläche angibt. Sie können eine der vorhandenen Kategorien in Azure Stack auswählen (**Compute**, **Daten und Speicher** usw.) oder eine neue erstellen.
+Jedes Marketplace-Element muss mit einer Kategorie gekennzeichnet werden, die die Position des Elements auf der Portalbenutzeroberfläche angibt. Sie können eine der vorhandenen Kategorien in Azure Stack Hub auswählen (**Compute**, **Daten und Speicher** usw.) oder eine neue erstellen.
 
 ### <a name="links"></a>Links
 
 Jedes Marketplace-Element kann verschiedene Links zu zusätzlichen Inhalten enthalten. Die Links werden als Liste der Namen und URIs angegeben:
 
-| Name | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
+| Name | Erforderlich | type | Einschränkungen | Beschreibung |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |Maximal 64 Zeichen. | |
 | Uri |X |URI | | |
@@ -262,7 +260,7 @@ Jedes Marketplace-Element kann verschiedene Links zu zusätzlichen Inhalten enth
 
 Zusätzlich zu den oben genannten Metadaten können Marketplace-Autoren benutzerdefinierte Schlüssel-Wert-Paare mit Daten in der folgenden Form angeben.
 
-| Name | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
+| Name | Erforderlich | type | Einschränkungen | Beschreibung |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |Maximal 25 Zeichen. | |
 | value |X |String |Maximal 30 Zeichen. | |
@@ -275,18 +273,18 @@ Für jedes Feld, das HTML zulässt, sind die folgenden [Elemente und Attribute z
 
 ## <a name="reference-marketplace-item-ui"></a>Referenz: Benutzeroberfläche für Marketplace-Elemente
 
-Im Azure Stack-Portal werden folgende Symbole und Texte für Marketplace-Elemente angezeigt:
+Im Azure Stack Hub-Portal werden folgende Symbole und Texte für Marketplace-Elemente angezeigt:
 
 ### <a name="create-blade"></a>Blatt "Erstellen"
 
-![Blatt „Erstellen“ – Azure Stack-Marketplace-Elemente](media/azure-stack-create-and-publish-marketplace-item/image1.png)
+![Blatt „Erstellen“ – Azure Stack Hub-Marketplace-Elemente](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Blatt „Details“ für ein Marketplace-Element
 
-![Blatt „Details“ für ein Azure Stack-Marketplace-Element](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+![Blatt „Details“ für ein Azure Stack Hub-Marketplace-Element](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Der Azure Stack-Marketplace – Übersicht](azure-stack-marketplace.md)
+- [Der Azure Stack Hub-Marketplace – Übersicht](azure-stack-marketplace.md)
 - [Herunterladen von Marketplace-Elementen](azure-stack-download-azure-marketplace-item.md)
 - [Format und Struktur von Azure Resource Manager-Vorlagen](/azure/azure-resource-manager/resource-group-authoring-templates)

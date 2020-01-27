@@ -1,28 +1,26 @@
 ---
-title: 'Gewusst wie: Verbinden von zwei Azure Stack-Instanzen per VNET-Peering | Microsoft-Dokumentation'
-description: Es wird beschrieben, wie Sie zwei Azure Stack-Instanzen per VNET-Peering verbinden.
+title: 'Gewusst wie: Verbinden von zwei Azure Stack Hub-Instanzen per VNET-Peering | Microsoft-Dokumentation'
+description: Es wird beschrieben, wie Sie zwei Azure Stack Hub-Instanzen per VNET-Peering verbinden.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/03/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 9eb4780a80e5cedd595950813d5cb5029e1b1857
-ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
+ms.openlocfilehash: bf855be0ec6fc63be4ab816dac4dde170b24fdad
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73845839"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536078"
 ---
-# <a name="vnet-peering-in-azure-stack-with-vms"></a>VNET-Peering in Azure Stack mit VMs
+# <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VNET-Peering in Azure Stack Hub mit VMs
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+Sie können zwei Azure Stack Hub-VNETs innerhalb derselben Azure Stack Hub-Umgebung miteinander verbinden. Es ist derzeit nicht möglich, Azure Stack Hub-VNETs mithilfe des integrierten [Gateways des virtuellen Netzwerks](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) zu verbinden. Sie müssen virtuelle Netzwerkgeräte (NVAs) verwenden, um einen VPN-Tunnel zwischen zwei Azure Stack Hub-VNETs zu erstellen. In der Vorlage, auf die in diesem Artikel verwiesen wird, werden zwei Windows Server 2016-VMs mit installiertem RRAS bereitgestellt. Die beiden RRAS-Server sind so konfiguriert, dass ein S2SVPN IKEv2-Tunnel zwischen zwei VNETs implementiert wird. Die entsprechenden NSG- und UDR-Regeln werden erstellt, um das Routing zwischen den Subnetzen in jedem VNET zuzulassen, das als **intern** festgelegt ist. 
 
-Sie können zwei Azure Stack-VNETs innerhalb derselben Azure Stack-Umgebung miteinander verbinden. Es ist derzeit nicht möglich, Azure Stack-VNETs mithilfe des integrierten [Gateways des virtuellen Netzwerks](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) zu verbinden. Sie müssen virtuelle Netzwerkgeräte (NVAs) verwenden, um einen VPN-Tunnel zwischen zwei Azure Stack-VNETs zu erstellen. In der Vorlage, auf die in diesem Artikel verwiesen wird, werden zwei Windows Server 2016-VMs mit installiertem RRAS bereitgestellt. Die beiden RRAS-Server sind so konfiguriert, dass ein S2SVPN IKEv2-Tunnel zwischen zwei VNETs implementiert wird. Die entsprechenden NSG- und UDR-Regeln werden erstellt, um das Routing zwischen den Subnetzen in jedem VNET zuzulassen, das als **intern** festgelegt ist. 
-
-Dieses Bereitstellungsmuster bildet die Grundlage, auf der Sie VPN-Tunnel nicht nur innerhalb der Azure Stack-Instanz, sondern auch zwischen Azure Stack-Instanzen und mit anderen Ressourcen erstellen können, z. B. lokale Netzwerke mit Verwendung von Windows-RRAS-Tunnel für Site-to-Site-VPNs. 
+Dieses Bereitstellungsmuster bildet die Grundlage, auf der Sie VPN-Tunnel nicht nur innerhalb der Azure Stack Hub-Instanz, sondern auch zwischen Azure Stack Hub-Instanzen und mit anderen Ressourcen erstellen können, z. B. lokale Netzwerke mit Verwendung von Windows-RRAS-Tunnel für Site-to-Site-VPNs. 
 
 Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ). Die Vorlage befindet sich im Ordner **S2SVPNTunnel**.
@@ -31,8 +29,8 @@ Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](h
 
 ## <a name="requirements"></a>Requirements (Anforderungen)
 
-- ASDK oder integriertes Azure Stack-System mit den neuesten Updates 
-- Erforderliche Azure Stack-Marketplace-Elemente:
+- Eine Bereitstellung mit den neuesten Updates. 
+- Erforderliche Azure Stack Hub-Marketplace-Elemente:
     -  Windows Server 2016 Datacenter (neuester Build empfohlen)
     -  Benutzerdefinierte Skripterweiterung
 
@@ -48,7 +46,7 @@ Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](h
 - In dieser Vorlage wird ein virtueller DS3v2-Computer verwendet. Mit dem RRAS-Dienst wird eine Windows-interne SQL Server-Instanz installiert und ausgeführt. Das kann zu Speicherproblemen führen, wenn die VM-Größe zu klein ist. Überprüfen Sie die Leistung vor dem Verringern der VM-Größe.
 - Dies ist keine Lösung mit Hochverfügbarkeit. Wenn Sie eine Lösung mit Hochverfügbarkeit benötigen, können Sie einen zweiten virtuellen Computer hinzufügen. Sie müssen dann die Route in der Routingtabelle manuell auf die interne IP-Adresse der zweiten Schnittstelle ändern. Außerdem müssen Sie die verschiedenen Tunnel für Querverbindungen konfigurieren.
 
-## <a name="options"></a>Optionen
+## <a name="options"></a>Tastatur
 
 - Mit den Parametern „_artifactsLocation“ und „_artifactsLocationSasToken“ können Sie Ihr eigenes Blob Storage-Konto und Ihr eigenes SAS-Token verwenden.
 - Diese Vorlage enthält zwei Ausgaben: INTERNALSUBNETREFVNET1 und INTERNALSUBNETREFVNET2. Dies sind die Ressourcen-IDs für die internen Subnetze, wenn Sie dies in einem Bereitstellungsmuster im Pipelineformat verwenden möchten.
@@ -59,4 +57,4 @@ Die Vorlage enthält Standardwerte für die VNET-Benennung und die IP-Adressieru
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Azure Stack-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)  
+[Azure Stack Hub-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)  

@@ -1,6 +1,6 @@
 ---
-title: Anwenden eines OEM-Updates (Originalgerätehersteller) auf Azure Stack | Microsoft-Dokumentation
-description: In diesem Artikel wird das Anwenden eines OEM-Updates (Originalgerätehersteller) auf Azure Stack erläutert.
+title: Anwenden eines OEM-Updates (Originalgerätehersteller) auf Azure Stack Hub | Microsoft-Dokumentation
+description: In diesem Artikel wird das Anwenden eines OEM-Updates (Originalgerätehersteller) auf Azure Stack Hub erläutert.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,22 +15,20 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 8065b2905adb5298c23cd7c924ccff28fb778efe
-ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
+ms.openlocfilehash: 889c26089ed6d26adccec200b19191e8ab13c5a7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75756820"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882622"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub-Wartungsrichtlinie
-
-*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme*
 
 In diesem Artikel wird die Wartungsrichtlinie für integrierte Azure Stack Hub-Systeme beschrieben, was Sie tun müssen, um den unterstützten Zustand Ihres Systems aufrechtzuerhalten, und wo Sie Hilfe erhalten.
 
 ## <a name="keep-your-system-under-support"></a>Halten Sie den Support für Ihr System aufrecht
 
-Um weiterhin Support zu erhalten, muss Ihre Azure Stack-Instanz auf dem aktuellen Stand bleiben.
+Um weiterhin Support zu erhalten, muss Ihre Azure Stack Hub-Instanz auf dem aktuellen Stand bleiben.
 
 Damit das Azure Stack Hub-System auch weiterhin unterstützt wird, muss die Instanz die zuletzt veröffentlichte Updateversion oder eine der beiden vorherigen Updateversionen ausführen.
 

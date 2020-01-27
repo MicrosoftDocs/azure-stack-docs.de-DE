@@ -1,6 +1,6 @@
 ---
-title: Wiederherstellung nach schwerwiegendem Datenverlust in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Ihre Infrastrukturdaten in Azure Stack nach einem schwerwiegenden Datenverlust wiederherstellen.
+title: Wiederherstellung nach schwerwiegendem Datenverlust in Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Ihre Infrastrukturdaten in Azure Stack Hub nach einem schwerwiegenden Datenverlust wiederherstellen können.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,20 +16,18 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: fd7c1ede611f9505ed48c8efc3caa5311c285cd3
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.openlocfilehash: 84ec5659bef23012a8d9ba48879b4b3ebafe29c2
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342867"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882962"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Wiederherstellen nach schwerwiegendem Datenverlust
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme.*
+Azure Stack Hub führt Dienste in Ihrem Rechenzentrum aus und kann in so kleinen Umgebungen wie vier in einem Rack installierten Knoten ausgeführt werden. Im Gegensatz dazu wird Azure in mehr als 40 Regionen in mehreren Rechenzentren und mehreren Zonen in jeder Region ausgeführt. Benutzerressourcen können mehrere Server, Racks, Rechenzentren und Regionen umfassen. Mit Azure Stack Hub haben Sie derzeit nur die Möglichkeit, Ihre gesamte Cloud in einem einzelnen Rack bereitzustellen. Diese Einschränkung setzt Ihre Cloud dem Risiko von Katastrophenfällen in Ihrem Rechenzentrum oder Ausfällen aufgrund von gravierenden Produktfehlern aus. Bei einem Notfall wird die Azure Stack Hub-Instanz offline geschaltet. Alle Daten sind möglicherweise nicht mehr wiederherstellbar.
 
-Azure Stack führt Dienste in Ihrem Rechenzentrum aus und kann in so kleinen Umgebungen wie vier in einem Rack installierten Knoten ausgeführt werden. Im Gegensatz dazu wird Azure in mehr als 40 Regionen in mehreren Rechenzentren und mehreren Zonen in jeder Region ausgeführt. Benutzerressourcen können mehrere Server, Racks, Rechenzentren und Regionen umfassen. Mit Azure Stack haben Sie derzeit nur die Möglichkeit, Ihre gesamte Cloud in einem einzelnen Rack bereitzustellen. Diese Einschränkung setzt Ihre Cloud dem Risiko von Katastrophenfällen in Ihrem Rechenzentrum oder Ausfällen aufgrund von gravierenden Produktfehlern aus. Bei einem Notfall wird die Azure Stack-Instanz offline geschaltet. Alle Daten sind möglicherweise nicht mehr wiederherstellbar.
-
-Je nach Grundursache des Datenverlusts müssen Sie eventuell einen einzelnen Infrastrukturdienst reparieren oder die gesamte Azure Stack-Instanz wiederherstellen. Unter Umständen müssen Sie die Wiederherstellung sogar auf einer anderen Hardware am gleichen oder an einem anderen Standort durchführen.
+Je nach Grundursache des Datenverlusts müssen Sie eventuell einen einzelnen Infrastrukturdienst reparieren oder die gesamte Azure Stack Hub-Instanz wiederherstellen. Unter Umständen müssen Sie die Wiederherstellung sogar auf einer anderen Hardware am gleichen oder an einem anderen Standort durchführen.
 
 Das folgende Szenario betrifft die Wiederherstellung Ihrer gesamten Installation bei einem Ausfall und die erneute Bereitstellung der privaten Cloud.
 
@@ -41,26 +39,26 @@ Das folgende Szenario betrifft die Wiederherstellung Ihrer gesamten Installation
 
 Der Schutz von Azure Stack beginnt mit der getrennten Sicherung der Infrastrukturdaten und der Anwendungs-/Mandantendaten. In diesem Dokument wird erläutert, wie die Infrastruktur gesichert wird. 
 
-![Workflow für die Azure Stack-Datenwiederherstellung – Bereitstellung](media/azure-stack-backup/azure-stack-backup-workflow1.png)
+![Workflow für die Azure Stack Hub-Datenwiederherstellung – Bereitstellung](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
-Im ungünstigsten Fall, bei dem alle Daten verloren gehen, besteht die Wiederherstellung von Azure Stack darin, die spezifischen Infrastrukturdaten dieser Bereitstellung von Azure Stack und alle Benutzerdaten wiederherzustellen. 
+Im ungünstigsten Fall, bei dem alle Daten verloren gehen, besteht die Wiederherstellung von Azure Stack Hub darin, die spezifischen Infrastrukturdaten dieser Bereitstellung von Azure Stack Hub und alle Benutzerdaten wiederherzustellen. 
 
-![Workflow für die Azure Stack-Datenwiederherstellung – erneute Bereitstellung](media/azure-stack-backup/azure-stack-backup-workflow2.png)
+![Workflow für die Azure Stack Hub-Datenwiederherstellung – erneute Bereitstellung](media/azure-stack-backup/azure-stack-backup-workflow2.png)
 
 ## <a name="restore"></a>Restore
 
-Wenn der Datenverlust schwerwiegend ist, die Hardware jedoch weiterhin genutzt werden kann, muss Azure Stack erneut bereitgestellt werden. Während der erneuten Bereitstellung können Sie den Speicherort und die für den Zugriff auf Sicherungen erforderlichen Anmeldeinformationen angeben. In diesem Modus müssen die wiederherzustellenden Dienste nicht angegeben werden. Infrastructure Backup Controller fügt den Status der Steuerungsebene als Teil des Bereitstellungsworkflows ein.
+Wenn der Datenverlust schwerwiegend ist, die Hardware jedoch weiterhin genutzt werden kann, muss Azure Stack Hub erneut bereitgestellt werden. Während der erneuten Bereitstellung können Sie den Speicherort und die für den Zugriff auf Sicherungen erforderlichen Anmeldeinformationen angeben. In diesem Modus müssen die wiederherzustellenden Dienste nicht angegeben werden. Infrastructure Backup Controller fügt den Status der Steuerungsebene als Teil des Bereitstellungsworkflows ein.
 
 Bei einem Notfall, nach dem die Hardware nicht mehr genutzt werden kann, ist die erneute Bereitstellung nur auf neuer Hardware möglich. Eine erneute Bereitstellung kann mehrere Wochen dauern, bis Ersatzhardware bestellt und an das Rechenzentrum geliefert wurde. Die Wiederherstellung von Daten auf Steuerungsebene kann jederzeit durchgeführt werden. Die Wiederherstellung wird jedoch nicht unterstützt, wenn die Version der erneut bereitgestellten Instanz mehr als eine Version höher ist als die bei der letzten Sicherung verwendete Version.
 
 | Bereitstellungsmodus | Startpunkt | Endpunkt                                                                                                                                                                                                     |
 |-----------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Neuinstallation   | Baselinebuild | OEM stellt Azure Stack bereit und wird auf die neueste unterstützte Version aktualisiert.                                                                                                                                          |
-| Wiederherstellungsmodus   | Baselinebuild | OEM stellt Azure Stack im Wiederherstellungsmodus bereit und verarbeitet die Anforderungen zur Versionsübereinstimmung basierend auf der neuesten verfügbaren Sicherung. OEM schließt die Bereitstellung durch Aktualisierung auf die neueste unterstützte Version ab. |
+| Neuinstallation   | Baselinebuild | OEM stellt Azure Stack Hub bereit und wird auf die neueste unterstützte Version aktualisiert.                                                                                                                                          |
+| Wiederherstellungsmodus   | Baselinebuild | OEM stellt Azure Stack Hub im Wiederherstellungsmodus bereit und verarbeitet die Anforderungen zur Versionsübereinstimmung basierend auf der neuesten verfügbaren Sicherung. OEM schließt die Bereitstellung durch Aktualisierung auf die neueste unterstützte Version ab. |
 
 ## <a name="data-in-backups"></a>Daten in Sicherungen
 
-Azure Stack unterstützt die Bereitstellung im sogenannten Cloudwiederherstellungsmodus. Dieser Modus wird nur verwendet, wenn Sie Azure Stack wiederherstellen möchten, nachdem die Lösung infolge eines Notfalls oder Produktfehlers nicht mehr wiederherstellbar war. Bei diesem Bereitstellungsmodus werden keine der in der Lösung gespeicherten Benutzerdaten wiederhergestellt. Der Umfang dieses Bereitstellungsmodus beschränkt sich auf die Wiederherstellung der folgenden Daten:
+Azure Stack Hub unterstützt die Bereitstellung im sogenannten Cloudwiederherstellungsmodus. Dieser Modus wird nur verwendet, wenn Sie Azure Stack Hub wiederherstellen möchten, nachdem die Lösung infolge eines Notfalls oder Produktfehlers nicht mehr wiederherstellbar war. Bei diesem Bereitstellungsmodus werden keine der in der Lösung gespeicherten Benutzerdaten wiederhergestellt. Der Umfang dieses Bereitstellungsmodus beschränkt sich auf die Wiederherstellung der folgenden Daten:
 
  - Bereitstellungseingaben
  - Daten des internen Identitätsdiensts (ADFS-Bereitstellungen).

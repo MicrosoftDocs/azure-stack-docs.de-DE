@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen einer Azure Stack-VM mithilfe eines in Key VM gespeicherten Kennworts | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie einen virtuellen Computer mithilfe eines Kennworts bereitstellen, das in einem Azure Stack-Schlüsseltresor gespeichert ist.
+title: Bereitstellen einer Azure Stack Hub-VM mithilfe eines in Key Vault gespeicherten Kennworts | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie einen virtuellen Computer mithilfe eines Kennworts bereitstellen, das in einer Azure Stack Hub-Key Vault-Instanz gespeichert ist.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,22 +15,20 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2a75ee1794e9ebfeb995ea03137d12c6c50cce4f
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 01bee6f4f82938c078e22d0587b3f34c2e9f76c7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909506"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883659"
 ---
-# <a name="deploy-an-azure-stack-vm-using-a-password-stored-in-key-vault"></a>Bereitstellen einer Azure Stack-VM mithilfe eines in Key VM gespeicherten Kennworts
+# <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Bereitstellen einer Azure Stack Hub-VM mithilfe eines in Key Vault gespeicherten Kennworts
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-In diesem Artikel erfahren Sie Schritt für Schritt, wie Sie einen virtuellen Windows Server-Computer mit einem sicheren Kennwort bereitstellen, das in einer Azure Stack Key Vault-Instanz gespeichert ist. Die Verwendung eines Schlüsseltresorkennworts ist sicherer als die Übergabe eines Nur-Text-Kennworts.
+In diesem Artikel erfahren Sie Schritt für Schritt, wie Sie einen virtuellen Windows Server-Computer mit einem sicheren Kennwort bereitstellen, das in einer Azure Stack Hub-Key Vault-Instanz gespeichert ist. Die Verwendung eines Schlüsseltresorkennworts ist sicherer als die Übergabe eines Nur-Text-Kennworts.
 
 ## <a name="overview"></a>Übersicht
 
-Sie können Werte (etwa Kennwörter) als Geheimnis in einem Azure Stack-Schlüsseltresor speichern. Auf das erstellte Geheimnis kann dann in Azure Resource Manager-Vorlagen verwiesen werden. Die Verwendung von Geheimnissen mit Resource Manager bietet folgende Vorteile:
+Sie können Werte – wie z. B. Kennwörter – als Geheimnis in einem Azure Stack Hub-Key Vault-Instanz speichern. Auf das erstellte Geheimnis kann dann in Azure Resource Manager-Vorlagen verwiesen werden. Die Verwendung von Geheimnissen mit Resource Manager bietet folgende Vorteile:
 
 * Das Geheimnis muss nicht bei jeder Bereitstellung einer Ressource manuell eingegeben werden.
 * Sie können angeben, welche Benutzer oder Dienstprinzipale Zugriff auf ein Geheimnis haben sollen.
@@ -38,7 +36,7 @@ Sie können Werte (etwa Kennwörter) als Geheimnis in einem Azure Stack-Schlüss
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Sie müssen ein Angebot abonnieren, das den Key Vault-Dienst umfasst.
-* [Installieren Sie PowerShell für Azure Stack-](../operator/azure-stack-powershell-install.md)
+* [Installieren Sie PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md).
 * [Konfigurieren der PowerShell-Umgebung](azure-stack-powershell-configure-user.md)
 
 Die folgenden Schritte beschreiben das Verfahren zum Erstellen eines virtuellen Computers durch Abrufen des Kennworts, das in einem Schlüsseltresor gespeichert ist:

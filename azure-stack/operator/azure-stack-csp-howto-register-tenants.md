@@ -1,6 +1,6 @@
 ---
-title: Hinzufügen von Mandanten für Nutzung und Abrechnung zu Azure Stack | Microsoft-Dokumentation
-description: Finden Sie heraus, wie Sie einen Mandanten für die Nutzung und Abrechnung zu Azure Stack hinzufügen.
+title: Hinzufügen von Mandanten für Nutzung und Abrechnung zu Azure Stack Hub | Microsoft-Dokumentation
+description: Finden Sie heraus, wie Sie einen Mandanten für die Nutzung und Abrechnung zu Azure Stack Hub hinzufügen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,24 +15,22 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: a146a99476912e97c72e7a37ffc5224158feaffc
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 9bf0e51deb8e30bfeab978e3bdec1f4c4343561d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310152"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882605"
 ---
-# <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Hinzufügen von Mandanten für Nutzung und Abrechnung zu Azure Stack
+# <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Hinzufügen eines Mandanten für Nutzung und Abrechnung zu Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme*
+Dieser Artikel zeigt, wie Sie einer von einem Cloudlösungsanbieter (Cloud Solution Provider, CSP) verwalteten Azure Stack Hub-Bereitstellung einen Mandanten hinzufügen. Wenn der neue Mandant Ressourcen verwendet, meldet Azure Stack Hub die Nutzung an das CSP-Abonnement des Mandanten.
 
-Dieser Artikel zeigt, wie Sie einer von einem Cloudlösungsanbieter (Cloud Solution Provider, CSP) verwalteten Azure Stack-Bereitstellung einen Mandanten hinzufügen. Wenn der neue Mandant Ressourcen verwendet, meldet Azure Stack die Nutzung an sein CSP-Abonnement.
+CSPs bieten häufig mehreren Endkunden (Mandanten) in ihrer Azure Stack Hub-Bereitstellung Dienste an. Durch Hinzufügen von Mandanten zur Azure Stack Hub-Registrierung wird sichergestellt, dass die Nutzung jedes Mandanten gemeldet und dem entsprechenden CSP-Abonnement in Rechnung gestellt wird. Wenn Sie die Schritte in diesem Artikel nicht ausführen, wird die Nutzung durch Mandanten dem für die anfängliche Azure Stack Hub-Registrierung verwendeten Abonnement in Rechnung gestellt. Bevor Sie Azure Stack Hub einen Endkunden zum Nachverfolgen der Nutzung und Verwalten von Mandanten hinzufügen können, müssen Sie Azure Stack Hub als CSP konfigurieren. Informationen zu Schritten und Ressourcen finden Sie unter [Verwalten der Nutzung und Abrechnung für Azure Stack Hub als Cloud Solution Provider](azure-stack-add-manage-billing-as-a-csp.md).
 
-CSPs bieten Dienste häufig mehreren Endkunden (Mandanten) in ihrer Azure Stack-Bereitstellung an. Das Hinzufügen von Mandanten zur Azure Stack-Registrierung sorgt dafür, dass die Nutzung jedes Mandanten gemeldet und mit dem entsprechenden CSP-Abonnement abgerechnet wird. Wenn Sie die Schritte in diesem Artikel nicht ausführen, wird die Nutzung durch Mandanten dem für die anfängliche Azure Stack-Registrierung verwendeten Abonnement in Rechnung gestellt. Bevor Sie Azure Stack einen Endkunden für die Nutzungsnachverfolgung und zum Verwalten von Mandanten hinzufügen können, müssen Sie Azure Stack als CSP konfigurieren. Informationen zu Schritten und Ressourcen finden Sie unter [Verwalten von Nutzung und Abrechnung für Azure Stack als Cloudlösungsanbieter](azure-stack-add-manage-billing-as-a-csp.md).
+Die folgende Abbildung zeigt die Schritte, die ein CSP ausführen muss, um einem neuen Endkunden die Verwendung von Azure Stack Hub zu ermöglichen und die Nutzungsnachverfolgung für den Kunden einzurichten. Durch Hinzufügen des Endkunden sind Sie auch in der Lage, Ressourcen in Azure Stack Hub zu verwalten. Sie können zwischen zwei Optionen zur Verwaltung ihrer Ressourcen wählen:
 
-Die folgende Abbildung zeigt die Schritte, die ein CSP ausführen muss, um einem neuen Endkunden die Verwendung von Azure Stack zu ermöglichen und die Nutzungsnachverfolgung für den Kunden einzurichten. Durch Hinzufügen des Endkunden sind Sie auch in der Lage, Ressourcen in Azure Stack zu verwalten. Sie können zwischen zwei Optionen zur Verwaltung ihrer Ressourcen wählen:
-
-- Sie können den Endkunden verwalten und dem Endkunden Anmeldeinformationen für das lokale Azure Stack-Abonnement bereitstellen.  
+- Sie können den Endkunden verwalten und ihm Anmeldeinformationen für das lokale Azure Stack Hub-Abonnement bereitstellen.  
 - Alternativ kann der Endkunde mit seinem Abonnement lokal arbeiten und den CSP als Gast mit Besitzerberechtigungen hinzufügen.
 
 ## <a name="add-an-end-customer"></a>Hinzufügen eines Endkunden
@@ -53,11 +51,11 @@ Nachdem Sie einen Datensatz Ihres Kunden im Partner Center erstellt haben, könn
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>Erstellen eines Gastbenutzers im Endkundenverzeichnis
 
-Standardmäßig haben Sie als CSP keinen Zugriff auf das Azure Stack-Abonnement des Endkunden. Falls Ihr Kunde möchte, dass seine Ressourcen von Ihnen verwaltet werden, kann er Ihr Konto als Besitzer/Mitwirkender seinem Azure Stack-Abonnement hinzufügen. Hierfür muss der Kunde Ihr Konto seinem Azure AD-Mandanten als Gastbenutzer hinzufügen. Es empfiehlt sich, ein anderes Konto als Ihr Azure-CSP-Konto zum Verwalten des Azure Stack-Abonnements Ihres Kunden zu verwenden. So stellen Sie sicher, dass Sie den Zugriff auf das Azure-Abonnement Ihres Kunden nicht verlieren.
+Standardmäßig haben Sie als CSP keinen Zugriff auf das Azure Stack Hub-Abonnement des Endkunden. Falls Ihr Kunde jedoch möchte, dass Sie seine Ressourcen verwalten, kann er Ihr Konto als Besitzer/Mitwirkender zu seinem Azure Stack Hub-Abonnement hinzufügen. Hierfür muss der Kunde Ihr Konto seinem Azure AD-Mandanten als Gastbenutzer hinzufügen. Es empfiehlt sich, zum Verwalten des Azure Stack Hub-Abonnements ein anderes Konto als Ihr Azure-CSP-Konto zu verwenden. So stellen Sie sicher, dass Sie den Zugriff auf das Azure-Abonnement Ihres Kunden nicht verlieren.
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>Aktualisieren der Registrierung mit dem Endkundenabonnement
 
-Aktualisieren Sie Ihre Registrierung mit dem Abonnement des neuen Kunden. Azure meldet die Nutzung des Kunden mithilfe der Kundenidentität aus dem Partner Center. So wird sichergestellt, dass die Nutzung jedes Kunden unter dem individuellen CSP-Abonnement des Kunden gemeldet wird. Dies erleichtert die Nachverfolgung der Nutzung und die Abrechnung. Um diesen Schritt ausführen zu können, müssen Sie [Azure Stack zunächst registrieren](azure-stack-registration.md).
+Aktualisieren Sie Ihre Registrierung mit dem Abonnement des neuen Kunden. Azure meldet die Nutzung des Kunden mithilfe der Kundenidentität aus dem Partner Center. So wird sichergestellt, dass die Nutzung jedes Kunden unter dem individuellen CSP-Abonnement des Kunden gemeldet wird. Dies erleichtert die Nachverfolgung der Nutzung und die Abrechnung. Um diesen Schritt ausführen zu können, müssen Sie zuerst [Azure Stack Hub registrieren](azure-stack-registration.md).
 
 1. Öffnen Sie Windows PowerShell mit einer Eingabeaufforderung mit erhöhten Rechten, und führen Sie Folgendes aus:  
 
@@ -79,26 +77,26 @@ Aktualisieren Sie Ihre Registrierung mit dem Abonnement des neuen Kunden. Azure 
 
 Im folgenden Abschnitt werden die Parameter für das Cmdlet **New-AzureRmResource** beschrieben:
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --- | --- |
-|registrationSubscriptionID | Das Azure-Abonnement, das für die anfängliche Registrierung von Azure Stack verwendet wurde.|
-| customerSubscriptionID | Das Azure-Abonnement (nicht Azure Stack), das zu dem Kunden gehört, der registriert werden soll. Muss im CSP-Angebot erstellt werden. In der Praxis über das Partner Center. Wenn ein Kunde über mehrere Azure Active Directory-Mandanten verfügt, muss dieses Abonnement in dem Mandanten erstellt werden, der zum Anmelden bei Azure Stack verwendet wird. Die Kundenabonnement-ID muss aus Kleinbuchstaben bestehen. |
+|registrationSubscriptionID | Das Azure-Abonnement, das für die anfängliche Registrierung von Azure Stack Hub verwendet wurde.|
+| customerSubscriptionID | Das Azure-Abonnement (nicht Azure Stack Hub), das zu dem Kunden gehört, der registriert werden soll. Muss im CSP-Angebot erstellt werden. In der Praxis über das Partner Center. Wenn ein Kunde über mehrere Azure Active Directory-Mandanten verfügt, muss dieses Abonnement in dem Mandanten erstellt werden, der zum Anmelden bei Azure Stack Hub verwendet wird. Die Kundenabonnement-ID muss aus Kleinbuchstaben bestehen. |
 | resourceGroup | Die Ressourcengruppe in Azure, in dem Ihre Registrierung gespeichert ist. |
-| registrationName | Der Name der Registrierung Ihrer Azure Stack-Instanz. Dies ist ein in Azure gespeichertes Objekt. 
+| registrationName | Der Name der Registrierung Ihrer Azure Stack Hub-Instanz. Dies ist ein in Azure gespeichertes Objekt. 
 
 > [!NOTE]  
-> Mandanten müssen bei jeder Azure Stack-Instanz registriert werden, die sie verwenden. Wenn Sie über zwei Azure Stack-Bereitstellungen verfügen und ein Mandant beide verwendet, müssen Sie die anfänglichen Registrierungen jeder Bereitstellung mit dem Mandantenabonnement aktualisieren.
+> Mandanten müssen bei jeder Azure Stack Hub-Instanz registriert werden, die sie verwenden. Wenn Sie über zwei Azure Stack Hub-Bereitstellungen verfügen und ein Mandant beide verwendet, müssen Sie die anfänglichen Registrierungen jeder Bereitstellung beim Mandantenabonnement aktualisieren.
 
-### <a name="onboard-tenant-to-azure-stack"></a>Integrieren von Mandanten in Azure Stack
+### <a name="onboard-tenant-to-azure-stack-hub"></a>Onboarding von Mandanten in Azure Stack Hub
 
-Konfigurieren Sie Azure Stack so, dass Benutzer aus mehreren Azure AD-Mandanten Dienste in Azure Stack verwenden können. Anweisungen finden Sie unter [Aktivieren der Mehrinstanzenfähigkeit in Azure Stack](azure-stack-enable-multitenancy.md).
+Konfigurieren Sie Azure Stack Hub so, dass Benutzer aus mehreren Azure AD-Mandanten Dienste in Azure Stack Hub verwenden können. Anweisungen finden Sie unter [Aktivieren der Mehrinstanzenfähigkeit in Azure Stack Hub](azure-stack-enable-multitenancy.md).
 
-### <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack"></a>Erstellen einer lokalen Ressource im Endkundenmandanten in Azure Stack
+### <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack-hub"></a>Erstellen einer lokalen Ressource im Endkundenmandanten in Azure Stack Hub
 
-Nachdem Sie Azure Stack den neuen Kunden hinzugefügt haben bzw. nachdem der Endkundenmandant Ihr Gastkonto mit Besitzerberechtigungen aktiviert hat, stellen Sie sicher, dass Sie im Mandanten eine Ressource erstellen können. Zum Beispiel müsste das [Erstellen eines virtuellen Windows-Computers mit dem Azure Stack-Portal](../user/azure-stack-quick-windows-portal.md) möglich sein.
+Nachdem Sie Azure Stack Hub den neuen Kunden hinzugefügt haben bzw. nachdem der Endkundenmandant Ihr Gastkonto mit Besitzerberechtigungen aktiviert hat, stellen Sie sicher, dass Sie im Mandanten eine Ressource erstellen können. Zum Beispiel müsste das [Erstellen eines virtuellen Windows-Computers mit dem Azure Stack Hub-Portal](../user/azure-stack-quick-windows-portal.md) möglich sein.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Wie Sie ggf. in Ihrem Registrierungsprozess ausgelöste Fehlermeldungen überprüfen, erfahren Sie unter [Fehlermeldungen bei der Mandantenregistrierung](azure-stack-registration-errors.md).
-- Weitere Informationen zum Abrufen von Ressourcennutzungsinformationen aus Azure Stack finden Sie unter [Verbrauch und Abrechnung in Azure Stack](azure-stack-billing-and-chargeback.md).
-- Wie ein Endkunde Sie (in Ihrer Funktion als CSP) als Manager für seinen Azure Stack-Mandanten hinzufügen kann, erfahren Sie unter [Ermöglichen der Verwaltung Ihres Azure Stack-Abonnements durch Ihren Cloudlösungsanbieter](../user/azure-stack-csp-enable-billing-usage-tracking.md).
+- Weitere Informationen zum Abrufen von Ressourcennutzungsinformationen aus Azure Stack Hub finden Sie unter [Verbrauch und Abrechnung in Azure Stack Hub](azure-stack-billing-and-chargeback.md).
+- Wie ein Endkunde Sie (in Ihrer Funktion als CSP) als Manager für seinen Azure Stack Hub-Mandanten hinzufügen kann, erfahren Sie unter [Ermöglichen der Verwaltung Ihres Azure Stack Hub-Abonnements durch Ihren Cloudlösungsanbieter](../user/azure-stack-csp-enable-billing-usage-tracking.md).

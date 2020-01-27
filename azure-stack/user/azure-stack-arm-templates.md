@@ -1,6 +1,6 @@
 ---
-title: Verwenden von Azure Resource Manager-Vorlagen in Azure Stack | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie Azure Resource Manager-Vorlagen in Azure Stack zum Bereitstellen von Ressourcen verwenden.
+title: Verwenden von Azure Resource Manager-Vorlagen in Azure Stack Hub | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie Azure Resource Manager-Vorlagen in Azure Stack Hub zum Bereitstellen von Ressourcen verwenden.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,24 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: df7a6e7c42a8863117faaccfd4108c4ffd806a5a
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: 86981e41495e628571977c3b438a3b57eb0b3c2c
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993767"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535874"
 ---
-# <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Verwenden von Azure-Ressourcen-Manager-Vorlagen in Azure Stack
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+# <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>Verwenden von Azure Resource Manager-Vorlagen in Azure Stack Hub
 
 Mit Azure Resource Manager-Vorlagen können Sie alle Ressourcen für Ihre Anwendung in einem einzigen, koordinierten Vorgang bereitstellen. Sie können Vorlagen auch erneut bereitstellen, um Änderungen an den Ressourcen in einer Ressourcengruppe vorzunehmen.
 
-Diese Vorlagen können mit dem Microsoft Azure Stack-Portal, PowerShell, über die Befehlszeile und Visual Studio bereitgestellt werden.
+Diese Vorlagen können über das Microsoft Azure Stack Hub-Portal, mit PowerShell, über die Befehlszeile und mit Visual Studio bereitgestellt werden.
 
 Die folgenden Schnellstartvorlagen sind auf [GitHub](https://aka.ms/azurestackgithub) verfügbar.
 
@@ -73,11 +71,11 @@ Verwenden Sie die PowerShell DSC-Erweiterung, um einen vorhandenen lokalen Konfi
 
 ## <a name="basic-virtual-machine"></a>Virtueller Computer im Tarif „Basic“
 
-[Stellen Sie einen virtuellen Windows-Computer bereit](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-simple-windows-vm), der ein virtuelles Netzwerk (mit DNS), eine öffentliche IP-Adresse und eine Netzwerkschnittstelle umfasst.
+[Stellen Sie einen virtuellen Windows-Computer bereit](https://aka.ms/aa6zdzx), der ein virtuelles Netzwerk (mit DNS), eine öffentliche IP-Adresse und eine Netzwerkschnittstelle umfasst.
 
 ## <a name="cancel-a-running-template-deployment"></a>Abbrechen der Bereitstellung einer Vorlage
 
-Verwenden Sie zum Abbrechen der Ausführung einer Vorlagenbereitstellung das PowerShell-[Cmdlet](/powershell/scripting/developer/cmdlet/cmdlet-overview) [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment).
+Verwenden Sie zum Abbrechen der Ausführung einer Vorlagenbereitstellung das PowerShell-[Cmdlet](/powershell/scripting/developer/cmdlet/cmdlet-overview)[Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

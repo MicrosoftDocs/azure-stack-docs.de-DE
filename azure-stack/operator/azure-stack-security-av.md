@@ -1,7 +1,7 @@
 ---
 title: Aktualisieren von Windows Defender Antivirus
-titleSuffix: Azure Stack
-description: Hier erfahren Sie, wie Sie Windows Defender Antivirus in Azure Stack aktualisieren.
+titleSuffix: Azure Stack Hub
+description: Hier erfahren Sie, wie Sie Windows Defender Antivirus in Azure Stack Hub aktualisieren.
 services: azure-stack
 author: justinha
 manager: femila
@@ -11,22 +11,22 @@ ms.date: 12/04/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: fb6271114f27b16b9cb7a660deb7d6bcee197ca2
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: a631d700bc83e4fabeca4472f5d2a81c411ddc9b
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718129"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75821085"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack-hub"></a>Aktualisieren von Windows Defender Antivirus in Azure Stack Hub
 
-[Windows Defender Antivirus](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) ist eine Antischadsoftwarelösung, die Sicherheit und Virenschutz bereitstellt. Jede Azure Stack-Infrastrukturkomponente (Hyper-V-Hosts und virtuelle Computer) wird mit Windows Defender Antivirus geschützt. Für einen aktuellen Schutz benötigen Sie regelmäßige Updates für die Windows Defender Antivirus-Definitionen, -Engine und -Plattform. Wie Updates angewendet werden, hängt von Ihrer Konfiguration ab.
+[Windows Defender Antivirus](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) ist eine Antischadsoftwarelösung, die Sicherheit und Virenschutz bereitstellt. Jede Azure Stack Hub-Infrastrukturkomponente (Hyper-V-Hosts und virtuelle Computer) wird mit Windows Defender Antivirus geschützt. Für einen aktuellen Schutz benötigen Sie regelmäßige Updates für die Windows Defender Antivirus-Definitionen, -Engine und -Plattform. Wie Updates angewendet werden, hängt von Ihrer Konfiguration ab.
 
 ## <a name="connected-scenario"></a>Verbundenes Szenario
 
-Der Azure Stack Hub-[Updateressourcenanbieter](azure-stack-updates.md#the-update-resource-provider) lädt mehrmals täglich Antischadsoftwaredefinitionen und Engineupdates herunter. Jede Azure Stack-Infrastrukturkomponente erhält das Update vom Updateressourcenanbieter und wendet das Update automatisch an.
+Der Azure Stack Hub-[Updateressourcenanbieter](azure-stack-updates.md#the-update-resource-provider) lädt mehrmals täglich Antischadsoftwaredefinitionen und Engineupdates herunter. Jede Azure Stack Hub-Infrastrukturkomponente erhält das Update vom Updateressourcenanbieter und wendet das Update automatisch an.
 
-Wenden Sie für die Azure Stack Hub-Bereitstellungen, die mit dem öffentlichen Internet verbunden sind, das [monatliche Azure Stack-Update](azure-stack-apply-updates.md) an. Das monatliche Azure Stack Hub-Update umfasst Windows Defender Antivirus-Plattformupdates für den Monat.
+Wenden Sie für die Azure Stack Hub-Bereitstellungen, die mit dem öffentlichen Internet verbunden sind, das [monatliche Azure Stack Hub-Update](azure-stack-apply-updates.md) an. Das monatliche Azure Stack Hub-Update umfasst Windows Defender Antivirus-Plattformupdates für den Monat.
 
 ## <a name="disconnected-scenario"></a>Nicht verbundenes Szenario
 

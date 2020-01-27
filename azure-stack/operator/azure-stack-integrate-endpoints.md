@@ -1,6 +1,6 @@
 ---
-title: Veröffentlichen von Azure Stack-Diensten im Rechenzentrum | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie Azure Stack-Dienste in Ihrem Rechenzentrum veröffentlichen.
+title: Veröffentlichen von Azure Stack Hub-Diensten im Rechenzentrum | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie Azure Stack Hub-Dienste in Ihrem Rechenzentrum veröffentlichen.
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -10,16 +10,16 @@ ms.date: 12/11/2019
 ms.author: justinha
 ms.reviewer: wamota
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 2da6bb4fb70a3d8e816870c8569f8f3e3aa7d678
-ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
+ms.openlocfilehash: 5ed74e225df2e2667acc536e0b8dbd901a086b9a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2019
-ms.locfileid: "75007995"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818008"
 ---
-# <a name="publish-azure-stack-services-in-your-datacenter"></a>Veröffentlichen von Azure Stack-Diensten in Ihrem Rechenzentrum 
+# <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Veröffentlichen von Azure Stack Hub-Diensten in Ihrem Rechenzentrum 
 
-Azure Stack richtet für die eigenen Infrastrukturrollen virtuelle IP-Adressen (VIPs) ein. Diese VIPs stammen aus dem öffentlichen IP-Adresspool. Jede VIP wird durch eine Zugriffssteuerungsliste (Access Control List, ACL) auf der softwaredefinierten Netzwerkebene geschützt. Für zusätzlichen Schutz werden außerdem übergreifende ACLs für die physischen Switches (TORs und BMC) verwendet. Für jeden Endpunkt in der externen DNS-Zone, die zum Zeitpunkt der Bereitstellung angegeben wurde, wird ein DNS-Eintrag erstellt. Dem Benutzerportal wird z. B. der DNS-Hosteintrag „portal. *&lt;region>.&lt;fqdn>* “ zugewiesen.
+Azure Stack Hub richtet für die eigenen Infrastrukturrollen virtuelle IP-Adressen (VIPs) ein. Diese VIPs stammen aus dem öffentlichen IP-Adresspool. Jede VIP wird durch eine Zugriffssteuerungsliste (Access Control List, ACL) auf der softwaredefinierten Netzwerkebene geschützt. Für zusätzlichen Schutz werden außerdem übergreifende ACLs für die physischen Switches (TORs und BMC) verwendet. Für jeden Endpunkt in der externen DNS-Zone, die zum Zeitpunkt der Bereitstellung angegeben wurde, wird ein DNS-Eintrag erstellt. Dem Benutzerportal wird z. B. der DNS-Hosteintrag „portal. *&lt;region>.&lt;fqdn>* “ zugewiesen.
 
 Das folgende Architekturdiagramm zeigt die verschiedenen Netzwerkebenen und ACLs:
 
@@ -27,7 +27,7 @@ Das folgende Architekturdiagramm zeigt die verschiedenen Netzwerkebenen und ACLs
 
 ### <a name="ports-and-urls"></a>Ports und URLs
 
-Damit Sie Azure Stack-Dienste (wie Portale, Azure Resource Manager, DNS, usw.) für externe Netzwerke zur Verfügung stellen können, müssen Sie für diese Endpunkte den eingehenden Datenverkehr für bestimmte URLs, Ports und Protokolle zulassen.
+Damit Sie Azure Stack Hub-Dienste (wie Portale, Azure Resource Manager, DNS, usw.) für externe Netzwerke zur Verfügung stellen können, müssen Sie für diese Endpunkte den eingehenden Datenverkehr für bestimmte URLs, Ports und Protokolle zulassen.
  
 In einer Bereitstellung mit einem Uplink zwischen einem transparenten Proxy und einem herkömmlichen Proxyserver bzw. wenn eine Firewall die Lösung schützt, müssen sowohl für die [eingehende](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) als auch die [ausgehende](azure-stack-integrate-endpoints.md#ports-and-urls-outbound) Kommunikation bestimmte Ports und URLs zugelassen werden. Dazu gehören Ports und URLs für Identität, der Marketplace, Patch und Update, Registrierung und Nutzungsdaten.
 
@@ -35,9 +35,9 @@ Das Abfangen von SSL-Datenverkehr wird [nicht unterstützt](azure-stack-firewall
 
 ## <a name="ports-and-protocols-inbound"></a>Ports und Protokolle (eingehend)
 
-Eine Reihe von Infrastruktur-VIPs wird für die Veröffentlichung von Azure Stack-Endpunkten in externen Netzwerken benötigt. Die Tabelle *Endpunkt (VIP)* enthält jeweils den Endpunkt, den erforderlichen Port und das Protokoll. Informationen zu Endpunkten, für die zusätzliche Ressourcenanbieter (etwa der SQL-Ressourcenanbieter) erforderlich sind, finden Sie in der Bereitstellungsdokumentation des jeweiligen Ressourcenanbieters.
+Eine Reihe von Infrastruktur-VIPs wird für die Veröffentlichung von Azure Stack Hub-Endpunkten in externen Netzwerken benötigt. Die Tabelle *Endpunkt (VIP)* enthält jeweils den Endpunkt, den erforderlichen Port und das Protokoll. Informationen zu Endpunkten, für die zusätzliche Ressourcenanbieter (etwa der SQL-Ressourcenanbieter) erforderlich sind, finden Sie in der Bereitstellungsdokumentation des jeweiligen Ressourcenanbieters.
 
-Interne Infrastruktur-VIPs sind nicht aufgeführt, da sie zum Veröffentlichen von Azure Stack nicht benötigt werden. Benutzer-VIPs sind dynamisch und werden von den Benutzern selbst definiert. Der Azure Stack-Betreiber hat darauf keinen Einfluss.
+Interne Infrastruktur-VIPs sind nicht aufgeführt, da sie zum Veröffentlichen von Azure Stack Hub nicht benötigt werden. Benutzer-VIPs sind dynamisch und werden von den Benutzern selbst definiert. Der Azure Stack Hub-Operator hat darauf keinen Einfluss.
 
 > [!Note]  
 > IKEv2-VPN ist eine standardbasierte IPsec-VPN-Lösung, für die UDP-Port 500 und 4500 sowie TCP-Port 50 verwendet werden. Da diese Ports für Firewalls nicht immer geöffnet sind, kann eine IKEv2-VPN-Verbindung die Proxys und Firewalls ggf. nicht immer durchlaufen.
@@ -72,12 +72,12 @@ Wenn der [Erweiterungshost](azure-stack-extension-host-prepare.md) hinzugefügt 
 
 ## <a name="ports-and-urls-outbound"></a>Ports und URLs (ausgehend)
 
-Azure Stack unterstützt nur transparente Proxyserver. In einer Bereitstellung mit einem Uplink zwischen einem transparenten Proxy und einem herkömmlichen Proxyserver müssen für die ausgehende Kommunikation die Ports und URLs in der folgenden Tabelle zugelassen werden.
+Azure Stack Hub unterstützt nur transparente Proxyserver. In einer Bereitstellung mit einem Uplink zwischen einem transparenten Proxy und einem herkömmlichen Proxyserver müssen für die ausgehende Kommunikation die Ports und URLs in der folgenden Tabelle zugelassen werden.
 
 Das Abfangen von SSL-Datenverkehr wird [nicht unterstützt](azure-stack-firewall.md#ssl-interception) und kann beim Zugriff auf Endpunkte zu Dienstfehlern führen. Das maximal unterstützte Zeitlimit für die Kommunikation mit Endpunkten, die für die Identität erforderlich sind, ist 60 Sekunden.
 
 > [!Note]  
-> Azure Stack bietet keine Unterstützung für die Verwendung von ExpressRoute zur Kommunikation mit den in der folgenden Tabelle aufgeführten Azure-Diensten, weil ExpressRoute den Datenverkehr möglicherweise nicht an alle Endpunkte weiterleiten kann.
+> Azure Stack Hub bietet keine Unterstützung für die Verwendung von ExpressRoute zur Kommunikation mit den in der folgenden Tabelle aufgeführten Azure-Diensten, weil ExpressRoute den Datenverkehr möglicherweise nicht an alle Endpunkte weiterleiten kann.
 
 |Zweck|Ziel-URL|Protocol|Ports|Quellnetzwerk|
 |---------|---------|---------|---------|---------|
@@ -104,4 +104,4 @@ Ausgehender DNS-Datenverkehr ist immer erforderlich. Nur die Quelle für die ext
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[PKI-Anforderungen für Azure Stack](azure-stack-pki-certs.md)
+[PKI-Anforderungen für Azure Stack Hub](azure-stack-pki-certs.md)

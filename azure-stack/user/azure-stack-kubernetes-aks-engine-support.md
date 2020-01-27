@@ -1,6 +1,6 @@
 ---
-title: Supportrichtlinien für die AKS-Engine in Azure Stack | Microsoft-Dokumentation
-description: Dieses Thema enthält die Supportrichtlinien für die AKS-Engine in Azure Stack.
+title: Supportrichtlinien für die AKS-Engine in Azure Stack Hub | Microsoft-Dokumentation
+description: Dieses Thema enthält die Supportrichtlinien für die AKS-Engine in Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,20 +15,18 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 1aa8aa65f0b19efcbafc85887e644c1c2b773bde
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 2fda9a71a06e22625778a66a2c553d83e17d8ec2
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310166"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883591"
 ---
-# <a name="support-policies-for-aks-engine-on-azure-stack"></a>Supportrichtlinien für die AKS-Engine in Azure Stack
+# <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Supportrichtlinien für die AKS-Engine in Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+Dieser Artikel enthält Details zu den Richtlinien für technischen Support und Einschränkungen für die AKS-Engine in Azure Stack Hub. Der Artikel enthält auch Details zum Kubernetes-Marketplace-Element, zu Open-Source-Komponenten von Drittanbietern und zur Sicherheits- oder Patchverwaltung. 
 
-Dieser Artikel enthält Details zu den Richtlinien für technischen Support und Einschränkungen für die AKS-Engine in Azure Stack. Der Artikel enthält auch Details zum Kubernetes-Marketplace-Element, zu Open-Source-Komponenten von Drittanbietern und zur Sicherheits- oder Patchverwaltung. 
-
-## <a name="self-managed-kubernetes-clusters-on-azure-stack-with-aks-engine"></a>Selbstverwaltete Kubernetes-Cluster in Azure Stack mit AKS-Engine
+## <a name="self-managed-kubernetes-clusters-on-azure-stack-hub-with-aks-engine"></a>Selbstverwaltete Kubernetes-Cluster in Azure Stack Hub mit AKS-Engine
 
 IaaS-Cloudkomponenten (Infrastructure-as-a-Service), z. B. Compute- oder Netzwerkkomponenten, bieten Benutzern auf niedriger Ebene Zugriff auf Steuerelemente und Anpassungsoptionen. Die AKS-Engine ermöglicht dem Benutzer, Kubernetes-Cluster mit transparentem Einsatz dieser IaaS-Komponenten einzurichten; Benutzer können auf alle Aspekte ihrer Bereitstellungen zugreifen und sie beeinflussen.
 
@@ -42,10 +40,10 @@ Microsoft bietet technischen Support für Folgendes:
 
 -  Probleme mit AKS-Engine-Befehlen: bereitstellen, generieren, aktualisieren und skalieren. Das Verhalten des Tools in Azure sollte konsistent sein.
 -  Probleme mit einem gemäß der [Übersicht über die AKS-Engine](azure-stack-kubernetes-aks-engine-overview.md) bereitgestellten Kubernetes-Cluster.
--  Probleme mit der Konnektivität mit anderen Azure Stack-Diensten 
+-  Probleme mit der Konnektivität mit anderen Azure Stack Hub-Diensten 
 -  Probleme mit der Kubernetes-API-Konnektivität
--  Probleme mit der Funktionalität des Azure Stack-Kubernetes-Anbieters und der Konnektivität mit Azure Resource Manager
--  Probleme mit der von der AKS-Engine generierten Konfiguration nativer Azure Stack-Artefakte wie Lastenausgleichsmodulen, Netzwerksicherheitsgruppen, VNETs, Subnetzen, Netzwerkschnittstellen, Routingtabelle, Verfügbarkeitsgruppen, öffentlichen IP-Adressen, Speicherkonto und VMs 
+-  Probleme mit der Funktionalität des Azure Stack Hub-Kubernetes-Anbieters und der Konnektivität mit Azure Resource Manager
+-  Probleme mit der von der AKS-Engine generierten Konfiguration nativer Azure Stack Hub-Artefakte wie Lastenausgleichsmodulen, Netzwerksicherheitsgruppen, VNETs, Subnetzen, Netzwerkschnittstellen, Routingtabelle, Verfügbarkeitsgruppen, öffentlichen IP-Adressen, Speicherkonto und VMs 
 -  Probleme mit Netzwerkleistung und Wartezeit
 -  Probleme mit dem AKS-Basisimage, das von der AKS-Engine in getrennten Bereitstellungen verwendet wird. 
 
@@ -54,7 +52,7 @@ Microsoft bietet technischen Support für Folgendes:
 Microsoft bietet für Folgendes keinen technischen Support:
 
 -  Verwendung der AKS-Engine in Azure.
--  Azure Stack-Kubernetes-Marketplace-Element.
+-  Azure Stack Hub-Kubernetes-Marketplace-Element.
 -  Verwendung der folgenden Optionen und Add-Ons von AKS-Engine zur Clusterdefinition.
     -  Nicht unterstützte Add-Ons:  
             – AAD-Podidentität  
@@ -98,11 +96,11 @@ Microsoft bietet für Folgendes keinen technischen Support:
 
 ##  <a name="security-issues-and-patching"></a>Sicherheitsprobleme und -patches
 
-Wenn in einer oder mehreren Komponenten der AKS-Engine oder des Kubernetes-Anbieters für Azure Stack eine Sicherheitsschwachstelle gefunden wird, stellt Microsoft den Kunden einen Patch für die betroffenen Cluster bereit, um das Problem zu umgehen. Alternativ wird das Team den Benutzern eine Anleitung für ein Upgrade bereitstellen. Beachten Sie, dass das Patchen eine Clusterdowntime erfordern könnte. Wenn Neustarts erforderlich sind, setzt Microsoft die Kunden über diese Anforderung in Kenntnis. Wenn Benutzer die Patches nicht gemäß den Anweisungen von Microsoft anwenden, ist ihr Cluster weiterhin anfällig für das Sicherheitsproblem.
+Wenn in einer oder mehreren Komponenten der AKS-Engine oder des Kubernetes-Anbieters für Azure Stack Hub eine Sicherheitsschwachstelle gefunden wird, stellt Microsoft den Kunden einen Patch für die betroffenen Cluster bereit, um das Problem zu umgehen. Alternativ wird das Team den Benutzern eine Anleitung für ein Upgrade bereitstellen. Beachten Sie, dass das Patchen eine Clusterdowntime erfordern könnte. Wenn Neustarts erforderlich sind, setzt Microsoft die Kunden über diese Anforderung in Kenntnis. Wenn Benutzer die Patches nicht gemäß den Anweisungen von Microsoft anwenden, ist ihr Cluster weiterhin anfällig für das Sicherheitsproblem.
 
 ## <a name="kubernetes-marketplace-item"></a>Kubernetes-Marketplace-Element
 
-Benutzer können ein Kubernetes-Marketplace-Element herunterladen, mit dem sie Kubernetes-Cluster indirekt über eine Vorlage im Azure Stack-Benutzerportal mithilfe der AKS-Engine bereitstellen können. Dies ist einfacher als die direkte Verwendung der AKS-Engine. Mit diesem nützlichen Tool können schnell Cluster für Demonstrationen, Tests und Entwicklung eingerichtet werden. Es ist nicht für die Produktion vorgesehen, da es nicht zu der Gruppe von Elementen gehört, für die Microsoft Support bietet.
+Benutzer können ein Kubernetes-Marketplace-Element herunterladen, mit dem sie Kubernetes-Cluster indirekt über eine Vorlage im Azure Stack Hub-Benutzerportal mithilfe der AKS-Engine bereitstellen können. Dies ist einfacher als die direkte Verwendung der AKS-Engine. Mit diesem nützlichen Tool können schnell Cluster für Demonstrationen, Tests und Entwicklung eingerichtet werden. Es ist nicht für die Produktion vorgesehen, da es nicht zu der Gruppe von Elementen gehört, für die Microsoft Support bietet.
 
 ## <a name="preview-features"></a>Previewfunktionen
 
@@ -110,4 +108,4 @@ Für Features und Funktionen, die ausführliche Tests und Benutzerfeedback erfor
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Informieren Sie sich über die [AKS-Engine in Azure Stack](azure-stack-kubernetes-aks-engine-overview.md).
+- Informieren Sie sich über die [AKS-Engine in Azure Stack Hub](azure-stack-kubernetes-aks-engine-overview.md).

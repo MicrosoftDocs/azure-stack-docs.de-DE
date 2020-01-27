@@ -1,6 +1,6 @@
 ---
-title: Sichern von App Service in Azure Stack | Microsoft-Dokumentation
-description: In diesem Artikel erfahren Sie, wie Sie App Services in Azure Stack sichern.
+title: Sichern von App Service in Azure Stack Hub | Microsoft-Dokumentation
+description: In diesem Artikel erfahren Sie, wie Sie App Services in Azure Stack Hub sichern.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,23 +16,21 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: a41943a598545b1a4c5dbe6325307a8fa3594cd5
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: ba9bff9b63454be8e9f1222d8b63425ad3192724
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975037"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881364"
 ---
-# <a name="back-up-app-service-on-azure-stack"></a>Sichern von App Service in Azure Stack
+# <a name="back-up-app-service-on-azure-stack-hub"></a>Sichern von App Service in Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*  
-
-Dieses Dokument enthält Anweisungen zum Sichern von App Service in Azure Stack.
+Dieses Dokument enthält Anweisungen zum Sichern von App Service in Azure Stack Hub.
 
 > [!IMPORTANT]
-> App Service in Azure Stack wird nicht im Rahmen der [Azure Stack-Infrastruktursicherung](azure-stack-backup-infrastructure-backup.md) gesichert. Als Azure Stack-Bediener müssen Sie bestimmte Schritte ausführen, um sicherzustellen, dass App Service bei Bedarf erfolgreich wiederhergestellt werden kann.
+> App Service in Azure Stack Hub wird nicht im Rahmen der [Azure Stack Hub-Infrastruktursicherung](azure-stack-backup-infrastructure-backup.md) gesichert. Als Azure Stack Hub-Bediener müssen Sie bestimmte Schritte ausführen, um sicherzustellen, dass App Service bei Bedarf erfolgreich wiederhergestellt werden kann.
 
-Für Azure App Service in Azure Stack müssen bei der Planung der Notfallwiederherstellung vier Hauptkomponenten berücksichtigt werden:
+Für Azure App Service in Azure Stack Hub müssen bei der Planung der Notfallwiederherstellung vier Hauptkomponenten berücksichtigt werden:
 1. Die Ressourcenanbieterinfrastruktur, Serverrollen, Workerebenen usw. 
 2. Die App Service-Geheimnisse.
 3. Die SQL Server-Instanz für App Service, die Datenbanken hostet und Messungen ausführt.
@@ -43,17 +41,17 @@ Wenn Sie App Service aus einer Sicherung wiederherstellen, müssen Sie die App�
 
 Gehen Sie wie folgt vor, um App Service-Geheimnisse über das Verwaltungsportal zu sichern: 
 
-1. Melden Sie sich am Azure Stack-Administratorportal als Dienstadministrator an.
+1. Melden Sie sich am Azure Stack Hub-Administratorportal als Dienstadministrator an.
 
 2. Navigieren Sie zu **App Service** -> **Geheimnisse**. 
 
 3. Wählen Sie **Geheimnisse herunterladen** aus.
 
-   ![Herunterladen von Geheimnissen im Azure Stack-Administratorportal](./media/app-service-back-up/download-secrets.png)
+   ![Herunterladen von Geheimnissen im Azure Stack Hub-Administratorportal](./media/app-service-back-up/download-secrets.png)
 
 4. Wenn die Geheimnisse zum Herunterladen bereit sind, klicken Sie auf **Speichern**, und speichern Sie die Datei mit den App Service-Geheimnissen (**SystemSecrets.JSON**) an einem sicheren Ort. 
 
-   ![Speichern von Geheimnissen im Azure Stack-Administratorportal](./media/app-service-back-up/save-secrets.png)
+   ![Speichern von Geheimnissen im Azure Stack Hub-Administratorportal](./media/app-service-back-up/save-secrets.png)
 
 > [!NOTE]
 > Wiederholen Sie diese Schritte bei jeder Rotation der App Service-Geheimnisse.
@@ -92,4 +90,4 @@ net use $destination /delete
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte
-[Wiederherstellen von App Service in Azure Stack](app-service-recover.md)
+[Wiederherstellen von App Service in Azure Stack Hub](app-service-recover.md)

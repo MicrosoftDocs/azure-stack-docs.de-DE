@@ -1,6 +1,6 @@
 ---
-title: Verwenden von iDNS in Azure Stack | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie iDNS-Features und -Funktionen in Azure Stack verwenden.
+title: Verwenden von iDNS in Azure Stack Hub | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie iDNS-Features und -Funktionen in Azure Stack Hub verwenden.
 services: azure-stack
 documentationcenter: ''
 author: Justinha
@@ -15,22 +15,20 @@ ms.date: 09/16/2019
 ms.author: Justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 24dc5fc3ea57e1a849442fb02c118615bc8b60fa
-ms.sourcegitcommit: ca5025fb04250271fe0b2b2df8ad0b3b9ed3e604
+ms.openlocfilehash: 8bdadb4e0cd36c6e650b001585aa3519293a9247
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71020833"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883251"
 ---
-# <a name="use-idns-in-azure-stack"></a>Verwenden von IDNs in Azure Stack 
+# <a name="use-idns-in-azure-stack-hub"></a>Verwenden von iDNs in Azure Stack Hub 
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-iDNS ist ein Netzwerkfeature von Azure Stack, mit dem Sie externe DNS-Namen (beispielsweise „https:\//www.bing.com“) auflösen können. Zudem ermöglicht es Ihnen, interne virtuelle Netzwerknamen zu registrieren. Auf diese Weise können Sie virtuelle Computer im selben virtuellen Netzwerk nach dem Namen statt der IP-Adresse auflösen. Bei diesem Ansatz müssen keine benutzerdefinierten DNS-Servereinträge angegeben werden. Weitere Informationen zu DNS finden Sie unter [Azure DNS – Übersicht](https://docs.microsoft.com/azure/dns/dns-overview).
+iDNS ist ein Netzwerkfeature von Azure Stack Hub, mit dem Sie externe DNS-Namen (beispielsweise „https:\//www.bing.com“) auflösen können. Zudem ermöglicht es Ihnen, interne virtuelle Netzwerknamen zu registrieren. Auf diese Weise können Sie virtuelle Computer im selben virtuellen Netzwerk nach dem Namen statt der IP-Adresse auflösen. Bei diesem Ansatz müssen keine benutzerdefinierten DNS-Servereinträge angegeben werden. Weitere Informationen zu DNS finden Sie unter [Azure DNS – Übersicht](https://docs.microsoft.com/azure/dns/dns-overview).
 
 ## <a name="what-does-idns-do"></a>Wozu dient iDNS?
 
-Mit iDNS in Azure Stack erhalten Sie die folgenden Funktionen, ohne benutzerdefinierte DNS-Servereinträge angeben zu müssen:
+Mit iDNS in Azure Stack Hub erhalten Sie die folgenden Funktionen, ohne benutzerdefinierte DNS-Servereinträge angeben zu müssen:
 
 - Gemeinsam genutzte DNS-Namensauflösungsdienste für Mandantenworkloads.
 - Autorisierender DNS-Dienst für Namensauflösung und DNS-Registrierung innerhalb des virtuellen Netzwerks des Mandanten.
@@ -48,7 +46,7 @@ In Azure haben Sie die Option, eine DNS-Namensbezeichnung anzugeben, die einer �
 
 In der Abbildung oben erstellt Azure einen A-Eintrag im DNS für die DNS-Namensbezeichnung, angegeben unter der Zone **westus.cloudapp.azure.com**. Das Präfix und Suffix werden kombiniert, um einen [vollqualifizierten Domänennamen](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (Fully Qualified Domain Name, FQDN) zu bilden, der von überall im öffentlichen Internet aufgelöst werden kann.
 
-Azure Stack unterstützt iDNS nur für die Registrierung interner Namen, sodass Folgendes nicht möglich ist:
+Azure Stack Hub unterstützt iDNS nur für die Registrierung interner Namen, sodass Folgendes nicht möglich ist:
 
 - Erstellen eines DNS-Eintrags unter einer vorhandenen gehosteten DNS-Zone (z.B. „local.azurestack.external“).
 - Erstellen einer DNS-Zone (z.B. „contoso.com“).
@@ -192,4 +190,4 @@ Die Labergebnisse zeigen, dass Sie bestimmen können, welche IP-Adresse verwende
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[DNS in Azure Stack](azure-stack-dns.md)
+[Verwenden von DNS in Azure Stack Hub](azure-stack-dns.md)

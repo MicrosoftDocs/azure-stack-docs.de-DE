@@ -1,6 +1,6 @@
 ---
 title: Erstellen von SQL-Datenbanken
-titleSuffix: Azure Stack
+titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie mit dem SQL-Ressourcenanbieteradapter bereitgestellte SQL-Datenbanken erstellen und verwalten.
 services: azure-stack
 documentationCenter: ''
@@ -16,20 +16,20 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 97d53772127cbae66e95159617cb9e50e21176ac
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: f6c030767ba64aa3c8acd47d5b358a4b385785ac
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954535"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814540"
 ---
 # <a name="create-sql-databases"></a>Erstellen von SQL-Datenbanken
 
-Self-Service-Datenbanken können im Benutzerportal erstellt und verwaltet werden. Ein Azure Stack-Benutzer benötigt ein Abonnement mit einem Angebot, das den SQL-Datenbankdienst einschließt.
+Self-Service-Datenbanken können im Benutzerportal erstellt und verwaltet werden. Ein Azure Stack Hub-Benutzer benötigt ein Abonnement mit einem Angebot, das den SQL-Datenbankdienst einschließt.
 
-1. Melden Sie sich beim [Azure Stack](azure-stack-overview.md)-Benutzerportal an.
+1. Melden Sie sich beim [Azure Stack Hub](azure-stack-overview.md)-Benutzerportal an.
 
-2. Klicken Sie auf **+ Neu** &gt; **Daten und Speicher** &gt; **SQL Server-Datenbank** &gt; **Hinzufügen**.
+2. Klicken Sie auf **+ Neu** &gt;**Daten + Speicher** &gt; **SQL Server-Datenbank** &gt; **Hinzufügen**.
 
 3. Geben Sie unter **Datenbank erstellen** die erforderlichen Informationen ein, z.B. **Datenbankname** und **Max. Größe in MB**.
 
@@ -40,10 +40,10 @@ Self-Service-Datenbanken können im Benutzerportal erstellt und verwaltet werden
 
 4. Klicken Sie unter **Datenbank erstellen** auf **SKU**. Wählen Sie unter **SKU auswählen** die SKU für Ihre Datenbank aus.
 
-   ![Erstellen einer Datenbank im Azure Stack-Benutzerportal](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+   ![Erstellen Sie im Azure Stack Hub-Benutzerportal eine Datenbank.](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
    >[!NOTE]
-   >Wenn Hostserver in Azure Stack hinzugefügt werden, wird ihnen eine SKU zugewiesen. Datenbanken werden im Pool von Hostservern in einer SKU erstellt.
+   >Wenn Hostserver zu Azure Stack Hub hinzugefügt werden, wird ihnen eine SKU zugewiesen. Datenbanken werden im Pool von Hostservern in einer SKU erstellt.
 
 5. Wählen Sie **Anmelden**.
 
@@ -54,7 +54,7 @@ Self-Service-Datenbanken können im Benutzerportal erstellt und verwaltet werden
    >[!NOTE]
    >Bei diesen Einstellungen handelt es sich um die Anmeldeinformationen für die SQL-Authentifizierung, die nur für Ihren Zugriff auf diese Datenbank erstellt werden. Der Benutzername für die Anmeldung muss global eindeutig sein. Sie können die Anmeldeeinstellungen für andere Datenbanken wiederverwenden, die dieselbe SKU verwenden.
 
-   ![Erstellen einer neuen Datenbankanmeldung im Azure Stack-Benutzerportal](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+   ![Erstellen einer neuen Datenbankanmeldung im Azure Stack Hub-Benutzerportal](./media/azure-stack-sql-rp-deploy/create-new-login.png)
 
 8. Wählen Sie **OK**, um die Bereitstellung der Datenbank abzuschließen.
 

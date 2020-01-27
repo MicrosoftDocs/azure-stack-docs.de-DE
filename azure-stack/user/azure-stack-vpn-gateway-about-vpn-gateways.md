@@ -1,6 +1,6 @@
 ---
-title: Erstellen von VPN-Gateways für Azure Stack | Microsoft-Dokumentation
-description: Erstellen und Konfigurieren von VPN-Gateways für Azure Stack
+title: Erstellen von VPN-Gateways für Azure Stack Hub | Microsoft-Dokumentation
+description: Erstellen und Konfigurieren von VPN-Gateways für Azure Stack Hub
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,34 +15,32 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: a66057ea2490f4510d28db8b07d03e4ed17ba3ad
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: 9bb66da69f76cd7cc1c64eb7ac3894ebd1d71c9d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714760"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878593"
 ---
-# <a name="create-vpn-gateways-for-azure-stack"></a>Erstellen von VPN-Gateways für Azure Stack
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+# <a name="create-vpn-gateways-for-azure-stack-hub"></a>Erstellen von VPN-Gateways für Azure Stack Hub
 
 Um Netzwerkdatenverkehr zwischen Ihrem virtuellen Azure-Netzwerk und Ihrem lokalen Standort senden zu können, müssen Sie für Ihr virtuelles Netzwerk zunächst ein Gateway für virtuelle Netzwerke (VPN) erstellen.
 
-Ein VPN Gateway ist eine Art von Gateway für virtuelle Netzwerke, mit dem verschlüsselter Datenverkehr über eine öffentliche Verbindung gesendet wird. Sie können VPN-Gateways für einen sicheren Datenverkehr zwischen einem virtuellen Netzwerk in Azure Stack und einem virtuellen Netzwerk in Azure verwenden. Zudem können Sie den Datenverkehr zwischen einem virtuellen Netzwerk und einem anderen Netzwerk, das mit einem VPN-Gerät verbunden ist, sicher übertragen.
+Ein VPN Gateway ist eine Art von Gateway für virtuelle Netzwerke, mit dem verschlüsselter Datenverkehr über eine öffentliche Verbindung gesendet wird. Sie können VPN-Gateways für einen sicheren Datenverkehr zwischen einem virtuellen Netzwerk in Azure Stack Hub und einem virtuellen Netzwerk in Azure verwenden. Zudem können Sie den Datenverkehr zwischen einem virtuellen Netzwerk und einem anderen Netzwerk, das mit einem VPN-Gerät verbunden ist, sicher übertragen.
 
-Der gewünschte Gatewaytyp wird beim Erstellen eines Gateways für virtuelle Netzwerke angegeben. Azure Stack unterstützt eine Art von Gateway für virtuelle Netzwerke: **VPN**.
+Der gewünschte Gatewaytyp wird beim Erstellen eines Gateways für virtuelle Netzwerke angegeben. Azure Stack Hub unterstützt eine Art von Gateway für virtuelle Netzwerke: **VPN**.
 
 Jedes virtuelle Netzwerk kann über zwei Gateways für virtuelle Netzwerke, aber nur über eins von jedem Typ verfügen. Abhängig von den gewählten Einstellungen können Sie ggf. mehrere Verbindungen mit einem einzelnen VPN-Gateway erstellen. Ein Beispiel für diese Art Einrichtung ist eine Verbindungskonfiguration mit mehreren Standorten.
 
-Bevor Sie VPN-Gateways für Azure Stack erstellen und konfigurieren, sollten Sie die [Überlegungen zu Azure Stack-Netzwerken](azure-stack-network-differences.md) lesen, um zu erfahren, wie Konfigurationen für Azure Stack sich von Azure unterscheiden.
+Bevor Sie VPN-Gateways für Azure Stack Hub erstellen und konfigurieren, sollten Sie die [Überlegungen zu Azure Stack Hub-Netzwerken](azure-stack-network-differences.md) lesen, um zu erfahren, wie Konfigurationen für Azure Stack Hub sich von Azure unterscheiden.
 
 >[!NOTE]
->In Azure muss der Bandbreitendurchsatz für die ausgewählte VPN Gateway-SKU auf alle Verbindungen aufgeteilt werden, die mit dem Gateway hergestellt wurden. In Azure Stack wird der Bandbreitenwert jedoch für die VPN Gateway-SKU auf jede Verbindungsressource angewendet, die mit dem Gateway verbunden ist.
+>In Azure muss der Bandbreitendurchsatz für die ausgewählte VPN Gateway-SKU auf alle Verbindungen aufgeteilt werden, die mit dem Gateway hergestellt wurden. In Azure Stack Hub wird der Bandbreitenwert jedoch für die VPN Gateway-SKU auf jede Verbindungsressource angewendet, die mit dem Gateway verbunden ist.
 >
 > Beispiel:
 >
 > * In Azure bietet die VPN Gateway-SKU „Basic“ eine aggregierte Durchsatzkapazität von etwa 100 Mbit/s. Wenn Sie zwei Verbindungen mit diesem VPN Gateway erstellen und eine dieser Verbindungen eine Bandbreite von 50 Mbit/s beansprucht, stehen für die andere Verbindung noch 50 Mbit/s zur Verfügung.
-> * In Azure Stack wird jeder Verbindung mit der VPN-Gateway-SKU „Basic“ ein Durchsatz von 100 Mbit/s zugeordnet.
+> * In Azure Stack Hub wird jeder Verbindung mit der VPN-Gateway-SKU „Basic“ ein Durchsatz von 100 MBit/s zugeordnet.
 
 ## <a name="configuring-a-vpn-gateway"></a>Konfigurieren eines VPN-Gateways
 
@@ -52,7 +50,7 @@ Eine VPN Gateway-Verbindung basiert auf mehreren, mit spezifischen Einstellungen
 
 Die Einstellungen, die Sie für die einzelnen Ressourcen auswählen, sind für die erfolgreiche Herstellung einer Verbindung entscheidend.
 
-Informationen zu einzelnen Ressourcen und Einstellungen für VPN Gateway finden Sie unter [VPN-Gatewaykonfigurationseinstellungen für Azure Stack](azure-stack-vpn-gateway-settings.md). Dieser Artikel hilft Ihnen bei Folgendem:
+Informationen zu einzelnen Ressourcen und Einstellungen für VPN Gateway finden Sie unter [VPN-Gatewaykonfigurationseinstellungen für Azure Stack Hub](azure-stack-vpn-gateway-settings.md). Dieser Artikel hilft Ihnen bei Folgendem:
 
 * Gatewaytypen, VPN-Typen und Verbindungstypen.
 * Gatewaysubnetze, lokale Netzwerkgateways und andere Ressourceneinstellungen, die Sie berücksichtigen sollten.
@@ -87,7 +85,7 @@ Bei einer *Multi-Site*-Verbindung handelt es sich um eine Abwandlung der Site-to
 
 ## <a name="gateway-skus"></a>Gateway-SKUs
 
-Beim Erstellen eines Gateways für virtuelle Netzwerke für Azure Stack müssen Sie die gewünschte Gateway-SKU angeben. Folgende SKUs für VPN-Gateways werden unterstützt:
+Beim Erstellen eines Gateways für virtuelle Netzwerke für Azure Stack Hub müssen Sie die gewünschte Gateway-SKU angeben. Folgende SKUs für VPN-Gateways werden unterstützt:
 
 * Basic
 * Standard
@@ -95,21 +93,21 @@ Beim Erstellen eines Gateways für virtuelle Netzwerke für Azure Stack müssen 
 
 Wenn Sie eine höhere Gateway-SKU (beispielsweise Standard über Basic oder Hochleistung über Standard oder Basic) auswählen, werden dem Gateway mehr CPUs und mehr Netzwerkbandbreite zugeteilt. Dadurch kann das Gateway einen höheren Netzwerkdurchsatz an das virtuelle Netzwerk bewältigen.
 
-Die Gateway-SKU „Höchstleistung“ wird ausschließlich mit ExpressRoute verwendet und von Azure Stack nicht unterstützt.
+Die Gateway-SKU „Höchstleistung“ wird ausschließlich mit ExpressRoute verwendet und von Azure Stack Hub nicht unterstützt.
 
 Beachten Sie bei der Auswahl der SKU Folgendes:
 
-* Richtlinienbasierte Gateways werden von Azure Stack nicht unterstützt.
+* Richtlinienbasierte Gateways werden von Azure Stack Hub nicht unterstützt.
 * Border Gateway Protocol (BGP) wird in der Basic-SKU nicht unterstützt.
-* Die gemeinsame Verwendung von VPN Gateway und ExpressRoute wird in Azure Stack nicht unterstützt.
+* Die gemeinsame Verwendung von VPN Gateway und ExpressRoute wird in Azure Stack Hub nicht unterstützt.
 
 ## <a name="gateway-availability"></a>Gatewayverfügbarkeit
 
-Hochverfügbarkeitsszenarien können nur in der **Hochleistungsgateway**-Verbindungs-SKU konfiguriert werden. Im Gegensatz zu Azure, das Verfügbarkeit durch sowohl Aktiv/Aktiv- als auch Aktiv/Passiv-Konfigurationen bietet, unterstützt Azure Stack nur die Aktiv/Passiv-Konfiguration.
+Hochverfügbarkeitsszenarien können nur in der **Hochleistungsgateway**-Verbindungs-SKU konfiguriert werden. Im Gegensatz zu Azure, das Verfügbarkeit durch sowohl Aktiv/Aktiv- als auch Aktiv/Passiv-Konfigurationen bietet, unterstützt Azure Stack Hub nur die Aktiv/Passiv-Konfiguration.
 
 ### <a name="failover"></a>Failover
 
-Es gibt drei mehrinstanzenfähige VMs mit Gatewayinfrastruktur in Azure Stack. Zwei dieser virtuellen Computer befinden sich im aktiven Modus, während sich die dritte im redundanten Modus befindet. Aktive virtuelle Computer ermöglichen die Erstellung von VPN-Verbindungen auf sich, und die redundante VM akzeptiert nur VPN-Verbindungen, wenn ein Failover eintritt. Wenn eine aktive Gateway-VM nicht mehr verfügbar ist, führt die VPN-Verbindung nach einem kurzen Zeitraum (ein paar Sekunden) der Verbindungsunterbrechung ein Failover zur redundanten VM durch.
+Es gibt drei mehrinstanzenfähige VMs mit Gatewayinfrastruktur in Azure Stack Hub. Zwei dieser virtuellen Computer befinden sich im aktiven Modus, während sich die dritte im redundanten Modus befindet. Aktive virtuelle Computer ermöglichen die Erstellung von VPN-Verbindungen auf sich, und die redundante VM akzeptiert nur VPN-Verbindungen, wenn ein Failover eintritt. Wenn eine aktive Gateway-VM nicht mehr verfügbar ist, führt die VPN-Verbindung nach einem kurzen Zeitraum (ein paar Sekunden) der Verbindungsunterbrechung ein Failover zur redundanten VM durch.
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Voraussichtlicher aggregierter Durchsatz nach SKU
 
@@ -124,12 +122,12 @@ In der folgenden Tabelle sind die Gatewaytypen und der geschätzte zusammengefas
 ### <a name="table-notes"></a>Anmerkungen zur Tabelle
 
 **(1)** VPN-Durchsatz ist kein garantierter Durchsatz für standortübergreifende Verbindungen über das Internet. Hierbei wird der maximal mögliche Durchsatz gemessen.  
-**(2)** Bei der maximalen Tunnelanzahl handelt es sich um die Summe pro Azure Stack-Bereitstellung für alle Abonnements.  
+**(2)** Bei der maximalen Tunnelanzahl handelt es sich um die Summe pro Azure Stack Hub-Bereitstellung für alle Abonnements.  
 **(3)** BGP-Routing wird von der Basic-SKU nicht unterstützt.
 
 >[!NOTE]
->Zwischen zwei Azure Stack-Bereitstellungen kann nur eine Site-to-Site-VPN-Verbindung hergestellt werden. Der Grund: Wegen einer Einschränkung ist für die Plattform nur eine einzelne VPN-Verbindung mit der gleichen IP-Adresse zulässig. Da Azure Stack das mehrinstanzenfähige Gateway nutzt, das eine öffentliche IP für alle VPN-Gateways im Azure Stack-System verwendet, kann zwischen zwei Azure Stack-Systemen nur eine VPN-Verbindung hergestellt werden. Diese Einschränkung gilt auch für das Herstellen mehrerer Site-to-Site-VPN-Verbindungen mit einem beliebigen VPN-Gateway, das eine einzige IP-Adresse nutzt. Azure Stack lässt nicht zu, dass mehrere Ressourcen des lokalen Netzwerkgateways mit der gleichen IP-Adresse erstellt werden.
+>Zwischen zwei Azure Stack Hub-Bereitstellungen kann nur eine Site-to-Site-VPN-Verbindung hergestellt werden. Der Grund: Wegen einer Einschränkung ist für die Plattform nur eine einzelne VPN-Verbindung mit der gleichen IP-Adresse zulässig. Da Azure Stack Hub das mehrinstanzenfähige Gateway nutzt, das eine öffentliche IP-Adresse für alle VPN-Gateways im Azure Stack Hub-System verwendet, kann zwischen zwei Azure Stack Hub-Systemen nur eine VPN-Verbindung hergestellt werden. Diese Einschränkung gilt auch für das Herstellen mehrerer Site-to-Site-VPN-Verbindungen mit einem beliebigen VPN-Gateway, das eine einzige IP-Adresse nutzt. Azure Stack Hub lässt nicht zu, dass mehrere Ressourcen des lokalen Netzwerkgateways mit der gleichen IP-Adresse erstellt werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [VPN-Gatewaykonfigurationseinstellungen für Azure Stack](azure-stack-vpn-gateway-settings.md)
+* [VPN-Gatewaykonfigurationseinstellungen für Azure Stack Hub](azure-stack-vpn-gateway-settings.md)

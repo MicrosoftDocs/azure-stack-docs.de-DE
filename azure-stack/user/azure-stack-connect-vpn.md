@@ -1,6 +1,6 @@
 ---
-title: Herstellen einer Verbindung zwischen Azure Stack und Azure über ein VPN | Microsoft-Dokumentation
-description: Herstellen einer Verbindung zwischen virtuellen Netzwerken in Azure Stack und virtuellen Netzwerken in Azure über ein VPN
+title: Herstellen einer Verbindung zwischen Azure Stack Hub und Azure über ein VPN | Microsoft-Dokumentation
+description: Herstellen einer Verbindung zwischen virtuellen Netzwerken in Azure Stack Hub und virtuellen Netzwerken in Azure über ein VPN
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,24 +16,22 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 844162e4f31a6f543a9fe774aa40bd606dad85b9
-ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
+ms.openlocfilehash: 210890ce5ae82142906fb8f98d874c2f90ea3713
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71974106"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883829"
 ---
-# <a name="connect-azure-stack-to-azure-using-vpn"></a>Herstellen einer Verbindung von Azure Stack mit Azure über ein VPN
+# <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Herstellen einer Verbindung zwischen Azure Stack Hub und Azure über ein VPN
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme*
-
-In diesem Artikel wird das Erstellen eines Site-to-Site-VPN beschrieben, mit dem ein virtuelles Netzwerk in Azure Stack mit einem virtuellen Netzwerk in Azure verbunden werden soll.
+In diesem Artikel wird das Erstellen eines Site-to-Site-VPN beschrieben, mit dem ein virtuelles Netzwerk in Azure Stack Hub mit einem virtuellen Netzwerk in Azure verbunden werden soll.
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
 Vergewissern Sie sich vor dem Durchführen der Verbindungskonfiguration, dass Sie über folgende Elemente verfügen:
 
-* Eine Bereitstellung (mit mehreren Knoten) für integrierte Azure Stack-Systeme, die direkt mit dem Internet verbunden ist. Ihr Bereich mit den externen öffentlichen IP-Adressen muss direkt über das öffentliche Internet erreichbar sein.
+* Eine Bereitstellung (mit mehreren Knoten) für integrierte Azure Stack Hub-Systeme, die direkt mit dem Internet verbunden ist. Ihr Bereich mit den externen öffentlichen IP-Adressen muss direkt über das öffentliche Internet erreichbar sein.
 * Ein gültiges Azure-Abonnement. Wenn Sie kein Azure-Abonnement haben, [können Sie hier ein kostenloses Azure-Konto erstellen](https://azure.microsoft.com/free/?b=17.06).
 
 ### <a name="vpn-connection-diagram"></a>VPN-Verbindungsdiagramm
@@ -46,7 +44,7 @@ Die folgende Abbildung zeigt die endgültige Verbindungskonfiguration:
 
 Die Tabelle mit den Beispielen für die Netzwerkkonfiguration enthält die Werte, die für die Beispiele in diesem Artikel verwendet werden. Sie können diese Werte verwenden oder sie zum besseren Verständnis der Beispiele in diesem Artikel heranziehen:
 
-|   |Azure Stack|Azure|
+|   |Azure Stack Hub|Azure|
 |---------|---------|---------|
 |Name des virtuellen Netzwerks     |Azs-VNet|AzureVNet |
 |Adressraum des virtuellen Netzwerks |10.1.0.0/16|10.100.0.0/16|
@@ -103,8 +101,8 @@ Erstellen Sie zunächst die Netzwerkressourcen für Azure. Die folgenden Anweisu
 2. Wechseln Sie zu **Marketplace**, und wählen Sie dann **Netzwerk** aus.
 3. Wählen Sie in der Ressourcenliste den Eintrag für das **lokale Netzwerkgateway** aus.
 4. Geben Sie im Feld **Name** die Zeichenfolge **Azs-GW** ein.
-5. Geben Sie im Feld **IP-Adresse** die öffentliche IP-Adresse für Ihr Gateway des virtuellen Azure Stack-Netzwerks ein, die in der Netzwerkkonfigurationstabelle oben aufgelistet ist.
-6. Geben Sie im Feld **Adressraum** für Azure Stack den Adressraum **10.1.0.0/24** und **10.1.1.0/24** für **AzureVNet** ein.
+5. Geben Sie im Feld **IP-Adresse** die öffentliche IP-Adresse für Ihr Gateway des virtuellen Azure Stack Hub-Netzwerks ein, die in der Netzwerkkonfigurationstabelle oben aufgelistet ist.
+6. Geben Sie im Feld **Adressraum** für Azure Stack Hub den Adressraum **10.1.0.0/24** und **10.1.1.0/24** für **AzureVNet** ein.
 7. Vergewissern Sie sich, dass Ihr **Abonnement**, die **Ressourcengruppe** und der **Speicherort** richtig sind, und klicken Sie auf **Erstellen**.
 
 ## <a name="create-the-connection"></a>Erstellen der Verbindung
@@ -144,9 +142,9 @@ Erstellen Sie jetzt in Azure eine VM, und platzieren Sie sie im VM-Subnetz Ihres
 
 9. Überprüfen Sie die Einstellungen im Bereich **Zusammenfassung**, und klicken Sie anschließend auf **OK**.
 
-## <a name="create-the-network-resources-in-azure-stack"></a>Erstellen der Netzwerkressourcen in Azure Stack
+## <a name="create-the-network-resources-in-azure-stack-hub"></a>Erstellen der Netzwerkressourcen in Azure Stack Hub
 
-Erstellen Sie als Nächstes die Netzwerkressourcen in Azure Stack.
+Erstellen Sie als Nächstes die Netzwerkressourcen in Azure Stack Hub.
 
 ### <a name="sign-in-as-a-user"></a>Anmelden als Benutzer
 
@@ -182,7 +180,7 @@ Ein Dienstadministrator kann sich als Benutzer anmelden, um die Pläne, Angebote
 
 ### <a name="create-the-virtual-network-gateway"></a>Erstellen des Gateways für das lokale Netzwerk
 
-1. Klicken Sie im Azure Stack-Portal auf **+ Ressource erstellen**.
+1. Klicken Sie im Azure Stack Hub-Portal auf **+ Ressource erstellen**.
 2. Wechseln Sie zu **Marketplace**, und wählen Sie dann **Netzwerk** aus.
 3. Wählen Sie in der Liste mit den Netzwerkressourcen den Eintrag **Gateway des virtuellen Netzwerks** aus.
 4. Geben Sie unter **Name** den Namen **Azs-GW** ein.
@@ -195,15 +193,15 @@ Ein Dienstadministrator kann sich als Benutzer anmelden, um die Pläne, Angebote
 
 ### <a name="create-the-local-network-gateway"></a>Erstellen des Gateways des lokalen Netzwerks
 
-Es gibt Unterschiede zwischen einem *Gateway des lokalen Netzwerks* in Azure Stack und in einer Azure-Bereitstellung.
+Es gibt Unterschiede zwischen einem *Gateway des lokalen Netzwerks* in Azure Stack Hub und in einer Azure-Bereitstellung.
 
-In einer Azure-Bereitstellung stellt ein lokales Netzwerkgateway ein lokales physisches Gerät (am Benutzerstandort) dar, für das Sie eine Verbindung mit einem Gateway für virtuelle Netzwerke in Azure herstellen. In Azure Stack sind jedoch beide Enden der Verbindung Gateways für virtuelle Netzwerke.
+In einer Azure-Bereitstellung stellt ein lokales Netzwerkgateway ein lokales physisches Gerät (am Benutzerstandort) dar, für das Sie eine Verbindung mit einem Gateway für virtuelle Netzwerke in Azure herstellen. In Azure Stack Hub sind jedoch beide Enden der Verbindung Gateways für virtuelle Netzwerke.
 
 Ganz allgemein wird mit der Ressource des lokalen Netzwerkgateways immer das Remotegateway am anderen Ende der Verbindung angegeben.
 
 ### <a name="create-the-local-network-gateway-resource"></a>Erstellen der Ressource des lokalen Netzwerkgateways
 
-1. Melden Sie sich beim Azure Stack-Portal an.
+1. Melden Sie sich beim Azure Stack Hub-Portal an.
 2. Klicken Sie im Benutzerportal auf **+ Ressource erstellen**.
 3. Wechseln Sie zu **Marketplace**, und wählen Sie dann **Netzwerk** aus.
 4. Wählen Sie in der Ressourcenliste den Eintrag für das **lokale Netzwerkgateway** aus.
@@ -229,7 +227,7 @@ Ganz allgemein wird mit der Ressource des lokalen Netzwerkgateways immer das Rem
 
 ### <a name="create-a-vm"></a>Erstellen einer VM
 
-Erstellen Sie zum Überprüfen der VPN-Verbindung zwei virtuelle Computer: einen in Azure und einen in Azure Stack. Nachdem Sie diese virtuellen Computer erstellt haben, können Sie sie zum Senden und Empfangen von Daten über den VPN-Tunnel verwenden.
+Erstellen Sie zum Überprüfen der VPN-Verbindung zwei virtuelle Computer: einen in Azure und einen in Azure Stack Hub. Nachdem Sie diese virtuellen Computer erstellt haben, können Sie sie zum Senden und Empfangen von Daten über den VPN-Tunnel verwenden.
 
 1. Wählen Sie im Azure-Portal die Option **+ Ressource erstellen**.
 2. Wechseln Sie zu **Marketplace**, und wählen Sie dann **Compute** aus.
@@ -238,7 +236,7 @@ Erstellen Sie zum Überprüfen der VPN-Verbindung zwei virtuelle Computer: einen
 5. Geben Sie einen gültigen Benutzernamen und ein gültiges Kennwort ein. Mit diesem Konto melden Sie sich am virtuellen Computer an, nachdem dieser erstellt wurde.
 6. Geben Sie Werte für **Abonnement**, **Ressourcengruppe** und **Speicherort** an, und wählen Sie anschließend **OK**.
 7. Wählen Sie im Bereich **Größe** eine VM-Größe für diese Instanz aus, und klicken Sie dann auf **Auswählen**.
-8. Übernehmen Sie im Bereich **Einstellungen** die Standardeinstellungen. Stellen Sie sicher, dass das virtuelle Netzwerk **Azs-VNet** ausgewählt ist. Stellen Sie sicher, dass das Subnetz auf **10.1.0.0/24** festgelegt ist. Wählen Sie dann **OK**aus.
+8. Übernehmen Sie im Bereich **Einstellungen** die Standardeinstellungen. Stellen Sie sicher, dass das virtuelle Netzwerk **Azs-VNet** ausgewählt ist. Stellen Sie sicher, dass das Subnetz auf **10.1.0.0/24** festgelegt ist. Klicken Sie anschließend auf **OK**.
 
 9. Überprüfen Sie die Einstellungen im Bereich **Zusammenfassung**, und klicken Sie anschließend auf **OK**.
 
@@ -246,15 +244,15 @@ Erstellen Sie zum Überprüfen der VPN-Verbindung zwei virtuelle Computer: einen
 
 Nachdem die Site-to-Site-Verbindung hergestellt wurde, sollten Sie sicherstellen, dass Daten in beide Richtungen fließen können. Die einfachste Möglichkeit zum Testen der Verbindung ist das Durchführen eines Ping-Tests:
 
-* Melden Sie sich an der VM an, die Sie in Azure Stack erstellt haben, und pingen Sie die VM in Azure.
-* Melden Sie sich an der VM an, die Sie in Azure erstellt haben, und pingen Sie die VM in Azure Stack.
+* Melden Sie sich an der VM an, die Sie in Azure Stack Hub erstellt haben, und pingen Sie die VM in Azure.
+* Melden Sie sich an der VM an, die Sie in Azure erstellt haben, und pingen Sie die VM in Azure Stack Hub.
 
 >[!NOTE]
 >Um sicherzustellen, dass Sie den Datenverkehr über die Site-to-Site-Verbindung senden, sollten Sie den Ping nicht an die VIP-Adresse, sondern an die direkte IP-Adresse (DIP) der VM im Remotesubnetz senden.
 
-### <a name="sign-in-to-the-user-vm-in-azure-stack"></a>Anmelden beim virtuellen Benutzercomputer in Azure Stack
+### <a name="sign-in-to-the-user-vm-in-azure-stack-hub"></a>Anmelden beim virtuellen Benutzercomputer in Azure Stack Hub
 
-1. Melden Sie sich beim Azure Stack-Portal an.
+1. Melden Sie sich beim Azure Stack Hub-Portal an.
 2. Wählen Sie in der Navigationsleiste links die Option **Virtuelle Computer** aus.
 3. Suchen Sie in der Liste mit den virtuellen Computern nach dem zuvor erstellten Computer **Azs-VM**, und wählen Sie ihn aus.
 4. Wählen Sie im Bereich für die VM die Option **Verbinden**. Öffnen Sie anschließend die Datei „Azs-VM.rdp“.
@@ -291,7 +289,7 @@ Nachdem die Site-to-Site-Verbindung hergestellt wurde, sollten Sie sicherstellen
     -Protocol ICMPv4
    ```
 
-10. Pingen Sie von der VM in Azure die VM in Azure Stack über den Tunnel. Hierzu pingen Sie die DIP-Adresse, die Sie für „Azs-VM“ erfasst haben. In der Beispielumgebung wird die Adresse **10.1.0.4** verwendet. Achten Sie jedoch darauf, dass Sie die Adresse pingen, die Sie in Ihrem Lab notiert haben. Das Ergebnis sollte in etwa wie im folgenden Screenshot aussehen:
+10. Pingen Sie von der VM in Azure die VM in Azure Stack Hub über den Tunnel. Hierzu pingen Sie die DIP-Adresse, die Sie für „Azs-VM“ erfasst haben. In der Beispielumgebung wird die Adresse **10.1.0.4** verwendet. Achten Sie jedoch darauf, dass Sie die Adresse pingen, die Sie in Ihrem Lab notiert haben. Das Ergebnis sollte in etwa wie im folgenden Screenshot aussehen:
 
     ![Ping erfolgreich](media/azure-stack-connect-vpn/image19b.png)
 
@@ -303,7 +301,7 @@ Außerdem sollten Sie einen eingehenderen Test der Datenübertragung durchführe
 
 Im Abschnitt **Verbindung** können Sie die Datenmenge ermitteln, die über die Site-to-Site-Verbindung übertragen wird. Mit diesem Test können Sie auch überprüfen, ob der soeben gesendete Ping tatsächlich die VPN-Verbindung durchlaufen hat.
 
-1. Verwenden Sie Ihr Benutzerkonto zur Anmeldung am Benutzerportal, während Sie an der virtuellen Benutzer-VM in Azure Stack angemeldet sind.
+1. Verwenden Sie Ihr Benutzerkonto zur Anmeldung am Benutzerportal, während Sie an der virtuellen Benutzer-VM in Azure Stack Hub angemeldet sind.
 2. Wechseln Sie zu **Alle Ressourcen**, und wählen Sie die Verbindung **Azs-Azure** aus. **Verbindungen** wird angezeigt.
 3. Im Bereich **Verbindung** wird die Statistik für **eingehende Daten** und **ausgehende Daten** angezeigt. Die hohen Zahlen im folgenden Screenshot sind auf zusätzliche Dateiübertragungen zurückzuführen. Dort sollten andere Werte als Null angezeigt werden.
 
@@ -311,4 +309,4 @@ Im Abschnitt **Verbindung** können Sie die Datenmenge ermitteln, die über die 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Deploy apps to Azure and Azure Stack (Bereitstellen von Apps in Azure und Azure Stack)](azure-stack-solution-pipeline.md)
+* [Bereitstellen von Apps in Azure und Azure Stack Hub](azure-stack-solution-pipeline.md)

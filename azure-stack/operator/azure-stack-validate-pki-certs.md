@@ -1,6 +1,6 @@
 ---
-title: Überprüfen von PKI-Zertifikaten für Azure Stack für die Bereitstellung von in Azure Stack integrierten Systemen | Microsoft-Dokumentation
-description: Beschreibt die Vorgehensweise zum Überprüfen von Azure Stack-PKI-Zertifikaten für in Azure Stack integrierte Systeme. Enthält Informationen zur Verwendung des Zertifikatüberprüfungstools von Azure Stack.
+title: Überprüfen von PKI-Zertifikaten für Azure Stack Hub für die Bereitstellung von integrierten Azure Stack Hub-Systemen | Microsoft-Dokumentation
+description: In diesem Artikel wird die Vorgehensweise zum Überprüfen von Azure Stack Hub-PKI-Zertifikaten für integrierte Azure Stack Hub-Systeme beschrieben. Der Artikel enthält auch Informationen zur Verwendung des Tools „Azure Stack Hub Certificate Checker“.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,16 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 61e79fb581b18825d2bde1e2838d8b653ad00da6
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 23225b21d1dc3074c69cefa2af23a99b634a7a73
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727529"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812857"
 ---
-# <a name="validate-azure-stack-pki-certificates"></a>Überprüfen von Azure Stack-PKI-Zertifikaten
+# <a name="validate-azure-stack-hub-pki-certificates"></a>Überprüfen von Azure Stack Hub-PKI-Zertifikaten
 
-Das in diesem Artikel beschriebene Tool Azure Stack Readiness Checker steht im [PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) zur Verfügung. Mit diesem Tool können Sie sich vergewissern, dass die [generierten PKI-Zertifikate](azure-stack-get-pki-certs.md) für die Vorabbereitstellung geeignet sind. Planen Sie bei der Zertifikatüberprüfung genügend Zeit ein, um die Zertifikate testen und ggf. neu ausstellen zu können.
+Das in diesem Artikel beschriebene Tool „Azure Stack Hub Readiness Checker“ steht im [PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) zur Verfügung. Mit diesem Tool können Sie sich vergewissern, dass die [generierten PKI-Zertifikate](azure-stack-get-pki-certs.md) für die Vorabbereitstellung geeignet sind. Planen Sie bei der Zertifikatüberprüfung genügend Zeit ein, um die Zertifikate testen und ggf. neu ausstellen zu können.
 
 Das Readiness Checker-Tool führt folgende Zertifikatüberprüfungen durch:
 
@@ -54,16 +54,16 @@ Das Readiness Checker-Tool führt folgende Zertifikatüberprüfungen durch:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Zur Überprüfung von PKI-Zertifikaten für eine Azure Stack-Bereitstellung muss Ihr System über Folgendes verfügen:
+Zur Überprüfung von PKI-Zertifikaten für eine Azure Stack Hub-Bereitstellung muss Ihr System folgende Voraussetzungen erfüllen:
 
-- Microsoft Azure Stack Readiness Checker
+- Microsoft Azure Stack Hub Readiness Checker
 - Mindestens ein SSL-Zertifikat, das gemäß den [Vorbereitungsanweisungen](azure-stack-prepare-pki-certs.md) exportiert wurde
 - DeploymentData.json
 - Windows 10 oder Windows Server 2016
 
 ## <a name="perform-core-services-certificate-validation"></a>Durchführen der Zertifikatüberprüfung für Kerndienste
 
-Gehen Sie wie folgt vor, um die Azure Stack-PKI-Zertifikate für die Bereitstellung und Geheimnisrotation vorzubereiten und zu überprüfen:
+Gehen Sie wie folgt vor, um die Azure Stack Hub-PKI-Zertifikate für die Bereitstellung und Geheimnisrotation vorzubereiten und zu überprüfen:
 
 1. Führen Sie an einer PowerShell-Eingabeaufforderung (5.1 oder höher) das folgende Cmdlet aus, um **AzsReadinessChecker** zu installieren:
 
@@ -94,7 +94,7 @@ Gehen Sie wie folgt vor, um die Azure Stack-PKI-Zertifikate für die Bereitstell
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
-3. Ändern Sie im PowerShell-Fenster die Werte von **RegionName** und **FQDN** entsprechend der Azure Stack-Umgebung, und führen Sie Folgendes aus:
+3. Ändern Sie im PowerShell-Fenster die Werte von **RegionName** und **FQDN** entsprechend der Azure Stack Hub-Umgebung, und führen Sie Folgendes aus:
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
@@ -148,7 +148,7 @@ Gehen Sie wie folgt vor, um die Azure Stack-PKI-Zertifikate für die Bereitstell
     Invoke-AzsCertificateValidation Completed
     ```
 
-    Um Zertifikate für andere Azure Stack-Dienste zu überprüfen, ändern Sie den Wert für ```-CertificateType```. Beispiel:
+    Um Zertifikate für andere Azure Stack Hub-Dienste zu überprüfen, ändern Sie den Wert für ```-CertificateType```. Beispiel:
 
     ```powershell  
     # App Services
@@ -257,11 +257,11 @@ Jeder Ordner sollte eine einzelne PFX-Datei für den Zertifikattyp enthalten. We
 
 ## <a name="using-validated-certificates"></a>Verwenden überprüfter Zertifikate
 
-Nach der Überprüfung durch AzsReadinessChecker können Sie die Zertifikate in Ihrer Azure Stack-Bereitstellung oder für die Geheimnisrotation von Azure Stack verwenden. 
+Nach der Überprüfung durch AzsReadinessChecker können Sie die Zertifikate in Ihrer Azure Stack Hub-Bereitstellung oder für die Geheimnisrotation von Azure Stack Hub verwenden. 
 
- - Bereitstellung: Übertragen Sie Ihre Zertifikate auf sichere Weise an Ihren Bereitstellungstechniker, damit dieser sie auf den Bereitstellungshost kopieren kann (wie unter [Azure Stack-PKI-Zertifikatanforderungen](azure-stack-pki-certs.md) beschrieben).
- - Geheimnisrotation: Sie können die Zertifikate verwenden, um ältere Zertifikate für die Endpunkte der öffentlichen Infrastruktur von Azure Stack zu aktualisieren. Eine entsprechende Anleitung finden Sie unter [Rotieren von Geheimnissen in Azure Stack](azure-stack-rotate-secrets.md).
- - PaaS-Dienste: Sie können die Zertifikate verwenden, um SQL-, MySQL- und App Services-Ressourcenanbieter in Azure Stack zu installieren. Entsprechende Anweisungen finden Sie unter [Übersicht über das Anbieten von Diensten in Azure Stack](service-plan-offer-subscription-overview.md).
+ - Zur Bereitstellung übertragen Sie Ihre Zertifikate auf sichere Weise an Ihren Bereitstellungstechniker, damit dieser sie auf den Bereitstellungshost kopieren kann (wie unter [Azure Stack Hub-PKI-Zertifikatanforderungen](azure-stack-pki-certs.md) beschrieben).
+ - Zur Geheimnisrotation können Sie die Zertifikate verwenden, um ältere Zertifikate für die öffentlichen Endpunkte der Infrastruktur Ihrer Azure Stack Hub-Umgebung zu aktualisieren. Eine entsprechende Anleitung finden Sie unter [Rotieren von Geheimnissen in Azure Stack Hub](azure-stack-rotate-secrets.md).
+ - Für PaaS-Dienste können Sie die Zertifikate verwenden, um SQL-, MySQL- und App Services-Ressourcenanbieter in Azure Stack Hub zu installieren. Entsprechende Anweisungen finden Sie unter [Übersicht: Azure Stack Hub-Dienste, -Pläne, -Angebote und Abonnements](service-plan-offer-subscription-overview.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

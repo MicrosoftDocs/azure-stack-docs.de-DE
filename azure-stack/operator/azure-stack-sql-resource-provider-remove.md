@@ -1,7 +1,7 @@
 ---
 title: Entfernen des SQL-Ressourcenanbieters
-titleSuffix: Azure Stack
-description: Hier erfahren Sie, wie Sie den SQL-Ressourcenanbieter aus Ihrer Azure Stack-Bereitstellung entfernen.
+titleSuffix: Azure Stack Hub
+description: Hier erfahren Sie, wie Sie den SQL-Ressourcenanbieter aus Ihrer Azure Stack Hub-Bereitstellung entfernen.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: a172b56c43dafd637a66fa8354c2e06e06a67b98
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: 15178627cbc58cd466a09f7ef534e7ec115d9c1a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954450"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814404"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Entfernen des SQL-Ressourcenanbieters
 
@@ -36,7 +36,7 @@ Wenn Sie den SQL-Ressourcenanbieter entfernen, werden die Mandantendatenbanken n
 
 Es müssen verschiedene Bereinigungsaufgaben durchgeführt werden, bevor Sie das Skript „DeploySqlProvider.ps1“ zum Entfernen des Ressourcenanbieters ausführen können.
 
-Der Azure Stack-Operator ist für die folgenden Bereinigungsaufgaben zuständig:
+Der Azure Stack Hub-Operator ist für die folgenden Bereinigungsaufgaben zuständig:
 
 * Löschen aller Pläne, die auf den SQL-Adapter verweisen
 * Löschen aller Kontingente, die dem SQL-Adapter zugeordnet sind
@@ -56,9 +56,9 @@ Der Azure Stack-Operator ist für die folgenden Bereinigungsaufgaben zuständig
 
     * **Uninstall**: Entfernt den Ressourcenanbieter und alle zugeordneten Ressourcen.
     * **PrivilegedEndpoint**: Die IP-Adresse oder der DNS-Name des privilegierten Endpunkts.
-    * **AzureEnvironment**: Die Azure-Umgebung, die für die Bereitstellung von Azure Stack verwendet wird. Nur für Azure AD-Bereitstellungen erforderlich.
+    * **AzureEnvironment**: Die Azure-Umgebung, die für die Bereitstellung von Azure Stack Hub verwendet wird. Nur für Azure AD-Bereitstellungen erforderlich.
     * **CloudAdminCredential**: Die Anmeldeinformationen für den Cloudadministrator, die für den Zugriff auf den privilegierten Endpunkt erforderlich sind.
-    * **AzCredential**: Die Anmeldeinformationen für das Azure Stack-Dienstadministratorkonto. Verwenden Sie die gleichen Anmeldeinformationen wie bei der Bereitstellung von Azure Stack.
+    * **AzCredential**: Die Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto. Verwenden Sie die gleichen Anmeldeinformationen wie bei der Bereitstellung von Azure Stack Hub.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

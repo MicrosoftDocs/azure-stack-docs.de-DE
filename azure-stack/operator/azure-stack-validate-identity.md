@@ -1,6 +1,6 @@
 ---
-title: Überprüfen einer Azure-Identität für Azure Stack | Microsoft-Dokumentation
-description: Verwenden Sie Azure Stack Readiness Checker, um eine Azure-Identität zu überprüfen.
+title: Überprüfen einer Azure-Identität für Azure Stack Hub | Microsoft-Dokumentation
+description: Verwenden Sie Azure Stack Hub Readiness Checker, um eine Azure-Identität zu überprüfen.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,27 +16,27 @@ ms.date: 06/24/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 9f455d6614917c0365b2143f0523ff2a44b3c05d
-ms.sourcegitcommit: fdeb2760845c9760ea7df1414b8e140b0624a823
+ms.openlocfilehash: e38e0462bc9b30783ff0932a16e2e997f64df0fd
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67334420"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812891"
 ---
 # <a name="validate-azure-identity"></a>Überprüfen der Azure-Identität
 
-Verwenden Sie das Tool Azure Stack Readiness Checker (**AzsReadinessChecker**), um zu überprüfen, ob Ihre Azure Active Directory-Instanz (Azure AD) mit Azure Stack verwendet werden kann. Überprüfen Sie Ihre Azure-Identitätslösung, bevor Sie mit einer Azure Stack-Bereitstellung beginnen.  
+Verwenden Sie das Tool „Azure Stack Hub Readiness Checker“ (**AzsReadinessChecker**), um zu überprüfen, ob Ihre Azure Active Directory-Instanz (Azure AD) mit Azure Stack Hub verwendet werden kann. Überprüfen Sie Ihre Azure-Identitätslösung, bevor Sie mit einer Azure Stack Hub-Bereitstellung beginnen.  
 
 Bei der Überprüfung der Bereitschaft wird Folgendes geprüft:
 
-- Azure Active Directory (Azure AD) funktioniert als Identitätsanbieter für Azure Stack.
+- Azure Active Directory (Azure AD) funktioniert als Identitätsanbieter für Azure Stack Hub.
 - Das Azure AD-Konto, das Sie verwenden möchten, kann sich als globaler Administrator Ihrer Azure Active Directory-Instanz anmelden.
 
-Durch eine Überprüfung wird sichergestellt, dass Ihre Umgebung für Azure Stack verwendet werden kann und Informationen zu Benutzern, Anwendungen, Gruppen und Dienstprinzipalen aus Azure Stack in Ihrer Azure AD-Instanz speichern kann.
+Durch eine Überprüfung wird sichergestellt, dass Ihre Umgebung von Azure Stack Hub zum Speichern von Informationen zu Benutzern, Anwendungen, Gruppen und Dienstprinzipalen aus Azure Stack Hub in Ihrer Azure AD-Instanz verwendet werden kann.
 
 ## <a name="get-the-readiness-checker-tool"></a>Beziehen des Tools zur Bereitschaftsüberprüfung
 
-Laden Sie die neueste Version des Tools Azure Stack Readiness Checker (AzsReadinessChecker) aus dem [PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) herunter.  
+Laden Sie die neueste Version des Azure Stack Hub Readiness Checker (AzsReadinessChecker) aus dem [PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) herunter.  
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -51,12 +51,12 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
   $PSVersionTable.PSVersion
   ```
 
-- [Für Azure Stack konfiguriertes PowerShell](azure-stack-powershell-install.md).
-- Laden Sie die neueste Version des Tools [Microsoft Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker) herunter.
+- [PowerShell, konfiguriert für Azure Stack Hub](azure-stack-powershell-install.md).
+- Die neueste Version des Tools [Microsoft Azure Stack Hub Readiness Checker](https://aka.ms/AzsReadinessChecker).
 
 **Azure Active Directory-Umgebung**:
 
-- Bestimmen Sie das Azure AD-Konto, das Sie für Azure Stack verwenden möchten, und stellen Sie sicher, dass es einem globalem Azure Active Directory-Administrator gehört.
+- Bestimmen Sie das Azure AD-Konto, das Sie für Azure Stack Hub verwenden möchten, und stellen Sie sicher, dass es sich um das Konto eines globalen Azure Active Directory-Administrators handelt.
 - Ermitteln Sie den Namen Ihres Azure AD-Mandanten. Der Mandantenname muss der primäre Domänenname für Ihre Azure Active Directory-Instanz sein, z.B. **contoso.onmicrosoft.com**.
 - Bestimmen Sie die Azure-Umgebung, die Sie verwenden möchten. Unterstützte Werte für den Umgebungsnamensparameter sind je nach Ihrem verwendeten Azure-Abonnement **AzureCloud**, **AzureChinaCloud** oder **AzureUSGovernment**.
 
@@ -102,14 +102,14 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
 
 Bei jeder Ausführung einer Überprüfung werden Ergebnisse in den Dateien **AzsReadinessChecker.log** und **AzsReadinessCheckerReport.json** protokolliert. Der Speicherort dieser Dateien wird mit den Überprüfungsergebnissen in PowerShell angezeigt.
 
-Anhand dieser Dateien können Sie den Überprüfungsstatus freigeben, bevor Sie Azure Stack bereitstellen oder Probleme mit der Überprüfung untersuchen. Die Ergebnisse aller nachfolgenden Überprüfungen werden in beiden Dateien gespeichert. Der Bericht enthält die Bestätigung Ihres Bereitstellungsteams über die Identitätskonfiguration. Mithilfe der Protokolldatei kann Ihr Bereitstellungs- oder Supportteam Probleme bei der Überprüfung untersuchen.
+Anhand dieser Dateien können Sie den Überprüfungsstatus freigeben, bevor Sie Azure Stack Hub bereitstellen oder Probleme mit der Überprüfung untersuchen. Die Ergebnisse aller nachfolgenden Überprüfungen werden in beiden Dateien gespeichert. Der Bericht enthält die Bestätigung Ihres Bereitstellungsteams über die Identitätskonfiguration. Mithilfe der Protokolldatei kann Ihr Bereitstellungs- oder Supportteam Probleme bei der Überprüfung untersuchen.
 
 Standardmäßig werden beide Dateien in das Verzeichnis **C:\Users\<Benutzername>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** geschrieben.  
 
-- Verwenden Sie den Parameter **-OutputPath** ***&lt;Pfad&gt;*** am Ende der Befehlszeilenausführung, um einen anderen Berichtsspeicherort anzugeben.
+- Verwenden Sie den Parameter **-OutputPath** ***&lt;Pfad&gt;*** am Ende der Befehlszeile zur Ausführung, um einen anderen Berichtsspeicherort anzugeben.
 - Verwenden Sie den **-CleanReport** -Parameter am Ende der Befehlszeile, um Informationen zu früheren Ausführungen des Tools aus **AzsReadinessCheckerReport.json** zu löschen.
 
-Weitere Informationen finden Sie unter [Azure Stack-Überprüfungsbericht](azure-stack-validation-report.md).
+Weitere Informationen finden Sie unter [Azure Stack Hub-Überprüfungsbericht](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Fehler bei der Überprüfung
 
@@ -193,10 +193,10 @@ Invoke-AzsAzureIdentityValidation Completed
 
 **Lösung**:Melden Sie sich als Kontoinhaber im [Azure-Portal](https://portal.azure.com) an, gehen Sie zu **Azure Active Directory**, dann zu **Benutzer**, dann zu **Auswahl des Benutzers**, dann zu **Verzeichnisrolle**, und stellen Sie dann sicher, dass der Benutzer ein **Globaler Administrator** ist. Wenn das Konto der jeweilige **Benutzer** ist, navigieren Sie zu **Azure Active Directory** > **Benutzerdefinierte Domänennamen**, und vergewissern Sie sich, dass der für **AADDirectoryTenantName** angegebene Name als primärer Domänenname für dieses Verzeichnis gekennzeichnet ist. In diesem Beispiel ist dies **contoso.onmicrosoft.com**.
 
-Bei Azure Stack muss der Domänenname der primäre Domänenname sein.
+Bei Azure Stack Hub muss der Domänenname der primäre Domänenname sein.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 [Überprüfen der Azure-Registrierung](azure-stack-validate-registration.md)  
 [Anzeigen des Bereitschaftsberichts](azure-stack-validation-report.md)  
-[Allgemeine Überlegungen zur Azure Stack-Integration](azure-stack-datacenter-integration.md)  
+[Allgemeine Überlegungen zur Azure Stack Hub-Integration](azure-stack-datacenter-integration.md)  

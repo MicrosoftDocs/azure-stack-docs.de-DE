@@ -1,6 +1,6 @@
 ---
-title: Einführung in Azure Stack-VMs | Microsoft-Dokumentation
-description: Enthält Informationen zu Azure Stack-VMs.
+title: Einführung in Azure Stack Hub-VMs | Microsoft-Dokumentation
+description: Enthält Informationen zu Azure Stack Hub-VMs.
 services: azure-stack
 author: sethmanheim
 manager: femila
@@ -10,34 +10,32 @@ ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: de96b74351fa3becd0b066da4430e42cb2a9cea7
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: 7a7da17dd3b9be99c797b2241ae38bd2d4e6c0d2
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961678"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923982"
 ---
-# <a name="introduction-to-azure-stack-vms"></a>Einführung in Azure Stack-VMs
+# <a name="introduction-to-azure-stack-hub-vms"></a>Einführung in Azure Stack Hub-VMs
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+Azure Stack Hub verfügt über virtuelle Computer (VMs) als Option für bedarfsgesteuerte und skalierbare Computingressourcen. Sie können virtuelle Computer verwenden, wenn Sie mehr Kontrolle über Ihre Computingumgebung benötigen. Lesen Sie vor dem Erstellen Ihres ersten virtuellen Computers die Informationen in diesem Artikel.
 
-Azure Stack verfügt über virtuelle Computer (VMs) als Option für bedarfsgesteuerte und skalierbare Computingressourcen. Sie können virtuelle Computer verwenden, wenn Sie mehr Kontrolle über Ihre Computingumgebung benötigen. Lesen Sie vor dem Erstellen Ihres ersten virtuellen Computers die Informationen in diesem Artikel.
+Ein virtueller Azure Stack Hub-Computer bietet die Flexibilität der Virtualisierung, ohne dass Sie Cluster oder einzelne Computer verwalten müssen. Der virtuelle Computer muss allerdings weiterhin gewartet werden, z. B. durch das Konfigurieren, Patchen/Aktualisieren und Verwalten der darauf ausgeführten Software.
 
-Ein virtueller Azure Stack-Computer bietet die Flexibilität der Virtualisierung, ohne dass Sie Cluster oder einzelne Computer verwalten müssen. Der virtuelle Computer muss allerdings weiterhin gewartet werden, z. B. durch das Konfigurieren, Patchen/Aktualisieren und Verwalten der darauf ausgeführten Software.
+Sie können Azure Stack Hub-VMs auf mehrere Arten verwenden. Beispiel:
 
-Sie können Azure Stack-VMs auf mehrere Arten verwenden. Beispiel:
+- **Entwickeln und Testen**: Mit virtuellen Azure Stack Hub-Computern können Sie einen Computer mit speziellen Konfigurationen erstellen, die zum Programmieren und Testen einer Anwendung erforderlich sind.
 
-- **Entwickeln und Testen**: Mit virtuellen Azure Stack-Computern können Sie einen Computer mit speziellen Konfigurationen erstellen, die zum Programmieren und Testen einer Anwendung erforderlich sind.
+- **Anwendungen in der Cloud**: Da die Nutzung Ihrer Anwendung Schwankungen unterliegen kann, ist es unter Umständen wirtschaftlich sinnvoll, sie auf einem virtuellen Computer in Azure Stack Hub auszuführen. Sie bezahlen für zusätzliche virtuelle Computer, wenn Sie sie benötigen, und fahren sie andernfalls einfach herunter.
 
-- **Anwendungen in der Cloud**: Da die Nutzung Ihrer Anwendung Schwankungen unterliegen kann, ist es unter Umständen wirtschaftlich sinnvoll, sie auf einem virtuellen Computer in Azure Stack auszuführen. Sie bezahlen für zusätzliche virtuelle Computer, wenn Sie sie benötigen, und fahren sie andernfalls einfach herunter.
-
-- **Erweitertes Datencenter**: VMs in einem virtuellen Azure Stack-Netzwerk können mit dem Netzwerk Ihrer Organisation oder mit Azure verbunden werden.
+- **Erweitertes Datencenter**: VMs in einem virtuellen Azure Stack Hub-Netzwerk können mit dem Netzwerk Ihrer Organisation oder mit Azure verbunden werden.
 
 Die virtuellen Computer, die von Ihrer Anwendung genutzt werden, können zur Erfüllung Ihrer Anforderungen zentral oder horizontal hochskaliert werden.
 
 ## <a name="before-creating-a-vm"></a>Vor dem Erstellen einer VM
 
-Beim Einrichten einer Anwendungsinfrastruktur in Azure Stack müssen immer Designaspekte berücksichtigt werden. Stellen Sie daher vor der Erstellung Ihrer Infrastruktur Überlegungen zu folgenden VM-Aspekten an:
+Beim Einrichten einer Anwendungsinfrastruktur in Azure Stack Hub müssen immer Designaspekte berücksichtigt werden. Stellen Sie daher vor der Erstellung Ihrer Infrastruktur Überlegungen zu folgenden VM-Aspekten an:
 
 - Die Namen Ihrer Anwendungsressourcen
 - Die Größe des virtuellen Computers
@@ -50,11 +48,11 @@ Beim Einrichten einer Anwendungsinfrastruktur in Azure Stack müssen immer Desig
 
 Einer VM wird ein Name zugewiesen, und im Betriebssystem wird dafür ein Computername konfiguriert. Der Name eines virtuellen Computers kann bis zu 15 Zeichen lang sein.
 
-Wenn Sie den Betriebssystem-Datenträger mithilfe von Azure Stack erstellen, sind der Computername und der Name der VM identisch. Falls Sie ein eigenes Image hochladen und verwenden, das ein vorab konfiguriertes Betriebssystem enthält, und auf dessen Grundlage eine VM erstellen, können die Namen unterschiedlich sein. Beim Hochladen einer eigenen Imagedatei besteht die empfohlene bewährte Methode darin, für den Computernamen im Betriebssystem und für den Namen der VM eine identische Zeichenfolge zu verwenden.
+Wenn Sie den Betriebssystem-Datenträger mithilfe von Azure Stack Hub erstellen, sind der Computername und der Name der VM identisch. Falls Sie ein eigenes Image hochladen und verwenden, das ein vorab konfiguriertes Betriebssystem enthält, und auf dessen Grundlage eine VM erstellen, können die Namen unterschiedlich sein. Beim Hochladen einer eigenen Imagedatei besteht die empfohlene bewährte Methode darin, für den Computernamen im Betriebssystem und für den Namen der VM eine identische Zeichenfolge zu verwenden.
 
 ### <a name="vm-size"></a>Größe des virtuellen Computers
 
-Die Größe des virtuellen Computers richtet sich nach der Workload, die Sie ausführen möchten. Von der gewählten Größe hängen Faktoren wie Rechenleistung, Arbeitsspeicher und Speicherplatz ab. Azure Stack verfügt über unterschiedliche Arten von Größen zur Unterstützung vieler Verwendungsarten.
+Die Größe des virtuellen Computers richtet sich nach der Workload, die Sie ausführen möchten. Von der gewählten Größe hängen Faktoren wie Rechenleistung, Arbeitsspeicher und Speicherplatz ab. Azure Stack Hub verfügt über unterschiedliche Arten von Größen zur Unterstützung vieler Verwendungsarten.
 
 ### <a name="vm-limits"></a>Grenzwerte für virtuelle Computer
 
@@ -62,14 +60,14 @@ Für Ihr Abonnement gelten standardmäßig bestimmte Kontingentgrenzen, die die 
 
 ### <a name="operating-system-disks-and-images"></a>Betriebssystem-Datenträger und Images
 
-Betriebssystem (Operating System, OS) und Daten werden bei VMs auf virtuellen Festplatten (Virtual Hard Disks, VHDs) gespeichert. VHDs werden auch für die Images verwendet, die Sie auswählen, um ein Betriebssystem zu installieren. Azure Stack bietet einen Marketplace für verschiedene Versionen und Arten von Betriebssystemen. Marketplace-Images werden anhand von Herausgeber, Angebot, SKU und Version identifiziert (üblicherweise wird die aktuelle Version mit **latest** gekennzeichnet).
+Betriebssystem (Operating System, OS) und Daten werden bei VMs auf virtuellen Festplatten (Virtual Hard Disks, VHDs) gespeichert. VHDs werden auch für die Images verwendet, die Sie auswählen, um ein Betriebssystem zu installieren. Azure Stack Hub bietet einen Marketplace für verschiedene Versionen und Arten von Betriebssystemen. Marketplace-Images werden anhand von Herausgeber, Angebot, SKU und Version identifiziert (üblicherweise wird die aktuelle Version mit **latest** gekennzeichnet).
 
 In der folgenden Tabelle ist angegeben, wie Sie die Informationen zu einem Image finden:
 
-|Methode|BESCHREIBUNG|
+|Methode|Beschreibung|
 |---------|---------|
-|Azure Stack-Portal|Die Werte werden automatisch angegeben, wenn Sie ein zu verwendendes Image auswählen.|
-|Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
+|Azure Stack Hub-Portal|Die Werte werden automatisch angegeben, wenn Sie ein zu verwendendes Image auswählen.|
+|Azure Stack Hub PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
 |REST-APIs     |[List image publishers](/rest/api/compute/platformimages/platformimages-list-publishers) (Imageherausgeber auflisten)<br>[List image offers](/rest/api/compute/platformimages/platformimages-list-publisher-offers) (Imageangebote auflisten)<br>[List image SKUs](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) (Image-SKUs auflisten)|
 
 Sie können ein eigenes Image hochladen und verwenden. In diesem Fall werden Herausgebername, Angebot und SKU nicht verwendet.
@@ -89,7 +87,7 @@ Mit Erweiterungen können folgende allgemeine Aufgaben umgesetzt werden:
 
 Die Ressourcen in der folgenden Tabelle werden vom virtuellen Computer verwendet und müssen beim Erstellen des virtuellen Computers vorhanden sein oder erstellt werden:
 
-|Resource|Erforderlich|BESCHREIBUNG|
+|Resource|Erforderlich|Beschreibung|
 |---------|---------|---------|
 |Resource group|Ja|Der virtuelle Computer muss sich in einer Ressourcengruppe befinden.|
 |Speicherkonto|Nein|Bei Verwendung verwalteter Datenträger benötigt die VM das Speicherkonto nicht, um die virtuellen Festplatten zu speichern. <br>Bei Verwendung von nicht verwalteten Datenträgern benötigt der virtuelle Computer das Speicherkonto, um die virtuellen Festplatten zu speichern.|
@@ -104,10 +102,10 @@ Zum Erstellen eines virtuellen Computers stehen Ihnen mehrere Möglichkeiten zur
 
 |Methode|Artikel|
 |---------|---------|
-|Azure Stack-Portal|Erstellen einer Windows-VM mit dem Azure Stack-Portal<br>[Erstellen einer Linux-VM mit dem Azure Stack-Portal](azure-stack-quick-linux-portal.md)|
-|Vorlagen|Azure Stack-Schnellstartvorlagen befinden sich hier:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStarvirtualt-Templates)|
-|PowerShell|[Erstellen einer Windows-VM in Azure Stack mit PowerShell](azure-stack-quick-create-vm-windows-powershell.md)<br>[Erstellen einer Linux-VM in Azure Stack mit PowerShell](azure-stack-quick-create-vm-linux-powershell.md)|
-|Befehlszeilenschnittstelle (CLI)|[Erstellen einer Windows-VM in Azure Stack mit der CLI](azure-stack-quick-create-vm-windows-cli.md)<br>[Erstellen einer Linux-VM in Azure Stack mit der CLI](azure-stack-quick-create-vm-linux-cli.md)|
+|Azure Stack Hub-Portal|Erstellen einer Windows-VM mit dem Azure Stack Hub-Portal<br>[Erstellen einer Linux-VM mit dem Azure Stack Hub-Portal](azure-stack-quick-linux-portal.md)|
+|Vorlagen|Azure Stack Hub-Schnellstartvorlagen befinden sich hier:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://aka.ms/aa6z60s)|
+|PowerShell|[Erstellen einer Windows-VM in Azure Stack Hub mit PowerShell](azure-stack-quick-create-vm-windows-powershell.md)<br>[Erstellen einer Linux-VM in Azure Stack Hub mit PowerShell](azure-stack-quick-create-vm-linux-powershell.md)|
+|Befehlszeilenschnittstelle (CLI)|[Erstellen einer Windows-VM in Azure Stack Hub mit der CLI](azure-stack-quick-create-vm-windows-cli.md)<br>[Erstellen einer Linux-VM in Azure Stack Hub mit der CLI](azure-stack-quick-create-vm-linux-cli.md)|
 
 ## <a name="manage-your-vm"></a>Verwalten Ihres virtuellen Computers
 
@@ -122,16 +120,16 @@ Sie können virtuelle Computer über ein browserbasiertes Portal, über Befehlsz
 
 Die folgende Tabelle zeigt einige der Methoden, mit denen Sie Informationen zu einem virtuellen Computer abrufen können.
 
-|Methode|BESCHREIBUNG|
+|Methode|Beschreibung|
 |---------|---------|
-|Azure Stack-Portal|Klicken Sie im Hub-Menü auf **Virtual Machines**, und wählen Sie dann in der Liste den gewünschten virtuellen Computer aus. Auf der Seite des virtuellen Computers finden Sie Übersichtsinformationen, Einstellungswerte und Überwachungsmetriken.|
-|Azure PowerShell|Die Verwaltung von virtuellen Computern erfolgt in Azure und Azure Stack auf die gleiche Weise. Weitere Informationen zur Verwendung von PowerShell finden Sie im folgenden Azure-Thema:<br>[Erstellen und Verwalten von virtuellen Windows-Computern mit dem Azure PowerShell-Modul](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|Client-SDKs|Die Verwendung von C# zur Verwaltung von virtuellen Computern erfolgt in Azure und Azure Stack auf die gleiche Weise. Weitere Informationen finden Sie im folgenden Azure-Thema:<br>[Erstellen und Verwalten von virtuellen Windows-Computern in Azure mithilfe von C#](/azure/virtual-machines/windows/csharp)|
+|Azure Stack Hub-Portal|Klicken Sie im Hub-Menü auf **Virtual Machines**, und wählen Sie dann in der Liste den gewünschten virtuellen Computer aus. Auf der Seite des virtuellen Computers finden Sie Übersichtsinformationen, Einstellungswerte und Überwachungsmetriken.|
+|Azure PowerShell|Die Verwaltung von virtuellen Computern erfolgt in Azure und Azure Stack Hub auf die gleiche Weise. Weitere Informationen zur Verwendung von PowerShell finden Sie im folgenden Azure-Thema:<br>[Erstellen und Verwalten von virtuellen Windows-Computern mit dem Azure PowerShell-Modul](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|Client-SDKs|Die Verwendung von C# zur Verwaltung von virtuellen Computern erfolgt in Azure und Azure Stack Hub auf die gleiche Weise. Weitere Informationen finden Sie im folgenden Azure-Thema:<br>[Erstellen und Verwalten von virtuellen Windows-Computern in Azure mithilfe von C#](/azure/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-your-vm"></a>Herstellen einer Verbindung mit Ihrer VM
 
-Sie können die Schaltfläche **Verbinden** im Azure Stack-Portal verwenden, um eine Verbindung mit Ihrem virtuellen Computer herzustellen.
+Sie können die Schaltfläche **Verbinden** im Azure Stack Hub-Portal verwenden, um eine Verbindung mit Ihrem virtuellen Computer herzustellen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Überlegungen zur Verwendung von virtuellen Computern in Azure Stack](azure-stack-vm-considerations.md)
+- [Überlegungen zur Verwendung von virtuellen Computern in Azure Stack Hub](azure-stack-vm-considerations.md)

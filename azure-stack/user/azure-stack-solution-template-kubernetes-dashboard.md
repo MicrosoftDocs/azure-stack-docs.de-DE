@@ -1,6 +1,6 @@
 ---
-title: Zugreifen auf das Kubernetes-Dashboard in Azure Stack | Microsoft-Dokumentation
-description: Es wird beschrieben, wie Sie in Azure Stack auf das Kubernetes-Dashboard zugreifen.
+title: Zugreifen auf das Kubernetes-Dashboard in Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie in Azure Stack Hub auf das Kubernetes-Dashboard zugreifen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,30 +11,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: fdda72e215590c7bbd7d739e2eb46b085fc55405
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 3a101150ee8dd931a4c13ba68225cfc3785352f4
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047192"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535942"
 ---
-# <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Zugreifen auf das Kubernetes-Dashboard in Azure Stack 
+# <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Zugreifen auf das Kubernetes-Dashboard in Azure Stack Hub 
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit* 
 > [!Note]   
-> Verwenden Sie das Kubernetes-Azure Stack-Marketplace-Element nur, um Cluster als Proof of Concept bereitzustellen. Verwenden Sie für unterstützte Kubernetes-Cluster in Azure Stack  [die AKS-Engine](azure-stack-kubernetes-aks-engine-overview.md).
+> Verwenden Sie das Kubernetes-Azure Stack-Marketplace-Element nur, um Cluster als Proof of Concept bereitzustellen. Verwenden Sie für unterstützte Kubernetes-Cluster in Azure Stack [die AKS-Engine](azure-stack-kubernetes-aks-engine-overview.md).
 
-Kubernetes enthält ein Webdashboard, das Sie für einfache Verwaltungsvorgänge verwenden können. In diesem Dashboard können Sie den Integritätsstatus und grundlegende Metriken für Ihre Anwendungen anzeigen, Dienste erstellen und bereitstellen und vorhandene Anwendungen bearbeiten. In diesem Artikel wird veranschaulicht, wie Sie das Kubernetes-Dashboard in Azure Stack einrichten.
+Kubernetes enthält ein Webdashboard, das Sie für einfache Verwaltungsvorgänge verwenden können. In diesem Dashboard können Sie den Integritätsstatus und grundlegende Metriken für Ihre Anwendungen anzeigen, Dienste erstellen und bereitstellen und vorhandene Anwendungen bearbeiten. In diesem Artikel wird veranschaulicht, wie Sie das Kubernetes-Dashboard in Azure Stack Hub einrichten.
 
 ## <a name="prerequisites-for-kubernetes-dashboard"></a>Voraussetzungen für Kubernetes-Dashboard
 
-* Azure Stack-Kubernetes-Cluster
+* Azure Stack Hub-Kubernetes-Cluster
 
-    Sie müssen in Azure Stack einen Kubernetes-Cluster bereitgestellt haben. Weitere Informationen finden Sie im Artikel zum Thema [Bereitstellen von Kubernetes](azure-stack-solution-template-kubernetes-deploy.md).
+    Sie müssen in Azure Stack Hub einen Kubernetes-Cluster bereitgestellt haben. Weitere Informationen finden Sie im Artikel zum Thema [Bereitstellen von Kubernetes](azure-stack-solution-template-kubernetes-deploy.md).
 
 * SSH-Client
 
@@ -42,21 +41,21 @@ Kubernetes enthält ein Webdashboard, das Sie für einfache Verwaltungsvorgänge
 
 * FTP (PSCP)
 
-    Unter Umständen benötigen Sie auch einen FTP-Client mit SSH-Unterstützung und das SSH-Dateiübertragungsprotokoll, um die Zertifikate vom Masterknoten auf Ihren Azure Stack-Verwaltungscomputer zu übertragen. Sie können [FileZilla](https://filezilla-project.org/download.php?type=client) verwenden. Sie benötigen den privaten Schlüssel, der beim Bereitstellen Ihres Kubernetes-Clusters verwendet wurde.
+    Unter Umständen benötigen Sie auch einen FTP-Client mit SSH-Unterstützung und das SSH-Dateiübertragungsprotokoll, um die Zertifikate vom Masterknoten auf Ihren Azure Stack Hub-Verwaltungscomputer zu übertragen. Sie können [FileZilla](https://filezilla-project.org/download.php?type=client) verwenden. Sie benötigen den privaten Schlüssel, der beim Bereitstellen Ihres Kubernetes-Clusters verwendet wurde.
 
 ## <a name="overview-of-steps-to-enable-dashboard"></a>Übersicht über die Schritte zum Aktivieren des Dashboards
 
 1.  Exportieren Sie die Kubernetes-Zertifikate vom Masterknoten in den Cluster. 
-2.  Importieren Sie die Zertifikate in Ihren Azure Stack-Verwaltungscomputer.
+2.  Importieren Sie die Zertifikate in Ihren Azure Stack Hub-Verwaltungscomputer.
 2.  Öffnen Sie das Kubernetes-Webdashboard. 
 
 ## <a name="export-certificate-from-the-master"></a>Exportieren des Zertifikats vom Master 
 
 Sie können die URL für das Dashboard vom Masterknoten in Ihrem Cluster abrufen.
 
-1. Rufen Sie die öffentliche IP-Adresse und den Benutzernamen für Ihren Clustermaster aus dem Azure Stack-Dashboard ab. Rufen Sie diese Informationen wie folgt ab:
+1. Rufen Sie die öffentliche IP-Adresse und den Benutzernamen für Ihren Clustermaster aus dem Azure Stack Hub-Dashboard ab. Rufen Sie diese Informationen wie folgt ab:
 
-    - Melden Sie sich am [Azure Stack-Portal](https://portal.local.azurestack.external/) an.
+    - Melden Sie sich beim [Azure Stack Hub-Portal](https://portal.local.azurestack.external/) an.
     - Wählen Sie **Alle Dienste** > **Alle Ressourcen**. Suchen Sie in Ihrer Clusterressourcengruppe nach dem Master. Der Master hat den Namen `k8s-master-<sequence-of-numbers>`. 
 
 2. Öffnen Sie den Masterknoten im Portal. Kopieren Sie die **öffentliche IP-Adresse**. Klicken Sie auf **Verbinden**, um Ihren Benutzernamen im Feld **Mit lokalem VM-Konto anmelden** abzurufen. Dies ist der Benutzername, den Sie beim Erstellen Ihres Clusters festgelegt haben. Verwenden Sie die öffentliche IP-Adresse und nicht die private IP-Adresse, die auf dem Blatt „Verbinden“ angegeben ist.
@@ -102,7 +101,7 @@ Sie können die URL für das Dashboard vom Masterknoten in Ihrem Cluster abrufen
     - Privates Geheimnis
     - Verwenden Sie **SFTP (SSH File Transfer Protocol)** .
 
-2. Kopieren Sie `/etc/kubernetes/certs/client.pfx` und `/etc/kubernetes/certs/ca.crt` auf Ihren Azure Stack-Verwaltungscomputer.
+2. Kopieren Sie `/etc/kubernetes/certs/client.pfx` und `/etc/kubernetes/certs/ca.crt` auf Ihren Azure Stack Hub-Verwaltungscomputer.
 
 3. Notieren Sie sich die Dateispeicherorte. Aktualisieren Sie das Skript mit den Speicherorten, und öffnen Sie anschließend PowerShell mit einer Eingabeaufforderung mit erhöhten Rechten. Führen Sie das aktualisierte Skript aus:  
 
@@ -129,12 +128,12 @@ Sie können die URL für das Dashboard vom Masterknoten in Ihrem Cluster abrufen
 
 Sie können das Dashboard verwenden. Weitere Informationen zum Kubernetes-Dashboard finden Sie unter [Kubernetes Web UI Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) (Kubernetes-Dashboard mit Webbenutzeroberfläche). 
 
-![Azure Stack-Kubernetes-Dashboard](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
+![Azure Stack Hub-Kubernetes-Dashboard](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
 
 ## <a name="next-steps"></a>Nächste Schritte 
 
-[Bereitstellen von Kubernetes in Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)  
+[Bereitstellen von Kubernetes in Azure Stack Hub](azure-stack-solution-template-kubernetes-deploy.md)  
 
-[Hinzufügen eines Kubernetes-Clusters zum Marketplace (für Azure Stack-Bediener)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)  
+[Hinzufügen eines Kubernetes-Clusters zu Marketplace (für Azure Stack Hub-Operator)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)  
 
 [Kubernetes in Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)  

@@ -1,6 +1,6 @@
 ---
-title: Bewährte Methoden für die automatische Azure Stack-Protokollsammlung | Microsoft-Dokumentation
-description: Bewährte Methoden für die automatische Protokollsammlung in Azure Stack – Hilfe und Support
+title: Bewährte Methoden für die automatische Azure Stack Hub-Protokollsammlung | Microsoft-Dokumentation
+description: Bewährte Methoden für die automatische Protokollsammlung in Azure Stack Hub – Hilfe und Support
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,23 +16,20 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 03fb0550bfaa41a3336ff17dd1c44e03bcea1402
-ms.sourcegitcommit: b752f4e6733d9ebe56dbd171a14528dcb9a693fd
+ms.openlocfilehash: 7baa7440fec1c29ee43c5d3f80282bd6a58a3242
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68522041"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883030"
 ---
-# <a name="best-practices-for-automatic-azure-stack-log-collection"></a>Bewährte Methoden für die automatische Azure Stack-Protokollsammlung 
+# <a name="best-practices-for-automatic-azure-stack-hub-log-collection"></a>Bewährte Methoden für die automatische Azure Stack Hub-Protokollsammlung 
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme*
+In diesem Thema werden bewährte Methoden zum Verwalten der automatischen Sammlung von Diagnoseprotokollen für Azure Stack Hub behandelt. 
 
+## <a name="collecting-logs-from-multiple-azure-stack-hub-systems"></a>Sammeln von Protokollen aus mehreren Azure Stack Hub-Systemen
 
-In diesem Thema werden bewährte Methoden zum Verwalten der automatischen Sammlung von Diagnoseprotokollen für Azure Stack behandelt. 
-
-## <a name="collecting-logs-from-multiple-azure-stack-systems"></a>Sammeln von Protokollen aus mehreren Azure Stack-Systemen
-
-Richten Sie für jede Azure Stack-Skalierungseinheit, aus der Sie Protokolle sammeln möchten, einen Blobcontainer ein. Informationen zum Konfigurieren der Blobcontainer finden Sie unter [Konfigurieren der automatischen Azure Stack-Diagnoseprotokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection.md). Es empfiehlt sich, nur Diagnoseprotokolle aus der gleichen Azure Stack-Skalierungseinheit innerhalb eines einzelnen Blobcontainers zu speichern. 
+Richten Sie für jede Azure Stack Hub-Skalierungseinheit, aus der Sie Protokolle sammeln möchten, einen Blobcontainer ein. Informationen zum Konfigurieren der Blobcontainer finden Sie unter [Konfigurieren der automatischen Azure Stack Hub-Diagnoseprotokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection.md). Es empfiehlt sich, nur Diagnoseprotokolle aus der gleichen Azure Stack Hub-Skalierungseinheit innerhalb eines einzelnen Blobcontainers zu speichern. 
 
 ## <a name="retention-policy"></a>Aufbewahrungsrichtlinie
 
@@ -72,9 +69,9 @@ Die folgende Tabelle kann dabei helfen, den Einfluss der aktivierten automatisch
 
 Gebühren für Azure [Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/) richten sich nach der Menge der pro Monat gespeicherten Daten und nach weiteren Faktoren, wie der Datenredundanz. Wenn Sie nicht über ein Speicherkonto verfügen, können Sie sich beim Azure-Portal anmelden, auf **Speicherkonten** klicken und die Schritte zum [Erstellen einer SAS-URL für Azure-Blobcontainer](azure-stack-configure-automatic-diagnostic-log-collection.md) ausführen.
 
-Es wird empfohlen, eine [Lebenszyklusverwaltungs-Richtlinie](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) für Azure Blob Storage zu erstellen, um die laufenden Speicherkosten zu minimieren. Informationen zum Einrichten des Speicherkontos finden Sie unter [Konfigurieren der automatischen Azure Stack-Diagnoseprotokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection.md).
+Es wird empfohlen, eine [Lebenszyklusverwaltungs-Richtlinie](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) für Azure Blob Storage zu erstellen, um die laufenden Speicherkosten zu minimieren. Informationen zum Einrichten des Speicherkontos finden Sie unter [Konfigurieren der automatischen Azure Stack Hub-Diagnoseprotokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection.md).
 
 ## <a name="see-also"></a>Weitere Informationen
 
-[Konfigurieren der automatischen Azure Stack-Protokollsammlung](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
+[Konfigurieren der automatischen Azure Stack Hub-Protokollsammlung](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
 

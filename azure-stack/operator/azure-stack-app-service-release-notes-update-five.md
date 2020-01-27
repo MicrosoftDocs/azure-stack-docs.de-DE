@@ -1,6 +1,6 @@
 ---
-title: 'App Service in Azure Stack: Versionshinweise zu Update 5 | Microsoft-Dokumentation'
-description: Erfahren Sie mehr über Verbesserungen, Fehlerbehebungen und bekannte Probleme in Update 5 für App Service in Azure Stack.
+title: 'App Service in Azure Stack Hub: Versionshinweise zu Update 5 | Microsoft-Dokumentation'
+description: Erfahren Sie mehr über Verbesserungen, Fehlerbehebungen und bekannte Probleme in Update 5 für App Service in Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,33 +16,31 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: f44bfcaf91e06979d1a9eb745bf681c0d9f69371
-ms.sourcegitcommit: cb9548e5a2ca27d9c44f349eeb08d94c9c6334da
+ms.openlocfilehash: 4fb08632d994a1d565e949eb42fa264cf520ced6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73916402"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880446"
 ---
-# <a name="app-service-on-azure-stack-update-5-release-notes"></a>App Service in Azure Stack: Versionshinweise zu Update 5
+# <a name="app-service-on-azure-stack-hub-update-5-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 5
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-In diesen Versionshinweisen werden die Verbesserungen, Fehlerbehebungen und bekannten Probleme in Update 5 für Azure App Service in Azure Stack beschrieben. Die bekannten Probleme sind in drei Abschnitte unterteilt: Probleme in Bezug auf die Bereitstellung, Probleme mit dem Updatevorgang und Probleme mit dem Build (nach der Installation).
+In diesen Versionshinweisen werden die Verbesserungen, Fehlerbehebungen und bekannten Probleme in Update 5 für Azure App Service in Azure Stack Hub beschrieben. Die bekannten Probleme sind in drei Abschnitte unterteilt: Probleme in Bezug auf die Bereitstellung, Probleme mit dem Updatevorgang und Probleme mit dem Build (nach der Installation).
 
 > [!IMPORTANT]
-> Wenden Sie Update 1901 auf Ihr integriertes Azure Stack-System an, oder stellen Sie das aktuelle Azure Stack Development Kit (ASDK) vor der Bereitstellung von Azure App Service 1.5 bereit.
+> Wenden Sie Update 1901 auf Ihr integriertes Azure Stack Hub-System an, oder stellen Sie das aktuelle Azure Stack Development Kit (ASDK) vor der Bereitstellung von Azure App Service 1.5 bereit.
 
 ## <a name="build-reference"></a>Buildreferenz
 
-Die Buildnummer von Update 5 für App Service in Azure Stack lautet **80.0.2.15**.
+Die Buildnummer von Update 5 für App Service in Azure Stack Hub lautet **80.0.2.15**.
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
-Lesen Sie vor Beginn der Bereitstellung die [Voraussetzungen für das Bereitstellen von App Service in Azure Stack](azure-stack-app-service-before-you-get-started.md).
+Lesen Sie vor Beginn der Bereitstellung die [Voraussetzungen für das Bereitstellen von App Service in Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 
-Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack auf 1.5 beginnen:
+Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack Hub auf 1.5 beginnen:
 
-- Stellen Sie sicher, dass alle Rollen in der Azure App Service-Verwaltung im Azure Stack-Administratorportal bereit sind.
+- Stellen Sie sicher, dass alle Rollen in der Azure App Service-Verwaltung im Azure Stack Hub-Administratorportal bereit sind.
 
 - Sichern Sie App Service- und Masterdatenbanken:
   - AppService_Hosting
@@ -55,13 +53,13 @@ Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack auf 1.5 beginnen:
 
 ### <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
 
-Das Update 5 für Azure App Service in Azure Stack enthält folgende Verbesserungen und Fehlerbehebungen:
+Update 5 für Azure App Service in Azure Stack Hub enthält folgende Verbesserungen und Fehlerbehebungen:
 
-- Updates für **App Service-Mandanten, Admin, Functions-Portale und Kudu-Tools**. Mit Azure Stack-Portal-SDK-Version konsistent.
+- Updates für **App Service-Mandanten, Admin, Functions-Portale und Kudu-Tools**. Konsistent mit Azure Stack Hub-Portal-SDK-Version.
 
 - Aktualisiert **Azure Functions Runtime** auf **v1.0.12205**.
 
-- Updates für **Kudu-Tools**, um Gestaltungs- und Funktionsprobleme für Kunden zu beheben, die Azure Stack **ohne Verbindung** verwenden. 
+- Updates für **Kudu-Tools**, um Gestaltungs- und Funktionsprobleme für Kunden zu beheben, die Azure Stack Hub **ohne Verbindung** verwenden. 
 
 - Updates für den Kerndienst zur Verbesserung der Zuverlässigkeit und der Fehlermeldungen, die eine einfachere Diagnose von häufigen Problemen ermöglichen.
 
@@ -81,12 +79,12 @@ Das Update 5 für Azure App Service in Azure Stack enthält folgende Verbesseru
 
 ### <a name="post-update-steps"></a>Schritte nach dem Update
 
-Führen Sie die folgenden Schritte aus, nachdem das Update für Azure App Service in Azure Stack 1.5 abgeschlossen wurde, falls Sie für bereits vorhandene Bereitstellungen von Azure App Service in Azure Stack eine Migration zu eigenständigen Datenbanken durchführen möchten:
+Führen Sie die folgenden Schritte aus, nachdem das Update für Azure App Service in Azure Stack Hub 1.5 abgeschlossen wurde, falls Sie für bereits vorhandene Bereitstellungen von Azure App Service in Azure Stack Hub eine Migration zu eigenständigen Datenbanken durchführen möchten:
 
 > [!IMPORTANT]
-> Das Migrationsverfahren dauert etwa 5 bis 10 Minuten. Das Verfahren umfasst das Beenden der vorhandenen Datenbankanmeldesitzungen. Planen Sie Ausfallzeiten für die Migration und Überprüfung von Azure App Service in Azure Stack nach der Migration ein. Wenn Sie diese Schritte nach dem Upgrade auf Azure App Service in Azure Stack 1.3 ausgeführt haben, müssen sie nicht mehr ausgeführt werden.
+> Das Migrationsverfahren dauert etwa 5 bis 10 Minuten. Das Verfahren umfasst das Beenden der vorhandenen Datenbankanmeldesitzungen. Planen Sie Ausfallzeiten für die Migration und Überprüfung von Azure App Service in Azure Stack Hub nach der Migration ein. Wenn Sie diese Schritte nach dem Upgrade auf Azure App Service in Azure Stack Hub 1.3 ausgeführt haben, müssen sie nicht mehr ausgeführt werden.
 
-1. Fügen Sie [App Service-Datenbanken („appservice_hosting“ und „appservice_metering“) zu einer Verfügbarkeitsgruppe](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) hinzu.
+1. [Fügen Sie App Service-Datenbanken („appservice_hosting“ und „appservice_metering“) einer Verfügbarkeitsgruppe hinzu](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
 
 1. Aktivieren Sie die eigenständige Datenbank.
     ```sql
@@ -183,7 +181,7 @@ Führen Sie die folgenden Schritte aus, nachdem das Update für Azure App Servic
 
 ### <a name="known-issues-post-installation"></a>Bekannte Probleme (nach der Installation)
 
-- Worker können den Dateiserver nicht erreichen, wenn der App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist. Dieses Problem wird in der Bereitstellungsdokumentation zu Azure App Service in Azure Stack beschrieben.
+- Worker können den Dateiserver nicht erreichen, wenn der App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist. Dieses Problem wird in der Bereitstellungsdokumentation zu Azure App Service in Azure Stack Hub beschrieben.
 
 Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk und zur Verwendung einer internen IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Administratorportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
 
@@ -197,11 +195,11 @@ Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk u
  * Priorität: 700
  * Name: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack betreiben
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
 
-Sehen Sie sich die Dokumentation in den [Versionshinweisen zum Azure Stack-Update 1809](azure-stack-update-1903.md) an.
+Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1809](azure-stack-update-1903.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Einen Überblick über Azure App Service finden Sie unter [Übersicht über App Service in Azure Stack](azure-stack-app-service-overview.md).
-- Weitere Informationen zum Vorbereiten der Bereitstellung von App Service in Azure Stack finden Sie unter [Voraussetzungen für das Bereitstellen von App Service in Azure Stack](azure-stack-app-service-before-you-get-started.md).
+- Einen Überblick über Azure App Service finden Sie unter [Übersicht über App Service in Azure Stack Hub](azure-stack-app-service-overview.md).
+- Weitere Informationen zum Vorbereiten der Bereitstellung von App Service in Azure Stack Hub finden Sie unter [Voraussetzungen für das Bereitstellen von App Service in Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).

@@ -1,6 +1,6 @@
 ---
-title: 'App Service in Azure Stack: Versionshinweise zu Update 1 | Microsoft-Dokumentation'
-description: Erfahren Sie mehr über Verbesserungen, Fehlerbehebungen und bekannte Probleme in Update 1 für App Service in Azure Stack.
+title: 'App Service in Azure Stack Hub: Versionshinweise zu Update 1 | Microsoft-Dokumentation'
+description: Erfahren Sie mehr über Verbesserungen, Fehlerbehebungen und bekannte Probleme in Update 1 für App Service in Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,42 +16,40 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 7be74701b3e25658258abc7102668346e584ab39
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: f36a94bbc442913826571fdacd1303b010212d4c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974824"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880361"
 ---
-# <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service in Azure Stack: Versionshinweise zu Update 1
+# <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 1
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-In diesen Versionshinweisen werden die Verbesserungen, Fehlerbehebungen und bekannten Probleme in Update 1 für Azure App Service in Azure Stack beschrieben. Die bekannten Probleme sind in drei Abschnitte unterteilt: Probleme in Bezug auf die Bereitstellung, Probleme mit dem Updatevorgang und Probleme mit dem Build (nach der Installation).
+In diesen Versionshinweisen werden die Verbesserungen, Fehlerbehebungen und bekannten Probleme in Update 1 für Azure App Service in Azure Stack Hub beschrieben. Die bekannten Probleme sind in drei Abschnitte unterteilt: Probleme in Bezug auf die Bereitstellung, Probleme mit dem Updatevorgang und Probleme mit dem Build (nach der Installation).
 
 > [!IMPORTANT]
-> Wenden Sie Update 1802 auf Ihr integriertes Azure Stack-System an, oder stellen Sie das aktuelle Azure Stack Development Kit (ASDK) vor der Bereitstellung von Azure App Service 1.3 bereit.
+> Wenden Sie Update 1802 auf Ihr integriertes Azure Stack Hub-System an, oder stellen Sie das aktuelle Azure Stack Development Kit (ASDK) vor der Bereitstellung von Azure App Service 1.2 bereit.
 
 ## <a name="build-reference"></a>Buildreferenz
 
-Die Buildnummer von Update 1 für App Service in Azure Stack lautet **69.0.13698.9**.
+Die Buildnummer von Update 1 für App Service in Azure Stack Hub lautet **69.0.13698.9**.
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
 > [!IMPORTANT]
-> Neue Bereitstellungen von Azure App Service in Azure Stack erfordern jetzt aufgrund einer verbesserten SSO-Verarbeitung für Kudu in Azure App Service ein [Platzhalterzertifikat mit drei Antragstellern](azure-stack-app-service-before-you-get-started.md#get-certificates). Der neue Antragsteller lautet **\*.sso.appservice.\<Region\>.\<Domänenname\>.\<Erweiterung\>**
+> Neue Bereitstellungen von Azure App Service in Azure Stack Hub erfordern jetzt aufgrund einer verbesserten SSO-Verarbeitung für Kudu in Azure App Service ein [Platzhalterzertifikat mit drei Antragstellern](azure-stack-app-service-before-you-get-started.md#get-certificates). Der neue Antragsteller lautet **\*.sso.appservice.\<Region\>.\<Domänenname\>.\<Erweiterung\>**
 
-Lesen Sie vor Beginn der Bereitstellung die [Voraussetzungen für das Bereitstellen von App Service in Azure Stack](azure-stack-app-service-before-you-get-started.md).
+Lesen Sie vor Beginn der Bereitstellung die [Voraussetzungen für das Bereitstellen von App Service in Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 
 ### <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
 
-Update 1 für Azure App Service in Azure Stack enthält die folgenden Verbesserungen und Fehlerbehebungen:
+Update 1 für Azure App Service in Azure Stack Hub enthält folgende Verbesserungen und Fehlerbehebungen:
 
-- **Hochverfügbarkeit von Azure App Service**: Das Azure Stack-Update 1802 ermöglicht die Bereitstellung von Workloads in mehreren Fehlerdomänen. Durch die übergreifende Bereitstellung ist die App Service-Infrastruktur fehlertolerant. Standardmäßig weisen alle neuen Bereitstellungen von Azure App Service diese Funktion auf. Für Bereitstellungen, die vor Anwendung des Azure Stack-Updates 1802 durchgeführt wurden, sollten Sie jedoch die [App Service-Dokumentation für Fehlerdomänen](azure-stack-app-service-before-you-get-started.md) lesen.
+- **Hochverfügbarkeit von Azure App Service**: Das Azure Stack Hub-Update 1802 ermöglicht die Bereitstellung von Workloads in mehreren Fehlerdomänen. Durch die übergreifende Bereitstellung ist die App Service-Infrastruktur fehlertolerant. Standardmäßig weisen alle neuen Bereitstellungen von Azure App Service diese Funktion auf. Für Bereitstellungen, die vor Anwendung des Azure Stack Hub-Updates 1802 durchgeführt wurden, sollten Sie jedoch die [App Service-Dokumentation für Fehlerdomänen](azure-stack-app-service-before-you-get-started.md) lesen.
 
-- **In vorhandenem virtuellem Netzwerk bereitstellen**: Kunden können jetzt App Service in Azure Stack in einem vorhandenen virtuellen Netzwerk bereitstellen. Die Bereitstellung in einem vorhandenen virtuellen Netzwerk ermöglicht Kunden das Herstellen einer Verbindung mit der SQL Server-Instanz und dem Dateiserver (für Azure App Service erforderlich) über private Ports. Während der Bereitstellung können die Kunden auswählen, ob sie die Bereitstellung in einem vorhandenen virtuellen Netzwerk durchführen möchten. Vor der Bereitstellung [müssen sie jedoch Subnetze für die Verwendung durch App Service erstellen](azure-stack-app-service-before-you-get-started.md#virtual-network).
+- **In vorhandenem virtuellem Netzwerk bereitstellen**: Kunden können jetzt App Service in Azure Stack Hub in einem vorhandenen virtuellen Netzwerk bereitstellen. Die Bereitstellung in einem vorhandenen virtuellen Netzwerk ermöglicht Kunden das Herstellen einer Verbindung mit der SQL Server-Instanz und dem Dateiserver (für Azure App Service erforderlich) über private Ports. Während der Bereitstellung können die Kunden auswählen, ob sie die Bereitstellung in einem vorhandenen virtuellen Netzwerk durchführen möchten. Vor der Bereitstellung [müssen sie jedoch Subnetze für die Verwendung durch App Service erstellen](azure-stack-app-service-before-you-get-started.md#virtual-network).
 
-- Updates für **App Service-Mandanten, Admin, Functions-Portale und Kudu-Tools**. Konsistent mit Azure Stack-Portal-SDK-Version.
+- Updates für **App Service-Mandanten, Admin, Functions-Portale und Kudu-Tools**. Konsistent mit Azure Stack Hub-Portal-SDK-Version.
 
 - Aktualisiert **Azure Functions Runtime** auf **v1.0.11388**.
 
@@ -83,7 +81,7 @@ Update 1 für Azure App Service in Azure Stack enthält die folgenden Verbesseru
     - **Git für Windows** wurde auf v2.14.1 aktualisiert.
     - **Mercurial** wurde auf v4.5.0 aktualisiert.
 
-  - Unterstützung für das **Nur HTTPS**-Feature wurde innerhalb des Features „Benutzerdefinierte Domäne“ im App Service-Mandantenportal hinzugefügt.
+  - Unterstützung für das **Nur HTTPS**-Feature wurde innerhalb des Features „Benutzerdefinierte Domäne“ im App Service-Benutzerportal hinzugefügt.
 
   - Überprüfung der Speicherverbindung in der Auswahl von benutzerdefiniertem Speicher für Azure Functions hinzugefügt.
 
@@ -91,13 +89,13 @@ Update 1 für Azure App Service in Azure Stack enthält die folgenden Verbesseru
 
 - Beim Erstellen eines Offlinebereitstellungspakets erhalten Kunden keine „Zugriff verweigert“-Fehlermeldung mehr, wenn sie den Ordner vom App Service-Installationsprogramm aus öffnen.
 
-- Probleme beim Arbeiten im Feature „Benutzerdefinierte Domänen“ im App Service-Mandantenportal wurden gelöst.
+- Probleme beim Arbeiten im Feature „Benutzerdefinierte Domänen“ im App Service-Benutzerportal wurden gelöst.
 
 - Es wird verhindert, dass Kunden reservierte Administratornamen während des Setups verwenden.
 
 - Die App Service-Bereitstellung mit **in die Domäne eingebundenem** Dateiserver wurde ermöglicht.
 
-- Der Abruf des Azure Stack-Stammzertifikats im Skript wurde verbessert, und die Möglichkeit zum Überprüfen des Stammzertifikats im App Service-Installationsprogramm wurde hinzugefügt.
+- Der Abruf des Azure Stack Hub-Stammzertifikats im Skript wurde verbessert, und die Möglichkeit zum Überprüfen des Stammzertifikats im App Service-Installationsprogramm wurde hinzugefügt.
 
 - Der Fehler, dass beim Löschen eines Abonnements, dass Ressourcen im Microsoft.Web-Namespace enthielt, ein falscher Status an den Azure Resource Manager zurückgegeben wurde, wurde behoben.
 
@@ -107,13 +105,13 @@ Update 1 für Azure App Service in Azure Stack enthält die folgenden Verbesseru
 
     Einige Kunden haben bei der Bereitstellung auf einem integrierten System aufgrund einer zu restriktiven Überprüfung durch das Installationsprogramm Probleme beim Zuteilen von Zertifikaten für das App Service-Installationsprogramm festgestellt. Das App Service-Installationsprogramm wurde neu veröffentlicht. Daher sollten Kunden [das aktualisierte Installationsprogramm herunterladen](https://aka.ms/appsvconmasinstaller). Wenn Sie weiterhin Probleme bei der Überprüfung von Zertifikaten mit dem aktualisierten Installer haben, wenden Sie sich an den Support.
 
-- Problem beim Abrufen von Azure Stack-Stammzertifikaten aus dem integrierten System.
+- Problem beim Abrufen von Azure Stack Hub-Stammzertifikaten aus dem integrierten System.
 
-    Ein Fehler in der Datei „Get-AzureStackRootCert.ps1“ führte dazu, dass Kunden das Azure Stack-Stammzertifikat nicht abrufen konnten, wenn das Skript auf einem Computer ausgeführt wurde, auf dem das Stammzertifikat nicht installiert ist. Das Skript wurde nun ebenfalls erneut veröffentlicht. Dadurch wird das Problem gelöst. [Laden Sie hier die aktualisierten Hilfsskripts herunter](https://aka.ms/appsvconmashelpers). Wenn Sie weiterhin Probleme beim Abrufen des Stammzertifikats mit dem aktualisierten Skript haben, wenden Sie sich an den Support.
+    Ein Fehler in der Datei „Get-AzureStackRootCert.ps1“ führte dazu, dass Kunden das Azure Stack Hub-Stammzertifikat nicht abrufen konnten, wenn das Skript auf einem Computer ausgeführt wurde, auf dem das Stammzertifikat nicht installiert ist. Das Skript wurde nun ebenfalls erneut veröffentlicht. Dadurch wird das Problem gelöst. [Laden Sie hier die aktualisierten Hilfsskripts herunter](https://aka.ms/appsvconmashelpers). Wenn Sie weiterhin Probleme beim Abrufen des Stammzertifikats mit dem aktualisierten Skript haben, wenden Sie sich an den Support.
 
 ### <a name="known-issues-with-the-update-process"></a>Bekannte Probleme mit dem Updateprozess
 
-- Es sind keine Probleme beim Aktualisieren mit Update 1 für Azure App Service in Azure Stack bekannt.
+- Es sind keine Probleme beim Aktualisieren mit Update 1 für Azure App Service in Azure Stack Hub bekannt.
 
 ### <a name="known-issues-post-installation"></a>Bekannte Probleme (nach der Installation)
 
@@ -146,7 +144,7 @@ Die Funktion zum Austauschen von Slots funktioniert in dieser Version nicht. Um 
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-2. Navigieren Sie zur **CN0-VM** unter „Virtuelle Computer“ im Azure Stack-Administratorportal, und klicken Sie auf **Verbinden**, um eine Remotedesktopsitzung mit der Controllerinstanz zu öffnen. Verwenden Sie die bei der Bereitstellung von App Service angegebenen Anmeldeinformationen.
+2. Navigieren Sie zur **CN0-VM** unter „Virtuelle Computer“ im Azure Stack Hub-Administratorportal, und klicken Sie auf **Verbinden**, um eine Remotedesktopsitzung mit der Controllerinstanz zu öffnen. Verwenden Sie die bei der Bereitstellung von App Service angegebenen Anmeldeinformationen.
 3. Starten Sie **PowerShell als Administrator**, und führen Sie folgendes Skript aus:
 
     ```powershell
@@ -207,15 +205,15 @@ Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk u
 - IP-Zieladressbereich: Bereich der IPs für Ihren Dateiserver
 - Zielportbereich: 445
 - Protokoll: TCP
-- Aktion: ZULASSEN
+- Aktion: Allow
 - Priorität: 700
 - Name: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack verwenden
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
 
-Lesen Sie die Dokumentation in den Versionshinweisen [Azure Stack-Update 1802](azure-stack-update-1903.md).
+Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1802](azure-stack-update-1903.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Einen Überblick über Azure App Service finden Sie unter [Übersicht über App Service in Azure Stack](azure-stack-app-service-overview.md).
-- Weitere Informationen zum Vorbereiten der Bereitstellung von App Service in Azure Stack finden Sie unter [Voraussetzungen für das Bereitstellen von App Service in Azure Stack](azure-stack-app-service-before-you-get-started.md).
+- Einen Überblick über Azure App Service finden Sie unter [Übersicht über App Service in Azure Stack Hub](azure-stack-app-service-overview.md).
+- Weitere Informationen zum Vorbereiten der Bereitstellung von App Service in Azure Stack Hub finden Sie unter [Voraussetzungen für das Bereitstellen von App Service in Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).

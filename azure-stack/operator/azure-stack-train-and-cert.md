@@ -1,6 +1,7 @@
 ---
-title: Azure Stack-Training und -Zertifizierung
-description: Erfahren Sie mehr über Trainings- und Zertifizierungsangebote zu Azure Stack
+title: Training und Zertifizierung
+titleSuffix: Azure Stack
+description: Erfahren Sie mehr über Schulungs- und Zertifizierungsangebote für Azure Stack Hub.
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -10,38 +11,38 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
 ms.reviewer: efemmano
-ms.openlocfilehash: 89b200acfe87f5e4f30896104cb8c3eb5ebef67f
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 3fdba0792ffb00d7685089a6629a563a6687502e
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955236"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914666"
 ---
-# <a name="azure-stack-training-and-certification"></a>Azure Stack-Training und -Zertifizierung
+# <a name="azure-stack-hub-training-and-certification"></a>Azure Stack Hub-Training und -Zertifizierung
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme*
+*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme*
 
-Die folgenden Trainings- und Zertifizierungsangebote sollen Ihnen helfen, Kenntnisse über Azure Stack zu gewinnen und Azure Stack professionell einzusetzen.
+Möchten Sie mehr über Azure Stack Hub erfahren und Ihre Azure Stack Hub-Kenntnisse demonstrieren? Sehen Sie sich die folgenden Möglichkeiten für Schulungen und Zertifizierungen an.
 
 ## <a name="training"></a>Training
 
-- Offizielle Microsoft-Kurse bei Bedarf
-   - [ODX20537: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack (Konfigurieren und Betreiben einer Hybrid Cloud mit Microsoft Azure Stack) (180 Tage)](https://www.microsoft.com/en-us/learning/course.aspx?cid=ODX20537)
-   - [OD20537: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack (Konfigurieren und Betreiben einer Hybrid Cloud mit Microsoft Azure Stack) (90 Tage)](https://www.microsoft.com/en-us/learning/course.aspx?cid=OD20537)
+- Offizielle, bedarfsgesteuerte Microsoft-Kurse:
+   - [ODX20537: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack Hub (180 Day)](https://www.microsoft.com/learning/course.aspx?cid=ODX20537) (Konfigurieren und Betreiben einer Hybrid Cloud mit Microsoft Azure Stack Hub [180 Tage])
+   - [OD20537: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack Hub (90 Day)](https://www.microsoft.com/learning/course.aspx?cid=OD20537) (Konfigurieren und Betreiben einer Hybrid Cloud mit Microsoft Azure Stack Hub [90 Tage])
 
-- Microsoft IT-Schulungskurs
-   - [Course 20537A: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack](https://aka.ms/azsmoc) (Kurs 20537A: Konfigurieren und Betreiben einer Hybrid Cloud mit Microsoft Azure Stack)
+- Microsoft IT-Schulungskurs:
+   - [Course 20537A: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack Hub](https://aka.ms/azsmoc) (Konfigurieren und Betreiben einer Hybrid Cloud mit Microsoft Azure Stack Hub)
 
-- Open edX
-   - [edX: Onlinekurs zum Konfigurieren und Betreiben von Microsoft Azure Stack](https://aka.ms/AzureStackMOOC)
+- Open edX:
+   - [edX: Onlinekurs zum Konfigurieren und Betreiben von Microsoft Azure Stack Hub](https://aka.ms/AzureStackMOOC)
    
-- Microsoft-Lernpfade
+- Microsoft-Lernpfade:
    - [Erwerben Sie berufliche Kenntnisse, die Sie sofort in die Praxis umsetzen können. Azure-Lernpfade auswählen](https://azure.microsoft.com/training/learning-paths/)
 
 ## <a name="certification"></a>Zertifizierung
 
-*Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack certification*, [Exam 70-537](https://www.microsoft.com/learning/exam-70-537.aspx) (Zertifizierung zum Konfigurieren und Betreiben einer Hybrid Cloud mit Microsoft Azure Stack, Prüfung 70-537)
+*Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack certification*, [Exam 70-537](https://www.microsoft.com/learning/exam-70-537.aspx) (Zertifizierung zum Konfigurieren und Betreiben einer Hybrid Cloud mit Microsoft Azure Stack Hub, Prüfung 70-537)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Dokumentation zu Azure Stack](/azure-stack/operator)
+[Azure Stack Hub-Dokumentation](/azure-stack/operator)

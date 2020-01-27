@@ -1,6 +1,6 @@
 ---
-title: Replizieren von Ressourcen in Azure Stack-Abonnements | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Ressourcen mit den Replikatorskripts für Azure Stack-Abonnements replizieren.
+title: Replizieren von Ressourcen in Azure Stack Hub-Abonnements | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Ressourcen mit den Replikatorskripts für Azure Stack Hub-Abonnements replizieren.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,16 +9,16 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 03388b08e6cc258437656f2e580b75de14b8cee5
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: ef492c0e5bf63e73e3b8f59befa642d6d6b854bf
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557686"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816121"
 ---
-# <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>Replizieren von Ressourcen mit dem Replikator für Azure Stack-Abonnements
+# <a name="how-to-replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Replizieren von Ressourcen mit dem Replikator für Azure Stack Hub-Abonnements
 
-Sie können mit dem PowerShell-Skript des Replikators für Azure Stack-Abonnements die Ressourcen zwischen Azure Stack-Abonnements, Azure Stack-Stamps oder Azure Stack und Azure kopieren. Das Replikatorskript liest und erstellt die Azure Resource Manager-Ressourcen aus anderen Azure- und Azure Stack-Abonnements neu. In diesem Artikel wird die Funktionsweise des Skripts erläutert. Sie erfahren, wie Sie das Skript verwenden können. Außerdem finden Sie eine Referenz für Skriptvorgänge.
+Sie können mit dem PowerShell-Skript des Replikators für Azure Stack Hub-Abonnements die Ressourcen zwischen Azure Stack Hub-Abonnements, Azure Stack Hub-Stamps oder Azure Stack Hub und Azure kopieren. Das Replikatorskript liest und erstellt die Azure Resource Manager-Ressourcen aus anderen Azure- und Azure Stack Hub-Abonnements neu. In diesem Artikel wird die Funktionsweise des Skripts erläutert. Sie erfahren, wie Sie das Skript verwenden können. Außerdem finden Sie eine Referenz für Skriptvorgänge.
 
 Die in diesem Artikel verwendeten Skripts finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns). Die Skripts befinden sich im Ordner [Abonnementreplikator](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/subscription%20replicator).
 
@@ -83,7 +83,7 @@ Zum Ausführen des Azure-Abonnementreplikators (v3) müssen Sie „resource_retr
 Wenn die Ausführung des Skripts abgeschlossen ist, sind die drei neuen Ordner **Deployment_Files**, **Parameter_Files** und **Custom_ARM_Templates** vorhanden.
 
  > [!Note]  
- > Vor dem Ausführen eines der generierten Skripts müssen Sie die richtige Umgebung festlegen und sich beim Zielabonnement anmelden (beispielsweise in der neuen Azure Stack-Instanz) sowie das Arbeitsverzeichnis auf den Ordner **Deployment_Files** festlegen.
+ > Vor dem Ausführen eines der generierten Skripts müssen Sie die richtige Umgebung festlegen und sich beim Zielabonnement anmelden (beispielsweise in der neuen Azure Stack Hub-Instanz) sowie das Arbeitsverzeichnis auf den Ordner **Deployment_Files** festlegen.
 
 „Deployment_Files“ enthält die beiden Dateien **DeployResourceGroups.ps1** und **DeployResources.ps1**. Durch das Ausführen von „DeployResourceGroups.ps1“ werden die Ressourcengruppen bereitgestellt. Durch das Ausführen von „DeployResources.ps1“ werden alle verarbeiteten Ressourcen bereitgestellt. Wenn das Tool mit **All** oder **Microsoft.Compute/virtualMachines** als Ressourcentyp ausgeführt wurde, fordert „DeployResources.ps1“ den Benutzer zur Eingabe eines VM-Administratorkennworts auf, mit dem alle VMs erstellt werden.
 
@@ -91,7 +91,7 @@ Wenn die Ausführung des Skripts abgeschlossen ist, sind die drei neuen Ordner *
 
 1.  Führen Sie das Skript aus.
 
-    ![Ausführen des Skripts](./media/azure-stack-network-howto-backup-replicator/image2.png)
+    ![Führen Sie das Skript aus.](./media/azure-stack-network-howto-backup-replicator/image2.png)
 
     > [!Note]  
     > Vergessen Sie nicht, die Quellumgebung und den Abonnementkontext für die PS-Instanz zu konfigurieren. 
@@ -106,7 +106,7 @@ Wenn die Ausführung des Skripts abgeschlossen ist, sind die drei neuen Ordner *
 
 4.  Führen Sie `Get-Job` aus, um den Status zu überprüfen. Get-Job | Receive-Job gibt die Ergebnisse zurück.
 
-## <a name="clean-up"></a>Bereinigen
+## <a name="clean-up"></a>Bereinigung
 
 Im Ordner „replicatorV3“ befindet sich die Datei **cleanup_generated_items.ps1**. Diese entfernt die Ordner **Deployment_Files**, **Parameter_Files** und **Custom_ARM_Templates** und deren gesamte Inhalte.
 
@@ -181,10 +181,10 @@ Das Tool kann Ressourcen aus einem Abonnement in ein anderes replizieren, sofern
 
 Stellen Sie für eine erfolgreiche Replikation sicher, dass die Versionen der Ressourcenanbieter des Zielabonnements denen des Quellabonnements entsprechen.
 
-Beim Replizieren aus kommerziellem Azure zu kommerziellem Azure oder aus einem Abonnement in Azure Stack zu einem anderen Abonnement innerhalb desselben Azure Stack treten beim Replizieren von Speicherkonten Probleme auf. Dies ist auf die Benennungsanforderung für Speicherkonten zurückzuführen, dass alle Namen von Speicherkonten im gesamten kommerziellem Azure bzw. in allen Abonnements in einer Azure Stack-Region/-Instanz eindeutig sein müssen. Das Replizieren von Speicherkonten über verschiedene Azure Stack-Instanzen ist erfolgreich, da die Stacks separate Regionen/Instanzen darstellen.
+Beim Replizieren aus kommerziellem Azure zu kommerziellem Azure oder aus einem Abonnement in Azure Stack Hub zu einem anderen Abonnement innerhalb desselben Azure Stack Hub treten beim Replizieren von Speicherkonten Probleme auf. Dies ist auf die Benennungsanforderung für Speicherkonten zurückzuführen, dass alle Namen von Speicherkonten im gesamten kommerziellem Azure bzw. in allen Abonnements in einer Azure Stack Hub-Region/-Instanz eindeutig sein müssen. Das Replizieren von Speicherkonten über verschiedene Azure Stack Hub-Instanzen ist erfolgreich, da die Stacks separate Regionen/Instanzen darstellen.
 
 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Azure Stack-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)  
+[Azure Stack Hub-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)  

@@ -1,6 +1,6 @@
 ---
-title: Unterstützte Metriken für Azure Monitor in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie mehr über die unterstützten Metriken von Azure Monitor in Azure Stack.
+title: Unterstützte Metriken für Azure Monitor in Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie mehr über die unterstützten Metriken von Azure Monitor in Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,81 +14,79 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: c3824b80ddd6d980b408bfdb2a2c4a55f599e6d0
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 321b0c6137b29fd9edea2a6ae05237e0210a8ad2
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955684"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878661"
 ---
-# <a name="supported-metrics-for-azure-monitor-on-azure-stack"></a>Unterstützte Metriken für Azure Monitor in Azure Stack
+# <a name="supported-metrics-for-azure-monitor-on-azure-stack-hub"></a>Unterstützte Metriken für Azure Monitor in Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme*
+Metriken aus Azure Monitor in Azure Stack Hub können genauso wie in der allgemeinen Azure-Umgebung abgerufen werden. Sie können Ihre Measures im Portal erstellen, über die REST-API abrufen oder per PowerShell oder Befehlszeilenschnittstelle abfragen.
 
-Metriken aus Azure Monitor in Azure Stack können genauso wie in der allgemeinen Azure-Umgebung abgerufen werden. Sie können Ihre Measures im Portal erstellen, über die REST-API abrufen oder per PowerShell oder Befehlszeilenschnittstelle abfragen.
-
-Die folgenden Tabellen enthalten die Metriken, die über die Metrikpipeline von Azure Monitor in Azure Stack verfügbar sind. Wenn Sie diese Metriken abfragen oder darauf zugreifen möchten, müssen Sie die API-Version **2018-01-01** des API-Profils verwenden. Weitere Informationen zu API-Profilen und Azure Stack finden Sie unter [Verwalten von API-Versionsprofilen in Azure Stack](azure-stack-version-profiles.md).
+Die folgenden Tabellen enthalten die Metriken, die über die Metrikpipeline von Azure Monitor in Azure Stack Hub verfügbar sind. Wenn Sie diese Metriken abfragen oder darauf zugreifen möchten, müssen Sie die API-Version **2018-01-01** des API-Profils verwenden. Weitere Informationen zu API-Profilen und Azure Stack Hub finden Sie unter [Verwalten von API-Versionsprofilen in Azure Stack Hub](azure-stack-version-profiles.md).
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-| Metrik | Metrikanzeigename | Unit | Aggregationstyp | BESCHREIBUNG | Dimensionen |
+| Metrik | Metrikanzeigename | Einheit | Aggregationstyp | Beschreibung | Dimensionen |
 |----------------|---------------------|---------|------------------|-----------------------------------------------------------------------------------------------|---------------|
-| CPU in Prozent | CPU in Prozent | Percent | Durchschnitt | Der Prozentsatz der zugewiesenen Compute-Einheiten, die derzeit von den VMs verwendet werden | Keine Dimensionen |
+| CPU in Prozent | CPU in Prozent | Percent | Average | Der Prozentsatz der zugewiesenen Compute-Einheiten, die derzeit von den VMs verwendet werden | Keine Dimensionen |
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
-| Metrik | Metrikanzeigename | Unit | Aggregationstyp | BESCHREIBUNG | Dimensionen |
+| Metrik | Metrikanzeigename | Einheit | Aggregationstyp | Beschreibung | Dimensionen |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-| UsedCapacity | Verwendete Kapazität | Byte | Durchschnitt | Vom Konto verwendete Kapazität | Keine Dimensionen |
-| Transaktionen | Transaktionen | Count | Gesamt | Die Anzahl von Anforderungen, die an einen Speicherdienst oder an den angegebenen API-Vorgang gerichtet wurden. Diese Anzahl umfasst erfolgreiche und fehlgeschlagene Anforderungen sowie Anforderungen, die Fehler erzeugt haben. Verwenden Sie die Dimension „ResponseType“ für die Anzahl von verschiedenen Antworttypen. | ResponseType, GeoType, ApiName |
+| UsedCapacity | Verwendete Kapazität | Byte | Average | Vom Konto verwendete Kapazität | Keine Dimensionen |
+| Transaktionen | Transaktionen | Anzahl | Gesamt | Die Anzahl von Anforderungen, die an einen Speicherdienst oder an den angegebenen API-Vorgang gerichtet wurden. Diese Anzahl umfasst erfolgreiche und fehlgeschlagene Anforderungen sowie Anforderungen, die Fehler erzeugt haben. Verwenden Sie die Dimension „ResponseType“ für die Anzahl von verschiedenen Antworttypen. | ResponseType, GeoType, ApiName |
 | Eingehende Daten | Eingehende Daten | Byte | Gesamt | Die Menge der Eingangsdaten in Byte. Dieser Wert umfasst in Azure Storage eingehende Daten von einem externen Client sowie eingehende Daten innerhalb von Azure. | GeoType, ApiName |
 | Ausgehende Daten | Ausgehende Daten | Byte | Gesamt | Die Menge der Ausgangsdaten in Byte. Dieser Wert umfasst in Azure Storage ausgehende Daten von einem externen Client sowie ausgehende Daten innerhalb von Azure. Der Wert stellt somit keine gebührenpflichtigen ausgehenden Daten dar. | GeoType, ApiName |
-| SuccessServerLatency | Serverlatenz (erfolgreich) | Millisekunden | Durchschnitt | Die durchschnittliche Latenz in Millisekunden, die von Azure Storage verwendet wurde, um eine erfolgreiche Anforderung zu verarbeiten. Dieser Wert enthält nicht die in „AverageE2ELatency“ angegebene Netzwerklatenz. | GeoType, ApiName |
-| SuccessE2ELatency | E2E-Latenz (erfolgreich) | Millisekunden | Durchschnitt | Die durchschnittliche End-to-End-Latenz für erfolgreiche Anforderungen in Millisekunden, die an einen Speicherdienst oder den angegebenen API-Vorgang gesendet wurden. Dieser Wert enthält die erforderliche Verarbeitungszeit in Azure Storage für das Lesen der Anforderung, das Senden der Antwort und das Empfangen der Bestätigung der Antwort. | GeoType, ApiName |
-| Verfügbarkeit | Verfügbarkeit | Percent | Durchschnitt | Die Verfügbarkeit (in Prozent) für den Speicherdienst oder den angegebenen API-Vorgang. Berechnen Sie die Verfügbarkeit, indem Sie den Wert „TotalBillableRequests“ durch die Anzahl von zutreffenden Anforderungen teilen, einschließlich derer, die unerwartete Fehler erzeugt haben. Alle unerwarteten Fehler verringern die Verfügbarkeit für den Speicherdienst oder den angegebenen API-Vorgang. | GeoType, ApiName |
+| SuccessServerLatency | Serverlatenz (erfolgreich) | Millisekunden | Average | Die durchschnittliche Latenz in Millisekunden, die von Azure Storage verwendet wurde, um eine erfolgreiche Anforderung zu verarbeiten. Dieser Wert enthält nicht die in „AverageE2ELatency“ angegebene Netzwerklatenz. | GeoType, ApiName |
+| SuccessE2ELatency | E2E-Latenz (erfolgreich) | Millisekunden | Average | Die durchschnittliche End-to-End-Latenz für erfolgreiche Anforderungen in Millisekunden, die an einen Speicherdienst oder den angegebenen API-Vorgang gesendet wurden. Dieser Wert umfasst die erforderliche Verarbeitungszeit in Azure Storage für das Lesen der Anforderung, das Senden der Antwort und das Empfangen der Antwortbestätigung. | GeoType, ApiName |
+| Verfügbarkeit | Verfügbarkeit | Percent | Average | Die Verfügbarkeit (in Prozent) für den Speicherdienst oder den angegebenen API-Vorgang. Berechnen Sie die Verfügbarkeit, indem Sie den Wert „TotalBillableRequests“ durch die Anzahl von zutreffenden Anforderungen teilen, einschließlich derer, die unerwartete Fehler erzeugt haben. Alle unerwarteten Fehler verringern die Verfügbarkeit für den Speicherdienst oder den angegebenen API-Vorgang. | GeoType, ApiName |
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-| Metrik | Metrikanzeigename | Unit | Aggregationstyp | BESCHREIBUNG | Dimensionen |
+| Metrik | Metrikanzeigename | Einheit | Aggregationstyp | Beschreibung | Dimensionen |
 |--------|---------------------|------|------------------|-------------|------------|
 | BlobCapacity | Blob-Kapazität | Byte | Gesamt | Die Größe des vom Blob-Dienst des Speicherkontos genutzten Speichers in Byte. | BlobType |
-| BlobCount | Anzahl von Blobs | Count | Gesamt | Die Anzahl von Blobs im Blob-Dienst des Speicherkontos. | BlobType |
-| ContainerCount | Anzahl von Blob-Containern | Count | Durchschnitt | Die Anzahl von Containern im Blob-Dienst des Speicherkontos. | Keine Dimensionen |
-| Transaktionen | Transaktionen | Count | Gesamt | Die Anzahl von Anforderungen, die an einen Speicherdienst oder an den angegebenen API-Vorgang gerichtet wurden. Diese Anzahl umfasst erfolgreiche und fehlgeschlagene Anforderungen sowie Anforderungen, die Fehler erzeugt haben. Verwenden Sie die Dimension „ResponseType“ für die Anzahl von verschiedenen Antworttypen. | ResponseType, GeoType, ApiName |
+| BlobCount | Anzahl von Blobs | Anzahl | Gesamt | Die Anzahl von Blobs im Blob-Dienst des Speicherkontos. | BlobType |
+| ContainerCount | Anzahl von Blob-Containern | Anzahl | Average | Die Anzahl von Containern im Blob-Dienst des Speicherkontos. | Keine Dimensionen |
+| Transaktionen | Transaktionen | Anzahl | Gesamt | Die Anzahl von Anforderungen, die an einen Speicherdienst oder an den angegebenen API-Vorgang gerichtet wurden. Diese Anzahl umfasst erfolgreiche und fehlgeschlagene Anforderungen sowie Anforderungen, die Fehler erzeugt haben. Verwenden Sie die Dimension „ResponseType“ für die Anzahl von verschiedenen Antworttypen. | ResponseType, GeoType, ApiName |
 | Eingehende Daten | Eingehende Daten | Byte | Gesamt | Die Menge der Eingangsdaten in Byte. Dieser Wert umfasst in Azure Storage eingehende Daten von einem externen Client sowie eingehende Daten innerhalb von Azure. | GeoType, ApiName |
 | Ausgehende Daten | Ausgehende Daten | Byte | Gesamt | Die Menge der Ausgangsdaten in Byte. Dieser Wert umfasst in Azure Storage ausgehende Daten von einem externen Client sowie ausgehende Daten innerhalb von Azure. Der Wert stellt somit keine gebührenpflichtigen ausgehenden Daten dar. | GeoType, ApiName |
-| SuccessServerLatency | Serverlatenz (erfolgreich) | Millisekunden | Durchschnitt | Die durchschnittliche Latenz in Millisekunden, die von Azure Storage verwendet wurde, um eine erfolgreiche Anforderung zu verarbeiten. Dieser Wert enthält nicht die in „AverageE2ELatency“ angegebene Netzwerklatenz. | GeoType, ApiName |
-| SuccessE2ELatency | E2E-Latenz (erfolgreich) | Millisekunden | Durchschnitt | Die durchschnittliche End-to-End-Latenz für erfolgreiche Anforderungen in Millisekunden, die an einen Speicherdienst oder den angegebenen API-Vorgang gesendet wurden. Dieser Wert enthält die erforderliche Verarbeitungszeit in Azure Storage für das Lesen der Anforderung, das Senden der Antwort und das Empfangen der Bestätigung der Antwort. | GeoType, ApiName |
-| Verfügbarkeit | Verfügbarkeit | Percent | Durchschnitt | Die Verfügbarkeit (in Prozent) für den Speicherdienst oder den angegebenen API-Vorgang. Berechnen Sie die Verfügbarkeit, indem Sie den Wert „TotalBillableRequests“ durch die Anzahl von zutreffenden Anforderungen teilen, einschließlich derer, die unerwartete Fehler erzeugt haben. Alle unerwarteten Fehler verringern die Verfügbarkeit für den Speicherdienst oder den angegebenen API-Vorgang. | GeoType, ApiName |
+| SuccessServerLatency | Serverlatenz (erfolgreich) | Millisekunden | Average | Die durchschnittliche Latenz in Millisekunden, die von Azure Storage verwendet wurde, um eine erfolgreiche Anforderung zu verarbeiten. Dieser Wert enthält nicht die in „AverageE2ELatency“ angegebene Netzwerklatenz. | GeoType, ApiName |
+| SuccessE2ELatency | E2E-Latenz (erfolgreich) | Millisekunden | Average | Die durchschnittliche End-to-End-Latenz für erfolgreiche Anforderungen in Millisekunden, die an einen Speicherdienst oder den angegebenen API-Vorgang gesendet wurden. Dieser Wert umfasst die erforderliche Verarbeitungszeit in Azure Storage für das Lesen der Anforderung, das Senden der Antwort und das Empfangen der Antwortbestätigung. | GeoType, ApiName |
+| Verfügbarkeit | Verfügbarkeit | Percent | Average | Die Verfügbarkeit (in Prozent) für den Speicherdienst oder den angegebenen API-Vorgang. Berechnen Sie die Verfügbarkeit, indem Sie den Wert „TotalBillableRequests“ durch die Anzahl von zutreffenden Anforderungen teilen, einschließlich derer, die unerwartete Fehler erzeugt haben. Alle unerwarteten Fehler verringern die Verfügbarkeit für den Speicherdienst oder den angegebenen API-Vorgang. | GeoType, ApiName |
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
-| Metrik | Metrikanzeigename | Unit | Aggregationstyp | BESCHREIBUNG | Dimensionen |
+| Metrik | Metrikanzeigename | Einheit | Aggregationstyp | Beschreibung | Dimensionen |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-| TableCapacity | Tabellenkapazität | Byte | Durchschnitt | Die Größe des vom Tabellendienst des Speicherkontos genutzten Speichers in Byte. | Keine Dimensionen |
-| TableCount | Anzahl von Tabellen | Count | Durchschnitt | Die Anzahl von Tabellen im Tabellenspeicherdienst des Speicherkontos. | Keine Dimensionen |
-| TableEntityCount | Anzahl von Tabellenentitäten | Count | Durchschnitt | Die Anzahl von Tabellenentitäten im Tabellendienst des Speicherkontos. | Keine Dimensionen |
-| Transaktionen | Transaktionen | Count | Gesamt | Die Anzahl von Anforderungen, die an einen Speicherdienst oder an den angegebenen API-Vorgang gerichtet wurden. Diese Anzahl umfasst erfolgreiche und fehlgeschlagene Anforderungen sowie Anforderungen, die Fehler erzeugt haben. Verwenden Sie die Dimension „ResponseType“ für die Anzahl von verschiedenen Antworttypen. | ResponseType, GeoType, ApiName |
+| TableCapacity | Tabellenkapazität | Byte | Average | Die Größe des vom Tabellendienst des Speicherkontos genutzten Speichers in Byte. | Keine Dimensionen |
+| TableCount | Anzahl von Tabellen | Anzahl | Average | Die Anzahl von Tabellen im Tabellenspeicherdienst des Speicherkontos. | Keine Dimensionen |
+| TableEntityCount | Anzahl von Tabellenentitäten | Anzahl | Average | Die Anzahl von Tabellenentitäten im Tabellendienst des Speicherkontos. | Keine Dimensionen |
+| Transaktionen | Transaktionen | Anzahl | Gesamt | Die Anzahl von Anforderungen, die an einen Speicherdienst oder an den angegebenen API-Vorgang gerichtet wurden. Diese Anzahl umfasst erfolgreiche und fehlgeschlagene Anforderungen sowie Anforderungen, die Fehler erzeugt haben. Verwenden Sie die Dimension „ResponseType“ für die Anzahl von verschiedenen Antworttypen. | ResponseType, GeoType, ApiName |
 | Eingehende Daten | Eingehende Daten | Byte | Gesamt | Die Menge der Eingangsdaten in Byte. Dieser Wert umfasst in Azure Storage eingehende Daten von einem externen Client sowie eingehende Daten innerhalb von Azure. | GeoType, ApiName |
 | Ausgehende Daten | Ausgehende Daten | Byte | Gesamt | Die Menge der Ausgangsdaten in Byte. Dieser Wert umfasst in Azure Storage ausgehende Daten von einem externen Client sowie ausgehende Daten innerhalb von Azure. Der Wert stellt somit keine gebührenpflichtigen ausgehenden Daten dar. | GeoType, ApiName |
-| SuccessServerLatency | Serverlatenz (erfolgreich) | Millisekunden | Durchschnitt | Die durchschnittliche Latenz in Millisekunden, die von Azure Storage verwendet wurde, um eine erfolgreiche Anforderung zu verarbeiten. Dieser Wert enthält nicht die in „AverageE2ELatency“ angegebene Netzwerklatenz. | GeoType, ApiName |
-| SuccessE2ELatency | E2E-Latenz (erfolgreich) | Millisekunden | Durchschnitt | Die durchschnittliche End-to-End-Latenz für erfolgreiche Anforderungen in Millisekunden, die an einen Speicherdienst oder den angegebenen API-Vorgang gesendet wurden. Dieser Wert enthält die erforderliche Verarbeitungszeit in Azure Storage für das Lesen der Anforderung, das Senden der Antwort und das Empfangen der Bestätigung der Antwort. | GeoType, ApiName |
-| Verfügbarkeit | Verfügbarkeit | Percent | Durchschnitt | Die Verfügbarkeit (in Prozent) für den Speicherdienst oder den angegebenen API-Vorgang. Berechnen Sie die Verfügbarkeit, indem Sie den Wert „TotalBillableRequests“ durch die Anzahl von zutreffenden Anforderungen teilen, einschließlich derer, die unerwartete Fehler erzeugt haben. Alle unerwarteten Fehler verringern die Verfügbarkeit für den Speicherdienst oder den angegebenen API-Vorgang. | GeoType, ApiName |
+| SuccessServerLatency | Serverlatenz (erfolgreich) | Millisekunden | Average | Die durchschnittliche Latenz in Millisekunden, die von Azure Storage verwendet wurde, um eine erfolgreiche Anforderung zu verarbeiten. Dieser Wert enthält nicht die in „AverageE2ELatency“ angegebene Netzwerklatenz. | GeoType, ApiName |
+| SuccessE2ELatency | E2E-Latenz (erfolgreich) | Millisekunden | Average | Die durchschnittliche End-to-End-Latenz für erfolgreiche Anforderungen in Millisekunden, die an einen Speicherdienst oder den angegebenen API-Vorgang gesendet wurden. Dieser Wert umfasst die erforderliche Verarbeitungszeit in Azure Storage für das Lesen der Anforderung, das Senden der Antwort und das Empfangen der Antwortbestätigung. | GeoType, ApiName |
+| Verfügbarkeit | Verfügbarkeit | Percent | Average | Die Verfügbarkeit (in Prozent) für den Speicherdienst oder den angegebenen API-Vorgang. Berechnen Sie die Verfügbarkeit, indem Sie den Wert „TotalBillableRequests“ durch die Anzahl von zutreffenden Anforderungen teilen, einschließlich derer, die unerwartete Fehler erzeugt haben. Alle unerwarteten Fehler verringern die Verfügbarkeit für den Speicherdienst oder den angegebenen API-Vorgang. | GeoType, ApiName |
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
-| Metrik | Metrikanzeigename | Unit | Aggregationstyp | BESCHREIBUNG | Dimensionen |
+| Metrik | Metrikanzeigename | Einheit | Aggregationstyp | Beschreibung | Dimensionen |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-| QueueCapacity | Warteschlangenkapazität | Byte | Durchschnitt | Die Größe des vom Warteschlangendienst des Speicherkontos genutzten Speichers in Byte. | Keine Dimensionen |
-| QueueCount | Anzahl von Warteschlangen | Count | Durchschnitt | Die Anzahl von Warteschlangen im Warteschlangendienst des Speicherkontos. | Keine Dimensionen |
-| QueueMessageCount | Anzahl von Warteschlangennachrichten | Count | Durchschnitt | Die ungefähre Anzahl von Warteschlangennachrichten im Warteschlangendienst des Speicherkontos. | Keine Dimensionen |
-| Transaktionen | Transaktionen | Count | Gesamt | Die Anzahl von Anforderungen, die an einen Speicherdienst oder an den angegebenen API-Vorgang gerichtet wurden. Diese Anzahl umfasst erfolgreiche und fehlgeschlagene Anforderungen sowie Anforderungen, die Fehler erzeugt haben. Verwenden Sie die Dimension „ResponseType“ für die Anzahl von verschiedenen Antworttypen. | ResponseType, GeoType, ApiName |
+| QueueCapacity | Warteschlangenkapazität | Byte | Average | Die Größe des vom Warteschlangendienst des Speicherkontos genutzten Speichers in Byte. | Keine Dimensionen |
+| QueueCount | Anzahl von Warteschlangen | Anzahl | Average | Die Anzahl von Warteschlangen im Warteschlangendienst des Speicherkontos. | Keine Dimensionen |
+| QueueMessageCount | Anzahl von Warteschlangennachrichten | Anzahl | Average | Die ungefähre Anzahl von Warteschlangennachrichten im Warteschlangendienst des Speicherkontos. | Keine Dimensionen |
+| Transaktionen | Transaktionen | Anzahl | Gesamt | Die Anzahl von Anforderungen, die an einen Speicherdienst oder an den angegebenen API-Vorgang gerichtet wurden. Diese Anzahl umfasst erfolgreiche und fehlgeschlagene Anforderungen sowie Anforderungen, die Fehler erzeugt haben. Verwenden Sie die Dimension „ResponseType“ für die Anzahl von verschiedenen Antworttypen. | ResponseType, GeoType, ApiName |
 | Eingehende Daten | Eingehende Daten | Byte | Gesamt | Die Menge der Eingangsdaten in Byte. Dieser Wert umfasst in Azure Storage eingehende Daten von einem externen Client sowie eingehende Daten innerhalb von Azure. | GeoType, ApiName |
 | Ausgehende Daten | Ausgehende Daten | Byte | Gesamt | Die Menge der Ausgangsdaten in Byte. Dieser Wert umfasst in Azure Storage ausgehende Daten von einem externen Client sowie ausgehende Daten innerhalb von Azure. Der Wert stellt somit keine gebührenpflichtigen ausgehenden Daten dar. | GeoType, ApiName |
-| SuccessServerLatency | Serverlatenz (erfolgreich) | Millisekunden | Durchschnitt | Die durchschnittliche Latenz in Millisekunden, die von Azure Storage verwendet wurde, um eine erfolgreiche Anforderung zu verarbeiten. Dieser Wert enthält nicht die in „AverageE2ELatency“ angegebene Netzwerklatenz. | GeoType, ApiName |
-| SuccessE2ELatency | E2E-Latenz (erfolgreich) | Millisekunden | Durchschnitt | Die durchschnittliche End-to-End-Latenz für erfolgreiche Anforderungen in Millisekunden, die an einen Speicherdienst oder den angegebenen API-Vorgang gesendet wurden. Dieser Wert enthält die erforderliche Verarbeitungszeit in Azure Storage für das Lesen der Anforderung, das Senden der Antwort und das Empfangen der Bestätigung der Antwort. | GeoType, ApiName |
-| Verfügbarkeit | Verfügbarkeit | Percent | Durchschnitt | Die Verfügbarkeit (in Prozent) für den Speicherdienst oder den angegebenen API-Vorgang. Berechnen Sie die Verfügbarkeit, indem Sie den Wert „TotalBillableRequests“ durch die Anzahl von zutreffenden Anforderungen teilen, einschließlich derer, die unerwartete Fehler erzeugt haben. Alle unerwarteten Fehler verringern die Verfügbarkeit für den Speicherdienst oder den angegebenen API-Vorgang. | GeoType, ApiName |
+| SuccessServerLatency | Serverlatenz (erfolgreich) | Millisekunden | Average | Die durchschnittliche Latenz in Millisekunden, die von Azure Storage verwendet wurde, um eine erfolgreiche Anforderung zu verarbeiten. Dieser Wert enthält nicht die in „AverageE2ELatency“ angegebene Netzwerklatenz. | GeoType, ApiName |
+| SuccessE2ELatency | E2E-Latenz (erfolgreich) | Millisekunden | Average | Die durchschnittliche End-to-End-Latenz für erfolgreiche Anforderungen in Millisekunden, die an einen Speicherdienst oder den angegebenen API-Vorgang gesendet wurden. Dieser Wert umfasst die erforderliche Verarbeitungszeit in Azure Storage für das Lesen der Anforderung, das Senden der Antwort und das Empfangen der Antwortbestätigung. | GeoType, ApiName |
+| Verfügbarkeit | Verfügbarkeit | Percent | Average | Die Verfügbarkeit (in Prozent) für den Speicherdienst oder den angegebenen API-Vorgang. Berechnen Sie die Verfügbarkeit, indem Sie den Wert „TotalBillableRequests“ durch die Anzahl von zutreffenden Anforderungen teilen, einschließlich derer, die unerwartete Fehler erzeugt haben. Alle unerwarteten Fehler verringern die Verfügbarkeit für den Speicherdienst oder den angegebenen API-Vorgang. | GeoType, ApiName |
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erfahren Sie mehr zu [Azure Monitor in Azure Stack](azure-stack-metrics-azure-data.md).
+Erfahren Sie mehr zu [Azure Monitor in Azure Stack Hub](azure-stack-metrics-azure-data.md).

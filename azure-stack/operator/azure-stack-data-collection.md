@@ -1,6 +1,6 @@
 ---
-title: Verarbeiten von Azure Stack-Protokoll- und -Kundendaten | Microsoft-Dokumentation
-description: Es wird beschrieben, wie von Azure Stack Kundendaten und Informationen gesammelt werden.
+title: Verarbeiten von Azure Stack Hub-Protokoll- und -Kundendaten | Microsoft-Dokumentation
+description: Es wird beschrieben, wie von Azure Stack Hub Kundendaten und Informationen gesammelt werden.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,22 +16,21 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: ff633133b7d0fd0489b3e81295ea53351968ac8f
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: ed092ccf0a7eb3773b0514bc2f96f50bfdff7830
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690196"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882520"
 ---
-# <a name="azure-stack-log-and-customer-data-handling"></a>Azure Stack-Protokoll und Behandlung von Kundendaten 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*  
+# <a name="azure-stack-hub-log-and-customer-data-handling"></a>Verarbeiten von Azure Stack Hub-Protokoll- und -Kundendaten 
 
-Im Rahmen der Funktion von Microsoft als Verarbeiter oder Vorverarbeiter von personenbezogenen Daten in Verbindung mit Azure Stack verpflichtet sich Microsoft ab dem 25. Mai 2018 gegenüber Kunden zu Folgendem:
+Im Rahmen der Funktion von Microsoft als Verarbeiter oder Vorverarbeiter von personenbezogenen Daten in Verbindung mit Azure Stack Hub verpflichtet sich Microsoft ab dem 25. Mai 2018 gegenüber Kunden zu Folgendem:
 
 - Zusagen zur „Verarbeitung personenbezogener Daten (DSGVO)“ im Abschnitt zu den „Datenschutzbestimmungen“ der [Lizenzbedingungen für Onlinedienste](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 - Allgemeine Regulierungsbestimmungen der Europäischen Union zum Datenschutz in Anhang 4 der [Lizenzbedingungen für Onlinedienste](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-Für Azure Stack im Rechenzentrum des Kunden ist Microsoft ausschließlich Data Controller der Daten, die gemeinsam mit Microsoft über [Diagnose](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs), [Telemetrie](azure-stack-telemetry.md), und [Abrechnung](azure-stack-usage-reporting.md) genutzt werden.  
+Für Azure Stack Hub im Rechenzentrum des Kunden ist Microsoft ausschließlich Data Controller der Daten, die gemeinsam mit Microsoft über [Diagnose](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs), [Telemetrie](azure-stack-telemetry.md), und [Abrechnung](azure-stack-usage-reporting.md) genutzt werden.  
 
 ## <a name="data-access-controls"></a>Datenzugriffssteuerung 
 Microsoft-Mitarbeiter, die mit der Untersuchung eines bestimmten Supportfalls beauftragt sind, erhalten Lesezugriff auf die verschlüsselten Daten. Microsoft-Mitarbeiter haben bei Bedarf ebenfalls Zugriff auf Tools zum Löschen der Daten. Jeder Zugriff auf Kundendaten wird überwacht und protokolliert.  
@@ -51,20 +50,20 @@ Für die automatisierte Datenlöschaktion (90 Tage nach dem Schließen des Fall
 Für die bedarfsgesteuerte Datenlöschaktion haben Microsoft-Supportmitarbeiter Zugriff auf das Tool, mit dem sie Daten auf Anforderung löschen können. Sie können dem Kunden telefonisch bestätigen, dass dieser Vorgang abgeschlossen wurde.
 
 ## <a name="diagnostic-data"></a>Diagnosedaten
-Im Rahmen des Supportprozesses können Azure Stack-Betreiber für den Azure Stack-Support und Engineering-Teams [Diagnoseprotokolle freigeben](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs), um die Problembehandlung zu unterstützen.
+Im Rahmen des Supportprozesses können Azure Stack Hub-Bediener für den Azure Stack Hub-Support und Engineering-Teams [Diagnoseprotokolle freigeben](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs), um die Problembehandlung zu unterstützen.
 
 Microsoft stellt ein Tool und Skript für Kunden bereit, um angeforderte Diagnoseprotokolldateien zu sammeln und hochzuladen. Nach der Erfassung werden die Protokolldateien über eine HTTPS-geschützte, verschlüsselte Verbindung an Microsoft übertragen. Da die Verschlüsselung über das Netzwerk per HTTPS bereitgestellt wird, ist während der Übertragung kein Kennwort für die Verschlüsselung erforderlich. Nach dem Empfang werden die Protokolle verschlüsselt und gespeichert, bis sie automatisch 90 Tage nach dem Schließen des Supportfalls gelöscht werden.
 
 ## <a name="telemetry-data"></a>Telemetriedaten
-Die [Telemetrie von Azure Stack](azure-stack-telemetry.md) lädt über „Benutzererfahrung und Telemetrie im verbundenen Modus“ automatisch Systemdaten an Microsoft hoch. Azure Stack-Operator können Telemetriefeatures und Datenschutzeinstellungen jederzeit anpassen.
+Die [Telemetrie von Azure Stack Hub](azure-stack-telemetry.md) lädt über „Benutzererfahrung und Telemetrie im verbundenen Modus“ automatisch Systemdaten an Microsoft hoch. Azure Stack Hub-Bediener können Telemetriefeatures und Datenschutzeinstellungen jederzeit anpassen.
 
 Die Erfassung von vertraulichen Daten, z. B. Kreditkartennummern, Benutzernamen und Kennwörtern oder E-Mail-Adressen usw., ist von Microsoft nicht beabsichtigt. Sollten wir feststellen, dass versehentlich vertrauliche Informationen empfangen wurden, werden diese gelöscht.
 
 ## <a name="billing-data"></a>Abrechnungsdaten
-[Azure Stack Billing](azure-stack-usage-reporting.md) nutzt die globale Abrechnungs- und Nutzungspipeline von Azure und ist daher im Einklang mit den Microsoft-Konformitätsrichtlinien.
+Die [Azure Stack Hub-Abrechnung](azure-stack-usage-reporting.md) nutzt die globale Abrechnungs- und Nutzungspipeline von Azure und ist daher im Einklang mit den Microsoft-Konformitätsrichtlinien.
 
-Azure Stack-Operator können Azure Stack für die Weiterleitung abrechnungsrelevanter Nutzungsinformationen an Azure konfigurieren. Diese Konfiguration ist für Kunden mit integrierten Azure Stack-Systemen erforderlich, die das Abrechnungsmodell mit nutzungsbasierter Bezahlung wählen. Verwendungsberichte werden unabhängig von Telemetriedaten gesteuert und sind für Kunden mit integrierten Systemen, die sich für das Kapazitätsmodell entscheiden, sowie für Azure Stack Development Kit-Benutzer nicht erforderlich. Für diese Szenarien können Verwendungsberichte [mithilfe des Registrierungsskripts](azure-stack-usage-reporting.md) deaktiviert werden.
+Azure Stack Hub-Bediener können Azure Stack Hub für die Weiterleitung abrechnungsrelevanter Nutzungsinformationen an Azure konfigurieren. Diese Konfiguration ist für Kunden mit integrierten Azure Stack Hub-Systemen erforderlich, die das Abrechnungsmodell mit nutzungsbasierter Bezahlung wählen. Verwendungsberichte werden unabhängig von Telemetriedaten gesteuert und sind für Kunden mit integrierten Systemen, die sich für das Kapazitätsmodell entscheiden, sowie für Azure Stack Development Kit-Benutzer nicht erforderlich. Für diese Szenarien können Verwendungsberichte [mithilfe des Registrierungsskripts](azure-stack-usage-reporting.md) deaktiviert werden.
 
 
 ## <a name="next-steps"></a>Nächste Schritte 
-[Informieren Sie sich ausführlicher über die Sicherheit von Azure Stack.](azure-stack-security-foundations.md) 
+[Weitere Informationen zur Sicherheit von Azure Stack Hub](azure-stack-security-foundations.md) 

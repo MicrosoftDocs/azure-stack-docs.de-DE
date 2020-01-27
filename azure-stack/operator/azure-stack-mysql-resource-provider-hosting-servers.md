@@ -1,5 +1,5 @@
 ---
-title: Hinzufügen des MySQL-Hostservers in Azure Stack | Microsoft-Dokumentation
+title: Hinzufügen des MySQL-Hostservers in Azure Stack Hub | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie MySQL-Hostserver für die Bereitstellung über den MySQL-Adapterressourcenanbieter hinzufügen.
 services: azure-stack
 documentationCenter: ''
@@ -15,16 +15,16 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 897cb42ad2a84f3802f4d35e97a03d4976800121
-ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
+ms.openlocfilehash: cf721c98b957d95e945d4979865c7d7b5aa169af
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75677874"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811208"
 ---
-# <a name="add-mysql-hosting-servers-in-azure-stack"></a>Hinzufügen für MySQL-Hostserver in Azure Stack
+# <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Hinzufügen für MySQL-Hostserver in Azure Stack Hub
 
-Sie können eine MySQL-Hostserverinstanz auf einem virtuellen Computer (VM) in [Azure Stack](azure-stack-overview.md) oder auf einer VM außerhalb Ihrer Azure Stack-Umgebung hosten, solange sich der MySQL-Ressourcenanbieter mit der Instanz verbinden kann.
+Sie können eine MySQL-Hostserverinstanz auf einem virtuellen Computer (VM) in [Azure Stack Hub](azure-stack-overview.md) oder auf einer VM außerhalb Ihrer Azure Stack Hub-Umgebung hosten, solange sich der MySQL-Ressourcenanbieter mit der Instanz verbinden kann.
 
 > [!NOTE]
 > Der MySQL-Ressourcenanbieter sollte im Standardanbieterabonnement erstellt werden, während MySQL-Hostingserver in einem abrechenbaren Benutzerabonnement erstellt werden sollten. Der Server des Ressourcenanbieters sollte nicht zum Hosten von Benutzerdatenbanken verwendet werden.
@@ -40,7 +40,7 @@ Stellen Sie sicher, dass Sie über die Anmeldeinformationen für ein Konto mit S
 
 Gehen Sie folgendermaßen vor, um einen Hostserver hinzuzufügen:
 
-1. Anmelden beim Azure Stack-Administratorportal als Dienstadministrator
+1. Melden Sie sich beim Azure Stack Hub-Administratorportal als Dienstadministrator an.
 2. Wählen Sie **Alle Dienste** aus.
 3. Wählen Sie unter der Kategorie **VERWALTUNGSRESSOURCEN** die Option **MySQL-Hostserver** >  **+Hinzufügen** aus. Es wird das Dialogfeld **Einen MySQL-Hostserver hinzufügen** geöffnet, wie in der folgenden Bildschirmaufnahme dargestellt.
 
@@ -49,7 +49,7 @@ Gehen Sie folgendermaßen vor, um einen Hostserver hinzuzufügen:
 4. Geben Sie die Verbindungsdetails für Ihre MySQL Server-Instanz an.
 
    * Geben Sie für **MySQL-Hostservername** den vollqualifizierten Domänennamen (FQDN) oder eine gültige IPv4-Adresse an. Verwenden Sie nicht den Kurznamen des virtuellen Computers.
-   * Der **Benutzername** des Standardadministrators für die verfügbaren Bitnami-MySQL-Images im Azure Stack-Marketplace lautet *root*.
+   * Der **Benutzername** des Standardadministrators für die verfügbaren Bitnami-MySQL-Images im Azure Stack Hub-Marketplace lautet *root*.
    * Sollte Ihnen das root-**Kennwort** nicht bekannt sein, erfahren Sie in der [Bitnami-Dokumentation](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials), wie Sie es erhalten.
    * Es ist keine MySQL-Standardinstanz angegeben, daher müssen Sie die **Größe des Hostservers in GB** eingeben. Geben Sie eine Größe ein, die in etwa der physischen Kapazität des Datenbankservers entspricht.
    * Behalten Sie die Standardeinstellung für **Abonnement** bei.
@@ -82,7 +82,7 @@ Die folgenden Informationen gelten für den RP und MySQL-Hostserver:
 
 ## <a name="increase-backend-database-capacity"></a>Erhöhen der Back-End-Datenbankkapazität
 
-Sie können die Kapazität der Back-End-Datenbank erhöhen, indem Sie mehr MySQL-Server im Azure Stack-Portal bereitstellen. Fügen Sie diese Server zu einer neuen oder bereits vorhandenen SKU hinzu. Wenn Sie einen Server zu einer bestehenden SKU hinzufügen, stellen Sie sicher, dass die Servereigenschaften mit denen der anderen Server in der SKU übereinstimmen.
+Sie können die Kapazität der Back-End-Datenbank erhöhen, indem Sie mehr MySQL-Server im Azure Stack Hub-Portal bereitstellen. Fügen Sie diese Server zu einer neuen oder bereits vorhandenen SKU hinzu. Wenn Sie einen Server zu einer bestehenden SKU hinzufügen, stellen Sie sicher, dass die Servereigenschaften mit denen der anderen Server in der SKU übereinstimmen.
 
 ## <a name="sku-notes"></a>Hinweise zu SKUs
 Verwenden Sie einen SKU-Namen, der die Funktionen der Server in der SKU beschreibt, z.B. Kapazität und Leistung. Der Name soll Benutzer dabei unterstützen, ihre Datenbanken für die entsprechende SKU bereitzustellen. Beispielsweise können Sie SKU-Namen verwenden, um Dienstangebote anhand der folgenden Merkmale zu unterscheiden:

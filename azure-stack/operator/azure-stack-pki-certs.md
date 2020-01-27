@@ -1,6 +1,6 @@
 ---
-title: Azure Stack-PKI-Zertifikatanforderungen | Microsoft-Dokumentation
-description: Informationen zu den Azure Stack-PKI-Zertifikatbereitstellungsanforderungen für in Azure Stack integrierte Systeme.
+title: Azure Stack Hub-PKI-Zertifikatanforderungen | Microsoft-Dokumentation
+description: Informationen zu den Azure Stack Hub-PKI-Zertifikatbereitstellungsanforderungen für in Azure Stack Hub integrierte Systeme.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,35 +16,35 @@ ms.date: 12/16/2019
 ms.author: justinha
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: e9276d67c767ec6a08549be830c52bbbe03230ec
-ms.sourcegitcommit: 50b7974454e008724817cbb4416ce40368b31ef4
+ms.openlocfilehash: 124f59d043a940ebcd48131f1012551777a17a6d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/16/2019
-ms.locfileid: "75035505"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810451"
 ---
-# <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack-PKI-Zertifikatanforderungen
+# <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Azure Stack Hub-PKI-Zertifikatanforderungen
 
-Azure Stack verfügt über ein öffentliches Infrastrukturnetz mit extern zugänglichen öffentlichen IP-Adressen, die einer kleinen Gruppe von Azure Stack-Diensten und möglicherweise Mandanten-VMs zugewiesen sind. PKI-Zertifikate (Public Key-Infrastruktur) mit den entsprechenden DNS-Namen für diese Endpunkte der öffentlichen Infrastruktur von Azure Stack werden während der Bereitstellung von Azure Stack benötigt. Dieser Artikel enthält Informationen zu Folgendem:
+Azure Stack Hub verfügt über ein öffentliches Infrastrukturnetz mit extern zugänglichen öffentlichen IP-Adressen, die einer kleinen Gruppe von Azure Stack Hub-Diensten und möglicherweise Mandanten-VMs zugewiesen sind. PKI-Zertifikate (Public Key-Infrastruktur) mit den entsprechenden DNS-Namen für diese Endpunkte der öffentlichen Infrastruktur von Azure Stack Hub werden während der Bereitstellung von Azure Stack Hub benötigt. Dieser Artikel enthält Informationen zu Folgendem:
 
-- Die zum Bereitstellen von Azure Stack erforderlichen Zertifikate
+- Die zum Bereitstellen von Azure Stack Hub erforderlichen Zertifikate
 - Der Prozess des Beziehens der Zertifikate, die diese Vorgaben erfüllen
 - Vorbereiten, Überprüfen und Verwenden dieser Zertifikate während der Bereitstellung
 
 > [!NOTE]
-> Azure Stack verwendet standardmäßig auch Zertifikate, die von einer internen, in Active Directory integrierten Zertifizierungsstelle (Certificate Authority, CA) für die Authentifizierung zwischen den Knoten ausgestellt werden. Um das Zertifikat zu überprüfen, vertrauen alle Azure Stack-Infrastrukturcomputer dem Stammzertifikat der internen Zertifizierungsstelle, indem sie dieses Zertifikat dem lokalen Zertifikatspeicher hinzufügen. In Azure Stack werden keine Zertifikate angeheftet oder auf eine Whitelist gesetzt. Der SAN der einzelnen Serverzertifikate wird anhand des FQDN des Ziels überprüft. Außerdem werden die gesamte Vertrauenskette sowie das Ablaufdatum des Zertifikats (standardmäßige TLS-Server-Authentifizierung ohne Anheften von Zertifikaten) überprüft.
+> Azure Stack Hub verwendet standardmäßig auch Zertifikate, die von einer internen, in Active Directory integrierten Zertifizierungsstelle (Certificate Authority, CA) für die Authentifizierung zwischen den Knoten ausgestellt werden. Um das Zertifikat zu überprüfen, vertrauen alle Azure Stack Hub-Infrastrukturcomputer dem Stammzertifikat der internen Zertifizierungsstelle, indem sie dieses Zertifikat dem lokalen Zertifikatspeicher hinzufügen. In Azure Stack Hub werden keine Zertifikate angeheftet oder auf eine Whitelist gesetzt. Der SAN der einzelnen Serverzertifikate wird anhand des FQDN des Ziels überprüft. Außerdem werden die gesamte Vertrauenskette sowie das Ablaufdatum des Zertifikats (standardmäßige TLS-Server-Authentifizierung ohne Anheften von Zertifikaten) überprüft.
 
 ## <a name="certificate-requirements"></a>Zertifikatanforderungen
-Die folgende Liste beschreibt die Zertifikatsanforderungen, die für die Bereitstellung von Azure Stack erfüllt sein müssen:
+Die folgende Liste beschreibt die Zertifikatsanforderungen, die für die Bereitstellung von Azure Stack Hub erfüllt sein müssen:
 
 - Zertifikate müssen von einer internen oder öffentlichen Zertifizierungsstelle ausgestellt werden. Wenn eine öffentliche Zertifizierungsstelle verwendet wird, muss diese im Rahmen des Microsoft Trusted Root Authority Program in das Basisbetriebssystem-Image aufgenommen werden. Sie finden die vollständige Liste unter [Microsoft Trusted Root Certificate Program: Participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
-- Ihre Azure Stack-Infrastruktur muss über Netzwerkzugriff auf den im Zertifikat veröffentlichten Speicherort der Zertifikatsperrliste (Certificate Revocation List, CRL) der Zertifizierungsstelle verfügen. Bei dieser CRL muss es sich um einen HTTP-Endpunkt handeln.
+- Ihre Azure Stack Hub-Infrastruktur muss über Netzwerkzugriff auf den im Zertifikat veröffentlichten Speicherort der Zertifikatsperrliste (Certificate Revocation List, CRL) der Zertifizierungsstelle verfügen. Bei dieser CRL muss es sich um einen HTTP-Endpunkt handeln.
 - Beim Rotieren von Zertifikaten in Builds vor 1903 müssen diese entweder von der gleichen internen Zertifizierungsstelle stammen, die auch zum Signieren der bei der Bereitstellung angegebenen Zertifikate verwendet wurde, oder von einer der oben angegebenen öffentlichen Zertifizierungsstellen. Ab Build 1903 können Zertifikate von einer beliebigen Unternehmens- oder öffentlichen Zertifizierungsstelle ausgestellt werden.
 - Die Verwendung selbstsignierter Zertifikate wird nicht unterstützt.
-- Für Bereitstellung und Rotation können Sie entweder ein einziges Zertifikat verwenden, das alle Namespaces in den Feldern „Antragstellername“ und „Alternativer Antragstellername“ des Zertifikats abdeckt, ODER Sie können einzelne Zertifikate für jeden der nachfolgenden Namespaces verwenden, die die Azure Stack-Dienste benötigen, die Sie nutzen möchten. Beide Ansätze erfordern bei Bedarf die Verwendung von Platzhaltern für Endpunkte, z. B. **KeyVault** und **KeyVaultInternal**.
+- Für Bereitstellung und Rotation können Sie entweder ein einziges Zertifikat verwenden, das alle Namespaces in den Feldern „Antragstellername“ und „Alternativer Antragstellername“ des Zertifikats abdeckt, ODER Sie können einzelne Zertifikate für jeden der nachfolgenden Namespaces verwenden, die die Azure Stack Hub-Dienste benötigen, die Sie nutzen möchten. Beide Ansätze erfordern bei Bedarf die Verwendung von Platzhaltern für Endpunkte, z. B. **KeyVault** und **KeyVaultInternal**.
 - Die PFX-Verschlüsselung des Zertifikats sollte mit 3DES erfolgen.
 - Der Zertifikatsignaturalgorithmus sollte nicht SHA-1 sein.
-- Das Zertifikatsformat muss PFX sein, da sowohl der öffentliche als auch der private Schlüssel für die Installation von Azure Stack benötigt werden. Für den privaten Schlüssel muss das Schlüsselattribut des lokalen Computers festgelegt sein.
+- Das Zertifikatsformat muss PFX sein, da sowohl der öffentliche als auch der private Schlüssel für die Installation von Azure Stack Hub benötigt werden. Für den privaten Schlüssel muss das Schlüsselattribut des lokalen Computers festgelegt sein.
 - Die PFX-Verschlüsselung muss 3DES sein. (Dies ist beim Exportieren von einem Windows 10-Client oder einem Windows Server 2016-Zertifikatspeicher Standard.)
 - Die PFX-Zertifikatdateien müssen im Feld „Schlüsselverwendung“ einen Wert in „Digitale Signatur“ und „Schlüsselchiffrierung“ enthalten.
 - Die PFX-Zertifikatdateien müssen die Werte „Serverauthentifizierung (1.3.6.1.5.5.7.3.1)“ und „Clientauthentifizierung (1.3.6.1.5.5.7.3.2)“ im Feld „Erweiterte Schlüsselverwendung“ aufweisen.
@@ -57,17 +57,17 @@ Die folgende Liste beschreibt die Zertifikatsanforderungen, die für die Bereits
 
 > [!NOTE]  
 > Selbstsignierte Zertifikate werden nicht unterstützt.  
-> Bei der Bereitstellung von Azure Stack Hub im getrennten Modus wird die Verwendung von Zertifikaten empfohlen, die von einer Unternehmenszertifizierungsstelle ausgestellt wurden. Dies ist wichtig, da Clients, die auf Azure Stack-Endpunkte zugreifen, in der Lage sein müssen, eine Verbindung mit der Zertifikatsperrliste (Certificate Revocation List, CRL) herzustellen.
+> Bei der Bereitstellung von Azure Stack Hub im getrennten Modus wird die Verwendung von Zertifikaten empfohlen, die von einer Unternehmenszertifizierungsstelle ausgestellt wurden. Dies ist wichtig, da Clients, die auf Azure Stack Hub-Endpunkte zugreifen, in der Lage sein müssen, eine Verbindung mit der Zertifikatsperrliste (Certificate Revocation List, CRL) herzustellen.
 
 > [!NOTE]  
 > Das Vorhandensein von Zwischenzertifizierungsstellen in der Vertrauenskette eines Zertifikats *wird unterstützt*.
 
 ## <a name="mandatory-certificates"></a>Erforderliche Zertifikate
-Die Tabelle in diesem Abschnitt beschreibt die PKI-Zertifikate für öffentliche Azure Stack-Endpunkte, die sowohl für Azure AD- als auch für AD FS-gestützte Azure Stack-Installationen erforderlich sind. Zertifikatsanforderungen werden nach Bereichen gruppiert, ebenso wie die verwendeten Namespaces und die Zertifikate, die für jeden Namespace benötigt werden. Die Tabelle beschreibt auch den Ordner, in den Ihr Lösungsanbieter die verschiedenen Zertifikate für jeden öffentlichen Endpunkt kopiert.
+Die Tabelle in diesem Abschnitt beschreibt die PKI-Zertifikate für öffentliche Azure Stack Hub-Endpunkte, die sowohl für Azure AD- als auch für AD FS-gestützte Azure Stack Hub-Bereitstellungen erforderlich sind. Zertifikatsanforderungen werden nach Bereichen gruppiert, ebenso wie die verwendeten Namespaces und die Zertifikate, die für jeden Namespace benötigt werden. Die Tabelle beschreibt auch den Ordner, in den Ihr Lösungsanbieter die verschiedenen Zertifikate für jeden öffentlichen Endpunkt kopiert.
 
-Zertifikate mit den entsprechenden DNS-Namen für diese Endpunkte der öffentlichen Infrastruktur von Azure Stack sind erforderlich. Der DNS-Name von Endpunkten wird im folgenden Format angegeben: *&lt;Präfix>.&lt;Region>.&lt;FQDN>* .
+Zertifikate mit den entsprechenden DNS-Namen für diese Endpunkte der öffentlichen Infrastruktur von Azure Stack Hub sind erforderlich. Der DNS-Name von Endpunkten wird im folgenden Format angegeben: *&lt;Präfix>.&lt;Region>.&lt;FQDN>* .
 
-Für Ihre Bereitstellung müssen die Werte [region] und [externalfqdn] mit der Region und den externen Domänennamen übereinstimmen, die Sie für Ihr Azure Stack-System ausgewählt haben. Beispiel: Wenn der Name der Region *Redmond* und der externe Domänenname *contoso.com* lautet, haben die DNS-Namen das Format *&lt;Präfix>.redmond.contoso.com*. Die *&lt;Präfix>* -Werte werden von Microsoft vordefiniert, um den durch das Zertifikat geschützten Endpunkt zu beschreiben. Darüber hinaus hängen die *&lt;Präfix>* -Werte der externen Infrastrukturendpunkte vom Azure Stack-Dienst ab, der den spezifischen Endpunkt verwendet.
+Für Ihre Bereitstellung müssen die Werte [region] und [externalfqdn] mit der Region und den externen Domänennamen übereinstimmen, die Sie für Ihr Azure Stack Hub-System ausgewählt haben. Beispiel: Wenn der Name der Region *Redmond* und der externe Domänenname *contoso.com* lautet, haben die DNS-Namen das Format *&lt;Präfix>.redmond.contoso.com*. Die *&lt;Präfix>* -Werte werden von Microsoft vordefiniert, um den durch das Zertifikat geschützten Endpunkt zu beschreiben. Darüber hinaus hängen die *&lt;Präfix>* -Werte der externen Infrastrukturendpunkte vom Azure Stack Hub-Dienst ab, der den spezifischen Endpunkt verwendet.
 
 Für Produktionsumgebungen wird empfohlen, für jeden Endpunkt eigene Zertifikate zu generieren und in das entsprechende Verzeichnis zu kopieren. In Entwicklungsumgebungen können Zertifikate als einzelnes, in alle Verzeichnisse kopiertes Platzhalterzertifikat bereitgestellt werden, das alle Namespaces in den Feldern für Antragsteller und alternativen Antragstellernamen (Subject Alternative Name, SAN) abdeckt. Ein einzelnes Zertifikat für alle Endpunkte und Dienste ist eine unsichere Methode und sollte daher nur in der Entwicklung verwendet werden. Wie bereits erwähnt, müssen für beide Optionen Platzhalterzertifikate für Endpunkte wie **acs** und Key Vault verwendet werden, wenn dies erforderlich sind.
 
@@ -88,7 +88,7 @@ Für Produktionsumgebungen wird empfohlen, für jeden Endpunkt eigene Zertifikat
 | Administratorerweiterungshost | *.adminhosting.\<Region>.\<FQDN> (SSL-Platzhalterzertifikate) | Administratorerweiterungshost | adminhosting.\<Region>.\<FQDN> |
 | Öffentlicher Erweiterungshost | *.hosting.\<Region>.\<FQDN> (SSL-Platzhalterzertifikate) | Öffentlicher Erweiterungshost | hosting.\<region>.\<fqdn> |
 
-Wenn Sie Azure Stack im Azure AD-Bereitstellungsmodus bereitstellen, müssen Sie nur die in der vorigen Tabelle aufgeführten Zertifikate anfordern. Wenn Sie jedoch Azure Stack mit dem AD FS-Bereitstellungsmodus bereitstellen, müssen Sie auch die in der folgenden Tabelle beschriebenen Zertifikate anfordern:
+Wenn Sie Azure Stack Hub im Azure AD-Bereitstellungsmodus bereitstellen, müssen Sie nur die in der vorigen Tabelle aufgeführten Zertifikate anfordern. Wenn Sie jedoch Azure Stack Hub mit dem AD FS-Bereitstellungsmodus bereitstellen, müssen Sie auch die in der folgenden Tabelle beschriebenen Zertifikate anfordern:
 
 |Bereitstellungsordner|Erforderlicher Zertifikatantragsteller und alternative Antragstellernamen|Bereich (pro Region)|Namespace der Unterdomäne|
 |-----|-----|-----|-----|
@@ -100,12 +100,12 @@ Wenn Sie Azure Stack im Azure AD-Bereitstellungsmodus bereitstellen, müssen Sie
 > Alle Zertifikate, die in diesem Abschnitt aufgeführt sind, müssen das gleiche Kennwort haben.
 
 ## <a name="optional-paas-certificates"></a>Optionale PaaS-Zertifikate
-Wenn Sie die zusätzlichen Azure Stack-PaaS-Dienste (SQL, MySQL und App Service) bereitstellen möchten, nachdem Azure Stack bereitgestellt und konfiguriert wurde, müssen Sie zusätzliche Zertifikate anfordern, um die Endpunkte der PaaS-Dienste abzudecken.
+Wenn Sie die zusätzlichen Azure Stack Hub-PaaS-Dienste (SQL, MySQL und App Service) bereitstellen möchten, nachdem Azure Stack Hub bereitgestellt und konfiguriert wurde, müssen Sie zusätzliche Zertifikate anfordern, um die Endpunkte der PaaS-Dienste abzudecken.
 
 > [!IMPORTANT]
-> Die Zertifikate, die Sie für App Service-, SQL- und MySQL-Ressourcenanbieter verwenden, müssen die gleiche Stammzertifizierungsstelle haben wie die Zertifikate, die für die globalen Azure Stack-Endpunkte verwendet werden.
+> Die Zertifikate, die Sie für App Service-, SQL- und MySQL-Ressourcenanbieter verwenden, müssen die gleiche Stammzertifizierungsstelle haben wie die Zertifikate, die für die globalen Azure Stack Hub-Endpunkte verwendet werden.
 
-In der folgenden Tabelle werden die Endpunkte und Zertifikate beschrieben, die für die SQL- und MySQL-Adapter sowie für App Service erforderlich sind. Sie müssen diese Zertifikate nicht in den Azure Stack-Bereitstellungsordner kopieren. Stattdessen stellen Sie diese Zertifikate bei der Installation der zusätzlichen Ressourcenanbieter bereit.
+In der folgenden Tabelle werden die Endpunkte und Zertifikate beschrieben, die für die SQL- und MySQL-Adapter sowie für App Service erforderlich sind. Sie müssen diese Zertifikate nicht in den Azure Stack Hub-Bereitstellungsordner kopieren. Stattdessen stellen Sie diese Zertifikate bei der Installation der zusätzlichen Ressourcenanbieter bereit.
 
 |Bereich (pro Region)|Zertifikat|Erforderlicher Zertifikatantragsteller und alternative Antragstellernamen|Namespace der Unterdomäne|
 |-----|-----|-----|-----|
@@ -120,7 +120,7 @@ In der folgenden Tabelle werden die Endpunkte und Zertifikate beschrieben, die f
 <sup>2</sup> Ein Platzhalterzertifikat des Typs &#42;.appservice. *&lt;region>.&lt;fqdn>* kann nicht anstelle dieser drei Zertifikate (api.appservice. *&lt;region>.&lt;fqdn>* , ftp.appservice. *&lt;region>.&lt;fqdn>* und sso.appservice. *&lt;region>.&lt;fqdn>* ) verwendet werden. App Service erfordert explizit die Verwendung separater Zertifikate für diese Endpunkte.
 
 ## <a name="learn-more"></a>Weitere Informationen
-Erfahren Sie mehr zum [Generieren von PKI-Zertifikaten für die Azure Stack-Bereitstellung](azure-stack-get-pki-certs.md).
+Erfahren Sie mehr zum [Generieren von PKI-Zertifikaten für die Azure Stack Hub-Bereitstellung](azure-stack-get-pki-certs.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
-[Integrieren der AD FS-Identität in Ihr Azure Stack-Rechenzentrum](azure-stack-integrate-identity.md)
+[Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum](azure-stack-integrate-identity.md)

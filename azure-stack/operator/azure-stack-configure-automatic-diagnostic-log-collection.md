@@ -1,6 +1,6 @@
 ---
-title: Konfigurieren der automatischen Azure Stack-Protokollsammlung | Microsoft-Dokumentation
-description: Konfigurieren der automatischen Protokollsammlung in Azure Stack – Hilfe und Support.
+title: Konfigurieren der automatischen Azure Stack Hub -Protokollsammlung | Microsoft-Dokumentation
+description: Konfigurieren der automatischen Protokollsammlung in Azure Stack Hub – Hilfe und Support.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,28 +16,26 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 087698b4f12c646422fda05cc4c707ad135b150a
-ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
+ms.openlocfilehash: 63ee429c37d5ec7bf9258e3e940d9dbfa3786907
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72310602"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882588"
 ---
-# <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>Konfigurieren der automatischen Azure Stack-Diagnoseprotokollsammlung
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme*
+# <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>Konfigurieren der automatischen Azure Stack Hub-Diagnoseprotokollsammlung
 
 Es wird empfohlen, die Funktion zur automatischen Sammlung von Diagnoseprotokollen zu konfigurieren, um die Protokollsammlung und den Kundensupport zu optimieren. Wenn die Integritätsbedingungen des Systems untersucht werden müssen, können die Protokolle automatisch zur Analyse durch die Microsoft Customer Support Services (CSS) hochgeladen werden. 
 
 ## <a name="create-an-azure-blob-container-sas-url"></a>Erstellen einer SAS-URL für Azure-Blobcontainer 
 
-Bevor Sie die automatische Protokollsammlung konfigurieren können, müssen Sie eine SAS (Shared Access Signature) für einen Blobcontainer abrufen. Mit einer SAS können Sie Zugriff auf Ressourcen unter Ihrem Speicherkonto erteilen, ohne dafür Kontoschlüssel weitergeben zu müssen. Sie können Azure Stack-Protokolldateien in einem Blobcontainer in Azure speichern und dann die SAS-URL übergeben, über die CSS die Protokolle sammeln kann. 
+Bevor Sie die automatische Protokollsammlung konfigurieren können, müssen Sie eine SAS (Shared Access Signature) für einen Blobcontainer abrufen. Mit einer SAS können Sie Zugriff auf Ressourcen unter Ihrem Speicherkonto erteilen, ohne dafür Kontoschlüssel weitergeben zu müssen. Sie können Azure Stack Hub-Protokolldateien in einem Blobcontainer in Azure speichern und dann die SAS-URL übergeben, über die CSS die Protokolle sammeln kann. 
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
 Sie können einen neuen oder vorhandenen Blobcontainer in Azure verwenden. Um einen Blobcontainer in Azure zu erstellen, müssen Sie mindestens über die [Rolle „Mitwirkender an Speicher-Blobs“](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) oder die [spezifische Berechtigung](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) verfügen. Globale Administratoren verfügen ebenfalls über die erforderliche Berechtigung. 
 
-Bewährte Methoden zum Wählen von Parametern für das Speicherkonto für die automatische Protokollsammlung finden Sie unter [Best practices for automatic Azure Stack log collection](azure-stack-best-practices-automatic-diagnostic-log-collection.md) (Bewährte Methoden für die automatische Azure Stack-Protokollsammlung). Weitere Informationen zu Typen von Speicherkonten finden Sie unter [Azure Storage-Konto – Übersicht](https://docs.microsoft.com/azure/storage/common/storage-account-overview)
+Bewährte Methoden zum Wählen von Parametern für das Speicherkonto für die automatische Protokollsammlung finden Sie unter [Bewährte Methoden für die automatische Azure Stack Hub-Protokollsammlung](azure-stack-best-practices-automatic-diagnostic-log-collection.md). Weitere Informationen zu Typen von Speicherkonten finden Sie unter [Azure Storage-Konto – Übersicht](https://docs.microsoft.com/azure/storage/common/storage-account-overview)
 
 ### <a name="create-a-blob-storage-account"></a>Erstellen eines Blob Storage-Kontos
  
@@ -77,7 +75,7 @@ Bewährte Methoden zum Wählen von Parametern für das Speicherkonto für die au
 
    ![Screenshot mit Darstellung der Shared Access Signature-Eigenschaften](media/azure-stack-automatic-log-collection/sas-properties.png) 
 
-1. Klicken Sie auf **Create**.  
+1. Klicken Sie auf **Erstellen**.  
 
 Kopieren Sie die URL, und geben Sie sie beim [Konfigurieren der automatischen Protokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection.md) ein. Weitere Informationen zu SAS-URLs finden Sie unter [Verwenden von Shared Access Signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
 
@@ -86,7 +84,7 @@ Kopieren Sie die URL, und geben Sie sie beim [Konfigurieren der automatischen Pr
 
 Führen Sie diese Schritte aus, um der Benutzeroberfläche der Protokollsammlung die SAS-URL hinzuzufügen: 
 
-1. Melden Sie sich beim Azure Stack-Administratorportal an.
+1. Melden Sie sich beim Azure Stack Hub-Administratorportal an.
 1. Öffnen Sie **Hilfe und Support – Übersicht**.
 1. Klicken Sie auf **Einstellungen der automatischen Sammlung**.
 
@@ -102,7 +100,7 @@ Führen Sie diese Schritte aus, um der Benutzeroberfläche der Protokollsammlung
 
 ## <a name="view-log-collection"></a>Anzeigen der Protokollsammlung
 
-Der Verlauf der von Azure Stack gesammelten Protokolle wird auf der Seite **Protokollsammlung** in Hilfe und Support mit den folgenden Daten und Uhrzeiten angezeigt:
+Der Verlauf der von Azure Stack Hub gesammelten Protokolle wird auf der Seite **Protokollsammlung** in Hilfe und Support mit den folgenden Daten und Uhrzeiten angezeigt:
 
 - **Sammlungszeit**: Zeitpunkt, zu dem der Sammlungsvorgang begonnen hat 
 - **Startdatum**: Beginn des Zeitraums, für den Sie die Sammlung ausführen möchten.
@@ -151,11 +149,11 @@ Wenn diese Option aktiviert ist, erfolgt die automatische Sammlung von Diagnosep
 
 ## <a name="see-also"></a>Weitere Informationen
 
-[Azure Stack-Protokoll und Behandlung von Kundendaten](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
+[Verarbeiten von Azure Stack Hub-Protokoll- und -Kundendaten](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
 
 [Verwenden von Shared Access Signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 
-[Bewährte Methoden für die automatische Azure Stack-Protokollsammlung](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
+[Bewährte Methoden für die automatische Azure Stack Hub-Protokollsammlung](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
 
 
 

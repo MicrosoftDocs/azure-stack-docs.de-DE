@@ -1,6 +1,6 @@
 ---
-title: Hinzufügen von Workern und Infrastruktur in App Service unter Azure Stack | Microsoft-Dokumentation
-description: Ausführliche Anleitung zum Skalieren von Azure Stack App Services
+title: Hinzufügen von Workern und Infrastruktur in App Service unter Azure Stack Hub | Microsoft-Dokumentation
+description: Detaillierter Leitfaden zum Aktualisieren von Azure App Service in Azure Stack Hub
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -12,35 +12,35 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: b01199bfe96c39fe79aac65eca219a065f39375c
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 01/13/2020
+ms.openlocfilehash: b07d90f17d1c4380f65c43029215bf8946d209e2
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975007"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924203"
 ---
-# <a name="add-workers-and-infrastructure-in-app-service-on-azure-stack"></a>Hinzufügen von Workern und Infrastruktur in App Service unter Azure Stack
+# <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Hinzufügen von Workern und Infrastruktur in App Service unter Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*  
+*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme und Azure Stack Development Kit*  
 
-Dieses Dokument enthält Anleitungen zum Skalieren der Infrastruktur- und Workerrollen in App Service unter Azure Stack. Es werden alle Schritte beschrieben, die zum Erstellen von weiteren Workerrollen zur Unterstützung von Apps aller Größen erforderlich sind.
+Dieses Dokument enthält Anleitungen zum Skalieren der Infrastruktur- und Workerrollen in Azure App Service unter Azure Stack Hub. Es werden alle Schritte beschrieben, die zum Erstellen von weiteren Workerrollen zur Unterstützung von Apps aller Größen erforderlich sind.
 
 > [!NOTE]
-> Wenn Ihre Azure Stack-Umgebung nicht mehr als 96 GB RAM aufweist, können beim Hinzufügen von zusätzlicher Kapazität Schwierigkeiten auftreten.
+> Wenn Ihre Azure Stack Hub-Umgebung nicht mehr als 96 GB RAM aufweist, können beim Hinzufügen von zusätzlicher Kapazität Schwierigkeiten auftreten.
 
-Standardmäßig unterstützt App Service in Azure Stack kostenlose und gemeinsam genutzte Workerebenen. Um andere Workerebenen hinzufügen zu können, müssen Sie weitere Workerrollen hinzufügen.
+Standardmäßig unterstützt Azure App Service in Azure Stack Hub kostenlose und gemeinsam genutzte Workerebenen. Um andere Workerebenen hinzufügen zu können, müssen Sie weitere Workerrollen hinzufügen.
 
-Wenn Sie sich nicht sicher sind, welche Elemente mit der App Service-Standardversion bei der Azure Stack-Installation bereitgestellt wurden, helfen Ihnen die zusätzlichen Informationen unter [Übersicht über App Service in Azure Stack](azure-stack-app-service-overview.md) weiter.
+Wenn Sie sich nicht sicher sind, welche Elemente mit der Azure App Service-Standardversion bei der Azure Stack Hub-Installation bereitgestellt wurden, helfen Ihnen die zusätzlichen Informationen unter [Übersicht über App Service in Azure Stack Hub](azure-stack-app-service-overview.md) weiter.
 
-Azure App Service in Azure Stack stellt alle Rollen mithilfe von VM-Skalierungsgruppen bereit und nutzt somit die Skalierungsfunktionen dieser Workload. Aus diesem Grund erfolgt die gesamte Skalierung der Workerebenen über den App Service-Administrator.
+Azure App Service in Azure Stack Hub stellt alle Rollen mithilfe von VM-Skalierungsgruppen bereit und nutzt somit die Skalierungsfunktionen dieser Workload. Aus diesem Grund erfolgt die gesamte Skalierung der Workerebenen über den App Service-Administrator.
 
 ## <a name="add-additional-workers-with-powershell"></a>Hinzufügen von zusätzlichen Workern mit PowerShell
 
-1. [Einrichten der Azure Stack-Administratorumgebung in PowerShell](azure-stack-powershell-configure-admin.md)
+1. [Einrichten der Azure Stack Hub-Administratorumgebung in PowerShell](azure-stack-powershell-configure-admin.md)
 
 2. Verwenden Sie dieses Beispiel, um die Skalierungsgruppe horizontal hochzuskalieren:
    ```powershell
@@ -77,23 +77,23 @@ Azure App Service in Azure Stack stellt alle Rollen mithilfe von VM-Skalierungsg
 
 ## <a name="add-additional-workers-using-the-administrator-portal"></a>Hinzufügen zusätzlicher Worker über das Administratorportal
 
-1. Melden Sie sich am Azure Stack-Administratorportal als Dienstadministrator an.
+1. Melden Sie sich beim Azure Stack Hub-Administratorportal als Dienstadministrator an.
 
 2. Navigieren Sie zu **App Services**.
 
-    ![App Service im Azure Stack-Administratorportal](media/azure-stack-app-service-add-worker-roles/image01.png)
+    ![App Service im Azure Stack Hub-Administratorportal](media/azure-stack-app-service-add-worker-roles/image01.png)
 
 3. Klicken Sie auf **Rollen**. Eine Übersicht mit allen bereitgestellten App Service-Rollen wird angezeigt.
 
 4. Klicken Sie mit der rechten Maustaste auf die Zeile des Typs, den Sie skalieren möchten, und klicken Sie dann auf **ScaleSet**.
 
-    ![ScaleSet-App Service-Rollen im Azure Stack-Administratorportal](media/azure-stack-app-service-add-worker-roles/image02.png)
+    ![ScaleSet-App Service-Rollen im Azure Stack Hub-Administratorportal](media/azure-stack-app-service-add-worker-roles/image02.png)
 
 5. Klicken Sie auf **Skalierung**, wählen Sie die Anzahl der Instanzen aus, auf die skaliert werden soll, und klicken Sie dann auf **Speichern**.
 
-    ![Festlegen von Instanzen für die Skalierung in App Service-Rollen im Azure Stack-Administratorportal](media/azure-stack-app-service-add-worker-roles/image03.png)
+    ![Festlegen von Instanzen für die Skalierung in App Service-Rollen im Azure Stack Hub-Administratorportal](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. App Service in Azure Stack fügt jetzt die zusätzlichen VMs hinzu, konfiguriert sie, installiert die gesamte erforderliche Software und kennzeichnet sie als bereit, wenn dieser Prozess abgeschlossen ist. Dieser Prozess kann ca. 80 Minuten dauern.
+6. Azure App Service in Azure Stack Hub fügt jetzt die zusätzlichen VMs hinzu, konfiguriert sie, installiert die gesamte erforderliche Software und kennzeichnet sie als bereit, wenn dieser Prozess abgeschlossen ist. Dieser Prozess kann ca. 80 Minuten dauern.
 
 7. Sie können den Bereitschaftsstatus der neuen Rollen überwachen, indem Sie die Worker auf dem Blatt **Rollen** anzeigen.
 
@@ -101,7 +101,7 @@ Azure App Service in Azure Stack stellt alle Rollen mithilfe von VM-Skalierungsg
 
 Nachdem die Worker vollständig bereitgestellt wurden und einsatzbereit sind, werden sie für die Benutzer verfügbar gemacht, damit diese ihre Workloads darauf bereitstellen können. Der folgende Screenshot zeigt ein Beispiel für die verschiedenen Tarife, die standardmäßig verfügbar sind. Die Option zum Auswählen des entsprechenden Tarifs ist nicht verfügbar, wenn für eine bestimmte Workerebene keine Worker vorhanden sind.
 
-![Tarife für den neuen App Service-Plan im Azure Stack-Administratorportal](media/azure-stack-app-service-add-worker-roles/image04.png)
+![Tarife für den neuen App Service-Plan im Azure Stack Hub-Administratorportal](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
 > Um die Rollen „Management“, „Front-End“ oder „Herausgeber“ horizontal hochzuskalieren, befolgen Sie die gleichen Schritte und wählen dabei den entsprechenden Rollentyp aus. Controller werden nicht als Skalierungsgruppen bereitgestellt. Aus diesem Grund sollten zwei Controller zum Installationszeitpunkt für alle Produktionsbereitstellungen bereitgestellt werden.

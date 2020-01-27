@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen eines virtuellen Computers mit einem sicher gespeicherten Zertifikat in Azure Stack | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie einen virtuellen Computer bereitstellen und mithilfe eines Schlüsseltresors in Azure Stack ein Zertifikat per Push auf ihn übertragen.
+title: Bereitstellen einer VM mit einem sicher gespeicherten Zertifikat in Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie eine VM bereitstellen und mithilfe eines Schlüsseltresors in Azure Stack Hub ein Zertifikat per Push auf die VM übertragen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,22 +15,20 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 8741d63dbbcefde950fc10c0917d87bc4e9718f7
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: a65615e03e6e7fcda84ec16c6323e9fa2c2f6221
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961518"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879086"
 ---
-# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>Bereitstellen eines virtuellen Computers mit einem sicher gespeicherten Zertifikat in Azure Stack 
+# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Bereitstellen einer VM mit einem sicher gespeicherten Zertifikat in Azure Stack Hub 
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-In diesem Artikel wird beschrieben, wie Sie einen virtuellen Azure Stack-Computer mit installiertem Schlüsseltresorzertifikat bereitstellen.
+In diesem Artikel wird beschrieben, wie Sie eine Azure Stack Hub-VM mit installiertem Schlüsseltresorzertifikat bereitstellen.
 
 ## <a name="overview"></a>Übersicht
 
-Zertifikate werden in vielen Szenarien verwendet, z.B. zur Authentifizierung für Active Directory oder zur Verschlüsselung von Webdatenverkehr. Sie können Zertifikate auf sichere Weise als Geheimnisse in einem Azure Stack-Schlüsseltresor speichern. Die Nutzung von Azure Stack Key Vault hat folgende Vorteile:
+Zertifikate werden in vielen Szenarien verwendet, z.B. zur Authentifizierung für Active Directory oder zur Verschlüsselung von Webdatenverkehr. Sie können Zertifikate auf sichere Weise als Geheimnisse in einem Azure Stack Hub-Schlüsseltresor speichern. Die Nutzung eines Azure Stack Hub-Schlüsseltresors hat folgende Vorteile:
 
 * Zertifikate werden per Skript, Befehlszeilenverlauf oder Vorlage nicht offengelegt.
 * Der Zertifikatverwaltungsprozess wurde optimiert.
@@ -50,8 +48,8 @@ Die folgenden Schritte beschreiben den Prozess, der zum Übertragen eines Zertif
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Sie müssen ein Angebot abonnieren, das den Key Vault-Dienst umfasst.
-* [Installieren Sie PowerShell für Azure Stack](../operator/azure-stack-powershell-install.md).
-* [Konfigurieren der PowerShell-Umgebung des Azure Stack-Benutzers](azure-stack-powershell-configure-user.md).
+* [Installieren von PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md)
+* [Konfigurieren der PowerShell-Umgebung des Azure Stack Hub-Benutzers](azure-stack-powershell-configure-user.md)
 
 ## <a name="create-a-key-vault-secret"></a>Erstellen eines Geheimnisses im Schlüsseltresor
 
@@ -177,7 +175,7 @@ Wenn die Vorlage erfolgreich bereitgestellt wurde, wird die folgende Ausgabe ang
 
 ![Ergebnisse der Vorlagenbereitstellung](media/azure-stack-key-vault-push-secret-into-vm/deployment-output.png)
 
-Azure Stack überträgt das Zertifikat während der Bereitstellung per Pushvorgang auf den virtuellen Computer. Der Zertifikatspeicherort hängt vom Betriebssystem der VM ab:
+Azure Stack Hub überträgt das Zertifikat während der Bereitstellung per Pushvorgang auf die VM. Der Zertifikatspeicherort hängt vom Betriebssystem der VM ab:
 
 * Unter Windows wird das Zertifikat dem Zertifikatspeicherort **LocalMachine** mit dem vom Benutzer angegebenen Zertifikatspeicher hinzugefügt.
 * Unter Linux wird das Zertifikat unter dem Verzeichnis **/var/lib/waagent** abgelegt, mit dem Dateinamen **UppercaseThumbprint.crt** für die X.509 Zertifikatdatei und **UppercaseThumbprint.prv**  für den privaten Schlüssel.

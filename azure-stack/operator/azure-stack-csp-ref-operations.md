@@ -1,6 +1,6 @@
 ---
-title: Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie Mandanten registrieren und die Mandantennutzung in Azure Stack nachverfolgen.
+title: Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack Hub | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie in Azure Stack Hub Mandanten registrieren und die Mandantennutzung nachverfolgen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,14 @@ ms.date: 10/14/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 72310e813d0dd0a64575f1b2452bf4a5191638ef
-ms.sourcegitcommit: 97d41b3ebed07aa85a50087b6076671fd37e08c5
+ms.openlocfilehash: 981a80692e087cfcb733e73ec43d70fe67516e69
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72350181"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882571"
 ---
-# <a name="register-tenants-for-usage-tracking-in-azure-stack"></a>Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme*
+# <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack Hub
 
 Dieser Artikel enthält Details zu Registrierungsvorgängen. Sie können diese Vorgänge für die folgenden Aufgaben verwenden:
 
@@ -41,25 +39,25 @@ Sie können einem Mandanten ein einzelnes Azure-Abonnement zuweisen. Wenn Sie ve
 
 ### <a name="use-api-profiles"></a>Verwenden von API-Profilen
 
-Die folgenden Registrierungs-Cmdlets erfordern, dass Sie beim Ausführen von PowerShell ein API-Profil angeben. API-Profile stellen mehrere Azure-Ressourcenanbieter und ihre API-Versionen dar. Sie unterstützen Sie dabei, bei der Interaktion mit mehreren Azure-Clouds die richtige Version der API zu verwenden. Wenn Sie z. B. im Zusammenhang mit globalen Azure- und Azure Stack-Instanzen mit mehreren Clouds arbeiten, geben API-Profile einen Namen an, der mit ihrem Veröffentlichungsdatum übereinstimmt. Sie verwenden das Profil **2017-09-03**.
+Die folgenden Registrierungs-Cmdlets erfordern, dass Sie beim Ausführen von PowerShell ein API-Profil angeben. API-Profile stellen mehrere Azure-Ressourcenanbieter und ihre API-Versionen dar. Sie unterstützen Sie dabei, bei der Interaktion mit mehreren Azure-Clouds die richtige Version der API zu verwenden. Wenn Sie z. B. im Zusammenhang mit globalen Azure- und Azure Stack Hub-Instanzen mit mehreren Clouds arbeiten, geben API-Profile einen Namen an, der mit ihrem Veröffentlichungsdatum übereinstimmt. Sie verwenden das Profil **2017-09-03**.
 
-Weitere Informationen zu Azure Stack und API-Profilen finden Sie unter [Verwalten von API-Versionsprofilen in Azure Stack](../user/azure-stack-version-profiles.md).
+Weitere Informationen zu Azure Stack Hub und API-Profilen finden Sie unter [Verwalten von API-Versionsprofilen in Azure Stack Hub](../user/azure-stack-version-profiles.md).
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter                  | BESCHREIBUNG |
+| Parameter                  | Beschreibung |
 |---                         | --- |
 | registrationSubscriptionID | Das Azure-Abonnement, das für die anfängliche Registrierung verwendet wurde. |
-| customerSubscriptionID     | Das Azure-Abonnement (nicht Azure Stack), das zu dem Kunden gehört, der registriert werden soll. Muss im CSP-Angebot (Cloud Solution Provider) über Partner Center erstellt werden. Wenn ein Kunde über mehrere Mandanten verfügt, erstellen Sie für den Mandanten ein Abonnement zum Anmelden bei Azure Stack. |
+| customerSubscriptionID     | Das Azure-Abonnement (nicht Azure Stack Hub), das zu dem Kunden gehört, der registriert werden soll. Muss im CSP-Angebot (Cloud Solution Provider) über Partner Center erstellt werden. Wenn ein Kunde über mehrere Mandanten verfügt, erstellen Sie für den Mandanten ein Abonnement zum Anmelden bei Azure Stack Hub. |
 | resourceGroup              | Die Ressourcengruppe in Azure, in dem Ihre Registrierung gespeichert ist. |
-| registrationName           | Der Name der Registrierung Ihrer Azure Stack-Instanz. Dies ist ein in Azure gespeichertes Objekt. Der Name hat in der Regel die Form **azurestack-CloudID**, wobei **CloudID** die Cloud-ID Ihrer Azure Stack-Bereitstellung ist. |
+| registrationName           | Der Name der Registrierung Ihrer Azure Stack Hub-Instanz. Dies ist ein in Azure gespeichertes Objekt. Der Name hat in der Regel die Form **azurestack-CloudID**, wobei **CloudID** die Cloud-ID Ihrer Azure Stack Hub-Bereitstellung ist. |
 
 > [!NOTE]  
-> Mandanten müssen bei jeder Azure Stack-Bereitstellung registriert werden, die sie verwenden. Wenn ein Mandant mehrere Azure Stack-Instanzen verwendet, aktualisieren Sie die anfängliche Registrierung jeder Bereitstellung mit dem Mandantenabonnement.
+> Mandanten müssen bei jeder Azure Stack Hub-Bereitstellung registriert werden, die sie verwenden. Wenn ein Mandant mehrere Azure Stack Hub-Instanzen verwendet, aktualisieren Sie die anfängliche Registrierung jeder Bereitstellung mit dem Mandantenabonnement.
 
 ### <a name="powershell"></a>PowerShell
 
-Verwenden Sie das Cmdlet **New-AzureRmResource**, um einen Mandanten hinzuzufügen. [Stellen Sie eine Verbindung mit Azure Stack her](azure-stack-powershell-configure-admin.md), und verwenden Sie dann in einer Eingabeaufforderung mit erhöhten Rechten das folgende Cmdlet:
+Verwenden Sie das Cmdlet **New-AzureRmResource**, um einen Mandanten hinzuzufügen. [Stellen Sie eine Verbindung mit Azure Stack Hub her](azure-stack-powershell-configure-admin.md), und verwenden Sie dann in einer Eingabeaufforderung mit erhöhten Rechten das folgende Cmdlet:
 
 ```powershell  
 New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
@@ -81,15 +79,15 @@ Rufen Sie eine Liste aller Mandanten ab, die einer Registrierung hinzugefügt wu
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter                  | BESCHREIBUNG          |
+| Parameter                  | Beschreibung          |
 |---                         | ---                  |
 | registrationSubscriptionID | Das Azure-Abonnement, das für die anfängliche Registrierung verwendet wurde.   |
 | resourceGroup              | Die Ressourcengruppe in Azure, in dem Ihre Registrierung gespeichert ist.    |
-| registrationName           | Der Name der Registrierung Ihrer Azure Stack-Bereitstellung. Dies ist ein in Azure gespeichertes Objekt. Der Name hat in der Regel die Form **azurestack-CloudID**, wobei **CloudID** die Cloud-ID Ihrer Azure Stack-Bereitstellung ist.   |
+| registrationName           | Der Name der Registrierung Ihrer Azure Stack Hub-Bereitstellung. Dies ist ein in Azure gespeichertes Objekt. Der Name hat in der Regel die Form **azurestack-CloudID**, wobei **CloudID** die Cloud-ID Ihrer Azure Stack Hub-Bereitstellung ist.   |
 
 ### <a name="powershell"></a>PowerShell
 
-Verwenden Sie das Cmdlet **Get-AzureRmResource**, um alle registrierten Mandanten aufzulisten. [Stellen Sie eine Verbindung mit Azure Stack her](azure-stack-powershell-configure-admin.md), und führen Sie dann in einer Eingabeaufforderung mit erhöhten Rechten das folgende Cmdlet aus:
+Verwenden Sie das Cmdlet **Get-AzureRmResource**, um alle registrierten Mandanten aufzulisten. [Stellen Sie eine Verbindung mit Azure Stack Hub her](azure-stack-powershell-configure-admin.md), und führen Sie dann in einer Eingabeaufforderung mit erhöhten Rechten das folgende Cmdlet aus:
 
 ```powershell
 Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -125,11 +123,11 @@ Sie können eine Liste aller Mandantenzuordnungen mithilfe des GET-Vorgangs abru
 
 ## <a name="remove-a-tenant-mapping"></a>Entfernen einer Mandantenzuordnung
 
-Sie können einen Mandanten entfernen, der einer Registrierung hinzugefügt wurde. Wenn dieser Mandant weiterhin Ressourcen in der Azure Stack-Instanz verwendet, wird deren Verwendung dem Abonnement in Rechnung gestellt, das zur anfänglichen Azure Stack-Registrierung verwendet wurde.
+Sie können einen Mandanten entfernen, der einer Registrierung hinzugefügt wurde. Wenn dieser Mandant weiterhin Ressourcen in Azure Stack Hub verwendet, wird deren Nutzung dem Abonnement in Rechnung gestellt, das zur anfänglichen Azure Stack Hub-Registrierung verwendet wurde.
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter                  | BESCHREIBUNG          |
+| Parameter                  | Beschreibung          |
 |---                         | ---                  |
 | registrationSubscriptionID | Abonnement-ID für die Registrierung.   |
 | resourceGroup              | Die Ressourcengruppe für die Registrierung.   |
@@ -138,7 +136,7 @@ Sie können einen Mandanten entfernen, der einer Registrierung hinzugefügt wurd
 
 ### <a name="powershell"></a>PowerShell
 
-Verwenden Sie das Cmdlet **Remove-AzureRmResource**, um einen Mandanten zu entfernen. [Stellen Sie eine Verbindung mit Azure Stack her](azure-stack-powershell-configure-admin.md), und führen Sie dann in einer Eingabeaufforderung mit erhöhten Rechten das folgende Cmdlet aus:
+Verwenden Sie das Cmdlet **Remove-AzureRmResource**, um einen Mandanten zu entfernen. [Stellen Sie eine Verbindung mit Azure Stack Hub her](azure-stack-powershell-configure-admin.md), und führen Sie dann in einer Eingabeaufforderung mit erhöhten Rechten das folgende Cmdlet aus:
 
 ```powershell
 Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
@@ -148,11 +146,11 @@ Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/r
 
 Sie können Mandantenzuordnungen mit dem DELETE-Vorgang entfernen.
 
-**Operation:** DELETE  
+**Operation:** Delete  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Antwort**: 204 Kein Inhalt  
 **Antworttext**: Leer
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Verbrauch und Abrechnung in Azure Stack](azure-stack-billing-and-chargeback.md)
+- [Abrufen von Informationen zum Ressourcenverbrauch in Azure Stack Hub](azure-stack-billing-and-chargeback.md)

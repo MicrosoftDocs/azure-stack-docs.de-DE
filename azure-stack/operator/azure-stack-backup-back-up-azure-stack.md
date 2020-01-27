@@ -1,6 +1,6 @@
 ---
-title: Sichern von Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie eine bedarfsgesteuerte Sicherung in Azure Stack durchführen.
+title: Sichern von Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie eine bedarfsgesteuerte Sicherung in Azure Stack Hub durchführen.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,20 +16,18 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 01a4ff62b7cc340a0cf0f98298ee28425d6df892
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 04f07af2860518174bf1f2e65ed17e85c34b4692
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974731"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882673"
 ---
-# <a name="back-up-azure-stack"></a>Sichern von Azure Stack
+# <a name="back-up-azure-stack-hub"></a>Sichern von Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+Dieser Artikel zeigt Ihnen, wie Sie eine bedarfsgesteuerte Sicherung in Azure Stack Hub durchführen. Anweisungen zum Konfigurieren der PowerShell-Umgebung finden Sie unter [Installieren von PowerShell für Azure Stack Hub](azure-stack-powershell-install.md). Informationen zur Anmeldung bei Azure Stack Hub finden Sie unter [Verwenden des Administratorportals in Azure Stack Hub](azure-stack-manage-portals.md).
 
-Dieser Artikel zeigt Ihnen, wie Sie eine bedarfsgesteuerte Sicherung in Azure Stack durchführen. Anweisungen zum Konfigurieren der PowerShell-Umgebung finden Sie unter [Installieren von PowerShell für Azure Stack](azure-stack-powershell-install.md). Informationen zur Anmeldung bei Azure Stack finden Sie unter [Verwenden des Administratorportals in Azure Stack](azure-stack-manage-portals.md).
-
-## <a name="start-azure-stack-backup"></a>Starten der Azure Stack-Sicherung
+## <a name="start-azure-stack-hub-backup"></a>Starten der Azure Stack Hub-Sicherung
 
 ### <a name="start-a-new-backup-without-job-progress-tracking"></a>Starten einer neuen Sicherung ohne Nachverfolgung des Auftragsstatus
 Verwenden Sie „Start-AzSBackup“, um eine neue Sicherung sofort und ohne Nachverfolgung des Auftragsstatus zu starten.
@@ -38,7 +36,7 @@ Verwenden Sie „Start-AzSBackup“, um eine neue Sicherung sofort und ohne Nach
    Start-AzsBackup -Force
 ```
 
-### <a name="start-azure-stack-backup-with-job-progress-tracking"></a>Starten der Azure Stack-Sicherung mit Nachverfolgung des Auftragsstatus
+### <a name="start-azure-stack-hub-backup-with-job-progress-tracking"></a>Starten der Azure Stack Hub-Sicherung mit Nachverfolgung des Auftragsstatus
 Verwenden Sie „Start-AzSBackup“, um eine neue Sicherung mit dem Parameter **-AsJob** zu starten und als Variable zu speichern, um den Fortschritt des Sicherungsauftrags zu verfolgen.
 
 > [!NOTE]
@@ -112,9 +110,9 @@ Das Ergebnis sollte der folgenden Ausgabe ähneln:
 ```
 
 ### <a name="confirm-backup-has-completed-in-the-administrator-portal"></a>Sicherstellen im Administratorportal, dass die Sicherung abgeschlossen wurde
-Führen Sie im Azure Stack-Administratorportal diese Schritte aus, um sicherzustellen, dass die Sicherung erfolgreich abgeschlossen wurde:
+Führen Sie im Azure Stack Hub-Administratorportal diese Schritte aus, um sicherzustellen, dass die Sicherung erfolgreich abgeschlossen wurde:
 
-1. Öffnen Sie das [Azure Stack-Administratorportal](azure-stack-manage-portals.md).
+1. Öffnen Sie das Azure Stack Hub-[Administratorportal](azure-stack-manage-portals.md).
 2. Wählen Sie **Alle Dienste** aus, und wählen Sie dann unter der Kategorie **VERWALTUNG** die Option **Infrastruktursicherung** aus. Wählen Sie auf dem Blatt **Infrastructure Backup** die Option **Konfiguration** aus.
 3. Suchen Sie in der Liste **Verfügbare Sicherungen** nach **Name** und **Abschlussdatum** der Sicherung.
 4. Überprüfen Sie, ob der **Status** als **Erfolgreich** angezeigt wird.

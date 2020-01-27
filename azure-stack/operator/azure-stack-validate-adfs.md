@@ -1,6 +1,6 @@
 ---
-title: Überprüfen der AD FS-Integration für Azure Stack
-description: Verwenden Sie Azure Stack Readiness Checker, um eine AD FS-Integration für Azure Stack zu überprüfen.
+title: Überprüfen der AD FS-Integration für Azure Stack Hub
+description: Verwenden Sie Azure Stack Hub Readiness Checker, um eine AD FS-Integration für Azure Stack Hub zu überprüfen.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,28 +16,28 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 9945113e778f69000a720d5f5045f691f439d076
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 311e676785461eee27bd82911cf9fef3bc408c4b
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718537"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812959"
 ---
-# <a name="validate-ad-fs-integration-for-azure-stack"></a>Überprüfen der AD FS-Integration für Azure Stack
+# <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Überprüfen der AD FS-Integration für Azure Stack Hub
 
-Verwenden Sie das Tool Azure Stack Readiness Checker (AzsReadinessChecker), um zu überprüfen, ob Ihre Umgebung für die AD FS-Integration (Active Directory-Verbunddienste) in Azure Stack verwendet werden kann. Überprüfen Sie die AD FS-Integration, bevor Sie mit der Integration von Rechenzentren oder mit einer Azure Stack-Bereitstellung beginnen.
+Verwenden Sie das Tool „Azure Stack Hub Readiness Checker“ (AzsReadinessChecker), um zu überprüfen, ob Ihre Umgebung für die AD FS-Integration (Active Directory-Verbunddienste) in Azure Stack Hub verwendet werden kann. Überprüfen Sie die AD FS-Integration, bevor Sie mit der Integration von Rechenzentren oder mit einer Azure Stack Hub-Bereitstellung beginnen.
 
 Bei der Überprüfung der Bereitschaft wird Folgendes geprüft:
 
 * Die *Verbundmetadaten* enthalten die gültigen XML-Elemente für den Verbund.
-* Das *AD FS-SSL-Zertifikat* kann abgerufen werden, und es kann eine Zertifikatvertrauenskette erstellt werden. Beim Stempel muss AD FS der SSL-Zertifikatkette vertrauen. Das Zertifikat muss von derselben *Zertifizierungsstelle* signiert werden wie die Azure Stack-Bereitstellungszertifikate oder von einem vertrauenswürdigen Stammzertifizierungsstellen-Partner. Die vollständige Liste der vertrauenswürdigen Stammzertifizierungsstellenpartner finden Sie bei [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+* Das *AD FS-SSL-Zertifikat* kann abgerufen werden, und es kann eine Zertifikatvertrauenskette erstellt werden. Beim Stempel muss AD FS der SSL-Zertifikatkette vertrauen. Das Zertifikat muss von derselben *Zertifizierungsstelle* wie die Azure Stack Hub-Bereitstellungszertifikate oder von einem vertrauenswürdigen Stammzertifizierungsstellen-Partner signiert werden. Die vollständige Liste der vertrauenswürdigen Stammzertifizierungsstellenpartner finden Sie bei [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 * Das *AD FS-Signaturzertifikat* ist vertrauenswürdig und läuft nicht in Kürze ab.
 
-Weitere Informationen zur Rechenzentrumsintegration mit Azure Stack finden Sie unter [Azure Stack-Rechenzentrumsintegration – Identität](azure-stack-integrate-identity.md).
+Weitere Informationen zur Rechenzentrumsintegration mit Azure Stack Hub finden Sie unter [Azure Stack Hub-Rechenzentrumsintegration – Identität](azure-stack-integrate-identity.md).
 
 ## <a name="get-the-readiness-checker-tool"></a>Beziehen des Tools zur Bereitschaftsüberprüfung
 
-Laden Sie die neueste Version des Tools Azure Stack Readiness Checker (AzsReadinessChecker) aus dem [PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) herunter.  
+Laden Sie die neueste Version des Azure Stack Hub Readiness Checker (AzsReadinessChecker) aus dem [PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) herunter.  
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -48,7 +48,7 @@ Die folgenden Voraussetzungen müssen erfüllt werden:
 * Windows 10 oder Windows Server 2016 mit Domänenkonnektivität
 * PowerShell 5.1 oder höher Um Ihre Version zu überprüfen, führen Sie den folgenden PowerShell-Befehl aus, und überprüfen Sie dann die *Hauptversion* und die *Nebenversionen*:  
    > `$PSVersionTable.PSVersion`
-* Die neueste Version des Tools [Microsoft Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker).
+* Die neueste Version des Tools [Microsoft Azure Stack Hub Readiness Checker](https://aka.ms/AzsReadinessChecker).
 
 **Active Directory-Verbunddienste-Umgebung:**
 
@@ -81,7 +81,7 @@ Sie benötigen mindestens eine der folgenden Formen von Metadaten:
             Test Certificate Expiry:               OK
 
     Details:
-    [-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Datacenter Integration.
+    [-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Hub Stamp requires prior to Datacenter Integration.
     Additional help URL: https://aka.ms/AzsADFSIntegration
 
     Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
@@ -90,20 +90,20 @@ Sie benötigen mindestens eine der folgenden Formen von Metadaten:
     Invoke-AzsADFSValidation Completed
     ```
 
-In Produktionsumgebungen ist das Testen der Zertifikatvertrauenskette von der Arbeitsstation eines Operators aus nicht ausreichend für die PKI-Vertrauenssituation in der Azure Stack-Infrastruktur. Das Netzwerk mit öffentlicher VIP des Azure Stack-Stempels benötigt die Verbindung mit der CRL für die PKI-Infrastruktur.
+In Produktionsumgebungen ist das Testen der Zertifikatvertrauenskette von der Arbeitsstation eines Operators aus nicht ausreichend für die PKI-Vertrauensstellung in der Azure Stack Hub-Infrastruktur. Das öffentliche VIP-Netzwerk des Azure Stack Hub-Stempels erfordert Konnektivität mit der CRL für die PKI-Infrastruktur.
 
 ## <a name="report-and-log-file"></a>Berichts- und Protokolldatei
 
 Bei jeder Ausführung einer Überprüfung werden Ergebnisse in den Dateien **AzsReadinessChecker.log** und **AzsReadinessCheckerReport.json** protokolliert. Der Speicherort dieser Dateien wird mit den Überprüfungsergebnissen in PowerShell angezeigt.
 
-Anhand dieser Validierungsdateien können Sie den Status freigeben, bevor Sie Azure Stack bereitstellen oder Probleme mit der Validierung untersuchen. Die Ergebnisse aller nachfolgenden Überprüfungen werden in beiden Dateien gespeichert. Der Bericht enthält die Bestätigung Ihres Bereitstellungsteams über die Identitätskonfiguration. Mithilfe der Protokolldatei kann Ihr Bereitstellungs- oder Supportteam Probleme bei der Überprüfung untersuchen.
+Anhand dieser Überprüfungsdateien können Sie den Status freigeben, bevor Sie Azure Stack Hub bereitstellen, oder Probleme bei der Überprüfung untersuchen. Die Ergebnisse aller nachfolgenden Überprüfungen werden in beiden Dateien gespeichert. Der Bericht enthält die Bestätigung Ihres Bereitstellungsteams über die Identitätskonfiguration. Mithilfe der Protokolldatei kann Ihr Bereitstellungs- oder Supportteam Probleme bei der Überprüfung untersuchen.
 
 Standardmäßig werden beide Dateien in `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\` geschrieben.
 
 Verwendung:
 
 * **-OutputPath**: Der *path*-Parameter am Ende der Befehlsausführung zum Angeben eines anderen Berichtsspeicherorts.
-* **-CleanReport**: Der Parameter am Ende der Befehlszeilenausführung zum Löschen der Datei „AzsReadinessCheckerReport.json“ mit früheren Berichtsinformationen. Weitere Informationen finden Sie unter [Azure Stack-Überprüfungsbericht](azure-stack-validation-report.md).
+* **-CleanReport**: Der Parameter am Ende der Befehlszeilenausführung zum Löschen der Datei „AzsReadinessCheckerReport.json“ mit früheren Berichtsinformationen. Weitere Informationen finden Sie unter [Azure Stack Hub-Überprüfungsbericht](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Fehler bei der Überprüfung
 
@@ -124,4 +124,4 @@ Die folgenden Beispiele veranschaulichen, wie häufige Fehler bei der Überprüf
 ## <a name="next-steps"></a>Nächste Schritte
 
 [Anzeigen des Bereitschaftsberichts](azure-stack-validation-report.md)  
-[Allgemeine Überlegungen zur Azure Stack-Integration](azure-stack-datacenter-integration.md)  
+[Allgemeine Überlegungen zur Azure Stack Hub-Integration](azure-stack-datacenter-integration.md)  

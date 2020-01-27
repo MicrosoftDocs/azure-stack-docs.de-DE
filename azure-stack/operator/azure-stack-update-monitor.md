@@ -1,6 +1,6 @@
 ---
-title: Überwachen von Updates in Azure Stack mithilfe von PowerShell | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mithilfe von PowerShell Updates in Azure Stack überwachen.
+title: Überwachen von Updates in Azure Stack Hub mithilfe von PowerShell | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie mithilfe von PowerShell Updates in Azure Stack Hub überwachen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,22 +15,20 @@ ms.date: 08/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: f14b4180e567df13e576b520cdac01a676c101ea
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 5f4f469c6652bdb492d9c7365fb128b0461093a4
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75717942"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882843"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>Überwachen von Updates in Azure Stack Hub mithilfe von PowerShell
-
-*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme*
 
 Sie können die Azure Stack Hub-Verwaltungsendpunkte verwenden, um Ihre Updates zu überwachen und zu verwalten. Sie können darauf mit PowerShell zugreifen. Anweisungen zum Einrichten von PowerShell in Azure Stack Hub finden Sie unter [Installieren von PowerShell für Azure Stack Hub](azure-stack-powershell-install.md).
 
 Sie können das folgende PowerShell-Cmdlet verwenden, um Ihre Updates zu verwalten:
 
-| Cmdlet | BESCHREIBUNG |
+| Cmdlet | Beschreibung |
 |------------------------------------------------------|-------------|
 | [Get-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdate?view=azurestackps-1.8.0) | Abrufen der Liste verfügbarer Updates |
 | [Get-AzsUpdateLocation](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateLocation?view=azurestackps-1.8.0)| Abrufen der Liste der Updatespeicherorte |
@@ -56,4 +54,4 @@ Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsof
 
 ## <a name="next-steps"></a>Nächste Schritte
 
--   [Verwalten von Updates in Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+-   [Verwalten von Updates in Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)

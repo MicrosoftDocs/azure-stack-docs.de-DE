@@ -1,6 +1,6 @@
 ---
-title: Einrichten eines Multi-Site-to-Site-VPN-Tunnels in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie einen Multi-Site-to-Site-VPN-Tunnel in Azure Stack einrichten.
+title: Einrichten eines Multi-Site-to-Site-VPN-Tunnels in Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie einen Multi-Site-to-Site-VPN-Tunnel in Azure Stack Hub einrichten.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,18 +9,16 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: d85de1892e2e6620249ff3a95ee2debb01b81981
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 4593898a1ea70b2001c252f885b12db2f16e922e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73168283"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883047"
 ---
-# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack"></a>Einrichten eines Multi-Site-to-Site-VPN-Tunnels in Azure Stack
+# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Einrichten eines Multi-Site-to-Site-VPN-Tunnels in Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-In diesem Artikel wird erläutert, wie Sie die Lösung mit einer Azure Stack-Resource Manager-Vorlage bereitstellen können. Mit der Lösung werden mehrere Ressourcengruppen mit zugeordneten virtuellen Netzwerken und Informationen zum Verbinden dieser Systeme erstellt.
+In diesem Artikel wird erläutert, wie Sie die Lösung mit einer Azure Stack Hub-Resource Manager-Vorlage bereitstellen können. Mit der Lösung werden mehrere Ressourcengruppen mit zugeordneten virtuellen Netzwerken und Informationen zum Verbinden dieser Systeme erstellt.
 
 Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns). Die Vorlage befindet sich im Ordner **rras-gre-vnet-vnet**. 
 
@@ -34,7 +32,7 @@ Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](h
 
 -  Stellen Sie eine Anwendung mit drei Ebenen bereit: Webebene (WebTier), Anwendungsebene (AppTier) und Datenbankebene (DBTier).
 
--  Stellen Sie die ersten zwei Vorlagen auf separaten Azure Stack-Instanzen bereit.
+-  Stellen Sie die ersten zwei Vorlagen auf separaten Azure Stack Hub-Instanzen bereit.
 
 -  **WebTier** wird auf PPE1 bereitgestellt und **AppTier** auf PPE2.
 
@@ -44,15 +42,15 @@ Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](h
 
 ## <a name="steps-to-deploy-multiple-vpns"></a>Schritte zum Bereitstellen mehrerer VPNs
 
-Hierbei handelt es sich um einen Vorgang mit mehreren Schritten. Für diese Lösung verwenden Sie das Azure Stack-Portal. Sie können jedoch PowerShell, die Azure-Befehlszeilenschnittstelle oder andere Infrastructure-as-Code-Toolketten verwenden, um die Ausgaben zu erfassen und dann als Eingaben zu verwenden.
+Hierbei handelt es sich um einen Vorgang mit mehreren Schritten. Für diese Lösung verwenden Sie das Azure Stack Hub-Portal. Sie können jedoch PowerShell, die Azure-Befehlszeilenschnittstelle oder andere Infrastructure-as-Code-Toolketten verwenden, um die Ausgaben zu erfassen und dann als Eingaben zu verwenden.
 
 ![alt text](./media/azure-stack-network-howto-vpn-tunnel/image2.png)
 
 ## <a name="walkthrough"></a>Exemplarische Vorgehensweise
 
-### <a name="deploy-web-tier-to-azure-stack-instances-ppe1"></a>Bereitstellen der Webebene auf der Azure Stack-Instanz PPE1
+### <a name="deploy-web-tier-to-azure-stack-hub-instances-ppe1"></a>Bereitstellen der Webebene auf der Azure Stack Hub-Instanz PPE1
 
-1.  Öffnen Sie das Azure Stack-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
+1.  Öffnen Sie das Azure Stack Hub-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
 
 2.  Wählen Sie **Vorlagenbereitstellung** aus.
 
@@ -69,7 +67,7 @@ Hierbei handelt es sich um einen Vorgang mit mehreren Schritten. Für diese Lös
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image5.png)
 
-### <a name="deploy-app-tier-to-the-second-azure-stack-instances"></a>Bereitstellen der Anwendungsebene auf der zweiten Azure Stack-Instanz
+### <a name="deploy-app-tier-to-the-second-azure-stack-hub-instances"></a>Bereitstellen der Anwendungsebene auf der zweiten Azure Stack Hub-Instanz
 
 Sie können wie bei der Bereitstellung von **WebTier** vorgehen. Es werden jedoch andere Parameter verwendet, wie im Folgenden gezeigt:
 
@@ -96,7 +94,7 @@ Sie können wie bei der Bereitstellung von **WebTier** vorgehen. Es werden jedoc
 
 ### <a name="create-tunnel-from-web-tier-to-app-tier"></a>Erstellen eines Tunnels von der Webebene zur Anwendungsebene
 
-1.  Öffnen Sie das Azure Stack-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
+1.  Öffnen Sie das Azure Stack Hub-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
 
 2.  Wählen Sie **Vorlagenbereitstellung** aus.
 
@@ -108,7 +106,7 @@ Sie können wie bei der Bereitstellung von **WebTier** vorgehen. Es werden jedoc
 
 ### <a name="create-tunnel-from-app-tier-to-web-tier"></a>Erstellen eines Tunnels von der Anwendungsebene zur Webebene
 
-1.  Öffnen Sie das Azure Stack-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
+1.  Öffnen Sie das Azure Stack Hub-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
 
 2.  Wählen Sie **Vorlagenbereitstellung** aus.
 
@@ -163,7 +161,7 @@ Wenn Sie die Ausgabe über die benutzerdefinierte Skripterweiterung anzeigen, k�
 
 ### <a name="configure-app-tier-to-db-tier"></a>Konfigurieren der Verbindung von der Anwendungsebene zur Datenbankebene
 
-1.  Öffnen Sie das Azure Stack-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
+1.  Öffnen Sie das Azure Stack Hub-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
 
 2.  Wählen Sie **Vorlagenbereitstellung** aus.
 
@@ -201,7 +199,7 @@ Wenn Sie die Ausgabe über die benutzerdefinierte Skripterweiterung anzeigen, k�
     > Sie können die RDP-Verbindung sowohl vom ersten zum zweiten Computer als auch vom zweiten zum ersten Computer testen.
 
     > [!Note]  
-    > Um diese Lösung lokal zu implementieren, müssen Sie Routen für das Azure Stack-Remotenetzwerk in der Switchinginfrastruktur oder zumindest auf spezifischen virtuellen Computern bereitstellen.
+    > Um diese Lösung lokal zu implementieren, müssen Sie Routen für das Azure Stack Hub-Remotenetzwerk in der Switchinginfrastruktur oder zumindest auf spezifischen virtuellen Computern bereitstellen.
 
 ### <a name="deploying-a-gre-tunnel"></a>Bereitstellen eines GRE-Tunnels
 
@@ -213,6 +211,6 @@ Der Prozess ist nahezu identisch. Wenn Sie jedoch die Tunnelvorlage in der vorha
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Azure Stack-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)  
+[Azure Stack Hub-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)  
 [Erstellen eines VPN-Tunnels mithilfe von GRE](network-howto-vpn-tunnel-gre.md)  
 [Erstellen eines VPN-Tunnels mithilfe von IPsec](network-howto-vpn-tunnel-ipsec.md)

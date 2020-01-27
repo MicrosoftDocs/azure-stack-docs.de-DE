@@ -1,6 +1,6 @@
 ---
-title: App Service-Wiederherstellung in Azure Stack | Microsoft-Dokumentation
-description: In diesem Artikel wird die Notfallwiederherstellung für App Service in Azure Stack erläutert.
+title: App Service-Wiederherstellung in Azure Stack Hub | Microsoft-Dokumentation
+description: In diesem Artikel wird die Notfallwiederherstellung für App Service in Azure Stack Hub erläutert.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,25 +16,23 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 82498781e83aedf13a3ba33da24f484bc7e80d4b
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: c814f19c6f9d5df5b81aedb551c5d2cf31b26bff
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579028"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881194"
 ---
-# <a name="app-service-recovery-on-azure-stack"></a>App Service-Wiederherstellung in Azure Stack
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*  
+# <a name="app-service-recovery-on-azure-stack-hub"></a>App Service-Wiederherstellung in Azure Stack Hub
 
 Dieser Artikel enthält Anweisungen zu den Aktionen, die Sie zur App Service-Notfallwiederherstellung ausführen müssen.
 
-Die folgenden Aktionen müssen ausgeführt werden, um App Service in Azure Stack aus einer Sicherung wiederherzustellen:
+Die folgenden Aktionen müssen ausgeführt werden, um App Service in Azure Stack Hub aus einer Sicherung wiederherzustellen:
 1. Wiederherstellen der App Service-Datenbanken
 2. Wiederherstellen des Inhalts der Dateiserverfreigabe
 3. Wiederherstellen von App Service-Rollen und -Diensten
 
-Wenn Azure Stack-Speicher als Speicher für Funktionen-Apps verwendet wurde, müssen Sie zudem Schritte zum Wiederherstellen der Funktionen-Apps ausführen.
+Wenn Azure Stack Hub-Speicher als Speicher für Funktionen-Apps verwendet wurde, müssen Sie zudem Schritte zum Wiederherstellen der Funktionen-Apps ausführen.
 
 ## <a name="restore-the-app-service-databases"></a>Wiederherstellen der App Service-Datenbanken
 Die SQL Server-Datenbanken von App Service sollten auf einer produktionsreifen SQL Server-Instanz wiederhergestellt werden. 
@@ -105,9 +103,9 @@ Nachdem die App Service-Datenbanken und der Inhalt der Dateifreigabe wiederherg
 > Es wird dringend empfohlen, diese PowerShell-Sitzung nach der Ausführung des Befehls zu schließen.
 
 ## <a name="restore-function-apps"></a>Wiederherstellen von Funktionen-Apps 
-Mit Ausnahme des Inhalts der Dateifreigabe unterstützt App Service für Azure Stack das Wiederherstellen von Mandantenbenutzer-Apps oder -daten nicht. Alle anderen Daten müssen daher außerhalb der App Service-Sicherungs- und Wiederherstellungsvorgänge gesichert und wiederhergestellt werden. Wenn Azure Stack-Speicher als Speicher für Funktionen-Apps verwendet wurde, sollten zum Wiederherstellen verloren gegangener Daten die folgenden Schritte ausgeführt werden:
+Mit Ausnahme des Inhalts der Dateifreigabe unterstützt App Service für Azure Stack Hub das Wiederherstellen von Mandantenbenutzer-Apps oder -daten nicht. Alle anderen Daten müssen daher außerhalb der App Service-Sicherungs- und Wiederherstellungsvorgänge gesichert und wiederhergestellt werden. Wenn Azure Stack Hub-Speicher als Speicher für Funktionen-Apps verwendet wurde, sollten zum Wiederherstellen verloren gegangener Daten die folgenden Schritte ausgeführt werden:
 
-1. Erstellen Sie ein neues Speicherkonto für die Funktionen-App. Bei diesem Speicher kann es sich um Azure Stack-Speicher, Azure Storage oder beliebigen kompatiblen Speicher handeln.
+1. Erstellen Sie ein neues Speicherkonto für die Funktionen-App. Bei diesem Speicher kann es sich um Azure Stack Hub-Speicher, Azure Storage oder beliebigen kompatiblen Speicher handeln.
 2. Rufen Sie die Verbindungszeichenfolge für den Speicher ab.
 3. Öffnen Sie das Funktionsportal, und navigieren Sie zur Funktions-App.
 4. Navigieren Sie zur Registerkarte **Plattformfeatures**, und klicken Sie auf **Anwendungseinstellungen**.
@@ -116,4 +114,4 @@ Mit Ausnahme des Inhalts der Dateifreigabe unterstützt App Service für Azure�
 7. Starten Sie die App neu. Möglicherweise sind mehrere Versuche erforderlich, um alle Fehler zu löschen.
 
 ## <a name="next-steps"></a>Nächste Schritte
-[App Service in Azure Stack (Übersicht)](azure-stack-app-service-overview.md)
+[App Service in Azure Stack Hub (Übersicht)](azure-stack-app-service-overview.md)

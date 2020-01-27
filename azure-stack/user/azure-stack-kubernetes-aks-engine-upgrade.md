@@ -1,6 +1,6 @@
 ---
-title: Aktualisieren eines Kubernetes-Clusters in Azure Stack | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie einen Kubernetes-Cluster in Azure Stack aktualisieren.
+title: Aktualisieren eines Kubernetes-Clusters in Azure Stack Hub | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie einen Kubernetes-Cluster in Azure Stack Hub aktualisieren.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,14 @@ ms.date: 01/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: fb51e49f449896fde6262790972c958b230d3175
-ms.sourcegitcommit: a37d3d78ed683e783681c567c989cb2b9ad0de0c
+ms.openlocfilehash: de2774a9cdbdbc8461b05db5dbf1f80b0854fbc7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75605873"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883608"
 ---
-# <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Aktualisieren eines Kubernetes-Clusters in Azure Stack
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+# <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Aktualisieren eines Kubernetes-Clusters in Azure Stack Hub
 
 ## <a name="upgrade-a-cluster"></a>Durchführen eines Clusterupgrades
 
@@ -37,7 +35,7 @@ Microsoft verwaltet Ihren Cluster nicht. Microsoft stellt jedoch das Tool und da
 Für ein bereitgestelltes Cluster decken Upgrades Folgendes ab:
 
 -   Kubernetes
--   Azure Stack-Kubernetes-Anbieter
+-   Azure Stack Hub-Kubernetes-Anbieter
 -   Basisbetriebssystem
 
 Beachten Sie bei der Aktualisierung eines Produktionsclusters Folgendes:
@@ -45,7 +43,7 @@ Beachten Sie bei der Aktualisierung eines Produktionsclusters Folgendes:
 -   Verwenden Sie die richtige Clusterspezifikation (`apimodel.json`) und Ressourcengruppe für den Zielcluster?
 -   Verwenden Sie einen zuverlässigen Computer als Clientcomputer, auf dem die AKS-Engine ausgeführt wird und von dem Sie Upgradevorgänge ausführen?
 -   Stellen Sie sicher, dass ein funktionsfähiger Sicherungscluster vorhanden ist.
--   Führen Sie den Befehl wenn möglich von einem virtuellen Computer in der Azure Stack-Umgebung aus, um die Anzahl der Netzwerkhops und potenzielle Verbindungsfehler zu verringern.
+-   Führen Sie den Befehl wenn möglich von einem virtuellen Computer in der Azure Stack Hub-Umgebung aus, um die Anzahl der Netzwerkhops und potenzielle Verbindungsfehler zu verringern.
 -   Stellen Sie sicher, dass das Kontingent Ihres Abonnements ausreicht, um den gesamten Prozess auszuführen. Während des Prozesses werden neue virtuelle Computer zugeordnet.
 -   Systemupdates oder geplante Tasks sind nicht vorgesehen.
 -   Richten Sie ein gestaffeltes Upgrade auf einem Cluster ein, der genau wie der Produktionscluster konfiguriert ist, und testen Sie das Upgrade dort, bevor Sie es im Produktionscluster ausführen.
@@ -84,14 +82,14 @@ In den folgenden Anweisungen werden die minimalen Schritte zum Ausführen des Up
 
 2. Sammeln Sie die Informationen, die Sie zum Ausführen des `upgrade`-Befehls benötigen. Für das Upgrade werden die folgenden Parameter verwendet:
 
-    | Parameter | Beispiel | BESCHREIBUNG |
+    | Parameter | Beispiel | Beschreibung |
     | --- | --- | --- |
-    | azure-env | AzureStackCloud | Um der AKS-Engine mitzuteilen, dass die Zielplattform Azure Stack ist, verwenden Sie `AzureStackCloud`. |
-    | location | local | Der Regionsname für Ihre Azure Stack-Instanz. Für das ASDK ist `local` für die Region festgelegt. |
+    | azure-env | AzureStackCloud | Um der AKS-Engine mitzuteilen, dass die Zielplattform Azure Stack Hub ist, verwenden Sie `AzureStackCloud`. |
+    | location | local | Der Regionsname für Ihre Azure Stack Hub-Instanz. Für das ASDK ist `local` für die Region festgelegt. |
     | resource-group | kube-rg | Geben Sie den Namen einer neuen Ressourcengruppe ein, oder wählen Sie eine vorhandene Ressourcengruppe aus. Der Ressourcenname muss alphanumerisch und in Kleinbuchstaben angegeben sein. |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie Ihre Abonnement-ID ein. Weitere Informationen finden Sie unter [Abonnieren von Angeboten](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer). |
     | api-model | ./kubernetes-azurestack.json | Pfad zur Clusterkonfigurationsdatei oder zum API-Modell. |
-    | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie die Dienstprinzipal-GUID ein. Die als Anwendungs-ID identifizierte Client-ID, wenn Ihr Azure Stack-Administrator den Dienstprinzipal erstellt hat. |
+    | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie die Dienstprinzipal-GUID ein. Die als Anwendungs-ID identifizierte Client-ID, wenn Ihr Azure Stack Hub-Administrator den Dienstprinzipal erstellt hat. |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie das Dienstprinzipalgeheimnis ein. Dies ist das Clientgeheimnis, das Sie beim Erstellen Ihres Diensts einrichten. |
     | identity-system | adfs | Optional. Geben Sie Ihre Identitätsverwaltungslösung an, wenn Sie Active Directory-Verbunddienste (AD FS) nutzen. |
 
@@ -116,7 +114,7 @@ In den folgenden Anweisungen werden die minimalen Schritte zum Ausführen des Up
 
 1. Sehen Sie sich die [Tabelle der unterstützten Kubernetes-Versionen](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) an, und überprüfen Sie, ob Sie über die Version von aks-engine und des AKS-Basisimages verfügen, für die Sie das Upgrade durchführen möchten. Führen Sie `aks-engine version` aus, um die Version von aks-engine anzuzeigen.
 2. Aktualisieren Sie die AKS-Engine entsprechend. Führen Sie auf dem Computer, auf dem Sie aks-engine installiert haben, Folgendes aus: `./get-akse.sh --version vx.xx.x`. Ersetzen Sie dabei **x.xx.x** durch die Zielversion.
-3. Bitten Sie Ihren Azure Stack-Operator, die erforderliche Version des AKS-Basisimages im Azure Stack-Marketplace hinzuzufügen, den Sie verwenden möchten.
+3. Bitten Sie Ihren Azure Stack Hub-Operator, die erforderliche Version des AKS-Basisimages im Azure Stack-Marketplace hinzuzufügen, den Sie verwenden möchten.
 4. Führen Sie den Befehl `aks-engine upgrade` mit derselben Version von Kubernetes aus, die Sie bereits verwenden, fügen Sie jedoch `--force` hinzu. Ein Beispiel finden Sie unter [Erzwingen eines Upgrades](#forcing-an-upgrade).
 
 
@@ -141,5 +139,5 @@ Anweisungen dazu finden Sie unter [Force upgrade](https://github.com/Azure/aks-e
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Informieren Sie sich über die [AKS-Engine in Azure Stack](azure-stack-kubernetes-aks-engine-overview.md).
-- [Skalieren eines Kubernetes-Cluster in Azure Stack](azure-stack-kubernetes-aks-engine-scale.md)
+- Informieren Sie sich über die [AKS-Engine in Azure Stack Hub](azure-stack-kubernetes-aks-engine-overview.md).
+- [Skalieren eines Kubernetes-Cluster in Azure Stack Hub](azure-stack-kubernetes-aks-engine-scale.md)

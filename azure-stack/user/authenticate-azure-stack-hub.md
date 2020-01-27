@@ -9,16 +9,16 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 624f0fb87b84ee06284185a521a68bebeb695362
-ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
+ms.openlocfilehash: d10fbc7ad009456459a8719fbc6e6c8ce51529f1
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/16/2019
-ms.locfileid: "75034007"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816478"
 ---
 # <a name="how-to-get-authentication-information-for-azure-stack-hub"></a>Abrufen von Authentifizierungsinformationen für Azure Stack Hub
 
-Für die Authentifizierung bei Azure Stack Hub müssen Sie die Abonnement-ID, die Mandanten-ID, den Standort und den Resource Manager-Endpunkt von Azure Stack Hub angeben. Diese Werte können Sie über den [Azure Stack Hub-Resource Manager-Endpunkt](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1910#the-azure-stack-resource-manager-endpoint) für Azure Stack Hub abrufen. Sie können sie auch mithilfe der in diesem Artikel beschriebenen Schritte abrufen.
+Für die Authentifizierung bei Azure Stack Hub müssen Sie die Abonnement-ID, die Mandanten-ID, den Standort und den Resource Manager-Endpunkt von Azure Stack Hub angeben. Diese Werte können Sie über den [Azure Stack Hub-Resource Manager-Endpunkt](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint) für Azure Stack Hub abrufen. Sie können sie auch mithilfe der in diesem Artikel beschriebenen Schritte abrufen.
 
 ## <a name="values-needed-to-authenticate"></a>Für die Authentifizierung erforderliche Werte
 
@@ -26,7 +26,7 @@ Sie benötigen die folgenden Informationen:
 
 -   **Abonnement-ID**  
 
-    Sie verwenden die Abonnement-ID, um in Azure Stack auf Angebote zuzugreifen.
+    Sie verwenden die Abonnement-ID, um in Azure Stack Hub auf Angebote zuzugreifen.
 
 -   **Tenant ID**
 
@@ -76,4 +76,4 @@ Zum Abrufen des Metadatenendpunkts, der auf die Eigenschaften (etwa Katalogendpu
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Informieren Sie sich ausführlicher über die Verwendung von [Azure Stack Resource Manager](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1910) mit Azure Stack Hub.
+Informieren Sie sich ausführlicher über die Verwendung von [Azure Stack Hun Resource Manager](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1910) mit Azure Stack Hub.

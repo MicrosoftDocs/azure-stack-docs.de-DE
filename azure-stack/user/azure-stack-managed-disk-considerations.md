@@ -1,6 +1,6 @@
 ---
-title: 'Verwaltete Azure Stack-Datenträger: Unterschiede und Überlegungen | Microsoft-Dokumentation'
-description: Dieser Artikel beschreibt die Unterschiede und zu berücksichtigende Überlegungen bei der Verwendung von Managed Disks und verwaltete Images in Azure Stack.
+title: 'Verwaltete Azure Stack Hub-Datenträger: Unterschiede und Überlegungen | Microsoft-Dokumentation'
+description: Dieser Artikel beschreibt die Unterschiede und zu berücksichtigende Überlegungen bei der Verwendung von verwalteten Datenträgern und verwalteten Images in Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,25 +16,25 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 97684f2a0ef9960854b192ca15f972bc15ff5b62
-ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
+ms.openlocfilehash: 2e09f10fc61454cf1b32797e75b5a57fc3f90f8f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71974061"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819878"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: Unterschiede und Überlegungen
+# <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Verwaltete Azure Stack Hub-Datenträger: Unterschiede und Überlegungen
 
-Dieser Artikel beschreibt die Unterschiede zwischen [verwalteten Datenträgern in Azure Stack](azure-stack-manage-vm-disks.md) und [verwalteten Datenträgern in Azure](/azure/virtual-machines/windows/managed-disks-overview). Informationen zu allgemeinen Unterschieden zwischen Azure Stack und Azure finden Sie im Artikel [Key considerations](azure-stack-considerations.md) (Wichtige Aspekte).
+Dieser Artikel beschreibt die Unterschiede zwischen [verwalteten Datenträgern in Azure Stack Hub](azure-stack-manage-vm-disks.md) und [verwalteten Datenträgern in Azure](/azure/virtual-machines/windows/managed-disks-overview). Informationen zu allgemeinen Unterschieden zwischen Azure Stack Hub und Azure finden Sie im Artikel [Wichtige Aspekte](azure-stack-considerations.md).
 
 Verwaltete Datenträger vereinfachen die Datenträgerverwaltung für IaaS-VMs durch Verwaltung der [Speicherkonten](../operator/azure-stack-manage-storage-accounts.md), die den VM-Datenträgern zugeordnet sind.
 
 > [!NOTE]  
-> Verwaltete Datenträger stehen in Azure Stack ab Update 1808 zur Verfügung. Ab Update 1811 ist das Feature standardmäßig aktiviert, wenn VMs über das Azure Stack-Portal erstellt werden.
+> Verwaltete Datenträger stehen in Azure Stack Hub ab Update 1808 zur Verfügung. Ab Update 1811 ist das Feature standardmäßig aktiviert, wenn VMs über das Azure Stack Hub-Portal erstellt werden.
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>Spickzettel: Unterschiede zwischen Managed Disks
 
-| Feature | Azure (global) | Azure Stack |
+| Funktion | Azure (global) | Azure Stack Hub |
 | --- | --- | --- |
 |Verschlüsselung für ruhende Daten |Azure-Speicherdienstverschlüsselung (Storage Service Encryption, SSE), Azure Disk Encryption (ADE).     |BitLocker-128-Bit-AES-Verschlüsselung      |
 |Image          | Verwaltetes benutzerdefiniertes Image |Unterstützt|
@@ -50,18 +50,18 @@ Verwaltete Datenträger vereinfachen die Datenträgerverwaltung für IaaS-VMs du
 |Migration      |Bereitstellung eines Tools für die Migration von vorhandenen, nicht verwalteten Azure Resource Manager-VMs, ohne dass der virtuelle Computer neu erstellt werden muss.  |Noch nicht unterstützt |
 
 > [!NOTE]  
-> Managed Disks-IOPs und Durchsatz in Azure Stack ist eine Cap-Zahl statt einer bereitgestellten Zahl, die durch Hardware und in Azure Stack ausgeführte Workloads beeinflusst werden kann.
+> Managed Disks-IOPs und Durchsatz in Azure Stack Hub ist eine Cap-Zahl statt einer bereitgestellten Zahl, die durch Hardware und in Azure Stack Hub ausgeführte Workloads beeinflusst werden kann.
 
-## <a name="metrics"></a>metrics
+## <a name="metrics"></a>Metriken
 
 Es gibt auch Unterschiede zu Speichermetriken:
 
-- Mit Azure Stack unterscheiden die Transaktionsdaten in Speichermetriken nicht zwischen interner und externer Netzwerkbandbreite.
-- In Azure Stack beinhalten die Transaktionsdaten in Speichermetriken keinen Zugriff auf die bereitgestellten Datenträger über virtuelle Computer.
+- Mit Azure Stack Hub unterscheiden die Transaktionsdaten in Speichermetriken nicht zwischen interner und externer Netzwerkbandbreite.
+- In Azure Stack Hub beinhalten die Transaktionsdaten in Speichermetriken keinen Zugriff auf die bereitgestellten Datenträger über virtuelle Computer.
 
 ## <a name="api-versions"></a>API-Versionen
 
-Verwaltete Azure Stack-Datenträger unterstützen die folgenden API-Versionen:
+Verwaltete Azure Stack Hub-Datenträger unterstützen die folgenden API-Versionen:
 
 - 2017-03-30
 - 2017-12-01
@@ -69,7 +69,7 @@ Verwaltete Azure Stack-Datenträger unterstützen die folgenden API-Versionen:
 ## <a name="convert-to-managed-disks"></a>Konvertieren in verwaltete Datenträger
 
 > [!NOTE]  
-> Das Azure PowerShell-Cmdlet **ConvertTo-AzureRmVMManagedDisk** kann nicht verwendet werden, um einen nicht verwalteten Datenträger in einen verwalteten Datenträger in Azure Stack zu konvertieren. Dieses Cmdlet wird von Azure Stack derzeit nicht unterstützt.
+> Das Azure PowerShell-Cmdlet **ConvertTo-AzureRmVMManagedDisk** kann nicht verwendet werden, um einen nicht verwalteten Datenträger in einen verwalteten Datenträger in Azure Stack Hub zu konvertieren. Dieses Cmdlet wird von Azure Stack Hub derzeit nicht unterstützt.
 
 Mit dem folgenden Skript können Sie einen aktuell bereitgestellten virtuellen Computer von nicht verwalteten Datenträgern auf verwaltete Datenträger umstellen. Ersetzen Sie die Platzhalter durch Ihre eigenen Werte:
 
@@ -92,7 +92,7 @@ $VhdUri = "https://rgmgddisks347.blob.local.azurestack.external/vhds/unmngdvm201
 # The storage type for the managed disk: PremiumLRS or StandardLRS.
 $AccountType = "StandardLRS"
 
-# The Azure Stack location where the managed disk will be located.
+# The Azure Stack Hub location where the managed disk will be located.
 # The location should be the same as the location of the storage account in which VHD file is stored.
 # Configure the new managed VM point to the old unmanaged VM configuration (network config, VM name, location).
 $Location = "local"
@@ -137,7 +137,7 @@ New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $ResourceGroupName -Locatio
 
 ## <a name="managed-images"></a>Verwaltete Images
 
-Azure Stack unterstütz *verwaltete Images*, was es Ihnen ermöglicht, ein verwaltetes Image-Objekt auf einem generalisierten virtuellen Computer (sowohl nicht verwaltet als auch verwaltet) zu erstellen, der fortan nur noch virtuelle Computer auf verwalteten Datenträgern erstellen kann. Verwaltete Images ermöglichen die folgenden zwei Szenarien:
+Azure Stack Hub unterstützt *verwaltete Images*. Somit können Sie ein verwaltetes Image-Objekt auf einem generalisierten virtuellen Computer (sowohl nicht verwaltet als auch verwaltet) erstellen, der fortan nur noch virtuelle Computer auf verwalteten Datenträgern erstellen kann. Verwaltete Images ermöglichen die folgenden zwei Szenarien:
 
 - Sie haben generalisierte, nicht verwaltete virtuelle Computer und möchten im weiteren Verlauf verwaltete Datenträger verwenden.
 - Sie haben eine generalisierte, verwaltete VM und möchten mehrere, ähnliche verwaltete VMs erstellen.
@@ -165,9 +165,9 @@ Befolgen Sie die Anweisungen unter [Erstellen eines verwalteten Images eines gen
 
 Nachdem Sie ein Image aus einer vorhandenen VM mit verwaltetem Datenträger mithilfe des Skripts unter [Erstellen eines Image von einem verwalteten Datenträger mithilfe von PowerShell](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-managed-disk-using-powershell) erstellt haben, verwenden Sie das folgende Beispielskript zum Erstellen einer ähnlichen Linux-VM aus einem vorhandenen Image-Objekt.
 
-Bei Azure Stack-PowerShell-Modul 1.7.0 oder höher: Befolgen Sie die Anweisungen unter [Erstellen eines virtuellen Computers aus einem verwalteten Image](/azure/virtual-machines/windows/create-vm-generalized-managed).
+Azure Stack Hub-PowerShell-Modul 1.7.0 oder höher: Befolgen Sie die Anweisungen unter [Erstellen eines virtuellen Computers aus einem verwalteten Image](/azure/virtual-machines/windows/create-vm-generalized-managed).
 
-Bei Azure Stack-PowerShell-Modul 1.6.0 oder früher:
+Azure Stack Hub-PowerShell-Modul 1.6.0 oder höher:
 
 ```powershell
 # Variables for common values
@@ -226,10 +226,10 @@ Sie können das Portal auch verwenden, um eine VM aus einem verwalteten Image zu
 Nach Anwendung des Updates 1808 oder höher müssen Sie folgende Änderung an der Konfiguration vornehmen, bevor Sie verwaltete Datenträger verwenden:
 
 - Wenn ein Abonnement vor dem Update 1808 erstellt wurde, führen Sie die folgenden Schritte aus, um das Abonnement zu aktualisieren. Andernfalls kann die Bereitstellung von VMs in diesem Abonnement mit einer Fehlermeldung „Interner Fehler im Datenträger-Manager“ fehlschlagen.
-   1. Navigieren Sie im Azure Stack-Benutzerportal zu **Abonnements**, und suchen Sie nach dem Abonnement. Klicken Sie auf **Ressourcenanbieter**, klicken Sie dann auf **Microsoft.Compute**, und klicken Sie anschließend auf **Erneut registrieren**.
-   2. Navigieren Sie unter dem gleichen Abonnement zu **Zugriffssteuerung (IAM)** , und überprüfen Sie, ob **Azure Stack – Verwalteter Datenträger** aufgeführt wird.
-- Wenn Sie eine Umgebung mit mehreren Mandanten verwenden, bitten Sie Ihren Cloudoperator (der sich in Ihrem Unternehmen oder beim Dienstanbieter befinden kann), jedes Ihrer Gastverzeichnisse gemäß den folgenden Schritten in [diesem Artikel](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) neu zu konfigurieren. Andernfalls kann die Bereitstellung von VMs in einem Abonnement, das diesem Gastverzeichnis zugeordnet ist, mit der Fehlermeldung „Interner Fehler im Datenträger-Manager“ fehlschlagen.
+   1. Navigieren Sie im Azure Stack Hub-Benutzerportal zu **Abonnements**, und suchen Sie nach dem Abonnement. Klicken Sie auf **Ressourcenanbieter**, klicken Sie dann auf **Microsoft.Compute**, und klicken Sie anschließend auf **Erneut registrieren**.
+   2. Navigieren Sie unter dem gleichen Abonnement zu **Zugriffssteuerung (IAM)** , und überprüfen Sie, ob **Azure Stack Hub – Verwalteter Datenträger** aufgeführt wird.
+- Wenn Sie eine Umgebung mit mehreren Mandanten verwenden, bitten Sie Ihren Cloudoperator (der sich in Ihrem Unternehmen oder beim Dienstanbieter befinden kann), jedes Ihrer Gastverzeichnisse gemäß den folgenden Schritten in [diesem Artikel](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-hub-with-the-guest-directory) neu zu konfigurieren. Andernfalls kann die Bereitstellung von VMs in einem Abonnement, das diesem Gastverzeichnis zugeordnet ist, mit der Fehlermeldung „Interner Fehler im Datenträger-Manager“ fehlschlagen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Erfahren Sie mehr über virtuelle Azure Stack-Computer](azure-stack-compute-overview.md)
+- [Erfahren Sie mehr über virtuelle Azure Stack Hub-Computer](azure-stack-compute-overview.md)

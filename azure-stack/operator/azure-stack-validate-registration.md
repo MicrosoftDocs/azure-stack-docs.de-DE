@@ -1,6 +1,6 @@
 ---
-title: Überprüfen der Azure-Registrierung für Azure Stack | Microsoft-Dokumentation
-description: Verwenden Sie Azure Stack Readiness Checker, um eine Azure-Registrierung zu überprüfen.
+title: Überprüfen der Azure-Registrierung für Azure Stack Hub | Microsoft-Dokumentation
+description: Verwenden Sie den Azure Stack Hub Readiness Checker, um eine Azure-Registrierung zu überprüfen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,21 +16,21 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: c959a2553d6b298ef4a815890de6f717838361de
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: a1ac34b39bc1628314c1ba2f05202c4a1454c189
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961862"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812840"
 ---
 # <a name="validate-azure-registration"></a>Überprüfen der Azure-Registrierung
 
-Verwenden Sie das Tool „Azure Stack Readiness Checker“ (**AzsReadinessChecker**), um zu überprüfen, ob Ihr Azure-Abonnement mit Azure Stack verwendet werden kann, bevor Sie mit einer Azure Stack-Bereitstellung beginnen. Bei der Überprüfung der Bereitschaft wird Folgendes geprüft:
+Verwenden Sie das Tool „Azure Stack Hub Readiness Checker“ (**AzsReadinessChecker**), um zu überprüfen, ob Ihr Azure-Abonnement mit Azure Stack Hub verwendet werden kann, bevor Sie mit einer Azure Stack Hub-Bereitstellung beginnen. Bei der Überprüfung der Bereitschaft wird Folgendes geprüft:
 
 - Bei dem Azure-Abonnement, das Sie verwenden, handelt es sich um einen unterstützten Typ. Bei Abonnements muss es sich um einen Cloudlösungsanbieter (Cloud Solution Provider, CSP) oder ein Enterprise Agreement (EA) handeln.
 - Das Konto, mit dem Sie Ihr Abonnement bei Azure registrieren, kann sich bei Azure anmelden und ist der Besitzer eines Abonnements.
 
-Weitere Informationen zur Azure Stack-Registrierung finden Sie unter [Registrieren von Azure Stack in Azure](azure-stack-registration.md).
+Weitere Informationen zur Azure Stack Hub-Registrierung finden Sie unter [Registrieren von Azure Stack Hub in Azure](azure-stack-registration.md).
 
 ## <a name="get-the-readiness-checker-tool"></a>Beziehen des Tools zur Bereitschaftsüberprüfung
 
@@ -49,12 +49,12 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
   $PSVersionTable.PSVersion
   ```
 
-- [Für Azure Stack konfiguriertes PowerShell](azure-stack-powershell-install.md).
-- Die neueste Version des Tools [Microsoft Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker)  
+- [PowerShell, konfiguriert für Azure Stack Hub](azure-stack-powershell-install.md).
+- Die neueste Version des Tools [Microsoft Azure Stack Hub Readiness Checker](https://aka.ms/AzsReadinessChecker).  
 
 ### <a name="azure-active-directory-environment"></a>Azure Active Directory-Umgebung
 
-- Sie müssen über den Benutzernamen und das Kennwort eines Kontos verfügen, das der Besitzer eines Azure-Abonnements ist, unter dem Sie Azure Stack verwenden.  
+- Sie müssen über den Benutzernamen und das Kennwort eines Kontos verfügen, das der Besitzer eines Azure-Abonnements ist, unter dem Sie Azure Stack Hub verwenden.  
 - Ermitteln Sie die Abonnement-ID für das Azure-Abonnement, das Sie verwenden möchten.
 - Legen Sie die Azure-Umgebung (**AzureEnvironment**) fest, die Sie verwenden möchten. Unterstützte Werte für den Umgebungsnamensparameter sind je nach Ihrem verwendeten Azure-Abonnement **AzureCloud**, **AzureChinaCloud** oder **AzureUSGovernment**.
 
@@ -104,14 +104,14 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
 
 Bei jeder Ausführung einer Überprüfung werden Ergebnisse in den Dateien **AzsReadinessChecker.log** und **AzsReadinessCheckerReport.json** protokolliert. Der Speicherort dieser Dateien wird zusammen mit den Überprüfungsergebnissen in PowerShell angezeigt.
 
-Anhand dieser Dateien können Sie den Überprüfungsstatus freigeben, bevor Sie Azure Stack bereitstellen oder Probleme mit der Überprüfung untersuchen. Die Ergebnisse aller nachfolgenden Überprüfungen werden in beiden Dateien gespeichert. Der Bericht enthält die Bestätigung Ihres Bereitstellungsteams über die Identitätskonfiguration. Mithilfe der Protokolldatei kann Ihr Bereitstellungs- oder Supportteam Probleme bei der Überprüfung untersuchen.
+Anhand dieser Dateien können Sie den Überprüfungsstatus freigeben, bevor Sie Azure Stack Hub bereitstellen oder Probleme mit der Überprüfung untersuchen. Die Ergebnisse aller nachfolgenden Überprüfungen werden in beiden Dateien gespeichert. Der Bericht enthält die Bestätigung Ihres Bereitstellungsteams über die Identitätskonfiguration. Mithilfe der Protokolldatei kann Ihr Bereitstellungs- oder Supportteam Probleme bei der Überprüfung untersuchen.
 
 Standardmäßig werden beide Dateien in das Verzeichnis **C:\Users\Benutzername\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** geschrieben.  
 
 - Verwenden Sie den Parameter `-OutputPath <path>` am Ende der Ausführungsbefehlszeile, um einen anderen Berichtsspeicherort anzugeben.
 - Verwenden Sie den Parameter `-CleanReport` am Ende des Ausführungsbefehls, um Informationen zu früheren Ausführungen des Tools aus **AzsReadinessCheckerReport.json** zu löschen.
 
-Weitere Informationen finden Sie unter [Azure Stack-Überprüfungsbericht](azure-stack-validation-report.md).
+Weitere Informationen finden Sie unter [Azure Stack Hub-Überprüfungsbericht](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Fehler bei der Überprüfung
 
@@ -135,7 +135,7 @@ Invoke-AzsRegistrationValidation Completed
 
 **Ursache**: Das Dienstkonto gehört nicht einem Administrator des Azure-Abonnements.
 
-**Lösung**: Verwenden Sie ein Konto, das einem Administrator des Azure-Abonnements gehört und bei dem die Abrechnung für die Nutzung über die Azure Stack-Bereitstellung erfolgt.
+**Lösung**: Verwenden Sie ein Konto, das einem Administrator des Azure-Abonnements gehört und bei dem die Abrechnung für die Nutzung über die Azure Stack Hub-Bereitstellung erfolgt.
 
 ### <a name="expired-or-temporary-password"></a>Abgelaufenes oder temporäres Kennwort
 
@@ -188,4 +188,4 @@ Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 - [Überprüfen der Azure-Identität](azure-stack-validate-identity.md)
 - [Anzeigen des Bereitschaftsberichts](azure-stack-validation-report.md)
-- [Allgemeine Überlegungen zur Azure Stack-Integration](azure-stack-datacenter-integration.md)
+- [Allgemeine Überlegungen zur Azure Stack Hub-Integration](azure-stack-datacenter-integration.md)

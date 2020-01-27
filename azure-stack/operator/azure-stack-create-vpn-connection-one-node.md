@@ -17,18 +17,18 @@ ms.author: justinha
 ms.reviewer: tbd
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ef0fd3aef095dc0ee2865e7f1fb2a8821d378e70
-ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
+ms.openlocfilehash: 81e6e51c602909421e40b4c1e1d5e6ec796f7839
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72780518"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817906"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>Erstellen einer Site-to-Site-VPN-Verbindung zwischen zwei virtuellen Netzwerken in unterschiedlichen ASDK-Umgebungen
 
 ## <a name="overview"></a>Übersicht
 
-Dieser Artikel beschreibt, wie Sie eine Site-to-Site-VPN-Verbindung zwischen zwei virtuellen Netzwerken in zwei separaten Azure Stack Development Kit-Umgebungen (ASDK) erstellen. Im Rahmen der Verbindungskonfiguration werden Sie auch mit der Funktionsweise von VPN-Gateways in Azure Stack vertraut gemacht.
+Dieser Artikel beschreibt, wie Sie eine Site-to-Site-VPN-Verbindung zwischen zwei virtuellen Netzwerken in zwei separaten Azure Stack Development Kit-Umgebungen (ASDK) erstellen. Im Rahmen der Verbindungskonfiguration lernen Sie auch die Funktionsweise von VPN-Gateways in Azure Stack Hub kennen.
 
 ### <a name="connection"></a>Verbindung
 
@@ -52,7 +52,7 @@ Zum Durchführen der Verbindungskonfiguration müssen Sie zwei ASDK-Umgebungen b
 
 ## <a name="prepare-an-offer-on-poc1-and-poc2"></a>Vorbereiten eines Angebots in POC1 und POC2
 
-Bereiten Sie sowohl in POC1 als auch POC2 ein Angebot vor, damit ein Benutzer das Angebot abonnieren kann, und stellen Sie die virtuellen Computer (VMs) bereit. Informationen zum Erstellen eines Angebots finden Sie unter [Verfügbarmachen von virtuellen Computern für Ihre Azure Stack-Benutzer](azure-stack-tutorial-tenant-vm.md).
+Bereiten Sie sowohl in POC1 als auch POC2 ein Angebot vor, damit ein Benutzer das Angebot abonnieren kann, und stellen Sie die virtuellen Computer (VMs) bereit. Informationen zum Erstellen eines Angebots finden Sie unter [Verfügbarmachen von virtuellen Computern für Ihre Azure Stack Hub-Benutzer](azure-stack-tutorial-tenant-vm.md).
 
 ## <a name="review-and-complete-the-network-configuration-table"></a>Überprüfen und Ausfüllen der Netzwerk-Konfigurationstabelle
 
@@ -74,7 +74,7 @@ In der folgenden Tabelle sind die Netzwerkkonfigurationen für beide ASDK-Umgebu
 
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>Abrufen der IP-Adresse des externen Adapters des virtuellen NAT-Computers
 
-1. Melden Sie sich auf dem physischen Azure Stack-Computer für POC1 an.
+1. Melden Sie sich auf dem physischen Azure Stack Hub-Computer für POC1 an.
 2. Bearbeiten Sie den folgenden PowerShell-Code, um Ihr Administratorkennwort hinzuzufügen. Führen Sie den Code dann auf dem POC-Host aus:
 
    ```powershell
@@ -94,7 +94,7 @@ In der folgenden Tabelle sind die Netzwerkkonfigurationen für beide ASDK-Umgebu
 
 ## <a name="create-the-network-resources-in-poc1"></a>Erstellen der Netzwerkressourcen in POC1
 
-Nun erstellen Sie die POC1-Netzwerkressourcen, die Sie zum Einrichten Ihrer Gateways benötigen. Die folgenden Anweisungen beschreiben, wie die Ressourcen mithilfe des Azure Stack-Benutzerportals erstellt werden. Sie können die Ressourcen auch mithilfe von PowerShell-Code erstellen.
+Nun erstellen Sie die POC1-Netzwerkressourcen, die Sie zum Einrichten Ihrer Gateways benötigen. Die folgenden Anweisungen beschreiben, wie die Ressourcen mithilfe des Azure Stack Hub-Benutzerportals erstellt werden. Sie können die Ressourcen auch mithilfe von PowerShell-Code erstellen.
 
 ![Workflow zum Erstellen von Ressourcen](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
 
@@ -141,15 +141,15 @@ Ein Dienstadministrator kann sich als Mandant anmelden, um die Pläne, Angebote 
 
 ### <a name="create-the-local-network-gateway"></a>Erstellen des Gateways des lokalen Netzwerks
 
-Die Implementierung eines *lokalen Netzwerkgateways* ist bei dieser Azure Stack-Evaluierungsbereitstellung ein wenig anders als bei einer tatsächlichen Azure-Bereitstellung.
+Die Implementierung eines *lokalen Netzwerkgateways* ist bei dieser Azure Stack Hub-Evaluierungsbereitstellung ein wenig anders als bei einer tatsächlichen Azure-Bereitstellung.
 
-In einer Azure-Bereitstellung stellt ein lokales Netzwerkgateway ein (aus Sicht des Mandanten) lokales physisches Gerät dar, mit dem eine Verbindung mit einem Gateway des virtuellen Netzwerks in Azure hergestellt wird. In dieser Azure Stack-Evaluierungsbereitstellung handelt es sich bei beiden Enden der Verbindung um virtuelle Netzwerkgateways.
+In einer Azure-Bereitstellung stellt ein lokales Netzwerkgateway ein (aus Sicht des Mandanten) lokales physisches Gerät dar, mit dem eine Verbindung mit einem Gateway des virtuellen Netzwerks in Azure hergestellt wird. In dieser Azure Stack Hub-Evaluierungsbereitstellung handelt es sich bei beiden Endpunkten der Verbindung um virtuelle Netzwerkgateways.
 
 Etwas allgemeiner betrachtet wird mit der Ressource des lokalen Netzwerkgateways immer das Remotegateway am anderen Ende der Verbindung angegeben. Aufgrund des ASDK-Designs müssen Sie die IP-Adresse des externen Netzwerkadapters auf dem virtuellen NAT-Computer des anderen ASDK als öffentliche IP-Adresse des Gateways des lokalen Netzwerks angeben. Anschließend erstellen Sie NAT-Zuordnungen auf dem virtuellen NAT-Computer, um sicherzustellen, dass beide Enden ordnungsgemäß verbunden sind.
 
 ### <a name="create-the-local-network-gateway-resource"></a>Erstellen der Ressource des lokalen Netzwerkgateways
 
-1. Melden Sie sich auf dem physischen Azure Stack-Computer für POC1 an.
+1. Melden Sie sich auf dem physischen Azure Stack Hub-Computer für POC1 an.
 2. Klicken Sie im Benutzerportal auf **+ Ressource erstellen**.
 3. Wechseln Sie zu **Marketplace**, und wählen Sie dann **Netzwerk** aus.
 4. Wählen Sie in der Ressourcenliste den Eintrag für das **lokale Netzwerkgateway** aus.
@@ -182,7 +182,7 @@ Zur Überprüfung der Daten, die über die VPN-Verbindung übermittelt werden, b
 5. Geben Sie einen gültigen Benutzernamen und das Kennwort ein. Mit diesem Konto melden Sie sich am virtuellen Computer an, nachdem dieser erstellt wurde.
 6. Geben Sie Werte für **Abonnement**, **Ressourcengruppe** und **Speicherort** an, und wählen Sie anschließend **OK**.
 7. Wählen Sie auf dem Blatt **Größe** eine VM-Größe für diese Instanz aus, und wählen Sie anschließend die Option **Auswählen** aus.
-8. Akzeptieren Sie auf dem Blatt **Einstellungen** die Standardeinstellungen. Stellen Sie sicher, dass das virtuelle Netzwerk **VNET-01** ausgewählt ist. Stellen Sie sicher, dass das Subnetz auf **10.0.10.0/24** festgelegt ist. Wählen Sie dann **OK**aus.
+8. Akzeptieren Sie auf dem Blatt **Einstellungen** die Standardeinstellungen. Stellen Sie sicher, dass das virtuelle Netzwerk **VNET-01** ausgewählt ist. Stellen Sie sicher, dass das Subnetz auf **10.0.10.0/24** festgelegt ist. Klicken Sie anschließend auf **OK**.
 9. Überprüfen Sie auf dem Blatt **Zusammenfassung** die Einstellungen, und klicken Sie anschließend auf **OK**.
 
 ## <a name="create-the-network-resources-in-poc2"></a>Erstellen der Netzwerkressourcen in POC2
@@ -284,7 +284,7 @@ Zum Konfigurieren der VPN-Verbindung müssen Sie eine statische NAT-Zuordnung er
 
    ![Interne IP-Adresse](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
 
-2. Melden Sie sich auf dem physischen Azure Stack-Computer für POC1 an.
+2. Melden Sie sich auf dem physischen Azure Stack Hub-Computer für POC1 an.
 3. Kopieren und bearbeiten Sie das folgende PowerShell-Skript: Führen Sie das Skript in einer Windows PowerShell ISE mit erhöhten Rechten aus, um die NAT für jede ASDK-Instanz zu konfigurieren. Fügen Sie im Skript Werte zu den Platzhaltern `External BGPNAT address` und `Internal IP address` hinzu:
 
    ```powershell
@@ -337,7 +337,7 @@ Um sicherzustellen, dass der Datenverkehr über die Site-to-Site-Verbindung gese
 
 ### <a name="sign-in-to-the-tenant-vm-in-poc1"></a>Anmelden beim virtuellen Mandantencomputer in POC1
 
-1. Melden Sie sich beim physischen Azure Stack-Computer für POC1 an, und verwenden Sie anschließend ein Mandantenkonto für die Anmeldung beim Portal.
+1. Melden Sie sich beim physischen Azure Stack Hub-Computer für POC1 an, und verwenden Sie anschließend ein Mandantenkonto für die Anmeldung beim Portal.
 2. Klicken Sie in der linken Navigationsleiste auf **Compute**.
 3. Suchen Sie in der Liste mit den virtuellen Computern nach dem Computer **VM01**, den Sie zuvor erstellt haben.
 4. Klicken Sie auf dem Blatt für den virtuellen Computer auf **Verbinden**, und öffnen Sie dann die Datei „VM01.rdp“.
@@ -358,7 +358,7 @@ Um sicherzustellen, dass der Datenverkehr über die Site-to-Site-Verbindung gese
 
 ### <a name="sign-in-to-the-tenant-vm-in-poc2"></a>Anmelden beim virtuellen Mandantencomputer in POC2
 
-1. Melden Sie sich beim physischen Azure Stack-Computer für POC2 an, und verwenden Sie anschließend ein Mandantenkonto für die Anmeldung beim Portal.
+1. Melden Sie sich beim physischen Azure Stack Hub-Computer für POC2 an, und verwenden Sie anschließend ein Mandantenkonto für die Anmeldung beim Portal.
 2. Klicken Sie in der linken Navigationsleiste auf **Compute**.
 3. Suchen Sie in der Liste mit den virtuellen Computern nach dem Computer **VM02**, den Sie zuvor erstellt haben, und wählen Sie ihn aus.
 4. Klicken Sie auf dem Blatt für die VM auf **Verbinden**.

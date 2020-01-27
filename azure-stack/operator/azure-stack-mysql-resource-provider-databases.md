@@ -1,6 +1,6 @@
 ---
-title: Erstellen von MySQL-Datenbanken in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie MySQL-Datenbanken, die mit dem Ressourcenanbieter MySQL Adapter bereitgestellt wurden, in Azure Stack erstellen und verwalten können.
+title: Erstellen von MySQL-Datenbanken in Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie MySQL-Datenbanken, die mit dem Ressourcenanbieter „MySQL Adapter“ bereitgestellt wurden, in Azure Stack Hub erstellen und verwalten.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 9daaea395ee28da79da1d6fd553d2e0b30e28156
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 1d983ec9bf05efd05f151dea964617194bb7a2d0
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682228"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535041"
 ---
-# <a name="create-mysql-databases-in-azure-stack"></a>Erstellen von MySQL-Datenbanken in Azure Stack
-Ein Azure Stack-Benutzer, der ein Angebot abonniert hat, das den MySQL-Datenbankdienst enthält, kann MySQL-Self-Service-Datenbanken im Benutzerportal erstellen und verwalten.
+# <a name="create-mysql-databases-in-azure-stack-hub"></a>Erstellen von MySQL-Datenbanken in Azure Stack Hub
+Ein Azure Stack Hub-Benutzer, der ein Angebot abonniert hat, das den MySQL-Datenbankdienst enthält, kann MySQL-Self-Service-Datenbanken im Benutzerportal erstellen und verwalten.
 
 ## <a name="create-a-mysql-database"></a>Erstellen einer MySQL-Datenbank
 
-1. Melden Sie sich beim Azure Stack-Benutzerportal an.
+1. Melden Sie sich beim Azure Stack Hub-Benutzerportal an.
 2. Wählen Sie **+Ressource erstellen** > **Daten und Speicher** > **MySQL-Datenbank** > **Hinzufügen** aus.
 3. Geben Sie unter **MySQL-Datenbank erstellen** den Datenbanknamen ein, und konfigurieren Sie die anderen Einstellungen für Ihre Umgebung.
 
@@ -38,7 +38,7 @@ Ein Azure Stack-Benutzer, der ein Angebot abonniert hat, das den MySQL-Datenbank
     ![Auswählen einer MySQL-SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-sku.png)
 
     >[!Note]
-    >Wenn Hostserver in Azure Stack hinzugefügt werden, wird ihnen eine SKU zugewiesen. Datenbanken werden im Pool von Hostservern in einer SKU erstellt.
+    >Wenn Hostserver zu Azure Stack Hub hinzugefügt werden, wird ihnen eine SKU zugewiesen. Datenbanken werden im Pool von Hostservern in einer SKU erstellt.
 
 5. Klicken Sie unter **Anmeldung** auf ***Erforderliche Einstellungen konfigurieren***.
 6. Unter **Anmeldung auswählen** können Sie eine bereits vorhandene Anmeldung auswählen oder auf **+ Neue Anmeldung erstellen** klicken, um eine neue Anmeldung einzurichten.  Geben Sie einen Namen für **Datenbankanmeldung** sowie ein **Kennwort** ein, und klicken Sie anschließend auf **OK**.

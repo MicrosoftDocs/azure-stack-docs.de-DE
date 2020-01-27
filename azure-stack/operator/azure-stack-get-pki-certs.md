@@ -1,6 +1,6 @@
 ---
-title: Generieren von Zertifikatsignieranforderungen für Azure Stack | Microsoft-Dokumentation
-description: Es wird beschrieben, wie Sie Zertifikatsignieranforderungen für Azure Stack-PKI-Zertifikate in integrierten Azure Stack-Systemen generieren.
+title: Generieren von Zertifikatsignieranforderungen für Azure Stack Hub | Microsoft-Dokumentation
+description: Es wird beschrieben, wie Sie Zertifikatsignieranforderungen für Azure Stack Hub-PKI-Zertifikate in integrierten Azure Stack Hub-Systemen generieren.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -14,27 +14,27 @@ ms.date: 09/10/2019
 ms.author: justinha
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 9796bec883d69a910b25895b326ed66cb9e8522b
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 9eba64e86a375f275c159e6d571e3557f2164726
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727376"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818263"
 ---
-# <a name="generate-certificate-signing-requests-for-azure-stack"></a>Generieren von Zertifikatsignieranforderungen für Azure Stack
+# <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Generieren von Zertifikatsignieranforderungen für Azure Stack Hub
 
-Sie können mit dem Azure Stack Readiness Checker-Tool Zertifikatsignieranforderungen (CSRs) erstellen, die für eine Azure Stack-Bereitstellung geeignet sind. Zertifikate müssen mit genügend Zeit zum Testen vor dem Einsatz angefordert, generiert und validiert werden. Sie können das Tool [aus dem PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) abrufen.
+Sie können mit dem Azure Stack Hub Readiness Checker-Tool Zertifikatsignieranforderungen (CSRs) erstellen, die für eine Azure Stack Hub-Bereitstellung geeignet sind. Zertifikate müssen mit genügend Zeit zum Testen vor dem Einsatz angefordert, generiert und validiert werden. Sie können das Tool [aus dem PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) abrufen.
 
-Mit dem Azure Stack Readiness Checker-Tool (AzsReadinessChecker) können Sie die folgenden Zertifikate anfordern:
+Mit dem Azure Stack Hub Readiness Checker-Tool (AzsReadinessChecker) können Sie die folgenden Zertifikate anfordern:
 
 - **Standardzertifikatanforderungen** gemäß [Generieren der Zertifikatsignieranforderung](azure-stack-get-pki-certs.md#generate-certificate-signing-requests).
-- **Platform-as-a-Service**: Sie können PaaS-Namen (Platform-as-a-Service ) für Zertifikate anfordern, wie unter [Azure Stack-PKI-Zertifikatanforderungen: Optionale PaaS-Zertifikate](azure-stack-pki-certs.md#optional-paas-certificates) angegeben.
+- **Platform-as-a-Service**: Sie können PaaS-Namen (Platform-as-a-Service ) für Zertifikate anfordern, wie unter [Azure Stack Hub-PKI-Zertifikatanforderungen: Optionale PaaS-Zertifikate](azure-stack-pki-certs.md#optional-paas-certificates) angegeben.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Ihr System muss die folgenden Voraussetzungen erfüllen, bevor Sie Zertifikatsignieranforderungen für PKI-Zertifikate für eine Azure Stack-Bereitstellung generieren:
+Ihr System muss die folgenden Voraussetzungen erfüllen, bevor Sie Zertifikatsignieranforderungen für PKI-Zertifikate für eine Azure Stack Hub-Bereitstellung generieren:
 
-- Microsoft Azure Stack Readiness Checker
+- Microsoft Azure Stack Hub Readiness Checker
 - Zertifikatattribute:
   - Regionsname
   - Externer vollqualifizierter Domänenname (FQDN)
@@ -42,11 +42,11 @@ Ihr System muss die folgenden Voraussetzungen erfüllen, bevor Sie Zertifikatsig
 - Windows 10 oder Windows Server 2016 oder höher
 
   > [!NOTE]  
-  > Wenn Sie die Zertifikate von Ihrer Zertifizierungsstelle erhalten haben, müssen Sie auf demselben System die Schritte in [Vorbereiten von Azure Stack-PKI-Zertifikaten](azure-stack-prepare-pki-certs.md) ausführen!
+  > Wenn Sie die Zertifikate von Ihrer Zertifizierungsstelle erhalten haben, müssen Sie auf demselben System die Schritte in [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten](azure-stack-prepare-pki-certs.md) ausführen!
 
 ## <a name="generate-certificate-signing-requests"></a>Generieren von Zertifikatsignieranforderungen
 
-Gehen Sie wie folgt vor, um die Azure Stack-PKI-Zertifikate vorzubereiten und zu überprüfen:
+Gehen Sie wie folgt vor, um die Azure Stack Hub-PKI-Zertifikate vorzubereiten und zu überprüfen:
 
 1. Führen Sie an einer PowerShell-Eingabeaufforderung (5.1 oder höher) das folgende Cmdlet aus, um AzsReadinessChecker zu installieren:
 
@@ -57,11 +57,11 @@ Gehen Sie wie folgt vor, um die Azure Stack-PKI-Zertifikate vorzubereiten und zu
 2. Deklarieren Sie den **Antragsteller**. Beispiel:
 
     ```powershell  
-    $subject = "C=US,ST=Washington,L=Redmond,O=Microsoft,OU=Azure Stack"
+    $subject = "C=US,ST=Washington,L=Redmond,O=Microsoft,OU=Azure Stack Hub"
     ```
 
     > [!NOTE]  
-    > Wenn ein allgemeiner Name (Common Name, CN) angegeben wird, wird er für jede Zertifikatanforderung konfiguriert. Wenn kein CN angegeben wird, wird für die Zertifikatanforderung der erste DNS-Name des Azure Stack-Diensts konfiguriert.
+    > Wenn ein allgemeiner Name (Common Name, CN) angegeben wird, wird er für jede Zertifikatanforderung konfiguriert. Wenn kein CN angegeben wird, wird für die Zertifikatanforderung der erste DNS-Name des Azure Stack Hub-Diensts konfiguriert.
 
 3. Deklarieren Sie ein Ausgabeverzeichnis, das bereits vorhanden ist. Beispiel:
 
@@ -85,7 +85,7 @@ Gehen Sie wie folgt vor, um die Azure Stack-PKI-Zertifikate vorzubereiten und zu
     > [!NOTE]  
     > Der Parameter ist nur für die CertificateType-Bereitstellung erforderlich.
 
-5. Deklarieren Sie einen **Regionsnamen** und **externen FQDN** für die Azure Stack-Bereitstellung.
+5. Deklarieren Sie einen **Regionsnamen** und **externen FQDN** für die Azure Stack Hub-Bereitstellung.
 
     ```powershell
     $regionName = 'east'
@@ -93,7 +93,7 @@ Gehen Sie wie folgt vor, um die Azure Stack-PKI-Zertifikate vorzubereiten und zu
     ```
 
     > [!NOTE]  
-    > `<regionName>.<externalFQDN>` bildet die Grundlage für die Erstellung aller externen DNS-Namen in Azure Stack. In diesem Beispiel heißt das Portal `portal.east.azurestack.contoso.com`.  
+    > `<regionName>.<externalFQDN>` bildet die Grundlage für die Erstellung aller externen DNS-Namen in Azure Stack Hub. In diesem Beispiel heißt das Portal `portal.east.azurestack.contoso.com`.  
 
 6. So generieren Sie Zertifikatsignieranforderungen für die Bereitstellung:
 
@@ -101,7 +101,7 @@ Gehen Sie wie folgt vor, um die Azure Stack-PKI-Zertifikate vorzubereiten und zu
     New-AzsCertificateSigningRequest -certificateType Deployment -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    Um Zertifikatanforderungen für andere Azure Stack-Dienste zu generieren, ändern Sie den Wert für `-CertificateType`. Beispiel:
+    Um Zertifikatanforderungen für andere Azure Stack Hub-Dienste zu generieren, ändern Sie den Wert für `-CertificateType`. Beispiel:
 
     ```powershell  
     # App Services
@@ -136,8 +136,8 @@ Gehen Sie wie folgt vor, um die Azure Stack-PKI-Zertifikate vorzubereiten und zu
     New-AzsCertificateSigningRequest Completed
     ```
 
-9.  Übermitteln Sie die generierte **REQ**-Datei an Ihre (interne oder öffentliche) Zertifizierungsstelle. Das Ausgabeverzeichnis von **New-AzsCertificateSigningRequest** enthält die Zertifikatsignieranforderungen, die für die Übermittlung an eine Zertifizierungsstelle erforderlich sind. Das Verzeichnis enthält zu Ihrer Referenz auch ein Unterverzeichnis, das die bei der Generierung von Zertifikatanforderungen verwendeten INF-Dateien enthält. Vergewissern Sie sich, dass Ihre Zertifizierungsstelle Zertifikate mit Ihrer generierten Anforderung erstellt, die die [Azure Stack-PKI-Voraussetzungen](azure-stack-pki-certs.md) erfüllen.
+9.  Übermitteln Sie die generierte **REQ**-Datei an Ihre (interne oder öffentliche) Zertifizierungsstelle. Das Ausgabeverzeichnis von **New-AzsCertificateSigningRequest** enthält die Zertifikatsignieranforderungen, die für die Übermittlung an eine Zertifizierungsstelle erforderlich sind. Das Verzeichnis enthält zu Ihrer Referenz auch ein Unterverzeichnis, das die bei der Generierung von Zertifikatanforderungen verwendeten INF-Dateien enthält. Vergewissern Sie sich, dass Ihre Zertifizierungsstelle Zertifikate mit Ihrer generierten Anforderung erstellt, die die [Azure Stack Hub-PKI-Voraussetzungen](azure-stack-pki-certs.md) erfüllen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Vorbereiten von Azure Stack-PKI-Zertifikaten](azure-stack-prepare-pki-certs.md)
+[Vorbereiten von Azure Stack Hub-PKI-Zertifikaten](azure-stack-prepare-pki-certs.md)

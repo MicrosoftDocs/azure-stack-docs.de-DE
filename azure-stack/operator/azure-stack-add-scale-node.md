@@ -1,6 +1,6 @@
 ---
-title: Hinzufügen von Knoten zu Skalierungseinheiten in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie in Azure Stack Skalierungseinheiten Knoten hinzufügen.
+title: Hinzufügen von Knoten einer Skalierungseinheit in Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Knoten einer Skalierungseinheit in Azure Stack Hub zu Skalierungseinheiten hinzufügen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,18 +16,18 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 140f184b2ea6af010879d9c42803c6c0acd35b65
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 7f9ab8b1ee8988689d2ac52dc355b85bfe9bfae6
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824815"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75805063"
 ---
-# <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Hinzufügen zusätzlicher Knoten zu Skalierungseinheiten in Azure Stack
+# <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Hinzufügen zusätzlicher Knoten einer Skalierungseinheit in Azure Stack Hub
 
-Azure Stack-Betreiber können die Gesamtkapazität einer bestehenden Skalierungseinheit durch Hinzufügen eines zusätzlichen physischen Computers erhöhen. Der physische Computer wird auch als Knoten einer Skalierungseinheit bezeichnet. Jeder neue Knoten einer Skalierungseinheit, den Sie hinzufügen, muss in CPU-Typ, Speicher sowie Datenträgernummer und -größe mit den Knoten übereinstimmen, die bereits in der Skalierungseinheit vorhanden sind.
+Azure Stack Hub-Operatoren können die Gesamtkapazität einer bestehenden Skalierungseinheit durch Hinzufügen eines zusätzlichen physischen Computers erhöhen. Der physische Computer wird auch als Knoten einer Skalierungseinheit bezeichnet. Jeder neue Knoten einer Skalierungseinheit, den Sie hinzufügen, muss in CPU-Typ, Speicher sowie Datenträgernummer und -größe mit den Knoten übereinstimmen, die bereits in der Skalierungseinheit vorhanden sind.
 
-Um einen Knoten zu einer Skalierungseinheit hinzuzufügen, agieren Sie in Azure Stack und führen Tools Ihres Originalgeräteherstellers (OEM) aus. Die OEM-Tools werden auf dem Hardwarelebenszyklushost (HLH) ausgeführt, um sicherzustellen, dass der neue physische Computer die gleiche Firmwareebene wie die vorhandenen Knoten aufweist.
+Um einen Knoten einer Skalierungseinheit hinzuzufügen, verwenden Sie Azure Stack Hub und führen Tools Ihres Originalgeräteherstellers (OEM) aus. Die OEM-Tools werden auf dem Hardwarelebenszyklushost (HLH) ausgeführt, um sicherzustellen, dass der neue physische Computer die gleiche Firmwareebene wie die vorhandenen Knoten aufweist.
 
 Das folgende Flussdiagramm zeigt den allgemeinen Prozess des Hinzufügens eines Knotens zu einer Skalierungseinheit:
 
@@ -39,9 +39,9 @@ Das Hinzufügen eines neuen Knotens kann mehrere Stunden oder Tage dauern.
 > [!Note]  
 > Führen Sie keinen der folgenden Vorgänge durch, während bereits ein Vorgang zum Hinzufügen eines Knotens zu einer Skalierungseinheit ausgeführt wird:
 >
->  - Aktualisieren von Azure Stack
+>  - Aktualisieren von Azure Stack Hub
 >  - Rotieren von Zertifikaten
->  - Beenden von Azure Stack
+>  - Beenden von Azure Stack Hub
 >  - Reparieren von Skalierungseinheitknoten
 
 
@@ -53,16 +53,16 @@ Die folgenden Schritte bieten einen allgemeinen Überblick über das Hinzufügen
 2. Aktivieren Sie gegebenenfalls physische Switchports, und passen Sie bei Bedarf Zugriffssteuerungslisten (ACLs) an.
 3. Konfigurieren Sie die richtige IP-Adresse im Baseboard-Verwaltungscontroller, und übernehmen Sie alle BIOS-Einstellungen entsprechend der Dokumentation des Originalgeräteherstellers.
 4. Übernehmen Sie die aktuelle Firmwarebaseline für alle Komponenten, indem Sie die Tools des Hardwareherstellers verwenden, die auf dem HLH ausgeführt werden.
-5. Führen Sie den Vorgang zum Hinzufügen eines Knotens im Azure Stack-Administratorportal aus.
+5. Führen Sie den Vorgang zum Hinzufügen eines Knotens im Azure Stack Hub-Administratorportal aus.
 6. Überprüfen Sie, ob der Knoten erfolgreich hinzugefügt wurde. Hierzu prüfen Sie den [**Status** der Skalierungseinheit](#monitor-add-node-operations). 
 
 ## <a name="add-the-node"></a>Hinzufügen des Knotens
 
-Zum Hinzufügen neuer Knoten können Sie das Administratorportal oder PowerShell verwenden. Bei diesem Vorgang wird zunächst der neue Knoten zur Skalierungseinheit als verfügbare Computekapazität hinzugefügt, und dann die Speicherkapazität automatisch erweitert. Die Kapazität wird automatisch erweitert, da es sich bei Azure Stack um ein hyperkonvergentes System handelt, in dem *Compute-* und *Speicherressourcen* gemeinsam skaliert werden.
+Zum Hinzufügen neuer Knoten können Sie das Administratorportal oder PowerShell verwenden. Bei diesem Vorgang wird zunächst der neue Knoten zur Skalierungseinheit als verfügbare Computekapazität hinzugefügt, und dann die Speicherkapazität automatisch erweitert. Die Kapazität wird automatisch erweitert, da es sich bei Azure Stack Hub um ein hyperkonvergentes System handelt, in dem *Compute-* und *Speicherressourcen* gemeinsam skaliert werden.
 
 ### <a name="use-the-administrator-portal"></a>Verwenden des Administratorportals
 
-1. Melden Sie sich beim Azure Stack-Administratorportal als Azure Stack-Operator an.
+1. Melden Sie sich beim Azure Stack Hub-Administratorportal als Azure Stack-Operator an.
 2. Navigieren Sie zu **+Ressource erstellen** > **Kapazität** > **Skalierungseinheitknoten**.
    ![Scale Unit Node](media/azure-stack-add-scale-node/select-node1.png) (Skalierungseinheitknoten)
 3. Wählen Sie im Bereich **Knoten hinzufügen** die *Region* und dann die *Skalierungseinheit* aus, der der Knoten hinzugefügt werden soll. Geben Sie auch die *BMC-IP-ADRESSE* für den hinzugefügten Skalierungseinheitenknoten an. Sie können immer nur jeweils einen Knoten hinzufügen.
@@ -73,7 +73,7 @@ Zum Hinzufügen neuer Knoten können Sie das Administratorportal oder PowerShell
 
 Fügen Sie mithilfe des Cmdlets **New-AzsScaleUnitNodeObject** einen Knoten hinzu.  
 
-Ersetzen Sie die Werte *Knotennamen* und *IP-Adressen* durch Werte aus Ihrer Azure Stack-Umgebung, bevor Sie eines der folgenden PowerShell-Beispielskripts verwenden.
+Bevor Sie eines der folgenden PowerShell-Beispielskripts verwenden, ersetzen Sie die Werte *Knotennamen* und *IP-Adressen* durch Werte aus Ihrer Azure Stack Hub-Umgebung.
 
   > [!Note]  
   > Bei der Benennung eines Knotens müssen Sie den Namen auf weniger als 15 Zeichen beschränken. Außerdem können Sie keinen Namen verwenden, der ein Leerzeichen oder eines der folgenden Zeichen enthält: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
@@ -105,18 +105,18 @@ Der Status für Skalierungseinheit und Skalierungseinheitknoten kann mit PowerSh
 ### <a name="status-for-the-add-node-operation"></a>Status für den Vorgang zum Hinzufügen eines Knoten 
 **Für eine Skalierungseinheit:**
 
-|Status               |BESCHREIBUNG  |
+|Status               |Beschreibung  |
 |---------------------|---------|
 |Wird ausgeführt              |Alle Knoten sind aktiv an der Skalierungseinheit beteiligt.|
 |Beendet              |Der Skalierungseinheitknoten ist entweder ausgefallen oder nicht erreichbar.|
 |Wird erweitert            |Mindestens ein Skalierungseinheitknoten wird derzeit als Computekapazität hinzugefügt.|
-|Speicher wird konfiguriert  |Die Computekapazität wurde erweitert, und die Speicherkonfiguration wird ausgeführt.|
+|Konfigurieren von Speicher  |Die Computekapazität wurde erweitert, und die Speicherkonfiguration wird ausgeführt.|
 |Korrektur erforderlich |Ein Fehler wurde ermittelt, der die Reparatur von mindestens einem Skalierungseinheitknoten erfordert.|
 
 
 **Für einen Skalierungseinheitknoten:**
 
-|Status                |BESCHREIBUNG  |
+|Status                |Beschreibung  |
 |----------------------|---------|
 |Wird ausgeführt               |Der Knoten ist aktiv an der Skalierungseinheit beteiligt.|
 |Beendet               |Der Knoten ist nicht verfügbar.|

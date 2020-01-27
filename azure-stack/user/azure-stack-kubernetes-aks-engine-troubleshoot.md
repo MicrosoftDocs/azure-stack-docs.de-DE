@@ -1,6 +1,6 @@
 ---
-title: Problembehandlung bei der AKS-Engine in Azure Stack | Microsoft-Dokumentation
-description: In diesem Artikel werden Schritte zur Problembehandlung für die AKS-Engine in Azure Stack beschrieben.
+title: Problembehandlung bei der AKS-Engine in Azure Stack Hub | Microsoft-Dokumentation
+description: In diesem Artikel werden Schritte zur Problembehandlung für die AKS-Engine in Azure Stack Hub beschrieben.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,16 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: aed53295b7c1748abd8ab3bd2862043d7d69e4b8
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 3b87f5cf7273afdabd6ee7da672d06712607e126
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310341"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923923"
 ---
-# <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Problembehandlung bei der AKS-Engine in Azure Stack
+# <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Problembehandlung bei der AKS-Engine in Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-Beim Bereitstellen oder Arbeiten mit der AKS-Engine in Azure Stack tritt möglicherweise ein Problem auf. In diesem Artikel werden die Schritte zur Problembehandlung bei der Bereitstellung der AKS-Engine, zum Sammeln von Informationen über Ihre AKS-Engine, zum Erfassen von Kubernetes-Protokollen, zum Überprüfen der Fehlercodes für die benutzerdefinierte Skripterweiterung und die Anweisungen zum Öffnen eines GitHub-Problems für die AKS-Engine behandelt.
+Beim Bereitstellen oder Arbeiten mit der AKS-Engine in Azure Stack Hub tritt möglicherweise ein Problem auf. In diesem Artikel werden die Schritte zur Problembehandlung bei der Bereitstellung der AKS-Engine, zum Sammeln von Informationen über Ihre AKS-Engine, zum Erfassen von Kubernetes-Protokollen, zum Überprüfen der Fehlercodes für die benutzerdefinierte Skripterweiterung und die Anweisungen zum Öffnen eines GitHub-Problems für die AKS-Engine behandelt.
 
 ## <a name="troubleshoot-the-aks-engine-install"></a>Problembehandlung bei der Installation der AKS-Engine
 
@@ -72,9 +70,9 @@ Installieren Sie GoFish von der [Installationsseite](https://gofi.sh/#install).
 Wenn beim Bereitstellen eines Kubernetes-Clusters mit der AKS-Engine Fehler auftreten, können Sie Folgendes überprüfen:
 
 1.  Verwenden Sie die korrekten Dienstprinzipal-Anmeldeinformationen (SPN)?
-2.  Hat der SPN die Rolle „Mitwirkende“ für das Azure Stack-Abonnement?
-3. Verfügen Sie über ein ausreichend großes Kontingent in Ihrem Azure Stack-Plan?
-4.  Wird für die Azure Stack-Instanz ein Patch oder Upgrade angewendet?
+2.  Hat der SPN die Rolle „Mitwirkende“ für das Azure Stack Hub-Abonnement?
+3. Verfügen Sie über ein ausreichend großes Kontingent in Ihrem Azure Stack Hub-Plan?
+4.  Wird für die Azure Stack Hub-Instanz ein Patch oder Upgrade angewendet?
 
 Weitere Informationen finden Sie im Artikel [Troubleshooting](https://github.com/Azure/aks-engine/blob/master/docs/howto/troubleshooting.md) (Problembehandlung) im **Azure/aks-engine**-GitHub-Repository.
 
@@ -94,7 +92,7 @@ Sie können auf Überprüfungsinformationen zugreifen, die von der AKS-Engine er
 
 ## <a name="collect-kubernetes-logs"></a>Sammeln von Kubernetes-Protokollen
 
-Zusätzlich zu den Protokollen der AKS-Engine generieren die Kubernetes-Komponenten Status- und Fehlermeldungen. Sie können diese Protokolle mit dem Bash-Skript [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.0/diagnosis.zip) erfassen.
+Zusätzlich zu den Protokollen der AKS-Engine generieren die Kubernetes-Komponenten Status- und Fehlermeldungen. Sie können diese Protokolle mit dem Bash-Skript [getkuberneteslogs.sh](https://aka.ms/aa6z613) erfassen.
 
 Mit diesem Skript wird der Prozess des Sammelns der folgenden Protokolle automatisiert: 
 
@@ -113,7 +111,7 @@ Anforderungen:
 
  - Eine Linux-VM, Git Bash oder Bash in Windows.
  - [Azure CLI](azure-stack-version-profiles-azurecli2.md) muss auf dem Computer installiert sein, auf dem das Skript ausgeführt wird.
- - Eine bei einer Azure CLI-Sitzung mit Azure Stack angemeldete Dienstprinzipalidentität. Da das Skript für seine Aufgaben ARM-Ressourcen ermitteln und erstellen kann, müssen die Azure CLI und eine Dienstprinzipalidentität verwendet werden.
+ - Eine bei einer Azure CLI-Sitzung mit Azure Stack Hub angemeldete Dienstprinzipalidentität. Da das Skript für seine Aufgaben ARM-Ressourcen ermitteln und erstellen kann, müssen die Azure CLI und eine Dienstprinzipalidentität verwendet werden.
  - Benutzerkonto (Abonnement), in dem der Kubernetes-Cluster bereits in der Umgebung ausgewählt ist. 
 1. Laden Sie die neueste Version der Skript-tar-Datei auf Ihre Client-VM herunter, einen Computer mit Zugriff auf Ihren Kubernetes-Cluster oder derselbe Computer, den Sie zum Bereitstellen Ihres Clusters mit der AKS-Engine verwendet haben.
 
@@ -128,17 +126,17 @@ Anforderungen:
 
 2. Suchen Sie nach den Parametern, die das `getkuberneteslogs.sh`-Skript benötigt. Das Skript verwendet die folgenden Parameter:
 
-    | Parameter | BESCHREIBUNG | Erforderlich | Beispiel |
+    | Parameter | Beschreibung | Erforderlich | Beispiel |
     | --- | --- | --- | --- |
-    | -h, --help | Informationen zur Verwendung des Befehls anzeigen. | no | 
-    -u,--user | Der Benutzername des Administrators für die Cluster-VMs | Ja | azureuser<br>(Standardwert) |
-    | -i, --identity-file | Der an den öffentlichen Schlüssel gebundene private RSA-Schlüssel, der zum Erstellen des Kubernetes-Clusters verwendet wurde (manchmal „id_rsa“ genannt)  | Ja | `./rsa.pem` (Putty)<br>`~/.ssh/id_rsa` (SSH) |
-    |   -g, --resource-group    | Kubernetes-Clusterressourcengruppe | Ja | k8sresourcegroup |
-    |   -n, --user-namespace               | Sammeln von Protokollen aus Containern in den angegebenen Namespaces (Kube-System-Protokolle werden immer erfasst) | no |   monitoring |
-    |       --api-model                    | Speichert die Datei „apimodel.json“ in einem Azure Stack-Speicherkonto. Die Datei „apimodel.json“ wird in das Speicherkonto hochgeladen, wenn der Parameter „--upload-logs“ ebenfalls angegeben wird. | no | `./apimodel.json` |
-    | --all-namespaces               | Sammeln von Protokollen aus Containern in allen Namespaces. „--user-namespace“ wird überschrieben | no | |
-    | --upload-logs                  | Speichert abgerufene Protokolle in einem Azure Stack-Speicherkonto. Protokolle finden Sie in der KubernetesLogs-Ressourcengruppe. | no | |
-    --disable-host-key-checking    | Legt die StrictHostKeyChecking-Option von SSH auf „no“ fest, während das Skript ausgeführt wird. Nur in einer sicheren Umgebung verwenden. | no | |
+    | -h, --help | Informationen zur Verwendung des Befehls anzeigen. | nein | 
+    -u,--user | Der Benutzername des Administrators für die Cluster-VMs | ja | azureuser<br>(Standardwert) |
+    | -i, --identity-file | Der an den öffentlichen Schlüssel gebundene private RSA-Schlüssel, der zum Erstellen des Kubernetes-Clusters verwendet wurde (manchmal „id_rsa“ genannt)  | ja | `./rsa.pem` (Putty)<br>`~/.ssh/id_rsa` (SSH) |
+    |   -g, --resource-group    | Kubernetes-Clusterressourcengruppe | ja | k8sresourcegroup |
+    |   -n, --user-namespace               | Sammeln von Protokollen aus Containern in den angegebenen Namespaces (Kube-System-Protokolle werden immer erfasst) | nein |   monitoring |
+    |       --api-model                    | Speichert die Datei „apimodel.json“ in einem Azure Stack Hub-Speicherkonto. Die Datei „apimodel.json“ wird in das Speicherkonto hochgeladen, wenn der Parameter „--upload-logs“ ebenfalls angegeben wird. | nein | `./apimodel.json` |
+    | --all-namespaces               | Sammeln von Protokollen aus Containern in allen Namespaces. „--user-namespace“ wird überschrieben | nein | |
+    | --upload-logs                  | Speichert abgerufene Protokolle in einem Azure Stack Hub-Speicherkonto. Protokolle finden Sie in der KubernetesLogs-Ressourcengruppe. | nein | |
+    --disable-host-key-checking    | Legt die StrictHostKeyChecking-Option von SSH auf „no“ fest, während das Skript ausgeführt wird. Nur in einer sicheren Umgebung verwenden. | nein | |
 
 3. Führen Sie einen der folgenden Beispielbefehle mit ihren Informationen aus:
 
@@ -158,9 +156,9 @@ Sie können eine Liste der Fehlercodes einsehen, die von der benutzerdefinierten
 
 Wenn Sie das Problem nach dem Erfassen und Durchsehen von Protokollen immer noch nicht beheben können, empfiehlt es sich, den Prozess zum Erstellen eines Supporttickets zu starten und die erfassten Protokolle durch Ausführen von `getkuberneteslogs.sh` mit dem Parametersatz `--upload-logs` zu übermitteln. 
 
-Wenden Sie sich an Ihren Azure Stack-Operator. Der Operator erstellt den Supportfall anhand der Informationen aus Ihren Protokollen.
+Wenden Sie sich an Ihren Azure Stack Hub-Operator. Der Operator erstellt den Supportfall anhand der Informationen aus Ihren Protokollen.
 
-Während der Behandlung von supportbezogenen Problemen kann ein Microsoft-Supporttechniker darum bitten, dass Ihr Azure Stack-Bediener die Azure Stack-Systemprotokolle erfasst. Möglicherweise müssen Sie dem Bediener die Informationen zum Speicherkonto zur Verfügung stellen, unter dem Sie die Kubernetes-Protokolle hochgeladen haben. Führen Sie dazu `getkuberneteslogs.sh` aus.
+Während der Behandlung von supportbezogenen Problemen kann ein Microsoft-Supporttechniker darum bitten, dass Ihr Azure Stack Hub-Operator die Azure Stack Hub-Systemprotokolle erfasst. Möglicherweise müssen Sie dem Bediener die Informationen zum Speicherkonto zur Verfügung stellen, unter dem Sie die Kubernetes-Protokolle hochgeladen haben. Führen Sie dazu `getkuberneteslogs.sh` aus.
 
 Der Bediener führt u. U. das PowerShell-Cmdlet **Get-AzureStackLog** aus. Von diesem Befehl wird ein Parameter (`-InputSaSUri`) verwendet, der das Speicherkonto angibt, unter dem Sie die Kubernetes-Protokolle gespeichert haben.
 
@@ -180,4 +178,4 @@ Wenn Sie den Bereitstellungsfehler nicht beheben können, können Sie ein GitHub
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Informieren Sie sich über die [AKS-Engine in Azure Stack](azure-stack-kubernetes-aks-engine-overview.md).
+- Informieren Sie sich über die [AKS-Engine in Azure Stack Hub](azure-stack-kubernetes-aks-engine-overview.md).

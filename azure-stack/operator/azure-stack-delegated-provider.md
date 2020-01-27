@@ -1,5 +1,5 @@
 ---
-title: Delegieren von Angeboten in Azure Stack | Microsoft-Dokumentation
+title: Delegieren von Angeboten in Azure Stack Hub | Microsoft-Dokumentation
 description: Es wird beschrieben, wie Sie Aufgaben delegieren, z. B. das Erstellen von Angeboten und das Durchführen der Registrierung für Benutzer.
 services: azure-stack
 documentationcenter: ''
@@ -15,22 +15,20 @@ ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: eee3a928f8f3c6f376e9019af6da71a77ab09450
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 8e9ad6917a6f8db571fc41b88fb9ef29e25d247c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829237"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882639"
 ---
-# <a name="delegate-offers-in-azure-stack"></a>Delegieren von Angeboten in Azure Stack
+# <a name="delegate-offers-in-azure-stack-hub"></a>Delegieren von Angeboten in Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-Als Azure Stack-Bediener kann es sein, dass Sie andere Personen in die Lage versetzen möchten, Benutzer zu registrieren und Abonnements zu erstellen. Als Dienstanbieter z.B. müssen Sie Ihren Vertriebspartnern ermöglichen können, in Ihrem Auftrag Kunden zu registrieren und diese zu verwalten. Wenn Sie einer zentralen IT-Gruppe in einem Unternehmen angehören, möchten Sie vielleicht die Benutzerregistrierung an einen anderen IT-Mitarbeiter delegieren.
+Azure Stack Hub-Operatoren müssen möglicherweise andere Personen in die Lage versetzen, Benutzer zu registrieren und Abonnements zu erstellen. Als Dienstanbieter z.B. müssen Sie Ihren Vertriebspartnern ermöglichen können, in Ihrem Auftrag Kunden zu registrieren und diese zu verwalten. Wenn Sie einer zentralen IT-Gruppe in einem Unternehmen angehören, möchten Sie vielleicht die Benutzerregistrierung an einen anderen IT-Mitarbeiter delegieren.
 
 Durch die Delegierung ist es einfacher, mehr Benutzer zu erreichen und zu verwalten, als Sie selbst handhaben können, wie in der folgenden Abbildung dargestellt:
 
-![Delegierungsebenen in Azure Stack](media/azure-stack-delegated-provider/image1.png)
+![Delegierungsebenen in Azure Stack Hub](media/azure-stack-delegated-provider/image1.png)
 
 Der delegierte Anbieter verwaltet ein Angebot (ein so genanntes *delegiertes Angebot*), und Endkunden erhalten Abonnements im Rahmen dieses Angebots ohne Beteiligung des Systemadministrators.
 
@@ -38,9 +36,9 @@ Der delegierte Anbieter verwaltet ein Angebot (ein so genanntes *delegiertes Ang
 
 Die folgenden Rollen sind Teil der Delegierung:
 
-* Der *Azure Stack-Bediener* verwaltet die Azure Stack-Infrastruktur und erstellt eine Angebotsvorlage. Der Bediener delegiert die Aufgabe, Benutzern Angebote zu unterbreiten, an seinen Mandanten.
+* Der *Azure Stack Hub-Operator* verwaltet die Azure Stack Hub-Infrastruktur und erstellt eine Angebotsvorlage. Der Bediener delegiert die Aufgabe, Benutzern Angebote zu unterbreiten, an seinen Mandanten.
 
-* Die delegierten Azure Stack-Betreiber sind Benutzer mit den Rechten *Besitzer* oder *Mitwirkender* in den Abonnements namens *delegierte Anbieter*. Sie können zu anderen Organisationen gehören, beispielsweise zu anderen Azure Active Directory-Mandanten (Azure AD).
+* Die delegierten Azure Stack Hub-Operatoren sind Benutzer mit den Rechten *Besitzer* oder *Mitwirkender* in den Abonnements und werden als *delegierte Anbieter* bezeichnet. Sie können zu anderen Organisationen gehören, beispielsweise zu anderen Azure Active Directory-Mandanten (Azure AD).
 
 * *Benutzer* registrieren sich für die Angebote und verwenden sie, um ihre Workloads zu verwalten, virtuelle Computer zu erstellen, Daten zu speichern usw.
 
@@ -54,13 +52,13 @@ Das Einrichten einer Delegierung umfasst zwei grundlegende Schritte:
 
 Die nachstehende Abbildung zeigt die Schritte zum Einrichten der Delegierung:
 
-![Schritte zum Erstellen des delegierten Anbieters und zum Aktivieren der Registrierung von Benutzern in Azure Stack durch den Anbieter](media/azure-stack-delegated-provider/image2.png)
+![Schritte in Azure Stack Hub, mit denen delegierten Anbieter erstellt und ihnen die Registrierung von Benutzern ermöglicht wird](media/azure-stack-delegated-provider/image2.png)
 
 ### <a name="delegated-provider-requirements"></a>Anforderungen an delegierte Anbieter
 
 Um als delegierter Anbieter zu fungieren, stellt ein Benutzer eine Beziehung zum Hauptanbieter her, indem er ein Abonnement erstellt. Der delegierte Anbieter wird durch das Abonnement als der Anbieter identifiziert, der das Recht besitzt, im Auftrag des Hauptanbieters delegierte Angebote zu präsentieren.
 
-Nachdem diese Beziehung hergestellt wurde, kann der Azure Stack-Bediener ein Angebot an den delegierten Anbieter delegieren. Der delegierte Anbieter kann jetzt das Angebot annehmen, es umbenennen (nicht jedoch den Inhalt ändern) und es seinen Kunden unterbreiten.
+Nachdem diese Beziehung hergestellt wurde, kann der Azure Stack Hub-Operator ein Angebot an den delegierten Anbieter delegieren. Der delegierte Anbieter kann jetzt das Angebot annehmen, es umbenennen (nicht jedoch den Inhalt ändern) und es seinen Kunden unterbreiten.
 
 ## <a name="delegation-walkthrough"></a>Exemplarische Vorgehensweise einer Delegierung
 
@@ -68,7 +66,7 @@ Die folgenden Abschnitte enthalten eine exemplarische Vorgehensweise für das Ei
 
 ### <a name="set-up-roles"></a>Einrichten von Rollen
 
-Für diese exemplarische Vorgehensweise benötigen Sie zusätzlich zu Ihrem Azure Stack-Bedienerkonto zwei Azure AD-Konten. Wenn Sie nicht über diese beiden Konten verfügen, müssen Sie sie erstellen. Die Konten können einem beliebigen Azure AD-Benutzer gehören und werden als delegierter Anbieter und Benutzer bezeichnet.
+Für diese exemplarische Vorgehensweise benötigen Sie zusätzlich zu Ihrem Azure Stack Hub-Operatorkonto zwei Azure AD-Konten. Wenn Sie nicht über diese beiden Konten verfügen, müssen Sie sie erstellen. Die Konten können einem beliebigen Azure AD-Benutzer gehören und werden als delegierter Anbieter und Benutzer bezeichnet.
 
 | **Rolle** | **Organisatorische Rechte** |
 | --- | --- |
@@ -76,11 +74,11 @@ Für diese exemplarische Vorgehensweise benötigen Sie zusätzlich zu Ihrem Azur
 | Benutzer |Benutzer |
 
  > [!NOTE]
- > Im Falle eines CSP-Handelspartners müssen sich diese Benutzer im Mandantenverzeichnis (Azure AD für Benutzer) befinden, damit dieser delegierte Anbieter erstellt werden kann. Der Azure Stack-Bediener muss [zuerst ein Onboarding](azure-stack-enable-multitenancy.md) dieser Azure AD-Instanz für den Mandanten durchführen und dann die Nutzung und Abrechnung wie [hier](azure-stack-csp-howto-register-tenants.md) beschrieben einrichten.
+ > Im Falle eines CSP-Handelspartners müssen sich diese Benutzer im Mandantenverzeichnis (Azure AD für Benutzer) befinden, damit dieser delegierte Anbieter erstellt werden kann. Der Azure Stack Hub-Operator muss [zuerst ein Onboarding](azure-stack-enable-multitenancy.md) dieser Azure AD-Instanz für den Mandanten durchführen und dann die Nutzung und Abrechnung wie [hier](azure-stack-csp-howto-register-tenants.md) beschrieben einrichten.
 
 ### <a name="identify-the-delegated-provider"></a>Identifizieren des delegierten Anbieters
 
-1. Melden Sie sich beim Administratorportal als Azure Stack-Bediener an.
+1. Melden Sie sich beim Administratorportal als Azure Stack Hub-Operator an.
 
 1. So erstellen Sie ein Angebot, mit dem ein Benutzer ein delegierter Anbieter werden kann
 
@@ -91,16 +89,16 @@ Für diese exemplarische Vorgehensweise benötigen Sie zusätzlich zu Ihrem Azur
 
    c.  Fügen Sie den delegierten Anbieter diesem Angebot als Abonnenten hinzu, indem Sie **Abonnements**, **Hinzufügen** und dann **Neues Mandantenabonnement** auswählen.
 
-   ![Hinzufügen des delegierten Anbieters als Abonnenten im Azure Stack-Administratorportal](media/azure-stack-delegated-provider/image3.png)
+   ![Hinzufügen des delegierten Anbieters als Abonnent im Azure Stack Hub-Administratorportal](media/azure-stack-delegated-provider/image3.png)
 
    > [!NOTE]
-   > Wie bei allen Azure Stack-Angeboten haben Sie die Option, das Angebot öffentlich zu machen und Benutzern zu ermöglichen, sich dafür zu registrieren. Sie können auch ein privates Angebot einrichten und es dem Azure Stack-Bediener überlassen, die Registrierung zu verwalten. Delegierte Anbieter sind in der Regel eine kleine Gruppe. Sie sollten kontrollieren können, wer in diese Gruppe aufgenommen wird. Ein privates Angebot ist also in den meisten Fällen sinnvoll.
+   > Wie bei allen Azure Stack Hub-Angeboten haben Sie die Option, das Angebot öffentlich zu machen und es Benutzern zu ermöglichen, sich dafür zu registrieren. Sie können auch ein privates Angebot einrichten und es dem Azure Stack Hub-Operator überlassen, die Registrierung durchzuführen. Delegierte Anbieter sind in der Regel eine kleine Gruppe. Sie sollten kontrollieren können, wer in diese Gruppe aufgenommen wird. Ein privates Angebot ist also in den meisten Fällen sinnvoll.
 
-### <a name="azure-stack-operator-creates-the-delegated-offer"></a>Erstellen des delegierten Angebots durch den Azure Stack-Bediener
+### <a name="azure-stack-hub-operator-creates-the-delegated-offer"></a>Erstellen des delegierten Angebots durch den Azure Stack Hub-Operator
 
 Der nächste Schritt besteht darin, den Plan und das Angebot zu erstellen, den/das Sie delegieren möchten und den/das Ihre Benutzer verwenden werden. Es ist ratsam, das Angebot so zu definieren, wie es Ihren Benutzern angezeigt werden soll, da der delegierte Anbieter die Pläne und darin enthaltenen Kontingente nicht ändern kann.
 
-1. Melden Sie sich als Azure Stack-Bediener an, und [erstellen Sie einen Plan](azure-stack-create-plan.md) sowie ein auf dem Plan basierendes [Angebot](azure-stack-create-offer.md). In diesem Artikel wird ein Angebot mit dem Namen **DelegatedOffer** als Beispiel verwendet.
+1. Melden Sie sich als Azure Stack Hub-Operator an, und [erstellen Sie einen Plan](azure-stack-create-plan.md) sowie ein auf dem Plan basierendes [Angebot](azure-stack-create-offer.md). In diesem Artikel wird ein Angebot mit dem Namen **DelegatedOffer** als Beispiel verwendet.
 
    > [!NOTE]
    > Dieses Angebot muss nicht öffentlich sein, aber Sie können es bei Bedarf öffentlich verfügbar machen. In den meisten Fällen empfiehlt es sich aber, nur delegierte Anbieter auf das Angebot zugreifen zu lassen. Sobald Sie, wie in den folgenden Schritten beschrieben, ein privates Angebot delegieren, kann der delegierte Anbieter darauf zugreifen.
@@ -109,7 +107,7 @@ Der nächste Schritt besteht darin, den Plan und das Angebot zu erstellen, den/d
 
 3. Wählen Sie in der Dropdownliste das Abonnement für den delegierten Anbieter aus, und wählen Sie dann **Delegieren** aus.
 
-   ![Hinzufügen eines delegierten Anbieters im Azure Stack-Administratorportal](media/azure-stack-delegated-provider/image4.png)
+   ![Hinzufügen eines delegierten Anbieters im Azure Stack Hub-Administratorportal](media/azure-stack-delegated-provider/image4.png)
 
 ### <a name="delegated-provider-customizes-the-offer"></a>Anpassen des Angebots durch den delegierten Anbieter
 
@@ -117,14 +115,14 @@ Melden Sie sich als delegierter Anbieter beim Benutzerportal an, und verwenden S
 
 1. Wählen Sie **+ Ressource erstellen**, **Mandantenangebote + Pläne** und dann **Angebot** aus.
 
-    ![Erstellen eines neuen Angebots im Azure Stack-Benutzerportal](media/azure-stack-delegated-provider/image5.png)
+    ![Erstellen eines neuen Angebots im Azure Stack Hub-Benutzerportal](media/azure-stack-delegated-provider/image5.png)
 
 2. Weisen Sie dem Angebot einen Namen zu. In diesem Beispiel wird **ResellerOffer** verwendet. Wählen Sie das delegierte Angebot aus, auf dem dieses Angebot basieren soll, und klicken Sie auf **Erstellen**.
 
-   ![Zuweisen eines Namens im Azure Stack-Benutzerportal](media/azure-stack-delegated-provider/image6.png)
+   ![Zuweisen eines Namens im Azure Stack Hub-Benutzerportal](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >Es ist wichtig, zu verstehen, dass delegierte Anbieter nur Angebote auswählen können, die an sie delegiert wurden. Sie können diese Angebote nicht ändern. Nur ein Azure Stack-Betreiber kann diese Angebote ändern. Beispielsweise können die Pläne und Kontingente nur von einem Betreiber geändert werden. Ein delegierter Anbieter erstellt ein Angebot nicht aufgrund von Basis- und Add-On-Plänen.
+   >Es ist wichtig, zu verstehen, dass delegierte Anbieter nur Angebote auswählen können, die an sie delegiert wurden. Sie können diese Angebote nicht ändern. Nur ein Azure Stack Hub-Operator kann diese Angebote ändern. Beispielsweise können die Pläne und Kontingente nur von einem Betreiber geändert werden. Ein delegierter Anbieter erstellt ein Angebot nicht aufgrund von Basis- und Add-On-Plänen.
 
 3. Der delegierte Anbieter kann diese Angebote über die URL zu seinem eigenen Portal veröffentlichen. Machen Sie das Angebot durch Auswahl von **Durchsuchen** und **Angebote** öffentlich. Wählen Sie das Angebot aus, und wählen Sie dann **Status ändern**.
 
@@ -134,7 +132,7 @@ Melden Sie sich als delegierter Anbieter beim Benutzerportal an, und verwenden S
 
     b.  Kopieren Sie die Portal-URL an einen anderen Ort, beispielsweise in Text-Editor.
 
-    ![Auswählen des Abonnements des delegierten Anbieters im Azure Stack-Benutzerportal](media/azure-stack-delegated-provider/dpportaluri.png)  
+    ![Auswählen des Abonnements des delegierten Anbieters im Azure Stack Hub-Benutzerportal](media/azure-stack-delegated-provider/dpportaluri.png)  
 
    Sie haben nun das Erstellen eines delegierten Angebots als delegierter Anbieter abgeschlossen. Melden Sie sich als delegierter Anbieter ab, und schließen Sie das Browserfenster.
 
@@ -147,7 +145,7 @@ Melden Sie sich als delegierter Anbieter beim Benutzerportal an, und verwenden S
 
 1. Wählen Sie auf dem Dashboard **Abonnement erwerben**. Sie sehen, dass dem Benutzer nur die delegierten Angebote angezeigt werden, die vom delegierten Anbieter erstellt wurden.
 
-   ![Anzeigen und Auswählen von Angeboten im Azure Stack-Benutzerportal](media/azure-stack-delegated-provider/image8.png)
+   ![Anzeigen und Auswählen von Angeboten im Azure Stack Hub-Benutzerportal](media/azure-stack-delegated-provider/image8.png)
 
 Das Delegieren eines Angebots ist abgeschlossen. Ein Benutzer kann sich jetzt für dieses Angebot registrieren, indem er ein Abonnement dafür bezieht.
 

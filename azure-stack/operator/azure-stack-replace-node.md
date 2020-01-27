@@ -1,7 +1,7 @@
 ---
-title: Austauschen eines Skalierungseinheitknotens für ein in Azure Stack integriertes System
-titleSuffix: Azure Stack
-description: Erfahren Sie, wie Sie einen physischen Skalierungseinheitknoten in einem in Azure Stack integrierten System austauschen.
+title: Austauschen eines Skalierungseinheitenknotens für ein in Azure Stack Hub integriertes System
+titleSuffix: Azure Stack Hub
+description: Erfahren Sie, wie Sie einen physischen Skalierungseinheitenknoten in einem in Azure Stack Hub integrierten System austauschen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,21 +16,19 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 255802151183cc2b832aaa64f2110b9c9052a0ba
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 9e289420d10cace3c466c0b1ff18c4d84cf97800
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465459"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881976"
 ---
-# <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Austauschen eines Skalierungseinheitknotens für ein in Azure Stack integriertes System
+# <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Austauschen eines Skalierungseinheitenknotens für ein in Azure Stack Hub integriertes System
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme*
-
-In diesem Artikel wird der allgemeine Vorgang zum Austauschen eines physischen Computers (auch als „Skalierungseinheitknoten“ bezeichnet) für ein in Azure Stack integriertes System beschrieben. Die tatsächlichen Schritte zum Austauschen eines Skalierungseinheitknotens sind abhängig von Ihrem OEM-Hardwareanbieter unterschiedlich. Die für Ihr System spezifischen ausführlichen Schritte finden Sie in der FRU-Dokumentation (Field Replaceable Unit) des Herstellers.
+In diesem Artikel wird der allgemeine Vorgang zum Austauschen eines physischen Computers (auch als „Skalierungseinheitenknoten“ bezeichnet) für ein in Azure Stack Hub integriertes System beschrieben. Die tatsächlichen Schritte zum Austauschen eines Skalierungseinheitknotens sind abhängig von Ihrem OEM-Hardwareanbieter unterschiedlich. Die für Ihr System spezifischen ausführlichen Schritte finden Sie in der FRU-Dokumentation (Field Replaceable Unit) des Herstellers.
 
 > [!CAUTION]  
-> Der Firmwareabgleich ist für den Erfolg des in diesem Artikel beschriebenen Vorgangs entscheidend. Wenn Sie diesen Schritt auslassen, kann dies zu einem instabilen System, Leistungseinbußen oder Sicherheitsbedrohungen führen oder eine Bereitstellung des Betriebssystems mithilfe der Azure Stack Automatisierung verhindern. Lesen Sie immer die Dokumentation des Hardwarepartners, wenn Sie Hardware austauschen, um sicherzustellen, dass die angewendete Firmware der OEM-Version entspricht, die im [Azure Stack-Administratorportal](azure-stack-updates.md) angezeigt wird. Weitere Informationen und Links zur Partnerdokumentation finden Sie unter [Ersetzen einer Hardwarekomponente](azure-stack-replace-component.md).
+> Der Firmwareabgleich ist für den Erfolg des in diesem Artikel beschriebenen Vorgangs entscheidend. Wenn Sie diesen Schritt auslassen, kann dies zu einem instabilen System, Leistungseinbußen oder Sicherheitsbedrohungen führen oder eine Bereitstellung des Betriebssystems mithilfe der Azure Stack Hub-Automatisierung verhindern. Lesen Sie immer die Dokumentation des Hardwarepartners, wenn Sie Hardware austauschen, um sicherzustellen, dass die angewendete Firmware der OEM-Version entspricht, die im [Azure Stack Hub-Administratorportal](azure-stack-updates.md) angezeigt wird. Weitere Informationen und Links zur Partnerdokumentation finden Sie unter [Ersetzen einer Hardwarekomponente](azure-stack-replace-component.md).
 
 Das folgende Flussdiagramm zeigt den allgemeinen FRU-Vorgang zum Austauschen einer vollständigen Hardwarekomponente.
 
@@ -39,7 +37,7 @@ Das folgende Flussdiagramm zeigt den allgemeinen FRU-Vorgang zum Austauschen ein
 *Diese Aktion ist abhängig vom physischen Zustand der Hardware möglicherweise nicht erforderlich.
 
 > [!Note]  
-> Wenn das Herunterfahren fehlschlägt, empfiehlt es sich, den Vorgang zum Entladen gefolgt vom Vorgang zum Beenden zu verwenden. Weitere Informationen finden Sie unter [Knotenaktionen für Skalierungseinheiten in Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
+> Wenn das Herunterfahren fehlschlägt, empfiehlt es sich, den Vorgang zum Entladen gefolgt vom Vorgang zum Beenden zu verwenden. Weitere Informationen finden Sie unter [Knotenaktionen für Skalierungseinheiten in Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
 
 ## <a name="review-alert-information"></a>Überprüfen von Warnungsinformation
 

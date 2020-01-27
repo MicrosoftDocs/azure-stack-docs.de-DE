@@ -1,41 +1,31 @@
 ---
-title: Hinzufügen neuer Azure Stack-Mandantenkonten in Azure Active Directory | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie ein Mandantenkonto im ASDK erstellen, damit Sie das Mandantenportal erkunden können.
-services: azure-stack
-documentationcenter: ''
+title: Hinzufügen neuer Azure Stack Hub-Benutzerkonten in Azure Active Directory
+description: Erfahren Sie, wie Sie ein Benutzerkonto in Azure Active Directory erstellen, damit Sie das Benutzerportal erkunden können.
 author: PatAltimore
 manager: femila
-editor: ''
-ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: b9b18b62786c0720b531d0f74ed68c629034b8d7
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 3f0ef1b6a61d271541ee894f854639b13e24d699
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143994"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880990"
 ---
-# <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Hinzufügen neuer Azure Stack-Mandantenkonten in Azure Active Directory
+# <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>Hinzufügen neuer Azure Stack Hub-Benutzerkonten in Azure Active Directory (Azure AD)
 
+Um Angebote und Pläne testen und Ressourcen erstellen zu können, benötigen Sie ein Benutzerkonto. Sie erstellen ein Benutzerkonto in Ihrem Azure AD-Mandanten, entweder mithilfe des Azure-Portals oder mit PowerShell.
 
-Nach dem [Bereitstellen des Azure Stack Development Kits](../asdk/asdk-install.md) benötigen Sie ein Mandantenbenutzerkonto, damit Sie das Portal durchsuchen und Ihre Angebote und Pläne testen können. Sie können ein Mandantenkonto über das Azure-Portal oder mit PowerShell erstellen.
-
-
-
-## <a name="create-an-azure-stack-tenant-account-by-using-the-azure-portal"></a>Erstellen eines Azure Stack-Mandantenkontos mithilfe des Azure-Portals
+## <a name="create-user-account-using-the-azure-portal"></a>Erstellen eines Benutzerkontos im Azure-Portal
 
 Sie benötigen ein Azure-Abonnement, um das Azure-Portal verwenden zu können.
 
 1. Melden Sie sich bei [Azure](https://portal.azure.com) an.
-2. Wählen Sie in der linken Navigationsleiste **Active Directory** aus, und wechseln Sie in das Verzeichnis, das Sie für Azure Stack verwenden möchten (oder erstellen Sie ein neues Verzeichnis).
+2. Wählen Sie in der linken Navigationsleiste **Active Directory** aus, und wechseln Sie in das Verzeichnis, das Sie für Azure Stack Hub verwenden möchten (oder erstellen Sie ein neues Verzeichnis).
 3. Wählen Sie **Azure Active Directory** > **Benutzer** > **Neuer Benutzer** aus.
 
     ![Seite „Benutzer – Alle Benutzer“ mit Hervorhebung von „Neuer Benutzer“](media/azure-stack-add-new-user-aad/new-user-all-users.png)
@@ -44,7 +34,7 @@ Sie benötigen ein Azure-Abonnement, um das Azure-Portal verwenden zu können.
 
     ![„Neuen Benutzer hinzufügen“, Seite „Benutzer“ mit Benutzerinformationen](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-   - **Name** (erforderlich): Der Vor- und Nachname des neuen Benutzers. Beispielsweise Mary Parker.
+   - **Name (erforderlich)** : Der Vor- und Nachname des neuen Benutzers. Beispielsweise Mary Parker.
    - **Benutzername** (erforderlich): Der Benutzername des neuen Benutzers. Beispiel: mary@contoso.com.
        Der Domänenteil des Benutzernamens muss entweder der anfängliche Standarddomänenname sein, „<_IhrDomänenname_>.onmicrosoft.com“, oder ein benutzerdefinierter Domänennamen, z. B. „contoso.com“. Weitere Informationen zum Erstellen eines benutzerdefinierten Domänennamens finden Sie unter [Hinzufügen eines benutzerdefinierten Domänennamens zu Azure AD](/azure/active-directory/fundamentals/add-custom-domain).
    - **Profil:** Optional können Sie weitere Informationen zum Benutzer hinzufügen. Sie können Benutzerinformationen auch zu einem späteren Zeitpunkt hinzufügen. Weitere Informationen zum Hinzufügen von Benutzerinformationen finden Sie unter [Hinzufügen oder Ändern von Benutzerprofilinformationen](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
@@ -57,9 +47,9 @@ Sie benötigen ein Azure-Abonnement, um das Azure-Portal verwenden zu können.
     Der Benutzer wird erstellt und Ihrem Azure AD-Mandanten hinzugefügt.
 
 7. Melden Sie sich mit dem neuen Konto beim Azure-Portal an. Ändern Sie das Kennwort, wenn Sie dazu aufgefordert werden.
-8. Melden Sie sich bei `https://portal.local.azurestack.external` mit dem neuen Konto an, um das Mandantenportal anzuzeigen.
+8. Melden Sie sich mit dem neuen Konto bei `https://portal.local.azurestack.external` an, um das Benutzerportal anzuzeigen.
 
-## <a name="create-an-azure-stack-user-account-using-powershell"></a>Erstellen eines Azure Stack-Benutzerkontos mithilfe von PowerShell
+## <a name="create-a-user-account-using-powershell"></a>Erstellen eines Benutzerkontos mithilfe von PowerShell
 
 Falls Sie kein Azure-Abonnement besitzen, können Sie ein Mandantenbenutzerkonto nicht mithilfe des Azure-Portals hinzufügen. In diesem Fall können Sie stattdessen das Azure AD-Modul für Windows PowerShell verwenden.
 
@@ -82,7 +72,7 @@ Falls Sie kein Azure-Abonnement besitzen, können Sie ein Mandantenbenutzerkonto
 
             $msolcred = get-credential
 
-    # Add a tenant account "Tenant Admin <username>@<yourdomainname>" with the initial password "<password>".
+    # Add a user account "Tenant Admin <username>@<yourdomainname>" with the initial password "<password>".
 
             connect-msolservice -credential $msolcred
             $user = new-msoluser -DisplayName "Tenant Admin" -UserPrincipalName <username>@<yourdomainname> -Password <password>
@@ -91,8 +81,8 @@ Falls Sie kein Azure-Abonnement besitzen, können Sie ein Mandantenbenutzerkonto
     ```
 
 1. Melden Sie sich mit dem neuen Konto bei Azure an. Ändern Sie das Kennwort, wenn Sie dazu aufgefordert werden.
-2. Melden Sie sich bei `https://portal.local.azurestack.external` mit dem neuen Konto an, um das Mandantenportal anzuzeigen.
+2. Melden Sie sich mit dem neuen Konto bei `https://portal.local.azurestack.external` an, um das Benutzerportal anzuzeigen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Hinzufügen von Azure Stack-Benutzern in AD FS](azure-stack-add-users-adfs.md)
+[Hinzufügen von Azure Stack Hub-Benutzern in AD FS](azure-stack-add-users-adfs.md)

@@ -17,12 +17,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 0ba8723b9d0f03006b52ecd016c3713280b63dea
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 0bced4d75b70b05eea42de763066f1d5b05e1976
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159292"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022920"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>Bereitstellen des ASDK über die Befehlszeile mithilfe von PowerShell
 
@@ -54,12 +54,12 @@ Verwenden Sie PowerShell, um den ASDK-Hostcomputer für den Start mit „CloudBu
 So konfigurieren Sie den ASDK-Hostcomputer für den Start mit „CloudBuilder.vhdx“:
 
   1. Starten Sie eine Eingabeaufforderung als Administrator.
-  2. Führen Sie `bcdedit /copy {current} /d "Azure Stack"`aus.
+  2. Führen Sie `bcdedit /copy {current} /d "Azure Stack"` aus.
   3. Kopieren Sie (mit STRG+C) den zurückgegebenen CLSID-Wert, einschließlich der erforderlichen geschweiften Klammern (`{}`). Dieser Wert hat die Bezeichnung `{CLSID}` und muss (mit STRG+V oder per Rechtsklick) in den verbleibenden Schritten eingefügt werden.
-  4. Führen Sie `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx`aus.
-  5. Führen Sie `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx`aus.
-  6. Führen Sie `bcdedit /set {CLSID} detecthal on`aus.
-  7. Führen Sie `bcdedit /default {CLSID}`aus.
+  4. Führen Sie `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` aus.
+  5. Führen Sie `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx` aus.
+  6. Führen Sie `bcdedit /set {CLSID} detecthal on` aus.
+  7. Führen Sie `bcdedit /default {CLSID}` aus.
   8. Führen Sie `bcdedit` aus, um die Starteinstellungen zu überprüfen.
   9. Stellen Sie sicher, dass die Datei „CloudBuilder.vhdx“ in den Stammordner des Laufwerks C:\ (`C:\CloudBuilder.vhdx`) verschoben wurde, und starten Sie den ASDK-Hostcomputer neu. Beim Neustarten sollte der ASDK-Hostcomputer von der VM-Festplatte „CloudBuilder.vhdx“ gestartet werden, um mit der ASDK-Bereitstellung zu beginnen.
 
@@ -141,7 +141,7 @@ Wenn DHCP für Ihre Umgebung nicht aktiviert ist, müssen Sie die folgenden zus�
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK „InstallAzureStackPOC.ps1“ – Optionale Parameter
 
-|Parameter|Erforderlich/Optional|BESCHREIBUNG|
+|Parameter|Erforderlich/Optional|Beschreibung|
 |-----|-----|-----|
 |AdminPassword|Erforderlich|Legt das lokale Administratorkonto und alle anderen Benutzerkonten auf allen VMs fest, die im Rahmen der ASDK-Bereitstellung erstellt werden. Dieses Kennwort muss mit dem Kennwort des lokalen Administrators auf dem Host übereinstimmen.|
 |InfraAzureDirectoryTenantName|Erforderlich|Legt das Mandantenverzeichnis fest. Verwenden Sie diesen Parameter, um ein bestimmtes Verzeichnis anzugeben, in dem das Azure AD-Konto über Berechtigungen zum Verwalten mehrerer Verzeichnisse verfügt. Vollständiger Name eines Azure AD-Mandanten im Format „.onmicrosoft.com“ oder ein von Azure AD überprüfter benutzerdefinierter Domänenname.|

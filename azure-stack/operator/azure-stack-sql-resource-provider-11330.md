@@ -1,7 +1,7 @@
 ---
-title: 'Azure Stack-SQL-Ressourcenanbieter 1.1.33.0: Versionshinweise'
-titleSuffix: Azure Stack
-description: Sehen Sie sich hier die Versionshinweise für das Update des Azure Stack-SQL-Ressourcenanbieters 1.1.33.0 an.
+title: 'Azure Stack Hub-SQL-Ressourcenanbieter 1.1.33.0: Versionshinweise'
+titleSuffix: Azure Stack Hub
+description: Sehen Sie sich hier die Versionshinweise für das Update 1.1.33.0 des Azure Stack Hub-SQL-Ressourcenanbieters an.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,32 +17,30 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 03a2ec5a0485f184e34c2837d8bc55edaed39f1d
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 2ef79d69c12a846e017f064463dc933b86dc8b72
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780693"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881891"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>Versionshinweise zum SQL-Ressourcenanbieter 1.1.33.0
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
 
 In diesen Versionshinweisen werden die Verbesserungen und bekannten Probleme in Version 1.1.33.0 des SQL-Ressourcenanbieters beschrieben.
 
 ## <a name="build-reference"></a>Buildreferenz
-Laden Sie die Binärdatei des SQL-Ressourcenanbieters herunter, und führen Sie dann den Self-Extractor aus, um den Inhalt in ein temporäres Verzeichnis zu extrahieren. Der Ressourcenanbieter verfügt über einen entsprechenden Mindestbuild für Azure Stack. Hier ist angegeben, welche Azure Stack-Releaseversion für die Installation dieser Version des SQL-Ressourcenanbieters erforderlich ist:
+Laden Sie die Binärdatei des SQL-Ressourcenanbieters herunter, und führen Sie dann den Self-Extractor aus, um den Inhalt in ein temporäres Verzeichnis zu extrahieren. Der Ressourcenanbieter verfügt über einen entsprechenden Minimalbuild für Azure Stack Hub. Im Folgenden finden Sie die Azure Stack Hub-Mindestversion, die für die Installation dieser Version des SQL-Ressourcenanbieters erforderlich ist:
 
-> |Azure Stack-Mindestversion|Version des SQL-Ressourcenanbieters|
+> |Azure Stack Hub-Mindestversion|Version des SQL-Ressourcenanbieters|
 > |-----|-----|
 > |Version 1808 (1.1808.0.97)|[SQL RP Version 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
 > |     |     |
 
 > [!IMPORTANT]
-> Wenden Sie das mindestens erforderliche Azure Stack-Update auf Ihr integriertes Azure Stack-System an, oder stellen Sie das aktuelle Azure Stack Development Kit (ASDK) bereit, bevor Sie die neueste Version des SQL-Ressourcenanbieters bereitstellen.
+> Wenden Sie das mindestens erforderliche Azure Stack Hub-Update auf Ihr integriertes Azure Stack Hub-System an, bevor Sie die neueste Version des SQL-Ressourcenanbieters bereitstellen.
 
 ## <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
-Diese Version des Azure Stack-SQL-Ressourcenanbieters enthält die folgenden Verbesserungen und Fehlerbehebungen:
+Diese Version des Azure Stack Hub-SQL-Ressourcenanbieters enthält die folgenden Verbesserungen und Fehlerbehebungen:
 
 ### <a name="fixes"></a>Fehlerbehebungen
 
@@ -58,7 +56,7 @@ Diese Version des Azure Stack-SQL-Ressourcenanbieters enthält die folgenden Ver
 
 - **Dauer von bis zu einer Stunde bis zur Anzeige von SQL SKUs im Portal**: Es kann bis zu einer Stunde dauern, bis die neu erstellten SKUs beim Erstellen neuer SQL-Datenbanken angezeigt werden.
 
-    **Problemumgehung**: None (Keine):
+    **Problemumgehung**: Keine.
 
 - **Wiederverwendung von SQL-Anmeldungen**: Der Versuch einer neuen SQL-Anmeldung mit dem gleichen Benutzernamen wie eine vorhandene Anmeldung unter demselben Abonnement führt dazu, dass die gleiche Anmeldung und das vorhandene Kennwort wiederverwendet werden.
 
@@ -72,8 +70,8 @@ Diese Version des Azure Stack-SQL-Ressourcenanbieters enthält die folgenden Ver
 
     **Problemumgehung**: Stellen Sie sicher, dass DNS ordnungsgemäß funktioniert, um die Listener-IP-Adresse in den Hostnamen des Listeners aufzulösen.
 
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Bekannte Probleme von Cloudadministratoren, die Azure Stack betreiben
-Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack](azure-stack-servicing-policy.md).
+### <a name="known-issues-for-cloud-admins-operating-azure-stack-hub"></a>Bekannte Probleme für Cloudadministratoren, die Azure Stack Hub betreiben
+Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub](azure-stack-servicing-policy.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 [Informieren Sie sich über den SQL-Ressourcenanbieter](azure-stack-sql-resource-provider.md).

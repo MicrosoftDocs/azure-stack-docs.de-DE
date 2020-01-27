@@ -1,6 +1,6 @@
 ---
-title: Arbeitsblatt für die Bereitstellung für in Azure Stack integrierte Systeme | Microsoft-Dokumentation
-description: Es wird beschrieben, wie Sie das Tool „Arbeitsblatt für die Bereitstellung“ zum Bereitstellen von Azure Stack installieren und verwenden.
+title: Arbeitsblatt für die Bereitstellung von integrierten Azure Stack Hub-Systemen | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie das Tool für Bereitstellungsarbeitsblätter zum Bereitstellen von Azure Stack Hub installieren und verwenden.
 services: azure-stack
 documentationcenter: ''
 author: wamota
@@ -15,23 +15,23 @@ ms.date: 04/19/2019
 ms.author: wamota
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: d75915f110b6316f4621f66b1f91b010f735d165
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 0ec6f85e0df5bcc818f57410a442d532d024fc02
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172666"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804902"
 ---
-# <a name="deployment-worksheet-for-azure-stack-integrated-systems"></a>Arbeitsblatt für die Bereitstellung für in Azure Stack integrierte Systeme
+# <a name="deployment-worksheet-for-azure-stack-hub-integrated-systems"></a>Arbeitsblatt für die Bereitstellung von integrierten Azure Stack Hub-Systemen
 
-Das Arbeitsblatt für die Azure Stack-Bereitstellung ist eine Windows Forms-Anwendung, mit der alle erforderlichen Bereitstellungsinformationen und -entscheidungen an einem zentralen Ort zusammengefasst werden. Sie können das Arbeitsblatt für die Bereitstellung während der Planung ausfüllen und dann vor Beginn der Bereitstellung prüfen.
+Das Arbeitsblatt für die Azure Stack Hub-Bereitstellung ist eine Windows Forms-Anwendung, mit der alle erforderlichen Bereitstellungsinformationen und -entscheidungen an einem zentralen Ort zusammengefasst werden. Sie können das Arbeitsblatt für die Bereitstellung während der Planung ausfüllen und dann vor Beginn der Bereitstellung prüfen.
 
 Bei den für das Arbeitsblatt erforderlichen Informationen geht es um die Bereiche Netzwerk, Sicherheit und Identität. Es müssen wichtige Entscheidungen getroffen werden, für die ggf. Wissen in vielen unterschiedlichen Bereichen benötigt wird. Aus diesem Grund kann es ratsam sein, Teams mit Wissen in diesen Bereichen zurate zu ziehen, um das Arbeitsblatt auszufüllen.
 
-Beim Ausfüllen des Arbeitsblatts müssen Sie unter Umständen vor der Bereitstellung einige Konfigurationsänderungen an Ihrer Netzwerkumgebung vornehmen. Dies kann die Reservierung von IP-Adressräumen für die Azure Stack-Lösung sowie die Konfiguration von Routern, Switches und Firewalls zur Vorbereitung der Konnektivität mit der neuen Azure Stack-Lösung umfassen.
+Beim Ausfüllen des Arbeitsblatts müssen Sie unter Umständen vor der Bereitstellung einige Konfigurationsänderungen an Ihrer Netzwerkumgebung vornehmen. Dies kann die Reservierung von IP-Adressräumen für die Azure Stack Hub-Lösung sowie die Konfiguration von Routern, Switches und Firewalls zur Vorbereitung der Konnektivität mit der neuen Azure Stack Hub-Lösung umfassen.
 
 > [!NOTE]
-> Weitere Informationen zum Ausfüllen des Tools „Arbeitsblatt für die Bereitstellung“ finden Sie in [diesem Artikel in der Azure Stack-Dokumentation](azure-stack-datacenter-integration.md).
+> Weitere Informationen zum Ausfüllen des Tools für Bereitstellungsarbeitsblätter finden Sie in [diesem Artikel in der Azure Stack Hub-Dokumentation](azure-stack-datacenter-integration.md).
 
 [![Arbeitsblatt für die Bereitstellung](media/azure-stack-deployment-worksheet/depworksheet.png "Arbeitsblatt für die Bereitstellung")](media/azure-stack-deployment-worksheet/depworksheet.png)
 
@@ -70,11 +70,11 @@ Führen Sie die folgenden Schritte aus, um das Arbeitsblatt für die Bereitstell
    Start-DeploymentWorksheet
    ```
 
-Das Arbeitsblatt für die Bereitstellung besteht aus separaten Registerkarten zum Sammeln von Umgebungseinstellungen, z. B. **Kundeneinstellungen**, **Netzwerkeinstellungen** und **Skalierungseinheit #**. Sie müssen alle Werte (Ausnahme: Kennzeichnung **Optional**) auf allen Registerkarten angeben, bevor Dateien mit Konfigurationsdaten generiert werden können. Nachdem alle erforderlichen Werte in das Tool eingegeben wurden, können Sie über das Menü **Aktion** die Optionen **Import**, **Export** und **Generieren** verwenden. Folgende JSON-Dateien sind für die Bereitstellung erforderlich:
+Das Arbeitsblatt für die Bereitstellung besteht aus separaten Registerkarten zum Sammeln von Umgebungseinstellungen, z. B. **Kundeneinstellungen**, **Netzwerkeinstellungen** und **Skalierungseinheit #** . Sie müssen alle Werte (Ausnahme: Kennzeichnung **Optional**) auf allen Registerkarten angeben, bevor Dateien mit Konfigurationsdaten generiert werden können. Nachdem alle erforderlichen Werte in das Tool eingegeben wurden, können Sie über das Menü **Aktion** die Optionen **Import**, **Export** und **Generieren** verwenden. Folgende JSON-Dateien sind für die Bereitstellung erforderlich:
 
-**Import:** Ermöglicht den Import einer Datei mit Azure Stack-Konfigurationsdaten (ConfigurationData.json), die mit diesem Tool generiert wurde, oder von Daten, die mit einer vorherigen Version des Arbeitsblatts für die Bereitstellung erstellt wurden. Beim Durchführen eines Imports werden die Formulare zurückgesetzt und alle zuvor eingegebenen Einstellungen oder generierten Daten gelöscht.
+**Import**: Ermöglicht den Import einer Datei mit Azure Stack Hub-Konfigurationsdaten (ConfigurationData.json), die von diesem Tool generiert wurde, oder von Daten, die mit einer vorherigen Version des Arbeitsblatts für die Bereitstellung erstellt wurden. Beim Durchführen eines Imports werden die Formulare zurückgesetzt und alle zuvor eingegebenen Einstellungen oder generierten Daten gelöscht.
 
-**Export:** Dient zum Überprüfen der derzeit eingegebenen Daten in den Formularen, Generieren der IP-Subnetze und -Zuweisungen und Speichern des Inhalts als Konfigurationsdateien im JSON-Format. Sie können diese Dateien dann verwenden, um die Netzwerkkonfiguration zu generieren und Azure Stack zu installieren.
+**Export**: Dient zum Überprüfen der derzeit eingegebenen Daten in den Formularen, Generieren der IP-Subnetze und -Zuweisungen und Speichern des Inhalts als Konfigurationsdateien im JSON-Format. Sie können diese Dateien dann verwenden, um die Netzwerkkonfiguration zu generieren und Azure Stack Hub zu installieren.
 
 **Generieren**: Dient zum Überprüfen der derzeit eingegebenen Daten und Generieren der Netzwerkübersicht, ohne dass die JSON-Dateien für die Bereitstellung exportiert werden müssen. Zwei neue Registerkarten werden erstellt, wenn der Vorgang **Generieren** erfolgreich ist: **Subnet Summary** (Subnetzzusammenfassung) und **IP Assignments** (IP-Zuweisungen). Sie können die Daten auf diesen Registerkarten analysieren, um sicherzustellen, dass die Netzwerkzuweisungen wie erwartet erfolgen.
 
@@ -94,4 +94,4 @@ Sie finden das gespeicherte Protokoll im Verzeichnis **Temp** des aktuellen Benu
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Verbindungsmodelle für die Azure Stack-Bereitstellung](azure-stack-connection-models.md)
+* [Verbindungsmodelle für die Azure Stack Hub-Bereitstellung](azure-stack-connection-models.md)

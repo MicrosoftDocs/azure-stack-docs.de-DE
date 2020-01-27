@@ -1,6 +1,6 @@
 ---
-title: Installieren von PowerShell für Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie PowerShell für Azure Stack installieren.
+title: Installieren von PowerShell für Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie PowerShell für Azure Stack Hub installieren.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,32 +11,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/19/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: e20012ce8ca397a9e74b97e380753b8f3ad33e45
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: d7e9e5643341e0b3e3c79e177f19200d251dcefc
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993835"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76534514"
 ---
-# <a name="install-powershell-for-azure-stack"></a>Installieren von PowerShell für Azure Stack
+# <a name="install-powershell-for-azure-stack-hub"></a>Installieren von PowerShell für Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+Azure PowerShell bietet eine Reihe von Cmdlets, die das Azure Resource Manager-Modell für die Verwaltung von Azure Stack Hub-Ressourcen verwenden.
 
-Azure PowerShell bietet eine Reihe von Cmdlets, die das Azure Resource Manager-Modell für die Verwaltung von Azure Stack-Ressourcen verwenden.
+Um mit Ihrer Cloud arbeiten zu können, müssen Sie Azure Stack Hub-kompatible PowerShell-Module installieren. Azure Stack Hub verwendet das **AzureRM**-Modul statt des neueren **AzureAZ**-Moduls, das im globalen Azure verwendet wird. Darüber hinaus müssen Sie *API-Profile* verwenden, um die kompatiblen Endpunkte für die Azure Stack Hub-Ressourcenanbieter anzugeben.
 
-Um mit Ihrer Cloud arbeiten zu können, müssen Sie Azure Stack-kompatible PowerShell-Module installieren. Azure Stack verwendet das **AzureRM**-Modul statt des neueren **AzureAZ**-Moduls, das im globalen Azure verwendet wird. Darüber hinaus müssen Sie *API-Profile* verwenden, um die kompatiblen Endpunkte für die Azure Stack-Ressourcenanbieter anzugeben.
+API-Profile bieten eine Möglichkeit, Versionsunterschiede zwischen Azure und Azure Stack Hub zu verwalten. Ein API-Versionsprofil ist eine Gruppe von Azure Resource Manager-PowerShell-Modulen mit spezifischen API-Versionen. Jede Cloudplattform verfügt über eine Gruppe von unterstützten API-Versionsprofilen. Beispielsweise unterstützt Azure Stack Hub eine bestimmte Profilversion, z. B. **2019-03-01-hybrid**. Wenn Sie ein Profil installieren, werden die Azure Resource Manager-PowerShell-Module installiert, die dem angegebenen Profil entsprechen.
 
-API-Profile bieten eine Möglichkeit, Versionsunterschiede zwischen Azure und Azure Stack zu verwalten. Ein API-Versionsprofil ist eine Gruppe von Azure Resource Manager-PowerShell-Modulen mit spezifischen API-Versionen. Jede Cloudplattform verfügt über eine Gruppe von unterstützten API-Versionsprofilen. Beispielsweise unterstützt Azure Stack eine bestimmte Profilversion, z. B. **2019-03-01-hybrid**. Wenn Sie ein Profil installieren, werden die Azure Resource Manager-PowerShell-Module installiert, die dem angegebenen Profil entsprechen.
-
-Sie können mit Azure Stack kompatible PowerShell-Module in einem Szenario mit Internetverbindung, mit teilweiser Internetverbindung oder ohne Internetverbindung installieren. Dieser Artikel leitet Sie durch die detaillierten Anweisungen für diese Szenarien.
+Sie können mit Azure Stack Hub kompatible PowerShell-Module in einem Szenario mit Internetverbindung, mit teilweiser Internetverbindung oder ohne Internetverbindung installieren. Dieser Artikel leitet Sie durch die detaillierten Anweisungen für diese Szenarien.
 
 ## <a name="1-verify-your-prerequisites"></a>1. Überprüfen der Voraussetzungen
 
-Bevor Sie mit Azure Stack und PowerShell beginnen, müssen folgende Voraussetzungen erfüllt sein:
+Bevor Sie mit Azure Stack Hub und PowerShell beginnen, müssen folgende Voraussetzungen erfüllt sein:
 
 - **PowerShell-Version 5.0** <br>
 Führen Sie zum Überprüfen Ihrer Version **$PSVersionTable.PSVersion** aus, und vergleichen Sie die **Hauptversion**. Wenn Sie nicht über PowerShell 5.0 verfügen, befolgen Sie die Anweisungen unter [Installieren von Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
@@ -71,9 +69,9 @@ Register-PSRepository -Default
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
-## <a name="3-uninstall-existing-versions-of-the-azure-stack-powershell-modules"></a>3. Deinstallieren vorhandener Versionen der Azure Stack-PowerShell-Module
+## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3. Deinstallieren vorhandener Versionen der Azure Stack Hub-PowerShell-Module
 
-Deinstallieren Sie vor der Installation der erforderlichen Version unbedingt alle zuvor installierten AzureRM-PowerShell-Module von Azure Stack. Deinstallieren Sie die Module mit einer der folgenden zwei Methoden:
+Deinstallieren Sie vor der Installation der erforderlichen Version unbedingt alle zuvor installierten AzureRM-PowerShell-Module von Azure Stack Hub. Deinstallieren Sie die Module mit einer der folgenden zwei Methoden:
 
 1. Schließen Sie alle aktiven PowerShell-Sitzungen, und führen Sie die folgenden Cmdlets aus, um die vorhandenen AzureRM-PowerShell-Module zu deinstallieren:
 
@@ -86,51 +84,51 @@ Deinstallieren Sie vor der Installation der erforderlichen Version unbedingt all
 
 2. Löschen Sie aus den Ordnern `C:\Program Files\WindowsPowerShell\Modules` und `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` alle Ordner, die mit `Azure` oder `Azs.` beginnen. Beim Löschen dieser Ordner werden alle vorhandenen PowerShell-Module entfernt.
 
-## <a name="4-connected-install-powershell-for-azure-stack-with-internet-connectivity"></a>4. Verbunden: Installieren von PowerShell für Azure Stack mit Internetverbindung
+## <a name="4-connected-install-powershell-for-azure-stack-hub-with-internet-connectivity"></a>4. Verbunden: Installieren von PowerShell für Azure Stack Hub mit Internetverbindung
 
-Das API-Versionsprofil und die Azure Stack-PowerShell-Module, die Sie benötigen, hängen von der jeweils ausgeführten Version von Azure Stack ab.
+Das API-Versionsprofil und die Azure Stack Hub-PowerShell-Module, die Sie benötigen, hängen von der jeweils ausgeführten Version von Azure Stack Hub ab.
 
-### <a name="install-azure-stack-powershell"></a>Installieren von Azure Stack-PowerShell
+### <a name="install-azure-stack-hub-powershell"></a>Installieren von Azure Stack Hub PowerShell
 
 Führen Sie zum Installieren dieser Module auf der Entwicklungsarbeitsstation das folgende PowerShell-Skript aus:
 
-- Für Azure Stack 1910 oder höher:
+- Für Azure Stack Hub 1910 oder höher:
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
     Install-Module -Name AzureRM.BootStrapper
 
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
     Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
     Install-Module -Name AzureStack -RequiredVersion 1.8.0
     ```
 
-- Für Azure Stack 1908 oder nach 1903:
+- Für Azure Stack Hub 1908 oder höher als 1903:
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
     Install-Module -Name AzureRM.BootStrapper
 
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
     Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
     Install-Module -Name AzureStack -RequiredVersion 1.7.2
     ```
   
-- Für Azure Stack-Versionen bis 1903 installieren Sie nur die beiden folgenden Module:
+- Für Azure Stack Hub-Version 1903 oder früher installieren Sie nur die beiden folgenden Module:
 
     ```powershell  
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
 
     Install-Module -Name AzureRM -RequiredVersion 2.4.0
     Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
     > [!Note]  
-    > - Azure Stack-Modulversion 1.8.0 ist ein Breaking Change-Release. Details finden Sie in den [Versionshinweisen](release-notes.md).
-    > - Die Azure Stack-Modulversion 1.7.2 ist ein Breaking Change-Release. Informationen zum Migrieren von Azure Stack 1.6.0 finden Sie im [Migrationsleitfaden](https://aka.ms/azspshmigration171).
+    > - Azure Stack Hub-Modulversion 1.8.0 ist ein Breaking Change-Release. Details finden Sie in den [Versionshinweisen](release-notes.md).
+    > - Azure Stack Hub-Modulversion 1.7.2 ist ein Breaking Change-Release. Informationen zum Migrieren von Azure Stack Hub 1.6.0 finden Sie im [Migrationsleitfaden](https://aka.ms/azspshmigration171).
     > - Die AzureRM-Modulversion 2.4.0 enthält einen Breaking Change für das Cmdlet „Remove-AzureRmStorageAccount“. Von diesem Cmdlet wird die Angabe des Parameters `-Force` erwartet, um das Speicherkonto ohne Bestätigung zu entfernen.
-    > - Zum Installieren der Module für Azure Stack-Versionen ab 1901 brauchen Sie **AzureRM.BootStrapper** nicht zu installieren.
-    > - Installieren Sie das 2018-03-01-Hybridprofil nicht zusätzlich zur Verwendung der oben genannten AzureRM-Module für Azure Stack-Versionen ab 1901.
+    > - Zum Installieren der Module für Azure Stack Hub-Versionen ab 1901 müssen Sie **AzureRM.BootStrapper** nicht installieren.
+    > - Installieren Sie das 2018-03-01-Hybridprofil nicht zusätzlich zur Verwendung der oben genannten AzureRM-Module für Azure Stack Hub-Versionen ab 1901.
 
 ### <a name="confirm-the-installation-of-powershell"></a>Bestätigen der Installation der PowerShell
 
@@ -147,19 +145,19 @@ War die Installation erfolgreich, werden die `AzureRM`- und `AzureStack`-Module 
 
 In einem Szenario ohne Internetverbindung müssen Sie zuerst die PowerShell-Module auf einen Computer mit Internetverbindung herunterladen. Anschließend übertragen Sie sie für den Installationsvorgang in das Azure Stack Development Kit (ASDK).
 
-Melden Sie sich bei einem Computer mit Internetverbindung an, und verwenden Sie die folgenden Skripts, um die Pakete „Azure Resource Manager“ und „Azure Stack“ abhängig von Ihrer Version von Azure Stack herunterzuladen.
+Melden Sie sich bei einem Computer mit Internetverbindung an, und verwenden Sie die folgenden Skripts, um die Pakete „Azure Resource Manager“ und „Azure Stack Hub“ abhängig von Ihrer Version von Azure Stack Hub herunterzuladen.
 
 Die Installation umfasst vier Schritte:
 
-1. Installieren von Azure Stack-PowerShell auf einem verbundenen Computer
+1. Installieren von Azure Stack Hub-PowerShell auf einem verbundenen Computer.
 2. Aktivieren zusätzlicher Speicherfunktionen
 3. Übertragen der PowerShell-Pakete auf Ihre getrennte Arbeitsstation
 4. Manuelles Bootstrapping des NuGet-Anbieters auf Ihrer getrennten Arbeitsstation
 5. Bestätigen der Installation von PowerShell
 
-### <a name="install-azure-stack-powershell"></a>Installieren von Azure Stack-PowerShell
+### <a name="install-azure-stack-hub-powershell"></a>Installieren von Azure Stack Hub PowerShell
 
-- Azure Stack 1910 oder höher.
+- Azure Stack Hub 1910 oder höher.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -170,7 +168,7 @@ Die Installation umfasst vier Schritte:
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.0
     ```
 
-- Für Azure Stack 1908 oder nach 1903:
+- Für Azure Stack Hub 1908 oder höher als 1903:
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -181,7 +179,7 @@ Die Installation umfasst vier Schritte:
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.2
     ```
 
-- Azure Stack 1903 oder früher
+- Azure Stack Hub 1903 oder früher.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -193,8 +191,8 @@ Die Installation umfasst vier Schritte:
     ```
 
     > [!Note]  
-    > - Azure Stack-Modulversion 1.8.0 ist ein Breaking Change-Release. Details finden Sie in den [Versionshinweisen](release-notes.md).
-    > Die Azure Stack-Modulversion 1.7.1 ist ein Breaking Change. Informationen zum Migrieren von Azure Stack 1.6.0 finden Sie im [Migrationsleitfaden](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
+    > - Azure Stack Hub-Modulversion 1.8.0 ist ein Breaking Change-Release. Details finden Sie in den [Versionshinweisen](release-notes.md).
+    > Azure Stack Hub-Modulversion 1.7.1 ist ein Breaking Change. Informationen zum Migrieren von Azure Stack Hub 1.6.0 finden Sie im [Migrationsleitfaden](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
 
     > [!NOTE]
     > Für Computer ohne Internetverbindung empfiehlt es sich, das folgende Cmdlet auszuführen, um das Sammeln von Telemetriedaten zu deaktivieren. Andernfalls kommt es bei den Cmdlets unter Umständen zu einer Leistungsbeeinträchtigung, wenn die Telemetriedatensammlung nicht deaktiviert wird. Dies betrifft nur Computer ohne Internetverbindung.
@@ -254,7 +252,7 @@ In Szenarien, für die ein Proxyserver für den Zugriff auf das Internet erforde
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Herunterladen von Azure Stack-Tools von GitHub](azure-stack-powershell-download.md)
-- [Konfigurieren der PowerShell-Umgebung des Azure Stack-Benutzers](../user/azure-stack-powershell-configure-user.md)
-- [Konfigurieren der PowerShell-Umgebung des Azure Stack-Betreibers](azure-stack-powershell-configure-admin.md)
-- [Verwalten von API-Versionsprofilen in Azure Stack](../user/azure-stack-version-profiles.md)
+- [Herunterladen von Azure Stack Hub-Tools aus GitHub](azure-stack-powershell-download.md)
+- [Konfigurieren der PowerShell-Umgebung des Azure Stack Hub-Benutzers](../user/azure-stack-powershell-configure-user.md)
+- [Konfigurieren der PowerShell-Umgebung des Azure Stack Hub-Operators](azure-stack-powershell-configure-admin.md)
+- [Verwalten von API-Versionsprofilen in Azure Stack Hub](../user/azure-stack-version-profiles.md)

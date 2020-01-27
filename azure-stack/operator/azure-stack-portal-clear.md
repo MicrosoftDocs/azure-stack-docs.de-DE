@@ -1,6 +1,6 @@
 ---
-title: Bedarfsgesteuertes Löschen von Portalbenutzerdaten aus Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie als Azure Stack-Operator, wie Sie Portalbenutzerdaten löschen, wenn dies von Azure Stack-Benutzern angefordert wird.
+title: Bedarfsgesteuertes Löschen von Portalbenutzerdaten aus Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie als Azure Stack Hub-Operator, wie Sie Portalbenutzerdaten löschen, wenn dies von Azure Stack Hub-Benutzern angefordert wird.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,18 +17,18 @@ ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
 monikerRange: azs-1802
-ms.openlocfilehash: 2dd88656491a474e4082ff4e8321af836776b1f0
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: ac28a67f7b1409ebc5a786a88e8b9702df94c2ff
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019114"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022769"
 ---
-# <a name="clear-portal-user-data-from-azure-stack"></a>Löschen von Portalbenutzerdaten aus Azure Stack
+# <a name="clear-portal-user-data-from-azure-stack-hub"></a>Löschen von Portalbenutzerdaten aus Azure Stack Hub
 
-Azure Stack-Operatoren können Portalbenutzerdaten nach Bedarf löschen, wenn dies von Azure Stack-Benutzer angefordert wird. Als Azure Stack-Benutzer können Sie das Portal an Ihre Anforderungen anpassen, indem Sie Kacheln anheften und das Dashboardlayout ändern. Benutzer können auch das Design ändern und die Standardsprache an die persönlichen Vorlieben anpassen. 
+Azure Stack Hub-Operatoren können Portalbenutzerdaten nach Bedarf löschen, wenn dies von Azure Stack Hub-Benutzer angefordert wird. Als Azure Stack Hub-Benutzer können Sie das Portal an Ihre Anforderungen anpassen, indem Sie Kacheln anheften und das Dashboardlayout ändern. Benutzer können auch das Design ändern und die Standardsprache an die persönlichen Vorlieben anpassen. 
 
-Die Portalbenutzerdaten umfassen Favoriten und die zuletzt abgerufenen Ressourcen im Azure Stack-Benutzerportal. In diesem Artikel wird beschrieben, wie Sie die Portalbenutzerdaten löschen.
+Die Portalbenutzerdaten umfassen Favoriten und die zuletzt abgerufenen Ressourcen im Azure Stack Hub-Benutzerportal. In diesem Artikel wird beschrieben, wie Sie die Portalbenutzerdaten löschen.
 
 Portalbenutzereinstellungen sollten erst nach dem Löschen des Benutzerabonnements entfernt werden.
 
@@ -37,10 +37,10 @@ Portalbenutzereinstellungen sollten erst nach dem Löschen des Benutzerabonnemen
 
 ## <a name="requirements"></a>Requirements (Anforderungen)
 
-- [Installieren Sie PowerShell für Azure Stack](azure-stack-powershell-install.md).
-- [Laden Sie die aktuellen Azure Stack-Tools aus GitHub herunter](azure-stack-powershell-download.md).
+- [Installieren von PowerShell für Azure Stack Hub](azure-stack-powershell-install.md)
+- [Laden Sie die aktuellen Azure Stack Hub-Tools aus GitHub herunter](azure-stack-powershell-download.md).
 - Das Benutzerkonto muss noch im Verzeichnis vorhanden sein.
-- Der Azure Stack-Administrator benötigt Anmeldeinformationen für den Zugriff auf den Resource Manager-Endpunkt des Administrators.
+- Der Azure Stack Hub-Administrator benötigt Anmeldeinformationen für den Zugriff auf den Resource Manager-Endpunkt des Administrators.
 
 > [!NOTE]
 > Wenn Sie versuchen, Portalbenutzerinformationen von einem Benutzer zu löschen, der über ein Gästeverzeichnis eingeladen wurde (Mehrmandantenfähigkeit), müssen Sie in diesem Verzeichnis über Leseberechtigung verfügen. Weitere Informationen finden Sie im [CSP-Szenario](#clear-portal-user-data-in-guest-directory) weiter unten in diesem Artikel.
@@ -49,9 +49,9 @@ Portalbenutzereinstellungen sollten erst nach dem Löschen des Benutzerabonnemen
 
 In diesem Szenario wird davon ausgegangen, dass das Standardanbieterabonnement und der Benutzer demselben Verzeichnis angehören oder dass Sie Lesezugriff auf das Verzeichnis haben, in dem sich der Benutzer befindet.
 
-Stellen Sie sicher, dass Sie die [aktuelle Version der Azure Stack-Tools](azure-stack-powershell-download.md) von GitHub herunterladen, bevor Sie fortfahren.
+Stellen Sie sicher, dass Sie die [aktuelle Version der Azure Stack Hub-Tools](azure-stack-powershell-download.md) von GitHub herunterladen, bevor Sie fortfahren.
 
-Verwenden Sie für diesen Vorgang einen Computer, der mit dem Resource Manager-Endpunkt des Administrators von Azure Stack kommunizieren kann.
+Verwenden Sie für diesen Vorgang einen Computer, der mit dem Resource Manager-Endpunkt des Administrators von Azure Stack Hub kommunizieren kann.
 
 1. Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Rechten (als Administrator ausführen), navigieren Sie zum Stammordner im Verzeichnis **AzureStack-Tools-master**, und importieren Sie das erforderliche PowerShell-Modul:
 
@@ -66,7 +66,7 @@ Verwenden Sie für diesen Vorgang einen Computer, der mit dem Resource Manager-E
 
    $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
-   ## Replace the following value with the Azure Stack directory tenant ID.
+   ## Replace the following value with the Azure Stack Hub directory tenant ID.
    $azureStackDirectoryTenantId = "f5025bf2-547f-4b49-9693-6420c1d5e4ca"
 
    ## Replace the following value with the user directory tenant ID.
@@ -82,15 +82,15 @@ Verwenden Sie für diesen Vorgang einen Computer, der mit dem Resource Manager-E
    ```
 
    > [!NOTE]
-   > `azureStackDirectoryTenantId` ist optional. Wenn Sie diesen Wert nicht angeben, sucht das Skript in allen Mandantenverzeichnissen, die in Azure Stack registriert sind, nach dem Benutzerprinzipalnamen und löscht dann die Portaldaten für alle übereinstimmenden Benutzer.
+   > `azureStackDirectoryTenantId` ist optional. Wenn Sie diesen Wert nicht angeben, sucht das Skript in allen Mandantenverzeichnissen, die in Azure Stack Hub registriert sind, nach dem Benutzerprinzipalnamen und löscht dann die Portaldaten für alle übereinstimmenden Benutzer.
 
 ## <a name="clear-portal-user-data-in-guest-directory"></a>Löschen von Portalbenutzerdaten im Gastverzeichnis
 
-In diesem Szenario hat der Azure Stack-Operator keinen Zugriff auf das Gastverzeichnis, in dem sich der Benutzer befindet. Dies ist ein gängiges Szenario für Cloudlösungsanbieter (Cloud Solution Provider, CSP).
+In diesem Szenario hat der Azure Stack Hub-Operator keinen Zugriff auf das Gastverzeichnis, in dem sich der Benutzer befindet. Dies ist ein gängiges Szenario für Cloudlösungsanbieter (Cloud Solution Provider, CSP).
 
-Damit ein Azure Stack-Operator die Portalbenutzerdaten entfernen kann, ist mindestens die Benutzerobjekt-ID erforderlich.
+Damit ein Azure Stack Hub-Operator die Portalbenutzerdaten entfernen kann, ist mindestens die Benutzerobjekt-ID erforderlich.
 
-Der Benutzer muss die Objekt-ID abfragen und für den Azure Stack-Operator bereitstellen. Der Operator kann nicht auf das Verzeichnis zugreifen, in dem sich der Benutzer befindet.
+Der Benutzer muss die Objekt-ID abfragen und für den Azure Stack Hub-Operator bereitstellen. Der Operator kann nicht auf das Verzeichnis zugreifen, in dem sich der Benutzer befindet.
 
 ### <a name="user-retrieves-the-user-object-id"></a>Abrufen der Benutzerobjekt-ID durch den Benutzer
 
@@ -118,11 +118,11 @@ Der Benutzer muss die Objekt-ID abfragen und für den Azure Stack-Operator berei
    ```
 
    > [!NOTE]
-   > Als Benutzer müssen Sie dem Azure Stack-Operator die Benutzerobjekt-ID bereitstellen. Das ist die Ausgabe des vorherigen Skripts.
+   > Als Benutzer müssen Sie dem Azure Stack Hub-Operator die Benutzerobjekt-ID bereitstellen. Das ist die Ausgabe des vorherigen Skripts.
 
-## <a name="azure-stack-operator-removes-the-portal-user-data"></a>Entfernen der Portalbenutzerdaten durch den Azure Stack-Operator
+## <a name="azure-stack-hub-operator-removes-the-portal-user-data"></a>Entfernen der Portalbenutzerdaten durch den Azure Stack Hub-Operator
 
-Nachdem Sie als Azure Stack-Operator die Benutzerobjekt-ID erhalten haben, führen Sie die folgenden Befehle aus, um die Portalbenutzerdaten zu entfernen:
+Nachdem Sie als Azure Stack Hub-Operator die Benutzerobjekt-ID erhalten haben, führen Sie die folgenden Befehle aus, um die Portalbenutzerdaten zu entfernen:
 
 1. Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Rechten (als Administrator ausführen), navigieren Sie zum Stammordner im Verzeichnis **AzureStack-Tools-master**, und importieren Sie das erforderliche PowerShell-Modul.
 
@@ -136,7 +136,7 @@ Nachdem Sie als Azure Stack-Operator die Benutzerobjekt-ID erhalten haben, führ
    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
    $AzsAdminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
-   ## Replace the following value with the Azure Stack directory tenant ID.
+   ## Replace the following value with the Azure Stack Hub directory tenant ID.
    $AzsAdminDirectoryTenantId = "f5025bf2-547f-4b49-9693-6420c1d5e4ca"
    
    ## Replace the following value with the directory tenant ID of the user to clear.
@@ -152,4 +152,4 @@ Nachdem Sie als Azure Stack-Operator die Benutzerobjekt-ID erhalten haben, führ
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Registrieren Sie sich für Azure Stack in Azure](azure-stack-registration.md), und füllen Sie den [Azure Stack-Marketplace](azure-stack-marketplace.md) mit Elementen auf, die Sie für Ihre Benutzer anbieten möchten.
+- [Registrieren Sie Azure Stack Hub in Azure](azure-stack-registration.md), und füllen Sie den [Azure Stack Hub-Marketplace](azure-stack-marketplace.md) mit Elementen auf, die Sie für Ihre Benutzer anbieten möchten.

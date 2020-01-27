@@ -15,12 +15,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 914f363efa5800c331239a547ee3edd577806188
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: e1d2e350079ab3d58802c8490da30a4c9555885d
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718112"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023262"
 ---
 # <a name="provider-resource-usage-api"></a>Ressourcennutzungs-API für Anbieter
 
@@ -42,9 +42,9 @@ Die Nutzungs-API ist eine Anbieter-API. Aus diesem Grund muss dem Aufrufer im Ab
 
 ### <a name="arguments"></a>Argumente
 
-| Argument | BESCHREIBUNG |
+| Argument | Beschreibung |
 | --- | --- |
-| `armendpoint` |Azure Resource Management-Endpunkt Ihrer Azure Stack-Umgebung. Nach Azure Stack Hub-Konvention folgt der Name des Azure Resource Manager-Endpunkts dem Format `https://adminmanagement.{domain-name}`. Wenn der Domänenname für das Azure Stack Development Kit (ASDK) beispielsweise *local.azurestack.external* lautet, ist der Resource Manager-Endpunkt `https://adminmanagement.local.azurestack.external`. |
+| `armendpoint` |Azure Resource Manager-Endpunkt Ihrer Azure Stack Hub-Umgebung. Nach Azure Stack Hub-Konvention folgt der Name des Azure Resource Manager-Endpunkts dem Format `https://adminmanagement.{domain-name}`. Wenn der Domänenname für das Azure Stack Development Kit (ASDK) beispielsweise *local.azurestack.external* lautet, ist der Resource Manager-Endpunkt `https://adminmanagement.local.azurestack.external`. |
 | `subId` |Abonnement-ID des Benutzers, von dem der Aufruf ausgeht. |
 | `reportedStartTime` |Die Startzeit der Abfrage. Der Wert für `DateTime` sollte in koordinierter Weltzeit (UTC) und vollen Stunden angegeben werden, z. B. 13:00. Legen Sie den Wert für eine tägliche Aggregation auf Mitternacht (UTC) fest. Das Format ist ISO 8601 mit Escapezeichen, z. B. `2015-06-16T18%3a53%3a11%2b00%3a00Z`. Dabei wird der Doppelpunkt mit Escapezeichen zu `%3a` und das Pluszeichen zu `%2b`, um auch für URIs geeignet zu sein. |
 | `reportedEndTime` |Die Endzeit der Abfrage. Die Einschränkungen, die für `reportedStartTime` gelten, gelten auch für dieses Argument. Der Wert von `reportedEndTime` darf nicht in der Zukunft liegen oder das aktuelle Datum sein. Wenn dies der Fall ist, wird als Ergebnis „processing not complete“ (nicht abgeschlossen) angezeigt. |
@@ -88,7 +88,7 @@ meterID1",
 
 ### <a name="response-details"></a>Genaue Angaben zu Antwort
 
-| Argument | BESCHREIBUNG |
+| Argument | Beschreibung |
 | --- | --- |
 |`id` |Eindeutige ID des Nutzungsaggregats. |
 |`name` |Name des Nutzungsaggregats. |
@@ -104,7 +104,7 @@ meterID1",
 
 ### <a name="powershell"></a>PowerShell
 
-Zum Generieren der Nutzungsdaten benötigen Sie Ressourcen, die ausgeführt werden und das System aktiv verwenden, beispielsweise einen aktiven virtuellen Computer oder ein Speicherkonto mit Daten. Wenn Sie nicht sicher sind, ob Sie über Ressourcen verfügen, die im Azure Stack Hub-Marketplace ausgeführt werden, stellen Sie einen virtuellen Computer bereit, und überprüfen Sie das Überwachungsblatt für diesen virtuellen Computer, um sicherzustellen, dass er ausgeführt wird. Verwenden Sie die folgenden PowerShell-Cmdlets, um die Nutzungsdaten anzuzeigen:
+Zum Generieren der Nutzungsdaten benötigen Sie Ressourcen, die ausgeführt werden und das System aktiv verwenden, beispielsweise einen aktiven virtuellen Computer oder ein Speicherkonto mit Daten. Wenn Sie nicht sicher sind, ob Sie über Ressourcen verfügen, die im Azure Stack Hub-Marketplace ausgeführt werden, stellen Sie eine VM bereit. Stellen Sie dann mithilfe des Überwachungsblatt für diese VM sicher, dass die VM ausgeführt wird. Verwenden Sie die folgenden PowerShell-Cmdlets, um die Nutzungsdaten anzuzeigen:
 
 1. [Installieren Sie PowerShell für Azure Stack Hub](azure-stack-powershell-install.md).
 2. Konfigurieren Sie die PowerShell-Umgebung des [Azure Stack Hub-Benutzers](../user/azure-stack-powershell-configure-user.md) oder des [Azure Stack Hub-Betreibers](azure-stack-powershell-configure-admin.md).

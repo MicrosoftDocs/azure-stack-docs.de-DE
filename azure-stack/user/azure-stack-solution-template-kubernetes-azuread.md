@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen von Kubernetes in Azure Stack mithilfe von Azure Active Directory (Azure AD) | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Kubernetes in Azure Stack mithilfe von Azure Active Directory (Azure AD) bereitstellen.
+title: Bereitstellen von Kubernetes in Azure Stack Hub mithilfe von Azure Active Directory (Azure AD) | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Kubernetes in Azure Stack Hub mithilfe von Azure Active Directory (Azure AD) bereitstellen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,51 +11,49 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 902645ffcb6fda4afad76a1a258b55f0ace2b189
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 19fecf32cb15e9c320e09b1b2740636ced664496
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047242"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536486"
 ---
-# <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Bereitstellen von Kubernetes in Azure Stack mithilfe von Azure Active Directory
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+# <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Bereitstellen von Kubernetes in Azure Stack Hub mithilfe von Azure Active Directory
 
 > [!Note]  
-> Verwenden Sie das Kubernetes-Azure Stack-Marketplace-Element nur, um Cluster als Proof of Concept bereitzustellen. Verwenden Sie für unterstützte Kubernetes-Cluster in Azure Stack  [die AKS-Engine](azure-stack-kubernetes-aks-engine-overview.md).
+> Verwenden Sie das Kubernetes-Azure Stack-Marketplace-Element nur, um Cluster als Proof of Concept bereitzustellen. Verwenden Sie für unterstützte Kubernetes-Cluster in Azure Stack [die AKS-Engine](azure-stack-kubernetes-aks-engine-overview.md).
 
 Sie können die Schritte in diesem Artikel zum Bereitstellen und Einrichten der Ressourcen für Kubernetes in einem einzigen, koordinierten Vorgang befolgen, wenn Sie Azure Active Directory (Azure AD) als Ihren Identitätsverwaltungsdienst verwenden.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Stellen Sie zum Einstieg sicher, dass Sie über die erforderlichen Berechtigungen verfügen und dass Ihre Azure Stack-Instanz vorbereitet ist.
+Stellen Sie zum Einstieg sicher, dass Sie über die erforderlichen Berechtigungen verfügen und Ihre Azure Stack Hub-Instanz vorbereitet ist.
 
 1. Überprüfen Sie, ob Sie Anwendungen in Ihrem Azure Active Directory-Mandanten (Azure AD) erstellen können. Sie benötigen diese Berechtigungen für die Kubernetes-Bereitstellung.
 
     Anweisungen zum Überprüfen Ihrer Berechtigungen finden Sie unter [Erstellen einer Azure Active Directory-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff mithilfe des Portals](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
-1. Generieren Sie ein öffentlich-privates SSH-Schlüsselpaar für die Anmeldung beim virtuellen Linux-Computer in Azure Stack. Sie benötigen den öffentlichen Schlüssel bei der Clustererstellung.
+1. Generieren Sie ein öffentlich-privates SSH-Schlüsselpaar für die Anmeldung bei der Linux-VM in Azure Stack Hub. Sie benötigen den öffentlichen Schlüssel bei der Clustererstellung.
 
     Anweisungen zum Generieren eines Schlüssels finden Sie unter [SSH Key Generation](azure-stack-dev-start-howto-ssh-public-key.md) (SSH-Schlüsselgenerierung).
 
-1. Stellen Sie sicher, dass Sie ein gültiges Abonnement im Azure Stack-Mandantenportal besitzen und ausreichend öffentliche IP-Adressen zum Hinzufügen neuer Anwendungen verfügbar sind.
+1. Stellen Sie sicher, dass Sie ein gültiges Abonnement im Azure Stack Hub-Mandantenportal besitzen und ausreichend öffentliche IP-Adressen zum Hinzufügen neuer Anwendungen verfügbar sind.
 
-    Der Cluster kann nicht in einem Azure Stack-Abonnement vom Typ **Administrator** bereitgestellt werden. Sie müssen ein Abonnement vom Typ **Benutzer** verwenden. 
+    Der Cluster kann nicht in einem Azure Stack Hub-Abonnement vom Typ **Administrator** bereitgestellt werden. Sie müssen ein Abonnement vom Typ **Benutzer** verwenden. 
 
-1. Falls der Kubernetes-Cluster in Ihrem Marketplace nicht verfügbar ist, wenden Sie sich an Ihren Azure Stack-Administrator.
+1. Falls der Kubernetes-Cluster in Ihrem Marketplace nicht verfügbar ist, wenden Sie sich an Ihren Azure Stack Hub-Administrator.
 
 ## <a name="create-a-service-principal"></a>Erstellen eines Dienstprinzipals
 
-Richten Sie einen Dienstprinzipal in Azure AD ein. Der Dienstprinzipal verschafft Ihrer Anwendung Zugriff auf Azure Stack-Ressourcen.
+Richten Sie einen Dienstprinzipal in Azure AD ein. Der Dienstprinzipal verschafft Ihrer Anwendung Zugriff auf Azure Stack Hub-Ressourcen.
 
 1. Melden Sie sich beim globalen [Azure-Portal](https://portal.azure.com) an.
 
-1. Sie müssen mit dem der Azure Stack-Instanz zugeordneten Azure AD-Mandanten angemeldet sein. Sie können Ihre Anmeldung wechseln, indem Sie auf das Filtersymbol in der Azure-Symbolleiste klicken.
+1. Sie müssen mit dem der Azure Stack Hub-Instanz zugeordneten Azure AD-Mandanten angemeldet sein. Sie können Ihre Anmeldung wechseln, indem Sie auf das Filtersymbol in der Azure-Symbolleiste klicken.
 
     ![Auswählen des AD-Mandanten](media/azure-stack-solution-template-kubernetes-deploy/tenantselector.png)
 
@@ -81,7 +79,7 @@ Richten Sie einen Dienstprinzipal in Azure AD ein. Der Dienstprinzipal verschaff
 
 Erteilen Sie dem Dienstprinzipal Zugriff auf Ihr Abonnement, sodass er Ressourcen erstellen kann.
 
-1.  Melden Sie sich beim [Azure Stack-Portal](https://portal.local.azurestack.external/) an.
+1.  Melden Sie sich beim [Azure Stack Hub-Portal](https://portal.local.azurestack.external/) an.
 
 1. Wählen Sie **Alle Dienste** > **Abonnements** aus.
 
@@ -97,9 +95,9 @@ Erteilen Sie dem Dienstprinzipal Zugriff auf Ihr Abonnement, sodass er Ressource
 
 ## <a name="deploy-kubernetes"></a>Bereitstellen von Kubernetes
 
-1. Öffnen Sie das [Azure Stack-Portal](https://portal.local.azurestack.external).
+1. Öffnen Sie das [Azure Stack Hub-Portal](https://portal.local.azurestack.external).
 
-1. Wählen Sie **+ Ressource erstellen** > **Compute** > **Kubernetes-Cluster** aus. Klicken Sie auf **Create**.
+1. Wählen Sie **+ Ressource erstellen** > **Compute** > **Kubernetes-Cluster** aus. Klicken Sie auf **Erstellen**.
 
     ![Bereitstellen einer Lösungsvorlage](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
@@ -113,7 +111,7 @@ Erteilen Sie dem Dienstprinzipal Zugriff auf Ihr Abonnement, sodass er Ressource
 
 1. Geben Sie den Namen einer neuen Ressourcengruppe ein, oder wählen Sie eine vorhandene Ressourcengruppe aus. Der Ressourcenname muss alphanumerisch und in Kleinbuchstaben angegeben sein.
 
-1. Wählen Sie den **Standort** der Ressourcengruppe aus. Dies ist die Region, die Sie für die Azure Stack-Installation auswählen.
+1. Wählen Sie den **Standort** der Ressourcengruppe aus. Dies ist die Region, die Sie für die Azure Stack Hub-Installation auswählen.
 
 ### <a name="2-kubernetes-cluster-settings"></a>2. Einstellungen für Kubernetes-Cluster
 
@@ -138,13 +136,13 @@ Erteilen Sie dem Dienstprinzipal Zugriff auf Ihr Abonnement, sodass er Ressource
 
 1. Wählen Sie **VMSize of the Kubernetes node VMs** (VM-Größe der Kubernetes-Knoten-VMs). Hiermit wird die VM-Größe der Kubernetes-Knoten-VMs angegeben. 
 
-1. Wählen Sie **Azure AD** als **Azure Stack-Identitätssystem** für Ihre Azure Stack-Installation aus.
+1. Wählen Sie **Azure AD** als **Azure Stack Hub-Identitätssystem** für Ihre Azure Stack Hub-Installation aus.
 
-1. Geben Sie unter **Service Principal ClientId** (Dienstprinzipal-ClientId) einen Wert ein. Dieser wird vom Kubernetes Azure-Cloudanbieter verwendet. Die als Anwendungs-ID identifizierte Client-ID, wenn Ihr Azure Stack-Administrator den Dienstprinzipal erstellt hat.
+1. Geben Sie unter **Service Principal ClientId** (Dienstprinzipal-ClientId) einen Wert ein. Dieser wird vom Kubernetes Azure-Cloudanbieter verwendet. Die als Anwendungs-ID identifizierte Client-ID, wenn Ihr Azure Stack Hub-Administrator den Dienstprinzipal erstellt hat.
 
 1. Geben Sie das **Clientgeheimnis des Dienstprinzipals** ein. Dies ist das Clientgeheimnis, das Sie beim Erstellen Ihres Diensts einrichten.
 
-1. Geben Sie die **Kubernetes-Version** ein. Dabei handelt es sich um die Version des Kubernetes Azure-Anbieters. Azure Stack veröffentlicht für jede Azure Stack-Version einen benutzerdefinierten Kubernetes-Build.
+1. Geben Sie die **Kubernetes-Version** ein. Dabei handelt es sich um die Version des Kubernetes Azure-Anbieters. Azure Stack Hub veröffentlicht für jede Azure Stack Hub-Version einen benutzerdefinierten Kubernetes-Build.
 
 ### <a name="3-summary"></a>3. Zusammenfassung
 
@@ -157,7 +155,7 @@ Erteilen Sie dem Dienstprinzipal Zugriff auf Ihr Abonnement, sodass er Ressource
 3. Wählen Sie **OK**, um Ihren Cluster bereitzustellen.
 
 > [!TIP]  
->  Wenn Sie Fragen zu Ihrer Bereitstellung haben, können Sie Ihre Frage im [Azure Stack-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) stellen bzw. ermitteln, ob jemand die Frage dort bereits beantwortet hat.
+>  Wenn Sie Fragen zu Ihrer Bereitstellung haben, können Sie Ihre Frage im [Azure Stack Hub-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) stellen bzw. ermitteln, ob jemand die Frage dort bereits beantwortet hat.
 
 
 ## <a name="next-steps"></a>Nächste Schritte

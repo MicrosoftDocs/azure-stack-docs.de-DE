@@ -1,6 +1,6 @@
 ---
-title: Speichern von Dienstprinzipal-Anmeldeinformationen in Azure Stack Key Vault | Microsoft-Dokumentation
-description: Erfahren Sie, wie Key Vault Dienstprinzipal-Anmeldeinformationen in Azure Stack speichert.
+title: Speichern von Dienstprinzipal-Anmeldeinformationen in Azure Stack Hub Key Vault | Microsoft-Dokumentation
+description: Erfahren Sie, wie Key Vault Dienstprinzipal-Anmeldeinformationen in Azure Stack Hub speichert.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,31 +14,31 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 9d86f7e68b2e96eb4a22f9896ff65a4ed6b96f92
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: a953666396b89706b935b73abea0b4d42c1dcc1a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714745"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820269"
 ---
-# <a name="store-service-principal-credentials-in-azure-stack-key-vault"></a>Speichern von Dienstprinzipal-Anmeldeinformationen in Azure Stack Key Vault
+# <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>Speichern von Dienstprinzipal-Anmeldeinformationen in Azure Stack Hub Key Vault
 
-Zum Entwickeln von Apps in Azure Stack muss normalerweise ein Dienstprinzipal erstellt werden, mit dessen Anmeldeinformationen vor der Bereitstellung eine Authentifizierung durchgeführt wird. Manchmal gehen jedoch die gespeicherten Anmeldeinformationen für den Dienstprinzipal verloren. Dieser Artikel beschreibt das Erstellen eines Dienstprinzipals und das Speichern der Werte für den späteren Abruf in Azure Key Vault.
+Zum Entwickeln von Apps in Azure Stack Hub muss normalerweise ein Dienstprinzipal erstellt werden, mit dessen Anmeldeinformationen vor der Bereitstellung eine Authentifizierung durchgeführt wird. Manchmal gehen jedoch die gespeicherten Anmeldeinformationen für den Dienstprinzipal verloren. Dieser Artikel beschreibt das Erstellen eines Dienstprinzipals und das Speichern der Werte für den späteren Abruf in Azure Key Vault.
 
-Weitere Informationen zu Key Vault finden Sie unter [Einführung in Key Vault in Azure Stack](azure-stack-key-vault-intro.md).
+Weitere Informationen zu Key Vault finden Sie unter [Einführung in Key Vault in Azure Stack Hub](azure-stack-key-vault-intro.md).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - Ein Abonnement eines Angebots, das den Azure Key Vault-Dienst enthält
-- PowerShell ist installiert und für die Verwendung mit Azure Stack konfiguriert.
+- PowerShell ist installiert und für die Verwendung mit Azure Stack Hub konfiguriert.
 
-## <a name="key-vault-in-azure-stack"></a>Key Vault in Azure Stack
+## <a name="key-vault-in-azure-stack-hub"></a>Key Vault in Azure Stack Hub
 
-Key Vault in Azure Stack unterstützt Sie dabei, kryptografische Schlüssel und Geheimnisse zu schützen, die von Cloud-Apps und -diensten verwendet werden. Mit Key Vault können Sie Schlüssel und Geheimnisse verschlüsseln.
+Key Vault in Azure Stack Hub unterstützt Sie dabei, kryptografische Schlüssel und Geheimnisse zu schützen, die von Cloud-Apps und -diensten verwendet werden. Mit Key Vault können Sie Schlüssel und Geheimnisse verschlüsseln.
 
 Gehen Sie folgendermaßen vor, um einen Schlüsseltresor zu erstellen:
 
-1. Melden Sie sich beim Azure Stack-Portal an.
+1. Melden Sie sich beim Azure Stack Hub-Portal an.
 
 2. Wählen Sie im Dashboard **+ Ressource erstellen**, **Sicherheit + Identität** und dann **Schlüsseltresor** aus.
 
@@ -80,7 +80,7 @@ Gehen Sie folgendermaßen vor, um einen Schlüsseltresor zu erstellen:
 
 ## <a name="store-the-service-principal-inside-key-vault"></a>Speichern des Dienstprinzipals in Key Vault
 
-1. Melden Sie sich beim Benutzerportal für Azure Stack an, wählen Sie den zuvor erstellten Schlüsseltresor und dann die Kachel **Geheimnis** aus.
+1. Melden Sie sich beim Benutzerportal für Azure Stack Hub an, wählen Sie den zuvor erstellten Schlüsseltresor und dann die Kachel **Geheimnis** aus.
 
 2. Wählen Sie im Bereich **Geheimnis** die Option **Generieren/importieren** aus.
 
@@ -101,5 +101,5 @@ Nach dem erfolgreichen Erstellen des Geheimnisses werden die Dienstprinzipalinfo
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Verwenden von Dienstprinzipalen](azure-stack-create-service-principals.md)
-- [Verwalten von Key Vault in Azure Stack über das Portal](azure-stack-key-vault-manage-portal.md)  
-- [Verwalten von Key Vault in Azure Stack mithilfe von PowerShell](azure-stack-key-vault-manage-powershell.md)
+- [Verwalten von Key Vault in Azure Stack Hub über das Portal](azure-stack-key-vault-manage-portal.md)  
+- [Verwalten von Key Vault in Azure Stack Hub mithilfe von PowerShell](azure-stack-key-vault-manage-powershell.md)

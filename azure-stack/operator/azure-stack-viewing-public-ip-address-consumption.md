@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Netzwerkressourcen in Azure Stack | Microsoft-Dokumentation
+title: Verwalten von Netzwerkressourcen in Azure Stack Hub | Microsoft-Dokumentation
 description: Administratoren können Netzwerkressourcen, einschließlich des MAC-Adresspools und der Nutzung öffentlicher IP-Adressen in einer Region verwalten.
 services: azure-stack
 documentationcenter: ''
@@ -15,33 +15,31 @@ ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 6abf8480528aad0bff121d553172bdc8d0446e11
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: d651405fad55501bf655b8b38970a882a8e5dc91
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070206"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881670"
 ---
 # <a name="manage-network-resources"></a>Verwalten von Netzwerkressourcen
 
 ## <a name="mac-address-pool"></a>MAC-Adresspool
 
-Für Azure Stack wird ein statischer MAC-Adresspool genutzt, um MAC-Adressen automatisch zu generieren und virtuellen Computern zuzuweisen.
+Für Azure Stack Hub wird ein statischer MAC-Adresspool genutzt, um MAC-Adressen automatisch zu generieren und virtuellen Computern zuzuweisen.
 Dieser MAC-Adresspool wird während der Bereitstellung automatisch generiert und umfasst den folgenden Bereich:
 
 - StartMacAddress: 00-1D-D8-B7-00-00
 - EndMacAddress: 00-1D-D8-F4-FF-FF
 
 > [!Note]  
-> Dieser MAC-Adresspool ist für jedes Azure Stack-System gleich und nicht konfigurierbar.
+> Dieser MAC-Adresspool ist für jedes Azure Stack Hub-System gleich und nicht konfigurierbar.
 
 Je nachdem, wie für die virtuellen Netzwerke eine Verbindung mit vorhandenen Unternehmensnetzwerken hergestellt wird, kommt es ggf. zu doppelten MAC-Adressen von virtuellen Computern.
 
-Weitere Informationen zur Nutzung des MAC-Adresspools erhalten Sie über das Cmdlet [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) im PowerShell-Modul für Azure Stack-Administratoren.
+Weitere Informationen zur Nutzung des MAC-Adresspools erhalten Sie über das Cmdlet [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) im PowerShell-Modul für Azure Stack Hub-Administratoren.
 
-## <a name="view-public-ip-address-consumption-in-azure-stack"></a>Anzeigen der Nutzung öffentlicher IP-Adressen in Azure Stack
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+## <a name="view-public-ip-address-consumption-in-azure-stack-hub"></a>Anzeigen der Nutzung öffentlicher IP-Adressen in Azure Stack Hub
 
 Als Cloudadministrator können Sie Folgendes anzeigen:
  - Die Anzahl der öffentlichen IP-Adressen, die Mandanten zugeordnet wurden
@@ -50,7 +48,7 @@ Als Cloudadministrator können Sie Folgendes anzeigen:
 
 Auf der Kachel **Nutzung öffentlicher IP-Pools** wird die Anzahl der öffentlichen IP-Adressen angezeigt, die in allen öffentlichen IP-Adresspools verwendet werden. Die Kachel zeigt für jede IP-Adresse die Nutzung für IaaS-VM-Instanzen von Mandanten, Fabric-Infrastrukturdienste und öffentliche IP-Adressressourcen, die von den Mandanten explizit erstellt wurden.
 
-Diese Kachel soll Azure Stack-Betreibern einen Eindruck von der Anzahl öffentlicher IP-Adressen vermitteln, die an diesem Standort verwendet werden. Anhand dieser Anzahl können Administratoren feststellen, ob diese Ressource knapp wird.
+Diese Kachel soll Azure Stack Hub-Operators einen Eindruck von der Anzahl öffentlicher IP-Adressen vermitteln, die an diesem Standort verwendet werden. Anhand dieser Anzahl können Administratoren feststellen, ob diese Ressource knapp wird.
 
 Das Menüelement **Öffentliche IP-Adressen** unter **Mandantenressourcen** listet nur die öffentlichen IP-Adressen auf, die *explizit von Mandanten erstellt wurden*. Sie finden das Menüelement im Bereich **Ressourcenanbieter** unter **Netzwerk**. Die Anzahl der **verwendeten** öffentlichen IP-Adressen auf der Kachel **Nutzung öffentlicher IP-Pools** unterscheidet sich immer von der Anzahl auf der Kachel **Öffentliche IP-Adressen** unter **Mandantenressourcen** (d.h. sie ist immer größer).
 
@@ -58,7 +56,7 @@ Das Menüelement **Öffentliche IP-Adressen** unter **Mandantenressourcen** list
 
 So zeigen Sie die Gesamtanzahl der öffentlichen IP-Adressen an, die in der Region verwendet wurden:
 
-1. Wählen Sie im Azure Stack-Administratorportal **Alle Dienste** aus. Wählen Sie unter der Kategorie **VERWALTUNG** die Option **Netzwerk**.
+1. Wählen Sie im Azure Stack Hub-Administratorportal **Alle Dienste** aus. Wählen Sie unter der Kategorie **VERWALTUNG** die Option **Netzwerk**.
 1. Im Bereich **Netzwerk** wird die Kachel **Nutzung öffentlicher IP-Pools** im Abschnitt **Übersicht** angezeigt.
 
     ![Bereich „Netzwerkressourcenanbieter“](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-01.png)
@@ -89,4 +87,4 @@ In verschiedenen Fällen werden öffentliche IP-Adressen zugewiesen, die bestimm
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Verwalten von Speicherkonten in Azure Stack](azure-stack-manage-storage-accounts.md)
+[Verwalten von Speicherkonten in Azure Stack Hub](azure-stack-manage-storage-accounts.md)

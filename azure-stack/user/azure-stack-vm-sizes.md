@@ -1,6 +1,6 @@
 ---
-title: In Azure Stack unterstützte VM-Größen | Microsoft-Dokumentation
-description: Referenz zu unterstützten VM-Größen in Azure Stack
+title: In Azure Stack Hub unterstützte VM-Größen | Microsoft-Dokumentation
+description: Referenz zu unterstützten VM-Größen in Azure Stack Hub
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,20 +14,18 @@ ms.date: 12/3/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/3/2019
-ms.openlocfilehash: d38168fee437b27dfde8d5381c960b8e2a237487
-ms.sourcegitcommit: 757f612663059f1af8c535d8b37f63a8cf4a5e7d
+ms.openlocfilehash: c7f09296b68df31892952675bac8086c8b483f6d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784094"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883149"
 ---
-# <a name="vm-sizes-supported-in-azure-stack"></a>In Azure Stack unterstützte VM-Größen
+# <a name="vm-sizes-supported-in-azure-stack-hub"></a>In Azure Stack Hub unterstützte VM-Größen
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+In diesem Artikel werden die in Azure Stack Hub verfügbaren VM-Größen aufgeführt. Sie können diesen Artikel bei der Auswahl einer VM zur Unterstützung Ihrer Azure Stack Hub-Lösung nutzen.
 
-In diesem Artikel sind die in Azure Stack verfügbaren VM-Größen aufgeführt. Dieser Artikel kann Ihnen bei der Auswahl eines virtuellen Computers zur Unterstützung Ihrer Azure Stack-Lösung helfen.
-
-Die Datenträger-IOPS (Input/Output Operations Per Second, Ein-/Ausgabevorgänge pro Sekunde) in Azure Stack sind eine Funktion der VM-Größe, nicht des Datenträgertyps. Dies bedeutet, dass der IOPS-Grenzwert für einen einzelnen zusätzlichen Datenträger für einen virtuellen Computer der Standard_Fs-Reihe 2.300 IOPS beträgt – unabhängig davon, ob Sie einen Datenträger des Typs SSD oder HDD auswählen. Die IOPS-Grenzwerte bilden eine Obergrenze (zulässiges Maximum), um den „Noisy Neighbour“-Effekt zu verhindern. Sie sind keine IOPS-Garantie für eine VM mit einer bestimmten Größe.
+Die Datenträger-IOPS (Input/Output Operations Per Second, Ein-/Ausgabevorgänge pro Sekunde) in Azure Stack Hub ist abhängig von der VM-Größe und nicht vom Datenträgertyp. Dies bedeutet, dass der IOPS-Grenzwert für einen einzelnen zusätzlichen Datenträger für einen virtuellen Computer der Standard_Fs-Reihe 2.300 IOPS beträgt – unabhängig davon, ob Sie einen Datenträger des Typs SSD oder HDD auswählen. Die IOPS-Grenzwerte bilden eine Obergrenze (zulässiges Maximum), um den „Noisy Neighbour“-Effekt zu verhindern. Sie sind keine IOPS-Garantie für eine VM mit einer bestimmten Größe.
 
 ## <a name="vm-general-purpose"></a>Universelle VM
 
@@ -40,8 +38,8 @@ Universelle VM-Größen zeichnen sich durch ein ausgewogenes Verhältnis zwische
 
 |Größe – Größe\Name |vCPU     |Arbeitsspeicher | Max. Größe der temporären Datenträger | Max. Durchsatz des Betriebssystemdatenträgers: (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträgerdurchsatz: (IOPS) | Maximale Anzahl NICs |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
-|**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1/1x300  |2   |
-|**A1\Basic_A1**  |1    |1,75 GB  | 40 GB   |300  | 300  |2/2x300  |2   |
+|**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1/1x300  |2   |
+|**A1\Basic_A1**  |1    |1,75 GB  | 40 GB   |300  | 300  |2/2x300  |2   |
 |**A2\Basic_A2**  |2    |3,5 GB   | 60 GB   |300  | 300  |4/4x300  |2   |
 |**A3\Basic_A3**  |4    |7 GB     | 120 GB  |300  | 300  |8/8x300  |2   |
 |**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16 / 16X300 |2   |
@@ -59,7 +57,7 @@ Universelle VM-Größen zeichnen sich durch ein ausgewogenes Verhältnis zwische
 |**Standard_A7** |8 |56    |605 |500 |500 |16 x 500 |4 |
 
 ### <a name="av2-series"></a>Av2-Serie
-*Erfordert Azure Stack Version 1804 oder höher*
+*Erfordert Azure Stack Hub-Version 1804 oder höher*
 
 |Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |-----------------|----|----|-----|-----|------|--------------|---------|
@@ -109,7 +107,7 @@ Universelle VM-Größen zeichnen sich durch ein ausgewogenes Verhältnis zwische
 
 ## <a name="compute-optimized"></a>Computeoptimiert
 ### <a name="f-series"></a>F-Serie
-*Erfordert Azure Stack Version 1804 oder höher*
+*Erfordert Azure Stack Hub-Version 1804 oder höher*
 
 |Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |-----------------|----|----|-----|----|------|------------|---------|
@@ -121,7 +119,7 @@ Universelle VM-Größen zeichnen sich durch ein ausgewogenes Verhältnis zwische
 
 
 ### <a name="fs-series"></a>Fs-Serie
-*Erfordert Azure Stack Version 1804 oder höher*  
+*Erfordert Azure Stack Hub-Version 1804 oder höher*  
 
 |Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |------------------|----|----|----|-----|------|-------------|---------|
@@ -133,7 +131,7 @@ Universelle VM-Größen zeichnen sich durch ein ausgewogenes Verhältnis zwische
 
 
 ### <a name="fsv2-series"></a>Fsv2-Serie
-*Erfordert Azure Stack Version 1804 oder höher* 
+*Erfordert Azure Stack Hub-Version 1804 oder höher* 
 
 |Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
@@ -185,4 +183,4 @@ Arbeitsspeicheroptimierte VM-Größen bieten ein hohes Arbeitsspeicher-zu-CPU-Ve
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Features von Azure Stack-VMs](azure-stack-vm-considerations.md)
+[Features von Azure Stack Hub-VMs](azure-stack-vm-considerations.md)

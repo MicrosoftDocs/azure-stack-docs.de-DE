@@ -1,6 +1,6 @@
 ---
-title: Anbieten hochverfügbarer SQL-Datenbanken in Azure Stack
-description: Erfahren Sie, wie Sie mit Azure Stack einen Hostcomputer für einen SQL Server-Ressourcenanbieter sowie hoch verfügbare SQL-Always On-Datenbanken erstellen.
+title: Anbieten hochverfügbarer SQL-Datenbanken in Azure Stack Hub
+description: Erfahren Sie, wie Sie mit Azure Stack Hub einen Hostcomputer für einen SQL Server-Ressourcenanbieter sowie hoch verfügbare SQL-Always On-Datenbanken erstellen.
 services: azure-stack
 author: BryanLa
 manager: femila
@@ -11,32 +11,32 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: e5866a80367a826dd58aa39109ebbbbd9f2edce6
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 408508119a7535467756b0b45fbfeb59fba7fbf1
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283315"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023011"
 ---
 # <a name="offer-highly-available-sql-databases"></a>Anbieten von hoch verfügbaren SQL-Datenbanken
 
-Als Azure Stack-Bediener können Sie virtuelle Servercomputer zum Hosten von SQL Server-Datenbanken konfigurieren. Wenn ein SQL-Hostserver erstellt wurde und über Azure Stack verwaltet wird, können Benutzer, die SQL-Dienste abonniert haben, ganz einfach SQL-Datenbanken erstellen.
+Als Azure Stack Hub-Operator können Sie virtuelle Servercomputer zum Hosten von SQL Server-Datenbanken konfigurieren. Wenn ein SQL-Hostserver erstellt wurde und über Azure Stack Hub verwaltet wird, können Benutzer, die SQL-Dienste abonniert haben, ganz einfach SQL-Datenbanken erstellen.
 
-Dieser Artikel zeigt, wie Sie eine Azure Stack-Schnellstartvorlage verwenden, um eine [SQL Server-AlwaysOn-Verfügbarkeitsgruppe](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) zu erstellen, diese als Azure Stack-SQL-Hostserver hinzufügen und dann eine hochverfügbare SQL-Datenbank erstellen.
+Dieser Artikel zeigt, wie Sie eine Azure Stack Hub-Schnellstartvorlage verwenden, um eine [SQL Server-Always On-Verfügbarkeitsgruppe](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) zu erstellen, diese als Azure Stack Hub-SQL-Hostserver hinzufügen und dann eine hochverfügbare SQL-Datenbank erstellen.
 
 Sie lernen Folgendes:
 
 > [!div class="checklist"]
 > * Erstellen einer SQL Server-Always On-Verfügbarkeitsgruppe aus einer Vorlage
-> * Erstellen eines Azure Stack-SQL-Hostservers
+> * Erstellen eines Azure Stack Hub-SQL-Hostservers
 > * Erstellen einer hoch verfügbaren SQL-Datenbank
 
-Mithilfe von verfügbaren Azure Stack-Marketplace-Elementen wird eine SQL Server-AlwaysOn-Verfügbarkeitsgruppe mit zwei virtuellen Computern erstellt. 
+Mithilfe von verfügbaren Azure Stack Hub-Marketplace-Elementen wird eine SQL Server-Always On-Verfügbarkeitsgruppe mit zwei virtuellen Computern erstellt. 
 
-Vergewissern Sie sich zunächst, dass der [SQL Server-Ressourcenanbieter](azure-stack-sql-resource-provider-deploy.md) erfolgreich installiert wurde und dass die folgenden Elemente im Azure Stack-Marketplace verfügbar sind, bevor Sie beginnen:
+Vergewissern Sie sich zunächst, dass der [SQL Server-Ressourcenanbieter](azure-stack-sql-resource-provider-deploy.md) erfolgreich installiert wurde und dass die folgenden Elemente im Azure Stack Hub-Marketplace verfügbar sind, bevor Sie beginnen:
 
 > [!IMPORTANT]
-> Alle folgenden Elemente sind erforderlich, um die Azure Stack-Schnellstartvorlage zu verwenden.
+> Alle folgenden Elemente sind erforderlich, um die Azure Stack Hub-Schnellstartvorlage zu verwenden.
 
 - Marketplace-Image von [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer).
 - SQL Server 2016 SP1 oder SP2 (Enterprise, Standard oder Developer) im Windows Server 2016-Serverimage. Dieser Artikel verwendet das Marketplace-Image [SQL Server 2016 SP2 Enterprise unter Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016).
@@ -44,10 +44,10 @@ Vergewissern Sie sich zunächst, dass der [SQL Server-Ressourcenanbieter](azure-
 - [Custom Script Extension für Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) Version 1.9.1 oder höher. Custom Script Extension ist ein Tool, das zum automatischen Starten von VM-Anpassungstasks nach der Bereitstellung verwendet werden kann.
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) Version 2.76.0.0 oder höher. DSC ist eine Verwaltungsplattform in Windows PowerShell, die die Bereitstellung und Verwaltung von Konfigurationsdaten für Softwaredienste sowie die Verwaltung der Umgebung ermöglicht, in der diese Dienste ausgeführt werden.
 
-Weitere Informationen über das Hinzufügen von Elementen zum Azure Stack-Marketplace finden Sie unter [Der Azure Stack-Marketplace – Übersicht](azure-stack-marketplace.md).
+Weitere Informationen über das Hinzufügen von Elementen zum Azure Stack Hub-Marketplace finden Sie unter [Der Azure Stack Hub-Marketplace – Übersicht](azure-stack-marketplace.md).
 
 ## <a name="create-a-sql-server-alwayson-availability-group"></a>Erstellen einer SQL Server-Always On-Verfügbarkeitsgruppe
-Mit den Schritten in diesem Abschnitt stellen Sie mithilfe der [Azure Stack-Schnellstartvorlage „sql-2016-alwayson“](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson) eine SQL Server-Always On-Verfügbarkeitsgruppe bereit. Diese Vorlage stellt zwei SQL Server Enterprise-Instanzen – Standard oder Developer – in einer Always On-Verfügbarkeitsgruppe bereit. Er erstellt die folgenden Ressourcen:
+Mit den Schritten in diesem Abschnitt stellen Sie mithilfe der [Azure Stack Hub-Schnellstartvorlage „sql-2016-alwayson“](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson) eine SQL Server-Always On-Verfügbarkeitsgruppe bereit. Diese Vorlage stellt zwei SQL Server Enterprise-Instanzen – Standard oder Developer – in einer Always On-Verfügbarkeitsgruppe bereit. Er erstellt die folgenden Ressourcen:
 
 - Eine Netzwerksicherheitsgruppe.
 - Ein virtuelles Netzwerk
@@ -69,21 +69,21 @@ Mit den Schritten in diesem Abschnitt stellen Sie mithilfe der [Azure Stack-Schn
 
 3. Klicken Sie auf dem Blatt **Benutzerdefinierte Bereitstellung** auf **Vorlage bearbeiten** > **Schnellstartvorlage**, und wählen Sie dann aus der Dropdownliste der verfügbaren benutzerdefinierten Vorlagen die Vorlage **sql-2016-alwayson** aus. Klicken Sie auf **OK** und dann auf **Speichern**.
 
-   [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "Auswählen der Schnellstartvorlage")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
+   [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "Select quickstart template")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
 
 4. Klicken Sie auf dem Blatt **Benutzerdefinierte Bereitstellung** auf **Parameter bearbeiten**, und sehen Sie sich die Standardwerte an. Ändern Sie die Werte nach Bedarf, um alle erforderlichen Parameterinformationen anzugeben, und klicken Sie dann auf **OK**.<br><br> Mindestangaben:
 
     - Geben Sie komplexe Kennwörter für die Parameter ADMINPASSWORD, SQLSERVERSERVICEACCOUNTPASSWORD und SQLAUTHPASSWORD an.
     - Geben Sie das DNS-Suffix für Reverse-Lookups für den Parameter DNSSUFFIX in Kleinbuchstaben ein (**azurestack.external** bei ASDK-Installationen).
     
-   [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "Bearbeiten von benutzerdefinierten Bereitstellungsparametern")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
+   [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "Edit custom deployment parameters")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
 
 5. Wählen Sie auf dem Blatt **Benutzerdefinierte Bereitstellung** das gewünschte Abonnement aus. Erstellen Sie dann eine neue Ressourcengruppe für die benutzerdefinierte Bereitstellung, oder wählen Sie eine vorhandene Ressourcengruppe aus.<br><br> Wählen Sie als Nächstes den Standort der Ressourcengruppe (**lokal** bei ASDK-Installationen), und klicken Sie auf **Erstellen**. Die Einstellungen für die benutzerdefinierte Bereitstellung werden überprüft, und dann wird die Bereitstellung gestartet.
 
-    [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Erstellen einer benutzerdefinierten Bereitstellung")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
+    [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Create custom deployment")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
-6. Klicken Sie im Verwaltungsportal auf **Ressourcengruppen** und dann auf den Namen der Ressourcengruppe, die Sie für die benutzerdefinierte Bereitstellung erstellt haben (in diesem Beispiel: **resource-group**). Überprüfen Sie den Status der Bereitstellung, um sicherzustellen, dass alle Bereitstellungen erfolgreich abgeschlossen wurden.<br><br>Überprüfen Sie danach die Ressourcengruppenelemente, und wählen Sie das Element **SQLPIPsql\<Ressourcengruppenname\>** für die öffentliche IP-Adresse aus. Notieren Sie sich die öffentliche IP-Adresse und den vollqualifizierten Domänennamen (FQDN) der öffentlichen IP-Adresse des Lastenausgleichsmoduls. Diese Informationen müssen Sie an einen Azure Stack-Bediener weitergeben, damit dieser einen SQL-Hostserver mit dieser SQL-Always On-Verfügbarkeitsgruppe erstellen kann.
+6. Klicken Sie im Verwaltungsportal auf **Ressourcengruppen** und dann auf den Namen der Ressourcengruppe, die Sie für die benutzerdefinierte Bereitstellung erstellt haben (in diesem Beispiel: **resource-group**). Überprüfen Sie den Status der Bereitstellung, um sicherzustellen, dass alle Bereitstellungen erfolgreich abgeschlossen wurden.<br><br>Überprüfen Sie danach die Ressourcengruppenelemente, und wählen Sie das Element **SQLPIPsql\<Ressourcengruppenname\>** für die öffentliche IP-Adresse aus. Notieren Sie sich die öffentliche IP-Adresse und den vollqualifizierten Domänennamen (FQDN) der öffentlichen IP-Adresse des Lastenausgleichsmoduls. Diese Informationen müssen Sie an einen Azure Stack Hub-Operator weitergeben, damit dieser einen SQL-Hostserver mit dieser SQL-Always On-Verfügbarkeitsgruppe erstellen kann.
 
    > [!NOTE]
    > Die Vorlagenbereitstellung dauert mehrere Stunden.
@@ -129,15 +129,15 @@ Verwenden Sie diese Befehle, um die Serveroption „contained database authentic
   ```
 >  ![Festlegen von „contained database authentication“](./media/azure-stack-tutorial-sqlrp/sql3.png)
 
-## <a name="create-an-azure-stack-sql-hosting-server"></a>Erstellen eines Azure Stack-SQL-Hostservers
-Nachdem die SQL Server-Always On-Verfügbarkeitsgruppe erstellt und ordnungsgemäß konfiguriert wurde, muss ein Azure Stack-Bediener einen Azure Stack-SQL-Hostserver erstellen, um Benutzern die zusätzliche Kapazität zur Verfügung zu stellen, damit diese Datenbanken erstellen können. 
+## <a name="create-an-azure-stack-hub-sql-hosting-server"></a>Erstellen eines Azure Stack Hub-SQL-Hostservers
+Nachdem die SQL Server-Always On-Verfügbarkeitsgruppe erstellt und ordnungsgemäß konfiguriert wurde, muss ein Azure Stack Hub-Operator einen Azure Stack Hub-SQL-Hostserver erstellen, um Benutzern die zusätzliche Kapazität zur Verfügung zu stellen, damit diese Datenbanken erstellen können. 
 
 Verwenden Sie die öffentliche IP-Adresse oder den vollständigen vollqualifizierten Domänennamen für die öffentliche IP-Adresse des Lastenausgleichsmoduls, die bzw. den Sie beim Erstellen der Ressourcengruppe (**SQLPIPsql\<Ressourcengruppenname\>** ) für die SQL AlwaysOn-Verfügbarkeitsgruppe erfasst haben. Darüber hinaus benötigen Sie die Anmeldeinformationen für die SQL Server-Authentifizierung, die für den Zugriff auf die SQL Server-Instanzen in der AlwaysOn-Verfügbarkeitsgruppe verwendet werden.
 
 > [!NOTE]
-> Dieser Schritt muss im Azure Stack-Verwaltungsportal von einem Azure Stack-Bediener ausgeführt werden.
+> Dieser Schritt muss im Azure Stack Hub-Verwaltungsportal von einem Azure Stack Hub-Operator ausgeführt werden.
 
-Mit der öffentlichen IP-Adresse des Listeners für das Lastenausgleichsmodul der SQL-AlwaysOn-Verfügbarkeitsgruppe und den Anmeldeinformationen für die SQL-Authentifizierung kann ein Azure Stack-Bediener nun [unter Verwendung der SQL AlwaysOn-Verfügbarkeitsgruppe einen SQL-Hostserver erstellen](azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups). 
+Mit der öffentlichen IP-Adresse des Listeners für das Lastenausgleichsmodul der SQL-Always On-Verfügbarkeitsgruppe und den Anmeldeinformationen für die SQL-Authentifizierung kann ein Azure Stack Hub-Operator nun [unter Verwendung der SQL Always On-Verfügbarkeitsgruppe einen SQL-Hostserver erstellen](azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups). 
 
 Darüber hinaus müssen Sie Pläne und Angebote erstellt haben, um Benutzern die Erstellung von SQL AlwaysOn-Datenbanken zu ermöglichen. Der Bediener muss den **Microsoft.SqlAdapter**-Dienst zu einem Plan hinzufügen und ein neues Kontingent speziell für hoch verfügbare Datenbanken erstellen. Weitere Informationen zum Erstellen von Plänen finden Sie unter [Übersicht über Dienste, Pläne, Angebote und Abonnements](service-plan-offer-subscription-overview.md).
 
@@ -145,19 +145,19 @@ Darüber hinaus müssen Sie Pläne und Angebote erstellt haben, um Benutzern die
 > Der **Microsoft.SqlAdapter**-Dienst kann erst dann zu Plänen hinzugefügt werden, wenn der [SQL Server-Ressourcenanbieter bereitgestellt wurde](azure-stack-sql-resource-provider-deploy.md).
 
 ## <a name="create-a-highly-available-sql-database"></a>Erstellen einer hoch verfügbaren SQL-Datenbank
-Nachdem die SQL-Always On-Verfügbarkeitsgruppe durch einen Azure Stack-Bediener erstellt, konfiguriert und als Azure Stack-SQL-Hostserver hinzugefügt wurde, können Mandantenbenutzer mit einem Abonnement, das SQL Server-Datenbankfunktionen enthält, SQL-Datenbanken mit Always On-Funktionalität erstellen. Führen Sie dazu die Schritte in diesem Abschnitt aus. 
+Nachdem die SQL-Always On-Verfügbarkeitsgruppe durch einen Azure Stack Hub-Operator erstellt, konfiguriert und als Azure Stack Hub-SQL-Hostserver hinzugefügt wurde, können Mandantenbenutzer mit einem Abonnement, das SQL Server-Datenbankfunktionen enthält, SQL-Datenbanken mit Always On-Funktionalität erstellen. Führen Sie dazu die Schritte in diesem Abschnitt aus. 
 
 > [!NOTE]
-> Führen Sie diese Schritte als Mandantenbenutzer im Azure Stack-Benutzerportal mit einem Abonnement aus, das SQL Server-Funktionen (Microsoft.SQLAdapter-Dienst) bereitstellt.
+> Führen Sie diese Schritte als Mandantenbenutzer im Azure Stack Hub-Benutzerportal mit einem Abonnement aus, das SQL Server-Funktionen (Microsoft.SQLAdapter-Dienst) bereitstellt.
 
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. Klicken Sie auf **\+** **Ressource erstellen** > **Daten \+ Speicher** und dann auf **SQL-Datenbank**.<br><br>Geben Sie die erforderlichen Datenbankeigenschaften – Name, Sortierung, maximale Größe – sowie das Abonnement, die Ressourcengruppe und den Standort für die Bereitstellung an. 
+2. Wählen Sie **\+** **Ressource erstellen** > **Daten \+ Speicher** und dann **SQL-Datenbank** aus.<br><br>Geben Sie die erforderlichen Datenbankeigenschaften – Name, Sortierung, maximale Größe – sowie das Abonnement, die Ressourcengruppe und den Standort für die Bereitstellung an. 
 
    ![Erstellen einer SQL-Datenbank](./media/azure-stack-tutorial-sqlrp/createdb1.png)
 
-3. Klicken Sie auf **SKU**, und wählen Sie eine geeignete SKU für den SQL-Hostserver aus. In diesem Beispiel hat der Azure Stack-Bediener die SKU **Enterprise-HA** erstellt, um die Hochverfügbarkeit für SQL-Always On-Verfügbarkeitsgruppen zu unterstützen.
+3. Klicken Sie auf **SKU**, und wählen Sie eine geeignete SKU für den SQL-Hostserver aus. In diesem Beispiel hat der Azure Stack Hub-Operator die SKU **Enterprise-HA** erstellt, um die Hochverfügbarkeit für SQL-Always On-Verfügbarkeitsgruppen zu unterstützen.
 
    ![Auswählen der SKU](./media/azure-stack-tutorial-sqlrp/createdb2.png)
 

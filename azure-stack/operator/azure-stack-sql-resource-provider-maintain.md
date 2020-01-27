@@ -1,7 +1,7 @@
 ---
 title: Wartungsvorgänge von SQL-Ressourcenanbietern
-titleSuffix: Azure Stack
-description: Hier finden Sie Informationen zu Wartungsvorgängen für den SQL-Ressourcenanbieter in Azure Stack.
+titleSuffix: Azure Stack Hub
+description: Hier finden Sie Informationen zu Wartungsvorgängen für den SQL-Ressourcenanbieter in Azure Stack Hub.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: d5467974a6b9164d92a2281fd94973835bc21993
-ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
+ms.openlocfilehash: 609d0d77af4f11630616567d36fd5ffc35a24a8d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75756881"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814472"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Wartungsvorgänge von SQL-Ressourcenanbietern
 
@@ -29,7 +29,7 @@ Der SQL-Ressourcenanbieter wird auf einem gesperrten virtuellen Computer (virtua
 
 ## <a name="patching-and-updating"></a>Patchen und Aktualisieren
 
-Der SQL-Ressourcenanbieter wird nicht als Teil von Azure Stack gewartet, da es sich um eine Add-On-Komponente handelt. Microsoft stellt bei Bedarf Updates für den SQL-Ressourcenanbieter bereit. Bei der Veröffentlichung eines aktualisierten SQL-Adapters wird ein Skript zum Anwenden des Updates bereitgestellt. Dieses Skript erstellt eine neue Ressourcenanbieter-VM und migriert den Zustand der älteren Anbieter-VM auf die neue VM. Weitere Informationen finden Sie unter [Aktualisieren des SQL-Ressourcenanbieters](azure-stack-sql-resource-provider-update.md).
+Der SQL-Ressourcenanbieter wird nicht als Teil von Azure Stack Hub gewartet, da es sich um eine Add-On-Komponente handelt. Microsoft stellt bei Bedarf Updates für den SQL-Ressourcenanbieter bereit. Bei der Veröffentlichung eines aktualisierten SQL-Adapters wird ein Skript zum Anwenden des Updates bereitgestellt. Dieses Skript erstellt eine neue Ressourcenanbieter-VM und migriert den Zustand der älteren Anbieter-VM auf die neue VM. Weitere Informationen finden Sie unter [Aktualisieren des SQL-Ressourcenanbieters](azure-stack-sql-resource-provider-update.md).
 
 ### <a name="provider-vm"></a>Anbieter-VM
 
@@ -37,7 +37,7 @@ Da der Ressourcenanbieter auf einer *Benutzer*-VM ausgeführt wird, müssen Sie 
 
 ## <a name="updating-sql-credentials"></a>Aktualisieren von SQL-Anmeldeinformationen
 
-Sie sind für das Erstellen und Verwalten von Systemadministratorkonten auf Ihren SQL Server-Instanzen verantwortlich. Der Ressourcenanbieter benötigt ein Konto mit diesen Berechtigungen zum Verwalten von Datenbanken für Benutzer – er benötigt keinen Zugriff auf die Daten der Benutzer. Wenn Sie die Systemadministratorkennwörter auf Ihren SQL Server-Instanzen ändern müssen, können Sie die Administratorschnittstelle des Ressourcenanbieters verwenden, um das gespeicherte Kennwort zu ändern. Diese Kennwörter werden in einem Schlüsseltresor in Ihrer Azure Stack-Instanz gespeichert.
+Sie sind für das Erstellen und Verwalten von Systemadministratorkonten auf Ihren SQL Server-Instanzen verantwortlich. Der Ressourcenanbieter benötigt ein Konto mit diesen Berechtigungen zum Verwalten von Datenbanken für Benutzer – er benötigt keinen Zugriff auf die Daten der Benutzer. Wenn Sie die Systemadministratorkennwörter auf Ihren SQL Server-Instanzen ändern müssen, können Sie die Administratorschnittstelle des Ressourcenanbieters verwenden, um das gespeicherte Kennwort zu ändern. Diese Kennwörter werden in einem Schlüsseltresor in Ihrer Azure Stack Hub-Instanz gespeichert.
 
 Um die Einstellungen zu ändern, wählen Sie **Durchsuchen** &gt; **VERWALTUNGSRESSOURCEN** &gt; **SQL-Hostserver** &gt; **SQL-Anmeldungen**, und wählen Sie einen Benutzernamen aus. Die Änderung muss zuerst auf der SQL-Instanz vorgenommen werden (und ggf. auf allen Replikaten). Wählen Sie unter **Einstellungen** die Option **Kennwort** aus.
 
@@ -45,9 +45,9 @@ Um die Einstellungen zu ändern, wählen Sie **Durchsuchen** &gt; **VERWALTUNGSR
 
 ## <a name="secrets-rotation"></a>Geheimnisrotation
 
-*Diese Anweisungen gelten nur für integrierte Azure Stack-Systeme.*
+*Diese Anweisungen gelten nur für integrierte Azure Stack Hub-Systeme.*
 
-Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stack-Systemen ist der Azure Stack-Operator dafür verantwortlich, die folgenden Geheimnisse der Ressourcenanbieterinfrastruktur zu rotieren, um sicherzustellen, dass sie nicht ablaufen:
+Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stack Hub-Systemen ist der Azure Stack Hub-Operator dafür verantwortlich, die folgenden Geheimnisse der Ressourcenanbieterinfrastruktur zu rotieren, um sicherzustellen, dass sie nicht ablaufen:
 
 - Das [während der Bereitstellung angegebene](azure-stack-pki-certs.md) externe SSL-Zertifikat
 - Das während der Bereitstellung angegebene Kennwort des lokalen Administratorkontos der Ressourcenanbieter-VM
@@ -101,10 +101,10 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
 
 ### <a name="secretrotationsqlproviderps1-parameters"></a>Parameter für „SecretRotationSQLProvider.ps1“
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-----|-----|
-|AzCredential|Anmeldeinformationen für das Azure Stack-Dienstadministratorkonto|
-|CloudAdminCredential|Anmeldeinformationen für das Domänenkonto des Azure Stack-Cloudadministrators|
+|AzCredential|Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto.|
+|CloudAdminCredential|Anmeldeinformationen für das Domänenkonto des Azure Stack Hub-Cloudadministrators.|
 |PrivilegedEndpoint|Privilegierter Endpunkt für den Zugriff auf „Get-AzureStackStampInformation“|
 |DiagnosticsUserPassword|Kennwort des Diagnosebenutzerkontos|
 |VMLocalCredential|Lokales Administratorkonto des virtuellen Computers „MySQLAdapter“|

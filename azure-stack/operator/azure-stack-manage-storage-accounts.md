@@ -1,6 +1,6 @@
 ---
-title: Verwalten von Azure Stack-Speicherkonten | Microsoft-Dokumentation
-description: Informationen zum Suchen, Verwalten, Wiederherstellen und Freigeben von Azure Stack-Speicherkonten
+title: Verwalten von Azure Stack Hub-Speicherkonten | Microsoft-Dokumentation
+description: Informationen zum Suchen, Verwalten, Wiederherstellen und Freigeben von Azure Stack Hub-Speicherkonten
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,30 +15,30 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 9af79442a0fb56e4d6a9cef99741b0180e84304c
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: 888d34441af672dfcfa27e8f48237c41105ce629
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534192"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817124"
 ---
-# <a name="manage-azure-stack-storage-accounts"></a>Verwalten von Azure Stack-Speicherkonten
+# <a name="manage-azure-stack-hub-storage-accounts"></a>Verwalten von Azure Stack Hub-Speicherkonten
 
-Hier erfahren Sie, wie Sie Azure Stack-Speicherkonten verwalten. Sie können Speicherkonten suchen und wiederherstellen sowie Speicherkapazität abhängig von Ihren geschäftlichen Anforderungen freigeben.
+Erfahren Sie, wie Sie Azure Stack Hub-Speicherkonten verwalten. Sie können Speicherkonten suchen und wiederherstellen sowie Speicherkapazität abhängig von Ihren geschäftlichen Anforderungen freigeben.
 
 ## <a name="find-a-storage-account"></a>Suchen eines Speicherkontos
 
-Sie können die Liste der Speicherkonten in der Region in Azure Stack abrufen, indem Sie wie folgt vorgehen:
+Sie können die Liste der Speicherkonten in der Region in Azure Stack Hub abrufen, indem Sie wie folgt vorgehen:
 
 1. Melden Sie sich beim [Administrator Portal](https://adminportal.local.azurestack.external) an.
 
 2. Wählen Sie **Alle Dienste** > **Speicher** > **Speicherkonten** aus.
 
-   ![Azure Stack-Speicherkonten](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Azure Stack Hub-Speicherkonten](media/azure-stack-manage-storage-accounts/image4.png)
 
 Standardmäßig werden die ersten 10 Konten angezeigt. Sie können weitere abrufen, indem Sie unten auf der Seite auf den Link **Weitere laden** klicken.
 
-OR
+oder
 
 Wenn Sie an einem bestimmten Speicherkonto interessiert sind, können Sie nur **die entsprechenden Konten abrufen**.
 
@@ -48,7 +48,7 @@ Wenn Sie an einem bestimmten Speicherkonto interessiert sind, können Sie nur **
 2. Im Filterbereich können Sie Werte für **Kontoname**, **Abonnement-ID** oder **Status** angeben, um die angezeigte Speicherkontoliste einzugrenzen. Nutzen Sie die Optionen je nach Bedarf.
 3. Der Filter wird automatisch auf die Liste angewendet, während Sie tippen.
 
-    ![Filtern von Azure Stack-Speicherkonten](media/azure-stack-manage-storage-accounts/image5.png)
+    ![Filtern von Azure Stack Hub-Speicherkonten](media/azure-stack-manage-storage-accounts/image5.png)
 
 4. Klicken Sie zum Zurücksetzen des Filters auf **Filter**, deaktivieren Sie die getroffene Auswahl, und aktualisieren Sie die Liste.
 
@@ -56,7 +56,7 @@ Mit dem Suchfeld (oben im Bereich mit der Speicherkontenliste) können Sie den a
 
 Hier können Sie Freitext verwenden, um das gewünschte Konto zu finden.
 
-![Suchen nach Azure Stack-Speicherkonten](media/azure-stack-manage-storage-accounts/image6.png)
+![Suchen nach Azure Stack Hub-Speicherkonten](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Überprüfen der Kontodetails
 Wenn Sie die gewünschten Konten gefunden haben, können Sie auf ein Konto klicken, um bestimmte Details anzuzeigen. Dann wird ein neuer Bereich mit den Kontodetails geöffnet. Zu diesen Details zählen die Art des Kontos, der Zeitpunkt der Erstellung, der Standort usw.
@@ -66,7 +66,7 @@ Wenn Sie die gewünschten Konten gefunden haben, können Sie auf ein Konto klick
 ## <a name="recover-a-deleted-account"></a>Wiederherstellen eines gelöschten Kontos
 Es gibt Situationen, in denen Sie ein gelöschtes Konto wiederherstellen müssen.
 
-In Azure Stack gibt es hierfür eine einfache Möglichkeit:
+In Azure Stack Hub gibt es hierfür eine einfache Möglichkeit:
 
 1. Navigieren Sie zur Liste der Speicherkonten. Weitere Informationen finden Sie weiter oben in diesem Artikel unter [Suchen eines Speicherkontos](azure-stack-manage-storage-accounts.md).
 2. Suchen Sie das gewünschte Konto in der Liste. Möglicherweise müssen Sie filtern.
@@ -143,10 +143,10 @@ Sie können auch PowerShell verwenden, um den Aufbewahrungszeitraum explizit au�
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ```
 
-Weitere Informationen finden Sie in der [Azure Stack-PowerShell-Dokumentation](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
+Weitere Informationen finden Sie in der [Azure Stack Hub-PowerShell-Dokumentation](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
  
 
 ## <a name="next-steps"></a>Nächste Schritte
 
  - Informationen zum Verwalten von Berechtigungen finden Sie unter [Festlegen von Zugriffsberechtigungen mithilfe der rollenbasierten Zugriffssteuerung](azure-stack-manage-permissions.md).
- - Informationen zum Verwalten der Speicherkapazität für Azure Stack finden Sie unter [Verwalten der Speicherkapazität für Azure Stack](azure-stack-manage-storage-shares.md).
+ - Informationen zum Verwalten der Speicherkapazität für Azure Stack Hub finden Sie unter [Verwalten der Speicherkapazität für Azure Stack Hub](azure-stack-manage-storage-shares.md).

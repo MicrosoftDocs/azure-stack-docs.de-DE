@@ -1,6 +1,6 @@
 ---
-title: Kapazitätsplanung für App Service-Serverrollen in Azure Stack | Microsoft-Dokumentation
-description: Enthält Informationen zur Kapazitätsplanung für App Service-Serverrollen in Azure Stack.
+title: Kapazitätsplanung für App Service-Serverrollen in Azure Stack Hub | Microsoft-Dokumentation
+description: Enthält Informationen zur Kapazitätsplanung für App Service-Serverrollen in Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -16,18 +16,16 @@ ms.date: 03/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 80dc7bae2371025fba82531b08216606580176e1
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: d0273a1d8bca100f09254804919ba0061b6c7bd3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975199"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880684"
 ---
-# <a name="capacity-planning-for-app-service-server-roles-in-azure-stack"></a>Kapazitätsplanung für App Service-Serverrollen in Azure Stack
+# <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Kapazitätsplanung für App Service-Serverrollen in Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-Um eine produktionsfertige Bereitstellung von Azure App Service in Azure Stack einzurichten, müssen Sie die Kapazität planen, die Sie für das System erwarten.  
+Um eine produktionsfertige Bereitstellung von Azure App Service in Azure Stack Hub einzurichten, müssen Sie die Kapazität planen, die Sie für das System erwarten.  
 
 Dieser Artikel enthält Informationen zu der Mindestanzahl von Computeinstanzen und Compute-SKUs, die Sie für jede Produktionsbereitstellung verwenden sollten.
 
@@ -82,7 +80,7 @@ Für die Bereitstellung von Azure Functions für Benutzer im Verbrauchsplanmodel
 Beachten Sie bei der Entscheidung über die Anzahl der zu verwendenden freigegebenen Webworkerrollen folgende Überlegungen:
 
 - **Arbeitsspeicher**: Arbeitsspeicher ist die wichtigste Ressource für eine Webworkerrolle. Unzureichender Arbeitsspeicher wirkt sich auf die Websiteleistung aus, wenn virtueller Arbeitsspeicher vom Datenträger ausgelagert wird. Jeder Server benötigt ungefähr 1,2 GB Arbeitsspeicher für das Betriebssystem. Arbeitsspeicher oberhalb dieses Schwellenwerts kann für das Ausführen von Websites verwendet werden.
-- **Prozentsatz der aktiven Websites**: Normalerweise sind bei einer Azure Stack-Bereitstellung ungefähr 5 % der Apps in Azure App Service aktiv. Der Prozentsatz der Apps, die jeweils aktiv sind, kann aber auch höher oder niedriger liegen. Bei einer App-Aktivitätsrate von 5 % sollte die maximale Anzahl von Apps in Azure App Service bei einer Azure Stack-Bereitstellung kleiner als das 20-fache der Anzahl aktiver Websites sein (5 x 20 = 100).
+- **Prozentsatz der aktiven Websites**: Normalerweise sind bei einer Azure Stack Hub-Bereitstellung ungefähr 5 % der Apps in Azure App Service aktiv. Der Prozentsatz der Apps, die jeweils aktiv sind, kann aber auch höher oder niedriger liegen. Bei einer App-Aktivitätsrate von 5 % sollte die maximale Anzahl von Apps in Azure App Service bei einer Azure Stack Hub-Bereitstellung kleiner als das 20-fache der Anzahl aktiver Websites sein (5 x 20 = 100).
 - **Durchschnittliche Arbeitsspeicheranforderung**: Die in Produktionsumgebungen ermittelte durchschnittliche Arbeitsspeicheranforderung für Apps beträgt ungefähr 70 MB. Bei Verwendung dieser Arbeitsspeicheranforderung wird der allen Computern bzw. virtuellen Computern der Webworkerrolle zugewiesene Arbeitsspeicher wie folgt berechnet:
 
    `Number of provisioned applications * 70 MB * 5% - (number of web worker roles * 1044 MB)`
@@ -95,11 +93,11 @@ Beachten Sie bei der Entscheidung über die Anzahl der zu verwendenden freigegeb
 
 ### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>Weitere Überlegungen im Zusammenhang mit dedizierten Workern bei Upgrades und Wartungsmaßnahmen
 
-Bei Upgrades und Wartungsmaßnahmen für Worker führt Azure App Service in Azure Stack die Wartung nacheinander für jeweils 20 Prozent der einzelnen Workertarife durch.  Cloudadministratoren müssen daher darauf achten, dass pro Workertarif immer ein Poolanteil von 20 % verfügbar ist, um Dienstausfälle bei Upgrades und Wartungsmaßnahmen zu vermeiden.  Wenn Sie in einem Workertarif beispielsweise über zehn Worker verfügen, sollten Sie sicherstellen, dass zwei davon nicht zugeordnet sind, um Upgrades und die Wartung zu ermöglichen. Falls ein Zustand erreicht wird, in dem alle zehn Worker zugeordnet sind, sollten Sie für den Workertarif zentral hochskalieren, um einen Pool mit nicht zugeordneten Workern zur Verfügung zu haben. 
+Bei Upgrades und Wartungsmaßnahmen für Worker führt Azure App Service in Azure Stack Hub die Wartung nacheinander für jeweils 20 Prozent der einzelnen Workertarife durch.  Cloudadministratoren müssen daher darauf achten, dass pro Workertarif immer ein Poolanteil von 20 % verfügbar ist, um Dienstausfälle bei Upgrades und Wartungsmaßnahmen zu vermeiden.  Wenn Sie in einem Workertarif beispielsweise über zehn Worker verfügen, sollten Sie sicherstellen, dass zwei davon nicht zugeordnet sind, um Upgrades und die Wartung zu ermöglichen. Falls ein Zustand erreicht wird, in dem alle zehn Worker zugeordnet sind, sollten Sie für den Workertarif zentral hochskalieren, um einen Pool mit nicht zugeordneten Workern zur Verfügung zu haben. 
 
 Während der Upgrade- und Wartungsvorgänge verschiebt Azure App Service Workloads auf nicht zugeordnete Worker, um sicherzustellen, dass die Workloads weiterhin ausgeführt werden können. Falls während des Upgrades aber keine nicht zugeordneten Worker verfügbar sind, kann es für Mandantenworkloads zu Ausfällen kommen. In Bezug auf gemeinsam verwendete Worker müssen Kunden aber keine zusätzlichen Worker bereitstellen, da der Dienst Mandanten-Apps in verfügbaren Workern automatisch zuordnet. Zur Erzielung von Hochverfügbarkeit müssen bei diesem Tarif mindestens zwei Worker verfügbar sein.
 
-Cloudadministratoren können ihre Workertarifzuordnung im App Service-Verwaltungsbereich des Azure Stack-Administratorportals überwachen. Navigieren Sie zu App Service, und wählen Sie im linken Bereich die Option „Workertarife“ aus. Die Tabelle mit den Workertarifen enthält den Namen des Workertarifs sowie Größe, verwendetes Image, Anzahl verfügbarer (nicht zugeordneter) Worker, Gesamtanzahl von Workern im jeweiligen Tarif und den allgemeinen Zustand des Workertarifs.
+Cloudadministratoren können ihre Workertarifzuordnung im App Service-Verwaltungsbereich des Azure Stack Hub-Administratorportals überwachen. Navigieren Sie zu App Service, und wählen Sie im linken Bereich die Option „Workertarife“ aus. Die Tabelle mit den Workertarifen enthält den Namen des Workertarifs sowie Größe, verwendetes Image, Anzahl verfügbarer (nicht zugeordneter) Worker, Gesamtanzahl von Workern im jeweiligen Tarif und den allgemeinen Zustand des Workertarifs.
 
 ![App Service-Verwaltung: Workertarife][1]
 
@@ -119,7 +117,7 @@ Weitere Informationen finden Sie unter [Bereitstellen eines Dateiservers](azure-
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Voraussetzungen für das Bereitstellen von App Service unter Azure Stack](azure-stack-app-service-before-you-get-started.md)
+[Voraussetzungen für das Bereitstellen von App Service unter Azure Stack Hub](azure-stack-app-service-before-you-get-started.md)
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

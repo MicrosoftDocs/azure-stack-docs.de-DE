@@ -1,6 +1,6 @@
 ---
-title: Herstellen einer Verbindung mit dem iSCSI-Speicher mit Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mit Azure Stack eine Verbindung mit dem iSCSI-Speicher herstellen.
+title: Herstellen einer Verbindung mit dem iSCSI-Speicher mit Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie mit Azure Stack Hub eine Verbindung mit dem iSCSI-Speicher herstellen.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,31 +9,29 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 0fe542cf17ce5b47436c8838c8d7c61b22e2fda8
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 5616284e7632f89ba31c89febb5a26158ad81bd7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718452"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879036"
 ---
-# <a name="how-to-connect-to-iscsi-storage-with-azure-stack"></a>Herstellen einer Verbindung mit dem iSCSI-Speicher mit Azure Stack
+# <a name="how-to-connect-to-iscsi-storage-with-azure-stack-hub"></a>Herstellen einer Verbindung mit dem iSCSI-Speicher mit Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+Mithilfe der Vorlage in diesem Artikel können Sie einen virtuellen Azure Stack Hub-Computer mit einem lokalen iSCSI-Ziel verbinden und den virtuellen Computer so einrichten, dass Speicher außerhalb von Azure Stack Hub und an anderer Stelle in Ihrem Rechenzentrum verwendet werden. Dieser Artikel befasst sich mit der Verwendung eines Windows-Computers als iSCSI-Ziel.
 
-Mithilfe der Vorlage in diesem Artikel können Sie einen virtuellen Azure Stack-Computer mit einem lokalen iSCSI-Ziel verbinden und den virtuellen Computer so einrichten, dass Speicher außerhalb von Azure Stack und an anderer Stelle in Ihrem Rechenzentrum verwendet werden. Dieser Artikel befasst sich mit der Verwendung eines Windows-Computers als iSCSI-Ziel.
-
-Die Vorlage finden Sie im Fork **lucidqdreams** des GitHub-Repositorys [Azure Intelligent Edge Patterns](https://github.com/lucidqdreams/azure-intelligent-edge-patterns). Die Vorlage befindet sich im Ordner **storage-iSCSI**. Die Vorlage ist so ausgelegt, dass die in Azure Stack erforderliche Infrastruktur für die Herstellung einer Verbindung mit einem iSCSI-Ziel eingerichtet wird. Dies umfasst einen virtuellen Computer, der als iSCSI-Initiator agiert, zusammen mit den zugehörigen Komponenten: VNET, Netzwerksicherheitsgruppe, PIP und Speicher. Nach dem Bereitstellen der Vorlage müssen zwei PowerShell-Skripts ausgeführt werden, um die Konfiguration abzuschließen. Ein Skript wird auf dem lokalen virtuellen Computer (Ziel) ausgeführt und das andere auf dem virtuellen Azure Stack-Computer (Initiator). Nach dem Ausführen dieser Skripts wird dem virtuellen Azure Stack-Computer der lokale Speicher hinzugefügt. 
+Die Vorlage finden Sie im Fork **lucidqdreams** des GitHub-Repositorys [Azure Intelligent Edge Patterns](https://github.com/lucidqdreams/azure-intelligent-edge-patterns). Die Vorlage befindet sich im Ordner **storage-iSCSI**. Die Vorlage ist so ausgelegt, dass die in Azure Stack Hub erforderliche Infrastruktur für die Herstellung einer Verbindung mit einem iSCSI-Ziel eingerichtet wird. Dies umfasst einen virtuellen Computer, der als iSCSI-Initiator agiert, zusammen mit den zugehörigen Komponenten: VNET, Netzwerksicherheitsgruppe, PIP und Speicher. Nach dem Bereitstellen der Vorlage müssen zwei PowerShell-Skripts ausgeführt werden, um die Konfiguration abzuschließen. Ein Skript wird auf dem lokalen virtuellen Computer (Ziel) ausgeführt und das andere auf dem virtuellen Azure Stack Hub-Computer (Initiator). Nach dem Ausführen dieser Skripts wird dem virtuellen Azure Stack Hub-Computer der lokale Speicher hinzugefügt. 
 
 ## <a name="overview"></a>Übersicht
 
-In der Abbildung ist ein virtueller Computer dargestellt, der über einen (virtuellen oder physischen) Windows-Computer lokal mit einem eingebundenen iSCSI-Datenträger in Azure Stack gehostet wird, sodass Speicher außerhalb von Azure Stack über das iSCSI-Protokoll innerhalb Ihres in Azure Stack gehosteten virtuellen Computers eingebunden werden kann.
+In der Abbildung ist ein virtueller Computer dargestellt, der über einen (virtuellen oder physischen) Windows-Computer lokal mit einem eingebundenen iSCSI-Datenträger in Azure Stack Hub gehostet wird, sodass Speicher außerhalb von Azure Stack Hub über das iSCSI-Protokoll innerhalb Ihres in Azure Stack Hub gehosteten virtuellen Computers eingebunden werden kann.
 
 ![alt text](./media/azure-stack-network-howto-iscsi-storage/overview.png)
 
 ### <a name="requirements"></a>Requirements (Anforderungen)
 
 - Ein lokaler (physischer oder virtueller) Computer, auf dem Windows Server 2016 Datacenter oder Windows Server 2019 Datacenter ausgeführt wird
-- Erforderliche Azure Stack-Marketplace-Elemente:
+- Erforderliche Azure Stack Hub-Marketplace-Elemente:
     -  Windows Server 2016 Datacenter oder Windows Server 2019 Datacenter (neuester Build empfohlen)
     -  PowerShell DSC-Erweiterung
     -  Benutzerdefinierte Skripterweiterung
@@ -65,10 +63,10 @@ In der Abbildung sind die mithilfe der Vorlage zum Erstellen des iSCSI-Clients b
 
 ### <a name="the-deployment-process"></a>Bereitstellungsprozess
 
-Mit der Ressourcengruppenvorlage wird eine Ausgabe generiert, die als Eingabe für den nächsten Schritt dienen soll. Sie ist hauptsächlich auf den Servernamen und die öffentliche IP-Adresse für Azure Stack konzentriert, von denen der iSCSI-Datenverkehr stammt. In diesem Beispiel:
+Mit der Ressourcengruppenvorlage wird eine Ausgabe generiert, die als Eingabe für den nächsten Schritt dienen soll. Sie ist hauptsächlich auf den Servernamen und die öffentliche IP-Adresse für Azure Stack Hub konzentriert, von denen der iSCSI-Datenverkehr stammt. In diesem Beispiel:
 
 1. Stellen Sie die Infrastrukturvorlage bereit.
-2. Stellen Sie einen virtuellen Azure Stack-Computer auf einem virtuellen Computer bereit, der an anderer Stelle in Ihrem Rechenzentrum gehostet wird. 
+2. Stellen Sie einen virtuellen Azure Stack Hub-Computer auf einem virtuellen Computer bereit, der an anderer Stelle in Ihrem Rechenzentrum gehostet wird. 
 3. Führen Sie `Create-iSCSITarget.ps1` mit den Ausgaben für die IP-Adresse und den Servernamen aus der Vorlage als Ein-/Ausgabeparameter für das Skript auf dem iSCSI-Ziel aus, bei dem es sich um einen virtuellen Computer oder einen physischen Server handeln kann.
 4. Verwenden Sie die externen IP-Adressen des iSCSI-Zielservers als Eingaben, um das Skript `Connect-toiSCSITarget.ps1` auszuführen. 
 
@@ -143,4 +141,4 @@ Das Skript `Connect-toiSCSITarget.ps1` wird als abschließendes Skript auf dem i
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Azure Stack-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)  
+[Azure Stack Hub-Netzwerke: Unterschiede und Überlegungen](azure-stack-network-differences.md)  

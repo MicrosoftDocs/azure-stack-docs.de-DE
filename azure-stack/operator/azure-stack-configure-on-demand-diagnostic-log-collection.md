@@ -1,6 +1,6 @@
 ---
-title: Bedarfsgesteuertes Sammeln von Azure Stack-Diagnoseprotokollen | Microsoft-Dokumentation
-description: Es wird beschrieben, wie Sie in Azure Stack Diagnoseprotokolle bedarfsgesteuert sammeln, indem Sie „Hilfe und Support“ oder einen privilegierten Endpunkt (PEP) verwenden.
+title: Bedarfsgesteuertes Sammeln von Azure Stack Hub-Diagnoseprotokollen | Microsoft-Dokumentation
+description: Es wird beschrieben, wie Sie in Azure Stack Hub Diagnoseprotokolle bedarfsgesteuert sammeln, indem Sie „Hilfe und Support“ oder einen privilegierten Endpunkt (PEP) verwenden.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,25 +16,23 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: ccc552e6daee4f1492d1070a08f5be19e41217dd
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: f30791ec7514a68a6137d2b5d2db3441cf217f58
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690018"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883081"
 ---
-# <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>Bedarfsgesteuertes Sammeln von Azure Stack-Diagnoseprotokollen
+# <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Bedarfsgesteuertes Sammeln von Azure Stack Hub-Diagnoseprotokollen
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme*
-
-Im Rahmen der Problembehandlung muss der Microsoft-Kundensupport (Customer Support Services, CSS) möglicherweise Diagnoseprotokolle analysieren. Ab Version 1907 können Azure Stack-Betreiber Diagnoseprotokolle mithilfe von **Hilfe und Support** in einen Blobcontainer in Azure hochladen. Die Verwendung von **Hilfe und Support** ist einfacher und daher der Verwendung von PowerShell vorzuziehen. Wenn das Portal jedoch nicht verfügbar ist, können Betreiber Protokolle weiterhin wie in vorherigen Versionen mithilfe von **Get-AzureStackLog** über den privilegierten Endpunkt (PEP) erfassen. In diesem Thema werden beide Verfahren zum bedarfsgesteuerten Sammeln von Diagnoseprotokollen behandelt.
+Im Rahmen der Problembehandlung muss der Microsoft-Kundensupport (Customer Support Services, CSS) möglicherweise Diagnoseprotokolle analysieren. Ab Version 1907 können Azure Stack Hub-Operatoren Diagnoseprotokolle mithilfe von **Hilfe und Support** in einen Blobcontainer in Azure hochladen. Die Verwendung von **Hilfe und Support** ist einfacher und daher der Verwendung von PowerShell vorzuziehen. Wenn das Portal jedoch nicht verfügbar ist, können Betreiber Protokolle weiterhin wie in vorherigen Versionen mithilfe von **Get-AzureStackLog** über den privilegierten Endpunkt (PEP) erfassen. In diesem Thema werden beide Verfahren zum bedarfsgesteuerten Sammeln von Diagnoseprotokollen behandelt.
 
 >[!Note]
 >Als Alternative zum bedarfsgesteuerten Sammeln von Protokollen können Sie den Problembehandlungsprozess auch optimieren, indem Sie die [automatische Sammlung von Diagnoseprotokollen](azure-stack-configure-automatic-diagnostic-log-collection.md) aktivieren. Wenn die Integritätsbedingungen des Systems untersucht werden müssen, werden die Protokolle automatisch zur Analyse durch den Microsoft-Kundensupport (Microsoft Customer Support Services, CSS) hochgeladen. 
 
 ## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>Verwenden von „Hilfe und Support“ zum bedarfsgesteuerten Sammeln von Diagnoseprotokollen
 
-Zur Behandlung eines Problems fordert CSS einen Azure Stack-Operator möglicherweise auf, bei Bedarf Diagnoseprotokolle für ein bestimmtes Zeitfenster aus der vorangegangenen Woche zu erfassen. In diesem Fall stellt CSS dem Operator eine SAS-URL zum Hochladen der Sammlung zur Verfügung. Führen Sie die folgenden Schritte aus, um die bedarfsgesteuerte Protokollsammlung mithilfe der SAS-URL von CSS zu konfigurieren:
+Zur Behandlung eines Problems fordert CSS einen Azure Stack Hub-Operator möglicherweise auf, bei Bedarf Diagnoseprotokolle für ein bestimmtes Zeitfenster aus der vorangegangenen Woche zu erfassen. In diesem Fall stellt CSS dem Operator eine SAS-URL zum Hochladen der Sammlung zur Verfügung. Führen Sie die folgenden Schritte aus, um die bedarfsgesteuerte Protokollsammlung mithilfe der SAS-URL von CSS zu konfigurieren:
 
 1. Öffnen Sie **Hilfe und Support – Übersicht**, und klicken Sie auf **Protokolle jetzt sammeln**. 
 1. Wählen Sie ein beliebiges gleitendes Fenster von 1–4 Stunden in den letzten sieben Tagen aus. 
@@ -52,7 +50,7 @@ Zur Behandlung eines Problems fordert CSS einen Azure Stack-Operator möglicherw
 
 
 
-### <a name="run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Ausführen von „Get-AzureStackLog“ in integrierten Azure Stack-Systemen
+### <a name="run-get-azurestacklog-on-azure-stack-hub-integrated-systems"></a>Ausführen von „Get-AzureStackLog“ in integrierten Azure Stack Hub-Systemen
 
 Um „Get-AzureStackLog“ auf einem integrierten System auszuführen, benötigen Sie Zugriff auf den privilegierten Endpunkt (PEP). Das folgende Beispielskript können Sie mit dem PEP ausführen, um Protokolldaten in einem integrierten System zu erfassen:
 
@@ -110,7 +108,7 @@ Verwenden Sie diese Schritte zum Ausführen von `Get-AzureStackLog` auf einem AS
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-* Sammeln Sie Protokolle von Mandantenbereitstellungen, die auf selbstverwalteten Azure Kubernetes Service-Instanzen (AKS) auf Azure Stack ausgeführt werden. AKS-Protokolle sollten in einem Mandantenspeicherkonto in einem Format gespeichert werden, das zulässt, dass der Sammlungszeitraum auch auf sie angewendet wird. 
+* Sammeln Sie Protokolle von Mandantenbereitstellungen, die selbstverwaltete Azure Kubernetes Service-Instanzen (AKS) in Azure Stack Hub ausführen. AKS-Protokolle sollten in einem Mandantenspeicherkonto in einem Format gespeichert werden, das zulässt, dass der Sammlungszeitraum auch auf sie angewendet wird. 
 
   ```powershell
   Get-AzureStackLog -OutputPath <Path> -InputSasUri "<Blob Service Sas URI>" -FromDate "<Beginning of the time range>" -ToDate "<End of the time range>"
@@ -135,7 +133,7 @@ Verwenden Sie diese Schritte zum Ausführen von `Get-AzureStackLog` auf einem AS
   ```
 
   > [!NOTE]
-  > Diese Vorgehensweise eignet sich zum Hochladen von Protokollen. Auch wenn Sie nicht über eine SMB-Freigabe oder Internetzugriff verfügen, können Sie auf Ihrer Azure Stack-Instanz ein Blobspeicherkonto erstellen, um die Protokolle zu übertragen. Anschließend können Sie Ihren Client nutzen, um diese Protokolle abzurufen.  
+  > Diese Vorgehensweise eignet sich zum Hochladen von Protokollen. Auch wenn Sie nicht über eine SMB-Freigabe oder Internetzugriff verfügen, können Sie in Ihrer Azure Stack Hub-Instanz ein Blobspeicherkonto erstellen, um die Protokolle zu übertragen. Anschließend können Sie Ihren Client nutzen, um diese Protokolle abzurufen.  
 
   Um das SAS-Token für das Speicherkonto zu generieren, sind folgende Berechtigungen erforderlich:
 
@@ -202,7 +200,7 @@ Verwenden Sie diese Schritte zum Ausführen von `Get-AzureStackLog` auf einem AS
 
 ### <a name="additional-considerations-on-diagnostic-logs"></a>Weitere Aspekte zu Diagnoseprotokollen
 
-* Je nachdem, welche Rollen in den Protokollen gesammelt werden, kann dieser Befehl mehr Zeit beanspruchen. Zu den entscheidenden Faktoren gehören auch der Zeitraum, der für die Protokollsammlung angegeben wurde, und die Anzahl von Knoten in der Azure Stack-Umgebung.
+* Je nachdem, welche Rollen in den Protokollen gesammelt werden, kann dieser Befehl mehr Zeit beanspruchen. Zu den entscheidenden Faktoren gehören auch der Zeitraum, der für die Protokollsammlung angegeben wurde, und die Anzahl von Knoten in der Azure Stack Hub-Umgebung.
 * Überprüfen Sie während der Protokollsammlung den neuen Ordner, der mit dem **OutputSharePath**-Parameter des Befehls erstellt wird.
 * Für jede Rolle sind die Protokolle in separaten ZIP-Dateien enthalten. Abhängig von der Größe der gesammelten Protokolle kann das Protokoll einer Rolle möglicherweise in mehrere ZIP-Dateien aufgeteilt werden. Gehen Sie für eine Rolle dieser Art wie folgt vor, wenn Sie alle Protokolldateien in demselben Ordner entzippen möchten: Verwenden Sie ein Tool, mit dem das Entzippen als Massenvorgang durchgeführt werden kann. Wählen Sie alle ZIP-Dateien für die Rolle und dann **Hier entpacken** aus. Alle Protokolldateien für diese Rolle werden in einen einzelnen zusammengeführten Ordner entzippt.
 * Eine Datei namens **Get-AzureStackLog_Output.log** wird ebenfalls in dem Ordner mit den gezippten Protokolldateien erstellt. Diese Datei ist ein Protokoll der Befehlsausgabe, die Sie zum Beheben von Problemen während der Protokollsammlung verwenden können. In einigen Fällen enthält die Protokolldatei `PS>TerminatingError`-Einträge, die ignoriert werden können, es sei denn, nach der Protokollsammlung fehlen erwartete Protokolldateien.
@@ -254,25 +252,25 @@ if ($session) {
 
 ### <a name="how-diagnostic-log-collection-using-the-pep-works"></a>Funktionsweise der Diagnoseprotokollerfassung mit dem PEP
 
-Die Azure Stack-Diagnosetools helfen dabei, die Erfassung von Protokollen einfach und effizient zu machen. Im folgenden Diagramm ist dargestellt, wie die Diagnosetools funktionieren:
+Die Azure Stack Hub-Diagnosetools helfen dabei, die Erfassung von Protokollen einfach und effizient zu machen. Im folgenden Diagramm ist dargestellt, wie die Diagnosetools funktionieren:
 
-![Azure Stack-Diagnosetools: Workflowdiagramm](media/azure-stack-diagnostics/get-azslogs.png)
+![Azure Stack Hub-Diagnosetools: Workflowdiagramm](media/azure-stack-diagnostics/get-azslogs.png)
 
 
 #### <a name="trace-collector"></a>Collector der Ablaufverfolgung
 
-Der Collector der Ablaufverfolgung ist standardmäßig aktiviert und wird dauerhaft im Hintergrund ausgeführt, um alle ETW-Protokolle (Ereignisablaufverfolgung für Windows) von Azure Stack-Komponentendiensten zu sammeln. ETW-Protokolle werden maximal fünf Tage lang auf einer gemeinsam genutzten lokalen Freigabe gespeichert. Nachdem dieser Grenzwert erreicht wurde, werden die ältesten Dateien gelöscht, wenn neue Dateien erstellt werden. Die maximal zulässige Standardgröße pro Datei beträgt 200 MB. Die Größe wird alle zwei Minuten überprüft. Ab einer Größe von 200 MB wird die aktuelle Datei gespeichert und eine neue Datei generiert. Für die Gesamtdateigröße, die pro Ereignissitzung generiert werden kann, gilt außerdem eine Obergrenze von 8 GB.
+Der Collector der Ablaufverfolgung ist standardmäßig aktiviert und wird dauerhaft im Hintergrund ausgeführt, um alle ETW-Protokolle (Ereignisablaufverfolgung für Windows) von Azure Stack Hub-Komponentendiensten zu sammeln. ETW-Protokolle werden maximal fünf Tage lang auf einer gemeinsam genutzten lokalen Freigabe gespeichert. Nachdem dieser Grenzwert erreicht wurde, werden die ältesten Dateien gelöscht, wenn neue Dateien erstellt werden. Die maximal zulässige Standardgröße pro Datei beträgt 200 MB. Die Größe wird alle zwei Minuten überprüft. Ab einer Größe von 200 MB wird die aktuelle Datei gespeichert und eine neue Datei generiert. Für die Gesamtdateigröße, die pro Ereignissitzung generiert werden kann, gilt außerdem eine Obergrenze von 8 GB.
 
 #### <a name="get-azurestacklog"></a>Get-AzureStackLog
 
-Das PowerShell-Cmdlet „Get-AzureStackLog“ kann verwendet werden, um Protokolle für alle Komponenten einer Azure Stack-Umgebung zu sammeln. Sie werden an einem vom Benutzer angegebenen Ort in ZIP-Dateien gespeichert. Wenn das Team für den technischen Support für Azure Stack Ihre Protokolle für die Behandlung eines Problems benötigt, werden Sie unter Umständen gebeten, „Get-AzureStackLog“ auszuführen.
+Das PowerShell-Cmdlet „Get-AzureStackLog“ kann verwendet werden, um Protokolle für alle Komponenten einer Azure Stack Hub-Umgebung zu sammeln. Sie werden an einem vom Benutzer angegebenen Ort in ZIP-Dateien gespeichert. Wenn das Team für den technischen Support für Azure Stack Hub Ihre Protokolle für die Behandlung eines Problems benötigt, werden Sie unter Umständen gebeten, „Get-AzureStackLog“ auszuführen.
 
 > [!CAUTION]
 > Es kann sein, dass diese Protokolldateien personenbezogene Informationen enthalten. Berücksichtigen Sie dies, bevor Sie Protokolldateien öffentlich bereitstellen.
 
 Es folgen einige Beispiele für die gesammelten Protokolltypen:
 
-* **Azure Stack-Bereitstellungsprotokolle**
+* **Azure Stack Hub-Bereitstellungsprotokolle**
 * **Windows-Ereignisprotokolle**
 * **Panther-Protokolle**
 * **Clusterprotokolle**

@@ -1,6 +1,6 @@
 ---
-title: Überwachen von Änderungen in Azure Stack mithilfe des privilegierten Endpunkts | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie den privilegierten Endpunkt verwenden, um den Updatestatus für in Azure Stack integrierte Systeme zu überwachen.
+title: Überwachen von Änderungen in Azure Stack Hub mithilfe des privilegierten Endpunkts | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie den privilegierten Endpunkt verwenden, um den Updatestatus für in Azure Stack Hub integrierte Systeme zu überwachen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,40 +14,38 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: d99a49676f9ab684c5b83e8e68cf58f86efc948f
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: b2faf490b54fc7096c43b58864009bdee6117fe6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534059"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882265"
 ---
-# <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Überwachen von Änderungen in Azure Stack mithilfe des privilegierten Endpunkts
+# <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Überwachen von Änderungen in Azure Stack Hub mithilfe des privilegierten Endpunkts
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme*
+Sie können den [privilegierten Endpunkt](azure-stack-privileged-endpoint.md) nutzen, um den Fortschritt einer Updateausführung für Azure Stack Hub zu überwachen. Darüber hinaus können Sie den privilegierten Endpunkt verwenden, um einen nicht erfolgreichen Updatevorgang ab dem letzten erfolgreichen Schritt fortzusetzen, wenn das Azure Stack Hub-Portal nicht mehr verfügbar ist. Das Azure Stack Hub-Portal ist die empfohlene Methode zum Verwalten von Updates in Azure Stack Hub.
 
-Sie können den [privilegierten Endpunkt](azure-stack-privileged-endpoint.md) nutzen, um den Fortschritt einer Updateausführung für Azure Stack zu überwachen. Darüber hinaus können Sie den privilegierten Endpunkt verwenden, um einen nicht erfolgreichen Updatevorgang ab dem letzten erfolgreichen Schritt fortzusetzen, wenn das Azure Stack-Portal nicht mehr verfügbar ist. Das Azure Stack-Portal ist die empfohlene Methode zum Verwalten von Updates in Azure Stack.
+Die folgenden neuen PowerShell-Cmdlets für die Updateverwaltung sind im Update 1710 für in Azure Stack Hub integrierte Systeme enthalten.
 
-Die folgenden neuen PowerShell-Cmdlets für die Updateverwaltung sind im Update 1710 für in Azure Stack integrierte Systeme enthalten.
-
-| Cmdlet  | BESCHREIBUNG  |
+| Cmdlet  | Beschreibung  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | Gibt den Status des derzeit ausgeführten, abgeschlossenen oder fehlerhaften Updates zurück Stellt den allgemeinen Status des Updatevorgangs sowie ein XML-Dokument bereit, das den aktuellen Schritt und den zugehörigen Status beschreibt. |
 | `Resume-AzureStackUpdate` | Nimmt ein fehlerhaftes Update an der Stelle wieder auf, an der der Fehler aufgetreten ist. In bestimmten Szenarien müssen Sie möglicherweise Schritte Risikominderung durchführen, bevor Sie das Update fortsetzen.         |
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Überprüfen der Verfügbarkeit von Cmdlets
-Da die Cmdlets im Updatepaket 1710 für Azure Stack neu sind, muss der Updatevorgang für 1710 einen bestimmten Punkt erreichen, bevor die Überwachungsfunktionen zur Verfügung steht. In der Regel sind die Cmdlets verfügbar, wenn der Status im Administratorportal angibt, dass sich das Update 1710 beim Schritt **Speicherhosts neu starten** befindet. Insbesondere kommt das Cmdletupdate vor in **Schritt: Ausführen von Schritt 2.6: Aktualisieren der PrivilegedEndpoint-Whitelist**.
+Da die Cmdlets im Updatepaket 1710 für Azure Stack Hub neu sind, muss der Updatevorgang für 1710 einen bestimmten Punkt erreichen, bevor die Überwachungsfunktionen zur Verfügung steht. In der Regel sind die Cmdlets verfügbar, wenn der Status im Administratorportal angibt, dass sich das Update 1710 beim Schritt **Speicherhosts neu starten** befindet. Insbesondere kommt das Cmdletupdate vor in **Schritt: Ausführen von Schritt 2.6: Aktualisieren der PrivilegedEndpoint-Whitelist**.
 
 Sie können auch programmgesteuert ermitteln, ob die Cmdlets verfügbar sind, indem Sie die Befehlsliste über den privilegierten Endpunkt abfragen. Führen Sie dazu die folgenden Befehle über den Hardwarelebenszyklushost oder über eine Arbeitsstation mit privilegiertem Zugriff aus. Stellen Sie außerdem sicher, dass es sich bei dem privilegierten Endpunkt um einen vertrauenswürdigen Host handelt. Weitere Informationen finden Sie in Schritt 1 von [Zugreifen auf den privilegierten Endpunkt](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint).
 
-1. Erstellen Sie eine PowerShell-Sitzung auf einer der ERCS-VMs in Ihrer Azure Stack-Umgebung (*Präfix*-ERCS01, *Präfix*-ERCS02 oder *Präfix*-ERCS03). Ersetzen Sie *Präfix* durch die genaue VM-Präfixzeichenfolge für Ihre Umgebung.
+1. Erstellen Sie eine PowerShell-Sitzung auf einer der ERCS-VMs in Ihrer Azure Stack Hub-Umgebung (*Präfix*-ERCS01, *Präfix*-ERCS02 oder *Präfix*-ERCS03). Ersetzen Sie *Präfix* durch die genaue VM-Präfixzeichenfolge für Ihre Umgebung.
 
    ```powershell
    $cred = Get-Credential
 
    $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
    ```
-   Wenn Sie zum Eingeben von Anmeldeinformationen aufgefordert werden, verwenden Sie das Konto &lt;*Azure Stack-Domäne*&gt;\cloudadmin oder ein Konto, das Mitglied der Gruppe CloudAdmins ist. Geben Sie für das CloudAdmin-Konto dasselbe Kennwort ein, das während der Installation für das Domänenadministratorkonto AzureStackAdmin bereitgestellt wurde.
+   Wenn Sie zum Eingeben von Anmeldeinformationen aufgefordert werden, verwenden Sie das Konto &lt;*Azure Stack Hub-Domäne*&gt;\cloudadmin oder ein Konto, das Mitglied der Gruppe „CloudAdmins“ ist. Geben Sie für das CloudAdmin-Konto dasselbe Kennwort ein, das während der Installation für das Domänenadministratorkonto AzureStackAdmin bereitgestellt wurde.
 
 2. Rufen Sie die vollständige Liste der Befehle ab, die im privilegierten Endpunkt verfügbar sind.
 
@@ -87,14 +85,14 @@ Sie können auch programmgesteuert ermitteln, ob die Cmdlets verfügbar sind, in
 
 ### <a name="connect-to-the-privileged-endpoint-and-assign-session-variable"></a>Herstellen einer Verbindung mit dem privilegierten Endpunkt und Zuweisen einer Sitzungsvariable
 
-Führen Sie die folgenden Befehle aus, um eine PowerShell-Sitzung auf einer der ERCS-VMs in Ihrer Azure Stack-Umgebung (*Präfix*-ERCS01, *Präfix*-ERCS02 oder *Präfix*-ERCS03) zu erstellen und eine Sitzungsvariable zuzuweisen.
+Führen Sie die folgenden Befehle aus, um eine PowerShell-Sitzung auf einer der ERCS-VMs in Ihrer Azure Stack Hub-Umgebung (*Präfix*-ERCS01, *Präfix*-ERCS02 oder *Präfix*-ERCS03) zu erstellen und eine Sitzungsvariable zuzuweisen.
 
 ```powershell
 $cred = Get-Credential
 
 $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
 ```
- Wenn Sie zum Eingeben von Anmeldeinformationen aufgefordert werden, verwenden Sie das Konto &lt;*Azure Stack-Domäne*&gt;\cloudadmin oder ein Konto, das Mitglied der Gruppe CloudAdmins ist. Geben Sie für das CloudAdmin-Konto dasselbe Kennwort ein, das während der Installation für das Domänenadministratorkonto AzureStackAdmin bereitgestellt wurde.
+ Wenn Sie zum Eingeben von Anmeldeinformationen aufgefordert werden, verwenden Sie das Konto &lt;*Azure Stack Hub-Domäne*&gt;\cloudadmin oder ein Konto, das Mitglied der Gruppe „CloudAdmins“ ist. Geben Sie für das CloudAdmin-Konto dasselbe Kennwort ein, das während der Installation für das Domänenadministratorkonto AzureStackAdmin bereitgestellt wurde.
 
 ### <a name="get-high-level-status-of-the-current-update-run"></a>Abrufen des allgemeinen Status des aktuellen Updatevorgangs
 
@@ -168,10 +166,10 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 ## <a name="troubleshoot"></a>Problembehandlung
 
-Der privilegierte Endpunkt ist auf allen ERCS-VMs in der Azure Stack-Umgebung verfügbar. Da die Verbindung nicht an einem Endpunkt mit Hochverfügbarkeit hergestellt wird, können gelegentlich Unterbrechungen, Warnungen oder Fehlermeldungen auftreten. Diese Meldungen weisen möglicherweise darauf hin, dass die Sitzung getrennt wurde oder ein Fehler bei der Kommunikation mit dem ECE-Dienst aufgetreten ist. Dies ist das erwartete Verhalten. Sie können den Vorgang nach einigen Minuten wiederholen oder eine neue Sitzung mit privilegiertem Endpunkt auf einer anderen ERCS-VM erstellen.
+Der privilegierte Endpunkt ist auf allen ERCS-VMs in der Azure Stack Hub-Umgebung verfügbar. Da die Verbindung nicht an einem Endpunkt mit Hochverfügbarkeit hergestellt wird, können gelegentlich Unterbrechungen, Warnungen oder Fehlermeldungen auftreten. Diese Meldungen weisen möglicherweise darauf hin, dass die Sitzung getrennt wurde oder ein Fehler bei der Kommunikation mit dem ECE-Dienst aufgetreten ist. Dies ist das erwartete Verhalten. Sie können den Vorgang nach einigen Minuten wiederholen oder eine neue Sitzung mit privilegiertem Endpunkt auf einer anderen ERCS-VM erstellen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Verwalten von Updates in Azure Stack](azure-stack-updates.md)
+- [Verwalten von Updates in Azure Stack Hub](azure-stack-updates.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: Verbinden des Storage-Explorers mit einem Azure Stack-Abonnement oder -Speicherkonto | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie eine Verbindung von Storage-Explorer mit einem Azure Stack-Abonnement herstellen.
+title: Verbinden des Storage-Explorers mit einem Azure Stack Hub-Abonnement oder -Speicherkonto | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie eine Verbindung zwischen dem Storage-Explorer und einem Azure Stack Hub-Abonnement herstellen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,40 +14,38 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2fa9998a584bd76c8f9c875d3a2ac082c9ca812b
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 010722e7152af7e51747870ae5bf26229ad339d6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955625"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878406"
 ---
-# <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Herstellen einer Verbindung von Storage-Explorer mit einem Azure Stack-Abonnement oder -Speicherkonto
+# <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Herstellen einer Verbindung zwischen dem Storage-Explorer und einem Azure Stack Hub-Abonnement oder -Speicherkonto
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-In diesem Artikel erfahren Sie, wie Sie mit dem [Azure Storage-Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) eine Verbindung mit Ihren Azure Stack-Abonnements und -Speicherkonten herstellen. Der Storage-Explorer ist eine eigenständige App, über die Sie unter Windows, macOS und Linux komfortabel mit Azure Stack-Speicherdaten arbeiten können.
+In diesem Artikel erfahren Sie, wie Sie über den [Azure Storage-Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) eine Verbindung mit Ihren Azure Stack Hub-Abonnements und -Speicherkonten herstellen. Der Storage-Explorer ist eine eigenständige App, über die Sie unter Windows, macOS und Linux komfortabel mit Azure Stack Hub-Speicherdaten arbeiten können.
 
 > [!NOTE]  
-> Es stehen mehrere Tools zum Verschieben von Daten in und aus Azure Stack-Speicher zur Verfügung. Weitere Informationen finden Sie unter [Tools for Azure Stack Storage](azure-stack-storage-transfer.md) (Tools für Azure Stack-Speicher).
+> Es stehen mehrere Tools zum Verschieben von Daten in und aus Azure Stack Hub-Speicher zur Verfügung. Weitere Informationen finden Sie unter [Datenübertragungstools für Azure Stack Hub-Speicher](azure-stack-storage-transfer.md).
 
 [Laden Sie den Storage-Explorer herunter](https://www.storageexplorer.com/), und installieren Sie ihn, sofern er noch nicht installiert ist.
 
-Nachdem Sie eine Verbindung mit einem Azure Stack-Abonnement oder -Speicherkonto hergestellt haben, können Sie wie in den [Artikeln zum Azure Storage-Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) beschrieben mit Ihren Azure Stack-Daten arbeiten. 
+Nachdem Sie eine Verbindung mit einem Azure Stack Hub-Abonnement oder -Speicherkonto hergestellt haben, können Sie wie in den [Artikeln zum Azure Storage-Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) beschrieben mit Ihren Azure Stack Hub-Daten arbeiten. 
 
-## <a name="prepare-for-connecting-to-azure-stack"></a>Vorbereiten für die Verbindung mit Azure Stack
+## <a name="prepare-for-connecting-to-azure-stack-hub"></a>Vorbereiten für die Verbindung mit Azure Stack Hub
 
-Damit der Storage-Explorer auf das Azure Stack-Abonnement zugreifen kann, benötigen Sie direkten Zugriff auf Azure Stack oder eine VPN-Verbindung. Weitere Informationen zur Einrichtung einer VPN-Verbindung mit Azure Stack finden Sie unter [Connect with VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) (Herstellen einer VPN-Verbindung).
+Damit der Storage-Explorer auf das Azure Stack Hub-Abonnement zugreifen kann, benötigen Sie direkten Zugriff auf Azure Stack Hub oder eine VPN-Verbindung. Weitere Informationen zur Einrichtung einer VPN-Verbindung mit Azure Stack Hub finden Sie unter [Herstellen einer Verbindung mit Azure Stack Hub per VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn).
 
 > [!Note]  
-> Verwenden Sie für das ASDK nicht das Stammzertifikat (CA.cer), das während des Setupprozesses erstellt wurde, wenn Sie über ein VPN eine Verbindung mit dem ASDK herstellen.  Dies ist ein DER-codiertes (Distinguished Encoding Rules) Zertifikat, das es dem Storage-Explorer nicht erlaubt, Ihre Azure Stack-Abonnements abzurufen. Gehen Sie wie folgt vor, um ein Base64-codiertes Zertifikat zur Verwendung mit Storage-Explorer zu exportieren.
+> Verwenden Sie für das ASDK nicht das Stammzertifikat (CA.cer), das während des Setupprozesses erstellt wurde, wenn Sie über ein VPN eine Verbindung mit dem ASDK herstellen.  Dies ist ein DER-codiertes (Distinguished Encoding Rules) Zertifikat, das es dem Storage-Explorer nicht erlaubt, Ihre Azure Stack Hub-Abonnements abzurufen. Gehen Sie wie folgt vor, um ein Base64-codiertes Zertifikat zur Verwendung mit Storage-Explorer zu exportieren.
 
 Für nicht verbundene integrierte Systeme und für das ASDK empfiehlt es sich, eine interne Unternehmenszertifizierungsstelle zu verwenden, um das Stammzertifikat im Base64-Format zu exportieren und anschließend in Azure Storage-Explorer zu importieren.  
 
-### <a name="export-and-then-import-the-azure-stack-certificate"></a>Exportieren und anschließendes Importieren des Azure Stack-Zertifikats
+### <a name="export-and-then-import-the-azure-stack-hub-certificate"></a>Exportieren und anschließendes Importieren des Azure Stack Hub-Zertifikats
 
-Exportieren und importieren Sie das Azure Stack-Zertifikat für nicht verbundene integrierte Systeme und für das ASDK. Bei verbundenen integrierten Systemen ist das Zertifikat öffentlich signiert, sodass dieser Schritt nicht erforderlich ist.
+Exportieren und importieren Sie das Azure Stack Hub-Zertifikat für nicht verbundene integrierte Systeme und für das ASDK. Bei verbundenen integrierten Systemen ist das Zertifikat öffentlich signiert, sodass dieser Schritt nicht erforderlich ist.
 
-1. Öffnen Sie `mmc.exe` auf einem Azure Stack-Hostcomputer oder einem lokalen Computer, der über eine VPN-Verbindung mit Azure Stack verfügt. 
+1. Öffnen Sie `mmc.exe` auf einem Azure Stack Hub-Hostcomputer oder einem lokalen Computer, der über eine VPN-Verbindung mit Azure Stack Hub verfügt. 
 
 2. Wählen Sie unter **Datei** die Option **Snap-In hinzufügen/entfernen** aus. Wählen Sie **Zertifikate** unter „Verfügbare Snap-Ins“ aus. 
 
@@ -55,7 +53,7 @@ Exportieren und importieren Sie das Azure Stack-Zertifikat für nicht verbundene
 
 4.  Suchen Sie unter **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** (Konsolenstamm\Zertifiziert (Lokaler Computer)\Vertrauenswürdige Stammzertifizierungsstellen\Zertifikate) nach **AzureStackSelfSignedRootCert**.
 
-    ![Laden des Azure Stack-Stammzertifikats per „mmc.exe“](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+    ![Laden des Azure Stack Hub-Stammzertifikats per „mmc.exe“](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
 5. Klicken Sie mit der rechten Maustaste auf das Zertifikat, wählen Sie **Alle Aufgaben** > **Exportieren** aus, und führen Sie dann die Anweisungen aus, um das Zertifikat mit **Base-64-codiert X.509 (.CER)** zu exportieren.
 
@@ -69,92 +67,92 @@ Exportieren und importieren Sie das Azure Stack-Zertifikat für nicht verbundene
 
     ![Importieren des Zertifikats in den Storage-Explorer](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-8. Wählen Sie nach dem Neustart des Storage-Explorers das Menü **Bearbeiten** aus, und vergewissern Sie sich, dass die Option **Target Azure Stack APIs** (Azure Stack-APIs als Ziel) aktiviert ist. Wenn dies nicht der Fall ist, aktivieren Sie **Target Azure Stack** (Azure Stack als Ziel), und starten Sie den Storage-Explorer anschließend neu, damit die Änderung wirksam wird. Diese Konfiguration ist erforderlich, um die Kompatibilität mit Ihrer Azure Stack-Umgebung zu gewährleisten.
+8. Wählen Sie nach dem Neustart des Storage-Explorers das Menü **Bearbeiten** aus, und vergewissern Sie sich, dass die Option **Azure Stack Hub-APIs als Ziel** aktiviert ist. Wenn dies nicht der Fall ist, aktivieren Sie **Azure Stack Hub als Ziel**, und starten Sie den Storage-Explorer anschließend neu, damit die Änderung wirksam wird. Diese Konfiguration ist erforderlich, um die Kompatibilität mit Ihrer Azure Stack Hub-Umgebung zu gewährleisten.
 
-    ![Sicherstellen der Aktivierung von „Target Azure Stack“ (Azure Stack als Ziel)](./media/azure-stack-storage-connect-se/target-azure-stack.png)
+    ![Sicherstellen der Aktivierung von „Azure Stack Hub als Ziel“](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
-## <a name="connect-to-an-azure-stack-subscription-with-azure-ad"></a>Herstellen einer Verbindung mit einem Azure Stack-Abonnement mit Azure AD
+## <a name="connect-to-an-azure-stack-hub-subscription-with-azure-ad"></a>Herstellen einer Verbindung mit einem Azure Stack Hub-Abonnement mit Azure AD
 
-Gehen Sie wie folgt vor, um den Storage-Explorer mit einem Azure Stack-Abonnement zu verbinden, das zu einem Azure AD-Konto (Azure Active Directory) gehört.
+Gehen Sie wie folgt vor, um den Storage-Explorer mit einem Azure Stack Hub-Abonnement zu verbinden, das zu einem Azure AD-Konto (Azure Active Directory) gehört.
 
 1. Wählen Sie im linken Bereich des Storage-Explorers **Konten verwalten** aus.  
     Alle von Ihnen angemeldeten Microsoft-Abonnements werden angezeigt.
 
-2. Wählen Sie zum Herstellen einer Verbindung mit dem Azure Stack-Abonnement die Option **Konto hinzufügen** aus.
+2. Wählen Sie zum Herstellen einer Verbindung mit dem Azure Stack Hub-Abonnement die Option **Konto hinzufügen** aus.
 
-    ![Hinzufügen eines Azure Stack-Kontos](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
+    ![Hinzufügen eines Azure Stack Hub-Kontos](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. Wählen Sie im Dialogfeld „Verbindung mit Azure Storage herstellen“ unter **Azure-Umgebung** die Option **Azure**, **Azure China 21Vianet**, **Azure Deutschland**, **Azure US-Regierung** oder **Neue Umgebung hinzufügen** aus. Die Auswahl hängt vom verwendeten Azure Stack-Konto ab. Klicken Sie auf **Anmelden**, um sich mit dem Azure Stack-Konto anzumelden, das mindestens einem aktiven Azure Stack-Abonnement zugeordnet ist.
+3. Wählen Sie im Dialogfeld „Verbindung mit Azure Storage herstellen“ unter **Azure-Umgebung** die Option **Azure**, **Azure China 21Vianet**, **Azure Deutschland**, **Azure US-Regierung** oder **Neue Umgebung hinzufügen** aus. Die Auswahl hängt vom verwendeten Azure Stack Hub-Konto ab. Klicken Sie auf **Anmelden**, um sich mit dem Azure Stack Hub-Konto anzumelden, das mindestens einem aktiven Azure Stack Hub-Abonnement zugeordnet ist.
 
     ![Herstellen einer Verbindung mit Azure-Speicher](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
-4. Nach erfolgreicher Anmeldung mit einem Azure Stack-Konto werden im linken Bereich die mit dem Konto verknüpften Azure Stack-Abonnements angezeigt. Wählen Sie die Azure Stack-Abonnements aus, die Sie verwenden möchten, und klicken Sie dann auf **Übernehmen**. (Durch Aktivieren oder Deaktivieren des Kontrollkästchens **Alle Abonnements** können Sie alle bzw. keine Azure Stack-Abonnements in der Liste auswählen.)
+4. Nach erfolgreicher Anmeldung mit einem Azure Stack Hub-Konto werden im linken Bereich die Azure Stack Hub-Abonnements angezeigt, die dem Konto zugeordnet sind. Wählen Sie die Azure Stack Hub-Abonnements aus, die Sie verwenden möchten, und klicken Sie dann auf **Übernehmen**. (Durch Aktivieren oder Deaktivieren des Kontrollkästchens **Alle Abonnements** können Sie alle bzw. keine Azure Stack Hub-Abonnements in der Liste auswählen.)
 
-    ![Auswählen der Azure Stack-Abonnements nach dem Ausfüllen der Felder im Dialogfeld für die benutzerdefinierte Cloudumgebung](./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png)
+    ![Auswählen der Azure Stack Hub-Abonnements nach dem Ausfüllen der Felder im Dialogfeld für die benutzerdefinierte Cloudumgebung](./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png)
 
-    Im linken Bereich werden die Speicherkonten angezeigt, die mit den ausgewählten Azure Stack-Abonnements verknüpft sind.
+    Im linken Bereich werden die Speicherkonten angezeigt, die den ausgewählten Azure Stack Hub-Abonnements zugeordnet sind.
 
-    ![Liste mit Speicherkonten, einschließlich Azure Stack-Abonnementkonten](./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png)
+    ![Liste mit Speicherkonten, einschließlich Azure Stack Hub-Abonnementkonten](./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png)
 
-## <a name="connect-to-an-azure-stack-subscription-with-ad-fs-account"></a>Herstellen einer Verbindung mit einem Azure Stack-Abonnement mit einem AD FS-Konto
+## <a name="connect-to-an-azure-stack-hub-subscription-with-ad-fs-account"></a>Herstellen einer Verbindung mit einem Azure Stack Hub-Abonnement mit einem AD FS-Konto
 
 > [!Note]  
-> Der Bereich für die AD FS-Anmeldung (Active Directory-Verbunddienste) unterstützt Storage-Explorer 1.2.0 oder neuere Versionen mit Azure Stack 1804 oder einem neueren Update.
-Gehen Sie wie folgt vor, um den Storage-Explorer mit einem Azure Stack-Abonnement zu verbinden, das zu einem AD FS-Konto (Active Directory-Verbunddienste) gehört.
+> Der Bereich für die AD FS-Anmeldung (Active Directory-Verbunddienste) unterstützt Storage-Explorer 1.2.0 oder neuere Versionen mit Azure Stack Hub 1804 oder einem neueren Update.
+Gehen Sie wie folgt vor, um den Storage-Explorer mit einem Azure Stack Hub-Abonnement zu verbinden, das zu einem AD FS-Konto gehört.
 
 1. Wählen Sie **Konten verwalten**. Im Explorer werden die Microsoft-Abonnements aufgeführt, an denen Sie sich angemeldet haben.
-2. Wählen Sie zum Herstellen einer Verbindung mit dem Azure Stack-Abonnement die Option **Konto hinzufügen**.
+2. Wählen Sie zum Herstellen einer Verbindung mit dem Azure Stack Hub-Abonnement die Option **Konto hinzufügen** aus.
 
     ![Hinzufügen eines Kontos: Storage-Explorer](media/azure-stack-storage-connect-se/add-an-account.png)
 
-3. Klicken Sie auf **Weiter**. Wählen Sie im Dialogfeld „Verbindung mit Azure-Speicher herstellen“ unter **Azure-Umgebung** die Option **Use Custom Environment** (Benutzerdefinierte Umgebung verwenden), und klicken Sie anschließend auf **Weiter**.
+3. Wählen Sie **Weiter** aus. Wählen Sie im Dialogfeld „Verbindung mit Azure-Speicher herstellen“ unter **Azure-Umgebung** die Option **Use Custom Environment** (Benutzerdefinierte Umgebung verwenden), und klicken Sie anschließend auf **Weiter**.
 
-    ![Herstellen einer Verbindung mit Azure Storage](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
+    ![Verbinden mit Azure Storage](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
 
-4. Geben Sie die erforderlichen Informationen in der benutzerdefinierten Azure Stack-Umgebung ein. 
+4. Geben Sie die erforderlichen Informationen zur benutzerdefinierten Azure Stack Hub-Umgebung ein. 
 
     | Feld | Notizen |
     | ---   | ---   |
     | Umgebungsname | Dieses Feld kann vom Benutzer angepasst werden. |
     | Azure Resource Manager-Endpunkt | Die Beispiele von Azure Resource Manager-Ressourcenendpunkten des Azure Stack Development Kit.<br>Für Bediener: https://adminmanagement.local.azurestack.external <br> Für Benutzer: https://management.local.azurestack.external |
 
-    Wenn Sie in einem integrierten Azure Stack-System arbeiten und Ihren Verwaltungsendpunkt nicht kennen, können Sie sich an den entsprechenden Bediener wenden.
+    Wenn Sie in einem integrierten Azure Stack Hub-System arbeiten und den Verwaltungsendpunkt nicht kennen, wenden Sie sich an den zuständigen Operator.
 
     ![Hinzufügen eines Kontos: benutzerdefinierte Umgebungen](./media/azure-stack-storage-connect-se/custom-environments.png)
 
-5. Klicken Sie auf **Anmelden**, um eine Verbindung mit dem Azure Stack-Konto herzustellen, das mindestens einem aktiven Azure Stack-Abonnement zugeordnet ist.
+5. Klicken Sie auf **Anmelden**, um eine Verbindung mit dem Azure Stack Hub-Konto herzustellen, das mindestens einem aktiven Azure Stack Hub-Abonnement zugeordnet ist.
 
 
 
-6. Wählen Sie die Azure Stack-Abonnements aus, die Sie verwenden möchten, und klicken Sie dann auf **Übernehmen**.
+6. Wählen Sie die Azure Stack Hub-Abonnements aus, die Sie verwenden möchten, und klicken Sie dann auf **Übernehmen**.
 
     ![Kontenverwaltung](./media/azure-stack-storage-connect-se/account-management.png)
 
-    Im linken Bereich werden die Speicherkonten angezeigt, die mit den ausgewählten Azure Stack-Abonnements verknüpft sind.
+    Im linken Bereich werden die Speicherkonten angezeigt, die den ausgewählten Azure Stack Hub-Abonnements zugeordnet sind.
 
     ![Liste mit den zugeordneten Abonnements](./media/azure-stack-storage-connect-se/list-of-associated-subscriptions.png)
 
-## <a name="connect-to-an-azure-stack-storage-account"></a>Herstellen einer Verbindung mit einem Azure Stack-Speicherkonto
+## <a name="connect-to-an-azure-stack-hub-storage-account"></a>Herstellen einer Verbindung mit einem Azure Stack Hub-Speicherkonto
 
-Sie können auch eine Verbindung zu einem Azure Stack-Speicherkonto herstellen, indem Sie den Namen des Speicherkontos und das Schlüsselpaar verwenden.
+Sie können eine Verbindung mit einem Azure Stack Hub-Speicherkonto auch herstellen, indem Sie den Namen und das Schlüsselpaar des Speicherkontos verwenden.
 
 1. Wählen Sie im linken Bereich des Storage-Explorers „Konten verwalten“ aus. Alle Microsoft-Konten, bei denen Sie angemeldet sind, werden angezeigt.
 
     ![Hinzufügen eines Kontos: Storage-Explorer](./media/azure-stack-storage-connect-se/azure-stack-sub-add-an-account.png)
 
-2. Wählen Sie zum Herstellen einer Verbindung mit dem Azure Stack-Abonnement die Option **Konto hinzufügen** aus.
+2. Wählen Sie zum Herstellen einer Verbindung mit dem Azure Stack Hub-Abonnement die Option **Konto hinzufügen** aus.
 
     ![Hinzufügen eines Kontos: Verbinden mit Azure Storage](./media/azure-stack-storage-connect-se/azure-stack-use-a-storage-and-key.png)
 
 3. Wählen Sie im Fenster „Verbindung mit Azure-Speicher herstellen“ die Option **Speicherkontoname und -schlüssel verwenden**.
 
-4. Geben Sie Ihren Kontonamen in das Feld **Kontoname** ein, und fügen Sie den Kontoschlüssel in das Textfeld **Kontoschlüssel** ein. Wählen Sie dann unter **Domäne der Speicherendpunkte** die Option **Other (enter below)** (Andere (unten eingeben)) aus, und geben Sie den Azure Stack-Endpunkt ein.
+4. Geben Sie Ihren Kontonamen in das Feld **Kontoname** ein, und fügen Sie den Kontoschlüssel in das Textfeld **Kontoschlüssel** ein. Wählen Sie dann unter **Domäne der Speicherendpunkte** die Option **Andere (unten eingeben)** aus, und geben Sie den Azure Stack Hub-Endpunkt ein.
 
-    Ein Azure Stack-Endpunkt besteht aus zwei Teilen: dem Namen einer Region und der Azure Stack-Domäne. Im Azure Stack Development Kit ist der Standardendpunkt **local.azurestack.external**. Wenden Sie sich an den Cloudadministrator, falls Sie nicht sicher sind, wie Ihr Endpunkt lautet.
+    Ein Azure Stack Hub-Endpunkt besteht aus zwei Teilen: dem Namen einer Region und der Azure Stack Hub-Domäne. Im Azure Stack Development Kit ist der Standardendpunkt **local.azurestack.external**. Wenden Sie sich an den Cloudadministrator, falls Sie nicht sicher sind, wie Ihr Endpunkt lautet.
 
     ![Anfügen von Name und Schlüssel](./media/azure-stack-storage-connect-se/azure-stack-attach-name-and-key.png)
 
-5. Wählen Sie **Verbinden**aus.
+5. Wählen Sie **Verbinden**.
 6. Nachdem das Speicherkonto erfolgreich angefügt wurde, wird es angezeigt. (Dabei wird **(Extern, Anderes)** an den Speicherkontonamen angehängt.)
 
     ![VMWINDISK](./media/azure-stack-storage-connect-se/azure-stack-vmwindisk.png)
@@ -162,5 +160,5 @@ Sie können auch eine Verbindung zu einem Azure Stack-Speicherkonto herstellen, 
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Erste Schritte mit dem Storage-Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
-* [Azure Stack-Speicher: Unterschiede und Überlegungen](azure-stack-acs-differences.md)
+* [Azure Stack Hub-Speicher: Unterschiede und Überlegungen](azure-stack-acs-differences.md)
 * Weitere Informationen zu Azure Storage finden Sie unter [Einführung in Microsoft Azure Storage](/azure/storage/common/storage-introduction).

@@ -1,6 +1,6 @@
 ---
-title: Aktivieren der Sicherung für Azure Stack mit PowerShell | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie den Infrastructure Backup-Dienst mit PowerShell aktivieren, sodass Azure Stack bei einem Fehler wiederhergestellt werden kann.
+title: Aktivieren der Sicherung für Azure Stack Hub mit PowerShell | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie den Infrastructure Backup-Dienst mit PowerShell aktivieren, sodass Azure Stack Hub bei einem Fehler wiederhergestellt werden kann.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,16 +15,14 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 2e419c32caf78d97ee38e570ce0fa823cc94651a
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 06f20168bb3960eccab5b29b8538382dcd9a0ce3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975179"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75877658"
 ---
-# <a name="enable-backup-for-azure-stack-with-powershell"></a>Aktivieren der Sicherung für Azure Stack mit PowerShell
-
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+# <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>Aktivieren der Sicherung für Azure Stack Hub mit PowerShell
 
 Aktivieren Sie den Infrastructure Backup-Dienst mit Windows PowerShell, um regelmäßige Sicherungen von Folgendem zu erstellen:
  - Interner Identitätsdienst und Stammzertifikat.
@@ -38,21 +36,21 @@ Sie können auf die PowerShell-Cmdlets zugreifen, um über den Endpunkt der Bedi
 
 ## <a name="prepare-powershell-environment"></a>Vorbereiten der PowerShell-Umgebung
 
-Anweisungen zum Konfigurieren der PowerShell-Umgebung finden Sie unter [Installieren von PowerShell für Azure Stack](azure-stack-powershell-install.md). Weitere Informationen zur Anmeldung bei Azure Stack finden Sie unter [Konfigurieren der Betreiberumgebung und Anmelden bei Azure Stack](azure-stack-powershell-configure-admin.md).
+Anweisungen zum Konfigurieren der PowerShell-Umgebung finden Sie unter [Installieren von PowerShell für Azure Stack Hub](azure-stack-powershell-install.md). Weitere Informationen zur Anmeldung bei Azure Stack Hub finden Sie unter [Konfigurieren der Betreiberumgebung und Anmelden bei Azure Stack Hub](azure-stack-powershell-configure-admin.md).
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Angeben der Sicherungsfreigabe, der Anmeldeinformationen und des Verschlüsselungsschlüssels zum Aktivieren der Sicherung
 
 Bearbeiten Sie in der gleichen PowerShell-Sitzung das folgende PowerShell-Skript durch Hinzufügen der Variablen für Ihre Umgebung. Führen Sie das aktualisierte Skript aus, um die Sicherungsfreigabe, die Anmeldeinformationen und den Verschlüsselungsschlüssel für den Infrastructure Backup-Dienst anzugeben.
 
-| Variable        | BESCHREIBUNG   |
+| Variable        | Beschreibung   |
 |---              |---                                        |
 | `$username`       | Geben Sie den **Benutzernamen** ein, und verwenden Sie dabei die Domäne und den Benutzernamen für den Speicherort des freigegebenen Laufwerks mit ausreichendem Zugriff zum Lesen und Schreiben von Dateien. Beispiel: `Contoso\backupshareuser`. |
 | `$password`       | Geben Sie das **Kennwort** für den Benutzer ein. |
 | `$sharepath`      | Geben Sie den Pfad zu dem **Sicherungsspeicherort** ein. Für den Pfad zu einer auf einem separaten Gerät gehosteten Dateifreigabe müssen Sie eine UNC-Zeichenfolge (Universal Naming Convention) verwenden. Eine UNC-Zeichenfolge gibt den Speicherort von Ressourcen (z.B. freigegebene Dateien oder Geräte) an. Zur Sicherstellung der Verfügbarkeit der Sicherungsdaten sollte sich das Gerät an einem gesonderten Speicherort befinden. |
 | `$frequencyInHours` | Die Häufigkeit in Stunden bestimmt, wie oft Sicherungen erstellt werden. Der Standardwert ist 12. Scheduler unterstützt maximal 12 und mindestens 4.|
 | `$retentionPeriodInDays` | Die Vermerkdauer in Tagen bestimmt, wie viele Tage Sicherungen am externen Speicherort beibehalten werden. Der Standardwert ist 7. Scheduler unterstützt maximal 14 und mindestens 2. Nach Ablauf ihrer Vermerkdauer werden Sicherungen automatisch aus dem externen Speicherort gelöscht.|
-| `$encryptioncertpath` | Gilt ab 1901 und höher. Der Parameter ist ab der Azure Stack-Modulversion 1.7 und höher verfügbar. Der Verschlüsselungszertifikatpfad gibt den Dateipfad zu der CER-Datei mit dem öffentlichen Schlüssel an, die für die Datenverschlüsselung verwendet wird. |
-| `$encryptionkey` | Gilt bis zum Build 1811. Der Parameter ist bis zur Azure Stack-Modulversion 1.6 verfügbar. Der Verschlüsselungsschlüssel wird für die Datenverschlüsselung verwendet. Verwenden Sie das Cmdlet [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64), um einen neuen Verschlüsselungsschlüssel zu erstellen. |
+| `$encryptioncertpath` | Gilt ab 1901 und höher. Der Parameter ist ab der Azure Stack Hub-Modulversion 1.7 und höher verfügbar. Der Verschlüsselungszertifikatpfad gibt den Dateipfad zu der CER-Datei mit dem öffentlichen Schlüssel an, die für die Datenverschlüsselung verwendet wird. |
+| `$encryptionkey` | Gilt bis zum Build 1811. Der Parameter ist bis zur Azure Stack Hub-Modulversion 1.6 verfügbar. Der Verschlüsselungsschlüssel wird für die Datenverschlüsselung verwendet. Verwenden Sie das Cmdlet [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64), um einen neuen Verschlüsselungsschlüssel zu erstellen. |
 |     |     |
 
 ### <a name="enable-backup-on-1901-and-later-using-certificate"></a>Aktivieren der Sicherung unter Verwendung eines Zertifikats unter 1901 und höher
@@ -140,15 +138,15 @@ Das Ergebnis sollte der folgenden Beispielausgabe ähneln:
     BackupRetentionPeriodInDays : 5
    ```
 
-### <a name="azure-stack-powershell"></a>Azure Stack PowerShell 
+### <a name="azure-stack-hub-powershell"></a>Azure Stack Hub PowerShell 
 Das PowerShell-Cmdlet zum Konfigurieren der Infrastruktursicherung ist „Set-AzsBackupConfiguration“. In früheren Versionen war dies das Cmdlet „Set-AzsBackupShare“. Dieses Cmdlet erfordert die Bereitstellung eines Zertifikats. Wenn die Infrastruktursicherung mit einem Verschlüsselungsschlüssel konfiguriert ist, können Sie weder den Verschlüsselungsschlüssel aktualisieren noch die Eigenschaft anzeigen. Sie müssen die Version 1.6 der Administrator-PowerShell verwenden.
 
 Wenn die Infrastruktursicherung vor der Aktualisierung auf 1901 konfiguriert wurde, können Sie die Version 1.6 der Administrator-PowerShell verwenden, um den Verschlüsselungsschlüssel festzulegen und anzuzeigen. Version 1.6 lässt nicht zu, dass Sie vom Verschlüsselungsschlüssel auf eine Zertifikatdatei aktualisieren.
-Weitere Informationen zum Installieren der richtigen Version des Moduls finden Sie unter [Installieren von Azure Stack PowerShell](azure-stack-powershell-install.md).
+Weitere Informationen zum Installieren der richtigen Version des Moduls finden Sie unter [Installieren von Azure Stack Hub PowerShell](azure-stack-powershell-install.md).
 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Informationen zum Ausführen einer Sicherung finden Sie unter [Sichern von Azure Stack](azure-stack-backup-back-up-azure-stack.md).
+Informationen zum Ausführen einer Sicherung finden Sie unter [Sichern von Azure Stack Hub](azure-stack-backup-back-up-azure-stack.md).
 
 Informationen zum Überprüfen, ob eine Sicherung durchgeführt wurde, finden Sie unter [Bestätigen der erfolgreichen Sicherung im Verwaltungsportal](azure-stack-backup-back-up-azure-stack.md).

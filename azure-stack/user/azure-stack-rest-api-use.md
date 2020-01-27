@@ -1,6 +1,6 @@
 ---
-title: Ausführen von API-Anforderungen an Azure Stack | Microsoft-Dokumentation
-description: Informationen zum Abrufen einer Authentifizierung von Azure, um API-Anforderungen an Azure Stack zu richten
+title: Ausführen von API-Anforderungen an Azure Stack Hub | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Authentifizierungsinformationen aus Azure abrufen, um API-Anforderungen an Azure Stack Hub zu richten.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,26 +14,24 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 822d05c53db2d55b3cddac44fa919c72e9af2efe
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: 3defbf731a2b4b89fce8f9815513456104f80ea6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714655"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883268"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
-# <a name="make-api-requests-to-azure-stack"></a>Ausführen von API-Anforderungen an Azure Stack
+# <a name="make-api-requests-to-azure-stack-hub"></a>Ausführen von API-Anforderungen an Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+Mit den Azure Stack Hub-REST-APIs können Sie Vorgänge wie das Hinzufügen eines virtuellen Computers (VM) zu Ihrer Azure Stack Hub-Cloud automatisieren.
 
-Mit den Azure Stack-REST-APIs können Sie Vorgänge wie das Hinzufügen eines virtuellen Computers (VM) zu Ihrer Azure Stack-Cloud automatisieren.
+Für die APIs ist die Authentifizierung Ihres Clients beim Microsoft Azure-Anmeldungsendpunkt erforderlich. Der Endpunkt gibt ein Token zurück, das im Header jeder Anforderung verwendet wird, die an die Azure Stack Hub-APIs gesendet wird. Microsoft Azure basiert auf OAuth 2.0.
 
-Für die APIs ist die Authentifizierung Ihres Clients beim Microsoft Azure-Anmeldungsendpunkt erforderlich. Der Endpunkt gibt ein Token zurück, das im Header jeder Anforderung verwendet wird, die an die Azure Stack-APIs gesendet wird. Microsoft Azure basiert auf OAuth 2.0.
+Dieser Artikel enthält Beispiele, in denen mithilfe des Hilfsprogramms **cURL** Azure Stack Hub-Anforderungen erstellt werden. cURL ist ein Befehlszeilenprogramm mit einer Bibliothek zum Übertragen von Daten. Mit diesen Beispiele wird eine exemplarische Vorgehensweise zum Abrufen eines Tokens für den Zugriff auf die Azure Stack Hub-APIs veranschaulicht. Die meisten Programmiersprachen bieten OAuth 2.0-Bibliotheken, die eine stabile Tokenverwaltung aufweisen und Aufgaben wie das Aktualisieren des Tokens abwickeln.
 
-Dieser Artikel enthält Beispiele, in denen mithilfe des Hilfsprogramms **cURL** Azure Stack-Anforderungen erstellt werden. cURL ist ein Befehlszeilenprogramm mit einer Bibliothek zum Übertragen von Daten. Mit diesen Beispiele wird eine exemplarische Vorgehensweise zum Abrufen eines Tokens für den Zugriff auf die Azure Stack-APIs veranschaulicht. Die meisten Programmiersprachen bieten OAuth 2.0-Bibliotheken, die eine stabile Tokenverwaltung aufweisen und Aufgaben wie das Aktualisieren des Tokens abwickeln.
-
-Sehen Sie sich den gesamten Prozess für die Verwendung der Azure Stack-REST-APIs mit einem generischen REST-Client an (z. B. **cURL**), um die zugrunde liegenden Anforderungen besser verstehen zu können und eine Vorstellung davon zu haben, was Sie in einer Antwortnutzlast erwarten können.
+Sehen Sie sich den gesamten Prozess für die Verwendung der Azure Stack Hub-REST-APIs mit einem generischen REST-Client an (z. B. **cURL**), um die zugrunde liegenden Anforderungen besser verstehen zu können und eine Vorstellung davon zu haben, was Sie in einer Antwortnutzlast erwarten können.
 
 In diesem Artikel werden nicht alle verfügbaren Optionen für das Abrufen von Token wie die interaktive Anmeldung oder das Erstellen dedizierter App-IDs untersucht. In der [Azure-REST-API-Referenz](/rest/api/) wird beschrieben, wie Sie Informationen zu diesen Themen abrufen.
 
@@ -70,16 +68,16 @@ Für jeden Wert:
    Der Typ des von Ihnen verwendeten Authentifizierungsschemas. In diesem Beispiel ist der Wert `password`.
 
 - **resource**:  
-   Die Ressource, auf die das Token zugreift. Sie finden die Ressource durch Abfragen des Azure Stack-Verwaltungsmetadaten-Endpunkts. Betrachten Sie den Abschnitt **audiences**.
+   Die Ressource, auf die das Token zugreift. Sie finden die Ressource durch Abfragen des Azure Stack Hub-Verwaltungsmetadaten-Endpunkts. Betrachten Sie den Abschnitt **audiences**.
 
-- **Azure Stack-Verwaltungsendpunkt**:
+- **Azure Stack Hub-Verwaltungsendpunkt**:
 
    ```bash
-   https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
+   https://management.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-01
    ```
 
   > [!NOTE]  
-  > Wenn Sie als Administrator versuchen, auf die Mandanten-API zuzugreifen, sollten Sie sicherstellen, dass Sie den Mandantenendpunkt verwenden, z. B. `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`.
+  > Wenn Sie als Administrator versuchen, auf die Mandanten-API zuzugreifen, sollten Sie sicherstellen, dass Sie den Mandantenendpunkt verwenden, z. B. `https://adminmanagement.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-011`.
 
   Beispielsweise mit dem Azure Stack Development Kit als Endpunkt:
 
@@ -117,7 +115,7 @@ Für jeden Wert:
 
   Alternative Optionen sind für bestimmte Szenarien verfügbar:
 
-  | Anwendung | ApplicationID |
+  | Application | ApplicationID |
   | --------------------------------------- |:-------------------------------------------------------------:|
   | LegacyPowerShell | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 |
   | PowerShell | 1950a258-227b-4e31-a9cf-717495945fc2 |
@@ -127,7 +125,7 @@ Für jeden Wert:
 
 - **username**
 
-  Beispielsweise das Azure Stack-Azure AD-Konto:
+  Beispielsweise das Azure Stack Hub-Azure AD-Konto:
 
   ```bash
   azurestackadmin@fabrikam.onmicrosoft.com
@@ -135,7 +133,7 @@ Für jeden Wert:
 
 - **password**
 
-  Das Azure Stack-Azure AD-Administratorkennwort.
+  Das Azure Stack Hub-Azure AD-Administratorkennwort.
 
 ### <a name="example"></a>Beispiel
 
@@ -193,7 +191,7 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 Generischer Anforderungs-URI, besteht aus: `{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
 
 - **URI-Schema**:  
-Der URI gibt das zum Senden der Anforderung verwendete Protokoll an. Beispiel: `http` oder `https`.
+Der URI gibt das zum Senden der Anforderung verwendete Protokoll an. Zum Beispiel: `http` oder `https`.
 - **URI-Host**:  
 Der Host gibt den Domänennamen oder die IP-Adresse des Servers an, auf dem der REST-Dienstendpunkt gehostet wird, z.B. `graph.microsoft.com` oder `adminmanagement.local.azurestack.external`.
 - **Ressourcenpfad**:  
@@ -201,7 +199,7 @@ Der Pfad gibt die Ressource oder Ressourcensammlung an, die mehrere Segmente ent
 - **Abfragezeichenfolge**:  
 Die Zeichenfolge enthält zusätzliche einfache Parameter, z.B. die API-Version oder Ressourcenauswahlkriterien.
 
-## <a name="azure-stack-request-uri-construct"></a>Azure Stack-Anforderungs-URI-Konstrukt
+## <a name="azure-stack-hub-request-uri-construct"></a>Azure Stack Hub-Anforderungs-URI-Konstrukt
 
 ```bash
 {URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version}

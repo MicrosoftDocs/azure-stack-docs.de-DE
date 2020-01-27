@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen von App Service in Azure Stack | Microsoft-Dokumentation
-description: Es wird beschrieben, wie Sie App Service in Azure Stack bereitstellen.
+title: Bereitstellen von App Service in Azure Stack Hub | Microsoft-Dokumentation
+description: Es wird beschrieben, wie Sie App Service in Azure Stack Hub bereitstellen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,46 +12,46 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 219d8bcf884945353b08186324edc23feb028964
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 01/13/2020
+ms.openlocfilehash: eb38d3f237b872e552bd135cbe6b93c905115e30
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974961"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924252"
 ---
-# <a name="deploy-app-service-in-azure-stack"></a>Bereitstellen von App Service in Azure Stack
+# <a name="deploy-app-service-in-azure-stack-hub"></a>Bereitstellen von App Service in Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
+*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme und Azure Stack Development Kit*
 
-In diesem Artikel wird beschrieben, wie Sie App Service in Azure Stack bereitstellen.
+In diesem Artikel wird beschrieben, wie Sie App Service in Azure Stack Hub bereitstellen.
 
 > [!IMPORTANT]
-> Wenden Sie das Update 1907 auf Ihr integriertes Azure Stack-System an, oder stellen Sie das aktuelle Azure Stack Development Kit (ASDK) bereit, bevor Sie Azure App Service 1.7 bereitstellen.
+> Wenden Sie das Update 1910 auf Ihr integriertes Azure Stack Hub-System an, oder stellen Sie das aktuelle Azure Stack Hub Development Kit (ASDK) bereit, bevor Sie Azure App Service 1.8 bereitstellen.
 
 Sie können Ihren Benutzern ermöglichen, Web- und API-Anwendungen zu erstellen. Damit Benutzer diese Apps erstellen können, ist Folgendes erforderlich:
 
-- Sie müssen Ihrer Azure Stack-Bereitstellung anhand der in diesem Artikel beschriebenen Schritte den [App Service-Ressourcenanbieter](azure-stack-app-service-overview.md) hinzufügen.
+- Sie müssen Ihrer Azure Stack Hub-Bereitstellung anhand der in diesem Artikel beschriebenen Schritte den [App Service-Ressourcenanbieter](azure-stack-app-service-overview.md) hinzufügen.
 - Nach dem Installieren des App Service-Ressourcenanbieters können Sie ihn in Ihren Angeboten und Plänen einfügen. Benutzer können ihn dann abonnieren, um den Dienst abzurufen und mit dem Erstellen von Anwendungen zu beginnen.
 
 > [!IMPORTANT]
-> Stellen Sie sicher, dass Sie vor dem Ausführen des Installationsprogramms für den Ressourcenanbieter die Anleitung unter [Vor den ersten Schritten mit App Service in Azure Stack](azure-stack-app-service-before-you-get-started.md) befolgt und die [Versionshinweise](azure-stack-app-service-release-notes-update-seven.md) zu diesem Release 1.7 gelesen haben. Unter diesen Links erhalten Sie Informationen zu neuer Funktionalität, Fehlerbehebungen und den bekannten Problemen, die für die Bereitstellung auftreten können.
+> Stellen Sie sicher, dass Sie vor dem Ausführen des Installationsprogramms für den Ressourcenanbieter die Anleitung unter [Voraussetzungen für das Bereitstellen von App Service unter Azure Stack Hub](azure-stack-app-service-before-you-get-started.md) befolgt und die [Versionshinweise](azure-stack-app-service-release-notes-update-eight.md) zu diesem Release 1.8 gelesen haben. Unter diesen Links erhalten Sie Informationen zu neuer Funktionalität, Fehlerbehebungen und den bekannten Problemen, die für die Bereitstellung auftreten können.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Ausführen des Installationsprogramms für den App Service-Ressourcenanbieter
 
 Die Installation des App Service-Ressourcenanbieters dauert mindestens eine Stunde. Die erforderliche Zeit hängt davon ab, wie viele Rolleninstanzen bereitgestellt werden. Während der Bereitstellung werden mit dem Installationsprogram folgende Tasks ausgeführt:
 
-- Es erstellt im angegebenen Azure Stack-Speicherkonto einen Blobcontainer.
+- Es erstellt im angegebenen Azure Stack Hub-Speicherkonto einen Blobcontainer.
 - Es erstellt eine DNS-Zone und DNS-Einträge für App Service.
 - Es registriert den App Service-Ressourcenanbieter.
 - Es registriert die App Service-Katalogelemente.
 
 Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgenden Schritte aus:
 
-1. Führen Sie „appservice.exe“ als Administrator auf einem Computer aus, der auf den Azure-Ressourcenverwaltungsendpunkt des Azure Stack-Administrators zugreifen kann.
+1. Führen Sie „appservice.exe“ als Administrator auf einem Computer aus, der auf den Azure-Ressourcenverwaltungsendpunkt des Azure Stack Hub-Administrators zugreifen kann.
 
 2. Wählen Sie **App Service bereitstellen oder Upgrade auf die neueste Version durchführen** aus.
 
@@ -61,25 +61,27 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
 
 4. Lesen und akzeptieren Sie die Drittanbieter-Lizenzbedingungen, und wählen Sie dann **Weiter** aus.
 
-5. Stellen Sie sicher, dass die App Service-Cloudkonfigurationsinformationen stimmen. Wenn Sie während der ASDK-Bereitstellung die Standardeinstellungen verwendet haben, können Sie die Standardwerte übernehmen. Wenn Sie die Optionen bei der Bereitstellung des ASDK jedoch angepasst haben oder in einem integrierten Azure Stack-System bereitstellen, müssen Sie die Werte in diesem Fenster entsprechend bearbeiten.
+5. Stellen Sie sicher, dass die App Service-Cloudkonfigurationsinformationen stimmen. Wenn Sie während der ASDK-Bereitstellung die Standardeinstellungen verwendet haben, können Sie die Standardwerte übernehmen. Wenn Sie die Optionen bei der Bereitstellung des ASDK jedoch angepasst haben oder in einem integrierten Azure Stack Hub-System bereitstellen, müssen Sie die Werte in diesem Fenster entsprechend bearbeiten.
 
-   Wenn Sie beispielsweise das Domänensuffix „mycloud.com“ verwenden, muss der Azure Resource Manager-Endpunkt des Azure Stack-Mandanten in „management.&lt;region&gt;.mycloud.com“ geändert werden. Überprüfen Sie diese Einstellungen, und wählen Sie anschließend **Weiter** aus.
+   Wenn Sie beispielsweise das Domänensuffix „mycloud.com“ verwenden, muss der Azure Resource Manager-Endpunkt des Azure Stack Hub-Mandanten in „management.&lt;region&gt;.mycloud.com“ geändert werden. Überprüfen Sie diese Einstellungen, und wählen Sie anschließend **Weiter** aus.
 
    ![App Service-Installationsprogramm][2]
 
-6. Gehen Sie auf der nächsten Seite des App Service-Installationsprogramms folgendermaßen vor:
+6. Auf der nächsten Seite des App Service-Installationsprogramms stellen Sie eine Verbindung mit Ihrer Azure Stack Hub-Instanz her:
 
-    a. Wählen Sie neben **Azure Stack-Abonnements** die Option **Verbinden** aus.
+    1. Wählen Sie die Verbindungsmethode aus, die Sie verwenden möchten: **Anmeldeinformationen** oder **Dienstprinzipal**.
+ 
+        - **Credential**
+            - Wenn Sie Azure Active Directory (Azure AD) verwenden, geben Sie das Azure AD-Administratorkonto, das Sie bei der Bereitstellung von Azure Stack Hub angegeben haben, und das zugehörige Kennwort ein. Wählen Sie **Verbinden**.
+            - Wenn Sie Active Directory-Verbunddienste (AD FS) verwenden, geben Sie Ihr Administratorkonto an. Beispiel: cloudadmin@azurestack.local. Geben Sie Ihr Kennwort ein, und wählen Sie dann **Verbinden** aus.
 
-   - Wenn Sie Azure Active Directory (Azure AD) verwenden, geben Sie das Azure AD-Administratorkonto, das Sie bei der Bereitstellung von Azure Stack angegeben haben, und das zugehörige Kennwort ein. Wählen Sie **Anmelden** aus.
-   - Wenn Sie Active Directory-Verbunddienste (AD FS) verwenden, geben Sie Ihr Administratorkonto an. Beispiel: cloudadmin@azurestack.local. Geben Sie Ihr Kennwort ein, und wählen Sie dann **Anmelden** aus.
+        - **Dienstprinzipal**
+            - Der Dienstprinzipal, den Sie verwenden, **muss** über Rechte als **Besitzer** für das **Standardanbieterabonnement** verfügen.
+            - Geben Sie **Dienstprinzipal-ID**, **Zertifikatsdatei** und **Kennwort** ein, und wählen Sie **Verbinden** aus.
 
-   b. Wählen Sie in **Azure Stack-Abonnements** das **Standardabonnement des Anbieters** aus.
+    1. Wählen Sie in **Azure Stack Hub-Abonnements** das **Standardanbieterabonnement** aus.  Azure App Service auf Azure Stack Hub **muss** im **Standardanbieterabonnement** bereitgestellt werden.
 
-     > [!IMPORTANT]
-     > App Service **muss** im **Standardabonnement des Anbieters** bereitgestellt werden.
-
-   c. Wählen Sie in **Azure Stack-Standorte** den Standort aus, der der Region entspricht, in der die Bereitstellung erfolgen soll. Wählen Sie beispielsweise **Lokal**, wenn Sie die Bereitstellung für das ASDK durchführen.
+    1. Wählen Sie in **Azure Stack Hub-Standorte** den Standort aus, der der Region entspricht, in der die Bereitstellung erfolgen soll. Wählen Sie beispielsweise **Lokal**, wenn Sie die Bereitstellung für das ASDK durchführen.
 
     ![App Service-Installationsprogramm][3]
 
@@ -92,7 +94,7 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
      - Wählen Sie die **Ressourcengruppe** aus, die Ihr virtuelles Netzwerk enthält.
      - Wählen Sie den **Namen des virtuellen Netzwerks** aus, in dem die Bereitstellung durchgeführt werden soll.
      - Wählen Sie die richtigen **Subnetzwerte** für die einzelnen erforderlichen Rollensubnetze aus.
-     - Klicken Sie auf **Weiter**.
+     - Wählen Sie **Weiter** aus.
 
    ![App Service-Installationsprogramm][4]
 
@@ -113,13 +115,13 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
 
    d. Geben Sie im Feld **Azure Resource Manager-Stammzertifikatsdatei** den Speicherort der Zertifikatsdatei ein (oder navigieren Sie zu diesem).
 
-   e. Klicken Sie auf **Weiter**.
+   e. Wählen Sie **Weiter** aus.
 
    ![App Service-Installationsprogramm][9]
 
 10. Wählen Sie für jede der drei Zertifikatsdateien die Option **Durchsuchen** aus, und navigieren Sie zu der entsprechenden Zertifikatsdatei. Sie müssen das Kennwort für jedes Zertifikat angeben. Diese Zertifikate haben Sie im Schritt [Erstellen der erforderlichen Zertifikate](azure-stack-app-service-before-you-get-started.md#get-certificates) erstellt. Wählen Sie **Weiter** aus, nachdem Sie alle Informationen eingegeben haben.
 
-    | Box | Beispielname für eine Zertifikatsdatei |
+    | Feld | Beispielname für eine Zertifikatsdatei |
     | --- | --- |
     | **Standard-SSL-Zertifikatsdatei für App Service** | \_.appservice.local.AzureStack.external.pfx |
     | **SSL-Zertifikatsdatei für App Service-API** | api.appservice.local.AzureStack.external.pfx |
@@ -136,7 +138,7 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
 12. Überprüfen Sie die Optionen für Rolleninstanz und SKU. Als Standardwerte werden die Mindestzahl der Instanzen und die Mindest-SKU für jede Rolle in einer ASDK-Bereitstellung verwendet. Eine Übersicht über die vCPU- und Arbeitsspeichervoraussetzungen wird angezeigt, um Sie bei der Bereitstellung zu unterstützen. Nachdem Sie Ihre Auswahl getroffen haben, wählen Sie **Weiter** aus.
 
     >[!NOTE]
-    >Befolgen Sie bei Produktionsbereitstellungen die Anweisungen unter [Kapazitätsplanung für Azure App Service-Serverrollen in Azure Stack](azure-stack-app-service-capacity-planning.md).
+    >Befolgen Sie bei Produktionsbereitstellungen die Anweisungen unter [Kapazitätsplanung für Azure App Service-Serverrollen in Azure Stack Hub](azure-stack-app-service-capacity-planning.md).
 
     | Role | Mindestanzahl der Instanzen | Mindest-SKU | Notizen |
     | --- | --- | --- | --- |
@@ -149,9 +151,9 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
     ![App Service-Installationsprogramm][13]
 
     >[!NOTE]
-    >**Windows Server 2016 Core ist kein unterstütztes Plattformimage für die Verwendung mit Azure App Service in Azure Stack.  Verwenden Sie Evaluierungsimages nicht für Produktionsbereitstellungen.**
+    >**Windows Server 2016 Core ist kein unterstütztes Plattformimage für die Verwendung mit Azure App Service in Azure Stack Hub.  Verwenden Sie Evaluierungsimages nicht für Produktionsbereitstellungen.**
 
-13. Wählen Sie im Feld **Plattformimage auswählen** aus den VM-Images, die im Computeressourcenanbieter für die App Service-Cloud verfügbar sind, Ihr VM-Bereitstellungsimage für Windows Server 2016 aus. Klicken Sie auf **Weiter**.
+13. Wählen Sie im Feld **Plattformimage auswählen** aus den VM-Images, die im Computeressourcenanbieter für die App Service-Cloud verfügbar sind, Ihr VM-Bereitstellungsimage für Windows Server 2016 aus. Wählen Sie **Weiter** aus.
 
 14. Gehen Sie auf der nächsten Seite des App Service-Installationsprogramms folgendermaßen vor:
 
@@ -159,7 +161,7 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
 
      b. Geben Sie den Administratorbenutzernamen und das Kennwort für die VM mit den anderen Rollen ein.
 
-     c. Klicken Sie auf **Weiter**.
+     c. Wählen Sie **Weiter** aus.
 
     ![App Service-Installationsprogramm][15]
 
@@ -175,7 +177,7 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
 
 16. Gehen Sie auf der nächsten Seite des App Service-Installationsprogramms folgendermaßen vor:
 
-    a. Verfolgen Sie den Installationsstatus nach. Bei Auswahl der Standardoptionen dauert die Bereitstellung von App Service in Azure Stack ca. 60 Minuten.
+    a. Verfolgen Sie den Installationsstatus nach. App Service auf Azure Stack Hub kann je nach der Standardauswahl und dem Alter des zugrundeliegenden Windows 2016 Datacenter-Images bis zu 240 Minuten für die Bereitstellung in Anspruch nehmen.
 
     b. Wählen Sie nach erfolgreichem Abschluss des Installationsprogramms die Option **Beenden** aus.
 
@@ -194,33 +196,33 @@ Wenn Sie die Bereitstellung in einem vorhandenen virtuellen Netzwerk durchführe
 - IP-Zieladressbereich: Bereich der IPs für Ihren Dateiserver
 - Zielportbereich: 445
 - Protokoll: TCP
-- Aktion: ZULASSEN
+- Aktion: Allow
 - Priorität: 700
 - Name: Outbound_Allow_SMB445
 
-## <a name="validate-the-app-service-on-azure-stack-installation"></a>Überprüfen der Installation von App Service in Azure Stack
+## <a name="validate-the-app-service-on-azure-stack-hub-installation"></a>Überprüfen der Installation von App Service in Azure Stack Hub
 
-1. Navigieren Sie im Azure Stack-Administratorportal zu **Verwaltung – App Service**.
+1. Navigieren Sie im Azure Stack Hub-Administratorportal zu **Verwaltung – App Service**.
 
 2. Überprüfen Sie in der Übersicht unter „Status“, ob für **Status** die Option **Alle Rollen sind bereit** angezeigt wird.
 
     ![App Service-Verwaltung](media/azure-stack-app-service-deploy/image12.png)
 
-## <a name="test-drive-app-service-on-azure-stack"></a>Testen von App Service in Azure Stack
+## <a name="test-drive-app-service-on-azure-stack-hub"></a>Testen von App Service in Azure Stack Hub
 
 Nachdem Sie den App Service-Ressourcenanbieter bereitgestellt und registriert haben, testen Sie ihn, um sicherzustellen, dass Benutzer Web- und API-Apps bereitstellen können.
 
 >[!NOTE]
 >Sie müssen ein Angebot erstellen, das den Namespace „Microsoft.Web“ im Plan enthält. Sie benötigen außerdem ein Mandantenabonnement, das das Angebot abonniert. Weitere Informationen finden Sie unter [Erstellen eines Angebots](azure-stack-create-offer.md) und [Erstellen eines Plans](azure-stack-create-plan.md).
 >
->Sie *müssen* über ein Mandantenabonnement verfügen, um Apps zu erstellen, die App Service in Azure Stack verwenden. Ein Dienstadministrator kann nur Aufgaben im Administratorportal ausführen, die mit der Ressourcenanbieterverwaltung von App Service zu tun haben. Hierzu gehören das Hinzufügen von Kapazitäten, das Konfigurieren von Bereitstellungsquellen und das Hinzufügen von Workerebenen und SKUs.
+>Sie *müssen* über ein Mandantenabonnement verfügen, um Apps zu erstellen, die App Service in Azure Stack Hub verwenden. Ein Dienstadministrator kann nur Aufgaben im Administratorportal ausführen, die mit der Ressourcenanbieterverwaltung von App Service zu tun haben. Hierzu gehören das Hinzufügen von Kapazitäten, das Konfigurieren von Bereitstellungsquellen und das Hinzufügen von Workerebenen und SKUs.
 >
->Sie müssen das Mandantenportal verwenden und über ein Mandantenabonnement verfügen, um Web-, API- und Azure Functions-Apps zu erstellen.
+>Sie müssen das Benutzerportal verwenden und über ein Mandantenabonnement verfügen, um Web-, API- und Azure Functions-Apps zu erstellen.
 >
 
 Führen Sie die folgenden Schritte aus, um eine Test-Web-App zu erstellen:
 
-1. Wählen Sie im Azure Stack-Benutzerportal **Ressource erstellen** > **Web + Mobil** > **Web-App** aus.
+1. Wählen Sie im Azure Stack Hub-Benutzerportal **Ressource erstellen** > **Web + Mobil** > **Web-App** aus.
 
 2. Geben Sie unter **Web-App**, einen Namen in **Web-App** ein.
 
@@ -238,7 +240,7 @@ Führen Sie die folgenden Schritte aus, um eine Test-Web-App zu erstellen:
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Bereitstellen einer WordPress-, DNN- oder Django-Website (optional)
 
-1. Wählen Sie im Azure Stack-Mandantenportal das Pluszeichen ( **+** ) aus, wechseln Sie zum Azure Marketplace, stellen Sie eine Django-Website bereit, und warten Sie dann, bis die Bereitstellung abgeschlossen ist. Die Django-Webplattform verwendet eine dateisystembasierte Datenbank. Sie erfordert keine zusätzlichen Ressourcenanbieter wie SQL oder MySQL.
+1. Wählen Sie im Azure Stack Hub-Benutzerportal das Pluszeichen ( **+** ) aus, wechseln Sie zum Azure Marketplace, stellen Sie eine Django-Website bereit, und warten Sie dann, bis die Bereitstellung abgeschlossen ist. Die Django-Webplattform verwendet eine dateisystembasierte Datenbank. Sie erfordert keine zusätzlichen Ressourcenanbieter wie SQL oder MySQL.
 
 2. Wenn Sie auch einen MySQL-Ressourcenanbieter bereitgestellt haben, können Sie über den Marketplace eine WordPress-Website bereitstellen. Wenn Sie zur Angabe der Datenbankparameter aufgefordert werden, geben Sie den Benutzernamen im Format *Benutzer1\@Server1* ein. Sie können einen Benutzer- und Servernamen Ihrer Wahl eingeben.
 
@@ -246,7 +248,7 @@ Führen Sie die folgenden Schritte aus, um eine Test-Web-App zu erstellen:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Vorbereiten auf weitere Verwaltungsvorgänge für App Service unter Azure Stack:
+Vorbereiten auf weitere Verwaltungsvorgänge für App Service unter Azure Stack Hub:
 
 - [Kapazitätsplanung](azure-stack-app-service-capacity-planning.md)
 - [Konfigurieren von Bereitstellungsquellen](azure-stack-app-service-configure-deployment-sources.md)

@@ -1,6 +1,6 @@
 ---
-title: App Service in Azure Stack – Versionshinweise zu Update 6 | Microsoft-Dokumentation
-description: Erfahren Sie, was in Update 6 für App Service in Azure Stack enthalten ist, welche bekannten Probleme es gibt und wo das Update heruntergeladen werden kann.
+title: 'App Service in Azure Stack Hub: Versionshinweise zu Update 6 | Microsoft-Dokumentation'
+description: Erfahren Sie, was in Update 6 für App Service in Azure Stack Hub enthalten ist, welche bekannten Probleme es gibt und wo das Update heruntergeladen werden kann.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -15,34 +15,32 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 93ec7faec82fad101c7bab2d2cec2783c8a060da
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 2c96d45aa433fdbae490ed5c1c304b1c000e8c02
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101022"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880106"
 ---
-# <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service in Azure Stack: Versionshinweise zu Update 6
+# <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 6
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-In diesen Versionshinweisen werden die Verbesserungen und Fehlerbehebungen in Update 6 für Azure App Service in Azure Stack sowie bekannte Probleme beschrieben. Die bekannten Probleme sind in Probleme unterteilt, die sich direkt auf die Bereitstellung und den Updateprozess beziehen, und in Probleme mit dem Build (nach der Installation).
+In diesen Versionshinweisen werden die Verbesserungen und Fehlerbehebungen in Update 6 für Azure App Service in Azure Stack Hub sowie bekannte Probleme beschrieben. Die bekannten Probleme sind in Probleme unterteilt, die sich direkt auf die Bereitstellung und den Updateprozess beziehen, und in Probleme mit dem Build (nach der Installation).
 
 > [!IMPORTANT]
-> Wenden Sie das Update 1904 auf Ihr integriertes Azure Stack-System an, oder stellen Sie das aktuelle Azure Stack Development Kit bereit, bevor Sie Azure App Service 1.6 bereitstellen.
+> Wenden Sie das Update 1904 auf Ihr integriertes Azure Stack Hub-System an, oder stellen Sie das aktuelle Azure Stack Development Kit bereit, bevor Sie Azure App Service 1.6 bereitstellen.
 
 
 ## <a name="build-reference"></a>Buildreferenz
 
-Die Buildnummer von Update 6 für App Service in Azure Stack lautet **82.0.1.50**.
+Die Buildnummer von Update 6 für App Service in Azure Stack Hub lautet **82.0.1.50**.
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
 Lesen Sie die Dokumentation [Vor den ersten Schritten mit App Service in Azure Stack](azure-stack-app-service-before-you-get-started.md), bevor Sie mit der Bereitstellung beginnen.
 
-Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack auf 1.6 beginnen:
+Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack Hub auf 1.6 beginnen:
 
-- Stellen Sie sicher, dass alle Rollen in der Azure App Service-Verwaltung im Azure Stack-Verwaltungsportal bereit sind.
+- Stellen Sie sicher, dass alle Rollen in der Azure App Service-Verwaltung im Azure Stack Hub-Verwaltungsportal bereit sind.
 
 - Sichern Sie App Service- und Masterdatenbanken:
   - AppService_Hosting
@@ -55,9 +53,9 @@ Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack auf 1.6 beginnen
 
 ### <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
 
-Das Update 6 für Azure App Service in Azure Stack enthält folgende Verbesserungen und Fehlerbehebungen:
+Update 6 für Azure App Service in Azure Stack Hub enthält folgende Verbesserungen und Fehlerbehebungen:
 
-- Updates für **App Service-Mandanten, Admin, Functions-Portale und Kudu-Tools**. Mit Azure Stack-Portal-SDK-Version konsistent.
+- Updates für **App Service-Mandanten, Admin, Functions-Portale und Kudu-Tools**. Konsistent mit Azure Stack Hub-Portal-SDK-Version.
 
 - Aktualisiert **Azure Functions Runtime** auf **v1.0.12299**.
 
@@ -86,7 +84,7 @@ Das Update 6 für Azure App Service in Azure Stack enthält folgende Verbesseru
 
 ### <a name="known-issues-post-installation"></a>Bekannte Probleme (nach der Installation)
 
-- Worker können den Dateiserver nicht erreichen, wenn App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist. Dies ist in der Bereitstellungsdokumentation zu Azure App Service in Azure Stack dargestellt.
+- Worker können den Dateiserver nicht erreichen, wenn App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist. Dies ist in der Bereitstellungsdokumentation zu Azure App Service in Azure Stack Hub dargestellt.
 
 Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk und eine interne IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Verwaltungsportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
  * Quelle: Any
@@ -95,15 +93,15 @@ Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk u
  * IP-Zieladressbereich: Bereich der IPs für Ihren Dateiserver
  * Zielportbereich: 445
  * Protokoll: TCP
- * Aktion: ZULASSEN
+ * Aktion: Allow
  * Priorität: 700
  * Name: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack betreiben
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
 
-Lesen Sie die Dokumentation in den [Versionshinweisen zum Azure Stack-Update 1908](/azure-stack/operator/release-notes?view=azs-1908).
+Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1908](/azure-stack/operator/release-notes?view=azs-1908).
 
-### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>Bekannte Probleme für Mandanten, die Anwendungen in Azure App Service in Azure Stack bereitstellen
+### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme für Mandanten, die Anwendungen in Azure App Service in Azure Stack Hub bereitstellen
 
 - Bereitstellungscenter abgeblendet
 
@@ -111,13 +109,13 @@ Mandanten können das Bereitstellungscenter noch nicht nutzen. Dieses Feature wu
 
 - Bereitstellungsoptionen der (klassischen) Benutzeroberfläche sowie Portaloptionen für Bereitstellungsanmeldeinformationen nicht verfügbar
 
-Um zu den Bereitstellungsoptionen und den Anmeldeinformationen für die Bereitstellung zu gelangen, müssen Mandanten unter Verwendung des folgenden URL-Formats auf das Portal zugreifen und anschließend wie gewohnt zu ihren Anwendungen navigieren: https://portal.&lt ;*Region*&gt;.&lt;*FQDN*&gt; /?websitesExtension_oldvsts=true. ([https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) für ASDK).
+Um zu den Bereitstellungsoptionen und den Anmeldeinformationen für die Azur Stack Hub-Bereitstellung zu gelangen, müssen Mandanten unter Verwendung des folgenden URL-Formats auf das Portal zugreifen und anschließend wie gewohnt zu ihren Anwendungen navigieren: https://portal.&lt ;*Region*&gt;.&lt;*FQDN*&gt; /?websitesExtension_oldvsts=true. ([https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) für ASDK).
 
 - Die Azure Functions-Überwachung zeigt ständig „Laden“ im Portal an.
 
-Wenn Sie versuchen, einzelne Funktionen zu überwachen, wird im Mandantenportal kein Aufrufprotokoll, keine Erfolgsanzahl oder keine Fehleranzahl angezeigt.  Um diese Funktion erneut zu aktivieren, wechseln Sie zu Ihrer **Funktions-App**, wechseln Sie zu **Plattformfeatures**, und wechseln Sie zu **Anwendungseinstellungen**.  Fügen Sie eine neue App-Einstellung mit den Namen **AzureWebJobsDashboard** hinzu, und legen Sie den Wert auf denselben Wert fest, wie er in „AzureWebJobsStorage“ festgelegt ist.  Wechseln Sie dann zur Überwachungsansicht für Ihre Funktion, wo dann die Überwachungsinformationen angezeigt werden.
+Wenn Sie versuchen, einzelne Funktionen zu überwachen, wird im Benutzerportal kein Aufrufprotokoll, keine Erfolgsanzahl oder keine Fehleranzahl angezeigt.  Um diese Funktion erneut zu aktivieren, wechseln Sie zu Ihrer **Funktions-App**, wechseln Sie zu **Plattformfeatures**, und wechseln Sie zu **Anwendungseinstellungen**.  Fügen Sie eine neue App-Einstellung mit den Namen **AzureWebJobsDashboard** hinzu, und legen Sie den Wert auf denselben Wert fest, wie er in „AzureWebJobsStorage“ festgelegt ist.  Wechseln Sie dann zur Überwachungsansicht für Ihre Funktion, wo dann die Überwachungsinformationen angezeigt werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Einen Überblick über Azure App Service finden Sie unter [Übersicht über App Service in Azure Stack](azure-stack-app-service-overview.md).
-- Weitere Informationen zum Vorbereiten der Bereitstellung von App Service in Azure Stack finden Sie unter [Vor den ersten Schritten mit App Service in Azure Stack](azure-stack-app-service-before-you-get-started.md).
+- Einen Überblick über Azure App Service finden Sie unter [Übersicht über App Service in Azure Stack Hub](azure-stack-app-service-overview.md).
+- Weitere Informationen zum Vorbereiten der Bereitstellung von App Service in Azure Stack Hub finden Sie unter [Vor den ersten Schritten mit App Service in Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).

@@ -1,6 +1,6 @@
 ---
-title: Verwenden von API-Versionsprofilen mit .NET in Azure Stack | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie API-Versionsprofile mit .NET SDK in Azure Stack verwenden.
+title: Verwenden von API-Versionsprofilen mit .NET in Azure Stack Hub | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie API-Versionsprofile mit .NET SDK in Azure Stack Hub verwenden.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,18 +16,16 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6c2fd698efb6990862887a758ce1b44021bd13a7
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: ec22eea76e2ab0188c1c7a57ef58b4625dec2fcf
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282867"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878491"
 ---
-# <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Verwenden von API-Versionsprofilen mit .NET in Azure Stack
+# <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit .NET in Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-Das .NET SDK für Azure Stack Resource Manager umfasst Tools zum Erstellen und Verwalten Ihrer Infrastruktur. Zu den Ressourcenanbietern im SDK zählen Compute, Networking, Storage, App Services und [Key Vault](/azure/key-vault/key-vault-whatis). Das .NET SDK umfasst 14 NuGet-Pakete. Sie müssen diese Pakete jedes Mal, wenn Sie das Projekt kompilieren, in Ihre Projektmappe herunterladen. Sie können aber speziell den Ressourcenanbieter herunterladen, den Sie für das Profil **2019-03-01-hybrid** oder **2018-03-01-hybrid** verwenden möchten, um den Arbeitsspeicher für Ihre App zu optimieren. Jedes Paket besteht aus einem Ressourcenanbieter, der entsprechenden API-Version und dem API-Profil, zu dem es gehört. API-Profile im .NET SDK ermöglichen die Entwicklung einer Hybrid Cloud, indem sie das Wechseln zwischen globalen Azure-Ressourcen und Ressourcen in Azure Stack leicht machen.
+Das .NET SDK für Azure Stack Hub Resource Manager umfasst Tools zum Erstellen und Verwalten Ihrer Infrastruktur. Zu den Ressourcenanbietern im SDK zählen Compute, Networking, Storage, App Services und [Key Vault](/azure/key-vault/key-vault-whatis). Das .NET SDK umfasst 14 NuGet-Pakete. Sie müssen diese Pakete jedes Mal, wenn Sie das Projekt kompilieren, in Ihre Projektmappe herunterladen. Sie können aber speziell den Ressourcenanbieter herunterladen, den Sie für das Profil **2019-03-01-hybrid** oder **2018-03-01-hybrid** verwenden möchten, um den Arbeitsspeicher für Ihre App zu optimieren. Jedes Paket besteht aus einem Ressourcenanbieter, der entsprechenden API-Version und dem API-Profil, zu dem es gehört. API-Profile im .NET SDK ermöglichen die Entwicklung einer Hybrid Cloud, indem sie das Wechseln zwischen globalen Azure-Ressourcen und Ressourcen in Azure Stack Hub leicht machen.
 
 ## <a name="net-and-api-version-profiles"></a>.NET und API-Versionsprofile
 
@@ -35,7 +33,7 @@ Ein API-Profil ist eine Kombination aus Ressourcenanbietern und API-Versionen. V
 
 - Verwenden Sie das **aktuelle** Profil von Paketen, um die aktuellen Versionen aller Dienste zu nutzen. Dieses Profil ist Teil des NuGet-Pakets **Microsoft.Azure.Management**.
 
-- Verwenden Sie eines der folgenden Pakete, um die mit Azure Stack kompatiblen Dienste zu nutzen:
+- Verwenden Sie eines der folgenden Pakete, um die mit Azure Stack Hub kompatiblen Dienste zu nutzen:
   - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg** 
   - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
@@ -61,26 +59,26 @@ Sie können alle Optionen in derselben Anwendung kombinieren.
 
 - Zum Installieren der richtigen NuGet-Pakete für Visual Studio Code, rufen Sie den folgenden Link zum Herunterladen der [NuGet-Paket-Manager-Anweisungen][] auf.
 
-- Erstellen Sie ein Abonnement, wenn keins verfügbar ist, und speichern Sie die Abonnement-ID zur späteren Verwendung. Informationen zum Erstellen eines Abonnements finden Sie unter [Erstellen von Abonnements für Angebote in Azure Stack][].
+- Erstellen Sie ein Abonnement, wenn keins verfügbar ist, und speichern Sie die Abonnement-ID zur späteren Verwendung. Informationen zum Erstellen eines Abonnements finden Sie unter [Erstellen von Abonnements für Angebote in Azure Stack Hub][].
 
-- Erstellen Sie einen Dienstprinzipal, und speichern Sie die Client-ID und das Clientgeheimnis. Informationen zum Erstellen eines Dienstprinzipals für Azure Stack finden Sie unter [Bereitstellen des Anwendungszugriffs auf Azure Stack][]. Die Client-ID wird beim Erstellen eines Dienstprinzipals auch als „Anwendungs-ID“ bezeichnet.
+- Erstellen Sie einen Dienstprinzipal, und speichern Sie die Client-ID und das Clientgeheimnis. Informationen zum Erstellen eines Dienstprinzipals für Azure Stack Hub finden Sie unter [Bereitstellen des Anwendungszugriffs auf Azure Stack Hub][]. Die Client-ID wird beim Erstellen eines Dienstprinzipals auch als „Anwendungs-ID“ bezeichnet.
 
-- Stellen Sie sicher, dass Ihr Dienstprinzipal über die Rolle „Mitwirkender“ bzw. „Besitzer“ für Ihr Abonnement verfügt. Informationen zum Zuweisen einer Rolle zum Dienstprinzipal finden Sie unter [Bereitstellen des Anwendungszugriffs auf Azure Stack][].
+- Stellen Sie sicher, dass Ihr Dienstprinzipal über die Rolle „Mitwirkender“ bzw. „Besitzer“ für Ihr Abonnement verfügt. Informationen zum Zuweisen einer Rolle zum Dienstprinzipal finden Sie unter [Bereitstellen des Anwendungszugriffs auf Azure Stack Hub][].
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Zur Verwendung des .NET Azure SDK mit Azure Stack müssen Sie die folgenden Werte angeben und dann die Werte mit Umgebungsvariablen festlegen. Befolgen Sie die Anweisungen in der Tabelle für Ihr Betriebssystem, um die Umgebungsvariablen festzulegen.
+Zur Verwendung des .NET Azure SDK mit Azure Stack Hub müssen Sie die folgenden Werte angeben und dann die Werte mit Umgebungsvariablen festlegen. Befolgen Sie die Anweisungen in der Tabelle für Ihr Betriebssystem, um die Umgebungsvariablen festzulegen.
 
-| Wert                     | Umgebungsvariablen   | BESCHREIBUNG                                                                                                             |
+| value                     | Umgebungsvariablen   | Beschreibung                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Mandanten-ID                 | `AZURE_TENANT_ID `      | Der Wert Ihrer [*Mandanten-ID*][] für Azure Stack.                                                                          |
+| Mandanten-ID                 | `AZURE_TENANT_ID `      | Der Wert Ihrer [*Mandanten-ID*][] für Azure Stack Hub.                                                                          |
 | Client-ID                 | `AZURE_CLIENT_ID `      | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde. |
-| Abonnement-ID           | `AZURE_SUBSCRIPTION_ID` | Mit der [*Abonnement-ID*][] greifen Sie in Azure Stack auf Angebote zu.                                                      |
+| Abonnement-ID           | `AZURE_SUBSCRIPTION_ID` | Mit der [*Abonnement-ID*][] greifen Sie in Azure Stack Hub auf Angebote zu.                                                      |
 | Geheimer Clientschlüssel             | `AZURE_CLIENT_SECRET`   | Das App-Geheimnis des Dienstprinzipals, das bei der Erstellung des Dienstprinzipals gespeichert wurde.                                      |
-| Resource Manager-Endpunkt | `ARM_ENDPOINT`          | Siehe [*Der Azure Stack-Resource Manager-Endpunkt*][].                                                                    |
-| Location                  | `RESOURCE_LOCATION`     | Speicherort von Azure Stack.
+| Resource Manager-Endpunkt | `ARM_ENDPOINT`          | Siehe [*Der Resource Manager-Endpunkt von Azure Stack Hub*][].                                                                    |
+| Location                  | `RESOURCE_LOCATION`     | Speicherort von Azure Stack Hub
 
-Folgen Sie den Anweisungen [in diesem Artikel](../operator/azure-stack-csp-ref-operations.md), um die Mandanten-ID für Ihre Azure Stack-Instanz zu suchen. Zum Festlegen Ihrer Umgebungsvariablen führen Sie folgende Schritte aus:
+Folgen Sie den Anweisungen [in diesem Artikel](../operator/azure-stack-csp-ref-operations.md), um die Mandanten-ID für Ihre Azure Stack Hub-Instanz zu suchen. Zum Festlegen Ihrer Umgebungsvariablen führen Sie folgende Schritte aus:
 
 ### <a name="windows"></a>Windows
 
@@ -98,7 +96,7 @@ In Unix-basierten Systemen verwenden Sie den folgenden Befehl:
 Export Azure_Tenant_ID=Your_Tenant_ID
 ```
 
-### <a name="the-azure-stack-resource-manager-endpoint"></a>Der Azure Stack-Resource Manager-Endpunkt
+### <a name="the-azure-stack-hub-resource-manager-endpoint"></a>Der Resource Manager-Endpunkt von Azure Stack Hub
 
 Azure Resource Manager ist ein Verwaltungsframework, mit dem Administratoren Azure-Ressourcen bereitstellen, verwalten und überwachen können. Azure Resource Manager kann diese Aufgaben als Gruppe – anstatt einzeln – in einem gemeinsamen Vorgang verarbeiten.
 
@@ -128,13 +126,13 @@ JSON-Beispieldatei:
 
 ## <a name="existing-api-profiles"></a>Vorhandene API-Profile
 
-- **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**: Für Azure Stack erstelltes neuestes Profil. Verwenden Sie dieses Profil für Dienste für die höchste Kompatibilität mit Azure Stack, sofern Sie bei Version 1904 oder höher sind.
+- **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**: Für Azure Stack Hub erstelltes neuestes Profil. Verwenden Sie dieses Profil für Dienste für die höchste Kompatibilität mit Azure Stack Hub, sofern Sie bei Version 1904 oder höher sind.
 
-- **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**: Verwenden Sie dieses Profil für Dienste, um Kompatibilität mit Azure Stack für Versionen ab 1808 zu erzielen.
+- **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**: Verwenden Sie dieses Profil für Dienste, um Kompatibilität mit Azure Stack Hub für Versionen ab 1808 zu erzielen.
 
 - **Aktuell**: Profil, das aus den neuesten Versionen aller Dienste besteht. Verwenden Sie die neuesten Versionen aller Dienste. Dieses Profil ist Teil des NuGet-Pakets **Microsoft.Azure.Management**.
 
-Weitere Informationen zu Azure Stack und API-Profilen finden Sie in der [Zusammenfassung zu API-Profilen][].
+Weitere Informationen zu Azure Stack Hub und API-Profilen finden Sie in der [Zusammenfassung zu API-Profilen][].
 
 ## <a name="azure-net-sdk-api-profile-usage"></a>Verwendung des API-Profils aus dem Azure .NET SDK
 
@@ -154,7 +152,7 @@ var azureStackSettings = getActiveDirectoryServiceSettings(armEndpoint);
 var credentials = ApplicationTokenProvider.LoginSilentAsync(tenantId, servicePrincipalId, servicePrincipalSecret, azureStackSettings).GetAwaiter().GetResult();
 ```
 
-Der `getActiveDirectoryServiceSettings`-Aufruf im Code ruft Azure Stack-Endpunkte aus dem Metadatenendpunkt ab. Er gibt die Umgebungsvariablen aus dem vorgenommenen Aufruf an:
+Der `getActiveDirectoryServiceSettings`-Aufruf im Code ruft Azure Stack Hub-Endpunkte aus dem Metadatenendpunkt ab. Er gibt die Umgebungsvariablen aus dem vorgenommenen Aufruf an:
 
 ```csharp
 public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(string armEndpoint)
@@ -189,31 +187,31 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
 }
 ```
 
-Diese Schritte ermöglichen Ihnen die Verwendung der NuGet-Pakete des API-Profils zum erfolgreichen Bereitstellen Ihrer Anwendung in Azure Stack.
+Diese Schritte ermöglichen Ihnen die Verwendung der NuGet-Pakete des API-Profils zum erfolgreichen Bereitstellen Ihrer Anwendung in Azure Stack Hub.
 
 ## <a name="samples-using-api-profiles"></a>Beispiele für die Verwendung von API-Profilen
 
-Sie können die folgenden Beispiele als Referenzen zum Erstellen von Lösungen mit .NET und den Azure Stack-API-Profilen verwenden:
+Sie können die folgenden Beispiele als Referenzen zum Erstellen von Lösungen mit .NET und den Azure Stack Hub-API-Profilen verwenden:
 
 - [Verwalten von Ressourcengruppen](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
 - [Verwalten von Speicherkonten](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
-- [Verwalten eines virtuellen Computers](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm): In diesem Beispiel wird das von Azure Stack unterstützte Profil **2019-03-01-hybrid** genutzt.
+- [Verwalten eines virtuellen Computers](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm): In diesem Beispiel wird das von Azure Stack Hub unterstützte Profil **2019-03-01-hybrid** genutzt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Weitere Informationen zu API-Profilen:
 
-- [Verwalten von API-Versionsprofilen in Azure Stack](azure-stack-version-profiles.md)
+- [Verwalten von API-Versionsprofilen in Azure Stack Hub](azure-stack-version-profiles.md)
 - [Von Profilen unterstützte API-Versionen von Ressourcenanbietern](azure-stack-profiles-azure-resource-manager-versions.md)
 
   [Erste Schritte – Installieren von Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
   [Suchen und Installieren eines Pakets]: /nuget/tools/package-manager-ui
   [NuGet-Paket-Manager-Anweisungen]: https://marketplace.visualstudio.com/items?itemName=jmrog.vscode-nuget-package-manager
-  [Erstellen von Abonnements für Angebote in Azure Stack]: ../operator/azure-stack-subscribe-plan-provision-vm.md
-  [Bereitstellen des Anwendungszugriffs auf Azure Stack]: ../operator/azure-stack-create-service-principals.md
+  [Erstellen von Abonnements für Angebote in Azure Stack Hub]: ../operator/azure-stack-subscribe-plan-provision-vm.md
+  [Bereitstellen des Anwendungszugriffs auf Azure Stack Hub]: ../operator/azure-stack-create-service-principals.md
   [*Mandanten-ID*]: ../operator/azure-stack-identity-overview.md
   [*Abonnement-ID*]: ../operator/service-plan-offer-subscription-overview.md#subscriptions
-  [*Der Azure Stack-Resource Manager-Endpunkt*]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
+  [*Der Resource Manager-Endpunkt von Azure Stack Hub*]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint
   [Zusammenfassung zu API-Profilen]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
   [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
   [Use Azure PowerShell to create a service principal with a certificate]: ../operator/azure-stack-create-service-principals.md

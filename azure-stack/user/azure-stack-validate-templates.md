@@ -1,6 +1,6 @@
 ---
-title: Verwenden des Validierungstools für Vorlagen in Azure Stack | Microsoft-Dokumentation
-description: Überprüfen Sie Vorlagen für die Bereitstellung in Azure Stack mit dem Validierungstool für Vorlagen.
+title: Verwenden des Validierungstools für Vorlagen in Azure Stack Hub | Microsoft-Dokumentation
+description: Überprüfen Sie Vorlagen für die Bereitstellung in Azure Stack Hub mit dem Validierungstool für Vorlagen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,25 +16,23 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: a5e86f0f0719e30ef693c736ac4c70f05830c3bb
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: e3fff62f204ca3903a08ebb8ff0450e2fa4fe7d5
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961665"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883217"
 ---
-# <a name="use-the-template-validation-tool-in-azure-stack"></a>Verwenden des Validierungstools für Vorlagen in Azure Stack
+# <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Verwenden des Validierungstools für Vorlagen in Azure Stack Hub
 
-*Anwendungsbereich: Integrierte Azure Stack-Systeme und Azure Stack Development Kit*
-
-Mit dem Validierungstool für Vorlagen können Sie überprüfen, ob Ihre Azure Resource Manager-[Vorlagen](azure-stack-arm-templates.md) in Azure Stack bereitgestellt werden können. Das Tool für die Vorlagenvalidierung ist im GitHub-Repository mit den Azure Stack-Tools verfügbar. Laden Sie die Azure Stack-Tools herunter, indem Sie die im Artikel [Herunterladen von Tools von GitHub](../operator/azure-stack-powershell-download.md) beschriebenen Schritte befolgen.
+Mit dem Validierungstool für Vorlagen können Sie überprüfen, ob Ihre Azure Resource Manager-[Vorlagen](azure-stack-arm-templates.md) in Azure Stack Hub bereitgestellt werden können. Das Tool für die Vorlagenvalidierung ist im GitHub-Repository mit den Azure Stack Hub-Tools verfügbar. Laden Sie die Azure Stack Hub-Tools herunter, indem Sie die im Artikel [Herunterladen von Tools von GitHub](../operator/azure-stack-powershell-download.md) beschriebenen Schritte befolgen.
 
 ## <a name="overview"></a>Übersicht
 
-Um eine Vorlage zu überprüfen, müssen Sie zunächst eine Datei mit Cloudfunktionen erstellen und dann das Validierungstool ausführen. Verwenden Sie die folgenden PowerShell-Module aus den Azure Stack-Tools:
+Um eine Vorlage zu überprüfen, müssen Sie zunächst eine Datei mit Cloudfunktionen erstellen und dann das Validierungstool ausführen. Verwenden Sie die folgenden PowerShell-Module aus den Azure Stack Hub-Tools:
 
-- Im Ordner **CloudCapabilities**: Mit **AzureRM.CloudCapabilities.psm1** wird eine JSON-Datei mit Cloudfunktionen erstellt, die die Dienste und Versionen in einer Azure Stack-Cloud darstellt.
-- Im Ordner **TemplateValidator**: In **AzureRM.TemplateValidator.psm1** wird eine JSON-Datei mit Cloudfunktionen verwendet, um Vorlagen für die Bereitstellung in Azure Stack zu testen.
+- Im Ordner **CloudCapabilities**: Mit **AzureRM.CloudCapabilities.psm1** wird eine JSON-Datei mit Cloudfunktionen erstellt, die die Dienste und Versionen in einer Azure Stack Hub-Cloud darstellt.
+- Im Ordner **TemplateValidator**: In **AzureRM.TemplateValidator.psm1** wird eine JSON-Datei mit Cloudfunktionen verwendet, um Vorlagen für die Bereitstellung in Azure Stack Hub zu testen.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Erstellen der Datei mit Cloudfunktionen
 
@@ -43,7 +41,7 @@ Bevor Sie die Vorlagenvalidierung verwenden, führen Sie das PowerShell-Modul **
 >[!NOTE]
 > Wenn Sie Ihr integriertes System aktualisieren oder neue Dienste oder virtuelle Erweiterungen hinzufügen, sollten Sie dieses Modul erneut ausführen.
 
-1. Stellen Sie sicher, dass Sie mit Azure Stack verbunden sind. Sie können diese Schritte auf dem ASDK-Host (Azure Stack Development Kit) ausführen oder ein [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) verwenden, um eine Verbindung von Ihrer Arbeitsstation aus herzustellen.
+1. Stellen Sie sicher, dass Sie mit Azure Stack Hub verbunden sind. Sie können diese Schritte auf dem ASDK-Host (Azure Stack Development Kit) ausführen oder ein [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) verwenden, um eine Verbindung von Ihrer Arbeitsstation aus herzustellen.
 2. Importieren Sie das PowerShell-Modul **AzureRM.CloudCapabilities**:
 
     ```powershell
@@ -58,7 +56,7 @@ Bevor Sie die Vorlagenvalidierung verwenden, führen Sie das PowerShell-Modul **
 
 ## <a name="validate-templates"></a>Überprüfen von Vorlagen
 
-Mit diesen Schritten überprüfen Sie Vorlagen, indem Sie das PowerShell-Modul **AzureRM.TemplateValidator** verwenden. Sie können Ihre eigenen Vorlagen oder die [Azure Stack-Vorlagen für den Schnellstart](https://github.com/Azure/AzureStack-QuickStart-Templates) verwenden.
+Mit diesen Schritten überprüfen Sie Vorlagen, indem Sie das PowerShell-Modul **AzureRM.TemplateValidator** verwenden. Sie können Ihre eigenen Vorlagen oder die [Azure Stack Hub-Vorlagen für den Schnellstart](https://github.com/Azure/AzureStack-QuickStart-Templates) verwenden.
 
 1. Importieren Sie das PowerShell-Modul **AzureRM.TemplateValidator.psm1**:
 
@@ -83,7 +81,7 @@ Warnungen oder Fehler bei der Vorlagenvalidierung werden in der PowerShell-Konso
 
 Das Validierungs-Cmdlet für Vorlagen unterstützt die folgenden Parameter.
 
-| Parameter | BESCHREIBUNG | Erforderlich |
+| Parameter | Beschreibung | Erforderlich |
 | ----- | -----| ----- |
 | `TemplatePath` | Gibt den Pfad an, um Azure Resource Manager-Vorlagen rekursiv zu suchen. | Ja |
 | `TemplatePattern` | Gibt den Namen der abzugleichenden Vorlagendateien an | Nein |
@@ -95,7 +93,7 @@ Das Validierungs-Cmdlet für Vorlagen unterstützt die folgenden Parameter.
 
 ### <a name="examples"></a>Beispiele
 
-In diesem Beispiel werden alle [Vorlagen aus dem Azure Stack-Schnellstart](https://github.com/Azure/AzureStack-QuickStart-Templates) überprüft, die in den lokalen Speicher heruntergeladen wurden. Im Beispiel werden auch die Größen und Erweiterungen virtueller Computer anhand der ASDK-Funktionen überprüft:
+In diesem Beispiel werden alle [Vorlagen aus dem Azure Stack Hub-Schnellstart](https://github.com/Azure/AzureStack-QuickStart-Templates) überprüft, die in den lokalen Speicher heruntergeladen wurden. Im Beispiel werden auch die Größen und Erweiterungen virtueller Computer anhand der ASDK-Funktionen überprüft:
 
 ```powershell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
@@ -107,5 +105,5 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Deploy templates to Azure Stack (Bereitstellen von Vorlagen in Azure Stack)](azure-stack-arm-templates.md)
-- [Entwickeln von Vorlagen für Azure Stack](azure-stack-develop-templates.md)
+- [Bereitstellen von Vorlagen in Azure Stack Hub](azure-stack-arm-templates.md)
+- [Entwickeln von Vorlagen für Azure Stack Hub](azure-stack-develop-templates.md)
