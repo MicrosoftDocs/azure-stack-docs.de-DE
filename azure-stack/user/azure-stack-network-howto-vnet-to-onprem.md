@@ -9,14 +9,14 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: e970dc46a4afdcc67e16c0239dc712da111c47a6
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 8b15be476153f2cc3fa01788814801bb751c9a9c
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879120"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259855"
 ---
-# <a name="setup-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Einrichten eines VPN-Gateways für Azure Stack Hub per FortiGate NVA
+# <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Einrichten eines VPN-Gateways für Azure Stack Hub per FortiGate NVA
 
 In diesem Artikel wird beschrieben, wie Sie eine VPN-Verbindung mit Ihrer Azure Stack Hub-Instanz herstellen. Ein VPN-Gateway ist eine Art von Gateway für virtuelle Netzwerke, mit dem verschlüsselter Datenverkehr zwischen Ihrem virtuellen Netzwerk in Azure Stack Hub und einem Remote-VPN-Gateway gesendet wird. Im unten angegebenen Verfahren wird ein VNET mit einer FortiGate NVA (Network Virtual Appliance) in einer Ressourcengruppe bereitgestellt. Außerdem werden Schritte zum Einrichten eines IPSec-VPN auf der FortiGate NVA beschrieben.
 

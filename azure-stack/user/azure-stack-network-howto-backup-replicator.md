@@ -9,14 +9,14 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: ef492c0e5bf63e73e3b8f59befa642d6d6b854bf
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 411dafa86d0ec61ff431cfea217f3721862b69f4
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816121"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259799"
 ---
-# <a name="how-to-replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Replizieren von Ressourcen mit dem Replikator für Azure Stack Hub-Abonnements
+# <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Replizieren von Ressourcen mit dem Replikator für Azure Stack Hub-Abonnements
 
 Sie können mit dem PowerShell-Skript des Replikators für Azure Stack Hub-Abonnements die Ressourcen zwischen Azure Stack Hub-Abonnements, Azure Stack Hub-Stamps oder Azure Stack Hub und Azure kopieren. Das Replikatorskript liest und erstellt die Azure Resource Manager-Ressourcen aus anderen Azure- und Azure Stack Hub-Abonnements neu. In diesem Artikel wird die Funktionsweise des Skripts erläutert. Sie erfahren, wie Sie das Skript verwenden können. Außerdem finden Sie eine Referenz für Skriptvorgänge.
 

@@ -5,18 +5,18 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/03/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 27feb4689380d0e1c70f66e38d144056d4c72d13
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 51fd6ffa23cff44967c31e5d66716bd5634861e0
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883421"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536095"
 ---
-# <a name="how-to-establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Gewusst wie: Einrichten einer VNET-zu-VNET-Verbindung in Azure Stack Hub per Fortinet FortiGate NVA
+# <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Einrichten einer VNET-zu-VNET-Verbindung in Azure Stack Hub per Fortinet FortiGate NVA
 
 In diesem Artikel verbinden Sie ein VNET einer Azure Stack Hub-Instanz mit einem VNET in einer anderen Azure Stack Hub-Instanz, indem Sie eine Fortinet FortiGate NVA (virtuelles Netzwerkgerät (Network Virtual Appliance, NVA)) verwenden.
 

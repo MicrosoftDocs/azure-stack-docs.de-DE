@@ -5,18 +5,18 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/03/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: e692d44f94aefdb28c447c9cff15f88af0d1827a
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: af60e71ef9143e1ca5b51fa07aeed100369faa45
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878776"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536571"
 ---
-# <a name="how-to-connect-two-vnets-through-peering"></a>Gewusst wie: Verbinden von zwei VNETs per Peering
+# <a name="connect-two-vnets-through-peering"></a>Verbinden von zwei VNETs per Peering
 
 In diesem Artikel wird beschrieben, wie Sie eine Verbindung zwischen zwei virtuellen Netzwerken in derselben Umgebung herstellen. Im Rahmen der Verbindungseinrichtung werden Sie auch mit der Funktionsweise von VPN-Gateways in Azure Stack Hub vertraut gemacht. Verbinden Sie zwei VNETs in derselben Azure Stack Hub-Umgebung, indem Sie Fortinet FortiGate verwenden. Bei diesem Verfahren werden zwei VNETs mit einer FortiGate NVA (virtuelles Netzwerkgerät, Network Virtual Appliance) in jedem VNET bereitgestellt – jeweils in einer separaten Ressourcengruppe. Darüber hinaus werden die Änderungen beschrieben, die für die Einrichtung eines IPSec-VPN zwischen den beiden VNETs vorgenommen werden müssen. Wiederholen Sie die Schritte in diesem Artikel für jede VNET-Bereitstellung.
 

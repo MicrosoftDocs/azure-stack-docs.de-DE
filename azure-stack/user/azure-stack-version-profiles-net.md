@@ -16,12 +16,12 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: ec22eea76e2ab0188c1c7a57ef58b4625dec2fcf
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 3af8a06f10322df67d80c489e1d19a7805dd8b2c
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878491"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256392"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit .NET in Azure Stack Hub
 
@@ -106,7 +106,7 @@ Beachten Sie die folgenden Überlegungen:
 
 - Der **ResourceManagerUrl**-Wert im Azure Stack Development Kit (ASDK) lautet: https://management.local.azurestack.external/.
 
-- Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`.
+- Die **ResourceManagerUrl** in integrierten Systemen lautet `https://management.region.<fqdn>/`, wobei `<fqdn>` Ihr vollqualifizierter Domänenname ist.
 Zum Abrufen der erforderlichen Metadaten: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
 
 JSON-Beispieldatei:

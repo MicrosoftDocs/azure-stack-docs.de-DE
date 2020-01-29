@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2019
+ms.date: 01/16/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: f30791ec7514a68a6137d2b5d2db3441cf217f58
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/16/2020
+ms.openlocfilehash: bb7fc0488ea264a83cc93e071b044e6443e97630
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883081"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256341"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Bedarfsgesteuertes Sammeln von Azure Stack Hub-Diagnoseprotokollen
 
@@ -108,7 +108,7 @@ Verwenden Sie diese Schritte zum Ausführen von `Get-AzureStackLog` auf einem AS
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-* Sammeln Sie Protokolle von Mandantenbereitstellungen, die selbstverwaltete Azure Kubernetes Service-Instanzen (AKS) in Azure Stack Hub ausführen. AKS-Protokolle sollten in einem Mandantenspeicherkonto in einem Format gespeichert werden, das zulässt, dass der Sammlungszeitraum auch auf sie angewendet wird. 
+* Sammeln Sie Protokolle von Mandantenbereitstellungen, die auf selbstverwalteten Kubernetes-Clustern (AKS-Engine) auf Azure Stack ausgeführt werden. Kubernetes-Protokolle sollten in einem Mandantenspeicherkonto in einem Format gespeichert werden, das erlaubt, dass der Sammlungszeitraum auch auf sie angewendet wird. 
 
   ```powershell
   Get-AzureStackLog -OutputPath <Path> -InputSasUri "<Blob Service Sas URI>" -FromDate "<Beginning of the time range>" -ToDate "<End of the time range>"

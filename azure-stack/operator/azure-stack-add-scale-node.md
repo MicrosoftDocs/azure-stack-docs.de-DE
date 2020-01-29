@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 7f9ab8b1ee8988689d2ac52dc355b85bfe9bfae6
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 50ff1bf63cbd7aaa36bb16e84f4c57db9c5a607d
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75805063"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256375"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Hinzufügen zusätzlicher Knoten einer Skalierungseinheit in Azure Stack Hub
 
@@ -34,7 +34,7 @@ Das folgende Flussdiagramm zeigt den allgemeinen Prozess des Hinzufügens eines 
 ![Flow zum Hinzufügen zu Skalierungseinheiten](media/azure-stack-add-scale-node/add-node-flow.png)
 <br> *Ob Ihr OEM-Hardwarehersteller die Platzierung des physischen Serverracks vornimmt und die Firmware aktualisiert, hängt von Ihrem Supportvertrag ab.*
 
-Das Hinzufügen eines neuen Knotens kann mehrere Stunden oder Tage dauern.
+Das Hinzufügen eines neuen Knotens kann mehrere Stunden oder Tage dauern. Es gibt keine Auswirkungen auf Workloads, die auf dem System ausgeführt werden, während ein zusätzlicher Skalierungseinheitknoten hinzugefügt wird.
 
 > [!Note]  
 > Führen Sie keinen der folgenden Vorgänge durch, während bereits ein Vorgang zum Hinzufügen eines Knotens zu einer Skalierungseinheit ausgeführt wird:

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 01/22/2020
 ms.author: justinha
-ms.reviewer: tbd
-ms.lastreviewed: 09/12/2018
+ms.reviewer: misainat
+ms.lastreviewed: 01/22/2020
 ROBOTS: NOINDEX
-ms.openlocfilehash: 81e6e51c602909421e40b4c1e1d5e6ec796f7839
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0dc4786e575fac736ec4664d2b8fdd3dcc467466
+ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817906"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76516724"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>Erstellen einer Site-to-Site-VPN-Verbindung zwischen zwei virtuellen Netzwerken in unterschiedlichen ASDK-Umgebungen
 
@@ -75,21 +75,13 @@ In der folgenden Tabelle sind die Netzwerkkonfigurationen für beide ASDK-Umgebu
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>Abrufen der IP-Adresse des externen Adapters des virtuellen NAT-Computers
 
 1. Melden Sie sich auf dem physischen Azure Stack Hub-Computer für POC1 an.
-2. Bearbeiten Sie den folgenden PowerShell-Code, um Ihr Administratorkennwort hinzuzufügen. Führen Sie den Code dann auf dem POC-Host aus:
+2. Öffnen Sie PowerShell als Administrator, und führen Sie das folgende Cmdlet aus:
 
    ```powershell
-   cd \AzureStack-Tools-master\connect
-   Import-Module .\AzureStack.Connect.psm1
-   $Password = ConvertTo-SecureString "<your administrator password>" `
-    -AsPlainText `
-    -Force
-   Get-AzureStackNatServerAddress `
-    -HostComputer "AzS-bgpnat01" `
-    -Password $Password
+   Get-NetNatExternalAddress
    ```
 
 3. Fügen Sie die IP-Adresse der Netzwerk-Konfigurationstabelle hinzu, die im vorherigen Abschnitt angezeigt wird.
-
 4. Wiederholen Sie dieses Verfahren auf POC2.
 
 ## <a name="create-the-network-resources-in-poc1"></a>Erstellen der Netzwerkressourcen in POC1

@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 12/29/2019
-ms.openlocfilehash: 0d136fdb1a72a6c52a3e441470713b77974d1fa3
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 1/16/2020
+ms.openlocfilehash: f61e7340c766f50f71bc41db7afa5bc079c53c7d
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882877"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145800"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Sicherheitskontrollen der Azure Stack Hub-Infrastruktur
 
@@ -105,7 +105,7 @@ Netzwerk-ACLs werden in drei Ebenen durchgesetzt:
 
 ## <a name="regulatory-compliance"></a>Compliance
 
-Azure Stack Hub hat eine formale Bewertung durch ein drittanbieterunabhängiges Überwachungsunternehmen durchlaufen. Infolgedessen ist Dokumentation darüber verfügbar, wie die Azure Stack Hub-Infrastruktur die geltenden Kontrollen aus mehreren wichtigen Compliancestandards erfüllt. Die Dokumentation ist keine Zertifizierung von Azure Stack Hub, da die Standards mehrere personal- und prozessbezogene Sicherheitsmaßnahmen beinhalten. Vielmehr können Kunden diese Dokumentation nutzen, um ihren Zertifizierungsprozess zu beschleunigen.
+Azure Stack Hub hat eine formale Funktionsbewertung durch ein drittanbieterunabhängiges Überwachungsunternehmen durchlaufen. Infolgedessen ist Dokumentation darüber verfügbar, wie die Azure Stack Hub-Infrastruktur die geltenden Kontrollen aus mehreren wichtigen Compliancestandards erfüllt. Die Dokumentation ist keine Zertifizierung von Azure Stack Hub, da die Standards mehrere personal- und prozessbezogene Sicherheitsmaßnahmen beinhalten. Vielmehr können Kunden diese Dokumentation nutzen, um ihren Zertifizierungsprozess zu beschleunigen.
 
 Die Bewertungen umfassen die folgenden Standards:
 

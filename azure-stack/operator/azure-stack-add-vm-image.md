@@ -15,12 +15,12 @@ ms.date: 10/16/2019
 ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 738c9aad910e558f883e3474b248a8271beb30a3
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: f0d0b268445d3de95e8f4dcaa0d44cb8d553111c
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880888"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259816"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Hinzufügen eines benutzerdefinierten VM-Images zu Azure Stack Hub
 
@@ -30,13 +30,22 @@ In Azure Stack Hub können Sie in Marketplace ein benutzerdefiniertes VM-Image (
 
 ### <a name="windows"></a>Windows
 
-Erstellen Sie eine benutzerdefinierte generalisierte VHD. Wenn die VHD nicht von Azure stammt, führen Sie die Schritte in [Hochladen einer generalisierten VHD und Verwendung dieser zum Erstellen neuer VMs in Azure](/azure/virtual-machines/windows/upload-generalized-managed) durch, zu erstellen, um **Sysprep** für Ihre VHD korrekt auszuführen und sie zu generalisieren.
+Erstellen Sie eine benutzerdefinierte generalisierte VHD. 
 
-Wenn die VHD von Azure stammt, befolgen Sie die Anweisungen in [diesem Dokument](/azure/virtual-machines/windows/download-vhd), um die VHD ordnungsgemäß zu generalisieren und herunterzuladen, bevor Sie sie zu Azure Stack Hub portieren.
+**Wenn die VHD nicht von Azure stammt**, führen Sie die Schritte in [Hochladen einer generalisierten VHD und Verwendung dieser zum Erstellen neuer VMs in Azure](/azure/virtual-machines/windows/upload-generalized-managed) durch, zu erstellen, um **Sysprep** für Ihre VHD korrekt auszuführen und sie zu generalisieren.
+
+**Wenn die VHD von Azure stammt**, stellen Sie vor der Generalisierung der VM Folgendes sicher:
+1) Wenn Sie die VM in Azure bereitstellen, verwenden Sie PowerShell, und stellen Sie sie ohne das `-ProvisionVMAgent`-Flag bereit. 
+2) Entfernen Sie alle VM-Erweiterungen mithilfe des Cmdlets **Remove-AzureRmVMExtension** vom virtuellen Computer, bevor Sie den virtuellen Computer in Azure generalisieren. Sie können feststellen, welche VM-Erweiterungen installiert sind, indem Sie zu „Windows (C:) > WindowsAzure > Logs > Plugins“ wechseln.
+
+```Powershell
+Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
+```                       
+Befolgen Sie anschließend die Anweisungen in [diesem Dokument](/azure/virtual-machines/windows/download-vhd), um die VHD ordnungsgemäß zu generalisieren und herunterzuladen, bevor Sie sie zu Azure Stack Hub portieren.
 
 ### <a name="linux"></a>Linux
 
-Wenn die VHD nicht von Azure stammt, befolgen Sie die entsprechenden Anweisungen zum Generalisieren der VHD:
+**Wenn die VHD nicht von Azure stammt**, befolgen Sie die entsprechenden Anweisungen zum Generalisieren der VHD:
 
 - [CentOS-basierte Verteilungen](/azure/virtual-machines/linux/create-upload-centos?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Debian Linux](/azure/virtual-machines/linux/debian-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -44,7 +53,7 @@ Wenn die VHD nicht von Azure stammt, befolgen Sie die entsprechenden Anweisungen
 - [SLES oder openSUSE](/azure/virtual-machines/linux/suse-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Ubuntu Server](/azure/virtual-machines/linux/create-upload-ubuntu?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Wenn die VHD von Azure stammt, befolgen Sie diese Anweisungen zum Generalisieren und Herunterladen der VHD:
+**Wenn die VHD von Azure stammt**, befolgen Sie diese Anweisungen zum Generalisieren und Herunterladen der VHD:
 
 1. Beenden des **waagent**-Diensts:
 

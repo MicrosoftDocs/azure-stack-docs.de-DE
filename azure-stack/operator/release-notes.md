@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2019
+ms.date: 01/16/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: da89dbe1cfb03e7e1970852b5742c4d9290ba93c
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 41cb61022f3bceda1b54ef88b2209f92b057b19a
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879970"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259731"
 ---
 # <a name="azure-stack-hub-updates-release-notes"></a>Azure Stack Hub-Updates: Versionshinweise
 
@@ -216,7 +216,7 @@ Das Release 1910 von Azure Stack Hub muss auf das Release 1908 mit den folgend
 Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes. Weitere Informationen finden Sie in unserer [Wartungsrichtlinie](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub-Hotfix 1.1910.9.78](https://support.microsoft.com/help/4536210)
+- [Azure Stack Hub-Hotfix 1.1910.17.95](https://support.microsoft.com/help/4537833)
 ::: moniker-end
 
 ::: moniker range="azs-1908"

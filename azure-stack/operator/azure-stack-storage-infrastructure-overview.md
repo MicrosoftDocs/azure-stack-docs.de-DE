@@ -12,20 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: article
-ms.date: 08/27/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 508036c399b44fc6de50c11955417c5a0732d8bc
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: dfc073c87b1e6c8b1696b4d052e89c4ef786bc4d
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914989"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535738"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Verwalten der Speicherinfrastruktur für Azure Stack Hub
-
-*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme und Azure Stack Development Kit*
 
 In diesem Artikel werden die Integrität und der Betriebszustand von Ressourcen der Azure Stack Hub-Speicherinfrastruktur beschrieben. Diese Ressourcen umfassen Speicherdatenträger und Volumes. Die Informationen in diesem Thema sind sehr hilfreich bei der Behandlung verschiedener Probleme, etwa wenn ein Laufwerk nicht einem Pool hinzugefügt werden kann.
 

@@ -15,12 +15,12 @@ ms.date: 10/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 3ca1d375e5d819e93813c9f6d0fa9baf5619f563
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: c21e2a1335b76da2bcd1f4ce88274685d962a299
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924370"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259918"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Anwenden von OEM-Updates (Originalgerätehersteller) auf Azure Stack Hub
 
@@ -42,7 +42,7 @@ In diesem Abschnitt finden sich OEM-Kontaktinformationen sowie Links zu OEM Azur
 
 | Hardwarepartner | Region | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | All | [Betriebshandbuch für Cisco Integrated System for Microsoft Azure Stack Hub](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_01000.html)<br><br>[Software für UCS-verwaltete Server der UCS C-Serie für die Rackmontage](https://software.cisco.com/download/home/283862063/type/286320368/release/2.0(0)) |
+| Cisco | All | [Betriebshandbuch für Cisco Integrated System for Microsoft Azure Stack Hub](https://aka.ms/aa708e2)<br><br>[Software für UCS-verwaltete Server der UCS C-Serie für die Rackmontage](https://aka.ms/aa700rq) |
 | Dell EMC | All | [Cloud für Microsoft Azure Stack Hub 14G (Konto und Anmeldung erforderlich)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud für Microsoft Azure Stack Hub 13G (Konto und Anmeldung erforderlich)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | JAPAN | [Fujitsu-Supportdesk für verwaltete Dienste (Konto und Anmeldung erforderlich)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | EMEA und USA | [Fujitsu-Support für IT-Produkte und -Systeme](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
@@ -54,10 +54,13 @@ In diesem Abschnitt finden sich OEM-Kontaktinformationen sowie Links zu OEM Azur
 
 Führen Sie zum Anwenden von OEM-Paketen folgende Schritte aus:
 
+> [!IMPORTANT]
+> Vergewissern Sie sich vor dem Anwenden von Updates in Azure Stack Hub, dass Sie **alle** Schritte in der [Prüfliste für das Update](release-notes-checklist.md) ausgeführt und ein entsprechendes Wartungsfenster für den von Ihnen angesetzten Updatetyp geplant haben.
+
 1. Sie müssen sich zu folgenden Zwecken an Ihren OEM wenden:
       - Bestimmen der aktuellen Version Ihres OEM-Pakets.  
       - Ermitteln der besten Methode zum Herunterladen des OEM-Pakets.  
-2. Vor dem Anwenden eines OEM-Paketupdates sollten Sie immer den neuesten Azure Stack Hub-Hotfix anwenden, der für die aktuelle Azure Stack Hub-Version Ihres Systems verfügbar ist. Weitere Informationen zu Hotfixes finden Sie unter [Azure Stack Hub-Hotfixes](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy).
+2. Vor dem Anwenden eines OEM-Paketupdates sollten Sie immer den neuesten Azure Stack Hub-Hotfix anwenden, der für die aktuelle Azure Stack Hub-Version Ihres Systems verfügbar ist. Weitere Informationen zu Hotfixes finden Sie unter [Azure Stack Hub-Hotfixes](azure-stack-servicing-policy.md).
 3. Bereiten Sie Ihr OEM-Paket mit den unter [Herunterladen der Updatepakete für integrierte Systeme](azure-stack-servicing-policy.md) beschriebenen Schritten vor.
 4. Wenden Sie die Updates mit den unter [Anwenden von Updates in Azure Stack Hub](azure-stack-apply-updates.md) beschriebenen Schritten an.
 

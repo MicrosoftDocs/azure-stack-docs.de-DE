@@ -9,14 +9,14 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: d10fbc7ad009456459a8719fbc6e6c8ce51529f1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d04fcc37df7b610c85a2ba27a90f288bce5feae3
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816478"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259901"
 ---
-# <a name="how-to-get-authentication-information-for-azure-stack-hub"></a>Abrufen von Authentifizierungsinformationen für Azure Stack Hub
+# <a name="get-authentication-information-for-azure-stack-hub"></a>Abrufen von Authentifizierungsinformationen für Azure Stack Hub
 
 Für die Authentifizierung bei Azure Stack Hub müssen Sie die Abonnement-ID, die Mandanten-ID, den Standort und den Resource Manager-Endpunkt von Azure Stack Hub angeben. Diese Werte können Sie über den [Azure Stack Hub-Resource Manager-Endpunkt](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint) für Azure Stack Hub abrufen. Sie können sie auch mithilfe der in diesem Artikel beschriebenen Schritte abrufen.
 

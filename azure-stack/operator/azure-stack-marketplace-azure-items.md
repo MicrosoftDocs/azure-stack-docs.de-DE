@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2020
+ms.date: 01/21/2020
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 6cb2421deef1ea0b3c741c1c068e9452bfb2af5f
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/21/2020
+ms.openlocfilehash: 7a8fb4c500f749bfe58e1adcb7e5a9ce854bb9d0
+ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882724"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76516764"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Für Azure Stack Hub verfügbare Azure Marketplace-Elemente
 
@@ -259,6 +259,7 @@ Microsoft Azure Stack Hub unterstützt die folgenden VMs und Lösungsvorlagen vo
 | ![Quest Rapid Recovery](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Rapid Recovery Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Der fortschrittliche Datenschutz von Rapid Recovery vereinheitlicht Sicherung, Replikation und Wiederherstellung in einer benutzerfreundlichen Softwarelösung. | Quest-Software |
 | ![SIOS DataKeeper Cluster Edition](media/azure-stack-marketplace-azure-items/sioslogo.png) | [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) | SIOS DataKeeper bietet Hochverfügbarkeit und ermöglicht eine Notfallwiederherstellung in Azure Stack Hub. Fügen Sie Ihrer WSFC-Umgebung (Windows Server Failover Clustering) in einer Azure Stack Hub-Bereitstellung die SIOS DataKeeper-Software hinzu, damit Sie nicht länger auf geteilten Speicher angewiesen sind. | SIOS Technology Corp. |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos) | Branchenführende Lösung für Open-Source-Infrastrukturverwaltung | SUSE |
+| ![Teradici Cloud Access Software](media/azure-stack-marketplace-azure-items/teradici.png) | [Teradici Cloud Access Software](https://azuremarketplace.microsoft.com/marketplace/apps/teradici.teradici_cas_azure_stack) | Die Cloudzugriffssoftware basiert auf PCoIP®-Technologie und stellt Remotedesktops und Arbeitsstationen von Azure Stack auf beliebigen Geräte bereit. Konsolidieren Sie die Datenspeicherung, verbessern Sie die Zusammenarbeit, sichern Sie Daten, optimieren Sie die Desktopverwaltung und vieles mehr. | Teradici |
 | ![CipherTrust Cloud Key Manager](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust Cloud Key Manager](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | CipherTrust Cloud Key Manager nutzt Microsoft Azure und andere BYOK-APIs (Bring Your Own Key), um die Komplexität der Schlüsselverwaltung zu verringern sowie die Betriebskosten zu senken. Erreicht wird dies durch eine Multi-Cloud-Lebenszyklussteuerung für Verschlüsselungsschlüssel mit zentralisierter Verwaltung und Transparenz. | Thales eSecurity |
 | ![Veeam Backup & Replication](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam Backup & Replication](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication?tab=Overview) | Veeam® Backup & Replication™ hilft Unternehmen dabei, umfassenden Datenschutz für alle Workloads zu erzielen – seien sie virtuell, physisch oder cloudbasiert. Mit einer einzigen Konsole können Sie die schnelle, flexible und zuverlässige Sicherung, Wiederherstellung und Replikation aller Apps und Daten erreichen. | Veeam-Software |
 | ![ZeroDown Software Tool](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Business Continuity as a Service](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | Die ZeroDown®-Softwaretechnologie bietet Unternehmen kontinuierlichen Zugriff auf ihre Unternehmensdaten. Dafür sorgt die Business Continuity-as-a-Service™-Architektur (BCaaS), die Apps und Transaktionen bei Netzwerkunterbrechungen schützt, die das Unternehmen normalerweise lahmlegen würden. | ZeroDown Software |

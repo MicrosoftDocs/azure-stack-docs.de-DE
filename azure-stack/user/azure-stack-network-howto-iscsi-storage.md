@@ -9,14 +9,14 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 5616284e7632f89ba31c89febb5a26158ad81bd7
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 909c138e17a25b06f7ed135c74aefaf63ce69aff
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879036"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259782"
 ---
-# <a name="how-to-connect-to-iscsi-storage-with-azure-stack-hub"></a>Herstellen einer Verbindung mit dem iSCSI-Speicher mit Azure Stack Hub
+# <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Herstellen einer Verbindung mit dem iSCSI-Speicher mit Azure Stack Hub
 
 Mithilfe der Vorlage in diesem Artikel können Sie einen virtuellen Azure Stack Hub-Computer mit einem lokalen iSCSI-Ziel verbinden und den virtuellen Computer so einrichten, dass Speicher außerhalb von Azure Stack Hub und an anderer Stelle in Ihrem Rechenzentrum verwendet werden. Dieser Artikel befasst sich mit der Verwendung eines Windows-Computers als iSCSI-Ziel.
 

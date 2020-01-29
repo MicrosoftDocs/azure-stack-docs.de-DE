@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: f83380b7eb3f35c5887911f40336bf4286759f53
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: c16987ac19b47eb4d0fedb147522703b98c8792e
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914758"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256358"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Konfigurieren der Azure Stack Hub-Telemetrie
 
@@ -36,7 +36,7 @@ Telemetriedaten liefern Azure Stack Hub-Operatoren wertvolle Erkenntnisse zu Unt
 Die Azure Stack Hub-Telemetrie basiert auf der Windows Server 2016-Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“. Diese Komponente verwendet die TraceLogging-Technologie [Ereignisablaufverfolgung für Windows (Event Tracing for Windows, ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx), um Ereignisse und Daten zu erfassen und zu speichern. Die gleiche Technologie wird von Azure Stack-Komponenten zum Veröffentlichen von Ereignissen und Daten verwendet, die mithilfe der öffentlichen APIs für die Protokollierung und Nachverfolgung von Betriebssystemereignissen erfasst werden. Zu diesen Azure Stack Hub-Komponenten zählen beispielsweise folgende Anbieter: Netzwerkressource, Speicherressource, Überwachungsressource und Aktualisierungsressource. Die Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ verschlüsselt Daten per SSL und nutzt das Anheften von Zertifikaten, um Daten über HTTPS an den Datenverwaltungsdienst von Microsoft zu übertragen.
 
 > [!IMPORTANT]
-> Zur Ermöglichung des Telemetriedatenflusses muss der Port 443 (HTTPS) in Ihrem Netzwerk geöffnet sein. Die Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ stellt unter https://v10.vortex-win.data.microsoft.com eine Verbindung mit dem Datenverwaltungsdienst von Microsoft her. Außerdem stellt die Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ eine Verbindung mit https://settings-win.data.microsoft.com her, um Konfigurationsinformationen herunterzuladen.
+> Zur Ermöglichung des Telemetriedatenflusses muss der Port 443 (HTTPS) in Ihrem Netzwerk geöffnet sein. Die Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ stellt unter `https://v10.events.data.microsoft.com` eine Verbindung mit dem Datenverwaltungsdienst von Microsoft her. Außerdem stellt die Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ eine Verbindung mit `https://settings-win.data.microsoft.com` her, um Konfigurationsinformationen herunterzuladen. Andere Diagnosedatendienste stellen für die Fehlerberichterstattung eine Verbindung mit `https://watson.telemetry.microsoft.com` her.
 
 ## <a name="privacy-considerations"></a>Datenschutzaspekte
 

@@ -16,12 +16,12 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 0b150f97adf3e456b41dc3af9ac92e0a281b793a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 951840c6382506404e514bfd27d69af399b5a120
+ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812398"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76516741"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -776,6 +776,13 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Geltungsbereich: Dieses Problem gilt für Release 1906.
 - Ursache: Auf der Übersichtsseite für die VM-Skalierungsgruppe wird ein leeres Diagramm angezeigt. Durch Klicken auf das leere Diagramm wird ein Blatt mit einer „Regenwolke“ angezeigt. Dies ist das Diagramm für die Diagnoseinformationen der Skalierungsgruppe, z. B. CPU-Prozentsatz, und dies ist eine Funktion, die im aktuellen Azure Stack Hub-Build nicht unterstützt wird.
 - Abhilfe: Keine.
+- Häufigkeit: Allgemein
+
+### <a name="issues-creating-resources"></a>Probleme beim Erstellen von Ressourcen
+
+- Geltungsbereich: Dieses Problem gilt für Release 1906.
+- Ursache: 1906 weist ein bekanntes Problem mit der Zuordnung von benutzerdefinierten Rollen und Berechtigungen für die Ressourcenerstellung auf. Beim Erstellen von Ressourcen treten möglicherweise Probleme auf, auch wenn Sie über die richtigen Berechtigungen verfügen.
+- Abhilfe: Aktualisieren Sie auf Build 1907, um dieses Problem zu beheben.
 - Häufigkeit: Allgemein
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Blatt mit VM-Diagnoseeinstellungen

@@ -16,12 +16,12 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: d1109d2b0e8e8cffc1bf03c2e897c6c0230084c4
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: ec8c03536cb005de84f35ae7dc534d33f7223354
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878339"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256290"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Ruby in Azure Stack Hub
 
@@ -106,7 +106,7 @@ Microsoft Azure Resource Manager ist ein Verwaltungsframework, mit dem Administr
 Sie können die Metadateninformationen vom Resource Manager-Endpunkt abrufen. Der Endpunkt gibt eine JSON-Datei mit den zum Ausführen des Codes erforderlichen Informationen zurück.
 
  > [!NOTE]  
- > Der **ResourceManagerUrl**-Wert im Azure Stack Development Kit (ASDK) lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+ > Der **ResourceManagerUrl**-Wert im Azure Stack Development Kit (ASDK) lautet: `https://management.local.azurestack.external/` Die **ResourceManagerUrl** in integrierten Systemen lautet `https://management.region.<fqdn>/`, wobei `<fqdn>` Ihr vollqualifizierter Domänenname ist.  
  > Zum Abrufen der erforderlichen Metadaten verwenden Sie Folgendes: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
   
  JSON-Beispieldatei:

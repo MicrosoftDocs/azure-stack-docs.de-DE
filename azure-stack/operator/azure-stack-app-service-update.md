@@ -15,16 +15,14 @@ ms.date: 01/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: cf161a3c756042d60a112a7ca2c794e3bb72b297
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 4289009ee20f5e031ae1104b0507faa189e4d1aa
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924342"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124802"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Aktualisieren von Azure App Service in Azure Stack Hub
-
-*Anwendungsbereich: Integrierte Azure Stack Hub-Systeme und Azure Stack Hub Development Kit*
 
 > [!IMPORTANT]
 > Wenden Sie Update 1910 auf Ihr integriertes Azure Stack Hub-System an, oder stellen Sie das aktuelle Azure Stack Development Kit (ASDK) bereit, bevor Sie mit der Bereitstellung von Azure App Service 1.8 beginnen.

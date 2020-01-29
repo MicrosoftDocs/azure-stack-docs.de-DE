@@ -11,21 +11,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: c19cf8a97fa92e0084a5b494fe79a7e45a519cad
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 17d9c16a6ee95672450dcfed1dee66e21390e022
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878389"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536435"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>Bereitstellen von Kubernetes für die Verwendung von Containern in Azure Stack Hub
 
 > [!Note]  
-> Verwenden Sie das Kubernetes-Azure Stack-Marketplace-Element nur, um Cluster als Proof of Concept bereitzustellen. Verwenden Sie für unterstützte Kubernetes-Cluster in Azure Stack  [die AKS-Engine](azure-stack-kubernetes-aks-engine-overview.md).
+> Verwenden Sie das Kubernetes-Azure Stack-Marketplace-Element nur, um Cluster als Proof of Concept bereitzustellen. Verwenden Sie für unterstützte Kubernetes-Cluster in Azure Stack [die AKS-Engine](azure-stack-kubernetes-aks-engine-overview.md).
 
 Sie können die Schritte in diesem Artikel befolgen, um die Ressourcen für Kubernetes in einem einzigen, koordinierten Vorgang bereitzustellen und einzurichten. Die Schritte verwenden eine Azure Resource Manager-Lösungsvorlage. Sie müssen die erforderlichen Informationen zu Ihrer Azure Stack Hub-Installation sammeln, die Vorlage generieren und dann die Bereitstellung in der Cloud ausführen. Die Azure Stack Hub-Vorlage verwendet nicht denselben verwalteten AKS-Dienst, der in der globalen Azure-Umgebung angeboten wird.
 
