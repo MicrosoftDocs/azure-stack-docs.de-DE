@@ -1,26 +1,19 @@
 ---
-title: Bewährte Methoden für die Azure Stack-Validierung | Microsoft-Dokumentation
+title: Bewährte Methoden für die Azure Stack-Validierung
 description: In diesem Artikel werden bewährte Methoden für Validation-as-a-Service behandelt.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 930a8ea40fde7a021a893e5289d16fa73398300f
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: cdd5d8a2b1933559c204e479f0215e63b6100b33
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167271"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884112"
 ---
 # <a name="best-practices-for-validation-as-a-service"></a>Bewährte Methoden für Validation-as-a-Service
 

@@ -1,27 +1,18 @@
 ---
-title: Erweiterte ASDK-Evaluierungsaufgaben | Microsoft-Dokumentation
+title: ASDK-Aufgaben zur erweiterten Evaluierung
 description: In diesem Artikel werden erweiterte ASDK-Evaluierungsaufgaben (Azure Stack Development Kit) erläutert.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 2390f2c21325a059ea6f651e7fcd944d890bf307
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.openlocfilehash: 5ad405deed93155871afb4793a1d800268ae7d22
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73594769"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874160"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>ASDK-Aufgaben zur erweiterten Evaluierung
 Wenn Sie sich mit den grundlegenden Dienstfeatures und -funktionen des Azure Stack Development Kits (ASDK) vertraut gemacht haben, können Sie Ihre Kenntnisse zu Azure Stack vertiefen, indem Sie erweiterte Szenarien ausprobieren. Diese erweiterten Evaluierungsaufgaben sind vollständig in der Dokumentation für Azure Stack-Bediener beschrieben.

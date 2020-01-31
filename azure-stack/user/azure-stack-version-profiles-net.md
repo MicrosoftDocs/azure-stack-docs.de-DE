@@ -1,27 +1,18 @@
 ---
-title: Verwenden von API-Versionsprofilen mit .NET in Azure Stack Hub | Microsoft-Dokumentation
+title: Verwenden von API-Versionsprofilen mit .NET in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie API-Versionsprofile mit .NET SDK in Azure Stack Hub verwenden.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 3af8a06f10322df67d80c489e1d19a7805dd8b2c
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: 6f8220f9a8683569c23460acf2890c9aa8407f30
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256392"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883084"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit .NET in Azure Stack Hub
 
@@ -34,7 +25,7 @@ Ein API-Profil ist eine Kombination aus Ressourcenanbietern und API-Versionen. V
 - Verwenden Sie das **aktuelle** Profil von Paketen, um die aktuellen Versionen aller Dienste zu nutzen. Dieses Profil ist Teil des NuGet-Pakets **Microsoft.Azure.Management**.
 
 - Verwenden Sie eines der folgenden Pakete, um die mit Azure Stack Hub kompatiblen Dienste zu nutzen:
-  - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg** 
+  - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
   - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
   Stellen Sie sicher, dass der **ResourceProvider**-Teil des NuGet-Pakets oben in den richtigen Anbieter geändert wird.
@@ -53,9 +44,9 @@ Sie können alle Optionen in derselben Anwendung kombinieren.
 
 - Welche Pakete installiert werden müssen, hängt von der Profilversion ab, die Sie verwenden möchten. Die Paketnamen für die Profilversionen sind:
 
-   - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+  - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
-   - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+  - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
 - Zum Installieren der richtigen NuGet-Pakete für Visual Studio Code, rufen Sie den folgenden Link zum Herunterladen der [NuGet-Paket-Manager-Anweisungen][] auf.
 
@@ -85,7 +76,7 @@ Folgen Sie den Anweisungen [in diesem Artikel](../operator/azure-stack-csp-ref-o
 Verwenden Sie das folgende Format, um die Umgebungsvariablen in der Windows-Eingabeaufforderung zu verwenden:
 
 ```shell
-Set Azure_Tenant_ID=Your_Tenant_ID
+set Azure_Tenant_ID=Your_Tenant_ID
 ```
 
 ### <a name="macos-linux-and-unix-based-systems"></a>MacOS-, Linux- und Unix-basierte Systeme
@@ -93,7 +84,7 @@ Set Azure_Tenant_ID=Your_Tenant_ID
 In Unix-basierten Systemen verwenden Sie den folgenden Befehl:
 
 ```shell
-Export Azure_Tenant_ID=Your_Tenant_ID
+export Azure_Tenant_ID=Your_Tenant_ID
 ```
 
 ### <a name="the-azure-stack-hub-resource-manager-endpoint"></a>Der Resource Manager-Endpunkt von Azure Stack Hub

@@ -1,20 +1,18 @@
 ---
-title: Ausführen eines virtuellen Windows-Computers in Azure Stack Hub | Microsoft-Dokumentation
+title: Ausführen eines virtuellen Windows-Computers in Azure Stack Hub
 description: Erfahren Sie, wie Sie in Azure Stack Hub einen virtuellen Windows-Computer ausführen.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 20e855655edfdbf2c67c130b88cfa2af10338986
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2aaa7ccf995ac9cc4f5cfc012441ca2317af3504
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818450"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885297"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Ausführen eines virtuellen Windows-Computers in Azure Stack Hub
 

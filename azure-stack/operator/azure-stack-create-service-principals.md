@@ -3,16 +3,15 @@ title: Verwenden einer App-Identität für den Ressourcenzugriff
 description: Hier erfahren Sie, wie Sie einen Azure Stack Hub-Dienstprinzipal verwalten. Ein Dienstprinzipal kann mit der rollenbasierten Zugriffssteuerung für die Anmeldung bei und für den Zugriff auf Ressourcen verwendet werden.
 author: BryanLa
 ms.author: bryanla
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 73eec3724aa37976809af6d1a4aa1b4b4c7baef5
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e53758880f8cc6bd4b365d5d752a960d623795e6
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883098"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879855"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Verwenden einer App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen
 
@@ -321,7 +320,7 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 
 Der Zugriff von Benutzern und Apps auf Azure-Ressourcen wird über die rollenbasierte Zugriffssteuerung autorisiert. Um einer App den Zugriff auf Ressourcen in Ihrem Abonnement unter Verwendung ihres Dienstprinzipals zu gestatten, müssen Sie den Dienstprinzipal einer *Rolle* für eine bestimmte *Ressource* *zuweisen*. Entscheiden Sie zuerst, welche Rolle die geeigneten *Berechtigungen* für die App repräsentiert. Informationen zu den verfügbaren Rollen finden Sie unter [Integrierte Rollen für Azure-Ressourcen](/azure/role-based-access-control/built-in-roles).
 
-Der Typ der Ressource, die Sie auswählen, bestimmt auch den *Zugriffsbereich* für den Dienstprinzipal. Sie können den Zugriffsbereich auf Ebene des Abonnements, der Ressourcengruppe oder der Ressource festlegen. Berechtigungen werden von niedrigeren Ebenen mit geringerem Umfang geerbt. Wenn z. B. der Rolle „Leser“ für eine Ressourcengruppe eine App hinzugefügt wird, kann diese Rolle die Ressourcengruppe und alle darin enthaltenen Ressourcen lesen.
+Der Typ der Ressource, die Sie auswählen, bestimmt auch den *Zugriffsbereich* für den Dienstprinzipal. Sie können den Zugriffsbereich auf Ebene des Abonnements, der Ressourcengruppe oder der Ressource festlegen. Niedrigere Ebenen mit geringerem Umfang erben Berechtigungen. Wenn z. B. der Rolle „Leser“ für eine Ressourcengruppe eine App hinzugefügt wird, kann diese Rolle die Ressourcengruppe und alle darin enthaltenen Ressourcen lesen.
 
 1. Melden Sie sich basierend auf dem Verzeichnis, das Sie bei der Azure Stack Hub-Installation angegeben haben, beim entsprechenden Portal an (etwa für Azure AD beim Azure-Portal oder für AD FS beim Azure Stack Hub-Benutzerportal). In diesem Beispiel zeigen wir einen beim Azure Stack Hub-Benutzerportal angemeldeten Benutzer.
 

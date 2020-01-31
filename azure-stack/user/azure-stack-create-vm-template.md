@@ -1,28 +1,18 @@
 ---
-title: Erstellen eines virtuellen Computers mit einer Communityvorlage | Microsoft-Dokumentation
+title: Erstellen eines virtuellen Computers mit einer Communityvorlage
 description: Hier erfahren Sie, wie Sie das ASDK (Azure Stack Development Kit) zum Erstellen eines virtuellen Computers mit einer vordefinierten Vorlage und einer benutzerdefinierten GitHub-Vorlage verwenden.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 10/03/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: b709d51a430530c50cf9a6e06896d405c435383e
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: ab2a177c9e2edc1b0362b03023148072fb885fb9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023241"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883886"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Tutorial: Erstellen eines virtuellen Computers mit einer Communityvorlage
 

@@ -1,26 +1,17 @@
 ---
-title: Konfigurieren von VPN-Gatewayeinstellungen für Azure Stack Hub | Microsoft-Dokumentation
+title: Konfigurieren von VPN-Gatewayeinstellungen für Azure Stack Hub
 description: Erfahren Sie mehr über das Konfigurieren von VPN-Gatewayeinstellungen für Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: fa8d3adc-8f5a-4b4f-8227-4381cf952c56
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: ff7667c94b345cbb666232e869ab8871bd081f5c
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: b230c78811e79e7a04114b77a2fcacd1b2a2fc9c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883132"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884118"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Konfigurieren von VPN-Gatewayeinstellungen für Azure Stack Hub
 
@@ -32,7 +23,7 @@ Für eine VPN Gateway-Verbindung müssen mehrere Ressourcen konfiguriert werden,
 
 ### <a name="gateway-types"></a>Gatewaytypen
 
-Jedes virtuelle Azure Stack Hub-Netzwerk unterstützt ein einzelnes Gateway für virtuelle Netzwerke, das vom Typ **VPN** sein muss.  Diese Unterstützung unterscheidet sich von Azure, das zusätzliche Typen unterstützt.
+Jedes virtuelle Azure Stack Hub-Netzwerk unterstützt ein einzelnes Gateway für virtuelle Netzwerke, das vom Typ **VPN** sein muss. Diese Unterstützung unterscheidet sich von Azure, das zusätzliche Typen unterstützt.
 
 Achten Sie beim Erstellen eines Gateways für virtuelle Netzwerke darauf, dass der Gatewaytyp für Ihre Konfiguration richtig ist. Ein VPN-Gateway erfordert das `-GatewayType Vpn`-Flag. Beispiel:
 

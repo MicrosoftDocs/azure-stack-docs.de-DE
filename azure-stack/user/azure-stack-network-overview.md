@@ -1,21 +1,18 @@
 ---
-title: Einführung in Azure Stack Hub-Netzwerke | Microsoft-Dokumentation
+title: Einführung in Azure Stack Hub-Netzwerke
 description: Informationen zu Azure Stack Hub-Netzwerken
-services: azure-stack
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 1a0ba98c44c4c28feedbf72e23534603d08abd44
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: c23d005869e83b46ac73be8660adc3056dcc52e0
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536044"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884553"
 ---
 # <a name="introduction-to-azure-stack-hub-networking"></a>Einführung in Azure Stack Hub-Netzwerke
 

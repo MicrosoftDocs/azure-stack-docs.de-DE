@@ -1,21 +1,18 @@
 ---
-title: Erste Schritte mit den Azure Stack Hub-Speicherentwicklungstools | Microsoft-Dokumentation
+title: Erste Schritte mit den Azure Stack Hub-Speicherentwicklungstools
 description: Anleitung für die ersten Schritte mit Azure Stack Hub-Speicher-Entwicklungstools
-services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
 ms.date: 1/22/2020
 ms.topic: conceptual
-ms.service: azure-stack
-manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 043b3ca7105b526e2c0c79ca7573375b2a8cfcae
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: eed80065694512b0f180a4bc28be54d0cace12e7
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535925"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883159"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Erste Schritte mit den Azure Stack Hub-Speicherentwicklungstools
 

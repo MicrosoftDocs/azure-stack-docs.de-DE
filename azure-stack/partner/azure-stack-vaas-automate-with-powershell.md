@@ -1,26 +1,19 @@
 ---
-title: Automatisieren der Azure Stack-Überprüfung mit PowerShell | Microsoft-Dokumentation
+title: Automatisieren der Azure Stack-Überprüfung mit PowerShell
 description: Sie können die Azure Stack-Überprüfung mit PowerShell automatisieren.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/26/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2f048ea1feb7a707c3c52b83fcf7c9e65a1ea58a
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: d37c1f9027017446c31b0877496c28928d22f92a
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954416"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884993"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Automatisieren der Azure Stack-Überprüfung mit PowerShell
 
@@ -260,7 +253,7 @@ $scriptParameters = @{
 
 Weitere Informationen finden Sie unter [Allgemeine Workflowparameter](azure-stack-vaas-parameters.md).
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --- | --- |
 | VaaSAccountUserName | Ihr VaaS-Benutzername für das VaaS-Portal |
 | VaaSAccountPassword | Ihr VaaS-Kennwort für das VaaS-Portal |

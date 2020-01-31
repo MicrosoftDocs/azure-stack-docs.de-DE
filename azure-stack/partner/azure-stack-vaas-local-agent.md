@@ -1,26 +1,19 @@
 ---
-title: Bereitstellen des lokalen Agents | Microsoft-Dokumentation
+title: Bereitstellen des lokalen Agents
 description: Stellen Sie den lokalen Agent für Validation-as-a-Service in Azure Stack bereit.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9cd13f16df804c674c2901ae0e167e47294f176a
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: a84f2495b0e2195ac143dc8fd9ac4ea4668392b4
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955896"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884090"
 ---
 # <a name="deploy-the-local-agent"></a>Bereitstellen des lokalen Agents
 
@@ -89,11 +82,11 @@ Vergewissern Sie sich, dass Ihr Computer die folgenden Kriterien erfüllt:
 
 **Parameter**
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --- | --- |
 | AadServiceAdminUser | Der globale Administratorbenutzer für Ihren Azure AD-Mandanten. Beispiel: vaasadmin@contoso.onmicrosoft.com |
 | AadServiceAdminPassword | Das Kennwort für den globalen Administratorbenutzer |
-| CloudAdminUserName | Der Cloudadministratorbenutzer, der auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen kann. Beispiel: AzusreStack\CloudAdmin. Weitere Informationen finden Sie [hier](azure-stack-vaas-parameters.md). |
+| CloudAdminUserName | Der Cloudadministratorbenutzer, der auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen kann. Beispiel: AzusreStack\CloudAdmin. Weitere Informationen finden Sie [hier](azure-stack-vaas-parameters.md) . |
 | CloudAdminPassword | Das Kennwort für das Cloudadministratorkonto|
 
 ![Herunterladen der erforderlichen Komponenten](media/installing-prereqs.png)
@@ -134,9 +127,9 @@ Im Rahmen der Tests werden Remotevorgänge ausgeführt. Der Computer, auf dem di
 
       **Parameter**  
 
-    | Parameter | BESCHREIBUNG |
+    | Parameter | Beschreibung |
     | --- | --- |
-    | CloudAdminUserName | Der Cloudadministratorbenutzer, der auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen kann. Beispiel: AzusreStack\CloudAdmin. Weitere Informationen finden Sie [hier](azure-stack-vaas-parameters.md). |
+    | CloudAdminUserName | Der Cloudadministratorbenutzer, der auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen kann. Beispiel: AzusreStack\CloudAdmin. Weitere Informationen finden Sie [hier](azure-stack-vaas-parameters.md) . |
     | CloudAdminPassword | Das Kennwort für das Cloudadministratorkonto|
     | VaaSUserId | Benutzer-ID für die Anmeldung beim VaaS-Portal (Beispiel: <Benutzername>\@Contoso.com) |
     | VaaSTenantId | Azure AD-Mandanten-ID für das bei Validation-as-a-Service registrierte Azure-Konto |
