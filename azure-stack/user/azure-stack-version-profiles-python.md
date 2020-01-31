@@ -1,25 +1,18 @@
 ---
-title: Verwenden von API-Versionsprofilen mit Python in Azure Stack Hub | Microsoft-Dokumentation
+title: Verwenden von API-Versionsprofilen mit Python in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie API-Versionsprofile mit Python in Azure Stack Hub verwenden.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 556933545af27b1fc22241ced3c83389072b3c8f
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 48df6dab5d93e4e9875dc422f90f3f823a4b2ee9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883200"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884226"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Python in Azure Stack Hub
 
@@ -56,7 +49,7 @@ Um das Python Azure SDK mit Azure Stack Hub zu verwenden, müssen Sie die folgen
 
 | value | Umgebungsvariablen | Beschreibung |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Mandanten-ID | `AZURE_TENANT_ID` | Ihre [Mandanten-ID](../operator/azure-stack-identity-overview.md) für Azure Stack Hub |
+| Mandanten-ID | `AZURE_TENANT_ID` | Ihre [Mandanten-ID](../operator/azure-stack-identity-overview.md) für Azure Stack Hub. |
 | Client-ID | `AZURE_CLIENT_ID` | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde. |
 | Abonnement-ID | `AZURE_SUBSCRIPTION_ID` | Sie verwenden die [Abonnement-ID](../operator/service-plan-offer-subscription-overview.md#subscriptions), um in Azure Stack Hub auf Angebote zuzugreifen. |
 | Geheimer Clientschlüssel | `AZURE_CLIENT_SECRET` | Das App-Geheimnis des Dienstprinzipals, das bei der Erstellung des Dienstprinzipals gespeichert wurde. |

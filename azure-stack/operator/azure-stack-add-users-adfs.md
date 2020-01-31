@@ -1,20 +1,18 @@
 ---
 title: Hinzufügen von Azure Stack Hub-Benutzern in AD FS
 description: Erfahren Sie, wie Sie Bereitstellungen von Active Directory-Verbunddienste (AD FS) Azure Stack Hub-Benutzer hinzufügen.
-author: PatAltimore
-manager: femila
-ms.service: azure-stack
+author: ihenkel
 ms.topic: article
 ms.date: 06/03/2019
-ms.author: patricka
+ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: 2c81d8ccceb4fa2f1e05b006232e3b6513ace469
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7d11ae849a5ecc51c1506e8d978510884b752a9a
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880956"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890373"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-active-directory-federation-services-ad-fs"></a>Hinzufügen eines neuen Azure Stack Hub-Benutzerkontos in Active Directory-Verbunddienste (AD FS)
 
