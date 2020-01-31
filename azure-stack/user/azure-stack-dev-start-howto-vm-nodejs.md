@@ -1,20 +1,18 @@
 ---
-title: Bereitstellen einer Node.js-App auf einem virtuellen Computer in Azure Stack Hub | Microsoft-Dokumentation
+title: Bereitstellen einer Node.js-App auf einem virtuellen Computer in Azure Stack Hub
 description: Stellen Sie eine Node.js-App in Azure Stack Hub bereit.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: c5d254351fab0bb89023dad8928ac32958f63404
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: ab6d3e378c4a6f40e597367f06d9e5c4e31eb0c3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536214"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883754"
 ---
 # <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>Bereitstellen einer Node.js-Web-App auf einer VM in Azure Stack Hub
 
@@ -47,7 +45,7 @@ Sie können einen virtuellen Computer erstellen, um eine Node.js-Web-App in Azur
 2. Führen Sie die [Installation von npm](https://www.npmjs.com/) durch. Dies ist ein Paket-Manager für Node.js-Pakete oder -Module. Geben Sie bei bestehender Verbindung mit Ihrer VM in derselben SSH-Sitzung den folgenden Befehl ein:
 
     ```bash  
-       go version
+       node --version
     ```
 
 3. Führen Sie die [Installation von Git](https://git-scm.com) durch. Hierbei handelt es sich um ein weit verbreitetes System für die Versionskontrolle und Quellcodeverwaltung (Source Code Management, SCM). Geben Sie bei bestehender Verbindung mit Ihrer VM in derselben SSH-Sitzung den folgenden Befehl ein:

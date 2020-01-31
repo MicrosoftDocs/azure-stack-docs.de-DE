@@ -1,26 +1,19 @@
 ---
-title: Testen der interaktiven Featureüberprüfung mit Validation-as-a-Service in Azure Stack | Microsoft-Dokumentation
+title: Testen der interaktiven Featureüberprüfung mit Validation-as-a-Service in Azure Stack
 description: Hier erfahren Sie, wie Sie Tests für die interaktive Featureüberprüfung für Azure Stack mit Validation-as-a-Service erstellen.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5da64bbd13e2bfde5b469c1ae0de89d85a054e3c
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: c957d076fb4d90dc9a19d5b8fbaaddbdb55c789d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167248"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884142"
 ---
 # <a name="interactive-feature-verification-testing"></a>Testen der interaktiven Featureüberprüfung  
 
@@ -74,7 +67,7 @@ Falls Sie über keinen vorhandenen Testdurchlauf verfügen, führen Sie die [Sch
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
-1. Klicken Sie auf **Weiter**.
+1. Wählen Sie **Weiter** aus.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 

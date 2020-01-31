@@ -1,26 +1,19 @@
 ---
-title: Überprüfen von OEM-Paketen mit Validation-as-a-Service in Azure Stack | Microsoft-Dokumentation
+title: Überprüfen von OEM-Paketen mit Validation-as-a-Service in Azure Stack
 description: Hier erfahren Sie, wie Sie OEM-Pakete (Original Equipment Manufacturer, Originalgerätehersteller) mit Validation-as-a-Service überprüfen.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 774778e382526cffb30e2a69d16c32cc1e548225
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: ed6d3055e3e5cab0def090d31f907e0fd1deea50
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954552"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885104"
 ---
 # <a name="validate-oem-packages"></a>Überprüfen von OEM-Paketen
 
@@ -72,7 +65,7 @@ Im Fall der Zugriffsebenen **Private** und **Blob** müssen Sie vorübergehenden
 
 |Zugriffsebene | Workflowanforderung | Testanforderung |
 |---|---------|---------|
-|Private | Generieren Sie eine SAS-URL pro Paketblob ([Option 1](#option-1-generate-a-blob-sas-url)). | Generieren Sie eine SAS-URL auf der Kontoebene, und fügen Sie den Paketblobnamen manuell hinzu ([Option 2](#option-2-construct-a-container-sas-url)). |
+|Privat | Generieren Sie eine SAS-URL pro Paketblob ([Option 1](#option-1-generate-a-blob-sas-url)). | Generieren Sie eine SAS-URL auf der Kontoebene, und fügen Sie den Paketblobnamen manuell hinzu ([Option 2](#option-2-construct-a-container-sas-url)). |
 |Blob | Geben Sie die Blob-URL-Eigenschaft an ([Option 3](#option-3-grant-public-read-access)). | Generieren Sie eine SAS-URL auf der Kontoebene, und fügen Sie den Paketblobnamen manuell hinzu ([Option 2](#option-2-construct-a-container-sas-url)). |
 |Container | Geben Sie die Blob-URL-Eigenschaft an ([Option 3](#option-3-grant-public-read-access)). | Geben Sie die Blob-URL-Eigenschaft an ([Option 3](#option-3-grant-public-read-access)).
 
@@ -103,7 +96,7 @@ Verwenden Sie diese Option, wenn für die Zugriffsebene Ihres Speichercontainers
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
 
-1. Aktivieren Sie die Option **Blob** unter **Zulässige Dienste**. Deaktivieren Sie alle anderen Optionen.
+1. Aktivieren Sie die Option **Blob** unter **Zulässige Dienste**. Deaktivieren Sie alle verbleibenden Optionen.
 
 1. Aktivieren Sie unter **Zugelassene Ressourcentypen** die Optionen **Container** und **Objekt**.
 

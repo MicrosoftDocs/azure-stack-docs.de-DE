@@ -1,30 +1,20 @@
 ---
-title: Was ist das Azure Stack Hub Development Kit (ASDK)? | Microsoft-Dokumentation
-description: Hier erfahren Sie mehr über das Azure Stack Hub Development Kit und seine Verwendung zum Auswerten von Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
+title: Was ist das Azure Stack Development Kit (ASDK)? | Microsoft-Dokumentation
+description: Hier erfahren Sie mehr über das Azure Stack Development Kit und seine Verwendung zum Auswerten von Azure Stack Hub.
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.custom: mvc
 ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: fb9dab302e20d436be7f3cf9a76de913bbfe22e3
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 7d3b4115ea34a185c5535c77cecdddf060ed84eb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689826"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873293"
 ---
-# <a name="what-is-the-azure-stack-hub-development-kit-asdk"></a>Was ist das Azure Stack Hub Development Kit (ASDK)?
+# <a name="what-is-the-azure-stack-development-kit-asdk"></a>Was ist das Azure Stack Development Kit (ASDK)?
 [Integrierte Microsoft Azure Stack Hub-Systeme](../operator/azure-stack-overview.md) haben eine Größe von 4 bis 16 Knoten, und der Support wird von einem Hardwarepartner und von Microsoft gemeinsam bereitgestellt. Mit integrierten Azure Stack Hub-Systemen ermöglichen Sie neue Szenarien für Ihre Produktionsworkloads. Wenn Sie ein Azure Stack Hub-Betreiber sind, der die Infrastruktur integrierter Systeme verwaltet und Dienste anbietet, hilft Ihnen die [Dokumentation für Betreiber](/azure-stack/operator) weiter.
 
 Das ASDK ist eine Azure Stack Hub-Bereitstellung mit einem einzelnen Knoten, die Sie **kostenlos** herunterladen und verwenden können. Alle ASDK-Komponenten werden auf virtuellen Computern installiert, die auf einem einzelnen Hostcomputer ausgeführt werden, der die [Mindesthardwareanforderungen](asdk-deploy-considerations.md#hardware) erfüllen muss. Das ASDK stellt eine *produktionsfremde* Umgebung bereit, in der Sie anhand von mit Azure konsistenten APIs und Tools Azure Stack Hub evaluieren und moderne Anwendungen entwickeln können. 
@@ -46,7 +36,7 @@ Weitere Informationen zum ASDK erhalten Sie im folgenden kurzen Video:
 ## <a name="asdk-and-multi-node-azure-stack-hub-differences"></a>Unterschiede zwischen ASDK und Azure Stack Hub mit mehreren Knoten
 Zwischen ASDK-Bereitstellungen mit einem einzelnen Knoten und Azure Stack Hub-Bereitstellungen mit mehreren Knoten gibt es einige wichtige Unterschiede:
 
-|BESCHREIBUNG|ASDK|Azure Stack Hub mit mehreren Knoten|
+|Beschreibung|ASDK|Azure Stack Hub mit mehreren Knoten|
 |-----|-----|-----|
 |**Skalieren**|Alle Komponenten werden auf einem Servercomputer mit einem einzelnen Knoten installiert.|Kann zwischen 4 und 16 Knoten umfassen.|
 |**Resilienz**|Die Konfiguration mit einem einzelnen Knoten bietet keine Hochverfügbarkeit.|Funktionen für Hochverfügbarkeit werden unterstützt.|

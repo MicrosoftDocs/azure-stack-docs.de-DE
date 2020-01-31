@@ -1,26 +1,19 @@
 ---
-title: 'Tutorial: Einrichten von Ressourcen für Validation-as-a-Service | Microsoft-Dokumentation'
+title: 'Tutorial: Einrichten von Ressourcen für Validation-as-a-Service'
 description: In diesem Tutorial erfahren Sie, wie Sie Ressourcen für Validation-as-a-Service (VaaS) einrichten.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: b187194dd63e95fa922000b68dbb701914d10465
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: e04a4fa7384d56a88938e87a83a33bb86829eca3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535908"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884054"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutorial: Einrichten von Ressourcen für Validation-as-a-Service
 

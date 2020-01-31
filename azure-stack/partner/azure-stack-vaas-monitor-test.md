@@ -1,26 +1,19 @@
 ---
-title: Überwachen und Verwalten von Tests im Azure Stack VaaS-Portal | Microsoft-Dokumentation
+title: Überwachen und Verwalten von Tests im Azure Stack VaaS-Portal
 description: Überwachen und verwalten Sie Tests im Azure Stack VaaS-Portal.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 87ba89298c0a5a134cb0b3b1a2b7e771151e46d9
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: b2a6f2b1e40ddfad9edbf64c92f29e93786fc6f9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955906"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885083"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Überwachen und Verwalten von Tests im VaaS-Portal
 
@@ -66,7 +59,7 @@ Bei offiziellen Ausführungen (d. h. bei Workflows vom Typ **Validierung**) wer
 
 In jeder geplanten Testinstanz werden die folgenden Informationen angezeigt:
 
-| Column | BESCHREIBUNG |
+| Column | Beschreibung |
 | --- | --- |
 | Testname | Name und Version des Tests |
 | Category | Der Zweck des Tests |
@@ -87,14 +80,14 @@ Für jede Testinstanz werden ausführbare Aktionen aufgelistet, wenn Sie in der 
 
 Wählen Sie im Kontextmenü **Information anzeigen** aus, um allgemeine Informationen zur Testdefinition anzuzeigen. Diese ist für alle Testinstanzen mit dem gleichen Namen und der gleichen Version identisch.
 
-| Testeigenschaft | BESCHREIBUNG |
+| Testeigenschaft | Beschreibung |
 | -- | -- |
 | Testname | Der Name des Tests. |
 | Testversion | Die Version des Tests |
 | Herausgeber | Der Herausgeber des Tests |
 | Category |  Der Zweck des Tests |
 | Target services (Zieldienste) | Die Azure Stack-Dienste, die getestet werden |
-| BESCHREIBUNG | Die Beschreibung des Tests |
+| Beschreibung | Die Beschreibung des Tests |
 | Estimated duration (minutes) (Geschätzte Dauer (Minuten)) | Die erwartete Ausführungsdauer des Tests |
 | Links | Alle relevanten Informationen zum Test oder zu Ansprechpartnern |
 
@@ -104,7 +97,7 @@ Wählen Sie im Kontextmenü die Option **View parameters** (Parameter anzeigen),
 
 Dieses Fenster enthält die folgenden Metadaten für alle Testinstanzen:
 
-| Testinstanzeigenschaft | BESCHREIBUNG |
+| Testinstanzeigenschaft | Beschreibung |
 | -- | -- |
 | Testname | Der Name des Tests. |
 | Testversion | Die Version des Tests |
