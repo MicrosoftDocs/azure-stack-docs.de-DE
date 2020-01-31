@@ -2,15 +2,15 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: bca2ddd695576c014e472b93849ce0308e0311d9
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: e264dd7549ee2c7b54d4fb5d9b01e4f70aa04137
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71830095"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694200"
 ---
 Wählen Sie **Hochladen** aus, und wählen Sie Ihre Azure Stack-Stempelinformationsdatei. Anweisungen finden Sie unter [Generieren der Stempelinformationsdatei](../azure-stack-vaas-parameters.md#generate-the-stamp-information-file).

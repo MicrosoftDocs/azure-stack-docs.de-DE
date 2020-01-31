@@ -2,18 +2,17 @@
 title: Beispiele für Hybridmuster und -lösungen für Azure und Azure Stack
 description: Hier finden Sie eine Übersicht über Beispiele für Hybridmuster und -lösungen, mit denen Sie sich einfacher mit Hybridlösungen in Azure und Azure Stack vertraut machen und solche Art von Lösungen erstellen können.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 82f933babd0be4c001bd3001a631a4345bd0e488
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 7b0eedab9981556c06b3f0d102e376b0eb519256
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718061"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875758"
 ---
 # <a name="hybrid-patterns-and-solution-examples-for-azure-and-azure-stack"></a>Beispiele für Hybridmuster und -lösungen für Azure und Azure Stack
 

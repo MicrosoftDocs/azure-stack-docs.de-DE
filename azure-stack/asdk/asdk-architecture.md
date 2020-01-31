@@ -1,27 +1,18 @@
 ---
-title: ASDK-Architektur | Microsoft-Dokumentation
+title: ASDK-Architektur
 description: In diesem Artikel wird die Architektur des Azure Stack Development Kits (ASDK) beschrieben.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 1d740b219b971f85b34ae821d82b97eff7d3d70d
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 842dab690d8239ca0c4db7622fe7a0bb18347a0c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974579"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874143"
 ---
 # <a name="asdk-architecture"></a>ASDK-Architektur
 Das Azure Stack Development Kit (ASDK) ist eine Bereitstellung von Azure Stack mit einem Knoten, die auf einem einzelnen Hostcomputer ausgeführt wird. Edge-Routingkomponenten werden auf dem Hostcomputer installiert, um NAT- und VPN-Funktionen für Azure Stack bereitzustellen. Azure Stack-Infrastrukturrollen werden auf der Hyper-V-Ebene des physischen Hostcomputers ausgeführt.
@@ -30,7 +21,7 @@ Das Azure Stack Development Kit (ASDK) ist eine Bereitstellung von Azure Stack m
 ## <a name="virtual-machine-roles"></a>Rollen virtueller Computer
 Das ASDK bietet Dienste unter Verwendung der folgenden auf dem Hostcomputer des Development Kits gehosteten VMs:
 
-| NAME | BESCHREIBUNG |
+| Name | Beschreibung |
 | ----- | ----- |
 | **AzS-ACS01** | Azure Stack-Speicherdienste|
 | **AzS-ADFS01** | Active Directory-Verbunddienste (ADFS)  |

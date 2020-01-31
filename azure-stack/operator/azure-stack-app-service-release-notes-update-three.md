@@ -1,27 +1,19 @@
 ---
-title: 'App Service in Azure Stack Hub: Versionshinweise zu Update 3 | Microsoft-Dokumentation'
+title: 'App Service in Azure Stack Hub: Versionshinweise zu Update 3'
 description: Erfahren Sie mehr über Verbesserungen, Fehlerbehebungen und bekannte Probleme in Update 3 für App Service in Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: bryanla
 manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: b8c888ba0c4821cfd6ff621d565c61359edc757f
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 79fdd8a3d9b026aea21ab04ce85c095e30ee272c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880157"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874381"
 ---
 # <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 3
 

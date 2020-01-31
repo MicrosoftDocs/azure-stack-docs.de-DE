@@ -1,27 +1,18 @@
 ---
-title: Vorbereiten des ASDK-Hostcomputers | Microsoft-Dokumentation
+title: Vorbereiten des ASDK-Hostcomputers
 description: Erfahren Sie, wie Sie den Azure Stack Development Kit-Hostcomputer (ASDK) für die ASDK-Installation vorbereiten.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 08/28/2019
-ms.openlocfilehash: cf15aebac3ad4d099892270bb2e334d32f82f580
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 81e8e8f470988d84441d238ef677950df2d2334b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70144011"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873616"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>Vorbereiten des ASDK-Hostcomputers
 Bevor Sie das Azure Stack Development Kit (ASDK) auf dem Hostcomputer installieren können, muss der ASDK-Host für die Installation vorbereitet werden. Nach der Vorbereitung des Hosts wird der Computer von der Festplatte des virtuellen Computers („CloudBuilder.vhdx“) gestartet, um mit der ASDK-Bereitstellung zu beginnen.

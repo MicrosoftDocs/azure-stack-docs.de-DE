@@ -1,27 +1,18 @@
 ---
-title: Rotieren von Geheimnissen und Zertifikaten in App Service in Azure Stack Hub | Microsoft-Dokumentation
+title: Rotieren von Geheimnissen und Zertifikaten in App Service in Azure Stack Hub
 description: Hier erhalten Sie Informationen zum Rotieren von Geheimnissen und Zertifikaten, die von Azure App Service in Azure Stack Hub verwendet werden.
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 079be062ee45e012abf3ec1bc869409ec4ee03a5
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: f1a42f5b04ea83d9ff9130fb63ba6833cd7d2914
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914568"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876540"
 ---
 # <a name="rotate-app-service-on-azure-stack-hub-secrets-and-certificates"></a>Rotieren von Geheimnissen und Zertifikaten in App Service in Azure Stack Hub
 

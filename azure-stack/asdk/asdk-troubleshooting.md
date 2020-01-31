@@ -1,27 +1,18 @@
 ---
-title: Problembehandlung beim ASDK | Microsoft-Dokumentation
+title: Problembehandlung beim ASDK
 description: Erfahren Sie, wie Sie Probleme mit dem Azure Stack Development Kit (ASDK) behandeln.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c8db19ff7bf8d7ccdb406617cbcf75dce3770522
-ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
+ms.openlocfilehash: d02b500fce65464ecc27e8fbbd6edbbf7c6882b3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73659219"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873310"
 ---
 # <a name="troubleshoot-the-asdk"></a>Problembehandlung beim ASDK
 Dieser Artikel enthält allgemeine Informationen zur Problembehandlung beim Azure Stack Development Kit (ASDK). Hilfe zu integrierten Azure Stack-Systemen finden Sie unter [Problembehandlung für Microsoft Azure Stack](../operator/azure-stack-troubleshooting.md). 
@@ -46,7 +37,7 @@ Dies ist wahrscheinlich nur auf das Standardverhalten des PowerShell-Befehlsfens
 Wenn Sie bei der Vorlagenüberprüfung eine Fehlermeldung mit dem Hinweis erhalten, dass der Parameter „osProfile“ nicht zulässig ist, sollten Sie sicherstellen, dass Sie die richtigen Versionen der APIs für diese Komponenten verwenden:
 
 - [Compute](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
-- [Netzwerk](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
+- [Network](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
 
 Verwenden Sie [AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy), um eine VHD von Azure nach Azure Stack zu kopieren. Wenden Sie sich an Ihren Anbieter, um Probleme zu beheben, die das Image selbst betreffen. Weitere Informationen zu den WALinuxAgent-Anforderungen für Azure Stack finden Sie unter [Azure LinuX-Agent](../operator/azure-stack-linux.md#azure-linux-agent).
 

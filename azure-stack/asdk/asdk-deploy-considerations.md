@@ -1,27 +1,18 @@
 ---
-title: Anforderungen und Überlegungen zu ASDK | Microsoft-Dokumentation
+title: Anforderungen und Überlegungen zu ASDK
 description: In diesem Artikel werden die Hardware-, Software- und Umgebungsanforderungen für Azure Stack Development Kit (ASDK) erläutert.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 0e5a4e41e4650de8e3cebe7d33b9638890d5bd99
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 9d466060f46f924441a8226c2f53ff3889b37429
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974568"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873889"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Anforderungen und Überlegungen zu ASDK
 
@@ -86,7 +77,7 @@ Beispiel für eine Zwei-Wege-Spiegelungskonfiguration:
 ## <a name="operating-system"></a>Betriebssystem
 |  | **Anforderungen** |
 | --- | --- |
-| **Betriebssystemversion** |Windows Server 2016 oder höher Die Version des Betriebssystems ist vor dem Starten der Bereitstellung nicht wichtig, da der Hostcomputer auf der virtuellen Festplatte gestartet wird, die in der Azure Stack-Installation enthalten ist. Das Betriebssystem und alle erforderlichen Patches sind bereits in das Image integriert. Verwenden Sie keine Schlüssel zum Aktivieren von Windows Server-Instanzen, die im ASDK verwendet werden. |
+| **Betriebssystemversion** |Windows Server 2016 oder höher. Die Version des Betriebssystems ist vor dem Starten der Bereitstellung nicht wichtig, da der Hostcomputer auf der virtuellen Festplatte gestartet wird, die in der Azure Stack-Installation enthalten ist. Das Betriebssystem und alle erforderlichen Patches sind bereits in das Image integriert. Verwenden Sie keine Schlüssel zum Aktivieren von Windows Server-Instanzen, die im ASDK verwendet werden. |
 
 > [!TIP]
 > Nach der Installation des Betriebssystems können Sie mit der [Bereitstellungsprüfung für Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) sicherstellen, dass Ihre Hardware alle Anforderungen erfüllt.
@@ -117,7 +108,7 @@ Zum Bereitstellen von Azure Stack über ein Azure AD-Konto müssen Sie vor dem A
 Nach der Bereitstellung ist die globale Azure AD-Administratorberechtigung nicht erforderlich. Einige Vorgänge erfordern jedoch möglicherweise die Anmeldeinformationen für den globalen Administrator. Beispiele für solche Vorgänge sind ein Ressourcenanbieter-Installationsskript oder ein neues Feature, dem eine Berechtigung erteilt werden muss. Sie können entweder die globalen Administratorrechte des Kontos vorübergehend wiederherstellen oder ein separates globales Administratorkonto verwenden, das Besitzer des *Standardanbieterabonnements* ist.
 
 ## <a name="network"></a>Netzwerk
-### <a name="switch"></a>Switch
+### <a name="switch"></a>Schalter
 Ein verfügbarer Port auf einem Switch für den ASDK-Computer.  
 
 Der ASDK-Computer unterstützt das Herstellen einer Verbindung mit einem Switchzugriffsport oder Trunkport. Auf dem Switch sind keine speziellen Funktionen erforderlich. Wenn Sie einen Trunkport verwenden oder eine VLAN-ID benötigen, müssen Sie die VLAN-ID als Bereitstellungsparameter angeben.

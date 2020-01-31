@@ -1,26 +1,18 @@
 ---
-title: Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack Hub | Microsoft-Dokumentation
+title: Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack Hub
 description: Erfahren Sie, wie Sie den MySQL-Ressourcenanbieterdienst in Azure Stack Hub verwalten können.
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 26f064f0fd364252d57deca8f60da7a3e8d50c06
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: a39ecec1cce85582a53e0fb64979726adb15115d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534786"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881794"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack Hub
 
@@ -155,8 +147,8 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
 
 |Parameter|Beschreibung|
 |-----|-----|
-|AzCredential|Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto|
-|CloudAdminCredential|Anmeldeinformationen für das Domänenkonto des Azure Stack Hub-Cloudadministrators|
+|AzCredential|Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto.|
+|CloudAdminCredential|Anmeldeinformationen für das Domänenkonto des Azure Stack Hub-Cloudadministrators.|
 |PrivilegedEndpoint|Privilegierter Endpunkt für den Zugriff auf „Get-AzureStackStampInformation“|
 |DiagnosticsUserPassword|Kennwort des Diagnosebenutzerkontos|
 |VMLocalCredential|Das lokale Administratorkonto auf der MySQLAdapter-VM.|

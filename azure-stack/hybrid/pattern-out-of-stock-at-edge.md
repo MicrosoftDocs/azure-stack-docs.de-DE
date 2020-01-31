@@ -2,18 +2,17 @@
 title: Muster zur Implementierung einer Fehlbestandserkennung im Edge-Bereich mithilfe von Azure und Azure Stack Edge.
 description: Erfahren Sie, wie Sie Azure- und Azure Stack Edge-Dienste verwenden, um eine Fehlbestandserkennung zu implementieren.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: fb4eb410eefb8a34bd869543a191a1b044a42f72
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 2fac02fc6bae0d8bfedebcbb059e376d616a5b87
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640095"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875537"
 ---
 # <a name="out-of-stock-detection-at-the-edge-pattern"></a>Muster zur Fehlbestandserkennung im Edge-Bereich
 
@@ -44,7 +43,7 @@ Die Lösung funktioniert so:
 
 Diese Lösung verwendet die folgenden Komponenten:
 
-| Ebene | Komponente | BESCHREIBUNG |
+| Ebene | Komponente | Beschreibung |
 |----------|-----------|-------------|
 | Lokale Hardware | Netzwerkkamera | Eine Netzwerkkamera mit HTTP- oder RTSP-Feed ist erforderlich, um die Bilder für Rückschlüsse zu liefern. |
 | Azure | Azure IoT Hub | [Azure IoT Hub](/azure/iot-hub/) kümmert sich um die Gerätebereitstellung und das Messaging für die Edge-Geräte. |

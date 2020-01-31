@@ -1,27 +1,18 @@
 ---
-title: Referenz zum Cmdlet „Start-AzsReadinessChecker“ | Microsoft-Dokumentation
+title: Referenz zum Cmdlet „Start-AzsReadinessChecker“
 description: Hilfe zum PowerShell-Cmdlet für das Azure Stack Hub Readiness Checker-Tool-Modul.
-services: azure-stack
-documentationcenter: ''
-author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.author: sethm
+ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: d6b7525657696792bd72d968e8888bd8f7bc62fb
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: e4794df9c66f1d060b6701d782c0486ddb914b02
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727444"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877764"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Referenz zum Cmdlet „Start-AzsReadinessChecker“
 
@@ -164,7 +155,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-## <a name="description"></a>BESCHREIBUNG
+## <a name="description"></a>Beschreibung
 
 Das Cmdlet **Start-AzsReadinessChecker** überprüft Zertifikate, Azure-Konten, Azure-Abonnements und Azure Active Directory-Instanzen (Azure AD). Führen Sie vor dem Bereitstellen von Azure Stack Hub oder vor Azure Stack Hub-Wartungsaktionen wie etwa der Geheimnisrotation eine Überprüfung aus. Das Cmdlet kann auch zum Generieren von Zertifikatsignieranforderungen für Infrastrukturzertifikate (und optional für PaaS-Zertifikate) verwendet werden. Zu guter Letzt kann das Cmdlet PFX-Zertifikate neu packen, um häufige Probleme mit der Paketerstellung zu beheben.
 

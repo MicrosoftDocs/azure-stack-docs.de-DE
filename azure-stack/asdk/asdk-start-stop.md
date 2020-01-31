@@ -1,27 +1,18 @@
 ---
-title: Starten und Beenden des ASDK | Microsoft-Dokumentation
+title: Starten und Beenden des ASDK
 description: Erfahren Sie, wie Sie das Azure Stack Development Kit (ASDK) starten und beenden.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: e32fc6c58232e21eb6e7c087c2d95623209bc28d
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 68523f429fb49bfc28151f3d92f3bb3cd64a0b71
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689854"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873463"
 ---
 # <a name="start-and-stop-the-asdk"></a>Starten und Beenden des ASDK
 Es wird nicht empfohlen, den ASDK-Hostcomputer einfach neu zu starten. Befolgen Sie stattdessen die Verfahren in diesem Artikel, um ASDK-Dienste ordnungsgemäß herunterzufahren und neu zu starten.

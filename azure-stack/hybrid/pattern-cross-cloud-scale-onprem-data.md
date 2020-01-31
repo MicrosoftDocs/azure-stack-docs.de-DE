@@ -2,18 +2,17 @@
 title: Muster für das Entwickeln einer App in Azure und Azure Stack Hub, die cloudübergreifend skaliert wird und lokale Daten verwendet.
 description: Erfahren Sie, wie Sie mit Azure und Azure Stack Hub eine skalierbare, cloudübergreifende App erstellen, die lokale Daten verwendet.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: fbf25d49539ebe244b44681ca3207badf744b99b
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 51224171848b6109a7cd3d8eb2d5fa1fdcb70973
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718282"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875775"
 ---
 # <a name="cross-cloud-scaling-on-premises-data-pattern"></a>Muster für die cloudübergreifende Skalierung (lokale Daten)
 
@@ -35,7 +34,7 @@ Der Leitfaden für die Bereitstellung von Lösungen ermöglicht Ihnen das Bereit
 
 Diese Lösung verwendet die folgenden Komponenten:
 
-| Ebene | Komponente | BESCHREIBUNG |
+| Ebene | Komponente | Beschreibung |
 |----------|-----------|-------------|
 | Azure | Azure App Service | Mit [Azure App Service](/azure/app-service/) können Sie Web-Apps, Rest-API-Apps und Azure Functions erstellen und hosten. Und dies in der Programmiersprache Ihrer Wahl, ohne Infrastruktur verwalten zu müssen. |
 | | Virtuelles Azure-Netzwerk| [Azure Virtual Network (VNET)](/azure/virtual-network/virtual-networks-overview) ist der grundlegende Baustein für private Netzwerke in Azure. Mit VNET können zahlreiche Arten von Azure-Ressourcen, beispielsweise virtuelle Computer (VMs) sicher untereinander sowie mit dem Internet und lokalen Netzwerken kommunizieren. Die Lösung veranschaulicht außerdem die Nutzung weiterer Netzwerkkomponenten:<br>Anwendungs- und Gatewaysubnetze<br>Lokales Netzwerkgateway<br>Gateway für virtuelle Netzwerke, das als Site-to-Site-VPN-Gatewayverbindung fungiert<br>Öffentliche IP-Adresse<br>Point-to-Site-VPN-Verbindung<br>Azure DNS zum Hosten von DNS-Domänen und Bereitstellen der Namensauflösung |

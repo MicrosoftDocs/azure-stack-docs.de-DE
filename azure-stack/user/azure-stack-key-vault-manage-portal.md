@@ -1,26 +1,17 @@
 ---
-title: Verwalten von Key Vault in Azure Stack Hub über das Portal | Microsoft-Dokumentation
+title: Verwalten von Key Vault in Azure Stack Hub über das Portal
 description: Erfahren Sie, wie Sie Key Vault in Azure Stack Hub über das Azure Stack Hub-Portal verwalten.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: D4300668-461F-45F6-BF3B-33B502C39D17
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: sethm
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 1ba2be2d37cfa0b0d850f67124440fb9de13a23f
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 34fc01bd117d8ab7b4dec9483f37f762a1c8d835
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879154"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884817"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>Verwalten von Key Vault in Azure Stack Hub über das Portal
 

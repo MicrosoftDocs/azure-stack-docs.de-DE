@@ -2,16 +2,16 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: c3a85e866acc615d2d33219232f7890b32df50f5
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: d3b1a91c89147f0f945efd345f00823b26f0c7b1
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71938781"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694561"
 ---
 In den Validierungsworkflows werden beim **Planen** eines Tests die allgemeinen Parameter auf der Workflowebene verwendet, die Sie bei der Workflowerstellung angegeben haben (siehe [Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack](../azure-stack-vaas-parameters.md)). Sollt einer der Testparameterwerte ungültig werden, muss er gemäß den Anweisungen unter [Ändern von Workflowparametern](../azure-stack-vaas-monitor-test.md#change-workflow-parameters) erneut angegeben werden.
 

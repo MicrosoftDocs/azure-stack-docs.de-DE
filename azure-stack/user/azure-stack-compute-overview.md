@@ -1,21 +1,18 @@
 ---
-title: Einführung in Azure Stack Hub-VMs | Microsoft-Dokumentation
+title: Einführung in Azure Stack Hub-VMs
 description: Enthält Informationen zu Azure Stack Hub-VMs.
-services: azure-stack
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 7a7da17dd3b9be99c797b2241ae38bd2d4e6c0d2
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: c961716a64d3ccc4efcbf2eb36091e611db39be9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923982"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883931"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Einführung in Azure Stack Hub-VMs
 
