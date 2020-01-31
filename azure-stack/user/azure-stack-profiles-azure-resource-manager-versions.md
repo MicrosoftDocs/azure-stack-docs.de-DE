@@ -1,25 +1,18 @@
 ---
-title: Von Profilen in Azure Stack Hub unterstützte API-Versionen von Ressourcenanbietern | Microsoft-Dokumentation
+title: Von Profilen in Azure Stack Hub unterstützte API-Versionen von Ressourcenanbietern
 description: Erfahren Sie mehr über die Azure Resource Manager-API-Versionen, die von Profilen in Azure Stack Hub unterstützt werden.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: ca8b1dc5fd3b8f7f029498145a692b7a8414c053
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 03ec8b455991a85515793d1098df0f72497299b9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727495"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883312"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Von Profilen in Azure Stack Hub unterstützte API-Versionen von Ressourcenanbietern
 
@@ -122,7 +115,7 @@ Die Azure Compute-APIs ermöglichen Ihnen den programmgesteuerten Zugriff auf vi
 | Ereignistypen | 2015-04-01 |
 | Ereigniskategorien | 2015-04-01 |
 | Metrikdefinitionen | 2018-01-01 |
-| metrics | 2018-01-01 |
+| Metriken | 2018-01-01 |
 | Diagnoseeinstellungen | 2017-05-01-preview |
 | Kategorien von Diagnoseeinstellungen | 2017-05-01-preview |
 

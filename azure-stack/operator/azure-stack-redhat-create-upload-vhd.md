@@ -1,29 +1,19 @@
 ---
-title: Vorbereiten eines auf Red Hat basierenden virtuellen Computers für Azure Stack Hub | Microsoft-Dokumentation
+title: Vorbereiten eines auf Red Hat basierenden virtuellen Computers für Azure Stack Hub
 titleSuffix: Azure Stack Hub
 description: Erfahren Sie, wie Sie eine virtuelle Azure-Festplatte (Virtual Hard Disk, VHD) erstellen und hochladen, die ein Red Hat-Linux-Betriebssystem enthält.
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: sethmanheim
 ms.topic: article
 ms.date: 12/11/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 2ac894211b1ccd8d1537453100879ad695507268
-ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
+ms.openlocfilehash: 8d6a94214d45fcf9d008f93d1ce726d7af536d77
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145817"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890237"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Vorbereiten eines auf Red Hat basierenden virtuellen Computers für Azure Stack Hub
 

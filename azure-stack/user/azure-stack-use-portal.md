@@ -1,25 +1,18 @@
 ---
-title: Verwenden des Azure Stack Hub-Benutzerportals | Microsoft-Dokumentation
+title: Verwenden des Azure Stack Hub-Benutzerportals
 description: Informationen zum Zugriff auf das Benutzerportal in Azure Stack Hub und zu dessen Verwendung.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: e51e5e67a95af5aeee8c35ebbefceb0790ae6aec
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 7d580e9c7fe085232d23c6e8f2c3489491dbcf4c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536401"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884319"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>Verwenden des Azure Stack Hub-Benutzerportals
 

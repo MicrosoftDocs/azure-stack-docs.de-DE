@@ -1,27 +1,18 @@
 ---
-title: Bewährte Methoden für die automatische Azure Stack Hub-Protokollsammlung | Microsoft-Dokumentation
+title: Bewährte Methoden für die automatische Azure Stack Hub-Protokollsammlung
 description: Bewährte Methoden für die automatische Protokollsammlung in Azure Stack Hub – Hilfe und Support
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 7baa7440fec1c29ee43c5d3f80282bd6a58a3242
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 56af62717b4cd32d7a5130d1d324bd40bf61adb9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883030"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878427"
 ---
 # <a name="best-practices-for-automatic-azure-stack-hub-log-collection"></a>Bewährte Methoden für die automatische Azure Stack Hub-Protokollsammlung 
 
