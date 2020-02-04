@@ -1,33 +1,25 @@
 ---
-title: Verwenden von MySQL-Datenbanken als PaaS in Azure Stack Hub | Microsoft-Dokumentation
+title: Verwenden von MySQL-Datenbanken als PaaS in Azure Stack Hub
 description: Erfahren Sie, wie Sie den MySQL-Ressourcenanbieter bereitstellen und MySQL-Databases as a Service in Azure Stack Hub einrichten.
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9351ce5b2dde1fc7e2dfeddc2d3520a4f5d1fe2b
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: f7ff0e3b3ea21dc6545a6c69b1a9cdbf8dbed607
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534616"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881748"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>Verwenden von MySQL-Datenbanken in Microsoft Azure Stack Hub
 
-Verwenden Sie den MySQL-Ressourcenanbieter, um den MySQL-Datenbankdienst in [Azure Stack Hub](azure-stack-overview.md) anzubieten. Nachdem Sie den Ressourcenanbieter bereitgestellt und mit mindestens einer MySQL-Serverinstanz verbunden haben, haben Sie folgende Möglichkeiten:
+Verwenden Sie den MySQL-Ressourcenanbieter, um MySQL-Datenbanken in [Azure Stack Hub](azure-stack-overview.md) anzubieten. Nachdem Sie den Ressourcenanbieter bereitgestellt und mit mindestens einer MySQL-Serverinstanz verbunden haben, können Sie Folgendes erstellen:
 
-* Erstellen von MySQL-Datenbanken mithilfe von Azure Resource Manager-Bereitstellungsvorlagen
-* Bereitstellen von MySQL-Datenbanken als Dienst  
+* MySQL-Datenbanken für native Cloud-Apps
+* MySQL-Datenbanken für Webanwendungen  
 
 Vor der Installation des MySQL-Ressourcenanbieters sind einige Einschränkungen zu beachten:
 

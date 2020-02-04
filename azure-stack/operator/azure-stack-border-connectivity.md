@@ -1,27 +1,18 @@
 ---
-title: Konnektivität über Border-Geräte und Netzwerkintegration für integrierte Azure Stack Hub-Systeme | Microsoft-Dokumentation
+title: Grenzkonnektivität und Netzwerkintegration für integrierte Azure Stack Hub-Systeme
 description: Erfahren Sie, wie Sie die Netzwerkkonnektivität über Border-Geräte für Rechenzentren in integrierten Azure Stack Hub-Systemen planen.
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 11/15/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 8a48fe951b9cee3e85317d197448f99c2c9658ff
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 15440c32974aebfed3f3faf86885dd6f0af71ddd
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816784"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878512"
 ---
 # <a name="border-connectivity"></a>Grenzkonnektivität 
 Die Planung der Netzwerkintegration ist eine wichtige Voraussetzung, um erfolgreich integrierte Azure Stack Hub-Systeme bereitstellen, betreiben und verwalten zu können. Bei der Planung der Konnektivität über Border-Geräte entscheiden Sie zuerst, ob Sie dynamisches Routing mit Border Gateway Protocol (BGP) verwenden möchten. Hierfür muss eine autonome 16-Bit-BGP-Systemnummer (öffentlich oder privat) zugewiesen oder statisches Routing verwendet werden, wenn Border-Geräten eine statische Standardroute zugewiesen wird.

@@ -1,27 +1,18 @@
 ---
-title: Hinzufügen öffentlicher IP-Adressen in Azure Stack Hub | Microsoft-Dokumentation
+title: Hinzufügen öffentlicher IP-Adressen in Azure Stack Hub
 description: Erfahren Sie, wie Sie Azure Stack Hub öffentliche IP-Adressen hinzufügen.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 214fed4c87c6c36b5e290c084efe43032b1407e0
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e047f50dbdb9e7c645351fd83f9f1551f75c157e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881143"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875164"
 ---
 # <a name="add-public-ip-addresses"></a>Hinzufügen öffentlicher IP-Adressen
 
@@ -52,7 +43,7 @@ Zunächst müssen Sie den Adressblock abrufen, den Sie Azure Stack Hub hinzufüg
 5. Klicken Sie auf die Kachel für die Nutzung öffentlicher IP-Pools.
 6. Klicken Sie auf die Schaltfläche „IP-Pool hinzufügen“.
 7. Geben Sie einen Namen für den IP-Pool an. Der von Ihnen ausgewählte Name hilft Ihnen dabei, den IP-Pool einfacher zu identifizieren. Es hat sich als bewährte Methode herausgestellt, den gleichen Namen wie der Adressbereich zu verwenden, aber das ist nicht erforderlich.
-8. Geben Sie den Adressblock, den Sie hinzufügen möchten, in CIDR-Notation ein. Beispiel:  192.168.203.0/24
+8. Geben Sie den Adressblock, den Sie hinzufügen möchten, in CIDR-Notation ein. Beispiel: 192.168.203.0/24
 9. Wenn Sie einen gültigen CIDR-Bereich im Feld „Adressbereich“ (CIDR-Block) angeben, werden die Felder „IP-Startadresse“, „IP-Endadresse“ und „Verfügbare IP-Adressen“ automatisch mit Daten aufgefüllt. Diese Felder sind schreibgeschützt und werden automatisch generiert, sodass Sie diese Angaben nicht ändern können, ohne den Wert im Feld „Adressbereich“ zu ändern.
 10. Wenn Sie die Informationen auf dem Blatt überprüft haben und alle Angaben richtig sind, wählen Sie **OK** aus, um die Änderung zu übernehmen und Azure Stack Hub den Adressbereich hinzuzufügen.
 

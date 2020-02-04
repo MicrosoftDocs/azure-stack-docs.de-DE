@@ -1,20 +1,18 @@
 ---
-title: 'Gewusst wie: Verbinden von zwei Azure Stack Hub-Instanzen per VNET-Peering | Microsoft-Dokumentation'
+title: Verbinden von zwei Azure Stack Hub-Instanzen per VNET-Peering
 description: Es wird beschrieben, wie Sie zwei Azure Stack Hub-Instanzen per VNET-Peering verbinden.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: af60e71ef9143e1ca5b51fa07aeed100369faa45
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 83d52af03f33a01ccdf1b065ea1f59d7842f4cda
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536571"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883387"
 ---
 # <a name="connect-two-vnets-through-peering"></a>Verbinden von zwei VNETs per Peering
 

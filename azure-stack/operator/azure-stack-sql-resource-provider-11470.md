@@ -1,34 +1,25 @@
 ---
-title: 'Azure Stack Hub-SQL-Ressourcenanbieter 1.1.47.0: Versionshinweise | Microsoft-Dokumentation'
+title: 'Azure Stack Hub-SQL-Ressourcenanbieter 1.1.47.0: Versionshinweise'
 description: Es wird beschrieben, was im neuesten Update für den Azure Stack Hub-SQL-Ressourcenanbieter enthalten ist, z. B. bekannte Probleme und der Downloadort.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: justinha
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 758390e9190e75125bad5701b810af08456f2efc
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 1210b537d36d4be5c31f596bde589afa9b3cadfa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881874"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882850"
 ---
 # <a name="sql-resource-provider-11470-release-notes"></a>Versionshinweise zum SQL-Ressourcenanbieter 1.1.47.0
 
 In diesen Versionshinweisen werden die Verbesserungen und bekannten Probleme in Version 1.1.47.0 des SQL-Ressourcenanbieters beschrieben.
 
 ## <a name="build-reference"></a>Buildreferenz
-Laden Sie die Binärdatei des SQL-Ressourcenanbieters herunter, und führen Sie dann den Self-Extractor aus, um den Inhalt in ein temporäres Verzeichnis zu extrahieren. Der Ressourcenanbieter verfügt über einen entsprechenden Mindestbuild für Azure Stack Hub. Im Folgenden finden Sie die Azure Stack Hub-Mindestversion, die für die Installation dieser Version des SQL-Ressourcenanbieters erforderlich ist:
+Laden Sie die Binärdatei des SQL-Ressourcenanbieters herunter, und führen Sie dann den Self-Extractor aus, um den Inhalt in ein temporäres Verzeichnis zu extrahieren. Der Ressourcenanbieter verfügt über einen entsprechenden Minimalbuild für Azure Stack Hub. Im Folgenden finden Sie die Azure Stack Hub-Mindestversion, die für die Installation dieser Version des SQL-Ressourcenanbieters erforderlich ist:
 
 > |Azure Stack Hub-Mindestversion|Version des SQL-Ressourcenanbieters|
 > |-----|-----|

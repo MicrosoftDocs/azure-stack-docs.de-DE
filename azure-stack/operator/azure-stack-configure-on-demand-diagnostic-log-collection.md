@@ -1,27 +1,18 @@
 ---
-title: Bedarfsgesteuertes Sammeln von Azure Stack Hub-Diagnoseprotokollen | Microsoft-Dokumentation
+title: Bedarfsgesteuertes Sammeln von Azure Stack Hub-Diagnoseprotokollen
 description: Es wird beschrieben, wie Sie in Azure Stack Hub Diagnoseprotokolle bedarfsgesteuert sammeln, indem Sie „Hilfe und Support“ oder einen privilegierten Endpunkt (PEP) verwenden.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: bb7fc0488ea264a83cc93e071b044e6443e97630
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: 759edb6cf4f106e59a1b847cb4dcafd4450665da
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256341"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890084"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Bedarfsgesteuertes Sammeln von Azure Stack Hub-Diagnoseprotokollen
 
@@ -108,7 +99,7 @@ Verwenden Sie diese Schritte zum Ausführen von `Get-AzureStackLog` auf einem AS
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-* Sammeln Sie Protokolle von Mandantenbereitstellungen, die auf selbstverwalteten Kubernetes-Clustern (AKS-Engine) auf Azure Stack ausgeführt werden. Kubernetes-Protokolle sollten in einem Mandantenspeicherkonto in einem Format gespeichert werden, das erlaubt, dass der Sammlungszeitraum auch auf sie angewendet wird. 
+* Sammeln Sie Protokolle von Mandantenbereitstellungen, die auf selbstverwalteten Kubernetes-Clustern (AKS-Engine) in Azure Stack ausgeführt werden. Kubernetes-Protokolle sollten in einem Mandantenspeicherkonto in einem Format gespeichert werden, das erlaubt, dass der Sammlungszeitraum auch auf sie angewendet wird. 
 
   ```powershell
   Get-AzureStackLog -OutputPath <Path> -InputSasUri "<Blob Service Sas URI>" -FromDate "<Beginning of the time range>" -ToDate "<End of the time range>"

@@ -1,30 +1,22 @@
 ---
-title: Nutzungsberichtsinfrastruktur für Cloudlösungsanbieter für Azure Stack Hub | Microsoft-Dokumentation
+title: Nutzungsberichtsinfrastruktur für Cloudlösungsanbieter für Azure Stack Hub
 description: Enthält Informationen zur Infrastruktur für die Erstellung von Nutzungsberichten, die zum Nachverfolgen der Nutzung für Mandanten eines Cloudlösungsanbieters (CSP) verwendet wird.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 574d6bcd7b86f026a6c7f078e06fa92a3e0d4581
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: fdd08b3b689c069b4bc8c842e252c3b0c51c5580
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809711"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882541"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Nutzungsberichtsinfrastruktur für Cloudlösungsanbieter
 
-Azure Stack Hub umfasst die erforderliche Infrastruktur zum Nachverfolgen der Nutzung in Echtzeit und leitet das Ergebnis an Azure weiter. In Azure verarbeitet Azure Commerce die Nutzungsdaten und stellt die Nutzung den entsprechenden Azure-Abonnements in Rechnung. Dieser Prozess funktioniert genauso wie die Nachverfolgung der Nutzung in der globalen Azure-Cloud.
+Azure Stack Hub umfasst die erforderliche Infrastruktur zum Nachverfolgen der Nutzung in Echtzeit und leitet das Ergebnis an Azure weiter. In Azure verarbeitet Azure Commerce die [Nutzungsdaten und stellt die Nutzung den entsprechenden Azure-Abonnements in Rechnung](azure-stack-billing-and-chargeback.md). Dieser Prozess funktioniert genauso wie die Nachverfolgung der Nutzung in der globalen Azure-Cloud.
 
 Einige Konzepte sind zwischen globalen Azure-Umgebungen und Azure Stack Hub konsistent. Azure Stack Hub verfügt über lokale Abonnements, die eine ähnliche Funktion wie ein Azure-Abonnement erfüllen. Lokale Abonnements sind nur lokal gültig. Lokale Abonnements werden Azure-Abonnements zugeordnet, wenn die Nutzung an Azure weitergeleitet wird.
 
@@ -34,7 +26,7 @@ Zwischen Azure Stack Hub und Azure bestehen einige Unterschiede in der Preisgest
 
 Informationen zu den kommerziell verwendeten Azure Stack Hub-Verbrauchseinheiten und den zugehörigen Preisen finden Sie in Partner Center. Der Prozess entspricht dem Prozess für Azure-Dienste:
 
-1. Navigieren Sie in Partner Center zum **Dashboardmenü**, und wählen Sie dann die Optionen **Verkaufen** und **Preise und Angebote**.
+1. Navigieren Sie in Partner Center zum **Dashboardmenü**, und wählen Sie dann die Optionen **Verkaufen** und **Preise und Angebote** aus.
 2. Wählen Sie unter **Nutzungsbasierte Dienste** die Option **Aktuell** aus.
 3. Öffnen Sie das Arbeitsblatt **Azure in globaler CSP-Preisliste** .
 4. Filtern Sie nach **Region = Azure Stack Hub**.

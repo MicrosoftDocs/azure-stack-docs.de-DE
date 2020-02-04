@@ -1,25 +1,18 @@
 ---
-title: Überwachen der Integrität der Azure Stack Hub-Hardware | Microsoft-Dokumentation
+title: Überwachen der Azure Stack Hub-Hardwareintegrität
 description: Hier erfahren Sie, wie Sie die Integrität von Azure Stack Hub-Hardwarekomponenten überwachen.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 6db83102d9252a2027dfacd0054fddba38175ec9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: dba47774205b4c0631f33de336e0efbfb73db9cf
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818196"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882217"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>Überwachen von Azure Stack Hub-Hardwarekomponenten
 

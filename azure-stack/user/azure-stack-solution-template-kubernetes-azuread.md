@@ -1,26 +1,18 @@
 ---
-title: Bereitstellen von Kubernetes in Azure Stack Hub mithilfe von Azure Active Directory (Azure AD) | Microsoft-Dokumentation
+title: Bereitstellen von Kubernetes in Azure Stack Hub mithilfe von Azure Active Directory (Azure AD)
 description: Erfahren Sie, wie Sie Kubernetes in Azure Stack Hub mithilfe von Azure Active Directory (Azure AD) bereitstellen.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 19fecf32cb15e9c320e09b1b2740636ced664496
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: e8c8ad8581b9deff792ce2c095bbc3c5f9cee034
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536486"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883223"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Bereitstellen von Kubernetes in Azure Stack Hub mithilfe von Azure Active Directory
 

@@ -1,25 +1,17 @@
 ---
-title: Konfigurieren von Site-to-Site-VPN-Verbindungen mit IPsec/IKE | Microsoft-Dokumentation
+title: Konfigurieren von Site-to-Site-VPN-Verbindungen mit IPsec/IKE
 description: Informationen zur IPsec/IKE-Richtlinie und Ihrer Konfiguration für Site-to-Site-VPN- oder VNET-zu-VNET-Verbindungen in Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: b4d99d44fa1cd5b2c6232bf0d2938f37a4bf662c
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 262d0714c8a0d5979a1313dcff48947f676109ce
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727546"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883009"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurieren einer IPsec/IKE-Richtlinie für Standort-zu-Standort-VPN-Verbindungen
 
@@ -125,7 +117,7 @@ Eine ausführlichere Anleitung zum Erstellen einer Site-to-Site-VPN-Verbindung f
 
 Bevor Sie beginnen, stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
 
-- ein Azure-Abonnement Wenn Sie noch kein Azure-Abonnement besitzen, können Sie Ihre [MSDN-Abonnentenvorteile](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) aktivieren oder sich für ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/) registrieren.
+- Ein Azure-Abonnement. Wenn Sie noch kein Azure-Abonnement besitzen, können Sie Ihre [MSDN-Abonnentenvorteile](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) aktivieren oder sich für ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/) registrieren.
 
 - Die Azure Resource Manager-PowerShell-Cmdlets. Weitere Informationen zum Installieren der PowerShell-Cmdlets finden Sie unter [Installieren von PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md).
 

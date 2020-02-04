@@ -1,26 +1,19 @@
 ---
-title: Übersicht über Validation-as-a-Service für Azure Stack Hub| Microsoft-Dokumentation
+title: Übersicht über Validation-as-a-Service für Azure Stack Hub
 description: Übersicht über Validation-as-a-Service in Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: dee0be0817c8b614c9961d39330b64f4bd11f85f
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 95cee26239a4549b87360e62c61a34449f6a0774
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955859"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884068"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>Was ist Validation-as-a-Service für Azure Stack Hub?
 

@@ -1,32 +1,23 @@
 ---
-title: Bedarfsgesteuertes Löschen von Portalbenutzerdaten aus Azure Stack Hub | Microsoft-Dokumentation
+title: Bedarfsgesteuertes Löschen von Portalbenutzerdaten aus Azure Stack Hub
 description: Erfahren Sie als Azure Stack Hub-Operator, wie Sie Portalbenutzerdaten löschen, wenn dies von Azure Stack Hub-Benutzern angefordert wird.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
-ms.date: 09/10/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
 monikerRange: azs-1802
-ms.openlocfilehash: ac28a67f7b1409ebc5a786a88e8b9702df94c2ff
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: c632161c32f6a20b7f9943df191ab0f0c0158720
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022769"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881626"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>Löschen von Portalbenutzerdaten aus Azure Stack Hub
 
-Azure Stack Hub-Operatoren können Portalbenutzerdaten nach Bedarf löschen, wenn dies von Azure Stack Hub-Benutzer angefordert wird. Als Azure Stack Hub-Benutzer können Sie das Portal an Ihre Anforderungen anpassen, indem Sie Kacheln anheften und das Dashboardlayout ändern. Benutzer können auch das Design ändern und die Standardsprache an die persönlichen Vorlieben anpassen. 
+Azure Stack Hub-Operatoren können Portalbenutzerdaten nach Bedarf löschen, wenn dies von Azure Stack Hub-Benutzer angefordert wird. Als Azure Stack Hub-Benutzer können Sie das Portal an Ihre Anforderungen anpassen, indem Sie Kacheln anheften und das Dashboardlayout ändern. Benutzer können auch das Design ändern und die Standardsprache an die persönlichen Vorlieben anpassen.
 
 Die Portalbenutzerdaten umfassen Favoriten und die zuletzt abgerufenen Ressourcen im Azure Stack Hub-Benutzerportal. In diesem Artikel wird beschrieben, wie Sie die Portalbenutzerdaten löschen.
 
@@ -59,7 +50,7 @@ Verwenden Sie für diesen Vorgang einen Computer, der mit dem Resource Manager-E
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
    ```
 
-2. Führen Sie die folgenden Befehle aus: Stellen Sie sicher, dass Sie die Platzhalter durch Werte ersetzen, die Ihrer Umgebung entsprechen.
+2. Führen Sie die folgenden Befehle aus: Ersetzen Sie die Platzhalter unbedingt durch Werte, die Ihrer Umgebung entsprechen:
 
    ```powershell
    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.

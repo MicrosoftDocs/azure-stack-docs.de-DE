@@ -2,18 +2,17 @@
 title: Überlegungen zum Entwurf von Hybridanwendungen beim Entwickeln in Azure und Azure Stack
 description: Überlegungen bei der Entwicklung einer Hybridanwendung für die intelligente Cloud und Intelligent Edge.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a5d282a45f340461b62acb3462cfb84822e0c2be
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 10035700de713910d33114e06fab11321e96e5b1
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640245"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877441"
 ---
 # <a name="hybrid-application-design-considerations"></a>Überlegungen beim Entwurf von Hybridanwendungen 
 
@@ -57,7 +56,7 @@ Allgemeine Anwendungskomponenten, die in Ihren Bestand aufgenommen werden sollen
 | **Komponente** | **Hinweise für Hybridanwendungen** |
 | ---- | ---- |
 | Clientverbindungen | Ihre Anwendung kann (auf jedem Gerät) auf verschiedene Weise von einem einzelnen Einstiegspunkt aus auf Benutzer zugreifen, z. B. über Folgendes:<br>– Ein Client-Server-Modell, das erfordert, dass der Benutzer einen Client installiert hat, damit die Anwendung funktioniert. Eine serverbasierte Anwendung, auf die von einem Webbrowser aus zugegriffen wird.<br>– Clientverbindungen können Benachrichtigungen, wenn die Verbindung getrennt wird, oder Warnungen umfassen, wenn Roaminggebühren anfallen könnten. |
-| Authentication  | Die Authentifizierung kann erforderlich sein, damit ein Benutzer eine Verbindung mit der Anwendung herstellen kann oder sich zwei Komponenten miteinander verbinden können. |
+| Authentifizierung  | Die Authentifizierung kann erforderlich sein, damit ein Benutzer eine Verbindung mit der Anwendung herstellen kann oder sich zwei Komponenten miteinander verbinden können. |
 | APIs  | Sie können Entwicklern über APIs und Klassenbibliotheken programmgesteuerten Zugriff auf Ihre Anwendung erteilen und eine Verbindungsschnittstelle basierend auf Internetstandards bereitstellen. Außerdem können Sie auch APIs verwenden, um eine Anwendung in unabhängige logische Einheiten zu zerlegen. |
 | Dienste  | Sie können prägnante Dienste verwenden, um die Features für eine Anwendung bereitzustellen. Mit „Dienst“ kann die Engine gemeint sein, auf der die Anwendung ausgeführt wird. |
 | Warteschlangen | Sie können Warteschlangen verwenden, um den Status der Lebenszyklen und die Zustände der Komponenten Ihrer Anwendung zu sortieren. Diese Warteschlangen können für abonnierende Parteien Messaging-, Benachrichtigungs- und Pufferfunktionen bereitstellen. |

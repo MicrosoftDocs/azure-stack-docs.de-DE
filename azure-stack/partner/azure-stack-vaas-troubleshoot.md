@@ -1,26 +1,19 @@
 ---
-title: Problembehandlung bei Validation-as-a-Service in Azure Stack | Microsoft-Dokumentation
+title: Problembehandlung bei Validation-as-a-Service in Azure Stack
 description: Problembehandlung für Validation-as-a-Service in Azure Stack
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2dfa55af61627a82f869c7e222dc29997b07a6e3
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 1525ed6ce9005fd8a64acefb44c730e2f172bcdc
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955834"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884977"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Problembehandlung für Validation-as-a-Service
 
@@ -103,11 +96,11 @@ Wenn die Umgebung fehlerfrei ist, laden Sie manuell die fünf erforderlichen VM-
     > [!IMPORTANT]
     > Nicht alle Standardwerte sind für das vorhandene Marketplace-Element richtig.
 
-    | Feld  | Wert  |
+    | Feld  | value  |
     |---------|---------|
     | Herausgeber | MicrosoftWindowsServer |
     | Angebot | Windows Server |
-    | OS Type (Betriebssystemtyp) | Windows |
+    | Betriebssystemtyp | Windows |
     | SKU | 2012-R2-Datacenter |
     | Version | 1.0.0 |
     | Betriebssystem-Datenträgerblob-URI | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
@@ -117,7 +110,7 @@ Wenn die Umgebung fehlerfrei ist, laden Sie manuell die fünf erforderlichen VM-
 
 Alle fünf VM-Images weisen die folgenden Eigenschaften auf:
 
-| Herausgeber  | Angebot  | OS Type (Betriebssystemtyp) | SKU | Version | Betriebssystem-Datenträgerblob-URI |
+| Herausgeber  | Angebot  | Betriebssystemtyp | SKU | Version | Betriebssystem-Datenträgerblob-URI |
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| Windows Server | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 | MicrosoftWindowsServer | Windows Server | Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |

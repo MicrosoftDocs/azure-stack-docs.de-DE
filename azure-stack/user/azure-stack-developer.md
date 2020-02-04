@@ -1,27 +1,18 @@
 ---
-title: Entwickeln von Apps für Azure Stack Hub | Microsoft-Dokumentation
+title: Entwickeln von Apps für Azure Stack Hub
 description: Überlegungen zur Entwicklung bei der Prototyperstellung von App in Azure Stack Hub mithilfe von Azure-Diensten.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: d3ebc6b1-0ffe-4d3e-ba4a-388239d6cdc3
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: ba5aefa61db489f5f7063ebc4785785ba2f26f4c
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: cddce90bf8675aa619175fca2e8c97468b1edebe
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883727"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883681"
 ---
 # <a name="develop-for-azure-stack-hub"></a>Entwickeln für Azure Stack Hub
 
@@ -33,7 +24,7 @@ Mit etwas Vorbereitung sowie den Informationen aus den folgenden Themen können 
 
 * In Azure haben Sie die Möglichkeit, Azure Resource Manager-Vorlagen zu erstellen, die in Azure Stack Hub bereitgestellt werden können. In den [Überlegungen zu Vorlagen](azure-stack-develop-templates.md) finden Sie Anleitungen zum Entwickeln von Vorlagen, um die Portabilität zu gewährleisten.
 * Zwischen Azure und Azure Stack Hub gibt es Unterschiede in Bezug auf Dienstverfügbarkeit und Dienstversionsverwaltung. Mit dem [Azure Stack Hub-Richtlinienmodul](azure-stack-policy-module.md) können Sie die Azure-Dienstverfügbarkeit und Azure-Ressourcentypen auf das Angebot von Azure Stack Hub beschränken. Durch die Einschränkung von Diensten wird sichergestellt, dass Ihre App Dienste nutzt, die für Azure Stack Hub verfügbar sind.
-* Bei den [Azure Stack Hub-Schnellstartvorlagen](https://github.com/Azure/AzureStack-QuickStart-Templates) handelt es sich um allgemeine Szenariobeispiele dazu, wie Sie Vorlagen für die Bereitstellung sowohl in Azure als auch in Azure Stack Hub entwickeln können.
+* Bei den [Azure Stack Hub-Schnellstartvorlagen](https://github.com/Azure/AzureStack-QuickStart-Templates) handelt es sich um allgemeine Szenariobeispiele dazu, wie Sie Vorlagen für die Bereitstellung sowohl in Azure als auch in Azure Stack Hub entwickeln.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

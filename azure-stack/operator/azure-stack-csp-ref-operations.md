@@ -1,26 +1,18 @@
 ---
-title: Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack Hub | Microsoft-Dokumentation
+title: Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie in Azure Stack Hub Mandanten registrieren und die Mandantennutzung nachverfolgen.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 981a80692e087cfcb733e73ec43d70fe67516e69
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 1f5f3011c1546970a1b94773b171e6419757c461
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882571"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882490"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack Hub
 
@@ -33,7 +25,7 @@ Dieser Artikel enthält Details zu Registrierungsvorgängen. Sie können diese V
 
 Sie können diesen Vorgang verwenden, wenn Sie Ihrer Registrierung einen neuen Mandanten hinzufügen möchten. Die Mandantennutzung wird unter einem Azure-Abonnement gemeldet, das mit dem Azure AD-Mandanten (Azure Active Directory) verbunden ist.
 
-Sie können den Vorgang auch verwenden, um das einem Mandanten zugeordnete Abonnement zu ändern. Rufen Sie PUT oder **New-AzureRMResource** auf, um die vorherige Zuordnung zu überschreiben.
+Sie können den Vorgang auch verwenden, um das einem Mandanten zugeordnete Abonnement zu ändern. Rufen Sie PUT oder das PowerShell-Cmdlet **New-AzureRMResource** auf, um die vorherige Zuordnung zu überschreiben.
 
 Sie können einem Mandanten ein einzelnes Azure-Abonnement zuweisen. Wenn Sie versuchen, einem vorhandenen Mandanten ein zweites Abonnement hinzuzufügen, wird das erste Abonnement überschrieben.
 

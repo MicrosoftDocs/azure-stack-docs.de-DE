@@ -1,26 +1,18 @@
 ---
-title: Ressourcennutzungs-API für Azure Stack Hub-Anbieter | Microsoft-Dokumentation
+title: Ressourcennutzungs-API für Azure Stack Hub-Anbieter
 description: Referenz für die Ressourcennutzungs-API, die Azure Stack Hub-Nutzungsinformationen abruft
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: e1d2e350079ab3d58802c8490da30a4c9555885d
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: c6c68b3455e7de78e116b3ef6ede1dde7172fb33
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023262"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881533"
 ---
 # <a name="provider-resource-usage-api"></a>Ressourcennutzungs-API für Anbieter
 

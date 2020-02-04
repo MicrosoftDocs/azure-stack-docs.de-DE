@@ -1,27 +1,18 @@
 ---
-title: Voraussetzungen für das Bereitstellen von Azure App Service unter Azure Stack Hub | Microsoft-Dokumentation
+title: Voraussetzungen für das Bereitstellen von Azure App Service unter Azure Stack Hub
 description: Es werden die vorbereitenden Schritte beschrieben, die ausgeführt werden müssen, bevor Sie Azure App Service unter Azure Stack Hub bereitstellen können.
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: a1cd98973bede3382790430dd59e434e135701de
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: eb2b3431fa7c9e9aada4e4df3f43715d48d1d72e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124734"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874755"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Voraussetzungen für das Bereitstellen von App Service unter Azure Stack Hub
 

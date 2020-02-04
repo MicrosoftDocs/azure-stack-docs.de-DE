@@ -1,26 +1,18 @@
 ---
-title: Überprüfen von PKI-Zertifikaten für Azure Stack Hub für die Bereitstellung von integrierten Azure Stack Hub-Systemen | Microsoft-Dokumentation
+title: Überprüfen von Public Key-Infrastrukturzertifikaten für Azure Stack Hub für die Bereitstellung von integrierten Azure Stack Hub-Systemen
 description: In diesem Artikel wird die Vorgehensweise zum Überprüfen von Azure Stack Hub-PKI-Zertifikaten für integrierte Azure Stack Hub-Systeme beschrieben. Der Artikel enthält auch Informationen zur Verwendung des Tools „Azure Stack Hub Certificate Checker“.
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 07/23/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 94acfbeb0c08bc79ad6d9bfa0282313a39c0eae6
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: 8ade18f01f9d0636e3a5903307ee9513c44470f7
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124717"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882598"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Überprüfen von Azure Stack Hub-PKI-Zertifikaten
 

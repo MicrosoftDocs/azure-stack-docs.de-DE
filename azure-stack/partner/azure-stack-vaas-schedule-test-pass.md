@@ -1,25 +1,18 @@
 ---
-title: Planen des ersten Tests mithilfe des Azure Stack-Validation-as-a-Service-Portals | Microsoft-Dokumentation
+title: Planen des ersten Tests mithilfe des Azure Stack-Validation-as-a-Service-Portals
 description: Planen des ersten Tests mithilfe des Azure Stack-Validation-as-a-Service-Portals
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 8843b6791876b4e0362d7aee3aa738453a8c3b88
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 166a75da9f6571e80cdfe213fe0ea32c58279dac
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955928"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885123"
 ---
 # <a name="scheduling-a-test"></a>Planen eines Tests
 

@@ -1,25 +1,17 @@
 ---
-title: Verwenden des Azure Stack Hub-Richtlinienmoduls | Microsoft-Dokumentation
+title: Verwenden des Azure Stack Hub-Richtlinienmoduls
 description: Erfahren Sie, wie Sie ein Azure-Abonnement so beschränken, dass es sich wie ein Azure Stack Hub-Abonnement verhält.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: aedc2915f3e2be473b74766c4274197112ecf6fe
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 880d7eb5732a7ac28a08cfacf1108387a1f9c62e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878746"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883344"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>Verwalten von Azure-Richtlinien mithilfe des Azure Stack Hub-Richtlinienmoduls
 

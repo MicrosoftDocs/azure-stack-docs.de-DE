@@ -1,26 +1,18 @@
 ---
-title: Hinzufügen von Mandanten für Nutzung und Abrechnung zu Azure Stack Hub | Microsoft-Dokumentation
+title: Hinzufügen von Mandanten für Nutzung und Abrechnung zu Azure Stack Hub
 description: Finden Sie heraus, wie Sie einen Mandanten für die Nutzung und Abrechnung zu Azure Stack Hub hinzufügen.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 9bf0e51deb8e30bfeab978e3bdec1f4c4343561d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e5bdfa5a190b639ef0537c96f4b0e049817fba21
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882605"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882554"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Hinzufügen eines Mandanten für Nutzung und Abrechnung zu Azure Stack Hub
 

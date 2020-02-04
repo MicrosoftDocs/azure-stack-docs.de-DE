@@ -1,26 +1,18 @@
 ---
-title: Verwalten der Nutzung und Abrechnung für Azure Stack Hub als Cloud Solution Provider| Microsoft-Dokumentation
+title: Verwalten der Nutzung und Abrechnung für Azure Stack Hub als Cloud Solution Provider
 description: Erfahren Sie, wie Sie Azure Stack Hub als Cloud Solution Provider (CSP) registrieren und Kunden für die Abrechnung hinzufügen.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 7fcd34efefa9c82085274837829f989908f751ba
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 131a3e0cacc1d08df6f2f925845d8dbf21386162
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881092"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876557"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Verwalten der Nutzung und Abrechnung für Azure Stack Hub als Cloud Solution Provider
 
@@ -55,7 +47,7 @@ CSP-Abonnements sind die bevorzugte Option für die Registrierung, wenn ein CSP-
 
 ## <a name="register-azure-stack-hub"></a>Registrieren von Azure Stack Hub
 
-Verwenden Sie das APSS-Abonnement, das Sie mit den Informationen im vorherigen Abschnitt erstellt haben, um Azure Stack Hub in Azure zu registrieren. Weitere Informationen finden Sie unter [Registrieren von Azure Stack Hub in Ihrem Azure-Abonnement](azure-stack-registration.md).
+Verwenden Sie das APSS-Abonnement, das Sie mit den Informationen im vorherigen Abschnitt erstellt haben, um Azure Stack Hub in Azure zu registrieren. Weitere Informationen finden Sie unter [Registrieren von Azure Stack Hub in Azure](azure-stack-registration.md).
 
 ## <a name="add-end-customer"></a>Hinzufügen eines Endkunden
 
@@ -67,7 +59,7 @@ Azure Stack Hub verwendet ein als *Registrierung* bezeichnetes Feature. Eine Re
 
 Die Registrierung ermöglicht Azure Stack Hub Folgendes:
 
-- Azure Stack Hub-Nutzungsdaten können an Azure Commerce weitergeleitet und Azure-Abonnements in Rechnung gestellt werden.
+- [Azure Stack Hub-Nutzungsdaten](azure-stack-billing-and-chargeback.md) können an Azure Commerce weitergeleitet und Azure-Abonnements in Rechnung gestellt werden.
 - Bei einer mehrinstanzenfähigen Azure Stack Hub-Bereitstellung kann die Nutzung jedes Kunden in einem anderen Abonnement gemeldet werden. Dank Mehrinstanzenfähigkeit kann Azure Stack Hub verschiedene Organisationen in derselben Azure Stack Hub-Instanz unterstützen.
 
 Für jede Azure Stack Hub-Instanz sind ein Standardabonnement und zahlreiche Mandantenabonnements vorhanden. Das Standardabonnement ist ein Azure-Abonnement, das belastet wird, wenn kein mandantenspezifisches Abonnement vorhanden ist. Es muss das erste Abonnement sein, das registriert wird. Damit die mehrinstanzenfähige Nutzungsberichterstattung funktioniert, muss das Abonnement ein CSP- oder APSS-Abonnement sein.

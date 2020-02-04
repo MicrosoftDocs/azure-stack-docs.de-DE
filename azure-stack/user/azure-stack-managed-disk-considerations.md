@@ -1,31 +1,22 @@
 ---
-title: 'Verwaltete Azure Stack Hub-Datenträger: Unterschiede und Überlegungen | Microsoft-Dokumentation'
+title: 'Verwaltete Azure Stack Hub-Datenträger: Unterschiede und Überlegungen'
 description: Dieser Artikel beschreibt die Unterschiede und zu berücksichtigende Überlegungen bei der Verwendung von verwalteten Datenträgern und verwalteten Images in Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 2e09f10fc61454cf1b32797e75b5a57fc3f90f8f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c1369ada357e8439e39fed4642996af86925522c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819878"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883436"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Verwaltete Azure Stack Hub-Datenträger: Unterschiede und Überlegungen
 
-Dieser Artikel beschreibt die Unterschiede zwischen [verwalteten Datenträgern in Azure Stack Hub](azure-stack-manage-vm-disks.md) und [verwalteten Datenträgern in Azure](/azure/virtual-machines/windows/managed-disks-overview). Informationen zu allgemeinen Unterschieden zwischen Azure Stack Hub und Azure finden Sie im Artikel [Wichtige Aspekte](azure-stack-considerations.md).
+Dieser Artikel beschreibt die Unterschiede zwischen [*verwalteten Datenträgern* in Azure Stack Hub](azure-stack-manage-vm-disks.md) und [verwalteten Datenträgern in Azure](/azure/virtual-machines/windows/managed-disks-overview). Informationen zu allgemeinen Unterschieden zwischen Azure Stack Hub und Azure finden Sie im Artikel [Wichtige Aspekte](azure-stack-considerations.md).
 
 Verwaltete Datenträger vereinfachen die Datenträgerverwaltung für IaaS-VMs durch Verwaltung der [Speicherkonten](../operator/azure-stack-manage-storage-accounts.md), die den VM-Datenträgern zugeordnet sind.
 
@@ -144,10 +135,10 @@ Azure Stack Hub unterstützt *verwaltete Images*. Somit können Sie ein verwalte
 
 ### <a name="step-1-generalize-the-vm"></a>Schritt 1: Generalisieren des virtuellen Computers
 
-Folgen Sie unter Windows dem Abschnitt [Generalisieren des virtuellen Windows-Computers mithilfe von Sysprep](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep). Für Linux folgen Sie Schritt 1 [hier](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm).
+Folgen Sie unter Windows dem Abschnitt [Generalisieren des virtuellen Windows-Computers mithilfe von Sysprep](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep). Für Linux führen Sie [Schritt 1](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm) aus.
 
 > [!NOTE]
-> Stellen Sie sicher, dass Sie Ihre VM generalisieren. Das Erstellen einer VM aus einem nicht ordnungsgemäß generalisierten Image führt zu einem **VMProvisioningTimeout**-Fehler.
+> Stellen Sie sicher, dass Sie Ihre VM generalisieren. Das Erstellen einer VM aus einem nicht ordnungsgemäß generalisierten Image kann zu einem **VMProvisioningTimeout**-Fehler führen.
 
 ### <a name="step-2-create-the-managed-image"></a>Schritt 2: Erstellen des verwalteten Images
 
@@ -232,4 +223,4 @@ Nach Anwendung des Updates 1808 oder höher müssen Sie folgende Änderung an de
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Erfahren Sie mehr über virtuelle Azure Stack Hub-Computer](azure-stack-compute-overview.md)
+- Erfahren Sie mehr über [virtuelle Azure Stack Hub-Computer](azure-stack-compute-overview.md).

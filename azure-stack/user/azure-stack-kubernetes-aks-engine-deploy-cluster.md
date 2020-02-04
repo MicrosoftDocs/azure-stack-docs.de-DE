@@ -1,26 +1,18 @@
 ---
-title: Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub | Microsoft-Dokumentation
+title: Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub
 description: Erfahren Sie, wie Sie einen Kubernetes-Cluster in Azure Stack Hub von einer Client-VM bereitstellen, auf der die AKS-Engine ausgeführt wird.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 34fc30c13cf365560fbd30234a60af4cc4f9a594
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: bc56a45bc1312488d00570e4a44436bcdfe14834
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883564"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884803"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub
 
@@ -158,7 +150,7 @@ Fahren Sie mit der Bereitstellung eines Clusters fort:
 
 ## <a name="verify-your-cluster"></a>Überprüfen Ihres Clusters
 
-Überprüfen Sie Ihren Cluster durch Bereitstellen von MySQL mit Helm zum Überprüfen Ihres Clusters.
+Überprüfen Sie Ihren Cluster durch Bereitstellen von MySQL mit Helm.
 
 1. Rufen Sie die öffentliche IP-Adresse eines Ihrer Masterknoten über das Azure Stack Hub-Portal ab.
 
@@ -166,31 +158,71 @@ Fahren Sie mit der Bereitstellung eines Clusters fort:
 
 3. Verwenden Sie für den SSH-Benutzernamen „azureuser“ und die Datei mit dem privaten Schlüssel des Schlüsselpaars, das Sie für die Bereitstellung des Clusters angegeben haben.
 
-4.  Führen Sie die folgenden Befehle aus:
+4. Führen Sie die folgenden Befehle aus, um eine Beispielbereitstellung eines Redis-Masters (nur bei verbundenen Stempeln) zu erstellen:
+
+   ```bash
+   kubectl apply -f https://k8s.io/examples/application/guestbook/redis-master-deployment.yaml
+   ```
+
+    1. Fragen Sie die Liste der Pods ab:
+
+       ```bash
+       kubectl get pods
+       ```
+
+    2. Die Antwort sollte etwa wie folgt aussehen:
+
+       ```shell
+       NAME                            READY     STATUS    RESTARTS   AGE
+       redis-master-1068406935-3lswp   1/1       Running   0          28s
+       ```
+
+    3. Zeigen Sie die Bereitstellungsprotokolle an:
+
+       ```shell
+       kubectl logs -f <pod name>
+       ```
+
+    Führen Sie für eine vollständige Bereitstellung einer PHP-Beispiel-App, die den Redis-Master enthält, [diese Schritte](https://kubernetes.io/docs/tutorials/stateless-application/guestbook/) aus.
+
+5. Bei einem getrennten Stempel sollten die folgenden Befehle ausreichen:
+
+    1. Überprüfen Sie zunächst, ob die Clusterendpunkte ausgeführt werden:
+
+       ```bash
+       kubectl cluster-info
+       ```
+
+       Die Ausgabe sollte in etwa wie folgt aussehen:
+
+       ```shell
+       Kubernetes master is running at https://democluster01.location.domain.com
+       CoreDNS is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+       kubernetes-dashboard is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
+       Metrics-server is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+       ```
+
+    2. Überprüfen Sie dann die Knotenzustände:
+
+       ```bash
+       kubectl get nodes
+       ```
+
+       Die Ausgabe sollte ähnlich der Folgenden aussehen:
+
+       ```shell
+       k8s-linuxpool-29969128-0   Ready      agent    9d    v1.15.5
+       k8s-linuxpool-29969128-1   Ready      agent    9d    v1.15.5
+       k8s-linuxpool-29969128-2   Ready      agent    9d    v1.15.5
+       k8s-master-29969128-0      Ready      master   9d    v1.15.5
+       k8s-master-29969128-1      Ready      master   9d    v1.15.5
+       k8s-master-29969128-2      Ready      master   9d    v1.15.5
+       ```
+
+6. Führen Sie den folgenden Befehl aus, um die Redis-Pod-Bereitstellung aus dem vorherigen Schritt zu bereinigen:
 
     ```bash
-    sudo snap install helm --classic
-    kubectl -n kube-system create serviceaccount tiller
-    kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
-    helm init --service-account=tiller
-    helm repo update
-    helm install stable/mysql
-    ```
-
-5.  Um den Test zu bereinigen, suchen Sie den Namen, der für die MySQL-Bereitstellung verwendet wird. Im folgenden Beispiel lautet der Name `wintering-rodent`. Löschen Sie ihn dann. 
-
-    Führen Sie die folgenden Befehle aus:
-
-    ```bash
-    helm ls
-    NAME REVISION UPDATED STATUS CHART APP VERSION NAMESPACE
-    wintering-rodent 1 Thu Oct 18 15:06:58 2018 DEPLOYED mysql-0.10.1 5.7.14 default
-    helm delete wintering-rodent
-    ```
-
-    In der CLI wird Folgendes angezeigt:
-    ```bash
-    release "wintering-rodent" deleted
+    kubectl delete deployment -l app=redis
     ```
 
 ## <a name="next-steps"></a>Nächste Schritte

@@ -1,20 +1,18 @@
 ---
-title: Replizieren von Ressourcen in Azure Stack Hub-Abonnements | Microsoft-Dokumentation
+title: Replizieren von Ressourcen in mehreren Azure Stack Hub-Abonnements
 description: Erfahren Sie, wie Sie Ressourcen mit den Replikatorskripts für Azure Stack Hub-Abonnements replizieren.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 411dafa86d0ec61ff431cfea217f3721862b69f4
-ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
+ms.openlocfilehash: 095de73dea95a4ed3dec04d43e70c1a0554906ca
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259799"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884621"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Replizieren von Ressourcen mit dem Replikator für Azure Stack Hub-Abonnements
 

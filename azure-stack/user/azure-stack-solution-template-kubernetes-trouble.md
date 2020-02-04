@@ -1,25 +1,18 @@
 ---
-title: Problembehandlung bei der Bereitstellung von Kubernetes in Azure Stack Hub | Microsoft-Dokumentation
+title: Problembehandlung bei der Bereitstellung von Kubernetes in Azure Stack Hub
 description: Erfahren Sie, wie Sie Probleme bei der Bereitstellung von Kubernetes in Azure Stack Hub beheben können.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 93c7972cef394ad86f2619f1ac06781c2dedb3e0
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 5e98ed511fab30e7ece3ebca282c79ef6a5bed97
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883336"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76889540"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Problembehandlung bei der Bereitstellung von Kubernetes in Azure Stack Hub
 

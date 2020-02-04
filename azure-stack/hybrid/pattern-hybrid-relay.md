@@ -2,18 +2,17 @@
 title: Muster für die Implementierung einer Hybridrelaylösung mithilfe von Azure und Azure Stack Hub.
 description: Erfahren Sie, wie Sie Azure- und Azure Stack Hub-Dienste verwenden, um eine Verbindung mit von Firewalls geschützten Edge-Ressourcen oder -Geräten herzustellen.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 9b9defd4a6aec6dab3511425089e7395649d8087
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 7315013253c04ebbb231a0915dba610e459848e7
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640125"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890067"
 ---
 # <a name="hybrid-relay-pattern"></a>Hybridrelaymuster
 
@@ -40,12 +39,12 @@ Die Lösung funktioniert so:
 
 Diese Lösung verwendet die folgenden Komponenten:
 
-| Ebene | Komponente | BESCHREIBUNG |
+| Ebene | Komponente | Beschreibung |
 |----------|-----------|-------------|
 | Azure | Azure VM | Eine Azure-VM bietet einen öffentlich zugänglichen Endpunkt für die lokale Ressource. |
 | | Azure Service Bus Relay | Ein [Azure Service Bus-Relay](/azure/service-bus-relay/) stellt die Infrastruktur zum Verwalten des Tunnels und der Verbindung zwischen der Azure-VM und Azure Stack Hub-VM bereit.|
 | Azure Stack Hub | Compute | Eine Azure Stack Hub-VM stellt die Serverseite des Hybridrelaytunnels bereit. |
-| | Storage | Der in Azure Stack Hub bereitgestellte AKS-Engine-Cluster bietet eine skalierbare, resiliente Engine für die Ausführung des Containers der Gesichtserkennungs-API.|
+| | Storage | Der in Azure Stack Hub bereitgestellte AKS-Engine-Cluster bietet eine skalierbare, resiliente Engine für die Ausführung des Gesichtserkennungs-API-Containers.|
 
 ## <a name="issues-and-considerations"></a>Probleme und Überlegungen
 

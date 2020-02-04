@@ -1,26 +1,19 @@
 ---
-title: Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack| Microsoft-Dokumentation
+title: Allgemeine Workflowparameter in Validation-as-a-Service in Azure Stack
 description: Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 567b6a98c6ee407871b53fe6ecb8ddb3762c2119
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: ee72aca1cbba27c75d2811dac96d4b0a78a87617
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535835"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885034"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack
 

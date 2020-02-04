@@ -1,26 +1,18 @@
 ---
-title: Häufig gestellte Fragen zur Nutzungs-API | Microsoft-Dokumentation
+title: Häufig gestellte Fragen zur Nutzungs-API
 description: Liste der Azure Stack Hub-Verbrauchseinheiten, Vergleich mit der Azure-Nutzungs-API, Nutzungszeit und gemeldete Zeit, Fehlercodes.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: dea410ab514f095f7ed68a0617b2dd7816544f80
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 18539c666683c6e35c8736616405f961b63adf40
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813061"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880656"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Häufig gestellte Fragen zur Nutzung von Azure Stack Hub
 
@@ -401,7 +393,7 @@ Nutzungsdatenberichte haben zwei Hauptzeitwerte:
 
 Unter Umständen besteht für ein spezifisches Nutzungsereignis eine Diskrepanz zwischen der Nutzungszeit und der gemeldeten Zeit. Die Verzögerung kann in jeder Umgebung mehrere Stunden betragen.
 
-Aktuell können Sie nur nach *gemeldeter Zeit* abfragen.
+Aktuell können Sie nur nach **gemeldeter Zeit** abfragen.
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>Fehlercodes der Nutzungs-API und deren Bedeutungen
 

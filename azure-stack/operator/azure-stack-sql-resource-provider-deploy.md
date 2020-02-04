@@ -2,26 +2,18 @@
 title: Bereitstellen des SQL Server-Ressourcenanbieters
 titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie den SQL Server-Ressourcenanbieter in Azure Stack Hub bereitstellen.
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a8978c5ceb9e54577ff2347671568122751f4715
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: f365886119e343fd550e00e606840172fed7fa21
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881840"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881230"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Bereitstellen des SQL Server-Ressourcenanbieters in Azure Stack Hub
 
@@ -100,7 +92,7 @@ _Nur bei Installationen in integrierten Systemen_. Sie müssen das SQL-PaaS-PKI-
 
 ## <a name="deploy-the-sql-resource-provider"></a>Bereitstellen des SQL-Ressourcenanbieters
 
-Nachdem Sie alle erforderlichen Komponenten installiert haben, führen Sie das Skript **DeploySqlProvider.ps1** aus, um den SQL-Ressourcenanbieter bereitzustellen. Das Skript „DeploySqlProvider.ps1“ wird als Teil der Binärdatei vom SQL-Ressourcenanbieter extrahiert, die Sie für Ihre Azure Stack Hub-Version heruntergeladen haben.
+Führen Sie nach der Installation aller erforderlichen Komponenten das Skript **DeploySqlProvider.ps1** auf einem Computer aus, der sowohl auf den Azure Resource Manager-Endpunkt des Azure Stack Hub-Administrators als auch den privilegierten Endpunkt zugreifen kann, um den SQL-Ressourcenanbieter bereitzustellen. Das Skript „DeploySqlProvider.ps1“ wird als Teil der Binärdatei vom SQL-Ressourcenanbieter extrahiert, die Sie für Ihre Azure Stack Hub-Version heruntergeladen haben.
 
  > [!IMPORTANT]
  > Überprüfen Sie vor der Bereitstellung des Ressourcenanbieters die Anmerkungen zu dieser Version auf Informationen zu neuen Funktionen, Fehlerbehebungen und bekannten Problemen, die sich auf die Bereitstellung auswirken können.
@@ -117,7 +109,7 @@ Führen Sie das Skript „DeploySqlProvider.ps1“ aus, das die folgenden Aufgab
 - Registriert Ihren Ressourcenanbieter beim lokalen Azure Resource Manager für das Operatorkonto.
 
 > [!NOTE]
-> Sobald die Bereitstellung des SQL-Ressourcenanbieters beginnt, wird die Ressourcengruppe **system.local.sqladapter** erstellt. Es kann bis zu 75 Minuten dauern, bis die erforderlichen Bereitstellungen für diese Ressourcengruppe fertig gestellt sind.
+> Sobald die Bereitstellung des SQL-Ressourcenanbieters beginnt, wird die Ressourcengruppe **system.local.sqladapter** erstellt. Es kann bis zu 75 Minuten dauern, bis die erforderlichen Bereitstellungen für diese Ressourcengruppe fertig gestellt sind. Sie sollten keine weiteren Ressourcen in der Ressourcengruppe **system.local.sqladapter** platzieren.
 
 ### <a name="deploysqlproviderps1-parameters"></a>Parameter „DeploySqlProvider.ps1“
 

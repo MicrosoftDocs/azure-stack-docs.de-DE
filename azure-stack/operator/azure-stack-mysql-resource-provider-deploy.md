@@ -1,26 +1,18 @@
 ---
-title: Bereitstellen des MySQL-Ressourcenanbieters in Azure Stack Hub | Microsoft-Dokumentation
+title: Bereitstellen des MySQL-Ressourcenanbieters in Azure Stack Hub
 description: Erfahren Sie, wie Sie den MySQL-Ressourcenanbieteradapter und MySQL-Datenbanken als Dienst in Azure Stack Hub bereitstellen.
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: aecc96bc9e96c39ad1df1111b57bf17ca0d9b59a
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 52ee1953098f861cca572e08269dff56da31f3aa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534956"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881825"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Bereitstellen des MySQL-Ressourcenanbieters in Azure Stack Hub
 
@@ -104,7 +96,7 @@ _Nur bei Installationen in integrierten Systemen_. Sie müssen das SQL-PaaS-PKI-
 
 ## <a name="deploy-the-resource-provider"></a>Bereitstellen des Ressourcenanbieters
 
-Nachdem Sie alle Voraussetzungen installiert haben, können Sie das Skript **DeployMySqlProvider.ps1** ausführen, um den MySQL-Ressourcenanbieter bereitzustellen. Das Skript „DeployMySqlProvider.ps1“ wird als Teil der Installationsdateien vom MySQL-Ressourcenanbieter extrahiert, die Sie entsprechend Ihrer Azure Stack Hub-Version heruntergeladen haben.
+Nach der Installation aller erforderlichen Komponenten können Sie das Skript **DeployMySqlProvider.ps1** auf einem Computer ausführen, der sowohl auf den Azure Resource Manager-Endpunkt des Azure Stack Hub-Administrators als auch den privilegierten Endpunkt zugreifen kann, um den MySQL-Ressourcenanbieter bereitzustellen. Das Skript „DeployMySqlProvider.ps1“ wird als Teil der Installationsdateien vom MySQL-Ressourcenanbieter extrahiert, die Sie entsprechend Ihrer Azure Stack Hub-Version heruntergeladen haben.
 
  > [!IMPORTANT]
  > Überprüfen Sie vor der Bereitstellung des Ressourcenanbieters die Anmerkungen zu dieser Version auf Informationen zu neuen Funktionen, Fehlerbehebungen und bekannten Problemen, die sich auf die Bereitstellung auswirken können.
@@ -121,7 +113,7 @@ Führen Sie das Skript **DeployMySqlProvider.ps1** aus, das die folgenden Aufgab
 * Registriert Ihren Ressourcenanbieter beim lokalen Azure Resource Manager für das Operatorkonto.
 
 > [!NOTE]
-> Sobald die Bereitstellung des MySQL-Ressourcenanbieters beginnt, wird die Ressourcengruppe **system.local.mysqladapter** erstellt. Es kann bis zu 75 Minuten dauern, bis die erforderlichen Bereitstellungen für diese Ressourcengruppe fertig gestellt sind.
+> Sobald die Bereitstellung des MySQL-Ressourcenanbieters beginnt, wird die Ressourcengruppe **system.local.mysqladapter** erstellt. Es kann bis zu 75 Minuten dauern, bis die erforderlichen Bereitstellungen für diese Ressourcengruppe fertig gestellt sind. Sie sollten keine weiteren Ressourcen in der Ressourcengruppe **system.local.mysqladapter** platzieren.
 
 ### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1-Parameter
 

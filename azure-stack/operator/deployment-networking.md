@@ -1,27 +1,18 @@
 ---
-title: Netzwerkdatenverkehr bei der Azure Stack Hub-Bereitstellung | Microsoft-Dokumentation
+title: Netzwerkdatenverkehr bei der Azure Stack Hub-Bereitstellung
 description: In diesem Artikel werden die zu erwartenden Netzwerkvorgänge bei der Azure Stack Hub-Bereitstellung beschrieben.
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 12/05/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/05/2019
-ms.openlocfilehash: 8b29f3e768e7af241afb5479e5051969f6f41b24
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: bf7504ce1004fdc3c2a00d1b831e6f135218eb0a
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812449"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879906"
 ---
 # <a name="about-deployment-network-traffic"></a>Informationen zum Netzwerkdatenverkehr bei der Bereitstellung
 Wenn Sie bei der Azure Stack Hub-Bereitstellung mit dem Netzwerkdatenverkehr vertraut sind, trägt dies zum Erfolg der Bereitstellung bei. In diesem Artikel wird Schritt für Schritt der Ablauf des Netzwerkdatenverkehrs während der Bereitstellung beschrieben, damit Sie wissen, was zu erwarten ist.
