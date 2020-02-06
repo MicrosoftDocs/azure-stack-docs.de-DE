@@ -8,12 +8,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 5171b52bc3c85dd5dbcc2c83cf307274ef92d558
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: c590aed504df1549e3c4a43ae282a304e579195a
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890203"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037198"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Für Azure Stack Hub unterstützte Gastbetriebssysteme
 
@@ -33,7 +33,7 @@ Azure Stack Hub unterstützt die Windows-Gastbetriebssysteme aus der folgenden T
 | Windows 10 *(siehe Hinweis 1)* | 64 Bit, Pro und Enterprise | Verwendung eigener Images (Bring Your Own Image, BYOI) |
 
 > [!NOTE]
-> Wenn Sie Windows 10-Clientbetriebssysteme für Azure Stack Hub bereitstellen möchten, müssen Sie über eine [benutzerspezifische Windows-Lizenzierung](https://www.microsoft.com/licensing/product-licensing/windows10.aspx) verfügen oder den Kauf über einen [QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx) (Qualified Multitenant Hoster) abwickeln.
+> Wenn Sie Windows 10-Clientbetriebssysteme für Azure Stack Hub bereitstellen möchten, müssen Sie über eine [benutzerspezifische Windows-Lizenzierung](https://www.microsoft.com/licensing/product-licensing/windows10.aspx) verfügen oder den Kauf über einen [QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) (Qualified Multitenant Hoster) abwickeln.
 
 Marketplace-Images stehen für eine Lizenzierung mit nutzungsbasierter Abrechnung oder für eine BYOL-Lizenzierung (EA/SPLA) zur Verfügung. Für eine einzige Azure Stack Hub-Instanz können jedoch nicht beide Lizenzierungstypen verwendet werden. Während der Bereitstellung fügt Azure Stack Hub eine geeignete Version des Gast-Agents in das Image ein.
 
