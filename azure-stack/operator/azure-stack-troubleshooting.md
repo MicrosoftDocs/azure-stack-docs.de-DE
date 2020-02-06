@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: bacffec0b3bda76eab27097c2d090df371d51fcf
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f5c223e08207518bde315725fd69ddb3fb97a578
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880847"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037266"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Behandeln von Problemen in Azure Stack Hub
 
@@ -114,7 +114,7 @@ Es kann bis zu 14 Stunden dauern, bis freigegebene Kapazität im Portal angezeig
 
 ### <a name="azure-storage-explorer-not-working-with-azure-stack-hub"></a>Azure Storage-Explorer funktioniert nicht mit Azure Stack Hub.
 
-Wenn Sie ein integriertes System in einem nicht verbundenen Szenario verwenden, wird die Verwendung einer Unternehmenszertifizierungsstelle empfohlen. Exportieren Sie das Stammzertifikat im Base64-Format, und importieren Sie es in Azure Storage-Explorer. Entfernen Sie unbedingt den nachgestellten Schrägstrich (`/`) vom Resource Manager-Endpunkt. Weitere Informationen finden Sie unter [Vorbereiten für die Verbindung mit Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se#prepare-for-connecting-to-azure-stack).
+Wenn Sie ein integriertes System in einem nicht verbundenen Szenario verwenden, wird die Verwendung einer Unternehmenszertifizierungsstelle empfohlen. Exportieren Sie das Stammzertifikat im Base64-Format, und importieren Sie es in Azure Storage-Explorer. Entfernen Sie unbedingt den nachgestellten Schrägstrich (`/`) vom Resource Manager-Endpunkt. Weitere Informationen finden Sie unter [Vorbereiten für die Verbindung mit Azure Stack Hub](/azure-stack/user/azure-stack-storage-connect-se).
 
 ## <a name="troubleshooting-app-service"></a>Problembehandlung für App Service
 

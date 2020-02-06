@@ -7,12 +7,12 @@ ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: b944e598080df3551764c7978ab205a9fffd666b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 927877867b0ec8cb2601b50e7f084f86964a5342
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882646"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037215"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Bewährte Methoden für die Behandlung von Problemen bei Azure Stack Hub-Patches und Updates
 
@@ -23,7 +23,7 @@ Der Azure Stack Hub-Patch und -Updatevorgang ermöglicht den Betreibern das kons
 
 0. **Voraussetzungen:** Stellen Sie sicher, dass Sie die [Checkliste für Updateaktivitäten](release-notes-checklist.md) befolgt und die [automatische Protokollsammlung konfiguriert](azure-stack-configure-automatic-diagnostic-log-collection.md) haben.
 1. Führen Sie die Behebungsschritte in der Fehlerwarnung aus, die beim Fehlschlagen des Updates erstellt wurde.
-2. Lesen Sie [Häufige Probleme bei Azure Stack Hub-Patches und -Updates](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates-troubleshoot#Common-azure-stack-hub-patch-and-update-issues), und führen Sie die empfohlenen Aktionen aus, wenn Ihr Problem aufgeführt ist.
+2. Lesen Sie [Häufige Probleme bei Azure Stack Hub-Patches und -Updates](#common-azure-stack-hub-patch-and-update-issues), und führen Sie die empfohlenen Aktionen aus, wenn Ihr Problem aufgeführt ist.
 3. Wenn Sie das Problem mit den oben beschriebenen Schritten nicht beheben konnten, erstellen Sie ein [Azure Stack Hub-Supportticket](azure-stack-help-and-support-overview.md). Stellen Sie sicher, dass für die Zeitspanne, in der das Problem aufgetreten ist, [Protokolle gesammelt](https://docs.microsoft.com/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection) wurden.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Häufige Probleme bei Azure Stack Hub-Patches und -Updates

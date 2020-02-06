@@ -7,12 +7,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: f2a981b3eb7b9d233d656daea4d0bcb4bbd21039
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b866b99cca9e4db7fa522bd605512f0aeea632db
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885277"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037232"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>n-schichtige Windows-Anwendung in Azure Stack Hub mit SQL Server
 
@@ -80,7 +80,7 @@ Entwerfen Sie Subnetze unter Berücksichtigung der Funktionalität und Sicherhei
 
 Machen Sie die VMs nicht direkt über das Internet verfügbar. Weisen Sie stattdessen jeder VM eine private IP-Adresse zu. Clients stellen über die öffentliche IP-Adresse eine Verbindung her, die dem Layer 7-Lastenausgleich zugeordnet ist.
 
-Definieren Sie Lastenausgleichsregeln, um Netzwerkdatenverkehr an die virtuellen Computer weiterzuleiten. Um HTTP-Datenverkehr zuzulassen, ordnen Sie beispielsweise den Port 80 in der Front-End-Konfiguration dem Port 80 im Back-End-Adresspool zu. Wenn ein Client eine HTTP-Anforderung an Port 80 sendet, wählt der Lastenausgleich mithilfe eines [Hashalgorithmus](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#load-balancer-concepts), der die Quell-IP-Adresse enthält, eine Back-End-IP-Adresse aus. So werden Clientanforderungen auf alle VMs im Back-End-Adresspool verteilt.
+Definieren Sie Lastenausgleichsregeln, um Netzwerkdatenverkehr an die virtuellen Computer weiterzuleiten. Um HTTP-Datenverkehr zuzulassen, ordnen Sie beispielsweise den Port 80 in der Front-End-Konfiguration dem Port 80 im Back-End-Adresspool zu. Wenn ein Client eine HTTP-Anforderung an Port 80 sendet, wählt der Lastenausgleich mithilfe eines [Hashalgorithmus](/azure/load-balancer/concepts-limitations#load-balancer-concepts), der die Quell-IP-Adresse enthält, eine Back-End-IP-Adresse aus. So werden Clientanforderungen auf alle VMs im Back-End-Adresspool verteilt.
 
 ### <a name="network-security-groups"></a>Netzwerksicherheitsgruppen
 

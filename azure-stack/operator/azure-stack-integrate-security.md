@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 2b8a6b06b0eca680a42d7c15bfe7fbb43afec29a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 43398b4ef745c9ad0d72274a9a3ef400c4669053
+ms.sourcegitcommit: 3974fc544986a5eccfac0ba7c4441b05279ae226
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882087"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001612"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Integrieren von Azure Stack Hub in Überwachungslösungen mithilfe der Syslog-Weiterleitung
 
@@ -23,7 +23,7 @@ Ab dem Update 1809 verfügt Azure Stack Hub über einen integrierten Syslog-Clie
 Das folgende Diagramm beschreibt die Integration von Azure Stack Hub in ein externes SIEM-System. Zwei Integrationsmuster müssen berücksichtigt werden: beim ersten (blau dargestellt) handelt es sich um die Azure Stack Hub-Infrastruktur, die VMs und Hyper-V-Knoten der Infrastruktur umfasst. Alle Überwachungen, Sicherheitsprotokolle und Warnungen von diesen Komponenten werden zentral gesammelt und per Syslog mit CEF-Nutzlast verfügbar gemacht. Dieses Integrationsmuster wird im vorliegenden Dokument beschrieben.
 Das zweite Integrationsmuster ist das hier orange dargestellte und deckt Folgendes ab: die Baseboard-Verwaltungscontroller, den Hardwarelebenszyklus-Host (HLH), die virtuellen Computer und Geräte, auf denen die Überwachungs- und Verwaltungssoftware des Hardwarepartners ausgeführt wird, und die TOR-Switche (Top Of Rack). Da diese Komponenten spezifisch für den jeweiligen Hardwarepartner sind, wenden Sie sich an diesen Partner, um zu erfahren, wie die Integration der Komponenten in ein externes SIEM-System erfolgt.
 
-![Diagramm der Syslog-Weiterleitung](media/azure-stack-integrate-security/syslog-forwarding.png)
+![Diagramm der Syslog-Weiterleitung](media/azure-stack-integrate-security/azure-stack-hub-syslog-forwarding-diagram_bg.svg)
 
 ## <a name="configuring-syslog-forwarding"></a>Konfigurieren der Syslog-Weiterleitung
 

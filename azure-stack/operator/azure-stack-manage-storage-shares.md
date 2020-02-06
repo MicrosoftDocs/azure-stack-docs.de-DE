@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 2d7db8ade21580af67c0a1b3f3783f694544f5e0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7453e8e454d6af39d86be0eaff49bef6e4538fac
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881997"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037283"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Verwalten der Speicherkapazität für Azure Stack Hub
 
@@ -43,7 +43,7 @@ Freigaben auf Volumes enthalten Mandantendaten. Zu Mandantendaten zählen Seiten
 
 Wenn der freie Speicherplatz einer Freigabe knapp wird und Aktionen zum [Freigeben](#reclaim-capacity) von Speicherplatz nicht erfolgreich oder verfügbar sind, kann der Azure Stack Hub-Cloudoperator die Blobcontainer zwischen Freigaben migrieren.
 
-- Informationen zur Verwendung von Blobspeicher in Azure Stack Hub durch Mandantenbenutzer finden Sie unter [Azure Stack Hub-Speicherdienste](/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
+- Informationen zur Verwendung von Blobspeicher in Azure Stack Hub durch Mandantenbenutzer finden Sie unter [Azure Stack Hub-Speicherdienste](/azure-stack/user/azure-stack-storage-overview).
 
 
 ### <a name="containers"></a>Container
