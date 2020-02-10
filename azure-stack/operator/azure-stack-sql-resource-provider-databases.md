@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 6a0135d643ebb87fb99ba12bec4741c67faa1111
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4269cce339ee606fd8efb4cb08677079c0f2e477
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882826"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972670"
 ---
 # <a name="create-sql-databases"></a>Erstellen von SQL-Datenbanken
 
@@ -26,7 +26,7 @@ Self-Service-Datenbanken können im Benutzerportal erstellt und verwaltet werden
 3. Geben Sie unter **Datenbank erstellen** die erforderlichen Informationen ein, z.B. **Datenbankname** und **Max. Größe in MB**.
 
    >[!NOTE]
-   >Die Datenbankgröße muss mindestens 64 MB betragen. Diesen Wert können Sie nach der Bereitstellung der Datenbank erhöhen.
+   >Die Datenbankgröße muss mindestens 64 MB betragen. Diesen Wert können Sie nach der Bereitstellung der Datenbank erhöhen.
 
    Konfigurieren Sie nach Bedarf die anderen Einstellungen für Ihre Umgebung.
 
@@ -66,7 +66,7 @@ Die folgende Bildschirmaufnahme zeigt, wie Sie den Status der Datenbank in SQL A
 
 Always On-Datenbanken sollten als **Synchronisiert** und für alle SQL-Instanzen verfügbar dargestellt und in **Verfügbarkeitsgruppen** angezeigt werden. Auf dem vorherigen Screenshot ist „newdb1“ das Beispiel für die Datenbank, und der Status lautet **newdb1 (synchronisiert)** .
 
-### <a name="delete-an-alwayson-database"></a>Löschen einer Always On-Datenbank
+### <a name="delete-an-always-on-database"></a>Löschen einer Always On-Datenbank
 
 Wenn Sie eine SQL AlwaysOn-Datenbank aus dem Ressourcenanbieter löschen, löscht SQL die Datenbank aus dem **primären** Replikat und aus der Verfügbarkeitsgruppe.
 

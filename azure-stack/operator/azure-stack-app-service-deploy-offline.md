@@ -7,12 +7,12 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: fe20a682041e3e23e2a67957ecdce85f922fbf20
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: bf9ce157e927b2fc43b64746d53d74e8cb82524c
+ms.sourcegitcommit: b5541815abfab3f8750fa419fdd1f93a8844731a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876370"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77012885"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>Bereitstellen von Azure App Service in einer Offlineumgebung in Azure Stack Hub
 
@@ -37,9 +37,9 @@ Um Ihrer Azure Stack Hub-Offlinebereitstellung den Azure App Service-Ressourcena
 
 Erstellen Sie zum Bereitstellen von Azure App Service in einer Offlineumgebung zunächst ein Offlineinstallationspaket auf einem Computer, der über eine Internetverbindung verfügt.
 
-1. Führen Sie das Installationsprogramm „AppService.exe“ auf einem Computer aus, der mit dem Internet verbunden ist.
+1. Führen Sie das Installationsprogramm „AppService.exe“ auf einem Computer aus, der mit dem Internet verbunden ist. 
 
-2. Wählen Sie **Erweitert** > **Offlineinstallationspaket erstellen** aus.
+2. Wählen Sie **Erweitert** > **Offlineinstallationspaket erstellen** aus. Dieser Schritt dauert einige Minuten.
 
     ![Erstellen eines Offlinepakets im Azure App Service-Installationsprogramm][1]
 
@@ -158,10 +158,17 @@ Erstellen Sie zum Bereitstellen von Azure App Service in einer Offlineumgebung z
 
     ![Festlegen von Rollenebenen und SKU-Optionen im Azure App Service-Installationsprogramm][14]
 
+1. Wählen Sie im Feld **Plattformimage auswählen** aus den Images, die im Computeressourcenanbieter für die Azure App Service-Cloud verfügbar sind, Ihr VM-Bereitstellungsimage für Windows Server 2016 aus. Wählen Sie **Weiter** aus.
+
     > [!NOTE]
     > Windows Server 2016 Core ist *kein* unterstütztes Plattformimage für die Verwendung mit Azure App Service in Azure Stack Hub.  Verwenden Sie Auswertungsimages nicht für Produktionsbereitstellungen. Für Azure App Service in Azure Stack Hub wird vorausgesetzt, dass im Image für die Bereitstellung Microsoft .NET 3.5.1 SP1 aktiviert ist. Bei syndizierten Marketplace-Images von Windows Server 2016 ist dieses Feature nicht aktiviert. Daher müssen Sie ein Windows Server 2016-Image erstellen und verwenden, für das dieses Feature vorab aktiviert ist.
-
-1. Wählen Sie im Feld **Plattformimage auswählen** aus den Images, die im Computeressourcenanbieter für die Azure App Service-Cloud verfügbar sind, Ihr VM-Bereitstellungsimage für Windows Server 2016 aus. Wählen Sie **Weiter** aus.
+    >
+    > Ausführliche Informationen zum Erstellen eines benutzerdefinierten Images und zum Hinzufügen zum Marketplace finden Sie unter [Hinzufügen eines benutzerdefinierten VM-Images zu Azure Stack Hub](azure-stack-add-vm-image.md). Geben Sie beim Hinzufügen des Images zum Marketplace unbedingt Folgendes an:
+    >
+    >- Herausgeber: MicrosoftWindowsServer
+    >- Angebot: WindowsServer
+    >- SKU: 2016-Datacenter
+    >- Version: Geben Sie die aktuelle Version an.
 
 1. Auf der nächsten Seite:
      1. Geben Sie den Administratorbenutzernamen und das Kennwort für die VM mit der Workerrolle ein.

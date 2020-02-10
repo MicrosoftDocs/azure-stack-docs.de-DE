@@ -1,18 +1,21 @@
 ---
 title: Melden von Azure Stack Hub-Nutzungsdaten an Azure
-description: Erfahren Sie, wie Sie die Berichterstellung für Nutzungsdaten in Azure Stack Hub einrichten.
+titleSuffix: Azure Stack Hub
+description: Hier erfahren Sie, wie Sie Azure Stack Hub-Nutzungsdaten an Azure melden.
+services: azure-stack
+documentationcenter: ''
 author: sethmanheim
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 195491ebd67f1e7741a793278b316bab028c4471
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ed0bcd873d6bd33017172eb3accad227e2073668
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882659"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972646"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Melden von Azure Stack Hub-Nutzungsdaten an Azure
 
@@ -25,13 +28,13 @@ Azure Stack Hub-Systeme mit mehreren Knoten, die das nutzungsbasierte Abrechnung
 
 Die Berichterstellung für Nutzungsdaten ist für diejenigen Benutzer der Azure Stack Hub-Systeme mit mehreren Knoten erforderlich, die im Rahmen des nutzungsbasierten Modells lizenziert sind. Sie ist optional für Kunden, die im Rahmen des Kapazitätsmodells lizenziert sind (siehe Seite [Azure Stack erwerben](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)). Für Azure Stack Development Kit-Benutzer (ASDK) können Azure Stack Hub-Operatoren Nutzungsdaten melden und das Feature testen. Allerdings werden Benutzern keinerlei Kosten berechnet, die für die Nutzung anfallen.
 
-![Abrechnungsablauf](media/azure-stack-usage-reporting/billing-flow.png)
+![Abrechnungsflow für Nutzungsdaten in Azure Stack Hub](media/azure-stack-usage-reporting/billing-flow.png)
 
 Nutzungsdaten werden von Azure Stack Hub über die Azure-Bridge an Azure gesendet. In Azure verarbeitet das Commerce-System die Nutzungsdaten und erstellt die Rechnung. Nachdem die Rechnung erstellt wurde, kann der Besitzer des Azure-Abonnements diese im [Azure-Kontocenter](https://account.windowsazure.com/subscriptions) anzeigen und von dort herunterladen. Informationen zur Lizenzierung von Azure Stack Hub finden Sie im Dokument [Azure Stack Hub packaging and pricing](https://go.microsoft.com/fwlink/?LinkId=842847) (Paketerstellung und Preise von Azure Stack Hub).
 
 ## <a name="set-up-usage-data-reporting"></a>Einrichten der Berichterstellung zu Nutzungsdaten
 
-Um die Berichterstellung für Nutzungsdaten einzurichten, müssen Sie [Ihre Azure Stack Hub-Instanz bei Azure registrieren](azure-stack-registration.md). Im Rahmen des Registrierungsprozesses wird die Azure-Bridge-Komponente von Azure Stack Hub konfiguriert, die eine Verbindung zwischen Azure Stack Hub und Azure herstellt und die Nutzungsdaten sendet. Die folgenden Nutzungsdaten werden von Azure Stack Hub an Azure gesendet:
+Um die Berichterstellung für Nutzungsdaten einzurichten, müssen Sie [Ihre Azure Stack Hub-Instanz bei Azure registrieren](azure-stack-registration.md). Im Rahmen des Registrierungsprozesses wird die Komponente Azure-Bridge von Azure Stack Hub konfiguriert. Azure-Bridge verbindet Azure Stack Hub mit Azure. Die folgenden Nutzungsdaten werden von Azure Stack Hub an Azure gesendet:
 
 - **ID der Verbrauchseinheit**: Eine eindeutige ID für die verwendete Ressource.
 - **Menge**: Menge der Ressourcennutzung.
@@ -48,9 +51,9 @@ Um die Berichterstellung für Nutzungsdaten einzurichten, müssen Sie [Ihre Azur
 
 ## <a name="view-usage---csp-subscriptions"></a>Anzeigen der Nutzung – CSP-Abonnements
 
-Wenn Sie Ihre Azure Stack Hub-Instanz mit einem CSP-Abonnement registriert haben, können Sie Ihre Nutzung und Gebühren auf die gleiche Weise anzeigen, wie Sie den Azure-Verbrauch sehen. Die Nutzung von Azure Stack Hub wird in Ihrer Rechnung und in der Abstimmungsdatei aufgeführt, die über [Partner Center](https://partnercenter.microsoft.com/partner/home) erhältlich ist. Die Abstimmungsdatei wird monatlich aktualisiert. Wenn Sie auf die aktuellen Informationen zur Nutzung von Azure Stack Hub zugreifen müssen, können Sie die Partner Center-APIs verwenden.
+Wenn Sie Ihre Azure Stack Hub-Instanz mit einem CSP-Abonnement registriert haben, können Sie Ihre Nutzung und Gebühren auf die gleiche Weise wie den Azure-Verbrauch anzeigen. Die Nutzung von Azure Stack Hub wird in Ihrer Rechnung und in der Abstimmungsdatei aufgeführt, die über [Partner Center](https://partnercenter.microsoft.com/partner/home) erhältlich ist. Die Abstimmungsdatei wird monatlich aktualisiert. Wenn Sie auf die aktuellen Informationen zur Nutzung von Azure Stack Hub zugreifen müssen, können Sie die Partner Center-APIs verwenden.
 
-![Partner Center](media/azure-stack-usage-reporting/partner-center.png)
+![Anzeigen der Abrechnungs- und Nutzungsdaten von Azure Stack Hub in Microsoft Partner Center](media/azure-stack-usage-reporting/partner-center.png)
 
 ## <a name="view-usage---enterprise-agreement-subscriptions"></a>Anzeigen der Nutzung – Enterprise Agreement-Abonnements
 
@@ -58,11 +61,11 @@ Wenn Sie Ihre Azure Stack Hub-Instanz mit einem Enterprise Agreement-Abonnement 
 
 ## <a name="view-usage---other-subscriptions"></a>Anzeigen der Nutzung – Andere Abonnements
 
-Wenn Sie Ihre Azure Stack Hub-Instanz mit einem anderen Abonnementtyp, z. B. einem Abonnement mit nutzungsbasierter Bezahlung, registriert haben, können Sie die Nutzung und die Gebühren im Azure-Kontocenter anzeigen. Melden Sie sich als Azure-Kontoadministrator beim [Azure-Kontocenter](https://account.windowsazure.com/subscriptions) an, und wählen Sie das Azure-Abonnement aus, das Sie zum Registrieren von Azure Stack Hub verwendet haben. Sie können die Azure Stack Hub-Nutzungsdaten und den in Rechnung gestellten Betrag für jede der verwendeten Ressourcen anzeigen, wie in der folgenden Abbildung zu sehen:
+Wenn Sie Ihre Azure Stack Hub-Instanz mit einem anderen Abonnementtyp (etwa einem Abonnement mit nutzungsbasierter Bezahlung) registriert haben, können Sie die Nutzung und die Gebühren im Azure-Kontocenter anzeigen. Melden Sie sich als Azure-Kontoadministrator beim [Azure-Kontocenter](https://account.windowsazure.com/subscriptions) an, und wählen Sie das Azure-Abonnement aus, das Sie zum Registrieren von Azure Stack Hub verwendet haben. Sie können die Azure Stack Hub-Nutzungsdaten und den in Rechnung gestellten Betrag für jede verwendete Ressource anzeigen, wie in der folgenden Abbildung zu sehen:
 
-![Abrechnungsablauf](media/azure-stack-usage-reporting/pricing-details.png)
+![Anzeigen des Abrechnungs- und Nutzungsflows im Azure-Kontocenter](media/azure-stack-usage-reporting/pricing-details.png)
 
-Beim Azure Stack Development Kit fallen für Azure Stack Hub-Ressourcen keine Gebühren an, daher wird der Preis mit 0,00 USD angezeigt.
+Beim ASDK fallen für Azure Stack Hub-Ressourcen keine Gebühren an, daher wird der Preis mit 0,00 USD angezeigt.
 
 ## <a name="which-azure-stack-hub-deployments-are-charged"></a>Welche Azure Stack Hub-Bereitstellungen werden in Rechnung gestellt?
 
@@ -76,7 +79,7 @@ Benutzern werden nur VMs in Rechnung gestellt, die unter den Mandantenabonnement
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-hub-how-do-i-do-it"></a>Wie kann ich eine Windows Server-Lizenz für Azure Stack Hub verwenden?
 
-Durch die Verwendung der vorhandenen Lizenzen wird die Inanspruchnahme von Nutzungsverbrauchseinheiten vermieden. Vorhandene Windows Server-Lizenzen können in Azure Stack Hub verwendet werden, wie im [Azure Stack Hub-Lizenzierungshandbuch](https://go.microsoft.com/fwlink/?LinkId=851536) im Abschnitt „Verwendung der vorhandenen Software mit Azure Stack Hub“ beschrieben wird. Kunden müssen ihre virtuellen Windows Server-Computer gemäß der Beschreibung im Artikel [Azure-Hybridvorteil für Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) bereitstellen, um ihre vorhandenen Lizenzen verwenden zu können.
+Durch die Verwendung der vorhandenen Lizenzen wird die Inanspruchnahme von Nutzungsverbrauchseinheiten vermieden. Vorhandenen Windows Server-Lizenzen können in Azure Stack Hub verwendet werden. Dieser Prozess wird im [Azure Stack Hub-Lizenzierungshandbuch](https://go.microsoft.com/fwlink/?LinkId=851536) im Abschnitt „Verwendung der vorhandenen Software mit Azure Stack Hub“ beschrieben. Kunden müssen ihre virtuellen Windows Server-Computer gemäß der Beschreibung im Artikel [Azure-Hybridvorteil für Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) bereitstellen, um ihre vorhandenen Lizenzen verwenden zu können.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Welchem Abonnement wird die Nutzung der Ressourcen in Rechnung gestellt?
 
@@ -84,11 +87,11 @@ Die Nutzung wird dem bei der [Registrierung von Azure Stack Hub bei Azure](azure
 
 ## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>Welche Arten von Abonnements werden für das Melden von Nutzungsdaten unterstützt?
 
-Für Azure Stack Hub-Systeme mit mehreren Knoten werden Enterprise Agreement-Abonnements (EA) und CSP-Abonnements unterstützt. Beim Azure Stack Development Kit unterstützen Enterprise Agreement-Abonnements, Abonnements mit nutzungsbasierter Zahlung, CSP- und MSDN-Abonnements das Melden von Nutzungsdaten.
+Für Azure Stack Hub-Systeme mit mehreren Knoten werden Enterprise Agreement-Abonnements (EA) und CSP-Abonnements unterstützt. Beim ASDK unterstützen Enterprise Agreement-Abonnements, Abonnements mit nutzungsbasierter Zahlung, CSP- und MSDN-Abonnements das Melden von Nutzungsdaten.
 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Funktioniert das Melden von Nutzungsdaten in unabhängigen Clouds?
 
-Beim Azure Stack Development Kit werden für das Melden von Nutzungsdaten Abonnements benötigt, die im globalen Azure-System erstellt wurden. Abonnements, die in einer der Sovereign Clouds (die Clouds „Azure Government“, „Azure Deutschland“ und „Azure China 21Vianet“) erstellt wurden, können nicht bei Azure registriert werden und unterstützen daher das Melden von Nutzungsdaten nicht.
+Beim ASDK werden für das Melden von Nutzungsdaten Abonnements benötigt, die im globalen Azure-System erstellt wurden. Abonnements, die in einer der Sovereign Clouds (die Clouds „Azure Government“, „Azure Deutschland“ und „Azure China 21Vianet“) erstellt wurden, können nicht bei Azure registriert werden und unterstützen daher das Melden von Nutzungsdaten nicht.
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-hub-match-the-report-generated-from-azure-account-center"></a>Warum stimmen die in Azure Stack Hub gemeldeten Nutzungsdaten nicht mit dem vom Azure-Kontocenter erstellten Bericht überein?
 

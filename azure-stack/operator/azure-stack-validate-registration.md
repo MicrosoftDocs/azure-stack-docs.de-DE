@@ -1,18 +1,19 @@
 ---
-title: Überprüfen der Azure-Registrierung für Azure Stack Hub
-description: Verwenden Sie den Azure Stack Hub Readiness Checker, um eine Azure-Registrierung zu überprüfen.
+title: Überprüfen der Azure-Registrierung
+titleSuffix: Azure Stack Hub
+description: Hier erfahren Sie, wie Sie eine Azure-Registrierung mit dem Azure Stack Hub Readiness Checker-Tool überprüfen.
 author: ihenkel
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: f9d5ff2a4ef02bb8d8b738cf20de2dae3bfafd02
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 58f65be2ac4ba352b17b9b0bba079b286a9609fa
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882576"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972560"
 ---
 # <a name="validate-azure-registration"></a>Überprüfen der Azure-Registrierung
 
@@ -23,7 +24,7 @@ Verwenden Sie das Tool „Azure Stack Hub Readiness Checker“ (**AzsReadinessCh
 
 Weitere Informationen zur Azure Stack Hub-Registrierung finden Sie unter [Registrieren von Azure Stack Hub in Azure](azure-stack-registration.md).
 
-## <a name="get-the-readiness-checker-tool"></a>Beziehen des Tools zur Bereitschaftsüberprüfung
+## <a name="get-the-readiness-checker-tool"></a>Beziehen des Tools zur Bereitschaftsüberprüfung (Readiness Checker)
 
 Laden Sie die neueste Version von **AzsReadinessChecker** aus dem [PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) herunter.  
 
@@ -35,15 +36,13 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
 
 - Windows 10 oder Windows Server 2016 mit Internetkonnektivität
 - PowerShell 5.1 oder höher Um Ihre Version zu überprüfen, führen Sie das folgende PowerShell-Cmdlet aus, und überprüfen Sie dann die **Hauptversion** und die **Nebenversionen**:  
-
   ```powershell
   $PSVersionTable.PSVersion
   ```
-
 - [PowerShell, konfiguriert für Azure Stack Hub](azure-stack-powershell-install.md).
 - Die neueste Version des Tools [Microsoft Azure Stack Hub Readiness Checker](https://aka.ms/AzsReadinessChecker).  
 
-### <a name="azure-active-directory-environment"></a>Azure Active Directory-Umgebung
+### <a name="azure-active-directory-aad-environment"></a>AAD-Umgebung (Azure Active Directory)
 
 - Sie müssen über den Benutzernamen und das Kennwort eines Kontos verfügen, das der Besitzer eines Azure-Abonnements ist, unter dem Sie Azure Stack Hub verwenden.  
 - Ermitteln Sie die Abonnement-ID für das Azure-Abonnement, das Sie verwenden möchten.
@@ -57,7 +56,7 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. Führen Sie an der PowerShell-Eingabeaufforderung Folgendes aus, um `$registrationCredential` als Abonnementbesitzerkonto festzulegen. Ersetzen Sie `subscriptionowner@contoso.onmicrosoft.com` durch Ihr Konto und den Namen Ihres Mandanten:
+2. Führen Sie an der PowerShell-Eingabeaufforderung den folgenden Befehl aus, um `$registrationCredential` als Abonnementbesitzerkonto festzulegen. Ersetzen Sie `subscriptionowner@contoso.onmicrosoft.com` durch Ihr Konto und den Namen Ihres Mandanten:
 
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
@@ -66,7 +65,7 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
    > [!NOTE]
    > Wenn Sie als CSP ein Shared Services- oder IUR-Abonnement nutzen, müssen Sie die Anmeldeinformationen eines Benutzers aus der entsprechenden Azure AD-Instanz angeben. Diese sehen in der Regel etwa wie folgt aus: `subscriptionowner@iurcontoso.onmicrosoft.com`. Dieser Benutzer benötigt die entsprechenden Anmeldeinformationen, wie im vorherigen Schritt beschrieben.
 
-3. Führen Sie an der PowerShell-Eingabeaufforderung Folgendes aus, um `$subscriptionID` als zu verwendendes Azure-Abonnement festzulegen. Ersetzen Sie `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` durch Ihre eigene Abonnement-ID:
+3. Führen Sie an der PowerShell-Eingabeaufforderung den folgenden Befehl aus, um `$subscriptionID` als zu verwendendes Azure-Abonnement festzulegen. Ersetzen Sie `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` durch Ihre eigene Abonnement-ID:
 
    ```powershell
    $subscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -75,8 +74,7 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
 4. Führen Sie an der PowerShell-Eingabeaufforderung Folgendes aus, um die Überprüfung Ihres Abonnements zu starten:
 
    - Legen Sie den Wert für `AzureEnvironment` als **AzureCloud**, **AzureGermanCloud** oder **AzureChinaCloud** fest.  
-   - Geben Sie Ihren Azure Active Directory-Administrator und den Namen Ihres Azure Active Directory-Mandanten an.
-
+   - Geben Sie den Namen Ihres Azure AD-Administrators und Ihres Azure AD-Mandanten an.
       ```powershell
       Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
       ```
@@ -97,7 +95,7 @@ Bei jeder Ausführung einer Überprüfung werden Ergebnisse in den Dateien **Azs
 
 Anhand dieser Dateien können Sie den Überprüfungsstatus freigeben, bevor Sie Azure Stack Hub bereitstellen oder Probleme mit der Überprüfung untersuchen. Die Ergebnisse aller nachfolgenden Überprüfungen werden in beiden Dateien gespeichert. Der Bericht enthält die Bestätigung Ihres Bereitstellungsteams über die Identitätskonfiguration. Mithilfe der Protokolldatei kann Ihr Bereitstellungs- oder Supportteam Probleme bei der Überprüfung untersuchen.
 
-Standardmäßig werden beide Dateien in das Verzeichnis **C:\Users\Benutzername\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** geschrieben.  
+Standardmäßig werden beide Dateien in `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json` geschrieben.  
 
 - Verwenden Sie den Parameter `-OutputPath <path>` am Ende der Ausführungsbefehlszeile, um einen anderen Berichtsspeicherort anzugeben.
 - Verwenden Sie den Parameter `-CleanReport` am Ende des Ausführungsbefehls, um Informationen zu früheren Ausführungen des Tools aus **AzsReadinessCheckerReport.json** zu löschen.
@@ -144,7 +142,7 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsRegistrationValidation Completed
 ```
 
-**Ursache**: Das Konto kann sich nicht anmelden, da das Kennwort entweder abgelaufen oder temporär ist.
+**Ursache:** Das Konto kann sich nicht anmelden, da das Kennwort entweder abgelaufen oder temporär ist.
 
 **Lösung**: Führen Sie in PowerShell folgenden Befehl aus, und befolgen Sie die Eingabeaufforderungen zum Zurücksetzen des Kennworts.
 
@@ -152,7 +150,7 @@ Invoke-AzsRegistrationValidation Completed
 Login-AzureRMAccount
 ```
 
-Alternativ können Sie sich beim [Azure-Portal](https://portal.azure.com) als Kontoinhaber anmelden, und der Benutzer wird gezwungen, das Kennwort zu ändern.
+Alternativ können Sie sich beim [Azure-Portal](https://portal.azure.com) als Kontobesitzer anmelden, und der Benutzer wird gezwungen, das Kennwort zu ändern.
 
 ### <a name="unknown-user-type"></a>Unbekannter Benutzertyp  
 
@@ -167,7 +165,7 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsRegistrationValidation Completed
 ```
 
-**Ursache**: Das Konto kann sich nicht bei der angegebenen Azure Active Directory-Umgebung anmelden. In diesem Beispiel ist **AzureChinaCloud** für **AzureEnvironment** angegeben.  
+**Ursache:** Das Konto kann sich nicht bei der angegebenen Azure AD-Umgebung anmelden. In diesem Beispiel ist **AzureChinaCloud** für **AzureEnvironment** angegeben.  
 
 **Lösung**: Vergewissern Sie sich, dass das Konto für die angegebene Azure-Umgebung gültig ist. Führen Sie in PowerShell folgenden Befehl aus, um zu überprüfen, ob das Konto für eine bestimmte Umgebung gültig ist:
 

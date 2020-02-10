@@ -3,16 +3,16 @@ title: Einführung in Azure Stack Hub-VMs
 description: Enthält Informationen zu Azure Stack Hub-VMs.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 02/03/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: c961716a64d3ccc4efcbf2eb36091e611db39be9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: abb5e6d50b9ec99366578fd84e2d720fb52722a3
+ms.sourcegitcommit: 4178443d84cf6d3fbaba11425beff703568c1a2c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883931"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76977902"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Einführung in Azure Stack Hub-VMs
 
@@ -57,7 +57,7 @@ Für Ihr Abonnement gelten standardmäßig bestimmte Kontingentgrenzen, die die 
 
 ### <a name="operating-system-disks-and-images"></a>Betriebssystem-Datenträger und Images
 
-Betriebssystem (Operating System, OS) und Daten werden bei VMs auf virtuellen Festplatten (Virtual Hard Disks, VHDs) gespeichert. VHDs werden auch für die Images verwendet, die Sie auswählen, um ein Betriebssystem zu installieren. Azure Stack Hub bietet einen Marketplace für verschiedene Versionen und Arten von Betriebssystemen. Marketplace-Images werden anhand von Herausgeber, Angebot, SKU und Version identifiziert (üblicherweise wird die aktuelle Version mit **latest** gekennzeichnet).
+Virtuelle Computer in Azure Stack Hub sind auf das VHD-/VHDX-Format (virtuelle Festplatten der 1. Generation) beschränkt. VHDs können zum Speichern des Computerbetriebssystems und von Daten verwendet werden. VHDs werden auch für die Images verwendet, die Sie auswählen, um ein Betriebssystem zu installieren. Azure Stack Hub bietet einen Marketplace für verschiedene Versionen und Arten von Betriebssystemen. Marketplace-Images werden anhand von Herausgeber, Angebot, SKU und Version identifiziert (üblicherweise wird die aktuelle Version mit **latest** gekennzeichnet).
 
 In der folgenden Tabelle ist angegeben, wie Sie die Informationen zu einem Image finden:
 

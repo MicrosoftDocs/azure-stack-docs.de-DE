@@ -1,29 +1,32 @@
 ---
-title: Überprüfen von Public Key-Infrastrukturzertifikaten für Azure Stack Hub für die Bereitstellung von integrierten Azure Stack Hub-Systemen
-description: In diesem Artikel wird die Vorgehensweise zum Überprüfen von Azure Stack Hub-PKI-Zertifikaten für integrierte Azure Stack Hub-Systeme beschrieben. Der Artikel enthält auch Informationen zur Verwendung des Tools „Azure Stack Hub Certificate Checker“.
+title: Überprüfen von Azure Stack Hub-PKI-Zertifikaten
+titleSuffix: Azure Stack Hub
+description: Hier erfahren Sie, wie Sie mit dem Azure Stack Hub Readiness Checker-Tool PKI-Zertifikate für integrierte Azure Stack Hub-Systeme überprüfen.
+services: azure-stack
+documentationcenter: ''
 author: ihenkel
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 8ade18f01f9d0636e3a5903307ee9513c44470f7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4ec3732df372e0b768b3f52c082cae5db932a36c
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882598"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972541"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Überprüfen von Azure Stack Hub-PKI-Zertifikaten
 
-Das in diesem Artikel beschriebene Tool „Azure Stack Hub Readiness Checker“ steht im [PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) zur Verfügung. Mit diesem Tool können Sie sich vergewissern, dass die [generierten PKI-Zertifikate](azure-stack-get-pki-certs.md) für die Vorabbereitstellung geeignet sind. Planen Sie bei der Zertifikatüberprüfung genügend Zeit ein, um die Zertifikate testen und ggf. neu ausstellen zu können.
+Das in diesem Artikel beschriebene Tool „Azure Stack Hub Readiness Checker“ steht im [PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) zur Verfügung. Mit diesem Tool können Sie sich vergewissern, dass die [generierten PKI-Zertifikate (Public Key-Infrastruktur)](azure-stack-get-pki-certs.md) für die Vorabbereitstellung geeignet sind. Planen Sie bei der Zertifikatüberprüfung genügend Zeit ein, um die Zertifikate testen und ggf. neu ausstellen zu können.
 
 Das Readiness Checker-Tool führt folgende Zertifikatüberprüfungen durch:
 
 - **PFX analysieren**  
-    Sucht nach einer gültigen PFX-Datei und einem korrekten Kennwort und überprüft, ob öffentliche Informationen durch das Kennwort geschützt sind. 
+    Sucht nach einer gültigen PFX-Datei und einem korrekten Kennwort und überprüft, ob öffentliche Informationen durch das Kennwort geschützt sind.
 - **Ablaufdatum**  
-    Überprüft die Mindestgültigkeit von 7 Tagen. 
+    Überprüft die Mindestgültigkeit von sieben Tagen.
 - **Signaturalgorithmus**  
     Überprüft, ob SHA1 als Signaturalgorithmus verwendet wird (was nicht der Fall sein darf).
 - **Privater Schlüssel**  
@@ -75,7 +78,7 @@ Gehen Sie wie folgt vor, um die Azure Stack Hub-PKI-Zertifikate für die Bereits
     ```
     
     > [!Note]  
-    > Wenn Sie AD FS als Identitätssystem verwenden, sind AD FS und Graph erforderlich. Beispiel:
+    > Wenn Sie AD FS als Identitätssystem verwenden, sind AD FS und Graph erforderlich. Beispiel:
     >
     > ```powershell  
     > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'ARM Admin', 'ARM Public', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal'
@@ -86,14 +89,14 @@ Gehen Sie wie folgt vor, um die Azure Stack Hub-PKI-Zertifikate für die Bereits
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
-3. Ändern Sie im PowerShell-Fenster die Werte von **RegionName** und **FQDN** entsprechend der Azure Stack Hub-Umgebung, und führen Sie Folgendes aus:
+3. Ändern Sie im PowerShell-Fenster die Werte von `RegionName` und `FQDN` entsprechend der Azure Stack Hub-Umgebung, und führen Sie das folgende Cmdlet aus:
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
     Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
-4. Überprüfen Sie die Ausgabe und ob alle Tests für alle Zertifikate erfolgreich waren. Beispiel:
+4. Überprüfen Sie die Ausgabe, und vergewissern Sie sich, dass alle Tests für alle Zertifikate erfolgreich waren. Beispiel:
 
     ```powershell
     Invoke-AzsCertificateValidation v1.1912.1082.37 started.
@@ -155,7 +158,7 @@ Gehen Sie wie folgt vor, um die Azure Stack Hub-PKI-Zertifikate für die Bereits
     # IoTHub
     Invoke-AzsCertificateValidation -CertificateType IoTHub -CertificatePath C:\Certificates\IoTHub -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
     ```
-Jeder Ordner sollte eine einzelne PFX-Datei für den Zertifikattyp enthalten. Wenn für einen Zertifikattyp mehrere Zertifikatanforderungen vorliegen, werden für jedes einzelne Zertifikat geschachtelte Ordner mit eindeutigen Namen erwartet.  Der folgende Code zeigt ein Beispiel für eine Ordner-/Zertifikatstruktur für alle Zertifikattypen und den entsprechenden Wert für ```-CertificateType``` und ```-CertificatePath```.
+    Jeder Ordner sollte eine einzelne PFX-Datei für den Zertifikattyp enthalten. Wenn für einen Zertifikattyp mehrere Zertifikatanforderungen vorliegen, werden für jedes einzelne Zertifikat geschachtelte Ordner mit eindeutigen Namen erwartet. Der folgende Code zeigt ein Beispiel für eine Ordner-/Zertifikatstruktur für alle Zertifikattypen und den entsprechenden Wert für ```-CertificateType``` und ```-CertificatePath```.
     
     ```powershell  
     C:\>tree c:\SecretStore /A /F
@@ -200,6 +203,7 @@ Jeder Ordner sollte eine einzelne PFX-Datei für den Zertifikattyp enthalten. We
                         iothub.pfx      #   -CertificateType IoTHub `
                                         #   -CertificatePath C:\Certificates\IoTHub
     ```
+
 ### <a name="known-issues"></a>Bekannte Probleme
 
 **Symptom**: Tests werden übersprungen.
@@ -234,21 +238,21 @@ Jeder Ordner sollte eine einzelne PFX-Datei für den Zertifikattyp enthalten. We
 
 | Verzeichnis | Zertifikat |
 | ---    | ----        |
-| acsBlob | wildcard_blob_\<Region>_\<externer FQDN> |
-| ACSQueue  |  wildcard_queue_\<Region>_\<externer FQDN> |
-| ACSTable  |  wildcard_table_\<Region>_\<externer FQDN> |
-| Administratorerweiterungshost  |  wildcard_adminhosting_\<Region>_\<externer FQDN> |
-| Verwaltungsportal  |  adminportal_\<Region>_\<externer FQDN> |
-| ARM Admin  |  adminmanagement_\<Region>_\<externer FQDN> |
-| ARM Public  |  management_\<Region>_\<externer FQDN> |
-| KeyVault  |  wildcard_vault_\<Region>_\<externer FQDN> |
-| KeyVaultInternal  |  wildcard_adminvault_\<Region>_\<externer FQDN> |
-| Öffentlicher Erweiterungshost  |  wildcard_hosting_\<Region>_\<externer FQDN> |
-| Öffentliches Portal  |  portal_\<Region>_\<externer FQDN> |
+| acsBlob | `wildcard_blob_<region>_<externalFQDN>` |
+| ACSQueue  |  `wildcard_queue_<region>_<externalFQDN>` |
+| ACSTable  |  `wildcard_table_<region>_<externalFQDN>` |
+| Administratorerweiterungshost  |  `wildcard_adminhosting_<region>_<externalFQDN>` |
+| Verwaltungsportal  |  `adminportal_<region>_<externalFQDN>` |
+| ARM Admin  |  `adminmanagement_<region>_<externalFQDN>` |
+| ARM Public  |  `management_<region>_<externalFQDN>` |
+| KeyVault  |  `wildcard_vault_<region>_<externalFQDN>` |
+| KeyVaultInternal  |  `wildcard_adminvault_<region>_<externalFQDN>` |
+| Öffentlicher Erweiterungshost  |  `wildcard_hosting_<region>_<externalFQDN>` |
+| Öffentliches Portal  |  `portal_<region>_<externalFQDN>` |
 
 ## <a name="using-validated-certificates"></a>Verwenden überprüfter Zertifikate
 
-Nach der Überprüfung durch AzsReadinessChecker können Sie die Zertifikate in Ihrer Azure Stack Hub-Bereitstellung oder für die Geheimnisrotation von Azure Stack Hub verwenden. 
+Nach der Überprüfung durch AzsReadinessChecker können Sie die Zertifikate in Ihrer Azure Stack Hub-Bereitstellung oder für die Geheimnisrotation von Azure Stack Hub verwenden.
 
  - Zur Bereitstellung übertragen Sie Ihre Zertifikate auf sichere Weise an Ihren Bereitstellungstechniker, damit dieser sie auf den Bereitstellungshost kopieren kann (wie unter [Azure Stack Hub-PKI-Zertifikatanforderungen](azure-stack-pki-certs.md) beschrieben).
  - Zur Geheimnisrotation können Sie die Zertifikate verwenden, um ältere Zertifikate für die öffentlichen Endpunkte der Infrastruktur Ihrer Azure Stack Hub-Umgebung zu aktualisieren. Eine entsprechende Anleitung finden Sie unter [Rotieren von Geheimnissen in Azure Stack Hub](azure-stack-rotate-secrets.md).

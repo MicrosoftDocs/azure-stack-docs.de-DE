@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 10035700de713910d33114e06fab11321e96e5b1
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 72a0fd215363911457271f65d636be37e3388c83
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877441"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037164"
 ---
 # <a name="hybrid-application-design-considerations"></a>Überlegungen beim Entwurf von Hybridanwendungen 
 
@@ -142,7 +142,7 @@ können zusätzliche Ressourcen an einem anderen Speicherort hinzugefügt werden
 
 Die Verfügbarkeit ist die Zeit, in der ein System funktioniert und erreichbar ist. Sie wird üblicherweise gemessen, indem der prozentuale Anteil der Betriebszeit bestimmt wird. Anwendungsfehler, Infrastrukturprobleme und Systemauslastung können die Verfügbarkeit reduzieren.
 
-Diese Säule wird ausführlich im Artikel „Säulen der Softwarequalität“ unter [*Verfügbarkeit*](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) erörtert.
+Diese Säule wird ausführlich im Artikel „Säulen der Softwarequalität“ unter [*Verfügbarkeit*](/azure/architecture/framework/) erörtert.
 
 ### <a name="availability-checklist"></a>Checkliste für die Verfügbarkeit
 
@@ -186,7 +186,7 @@ Diese Säule wird ausführlich im Artikel „Säulen der Softwarequalität“ un
 
 Die hier beschriebenen Faktoren zur Verwaltung Ihrer Hybridanwendungen sind wichtig beim Entwerfen Ihrer Architektur. Eine gut verwaltete Hybridanwendung bietet eine Infrastruktur in Form von Code, der die Integration von konsistentem Anwendungscode in eine allgemeine Entwicklungspipeline ermöglicht. Durch die Implementierung von konsistenten systemweiten und individuellen Tests von Änderungen an der Infrastruktur können Sie eine integrierte Bereitstellung gewährleisten, wenn die Änderungen die Tests bestehen, sodass sie mit dem Quellcode zusammengeführt werden können.
 
-Diese Säule wird ausführlich im Artikel „Säulen der Softwarequalität“ unter [*Verwaltung und DevOps*](https://docs.microsoft.com/azure/architecture/guide/pillars#management-and-devops) erörtert.
+Diese Säule wird ausführlich im Artikel „Säulen der Softwarequalität“ unter [*DevOps*](/azure/architecture/framework/#devops) erörtert.
 
 ### <a name="manageability-checklist"></a>Checkliste zur Verwaltbarkeit
 
