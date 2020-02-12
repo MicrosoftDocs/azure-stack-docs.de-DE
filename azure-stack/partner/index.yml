@@ -3,7 +3,7 @@ documentType: LandingData
 title: Dokumentation für Azure Stack Hub-Partner
 metadata:
   title: 'Dokumentation für Azure Stack Hub-Partner: Tutorials, API-Referenz'
-  description: 'Hier erfahren Sie, wie Sie Ihre Hardware zum Hosten von Azure Stack überprüfen. Validation-as-a-Service ist ein nativer Azure-Dienst, der für Lösungspartner konzipiert wurde, die zusammen mit Microsoft Azure Stack Hub-Angebote entwickeln.'
+  description: 'Hier erfahren Sie, wie Sie Ihre Hardware zum Hosten von Azure Stack Hub überprüfen. Validation-as-a-Service ist ein nativer Azure-Dienst, der für Lösungspartner konzipiert wurde, die zusammen mit Microsoft Azure Stack Hub-Angebote entwickeln.'
   services: azure-stack
   author: mattbriggs
   manager: femila
@@ -15,7 +15,7 @@ metadata:
   ms.author: mabrigg
   ms.reviewer: johnhas
 abstract:
-  description: 'Sie können mit Validation-as-a-Service Ihre Hardware für die Verwendung mit Azure Stack überprüfen. Bei dem Dienst handelt es sich um einen nativen Azure-Dienst, der für Lösungspartner konzipiert wurde, die zusammen mit Microsoft Azure Stack Hub-Angebote entwickeln.'
+  description: 'Sie können mit Validation-as-a-Service Ihre Hardware für die Verwendung mit Azure Stack Hub überprüfen. Bei dem Dienst handelt es sich um einen nativen Azure-Dienst, der für Lösungspartner konzipiert wurde, die zusammen mit Microsoft Azure Stack Hub-Angebote entwickeln.'
 sections:
   - title: Fünfminütiger Schnellstart
     items:
