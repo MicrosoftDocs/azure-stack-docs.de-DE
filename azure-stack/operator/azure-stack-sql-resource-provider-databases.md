@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 4269cce339ee606fd8efb4cb08677079c0f2e477
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: b0ea11c3245d8a3ddbf9eeaf85481f830c67dc7f
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972670"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125589"
 ---
 # <a name="create-sql-databases"></a>Erstellen von SQL-Datenbanken
 
@@ -32,7 +32,7 @@ Self-Service-Datenbanken können im Benutzerportal erstellt und verwaltet werden
 
 4. Klicken Sie unter **Datenbank erstellen** auf **SKU**. Wählen Sie unter **SKU auswählen** die SKU für Ihre Datenbank aus.
 
-   ![Erstellen Sie im Azure Stack Hub-Benutzerportal eine Datenbank.](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+   ![Erstellen Sie im Azure Stack Hub-Benutzerportal eine Datenbank.](./media/azure-stack-sql-rp-deploy/newsqldba.png)
 
    >[!NOTE]
    >Wenn Hostserver zu Azure Stack Hub hinzugefügt werden, wird ihnen eine SKU zugewiesen. Datenbanken werden im Pool von Hostservern in einer SKU erstellt.
@@ -46,13 +46,13 @@ Self-Service-Datenbanken können im Benutzerportal erstellt und verwaltet werden
    >[!NOTE]
    >Bei diesen Einstellungen handelt es sich um die Anmeldeinformationen für die SQL-Authentifizierung, die nur für Ihren Zugriff auf diese Datenbank erstellt werden. Der Benutzername für die Anmeldung muss global eindeutig sein. Sie können die Anmeldeeinstellungen für andere Datenbanken wiederverwenden, die dieselbe SKU verwenden.
 
-   ![Erstellen einer neuen Datenbankanmeldung im Azure Stack Hub-Benutzerportal](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+   ![Erstellen einer neuen Datenbankanmeldung im Azure Stack Hub-Benutzerportal](./media/azure-stack-sql-rp-deploy/create-new-login-a.png)
 
 8. Wählen Sie **OK**, um die Bereitstellung der Datenbank abzuschließen.
 
 Notieren Sie sich die **Verbindungszeichenfolge** aus der **Zusammenfassung**, die nach Bereitstellung der Datenbank angezeigt wird. Sie können diese Zeichenfolge in jeder App verwenden, die auf die SQL Server-Datenbank zugreifen muss.
 
-![Abrufen der Verbindungszeichenfolge für die SQL Server-Datenbank](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+![Abrufen der Verbindungszeichenfolge für die SQL Server-Datenbank](./media/azure-stack-sql-rp-deploy/sql-db-settings-a.png)
 
 ## <a name="sql-always-on-databases"></a>SQL Always On-Datenbanken
 
@@ -62,7 +62,7 @@ Entwurfsbedingt werden Always On-Datenbanken anders behandelt als in einer eigen
 
 Die folgende Bildschirmaufnahme zeigt, wie Sie den Status der Datenbank in SQL Always On mithilfe von SQL Server Management Studio anzeigen können.
 
-![AlwaysOn-Datenbankstatus in SQL Server Management Studio](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+![AlwaysOn-Datenbankstatus in SQL Server Management Studio](./media/azure-stack-sql-rp-deploy/verify-always-on.png)
 
 Always On-Datenbanken sollten als **Synchronisiert** und für alle SQL-Instanzen verfügbar dargestellt und in **Verfügbarkeitsgruppen** angezeigt werden. Auf dem vorherigen Screenshot ist „newdb1“ das Beispiel für die Datenbank, und der Status lautet **newdb1 (synchronisiert)** .
 

@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/16/2020
-ms.openlocfilehash: 396db14d269ee9443d38f8220e5dd0384d04a479
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7b83fa18f8a550a718023c97ccab8d46b5b86564
+ms.sourcegitcommit: 23861d659c89c2d36390085fe9532b2bcba2100d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881299"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075198"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Sicherheitskontrollen der Azure Stack Hub-Infrastruktur
 
@@ -105,7 +105,7 @@ Die Bewertungen umfassen die folgenden Standards:
 - [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) ist eine umfassende Zuordnung über mehrere Standards hinweg, z.B. FedRAMP Moderate, ISO27001, HIPAA, HITRUST, ITAR, NIST SP800-53 und andere.
 - [FedRAMP High](https://www.fedramp.gov/fedramp-releases-high-baseline/) für Behörden.
 
-Die Dokumentation zur Compliance finden Sie im [Microsoft Service Trust-Portal](https://servicetrust.microsoft.com/ViewPage/Blueprint). Die Compliancehandbücher sind eine geschützte Ressource. Sie müssen sich daher mit den Anmeldeinformationen Ihres Azure-Clouddiensts anmelden.
+Die Dokumentation zur Compliance finden Sie im [Microsoft Service Trust-Portal](https://servicetrust.microsoft.com/ViewPage/AzureStack). Die Compliancehandbücher sind eine geschützte Ressource. Sie müssen sich daher mit den Anmeldeinformationen Ihres Azure-Clouddiensts anmelden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

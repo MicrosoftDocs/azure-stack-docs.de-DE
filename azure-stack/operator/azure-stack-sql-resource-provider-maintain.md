@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0d6551f7db2ef8b7266d45223c9b20587610b169
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ed76e3611fe0b7b57386a7b688f08ddbdc3c36d7
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881245"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125809"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Wartungsvorgänge von SQL-Ressourcenanbietern
 
@@ -33,7 +33,7 @@ Sie sind für das Erstellen und Verwalten von Systemadministratorkonten auf Ihre
 
 Um die Einstellungen zu ändern, wählen Sie **Durchsuchen** &gt; **VERWALTUNGSRESSOURCEN** &gt; **SQL-Hostserver** &gt; **SQL-Anmeldungen**, und wählen Sie einen Benutzernamen aus. Die Änderung muss zuerst auf der SQL-Instanz vorgenommen werden (und ggf. auf allen Replikaten). Wählen Sie unter **Einstellungen** die Option **Kennwort** aus.
 
-![Aktualisieren des SQL-Administratorkennworts](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
+![Aktualisieren des SQL-Administratorkennworts](./media/azure-stack-sql-rp-deploy/sql-rp-update-password.png)
 
 ## <a name="secrets-rotation"></a>Geheimnisrotation
 
@@ -93,7 +93,7 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
 
 ### <a name="secretrotationsqlproviderps1-parameters"></a>Parameter für „SecretRotationSQLProvider.ps1“
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-----|-----|
 |AzCredential|Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto.|
 |CloudAdminCredential|Anmeldeinformationen für das Domänenkonto des Azure Stack Hub-Cloudadministrators.|
