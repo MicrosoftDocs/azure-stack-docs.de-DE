@@ -1,5 +1,5 @@
 ---
-title: Überprüfen von OEM-Paketen mit Validation-as-a-Service in Azure Stack
+title: Überprüfen von OEM-Paketen mit Validation-as-a-Service in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie OEM-Pakete (Original Equipment Manufacturer, Originalgerätehersteller) mit Validation-as-a-Service überprüfen.
 author: mattbriggs
 ms.topic: tutorial
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ed6d3055e3e5cab0def090d31f907e0fd1deea50
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8bb39f3aae4031402e38023f92ebdb91feb9bf92
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885104"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143740"
 ---
 # <a name="validate-oem-packages"></a>Überprüfen von OEM-Paketen
 
@@ -55,7 +55,7 @@ Erstellen Sie in Ihrem Speicherkonto einen Container für Paketblobs. Dieser Con
 
 ### <a name="generate-package-blob-url-for-vaas"></a>Generieren der Paketblob-URL für VaaS
 
-Wenn Sie im VaaS-Portal einen Workflow vom Typ **Paketvalidierung** erstellen, müssen Sie eine URL für das Azure Storage-Blob angeben, das Ihr Paket enthält. Einige *interaktive* Tests einschließlich **Monatliche Azure Stack-Updateüberprüfung** und **Überprüfung des OEM-Erweiterungspakets** benötigen auch eine URL zu Paketblobs.
+Wenn Sie im VaaS-Portal einen Workflow vom Typ **Paketvalidierung** erstellen, müssen Sie eine URL für das Azure Storage-Blob angeben, das Ihr Paket enthält. Einige *interaktive* Tests (u. a. **Monatliche Azure Stack Hub-Updateüberprüfung** und **Überprüfung des OEM-Erweiterungspakets**) benötigen auch eine URL zu Paketblobs.
 
 #### <a name="handling-container-access-level"></a>Behandeln der Containerzugriffsebene
 
@@ -141,14 +141,14 @@ Verwenden Sie diese Option, wenn es akzeptabel ist, nicht authentifizierten Clie
 
 5. Geben Sie die Azure Storage-Blob-URL für das signierte OEM-Testpaket ein, für das eine Signatur von Microsoft benötigt wird. Eine entsprechende Anleitung finden Sie unter [Generieren der Paketblob-URL für VaaS](#generate-package-blob-url-for-vaas).
 
-6. Kopieren Sie den AzureStack-Updatepaketordner in ein lokales Verzeichnis auf der DVM. Geben Sie für den Pfad des AzureStack-Updatepaketordners den Pfad zum **Ordner mit der ZIP-Paketdatei und der Metadatendatei** ein.
+6. Kopieren Sie den Azure Stack Hub-Updatepaketordner in ein lokales Verzeichnis auf der DVM. Geben Sie für den Pfad des AzureStack-Updatepaketordners den Pfad zum **Ordner mit der ZIP-Paketdatei und der Metadatendatei** ein.
 
 7. Kopieren Sie den oben erstellten OEM-Updatepaketordner in ein lokales Verzeichnis auf der DVM. Geben Sie für den Pfad des OEM-Updatepaketordners den Pfad zum **Ordner mit der ZIP-Paketdatei und der Metadatendatei** ein.
 
     > [!NOTE]
-    > Kopieren Sie das AzureStack-Update und das OEM-Update in **zwei separate** Verzeichnisse.
+    > Kopieren Sie das Azure Stack Hub-Update und das OEM-Update in **zwei separate** Verzeichnisse.
 
-8. RequireDigitalSignature: Geben Sie **true** an, wenn das Paket von Microsoft signiert sein muss (Ausführen des OEM-Validierungsworkflows). Wenn Sie ein von Microsoft signiertes Paket für das aktuelle AzureStack-Update überprüfen, geben Sie für diesen Wert „false“ an (Ausführen der monatlichen AzureStack-Updateüberprüfung).
+8. RequireDigitalSignature: Geben Sie **true** an, wenn das Paket von Microsoft signiert sein muss (Ausführen des OEM-Validierungsworkflows). Wenn Sie ein von Microsoft signiertes Paket für das aktuelle AzureStack Hub-Update überprüfen, geben Sie für diesen Wert „false“ an (Ausführen der monatlichen Azure Stack Hub-Updateüberprüfung).
 
 9. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
@@ -170,7 +170,7 @@ Für die OEM-Paketvalidierung müssen die folgenden Tests ausgeführt werden:
 
 1. Auf der Seite mit der **Package Validation tests summary** (Zusammenfassung der Paketvalidierungstests) führen Sie eine Teilmenge der aufgelisteten Tests durch, die für Ihr Szenario geeignet sind.
 
-    In den Validierungsworkflows werden beim **Planen** eines Tests die allgemeinen Parameter auf der Workflowebene verwendet, die Sie bei der Workflowerstellung angegeben haben (siehe [Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack](azure-stack-vaas-parameters.md)). Sollt einer der Testparameterwerte ungültig werden, muss er gemäß den Anweisungen unter [Ändern von Workflowparametern](azure-stack-vaas-monitor-test.md#change-workflow-parameters) erneut angegeben werden.
+    In den Validierungsworkflows werden beim **Planen** eines Tests die allgemeinen Parameter auf der Workflowebene verwendet, die Sie bei der Workflowerstellung angegeben haben (siehe [Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack Hub](azure-stack-vaas-parameters.md)). Sollt einer der Testparameterwerte ungültig werden, muss er gemäß den Anweisungen unter [Ändern von Workflowparametern](azure-stack-vaas-monitor-test.md#change-workflow-parameters) erneut angegeben werden.
 
     > [!NOTE]
     > Wenn Sie einen Validierungstest für eine bereits vorhandene Instanz planen, wird die alte Instanz im Portal durch eine neu erstellte Instanz ersetzt. Die Protokolle für die alte Instanz bleiben erhalten, können aber nicht über das Portal verwendet werden.  

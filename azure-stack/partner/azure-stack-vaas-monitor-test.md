@@ -1,6 +1,6 @@
 ---
-title: Überwachen und Verwalten von Tests im Azure Stack VaaS-Portal
-description: Überwachen und verwalten Sie Tests im Azure Stack VaaS-Portal.
+title: Überwachen und Verwalten von Tests im Azure Stack Hub VaaS-Portal
+description: Überwachen und verwalten Sie Tests im Azure Stack Hub VaaS-Portal.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 11/11/2019
@@ -8,18 +8,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b2a6f2b1e40ddfad9edbf64c92f29e93786fc6f9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 494fffff04cd092afc4a4df3fbf0be59ca894278
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885083"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143784"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Überwachen und Verwalten von Tests im VaaS-Portal
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Nach dem Planen von Tests für Ihre Azure Stack-Lösung beginnt VaaS (Validation-as-a-Service) mit dem Melden des Testausführungsstatus. Diese Informationen sind im VaaS-Portal zusammen mit Aktionen (etwa Neuplanen und Abbrechen von Tests) verfügbar.
+Nach dem Planen von Tests für Ihre Azure Stack Hub-Lösung beginnt VaaS (Validation-as-a-Service) mit dem Melden des Testausführungsstatus. Diese Informationen sind im VaaS-Portal zusammen mit Aktionen (etwa Neuplanen und Abbrechen von Tests) verfügbar.
 
 ## <a name="navigate-to-the-workflow-tests-summary-page"></a>Navigieren zur Zusammenfassungsseite für Workflowtests
 
@@ -37,7 +37,7 @@ Sie können für jeden Workflowtyp die bei der Workflowerstellung angegebenen [T
 
 1. Wählen Sie auf der Testzusammenfassungsseite die Schaltfläche **Bearbeiten** aus.
 
-1. Weitere Informationen finden Sie unter [Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack](azure-stack-vaas-parameters.md).
+1. Weitere Informationen finden Sie unter [Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack Hub](azure-stack-vaas-parameters.md).
 
 1. Wählen Sie **Übermitteln** aus, um die Werte zu speichern.
 
@@ -53,13 +53,13 @@ In Workflows vom Typ **Testdurchlauf** können Sie über die Schaltflächen **Te
 
 ## <a name="managing-test-instances"></a>Verwalten von Testinstanzen
 
-Bei inoffiziellen Ausführungen (d. h. beim Workflow **Testdurchlauf**) werden auf der Testzusammenfassungsseite die für die Azure Stack-Lösung geplanten Tests aufgeführt.
+Bei inoffiziellen Ausführungen (d. h. beim Workflow **Testdurchlauf**) werden auf der Testzusammenfassungsseite die für die Azure Stack Hub-Lösung geplanten Tests aufgeführt.
 
-Bei offiziellen Ausführungen (d. h. bei Workflows vom Typ **Validierung**) werden auf der Testzusammenfassungsseite die Tests aufgeführt, die zum Abschließen der Überprüfung der Azure Stack-Lösung erforderlich sind. Auf dieser Seite werden die Validierungstests geplant.
+Bei offiziellen Ausführungen (d. h. bei Workflows vom Typ **Validierung**) werden auf der Testzusammenfassungsseite die Tests aufgeführt, die zum Abschließen der Überprüfung der Azure Stack Hub-Lösung erforderlich sind. Auf dieser Seite werden die Validierungstests geplant.
 
 In jeder geplanten Testinstanz werden die folgenden Informationen angezeigt:
 
-| Column | Beschreibung |
+| Column | BESCHREIBUNG |
 | --- | --- |
 | Testname | Name und Version des Tests |
 | Category | Der Zweck des Tests |
@@ -80,13 +80,13 @@ Für jede Testinstanz werden ausführbare Aktionen aufgelistet, wenn Sie in der 
 
 Wählen Sie im Kontextmenü **Information anzeigen** aus, um allgemeine Informationen zur Testdefinition anzuzeigen. Diese ist für alle Testinstanzen mit dem gleichen Namen und der gleichen Version identisch.
 
-| Testeigenschaft | Beschreibung |
+| Testeigenschaft | BESCHREIBUNG |
 | -- | -- |
 | Testname | Der Name des Tests. |
 | Testversion | Die Version des Tests |
 | Herausgeber | Der Herausgeber des Tests |
 | Category |  Der Zweck des Tests |
-| Target services (Zieldienste) | Die Azure Stack-Dienste, die getestet werden |
+| Target services (Zieldienste) | Die Azure Stack Hub-Dienste, die getestet werden |
 | Beschreibung | Die Beschreibung des Tests |
 | Estimated duration (minutes) (Geschätzte Dauer (Minuten)) | Die erwartete Ausführungsdauer des Tests |
 | Links | Alle relevanten Informationen zum Test oder zu Ansprechpartnern |

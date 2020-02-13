@@ -1,6 +1,6 @@
 ---
-title: Überprüfen einer neuen Azure Stack-Lösung
-description: Hier erfahren Sie, wie Sie eine neue Azure Stack-Lösung mit Validation-as-a-Service überprüfen.
+title: Überprüfen einer neuen Azure Stack Hub-Lösung
+description: Hier erfahren Sie, wie Sie eine neue Azure Stack Hub-Lösung mit Validation-as-a-Service überprüfen.
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 11/11/2019
@@ -8,20 +8,20 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b3e62141988f99706c652124943da0fbabf44439
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b5380b644aeece0e12e692ebb578fe2b6d0c8792
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884024"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143953"
 ---
-# <a name="validate-a-new-azure-stack-solution"></a>Überprüfen einer neuen Azure Stack-Lösung
+# <a name="validate-a-new-azure-stack-hub-solution"></a>Überprüfen einer neuen Azure Stack Hub-Lösung
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Hier erfahren Sie, wie Sie den Workflow **Lösungsvalidierung** verwenden, um neue Azure Stack-Lösungen zu zertifizieren.
+Hier erfahren Sie, wie Sie den Workflow **Lösungsvalidierung** verwenden, um neue Azure Stack Hub-Lösungen zu zertifizieren.
 
-Eine Azure Stack-Lösung ist eine Hardwareliste, auf die sich Microsoft und der Partner nach Erfüllung der Anforderungen für die Windows Server-Logo-Zertifizierung geeinigt haben. Nach einer Änderung der Hardwareliste muss die Lösung erneut zertifiziert werden. Sollten Sie weitere Fragen zur erneuten Zertifizierung von Lösungen haben, wenden Sie sich unter [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) an das zuständige Team.
+Eine Azure Stack Hub-Lösung ist eine Hardwareliste, auf die sich Microsoft und der Partner nach Erfüllung der Anforderungen für die Windows Server-Logozertifizierung geeinigt haben. Nach einer Änderung der Hardwareliste muss die Lösung erneut zertifiziert werden. Sollten Sie weitere Fragen zur erneuten Zertifizierung von Lösungen haben, wenden Sie sich unter [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) an das zuständige Team.
 
 Führen Sie den Workflow „Lösungsvalidierung“ zweimal aus, um Ihre Lösung zu zertifizieren. Führen Sie ihn einmal für die unterstützte *minimale* Konfiguration aus. Führen Sie ihn ein zweites Mal für die *maximale* unterstützte Konfiguration aus. Microsoft zertifiziert die Lösung, wenn beide Konfigurationen alle Tests bestehen.
 
@@ -57,7 +57,7 @@ Führen Sie den Workflow „Lösungsvalidierung“ zweimal aus, um Ihre Lösung 
 
 Auf der Zusammenfassungsseite der **Lösungsvalidierungstests** wird eine Liste mit den erforderlichen Tests für die Überprüfung angezeigt.
 
-In den Validierungsworkflows werden beim **Planen** eines Tests die allgemeinen Parameter auf der Workflowebene verwendet, die Sie bei der Workflowerstellung angegeben haben (siehe [Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack](azure-stack-vaas-parameters.md)). Sollt einer der Testparameterwerte ungültig werden, muss er gemäß den Anweisungen unter [Ändern von Workflowparametern](azure-stack-vaas-monitor-test.md#change-workflow-parameters) erneut angegeben werden.
+In den Validierungsworkflows werden beim **Planen** eines Tests die allgemeinen Parameter auf der Workflowebene verwendet, die Sie bei der Workflowerstellung angegeben haben (siehe [Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack Hub](azure-stack-vaas-parameters.md)). Sollt einer der Testparameterwerte ungültig werden, muss er gemäß den Anweisungen unter [Ändern von Workflowparametern](azure-stack-vaas-monitor-test.md#change-workflow-parameters) erneut angegeben werden.
 
 > [!NOTE]
 > Wenn Sie einen Validierungstest für eine bereits vorhandene Instanz planen, wird die alte Instanz im Portal durch eine neu erstellte Instanz ersetzt. Die Protokolle für die alte Instanz bleiben erhalten, können aber nicht über das Portal verwendet werden.  

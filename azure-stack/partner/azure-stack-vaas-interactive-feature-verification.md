@@ -1,6 +1,6 @@
 ---
-title: Testen der interaktiven Featureüberprüfung mit Validation-as-a-Service in Azure Stack
-description: Hier erfahren Sie, wie Sie Tests für die interaktive Featureüberprüfung für Azure Stack mit Validation-as-a-Service erstellen.
+title: Testen der interaktiven Featureüberprüfung mit Validation-as-a-Service in Azure Stack Hub
+description: Hier erfahren Sie, wie Sie Tests für die interaktive Featureüberprüfung für Azure Stack Hub mit Validation-as-a-Service erstellen.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 10/28/2019
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c957d076fb4d90dc9a19d5b8fbaaddbdb55c789d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 15cd1b2adb4ef1b0e5738b89078beb57d6b7b346
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884142"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143838"
 ---
 # <a name="interactive-feature-verification-testing"></a>Testen der interaktiven Featureüberprüfung  
 
@@ -21,7 +21,7 @@ ms.locfileid: "76884142"
 
 Mit dem Testframework für die interaktive Featureüberprüfung können Sie Tests für Ihr System anfordern. Wenn Sie einen Test anfordern, bereitet Microsoft mithilfe des Frameworks Tests vor, die manuelle interaktive Schritte erfordern. Über das Framework kann Microsoft mehrere eigenständige automatisierte Tests verketten.
 
-In diesem Artikel wird ein einfaches manuelles Szenario beschrieben. Der Test überprüft das Ersetzen eines Datenträgers in Azure Stack. Das Framework erfasst bei jedem Schritt Diagnoseprotokolle. Sie können Probleme debuggen, sobald sie gefunden werden. Das Framework ermöglicht auch die Weitergabe von Protokollen, die von anderen Tools oder Prozessen erzeugt wurden, sowie die Abgabe von Feedback für das Szenario.
+In diesem Artikel wird ein einfaches manuelles Szenario beschrieben. Der Test überprüft das Ersetzen eines Datenträgers in Azure Stack Hub. Das Framework erfasst bei jedem Schritt Diagnoseprotokolle. Sie können Probleme debuggen, sobald sie gefunden werden. Das Framework ermöglicht auch die Weitergabe von Protokollen, die von anderen Tools oder Prozessen erzeugt wurden, sowie die Abgabe von Feedback für das Szenario.
 
 > [!Important]  
 > In diesem Artikel wird auf die Schritte für die Datenträgeridentifizierung verwiesen. Hierbei handelt es sich lediglich um eine Demonstration, da jegliche Ergebnisse des Testdurchlauf-Workflows nicht für die Überprüfung neuer Lösungen verwendet werden dürfen.

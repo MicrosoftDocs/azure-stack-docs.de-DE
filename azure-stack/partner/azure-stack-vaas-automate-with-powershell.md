@@ -1,6 +1,7 @@
 ---
 title: Automatisieren der Azure Stack-Überprüfung mit PowerShell
-description: Sie können die Azure Stack-Überprüfung mit PowerShell automatisieren.
+titleSuffix: Azure Stack Hub
+description: Hier erfahren Sie, wie Sie die Azure Stack-Überprüfung mit PowerShell automatisieren.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 11/26/2019
@@ -8,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d37c1f9027017446c31b0877496c28928d22f92a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a85f43096cffa900bfefb801bdd28b26358e6219
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884993"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147764"
 ---
-# <a name="automate-azure-stack-validation-with-powershell"></a>Automatisieren der Azure Stack-Überprüfung mit PowerShell
+# <a name="automate-azure-stack-hub-validation-with-powershell"></a>Automatisieren der Azure Stack Hub-Überprüfung mit PowerShell
 
 Validation-as-a-Service (VaaS) bietet die Möglichkeit, den Start von Tests mithilfe des Skripts **RunVaaSAutomation.ps1** zu automatisieren.
 
@@ -29,7 +30,7 @@ Dieses Skript kann für Folgendes verwendet werden:
 
 Unter den folgenden Links finden Sie Informationen zum Ausführen von Tests über das VaaS-Portal. Bevor Sie das Skript verwenden, sollten Sie sich über die erforderlichen Parameter und ihre Werte informieren:
 
-* SolutionValidation-Workflow: [Überprüfen einer neuen Azure Stack-Lösung](azure-stack-vaas-validate-solution-new.md)
+* SolutionValidation-Workflow: [Überprüfen einer neuen Azure Stack Hub-Lösung](azure-stack-vaas-validate-solution-new.md)
 * PackageValidation-Workflow: [Überprüfen von OEM-Paketen](azure-stack-vaas-validate-oem-package.md)
 * TestPass-Workflow: [Planen eines Tests](azure-stack-vaas-schedule-test-pass.md)
 
@@ -253,13 +254,13 @@ $scriptParameters = @{
 
 Weitere Informationen finden Sie unter [Allgemeine Workflowparameter](azure-stack-vaas-parameters.md).
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --- | --- |
 | VaaSAccountUserName | Ihr VaaS-Benutzername für das VaaS-Portal |
 | VaaSAccountPassword | Ihr VaaS-Kennwort für das VaaS-Portal |
 | VaaSAccountTenantId | Die GUID Ihres VaaS-Mandanten. |
-| ServiceAdminUserName | Ihr Azure Stack-Dienstadministratorkonto  |
-| ServiceAdminPassword | Ihr Kennwort für den Azure Stack-Dienst  |
+| ServiceAdminUserName | Ihr Azure Stack Hub-Dienstadministratorkonto  |
+| ServiceAdminPassword | Ihr Kennwort für den Azure Stack Hub-Dienst  |
 | TenantAdminUserName | Der Administrator für den primären Mandanten  |
 | TenantAdminPassword | Das Kennwort für den primären Mandanten  |
 | CloudAdminUserName | Der Benutzername des Cloudadministrators.  |
@@ -276,6 +277,6 @@ Weitere Optionen finden Sie unter [Überwachen und Verwalten von Tests im VaaS-P
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zu PowerShell in Azure Stack finden Sie in den neuesten Modulen.
+Weitere Informationen zu PowerShell in Azure Stack Hub finden Sie in den neuesten Modulen.
 
-- [Azure Stack-Modul](/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)
+- [Azure Stack Hub-Modul](/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)

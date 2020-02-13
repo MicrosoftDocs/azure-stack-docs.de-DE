@@ -1,6 +1,6 @@
 ---
 title: Bereitstellen des lokalen Agents
-description: Stellen Sie den lokalen Agent für Validation-as-a-Service in Azure Stack bereit.
+description: Stellen Sie den lokalen Agent für Validation-as-a-Service in Azure Stack Hub bereit.
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 11/11/2019
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a84f2495b0e2195ac143dc8fd9ac4ea4668392b4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a5090b60c5aa3c947fbbf1fc887b4fb25900ae98
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884090"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143976"
 ---
 # <a name="deploy-the-local-agent"></a>Bereitstellen des lokalen Agents
 
@@ -32,13 +32,13 @@ Das Bereitstellen des lokalen Agents umfasst folgende Schritte:
 
 ## <a name="download-and-start-the-local-agent"></a>Herunterladen und Starten des lokalen Agents
 
-Laden Sie den Agent auf einen geeigneten Computer in Ihrem Datencenter herunter, der Zugriff auf alle Azure Stack-Endpunkte hat. Dieser Computer darf nicht Teil des Azure Stack-Systems sein oder in der Azure Stack-Cloud gehostet werden.
+Laden Sie den Agent auf einen geeigneten Computer in Ihrem Rechenzentrum herunter, der Zugriff auf alle Azure Stack Hub-Endpunkte hat. Dieser Computer darf nicht Teil des Azure Stack Hub-Systems sein oder in der Azure Stack Hub-Cloud gehostet werden.
 
 ### <a name="machine-prerequisites"></a>Voraussetzungen für Computer
 
 Vergewissern Sie sich, dass Ihr Computer die folgenden Kriterien erfüllt:
 
-- Zugriff auf alle Azure Stack-Endpunkte
+- Zugriff auf alle Azure Stack Hub-Endpunkte
 - Installation von .NET 4.6 und PowerShell 5.0
 - Mindestens 8 GB RAM
 - Prozessoren mit mindestens acht Kernen
@@ -48,7 +48,7 @@ Vergewissern Sie sich, dass Ihr Computer die folgenden Kriterien erfüllt:
 ### <a name="download-and-install-the-local-agent"></a>Herunterladen und Installieren des lokalen Agents
 
 1. Öffnen Sie auf dem Computer, den Sie zum Ausführen der Tests verwenden möchten, Windows PowerShell in einer Eingabeaufforderung mit erhöhten Rechten.
-2. Führen Sie den folgenden Befehl aus, um die Abhängigkeiten des lokalen Agents herunterzuladen und zu installieren und die PIR-Images (Betriebssystem-VHD) in Ihre Azure Stack-Umgebung zu kopieren.
+2. Führen Sie den folgenden Befehl aus, um die Abhängigkeiten des lokalen Agents herunterzuladen und zu installieren und die PIR-Images (Betriebssystem-VHD) in Ihre Azure Stack Hub-Umgebung zu kopieren.
 
     ```powershell
     # Review and update the following five parameters
@@ -93,7 +93,7 @@ Vergewissern Sie sich, dass Ihr Computer die folgenden Kriterien erfüllt:
 
 ## <a name="perform-sanity-checks-before-starting-the-tests"></a>Ausführen von Integritätsprüfungen vor Beginn der Tests
 
-Im Rahmen der Tests werden Remotevorgänge ausgeführt. Der Computer, auf dem die Tests ausgeführt werden, muss Zugriff auf die Azure Stack-Endpunkte haben. Andernfalls funktionieren die Tests nicht. Verwenden Sie bei Verwendung des lokalen VaaS-Agents den Computer, auf dem der Agent ausgeführt wird. Sie können überprüfen, ob Ihr Computer Zugriff auf die Azure Stack-Endpunkte hat. Führen Sie hierzu die folgenden Schritte aus:
+Im Rahmen der Tests werden Remotevorgänge ausgeführt. Der Computer, auf dem die Tests ausgeführt werden, muss Zugriff auf die Azure Stack Hub-Endpunkte haben. Andernfalls funktionieren die Tests nicht. Verwenden Sie bei Verwendung des lokalen VaaS-Agents den Computer, auf dem der Agent ausgeführt wird. Sie können überprüfen, ob Ihr Computer Zugriff auf die Azure Stack Hub-Endpunkte hat. Führen Sie hierzu die folgenden Schritte aus:
 
 1. Prüfen Sie, ob der Basis-URI erreicht werden kann. Öffnen Sie eine CMD-Eingabeaufforderung oder Bash-Shell, und führen Sie den folgenden Befehl aus. Ersetzen Sie dabei `<EXTERNALFQDN>` durch den externen vollqualifizierten Domänennamen Ihrer Umgebung:
 
@@ -105,7 +105,7 @@ Im Rahmen der Tests werden Remotevorgänge ausgeführt. Der Computer, auf dem di
 
 3. Melden Sie sich mit den Werten für den Azure AD-Dienstadministratornamen und das entsprechende Kennwort an, die beim Erstellen des Testdurchlaufs bereitgestellt wurden.
 
-4. Überprüfen Sie die Systemintegrität mithilfe des PowerShell-Cmdlets **Test-AzureStack**, wie in [Ausführen eines Validierungstests für Azure Stack](../operator/azure-stack-diagnostic-test.md) beschrieben. Beheben Sie vor dem Starten von Tests alle Warnungen und Fehler.
+4. Überprüfen Sie die Systemintegrität mithilfe des PowerShell-Cmdlets **Test-AzureStack**, wie in [Ausführen eines Validierungstests für Azure Stack Hub](../operator/azure-stack-diagnostic-test.md) beschrieben. Beheben Sie vor dem Starten von Tests alle Warnungen und Fehler.
 
 ## <a name="run-the-local-agent"></a>Führen Sie den lokalen Agent aus.
 
@@ -127,7 +127,7 @@ Im Rahmen der Tests werden Remotevorgänge ausgeführt. Der Computer, auf dem di
 
       **Parameter**  
 
-    | Parameter | Beschreibung |
+    | Parameter | BESCHREIBUNG |
     | --- | --- |
     | CloudAdminUserName | Der Cloudadministratorbenutzer, der auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen kann. Beispiel: AzusreStack\CloudAdmin. Weitere Informationen finden Sie [hier](azure-stack-vaas-parameters.md) . |
     | CloudAdminPassword | Das Kennwort für das Cloudadministratorkonto|
