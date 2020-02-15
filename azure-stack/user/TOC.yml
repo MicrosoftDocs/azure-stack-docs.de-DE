@@ -253,6 +253,7 @@
             - name: Bereitstellen einer NodeJS-Web-App
               href: azure-stack-dev-start-howto-vm-nodejs.md
     - name: Bereitstellen grundlegender Muster
+      href: deploy-foundational-patterns.md
       items:
         - name: Netzwerkmuster
           items:
@@ -282,7 +283,6 @@
               href: azure-stack-network-howto-iscsi-storage.md
             - name: Erweitern des Rechenzentrums
               href: azure-stack-network-howto-extend-datacenter.md
-        - name: VNET-Peering
         - name: Sicherung und Wiederherstellung
           items:
             - name: Sichern Ihres virtuellen Computers in Azure Stack Hub mit Commvault
