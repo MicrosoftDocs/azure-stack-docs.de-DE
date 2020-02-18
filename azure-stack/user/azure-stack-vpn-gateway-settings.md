@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: b230c78811e79e7a04114b77a2fcacd1b2a2fc9c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2f0b520b4c615e56fea7575422b306c226188eb0
+ms.sourcegitcommit: 23861d659c89c2d36390085fe9532b2bcba2100d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884118"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075215"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Konfigurieren von VPN-Gatewayeinstellungen für Azure Stack Hub
 
@@ -160,9 +160,9 @@ Im Gegensatz zu Azure, das mehrere Angebote als Initiator und Antwortdienst unte
 | Eigenschaft              | value|
 |-|-|
 | IKE-Version           | IKEv2 |
-|Diffie-Hellman-Gruppe   | ECP384 |
+|Diffie-Hellman-Gruppe*   | ECP384 |
 | Authentifizierungsmethode | Vorab ausgetauschter Schlüssel |
-|Verschlüsselung und Hashalgorithmen | AES256, SHA384 |
+|Verschlüsselung und Hashalgorithmen* | AES256, SHA384 |
 |SA-Gültigkeitsdauer (Zeit)     | 28.800 Sekunden|
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parameter der IKE-Phase 2 (Schnellmodus)
@@ -174,8 +174,19 @@ Im Gegensatz zu Azure, das mehrere Angebote als Initiator und Antwortdienst unte
 |Verschlüsselung und Hashalgorithmen (Authentifizierung) | GCMAES256|
 |SA-Gültigkeitsdauer (Zeit)  | 27.000 Sekunden  |
 |SA-Gültigkeitsdauer (KB) | 33.553.408     |
-|Perfect Forward Secrecy (PFS) | ECP384 |
-|Dead Peer Detection | Unterstützt|  
+|Perfect Forward Secrecy (PFS)* | ECP384 |
+|Dead Peer Detection | Unterstützt| 
+
+>[!NOTE]
+>Die Standardwerte für die Diffie-Hellman-Gruppe, Hashalgorithmen und Perfect Forward Secrecy wurden für Builds ab 1910 und höher geändert. Verwenden Sie die folgenden Werte für die oben genannten Parameter, wenn sich Azure Stack Hub auf einer Buildversion unter 1910 befindet:
+
+>| Eigenschaft| value|
+>|-|-|
+>|Diffie-Hellman-Gruppe   | DHGroup2 |
+>|Hashalgorithmen | SHA256 |
+>|Perfect Forward Secrecy (PFS) | Keine |
+
+\* neuer oder geänderter Parameter
 
 ## <a name="next-steps"></a>Nächste Schritte
 

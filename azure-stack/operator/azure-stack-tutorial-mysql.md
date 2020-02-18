@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: b8ad46128d3b0228fdc2e6ecc0c3ca507b4ec697
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0a15f4256349b9080f73d976f4e4a9782fd5b665
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882732"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147898"
 ---
 # <a name="create-highly-available-mysql-databases"></a>Erstellen von hoch verfügbaren MySQL-Datenbanken
 
@@ -78,7 +78,7 @@ Führen Sie die Schritte in diesem Abschnitt aus, um den MySQL Server-Cluster mi
    - Wählen Sie die zu verwendende Ressourcengruppe aus, oder erstellen Sie eine neue.
    - Wählen Sie den Standort aus (Standardwert: „lokal“ für ASDK).
 
-   ![Grundlagen der Bereitstellung – Erstellen einer MySQL-Instanz mit Replikation](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
+   [![Grundlagen der Bereitstellung: Erstellen einer MySQL-Instanz mit Replikation](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. Geben Sie auf der Seite **Umgebungskonfiguration** die folgenden Informationen an, und wählen Sie anschließend **OK** aus.
 
@@ -86,11 +86,11 @@ Führen Sie die Schritte in diesem Abschnitt aus, um den MySQL Server-Cluster mi
    - VM-Größe (Standardwert: D1 v2 Standard-VMs)
    - Datenträgergröße in GB
 
-   ![Umgebungskonfiguration – Erstellen einer MySQL-Instanz mit Replikation](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
+   [![Umgebungskonfiguration: Erstellen einer MySQL-Instanz mit Replikation](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. Überprüfen Sie die **Zusammenfassung** der Bereitstellung. Optional können Sie die benutzerdefinierten Vorlagen und Parameter herunterladen. Wählen Sie dann **OK** aus.
 
-   ![Zusammenfassung – Erstellen einer MySQL-Instanz mit Replikation](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
+   [![Zusammenfassung: Erstellen einer MySQL-Instanz mit Replikation](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. Wählen Sie auf der Seite **Kaufen** die Option **Erstellen** aus, um die Bereitstellung zu starten.
 

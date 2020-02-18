@@ -1,26 +1,26 @@
 ---
-title: Planen des ersten Tests mithilfe des Azure Stack-Validation-as-a-Service-Portals
-description: Planen des ersten Tests mithilfe des Azure Stack-Validation-as-a-Service-Portals
+title: Planen des ersten Tests mithilfe des Azure Stack Hub-Validation-as-a-Service-Portals
+description: Hier erfahren Sie mehr über das Planen des ersten Tests mithilfe des Azure Stack Hub-Validation-as-a-Service-Portals.
 author: mattbriggs
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 166a75da9f6571e80cdfe213fe0ea32c58279dac
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f69629fea796d43e756ccf5436635d282a07b17e
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885123"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143724"
 ---
 # <a name="scheduling-a-test"></a>Planen eines Tests
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Planen Sie einen Test im Validation-as-a-Service-Portal (VaaS) für Ihre Azure Stack-Lösung. Eine VaaS-Lösung stellt eine Azure Stack-Lösung mit einer bestimmten Hardwareliste dar. Sie können einen Test planen, um zu überprüfen, ob Azure Stack auf Ihrer Hardware ausgeführt werden kann.
+Planen Sie einen Test im Validation-as-a-Service-Portal (VaaS) für Ihre Azure Stack Hub-Lösung. Eine VaaS-Lösung stellt eine Azure Stack Hub-Lösung mit einer bestimmten Hardwareliste dar. Sie können einen Test planen, um zu überprüfen, ob Azure Stack Hub auf Ihrer Hardware ausgeführt werden kann.
 
-Um Ihre Lösung zu überprüfen, erstellen Sie den Workflow für einen Test. Ein VaaS-Workflow arbeitet im Kontext einer VaaS-Lösung. Es stellt einen Satz von Testsuites dar, die die Funktionalität einer Azure Stack-Bereitstellung auf Ihrer Hardware testen. Fügen Sie die Umgebungsparameter Ihrer Lösung hinzu, und wählen Sie Tests aus, die in Ihrer Lösung ausgeführt werden sollen.
+Um Ihre Lösung zu überprüfen, erstellen Sie den Workflow für einen Test. Ein VaaS-Workflow arbeitet im Kontext einer VaaS-Lösung. Dieser stellt eine Reihe von Testsammlungen dar, die die Funktionalität einer Azure Stack Hub-Bereitstellung auf Ihrer Hardware testen. Fügen Sie die Umgebungsparameter Ihrer Lösung hinzu, und wählen Sie Tests aus, die in Ihrer Lösung ausgeführt werden sollen.
 
 Der Workflow „Testdurchlauf“ kann zum Ausführen beliebiger Tests von VaaS verwendet werden, einschließlich Tests von den Validierungsworkflows, die Ergebnisse des Workflows „Testdurchlauf“ gelten jedoch nicht als *offiziell*. Informationen zu offiziellen Validierungsworkflows finden Sie unter [Workflows](azure-stack-vaas-key-concepts.md#workflows).
 

@@ -1,5 +1,5 @@
 ---
-title: Best Practices für die Azure Stack-Validierung
+title: Bewährte Methoden für die Azure Stack Hub-Validierung
 description: In diesem Artikel werden bewährte Methoden für die Verwendung von Validation-as-a-Service beschrieben.
 author: mattbriggs
 ms.topic: article
@@ -8,18 +8,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 19446113fc2e167d83b578fbad15964b21001ef4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 647e724b179d994819032859c325bf711cb9d2ee
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885054"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143825"
 ---
 # <a name="create-an-oem-package"></a>Erstellen eines OEM-Pakets
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Das Azure Stack-OEM-Erweiterungspaket ist der Mechanismus, über den Ihrer Azure Stack-Infrastruktur OEM-spezifische Inhalte hinzugefügt werden, die Sie bei der Bereitstellung sowie für operative Vorgänge wie Update, Erweiterung und Austausch im Betrieb verwenden können.
+Das Azure Stack Hub-OEM-Erweiterungspaket ist der Mechanismus, über den Ihrer Azure Stack Hub-Infrastruktur OEM-spezifische Inhalte hinzugefügt werden, die Sie bei der Bereitstellung sowie für operative Vorgänge wie Update, Erweiterung und Austausch im Betrieb verwenden können.
 
 ## <a name="creating-the-package"></a>Erstellen des Pakets
 

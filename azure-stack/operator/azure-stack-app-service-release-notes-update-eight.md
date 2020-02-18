@@ -4,15 +4,15 @@ description: Erfahren Sie, was in Update 8 für App Service in Azure Stack Hub 
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 02/10/2020
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 639c9267a9d42b20a15bc30ab6b72706816bf7ee
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: daa4cb85ca58a6e638d6d8a1f14ad5e9232f3d72
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874483"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143666"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 8
 
@@ -20,7 +20,6 @@ In diesen Versionshinweisen werden die Verbesserungen und Fehlerbehebungen in Up
 
 > [!IMPORTANT]
 > Wenden Sie das Update 1910 auf Ihr integriertes Azure Stack-System an, oder stellen Sie das aktuelle Azure Stack Development Kit bereit, bevor Sie Azure App Service 1.8 bereitstellen.
-
 
 ## <a name="build-reference"></a>Buildreferenz
 
@@ -82,6 +81,20 @@ Für alle neuen Bereitstellungen von Azure App Service in Azure Stack Hub werden
 
 Ab diesem Update wird **TLS  1.2** für alle Anwendungen erzwungen.
 
+### <a name="known-issues-upgrade"></a>Bekannte Probleme (Upgrade):
+
+- Das Upgrade schlägt fehl, wenn das Failover für den SQL Server-Always On-Cluster auf den zweiten Knoten durchgeführt wurde.
+
+Während des Upgrades wird ein Vorgang zum Überprüfen der Datenbankexistenz mithilfe der Masterverbindungszeichenfolge ausgeführt, wobei ein Fehler auftritt, da die Anmeldung auf den vorherigen Masterknoten erfolgte.
+
+Führen Sie eine der folgenden Aktionen aus, und klicken Sie im Installationsprogramm auf „Wiederholen“.
+
+- Kopieren Sie die Adminanmeldung appservice_hosting aus dem jetzt sekundären SQL-Knoten.
+
+**OR**
+
+- Führen Sie ein Failover des SQL-Clusters auf den vorherigen aktiven Knoten aus.
+
 ### <a name="post-deployment-steps"></a>Schritte nach der Bereitstellung
 
 > [!IMPORTANT]
@@ -91,16 +104,159 @@ Ab diesem Update wird **TLS  1.2** für alle Anwendungen erzwungen.
 
 - Worker können den Dateiserver nicht erreichen, wenn App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist. Dies ist in der Bereitstellungsdokumentation zu Azure App Service in Azure Stack dargestellt.
 
-Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk und eine interne IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Verwaltungsportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
- * Quelle: Any
- * Quellportbereich: *
- * Ziel: IP-Adressen
- * IP-Zieladressbereich: Bereich der IPs für Ihren Dateiserver
- * Zielportbereich: 445
- * Protokoll: TCP
- * Aktion: Allow
- * Priorität: 700
- * Name: Outbound_Allow_SMB445
+  Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk und eine interne IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Verwaltungsportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
+  - Quelle: Any
+  - Quellportbereich: *
+  - Ziel: IP-Adressen
+  - IP-Zieladressbereich: Bereich der IPs für Ihren Dateiserver
+  - Zielportbereich: 445
+  - Protokoll: TCP
+  - Aktion: Allow
+  - Priorität: 700
+  - Name: Outbound_Allow_SMB445
+
+- Neue Bereitstellungen von Azure App Service auf Azure Stack Hub 1.8 erfordern, dass Datenbanken in eigenständige Datenbanken konvertiert werden.
+
+Aufgrund einer Regression in diesem Release müssen App Service-Datenbanken (sowohl appservice_hosting als auch appservice_metering) in eigenständige Datenbanken konvertiert werden, wenn **neu** bereitgestellt wird.  Dies wirkt sich **NICHT** auf **aktualisierte** Bereitstellungen aus.
+
+> [!IMPORTANT]
+> Dieser Vorgang dauert ca. 5 bis 10 Minuten. Der Vorgang umfasst das Beenden der vorhandenen Datenbankanmeldesitzungen. Planen Sie Ausfallzeiten für die Migration und Überprüfung von Azure App Service in Azure Stack Hub nach der Migration ein.
+>
+>
+
+1. [Fügen Sie App Service-Datenbanken („appservice_hosting“ und „appservice_metering“) einer Verfügbarkeitsgruppe hinzu](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
+
+1. Aktivieren Sie die eigenständige Datenbank.
+
+    ```sql
+
+        sp_configure 'contained database authentication', 1;
+        GO
+        RECONFIGURE;
+            GO
+    ```
+
+1. Eine Datenbank wird in eine teilweise eigenständige Datenbank konvertiert. Bei diesem Schritt kommt es zu Downtime, weil alle aktiven Sitzungen beendet werden müssen.
+
+    ```sql
+        /******** [appservice_metering] Migration Start********/
+            USE [master];
+
+            -- kill all active sessions
+            DECLARE @kill varchar(8000) = '';  
+            SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'  
+            FROM sys.dm_exec_sessions
+            WHERE database_id  = db_id('appservice_metering')
+
+            EXEC(@kill);
+
+            USE [master]  
+            GO  
+            ALTER DATABASE [appservice_metering] SET CONTAINMENT = PARTIAL  
+            GO  
+
+        /********[appservice_metering] Migration End********/
+
+        /********[appservice_hosting] Migration Start********/
+
+            -- kill all active sessions
+            USE [master];
+
+            DECLARE @kill varchar(8000) = '';  
+            SELECT @kill = @kill + 'kill ' + CONVERT(varchar(5), session_id) + ';'  
+            FROM sys.dm_exec_sessions
+            WHERE database_id  = db_id('appservice_hosting')
+
+            EXEC(@kill);
+
+            -- Convert database to contained
+            USE [master]  
+            GO  
+            ALTER DATABASE [appservice_hosting] SET CONTAINMENT = PARTIAL  
+            GO  
+
+            /********[appservice_hosting] Migration End********/
+    '''
+
+1. Migrate logins to contained database users.
+
+    ```sql
+        IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
+        BEGIN
+        DECLARE @username sysname ;  
+        DECLARE user_cursor CURSOR  
+        FOR
+            SELECT dp.name
+            FROM sys.database_principals AS dp  
+            JOIN sys.server_principals AS sp
+                ON dp.sid = sp.sid  
+                WHERE dp.authentication_type = 1 AND dp.name NOT IN ('dbo','sys','guest','INFORMATION_SCHEMA');
+            OPEN user_cursor  
+            FETCH NEXT FROM user_cursor INTO @username  
+                WHILE @@FETCH_STATUS = 0  
+                BEGIN  
+                    EXECUTE sp_migrate_user_to_contained
+                    @username = @username,  
+                    @rename = N'copy_login_name',  
+                    @disablelogin = N'do_not_disable_login';  
+                FETCH NEXT FROM user_cursor INTO @username  
+            END  
+            CLOSE user_cursor ;  
+            DEALLOCATE user_cursor ;
+            END
+        GO
+    ```
+
+    **Überprüfen**
+
+1. Überprüfen Sie, ob die Eigenständigkeit für SQL Server aktiviert ist.
+
+    ```sql
+        sp_configure  @configname='contained database authentication'
+    ```
+
+1. Überprüfen Sie das vorhandene Verhalten in Bezug auf die Eigenständigkeit.
+
+    ```sql
+        SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
+    ```
+
+- Worker können nicht horizontal hochskaliert werden
+
+  Neue Worker können die erforderliche Datenbankverbindungszeichenfolge nicht abrufen.  Stellen Sie eine Verbindung mit einer Ihrer Controllerinstanzen wie z. B. CN0-VM her, und führen Sie das folgende PowerShell-Skript aus, um dieses Problem zu beheben:
+
+  ```powershell
+ 
+    [System.Reflection.Assembly]::LoadWithPartialName("Microsoft.Web.Hosting")
+    $siteManager = New-Object Microsoft.Web.Hosting.SiteManager
+    $builder = New-Object System.Data.SqlClient.SqlConnectionStringBuilder -ArgumentList (Get-AppServiceConnectionString -Type Hosting)
+    $conn = New-Object System.Data.SqlClient.SqlConnection -ArgumentList $builder.ToString()
+
+    $siteManager.Workers | ForEach-Object {
+        $worker = $_
+        $dbUserName = "WebWorker_" + $worker.Name
+
+        if (!$siteManager.ConnectionContexts[$dbUserName]) {
+            $dbUserPassword = [Microsoft.Web.Hosting.Common.Security.PasswordHelper]::GenerateDatabasePassword()
+            $conn.Open()
+            $command = $conn.CreateCommand()
+            $command.CommandText = "CREATE USER [$dbUserName] WITH PASSWORD = '$dbUserPassword'"
+            $command.ExecuteNonQuery()
+            $conn.Close()
+            $conn.Open()
+
+            $command = $conn.CreateCommand()
+            $command.CommandText = "ALTER ROLE [WebWorkerRole] ADD MEMBER [$dbUserName]"
+            $command.ExecuteNonQuery()
+            $conn.Close()
+
+            $builder.Password = $dbUserPassword
+            $builder["User ID"] = $dbUserName
+            $siteManager.ConnectionContexts.Add($dbUserName, $builder.ToString())
+        }
+    }
+    $siteManager.CommitChanges()
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack betreiben
 

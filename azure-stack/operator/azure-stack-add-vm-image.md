@@ -3,16 +3,16 @@ title: Hinzufügen eines benutzerdefinierten VM-Images zu Azure Stack Hub
 description: Es wird beschrieben, wie Sie Azure Stack Hub ein benutzerdefiniertes VM-Image hinzufügen oder es entfernen.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 359adfbe9083bd21368934426a54c887af2f9f2a
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: ae446d053c008fc2433f44ba8e7ffa7324972362
+ms.sourcegitcommit: 2377c6947cf846fd2a4a0274c41326293a2a239c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889965"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075971"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Hinzufügen eines benutzerdefinierten VM-Images zu Azure Stack Hub
 
@@ -22,18 +22,20 @@ In Azure Stack Hub können Sie in Marketplace ein benutzerdefiniertes VM-Image (
 
 ### <a name="windows"></a>Windows
 
-Erstellen Sie eine benutzerdefinierte generalisierte VHD. 
+Erstellen Sie eine benutzerdefinierte generalisierte VHD.
 
 **Wenn die VHD nicht von Azure stammt**, führen Sie die Schritte in [Hochladen einer generalisierten VHD und Verwendung dieser zum Erstellen neuer VMs in Azure](/azure/virtual-machines/windows/upload-generalized-managed) durch, zu erstellen, um **Sysprep** für Ihre VHD korrekt auszuführen und sie zu generalisieren.
 
 **Wenn die VHD von Azure stammt**, stellen Sie vor der Generalisierung der VM Folgendes sicher:
-1) Wenn Sie die VM in Azure bereitstellen, verwenden Sie PowerShell, und stellen Sie sie ohne das `-ProvisionVMAgent`-Flag bereit. 
-2) Entfernen Sie alle VM-Erweiterungen mithilfe des Cmdlets **Remove-AzureRmVMExtension** vom virtuellen Computer, bevor Sie den virtuellen Computer in Azure generalisieren. Sie können feststellen, welche VM-Erweiterungen installiert sind, indem Sie zu „Windows (C:) > WindowsAzure > Logs > Plugins“ wechseln.
 
-```Powershell
+- Wenn Sie die VM in Azure bereitstellen, verwenden Sie PowerShell, und stellen Sie sie ohne das `-ProvisionVMAgent`-Flag bereit.
+- Entfernen Sie alle VM-Erweiterungen mithilfe des Cmdlets **Remove-AzureRmVMExtension** vom virtuellen Computer, bevor Sie den virtuellen Computer in Azure generalisieren. Sie können feststellen, welche VM-Erweiterungen installiert sind, indem Sie zu `Windows (C:) > WindowsAzure > Logs > Plugins` navigieren.
+
+```powershell
 Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
-```                       
-Befolgen Sie anschließend die Anweisungen in [diesem Dokument](/azure/virtual-machines/windows/download-vhd), um die VHD ordnungsgemäß zu generalisieren und herunterzuladen, bevor Sie sie zu Azure Stack Hub portieren.
+```
+
+Befolgen Sie die Anweisungen in [diesem Artikel](/azure/virtual-machines/windows/download-vhd), um die VHD ordnungsgemäß zu generalisieren und herunterzuladen, bevor Sie sie zu Azure Stack Hub portieren.
 
 ### <a name="linux"></a>Linux
 
@@ -72,7 +74,7 @@ Befolgen Sie anschließend die Anweisungen in [diesem Dokument](/azure/virtual-m
    1. Wählen Sie **URL generieren** aus.
 
    1. Generieren Sie die URL.
-   
+
    1. Wählen Sie unter der generierten URL die Option **VHD-Datei herunterladen** aus.
 
    1. Gegebenenfalls muss im Browser die Option **Speichern** ausgewählt werden, um den Download zu starten. Der Standardname für die VHD-Datei lautet _abcd_.
@@ -83,7 +85,7 @@ Berücksichtigen Sie vor dem Hochladen des Images unbedingt folgende Faktoren:
 
 - Azure Stack Hub unterstützt nur virtuelle Computer der 1. Generation im VHD-Format für Datenträger fester Größe. Bei diesem festen Format wird der logische Datenträger in der Datei linear strukturiert, sodass das Datenträger-Offset *X* beim Blob-Offset *X* gespeichert wird. Die Eigenschaften der VHD werden in einer kleinen Fußzeile am Ende des Blobs beschrieben. Ob es sich bei Ihrem Datenträger um einen Datenträger mit fester Größe handelt, können Sie mithilfe des PowerShell-Cmdlets **Get-VHD** ermitteln.
 
-- Azure Stack Hub unterstützt keine dynamischen VHDs. 
+- Azure Stack Hub unterstützt keine dynamischen VHDs.
 
 ## <a name="step-2-upload-the-vm-image-to-a-storage-account"></a>Schritt 2: Hochladen des VM-Images auf ein Speicherkonto
 
@@ -100,19 +102,18 @@ Berücksichtigen Sie vor dem Hochladen des Images unbedingt folgende Faktoren:
      In diesem Beispiel wird als solches Tool der Befehl „Add-AzureRmVHD“ verwendet, um eine VHD auf ein Speicherkonto im Azure Stack Hub-Administratorportal hochzuladen.  
 
      ```powershell
-     Add-AzureRmVhd -Destination "https://bash.blob.redmond.azurestack.com/sample/vhdtestingmgd.vhd" -LocalFilePath "C:\vhd\vhdtestingmgd.vhd" 
+     Add-AzureRmVhd -Destination "https://bash.blob.redmond.azurestack.com/sample/vhdtestingmgd.vhd" -LocalFilePath "C:\vhd\vhdtestingmgd.vhd"
      ```
 
-3. Notieren Sie sich den URI des Blobspeichers, in den Sie das Image hochladen. Der Blobspeicher-URI hat folgendes Format: *&lt;Speicherkonto&gt;/&lt;Blobcontainer&gt;/&lt;Ziel-VHD-Name&gt;* .vhd.
+4. Notieren Sie sich den URI des Blobspeichers, in den Sie das Image hochladen. Der Blobspeicher-URI hat folgendes Format: *&lt;Speicherkonto&gt;/&lt;Blobcontainer&gt;/&lt;Ziel-VHD-Name&gt;* .vhd.
 
-4. Damit auf das Blob anonym zugegriffen werden kann, navigieren Sie zum Speicherkonto-Blobcontainer, in den die VM-Image-VHD hochgeladen wurde. Wählen Sie **Blob** und anschließend **Zugriffsrichtlinie**. Sie können optional auch eine Shared Access Signature für den Container generieren und in den Blob-URI aufnehmen. Mit diesem Schritt wird sichergestellt, dass das Blob für die Nutzung verfügbar ist. Kann auf das Blob nicht anonym zugegriffen werden, wird das VM-Image mit dem Status „Fehler“ erstellt.
+5. Damit auf das Blob anonym zugegriffen werden kann, navigieren Sie zum Speicherkonto-Blobcontainer, in den die VM-Image-VHD hochgeladen wurde. Wählen Sie **Blob** und anschließend **Zugriffsrichtlinie**. Sie können optional auch eine Shared Access Signature für den Container generieren und in den Blob-URI aufnehmen. Mit diesem Schritt wird sichergestellt, dass das Blob für die Nutzung verfügbar ist. Kann auf das Blob nicht anonym zugegriffen werden, wird das VM-Image mit dem Status „Fehler“ erstellt.
 
    ![Navigieren zu Speicherkontoblobs](./media/azure-stack-add-vm-image/tca1.png)
 
    ![Festlegen des öffentlichen Blobzugriffs](./media/azure-stack-add-vm-image/tca2.png)
 
    ![Festlegen des öffentlichen Blobzugriffs](./media/azure-stack-add-vm-image/tca3.png)
-   
 
 ## <a name="step-3-option-1-add-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>Schritt 3, Option 1: Hinzufügen des VM-Images als Azure Stack Hub-Betreiber über das Portal
 
@@ -121,11 +122,11 @@ Berücksichtigen Sie vor dem Hochladen des Images unbedingt folgende Faktoren:
    ![Benutzeroberfläche für das Querladen des benutzerdefinierten Images](./media/azure-stack-add-vm-image/tca4.png)
 
 2. Geben Sie unter **Image erstellen** den Herausgeber, das Angebot, die SKU, die Version und den URI des Betriebssystem-Datenträgerblobs ein. Klicken Sie anschließend auf **Erstellen**, um mit der Erstellung des VM-Images zu beginnen.
-   
+
    ![Benutzeroberfläche für das Querladen des benutzerdefinierten Images](./media/azure-stack-add-vm-image/tca5.png)
 
    Nach Erstellung des Images ändert sich der VM-Imagestatus in **Erfolgreich**.
-   
+
 3. Wenn Sie ein Image hinzufügen, ist es nur für Azure Resource Manger-basierte Vorlagen und PowerShell-Bereitstellungen verfügbar. Wenn Sie ein Image für Ihre Benutzer als Marketplace-Element bereitstellen möchten, können Sie es mit den Schritten im Artikel [Erstellen und Veröffentlichen eines Marketplace-Elements](azure-stack-create-and-publish-marketplace-item.md) veröffentlichen. Notieren Sie sich unbedingt die Werte für **Herausgeber**, **Angebot**, **SKU** und **Version**. Sie benötigen diese, wenn Sie die Resource Manager-Vorlage und „Manifest.json“ in Ihrer benutzerdefinierten AZPKG-Datei bearbeiten.
 
 ## <a name="step-3-option-2-add-a-vm-image-as-an-azure-stack-hub-operator-using-powershell"></a>Schritt 3, Option 2: Hinzufügen eines VM-Images als Azure Stack Hub-Bediener über PowerShell
@@ -166,7 +167,7 @@ Berücksichtigen Sie vor dem Hochladen des Images unbedingt folgende Faktoren:
      Sie können einen Blobspeicher-URI für ein `osDisk`-Element angeben.  
 
      Weitere Informationen finden Sie in der PowerShell-Referenz für das Cmdlet [Add-AzsPlatformimage](/powershell/module/azs.compute.admin/add-azsplatformimage).
-     
+
 4. Wenn Sie ein Image hinzufügen, ist es nur für Azure Resource Manger-basierte Vorlagen und PowerShell-Bereitstellungen verfügbar. Wenn Sie ein Image für Ihre Benutzer als Marketplace-Element bereitstellen möchten, können Sie es mit den Schritten im Artikel [Erstellen und Veröffentlichen eines Marketplace-Elements](azure-stack-create-and-publish-marketplace-item.md) veröffentlichen. Notieren Sie sich unbedingt die Werte für **Herausgeber**, **Angebot**, **SKU** und **Version**. Sie benötigen diese, wenn Sie die Resource Manager-Vorlage und „Manifest.json“ in Ihrer benutzerdefinierten AZPKG-Datei bearbeiten.
 
 ## <a name="remove-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>Entfernen des VM-Images als Azure Stack Hub-Bediener über das Portal

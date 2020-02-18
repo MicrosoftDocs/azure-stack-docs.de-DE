@@ -1,6 +1,6 @@
 ---
-title: Allgemeine Workflowparameter in Validation-as-a-Service in Azure Stack
-description: Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack
+title: Allgemeine Workflowparameter in Validation-as-a-Service in Azure Stack Hub
+description: Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack Hub
 author: mattbriggs
 ms.topic: article
 ms.date: 1/22/2020
@@ -8,14 +8,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ee72aca1cbba27c75d2811dac96d4b0a78a87617
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cc237792576ffa3a5bb3ad0a003da4284c9cc56f
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885034"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143692"
 ---
-# <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack
+# <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack Hub
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -26,14 +26,14 @@ Die allgemeinen Parameter umfassen Werte wie z.B. Umgebungsvariablen und Benutze
 
 ## <a name="environment-parameters"></a>Umgebungsparameter
 
-Umgebungsparameter beschreiben die Azure Stack-Umgebung, die getestet wird. Diese Werte müssen durch Generieren und Hochladen einer Azure Stack-Stempelinformationsdatei für die jeweilige Instanz, die Sie testen, angegeben werden.
+Umgebungsparameter beschreiben die Azure Stack Hub-Umgebung, die getestet wird. Diese Werte müssen durch Generieren und Hochladen einer Azure Stack Hub-Stempelinformationsdatei für die jeweilige Instanz, die Sie testen, angegeben werden.
 
 > [!NOTE]
 > In offiziellen Validierungsworkflows können Umgebungsparameter nach der Workflowerstellung nicht mehr geändert werden.
 
 ### <a name="generate-the-stamp-information-file"></a>Generieren der Stempelinformationsdatei
 
-1. Melden Sie sich bei der DVM oder einem anderen Computer mit Zugriff auf die Azure Stack-Umgebung an.
+1. Melden Sie sich bei der DVM oder einem anderen Computer mit Zugriff auf die Azure Stack Hub-Umgebung an.
 2. Führen Sie die folgenden Befehle in einem PowerShell-Fenster mit erhöhten Rechten aus:
 
     ```powershell  
@@ -54,9 +54,9 @@ Allgemeine Testparameter umfassen vertrauliche Informationen, die nicht in Konfi
 
 Parameter    | Beschreibung
 -------------|-----------------
-Mandantenadministratorbenutzer                            | Azure Active Directory-Mandantenadministrator, der vom Dienstadministrator im AAD-Verzeichnis bereitgestellt wurde. Dieser Benutzer führt auf Mandantenebene Aktionen wie das Bereitstellen von Vorlagen zum Einrichten von Ressourcen (VMs, Speicherkonten usw.) und Ausführen von Workloads aus. Weitere Informationen zum Bereitstellen von Mandantenkonten finden Sie unter [Hinzufügen eines neuen Azure Stack-Mandanten](../operator/azure-stack-add-new-user-aad.md).
-Dienstadministratorbenutzer             | Der Azure Active Directory-Administrator des Mandanten des Azure AD-Verzeichnisses, der während der Azure Stack-Bereitstellung angegeben wird. Suchen Sie in der ECE-Konfigurationsdatei nach `AADTenant`, und wählen Sie den Wert im `UniqueName`-Element aus.
-Cloudadministratorbenutzer               | Azure Stack-Domänenadministratorkonto (beispielsweise `contoso\cloudadmin`). Suchen Sie in der ECE-Konfigurationsdatei nach `User Role="CloudAdmin"`, und wählen Sie den Wert im `UserName`-Element aus.
+Mandantenadministratorbenutzer                            | Azure Active Directory-Mandantenadministrator, der vom Dienstadministrator im AAD-Verzeichnis bereitgestellt wurde. Dieser Benutzer führt auf Mandantenebene Aktionen wie das Bereitstellen von Vorlagen zum Einrichten von Ressourcen (VMs, Speicherkonten usw.) und Ausführen von Workloads aus. Weitere Informationen zum Bereitstellen von Mandantenkonten finden Sie unter [Hinzufügen eines neuen Azure Stack Hub-Mandanten](../operator/azure-stack-add-new-user-aad.md).
+Dienstadministratorbenutzer             | Dies ist der Azure Active Directory-Administrator des Mandanten des Azure AD-Verzeichnisses, der während der Azure Stack Hub-Bereitstellung angegeben wird. Suchen Sie in der ECE-Konfigurationsdatei nach `AADTenant`, und wählen Sie den Wert im `UniqueName`-Element aus.
+Cloudadministratorbenutzer               | Dies ist das Azure Stack Hub-Domänenadministratorkonto (beispielsweise `contoso\cloudadmin`). Suchen Sie in der ECE-Konfigurationsdatei nach `User Role="CloudAdmin"`, und wählen Sie den Wert im `UserName`-Element aus.
 Diagnoseverbindungszeichenfolge          | Eine SAS-URL zu einem Azure Storage-Konto, in das während der Testausführung Diagnoseprotokolle kopiert werden. Anweisungen zum Generieren der SAS-URL finden Sie unter [Generieren der Diagnose-Verbindungszeichenfolge](#generate-the-diagnostics-connection-string). |
 
 > [!IMPORTANT]

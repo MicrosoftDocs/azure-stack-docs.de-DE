@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Hier erhalten Sie Informationen zur Azure Stack Hub-Wartungsrichtlinie und erfahren, wie Sie den unterstützten Zustand eines integrierten Systems aufrechterhalten.
 author: sethmanheim
 ms.topic: article
-ms.date: 10/30/2019
+ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 280509c989a10b11884e93947d20569b3c128426
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: be2da63bcb2eb986a14ebae417810ee4b585714d
+ms.sourcegitcommit: 2377c6947cf846fd2a4a0274c41326293a2a239c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882917"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075954"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub-Wartungsrichtlinie
 
@@ -77,6 +77,9 @@ Microsoft-Softwareupdatepakete sind nicht kumulativ und setzen das jeweils vorhe
 
 Azure Stack Hub folgt demselben Supportprozess wie Azure. Unternehmenskunden können dem beschriebenen in [Gewusst wie: Erstellen einer Azure-Supportanfrage](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) beschriebenen Prozess folgen. Wenden Sie sich an Ihren CSP-Support, wenn Sie Kunde eines Cloudlösungsanbieters (Cloud Solution Provider, CSP) sind. Weitere Informationen finden Sie unter [Häufig gestellte Fragen zum Azure-Support](https://azure.microsoft.com/support/faq/).
 
+Informationen zum Beheben von Problemen bei der Aktualisierung finden Sie unter [Bewährte Methoden für die Behandlung von Problemen bei Azure Stack Hub-Patches und -Updates](azure-stack-updates-troubleshoot.md).
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Verwalten von Updates in Azure Stack Hub](azure-stack-updates.md)
+- [Bewährte Methoden für die Behandlung von Problemen bei Azure Stack Hub-Patches und -Updates](azure-stack-updates-troubleshoot.md)
