@@ -83,7 +83,7 @@ Dieses Szenario besteht aus zwei Teilen:
 
   - Ihre Azure Stack Hub-Bereitstellung muss bei Azure registriert sein.
 
-  - Auf dem Computer mit Internetverbindung muss mindestens  **Version 1.2.11 des Azure Stack Hub-PowerShell-Moduls ** installiert sein.  [Installieren Sie die Azure Stack Hub-spezifischen PowerShell-Module](azure-stack-powershell-install.md), falls diese noch nicht vorhanden sind.
+  - Auf dem Computer mit Internetverbindung muss mindestens  **Version 1.2.11 des Azure Stack Hub-PowerShell-Moduls** installiert sein.  [Installieren Sie die Azure Stack Hub-spezifischen PowerShell-Module](azure-stack-powershell-install.md), falls diese noch nicht vorhanden sind.
 
   - Die [PowerShell-Umgebung für den Azure Stack Hub-Bediener](azure-stack-powershell-configure-admin.md) muss konfiguriert sein, um den Import eines heruntergeladenen Marketplace-Elements zu ermöglichen.
 
