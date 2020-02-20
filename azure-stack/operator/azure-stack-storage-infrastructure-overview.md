@@ -2,18 +2,18 @@
 title: Verwalten der Speicherinfrastruktur für Azure Stack Hub
 titleSuffix: Azure Stack
 description: Erfahren Sie, wie Sie die Speicherinfrastruktur für Azure Stack Hub verwalten können.
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 045bab05645c5186069d787645efe56ea5b4effa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 47233e29ef5921fbf8feb7b31f9160a8f67ff71b
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882766"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491712"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Verwalten der Speicherinfrastruktur für Azure Stack Hub
 
@@ -108,7 +108,7 @@ In den folgenden Abschnitten sind die Informationen zur Integrität und zum Betr
 
 Wenn sich das Volume im Integritätszustand „Warnung“ befindet, ist mindestens eine Kopie Ihrer Daten nicht verfügbar, aber Azure Stack Hub kann trotzdem mindestens eine Kopie Ihrer Daten lesen.
 
-| Betriebszustand | Beschreibung |
+| Betriebszustand | BESCHREIBUNG |
 |---|---|
 | Aktiv | Azure Stack Hub repariert das Volume, z. B. nach dem Hinzufügen oder Entfernen eines Laufwerks. Nach Abschluss der Reparatur sollte das Volume in den Integritätszustand „OK“ zurückkehren.<br> <br>**Aktion:** Warten Sie darauf, dass Azure Stack Hub die Reparatur des Volumes abgeschlossen hat, und überprüfen Sie den Zustand anschließend. |
 | Unvollständig | Die Resilienz des Volumes wird reduziert, weil mindestens ein Laufwerk ausgefallen ist oder fehlt. Die fehlenden Laufwerke enthalten aber aktuelle Kopien Ihrer Daten.<br> <br>**Aktion:** Stellen Sie die Verbindung für fehlende Laufwerke wieder her, tauschen Sie alle fehlerhaften Laufwerke aus, und versetzen Sie alle im Offlinezustand befindlichen Server wieder in den Onlinezustand. |
@@ -155,7 +155,7 @@ In den folgenden Abschnitten werden die Integritätszustände beschrieben, in de
 
 Ein Laufwerk im Zustand „Warnung“ kann Daten erfolgreich lesen und schreiben, aber es liegt ein Problem vor.
 
-| Betriebszustand | Beschreibung |
+| Betriebszustand | BESCHREIBUNG |
 |---|---|
 | Verbindung unterbrochen | Die Konnektivität für das Laufwerk ist verloren gegangen.<br> <br>**Aktion:** Versetzen Sie alle Server wieder in den Onlinezustand. Schließen Sie das Laufwerk wieder an, falls das Problem hierdurch nicht behoben wurde. Tauschen Sie das Laufwerk aus, falls dieser Zustand weiterhin besteht, um die vollständige Resilienz sicherzustellen. |
 | Vorhersehbarer Fehler | Es ist vorhersehbar, dass für das Laufwerk in Kürze ein Fehler auftritt.<br> <br>**Aktion:** Tauschen Sie das Laufwerk so bald wie möglich aus, um die vollständige Resilienz sicherzustellen. |
@@ -171,7 +171,7 @@ Ein Laufwerk im Zustand „Warnung“ kann Daten erfolgreich lesen und schreiben
 
 Auf ein Laufwerk im Zustand „Fehlerhaft“ kann derzeit nicht geschrieben werden, und der Zugriff darauf ist nicht möglich.
 
-| Betriebszustand | Beschreibung |
+| Betriebszustand | BESCHREIBUNG |
 |---|---|
 | Split | Das Laufwerk wurde vom Pool getrennt.<br> <br>**Aktion:** Ersetzen Sie das Laufwerk durch einen neuen Datenträger. Wenn Sie diesen Datenträger verwenden müssen, sollten Sie ihn aus dem System entfernen und sicherstellen, dass sich darauf keine benötigten Daten befinden, den Inhalt des Datenträgers löschen und ihn anschließend wieder einsetzen. |
 | Nicht verwendbar | Der physikalische Datenträger wurde unter Quarantäne gestellt, da er von Ihrem Lösungsanbieter nicht unterstützt wird. Es werden nur Datenträger unterstützt, die für die Lösung genehmigt wurden und über die richtige Datenträgerfirmware verfügen.<br> <br>**Aktion:** Ersetzen Sie das Laufwerk durch einen Datenträger, der für die Lösung über einen genehmigten Hersteller und eine Modellnummer verfügt. |

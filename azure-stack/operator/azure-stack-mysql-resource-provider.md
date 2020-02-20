@@ -1,18 +1,18 @@
 ---
 title: Verwenden von MySQL-Datenbanken als PaaS in Azure Stack Hub
 description: Erfahren Sie, wie Sie den MySQL-Ressourcenanbieter bereitstellen und MySQL-Databases as a Service in Azure Stack Hub einrichten.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: f7ff0e3b3ea21dc6545a6c69b1a9cdbf8dbed607
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f221fdd6436201df2f68b87c5b9b365d0add5fee
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881748"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491984"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>Verwenden von MySQL-Datenbanken in Microsoft Azure Stack Hub
 

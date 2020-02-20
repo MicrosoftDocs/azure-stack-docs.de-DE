@@ -1,18 +1,18 @@
 ---
 title: Überwachen von Änderungen in Azure Stack Hub mithilfe des privilegierten Endpunkts
 description: Erfahren Sie, wie Sie den privilegierten Endpunkt verwenden, um den Updatestatus für in Azure Stack Hub integrierte Systeme zu überwachen.
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: c116051e305f78fd281f420de2f31dbee36601af
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f320973cfd5b7e9117eeeeb1463ee9b45cb5448f
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881893"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492171"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Überwachen von Änderungen in Azure Stack Hub mithilfe des privilegierten Endpunkts
 
@@ -20,7 +20,7 @@ Sie können den [privilegierten Endpunkt](azure-stack-privileged-endpoint.md) nu
 
 Die folgenden neuen PowerShell-Cmdlets für die Updateverwaltung sind im Update 1710 für in Azure Stack Hub integrierte Systeme enthalten.
 
-| Cmdlet  | Beschreibung  |
+| Cmdlet  | BESCHREIBUNG  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | Gibt den Status des derzeit ausgeführten, abgeschlossenen oder fehlerhaften Updates zurück Stellt den allgemeinen Status des Updatevorgangs sowie ein XML-Dokument bereit, das den aktuellen Schritt und den zugehörigen Status beschreibt. |
 | `Resume-AzureStackUpdate` | Nimmt ein fehlerhaftes Update an der Stelle wieder auf, an der der Fehler aufgetreten ist. In bestimmten Szenarien müssen Sie möglicherweise Schritte Risikominderung durchführen, bevor Sie das Update fortsetzen.         |

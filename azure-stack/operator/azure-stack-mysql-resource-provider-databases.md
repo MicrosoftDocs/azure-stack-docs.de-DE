@@ -1,18 +1,18 @@
 ---
 title: Erstellen von MySQL-Datenbanken in Azure Stack Hub
 description: Erfahren Sie, wie Sie MySQL-Datenbanken, die mit dem Ressourcenanbieter „MySQL Adapter“ bereitgestellt wurden, in Azure Stack Hub erstellen und verwalten.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 23c823fcbfa76d34a471ac404b18dab13b737315
-ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
+ms.openlocfilehash: afe2a9fe46a5abae9f94347422153480536c37bc
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125764"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492120"
 ---
 # <a name="create-mysql-databases-in-azure-stack-hub"></a>Erstellen von MySQL-Datenbanken in Azure Stack Hub
 Ein Azure Stack Hub-Benutzer, der ein Angebot abonniert hat, das den MySQL-Datenbankdienst enthält, kann MySQL-Self-Service-Datenbanken im Benutzerportal erstellen und verwalten.

@@ -1,18 +1,18 @@
 ---
 title: 'Azure Stack Hub-MySQL-Ressourcenanbieter 1.1.33.0: Versionshinweise'
 description: Lesen Sie die Versionshinweise, um zu erfahren, welche Neuerungen im Update zum MySQL-Ressourcenanbieter 1.1.33.0 von Azure Stack Hub enthalten sind.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: d6afec9ea1932260305fe48d3a5728a50ed7472a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d8d545935762d1706a22e3d90b37fa9aeac500b4
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881886"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492137"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>Versionshinweise zum MySQL-Ressourcenanbieter 1.1.33.0
 

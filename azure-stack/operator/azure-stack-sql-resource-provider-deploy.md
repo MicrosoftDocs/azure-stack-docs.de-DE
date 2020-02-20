@@ -2,18 +2,18 @@
 title: Bereitstellen des SQL Server-Ressourcenanbieters
 titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie den SQL Server-Ressourcenanbieter in Azure Stack Hub bereitstellen.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.openlocfilehash: f365886119e343fd550e00e606840172fed7fa21
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2faeb2c714099a3b055343445dc94a57879d2cd6
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881230"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491831"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Bereitstellen des SQL Server-Ressourcenanbieters in Azure Stack Hub
 
