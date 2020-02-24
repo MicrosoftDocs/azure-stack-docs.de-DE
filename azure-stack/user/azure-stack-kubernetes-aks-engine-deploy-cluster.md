@@ -8,11 +8,11 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
 ms.openlocfilehash: f7d9b735a3b4936a5bb97e60e4c84f4b35b29baa
-ms.sourcegitcommit: 40c7b3dad98eede5e2b2d19d9c24b805d0395e63
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 02/20/2020
-ms.locfileid: "77479394"
+ms.locfileid: "77492290"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub
 
@@ -68,7 +68,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
 
 7.  Legen Sie im Array `masterProfile` die folgenden Felder fest:
 
-    | Feld | Beschreibung |
+    | Feld | BESCHREIBUNG |
     | --- | --- |
     | dnsPrefix | Geben Sie eine eindeutige Zeichenfolge ein, die zur Identifizierung des Hostnamens von virtuellen Computern dienen soll. Beispielsweise einen Namen, der auf dem Namen der Ressourcengruppe basiert. |
     | count |  Geben Sie die Anzahl der Masters ein, die für die Bereitstellung vorgesehen sind. Der minimale Wert für eine Hochverfügbarkeitsbereitstellung beträgt 3, aber 1 ist für Bereitstellungen ohne Hochverfügbarkeit zulässig. |
@@ -85,7 +85,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
 
 9.  Aktualisieren Sie im Array `linuxProfile`:
 
-    | Feld | Beschreibung |
+    | Feld | BESCHREIBUNG |
     | --- | --- |
     | adminUsername | Geben Sie den VM-Administratorbenutzernamen ein. |
     | ssh | Geben Sie den öffentlichen Schlüssel ein, der für die SSH-Authentifizierung bei virtuellen Computern verwendet wird. Wenn Sie PuTTY verwenden, öffnen Sie den PuTTY Key Generator, um den privaten PuTTY-Schlüssel und den öffentlichen Schlüssel, der mit „ssh-rsa“ beginnt, wie im folgenden Beispiel zu laden. Sie können den beim Erstellen des Linux-Clients generierten Schlüssel verwenden, **Sie müssen jedoch den öffentlichen Schlüssel kopieren, damit es sich um eine einzelne Textzeile handelt, wie im Beispiel gezeigt**.|
@@ -111,7 +111,7 @@ Fahren Sie mit der Bereitstellung eines Clusters fort:
 
 1.  Überprüfen Sie die verfügbaren Parameter für die AKS-Engine in Azure Stack Hub-[CLI-Flags](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags).
 
-    | Parameter | Beispiel | Beschreibung |
+    | Parameter | Beispiel | BESCHREIBUNG |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | Um der AKS-Engine mitzuteilen, dass die Zielplattform Azure Stack Hub ist, verwenden Sie `AzureStackCloud`. |
     | identity-system | adfs | Optional. Geben Sie Ihre Identitätsverwaltungslösung an, wenn Sie Active Directory-Verbunddienste (AD FS) nutzen. |
