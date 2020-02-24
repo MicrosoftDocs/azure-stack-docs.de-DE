@@ -1,18 +1,18 @@
 ---
 title: Hinzufügen für MySQL-Hostserver in Azure Stack Hub
 description: Erfahren Sie, wie Sie MySQL-Hostserver für die Bereitstellung über den MySQL-Adapterressourcenanbieter hinzufügen.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 11/06/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 6cd5d09dcfc2467bd596b94597d001c4803e1655
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f8c998675f3446941a00da9d9a444f1f9186e60e
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881808"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492086"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Hinzufügen für MySQL-Hostserver in Azure Stack Hub
 
@@ -22,6 +22,39 @@ Sie können eine MySQL-Hostserverinstanz auf einem virtuellen Computer (VM) in [
 > Der MySQL-Ressourcenanbieter sollte im Standardanbieterabonnement erstellt werden, während MySQL-Hostingserver in einem abrechenbaren Benutzerabonnement erstellt werden sollten. Der Server des Ressourcenanbieters sollte nicht zum Hosten von Benutzerdatenbanken verwendet werden.
 
 Die MySQL-Versionen 5.6, 5.7 und 8.0 können für Ihre Hostingserver verwendet werden. Der MySQL RP unterstützt keine caching_sha2_password-Authentifizierung. Diese Unterstützung wird im nächsten Release hinzugefügt. MySQL-8.0-Server müssen für die Verwendung von mysql_native_password konfiguriert werden. MariaDB wird ebenfalls unterstützt.
+
+## <a name="configure-external-access-to-the-mysql-hosting-server"></a>Konfigurieren des externen Zugriffs auf den MySQL-Hostserver
+
+Bevor der MySQL-Server als Azure Stack Hub-MySQL Server-Host hinzugefügt werden kann, muss der externe Zugriff aktiviert werden. Verwenden Sie BitNami MySQL (verfügbar über den Azure Stack Hub-Marketplace) als Beispiel. Sie können die folgenden Schritte ausführen, um den externen Zugriff zu konfigurieren.
+
+1. Melden Sie sich über einen SSH-Client (in diesem Beispiel wird [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) verwendet) von einem Computer, der auf die öffentliche IP-Adresse zugreifen kann, beim MySQL-Server an.
+
+    Melden Sie sich über die öffentliche IP-Adresse mit dem Benutzernamen **bitnami** und dem zuvor erstellten Anwendungskennwort (ohne Sonderzeichen) bei der VM an.
+
+   ![Linux-Anmeldung](media/azure-stack-tutorial-mysqlrp/bitnami1.png)
+
+2. Verwenden Sie im Fenster des SSH-Clients den folgenden Befehl, um sicherzustellen, dass der Bitnami-Dienst aktiv ist und ausgeführt wird. Geben Sie das Kennwort für „bitnami“ erneut ein, wenn Sie dazu aufgefordert werden.
+
+   `sudo service bitnami status`
+
+   ![Überprüfen des Bitnami-Diensts](media/azure-stack-tutorial-mysqlrp/bitnami2.png)
+
+3. Erstellen Sie ein Benutzerkonto mit Remotezugriff, das vom Azure Stack Hub-MySQL-Hostserver zum Herstellen der Verbindung mit MySQL verwendet werden soll, und beenden Sie dann den SSH-Client.
+
+    Führen Sie die folgenden Befehle aus, um sich mit dem zuvor erstellten Stammkennwort als Root-Benutzer bei MySQL anzumelden. Erstellen Sie einen neuen Administratorbenutzer, und ersetzen Sie *\<username\>* und *\<password\>* durch die für Ihre Umgebung erforderlichen Werte. In diesem Beispiel heißt der erstellte Benutzer **sqlsa**, und es wird ein sicheres Kennwort verwendet:
+
+   ```mysql
+   mysql -u root -p
+   create user <username>@'%' identified by '<password>';
+   grant all privileges on *.* to <username>@'%' with grant option;
+   flush privileges;
+   ```
+
+   ![Erstellen des Administratorbenutzers](media/azure-stack-tutorial-mysqlrp/bitnami3.png)
+
+4. Notieren Sie sich die Informationen zum neuen MySQL-Benutzer.
+
+Dieser Benutzername und das Kennwort werden verwendet, während der Azure Stack Hub-Operator mit diesem MySQL-Server einen MySQL-Hostserver erstellt.
 
 ## <a name="connect-to-a-mysql-hosting-server"></a>Mit einem MySQL-Hostserver verbinden
 

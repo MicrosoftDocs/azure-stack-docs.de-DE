@@ -2,18 +2,18 @@
 title: Entfernen des SQL-Ressourcenanbieters
 titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie den SQL-Ressourcenanbieter aus Ihrer Azure Stack Hub-Bereitstellung entfernen.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 5d8335e69c35c209e444d88f41ce76a3fae94bb0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f8b9ed17aa19a2d0ed9403ace3876f4c8f3a25bf
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882794"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491780"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Entfernen des SQL-Ressourcenanbieters
 
@@ -22,16 +22,7 @@ Bevor Sie den SQL-Ressourcenanbieter entfernen, müssen Sie alle Anbieterabhäng
 > [!NOTE]
 > Die Downloadlinks für die Ressourcenanbieter-Installationsprogramme finden Sie in den [Voraussetzungen für die Bereitstellung des Ressourcenanbieters](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-Wenn Sie den SQL-Ressourcenanbieter entfernen, werden die Mandantendatenbanken nicht von den Hostservern gelöscht.
-
-## <a name="dependency-cleanup"></a>Bereinigung von Abhängigkeiten
-
-Es müssen verschiedene Bereinigungsaufgaben durchgeführt werden, bevor Sie das Skript „DeploySqlProvider.ps1“ zum Entfernen des Ressourcenanbieters ausführen können.
-
-Der Azure Stack Hub-Operator ist für die folgenden Bereinigungsaufgaben zuständig:
-
-* Löschen aller Pläne, die auf den SQL-Adapter verweisen
-* Löschen aller Kontingente, die dem SQL-Adapter zugeordnet sind
+Wenn Sie den SQL-Ressourcenanbieter entfernen, werden die vom Operator verwalteten zugeordneten Pläne und Kontingente gelöscht. Aber es werden keine Mandantendatenbanken von Hostservern gelöscht.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>So entfernen Sie den SQL-Ressourcenanbieter
 

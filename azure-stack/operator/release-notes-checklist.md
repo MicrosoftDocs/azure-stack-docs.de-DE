@@ -3,16 +3,16 @@ title: Azure Stack Hub-Checkliste für Updateaktivitäten
 description: Checkliste für die Vorbereitung des Systems auf das aktuelle Azure Stack Hub-Update
 author: sethmanheim
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 02/20/2020
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 7ee8a4bc80b211b8e6aa8fd77d29ae5cf4c524e1
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: e1260cec62c2b1906f76004f04010e0f0857664e
+ms.sourcegitcommit: b501f9dc931bb0a1648b768f7ea47116b4dfda33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037181"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213662"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack Hub-Checkliste für Updateaktivitäten
 
@@ -31,7 +31,7 @@ Nutzen Sie diese Checkliste, um ein Azure Stack Hub-Update vorzubereiten. Dieser
 | Ausführen von **Test-AzureStack** | Führen Sie `Test-AzureStack -Group UpdateReadiness` aus, um Betriebsprobleme zu ermitteln. Auf das Cmdlet kann über die Sitzung des privilegierten Endpunkts (Privileged Endpoint Session, PEP) zugegriffen werden. Weitere Informationen finden Sie unter [Überprüfen des Azure Stack Hub-Systemstatus](azure-stack-diagnostic-test.md). |
 | Beheben von Problemen | Beheben Sie alle Betriebsprobleme, die mithilfe von `Test-AzureStack` ermittelt wurden. |
 | Update verfügbar | Nur in Szenarien mit vorhandener Verbindung überprüfen Azure Stack Hub-Bereitstellungen in regelmäßigen Abständen einen gesicherten Endpunkt und benachrichtigen Sie automatisch, wenn ein Update für Ihre Cloud verfügbar ist. Kunden ohne Verbindung können neue Pakete wie [hier beschrieben](azure-stack-apply-updates.md) herunterladen und importieren. |
-| Planen eines Wartungsfensters und Benachrichtigen der Benutzer | Sie sollten die Benutzer über alle Wartungsvorgänge unterrichten und normale Wartungsfenster möglichst außerhalb der Geschäftszeiten planen. Wartungsvorgänge können sich auf vorhandene Mandantenworkloads auswirken und dazu führen, dass neue Mandantenvorgänge (z. B. Erstellen, Neukonfigurieren oder Löschen von VMs) fehlschlagen. Dies ist unabhängig davon, ob der Vorgang über das Portal oder programmgesteuert über die Azure Resource Manager-API initiiert wird. Für Express-Updates und vollständige Updates von Azure Stack Hub finden Sie in den [Versionshinweisen](release-notes.md) Schätzungen, wie lange die Updates für die von Ihnen angewendete Version dauern. |
+| Planen eines Wartungsfensters und Benachrichtigen der Benutzer | Sie sollten die Benutzer über alle Wartungsvorgänge unterrichten und normale Wartungsfenster möglichst außerhalb der Geschäftszeiten planen. Wartungsvorgänge können sich auf vorhandene Mandantenworkloads auswirken und dazu führen, dass neue Mandantenvorgänge (z. B. Erstellen, Neukonfigurieren oder Löschen von VMs) fehlschlagen. Dies ist unabhängig davon, ob der Vorgang über das Portal oder programmgesteuert über die Azure Resource Manager-API initiiert wird. Andere Vorgänge, z. B. Sicherungen, sind unter Umständen ebenfalls erst verfügbar, nachdem das Update abgeschlossen wurde. Für Express-Updates und vollständige Updates von Azure Stack Hub finden Sie in den [Versionshinweisen](release-notes.md) Schätzungen, wie lange die Updates für die von Ihnen angewendete Version dauern. |
 
 ## <a name="during-azure-stack-hub-update"></a>Während des Azure Stack Hub-Updates
 

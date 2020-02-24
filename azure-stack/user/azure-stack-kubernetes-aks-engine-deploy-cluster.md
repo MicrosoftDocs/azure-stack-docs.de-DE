@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: bc56a45bc1312488d00570e4a44436bcdfe14834
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f7d9b735a3b4936a5bb97e60e4c84f4b35b29baa
+ms.sourcegitcommit: 40c7b3dad98eede5e2b2d19d9c24b805d0395e63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884803"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77479394"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub
 
@@ -62,7 +62,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
     ```
 
     > [!Note]  
-    > Wenn Sie Azure AD für Ihr Identitätssystem verwenden, muss das Feld **identitySystem** nicht hinzugefügt werden.
+    > Wenn Sie Azure AD für Ihr Identitätssystem verwenden, müssen Sie das Feld **identitySystem** nicht hinzufügen.
 
 6. Suchen Sie nach `portalURL`, und geben Sie die URL für das Mandantenportal an. Beispiel: `https://portal.local.azurestack.external`.
 

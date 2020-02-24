@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 0a15f4256349b9080f73d976f4e4a9782fd5b665
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 7201ad85961ecf08d1162d97aa684625e0782d35
+ms.sourcegitcommit: 381e4e47851dd2526bbf04d6b06af90fb1fb6a49
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147898"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77363037"
 ---
 # <a name="create-highly-available-mysql-databases"></a>Erstellen von hoch verfügbaren MySQL-Datenbanken
 
@@ -60,13 +60,15 @@ Führen Sie die Schritte in diesem Abschnitt aus, um den MySQL Server-Cluster mi
 - Drei Linux-VMs zum Hosten des MySQL-Clusters
 
 1. 
-   [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../includes/azs-user-portal.md)]
 
-2. Wählen Sie **\+** **Ressource erstellen** > **Compute** und dann **MySQL with Replication** aus.
+2. Wählen Sie im Dashboard die Option **Abonnement erwerben** aus, falls noch keine Abonnements zugewiesen wurden. Geben Sie auf dem Blatt einen Namen für das Abonnement ein, und wählen Sie anschließend ein Angebot aus. Wir empfehlen Ihnen, die MySQL-Clusterbereitstellung unter einem eigenen Abonnement anzuordnen, um das versehentliche Entfernen zu verhindern.
 
-   ![Bereitstellung einer benutzerdefinierten Vorlage in Azure Stack Hub](media/azure-stack-tutorial-mysqlrp/1.png)
+3. Wählen Sie **\+** **Ressource erstellen** > **Compute** und dann **MySQL with Replication** aus.
 
-3. Geben Sie auf der Seite **Grundlagen** grundlegende Informationen zur Bereitstellung an. Überprüfen Sie die Standardwerte, ändern Sie diese nach Bedarf, und wählen Sie **OK** aus.
+   ![Bereitstellung einer benutzerdefinierten Vorlage in Azure Stack Hub](media/azure-stack-tutorial-mysqlrp/img1.png)
+
+4. Geben Sie auf der Seite **Grundlagen** grundlegende Informationen zur Bereitstellung an. Überprüfen Sie die Standardwerte, ändern Sie diese nach Bedarf, und wählen Sie **OK** aus.
 
     Mindestangaben:
 
@@ -78,28 +80,28 @@ Führen Sie die Schritte in diesem Abschnitt aus, um den MySQL Server-Cluster mi
    - Wählen Sie die zu verwendende Ressourcengruppe aus, oder erstellen Sie eine neue.
    - Wählen Sie den Standort aus (Standardwert: „lokal“ für ASDK).
 
-   [![Grundlagen der Bereitstellung: Erstellen einer MySQL-Instanz mit Replikation](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
+     ![Grundlagen der Bereitstellung – Erstellen einer MySQL-Instanz mit Replikation](media/azure-stack-tutorial-mysqlrp/img2.png)
 
-4. Geben Sie auf der Seite **Umgebungskonfiguration** die folgenden Informationen an, und wählen Sie anschließend **OK** aus.
+5. Geben Sie auf der Seite **Umgebungskonfiguration** die folgenden Informationen an, und wählen Sie anschließend **OK** aus.
 
    - Kennwort oder öffentlicher SSH-Schlüssel für die SSH-Authentifizierung (Secure Shell). Wenn Sie ein Kennwort verwenden, muss dieses Buchstaben und Ziffern enthalten. Sonderzeichen **können** verwendet werden.
    - VM-Größe (Standardwert: D1 v2 Standard-VMs)
    - Datenträgergröße in GB
 
-   [![Umgebungskonfiguration: Erstellen einer MySQL-Instanz mit Replikation](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
+     ![Umgebungskonfiguration – Erstellen einer MySQL-Instanz mit Replikation](media/azure-stack-tutorial-mysqlrp/img3.png)
 
-5. Überprüfen Sie die **Zusammenfassung** der Bereitstellung. Optional können Sie die benutzerdefinierten Vorlagen und Parameter herunterladen. Wählen Sie dann **OK** aus.
+6. Überprüfen Sie die **Zusammenfassung** der Bereitstellung. Optional können Sie die benutzerdefinierten Vorlagen und Parameter herunterladen. Wählen Sie dann **OK** aus.
 
-   [![Zusammenfassung: Erstellen einer MySQL-Instanz mit Replikation](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
+   ![Zusammenfassung – Erstellen einer MySQL-Instanz mit Replikation](media/azure-stack-tutorial-mysqlrp/img4.png)
 
-6. Wählen Sie auf der Seite **Kaufen** die Option **Erstellen** aus, um die Bereitstellung zu starten.
+7. Wählen Sie auf der Seite **Kaufen** die Option **Erstellen** aus, um die Bereitstellung zu starten.
 
-   ![Seite „Kaufen“ – Erstellen einer MySQL-Instanz mit Replikation](media/azure-stack-tutorial-mysqlrp/5.png)
+   ![Seite „Kaufen“ – Erstellen einer MySQL-Instanz mit Replikation](media/azure-stack-tutorial-mysqlrp/img5.png)
 
     > [!NOTE]
     > Die Bereitstellung dauert etwa eine Stunde. Stellen Sie sicher, dass die Bereitstellung abgeschlossen ist und der MySQL-Cluster vollständig konfiguriert wurde, bevor Sie fortfahren.
 
-7. Nachdem alle Bereitstellungen erfolgreich abgeschlossen sind, überprüfen Sie die Elemente der Ressourcengruppe, und wählen Sie das **mysqlip**-Element für die öffentliche IP-Adresse aus. Notieren Sie sich die öffentliche IP-Adresse und den vollqualifizierten Domänennamen (FQDN) der öffentlichen IP-Adresse für den Cluster.
+8. Nachdem alle Bereitstellungen erfolgreich abgeschlossen sind, überprüfen Sie die Elemente der Ressourcengruppe, und wählen Sie das **mysqlip**-Element für die öffentliche IP-Adresse aus. Notieren Sie sich die öffentliche IP-Adresse und den vollqualifizierten Domänennamen (FQDN) der öffentlichen IP-Adresse für den Cluster.
 
     Diese IP-Adresse müssen Sie an einen Azure Stack Hub-Betreiber weitergeben, damit dieser einen MySQL-Hostserver mit diesem MySQL-Cluster erstellen kann.
 
@@ -109,13 +111,13 @@ Standardmäßig ist für MySQL kein öffentlicher Zugriff auf den virtuellen Hos
 
 1. Navigieren Sie im Administratorportal zu der Ressourcengruppe, die beim Bereitstellen des MySQL-Clusters erstellt wurde, und wählen Sie die Netzwerksicherheitsgruppe (**default-subnet-sg**) aus:
 
-   ![Auswählen einer Netzwerksicherheitsgruppe im Azure Stack Hub-Administratorportal](media/azure-stack-tutorial-mysqlrp/6.png)
+   ![Auswählen einer Netzwerksicherheitsgruppe im Azure Stack Hub-Administratorportal](media/azure-stack-tutorial-mysqlrp/img6.png)
 
 2. Wählen Sie **Eingangssicherheitsregeln** und dann **Hinzufügen** aus.
 
     Geben Sie **3306** als **Zielportbereich** ein, und geben Sie optional eine Beschreibung in die Felder **Name** und **Beschreibung** ein.
 
-   ![öffnen](media/azure-stack-tutorial-mysqlrp/7.png)
+   ![öffnen](media/azure-stack-tutorial-mysqlrp/img7.png)
 
 3. Wählen Sie **Hinzufügen** aus, um das Dialogfeld für die Eingangssicherheitsregel zu schließen.
 

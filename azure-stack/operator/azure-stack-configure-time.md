@@ -3,16 +3,16 @@ title: Konfigurieren des Zeitservers für Azure Stack Hub
 description: Hier erfahren Sie, wie Sie den Zeitserver für Azure Stack Hub konfigurieren.
 author: ihenkel
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 2/19/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: d2dbc9ea7968ed3ad1911dd908966b6ac1e2a9c9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 891e034f691f5e8e1e087015aff36107c649198c
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879192"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492188"
 ---
 # <a name="configure-the-time-server-for-azure-stack-hub"></a>Konfigurieren des Zeitservers für Azure Stack Hub
 
@@ -40,10 +40,16 @@ Die Angabe eines Zeitservers (NTP) ist erforderlich, damit Azure Stack Hub die U
 3. Führen Sie den folgenden Befehl zum Aktualisieren von Azure Stack Hub aus, um den neuen NTP-Server zu verwenden und sofort die Uhrzeit zu synchronisieren.
 
     > [!Note]  
-    > Mit diesem Verfahren wird nicht der Zeitserver auf den physischen Switches aktualisiert.
+    > Mit diesem Verfahren wird nicht der Zeitserver auf den physischen Switches aktualisiert. Wenn Ihr Zeitserver kein Windows-basierter NTP-Server ist, müssen Sie das Flag `0x8` hinzufügen.
 
     ```PowerShell
     Set-AzsTimeSource -TimeServer NEWTIMESERVERIP -resync
+    ```
+
+    Für andere Server als Windows-basierte Zeitserver:
+
+    ```PowerShell
+    Set-AzsTimeSource -TimeServer "NEWTIMESERVERIP,0x8" -resync
     ```
 
 4. Überprüfen Sie die Ausgabe des Befehls auf Fehler.
