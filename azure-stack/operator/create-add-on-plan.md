@@ -8,12 +8,12 @@ ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 134e5def9de8adfe7f6146f6355d67d6a775afaf
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: b063f6b69d69f63ddb8adef25413e263e2fe9d4b
+ms.sourcegitcommit: 4386c482c1c320c06df00a7a6364bb84b8720493
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147805"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77453425"
 ---
 # <a name="create-add-on-plans-in-azure-stack-hub"></a>Erstellen von Add-On-Plänen in Azure Stack Hub
 
@@ -47,7 +47,7 @@ Add-On-Pläne werden [auf die gleiche Weise erstellt](azure-stack-create-plan.md
 
 6. Sehen Sie sich die Liste mit den Add-On-Plänen an, die im Angebot enthalten sind, um sicherzustellen, dass der neue Add-On-Plan aufgeführt ist.
 
-    ![Überprüfen der Liste der Add-On-Pläne im Azure Stack-Administratorportal](media/create-add-on-plan/add-on4.png "Add-On-Plan erstellen")](media/create-add-on-plan/add-on4lg.png#lightbox)
+    ![[Überprüfen der Liste der Add-On-Pläne im Azure Stack-Administratorportal](media/create-add-on-plan/add-on4.png „Erstellen eines Add-On-Plans“)](media/create-add-on-plan/add-on4lg.png#lightbox)
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"
