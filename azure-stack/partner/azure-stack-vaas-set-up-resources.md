@@ -1,6 +1,7 @@
 ---
-title: 'Tutorial: Einrichten von Ressourcen für Validation-as-a-Service'
-description: In diesem Tutorial erfahren Sie, wie Sie Ressourcen für Validation-as-a-Service (VaaS) einrichten.
+title: Einrichten von Azure AD und Speicherressourcen für VaaS
+titleSuffix: Azure Stack Hub
+description: Hier erfahren Sie, wie Sie Azure AD und Speicherressourcen für Validation-as-a-Service in Azure Stack Hub einrichten.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 1/22/2020
@@ -8,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7c47c6810802cce31793aae3be3a1502acb5f102
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 3dc72eb4dfac10e6e199b2cbfe9668666f83e122
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143925"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625304"
 ---
-# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutorial: Einrichten von Ressourcen für Validation-as-a-Service
+# <a name="set-up-azure-ad-and-storage-resources-for-validation-as-a-service"></a>Einrichten von Azure AD und Speicherressourcen für Validation-as-a-Service
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -33,7 +34,7 @@ Ein Azure AD-Mandant wird dazu verwendet, eine Organisation zu registrieren und 
 
 ### <a name="create-a-tenant"></a>Erstellen eines Mandanten
 
-Erstellen Sie einen Mandanten, mit dem Ihre Organisation auf VaaS-Dienste zugreift. Verwenden Sie einen aussagekräftigen Namen, z.B. `ContosoVaaS@onmicrosoft.com`.
+Erstellen Sie einen Mandanten, mit dem Ihre Organisation auf VaaS-Dienste zugreift. Verwenden Sie einen aussagekräftigen Namen (etwa `ContosoVaaS@onmicrosoft.com`).
 
 1. Erstellen Sie im [Azure-Portal](https://portal.azure.com) einen Azure AD-Mandanten, oder verwenden Sie einen vorhandenen Mandanten. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
 
@@ -47,15 +48,15 @@ Erstellen Sie einen Mandanten, mit dem Ihre Organisation auf VaaS-Dienste zugrei
     | Leser | Kann alle Ressourcen anzeigen, aber nicht erstellen oder verwalten. |
     | Test Contributor (Testmitwirkender) | Kann Testressourcen erstellen und verwalten. |
 
-    So weisen Sie Rollen in der Anwendung **Azure Stack Hub Validation Service** (Azure Stack Hub-Validierungsdienst) zu:
+    So weisen Sie Rollen in der App **Azure Stack Hub Validation Service** (Azure Stack Hub-Validierungsdienst) zu:
 
    1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
    2. Wählen Sie im Abschnitt **Identität** die Optionen **Alle Dienste** > **Azure Active Directory** aus.
    3. Wählen Sie **Unternehmensanwendungen** > **Azure Stack Hub Validation Service** (Azure Stack Hub-Validierungsdienst) aus.
-   4. Wählen Sie **Benutzer und Gruppen**. Auf dem Blatt **Azure Stack Hub Validation Service – Users and group** (Azure Stack Hub-Validierungsdienst – Benutzer und Gruppe) sind die zur Verwendung der Anwendung berechtigten Benutzer aufgeführt.
+   4. Wählen Sie **Benutzer und Gruppen**. Auf dem Blatt **Azure Stack Hub Validation Service – Users and group** (Azure Stack Hub-Validierungsdienst – Benutzer und Gruppe) sind die zur Verwendung der App berechtigten Benutzer aufgeführt.
    5. Wählen Sie **+ Benutzer hinzufügen**, um einen Benutzer aus Ihrem Mandanten hinzuzufügen und eine Rolle zuzuweisen.
 
-      Wenn Sie VaaS-Ressourcen und Aktionen in verschiedenen Gruppen innerhalb einer Organisation isolieren möchten, können Sie mehrere Azure AD-Mandantenverzeichnisse erstellen.
+      Wenn Sie VaaS-Ressourcen und -Aktionen in verschiedenen Gruppen innerhalb einer Organisation isolieren möchten, können Sie mehrere Azure AD-Mandantenverzeichnisse erstellen.
 
 ### <a name="register-your-tenant"></a>Registrieren Ihres Mandanten
 
@@ -69,17 +70,17 @@ Dieser Prozess autorisiert Ihren Mandanten in der Azure AD-Anwendung **Azure St
     | Name des Azure AD-Mandantenverzeichnisses | Registrierter Name des Azure AD-Mandantenverzeichnisses |
     | ID des Azure AD-Mandantenverzeichnisses | Dem Verzeichnis zugeordnete GUID des Azure AD-Mandantenverzeichnisses. Informationen dazu, wie Sie die ID Ihres Azure AD-Mandantenverzeichnisses ermitteln, finden Sie unter [Abrufen der Mandanten-ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
 
-2. Warten Sie auf die Bestätigung des Teams für die Azure Stack Hub-Überprüfung, um sicherzugehen, dass Ihr Mandant das VaaS-Portal verwenden kann.
+2. Warten Sie auf die Bestätigung des Teams für die Azure Stack Hub-Überprüfung, um sicherzugehen, dass Ihr Mandant das Azure Stack Hub-Validierungsportal verwenden kann.
 
-### <a name="consent-to-the-vaas-application"></a>Einwilligung zur VaaS-Anwendung
+### <a name="consent-to-the-vaas-app"></a>Einwilligung zur VaaS-App
 
 Gewähren Sie als Azure AD-Administrator im Namen Ihres Mandanten der VaaS-Azure AD-Anwendung die erforderlichen Berechtigungen:
 
-1. Melden Sie sich mit den Anmeldeinformationen eines globalen Administrators für den Mandanten beim [VaaS-Portal](https://azurestackvalidation.com/) an. 
+1. Melden Sie sich mit den Anmeldeinformationen eines globalen Administrators für den Mandanten beim [Azure Stack Hub-Validierungsportal](https://azurestackvalidation.com/) an.
 
 2. Klicken Sie auf **Mein Konto**.
 
-3\. Akzeptieren Sie bei entsprechender Aufforderung die Bedingungen, um VaaS die aufgeführten Azure AD-Berechtigungen zu erteilen.
+3\. Akzeptieren Sie bei entsprechender Aufforderung die Bedingungen, um VaaS die aufgeführten Azure AD-Berechtigungen zu erteilen.
 
 ## <a name="create-an-azure-storage-account"></a>Erstellen eines Azure-Speicherkontos
 
@@ -111,7 +112,7 @@ Das Azure Storage-Konto wird in der öffentlichen Azure-Cloud und nicht in Ihrer
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Wenn Ihre Umgebung keine eingehenden Verbindungen zulässt, führen Sie die Schritte im Tutorial zum Bereitstellen des lokalen Agents zum Ausführen eines Tests für Ihre Hardware aus.
+Wenn Ihre Umgebung keine eingehenden Verbindungen zulässt, führen Sie die Schritte im Tutorial zum Bereitstellen des lokalen Agents zur Ausführung eines Tests für Ihre Hardware aus.
 
 > [!div class="nextstepaction"]
 > [Deploy the local agent](azure-stack-vaas-local-agent.md) (Bereitstellen des lokalen Agents)

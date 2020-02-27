@@ -1,6 +1,7 @@
 ---
 title: Bereitstellen des lokalen Agents
-description: Stellen Sie den lokalen Agent für Validation-as-a-Service in Azure Stack Hub bereit.
+titleSuffix: Azure Stack Hub
+description: Hier erfahren Sie, wie Sie den lokalen Agent für Validation-as-a-Service in Azure Stack Hub bereitstellen.
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 11/11/2019
@@ -8,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a5090b60c5aa3c947fbbf1fc887b4fb25900ae98
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 83ecc620238593f8d01cdc9855305a86b34990a8
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143976"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625270"
 ---
 # <a name="deploy-the-local-agent"></a>Bereitstellen des lokalen Agents
 
@@ -78,30 +79,30 @@ Vergewissern Sie sich, dass Ihr Computer die folgenden Kriterien erfüllt:
     ```
 
 > [!Note]  
-> Das Cmdlet „Install-VaaSPrerequisites“ lädt große VM-Imagedateien herunter. Ist die Geschwindigkeit niedrig, können Sie Dateien auf Ihren lokalen Dateiserver herunterladen und VM-Images manuell zu Ihrer Testumgebung hinzufügen. Weitere Informationen finden Sie unter [Behandeln langsamer Netzwerkverbindungen](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity).
+> Mit dem Cmdlet `Install-VaaSPrerequisites` werden große VM-Imagedateien heruntergeladen. Ist die Geschwindigkeit niedrig, können Sie Dateien auf Ihren lokalen Dateiserver herunterladen und VM-Images manuell zu Ihrer Testumgebung hinzufügen. Weitere Informationen finden Sie unter [Handle slow network connectivity](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity) (Behandeln langsamer Netzwerkverbindungen).
 
 **Parameter**
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --- | --- |
-| AadServiceAdminUser | Der globale Administratorbenutzer für Ihren Azure AD-Mandanten. Beispiel: vaasadmin@contoso.onmicrosoft.com |
-| AadServiceAdminPassword | Das Kennwort für den globalen Administratorbenutzer |
-| CloudAdminUserName | Der Cloudadministratorbenutzer, der auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen kann. Beispiel: AzusreStack\CloudAdmin. Weitere Informationen finden Sie [hier](azure-stack-vaas-parameters.md) . |
-| CloudAdminPassword | Das Kennwort für das Cloudadministratorkonto|
+| `AadServiceAdminUser` | Der globale Administratorbenutzer für Ihren Azure AD-Mandanten. Beispiel: vaasadmin@contoso.onmicrosoft.com. |
+| `AadServiceAdminPassword` | Das Kennwort für den globalen Administratorbenutzer |
+| `CloudAdminUserName` | Der Cloudadministratorbenutzer, der auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen kann. Beispiel: AzusreStack\CloudAdmin. Weitere Informationen finden Sie unter [Allgemeine Workflowparameter für VaaS](azure-stack-vaas-parameters.md). |
+| `CloudAdminPassword` | Das Kennwort für das Cloudadministratorkonto|
 
-![Herunterladen der erforderlichen Komponenten](media/installing-prereqs.png)
+![Herunterladen der erforderlichen Komponenten für den lokalen Agent](media/installing-prereqs.png)
 
 ## <a name="perform-sanity-checks-before-starting-the-tests"></a>Ausführen von Integritätsprüfungen vor Beginn der Tests
 
-Im Rahmen der Tests werden Remotevorgänge ausgeführt. Der Computer, auf dem die Tests ausgeführt werden, muss Zugriff auf die Azure Stack Hub-Endpunkte haben. Andernfalls funktionieren die Tests nicht. Verwenden Sie bei Verwendung des lokalen VaaS-Agents den Computer, auf dem der Agent ausgeführt wird. Sie können überprüfen, ob Ihr Computer Zugriff auf die Azure Stack Hub-Endpunkte hat. Führen Sie hierzu die folgenden Schritte aus:
+Im Rahmen der Tests werden Remotevorgänge ausgeführt. Der Computer, auf dem die Tests ausgeführt werden, muss Zugriff auf die Azure Stack Hub-Endpunkte haben. Andernfalls funktionieren die Tests nicht. Verwenden Sie bei Nutzung des lokalen VaaS-Agents den Computer, auf dem der Agent ausgeführt wird. Sie können überprüfen, ob Ihr Computer Zugriff auf die Azure Stack Hub-Endpunkte hat. Führen Sie hierzu die folgenden Schritte aus:
 
-1. Prüfen Sie, ob der Basis-URI erreicht werden kann. Öffnen Sie eine CMD-Eingabeaufforderung oder Bash-Shell, und führen Sie den folgenden Befehl aus. Ersetzen Sie dabei `<EXTERNALFQDN>` durch den externen vollqualifizierten Domänennamen Ihrer Umgebung:
+1. Prüfen Sie, ob der Basis-URI erreicht werden kann. Öffnen Sie eine CMD-Eingabeaufforderung oder Bash-Shell, und führen Sie den folgenden Befehl aus. Ersetzen Sie dabei `<EXTERNALFQDN>` durch den externen vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) Ihrer Umgebung:
 
     ```bash
     nslookup adminmanagement.<EXTERNALFQDN>
     ```
 
-2. Öffnen Sie einen Webbrowser, und navigieren Sie zu `https://adminportal.<EXTERNALFQDN>`, um zu prüfen, ob das MAS-Portal erreichbar ist.
+2. Öffnen Sie einen Browser, und navigieren Sie zu `https://adminportal.<EXTERNALFQDN>`, um zu prüfen, ob das MAS-Portal erreichbar ist.
 
 3. Melden Sie sich mit den Werten für den Azure AD-Dienstadministratornamen und das entsprechende Kennwort an, die beim Erstellen des Testdurchlaufs bereitgestellt wurden.
 
@@ -129,10 +130,10 @@ Im Rahmen der Tests werden Remotevorgänge ausgeführt. Der Computer, auf dem di
 
     | Parameter | BESCHREIBUNG |
     | --- | --- |
-    | CloudAdminUserName | Der Cloudadministratorbenutzer, der auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen kann. Beispiel: AzusreStack\CloudAdmin. Weitere Informationen finden Sie [hier](azure-stack-vaas-parameters.md) . |
-    | CloudAdminPassword | Das Kennwort für das Cloudadministratorkonto|
-    | VaaSUserId | Benutzer-ID für die Anmeldung beim VaaS-Portal (Beispiel: <Benutzername>\@Contoso.com) |
-    | VaaSTenantId | Azure AD-Mandanten-ID für das bei Validation-as-a-Service registrierte Azure-Konto |
+    | `CloudAdminUserName` | Der Cloudadministratorbenutzer, der auf zulässige Befehle innerhalb des privilegierten Endpunkts zugreifen und sie ausführen kann. Beispiel: AzusreStack\CloudAdmin. Weitere Informationen finden Sie unter [Allgemeine Workflowparameter für VaaS](azure-stack-vaas-parameters.md). |
+    | `CloudAdminPassword` | Das Kennwort für das Cloudadministratorkonto|
+    | `VaaSUserId` | Benutzer-ID zum Anmelden beim Azure Stack Hub-Validierungsportal. Beispiel: UserName\@Contoso.com). |
+    | `VaaSTenantId` | Azure AD-Mandanten-ID für das bei Validation-as-a-Service registrierte Azure-Konto |
 
     > [!Note]  
     > Beim Ausführen des Agents muss als aktuelles Arbeitsverzeichnis der Speicherort der ausführbaren Datei für den Task-Engine-Host **Microsoft.VaaSOnPrem.TaskEngineHost.exe** verwendet werden.
@@ -143,10 +144,10 @@ Werden keine Fehler angezeigt, war der lokale Agent erfolgreich. Der folgende Be
 
 ![Gestarteter Agent](media/started-agent.png)
 
-Ein Agent wird anhand seines Namens eindeutig identifiziert. Standardmäßig wird der vollqualifizierte Domänenname (Fully Qualified Domain Name, FQDN) des Computers verwendet, auf dem er gestartet wurde. Sie müssen das Fenster minimieren, um versehentliche Klicks im Fenster zu vermeiden, da durch eine Fokusänderung alle anderen Aktionen angehalten werden.
+Ein Agent wird anhand seines Namens eindeutig identifiziert. Standardmäßig wird der FQDN des Computers verwendet, auf dem er gestartet wurde. Sie müssen das Fenster minimieren, um versehentliche Klicks im Fenster zu vermeiden, da durch eine Fokusänderung alle anderen Aktionen angehalten werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Problembehandlung für Validation-as-a-Service](azure-stack-vaas-troubleshoot.md)
 - [Validation-as-a-Service – wichtige Begriffe](azure-stack-vaas-key-concepts.md)
-- [Schnellstart: Planen des ersten Tests mithilfe des Validation-as-a-Service-Portals](azure-stack-vaas-schedule-test-pass.md)
+- [Schnellstart: Planen des ersten Tests mithilfe des Azure Stack Hub-Validierungsportals](azure-stack-vaas-schedule-test-pass.md)

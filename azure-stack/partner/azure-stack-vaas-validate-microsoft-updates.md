@@ -1,6 +1,7 @@
 ---
-title: Überprüfen von Softwareupdates von Microsoft mit Validation-as-a-Service in Azure Stack Hub
-description: Hier erfahren Sie, wie Sie Softwareupdates von Microsoft mit Validation-as-a-Service überprüfen.
+title: Überprüfen der Softwareupdates von Microsoft
+titleSuffix: Azure Stack Hub
+description: Hier erfahren Sie, wie Sie Softwareupdates von Microsoft mit Validation-as-a-Service in Azure Stack Hub überprüfen.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 10/29/2019
@@ -8,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8e09160245551ee83f631360931c8e70bac4318e
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: a8e0b3ee678fc56a94a947ab6d390d9e99296977
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143906"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625355"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Überprüfen der Softwareupdates von Microsoft
 
@@ -21,13 +22,13 @@ ms.locfileid: "77143906"
 
 Microsoft veröffentlicht in regelmäßigen Abständen Updates für die Azure Stack Hub-Software. Diese Updates werden Azure Stack Hub-Entwicklungspartnern zur Verfügung gestellt. Die Updates werden vor der öffentlichen Bereitstellung zur Verfügung gestellt. Sie können die Updates mit Ihrer Lösung testen und Feedback an Microsoft senden.
 
-Microsoft-Softwareupdates für Azure Stack Hub liegt eine Namenskonvention zugrunde. „1803“ bedeutet beispielsweise, dass es sich um ein Update für März 2018 handelt. Informationen zur Richtlinie, zum Rhythmus und zu Versionshinweisen von Azure Stack Hub-Updates finden Sie unter [Azure Stack Hub-Wartungsrichtlinie](../operator/azure-stack-servicing-policy.md).
+Microsoft-Softwareupdates für Azure Stack Hub liegt eine Namenskonvention zugrunde. Der Name „1803“ bedeutet beispielsweise, dass es sich um ein Update für März 2018 handelt. Informationen zur Wartungsrichtlinie und zu Versionshinweisen von Azure Stack Hub finden Sie unter [Azure Stack Hub-Wartungsrichtlinie](../operator/azure-stack-servicing-policy.md).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Machen Sie sich zunächst mit Folgendem vertraut, bevor Sie den monatlichen Aktualisierungsprozess in VaaS ausführen:
+Machen Sie sich zunächst mit Folgendem vertraut, bevor Sie den monatlichen Aktualisierungsprozess in VaaS (Validation-as-a-Service) ausführen:
 
-- [Validation-as-a-Service – wichtige Begriffe](azure-stack-vaas-key-concepts.md)
+- [Wichtige Begriffe zu Validation-as-a-Service](azure-stack-vaas-key-concepts.md)
 
 ## <a name="required-tests"></a>Erforderliche Tests
 

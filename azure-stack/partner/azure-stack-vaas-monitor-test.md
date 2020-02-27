@@ -1,6 +1,7 @@
 ---
-title: Überwachen und Verwalten von Tests im Azure Stack Hub VaaS-Portal
-description: Überwachen und verwalten Sie Tests im Azure Stack Hub VaaS-Portal.
+title: Überwachen von Tests im Azure Stack Hub-Validierungsportal
+titleSuffix: Azure Stack Hub
+description: Hier erfahren Sie, wie Sie Tests im Azure Stack Hub-Validierungsportal verwalten.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 11/11/2019
@@ -8,24 +9,24 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 494fffff04cd092afc4a4df3fbf0be59ca894278
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 697aabcb1b52bc52083b635e67058f1b08451a38
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143784"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625430"
 ---
-# <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Überwachen und Verwalten von Tests im VaaS-Portal
+# <a name="manage-tests-in-the-azure-stack-hub-validation-portal"></a>Überwachen von Tests im Azure Stack Hub-Validierungsportal
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Nach dem Planen von Tests für Ihre Azure Stack Hub-Lösung beginnt VaaS (Validation-as-a-Service) mit dem Melden des Testausführungsstatus. Diese Informationen sind im VaaS-Portal zusammen mit Aktionen (etwa Neuplanen und Abbrechen von Tests) verfügbar.
+Nach dem Planen von Tests für Ihre Azure Stack Hub-Lösung beginnt VaaS (Validation-as-a-Service) mit dem Melden des Testausführungsstatus. Diese Informationen sind im Azure Stack Hub-Validierungsportal zusammen mit Aktionen (etwa Neuplanen und Abbrechen von Tests) verfügbar.
 
 ## <a name="navigate-to-the-workflow-tests-summary-page"></a>Navigieren zur Zusammenfassungsseite für Workflowtests
 
 1. Wählen Sie auf dem Lösungsdashboard eine vorhandene Lösung mit mindestens einem Workflow aus.
 
-    ![Workflowkacheln](media/tile_all-workflows.png)
+    ![Workflowkacheln auf dem Lösungsdashboard](media/tile_all-workflows.png)
 
 1. Wählen Sie auf der Workflowkachel die Option **Verwalten** aus. Auf der nächsten Seite sind die für die ausgewählte Lösung erstellten Workflows aufgeführt.
 
@@ -35,9 +36,9 @@ Nach dem Planen von Tests für Ihre Azure Stack Hub-Lösung beginnt VaaS (Valida
 
 Sie können für jeden Workflowtyp die bei der Workflowerstellung angegebenen [Testparameter](azure-stack-vaas-parameters.md#test-parameters) bearbeiten.
 
-1. Wählen Sie auf der Testzusammenfassungsseite die Schaltfläche **Bearbeiten** aus.
+1. Wählen Sie auf der Testzusammenfassungsseite **Bearbeiten** aus.
 
-1. Weitere Informationen finden Sie unter [Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack Hub](azure-stack-vaas-parameters.md).
+1. Geben Sie neue Werte gemäß den Informationen unter [Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack Hub](azure-stack-vaas-parameters.md) ein.
 
 1. Wählen Sie **Übermitteln** aus, um die Werte zu speichern.
 
@@ -49,13 +50,13 @@ Sie können für jeden Workflowtyp die bei der Workflowerstellung angegebenen [T
 In Workflows vom Typ **Testdurchlauf** können Sie über die Schaltflächen **Tests hinzufügen** und **Bearbeiten** neue Tests im Workflow planen.
 
 > [!TIP]
-> Wählen Sie **Tests hinzufügen**, wenn Sie nur neue Tests planen möchten, aber keine Parameter für einen Workflow vom Typ **Testdurchlauf** bearbeiten müssen.
+> Wählen Sie **Tests hinzufügen** aus, wenn Sie neue Tests planen möchten, aber keine Parameter für einen Workflow vom Typ **Testdurchlauf** bearbeiten müssen.
 
-## <a name="managing-test-instances"></a>Verwalten von Testinstanzen
+## <a name="manage-test-instances"></a>Verwalten von Testinstanzen
 
-Bei inoffiziellen Ausführungen (d. h. beim Workflow **Testdurchlauf**) werden auf der Testzusammenfassungsseite die für die Azure Stack Hub-Lösung geplanten Tests aufgeführt.
+Bei inoffiziellen Ausführungen (beim Workflow **Testdurchlauf**) werden auf der Testzusammenfassungsseite die für die Azure Stack Hub-Lösung geplanten Tests aufgeführt.
 
-Bei offiziellen Ausführungen (d. h. bei Workflows vom Typ **Validierung**) werden auf der Testzusammenfassungsseite die Tests aufgeführt, die zum Abschließen der Überprüfung der Azure Stack Hub-Lösung erforderlich sind. Auf dieser Seite werden die Validierungstests geplant.
+Bei offiziellen Ausführungen (bei Workflows vom Typ **Validierung**) werden auf der Testzusammenfassungsseite die Tests aufgeführt, die zum Abschließen der Überprüfung der Azure Stack Hub-Lösung erforderlich sind. Auf dieser Seite werden die Validierungstests geplant.
 
 In jeder geplanten Testinstanz werden die folgenden Informationen angezeigt:
 
@@ -78,7 +79,7 @@ Für jede Testinstanz werden ausführbare Aktionen aufgelistet, wenn Sie in der 
 
 #### <a name="view-information-about-the-test-definition"></a>Anzeigen von Information zur Testdefinition
 
-Wählen Sie im Kontextmenü **Information anzeigen** aus, um allgemeine Informationen zur Testdefinition anzuzeigen. Diese ist für alle Testinstanzen mit dem gleichen Namen und der gleichen Version identisch.
+Wählen Sie im Kontextmenü **Information anzeigen** aus, um allgemeine Informationen zur Testdefinition anzuzeigen. Diese Informationen sind für alle Testinstanzen mit dem gleichen Namen und der gleichen Version identisch.
 
 | Testeigenschaft | BESCHREIBUNG |
 | -- | -- |
@@ -87,7 +88,7 @@ Wählen Sie im Kontextmenü **Information anzeigen** aus, um allgemeine Informat
 | Herausgeber | Der Herausgeber des Tests |
 | Category |  Der Zweck des Tests |
 | Target services (Zieldienste) | Die Azure Stack Hub-Dienste, die getestet werden |
-| Beschreibung | Die Beschreibung des Tests |
+| BESCHREIBUNG | Die Beschreibung des Tests |
 | Estimated duration (minutes) (Geschätzte Dauer (Minuten)) | Die erwartete Ausführungsdauer des Tests |
 | Links | Alle relevanten Informationen zum Test oder zu Ansprechpartnern |
 
@@ -97,7 +98,7 @@ Wählen Sie im Kontextmenü die Option **View parameters** (Parameter anzeigen),
 
 Dieses Fenster enthält die folgenden Metadaten für alle Testinstanzen:
 
-| Testinstanzeigenschaft | Beschreibung |
+| Testinstanzeigenschaft | BESCHREIBUNG |
 | -- | -- |
 | Testname | Der Name des Tests. |
 | Testversion | Die Version des Tests |
