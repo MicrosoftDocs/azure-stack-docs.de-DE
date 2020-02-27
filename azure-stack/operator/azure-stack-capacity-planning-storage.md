@@ -1,18 +1,18 @@
 ---
 title: Planen der Azure Stack Hub-Speicherkapazität
 description: Informieren Sie sich über die Speicherkapazitätsplanung für Azure Stack Hub-Bereitstellungen.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 8aa3bbb2c3b859ff98c8dd68fe4d24036ec18a4a
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 532617955020af0038f09f59b94bb3cfedde7094
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147669"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510111"
 ---
 # <a name="azure-stack-hub-storage-capacity-planning"></a>Planen der Azure Stack Hub-Speicherkapazität
 
@@ -47,7 +47,7 @@ Die Speicherkonfiguration von „Direkte Speicherplätze“ und Azure Stack Hub 
 
 Dies sind die automatisch erstellten virtuellen Datenträger und die zugehörigen Kapazitäten:
 
-|Name|Kapazitätsberechnung|Beschreibung|
+|Name|Kapazitätsberechnung|BESCHREIBUNG|
 |-----|-----|-----|
 |Lokales/Startgerät|Mindestens 340 GB<sup>1</sup>|Einzelner Serverspeicher für Betriebssystemimages und „lokale“ Infrastruktur-VMs.|
 |Infrastruktur|3,5 TB|Gesamte Azure Stack Hub-Infrastrukturnutzung.|

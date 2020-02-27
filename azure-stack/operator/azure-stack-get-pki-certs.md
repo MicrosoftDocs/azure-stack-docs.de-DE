@@ -1,18 +1,18 @@
 ---
 title: Generieren von Zertifikatsignieranforderungen für Azure Stack Hub
 description: Es wird beschrieben, wie Sie Zertifikatsignieranforderungen für Azure Stack Hub-PKI-Zertifikate in integrierten Azure Stack Hub-Systemen generieren.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: baee1a439129f83013e191db683927cd15cb1d65
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f0620162767ea69c8c8221f13bd698f003424a58
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882246"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509941"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Generieren von Zertifikatsignieranforderungen für Azure Stack Hub
 

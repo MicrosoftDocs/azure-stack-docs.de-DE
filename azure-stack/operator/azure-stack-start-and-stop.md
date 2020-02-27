@@ -2,18 +2,18 @@
 title: Starten und Beenden
 titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie Azure Stack Hub starten und beenden.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: inhenkel
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0bda5660edd58fb3222fa6bb1fdf790013efae22
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 524c951717075b293b7829a31ac093a9061f46e8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491695"
+ms.locfileid: "77509499"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>Starten und Beenden von Azure Stack Hub
 

@@ -1,18 +1,18 @@
 ---
 title: Überwachen von Updates in Azure Stack Hub mithilfe von PowerShell
 description: Erfahren Sie, wie Sie mithilfe von PowerShell Updates in Azure Stack Hub überwachen.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 02ca66c4dcbd7d02f2129686d4c0a75d84f3ae28
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 8be3e34605d2759494a7315959285829c3ab41c6
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491372"
+ms.locfileid: "77508955"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>Überwachen von Updates in Azure Stack Hub mithilfe von PowerShell
 
@@ -20,7 +20,7 @@ Sie können die Azure Stack Hub-Verwaltungsendpunkte verwenden, um Ihre Updates 
 
 Sie können das folgende PowerShell-Cmdlet verwenden, um Ihre Updates zu verwalten:
 
-| Cmdlet | Beschreibung |
+| Cmdlet | BESCHREIBUNG |
 |------------------------------------------------------|-------------|
 | [Get-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdate?view=azurestackps-1.8.0) | Abrufen der Liste verfügbarer Updates |
 | [Get-AzsUpdateLocation](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateLocation?view=azurestackps-1.8.0)| Abrufen der Liste der Updatespeicherorte |

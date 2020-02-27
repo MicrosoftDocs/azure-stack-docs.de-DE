@@ -2,18 +2,18 @@
 title: Training und Zertifizierung
 titleSuffix: Azure Stack
 description: Erfahren Sie mehr über Schulungs- und Zertifizierungsangebote für Azure Stack Hub.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: inhenkel
 ms.lastreviewed: 11/11/2019
 ms.reviewer: efemmano
-ms.openlocfilehash: 276ff2d2f2db70684fb2dee0ebe63aaec69e92cc
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 844b7a3af0856c3d5f8500174f6a1935c60bbb01
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491406"
+ms.locfileid: "77508989"
 ---
 # <a name="azure-stack-hub-training-and-certification"></a>Azure Stack Hub-Training und -Zertifizierung
 

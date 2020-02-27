@@ -2,18 +2,18 @@
 title: Beheben allgemeiner Probleme mit PKI-Zertifikaten
 titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie mithilfe von Azure Stack Hub Readiness Checker allgemeine Probleme mit Azure Stack Hub-PKI-Zertifikaten beheben.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: 942a5f4145fbee0d7a012350d88601554b44834c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1adf2bdef69549393717fd5705858376447cd710
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881381"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509635"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Beheben allgemeiner Probleme mit Azure Stack Hub-PKI-Zertifikaten
 

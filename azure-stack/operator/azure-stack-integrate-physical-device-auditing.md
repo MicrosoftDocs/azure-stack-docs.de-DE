@@ -1,18 +1,18 @@
 ---
 title: Integrieren der Überwachung physischer Geräte in Ihr Azure Stack Hub-Rechenzentrum
 description: Hier wird beschrieben, wie Sie die Überwachung des Zugriffs auf physische Geräte in Ihr Azure Stack Hub-Rechenzentrum integrieren.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 0ebf71cc6ba794169965fb17181ae497913bf30b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 183826f30cb85db6326327599dea9dd85b4c65df
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882099"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509805"
 ---
 # <a name="integrate-physical-device-auditing-with-your-azure-stack-hub-datacenter"></a>Integrieren der Überwachung physischer Geräte in Ihr Azure Stack Hub-Rechenzentrum
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie mit dem Azure Stack Hub Readiness Checker-Tool PKI-Zertifikate für integrierte Azure Stack Hub-Systeme überprüfen.
 services: azure-stack
 documentationcenter: ''
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 4ec3732df372e0b768b3f52c082cae5db932a36c
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 40539890c6adc431ffba95358855db0e7d9f17d8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972541"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508088"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Überprüfen von Azure Stack Hub-PKI-Zertifikaten
 
@@ -93,7 +93,7 @@ Gehen Sie wie folgt vor, um die Azure Stack Hub-PKI-Zertifikate für die Bereits
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
-    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
+    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com  
     ```
 
 4. Überprüfen Sie die Ausgabe, und vergewissern Sie sich, dass alle Tests für alle Zertifikate erfolgreich waren. Beispiel:
@@ -238,7 +238,7 @@ Gehen Sie wie folgt vor, um die Azure Stack Hub-PKI-Zertifikate für die Bereits
 
 | Verzeichnis | Zertifikat |
 | ---    | ----        |
-| acsBlob | `wildcard_blob_<region>_<externalFQDN>` |
+| ACSBlob | `wildcard_blob_<region>_<externalFQDN>` |
 | ACSQueue  |  `wildcard_queue_<region>_<externalFQDN>` |
 | ACSTable  |  `wildcard_table_<region>_<externalFQDN>` |
 | Administratorerweiterungshost  |  `wildcard_adminhosting_<region>_<externalFQDN>` |

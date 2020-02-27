@@ -2,18 +2,18 @@
 title: Netzwerkdatenverkehr bei der Bereitstellung
 titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie mehr über den Flow des Netzwerkdatenverkehrs während der Azure Stack Hub-Bereitstellung
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/05/2019
-ms.openlocfilehash: dcda09494d13782b51c7cc8e3f46a314910576a9
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 958cdb4aeaa7ab2244632b99d5eebdf7eb8368a8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147690"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508054"
 ---
 # <a name="deployment-network-traffic"></a>Netzwerkdatenverkehr bei der Bereitstellung
 

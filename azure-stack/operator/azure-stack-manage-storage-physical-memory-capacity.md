@@ -1,18 +1,18 @@
 ---
 title: Verwalten der Kapazität des physischen Speichers in Azure Stack Hub
 description: Erfahren Sie, wie Sie den physischen Speicher und die Kapazität in Azure Stack Hub überwachen und verwalten können.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 87c6bcc7e82ebc7d0f5a017200cccc2e702d6aa7
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 15800fa8476640b95f08848c9ffc63ff89df6d0a
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492205"
+ms.locfileid: "77509754"
 ---
 # <a name="manage-physical-memory-capacity-in-azure-stack-hub"></a>Verwalten der Kapazität des physischen Speichers in Azure Stack Hub
 

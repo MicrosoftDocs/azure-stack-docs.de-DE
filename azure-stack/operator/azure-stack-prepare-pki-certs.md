@@ -2,18 +2,18 @@
 title: Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation
 titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie PKI-Zertifikate für die Bereitstellung integrierter Azure Stack Hub-Systeme oder für die Rotation von Geheimnissen in einer vorhandenen Azure Stack Hub-Umgebung vorbereiten.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: 3111d59a685425210bd8e63fbafcd4bb68c4a3a2
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 321ceff84ec24997866366c533eb31939acde2dd
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881589"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509720"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation
 

@@ -1,18 +1,18 @@
 ---
 title: Aktionen für Knoten einer Skalierungseinheit in Azure Stack Hub
 description: Hier erhalten Sie Informationen zu Aktionen für Knoten einer Skalierungseinheit (einschließlich „Einschalten“, „Ausschalten“, „Deaktivieren“ und „Fortsetzen“), und Sie erfahren, wie Sie den Knotenstatus in integrierten Azure Stack Hub-Systemen anzeigen.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: d633aacdc95f273a275f45b7525cfb4f75eecd2a
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 5941fb3d433512bad69c36a0620d6ec32988d44a
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491967"
+ms.locfileid: "77509737"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Aktionen für Knoten einer Skalierungseinheit in Azure Stack Hub
 
@@ -46,7 +46,7 @@ So zeigen Sie den Status einer Skalierungseinheit an
 
 ### <a name="node-operational-states"></a>Betriebszustände von Knoten
 
-| Status | BESCHREIBUNG |
+| Status | Beschreibung |
 |----------------------|-------------------------------------------------------------------|
 | Wird ausgeführt | Der Knoten ist aktiv an der Skalierungseinheit beteiligt. |
 | Beendet | Der Knoten ist nicht verfügbar. |

@@ -1,18 +1,18 @@
 ---
 title: Verbindungsmodell von in Azure Stack Hub integrierten Systemen
 description: Bestimmen von Verbindungsmodellen und andere Entscheidungen zur Bereitstellungsplanung für in Azure Stack Hub integrierte Systeme.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: 26a5821f6616390a4657a64d974862ef25c4cbe5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b3d6f1c02e7c4cb526a97034b93dbbfd92fc057f
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879413"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510145"
 ---
 # <a name="azure-stack-hub-integrated-systems-connection-models"></a>Verbindungsmodell von in Azure Stack Hub integrierten Systemen
 Wenn Sie daran interessiert sind, ein in Azure Stack Hub integriertes System zu kaufen, sollten Sie einige der [wichtigsten Aspekte bei der Rechenzentrumsintegration](azure-stack-datacenter-integration.md) hinsichtlich der Azure Stack Hub-Bereitstellung verstehen, um zu bestimmen, wie das System in Ihr Rechenzentrum passt. Darüber hinaus müssen Sie sich überlegen, wie Sie Azure Stack Hub in Ihre Hybrid Cloud-Umgebung integrieren möchten. Dieser Artikel bietet einen Überblick über diese wichtigen Entscheidungen, so z. B. zu Azure-Verbindungsmodellen, zu Identitätsspeicher- und Abrechnungsmodelloptionen.

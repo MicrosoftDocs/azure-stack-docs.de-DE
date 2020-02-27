@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub-Firewallintegration für integrierte Azure Stack Hub-Systeme
 description: Enthält Informationen zur Azure Stack Hub-Firewallintegration für integrierte Azure Stack Hub-Systeme.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 752fd1f7887b8de6e9d7808e5c887200da8d6b10
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f0074bedfbcd0e55bea84080e33e14738fccb896
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882306"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509975"
 ---
 # <a name="azure-stack-hub-firewall-integration"></a>Azure Stack Hub-Firewallintegration
 Es empfiehlt sich, Azure Stack Hub mit einem Firewallgerät zu schützen. Firewalls können bei der Verteidigung vor Dingen wie DDoS-Angriffen (Denial of Service), bei der Angriffserkennung sowie der Inhaltsuntersuchung helfen. Sie können allerdings auch zu einem Durchsatzengpass für Azure-Speicherdienste wie Blobs, Tabellen und Warteschlangen werden.

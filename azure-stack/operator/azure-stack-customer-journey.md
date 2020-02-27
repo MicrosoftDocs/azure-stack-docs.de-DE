@@ -1,24 +1,24 @@
 ---
 title: 'Azure Stack Hub-Rechenzentrumsintegration: Exemplarische Vorgehensweise'
 description: Erfahren Sie, was Sie bei einer erfolgreichen lokalen Bereitstellung von Azure Stack Hub in Ihrem Rechenzentrum erwarten können – von der Planung bis zu den Aktionen nach der Bereitstellung.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: inhenkel
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 6711483384ba9985ced7396d19e025e0ed3240c6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ba68a3045876e8dd6e23f430cd23edc429cb4e31
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882512"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510060"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Azure Stack Hub-Rechenzentrumsintegration: Exemplarische Vorgehensweise
 
 Dieser Artikel beschreibt den End-to-End-Prozess für die Azure Stack Hub-Rechenzentrumsintegration – von der Anschaffung bis zur Unterstützung nach der Bereitstellung. Die Integration ist ein gemeinschaftliches Projekt zwischen dem Kunden, einem Lösungsanbieter und Microsoft. Klicken Sie auf die folgenden Registerkarten, um die jeweiligen Schritte für jedes Projektmitglied anzuzeigen. In den nächsten Abschnitten finden Sie eine Zusammenfassung der verschiedenen Phasen für den Projektzeitplan. 
 
-# <a name="customertabcustomer"></a>[Kunde](#tab/customer)
+# <a name="customer"></a>[Kunde](#tab/customer)
 
 1. Beschreiben von Anwendungsfällen und Anforderungen
 1. Bestimmen des Abrechnungsmodells
@@ -29,7 +29,7 @@ Dieser Artikel beschreibt den End-to-End-Prozess für die Azure Stack Hub-Reche
 1. Angeben von Abonnementinformationen während der Bereitstellung
 1. Beantworten aller Fragen zu den bereitgestellten Daten
 
-# <a name="partnertabpartner"></a>[Partner](#tab/partner)
+# <a name="partner"></a>[Partner](#tab/partner)
 
 1. Empfehlen von Lösungsoptionen auf der Grundlage der Kundenanforderungen
 1. Vorschlagen einer Proof of Concept-Strategie 
@@ -48,7 +48,7 @@ Dieser Artikel beschreibt den End-to-End-Prozess für die Azure Stack Hub-Reche
 1. Bereitstellen von Azure Stack Hub
 1. Übergabe an den Kunden
 
-# <a name="microsofttabmicro"></a>[Microsoft](#tab/micro)
+# <a name="microsoft"></a>[Microsoft](#tab/micro)
 
 1. Einbinden des Partners für Presales-Support
 2. Vorbereiten von Softwarelizenzierung und Verträgen

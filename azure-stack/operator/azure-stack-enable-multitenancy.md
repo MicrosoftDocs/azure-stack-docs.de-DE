@@ -1,18 +1,18 @@
 ---
 title: Konfigurieren der Mehrinstanzenfähigkeit in Azure Stack Hub
 description: Erfahren Sie, wie Sie mehrere Azure Active Directory-Mandanten in Azure Stack Hub aktivieren und deaktivieren.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: dd91cfed0dd4f2444371de43e7da8a48b6339069
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 48573cb6dd5acf859ca2ce5a87c127dd5351f871
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890271"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509992"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Konfigurieren der Mehrinstanzenfähigkeit in Azure Stack Hub
 

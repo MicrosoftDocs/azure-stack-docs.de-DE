@@ -1,18 +1,18 @@
 ---
 title: Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum
 description: Erfahren Sie, wie Sie den Azure Stack Hub-AD FS-Identitätsanbieter in die Active Directory-Verbunddienste (AD FS) Ihres Rechenzentrums integrieren.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 1e55ae573d67775389e1e8e8ebac1b9ba094e5a7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b4f48c8fe4138b74b735615777b16630c0fe7060
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882135"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509839"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum
 
@@ -52,7 +52,7 @@ Graph unterstützt nur die Integration in eine einzelne Active Directory-Gesamts
 
 Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter erforderlich:
 
-|Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|Beschreibung|Beispiel|
+|Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|BESCHREIBUNG|Beispiel|
 |---------|---------|---------|---------|
 |`CustomADGlobalCatalog`|FQDN der AD FS-Gesamtstruktur|FQDN der Active Directory-Zielgesamtstruktur, mit der die Integration erfolgen soll|Contoso.com|
 |`CustomADAdminCredentials`| |Ein Benutzer mit LDAP-Leseberechtigung.|IHREDOMAENE\graphservice|
@@ -124,7 +124,7 @@ Der Graph-Dienst in Azure Stack Hub verwendet die folgenden Protokolle und Ports
 
 Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter erforderlich:
 
-|Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|Beschreibung|Beispiel|
+|Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|BESCHREIBUNG|Beispiel|
 |---------|---------|---------|---------|
 |CustomAdfsName|AD FS-Anbietername|Der Name der Anspruchsanbieter-Vertrauensstellung.<br>Er wird wie hier angegeben auf der AD FS-Startseite angezeigt.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|AD FS-Metadaten-URI|Verbundmetadatenlink.| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
@@ -164,7 +164,7 @@ Verwenden Sie ab Version 1807 diese Methode, wenn eine der folgenden Bedingungen
 Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter erforderlich:
 
 
-|Parameter|Beschreibung|Beispiel|
+|Parameter|BESCHREIBUNG|Beispiel|
 |---------|---------|---------|
 |CustomAdfsName|Der Name der Anspruchsanbieter-Vertrauensstellung. Er wird wie hier angegeben auf der AD FS-Startseite angezeigt.|Contoso|
 |CustomADFSFederationMetadataFileContent|Metadateninhalte.|$using:federationMetadataFileContent|

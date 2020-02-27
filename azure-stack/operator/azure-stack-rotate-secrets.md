@@ -2,19 +2,19 @@
 title: Rotieren von Geheimnissen
 titleSuffix: Azure Stack Hub
 description: Erfahren Sie, wie Sie Ihre Geheimnisse in Azure Stack Hub rotieren.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 12/13/2019
 ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 38e517aef0dcdd60e691d655004a9a807c2789d3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 22be9075f6c1d8b25c6ce241ad24ed8e10630261
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881334"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509567"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Rotieren von Geheimnissen in Azure Stack Hub
 
@@ -295,7 +295,7 @@ Start-SecretRotation [-ReRun]
 Start-SecretRotation [-ReRun] [-Internal]
 ```
 
-### <a name="description"></a>Beschreibung
+### <a name="description"></a>BESCHREIBUNG
 
 Das Cmdlet **Start-SecretRotation** rotiert die Infrastrukturgeheimnisse eines Azure Stack Hub-Systems. Standardmäßig werden nur die Zertifikate aller externen Netzwerkinfrastruktur-Endpunkte rotiert. Bei Verwendung mit dem Flag „-Internal“ werden die internen Infrastrukturgeheimnisse rotiert. Beim Rotieren externer Netzwerkinfrastruktur-Endpunkte muss **Start-SecretRotation** über einen **Invoke-Command**-Skriptblock ausgeführt werden, und die Sitzung des privilegierten Endpunkts der Azure Stack Hub-Umgebung muss als **Session**-Parameter übergeben werden.
 
