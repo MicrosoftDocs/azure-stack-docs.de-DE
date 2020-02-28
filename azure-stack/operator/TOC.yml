@@ -457,9 +457,7 @@
 - name: Verweis
   items:
     - name: Azure Stack Hub PowerShell
-      href: /powershell/azure/azure-stack/overview
-- name: Verwandte Themen
-  items:
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
     - name: Dokumentation für Azure Stack Hub-Benutzer
       href: /azure-stack/user/
     - name: ASDK-Dokumentation
