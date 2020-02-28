@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4b65ce6d03ee345b308cd5c5dd594e4dcf56cfec
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5ed6869b4c03c9e360cd12a98e206941a3842bfc
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875503"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568485"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Konfigurieren der Hybrid Cloud-Konnektivität mithilfe von Azure und Azure Stack Hub
 
@@ -37,7 +37,7 @@ Es sind einige Komponenten erforderlich, um eine Hybrid-Verbindungsbereitstellun
 
 **Azure Stack Hub**
 
-Ein Azure-OEM/-Hardwarepartner kann eine Azure Stack Hub-Produktionsumgebung bereitstellen. Ein Azure Stack Hub Development Kit (ASDK) kann von allen Benutzern bereitgestellt werden.
+Ein Azure-OEM/-Hardwarepartner kann eine Azure Stack Hub-Produktionsumgebung bereitstellen. Ein Azure Stack Development Kit (ASDK) kann von allen Benutzern bereitgestellt werden.
 
 **Azure Stack Hub-Komponenten**
 
@@ -55,7 +55,7 @@ In diesem Lösungsbeispiel wird davon ausgegangen, dass Sie bereits über Grundk
 
 ### <a name="azure-stack-hub"></a>Azure Stack Hub
 
- - Verwenden Sie Ihre Azure Stack Hub-Produktionsumgebung, oder stellen Sie das Azure Stack Hub Development Kit bereit. Es befindet sich unter https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1.
+ - Verwenden Sie Ihre Azure Stack Hub-Produktionsumgebung, oder stellen Sie das Azure Stack Development Kit bereit. Es befindet sich unter https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1.
    >[!Note]
    >Da die Bereitstellung des ASDK bis zu sieben Stunden dauern kann, sollten Sie entsprechend planen.
 

@@ -2,18 +2,18 @@
 title: Verwalten der Speicherinfrastruktur für Azure Stack Hub
 titleSuffix: Azure Stack
 description: Erfahren Sie, wie Sie die Speicherinfrastruktur für Azure Stack Hub verwalten können.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 47233e29ef5921fbf8feb7b31f9160a8f67ff71b
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 4db040483ff841801081ef4f2acf60d9a9e3d4a0
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491712"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568638"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Verwalten der Speicherinfrastruktur für Azure Stack Hub
 
@@ -68,7 +68,7 @@ In einer Bereitstellung mit mehreren Knoten sind drei Infrastrukturvolumes vorha
 
 - Die Anzahl von Volumes bleibt auch dann gleich, wenn ein Knoten fehlerhaft ist oder entfernt wurde.
 
-- Bei Verwendung des Azure Stack Hub Developer Kits ist ein einzelnes Volume mit mehreren Freigaben vorhanden.
+- Bei Verwendung des Azure Stack Development Kit ist ein einzelnes Volume mit mehreren Freigaben vorhanden.
 
 Volumes in „Direkte Speicherplätze“ bieten Resilienz zum Schutz vor Hardwareproblemen wie Laufwerk- oder Serverfehlern. Außerdem ermöglichen sie die fortlaufende Verfügbarkeit während der Serverwartung, wie etwa Software Updates. Für die Azure Stack Hub-Bereitstellung wird die Drei-Wege-Spiegelung verwendet, um für Datenresilienz zu sorgen. Drei Kopien von Mandantendaten werden auf unterschiedliche Server geschrieben, wo sie im Cache gespeichert werden:
 
@@ -118,7 +118,7 @@ Wenn sich das Volume im Integritätszustand „Warnung“ befindet, ist mindeste
 
 Wenn sich ein Volume im Integritätszustand „Fehlerhaft“ befindet, kann auf einige oder alle Daten des Volumes derzeit nicht zugegriffen werden.
 
-| Betriebszustand | Beschreibung |
+| Betriebszustand | BESCHREIBUNG |
 |---|---|
 | Keine Redundanz | Für das Volume ist es zu einem Datenverlust gekommen, weil zu viele Laufwerke ausgefallen sind.<br> <br>**Aktion:** Wenden Sie sich an den Support. Starten Sie vorher anhand der Anleitung unter https://aka.ms/azurestacklogfiles den Erfassungsprozess für Protokolldateien. |
 
@@ -126,7 +126,7 @@ Wenn sich ein Volume im Integritätszustand „Fehlerhaft“ befindet, kann auf 
 
 Das Volume kann sich auch im Integritätszustand „Unbekannt“ befinden, falls der virtuelle Datenträger getrennt wurde.
 
-| Betriebszustand | Beschreibung |
+| Betriebszustand | BESCHREIBUNG |
 |---|---|
 | Getrennt | Ein Speichergerätfehler ist aufgetreten, der dazu führt, dass das Volume nicht zugänglich ist. Unter Umständen gehen einige Daten verloren.<br> <br>**Aktion:** <br>1. Überprüfen Sie die physische Verbindung und Netzwerkverbindung aller Speichergeräte.<br>2. Wenden Sie sich an den Support, falls alle Geräte richtig verbunden sind. Starten Sie vorher anhand der Anleitung unter https://aka.ms/azurestacklogfiles den Erfassungsprozess für Protokolldateien. Sie müssen unter Umständen eine Wiederherstellung aus einer Sicherung durchführen, nachdem die fehlerhafte Verbindung wiederhergestellt wurde. |
 
@@ -146,7 +146,7 @@ In den folgenden Abschnitten werden die Integritätszustände beschrieben, in de
 
 ### <a name="drive-health-state-healthy"></a>Integritätszustand des Laufwerks: Healthy
 
-| Betriebszustand | Beschreibung |
+| Betriebszustand | BESCHREIBUNG |
 |---|---|
 | OK | Das Volume ist fehlerfrei. |
 | Aktiv | Das Laufwerk führt einige interne Housekeepingvorgänge durch. Nach Abschluss der Aktion sollte das Laufwerk in den Integritätszustand „OK“ zurückkehren. |

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 88cad7fc3f9ac4d213cd16f6e690876b1e0faa4d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7611387047d80ad7c60f4402c7399d3d0d4e8b09
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876999"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568333"
 ---
 # <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack-hub"></a>Bereitstellen einer MongoDB-Hochverfügbarkeitslösung in Azure und Azure Stack Hub
 
@@ -40,7 +40,7 @@ In dieser Lösung erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht
 
 ## <a name="prerequisites-for-mongodb-with-azure-stack-hub"></a>Voraussetzungen für MongoDB mit Azure Stack Hub
 
-  - Zwei verbundene integrierte Azure Stack Hub-Systeme (Azure Stack Hub). Diese Bereitstellung funktioniert nicht mit Azure Stack Hub Development Kits (ASDKs). Weitere Informationen zu Azure Stack finden Sie unter [Was ist Azure Stack Hub?](https://azure.microsoft.com/overview/azure-stack/).
+  - Zwei verbundene integrierte Azure Stack Hub-Systeme (Azure Stack Hub). Diese Bereitstellung funktioniert nicht mit Azure Stack Development Kits (ASDKs). Weitere Informationen zu Azure Stack finden Sie unter [Was ist Azure Stack Hub?](https://azure.microsoft.com/overview/azure-stack/).
       - Ein Mandantenabonnement für jede Azure Stack-Instanz.    
       - **Notieren Sie sich jede Abonnement-ID und den Azure Resource Manager-Endpunkt für jede Azure Stack Hub-Instanz.**
   - Ein Dienstprinzipal für Azure Active Directory (Azure AD), der über Berechtigungen für das Mandantenabonnement für jede Azure Stack Hub-Instanz verfügt. Möglicherweise müssen Sie zwei Dienstprinzipale erstellen, wenn die Azure Stack Hub-Instanzen in unterschiedlichen Azure AD-Mandanten bereitgestellt sind. Informationen zum Erstellen eines Dienstprinzipals für Azure Stack Hub finden Sie unter [Erstellen von Dienstprinzipalen, um Anwendungen Zugriff auf Azure Stack-Ressourcen zu gewähren](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).    

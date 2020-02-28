@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: a617483b849b02576f1349e3b79620c47c7a5705
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c259504e1c4b70ccc5e6be6fc9b88f5e683bc5c9
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874432"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568553"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack-hub"></a>Offlineaktualisieren von Azure App Service in Azure Stack Hub
 
 > [!IMPORTANT]
-> Wenden Sie das Update 1910 oder ein höheres Update auf Ihr integriertes Azure Stack Hub-System an, oder stellen Sie das aktuelle Azure Stack Hub Development Kit bereit, bevor Sie Azure App Service 1.8 bereitstellen.
+> Wenden Sie das Update 1910 oder ein höheres Update auf Ihr integriertes Azure Stack Hub-System an, oder stellen Sie das aktuelle Azure Stack Development Kit bereit, bevor Sie Azure App Service 1.8 bereitstellen.
 
 Mithilfe der Anweisungen in diesem Artikel können Sie den [Azure App Service-Ressourcenanbieter](azure-stack-app-service-overview.md) in einer Azure Stack Hub-Umgebung aktualisieren, für die Folgendes gilt:
 
@@ -77,7 +77,7 @@ Um App Service in einer nicht verbundenen Umgebung zu aktualisieren, müssen Sie
 
 5. Lesen und akzeptieren Sie die Drittanbieter-Lizenzbedingungen, und klicken Sie dann auf **Weiter**.
 
-6. Stellen Sie sicher, dass die Informationen zum Azure Resource Manager-Endpunkt für Azure Stack Hub und zu den Active Directory-Mandanten richtig sind. Wenn Sie während der Bereitstellung mit dem Azure Stack Hub Development Kit die Standardeinstellungen verwendet haben, können Sie hier die Standardwerte übernehmen. Wenn Sie die Optionen bei der Bereitstellung von Azure Stack Hub jedoch angepasst haben, müssen Sie die Werte in diesem Fenster bearbeiten. Wenn Sie beispielsweise das Domänensuffix *mycloud.com* verwenden, muss der Azure Resource Manager-Endpunkt für Azure Stack Hub zu *management.region.mycloud.com* geändert werden. Nachdem Sie Ihre Informationen bestätigt haben, klicken Sie auf **Weiter**.
+6. Stellen Sie sicher, dass die Informationen zum Azure Resource Manager-Endpunkt für Azure Stack Hub und zu den Active Directory-Mandanten richtig sind. Wenn Sie während der Bereitstellung mit dem Azure Stack Development Kit die Standardeinstellungen verwendet haben, können Sie hier die Standardwerte übernehmen. Wenn Sie die Optionen bei der Bereitstellung von Azure Stack Hub jedoch angepasst haben, müssen Sie die Werte in diesem Fenster bearbeiten. Wenn Sie beispielsweise das Domänensuffix *mycloud.com* verwenden, muss der Azure Resource Manager-Endpunkt für Azure Stack Hub zu *management.region.mycloud.com* geändert werden. Nachdem Sie Ihre Informationen bestätigt haben, klicken Sie auf **Weiter**.
 
     ![Azure Stack Hub-Cloudinformationen][3]
 

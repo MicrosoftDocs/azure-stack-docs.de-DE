@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d81fdf315e9bc834c46161d901d6ac10d736f7ab
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 66f6e316c83e25651dc0e0b1be95d6a8467f7f47
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875299"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568383"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>Bereitstellen einer KI-basierten Lösung zur Ermittlung der Kundenfrequenz mithilfe von Azure und Azure Stack Hub
 
@@ -36,7 +36,7 @@ In diesem Thema lernen Sie Folgendes:
 Schritte vor dem Beginnen mit diesem Bereitstellungsleitfaden:
 
 - Prüfen der [Übersicht über die Lösung zur Ermittlung der Kundenfrequenz](pattern-retail-footfall-detection.md) 
-- Verschaffen Sie sich Benutzerzugriff auf ein Azure Stack Development Kit (ASDK) oder ein Abonnement für eine Instanz eines integrierten Azure Stack Hub-Systems.
+- Verschaffen Sie sich Benutzerzugriff auf ein Azure Stack Development Kit (ASDK) oder auf eine Instanz eines integrierten Azure Stack Hub-Systems:
   - Der [Ressourcenanbieter für Azure App Service in Azure Stack Hub](../operator/azure-stack-app-service-overview.md) muss installiert sein. Sie benötigen Benutzerzugriff auf Ihre Azure Stack Hub-Instanz oder müssen für die Installation mit Ihrem Administrator zusammenarbeiten.
   - Sie benötigen ein Abonnement für ein Angebot, das ein Azure App Service- und Azure Storage-Kontingent bietet. Sie benötigen Benutzerzugriff, um ein Angebot zu erstellen.
 - Zugriff auf ein Azure-Abonnement

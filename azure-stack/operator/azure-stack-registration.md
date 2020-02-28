@@ -2,18 +2,18 @@
 title: Registrieren von Azure Stack Hub in Azure
 titleSuffix: Azure Stack Hub
 description: Erfahren Sie, wie Sie integrierte Azure Stack Hub-Systeme bei Azure registrieren, um Azure Marketplace-Elemente herunterladen und die Datenberichterstellung einrichten zu können.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 2/02/2020
+ms.date: 02/25/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 6a56c6381cc1a88729b31c5d020460100d29ca39
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 3f8570f765b87736975a15c49b1a2a5ff4bdf55d
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491916"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625321"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrieren von Azure Stack Hub in Azure
 
@@ -124,7 +124,7 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
    Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
-   | Parameter | Beschreibung |  
+   | Parameter | BESCHREIBUNG |  
    |-----|-----|
    | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für ein Azure-Abonnement für China **AzureChinaCloud**.  |
 
@@ -155,7 +155,7 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
-   | Parameter | Beschreibung |  
+   | Parameter | BESCHREIBUNG |  
    |-----|-----|
    | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für ein Azure-Abonnement für China **AzureChinaCloud**.  |
 
@@ -506,17 +506,23 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 Bei der Registrierung von Azure Stack Hub können unter Umständen Fehler wie die folgenden auftreten:
 
-- Erforderliche Hardwareinformationen für „$hostName“ konnten nicht abgerufen werden. Überprüfen Sie den physischen Host und die Konnektivität, und wiederholen Sie anschließend die Registrierung.
+- Erforderliche Hardwareinformationen für `$hostName` konnten nicht abgerufen werden. Überprüfen Sie den physischen Host und die Konnektivität, und wiederholen Sie anschließend die Registrierung.
 
-- Mit „$hostName“ konnte keine Verbindung hergestellt werden, um Hardwareinformationen abzurufen. Überprüfen Sie den physischen Host und die Konnektivität, und wiederholen Sie anschließend die Registrierung.
+- Mit `$hostName` kann keine Verbindung hergestellt werden, um Hardwareinformationen abzurufen. Überprüfen Sie den physischen Host und die Konnektivität, und wiederholen Sie anschließend die Registrierung.
 
-> Ursache: Dieses Problem tritt in der Regel auf, wenn versucht wird, Hardwaredetails wie UUID, BIOS und CPU vom Host abzurufen, um die Aktivierung durchzuführen, aber keine Verbindung mit dem physischen Host hergestellt werden kann.
+   Ursache: Dieses Problem tritt in der Regel auf, wenn versucht wird, Hardwaredetails wie UUID, BIOS und CPU vom Host abzurufen, um die Aktivierung durchzuführen, aber keine Verbindung mit dem physischen Host hergestellt werden kann.
 
-Beim Zugriff auf die Marketplace-Verwaltung tritt ein Fehler bei der Produktsyndizierung auf. 
-> Ursache: Dieses Problem tritt für gewöhnlich auf, wenn Azure Stack Hub nicht auf die Registrierungsressource zugreifen kann. Das liegt häufig daran, dass bei einer Änderung des Verzeichnismandanten eines Azure-Abonnements die Registrierung zurückgesetzt wird. Sie können nicht auf den Azure Stack Hub-Marketplace zugreifen und keine Nutzungsberichte erstellen, wenn Sie den Verzeichnismandanten des Abonnements geändert haben. Zur Behebung dieses Problems ist eine erneute Registrierung erforderlich.
+- Der Cloudbezeichner [`GUID`] ist bereits registriert. Die Wiederverwendung von Cloudbezeichnern ist nicht zulässig.
 
-Sie werden von der Marketplace-Verwaltung weiterhin zur Registrierung und Aktivierung Ihrer Azure Stack Hub-Instanz aufgefordert, obwohl Sie Ihren Stamp bereits mithilfe des nicht verbundenen Prozesses registriert haben.
-> Ursache: Hierbei handelt es sich um ein bekanntes Problem für nicht verbundene Umgebungen. Die Schritte zum Überprüfen Ihres Registrierungsstatus finden Sie [hier](azure-stack-registration.md#verify-azure-stack-hub-registration). Wenn Sie die Marketplace-Verwaltung verwenden möchten, müssen Sie das [Offlinetool](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) verwenden.
+   Ursache: Dieser Fehler tritt auf, wenn Ihre Azure Stack-Umgebung bereits registriert ist. Wenn Sie Ihre Umgebung mit einem anderen Abonnement oder Abrechnungsmodell erneut registrieren möchten, lesen Sie [diese Anweisungen](#change-the-subscription-you-use).
+
+- Beim Zugriff auf die Marketplace-Verwaltung tritt ein Fehler bei der Produktsyndizierung auf.
+
+   Ursache: Dieses Problem tritt für gewöhnlich auf, wenn Azure Stack Hub nicht auf die Registrierungsressource zugreifen kann. Das liegt häufig daran, dass bei einer Änderung des Verzeichnismandanten eines Azure-Abonnements die Registrierung zurückgesetzt wird. Sie können nicht auf den Azure Stack Hub-Marketplace zugreifen und keine Nutzungsberichte erstellen, wenn Sie den Verzeichnismandanten des Abonnements geändert haben. Zur Behebung dieses Problems ist eine erneute Registrierung erforderlich.
+
+- Sie werden von der Marketplace-Verwaltung weiterhin zur Registrierung und Aktivierung Ihrer Azure Stack Hub-Instanz aufgefordert, obwohl Sie Ihren Stamp bereits mithilfe des nicht verbundenen Prozesses registriert haben.
+
+   Ursache: Hierbei handelt es sich um ein bekanntes Problem für nicht verbundene Umgebungen. Die Schritte zum Überprüfen Ihres Registrierungsstatus finden Sie [hier](azure-stack-registration.md#verify-azure-stack-hub-registration). Verwenden Sie das [Offlinetool](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario), um die Marketplace-Verwaltung zu nutzen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

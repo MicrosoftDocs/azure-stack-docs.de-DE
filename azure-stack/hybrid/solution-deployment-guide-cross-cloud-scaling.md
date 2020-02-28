@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: dc615786a23295468e173c3ce13b46cb308b8215
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 10ad85a306b225241822cb2b8531515dc9bb1719
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875622"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568587"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Bereitstellen einer App, die mithilfe von Azure und Azure Stack Hub cloudübergreifend skaliert wird
 
@@ -39,8 +39,8 @@ In dieser Lösung erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht
 
 -   Azure-Abonnement. Erstellen Sie bei Bedarf ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), bevor Sie beginnen.
 
-- Ein integriertes Azure Stack Hub-System oder eine Bereitstellung des Azure Stack Hub Development Kit.
-    - Anleitungen zur Installation von Azure Stack Hub finden Sie unter [Installieren des Azure Stack Hub Development Kit](../asdk/asdk-install.md).
+- Ein integriertes Azure Stack Hub-System oder eine Bereitstellung des Azure Stack Development Kit.
+    - Anleitungen zur Installation von Azure Stack Hub finden Sie unter [Installieren des Azure Stack Development Kit](../asdk/asdk-install.md).
     - Ein Skript zur Automatisierung der Vorgänge nach der Bereitstellung des ASDK finden Sie hier: [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 
     - Es kann einige Stunden dauern, bis diese Installation abgeschlossen ist.
 

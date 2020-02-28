@@ -1,5 +1,6 @@
 ---
-title: Problembehandlung bei Validation-as-a-Service in Azure Stack Hub
+title: Problembehandlung für Validation-as-a-Service
+titleSuffix: Azure Stack Hub
 description: Problembehandlung für Validation-as-a-Service in Azure Stack Hub
 author: mattbriggs
 ms.topic: article
@@ -8,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1adadf1df42873d37e45a9c25a4876ee79612cf6
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 6c25ceebdf82c7fe0e32259346d3d59558fdabc7
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143627"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625372"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Problembehandlung für Validation-as-a-Service
 
@@ -25,17 +26,17 @@ Die folgenden allgemeinen Probleme treten unabhängig von Softwareversionen und 
 
 ### <a name="the-portal-shows-local-agent-in-debug-mode"></a>Das Portal zeigt den lokalen Agent im Debugmodus.
 
-Dies liegt wahrscheinlich daran, dass der Agent aufgrund einer instabilen Netzwerkverbindung keine Takte an den Dienst senden kann. Ein Takt wird alle fünf Minuten gesendet. Wenn der Dienst innerhalb von 15 Minuten keinen Takt erhält, berücksichtigt der Dienst den Agent als inaktiv, und es werden keine weiteren Tests für ihn geplant. Überprüfen Sie die Fehlermeldung in der *Agenthost.log*-Datei im Verzeichnis, in dem der Agent gestartet wurde.
+Dieses Problem tritt wahrscheinlich auf, weil der Agent aufgrund einer instabilen Netzwerkverbindung keine Heartbeats an den Dienst senden kann. Ein Takt wird alle fünf Minuten gesendet. Wenn der Dienst innerhalb von 15 Minuten keinen Heartbeat erhält, betrachtet der Dienst den Agent als inaktiv, und es werden keine weiteren Tests für ihn geplant. Überprüfen Sie die Fehlermeldung in der *Agenthost.log*-Datei im Verzeichnis, in dem der Agent gestartet wurde.
 
 > [!Note]
-> Zwar werden alle Tests, die bereits auf dem Agent ausgeführt werden, auch weiterhin ausgeführt, allerdings treten beim Aktualisieren von Teststatus oder Protokollen Fehlermeldungen auf, wenn der Takt vor Ende des Tests nicht wiederhergestellt wird. Der Test wird immer als **wird ausgeführt** angezeigt und muss abgebrochen werden.
+> Zwar werden alle Tests, die bereits auf dem Agent ausgeführt werden, auch weiterhin ausgeführt, allerdings treten beim Aktualisieren von Teststatus oder Hochladen von Protokollen Fehler auf, wenn der Heartbeat vor Ende des Tests nicht wiederhergestellt wird. Der Test wird immer als **wird ausgeführt** angezeigt und muss abgebrochen werden.
 
 ### <a name="agent-process-on-machine-was-shut-down-while-executing-test-what-to-expect"></a>Der Agent-Prozess auf dem Computer wurde während der Ausführung des Tests beendet. Was können Sie erwarten?
 
-Wenn der Agent-Prozess beispielsweise nicht ordnungsgemäß beendet wird, der Computer neu gestartet und der Prozess abgebrochen wird (STRG+C im Fenster „Agent“ als nicht ordnungsgemäßes Beenden angesehen wird), wird der darauf ausgeführte Test auch weiterhin als **wird ausgeführt** angezeigt. Wenn der Agent neu gestartet wird, aktualisiert der Agent den Status des Tests nach **abgebrochen**. Wenn der Agent nicht neu gestartet wird, wird der Test als **wird ausgeführt** angezeigt, und Sie müssen den Test manuell abbrechen.
+Wenn der Agent-Prozess nicht ordnungsgemäß heruntergefahren wird, wird der auf ihm ausgeführte Test weiterhin mit dem Status **Wird ausgeführt** angezeigt. Ein Beispiel für nicht ordnungsgemäßes Herunterfahren ist der Neustart eines Computers und das Abbrechen des Prozesses. (Das Drücken von STRG+C im Agent-Fenster gilt als ordnungsgemäßes Herunterfahren.) Wenn der Agent neu gestartet wird, aktualisiert der Agent den Status des Tests nach **abgebrochen**. Wenn der Agent nicht neu gestartet wird, wird der Test als **wird ausgeführt** angezeigt, und Sie müssen den Test manuell abbrechen.
 
 > [!Note]
-> Tests in einem Workflow werden für eine sequenzielle Ausführung geplant. **Ausstehende** Tests werden nicht ausgeführt, bis Tests im Zustand **wird ausgeführt** im gleichen Workflow abgeschlossen werden.
+> Tests in einem Workflow werden für eine sequenzielle Ausführung geplant. **Ausstehende** Tests werden erst ausgeführt, wenn Tests im Zustand **Wird ausgeführt** im gleichen Workflow abgeschlossen werden.
 
 ## <a name="vm-images"></a>VM-Images
 
@@ -47,9 +48,9 @@ Sie können das PIR-Image in eine Freigabe in Ihrem lokalen Rechenzentrum herunt
 
 #### <a name="download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>Herunterladen eines PIR-Images in die lokale Freigabe bei einem langsamen Netzwerkdatenverkehr
 
-1. Download von AzCopy von: [vaasexternaldependencies(AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip)
+1. Laden Sie AzCopy hier herunter: [vaasexternaldependencies(AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip).
 
-2. Extrahieren Sie „AzCopy.zip“, und wechseln Sie zum Verzeichnis mit „AzCopy.exe“.
+2. Extrahieren Sie „AzCopy.zip“, und wechseln Sie zum Verzeichnis mit `AzCopy.exe`.
 
 3. Öffnen Sie Windows PowerShell über eine Eingabeaufforderung mit erhöhten Rechten. Führen Sie die folgenden Befehle aus:
 
@@ -80,16 +81,16 @@ Sie können das **Get-HashFile**-Cmdlet verwenden, um den Hashwert für die heru
 | OpenLogic-CentOS-69-20180105.vhd | C8B874FE042E33B488110D9311AF1A5C7DC3B08E6796610BF18FDD6728C7913C |
 | Debian8_latest.vhd | 06F8C11531E195D0C90FC01DFF5DC396BB1DD73A54F8252291ED366CACD996C1 |
 
-### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>Fehler beim Hochladen eines VM-Images im Skript `VaaSPreReq`
+### <a name="failure-happens-when-uploading-vm-image-in-the-vaasprereq-script"></a>Fehler beim Hochladen eines VM-Images im Skript `VaaSPreReq`
 
 Überprüfen Sie zunächst, ob die Umgebung fehlerfrei ist:
 
-1. Überprüfen Sie in der DVM/Jumpbox, ob Sie sich mit den Administratoranmeldeinformationen beim Verwaltungsportal anmelden können.
+1. Überprüfen Sie in der DVM/Jumpbox, ob Sie sich mit den Administratoranmeldeinformationen beim Administratorportal anmelden können.
 1. Vergewissern Sie sich, dass keine Benachrichtigungen oder Warnungen vorhanden sind.
 
 Wenn die Umgebung fehlerfrei ist, laden Sie manuell die fünf erforderlichen VM-Images für VaaS-Testläufe hoch:
 
-1. Melden Sie sich als Dienstadministrator beim Verwaltungsportal an. Die Administratorportal-URL finden Sie im ECE-Store und in Ihrer Stempelinformationsdatei. Anweisungen hierzu finden Sie unter [Umgebungsparameter](azure-stack-vaas-parameters.md#environment-parameters).
+1. Melden Sie sich als Dienstadministrator beim Administratorportal an. Die Administratorportal-URL finden Sie im ECE-Store und in Ihrer Stempelinformationsdatei. Anweisungen hierzu finden Sie unter [Umgebungsparameter](azure-stack-vaas-parameters.md#environment-parameters).
 1. Wählen Sie **Weitere Dienste** > **Ressourcenanbieter** > **Compute** > **VM-Images** aus.
 1. Wählen Sie die Schaltfläche **+ Hinzufügen** am oberen Rand des Blatts **VM-Images** aus.
 1. Ändern oder überprüfen Sie die Werte der folgenden Felder für das erste VM-Image:

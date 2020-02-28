@@ -1,24 +1,25 @@
 ---
-title: Planen des ersten Tests mithilfe des Azure Stack Hub-Validation-as-a-Service-Portals
-description: Hier erfahren Sie mehr über das Planen des ersten Tests mithilfe des Azure Stack Hub-Validation-as-a-Service-Portals.
+title: Planen eines Tests im Azure Stack Hub-Validierungsportal
+titleSuffix: Azure Stack Hub
+description: Hier erfahren Sie, wie Sie einen Test im Azure Stack Hub-Validierungsportal planen.
 author: mattbriggs
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: f69629fea796d43e756ccf5436635d282a07b17e
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: ccaae2e6d7625687f7739cba4fa77eda3ab91520
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143724"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625457"
 ---
-# <a name="scheduling-a-test"></a>Planen eines Tests
+# <a name="schedule-a-test-in-azure-stack-validation-portal"></a>Planen eines Tests im Azure Stack-Validierungsportal
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Planen Sie einen Test im Validation-as-a-Service-Portal (VaaS) für Ihre Azure Stack Hub-Lösung. Eine VaaS-Lösung stellt eine Azure Stack Hub-Lösung mit einer bestimmten Hardwareliste dar. Sie können einen Test planen, um zu überprüfen, ob Azure Stack Hub auf Ihrer Hardware ausgeführt werden kann.
+Planen Sie einen Test im Microsoft Azure Stack-Validierungsportal für Ihre Azure Stack Hub-Lösung. Eine VaaS-Lösung (Validation-as-a-Service) stellt eine Azure Stack Hub-Lösung mit einer bestimmten Hardwareliste dar. Sie können einen Test planen, um zu überprüfen, ob Azure Stack Hub auf Ihrer Hardware ausgeführt werden kann.
 
 Um Ihre Lösung zu überprüfen, erstellen Sie den Workflow für einen Test. Ein VaaS-Workflow arbeitet im Kontext einer VaaS-Lösung. Dieser stellt eine Reihe von Testsammlungen dar, die die Funktionalität einer Azure Stack Hub-Bereitstellung auf Ihrer Hardware testen. Fügen Sie die Umgebungsparameter Ihrer Lösung hinzu, und wählen Sie Tests aus, die in Ihrer Lösung ausgeführt werden sollen.
 
@@ -26,7 +27,7 @@ Der Workflow „Testdurchlauf“ kann zum Ausführen beliebiger Tests von VaaS v
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Bevor Sie diesem Schnellstart folgen, sollten Sie folgende Elemente abgeschlossen haben:
+Führen Sie vor dieser Schnellstartanleitung die folgenden Aufgaben aus:
 
 - [Einrichten Ihrer Validation-as-a-Service-Ressourcen](azure-stack-vaas-set-up-resources.md)
 - [Bereitstellen des lokalen Agents](azure-stack-vaas-local-agent.md) (erforderlich)
@@ -39,12 +40,12 @@ Bevor Sie diesem Schnellstart folgen, sollten Sie folgende Elemente abgeschlosse
 Melden Sie sich beim Portal an, wählen Sie eine Lösung aus, oder erstellen Sie eine, und wählen Sie dann die Lösung aus.
 
 1. Melden Sie sich beim [VaaS-Portal](https://azurestackvalidation.com) an.
-2. Geben Sie den Namen einer vorhandenen Lösung ein, oder wählen Sie **Neue Lösung** aus, um eine neue Lösung zu erstellen. Anweisungen hierzu finden Sie unter [Create a solution in the VaaS portal](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal) (Erstellen einer Lösung im VaaS-Portal).
+2. Geben Sie den Namen einer vorhandenen Lösung ein, oder wählen Sie **Neue Lösung** aus, um eine neue Lösung zu erstellen. Anweisungen hierzu finden Sie unter [Create a solution in the VaaS portal](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-azure-stack-hub-validation-portal) (Erstellen einer Lösung im VaaS-Portal).
 3. Wählen Sie **Starten** auf der Kachel **Test Passes** (Testdurchläufe) aus.
 
 ## <a name="specify-parameters"></a>Angeben von Parametern
 
-![Alternativer Text](media/vaas_test_pass_parameters.png)
+![Angeben von Parametern im VaaS-Portal](media/vaas_test_pass_parameters.png)
 
 Geben Sie Parameter an, die für alle Tests innerhalb des Workflows gelten.
 
@@ -60,7 +61,7 @@ Die ausgewählten Tests werden geplant, sobald der Workflow erstellt wurde.
 
 1. Wählen Sie die Tests aus, die Sie in Ihrem Workflow ausführen möchten.
 
-    Wenn Sie die allgemeinen Parameter (d.h. die im vorherigen Abschnitt angegebenen Parameter) für einen Test außer Kraft setzen möchten, wählen Sie den Link **Bearbeiten** aus, um neue Werte anzugeben.
+    Wenn Sie die allgemeinen Parameter (d. h. die im vorherigen Abschnitt angegebenen Parameter) für einen Test außer Kraft setzen möchten, wählen Sie den Link **Bearbeiten** aus, um neue Werte anzugeben.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
 

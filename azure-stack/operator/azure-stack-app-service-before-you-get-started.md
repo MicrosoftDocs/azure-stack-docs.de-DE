@@ -7,19 +7,19 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: eb2b3431fa7c9e9aada4e4df3f43715d48d1d72e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8d995550ead87f31a9024cc9c87ba45f0800a78d
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874755"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568451"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Voraussetzungen für das Bereitstellen von App Service unter Azure Stack Hub
 
 Bevor Sie Azure App Service in Azure Stack Hub bereitstellen, müssen die erforderlichen vorbereitenden Schritte in diesem Artikel ausgeführt werden.
 
 > [!IMPORTANT]
-> Wenden Sie das Update 1910 auf Ihr integriertes Azure Stack Hub-System an, oder stellen Sie das aktuelle Azure Stack Hub Development Kit (ASDK) bereit, bevor Sie Azure App Service 1.8 bereitstellen.
+> Wenden Sie das Update 1910 auf Ihr integriertes Azure Stack Hub-System an, oder stellen Sie das aktuelle Azure Stack Development Kit (ASDK) bereit, bevor Sie Azure App Service 1.8 bereitstellen.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Herunterladen des Installationsprogramms und der Hilfsskripts
 
@@ -59,7 +59,7 @@ Wenn Sie den folgenden PowerShell-Befehl ausführen, müssen Sie den privilegier
 
 #### <a name="get-azurestackrootcertps1-script-parameters"></a>Parameter des Skripts „Get-AzureStackRootCert.ps1“
 
-| Parameter | Erforderlich oder optional | Standardwert | Beschreibung |
+| Parameter | Erforderlich oder optional | Standardwert | BESCHREIBUNG |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Erforderlich | AzS-ERCS01 | Privilegierter Endpunkt |
 | CloudAdminCredential | Erforderlich | AzureStack\CloudAdmin | Anmeldeinformationen des Domänenkontos für Azure Stack Hub-Cloudadministratoren |
@@ -84,7 +84,7 @@ Um die Zertifikate zu erstellen, gehen Sie folgendermaßen vor:
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>Parameter des Skripts „Create-AppServiceCerts.ps1“
 
-| Parameter | Erforderlich oder optional | Standardwert | Beschreibung |
+| Parameter | Erforderlich oder optional | Standardwert | BESCHREIBUNG |
 | --- | --- | --- | --- |
 | pfxPassword | Erforderlich | Null | Kennwort zum Schutz des privaten Zertifikatschlüssels |
 | DomainName | Erforderlich | local.azurestack.external | Azure Stack Hub-Region und Domänensuffix |
@@ -355,7 +355,7 @@ Führen Sie die folgenden Schritte aus, um den Dienstprinzipal in Ihrem Azure AD
     Create-AADIdentityApp.ps1
 ```
 
-| Parameter | Erforderlich oder optional | Standardwert | Beschreibung |
+| Parameter | Erforderlich oder optional | Standardwert | BESCHREIBUNG |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Erforderlich | Null | Azure AD-Mandanten-ID; Geben Sie die GUID oder Zeichenfolge an. Beispiel: myazureaaddirectory.onmicrosoft.com |
 | AdminArmEndpoint | Erforderlich | Null | Azure Resource Manager-Endpunkt des Administrators. Beispiel: adminmanagement.local.azurestack.external |
@@ -391,7 +391,7 @@ Folgen Sie diesen Schritten:
     Create-ADFSIdentityApp.ps1
 ```
 
-| Parameter | Erforderlich oder optional | Standardwert | Beschreibung |
+| Parameter | Erforderlich oder optional | Standardwert | BESCHREIBUNG |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Erforderlich | Null | Azure Resource Manager-Endpunkt des Administrators. Beispiel: adminmanagement.local.azurestack.external |
 | PrivilegedEndpoint | Erforderlich | Null | Privilegierter Endpunkt, Beispiel: AzS-ERCS01 |

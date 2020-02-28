@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e1042852535648edae61f24f1634ecbf9b6779af
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: abaa1405db1e3837c02cbc67e00cd3a593e9b98b
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877509"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568570"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Bereitstellen einer App, die lokale Daten verwendet und mithilfe von Azure und Azure Stack Hub cloudübergreifend skaliert wird
 
@@ -55,7 +55,7 @@ In diesem Tutorial wird auch davon ausgegangen, dass Sie über ein Azure-Abonnem
 
 Vergewissern Sie sich zunächst, dass die folgenden Anforderungen erfüllt sind bzw. dass Folgendes vorhanden ist:
 
-- Ein Azure Stack Hub Development Kit (ASDK) oder ein Abonnement für ein integriertes Azure Stack Hub-System. Befolgen Sie die Anleitung unter [Bereitstellen des ASDK mithilfe des Installationsprogramms](../asdk/asdk-install.md), um ein Azure Stack Hub Development Kit bereitzustellen.
+- Ein Azure Stack Development Kit (ASDK) oder ein Abonnement für ein integriertes Azure Stack Hub-System. Befolgen Sie die Anleitung unter [Bereitstellen des ASDK mithilfe des Installationsprogramms](../asdk/asdk-install.md), um ein Azure Stack Development Kit bereitzustellen.
 - Für Ihre Azure Stack Hub-Installation muss Folgendes installiert sein:
   - Azure App Service. Arbeiten Sie mit Ihrem Azure Stack Hub-Betreiber zusammen, um Azure App Service in Ihrer Umgebung bereitzustellen und zu konfigurieren. Für dieses Tutorial muss App Service mindestens über eine (1) verfügbare dedizierte Workerrolle verfügen.
   - Ein Windows Server 2016-Image.
@@ -260,7 +260,7 @@ Sie konfigurieren den App-Code so, dass die Telemetriedaten an die richtige Appl
 Für jede Instanz der Web-App wird eine andere Methode zum Herstellen der Verbindung mit der SQL-Datenbank verwendet. Für die App in Azure wird die private IP-Adresse des virtuellen SQL Server-Computers (VM) verwendet, und die App in Azure Stack Hub nutzt die öffentliche IP-Adresse der SQL Server-VM.
 
 > [!Note]  
-> Auf einem integrierten Azure Stack Hub-System sollte die öffentliche IP-Adresse nicht über das Internet geroutet werden können. In einem Azure Stack Hub Development Kit (ASDK) kann die öffentliche IP-Adresse nicht außerhalb des ASDK geroutet werden.
+> Auf einem integrierten Azure Stack Hub-System sollte die öffentliche IP-Adresse nicht über das Internet geroutet werden können. In einem Azure Stack Development Kit (ASDK) kann die öffentliche IP-Adresse nicht außerhalb des ASDK geroutet werden.
 
 Sie können die App Service-Umgebungsvariablen verwenden, um an jede Instanz der App eine andere Verbindungszeichenfolge zu übergeben.
 

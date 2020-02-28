@@ -3,20 +3,20 @@ title: Überwachen der Azure Stack Hub-Hardwareintegrität
 description: Hier erfahren Sie, wie Sie die Integrität von Azure Stack Hub-Hardwarekomponenten überwachen.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/24/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: dba47774205b4c0631f33de336e0efbfb73db9cf
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4fe942e6a4230d9807780507de8b658a6e0ed4c3
+ms.sourcegitcommit: c653efe7cd5177bf61c1a321ba7f38c0cdf90346
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882217"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77575126"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>Überwachen von Azure Stack Hub-Hardwarekomponenten
 
-Das Integritäts- und Überwachungssystem von Azure Stack Hub überwacht bereits den Status des Speichersubsystems und löst bei Bedarf Warnungen aus. Mit dem Release 1910 von Azure Stack Hub kann das Integritäts- und Überwachungssystem nun auch Warnungen für folgende Hardwarekomponenten auslösen:
+Das Integritäts- und Überwachungssystem von Azure Stack Hub überwacht den Status des Speichersubsystems und löst bei Bedarf Warnungen aus. Das Integritäts- und Überwachungssystem kann auch Warnungen für folgende Hardwarekomponenten auslösen:
 
 - Systemlüfter
 - Systemtemperatur
