@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 5e98ed511fab30e7ece3ebca282c79ef6a5bed97
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 80222728bca3aa65fd211ccc5ef5700d0a15f397
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889540"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703620"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Problembehandlung bei der Bereitstellung von Kubernetes in Azure Stack Hub
 
@@ -101,7 +101,7 @@ Sie können den Bereitstellungsstatus überprüfen, wenn Sie Ihren Kubernetes-Cl
 
 4.  Sehen Sie sich das Problembehandlungsfenster an. Jede bereitgestellte Ressource stellt die folgenden Informationen zur Verfügung.
     
-    | Eigenschaft | Beschreibung |
+    | Eigenschaft | BESCHREIBUNG |
     | ----     | ----        |
     | Resource | Der Name der Ressource. |
     | type | Der Ressourcenanbieter und der Typ der Ressource. |
@@ -136,7 +136,7 @@ Gehen Sie wie folgt vor, um die Clusterprotokolldateien zu sammeln und herunterz
 
 3. Suchen Sie nach den erforderlichen Informationen für das Skript, und führen Sie das Skript aus:
 
-    | Parameter           | Beschreibung                                                                                                      | Beispiel                                                                       |
+    | Parameter           | BESCHREIBUNG                                                                                                      | Beispiel                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d, --vmd-host      | Die öffentliche IP-Adresse oder der vollqualifizierte Domänenname (FQDN) der DVM. Der Name des virtuellen Computers beginnt mit `vmd-`. | IP: 192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
     | -h, --help  | Informationen zur Verwendung des Befehls anzeigen. | |

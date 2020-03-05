@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 301704daa5369fe290227b540d96bdc91c0c64b7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8d2f79d85055ef15f7dc0af3e1b36434f9c63d79
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881567"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698282"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>Herunterladen von Azure Stack Hub-Tools aus GitHub
 
@@ -42,7 +42,7 @@ cd AzureStack-Tools-master
 
 Das Repository **AzureStack-Tools** enthält PowerShell-Module, die die folgenden Funktionen für Azure Stack Hub unterstützen:  
 
-| Funktionalität | Beschreibung | Wer kann dieses Modul verwenden? |
+| Funktionalität | BESCHREIBUNG | Wer kann dieses Modul verwenden? |
 | --- | --- | --- |
 | [Cloudfunktionen](../user/azure-stack-validate-templates.md) | Verwenden Sie dieses Modul, um die Cloudfunktionen einer Cloud zu nutzen. Sie können beispielsweise Cloudfunktionen wie die API-Version und Azure Resource Manager-Ressourcen nutzen. Außerdem können Sie die VM-Erweiterungen für Azure Stack Hub und Azure-Clouds nutzen. | Cloudoperatoren und Benutzer |
 | [Resource Manager-Richtlinie für Azure Stack Hub](../user/azure-stack-policy-module.md) | Verwenden Sie dieses Modul zum Konfigurieren eines Azure-Abonnements oder einer Azure-Ressourcengruppe mit der gleichen Versionsverwaltung und Dienstverfügbarkeit wie Azure Stack Hub. | Cloudoperatoren und Benutzer |

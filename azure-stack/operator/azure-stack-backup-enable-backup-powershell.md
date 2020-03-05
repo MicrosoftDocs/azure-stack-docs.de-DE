@@ -7,12 +7,12 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 0a4398328df57802b19f20edbe534ba1fe40709d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2369ffbd1d3fc72c9d2df7ff87be6131f7aabcd7
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878036"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703314"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>Aktivieren der Sicherung für Azure Stack Hub mit PowerShell
 
@@ -34,7 +34,7 @@ Anweisungen zum Konfigurieren der PowerShell-Umgebung finden Sie unter [Installi
 
 Bearbeiten Sie in der gleichen PowerShell-Sitzung das folgende PowerShell-Skript durch Hinzufügen der Variablen für Ihre Umgebung. Führen Sie das aktualisierte Skript aus, um die Sicherungsfreigabe, die Anmeldeinformationen und den Verschlüsselungsschlüssel für den Infrastructure Backup-Dienst anzugeben.
 
-| Variable        | Beschreibung   |
+| Variable        | BESCHREIBUNG   |
 |---              |---                                        |
 | `$username`       | Geben Sie den **Benutzernamen** ein, und verwenden Sie dabei die Domäne und den Benutzernamen für den Speicherort des freigegebenen Laufwerks mit ausreichendem Zugriff zum Lesen und Schreiben von Dateien. Beispiel: `Contoso\backupshareuser`. |
 | `$password`       | Geben Sie das **Kennwort** für den Benutzer ein. |

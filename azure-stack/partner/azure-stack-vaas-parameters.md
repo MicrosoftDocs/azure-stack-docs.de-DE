@@ -9,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9a53f489ac1fdf92afdf8ba841b1cbb4a030680b
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: a9fce93fb66793ec933d2a8182811bd0577a2588
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625389"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704623"
 ---
-# <a name="common-workflow-parameters-in-validation-as-a-service"></a>Allgemeine Workflowparameter in Validation-as-a-Service
+# <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack Hub
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -53,7 +53,7 @@ Umgebungsparameterwerte können auch manuell in der **ECE-Konfigurationsdatei** 
 
 Allgemeine Testparameter umfassen vertrauliche Informationen, die nicht in Konfigurationsdateien gespeichert werden können. Diese Parameter müssen manuell bereitgestellt werden.
 
-Parameter    | Beschreibung
+Parameter    | BESCHREIBUNG
 -------------|-----------------
 Mandantenadministratorbenutzer                            | Azure Active Directory-Mandantenadministrator (Azure AD), der vom Dienstadministrator im AAD-Verzeichnis bereitgestellt wurde. Dieser Benutzer führt auf Mandantenebene Aktionen wie das Bereitstellen von Vorlagen zum Einrichten von Ressourcen (VMs, Speicherkonten usw.) und Ausführen von Workloads aus. Weitere Informationen zum Bereitstellen von Mandantenkonten finden Sie unter [Hinzufügen eines neuen Azure Stack Hub-Mandanten](../operator/azure-stack-add-new-user-aad.md).
 Dienstadministratorbenutzer             | Der Azure AD-Administrator des Mandanten des Azure AD-Verzeichnisses, der während der Azure Stack Hub-Bereitstellung angegeben wird. Suchen Sie in der ECE-Konfigurationsdatei nach `AADTenant`, und wählen Sie den Wert im `UniqueName`-Element aus.

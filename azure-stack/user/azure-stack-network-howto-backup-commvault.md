@@ -7,12 +7,12 @@ ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: aa4e5d10534f2ffe4c9b6cc948fcb7968213aab0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ec02ccd45773c97df71369b1e325120452ce7da1
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884643"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702464"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Sichern Ihres virtuellen Computers in Azure Stack Hub mit Commvault
 
@@ -109,7 +109,7 @@ Die Topologie dieses Ansatzes ist in der folgenden Abbildung dargestellt:
 
 Sie müssen wissen, ob Azure AD oder AD FS als Identity Manager festgelegt ist. In der folgenden Tabelle sind die Informationen aufgeführt, die Sie zum Einrichten von Commvault in Ihrer Azure Stack Hub-Instanz benötigen.
 
-| Element | Beschreibung | `Source` |
+| Element | BESCHREIBUNG | `Source` |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure Resource Manager-URL | Der Resource Manager-Endpunkt von Azure Stack Hub. | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1908#the-azure-stack-hub-resource-manager-endpoint |
 | Anwendungsname |  |  |

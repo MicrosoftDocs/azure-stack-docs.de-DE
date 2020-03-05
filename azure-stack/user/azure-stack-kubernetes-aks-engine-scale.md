@@ -7,12 +7,12 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 8956fd60436281c4bb3362b82df38f23d6278425
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cf436526a4c8cb9c549c8ee29036983ed398e97b
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883489"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703994"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Skalieren eines Kubernetes-Cluster in Azure Stack Hub
 
@@ -26,7 +26,7 @@ Der `aks-engine scale`-Befehl kann in einem `aks-engine`-Kubernetes-Cluster die 
 
 Die folgenden Parameter werden vom scale-Befehl verwendet, um Ihre Clusterdefinitionsdatei zu suchen und Ihren Cluster zu aktualisieren.
 
-| Parameter | Beispiel | Beschreibung |
+| Parameter | Beispiel | BESCHREIBUNG |
 | --- | --- | --- | 
 | azure-env | AzureStackCloud | Wenn Sie Azure Stack Hub verwenden, müssen die Umgebungsnamen auf `AzureStackCloud` festgelegt werden. | 
 | location | local | Dies ist die Region für Ihre Azure Stack Hub-Instanz. Für ein ASDK ist `local` für die Region festgelegt.  | 

@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 48df6dab5d93e4e9875dc422f90f3f823a4b2ee9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: db66156cfa1b4b5a2c97b5d17559ae2c48760ce0
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884226"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705184"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Python in Azure Stack Hub
 
@@ -47,7 +47,7 @@ Das Python SDK unterstützt die folgenden API-Profile:
 
 Um das Python Azure SDK mit Azure Stack Hub zu verwenden, müssen Sie die folgenden Werte angeben und dann Werte mit Umgebungsvariablen festlegen. Befolgen Sie die Anleitung für Ihr Betriebssystem, die nach der folgenden Tabelle angegeben ist, um die Umgebungsvariablen festzulegen.
 
-| value | Umgebungsvariablen | Beschreibung |
+| value | Umgebungsvariablen | BESCHREIBUNG |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Mandanten-ID | `AZURE_TENANT_ID` | Ihre [Mandanten-ID](../operator/azure-stack-identity-overview.md) für Azure Stack Hub. |
 | Client-ID | `AZURE_CLIENT_ID` | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde. |

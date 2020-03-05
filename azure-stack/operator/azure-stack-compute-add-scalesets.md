@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 7474b18a1d50c6ab8ed91be64f8f943a215ff7fd
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.lastreviewed: 10/22/2019
+ms.openlocfilehash: f0b23df25ef2e9fffe9c5f43ee649ecfe5f74092
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889744"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695290"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>Bereitstellen von VM-Skalierungsgruppen in Azure Stack Hub
 

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: abb5e6d50b9ec99366578fd84e2d720fb52722a3
-ms.sourcegitcommit: 4178443d84cf6d3fbaba11425beff703568c1a2c
+ms.lastreviewed: 01/05/2020
+ms.openlocfilehash: 576580732440cabd8ae1c140d13130b81b212d16
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76977902"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704402"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Einführung in Azure Stack Hub-VMs
 
@@ -84,7 +84,7 @@ Mit Erweiterungen können folgende allgemeine Aufgaben umgesetzt werden:
 
 Die Ressourcen in der folgenden Tabelle werden vom virtuellen Computer verwendet und müssen beim Erstellen des virtuellen Computers vorhanden sein oder erstellt werden:
 
-|Resource|Erforderlich|Beschreibung|
+|Resource|Erforderlich|BESCHREIBUNG|
 |---------|---------|---------|
 |Resource group|Ja|Der virtuelle Computer muss sich in einer Ressourcengruppe befinden.|
 |Speicherkonto|Nein|Bei Verwendung verwalteter Datenträger benötigt die VM das Speicherkonto nicht, um die virtuellen Festplatten zu speichern. <br>Bei Verwendung von nicht verwalteten Datenträgern benötigt der virtuelle Computer das Speicherkonto, um die virtuellen Festplatten zu speichern.|
@@ -117,7 +117,7 @@ Sie können virtuelle Computer über ein browserbasiertes Portal, über Befehlsz
 
 Die folgende Tabelle zeigt einige der Methoden, mit denen Sie Informationen zu einem virtuellen Computer abrufen können.
 
-|Methode|Beschreibung|
+|Methode|BESCHREIBUNG|
 |---------|---------|
 |Azure Stack Hub-Portal|Klicken Sie im Hub-Menü auf **Virtual Machines**, und wählen Sie dann in der Liste den gewünschten virtuellen Computer aus. Auf der Seite des virtuellen Computers finden Sie Übersichtsinformationen, Einstellungswerte und Überwachungsmetriken.|
 |Azure PowerShell|Die Verwaltung von virtuellen Computern erfolgt in Azure und Azure Stack Hub auf die gleiche Weise. Weitere Informationen zur Verwendung von PowerShell finden Sie im folgenden Azure-Thema:<br>[Erstellen und Verwalten von virtuellen Windows-Computern mit dem Azure PowerShell-Modul](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|

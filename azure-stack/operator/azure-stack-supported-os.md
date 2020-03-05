@@ -8,12 +8,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: c590aed504df1549e3c4a43ae282a304e579195a
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: a731c7c72f38fee0fb37fc8b82e55799d5b80d3b
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037198"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696939"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Für Azure Stack Hub unterstützte Gastbetriebssysteme
 
@@ -21,7 +21,7 @@ ms.locfileid: "77037198"
 
 Azure Stack Hub unterstützt die Windows-Gastbetriebssysteme aus der folgenden Tabelle:
 
-| Betriebssystem | Beschreibung | Verfügbar im Azure Stack Hub-Marketplace |
+| Betriebssystem | BESCHREIBUNG | Verfügbar im Azure Stack Hub-Marketplace |
 | --- | --- | --- |
 | Windows Server, Version 1709 | 64 Bit | Core mit Containern |
 | Windows Server 2019 | 64 Bit |  Datacenter, Datacenter Core, Datacenter mit Containern |
@@ -48,7 +48,7 @@ Die im Azure Stack Hub-Marketplace verfügbaren Linux-Distributionen enthalten d
 >
 > [cloud-init](https://cloud-init.io/) wird nur ab Azure Stack Hub 1910 unterstützt.
 
-| Distribution | Beschreibung | Herausgeber | Azure Stack Hub Marketplace |
+| Distribution | BESCHREIBUNG | Herausgeber | Azure Stack Hub Marketplace |
 | --- | --- | --- | --- |
 | 6\.9 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
 | 7\.5 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |

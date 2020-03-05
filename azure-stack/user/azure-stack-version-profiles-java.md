@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: da85abeff55d09684c561679bdc0f85e28440ed7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c0be80757eb12daac9d452f79ed7c0f5b7326120
+ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884247"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231637"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Java in Azure Stack Hub
 
@@ -40,7 +40,7 @@ Ein API-Profil ist eine Kombination aus Ressourcenanbietern und API-Versionen. V
      <dependency>
      <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
      <artifactId>azure</artifactId>
-     <version>1.0.0-beta</version>
+     <version>1.0.0-beta-1</version>
      </dependency>
      ```
 
@@ -62,7 +62,7 @@ Führen Sie diese Schritte aus, um das Java SDK zu installieren:
    <dependency>
    <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
-   <version>1.0.0-beta</version>
+   <version>1.0.0-beta-1</version>
    </dependency>
    ```
 
@@ -82,7 +82,7 @@ Führen Sie diese Schritte aus, um das Java SDK zu installieren:
 
 Zur Verwendung des Azure Java SDK mit Azure Stack Hub müssen Sie die folgenden Werte angeben und dann Werte mit Umgebungsvariablen festlegen. Befolgen Sie die Anweisungen in der Tabelle für Ihr Betriebssystem, um die Umgebungsvariablen festzulegen.
 
-| value                     | Umgebungsvariablen | Beschreibung                                                                                                                                                                                                          |
+| value                     | Umgebungsvariablen | BESCHREIBUNG                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Mandanten-ID                 | `AZURE_TENANT_ID`            | Ihre [Mandanten-ID](../operator/azure-stack-identity-overview.md) für Azure Stack Hub.                                                          |
 | Client-ID                 | `AZURE_CLIENT_ID`             | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt gespeichert wurde.                                                                                              |
@@ -295,13 +295,13 @@ Verwenden Sie die folgenden GitHub-Beispiele als Referenzen zum Erstellen von L�
 
 6. Fügen Sie in der Datei **Pom.xml** die folgende Abhängigkeit hinzu, um das Profil **2019-03-01-hybrid** für Azure Stack Hub zu verwenden. Diese Abhängigkeit installiert die Module, die diesem Profil zugeordnet sind, für die Ressourcenanbieter Compute, Networking, Storage, KeyVault und App Services:
 
-   ```xml
-   <dependency>
-   <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
-   <artifactId>azure</artifactId>
-   <vers1s.0.0-beta</version>
-   </dependency>
-   ```
+    ```xml
+    <dependency>
+      <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
+      <artifactId>azure</artifactId>
+      <version>1.0.0-beta-1</version>
+    </dependency>
+    ```
 
 7. Geben Sie an der Eingabeaufforderung, die zum Festlegen der Umgebungsvariablen geöffnet wurde, den folgenden Befehl ein:
 

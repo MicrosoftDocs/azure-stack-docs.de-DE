@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: fcbde238f47759c8c962242f96fa35975e49d360
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b90458e58054cd0f42564558fd3cb5a8226d6c5d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884630"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702260"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack-hub"></a>Unterstützte Metriken für Azure Monitor in Azure Stack Hub
 
@@ -27,7 +27,7 @@ Die folgenden Tabellen enthalten die Metriken, die über die Metrikpipeline von 
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
-| Metrik | Metrikanzeigename | Einheit | Aggregationstyp | Beschreibung | Dimensionen |
+| Metrik | Metrikanzeigename | Einheit | Aggregationstyp | BESCHREIBUNG | Dimensionen |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | UsedCapacity | Verwendete Kapazität | Byte | Average | Vom Konto verwendete Kapazität | Keine Dimensionen |
 | Transaktionen | Transaktionen | Anzahl | Gesamt | Die Anzahl von Anforderungen, die an einen Speicherdienst oder an den angegebenen API-Vorgang gerichtet wurden. Diese Anzahl umfasst erfolgreiche und fehlgeschlagene Anforderungen sowie Anforderungen, die Fehler erzeugt haben. Verwenden Sie die Dimension „ResponseType“ für die Anzahl von verschiedenen Antworttypen. | ResponseType, GeoType, ApiName |
@@ -39,7 +39,7 @@ Die folgenden Tabellen enthalten die Metriken, die über die Metrikpipeline von 
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-| Metrik | Metrikanzeigename | Einheit | Aggregationstyp | Beschreibung | Dimensionen |
+| Metrik | Metrikanzeigename | Einheit | Aggregationstyp | BESCHREIBUNG | Dimensionen |
 |--------|---------------------|------|------------------|-------------|------------|
 | BlobCapacity | Blob-Kapazität | Byte | Gesamt | Die Größe des vom Blob-Dienst des Speicherkontos genutzten Speichers in Byte. | BlobType |
 | BlobCount | Anzahl von Blobs | Anzahl | Gesamt | Die Anzahl von Blobs im Blob-Dienst des Speicherkontos. | BlobType |
@@ -53,7 +53,7 @@ Die folgenden Tabellen enthalten die Metriken, die über die Metrikpipeline von 
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
-| Metrik | Metrikanzeigename | Einheit | Aggregationstyp | Beschreibung | Dimensionen |
+| Metrik | Metrikanzeigename | Einheit | Aggregationstyp | BESCHREIBUNG | Dimensionen |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | TableCapacity | Tabellenkapazität | Byte | Average | Die Größe des vom Tabellendienst des Speicherkontos genutzten Speichers in Byte. | Keine Dimensionen |
 | TableCount | Anzahl von Tabellen | Anzahl | Average | Die Anzahl von Tabellen im Tabellenspeicherdienst des Speicherkontos. | Keine Dimensionen |
@@ -67,7 +67,7 @@ Die folgenden Tabellen enthalten die Metriken, die über die Metrikpipeline von 
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
-| Metrik | Metrikanzeigename | Einheit | Aggregationstyp | Beschreibung | Dimensionen |
+| Metrik | Metrikanzeigename | Einheit | Aggregationstyp | BESCHREIBUNG | Dimensionen |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | QueueCapacity | Warteschlangenkapazität | Byte | Average | Die Größe des vom Warteschlangendienst des Speicherkontos genutzten Speichers in Byte. | Keine Dimensionen |
 | QueueCount | Anzahl von Warteschlangen | Anzahl | Average | Die Anzahl von Warteschlangen im Warteschlangendienst des Speicherkontos. | Keine Dimensionen |

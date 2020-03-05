@@ -7,12 +7,12 @@ ms.date: 05/10/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: b4f48c8fe4138b74b735615777b16630c0fe7060
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: cf0e3f35c6aec650f07d926157c2b73cef965126
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509839"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699557"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum
 
@@ -52,7 +52,7 @@ Graph unterstützt nur die Integration in eine einzelne Active Directory-Gesamts
 
 Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter erforderlich:
 
-|Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|BESCHREIBUNG|Beispiel|
+|Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|Beschreibung|Beispiel|
 |---------|---------|---------|---------|
 |`CustomADGlobalCatalog`|FQDN der AD FS-Gesamtstruktur|FQDN der Active Directory-Zielgesamtstruktur, mit der die Integration erfolgen soll|Contoso.com|
 |`CustomADAdminCredentials`| |Ein Benutzer mit LDAP-Leseberechtigung.|IHREDOMAENE\graphservice|

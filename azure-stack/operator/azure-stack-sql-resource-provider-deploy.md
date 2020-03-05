@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
-ms.reviewer: xiaofmao
-ms.openlocfilehash: 2faeb2c714099a3b055343445dc94a57879d2cd6
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.reviewer: xiao
+ms.openlocfilehash: ff351dcef91491e6d52aa61ff25f282968c963fe
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491831"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697347"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Bereitstellen des SQL Server-Ressourcenanbieters in Azure Stack Hub
 
@@ -115,7 +115,7 @@ Führen Sie das Skript „DeploySqlProvider.ps1“ aus, das die folgenden Aufgab
 
 Sie können die folgenden Parameter in der Befehlszeile angeben. Wenn Sie keine Parameter angeben oder bei der Überprüfung eines Parameters ein Fehler auftritt, werden Sie aufgefordert, die erforderlichen Parameter anzugeben.
 
-| Parametername | Beschreibung | Kommentar oder Standardwert |
+| Parametername | BESCHREIBUNG | Kommentar oder Standardwert |
 | --- | --- | --- |
 | **CloudAdminCredential** | Die Anmeldeinformationen für den Cloudadministrator, die für den Zugriff auf den privilegierten Endpunkt erforderlich sind. | _Erforderlich_ |
 | **AzCredential** | Die Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto. Verwenden Sie die gleichen Anmeldeinformationen wie bei der Bereitstellung von Azure Stack Hub. | _Erforderlich_ |

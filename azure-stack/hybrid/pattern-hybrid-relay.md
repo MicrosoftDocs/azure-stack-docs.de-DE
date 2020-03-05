@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7315013253c04ebbb231a0915dba610e459848e7
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 945aaf9fa9d422418718c87545c238239220bc06
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890067"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688779"
 ---
 # <a name="hybrid-relay-pattern"></a>Hybridrelaymuster
 
@@ -39,7 +39,7 @@ Die Lösung funktioniert so:
 
 Diese Lösung verwendet die folgenden Komponenten:
 
-| Ebene | Komponente | Beschreibung |
+| Ebene | Komponente | BESCHREIBUNG |
 |----------|-----------|-------------|
 | Azure | Azure VM | Eine Azure-VM bietet einen öffentlich zugänglichen Endpunkt für die lokale Ressource. |
 | | Azure Service Bus Relay | Ein [Azure Service Bus-Relay](/azure/service-bus-relay/) stellt die Infrastruktur zum Verwalten des Tunnels und der Verbindung zwischen der Azure-VM und Azure Stack Hub-VM bereit.|

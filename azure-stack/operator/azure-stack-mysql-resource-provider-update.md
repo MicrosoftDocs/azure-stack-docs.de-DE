@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 7bd1e47c87d0d746f862f64284eb1c1f915c883f
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.lastreviewed: 01/11/2020
+ms.openlocfilehash: a617efab5516fb2f6bad96e36c99f1b84852237c
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492035"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698639"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Aktualisieren des MySQL-Ressourcenanbieters in Azure Stack Hub
 
@@ -38,7 +38,7 @@ Für das Skript ist die Verwendung der Argumente erforderlich, die für das Skri
 ## <a name="update-script-parameters"></a>Aktualisieren von Skriptparametern 
 Wenn Sie das PowerShell-Skript **UpdateMySQLProvider.ps1** ausführen, geben Sie die folgenden Parameter in der Befehlszeile an. Wenn Sie keine Parameter angeben oder bei der Überprüfung eines Parameters ein Fehler auftritt, werden Sie aufgefordert, die erforderlichen Parameter anzugeben.
 
-| Parametername | Beschreibung | Kommentar oder Standardwert | 
+| Parametername | BESCHREIBUNG | Kommentar oder Standardwert | 
 | --- | --- | --- | 
 | **CloudAdminCredential** | Die Anmeldeinformationen für den Cloudadministrator, die für den Zugriff auf den privilegierten Endpunkt erforderlich sind. | _Erforderlich_ | 
 | **AzCredential** | Die Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto. Verwenden Sie die gleichen Anmeldeinformationen wie bei der Bereitstellung von Azure Stack Hub. | _Erforderlich_ | 

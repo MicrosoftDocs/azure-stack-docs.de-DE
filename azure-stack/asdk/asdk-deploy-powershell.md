@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: b31792ce210cfc7fc5c2d1ee4ba1b496b2d340f6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3c9c4fca443af34422d76bd30af4efe5de685936
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873803"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695664"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>Bereitstellen des ASDK über die Befehlszeile mithilfe von PowerShell
 
@@ -131,7 +131,7 @@ Wenn DHCP für Ihre Umgebung nicht aktiviert ist, müssen Sie die folgenden zus�
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK „InstallAzureStackPOC.ps1“ – Optionale Parameter
 
-|Parameter|Erforderlich/Optional|Beschreibung|
+|Parameter|Erforderlich/Optional|BESCHREIBUNG|
 |-----|-----|-----|
 |AdminPassword|Erforderlich|Legt das lokale Administratorkonto und alle anderen Benutzerkonten auf allen VMs fest, die im Rahmen der ASDK-Bereitstellung erstellt werden. Dieses Kennwort muss mit dem Kennwort des lokalen Administrators auf dem Host übereinstimmen.|
 |InfraAzureDirectoryTenantName|Erforderlich|Legt das Mandantenverzeichnis fest. Verwenden Sie diesen Parameter, um ein bestimmtes Verzeichnis anzugeben, in dem das Azure AD-Konto über Berechtigungen zum Verwalten mehrerer Verzeichnisse verfügt. Vollständiger Name eines Azure AD-Mandanten im Format „.onmicrosoft.com“ oder ein von Azure AD überprüfter benutzerdefinierter Domänenname.|
