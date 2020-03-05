@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 1b72a2d71c2ff5e467486fa9672607cca78a38e9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/02/2019
+ms.openlocfilehash: ec4f3dc2a17e362038d11ec988d19ffa9edd6a6e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876903"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701852"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Bereitstellen von App Service in einer Hochverfügbarkeitskonfiguration
 

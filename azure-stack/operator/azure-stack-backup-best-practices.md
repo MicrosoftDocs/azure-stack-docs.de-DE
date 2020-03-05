@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 880c5dfb72d0f70cc8748f2528a3c36562bebe93
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a141beed4df6b34175f37d9e1e60e694f3ab71f2
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878053"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700509"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Bewährte Methoden für den Infrastructure Backup-Dienst
 
@@ -84,7 +84,7 @@ Für OEMs wird empfohlen, Sicherungsdaten für ihre Komponenten unter dem Ordner
 
 Die folgenden Warnungen werden vom System unterstützt:
 
-| Warnung                                                   | Beschreibung                                                                                     | Wiederherstellung                                                                                                                                |
+| Warnung                                                   | BESCHREIBUNG                                                                                     | Wiederherstellung                                                                                                                                |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Fehler bei der Sicherung, da die Kapazität der Dateifreigabe erschöpft ist. | Die Kapazität der Dateifreigabe ist erschöpft, und der Sicherungscontroller kann keine Sicherungsdateien in den Speicherort exportieren. | Fügen Sie zusätzliche Speicherkapazität hinzu, und wiederholen Sie den Sicherungsvorgang. Löschen Sie vorhandene Sicherungen (zuerst die ältesten Sicherungen), um Speicherplatz freizugeben.                    |
 | Fehler bei der Sicherung aufgrund von Verbindungsproblemen             | Im Netzwerk zwischen Azure Stack Hub und der Dateifreigabe treten Probleme auf.                          | Beheben Sie das Netzwerkproblem, und wiederholen Sie den Sicherungsvorgang.                                                                                            |

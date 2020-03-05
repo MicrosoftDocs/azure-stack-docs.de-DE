@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e1444688d529b2bce148e96dff745b0a86e37a18
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 49b2a950b523ca76143f50784efb048880d1ac93
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884510"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701937"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack-hub"></a>Schnellstart: Erstellen eines virtuellen Linux-Servers mithilfe der Azure CLI in Azure Stack Hub
 

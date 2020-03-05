@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 79fdd8a3d9b026aea21ab04ce85c095e30ee272c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: 0b277f33472c25d0dc8e6b813685029aea81a303
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874381"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701393"
 ---
 # <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 3
 

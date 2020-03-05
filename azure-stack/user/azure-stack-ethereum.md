@@ -7,12 +7,12 @@ ms.date: 06/03/2019
 ms.topic: tutorial
 ms.reviewer: seyadava
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: c981fb453389c4e088db94474dd757f7881dfc6b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a0a13af01fc539788d76377f357ca28db9b05234
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883697"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703076"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>Bereitstellen eines Ethereum-Blockchainnetzwerks in Azure Stack Hub
 
@@ -69,7 +69,7 @@ Die Konsortium-Leadervorlage konfiguriert den Speicherbedarf für das erste Memb
     
     ![Bearbeiten der Leadervorlagenparameter](./media/azure-stack-ethereum/edit-leader-parameters.png)
 
-    Parametername | Beschreibung | Zulässige Werte | Beispielwert
+    Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
     NAMEPREFIX | Zeichenfolge, die als Grundlage für die Benennung der bereitgestellten Ressourcen verwendet wird. | Alphanumerische Zeichen (1 bis 6) | eth
     AUTHTYPE | Die Methode zur Authentifizierung des virtuellen Computers | Kennwort oder öffentlicher SSH-Schlüssel | Kennwort
@@ -119,7 +119,7 @@ Navigieren Sie zum Überprüfen der Leaderbereitstellung zur Leader-Administrato
 5. Wählen Sie **Speichern** aus.
 6. Klicken Sie auf **Parameter bearbeiten**, um die Vorlagenparameter für Ihre Bereitstellung einzugeben.
 
-    Parametername | Beschreibung | Zulässige Werte | Beispielwert
+    Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
     NAMEPREFIX | Zeichenfolge, die als Grundlage für die Benennung der bereitgestellten Ressourcen verwendet wird. | Alphanumerische Zeichen (1 bis 6) | eth
     AUTHTYPE | Die Methode zur Authentifizierung des virtuellen Computers | Kennwort oder öffentlicher SSH-Schlüssel | Kennwort
@@ -176,7 +176,7 @@ Mit dieser Vorlage erstellen Sie eine Verbindung vom Leader zu einem Remotemembe
     
     ![Bearbeiten der Vorlagenparameterdatei](./media/azure-stack-ethereum/edit-connect-parameters.png)
 
-    Parametername | Beschreibung | Zulässige Werte | Beispielwert
+    Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
     MEMBERNAMEPREFIX | Namenspräfix des Leaders. Der Wert befindet sich in der Bereitstellungsausgabe des Leaders.  | Alphanumerische Zeichen (1 bis 6) | |
     MEMBERROUTETABLENAME | Name der Routentabelle des Leaders. Der Wert befindet sich in der Bereitstellungsausgabe des Leaders. |  | 
@@ -192,7 +192,7 @@ Mit dieser Vorlage erstellen Sie eine Verbindung vom Leader zu einem Remotemembe
     
     ![Verbinden der Bereitstellungsparameter](./media/azure-stack-ethereum/connect-deployment-parameters.png)
 
-    Parametername | Beschreibung | Zulässige Werte | Beispielwert
+    Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
     Subscription | Das Abonnement des Leaders. | | Verbrauchsabonnement
     Ressourcengruppe | Ressourcengruppe des Leaders. | | EthereumResources

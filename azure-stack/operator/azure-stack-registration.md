@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 3f8570f765b87736975a15c49b1a2a5ff4bdf55d
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: 6af18b519f32975643dea10d81dfa9ed1f0588c5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625321"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697874"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrieren von Azure Stack Hub in Azure
 
@@ -155,7 +155,7 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
-   | Parameter | BESCHREIBUNG |  
+   | Parameter | Beschreibung |  
    |-----|-----|
    | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für ein Azure-Abonnement für China **AzureChinaCloud**.  |
 
@@ -191,7 +191,7 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
-   | Parameter | BESCHREIBUNG |  
+   | Parameter | Beschreibung |  
    |-----|-----|
    | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für ein Azure-Abonnement für China **AzureChinaCloud**.  |
 
@@ -490,7 +490,7 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Parameter | type | BESCHREIBUNG |
+| Parameter | type | Beschreibung |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | Die Anmeldeinformationen, die für den [Zugriff auf den privilegierten Endpunkt](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) verwendet werden. Der Benutzername hat das Format **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | String |  Eine vorkonfigurierte Remote-PowerShell-Konsole, die Ihnen Funktionen wie die Protokollsammlung und andere Aufgaben nach der Bereitstellung zur Verfügung stellt. Weitere Informationen finden Sie im Artikel [Verwenden des privilegierten Endpunkts](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). |

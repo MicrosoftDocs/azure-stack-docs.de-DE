@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 10ad85a306b225241822cb2b8531515dc9bb1719
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.openlocfilehash: 9788c875e5d2f40f2ed6e644537f4d13ffa80f5a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568587"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701155"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Bereitstellen einer App, die mithilfe von Azure und Azure Stack Hub cloudübergreifend skaliert wird
 

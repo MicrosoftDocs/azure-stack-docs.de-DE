@@ -7,12 +7,12 @@ ms.date: 05/16/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: a9ebb725bed0472eaacc80e821840746966104dd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 96d1062b7b6b4c30d1d635965b51de27c0b49269
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874330"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703280"
 ---
 # <a name="recover-data-in-azure-stack-hub-with-the-infrastructure-backup-service"></a>Datenwiederherstellung in Azure Stack Hub mit dem Infrastructure Backup-Dienst
 
@@ -29,7 +29,7 @@ Stellen Sie vor der Aktivierung des Sicherungsdiensts sicher, dass die [Vorausse
 
 Der Dienst umfasst die folgenden Features:
 
-| Funktion                                            | Beschreibung                                                                                                                                                |
+| Funktion                                            | BESCHREIBUNG                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Sicherungsinfrastrukturdienste                     | Koordiniert die Sicherung für eine Teilmenge der Infrastrukturdienste in Azure Stack Hub. Im Notfall können die Daten im Rahmen einer erneuten Bereitstellung wiederhergestellt werden. |
 | Komprimierung und Verschlüsslung von exportierten Sicherungsdaten | Die Sicherungsdaten werden vom System komprimiert und verschlüsselt, bevor sie an den externen Speicherort exportiert werden, der vom Administrator angegeben wurde.                |

@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 1f5f3011c1546970a1b94773b171e6419757c461
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 72fdb2bf4d19291ff5b0a83c2233354bde4ec201
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882490"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700339"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack Hub
 
@@ -37,7 +37,7 @@ Weitere Informationen zu Azure Stack Hub und API-Profilen finden Sie unter [Verw
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter                  | Beschreibung |
+| Parameter                  | BESCHREIBUNG |
 |---                         | --- |
 | registrationSubscriptionID | Das Azure-Abonnement, das für die anfängliche Registrierung verwendet wurde. |
 | customerSubscriptionID     | Das Azure-Abonnement (nicht Azure Stack Hub), das zu dem Kunden gehört, der registriert werden soll. Muss im CSP-Angebot (Cloud Solution Provider) über Partner Center erstellt werden. Wenn ein Kunde über mehrere Mandanten verfügt, erstellen Sie für den Mandanten ein Abonnement zum Anmelden bei Azure Stack Hub. |
@@ -71,7 +71,7 @@ Rufen Sie eine Liste aller Mandanten ab, die einer Registrierung hinzugefügt wu
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter                  | Beschreibung          |
+| Parameter                  | BESCHREIBUNG          |
 |---                         | ---                  |
 | registrationSubscriptionID | Das Azure-Abonnement, das für die anfängliche Registrierung verwendet wurde.   |
 | resourceGroup              | Die Ressourcengruppe in Azure, in dem Ihre Registrierung gespeichert ist.    |
@@ -119,7 +119,7 @@ Sie können einen Mandanten entfernen, der einer Registrierung hinzugefügt wurd
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter                  | Beschreibung          |
+| Parameter                  | BESCHREIBUNG          |
 |---                         | ---                  |
 | registrationSubscriptionID | Abonnement-ID für die Registrierung.   |
 | resourceGroup              | Die Ressourcengruppe für die Registrierung.   |

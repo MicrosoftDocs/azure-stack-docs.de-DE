@@ -7,12 +7,12 @@ ms.date: 1/10/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 4e4f9eb8d9a1bf0966d75c2d4e47b94a998675f0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5b08cbf0ec316c8a5a2726800942f0d12a458db5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884463"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702090"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Schnellstart: Erstellen eines virtuellen Linux-Server mit dem Azure Stack Hub-Portal
 

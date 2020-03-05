@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e2e084c23ba6f6fce520011f5b48b21550b33ab1
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: da2e40d23954fb51c9741710cb23d96001242238
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509584"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697772"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Austauschen eines Skalierungseinheitenknotens für ein in Azure Stack Hub integriertes System
 

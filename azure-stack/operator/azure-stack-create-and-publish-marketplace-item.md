@@ -7,12 +7,12 @@ ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: fdb31f29faa5fa1890be0fa12050a1cd8b1c56a8
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: bb407a03b2a5887b75b8b5d729fa5cc2cc636755
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890118"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704453"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack Hub-Marketplace-Elements
 
@@ -214,14 +214,14 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
 ### <a name="metadata"></a>Metadaten
 
-| Name | Erforderlich | type | Einschränkungen | Beschreibung |
+| Name | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |Empfehlung: 80 Zeichen |Im Portal wird der Elementname möglicherweise nicht richtig angezeigt, wenn er länger als 80 Zeichen ist. |
 | PublisherDisplayName |X |String |Empfehlung: 30 Zeichen |Im Portal wird der Herausgebername möglicherweise nicht richtig angezeigt, wenn er länger als 30 Zeichen ist. |
 | PublisherLegalName |X |String |Maximal 256 Zeichen | |
 | Zusammenfassung |X |String |60–100 Zeichen | |
 | LongSummary |X |String |140–256 Zeichen |Noch nicht für Azure Stack Hub gültig |
-| Beschreibung |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 bis 5.000 Zeichen | |
+| BESCHREIBUNG |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 bis 5.000 Zeichen | |
 
 ### <a name="images"></a>Bilder
 
@@ -243,7 +243,7 @@ Jedes Marketplace-Element muss mit einer Kategorie gekennzeichnet werden, die di
 
 Jedes Marketplace-Element kann verschiedene Links zu zusätzlichen Inhalten enthalten. Die Links werden als Liste der Namen und URIs angegeben:
 
-| Name | Erforderlich | type | Einschränkungen | Beschreibung |
+| Name | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |Maximal 64 Zeichen. | |
 | Uri |X |URI | | |
@@ -252,7 +252,7 @@ Jedes Marketplace-Element kann verschiedene Links zu zusätzlichen Inhalten enth
 
 Zusätzlich zu den oben genannten Metadaten können Marketplace-Autoren benutzerdefinierte Schlüssel-Wert-Paare mit Daten in der folgenden Form angeben.
 
-| Name | Erforderlich | type | Einschränkungen | Beschreibung |
+| Name | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |Maximal 25 Zeichen. | |
 | value |X |String |Maximal 30 Zeichen. | |

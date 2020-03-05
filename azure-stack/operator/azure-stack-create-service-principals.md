@@ -6,12 +6,12 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e53758880f8cc6bd4b365d5d752a960d623795e6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1c96ee9520285e0bc2b9784fa5d310a1ec2ae60f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879855"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704810"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Verwenden einer App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen
 
@@ -78,7 +78,7 @@ Wenn Sie ein Zertifikat für Anmeldeinformationen eines Dienstprinzipals erstell
 
 Sobald Sie über ein Zertifikat verfügen, verwenden Sie das folgende PowerShell-Skript, um Ihre App zu registrieren und einen Dienstprinzipal zu erstellen. Den Dienstprinzipal verwenden Sie auch, um sich bei Azure anzumelden. Ersetzen Sie die folgenden Platzhalter durch Ihre eigenen Werte:
 
-| Platzhalter | Beschreibung | Beispiel |
+| Platzhalter | BESCHREIBUNG | Beispiel |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Der Name der privilegierten Endpunkt-VM in Ihrer Azure Stack Hub-Instanz. | "AzS-ERCS01" |
 | \<YourCertificateLocation\> | Der Speicherort Ihres X.509-Zertifikats im lokalen Zertifikatspeicher. | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
@@ -194,7 +194,7 @@ Aktualisieren Sie die Zertifikatanmeldeinformationen mithilfe der PowerShell, in
 
 Nun erstellen Sie eine weitere App-Registrierung, aber diesmal geben Sie Anmeldeinformationen mit einem geheimen Clientschlüssel an. Im Gegensatz zu Zertifikatanmeldeinformationen ist das Verzeichnis in der Lage, Anmeldeinformationen mit einem geheimen Clientschlüssel zu generieren. Anstatt den geheimen Clientschlüssel anzugeben, verwenden Sie die Option `-GenerateClientSecret`, um die Generierung des Schlüssels anzufordern. Ersetzen Sie die folgenden Platzhalter durch Ihre eigenen Werte:
 
-| Platzhalter | Beschreibung | Beispiel |
+| Platzhalter | BESCHREIBUNG | Beispiel |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Der Name der privilegierten Endpunkt-VM in Ihrer Azure Stack Hub-Instanz. | "AzS-ERCS01" |
 | \<YourAppName\> | Ein beschreibender Name für die neue App-Registrierung. | "Mein Verwaltungstool" |
@@ -288,7 +288,7 @@ Jetzt sehen Sie, wie Sie eine App-Registrierung mithilfe der PowerShell aus Ihre
 
 Ersetzen Sie die folgenden Platzhalter durch Ihre eigenen Werte:
 
-| Platzhalter | Beschreibung | Beispiel |
+| Platzhalter | BESCHREIBUNG | Beispiel |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Der Name der privilegierten Endpunkt-VM in Ihrer Azure Stack Hub-Instanz. | "AzS-ERCS01" |
 | \<AppIdentifier\> | Der Bezeichner, der der Anwendungsregistrierung zugewiesen ist. | "S-1-5-21-1634563105-1224503876-2692824315-2623" |

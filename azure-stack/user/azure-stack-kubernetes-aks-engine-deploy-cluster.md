@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: f7d9b735a3b4936a5bb97e60e4c84f4b35b29baa
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: b8826fc929c571e39d36139bf724861ae9cc7fbd
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492290"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702702"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub
 
@@ -68,7 +68,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
 
 7.  Legen Sie im Array `masterProfile` die folgenden Felder fest:
 
-    | Feld | BESCHREIBUNG |
+    | Feld | Beschreibung |
     | --- | --- |
     | dnsPrefix | Geben Sie eine eindeutige Zeichenfolge ein, die zur Identifizierung des Hostnamens von virtuellen Computern dienen soll. Beispielsweise einen Namen, der auf dem Namen der Ressourcengruppe basiert. |
     | count |  Geben Sie die Anzahl der Masters ein, die für die Bereitstellung vorgesehen sind. Der minimale Wert für eine Hochverfügbarkeitsbereitstellung beträgt 3, aber 1 ist für Bereitstellungen ohne Hochverfügbarkeit zulässig. |
@@ -77,7 +77,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
 
 8.  Aktualisieren Sie im Array `agentPoolProfiles`:
 
-    | Feld | Beschreibung |
+    | Feld | BESCHREIBUNG |
     | --- | --- |
     | count | Geben Sie die Anzahl der Agents ein, die für die Bereitstellung vorgesehen sind. |
     | vmSize | Geben Sie [eine Größe ein, die von Azure Stack Hub unterstützt wird](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), z. B. `Standard_D2_v2`. |
@@ -111,7 +111,7 @@ Fahren Sie mit der Bereitstellung eines Clusters fort:
 
 1.  Überprüfen Sie die verfügbaren Parameter für die AKS-Engine in Azure Stack Hub-[CLI-Flags](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags).
 
-    | Parameter | Beispiel | BESCHREIBUNG |
+    | Parameter | Beispiel | Beschreibung |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | Um der AKS-Engine mitzuteilen, dass die Zielplattform Azure Stack Hub ist, verwenden Sie `AzureStackCloud`. |
     | identity-system | adfs | Optional. Geben Sie Ihre Identitätsverwaltungslösung an, wenn Sie Active Directory-Verbunddienste (AD FS) nutzen. |

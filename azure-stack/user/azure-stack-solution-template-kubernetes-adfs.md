@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 78abed9225a2a7516db65f9163aac5d0db24ad04
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 06/18/20192
+ms.openlocfilehash: 5a1b36f7640f3259a4b18f087ebf4bad49f3c4ed
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884443"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703671"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Bereitstellen von Kubernetes in Azure Stack Hub mithilfe der Active Directory-Verbunddienste
 

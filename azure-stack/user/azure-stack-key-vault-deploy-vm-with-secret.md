@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e94ef7ef30b95319ef8974cbce41692e53cf641d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 7c68c2b5ecc5a56449e67dd0ffa403b3363cfab9
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883651"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702889"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Bereitstellen einer Azure Stack Hub-VM mithilfe eines in Key Vault gespeicherten Kennworts
 

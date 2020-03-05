@@ -7,12 +7,12 @@ ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: 27fb31a29313543c3eec2b973cdf8e8ce32940fd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a644de92672305cdae82490b6a972620ea77924c
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877322"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688744"
 ---
 # <a name="footfall-detection-pattern"></a>Muster zur Ermittlung der Kundenfrequenz
 
@@ -44,7 +44,7 @@ So funktioniert die Lösung:
 
 Diese Lösung verwendet die folgenden Komponenten:
 
-| Ebene | Komponente | Beschreibung |
+| Ebene | Komponente | BESCHREIBUNG |
 |----------|-----------|-------------|
 | Hardware im Ladengeschäft | [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) | Diese Komponente führt im Geschäft eine Filterung anhand eines lokalen ML-Modells aus, das nur Bilder von Personen zu Analysezwecken erfasst. Die Daten werden über IoT Hub sicher bereitgestellt und aktualisiert.<br><br>|
 | Azure | [Azure Event Hubs](/azure/event-hubs/) | Azure Event Hubs bietet eine skalierbare Plattform für die Erfassung anonymisierter Daten, die sich nahtlos in Azure Stream Analytics integrieren lassen. |

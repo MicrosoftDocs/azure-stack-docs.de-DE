@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: b1dd38fcb9228bf4bcc6455462e5c6adc0e49007
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d70c44b35612ffb7642a0ee79b5820dba7b66532
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883233"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701886"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>Durchführen einer Bereitstellung mit Visual Studio Code für Azure Stack Hub
 

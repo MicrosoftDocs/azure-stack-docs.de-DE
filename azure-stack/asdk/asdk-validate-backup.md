@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 2ff4ec010243b27406a2ebb3149bc123aa01947d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ee86c3200cbef75f63de0b1aa8f7ac614e1878cc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873497"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77690921"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Verwenden des ASDK zum Überprüfen der Azure Stack-Sicherung
 Nach der Bereitstellung von Azure Stack und von Benutzerressourcen (z. B. Angeboten, Plänen, Kontingenten und Abonnements) sollten Sie die [Azure Stack-Infrastruktursicherung aktivieren](../operator/azure-stack-backup-enable-backup-console.md). Das Planen und Ausführen regelmäßiger Infrastruktursicherungen stellt sicher, dass Daten für die Infrastrukturverwaltung bei einem Hardware- oder Dienstausfall nicht verloren gehen.
@@ -48,7 +48,7 @@ Vor dem Starten einer Bereitstellung für die Cloudwiederherstellung des ASDK be
 
 *Aktuelles Benutzeroberflächen-Installationsprogramm unterstützt nur Verschlüsselungsschlüssel*
 
-|Voraussetzung|Beschreibung|
+|Voraussetzung|BESCHREIBUNG|
 |-----|-----|
 |Freigabepfad der Sicherung|Der UNC-Dateifreigabepfad der neuesten Azure Stack-Sicherung, die zum Wiederherstellen von Informationen zur Azure Stack-Infrastruktur verwendet werden. Diese lokale Freigabe wird während des Bereitstellungsprozesses für Cloudwiederherstellungen erstellt.|
 |Sicherungs-ID für die Wiederherstellung|Die Sicherungs-ID im alphanumerischen Format „xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx“, die die Sicherung bezeichnet, für die eine Cloudwiederherstellung durchgeführt werden soll.|
@@ -61,7 +61,7 @@ Vor dem Starten einer Bereitstellung für die Cloudwiederherstellung des ASDK be
 
 *Das aktuelle PowerShell-Installationsprogramm unterstützt Verschlüsselungsschlüssel oder Entschlüsselungszertifikate*
 
-|Voraussetzung|Beschreibung|
+|Voraussetzung|BESCHREIBUNG|
 |-----|-----|
 |Freigabepfad der Sicherung|Der UNC-Dateifreigabepfad der neuesten Azure Stack-Sicherung, die zum Wiederherstellen von Informationen zur Azure Stack-Infrastruktur verwendet werden. Diese lokale Freigabe wird während des Bereitstellungsprozesses für Cloudwiederherstellungen erstellt.|
 |Sicherungs-ID für die Wiederherstellung|Die Sicherungs-ID im alphanumerischen Format „xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx“, die die Sicherung bezeichnet, für die eine Cloudwiederherstellung durchgeführt werden soll.|

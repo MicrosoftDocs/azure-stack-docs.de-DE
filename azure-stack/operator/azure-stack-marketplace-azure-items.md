@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 01/21/2020
-ms.openlocfilehash: 64618cb3f1840db5472023902c58fc3fa771e6a5
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.lastreviewed: 01/21/2019
+ms.openlocfilehash: 875aafa4602e9db34bfe98eb80a658c36b3d0041
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890390"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700543"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Für Azure Stack Hub verfügbare Azure Marketplace-Elemente
 
@@ -20,7 +20,7 @@ ms.locfileid: "76890390"
 
 Wann immer Updates der von Ihnen verwendeten Erweiterungen für virtuelle Computer (VMs) verfügbar sind, sollten Sie diese herunterladen. Erweiterungen, die im Lieferumfang des Produkts enthalten sind, werden im normalen Patch- und Updateprozess nicht aktualisiert. Überprüfen Sie daher regelmäßig, ob neue Updates vorhanden sind. Andere Erweiterungen sind nur über die Marketplace-Verwaltung verfügbar.
 
-|  | Name des Elements | Beschreibung | Herausgeber | Betriebssystemtyp |
+|  | Name des Elements | BESCHREIBUNG | Herausgeber | Betriebssystemtyp |
 | --- | --- | --- | --- | --- |
 |![SQL-IaaS-Erweiterung (SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [SQL-IaaS-Erweiterung (SqlIaasExtension)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Laden Sie diese Erweiterung herunter, um eine SQL Server-Instanz auf einem Windows Marketplace-Element bereitzustellen. Diese Erweiterung ist erforderlich.** | Microsoft | Windows |
 |![Benutzerdefinierte Skripterweiterung](media/azure-stack-marketplace-azure-items/cse.png) | [Benutzerdefinierte Skripterweiterung](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **Laden Sie dieses Update für die integrierte Version der benutzerdefinierten Skripterweiterung für Windows herunter.** | Microsoft | Windows |
@@ -41,7 +41,7 @@ Wann immer Updates der von Ihnen verwendeten Erweiterungen für virtuelle Comput
 
 Microsoft Azure Stack Hub unterstützt die folgenden VMs und Lösungsvorlagen von Azure Marketplace. Laden Sie wie erwähnt alle Abhängigkeiten separat herunter. Apps wie SQL Server und Machine Learning Server erfordern eine ordnungsgemäße Lizenzierung, außer wenn sie als „Kostenlos“ oder als „Testversion“ gekennzeichnet sind.
 
-|  | Name des Elements | Beschreibung | Herausgeber |
+|  | Name des Elements | BESCHREIBUNG | Herausgeber |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) | Lösungen der Extraklasse für Unternehmen, die einfach zu implementieren, wirtschaftlich sowie App- und benutzerorientiert sind. Diese Images werden regelmäßig mit den neuesten Patches aktualisiert. **Wichtige Information: Images, die vor dem 18. Januar 2018 heruntergeladen wurden, müssen gelöscht und durch die neuesten Versionen ersetzt werden.** | Microsoft |
 | ![Testversion von SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Testversion von SharePoint Server 2013](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Testversion von Microsoft SharePoint Server 2013 unter Windows Server 2012 Datacenter und Visual Studio 2019 Community Edition | Microsoft |
@@ -89,7 +89,7 @@ Microsoft Azure Stack Hub unterstützt die folgenden VMs und Lösungsvorlagen vo
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>BYOL, Images als kostenlose und Testversion sowie Lösungsvorlagen von Drittanbietern
 
-|  | Name des Elements | Beschreibung | Herausgeber |
+|  | Name des Elements | BESCHREIBUNG | Herausgeber |
 | --- | --- | --- | --- |
 | ![A10 vThunder-ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder-ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | Der ADC (Application Delivery Controller, Controller zur Anwendungsbereitstellung) vThunder von A10 Networks für Microsoft Azure ist speziell auf Hochleistung, Flexibilität, einfache App-Bereitstellung und Serverlastenausgleich ausgelegt und für eine native Ausführung in der Azure-Cloud optimiert. | A10 Networks |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS Router ist ein mit zahlreichen Funktionen ausgestatteter virtueller Router für Multicloud- und Multihypervisorfunktionalität, der es Unternehmen und Cloudanbietern ermöglicht, konsistente, hochgradig sichere und skalierbare Hybridnetzwerke zu erstellen. | Arista Networks |

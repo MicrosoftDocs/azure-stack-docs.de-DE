@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
-ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 5c91ddd19ad384cc2a029dfac21d482470d37bc8
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.lastreviewed: 09/12/2019
+ms.openlocfilehash: 76b1469da122e707bd2748929ce3d5013c6c7f9f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77510043"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700220"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Überlegungen zur Planung der Rechenzentrumsintegration für in Azure Stack Hub integrierte Systeme
 
@@ -76,7 +76,7 @@ Sie müssen entsprechende Überlegungen zur Planung Ihres Azure Stack Hub-Namesp
 
 In der folgenden Tabelle sind diese Entscheidungen zur Domänenbenennung zusammengefasst.
 
-| Name | BESCHREIBUNG | 
+| Name | Beschreibung | 
 | -------- | ------------- | 
 |Regionsname | Der Name Ihrer ersten Azure Stack Hub-Region. Dieser Name wird als FQDN-Komponente für die öffentlichen virtuellen IP-Adressen (VIPs) verwendet, die von Azure Stack Hub verwaltet werden. Der Regionsname gibt in der Regel eine physische Standort-ID an, z. B. den Standort des Rechenzentrums.<br><br>Die Regionsname darf nur aus Buchstaben und Ziffern zwischen 0 und 9 bestehen. Es sind keine Sonderzeichen (z. B. `-`, `#` usw.) zulässig.| 
 | Externer Domänenname | Der Name der DNS-Zone (Domain Name System) für Endpunkte mit externen VIPs. Wird im FQDN für diese öffentlichen VIPs verwendet. | 

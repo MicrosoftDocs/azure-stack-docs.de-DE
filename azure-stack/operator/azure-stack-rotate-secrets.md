@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 22be9075f6c1d8b25c6ce241ad24ed8e10630261
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 9eaa0ecdf3b8d544e916f5f94e106bc76dbe0e55
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509567"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697721"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Rotieren von Geheimnissen in Azure Stack Hub
 
@@ -301,7 +301,7 @@ Das Cmdlet **Start-SecretRotation** rotiert die Infrastrukturgeheimnisse eines A
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | type | Erforderlich | Position | Standard | Beschreibung |
+| Parameter | type | Erforderlich | Position | Standard | BESCHREIBUNG |
 | -- | -- | -- | -- | -- | -- |
 | `PfxFilesPath` | String  | False  | benannt  | Keine  | Der Dateifreigabepfad des Verzeichnisses **\Certificates** mit allen externen Netzwerkendpunkt-Zertifikaten. Nur beim Rotieren externer Geheimnisse erforderlich. Das Endverzeichnis muss **\Certificates** sein. |
 | `CertificatePassword` | SecureString | False  | benannt  | Keine  | Das Kennwort für alle Zertifikate in „-PfXFilesPath“. Erforderlich, wenn „PfxFilesPath“ beim Rotieren externer Geheimnisse angegeben wird. |
@@ -379,7 +379,7 @@ Der Baseboard-Verwaltungscontroller (Baseboard Management Controller, BMC) über
 
    **Ab Version 1910:** Es ist nicht mehr erforderlich, zuerst die BMC-Anmeldeinformationen für die physischen Azure Stack Hub-Server gemäß den OEM-Anweisungen zu aktualisieren. Benutzername und Kennwort für jeden BMC in Ihrer Umgebung müssen identisch sein. BMC-Benutzernamen dürfen nicht länger als 16 Zeichen sein.
 
-    | Parameter | Beschreibung | State |
+    | Parameter | BESCHREIBUNG | State |
     | --- | --- | --- |
     | BypassBMCUpdate | Wenn Sie diesen Parameter verwenden, werden die Anmeldeinformationen im BMC nicht aktualisiert. Nur der interne Azure Stack Hub-Datenspeicher wird aktualisiert. | Optional |
 

@@ -7,12 +7,12 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 19056b0ad37511e75d462c201190c8e2f3a606e0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1b3854ab04792ade8ca0b66cc63f1fdc2c0e60e9
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883372"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703892"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Einrichten eines VPN-Gateways für Azure Stack Hub per FortiGate NVA
 

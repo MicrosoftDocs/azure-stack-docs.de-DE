@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 8222d102b22b05a3d5d1fd1a7530aeae62cc276d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 505d00c6255ef7b8b919f1af0229bd207bbe032f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884921"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704181"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Bereitstellen einer C#-Web-App (ASP.NET) auf einem virtuellen Computer in Azure Stack Hub
 
@@ -53,7 +53,7 @@ In diesem Artikel wird eine C# 6.0-App mit ASP.NET Core 2.2 auf einem Windows�
 
     e. Fügen Sie eine Eingangssicherheitsregel für die folgenden Ports hinzu:
 
-    | Port | Protocol | Beschreibung |
+    | Port | Protocol | BESCHREIBUNG |
     | --- | --- | --- |
     | 80 | HTTP | Das Hypertext Transfer-Protokoll (HTTP) wird zum Bereitstellen von Webseiten über Server verwendet. Clients stellen eine Verbindung per HTTP über einen DNS-Namen oder eine IP-Adresse her. |
     | 443 | HTTPS | Das Hypertext Transfer-Protokoll Secure (HTTPS) ist eine sichere Version von HTTP, für die ein Sicherheitszertifikat benötigt wird und die die verschlüsselte Übertragung von Informationen ermöglicht.  |

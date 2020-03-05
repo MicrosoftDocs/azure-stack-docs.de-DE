@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a95102bcdc57bcad7116803768830f317ea48c4c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4df466a3b1b1e89be704302153e9e835f504445e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877293"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688864"
 ---
 # <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>Muster zum Trainieren eines Machine Learning-Modells (ML) im Edge-Bereich
 
@@ -43,7 +43,7 @@ Die Lösung funktioniert so:
 
 Diese Lösung verwendet die folgenden Komponenten:
 
-| Ebene | Komponente | Beschreibung |
+| Ebene | Komponente | BESCHREIBUNG |
 |----------|-----------|-------------|
 | Azure | Azure Machine Learning | [Azure Machine Learning](/azure/machine-learning/) orchestriert das Training des ML-Modells. |
 | | Azure Container Registry | Azure ML packt das Modell in einen Container und speichert es für die Bereitstellung in einer [Azure Container Registry](/azure/container-registry/)-Instanz.|

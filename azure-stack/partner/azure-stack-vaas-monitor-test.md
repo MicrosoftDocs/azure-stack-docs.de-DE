@@ -9,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 697aabcb1b52bc52083b635e67058f1b08451a38
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: b01cea3fb30b2b707ac778a7878c03861b68c3ba
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625430"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704657"
 ---
-# <a name="manage-tests-in-the-azure-stack-hub-validation-portal"></a>Überwachen von Tests im Azure Stack Hub-Validierungsportal
+# <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Überwachen und Verwalten von Tests im VaaS-Portal
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -88,7 +88,7 @@ Wählen Sie im Kontextmenü **Information anzeigen** aus, um allgemeine Informat
 | Herausgeber | Der Herausgeber des Tests |
 | Category |  Der Zweck des Tests |
 | Target services (Zieldienste) | Die Azure Stack Hub-Dienste, die getestet werden |
-| BESCHREIBUNG | Die Beschreibung des Tests |
+| Beschreibung | Die Beschreibung des Tests |
 | Estimated duration (minutes) (Geschätzte Dauer (Minuten)) | Die erwartete Ausführungsdauer des Tests |
 | Links | Alle relevanten Informationen zum Test oder zu Ansprechpartnern |
 

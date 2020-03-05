@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: d138fe5c4203cc28cedfb44964d7b99d9fc72931
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 8aa33cda9a657d3e0bcec9525f86bd792c855e65
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876591"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688762"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Hinzufügen zusätzlicher Knoten einer Skalierungseinheit in Azure Stack Hub
 
@@ -96,7 +96,7 @@ Der Status für Skalierungseinheit und Skalierungseinheitknoten kann mit PowerSh
 ### <a name="status-for-the-add-node-operation"></a>Status für den Vorgang zum Hinzufügen eines Knoten 
 **Für eine Skalierungseinheit:**
 
-|Status               |Beschreibung  |
+|Status               |BESCHREIBUNG  |
 |---------------------|---------|
 |Wird ausgeführt              |Alle Knoten sind aktiv an der Skalierungseinheit beteiligt.|
 |Beendet              |Der Skalierungseinheitknoten ist entweder ausgefallen oder nicht erreichbar.|
@@ -107,7 +107,7 @@ Der Status für Skalierungseinheit und Skalierungseinheitknoten kann mit PowerSh
 
 **Für einen Skalierungseinheitknoten:**
 
-|Status                |Beschreibung  |
+|Status                |BESCHREIBUNG  |
 |----------------------|---------|
 |Wird ausgeführt               |Der Knoten ist aktiv an der Skalierungseinheit beteiligt.|
 |Beendet               |Der Knoten ist nicht verfügbar.|

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 51224171848b6109a7cd3d8eb2d5fa1fdcb70973
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f492eba4cd2fae28162eb47b990737a8f5b21c53
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875775"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77689527"
 ---
 # <a name="cross-cloud-scaling-on-premises-data-pattern"></a>Muster für die cloudübergreifende Skalierung (lokale Daten)
 
@@ -34,7 +34,7 @@ Der Leitfaden für die Bereitstellung von Lösungen ermöglicht Ihnen das Bereit
 
 Diese Lösung verwendet die folgenden Komponenten:
 
-| Ebene | Komponente | Beschreibung |
+| Ebene | Komponente | BESCHREIBUNG |
 |----------|-----------|-------------|
 | Azure | Azure App Service | Mit [Azure App Service](/azure/app-service/) können Sie Web-Apps, Rest-API-Apps und Azure Functions erstellen und hosten. Und dies in der Programmiersprache Ihrer Wahl, ohne Infrastruktur verwalten zu müssen. |
 | | Virtuelles Azure-Netzwerk| [Azure Virtual Network (VNET)](/azure/virtual-network/virtual-networks-overview) ist der grundlegende Baustein für private Netzwerke in Azure. Mit VNET können zahlreiche Arten von Azure-Ressourcen, beispielsweise virtuelle Computer (VMs) sicher untereinander sowie mit dem Internet und lokalen Netzwerken kommunizieren. Die Lösung veranschaulicht außerdem die Nutzung weiterer Netzwerkkomponenten:<br>Anwendungs- und Gatewaysubnetze<br>Lokales Netzwerkgateway<br>Gateway für virtuelle Netzwerke, das als Site-to-Site-VPN-Gatewayverbindung fungiert<br>Öffentliche IP-Adresse<br>Point-to-Site-VPN-Verbindung<br>Azure DNS zum Hosten von DNS-Domänen und Bereitstellen der Namensauflösung |

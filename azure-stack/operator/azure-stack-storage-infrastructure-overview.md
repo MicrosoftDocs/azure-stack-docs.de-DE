@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
-ms.reviewer: jiahan
-ms.openlocfilehash: 4db040483ff841801081ef4f2acf60d9a9e3d4a0
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.reviewer: jiaha
+ms.openlocfilehash: 6bfdca8487a5725417f88b5fcf0fb1acce26635a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568638"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697092"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Verwalten der Speicherinfrastruktur für Azure Stack Hub
 
@@ -155,7 +155,7 @@ In den folgenden Abschnitten werden die Integritätszustände beschrieben, in de
 
 Ein Laufwerk im Zustand „Warnung“ kann Daten erfolgreich lesen und schreiben, aber es liegt ein Problem vor.
 
-| Betriebszustand | BESCHREIBUNG |
+| Betriebszustand | Beschreibung |
 |---|---|
 | Verbindung unterbrochen | Die Konnektivität für das Laufwerk ist verloren gegangen.<br> <br>**Aktion:** Versetzen Sie alle Server wieder in den Onlinezustand. Schließen Sie das Laufwerk wieder an, falls das Problem hierdurch nicht behoben wurde. Tauschen Sie das Laufwerk aus, falls dieser Zustand weiterhin besteht, um die vollständige Resilienz sicherzustellen. |
 | Vorhersehbarer Fehler | Es ist vorhersehbar, dass für das Laufwerk in Kürze ein Fehler auftritt.<br> <br>**Aktion:** Tauschen Sie das Laufwerk so bald wie möglich aus, um die vollständige Resilienz sicherzustellen. |
@@ -171,7 +171,7 @@ Ein Laufwerk im Zustand „Warnung“ kann Daten erfolgreich lesen und schreiben
 
 Auf ein Laufwerk im Zustand „Fehlerhaft“ kann derzeit nicht geschrieben werden, und der Zugriff darauf ist nicht möglich.
 
-| Betriebszustand | BESCHREIBUNG |
+| Betriebszustand | Beschreibung |
 |---|---|
 | Split | Das Laufwerk wurde vom Pool getrennt.<br> <br>**Aktion:** Ersetzen Sie das Laufwerk durch einen neuen Datenträger. Wenn Sie diesen Datenträger verwenden müssen, sollten Sie ihn aus dem System entfernen und sicherstellen, dass sich darauf keine benötigten Daten befinden, den Inhalt des Datenträgers löschen und ihn anschließend wieder einsetzen. |
 | Nicht verwendbar | Der physikalische Datenträger wurde unter Quarantäne gestellt, da er von Ihrem Lösungsanbieter nicht unterstützt wird. Es werden nur Datenträger unterstützt, die für die Lösung genehmigt wurden und über die richtige Datenträgerfirmware verfügen.<br> <br>**Aktion:** Ersetzen Sie das Laufwerk durch einen Datenträger, der für die Lösung über einen genehmigten Hersteller und eine Modellnummer verfügt. |
@@ -186,7 +186,7 @@ Auf ein Laufwerk im Zustand „Fehlerhaft“ kann derzeit nicht geschrieben werd
 
 Einige Laufwerke sind noch nicht dafür bereit, in einen Azure Stack Hub-Speicherpool aufgenommen zu werden. Sie können ermitteln, warum ein Laufwerk nicht für die Aufnahme in den Pool geeignet ist, indem Sie sich die `CannotPoolReason`-Eigenschaft des Laufwerks ansehen. Die folgende Tabelle enthält einige weitere Informationen zu den einzelnen Gründen.
 
-| `Reason` | Beschreibung |
+| `Reason` | BESCHREIBUNG |
 |---|---|
 | Hardware nicht kompatibel | Das Laufwerk ist nicht in der Liste mit den genehmigten Speichermodellen enthalten, die über den Integritätsdienst angegeben wird.<br> <br>**Aktion:** Ersetzen Sie das Laufwerk durch einen neuen Datenträger. |
 | Firmware nicht kompatibel | Die Firmware auf dem physischen Laufwerk ist nicht in der Liste mit den genehmigten Firmwarerevisionen enthalten, die über den Integritätsdienst erstellt wird.<br> <br>**Aktion:** Ersetzen Sie das Laufwerk durch einen neuen Datenträger. |

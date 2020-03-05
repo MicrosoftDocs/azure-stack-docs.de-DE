@@ -7,12 +7,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 66fb60c8fbb19bf125ff143393308b9f755119b6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2f0af3bd550b31e70f7c1e722ab79149c57c1a2f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873548"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700645"
 ---
 # <a name="register-the-asdk-with-azure"></a>Registrieren des ASDK bei Azure
 
