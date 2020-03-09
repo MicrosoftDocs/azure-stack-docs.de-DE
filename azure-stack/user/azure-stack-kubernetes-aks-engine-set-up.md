@@ -3,16 +3,16 @@ title: Einrichten der Voraussetzungen für die AKS-Engine in Azure Stack Hub
 description: Richten Sie die Anforderungen für die Ausführung der ASK-Engine in Ihrer Azure Stack Hub-Instanz ein.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/10/2020
+ms.date: 2/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 340b0e9b2b6f4ece2629968128b872282e88c2c0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 2/27/2020
+ms.openlocfilehash: 1f307a554eca0b9b1bc2af9d8e64a8ec585da078
+ms.sourcegitcommit: bbc4023c9a673c146de4a9e242311d429f7781eb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884747"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77782812"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Einrichten der Voraussetzungen für die AKS-Engine in Azure Stack Hub
 
@@ -28,8 +28,9 @@ Zur Verwendung der AKS-Engine benötigen Sie die folgenden Ressourcen. Beachten 
 
 Der Cloudbetreiber muss über die folgenden Elemente verfügen.
 
-| Voraussetzung | Beschreibung | Erforderlich | Instructions |
+| Voraussetzung | BESCHREIBUNG | Erforderlich | Instructions |
 | --- | --- | --- | --- | --- |
+| Azure Stack Hub 1910 oder höher | Die AKS-Engine erfordert Azure Stack Hub 1910 oder höher. | Erforderlich | Wenn Sie nicht sicher sind, welche Version von Azure Stack Hub verwendet wird, wenden Sie sich an Ihren Cloudbetreiber. |
 | Benutzerdefinierte Linux-Skripterweiterung | Benutzerdefinierte Linux-Skripterweiterung 2.0<br>Angebot: Custom Script for Linux 2.0<br>Version: 2.0.6 (oder neueste Version)<br>Herausgeber: Microsoft Corp. | Erforderlich | Wenn Sie in Ihrem Abonnement nicht über dieses Element verfügen, wenden Sie sich an Ihren Cloudbetreiber. |
 | AKS-Basis-Ubuntu-Image | AKS-Basisimage<br>Angebot: aks<br> 2019.10.24 (oder neuere Version)<br>Herausgeber: microsoft-aks<br>SKU: aks-ubuntu-1604-201910 | Erforderlich | Wenn Sie in Ihrem Abonnement nicht über dieses Element verfügen, wenden Sie sich an Ihren Cloudbetreiber. Weitere Informationen zur Versionsabhängigkeit finden Sie unter [Abstimmen der Engine auf die Basisimageversion](#matching-engine-to-base-image-version).<br> Wenn Sie der Cloudbetreiber für Azure Stack Hub sind und die AKS-Engine anbieten möchten, befolgen Sie die Anweisungen unter [Hinzufügen der AKS-Engine zum Azure Stack Hub-Marketplace](../operator/azure-stack-aks-engine.md). |
 | Dienstprinzipalidentität (SPN) |  Eine Anwendung, Ressourcen über Azure Resource Manager bereitstellen oder konfigurieren muss, muss von einem Dienstprinzipal dargestellt werden. | Erforderlich | Möglicherweise müssen Sie sich für dieses Element an den Azure Stack Hub-Operator wenden.  Anweisungen finden Sie unter [Verwenden einer App-Identität für den Ressourcenzugriff](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals). |
@@ -37,7 +38,7 @@ Der Cloudbetreiber muss über die folgenden Elemente verfügen.
 
 Sie können die folgenden Elemente festlegen.
 
-| Voraussetzung | Beschreibung | Erforderlich | Instructions |
+| Voraussetzung | BESCHREIBUNG | Erforderlich | Instructions |
 | --- | --- | --- | --- |
 | Azure Stack Hub-Abonnement | Sie greifen über Abonnements auf Angebote in Ihrer Azure Stack Hub-Instanz zu. Das Angebot enthält die Dienste, die Ihnen zur Verfügung stehen. | Erforderlich | Zum Bereitstellen von Mandantenworkloads in Azure Stack Hub müssen Sie zuerst ein [Azure Stack Hub-Abonnement](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services) erhalten. |
 | Resource group | Eine Ressourcengruppe ist ein Container, der verwandte Ressourcen für eine Azure-Lösung enthält. Wenn Sie keine vorhandene Ressourcengruppe angeben, erstellt das Tool eine für Sie. | Optional | [Verwalten von Azure Resource Manager-Gruppen mithilfe des Azure-Portals](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal) |
