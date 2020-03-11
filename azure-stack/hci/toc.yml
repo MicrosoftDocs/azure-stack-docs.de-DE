@@ -8,6 +8,20 @@
   items:
     - name: Erstellen von Volumes
       href: manage/create-volumes.md
+    - name: Erweitern von Volumes
+      href: manage/extend-volumes.md
+    - name: Löschen von Volumes
+      href: manage/delete-volumes.md
+    - name: Ersetzen von Laufwerken
+      href: manage/replace-drives.md
+- name: Konzepte
+  items:
+    - name: Grundlegendes zum Cache
+      href: concepts/cache.md
+    - name: Fehlertoleranz und Speichereffizienz
+      href: concepts/fault-tolerance.md
+    - name: Quorum für Cluster und Speicherpool
+      href: concepts/quorum.md
 - name: Verweis
   items:
     - name: Hyper-V-PowerShell-Befehle
