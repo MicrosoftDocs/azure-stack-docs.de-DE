@@ -7,12 +7,12 @@ ms.date: 01/21/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: 875aafa4602e9db34bfe98eb80a658c36b3d0041
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 00bd12eedab3afd24a29279998b03fb963d634e2
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700543"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368225"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Für Azure Stack Hub verfügbare Azure Marketplace-Elemente
 
@@ -45,7 +45,7 @@ Microsoft Azure Stack Hub unterstützt die folgenden VMs und Lösungsvorlagen vo
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) | Lösungen der Extraklasse für Unternehmen, die einfach zu implementieren, wirtschaftlich sowie App- und benutzerorientiert sind. Diese Images werden regelmäßig mit den neuesten Patches aktualisiert. **Wichtige Information: Images, die vor dem 18. Januar 2018 heruntergeladen wurden, müssen gelöscht und durch die neuesten Versionen ersetzt werden.** | Microsoft |
 | ![Testversion von SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Testversion von SharePoint Server 2013](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Testversion von Microsoft SharePoint Server 2013 unter Windows Server 2012 Datacenter und Visual Studio 2019 Community Edition | Microsoft |
-| ![Testversion von SharePoint Server 2016](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Testversion von SharePoint Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Testversion von Microsoft SharePoint Server 2016 unter Windows Server 2016 Datacenter | Microsoft |
+| ![Testversion von SharePoint Server 2016](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Testversion von SharePoint Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Testversion von Microsoft SharePoint Server 2016 unter Windows Server 2016 Datacenter | Microsoft |
 | ![SQL Server 2014 SP3 unter Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP3 unter Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp3-ws2012r2) | SQL Server 2014 Service Pack 2. **Erforderlicher Download:** SQL-IaaS-Erweiterung. | Microsoft |
 | ![Kostenlose Lizenz: SQL Server 2016 SP1 Developer unter Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Kostenlose Lizenz: SQL Server 2016 SP1 Developer unter Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp1-ws2016) | Kostenlose Developer-Version von SQL Server 2016 SP1 für Workloads vom Typ Transaktion, Data Warehousing, Business Intelligence und Analytics. **Erforderlicher Download:** SQL-IaaS-Erweiterung. | Microsoft |
 | ![Kostenlose Lizenz: SQL Server 2016 SP1 Express unter Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Kostenlose Lizenz: SQL Server 2016 SP1 Express unter Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp1-ws2016) | Kostenlose Express-Version von SQL Server 2016 SP1. **Erforderlicher Download:** SQL-IaaS-Erweiterung. | Microsoft |
@@ -71,7 +71,7 @@ Microsoft Azure Stack Hub unterstützt die folgenden VMs und Lösungsvorlagen vo
 
 ## <a name="linux-distributions"></a>Linux-Distributionen
 
-|  | Name des Elements | Beschreibung | Herausgeber |
+|  | Name des Elements | BESCHREIBUNG | Herausgeber |
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Eine für Intel-Architektur optimierte Linux-Referenzdistribution. | Clear Linux-Projekt |
 | ![CoreOS Linux (stabil)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (stabil)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | CoreOS ist eine moderne und minimale Linux-Distribution, die eine einfache Möglichkeit zum Ausführen von Containern, Verwalten von Clustern und nahtlosen Aktualisieren Ihrer Server bietet – alle Komponenten, die eine Computelösung auf Warehouse-Ebene ermöglichen. | CoreOS |
@@ -246,7 +246,7 @@ Microsoft Azure Stack Hub unterstützt die folgenden VMs und Lösungsvorlagen vo
 | ![NetFoundry-Gateway für Multipoint, Zero Trust Azure Stack Hub-Verbindungen](media/azure-stack-marketplace-azure-items/netfoundry.png) | [NetFoundry-Gateway für Multipoint, Zero Trust Azure Stack Hub-Verbindungen](https://azuremarketplace.microsoft.com/marketplace/apps/netfoundryinc.centos) | Ausschließlich softwarebasierte Multipoint-Konnektivität zwischen Azure Stack Hub und beliebigen Zielen, über jede Netzwerkverbindung, mit branchenführender Zero Trust-Sicherheit, dem 5-fachen Durchsatz des VPN und einer unbegrenzten Anzahl gleichzeitiger Benutzer. | NetFoundry |
 | ![VM-Series-Firewall der nächsten Generation von Palo Alto](media/azure-stack-marketplace-azure-items/paloalto.png) | [VM-Series-Firewall der nächsten Generation von Palo Alto](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | Die VM-Series-Firewall der nächsten Generation ermöglicht Kunden das sichere Migrieren ihrer Apps und Daten zu Azure Stack Hub. Sie werden dabei mit Richtlinien für App-Whitelists und Bedrohungsschutz vor bekannten und unbekannten Bedrohungen geschützt. **Für die Bereitstellung dieses Images ist eine Vorlage erforderlich. In diesem [Artikel](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) finden Sie wichtige Informationen.**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall erkennt bekannte und unbekannte Sicherheitsrisiken und verhindert Angriffe auf Web-Apps. **Laden Sie beide Marketplace-Elemente für PT herunter.** | Positive Technologien |
-| ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Mit Puppet Enterprise können Sie den gesamten Lebenszyklus der Azure Stack Hub-Infrastruktur automatisieren. **Laden Sie beide Marketplace-Elemente für Puppet herunter.** | Puppet |
+| ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-201818) | Mit Puppet Enterprise können Sie den gesamten Lebenszyklus der Azure Stack Hub-Infrastruktur automatisieren. **Laden Sie beide Marketplace-Elemente für Puppet herunter.** | Puppet |
 | ![Quest Rapid Recovery](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Rapid Recovery Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Der fortschrittliche Datenschutz von Rapid Recovery vereinheitlicht Sicherung, Replikation und Wiederherstellung in einer benutzerfreundlichen Softwarelösung. | Quest-Software |
 | ![SIOS DataKeeper Cluster Edition](media/azure-stack-marketplace-azure-items/sioslogo.png) | [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) | SIOS DataKeeper bietet Hochverfügbarkeit und ermöglicht eine Notfallwiederherstellung in Azure Stack Hub. Fügen Sie Ihrer WSFC-Umgebung (Windows Server Failover Clustering) in einer Azure Stack Hub-Bereitstellung die SIOS DataKeeper-Software hinzu, damit Sie nicht länger auf geteilten Speicher angewiesen sind. | SIOS Technology Corp. |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos) | Branchenführende Lösung für Open-Source-Infrastrukturverwaltung | SUSE |

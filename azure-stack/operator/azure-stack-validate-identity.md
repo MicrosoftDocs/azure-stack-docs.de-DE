@@ -3,17 +3,17 @@ title: Überprüfen der Azure-Identität
 titleSuffix: Azure Stack Hub
 description: Verwenden Sie Azure Stack Hub Readiness Checker, um eine Azure-Identität zu überprüfen.
 author: IngridAtMicrosoft
-ms.topic: conceptual
-ms.date: 06/24/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 80c799091678f4bd063527078f1bcf0d4cb90f34
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3c2eb6b0efc0bc6f0111ed342ef16e19223f0a85
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696310"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366516"
 ---
 # <a name="validate-azure-identity"></a>Überprüfen der Azure-Identität
 

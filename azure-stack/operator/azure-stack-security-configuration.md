@@ -2,17 +2,17 @@
 title: Konfigurieren von Azure Stack Hub-Sicherheitskontrollen
 description: Erfahren Sie, wie Sie Sicherheitskontrollen in Azure Stack Hub konfigurieren.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 06/17/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: 72757c67a10e11eabd88d55fb4dee7adcb2fe558
-ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
+ms.openlocfilehash: 4cfc5ee7f9e2284b3f7f5c632980235b24d2e956
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231569"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367504"
 ---
 # <a name="configure-azure-stack-hub-security-controls"></a>Konfigurieren von Azure Stack Hub-Sicherheitskontrollen
 
@@ -51,13 +51,13 @@ Set-TLSPolicy -Version <String>
 
 Parameter für das Cmdlet *Set-TLSPolicy*:
 
-| Parameter | Beschreibung | type | Erforderlich |
+| Parameter | BESCHREIBUNG | type | Erforderlich |
 |---------|---------|---------|---------|
 | *Version* | Zulässige Versionen von TLS in Azure Stack Hub | String | ja|
 
 Verwenden Sie einen der folgenden Werte, um die zulässigen TLS-Versionen für alle Azure Stack Hub-Endpunkte zu konfigurieren:
 
-| Versionswert | Beschreibung |
+| Versionswert | BESCHREIBUNG |
 |---------|---------|
 | *TLS_All* | Azure Stack Hub-TLS-Endpunkte unterstützen TLS 1.2, aber die Aushandlung einer niedrigeren Version auf TLS 1.1 und TLS 1.0 ist zulässig. |
 | *TLS_1.2* | Azure Stack Hub-TLS-Endpunkte unterstützen nur TLS 1.2. | 

@@ -3,17 +3,17 @@ title: Ersetzen einer Hardwarekomponente auf einem Azure Stack Hub-Knoten einer 
 titleSuffix: Azure Stack Hub
 description: Erfahren Sie, wie Sie eine Hardwarekomponente in einem integrierten Azure Stack Hub-System ersetzen.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 07/18/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: cbc922a212c347a4e8a0a72cc5e609127b6d390f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c7e6bc3042b79ee47bde45cefbabc4243c3f0a03
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697840"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367816"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>Ersetzen einer Hardwarekomponente auf einem Azure Stack Hub-Knoten einer Skalierungseinheit
 

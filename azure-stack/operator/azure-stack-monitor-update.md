@@ -2,17 +2,17 @@
 title: Überwachen von Änderungen in Azure Stack Hub mithilfe des privilegierten Endpunkts
 description: Erfahren Sie, wie Sie den privilegierten Endpunkt verwenden, um den Updatestatus für in Azure Stack Hub integrierte Systeme zu überwachen.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 1/22/2020
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 14df72fda88f505e564b16519f583c8b6875ade7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 943f391d709f772ec3ed5aa0c99bd738f5de679a
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698979"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368123"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Überwachen von Änderungen in Azure Stack Hub mithilfe des privilegierten Endpunkts
 

@@ -3,17 +3,17 @@ title: Ersetzen eines physischen Datenträgers
 titleSuffix: Azure Stack Hub
 description: Erfahren Sie, wie ein physischer Datenträger in Azure Stack Hub ersetzt wird.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 12/02/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: 8a181823f47d62167ca2e2b033e2cbe0bf258ec0
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: ec161fd296785f42049b7b2917142f08b47ac910
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697891"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367845"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack-hub"></a>Ersetzen eines physischen Datenträgers in Azure Stack Hub
 

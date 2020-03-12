@@ -2,17 +2,17 @@
 title: Azure Stack Hub-Computekapazität
 description: Hier erfahren Sie mehr über die Computekapazitätsplanung für Azure Stack Hub-Bereitstellungen.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 07/16/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: fd67c1bc02c16bc15eb569418bcb5d4914eca222
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3ec8b0b3ac6f4687fd782dfc692f1c705c5ed733
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77688660"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366346"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub-Computekapazität
 
@@ -76,10 +76,10 @@ Verfügbarer Speicher für VM-Platzierung = Hostspeicher gesamt - Resilienzreser
 Resilienzreserve = H + R * ((N-1) * H) + V * (N-2)
 
 > Hierbei gilt:
-> - H = Größe des einzelnen Serverspeichers
+> -    H = Größe des einzelnen Serverspeichers
 > - N = Größe der Skalierungseinheit (Anzahl der Server)
-> - R = Betriebssystemreserve für Mehraufwand des Betriebssystems (in dieser Formel 0,15)<sup>2</sup>
-> - V = Größter virtueller Computer in der Skalierungseinheit
+> -    R = Betriebssystemreserve für Mehraufwand des Betriebssystems (in dieser Formel 0,15)<sup>2</sup>
+> -    V = Größter virtueller Computer in der Skalierungseinheit
 
 <sup>1</sup> Azure Stack Hub-Infrastrukturmehraufwand = 242 GB + (4 GB * Anzahl von Knoten). Rund 31 virtuelle Computer werden für das Hosting der Infrastruktur von Azure Stack Hub verwendet und nutzen insgesamt etwa Speicher in Höhe von 242 GB + (4 GB x Anz. von Knoten) und 146 virtuelle Kerne. Der Grund für diese Anzahl von VMs besteht darin, die erforderliche Diensttrennung zu erfüllen, um die Anforderungen an Sicherheit, Skalierbarkeit, Wartung und Patches zu gewährleisten. Diese interne Dienststruktur ermöglicht die zukünftige Einführung neuer Infrastrukturdienste im Rahmen ihrer Entwicklung.
 
