@@ -16,6 +16,10 @@
       href: manage/replace-drives.md
 - name: Konzepte
   items:
+    - name: Wählen von Laufwerken
+      href: concepts/choose-drives.md
+    - name: Planen von Volumes
+      href: concepts/plan-volumes.md
     - name: Grundlegendes zum Cache
       href: concepts/cache.md
     - name: Fehlertoleranz und Speichereffizienz
