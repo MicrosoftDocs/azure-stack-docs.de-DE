@@ -5,17 +5,17 @@ description: Hier erfahren Sie, wie Sie mit dem Azure Stack Hub Readiness Checke
 services: azure-stack
 documentationcenter: ''
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 07/23/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 210157878b6f5a97b4c9a99f9a7f734587a0da46
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: e8114d060e596f581cd23ec80b0b5f455567dc1f
+ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696344"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79025240"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Überprüfen von Azure Stack Hub-PKI-Zertifikaten
 
@@ -89,11 +89,11 @@ Gehen Sie wie folgt vor, um die Azure Stack Hub-PKI-Zertifikate für die Bereits
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
-3. Ändern Sie im PowerShell-Fenster die Werte von `RegionName` und `FQDN` entsprechend der Azure Stack Hub-Umgebung, und führen Sie das folgende Cmdlet aus:
+3. Ändern Sie im PowerShell-Fenster die Werte von `RegionName`, `FQDN` und `IdentitySystem` gemäß der Azure Stack Hub-Umgebung, und führen Sie das folgende Cmdlet aus:
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
-    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com  
+    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
 4. Überprüfen Sie die Ausgabe, und vergewissern Sie sich, dass alle Tests für alle Zertifikate erfolgreich waren. Beispiel:

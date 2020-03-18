@@ -2,17 +2,17 @@
 title: Vorbereiten eines Azure Stack Hub-Updatepakets
 description: Erfahren Sie, wie Sie ein Azure Stack Hub-Updatepaket vorbereiten.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 1/22/2020
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: fd31aa7b6d45243a71ec4ba690a39497b386ef8e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 1911a07c1a22cbb58b7b7794addadb9cf01f0993
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696735"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367334"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Vorbereiten eines Azure Stack Hub-Updatepakets
 
@@ -47,7 +47,7 @@ Azure Stack Hub-Softwareupdates und -Hotfixes werden auf Systemen mit Internetve
 
 ### <a name="where-to-download-azure-stack-hub-update-packages"></a>Downloadorte von Azure Stack Hub-Updatepaketen
 
-Azure Stack Hub-Updates für [vollständige und Express-Updates](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) werden auf einem sicheren Azure-Endpunkt gehostet. Azure Stack Hub-Operatoren mit verbundenen Instanzen werden [die Azure Stack Hub-Updates automatisch im Verwaltungsportal](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages) angezeigt. Für Systeme ohne oder mit schwacher Internetverbindung können Updatepakete mit dem [Downloadprogramm für Azure Stack Hub-Updates](https://aka.ms/azurestackupdatedownload) heruntergeladen werden. Azure Stack Hub-Softwareupdatepakete können Updates für Azure Stack Hub-Dienste sowie das Betriebssystem der Skalierungseinheiten Ihrer Azure Stack Hub-Instanz enthalten.
+Azure Stack Hub-Updates für [vollständige und Express-Updates](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) werden auf einem sicheren Azure-Endpunkt gehostet. Azure Stack Hub-Operatoren mit verbundenen Instanzen werden [die Azure Stack Hub-Updates automatisch im Verwaltungsportal](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages) angezeigt. Für Systeme ohne oder mit schwacher Internetverbindung können Updatepakete mit dem [Downloadprogramm für Azure Stack Hub-Updates](https://aka.ms/azurestackupdatedownload) heruntergeladen werden. Azure Stack Hub-Softwareupdatepakete können Updates für Azure Stack Hub-Dienste sowie für das Betriebssystem der Skalierungseinheiten Ihrer Azure Stack Hub-Instanz enthalten.
 
 >[!NOTE]
 >Das Updatepaket selbst und sein Inhalt (z. B. Binärdateien, PowerShell-Skripts usw.) werden mit Zertifikaten signiert, die im Besitz von Microsoft sind. Bei einer Manipulation des Pakets wird die Signatur ungültig.

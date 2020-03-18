@@ -3,16 +3,16 @@ title: Ausführen eines virtuellen Windows-Computers in Azure Stack Hub
 description: Erfahren Sie, wie Sie in Azure Stack Hub einen virtuellen Windows-Computer ausführen.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 3/9/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 1bd438802c00a1c00b10f81920c1756d22f83606
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/9/2020
+ms.openlocfilehash: b3619d0096b7c14ec6f15aaf37f9bee774213e6a
+ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704980"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79025218"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Ausführen eines virtuellen Windows-Computers in Azure Stack Hub
 
@@ -75,7 +75,7 @@ Die Infrastruktur von Azure Stack Hub verfügt zwar bereits über Resilienz ge
 | **Fehlerdomänen** | In einer Verfügbarkeitsgruppe angeordnete VMs werden physisch voneinander isoliert, indem sie so gleichmäßig wie möglich auf mehrere Fehlerdomänen (Azure Stack Hub-Knoten) verteilt werden. Bei einem Hardwarefehler werden VMs aus der fehlerhaften Fehlerdomäne in anderen Fehlerdomänen neu gestartet. Sie werden getrennt von den anderen VMs in separaten Fehlerdomänen, aber nach Möglichkeit in derselben Verfügbarkeitsgruppe gespeichert. Nachdem die Hardware wieder in den Onlinezustand versetzt wurde, wird für die VMs ein neuer Ausgleichsvorgang durchgeführt, um die Hochverfügbarkeit sicherzustellen. |
 | **Updatedomänen**| Updatedomänen sind eine andere Option von Azure, mit der für Hochverfügbarkeit in Verfügbarkeitsgruppen gesorgt wird. Eine Updatedomäne ist eine logische Gruppe von zugrunde liegender Hardware, die zur gleichen Zeit gewartet werden kann. VMs in derselben Updatedomäne werden während einer geplanten Wartung gemeinsam neu gestartet. Wenn Mandanten VMs in einer Verfügbarkeitsgruppe erstellen, werden die VMs von der Azure-Plattform automatisch auf diese Updatedomänen verteilt. <br>In Azure Stack Hub wird für VMs eine Livemigration über die anderen Onlinehosts im Cluster durchgeführt, bevor der zugrunde liegende Host aktualisiert wird. Da es während eines Hostupdates nicht zu Mandantenausfallzeiten kommt, ist das Updatedomänenfeature in Azure Stack Hub nur für die Vorlagenkompatibilität mit Azure vorhanden. Virtuelle Computer in einer Verfügbarkeitsgruppe zeigen im Portal „0“ als Nummer der Updatedomäne an. |
 
-**Sicherungen** In diesem Artikel finden Sie Empfehlungen zum Schutz Ihrer Azure Stack Hub-IaaS-VMs.
+**Sicherungen:** Empfehlungen zum Schutz Ihrer virtuellen Azure Stack Hub-IaaS-Computer finden Sie unter [Schutz von in Azure Stack Hub bereitgestellten VMs](azure-stack-manage-vm-protect.md).
 
 **Beenden eines virtuellen Computers:** Unter Azure wird zwischen den Zuständen „Stopped“ (Beendet) und „Deallocated“ (Zuordnung aufgehoben) unterschieden. Ihnen werden nur Gebühren berechnet, wenn der VM-Status angehalten wird, aber nicht, wenn die Zuordnung für den virtuellen Computer aufgehoben wurde. Sie können die Zuordnung des virtuellen Computers auch mit der Schaltfläche **Beenden** im Azure Stack Hub-Portal aufheben. Wenn das Herunterfahren über das Betriebssystem erfolgt, während Sie angemeldet sind, wird der virtuelle Computer zwar beendet, aber die Zuordnung wird **nicht** aufgehoben. Es fallen also weiter Kosten an.
 
