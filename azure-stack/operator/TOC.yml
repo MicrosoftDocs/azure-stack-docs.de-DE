@@ -134,8 +134,12 @@
           href: azure-stack-cli-admin.md
         - name: Einrichten der Verwaltungsumgebung
           items:
-            - name: Installieren von Azure Stack Hub PowerShell
+            - name: Installieren von PowerShell RM
               href: azure-stack-powershell-install.md
+            - name: Installieren von PowerShell Az
+              href: powershell-install-az-module.md
+            - name: Migrieren von PowerShell AzureRM zu Az
+              href: migrate-azurerm-az.md
             - name: Herunterladen von Tools
               href: azure-stack-powershell-download.md
             - name: Verbinden mit PowerShell
@@ -437,19 +441,23 @@
         - name: Hilfe- und Supportportal
           items:
             - name: Übersicht
-              href: azure-stack-help-and-support-overview.md
+              href: azure-stack-help-and-support-overview-tzl.md
+            - name: Ermitteln Ihrer Cloud-ID
+              href: azure-stack-find-cloud-id.md
             - name: Erfassung von Diagnoseprotokollen
               items:
                 - name: Übersicht
-                  href: azure-stack-diagnostic-log-collection-overview.md
-                - name: Automatische Sammlung
+                  href: azure-stack-diagnostic-log-collection-overview-tzl.md
+                - name: Proaktives Senden von Protokollen
+                  href: azure-stack-configure-automatic-diagnostic-log-collection-tzl.md
+                - name: Sofortiges Senden von Protokollen
                   items:
-                    - name: Konfigurieren der automatischen Sammlung
-                      href: azure-stack-configure-automatic-diagnostic-log-collection.md
-                    - name: Bewährte Methoden
-                      href: azure-stack-best-practices-automatic-diagnostic-log-collection.md
-                - name: Bedarfsgesteuerte Sammlung
-                  href: azure-stack-configure-on-demand-diagnostic-log-collection.md
+                    - name: Verwenden des Administratorportals
+                      href: azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md
+                    - name: Verwenden von PowerShell
+                      href: azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md
+                - name: Get-AzureStackLog (PEP)
+                  href: azure-stack-get-azurestacklog.md
         - name: Überprüfung für Azure Stack Hub
           href: azure-stack-diagnostic-test.md
         - name: Problembehandlung
