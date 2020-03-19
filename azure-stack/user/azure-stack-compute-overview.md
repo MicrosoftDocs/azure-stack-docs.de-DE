@@ -8,11 +8,11 @@ ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
 ms.openlocfilehash: 576580732440cabd8ae1c140d13130b81b212d16
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704402"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295575"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Einführung in Azure Stack Hub-VMs
 
@@ -28,7 +28,7 @@ Sie können Azure Stack Hub-VMs auf mehrere Arten verwenden. Beispiel:
 
 - **Erweitertes Datencenter**: VMs in einem virtuellen Azure Stack Hub-Netzwerk können mit dem Netzwerk Ihrer Organisation oder mit Azure verbunden werden.
 
-Die virtuellen Computer, die von Ihrer Anwendung genutzt werden, können zur Erfüllung Ihrer Anforderungen zentral oder horizontal hochskaliert werden.
+Die virtuellen Computer, die von Ihrer Anwendung genutzt werden, können zur Erfüllung Ihrer Anforderungen hoch- oder aufskaliert werden.
 
 ## <a name="before-creating-a-vm"></a>Vor dem Erstellen einer VM
 
@@ -61,7 +61,7 @@ Virtuelle Computer in Azure Stack Hub sind auf das VHD-/VHDX-Format (virtuelle F
 
 In der folgenden Tabelle ist angegeben, wie Sie die Informationen zu einem Image finden:
 
-|Methode|Beschreibung|
+|Methode|BESCHREIBUNG|
 |---------|---------|
 |Azure Stack Hub-Portal|Die Werte werden automatisch angegeben, wenn Sie ein zu verwendendes Image auswählen.|
 |Azure Stack Hub PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|

@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 21cd92626a5ddb4e86e5f0dd7568dc1a875bd3c1
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 845be919279107e88a922dfd180e3fc8794e1a89
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77687443"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79293890"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>Abrufen von Authentifizierungsinformationen für Azure Stack Hub
 
@@ -68,7 +68,7 @@ So rufen Sie die Mandanten-ID ab:
 
 Der Azure Resource Manager-Endpunkt ist der Metadatenendpunkt für den Bereitstellungs- und Verwaltungsdienst für Azure Stack Hub. Er bietet eine Verwaltungsebene, die das Erstellen, Aktualisieren und Löschen von Ressourcen in Ihrem Azure-Abonnement ermöglicht.
 
-Bei einem integrierten System lautet die URL für den Azure Resource Manager-Endpunkt wie folgt:<br>`https://management.<location>.<fqdn>.com`
+Bei einem integrierten System lautet die URL für den Azure Resource Manager-Endpunkt wie folgt:<br>`https://management.<location>.<fqdn>`
 
 Zum Abrufen des Metadatenendpunkts, der auf die Eigenschaften (etwa Katalogendpunkt, Graph-Endpunkt, Portalendpunkt, Anmeldeendpunkt und Zielgruppen) verweist, lautet die URL `<ResourceManager>/metadata/endpoints?api-version=1.0`.
 

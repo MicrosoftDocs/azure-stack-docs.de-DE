@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: 1c96ee9520285e0bc2b9784fa5d310a1ec2ae60f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704810"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295221"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Verwenden einer App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen
 
@@ -149,7 +149,7 @@ Nachdem Sie nun einen Dienstprinzipal erstellt haben, erfahren Sie in diesem Abs
 
 Aktualisieren Sie die Zertifikatanmeldeinformationen mithilfe der PowerShell, indem Sie die folgenden Platzhalter durch Ihre eigenen Werte ersetzen:
 
-| Platzhalter | Beschreibung | Beispiel |
+| Platzhalter | BESCHREIBUNG | Beispiel |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Der Name der privilegierten Endpunkt-VM in Ihrer Azure Stack Hub-Instanz. | "AzS-ERCS01" |
 | \<YourAppName\> | Ein beschreibender Name für die neue App-Registrierung. | "Mein Verwaltungstool" |
@@ -251,7 +251,7 @@ Lassen Sie Ihre PowerShell-Konsolensitzung geöffnet, da Sie sie mit dem `Applic
 
 Aktualisieren Sie die Anmeldeinformationen mit einem geheimen Clientschlüssel mithilfe der PowerShell unter Verwendung des Parameters **ResetClientSecret**, der dem geheimen Clientschlüssel sofort ändert. Ersetzen Sie die folgenden Platzhalter durch Ihre eigenen Werte:
 
-| Platzhalter | Beschreibung | Beispiel |
+| Platzhalter | BESCHREIBUNG | Beispiel |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Der Name der privilegierten Endpunkt-VM in Ihrer Azure Stack Hub-Instanz. | "AzS-ERCS01" |
 | \<AppIdentifier\> | Der Bezeichner, der der Anwendungsregistrierung zugewiesen ist. | "S-1-5-21-1634563105-1224503876-2692824315-2623" |

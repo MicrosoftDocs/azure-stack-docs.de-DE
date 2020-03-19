@@ -7,19 +7,19 @@ ms.date: 01/16/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: a0f905a0f6238a0303cacb71e5864ac05b223595
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: f17f835c88851d03d7ef1905cbac96b9f6701d8e
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701546"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512217"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Bedarfsgesteuertes Sammeln von Azure Stack Hub-Diagnoseprotokollen
 
 Im Rahmen der Problembehandlung muss der Microsoft-Kundensupport (Customer Support Services, CSS) möglicherweise Diagnoseprotokolle analysieren. Ab Version 1907 können Azure Stack Hub-Operatoren Diagnoseprotokolle mithilfe von **Hilfe und Support** in einen Blobcontainer in Azure hochladen. Die Verwendung von **Hilfe und Support** ist einfacher und daher der Verwendung von PowerShell vorzuziehen. Wenn das Portal jedoch nicht verfügbar ist, können Betreiber Protokolle weiterhin wie in vorherigen Versionen mithilfe von **Get-AzureStackLog** über den privilegierten Endpunkt (PEP) erfassen. In diesem Thema werden beide Verfahren zum bedarfsgesteuerten Sammeln von Diagnoseprotokollen behandelt.
 
 >[!Note]
->Als Alternative zum bedarfsgesteuerten Sammeln von Protokollen können Sie den Problembehandlungsprozess auch optimieren, indem Sie die [automatische Sammlung von Diagnoseprotokollen](azure-stack-configure-automatic-diagnostic-log-collection.md) aktivieren. Wenn die Integritätsbedingungen des Systems untersucht werden müssen, werden die Protokolle automatisch zur Analyse durch den Microsoft-Kundensupport (Microsoft Customer Support Services, CSS) hochgeladen. 
+>Als Alternative zum bedarfsgesteuerten Sammeln von Protokollen können Sie den Problembehandlungsprozess auch optimieren, indem Sie die [automatische Sammlung von Diagnoseprotokollen](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md) aktivieren. Wenn die Integritätsbedingungen des Systems untersucht werden müssen, werden die Protokolle automatisch zur Analyse durch den Microsoft-Kundensupport (Microsoft Customer Support Services, CSS) hochgeladen. 
 
 ## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>Verwenden von „Hilfe und Support“ zum bedarfsgesteuerten Sammeln von Diagnoseprotokollen
 

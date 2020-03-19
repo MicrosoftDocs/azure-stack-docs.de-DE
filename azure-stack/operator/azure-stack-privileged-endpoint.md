@@ -7,12 +7,12 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 7dc570ede3f953b4886971ea827fe69b881b5b89
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 335afce7423872156c84c655d9c94ed59a9592d2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698146"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512438"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Verwenden des privilegierten Endpunkts in Azure Stack Hub
 
@@ -20,7 +20,7 @@ Als Azure Stack Hub-Operator verwenden Sie das Administratorportal, PowerShell o
 
 Sie können den PEP nutzen, um diese Aufgaben durchzuführen:
 
-- Aufgaben auf niedriger Ebene, z. B. [Diagnoseprotokolle erfassen](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+- Aufgaben auf niedriger Ebene, z. B. [Diagnoseprotokolle erfassen](azure-stack-get-azurestacklog.md).
 - Viele Aufgaben zur Integration von Rechenzentren für integrierte Systeme nach der Bereitstellung, z. B. Hinzufügen von DNS-Weiterleitungen nach der Bereitstellung, Einrichten der Microsoft Graph-Integration, der Integration von Active Directory-Verbunddiensten (AD FS), der Zertifikatrotation usw.
 - Zusammenarbeit mit dem Support zum Erhalt von temporärem, allgemeinem Zugriff für die eingehende Problembehandlung eines integrierten Systems.
 
@@ -197,4 +197,4 @@ Nachdem die Aufzeichnungsprotokolldateien erfolgreich in die Dateifreigabe über
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Azure Stack Hub-Diagnosetools](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)
+[Azure Stack Hub-Diagnosetools](azure-stack-diagnostic-log-collection-overview-tzl.md)

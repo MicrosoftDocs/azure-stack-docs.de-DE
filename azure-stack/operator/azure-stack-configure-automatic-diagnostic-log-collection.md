@@ -7,12 +7,12 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 19482e235690cae10411dde72587b0e4b95518f3
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3464738aef30a44b6c50c05b06116641235ab96e
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695222"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512268"
 ---
 # <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>Konfigurieren der automatischen Azure Stack Hub-Diagnoseprotokollsammlung
 
@@ -68,7 +68,7 @@ Bewährte Methoden zum Wählen von Parametern für das Speicherkonto für die au
 
 1. Klicken Sie auf **Erstellen**.  
 
-Kopieren Sie die URL, und geben Sie sie beim [Konfigurieren der automatischen Protokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection.md) ein. Weitere Informationen zu SAS-URLs finden Sie unter [Verwenden von Shared Access Signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
+Kopieren Sie die URL, und geben Sie sie beim [Konfigurieren der automatischen Protokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md) ein. Weitere Informationen zu SAS-URLs finden Sie unter [Verwenden von Shared Access Signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
 
 
 ## <a name="steps-to-configure-automatic-log-collection"></a>Schritte zum Konfigurieren der automatischen Protokollsammlung

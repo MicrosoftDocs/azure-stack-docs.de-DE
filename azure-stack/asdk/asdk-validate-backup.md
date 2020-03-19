@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: ee86c3200cbef75f63de0b1aa8f7ac614e1878cc
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 03/11/2020
+ms.openlocfilehash: 268bef58cb4176909ec6a13029324b18de75b52d
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77690921"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512013"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Verwenden des ASDK zum Überprüfen der Azure Stack-Sicherung
 Nach der Bereitstellung von Azure Stack und von Benutzerressourcen (z. B. Angeboten, Plänen, Kontingenten und Abonnements) sollten Sie die [Azure Stack-Infrastruktursicherung aktivieren](../operator/azure-stack-backup-enable-backup-console.md). Das Planen und Ausführen regelmäßiger Infrastruktursicherungen stellt sicher, dass Daten für die Infrastrukturverwaltung bei einem Hardware- oder Dienstausfall nicht verloren gehen.
@@ -46,21 +46,6 @@ Vor dem Starten einer Bereitstellung für die Cloudwiederherstellung des ASDK be
 
 **Anforderungen an das Benutzeroberflächen-Installationsprogramm**
 
-*Aktuelles Benutzeroberflächen-Installationsprogramm unterstützt nur Verschlüsselungsschlüssel*
-
-|Voraussetzung|BESCHREIBUNG|
-|-----|-----|
-|Freigabepfad der Sicherung|Der UNC-Dateifreigabepfad der neuesten Azure Stack-Sicherung, die zum Wiederherstellen von Informationen zur Azure Stack-Infrastruktur verwendet werden. Diese lokale Freigabe wird während des Bereitstellungsprozesses für Cloudwiederherstellungen erstellt.|
-|Sicherungs-ID für die Wiederherstellung|Die Sicherungs-ID im alphanumerischen Format „xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx“, die die Sicherung bezeichnet, für die eine Cloudwiederherstellung durchgeführt werden soll.|
-|Zeitserver-IP-Adresse|Eine gültige Zeitserver IP-Adresse (z.B. 132.163.97.2) ist für Azure Stack-Bereitstellungen erforderlich.|
-|Kennwort für externes Zertifikat|Das Kennwort für das externe Zertifikat, das von Azure Stack verwendet werden soll. Die Sicherung der Zertifizierungsstelle enthält externe Zertifikate, die mit diesem Kennwort wiederhergestellt werden müssen.|
-|Verschlüsselungsschlüssel der Sicherung|Erforderlich, wenn die Sicherungseinstellungen mit einem Verschlüsselungsschlüssel konfiguriert sind, was eine veraltete Option darstellt. Das Installationsprogramm unterstützt Verschlüsselungsschlüssel im Abwärtskompatibilitätsmodus für mindestens 3 Versionen. Nachdem Sie die Einstellungen auf die Verwendung eines Zertifikats aktualisiert haben, finden Sie die erforderlichen Informationen in der nächsten Tabelle.|
-|     |     | 
-
-**Anforderungen an das PowerShell-Installationsprogramm**
-
-*Das aktuelle PowerShell-Installationsprogramm unterstützt Verschlüsselungsschlüssel oder Entschlüsselungszertifikate*
-
 |Voraussetzung|BESCHREIBUNG|
 |-----|-----|
 |Freigabepfad der Sicherung|Der UNC-Dateifreigabepfad der neuesten Azure Stack-Sicherung, die zum Wiederherstellen von Informationen zur Azure Stack-Infrastruktur verwendet werden. Diese lokale Freigabe wird während des Bereitstellungsprozesses für Cloudwiederherstellungen erstellt.|
@@ -68,7 +53,17 @@ Vor dem Starten einer Bereitstellung für die Cloudwiederherstellung des ASDK be
 |Zeitserver-IP-Adresse|Eine gültige Zeitserver IP-Adresse (z.B. 132.163.97.2) ist für Azure Stack-Bereitstellungen erforderlich.|
 |Kennwort für externes Zertifikat|Das Kennwort für das externe Zertifikat, das von Azure Stack verwendet werden soll. Die Sicherung der Zertifizierungsstelle enthält externe Zertifikate, die mit diesem Kennwort wiederhergestellt werden müssen.|
 |Kennwort für Entschlüsselungszertifikat|Optional. Nur erforderlich, wenn die Sicherung mit einem Zertifikat verschlüsselt ist. Das Kennwort ist für die PFX-Datei des selbstsignierten Zertifikats, die den privaten Schlüssel enthält, der zum Entschlüsseln der Sicherungsdaten notwendig ist.|
-|Verschlüsselungsschlüssel der Sicherung|Optional. Erforderlich, wenn die Sicherungseinstellungen noch mit einem Verschlüsselungsschlüssel konfiguriert sind. Das Installationsprogramm unterstützt Verschlüsselungsschlüssel im Abwärtskompatibilitätsmodus für mindestens 3 Versionen. Nachdem Sie die Sicherungseinstellungen auf die Verwendung eines Zertifikats aktualisiert haben, müssen Sie das Kennwort für das Entschlüsselungszertifikat angeben.|
+|     |     | 
+
+**Anforderungen an das PowerShell-Installationsprogramm**
+
+|Voraussetzung|BESCHREIBUNG|
+|-----|-----|
+|Freigabepfad der Sicherung|Der UNC-Dateifreigabepfad der neuesten Azure Stack-Sicherung, die zum Wiederherstellen von Informationen zur Azure Stack-Infrastruktur verwendet werden. Diese lokale Freigabe wird während des Bereitstellungsprozesses für Cloudwiederherstellungen erstellt.|
+|Sicherungs-ID für die Wiederherstellung|Die Sicherungs-ID im alphanumerischen Format „xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx“, die die Sicherung bezeichnet, für die eine Cloudwiederherstellung durchgeführt werden soll.|
+|Zeitserver-IP-Adresse|Eine gültige Zeitserver IP-Adresse (z.B. 132.163.97.2) ist für Azure Stack-Bereitstellungen erforderlich.|
+|Kennwort für externes Zertifikat|Das Kennwort für das externe Zertifikat, das von Azure Stack verwendet werden soll. Die Sicherung der Zertifizierungsstelle enthält externe Zertifikate, die mit diesem Kennwort wiederhergestellt werden müssen.|
+|Kennwort für Entschlüsselungszertifikat|Das Kennwort ist für die PFX-Datei des selbstsignierten Zertifikats, die den privaten Schlüssel enthält, der zum Entschlüsseln der Sicherungsdaten notwendig ist.|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>Vorbereiten des Hostcomputers 
@@ -137,23 +132,6 @@ Die Schritte in diesem Abschnitt zeigen, wie das ASDK mit einer grafischen Benut
 ### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>Verwenden der PowerShell zum Bereitstellen des ASDK im Wiederherstellungsmodus
 
 Passen Sie die folgenden PowerShell-Befehle an Ihre Umgebung an, und führen Sie sie aus, um das ASDK im Cloudwiederherstellungsmodus bereitzustellen:
-
-**Verwenden Sie das Skript „InstallAzureStackPOC.ps1“, um die Cloudwiederherstellung mit Verschlüsselungsschlüssel zu beginnen.**
-
-```powershell
-cd C:\CloudDeployment\Setup     
-$adminpass = Read-Host -AsSecureString -Prompt "Local Administrator password"
-$certPass = Read-Host -AsSecureString -Prompt "Password for the external certificate"
-$backupstorecredential = Read-Host -AsSecureString -Prompt "Credential for backup share"
-$key = Read-Host -AsSecureString -Prompt "Your backup encryption key"
-
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass `
- -BackupStorePath ("\\" + $env:COMPUTERNAME + "\AzSBackups") `
- -BackupEncryptionKeyBase64 $key `
- -BackupStoreCredential $backupstorecredential `
- -BackupId "<Backup ID to restore>" `
- -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
-```
 
 **Verwenden Sie das Skript „InstallAzureStackPOC.ps1“, um die Cloudwiederherstellung mit Entschlüsselungszertifikat zu beginnen.**
 

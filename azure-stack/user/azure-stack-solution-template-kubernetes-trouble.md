@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 80222728bca3aa65fd211ccc5ef5700d0a15f397
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0d9e1512cab3ad33bba5cfa2d4f57128edf51cf2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703620"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512591"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Problembehandlung bei der Bereitstellung von Kubernetes in Azure Stack Hub
 
@@ -85,7 +85,7 @@ Sie können auf den VMs, die Ihren Kubernetes-Cluster unterstützen, Bereitstell
     - Stellen Sie sicher, dass der vollqualifizierte Domänenname (FQDN) für den virtuellen Computer mit einem doppelten Präfix beginnt.
 5.  Wenn der virtuelle Computer **OK** ist, untersuchen Sie die DVM. Wenn für die DVM eine Fehlermeldung vorliegt, sind die folgenden Ursachen möglich:
     - Der öffentliche Schlüssel ist möglicherweise ungültig. Überprüfen Sie den Schlüssel, den Sie erstellt haben.  
-    - Wenden Sie sich an den Azure Stack Hub-Administrator, um die Protokolle für Azure Stack Hub mit den privilegierten Endpunkten abzurufen. Weitere Informationen finden Sie unter [Azure Stack Hub-Diagnosetools](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+    - Wenden Sie sich an den Azure Stack Hub-Administrator, um die Protokolle für Azure Stack Hub mit den privilegierten Endpunkten abzurufen. Weitere Informationen finden Sie unter [Azure Stack Hub-Diagnosetools](../operator/azure-stack-get-azurestacklog.md).
 5. Wenn Sie Fragen zu Ihrer Bereitstellung haben, können Sie diese im [Azure Stack Hub-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) stellen bzw. ermitteln, ob jemand die Frage dort bereits beantwortet hat. 
 
 

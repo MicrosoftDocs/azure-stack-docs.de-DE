@@ -8,11 +8,11 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 ms.openlocfilehash: 5b79c676b922f0e76ed75e3ad043f53c1fb9d6a5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705167"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295491"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Ruby in Azure Stack Hub
 
@@ -82,7 +82,7 @@ gem install 'azure_sdk'
 
 Um das Ruby Azure SDK mit Azure Stack Hub zu verwenden, müssen Sie die folgenden Werte angeben und dann Werte mit Umgebungsvariablen festlegen. Befolgen Sie die Anweisungen in der Tabelle für Ihr Betriebssystem, um die Umgebungsvariablen festzulegen.
 
-| value | Umgebungsvariablen | BESCHREIBUNG |
+| Wert | Umgebungsvariablen | BESCHREIBUNG |
 | --- | --- | --- |
 | Mandanten-ID | `AZURE_TENANT_ID` | Ihre [Mandanten-ID](../operator/azure-stack-identity-overview.md) für Azure Stack Hub. |
 | Client-ID | `AZURE_CLIENT_ID` | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde.  |

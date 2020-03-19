@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: a0b0e654ac2698c1b9611924cca853bd1ff525de
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: b02ea9e241faea3aeaad76b85dbde9616e1edea5
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698758"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295545"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Hinzufügen für MySQL-Hostserver in Azure Stack Hub
 
@@ -21,7 +21,7 @@ Sie können eine MySQL-Hostserverinstanz auf einem virtuellen Computer (VM) in [
 > [!NOTE]
 > Der MySQL-Ressourcenanbieter sollte im Standardanbieterabonnement erstellt werden, während MySQL-Hostingserver in einem abrechenbaren Benutzerabonnement erstellt werden sollten. Der Server des Ressourcenanbieters sollte nicht zum Hosten von Benutzerdatenbanken verwendet werden.
 
-Die MySQL-Versionen 5.6, 5.7 und 8.0 können für Ihre Hostingserver verwendet werden. Der MySQL RP unterstützt keine caching_sha2_password-Authentifizierung. Diese Unterstützung wird im nächsten Release hinzugefügt. MySQL-8.0-Server müssen für die Verwendung von mysql_native_password konfiguriert werden. MariaDB wird ebenfalls unterstützt.
+Die MySQL-Versionen 5.6, 5.7 und 8.0 können für Ihre Hostingserver verwendet werden. Der MySQL RP unterstützt keine caching_sha2_password-Authentifizierung. MySQL-8.0-Server müssen für die Verwendung von mysql_native_password konfiguriert werden.
 
 ## <a name="configure-external-access-to-the-mysql-hosting-server"></a>Konfigurieren des externen Zugriffs auf den MySQL-Hostserver
 
