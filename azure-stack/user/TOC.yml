@@ -2,6 +2,8 @@
   href: index.yml
 - name: Übersicht
   items:
+    - name: Was ist Azure Stack Hub?
+      href: user-overview.md
     - name: Wichtige Aspekte
       href: azure-stack-considerations.md
 - name: Schnellstarts
