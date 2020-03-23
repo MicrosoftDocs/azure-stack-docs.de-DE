@@ -136,10 +136,6 @@
           items:
             - name: Installieren von PowerShell RM
               href: azure-stack-powershell-install.md
-            - name: Installieren von PowerShell Az
-              href: powershell-install-az-module.md
-            - name: Migrieren von PowerShell AzureRM zu Az
-              href: migrate-azurerm-az.md
             - name: Herunterladen von Tools
               href: azure-stack-powershell-download.md
             - name: Verbinden mit PowerShell
@@ -252,7 +248,7 @@
           href: azure-stack-supported-os.md
         - name: Anbieten einer VM-Skalierungsgruppe
           href: azure-stack-compute-add-scalesets.md
-        - name: 'Windows Server im Marketplace: häufig gestellte Fragen'
+        - name: Häufig gestellte Fragen zum Azure Stack Hub Marketplace
           href: azure-stack-windows-server-faq.md
         - name: Anbieten virtueller Linux-Computer
           href: azure-stack-linux.md

@@ -1,47 +1,80 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation für Azure Stack Hub-Benutzer
+summary: Azure Stack Hub ist eine Hybrid Cloud-Plattform, mit der Sie Azure-Dienste aus dem Rechenzentrum Ihres Unternehmens oder Ihres Dienstanbieters verwenden können.
 metadata:
-  title: 'Dokumentation für Azure Stack Hub – Tutorials, API-Referenz'
-  meta.description: azure-stack
-  services: azure-stack
-  author: mattbriggs
-  manager: femila
-  layout: LandingPage
-  ms.assetid: cbf798da-6f1a-7d4d-7707-5d5e02589e22
+  title: 'Dokumentation für Azure Stack Hub: Tutorials, API-Referenz'
+  description: Azure Stack Hub ist eine Hybrid Cloud-Plattform, mit der Sie Azure-Dienste aus dem Rechenzentrum Ihres Unternehmens oder Ihres Dienstanbieters verwenden können.
   ms.service: azure-stack
-  ms.tgt_pltfrm: from-team
-  ms.devlang: from-team
   ms.topic: landing-page
-  ms.date: 07/11/2019
+  author: mattbriggs
   ms.author: mabrigg
-abstract:
-  description: "Azure Stack Hub ist eine Hybrid Cloud-Plattform, mit der Sie Azure-Dienste aus dem Rechenzentrum Ihres Unternehmens oder Ihres Dienstanbieters verwenden können. Als Entwickler können Sie Apps in Azure Stack Hub erstellen. Anschließend können Sie diese Apps in Azure Stack Hub bzw. Azure bereitstellen, oder Sie können echte Hybrid-Apps erstellen, für die die Konnektivität zwischen einer Azure Stack\_Hub-Cloud und Azure genutzt wird. Erfahren Sie, wie Sie mit unseren Schnellstarts und Tutorials Ressourcen erstellen und Apps bereitstellen.<br/><br/>Wenn Sie ein Azure Stack Hub-Bediener sind, der die Infrastruktur verwaltet und Dienste anbietet, hilft Ihnen die <a href=\"../operator/\">Dokumentation für Bediener</a> weiter.<br/><br/>Wenn Sie als Azure Stack Hub-Benutzer das Azure Stack Development Kit (ASDK) verwenden möchten, können Sie eine kostenlose Azure Stack Hub-Bereitstellung mit einem Knoten herunterladen. Weitere Informationen finden Sie in der <a href=\"../asdk\">ASDK-Dokumentation</a>."
-sections:
-  - title: Erste Schritte mit Azure Stack Hub
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: "<a href=\"/azure-stack/user/azure-stack-dev-start\"> <img height=\"48\" width=\"48\" src=\"https://docs.microsoft.com/media/common/i_code-edit.svg\" alt=\"\"> <br><b>Entwickeln von Lösungen mit Azure Stack Hub</b></a> <p>Entwickeln Sie Anwendungen für Azure Stack Hub auf einer Windows\_10-, Linux- oder macOS-Arbeitsstation.</p>"
-          - html: '<a href="https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt=""> <br><b>Azure Stack Hub PowerShell</b></a> <p>Verwalten Sie Ihre Azure Stack Hub-Ressourcen ganz einfach über PowerShell.</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-version-profiles-azurecli2"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_cligeneric.svg" alt=""> <br><b>Azure-Befehlszeilenschnittstelle (CLI)</b></a> <p>Befehlszeilenumgebung für die Verwaltung von Azure Stack Hub-Ressourcen</p>'
-  - title: Infrastructure-as-a-Service (IaaS) in Azure Stack Hub
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: '<a href="/azure-stack/user/azure-stack-create-vm-template"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_package.svg" alt=""> <br><b>Stellen Sie einen virtuellen Computer in IaaS mit einer Vorlage bereit.</b></a> <p>Erstellen eines virtuellen Computers mithilfe von Resource Manager-Vorlagen für Azure Stack Hub</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-quick-linux-portal"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_vmm-cloud.svg" alt=""> <br><b>Schnellstart: Erstellen eines virtuellen Computers</b></a> <p>Erstellen Sie einen virtuellen Computer zum Hosten Ihrer App.</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-dev-start-deploy-app"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-color.svg" alt=""> <br><b>Hosten Sie in Ihrem Code geschriebene Apps.</b></a> <p>Richten Sie einen virtuellen Computer in Azure Stack Hub ein, und stellen Sie Ihre App mit C#, Java, Python, Go, Ruby oder NodeJS bereit.</p>'
-  - title: Platform-as-a-Service (PaaS) in Azure Stack Hub
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: <a href="/azure-stack/user/azure-stack-solution-template-service-fabric-cluster"> <img height="48" width="48" src="/azure-stack/user/media/index/service-fabric-cluster.png" alt=""> <br><b>Bereitstellen eines Service Fabric-Clusters</b></a> <p>Stellen Sie einen gesicherten Service Fabric-Cluster in Azure Stack Hub bereit.</p>
-          - html: '<a href="/azure-stack/user/azure-stack-solution-template-kubernetes-deploy"> <img height="48" width="48" src="/azure-stack/user/media/index/kubernetes.png" alt=""> <br><b>Bereitstellen eines Kubernetes-Clusters</b></a> <p>Sie können die Ressourcen für Kubernetes in einem einzigen, koordinierten Vorgang bereitstellen und einrichten.</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-solution-template-cognitive-services"> <img height="48" width="48" src="/azure-stack/user/media/index/icon-cognitive-services.svg" alt=""> <br><b>Bereitstellen von Azure Cognitive Services</b></a> <p>Containerunterstützung in Azure Cognitive Services ermöglicht es Ihnen, dieselben APIs zu nutzen, die in Azure zur Verfügung stehen.</p>'
+  ms.date: 03/19/2020
+  ms.openlocfilehash: a72fa2f57da84c18ee236c017fdd31a659946143
+  ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+  ms.translationtype: HT
+  ms.contentlocale: de-DE
+  ms.lasthandoff: 03/21/2020
+  ms.locfileid: "80069220"
+landingContent:
+- title: Informationen zu Azure Stack Hub
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Was ist Azure Stack Hub?
+      url: user-overview.md
+    - text: Unterschiede zwischen Azure und Azure Stack Hub
+      url: azure-stack-considerations.md
+- title: Erste Schritte
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Erstellen eines virtuellen Windows-Computers
+      url: azure-stack-quick-windows-portal.md
+    - text: Erstellen eines virtuellen Linux-Computers
+      url: azure-stack-quick-linux-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Erstellen eines virtuellen Computers über eine Vorlage
+      url: azure-stack-create-vm-template.md
+    - text: Bereitstellen einer C#-Web-App auf einem virtuellen Windows-Computer
+      url: azure-stack-dev-start-howto-vm-dotnet.md
+    - text: Bereitstellen einer Java-Web-App
+      url: azure-stack-dev-start-howto-vm-java.md
+    - text: Bereitstellen einer Python-Web-App
+      url: azure-stack-dev-start-howto-vm-python.md
+- title: Konfigurieren Ihres Clients
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Installieren von Azure Stack Hub PowerShell
+      url: https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2Ftoc.json%3Fview%3Dazs-2002&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-2002&view=azs-2002
+    - text: Installieren der CLI für Azure Stack Hub
+      url: azure-stack-version-profiles-azurecli2.md
+  - linkListType: sample
+    links:
+    - text: Ausführen von PowerShell mithilfe von Docker
+      url: azure-stack-powershell-user-docker.md
+    - text: Verwenden von Visual Studio Code
+      url: azure-stack-dev-start-vscode-azure.md
+- title: Infrastructure-as-a-Service (IaaS) in Azure Stack Hub
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Bereitstellen eines virtuellen Computer in IaaS mit einer Vorlage
+      url: azure-stack-create-vm-template.md
+    - text: Konfigurieren eines virtuellen Netzwerks
+      url: deploy-foundational-patterns.md
+    - text: 'Schnellstart: Erstellen eines virtuellen Computers'
+      url: azure-stack-quick-linux-portal.md
+    - text: Hosten von in Ihrem Code geschriebenen Apps
+      url: azure-stack-dev-start-deploy-app.md
+- title: Platform-as-a-Service (PaaS) in Azure Stack Hub
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Bereitstellen eines Service Fabric-Clusters
+      url: azure-stack-solution-template-service-fabric-cluster.md
+    - text: Bereitstellen eines Kubernetes-Clusters
+      url: azure-stack-kubernetes-aks-engine-overview.md
+    - text: Bereitstellen von Azure Cognitive Services
+      url: azure-stack-solution-template-cognitive-services.md
