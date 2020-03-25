@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: b762dfa9897ac732df7c09858ef3a5d25357f1d7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: b8f7be7885bd4565a13983d858c1f10b30df20b3
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705048"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295569"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Konfigurieren von VPN-Gatewayeinstellungen für Azure Stack Hub
 
@@ -155,9 +155,13 @@ Wenn Sie eine VPN-Verbindung in Azure Stack Hub einrichten, müssen Sie die Verb
 
 Im Gegensatz zu Azure, das mehrere Angebote als Initiator und Antwortdienst unterstützt, bietet Azure Stack Hub standardmäßig nur Unterstützung für ein Angebot. Wenn Sie verschiedene IPSec/IKE-Einstellungen mit Ihrem VPN-Gerät verwenden müssen, stehen Ihnen weitere Einstellungen zur Verfügung, um Ihre Verbindung manuell zu konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren einer IPsec/IKE-Richtlinie für Site-to-Site-VPN-Verbindungen](azure-stack-vpn-s2s.md).
 
+> [!IMPORTANT] 
+> Bei Verwendung eines S2S-Tunnels werden Pakete mit zusätzlichen Headern weiter verschlüsselt, wodurch sich das Paket insgesamt vergrößert. In diesen Szenarien müssen Sie TCP **MSS** mit **1350** verknüpfen. Wenn Ihre VPN-Geräte MSS-Clamping nicht unterstützen, können Sie stattdessen alternativ den **MTU**-Wert der Tunnelschnittstelle auf **1400** Byte festlegen. Weitere Informationen finden Sie unter [Optimieren der TCP-/IP-Leistung von virtuellen Netzwerken] (virtual-network-tcpip-performance-tuning.md). 
+>
+
 ### <a name="ike-phase-1-main-mode-parameters"></a>Parameter der IKE-Phase 1 (Hauptmodus)
 
-| Eigenschaft              | value|
+| Eigenschaft              | Wert|
 |-|-|
 | IKE-Version           | IKEv2 |
 |Diffie-Hellman-Gruppe*   | ECP384 |
@@ -167,7 +171,7 @@ Im Gegensatz zu Azure, das mehrere Angebote als Initiator und Antwortdienst unte
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parameter der IKE-Phase 2 (Schnellmodus)
 
-| Eigenschaft| value|
+| Eigenschaft| Wert|
 |-|-|
 |IKE-Version |IKEv2 |
 |Verschlüsselung und Hashalgorithmen (Verschlüsselung)     | GCMAES256|
@@ -180,7 +184,7 @@ Im Gegensatz zu Azure, das mehrere Angebote als Initiator und Antwortdienst unte
 >[!NOTE]
 >Die Standardwerte für die Diffie-Hellman-Gruppe, Hashalgorithmen und Perfect Forward Secrecy wurden für Builds ab 1910 und höher geändert. Verwenden Sie die folgenden Werte für die oben genannten Parameter, wenn sich Azure Stack Hub auf einer Buildversion unter 1910 befindet:
 
->| Eigenschaft| value|
+>| Eigenschaft| Wert|
 >|-|-|
 >|Diffie-Hellman-Gruppe   | DHGroup2 |
 >|Hashalgorithmen | SHA256 |

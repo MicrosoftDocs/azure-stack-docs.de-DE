@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: b8826fc929c571e39d36139bf724861ae9cc7fbd
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: fc53a0b1e4273436e9e06e10feccbe577ea2e488
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702702"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79312954"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub
 
@@ -35,7 +35,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
     > [!Note]  
     > Wenn Sie die Verbindungen getrennt haben, können Sie die Datei herunterladen und manuell auf den getrennten Computer kopieren, auf dem Sie sie bearbeiten möchten. Sie können die Datei mithilfe von Tools wie [PuTTY oder WinSCP](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html) auf Ihren Linux-Computer kopieren.
 
-2.  Um sie in einem Editor zu öffnen, können Sie nano verwenden:
+2.  Wenn Sie das API-Modell in einem Editor öffnen möchten, können Sie nano verwenden:
 
     ```bash
     nano ./kubernetes-azurestack.json
@@ -68,7 +68,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
 
 7.  Legen Sie im Array `masterProfile` die folgenden Felder fest:
 
-    | Feld | Beschreibung |
+    | Feld | BESCHREIBUNG |
     | --- | --- |
     | dnsPrefix | Geben Sie eine eindeutige Zeichenfolge ein, die zur Identifizierung des Hostnamens von virtuellen Computern dienen soll. Beispielsweise einen Namen, der auf dem Namen der Ressourcengruppe basiert. |
     | count |  Geben Sie die Anzahl der Masters ein, die für die Bereitstellung vorgesehen sind. Der minimale Wert für eine Hochverfügbarkeitsbereitstellung beträgt 3, aber 1 ist für Bereitstellungen ohne Hochverfügbarkeit zulässig. |
@@ -88,9 +88,9 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
     | Feld | BESCHREIBUNG |
     | --- | --- |
     | adminUsername | Geben Sie den VM-Administratorbenutzernamen ein. |
-    | ssh | Geben Sie den öffentlichen Schlüssel ein, der für die SSH-Authentifizierung bei virtuellen Computern verwendet wird. Wenn Sie PuTTY verwenden, öffnen Sie den PuTTY Key Generator, um den privaten PuTTY-Schlüssel und den öffentlichen Schlüssel, der mit „ssh-rsa“ beginnt, wie im folgenden Beispiel zu laden. Sie können den beim Erstellen des Linux-Clients generierten Schlüssel verwenden, **Sie müssen jedoch den öffentlichen Schlüssel kopieren, damit es sich um eine einzelne Textzeile handelt, wie im Beispiel gezeigt**.|
+    | ssh | Geben Sie den öffentlichen Schlüssel ein, der für die SSH-Authentifizierung bei virtuellen Computern verwendet wird. Verwenden Sie `ssh-rsa` und dann den Schlüssel. Anweisungen zum Erstellen eines öffentlichen Schlüssels finden Sie unter [Erstellen eines SSH-Schlüssels für Linux in Azure Stack Hub](create-ssh-key-on-windows.md). |
 
-    ![PuTTY Key Generator](media/azure-stack-kubernetes-aks-engine-deploy-cluster/putty-key-generator.png)
+    Wenn Sie die Bereitstellung in einem benutzerdefinierten virtuellen Netzwerk ausführen möchten, finden Sie Anweisungen zum Ermitteln und Hinzufügen der erforderlichen Schlüssel und Werte zu den entsprechenden Arrays im API-Modell unter [Bereitstellen eines Kubernetes-Clusters zu einem benutzerdefinierten virtuellen Netzwerk in Azure Stack Hub](kubernetes-aks-engine-custom-vnet.md).
 
 ### <a name="more-information-about-the-api-model"></a>Weitere Informationen zum API-Modell
 
@@ -111,7 +111,7 @@ Fahren Sie mit der Bereitstellung eines Clusters fort:
 
 1.  Überprüfen Sie die verfügbaren Parameter für die AKS-Engine in Azure Stack Hub-[CLI-Flags](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags).
 
-    | Parameter | Beispiel | Beschreibung |
+    | Parameter | Beispiel | BESCHREIBUNG |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | Um der AKS-Engine mitzuteilen, dass die Zielplattform Azure Stack Hub ist, verwenden Sie `AzureStackCloud`. |
     | identity-system | adfs | Optional. Geben Sie Ihre Identitätsverwaltungslösung an, wenn Sie Active Directory-Verbunddienste (AD FS) nutzen. |
@@ -120,7 +120,7 @@ Fahren Sie mit der Bereitstellung eines Clusters fort:
     | api-model | ./kubernetes-azurestack.json | Pfad zur Clusterkonfigurationsdatei oder zum API-Modell. |
     | output-directory | kube-rg | Geben Sie den Namen des Verzeichnisses ein, in dem die Ausgabedatei `apimodel.json` sowie andere generierte Dateien enthalten sein sollen. |
     | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie die Dienstprinzipal-GUID ein. Die als Anwendungs-ID identifizierte Client-ID, wenn Ihr Azure Stack Hub-Administrator den Dienstprinzipal erstellt hat. |
-    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie das Dienstprinzipalgeheimnis ein. Dies ist das Clientgeheimnis, das Sie beim Erstellen Ihres Diensts einrichten. |
+    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie das Dienstprinzipalgeheimnis ein. Sie richten den geheimen Clientschlüssel beim Erstellen Ihres Diensts ein. |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie Ihre Abonnement-ID ein. Weitere Informationen finden Sie unter [Abonnieren von Angeboten](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer). |
 
     Beispiel:

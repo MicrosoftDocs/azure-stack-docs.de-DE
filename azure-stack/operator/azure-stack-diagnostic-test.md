@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 1cfae74381121534fea8a49dca4d048e749bc1e6
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 9b082876dca1e39f99ac0b98a7e438aa1231b3c2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699999"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512540"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Überprüfen des Azure Stack Hub-Systemstatus
 
@@ -47,7 +47,7 @@ Wie oben bereits erwähnt, wird das Überprüfungstool über den PEP ausgeführt
 
    Weitere Informationen finden Sie unter [Überlegungen zu Parametern](azure-stack-diagnostic-test.md#parameter-considerations) und [Beispiele für Anwendungsfälle](azure-stack-diagnostic-test.md#use-case-examples).
 
-1. Führen Sie `Get-AzureStackLog` aus, wenn für Tests **FAIL** (FEHLER) gemeldet wird. Eine Anleitung zu einem integrierten System finden Sie unter [So führen Sie „Get-AzureStackLog“ in integrierten Azure Stack Hub-Systemen aus](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) oder im ASDK unter [Ausführen von Get-AzureStackLog in einem System mit dem Azure Stack Development Kit (ASDK)](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+1. Führen Sie `Get-AzureStackLog` aus, wenn für Tests **FAIL** (FEHLER) gemeldet wird. Eine Anleitung zu einem integrierten System finden Sie unter [Ausführen von „Get-AzureStackLog“ in integrierten Azure Stack Hub-Systemen](azure-stack-get-azurestacklog.md).
 
    Das Cmdlet sammelt Protokolle, die von Test-AzureStack generiert wurden. Wir empfehlen Ihnen, keine Protokolle zu erfassen und sich stattdessen an den Microsoft-Kundendienst und -Support (CSS) zu wenden, wenn bei Tests eine **WARNUNG** gemeldet wird.
 
@@ -234,6 +234,6 @@ Test-AzureStack -Include AzsNetworkInfra -Debug
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zu Azure Stack Hub-Diagnosetools und zur Protokollierung von Problemen finden Sie unter [Azure Stack Hub-Diagnosetools](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+Weitere Informationen zu Azure Stack Hub-Diagnosetools und zur Protokollierung von Problemen finden Sie unter [Azure Stack Hub-Diagnosetools](azure-stack-diagnostic-log-collection-overview-tzl.md).
 
 Weitere Informationen zur Problembehandlung finden Sie unter [Problembehandlung von Microsoft Azure Stack Hub](azure-stack-troubleshooting.md).

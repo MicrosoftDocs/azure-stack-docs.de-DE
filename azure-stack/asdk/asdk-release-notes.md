@@ -3,22 +3,36 @@ title: Versionshinweise zum ASDK
 description: Verbesserungen, Fehlerbehebungen und bekannte Probleme im Azure Stack Development Kit (ASDK).
 author: sethmanheim
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: c73e7bc20b1eb1e2538f211d2aaa84dafbfa103b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 03/18/2020
+ms.openlocfilehash: 6f7bec082564c9f7cb3a0c70cec7e8e7e48fbd35
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694117"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511809"
 ---
 # <a name="asdk-release-notes"></a>Versionshinweise zum ASDK
 
 Dieser Artikel bietet Informationen zu Änderungen, Fehlerbehebungen und bekannten Problemen im Azure Stack Development Kit (ASDK). Wenn Sie nicht sicher sind, welche Version Sie ausführen, [überprüfen Sie sie im Portal](../operator/azure-stack-updates.md).
 
 Abonnieren Sie den [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS-Feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#), um in Bezug auf Neuerungen im ASDK auf dem Laufenden zu bleiben.
+
+::: moniker range="azs-2002"
+## <a name="build-12002035"></a>Build 1.2002.0.35
+
+### <a name="new-features"></a>Neue Funktionen
+
+- Eine Liste der in diesem Release behobenen Probleme, Änderungen und neuen Features finden Sie in den entsprechenden Abschnitten in den [Azure Stack-Versionshinweisen](../operator/release-notes.md).
+
+### <a name="fixed-and-known-issues"></a>Behobene und bekannte Probleme
+
+- Das Kennwort für das Entschlüsselungszertifikat ist eine neue Option, um das Kennwort für selbstsignierte Zertifikat (PFX-Datei) anzugeben, das den privaten Schlüssel enthält, der zum Entschlüsseln der Sicherungsdaten notwendig ist. Dieses Kennwort ist nur erforderlich, wenn die Sicherung mit einem Zertifikat verschlüsselt ist.
+- Eine Liste der bekannten Probleme bei Azure Stack in dieser Version finden Sie im Artikel [Bekannte Probleme](../operator/known-issues.md).
+- Beachten Sie, dass verfügbare Hotfixes für Azure Stack nicht für das ASDK gelten.
+::: moniker-end
 
 ::: moniker range="azs-1910"
 ## <a name="build-11910058"></a>Build 1.1910.0.58
@@ -72,23 +86,4 @@ Abonnieren Sie den [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](http
 - Eine Liste der in dieser Version behobenen Azure Stack-Probleme finden Sie [in diesem Abschnitt](/azure-stack/operator/release-notes?view=azs-1907#fixes-2) der Azure Stack-Versionshinweise.
 - Eine Liste der bekannten Probleme finden Sie [in diesem Abschnitt](/azure-stack/operator/known-issues?view=azs-1907).
 - Beachten Sie, dass [verfügbare Hotfixes für Azure Stack](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2) nicht auf das Azure Stack ASDK anwendbar sind.
-::: moniker-end
-
-::: moniker range="azs-1906"
-## <a name="build-11906030"></a>Build 1.1906.0.30
-
-### <a name="new-features"></a>Neue Funktionen
-
-- Eine Liste der neuen Funktionen in diesem Release finden Sie [in diesem Abschnitt](/azure-stack/operator/release-notes?view=azs-1906#whats-in-this-update-1) der Anmerkungen zu dieser Version für Azure Stack.
-
-### <a name="changes"></a>Änderungen
-
-- Es wurde ein Virtueller Supportring-Computer **AzS-SRNG01** hinzugefügt, der den Protokollsammlungsdienst für Azure Stack hostet. Weitere Informationen finden Sie unter [Rollen virtueller Computer](asdk-architecture.md).
-
-### <a name="fixed-and-known-issues"></a>Behobene und bekannte Probleme
-
-- Wenn Sie VM-Ressourcen unter Verwendung einiger Marketplace-Images erstellen, können Sie die Bereitstellung eventuell nicht abschließen. Zur Umgehung dieses Problems können Sie auf den Link **Vorlage und Parameter herunterladen** auf der Seite **Zusammenfassung** klicken, und dann klicken Sie auf die Schaltfläche **Bereitstellen** auf dem Blatt **Vorlage**.
-- Eine Liste der in dieser Version behobenen Azure Stack-Probleme finden Sie [in diesem Abschnitt](/azure-stack/operator/release-notes?view=azs-1906#fixes-3) der Azure Stack-Versionshinweise.
-- Eine Liste der bekannten Probleme finden Sie [in diesem Abschnitt](/azure-stack/operator/known-issues?view=azs-1906).
-- Beachten Sie, dass [verfügbare Hotfixes für Azure Stack](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3) nicht auf das Azure Stack ASDK anwendbar sind.
 ::: moniker-end

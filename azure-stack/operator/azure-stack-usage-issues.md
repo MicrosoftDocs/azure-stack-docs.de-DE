@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 55609ca3ca8dc0dbb0d557422a9a5b4223450fc3
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 4a847578e73c5c9b518669a46340590242513686
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696463"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512348"
 ---
 # <a name="usage-connectivity-errors"></a>Verbindungsfehler bei der Nutzung
 
@@ -47,7 +47,7 @@ In diesem Abschnitt werden die Nutzungsfehlercodes beschrieben.
 | Nicht autorisiert               | Die Azure-Bridge kann keine Daten per Push an den Nutzungsdienst in Azure übertragen, weil der Azure-Dienst die Azure Stack Hub-Bridge nicht authentifizieren kann. | Überprüfen Sie, ob die Registrierungsressource geändert wurde, und wenn dies der Fall ist, registrieren Sie Azure Stack Hub erneut. <br><br> Manchmal kann ein Zeitsynchronisierungsproblem zwischen Azure Stack Hub und Azure AD diesen Fehler verursachen. Stellen Sie in diesem Fall sicher, dass die Zeiten auf den XRP-VMs in Azure Stack Hub mit Azure AD synchronisiert sind. |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
-Zusätzlich müssen Sie eventuell die Protokolldateien für die Azure-Bridge-, WAS- und WASPublic-Komponenten bereitstellen, indem Sie gemäß [diesen Schritten](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) vorgehen.
+Zusätzlich müssen Sie eventuell die Protokolldateien für die Azure-Bridge-, WAS- und WASPublic-Komponenten bereitstellen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

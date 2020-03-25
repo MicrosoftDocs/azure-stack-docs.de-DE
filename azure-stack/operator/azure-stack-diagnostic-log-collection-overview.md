@@ -7,18 +7,18 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 05d54d3db2429faa410cc67a46fba234d285a1af
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 792c639a5233a7d30dc86488059045a9516dfaa2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700050"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512557"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Übersicht über die Sammlung von Azure Stack Hub-Diagnoseprotokollen 
 
 Bei Azure Stack Hub handelt es sich um eine große Sammlung von Komponenten, die zusammenarbeiten und miteinander interagieren. Alle diese Komponenten generieren eigene eindeutige Protokolle. Dies kann die Diagnose von Problemen zu einer Herausforderung machen – insbesondere bei Fehlern, die von verschiedenen interagierenden Azure Stack Hub-Komponenten stammen. Um dieser Herausforderung Rechnung zu tragen, haben wir einen Prozess zur Sammlung von Diagnoseprotokollen entworfen. 
 
-Vor Version 1907 beinhaltete der Diagnoseprozess die Verwendung von [Test-AzureStack](azure-stack-diagnostic-test.md) zum Überprüfen der Systemintegrität und die Nutzung des [privilegierten Endpunkts (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) zum Sammeln von Protokollen zur Problembehandlung. 
+Vor Version 1907 beinhaltete der Diagnoseprozess die Verwendung von [Test-AzureStack](azure-stack-diagnostic-test.md) zum Überprüfen der Systemintegrität und die Nutzung des [privilegierten Endpunkts (PEP)](azure-stack-get-azurestacklog.md) zum Sammeln von Protokollen zur Problembehandlung. 
 
 Seit Version 1907 steht auf der Seite **Hilfe und Support** ein einfacherer Prozess zur Verfügung, der die **Sammlung von Diagnoseprotokollen** beinhaltet. 
 Die **Sammlung von Diagnoseprotokollen** ist Teil eines fortgesetzten Engagements zum Verbessern der Abläufe im Fehlerbehandlungsprozess für den Azure Stack Hub-Operator. Dank dieser Verbesserungen können Operatoren schnell Diagnoseprotokolle sammeln und mit den Microsoft Customer Support Services (CSS) teilen. Die Protokolle können in einem Blobcontainer in Azure gespeichert werden, wo der Zugriff nach Bedarf angepasst werden kann.    
@@ -31,20 +31,20 @@ Die **Sammlung von Diagnoseprotokollen** funktioniert auf zwei verschiedene Arte
 ![Screenshot der Optionen für die Sammlung von Diagnoseprotokollen](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
 Die **Diagnoseprotokollsammlung** weist eine einfache Benutzeroberfläche auf und erfordert kein PowerShell. Protokolle werden zuverlässig erfasst, auch wenn die Infrastrukturdienste außer Betrieb sind.
-Wenn Ihre Richtlinie das Teilen von Diagnoseprotokollen mit CSS zulässt, ist die **Sammlung von Diagnoseprotokollen** ab der Version 1907 die empfohlene Sammlungsmethode. Sie sollten [den PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) zur Erfassung von Protokollen nur verwenden, wenn die **Sammlung von Diagnoseprotokollen** in Hilfe und Support nicht verfügbar ist.
+Wenn Ihre Richtlinie das Teilen von Diagnoseprotokollen mit CSS zulässt, ist die **Sammlung von Diagnoseprotokollen** ab der Version 1907 die empfohlene Sammlungsmethode. Sie sollten [den PEP](azure-stack-get-azurestacklog.md) zur Erfassung von Protokollen nur verwenden, wenn die **Sammlung von Diagnoseprotokollen** in Hilfe und Support nicht verfügbar ist.
 
 ## <a name="automatic-diagnostic-log-collection"></a>Automatische Sammlung von Diagnoseprotokollen 
 
-Wenn eine [bestimmte Integritätswarnung](azure-stack-configure-automatic-diagnostic-log-collection.md#automatic-diagnostic-log-collection-alerts) aktiv ist, startet die automatische Sammlung von Diagnoseprotokollen und lädt proaktiv Diagnoseprotokolle aus Azure Stack Hub in ein Speicherblob hoch. Dadurch verkürzt sich die für das Freigeben von Diagnoseprotokollen mit CSS erforderliche Zeit erheblich. Diagnoseprotokolle werden nur gesammelt, wenn eine Warnung ausgelöst wird.  
+Wenn eine [bestimmte Integritätswarnung](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md#proactive-diagnostic-log-collection-alerts) aktiv ist, startet die automatische Sammlung von Diagnoseprotokollen und lädt proaktiv Diagnoseprotokolle aus Azure Stack Hub in ein Speicherblob hoch. Dadurch verkürzt sich die für das Freigeben von Diagnoseprotokollen mit CSS erforderliche Zeit erheblich. Diagnoseprotokolle werden nur gesammelt, wenn eine Warnung ausgelöst wird.  
 
-Weitere Informationen zur automatischen Protokollsammlung finden Sie unter [Konfigurieren der automatischen Azure Stack Hub-Diagnoseprotokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection.md).
+Weitere Informationen zur automatischen Protokollsammlung finden Sie unter [Konfigurieren der automatischen Azure Stack Hub-Diagnoseprotokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md).
 
 ## <a name="on-demand-diagnostic-log-collection"></a>Sammlung von Diagnoseprotokollen bei Bedarf
 
 Bei der bedarfsgesteuerten Sammlung werden Diagnoseprotokolle von Azure Stack Hub auf ein Speicherblob in Azure hochgeladen, wenn ein Azure Stack Hub-Operator die Sammlung manuell auslöst.
 CSS stellt eine SAS-URL (Shared Access Signature) für ein Speicherblob im Besitz von CSS zur Verfügung. Ein Azure Stack Hub-Operator kann auf **Protokolle jetzt sammeln** klicken und die SAS-URL eingeben. Diagnoseprotokolle werden dann direkt auf das CSS-Blob hochgeladen, ohne dass eine dazwischen liegende Freigabe benötigt wird. 
 
-Weitere Informationen zum Erfassen von Protokollen bei Bedarf finden Sie unter [Azure Stack Hub-Diagnoseprotokolle jetzt sammeln](azure-stack-configure-on-demand-diagnostic-log-collection.md).
+Weitere Informationen zum Erfassen von Protokollen bei Bedarf finden Sie unter [Sofortiges Senden von Azure Stack Hub-Diagnoseprotokollen](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md).
 
 ## <a name="bandwidth-considerations"></a>Bandbreitenaspekte
 

@@ -3,137 +3,91 @@ title: Schutz von in Azure Stack Hub bereitgestellten VMsProtect VMs deployed on
 description: Erfahren Sie, wie Sie einen Wiederherstellungsplan erstellen, um in Azure Stack Hub bereitgestellte VMs vor Datenverlust und ungeplanten Ausfallzeiten zu schützen.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 1/22/2020
+ms.date: 02/18/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.lastreviewed: 3/19/2019
-ms.openlocfilehash: 824352a27ae91b2bf0a351b9dc280c83bfb9d19a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/5/2020
+ms.openlocfilehash: 913d0eeed1ba2cfce0b062385a4f544919889f43
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703960"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512608"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Schutz von in Azure Stack Hub bereitgestellten VMsProtect VMs deployed on Azure Stack Hub
 
-Verwenden Sie diesen Artikel als Leitfaden für die Entwicklung eines Plans zum Schützen von virtuellen Computern (VMs), die Ihre Benutzer unter Azure Stack Hub bereitstellen.
+Dieser Artikel unterstützt Sie bei der Entwicklung einer Datenschutz- und Notfallwiederherstellungsstrategie für virtuelle IaaS-Computer (virtual machines, VMs), die benutzerseitig in Azure Stack Hub bereitgestellt werden.
+
+Zum Schutz vor Datenverlusten und längeren Ausfallzeiten empfiehlt es sich, einen Sicherungs- oder Notfallwiederherstellungsplan für Benutzeranwendungen und deren Daten zu implementieren. Dazu müssen die einzelnen Anwendungen im Rahmen einer umfassenden BCDR-Strategie (Business Continuity & Disaster Recovery) Ihrer Organisation evaluiert werden. Ein guter Ausgangspunkt ist [Azure Stack Hub: Considerations for business continuity and disaster recovery](https://aka.ms/azurestackbcdrconsiderationswp) (Azure Stack: Überlegungen zu Business Continuity & Disaster Recovery).
+
+## <a name="considerations-for-protecting-iaas-vms"></a>Überlegungen zum Schutz virtueller IaaS-Computer
+
+### <a name="roles-and-responsibilities"></a>Rollen und Zuständigkeiten
+
+Sorgen Sie zunächst für Klarheit hinsichtlich der Rollen und Aufgaben von Anwendungsbesitzern und Operatoren in puncto Schutz und Wiederherstellung.
+
+Benutzer sind für den Schutz der virtuellen Computer zuständig. Operatoren kümmern sich darum, dass Azure Stack Hub online ist und ordnungsgemäß funktioniert. Azure Stack Hub beinhaltet einen Dienst, der interne Dienstdaten von Infrastrukturdiensten sichert. Benutzerdaten wie benutzerseitig erstellte virtuelle Computer, Speicherkonten mit Benutzer- oder Anwendungsdaten sowie Benutzerdatenbanken werden dabei **nicht** gesichert.
 
 
-Zum Schutz vor Datenverlusten und ungeplanten Ausfallzeiten müssen Sie einen Sicherungs- oder Notfallwiederherstellungsplan für Benutzer-Apps und die dazugehörigen Daten implementieren. Dieser Plan ist ggf. für jede App eindeutig, folgt aber einem Framework, der im Zuge einer weitreichenden Geschäftskontinuitäts- und Notfallwiederherstellungsstrategie (BC/DR) Ihrer Organisation entwickelt wurde. Ein guter Ausgangspunkt ist [Azure Stack Hub: Considerations for business continuity and disaster recovery](https://aka.ms/azurestackbcdrconsiderationswp) (Azure Stack: Überlegungen zu Business Continuity & Disaster Recovery).
-
-## <a name="azure-stack-hub-infrastructure-recovery"></a>Wiederherstellung der Azure Stack Hub-Infrastruktur
-
-Benutzer sind dafür verantwortlich, ihre VMs separat von den Infrastrukturdiensten von Azure Stack Hub zu schützen.
-
-Der Wiederherstellungsplan für Azure Stack Hub-Infrastrukturdienste umfasst **nicht** die Wiederherstellung von benutzerseitigen VMs, Speicherkonten oder Datenbanken. Als App-Besitzer sind Sie für die Implementierung eines Wiederherstellungsplans für Ihre Apps und Daten verantwortlich.
-
-Wenn die Azure Stack Hub-Cloud längere Zeit offline oder dauerhaft nicht wiederherstellbar ist, benötigen Sie einen Wiederherstellungsplan, der Folgendes erfüllt:
-
-* Sicherstellung von möglichst geringen Ausfallzeiten.
-* Unterbrechungsfreie Ausführung kritischer VMs, z.B. Datenbankserver.
-* Weiterführung der Bearbeitung von Benutzeranforderungen durch Apps.
-
-Der Betreiber der Azure Stack Hub-Cloud ist für die Erstellung eines Wiederherstellungsplans für die zugrunde liegende Azure Stack Hub-Infrastruktur und die Dienste zuständig. Weitere Informationen finden Sie unter [Wiederherstellen nach schwerwiegendem Datenverlust](../operator/azure-stack-backup-recover-data.md).
-
-## <a name="considerations-for-iaas-vms"></a>Überlegungen zu virtuellen IaaS-Computern
-Das auf dem virtuellen IaaS-Computer installierte Betriebssystem hat Auswirkungen darauf, welche Produkte Sie zum Schutz der enthaltenen Daten verwenden können. Bei Windows-basierten IaaS-VMs können Sie Produkte von Microsoft sowie Partnerprodukte verwenden, um Daten zu schützen. Für Linux-basierte IaaS-Computer stehen dagegen nur Partnerprodukte zur Verfügung. [Dieses Datenblatt](https://aka.ms/azurestackbcdrpartners) enthält alle Business Continuity & Disaster Recovery-Partner mit geprüften Produkten für Azure Stack Hub.
+| Anwendungsbesitzer/-architekten   | Azure Stack Hub-Operator  |
+|---    |---    |
+| <ul><li>Abstimmen der Anwendungsarchitektur auf die Cloudentwurfsprinzipien</li></br><li>Bedarfsgerechtes Modernisieren herkömmlicher Anwendungen, um sie auf die Cloudumgebung vorzubereiten</li></br><li>Definieren akzeptabler RTO- und RPO-Werte für die Anwendung</li></br><li>Ermitteln von Anwendungsressourcen und Datenrepositorys, die geschützt werden müssen</li></br><li>Implementieren einer auf die Anwendungsarchitektur und die Kundenanforderungen abgestimmten Methode für die Daten- und Anwendungswiederherstellung</li></ul>     | <ul><li>Ermitteln der BCDR-Ziele der Organisation</li></br><li>Bereitstellen von genügend Azure Stack Hub-Instanzen, um die BCDR-Ziele der Organisation zu erfüllen</li></br><li>Entwerfen und Betreiben der Infrastruktur für den Anwendungs-/Datenschutz</li></br><li>Bereitstellen von verwalteten Lösungen oder Self-Service-Zugriff auf Schutzdienste</li></br><li>Zusammenarbeiten mit Anwendungsbesitzern/-architekten, um den Anwendungsentwurf zu verstehen und Schutzstrategien zu empfehlen</li></br><li>Ermöglichen von Infrastruktursicherungen für die Dienstreparatur und Cloudwiederherstellung</li></ul>    |
 
 ## <a name="sourcetarget-combinations"></a>Quelle/Ziel-Kombinationen
 
-Jede Azure Stack Hub-Cloud wird in einem Rechenzentrum bereitgestellt. Für die Wiederherstellung Ihrer Apps ist eine separate Umgebung erforderlich. Bei der Wiederherstellungsumgebung kann es sich um eine andere Azure Stack Hub-Cloud in einem anderen Rechenzentrum oder die öffentliche Azure-Cloud handeln. Von Ihren Anforderungen hinsichtlich der Datenhoheit und des Datenschutzes hängt ab, welche Wiederherstellungsumgebung für Ihre App erforderlich ist. Bei der Aktivierung des Schutzes für die Apps können Sie für jede App eine bestimmte Wiederherstellungsoption auswählen. So können Apps in einem Abonnement enthalten sein, das Daten in einem anderen Rechenzentrum sichert. In einem anderen Abonnement können Sie Daten in der öffentlichen Azure-Cloud replizieren.
+Benutzer, die sich vor dem Ausfall eines Rechenzentrums oder Standorts schützen müssen, können eine weitere Azure Stack Hub-Instanz oder Azure verwenden, um Hochverfügbarkeit bereitzustellen oder eine schnelle Wiederherstellung zu ermöglichen. Mit einem primären und sekundären Standort können Benutzer Anwendungen in einer Aktiv/Aktiv- oder Aktiv/Passiv-Konfiguration in zwei Umgebungen bereitstellen. Für weniger kritische Workloads können Benutzer auf Kapazitäten des sekundären Standorts zurückgreifen, um Anwendungen nach Bedarf aus einer Sicherung wiederherzustellen.
 
-Planen Sie Ihre Sicherungswiederherstellungs- und Notfallwiederherstellungsstrategie für die einzelnen Apps, um das Ziel für jede App zu bestimmen. Mit einem Wiederherstellungsplan kann Ihre Organisation die Größe der lokal erforderlichen Speicherkapazität entsprechend anpassen und den Verbrauch in der öffentlichen Cloud kalkulieren.
+In einem Rechenzentrum können einzelne oder mehrere Azure Stack Hub-Clouds bereitgestellt werden. Die Bereitstellung mindestens einer Azure Stack Hub-Cloud in einem anderen Rechenzentrum ermöglicht im Notfall Failover für Workloads und trägt zur Minimierung ungeplanter Ausfallzeiten bei. Sollten Sie nur über eine einzelne Azure Stack Hub-Instanz verfügen, empfiehlt es sich gegebenenfalls, die öffentliche Azure-Cloud als Wiederherstellungscloud zu verwenden. Die Entscheidung, wo Ihre Anwendung ausgeführt werden kann, hängt von behördlichen Vorgaben, Unternehmensrichtlinien und strengen Wartezeitanforderungen ab. Der passende Wiederherstellungsort kann flexibel pro Anwendung bestimmt werden. So ist es beispielsweise möglich, dass Anwendungen eines bestimmten Abonnements Daten in einem anderen Rechenzentrum sichern und Anwendungen eines anderen Abonnements Daten in der öffentlichen Azure-Cloud replizieren.
 
-|  | Globale Azure-Umgebung | Azure Stack Hub-Bereitstellung in einem von CSP betriebenen Rechenzentrum | Azure Stack Hub-Bereitstellung in einem vom Kunden betriebenen Rechenzentrum |
-|------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **Azure Stack Hub-Bereitstellung in einem von CSP betriebenen Rechenzentrum** | Es werden Benutzer-VMs für die von CSP betriebene Azure Stack Hub-Instanz bereitgestellt.<br><br>Benutzer-VMs werden über eine Sicherung oder ein Failover direkt in Azure wiederhergestellt. | CSP betreibt die primären und sekundären Instanzen von Azure Stack Hub in seinen eigenen Rechenzentren.<br><br>Benutzer-VMs werden wiederhergestellt, oder es wird ein Failover zwischen den beiden Azure Stack Hub-Instanzen durchgeführt. | CSP betreibt Azure Stack Hub am primären Standort.<br><br>Das Rechenzentrum des Kunden ist das Wiederherstellungs- oder Failoverziel. |
-| **Azure Stack Hub-Bereitstellung in einem vom Kunden betriebenen Rechenzentrum** | Es werden Benutzer-VMs für die vom Kunden betriebene Azure Stack Hub-Instanz bereitgestellt.<br><br>Benutzer-VMs werden über eine Sicherung oder ein Failover direkt in Azure wiederhergestellt. | Der Kunde betreibt Azure Stack Hub am primären Standort.<br><br>Das Rechenzentrum von CSP ist das Wiederherstellungs- oder Failoverziel. | Der Kunde betreibt die primären und sekundären Instanzen von Azure Stack Hub in seinen eigenen Rechenzentren.<br><br>Benutzer-VMs werden wiederhergestellt, oder es wird ein Failover zwischen den beiden Azure Stack Hub-Instanzen durchgeführt. |
+## <a name="application-recovery-objectives"></a>Ziele für die Anwendungswiederherstellung
 
-![Quelle/Ziel-Kombinationen](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
-
-## <a name="app-recovery-objectives"></a>Ziele für die App-Wiederherstellung
-
-Ermitteln, welche Ausfallzeiten und Datenverluste Ihre Organisation für eine App jeweils tolerieren kann. Indem Sie die Ausfallzeiten und Datenverluste quantifizieren, können Sie einen Wiederherstellungsplan erstellen, mit dem die Auswirkungen einer Katastrophe für Ihre Organisation gering gehalten werden. Erwägen Sie für jede App:
+Anwendungsbesitzer sind in erster Linie dafür zuständig, zu bestimmen, in welchem Umfang Ausfallzeiten und Datenverluste von der Anwendung und der Organisation toleriert werden können. Die Quantifizierung akzeptabler Ausfallzeiten und Datenverluste ermöglicht die Erstellung eines Wiederherstellungsplans, der die Auswirkungen einer Katastrophe für Ihre Organisation minimiert. Machen Sie sich für jede Anwendung Gedanken zu folgenden Aspekten:
 
  - **Recovery Time Objective (RTO)**  
 Die RTO ist der maximal zulässige Zeitraum, in dem eine App nach einem Vorfall nicht verfügbar sein darf. Ein RTO-Wert von 90 Minuten bedeutet beispielsweise, dass Sie in der Lage sein müssen, die App innerhalb von 90 Minuten nach Beginn eines Notfalls wieder in den Ausführungszustand zu versetzen. Falls für die RTO ein niedriger Wert angesetzt ist, führen Sie ggf. eine zweite Bereitstellung durchgehend im Standby aus, um vor einem regionalen Ausfall geschützt zu sein.
  - **Recovery Point Objective (RPO)**  
 RPO ist der maximale Zeitraum bei einem Notfall, in dem ein Datenverlust zulässig ist. Wenn Sie Daten beispielsweise in einer einzelnen Datenbank speichern, die nicht gesichert wird und auch keine Replikation in andere Datenbanken durchführt, können Daten für bis zu eine Stunde verloren gehen.
 
-RTO und RPO sind geschäftliche Anforderungen. Führen Sie eine Risikobewertung durch, um die RTO und RPO der App zu definieren.
+Eine weitere Metrik ist *Mean Time to Recover* (MTTR) – der durchschnittliche Zeitraum, der zur Wiederherstellung der Anwendung nach einem Ausfall erforderlich ist. MTTR ist ein empirischer Wert für ein System. Wenn der MTTR-Wert den RTO-Wert übersteigt, führt ein Ausfall des Systems zu einer nicht akzeptablen Störung des Geschäftsbetriebs, da das System nicht innerhalb des definierten RTO-Zeitraums wiederhergestellt werden kann.
 
-Eine weitere Metrik ist **Mean Time to Recover** (MTTR) – der durchschnittliche Zeitraum, der zur Wiederherstellung der App nach einem Ausfall erforderlich ist. MTTR ist ein empirischer Wert für ein System. Wenn der MTTR-Wert größer als der RTO-Wert ist, führt ein Ausfall des Systems zu einer nicht akzeptablen geschäftlichen Störung, weil es nicht möglich ist, das System innerhalb des definierten RTO-Zeitraums wiederherzustellen.
+## <a name="protection-options"></a>Schutzoptionen 
 
 ### <a name="backup-restore"></a>Sicherungswiederherstellung
 
-Das Schema zum Schutz der am häufigsten verwendeten VM-basierten Apps ist die Verwendung von Sicherungssoftware. Die Sicherung einer VM umfasst in der Regel das Betriebssystem, die Betriebssystemkonfiguration, App-Binärdateien und App-Daten. Die Sicherungen werden durch Erstellen einer Momentaufnahme der Volumes, Datenträger oder der gesamten VM erstellt. Mit Azure Stack Hub haben Sie die Möglichkeit, innerhalb des Kontexts des Gastbetriebssystems oder über Speicher- und Compute-APIs von Azure Stack Hub Sicherungen durchzuführen. Azure Stack Hub unterstützt nicht die Durchführung von Sicherungen auf Hypervisorebene.
- 
-![Sicherungswiederherstellung](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
+Die Sicherung Ihrer Anwendungen und Datasets ermöglicht eine schnelle Erholung nach einem Ausfall infolge einer Katastrophe oder aufgrund von beschädigten Daten oder versehentlichen Löschungen. Bei Anwendungen, die auf virtuellen IaaS-Computern basieren, können Anwendungsdaten, die Betriebssystemkonfiguration und auf Volumes gespeicherte Daten mithilfe eines gastinternen Agents geschützt werden. 
 
-Für die Wiederherstellung der App muss mindestens eine VM in der gleichen Cloud oder in einer neuen Cloud wiederhergestellt werden. Sie können als Ziel eine Cloud in Ihrem Rechenzentrum oder in der öffentlichen Cloud festlegen. Die von Ihnen gewählte Cloud unterliegt Ihrer vollständigen Kontrolle und basiert auf Ihren Anforderungen hinsichtlich des Datenschutzes und der Datenhoheit.
+#### <a name="backup-using-in-guest-agent"></a>Sichern mithilfe eines gastinternen Agents
 
- - RTO: In Stunden gemessene Ausfallzeit
- - RPO: Variabler Datenverlust (je nach Sicherungshäufigkeit)
- - Bereitstellungstopologie: Aktiv/passiv
+Die Sicherung eines virtuellen Computers mithilfe eines Gastbetriebssystem-Agents beinhaltet in der Regel die Erfassung der Betriebssystemkonfiguration, Dateien/Ordner, Datenträger, Anwendungsbinärdateien oder Anwendungsdaten. 
 
-#### <a name="planning-your-backup-strategy"></a>Planen der Sicherungsstrategie
+Wenn eine Anwendung aus einem Agent wiederhergestellt werden soll, muss der virtuelle Computer neu erstellt, das Betriebssystem installiert und der Gast-Agent installiert werden. An diesem Punkt können Daten im Gastbetriebssystem oder direkt in der Anwendung wiederhergestellt werden.
 
-Bei der Planung Ihrer Sicherungsstrategie und Definition der Skalierungsanforderungen müssen Sie zunächst die Anzahl der VM-Instanzen ermitteln, die geschützt werden müssen. Die Sicherung sämtlicher VMs auf allen Servern in einer Umgebung ist eine häufig angewendete Strategie. Bei Azure Stack Hub gibt es jedoch einige VMs, die in jedem Fall gesichert werden müssen. VMs in einer Skalierungsgruppe werden beispielsweise als kurzlebige Ressourcen behandelt, die auch ohne vorherige Ankündigung beliebig hinzugefügt und entfernt werden können. Permanent zu speichernde Daten, die geschützt werden müssen, werden in einem separaten Repository gespeichert, z.B. einem Datenbank- oder Objektspeicher.
+#### <a name="backup-using-disk-snapshot-for-stopped-vms"></a>Sichern mithilfe einer Datenträgermomentaufnahme für beendete virtuelle Computer
 
-Wichtige Überlegungen zum Sichern von VMs in Azure Stack Hub:
+Sicherungsprodukte können die Konfiguration virtueller IaaS-Computer sowie die Datenträger schützen, die an einen beendeten virtuellen Computer angefügt sind. Verwenden Sie Sicherungsprodukte mit Azure Stack Hub-API-Integration, um die VM-Konfiguration zu erfassen und Datenträgermomentaufnahmen zu erstellen. Sollte für die Anwendung geplante Ausfallzeit akzeptabel sein, vergewissern Sie sich vor dem Starten des Sicherungsworkflows, dass der virtuelle Computer beendet ist.  
 
- - **Kategorisierung**
-    - Ziehen Sie ein Modell in Betracht, bei dem Benutzer sich für die VM-Sicherung entscheiden.
-    - Definieren Sie eine Vereinbarung zum Servicelevel (SLA) zur Wiederherstellung basierend auf der Priorität der Apps oder der Folgen für das Unternehmen.
- - **Skalieren**
-    - Ziehen Sie gestaffelte Sicherungen in Betracht, wenn Sie eine große Anzahl neuer VMs integrieren (sofern eine Sicherung erforderlich ist).
-    - Bewerten Sie Sicherungsprodukte, die effizient Sicherungsdaten erfassen und übertragen können, um Ressourceninhalte für die Lösung minimieren zu können.
-    - Bewerten Sie Sicherungsprodukte, die Sicherungsdaten mit inkrementellen oder differenziellen Sicherungen effizient speichern, um die Notwendigkeit vollständiger Sicherungen für alle VMs in der Umgebung zu minimieren.
- - **Wiederherstellen**
-    - Sicherungsprodukte können virtuelle Datenträger, App-Daten auf einer vorhandenen VM oder die gesamte VM-Ressource mit den zugehörigen virtuellen Datenträgern wiederherstellen. Das benötigte Wiederherstellungsschema hängt davon ab, wie Sie die App wiederherstellen möchten. Beispielsweise kann es einfacher sein, SQL Server über eine Vorlage erneut bereitzustellen und dann anstelle der gesamten VM oder Gruppe von VMs die Datenbanken wiederherzustellen.
+#### <a name="backup-using-disk-snapshot-snapshot-for-running-vms"></a>Sichern mithilfe einer Datenträgermomentaufnahme für aktive virtuelle Computer
+
+> [!Important]  
+> Die Verwendung von Datenträgermomentaufnahmen wird für aktive virtuelle Computer derzeit nicht unterstützt. Die Erstellung einer Momentaufnahme eines Datenträgers, der an einen aktiven virtuellen Computer angefügt ist, kann die Leistung oder die Verfügbarkeit des Betriebssystems oder der Anwendung auf dem virtuellen Computer beeinträchtigen. Falls keine geplante Ausfallzeit möglich ist, sollte zum Schutz der Anwendung ein gastinterner Agent verwendet werden. 
+
+### <a name="vms-in-a-scale-set-or-availability-group"></a>Virtuelle Computer in einer Skalierungs- oder Verfügbarkeitsgruppe
+
+Virtuelle Computer in einer Skalierungs- oder Verfügbarkeitsgruppe, die als kurzlebige Ressourcen gelten, sollten nicht auf der VM-Ebene gesichert werden. Das gilt insbesondere für zustandslose Anwendungen. Bei zustandsbehafteten Anwendungen in einer Skalierungs- oder Verfügbarkeitsgruppe sollten die Anwendungsdaten (beispielsweise eine Datenbank oder ein Volume in einem Speicherpool) ggf. geschützt werden. 
 
 ### <a name="replicationmanual-failover"></a>Replikation und manuelles Failover
 
-Ein alternativer Ansatz zur Unterstützung von Hochverfügbarkeit besteht darin, Ihre App-VMs in einer anderen Cloud zu replizieren und ein manuelles Failover zu veranlassen. Die Replikation des Betriebssystems, der Binärdateien der App und der App-Daten kann auf VM- oder Gastbetriebssystemebene ausgeführt werden. Das Failover wird mit zusätzlicher Software verwaltet, die nicht Teil der App ist.
+Bei Anwendungen, die minimale Datenverluste oder minimale Ausfallzeiten erfordern, kann die Datenreplikation auf der Gastbetriebssystem- oder Anwendungsebene aktiviert werden, um Daten an einem anderen Standort zu replizieren. Einige Anwendungen (etwa Microsoft SQL Server) unterstützen die Replikation nativ. Sollte die Anwendung keine Replikation unterstützen, können Sie Datenträger mithilfe von Software im Gastbetriebssystem replizieren oder eine Partnerlösung verwenden, die als Agent im Gastbetriebssystem installiert wird.
 
-Bei diesem Ansatz wird die App in einer Cloud bereitgestellt, und die dazugehörige VM wird in der anderen Cloud repliziert. Wenn ein Failover ausgelöst wird, müssen die sekundären VMs in der zweiten Cloud eingeschaltet werden. In einigen Szenarien erstellt das Failover die VMs und fügt Datenträger daran an. Die Durchführung dieses Vorgangs kann lange dauern, insbesondere bei einer Multi-Tier-App, für die eine bestimmte Startsequenz erforderlich ist. Bevor die App mit der Anforderungsverarbeitung beginnen kann, müssen eventuell entsprechende Schritte ausgeführt werden.
-
-![Replikation und manuelles Failover](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
-
- - RTO: In Minuten gemessene Ausfallzeit
- - RPO: Variabler Datenverlust (je nach Replikationshäufigkeit)
- - Bereitstellungstopologie: Aktiv/passiv und Standby
+Bei diesem Ansatz wird die Anwendung in einer Cloud bereitgestellt, und die Daten werden in der anderen Cloud repliziert (lokal oder in Azure). Im Falle eines Failovers muss die Anwendung am Ziel gestartet und mit den replizierten Daten verknüpft werden, um Anforderungen verarbeiten zu können.
  
 ### <a name="high-availabilityautomatic-failover"></a>Hochverfügbarkeit und automatisches Failover
 
-Bei Apps, bei denen Ihr Unternehmen nur Ausfallzeiten von wenigen Sekunden oder Minuten und minimalen Datenverlust tolerieren kann, sollten Sie eine Hochverfügbarkeitskonfiguration in Betracht ziehen. Hochverfügbarkeits-Apps sind für die schnelle und automatische Wiederherstellung nach Ausfällen konzipiert. Bei lokalen Hardwareausfällen implementiert die Azure Stack Hub-Infrastruktur Hochverfügbarkeit im physischen Netzwerk mithilfe von zwei Top-of-Rack-Switches. Bei Ausfällen auf Compute-Ebene verwendet Azure Stack Hub mehrere Knoten in einer Skalierungseinheit. Auf VM-Ebene können Sie Skalierungsgruppen in Kombination mit Fehlerdomänen verwenden, um sicherzustellen, dass Knotenausfälle nicht zum Ausfall Ihrer App führen.
-
-In Kombination mit Skalierungsgruppen muss Ihre App native Unterstützung für Hochverfügbarkeit oder die Verwendung von Clustersoftware bieten. Microsoft SQL Server bietet z.B. native Unterstützung für Hochverfügbarkeit für Datenbanken mit synchronem Commitmodus. Wenn Sie nur asynchrone Replikationen unterstützen können, so geht dies mit einem gewissen Datenverlust einher. Apps können auch in einem Failovercluster bereitgestellt werden, in dem die Clustersoftware das automatische Failover der App verarbeitet.
-
-Bei dieser Vorgehensweise ist die App zwar nur in einer Cloud aktiv, doch die Software wird in mehreren Clouds bereitgestellt. Die anderen Clouds befinden sich im Standbymodus, um die App beim Auslösen des Failovers zu starten.
-
- - RTO: In Sekunden gemessene Ausfallzeit
- - RPO: Minimaler Datenverlust
- - Bereitstellungstopologie: Aktiv/aktiv und Standby
-
-### <a name="fault-tolerance"></a>Fehlertoleranz
-
-Die Verfügbarkeit des physischen Redundanz- und Infrastrukturdiensts Azure Stack Hub schützt nur vor Fehlern oder Ausfällen auf Hardwareebene, z. B. in Bezug auf einen Datenträger, die Stromversorgung, einen Netzwerkport oder einen Knoten. Falls die App durchgängig verfügbar sein muss und keine Daten verloren gehen dürfen, müssen Sie aber die Fehlertoleranz nativ in Ihrer App implementieren oder zusätzliche Software nutzen, um die Fehlertoleranz zu aktivieren.
-
-Zunächst müssen Sie sicherstellen, dass die App-VMs zum Schutz vor Ausfällen auf Knotenebene über Skalierungsgruppen bereitgestellt werden. Um zu verhindern, dass die Cloud offline geschaltet wird, muss die App bereits einer anderen Cloud bereitgestellt worden sein, damit die Anforderungsverarbeitung unterbrechungsfrei fortgesetzt werden kann. Dieses Modell wird in der Regel als „Aktiv/Aktiv-Bereitstellung“ bezeichnet.
-
-Bedenken Sie, dass Azure Stack Hub-Clouds unabhängig voneinander sind, weshalb die Clouds aus Sicht der Infrastruktur immer als aktiv gelten. In diesem Fall werden mehrere aktive Instanzen der App in einer oder in mehreren aktiven Clouds bereitgestellt.
-
- - RTO: Keine Ausfallzeit
- - RPO: Kein Datenverlust
- - Bereitstellungstopologie: Aktiv/aktiv
+Bei zustandslosen Anwendungen, bei denen nur Ausfallzeiten von wenigen Sekunden oder Minuten akzeptabel sind, empfiehlt sich eine Hochverfügbarkeitskonfiguration. Hochverfügbare Anwendungen sind für die Bereitstellung an mehreren Standorten in einer Aktiv/Aktiv-Topologie konzipiert, in der alle Instanzen Anforderungen verarbeiten können. Bei lokalen Hardwareausfällen implementiert die Azure Stack Hub-Infrastruktur Hochverfügbarkeit im physischen Netzwerk mithilfe von zwei Top-of-Rack-Switches. Bei Ausfällen auf der Computeebene verwendet Azure Stack Hub mehrere Knoten in einer Skalierungseinheit. Auf der VM-Ebene können Sie Skalierungsgruppen in Kombination mit Fehlerdomänen verwenden, um sicherzustellen, dass Knotenausfälle nicht zum Ausfall Ihrer Anwendung führen. Hierzu muss die gleiche Anwendung an einem sekundären Standort in der gleichen Konfiguration bereitgestellt werden. Um eine Aktiv/Aktiv-Anwendung zu erhalten, können Anforderungen mithilfe eines Lastenausgleichs oder DNS an alle verfügbaren Instanzen weitergeleitet werden.
 
 ### <a name="no-recovery"></a>Keine Wiederherstellung
 
-Einige Apps in Ihrer Umgebung erfordern keinen Schutz vor ungeplanten Ausfallzeiten oder Datenverlusten. Die für die Entwicklung und Tests verwendeten VMs beispielsweise müssen normalerweise nicht wiederhergestellt werden. Es bleibt demnach Ihre Entscheidung, ob Sie eine App oder eine bestimmte VM mit einem Schutz versehen oder nicht. Azure Stack Hub bietet keine Sicherung oder Replikation von VMs über die zugrunde liegende Infrastruktur. Ähnlich wie bei Azure müssen Sie den Schutz für die einzelnen VMs in jedem Ihrer Abonnements auswählen.
-
- - RTO: Nicht behebbar
- - RPO: Vollständiger Datenverlust
+Einige Apps in Ihrer Umgebung erfordern keinen Schutz vor ungeplanten Ausfallzeiten oder Datenverlusten. Die für die Entwicklung und Tests verwendeten VMs beispielsweise müssen normalerweise nicht wiederhergestellt werden. Sie entscheiden selbst, ob Sie auf den Schutz einer Anwendung oder eines Datasets verzichten möchten.
 
 ## <a name="recommended-topologies"></a>Empfohlene Topologien
 
@@ -146,13 +100,14 @@ Wichtige Überlegungen zu Ihrer Azure Stack Hub-Bereitstellung:
 | Direkte Sicherung bzw. Wiederherstellung von VMs in einer globalen Azure-Umgebung oder bei einem vertrauenswürdige Dienstanbieter | Empfohlen | Solange Sie Ihre Datenschutz- und behördlichen Anforderungen erfüllen können, können Sie Ihre Sicherungen in einer globalen Azure-Umgebung oder bei einem vertrauenswürdigen Dienstanbieter speichern. Im Idealfall führt der Dienstanbieter auch Azure Stack Hub aus. In diesem Fall profitieren Sie bei der Wiederherstellung von einer konsistenten Erfahrung hinsichtlich des Betriebs. |
 | Replikation und Durchführung eines Failovers für VMs in einer separaten Azure Stack Hub-Instanz | Empfohlen | Bei einem Failover müssen Sie über eine zweite vollständig funktionsfähige Azure Stack Hub-Cloud verfügen, um längere App-Ausfallzeiten zu vermeiden. |
 | Direkte Replikation und Durchführung eines Failovers für VMs in Azure oder bei einem vertrauenswürdige Dienstanbieter | Empfohlen | Solange Sie Ihre Datenschutz- und behördlichen Anforderungen erfüllen können, können Sie Ihre Daten in einer globalen Azure-Umgebung oder bei einem vertrauenswürdigen Dienstanbieter replizieren. Im Idealfall führt der Dienstanbieter auch Azure Stack Hub aus. In diesem Fall profitieren Sie nach einem Failover von einer konsistenten Erfahrung hinsichtlich des Betriebs. |
-| Bereitstellen eines Sicherungsziels in der gleichen Azure Stack Hub-Cloud mit Ihren App-Daten | Nicht empfohlen | Speichern Sie Sicherungen nicht in der gleichen Azure Stack Hub-Cloud. Ungeplante Ausfallzeiten der Cloud können Sie am Zugriff auf Ihre primären Daten und Sicherungsdaten hindern. Wenn Sie ein Sicherungsziel als virtuelles Gerät bereitstellen möchten (zwecks Optimierung der Sicherung und Wiederherstellung), müssen Sie sicherstellen, dass alle Daten fortlaufend in einen externen Speicherort für die Sicherung kopiert werden. |
+| Stellen Sie ein Sicherungsziel in der gleichen Azure Stack Hub-Instanz bereit, die auch als Host für die Anwendungen fungiert, die durch das gleiche Sicherungsziel geschützt werden. | Eigenständiges Ziel: Nicht empfohlen </br> Ziel mit externer Replikation von Sicherungsdaten: Empfohlen | Wenn Sie eine Sicherungsappliance in Azure Stack Hub bereitstellen, um die Betriebswiederherstellung zu optimieren, müssen Sie sicherstellen, dass alle Daten kontinuierlich an einen externen Sicherungsspeicherort kopiert werden. |
 | Bereitstellen einer physischen Sicherungsappliance im selben Rack, auf dem die Azure Stack Hub-Lösung installiert ist | Nicht unterstützt | Zurzeit können Sie keine anderen Geräte mit Top-of-Rack-Switches verbinden, die nicht Teil der ursprünglichen Lösung sind. |
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 In diesem Artikel wurden allgemeine Richtlinien zum Schützen der virtuellen Computer von Benutzern beschrieben, die unter Azure Stack Hub bereitgestellt werden. Informationen zur Verwendung von Azure-Diensten zum Schützen der virtuellen Computer von Benutzern finden Sie unter:
 
+- [Azure Stack IaaS: Teil 4: Schützen Ihrer Daten](https://azure.microsoft.com/blog/azure-stack-iaas-part-four/)
 - [Azure Stack: Überlegungen zu Business Continuity & Disaster Recovery](https://aka.ms/azurestackbcdrconsiderationswp)
 
 ### <a name="azure-backup-server"></a>Azure Backup Server
@@ -164,5 +119,3 @@ In diesem Artikel wurden allgemeine Richtlinien zum Schützen der virtuellen Com
  
  ### <a name="partner-products"></a>Partnerprodukte
  - [Datenblatt mit Partnerunternehmen für die Azure Stack Hub-Rechenzentrumsintegration](https://aka.ms/azurestackbcdrpartners)
-
-Weitere Informationen zu den Partnerprodukten, die VM-Schutz in Azure Stack Hub bieten, finden Sie unter [Schutz von Apps und Daten in Azure Stack Hub](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/).
