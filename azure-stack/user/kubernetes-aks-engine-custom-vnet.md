@@ -3,16 +3,16 @@ title: Bereitstellen eines Kubernetes-Clusters in einem benutzerdefinierten virt
 description: Hier erfahren Sie, wie Sie einen Kubernetes-Cluster in einem benutzerdefinierten virtuellen Netzwerk in Azure Stack Hub bereitstellen.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/28/2020
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 2/28/2020
-ms.openlocfilehash: 91b70c490f2771510a5bde202484837dd170166f
-ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: aac2f9a0991bdae7f15d7fc54517a880ab384785
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79318118"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80068943"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Clusters in einem benutzerdefinierten virtuellen Netzwerk in Azure Stack Hub 
 
@@ -22,7 +22,7 @@ Der Kubernetes-Cluster in Azure Stack Hub mit der AKS-Engine verwendet das kuben
 
 ## <a name="create-custom-virtual-network"></a>Erstellen des benutzerdefinierten virtuellen Netzwerks
 
-Sie müssen in Ihrer Azure Stack Hub-Instanz über ein benutzerdefiniertes virtuelles Netzwerk verfügen. Weitere Informationen finden Sie unter [Schnellstart: Erstellen eines virtuellen Netzwerks im Azure-Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
+Sie müssen in Ihrer Azure Stack Hub-Instanz über ein benutzerdefiniertes virtuelles Netzwerk verfügen. Weitere Informationen finden Sie unter [Quickstart: Erstellen eines virtuellen Netzwerks im Azure-Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
 
 Erstellen Sie in Ihrem virtuellen Netzwerk ein neues Subnetz. Sie benötigen die Ressourcen-ID und den IP-Adressbereich des Subnetzes. Die Ressourcen-ID und der Bereich werden bei der Clusterbereitstellung in Ihrem API-Modell verwendet.
 
@@ -58,7 +58,7 @@ Bei der Platzierung Ihres IP-Adressblocks benötigt das Subnetz die folgenden Zu
 
 Das folgende Beispiel zeigt, wie der IP-Adressbereich in einem Subnetz auf der Grundlage dieser verschiedenen Aspekte gefüllt wird. Hier werden drei Master verwendet. Bei Verwendung eines Subnetzes mit 256 Adressen (beispielsweise 10.1.0.0/24) muss die erste der fortlaufenden statischen IP-Adressen auf „207“ festgelegt werden. Die folgende Tabelle enthält die Adressen und die entsprechenden Überlegungen:
 
-| Bereich für Subnetz vom Typ „/24“ | Anzahl | Hinweis |
+| Bereich für Subnetz vom Typ „/24“ | Number | Hinweis |
 | --- | --- | --- |
 | 10.1.0.0–10.1.03 | 4 | Reserviert im Azure-Subnetz |
 | **10.1.0.224**–10.1.0.238 | 14 | Anzahl von IP-Adressen für einen von der AKS-Engine definierten Cluster<br><br> Drei IP-Adressen für drei Master<br>Zehn IP-Adressen als Reserve<br>Eine IP-Adresse für den Lastenausgleich |
@@ -76,14 +76,14 @@ Aktualisieren Sie das API-Modell, das verwendet wird, um den Cluster über die A
 
 Legen Sie in **masterProfile** die folgenden Werte fest:
 
-| Feld | Beispiel | Beschreibung |
+| Feld | Beispiel | BESCHREIBUNG |
 | --- | --- | --- |
 | vnetSubnetId | `/subscriptions/77e28b6a-582f-42b0-94d2-93b9eca60845/resourceGroups/MDBN-K8S/providers/Microsoft.Network/virtualNetworks/MDBN-K8S/subnets/default` | Geben Sie die Ressourcen-ID des Subnetzes an.  |
 | firstConsecutiveStaticIP | 10.1.0.224 | Weisen Sie der Konfigurationseigenschaft `firstConsecutiveStaticIP` eine IP-Adresse gegen *Ende* des verfügbaren IP-Adressraums im gewünschten Subnetz zu. `firstConsecutiveStaticIP` gilt nur für den Masterpool. |
 
 Legen Sie in **agentPoolProfiles** die folgenden Werte fest:
 
-| Feld | Beispiel | Beschreibung |
+| Feld | Beispiel | BESCHREIBUNG |
 | --- | --- | --- |
 | vnetSubnetId | `/subscriptions/77e28b6a-582f-42b0-94d2-93b9eca60845/resourceGroups/MDBN-K8S/providers/Microsoft.Network/virtualNetworks/MDBN-K8S/subnets/default` | Geben Sie die Azure Resource Manager-Pfad-ID des Subnetzes an.  |
 
