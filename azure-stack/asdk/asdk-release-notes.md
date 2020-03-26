@@ -3,16 +3,16 @@ title: Versionshinweise zum ASDK
 description: Verbesserungen, Fehlerbehebungen und bekannte Probleme im Azure Stack Development Kit (ASDK).
 author: sethmanheim
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 6f7bec082564c9f7cb3a0c70cec7e8e7e48fbd35
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: 32b4bfb500a9717f99085fe0759297f999244bbb
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79511809"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152223"
 ---
 # <a name="asdk-release-notes"></a>Versionshinweise zum ASDK
 
