@@ -3,16 +3,16 @@ title: Azure Stack Hub – Bekannte Probleme
 description: Enthält Informationen zu bekannten Problemen in Releases von Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: a2f86835a9b1008417e427bc62229e94d6b00595
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: d06514242069e20957e15e1503b513ece366fba1
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512234"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152148"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -67,6 +67,12 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Abhilfe: Wählen Sie in der Dropdownliste **Kontotyp** einen Kontotyp aus, und erstellen Sie dann die Momentaufnahme.
 - Häufigkeit: Allgemein
 
+### <a name="alert-for-network-interface-disconnected"></a>Warnung für getrennte Netzwerkschnittstelle
+
+- Geltungsbereich: Dieses Problem betrifft das Release 1908 und höhere Releases.
+- Ursache: Wenn ein Kabel von einem Netzwerkadapter getrennt wird, wird im Administratorportal keine Warnung angezeigt. Dieses Problem ist darauf zurückzuführen, dass dieser Fehler in Windows Server 2019 standardmäßig deaktiviert ist.
+- Häufigkeit: Allgemein
+
 ## <a name="networking"></a>Netzwerk
 
 ### <a name="network-security-groups"></a>Netzwerksicherheitsgruppen
@@ -104,6 +110,12 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
   - [Angeben von benutzerdefinierten IPsec/IKE-Richtlinien](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
 ## <a name="compute"></a>Compute
+
+### <a name="nvv4-vm-size-on-portal"></a>NVv4-VM-Größe im Portal
+
+- Geltungsbereich: Dieses Problem betrifft das Release 2002 und höhere Releases.
+- Ursache: Bei der Erstellung des virtuellen Computers wird die VM-Größe angezeigt: NV4as_v4. Bei Kunden mit der erforderlichen Hardware für die AMD Mi25-basierte Azure Stack Hub-GPU-Vorschau ist die VM-Bereitstellung erfolgreich. Bei allen anderen Kunden tritt bei der VM-Bereitstellung mit dieser VM-Größe ein Fehler auf.
+- Abhilfe: Entwurfsbedingt bei der Vorbereitung für die Azure Stack Hub-GPU-Vorschau
 
 ### <a name="vm-boot-diagnostics"></a>VM-Startdiagnose
 

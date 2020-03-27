@@ -3,22 +3,24 @@ title: In Azure Stack Hub unterstützte VM-Größen
 description: Referenz zu unterstützten VM-Größen in Azure Stack Hub
 author: mattbriggs
 ms.topic: reference
-ms.date: 12/3/2019
+ms.date: 03/23/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/3/2019
-ms.openlocfilehash: eaa7fd667dfba1a9963c1bebfe292b8b6ba9a355
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 03/23/2020
+ms.openlocfilehash: cce150e9e7698ea98035dc4f9104595100686cb7
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705099"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152189"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>In Azure Stack Hub unterstützte VM-Größen
 
 In diesem Artikel werden die in Azure Stack Hub verfügbaren VM-Größen aufgeführt. Sie können diesen Artikel bei der Auswahl einer VM zur Unterstützung Ihrer Azure Stack Hub-Lösung nutzen.
 
 Die Datenträger-IOPS (Input/Output Operations Per Second, Ein-/Ausgabevorgänge pro Sekunde) in Azure Stack Hub ist abhängig von der VM-Größe und nicht vom Datenträgertyp. Dies bedeutet, dass der IOPS-Grenzwert für einen einzelnen zusätzlichen Datenträger für einen virtuellen Computer der Standard_Fs-Reihe 2.300 IOPS beträgt – unabhängig davon, ob Sie einen Datenträger des Typs SSD oder HDD auswählen. Die IOPS-Grenzwerte bilden eine Obergrenze (zulässiges Maximum), um den „Noisy Neighbour“-Effekt zu verhindern. Sie sind keine IOPS-Garantie für eine VM mit einer bestimmten Größe.
+
+Die vCPU des virtuellen Computers hängt von der Anzahl von Kernen pro Knoten ab. Beispiel: Systeme mit weniger als 64 Kernen oder einem logischen Prozessor mit weniger als 64 Kernen unterstützen nicht die VM-Größe „Standard_F64s_v2“.
 
 ## <a name="vm-general-purpose"></a>Universelle VM
 
@@ -140,7 +142,7 @@ Universelle VM-Größen zeichnen sich durch ein ausgewogenes Verhältnis zwische
 
 Arbeitsspeicheroptimierte VM-Größen bieten ein hohes Arbeitsspeicher-zu-CPU-Verhältnis und sind für relationale Datenbankserver, mittelgroße bis große Caches und In-Memory-Analysen konzipiert.
 
-### <a name="mo-d"></a>D-Serie
+### <a name="d-series"></a><a name="mo-d"></a>D-Serie
 |Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |------------------|---|----|----|--------|------|------------|---------|
 |**Standard_D11**  |2  |14  |100 |500     |6000  |8/8 x 500   |2 |
@@ -148,7 +150,7 @@ Arbeitsspeicheroptimierte VM-Größen bieten ein hohes Arbeitsspeicher-zu-CPU-Ve
 |**Standard_D13**  |8  |56  |400 |500     |24.000 |32/32 x 500 |8 |
 |**Standard_D14**  |16 |112 |800 |500     |48000 |64/64 x 500 |8 |
 
-### <a name="mo-ds"></a>DS-Serie
+### <a name="ds-series"></a><a name="mo-ds"></a>DS-Serie
 |Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |-------------------|---|----|----|--------|------|-------------|---------|
 |**Standard_DS11**  |2  |14  |28  |1000    |8\.000  |8/8x2300   |2 |
@@ -156,7 +158,7 @@ Arbeitsspeicheroptimierte VM-Größen bieten ein hohes Arbeitsspeicher-zu-CPU-Ve
 |**Standard_DS13**  |8  |56  |112 |1000    |32000 |32/32x2300 |8 |
 |**Standard_DS14**  |16 |112 |224 |1000    |64000 |64/64x2300 |8 |
 
-### <a name="mo-dv2"></a>Dv2-Serie
+### <a name="dv2-series"></a><a name="mo-dv2"></a>Dv2-Serie
 |Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |--------------------|----|----|-----|----|-------|-------------|---------|
 |**Standard_D11_v2** |2   |14  |100  |500 |6000   |8/8 x 500    |2 |
@@ -165,7 +167,7 @@ Arbeitsspeicheroptimierte VM-Größen bieten ein hohes Arbeitsspeicher-zu-CPU-Ve
 |**Standard_D14_v2** |16  |112 |800  |500 |48000  |64/64 x 500  |8 |
 
 
-### <a name="mo-dsv2"></a>DSv2-Serie
+### <a name="dsv2-series"></a><a name="mo-dsv2"></a>DSv2-Serie
 |Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
 |**Standard_DS11_v2** |2   |14  |28   |1000 |8\.000   |4/4x2300    |2 |

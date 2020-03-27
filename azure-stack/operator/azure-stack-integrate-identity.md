@@ -7,12 +7,12 @@ ms.date: 05/10/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: cf0e3f35c6aec650f07d926157c2b73cef965126
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 288ece49e873da5820f6cb7dab70643418636704
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699557"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152308"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum
 
@@ -43,8 +43,8 @@ Anforderungen:
 
 |Komponente|Anforderung|
 |---------|---------|
-|Graph|Microsoft Active Directory 2012/2012 R2/2016|
-|AD FS|Windows Server 2012/2012 R2/2016|
+|Graph|Microsoft Active Directory 2012/2012 R2/2016 2019|
+|AD FS|Windows Server 2012/2012 R2/2016 2019|
 
 ## <a name="setting-up-graph-integration"></a>Einrichten der Graph-Integration
 
@@ -52,7 +52,7 @@ Graph unterstützt nur die Integration in eine einzelne Active Directory-Gesamts
 
 Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter erforderlich:
 
-|Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|Beschreibung|Beispiel|
+|Parameter|Parameter für das Arbeitsblatt für die Bereitstellung|BESCHREIBUNG|Beispiel|
 |---------|---------|---------|---------|
 |`CustomADGlobalCatalog`|FQDN der AD FS-Gesamtstruktur|FQDN der Active Directory-Zielgesamtstruktur, mit der die Integration erfolgen soll|Contoso.com|
 |`CustomADAdminCredentials`| |Ein Benutzer mit LDAP-Leseberechtigung.|IHREDOMAENE\graphservice|
@@ -102,7 +102,7 @@ Verwenden Sie für diesen Vorgang einen Computer in Ihrem Rechenzentrumsnetzwerk
 
 3. Das Cmdlet **Register-DirectoryService** verfügt über optionale Parameter, die Sie in bestimmten Szenarien verwenden können, in denen die vorhandene Active Directory-Überprüfung einen Fehler ergibt. Bei Ausführung dieses Cmdlets wird überprüft, ob die angegebene Domäne die Stammdomäne ist, ein globaler Katalogserver erreichbar ist und für das angegebene Konto Lesezugriff gewährt wird.
 
-   |Parameter|Beschreibung|
+   |Parameter|BESCHREIBUNG|
    |---------|---------|
    |`-SkipRootDomainValidation`|Gibt an, dass anstelle der empfohlenen Stammdomäne eine untergeordnete Domäne verwendet werden muss.|
    |`-Force`|Alle Überprüfungen werden umgangen.|
@@ -264,7 +264,7 @@ Wenn Sie die Befehle manuell ausführen möchten, gehen Sie folgendermaßen vor:
 
 3. Zum Hinzufügen der Vertrauensstellung der vertrauenden Seite führen Sie den folgenden Windows PowerShell-Befehl für Ihre AD FS-Instanz oder Ihr Farmmitglied aus. Aktualisieren Sie unbedingt den AD FS-Endpunkt, und verweisen Sie auf die Datei, die Sie in Schritt 1 erstellt haben.
 
-   **Für AD FS 2016**
+   **Für AD FS 2016/2019**
 
    ```powershell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440

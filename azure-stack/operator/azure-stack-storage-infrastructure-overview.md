@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiaha
-ms.openlocfilehash: 6bfdca8487a5725417f88b5fcf0fb1acce26635a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 4ac1d0de3775c22c0c982d79713847e7cd171f41
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697092"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152252"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Verwalten der Speicherinfrastruktur für Azure Stack Hub
 
@@ -25,9 +25,9 @@ In diesem Artikel werden die Integrität und der Betriebszustand von Ressourcen 
 
 Azure Stack Hub basiert auf Windows Server-Software und definiert Speicherfunktionen mit einer Kombination aus „Direkte Speicherplätze“ (Storage Spaces Direct, S2D) und Windows Server-Failoverclustering. Diese Kombination bietet einen leistungsstarken, skalierbaren und resilienten Speicherdienst.
 
-Partner für integrierte Azure Stack Hub-Systeme bieten viele verschiedene Lösungsvarianten an, z. B. umfassende Flexibilität in Bezug auf Speicher. Sie können derzeit eine Kombination aus drei Laufwerkstypen auswählen: Nicht flüchtiger Speicher (Non-Volatile Memory Express, NVMe), SSD-Datenträger (SATA/SAS SSD) und Festplattenlaufwerk (Hard Disk Drive, HDD).
+Partner für integrierte Azure Stack Hub-Systeme bieten viele verschiedene Lösungsvarianten an, z. B. umfassende Flexibilität in Bezug auf Speicher. Derzeit können bis zu zwei Laufwerkstypen aus den drei unterstützten Laufwerkstypen ausgewählt werden: Nicht flüchtiger Speicher (Non-Volatile Memory Express, NVMe), SSD-Datenträger (SATA/SAS SSD) und Festplattenlaufwerk (Hard Disk Drive, HDD). 
 
-„Direkte Speicherplätze“ verfügt über einen Cache zum Maximieren der Speicherleistung. Bei einer Azure Stack Hub-Appliance mit einem oder mehreren Laufwerkstypen werden für „Direkte Speicherplätze“ automatisch alle Laufwerke des „schnellsten“ Typs (NVMe &gt; SSD &gt; HDD) für die Zwischenspeicherung verwendet. Alle weiteren Datenträger werden zur Bereitstellung der Kapazität verwendet. Diese Laufwerke können entweder zu einer Bereitstellung vom Typ „Nur Flash“ oder „Hybrid“ gruppiert werden:
+„Direkte Speicherplätze“ verfügt über einen Cache zum Maximieren der Speicherleistung. In einer Azure Stack Hub-Appliance mit einem Laufwerkstyp (d. h.NVMe oder SSD) werden alle Laufwerke für die Kapazität verwendet. Bei zwei Laufwerkstypen werden für „Direkte Speicherplätze“ automatisch alle Laufwerke des „schnellsten“ Typs (NVMe &gt; SSD &gt; HDD) für die Zwischenspeicherung verwendet. Alle weiteren Datenträger werden zur Bereitstellung der Kapazität verwendet. Diese Laufwerke können entweder zu einer Bereitstellung vom Typ „Nur Flash“ oder „Hybrid“ gruppiert werden:
 
 ![Azure Stack Hub-Speicherinfrastruktur](media/azure-stack-storage-infrastructure-overview/image1.png)
 
@@ -99,7 +99,7 @@ In den folgenden Abschnitten sind die Informationen zur Integrität und zum Betr
 
 ### <a name="volume-health-state-healthy"></a>Integritätszustand des Volumes: Healthy
 
-| Betriebszustand | Beschreibung |
+| Betriebszustand | BESCHREIBUNG |
 |---|---|
 | OK | Das Volume ist fehlerfrei. |
 | Suboptimal | Daten werden nicht gleichmäßig auf Laufwerke geschrieben.<br> <br>**Aktion:** Wenden Sie sich an den Support, um die Laufwerknutzung im Speicherpool zu optimieren. Starten Sie vorher anhand der Anleitung unter https://aka.ms/azurestacklogfiles den Erfassungsprozess für Protokolldateien. Sie müssen unter Umständen eine Wiederherstellung aus einer Sicherung durchführen, nachdem die fehlerhafte Verbindung wiederhergestellt wurde. |
@@ -155,7 +155,7 @@ In den folgenden Abschnitten werden die Integritätszustände beschrieben, in de
 
 Ein Laufwerk im Zustand „Warnung“ kann Daten erfolgreich lesen und schreiben, aber es liegt ein Problem vor.
 
-| Betriebszustand | Beschreibung |
+| Betriebszustand | BESCHREIBUNG |
 |---|---|
 | Verbindung unterbrochen | Die Konnektivität für das Laufwerk ist verloren gegangen.<br> <br>**Aktion:** Versetzen Sie alle Server wieder in den Onlinezustand. Schließen Sie das Laufwerk wieder an, falls das Problem hierdurch nicht behoben wurde. Tauschen Sie das Laufwerk aus, falls dieser Zustand weiterhin besteht, um die vollständige Resilienz sicherzustellen. |
 | Vorhersehbarer Fehler | Es ist vorhersehbar, dass für das Laufwerk in Kürze ein Fehler auftritt.<br> <br>**Aktion:** Tauschen Sie das Laufwerk so bald wie möglich aus, um die vollständige Resilienz sicherzustellen. |
@@ -171,7 +171,7 @@ Ein Laufwerk im Zustand „Warnung“ kann Daten erfolgreich lesen und schreiben
 
 Auf ein Laufwerk im Zustand „Fehlerhaft“ kann derzeit nicht geschrieben werden, und der Zugriff darauf ist nicht möglich.
 
-| Betriebszustand | Beschreibung |
+| Betriebszustand | BESCHREIBUNG |
 |---|---|
 | Split | Das Laufwerk wurde vom Pool getrennt.<br> <br>**Aktion:** Ersetzen Sie das Laufwerk durch einen neuen Datenträger. Wenn Sie diesen Datenträger verwenden müssen, sollten Sie ihn aus dem System entfernen und sicherstellen, dass sich darauf keine benötigten Daten befinden, den Inhalt des Datenträgers löschen und ihn anschließend wieder einsetzen. |
 | Nicht verwendbar | Der physikalische Datenträger wurde unter Quarantäne gestellt, da er von Ihrem Lösungsanbieter nicht unterstützt wird. Es werden nur Datenträger unterstützt, die für die Lösung genehmigt wurden und über die richtige Datenträgerfirmware verfügen.<br> <br>**Aktion:** Ersetzen Sie das Laufwerk durch einen Datenträger, der für die Lösung über einen genehmigten Hersteller und eine Modellnummer verfügt. |

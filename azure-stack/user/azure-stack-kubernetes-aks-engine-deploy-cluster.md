@@ -3,16 +3,16 @@ title: Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack 
 description: Erfahren Sie, wie Sie einen Kubernetes-Cluster in Azure Stack Hub von einer Client-VM bereitstellen, auf der die AKS-Engine ausgeführt wird.
 author: mattbriggs
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: fc53a0b1e4273436e9e06e10feccbe577ea2e488
-ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: 3186d3976f5d4ca533a89644b3abc16fdf824c7c
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79312954"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152172"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub
 
@@ -66,7 +66,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
 
 6. Suchen Sie nach `portalURL`, und geben Sie die URL für das Mandantenportal an. Beispiel: `https://portal.local.azurestack.external`.
 
-7.  Legen Sie im Array `masterProfile` die folgenden Felder fest:
+7.  Legen Sie in `masterProfile` die folgenden Felder fest:
 
     | Feld | BESCHREIBUNG |
     | --- | --- |
@@ -75,15 +75,18 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
     | vmSize |  Geben Sie [eine Größe ein, die von Azure Stack Hub unterstützt wird](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), z. B. `Standard_D2_v2`. |
     | distro | Geben Sie `aks-ubuntu-16.04` ein. |
 
-8.  Aktualisieren Sie im Array `agentPoolProfiles`:
+8.  Aktualisieren Sie in `agentPoolProfiles` Folgendes:
 
     | Feld | BESCHREIBUNG |
     | --- | --- |
-    | count | Geben Sie die Anzahl der Agents ein, die für die Bereitstellung vorgesehen sind. |
+    | count | Geben Sie die Anzahl der Agents ein, die für die Bereitstellung vorgesehen sind. Pro Abonnement können maximal 50 Knoten verwendet werden. Wenn Sie mehr als einen Cluster pro Abonnement bereitstellen, stellen Sie sicher, dass die Gesamtanzahl der Agents 50 nicht überschreitet. Stellen Sie sicher, dass Sie die Konfigurationselemente aus der [JSON-Datei für das API-Beispielmodell](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json) verwenden.  |
     | vmSize | Geben Sie [eine Größe ein, die von Azure Stack Hub unterstützt wird](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), z. B. `Standard_D2_v2`. |
     | distro | Geben Sie `aks-ubuntu-16.04` ein. |
 
-9.  Aktualisieren Sie im Array `linuxProfile`:
+
+
+
+9.  Aktualisieren Sie in `linuxProfile` Folgendes:
 
     | Feld | BESCHREIBUNG |
     | --- | --- |

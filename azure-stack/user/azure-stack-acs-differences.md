@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: eeca00875a13b8f67ccaeab38f124d17979d1a7c
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: 864421f543e02da39dcbd3bf2972fe3a0782676f
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79511996"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069384"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub-Speicher: Unterschiede und Überlegungen
 
@@ -32,6 +32,7 @@ In diesem Artikel sind die bekannten Unterschiede zwischen Azure Stack Hub-Speic
 |Verwaltete Datenträger|Unterstützung für Premium und Standard|Unterstützt bei Verwendung von Version 1808 oder höher.
 |Momentaufnahmen eines verwalteten Datenträgers|Allgemein verfügbar|Unterstützt.
 |Inkrementelle Momentaufnahmen von verwalteten Datenträgern|Allgemein verfügbar|Noch nicht unterstützt.
+|Momentaufnahmen verwalteter Datenträger für den virtuellen Computer im ausgeführten Zustand|Allgemein verfügbar|Noch nicht unterstützt.
 |Blobname|1\.024 Zeichen (2.048 Bytes)|880 Zeichen (1.760 Bytes)
 |Maximale Blockblobgröße|4,75 TB (100 MB X 50.000 Blöcke)|4,75 TB (100 MB x 50.000 Blöcke) für das Update 1802 oder eine neuere Version. 50.000 x 4 MB (ca. 195 GB) für vorherige Versionen.
 |Seitenblob-Momentaufnahmenkopie|Die Sicherung nicht verwalteter Azure-VM-Datenträger, die an einen ausgeführten virtuellen Computer angefügt sind, wird unterstützt.|Wird in der [API als asynchroner Vorgang](azure-stack-acs-differences.md) unterstützt.

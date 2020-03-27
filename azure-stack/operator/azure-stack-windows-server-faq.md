@@ -1,25 +1,29 @@
 ---
-title: Häufig gestellte Fragen zu Windows Server im Azure Stack Hub-Marketplace
+title: Häufig gestellte Fragen zum Azure Stack Hub Marketplace
 titleSuffix: Azure Stack Hub
 description: Hier finden Sie eine Liste der häufig gestellten Fragen zum Azure Stack Hub-Marketplace für Windows Server.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/27/2019
+ms.date: 03/19/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 72b21675e97a436499f53f00e4c7d25dfc1beb54
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 95719c6b0651932ab41cef5321db06b77eb4fc63
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696072"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069447"
 ---
-# <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>Häufig gestellte Fragen zu Windows Server im Azure Stack Hub-Marketplace
+# <a name="azure-stack-hub-marketplace-faq"></a>Häufig gestellte Fragen zum Azure Stack Hub Marketplace
 
-In diesem Artikel werden einige häufig gestellte Fragen zu Windows Server-Images im [Azure Stack Hub-Marketplace](azure-stack-marketplace.md) beantwortet.
+In diesem Artikel werden einige häufig gestellte Fragen zu Marketplace-Elementen im [Azure Stack Hub-Marketplace](azure-stack-marketplace.md) beantwortet.
 
 ## <a name="marketplace-items"></a>Marketplace-Elemente
+
+### <a name="who-should-i-contact-for-support-issues-with-azure-stack-hub-marketplace-items"></a>An wen kann ich mich bei Supportproblemen mit Azure Stack Hub Marketplace-Elementen wenden?
+
+Der Azure Marketplace-Supportleitfaden gilt auch für Azure Stack Hub Marketplace-Elemente. Herausgeber sind dafür verantwortlich, technischen Support für ihre Produkte im Azure Stack Hub Marketplace bereitzustellen. Weitere Informationen zum Supportleitfaden für Azure Marketplace-Elemente finden Sie im Artikel mit häufig gestellten Fragen zu Azure Marketplace im Abschnitt [Kundendienst](/azure/marketplace/marketplace-faq-publisher-guide#customer-support).
 
 ### <a name="how-do-i-update-to-a-newer-windows-image"></a>Wie führe ich eine Aktualisierung auf ein neueres Windows-Image durch?
 
