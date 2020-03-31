@@ -14,6 +14,8 @@
       href: manage/delete-volumes.md
     - name: Ersetzen von Laufwerken
       href: manage/replace-drives.md
+    - name: Anfügen einer GPU an eine Linux-VM
+      href: manage/attach-gpu-to-linux-vm.md
 - name: Konzepte
   items:
     - name: Wählen von Laufwerken
@@ -32,10 +34,22 @@
       href: /powershell/module/hyper-v
     - name: Storage PowerShell-Befehle
       href: /powershell/module/storage
+    - name: PowerShell-Befehle vom Typ „ClusterAwareUpdating“
+      href: /powershell/module/clusterawareupdating
+    - name: PowerShell-Befehle vom Typ „FailoverClusters“
+      href: /powershell/module/failoverclusters
+    - name: PowerShell-Befehle vom Typ „StorageReplica“
+      href: /powershell/module/storagereplica
 - name: Verwandte Themen
   items:
     - name: Azure Stack-Familie
       href: ../index.yml
+    - name: Azure Stack Hub
+      href: /azure-stack/operator/azure-stack-overview?view=azs-2002
+    - name: "Azure Stack\_Edge"
+      href: /azure/databox-online/data-box-edge-overview
+    - name: Windows Server
+      href: /windows-server/
     - name: Windows Admin Center
       href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
     - name: Azure-Hybriddienste
@@ -48,3 +62,5 @@
       href: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
     - name: Softwaredefiniertes Netzwerk
       href: /windows-server/networking/sdn
+    - name: System Center
+      href: /system-center/
