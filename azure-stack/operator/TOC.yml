@@ -332,6 +332,34 @@
                   href: azure-stack-app-service-release-notes-update-seven.md
                 - name: "App Service in Azure Stack Hub: Versionshinweise zu Update\_8"
                   href: azure-stack-app-service-release-notes-update-eight.md
+        - name: Event Hubs in Azure Stack Hub
+          items:
+            - name: Übersicht
+              href: event-hubs-rp-overview.md
+            - name: Kapazitätsplanung
+              href: event-hubs-rp-capacity-planning.md
+            - name: Voraussetzungen
+              href: event-hubs-rp-prerequisites.md
+            - name: Installieren
+              href: event-hubs-rp-install.md
+            - name: Lebenszyklusverwaltung
+              items:
+                - name: Anwenden von Updates
+                  href: resource-provider-apply-updates.md
+                - name: Sichern und Wiederherstellen
+                  href: azure-stack-backup-infrastructure-backup.md
+                - name: Erfassen von Protokollen
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: Integrität und Warnungen
+                  href: azure-stack-monitor-health.md
+                - name: Verwalten
+                  href: event-hubs-rp-manage.md
+                - name: Rotieren von Geheimnissen
+                  href: azure-stack-rotate-secrets.md
+                - name: Ankündigungen von Dienstupdates
+                  href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
+            - name: Remove (Entfernen)
+              href: event-hubs-rp-remove.md
         - name: MySQL in Azure Stack Hub
           items:
             - name: Übersicht
