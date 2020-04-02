@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: c8ea0ea53574132d144ad7e205f78c5bebc41226
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: 9ea880003492768e67c71f948a71d693e5a90c9b
+ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295323"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362173"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Überlegungen zur Planung der Rechenzentrumsintegration für in Azure Stack Hub integrierte Systeme
 
@@ -68,8 +68,8 @@ Weitere Informationen zu den Lizenzierungsmodellen finden Sie unter [Microsoft A
 
 Sie müssen entsprechende Überlegungen zur Planung Ihres Azure Stack Hub-Namespace anstellen, insbesondere zum Regionsnamen und zum externen Domänennamen. Der externe vollqualifizierte Domänenname (FQDN) der Azure Stack Hub-Bereitstellung für öffentliche Endpunkte ist eine Kombination aus den folgenden beiden Namen: &lt;*Region*&gt;.&lt;*FQDN*&gt;, z.B. *east.cloud.fabrikam.com*. In diesem Beispiel wären die Azure Stack Hub-Portale unter den folgenden URLs verfügbar:
 
-- https://portal.east.cloud.fabrikam.com
-- https://adminportal.east.cloud.fabrikam.com
+- `https://portal.east.cloud.fabrikam.com`
+- `https://adminportal.east.cloud.fabrikam.com`
 
 > [!IMPORTANT]
 > Der Name der Region für Ihre Azure Stack Hub-Bereitstellung muss eindeutig sein. Er wird in den Portaladressen angezeigt. 

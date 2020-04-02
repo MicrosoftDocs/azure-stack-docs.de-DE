@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2
-ms.openlocfilehash: 78dbba26d13914fe54111b315a0f01c48d53a26a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 60f8ab926bb868517c7b9feeb1c5c4325212607c
+ms.sourcegitcommit: 1969a13d378cc3b8c58fea11dca8cf8c06136acd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698673"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80302816"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>Entfernen des MySQL-Ressourcenanbieters in Azure Stack Hub
 
@@ -37,7 +37,6 @@ Wenn Sie den MySQL-Ressourcenanbieter entfernen, werden die vom Operator verwalt
     - **PrivilegedEndpoint**: Die IP-Adresse oder der DNS-Name des privilegierten Endpunkts.
     - **AzureEnvironment**: Die Azure-Umgebung, die für die Bereitstellung von Azure Stack Hub verwendet wird. Nur für Azure AD-Bereitstellungen erforderlich.
     - **CloudAdminCredential**: Die Anmeldeinformationen für den Cloudadministrator, die für den Zugriff auf den privilegierten Endpunkt erforderlich sind.
-    - **DirectoryTenantID**
     - **AzCredential**: Die Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto. Verwenden Sie die gleichen Anmeldeinformationen wie bei der Bereitstellung von Azure Stack Hub.
 
 ## <a name="next-steps"></a>Nächste Schritte

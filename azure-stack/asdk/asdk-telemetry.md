@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 59fe407c24e10c94d2a0d354c98a1dd13301c7a1
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: df742ed6c0a2b082aaddd4498c313474a47c6227
+ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295167"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362176"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack-Telemetriedaten
 
@@ -26,7 +26,7 @@ Telemetriedaten liefern Azure Stack-Betreibern wertvolle Einblicke in Unternehme
 Azure Stack-Telemetriedaten basieren auf der Komponente *Benutzererfahrung und Telemetrie im verbundenen Modus von Windows Server 2016*. Diese verwendet die Ablaufprotokollierungstechnologie [Ereignisablaufverfolgung für Windows (Event Tracing for Windows, ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) zur Erfassung und Speicherung von Telemetrieereignissen und -daten. Die gleiche Protokollierungstechnologie wird von Azure Stack-Komponenten zum Veröffentlichen von Ereignissen und Daten verwendet, die mithilfe der öffentlichen APIs für die Protokollierung und Nachverfolgung von Betriebssystemereignissen erfasst werden. Beispiele für Azure Stack-Komponenten sind etwa Netzwerkressourcenanbieter, Speicherressourcenanbieter, Überwachungsressourcenanbieter und Aktualisierungsressourcenanbieter. Die Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ verschlüsselt Daten per SSL und nutzt das Anheften von Zertifikaten, um Telemetriedaten über HTTPS an den Datenverwaltungsdienst von Microsoft zu übertragen.
 
 > [!NOTE]
-> Zur Unterstützung des Telemetriedatenflusses muss Port 443 (HTTPS) in Ihrem Netzwerk geöffnet sein. Die Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ stellt unter https://v10.vortex-win.data.microsoft.com eine Verbindung mit dem Datenverwaltungsdienst von Microsoft und außerdem eine mit https://settings-win.data.microsoft.com her, um Konfigurationsinformationen herunterzuladen.
+> Zur Unterstützung des Telemetriedatenflusses muss Port 443 (HTTPS) in Ihrem Netzwerk geöffnet sein. Die Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ stellt unter `https://v10.vortex-win.data.microsoft.com` eine Verbindung mit dem Datenverwaltungsdienst von Microsoft und außerdem eine mit `https://settings-win.data.microsoft.com` her, um Konfigurationsinformationen herunterzuladen.
 
 ## <a name="privacy-considerations"></a>Datenschutzaspekte
 Der ETW-Dienst leitet Sendetelemetriedaten an geschützten Cloudspeicher zurück. Der Zugriff auf Telemetriedaten beruht auf dem Prinzip der geringsten Rechte. Auf die Telemetriedaten können nur Microsoft-Mitarbeiter zugreifen, die aus geschäftlichen Gründen unbedingt darauf zugreifen müssen. Microsoft gibt keine personenbezogenen Daten von Kunden an Dritte weiter – es sei denn, dies geschieht auf Wunsch des Kunden oder im eingeschränkten Rahmen der [Datenschutzbestimmungen für Azure Stack](https://privacy.microsoft.com/PrivacyStatement). Wir geben Geschäftsberichte mit aggregierten, anonymisierten Telemetrieinformationen an OEMs und Partner weiter. Entscheidungen zur Weitergabe von Daten werden von einem internen Microsoft-Team getroffen, das unter anderem Interessenvertreter für die Bereiche Datenschutz, Recht und Datenverwaltung umfasst.

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: cc17789485bc4c1d0676d54751f4d5bc820c3a5e
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: 22919a17f58cf83857dc24d154fcfd1ab3760e59
+ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366278"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362207"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Erstellen einer geografisch verteilten App-Lösung, um Datenverkehr mit Azure und Azure Stack Hub weiterzuleiten
 
@@ -396,7 +396,7 @@ Um ein benutzerdefiniertes SSL-Zertifikat an die Web-App zu binden, muss der [Ap
 
 #### <a name="check-the-pricing-tier"></a>Überprüfen des Tarifs
 
-1.  Scrollen Sie im linken Navigationsbereich auf der Seite mit der Web-App zum Abschnitt **Einstellungen**, und wählen Sie **Zentral hochskalieren (App Service-Plan)** .
+1.  Scrollen Sie im linken Navigationsbereich auf der Seite mit der Web-App zum Abschnitt **Einstellungen**, und wählen Sie **Hochskalieren (App Service-Plan)** .
 
     ![Menü „Zentral hochskalieren“](media/solution-deployment-guide-geo-distributed/image34.png)
 
@@ -406,7 +406,7 @@ Um ein benutzerdefiniertes SSL-Zertifikat an die Web-App zu binden, muss der [Ap
 
 Benutzerdefiniertes SSL wird im Tarif **Free** oder **Shared** nicht unterstützt. Führen Sie die Schritte im nächsten Abschnitt aus, um einen höheren Tarif auszuwählen, oder verwenden Sie die Seite **Tarif wählen**, und springen Sie zu [Hochladen und Binden Ihres SSL-Zertifikats](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl).
 
-#### <a name="scale-up-your-app-service-plan"></a>Zentrales Hochskalieren Ihres App Service-Plans
+#### <a name="scale-up-your-app-service-plan"></a>Hochskalieren Ihres App Service-Plans
 
 1.  Wählen Sie den Tarif **Basic**, **Standard** oder **Premium** aus.
 
@@ -538,7 +538,7 @@ Wählen Sie auf der Web-App-Seite die Option **SSL-Einstellungen**. Wählen Sie 
 Navigieren Sie nach Abschluss des Vorgangs zu einer beliebigen HTTP-URL, die auf die App verweist. Beispiel:
 
 -   https://<Name_der_App>.azurewebsites.net
--   https://northwindcloud.com
+-   `https://northwindcloud.com`
 -   <https://www.northwindcloud.com>
 
 #### <a name="enforce-tls-1112"></a>Erzwingen von TLS 1.1/1.2
