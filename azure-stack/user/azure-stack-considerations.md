@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 7b3f8fe96ddd33550f28860c0eaa77fa8cfa8c84
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 9d60c9300d2a717f280ab16a7f6c55d67a13f28c
+ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704351"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362149"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Unterschiede zwischen Azure Stack Hub und Azure beim Verwenden von Diensten und Erstellen von Apps
 
@@ -39,7 +39,7 @@ In der folgenden Tabelle sind die allgemeinen Unterschiede zwischen Azure Stack 
 | Wer ist der Betreiber? | Microsoft | Ihre Organisation bzw. Ihr Dienstanbieter.|
 | An wen können Sie sich wenden, um Support zu erhalten? | Microsoft | Wenden Sie sich bei einem integrierten System an Ihren Azure Stack Hub-Betreiber (in Ihrer Organisation oder bei Ihrem Dienstanbieter), um Unterstützung zu erhalten.<br><br>Support zum Azure Stack Development Kit (ASDK) erhalten Sie in den [Microsoft-Foren](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack). Da das Development Kit eine Evaluierungsumgebung ist, wird über den Microsoft-Kundensupport (Customer Support Services, CSS) kein offizieller Support angeboten.
 | Verfügbare Dienste | Sehen Sie sich die Liste mit den [Azure-Produkten](https://azure.microsoft.com/services/?b=17.04b) an. Die verfügbaren Dienste variieren je nach Azure-Region. | Azure Stack Hub unterstützt eine Teilgruppe der Azure-Dienste. Die Dienste variieren in Abhängigkeit davon, was von Ihrer Organisation oder Ihrem Dienstanbieter angeboten wird.
-| Azure Resource Manager-Endpunkt* | https://management.azure.com | Verwenden Sie bei einem integrierten Azure Stack Hub-System den vom Azure Stack Hub-Betreiber bereitgestellten Endpunkt.<br><br>Verwenden Sie für das Development Kit den folgenden Link: https://management.local.azurestack.external.
+| Azure Resource Manager-Endpunkt* | `https://management.azure.com` | Verwenden Sie bei einem integrierten Azure Stack Hub-System den vom Azure Stack Hub-Betreiber bereitgestellten Endpunkt.<br><br>Verwenden Sie für das Development Kit den folgenden Link: https://management.local.azurestack.external.
 | Portal-URL* | [https://portal.azure.com](https://portal.azure.com) | Verwenden Sie bei einem integrierten Azure Stack Hub-System die vom Azure Stack Hub-Betreiber bereitgestellte URL.<br><br>Verwenden Sie für das Development Kit den folgenden Link: https://portal.local.azurestack.external.
 | Region | Sie können die Region für die Bereitstellung auswählen. | Verwenden Sie bei einem integrierten Azure Stack Hub-System die im System verfügbare Region.<br><br>Für das Azure Stack Development Kit (ASDK) lautet die Region immer **local**.
 | Ressourcengruppen | Eine Ressourcengruppe kann mehrere Regionen umfassen. | Sowohl für integrierte Systeme als auch für das Development Kit gibt es nur eine Region.

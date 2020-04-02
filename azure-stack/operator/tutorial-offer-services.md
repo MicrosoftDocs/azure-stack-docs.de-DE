@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 3d05ff70909508701db2f4770ecb3efb9d860a6d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 772871cffa3d5394d1d8b939fa22ae91bc90d4ac
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694542"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423900"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Erstellen eines Dienstangebots für Benutzer in Azure Stack Hub
 
@@ -65,6 +65,7 @@ Mehrwertdienste werden von Ressourcenanbietern unterstützt, die nach der Bereit
 | Microsoft.Web | App Service-Funktions-Apps, Web-Apps, API-Apps | 
 | Microsoft.MySqlAdapter | MySQL-Hostserver, MySQL-Datenbank | 
 | Microsoft.SqlAdapter | SQL Server-Hostserver, SQL Server-Datenbank |
+| Microsoft.EventHub | Event Hubs |
 
 ::: moniker range=">=azs-1902"
 
