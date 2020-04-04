@@ -349,7 +349,7 @@
                 - name: Sichern und Wiederherstellen
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: Erfassen von Protokollen
-                  href: azure-stack-diagnostic-log-collection-overview.md
+                  href: azure-stack-diagnostic-log-collection-overview-tzl.md
                 - name: Integrität und Warnungen
                   href: azure-stack-monitor-health.md
                 - name: Verwalten
