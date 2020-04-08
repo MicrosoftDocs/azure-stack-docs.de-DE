@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: e2b6598137774a5bf654aef1f9a75827da4f108a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 04d7935ca88c578c2019703855e79278211127d1
+ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703637"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80479312"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Zugreifen auf das Kubernetes-Dashboard in Azure Stack Hub 
 
@@ -121,6 +121,14 @@ Sie können die URL für das Dashboard vom Masterknoten in Ihrem Cluster abrufen
 Sie können das Dashboard verwenden. Weitere Informationen zum Kubernetes-Dashboard finden Sie unter [Kubernetes Web UI Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) (Kubernetes-Dashboard mit Webbenutzeroberfläche). 
 
 ![Azure Stack Hub-Kubernetes-Dashboard](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
+
+## <a name="troubleshooting"></a>Problembehandlung
+
+### <a name="custom-virtual-networks"></a>Benutzerdefinierte virtuelle Netzwerke
+
+Wenn es beim Zugreifen auf das Kubernetes-Dashboard Konnektivitätsprobleme gibt, nachdem Sie Kubernetes in einem [benutzerdefinierten virtuellen Netzwerk](https://docs.microsoft.com/azure-stack/user/kubernetes-aks-engine-custom-vnet) bereitgestellt haben, überprüfen Sie, ob die Zielsubnetze mit der Routingtabelle und den Netzwerksicherheitsgruppen-Ressourcen verknüpft sind, die von der AKS-Engine erstellt wurden.
+
+Stellen Sie sicher, dass die Regeln für die Netzwerksicherheitsgruppe die Kommunikation zwischen den Masterknoten und der IP-Adresse des Kubernetes-Dashboard-Pods zulassen. Dies kann mithilfe des ping-Befehls von einem Masterknoten überprüft werden.
 
 ## <a name="next-steps"></a>Nächste Schritte 
 

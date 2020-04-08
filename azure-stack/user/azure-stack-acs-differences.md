@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: 864421f543e02da39dcbd3bf2972fe3a0782676f
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: 3f5701cbb601b82db3b802bfd602c53576230b6f
+ms.sourcegitcommit: f114e9d268a74fde6891180b80c74c148dc0a129
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069384"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80530768"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub-Speicher: Unterschiede und Überlegungen
 
@@ -44,9 +44,15 @@ In diesem Artikel sind die bekannten Unterschiede zwischen Azure Stack Hub-Speic
 |Seitenblob – Seitengröße|512 Bytes|4 KB
 |Größe für Tabellenpartitionsschlüssel und Zeilenschlüssel|1\.024 Zeichen (2.048 Bytes)|400 Zeichen (800 Bytes)
 |Momentaufnahme eines Blobs|Die maximale Anzahl von Momentaufnahmen eines Blobs ist nicht beschränkt.|Die maximale Anzahl von Momentaufnahmen eines Blobs beträgt 1.000.
-|Azure AD-Authentifizierung für Speicher|In der Vorschau|Noch nicht unterstützt.
+|Azure AD-Authentifizierung für Speicher|Allgemein verfügbar|Noch nicht unterstützt.
 |Unveränderliche Blobs|Allgemein verfügbar|Noch nicht unterstützt.
 |Firewallregeln und VNET-Regeln für Speicher|Allgemein verfügbar|Noch nicht unterstützt.|
+|Zuordnen einer benutzerdefinierten Domäne zu einem Blob Storage-Endpunkt|Allgemein verfügbar|Noch nicht unterstützt.|
+|Hosten von statischen Websites in Blob Storage|Allgemein verfügbar|Noch nicht unterstützt.|
+|Verschlüsseln von ruhenden Daten mit vom Kunden verwalteten Schlüsseln|Allgemein verfügbar|Noch nicht unterstützt.|
+|Überprüfen der Integrität von Transaktionsdaten mit CRC64-Hash|Allgemein verfügbar|Noch nicht unterstützt.|
+|Serverseitiges synchrones Kopieren von Daten aus URL|Allgemein verfügbar|Noch nicht unterstützt.|
+|Batch-API für Blob Storage|Allgemein verfügbar|Noch nicht unterstützt.|
 
 Es gibt auch Unterschiede zu Speichermetriken:
 

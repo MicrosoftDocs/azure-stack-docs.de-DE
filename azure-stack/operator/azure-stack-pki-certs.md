@@ -7,14 +7,14 @@ ms.date: 3/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: a63fcbb13defc0d7e679c0be7fb931c0e2570b37
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: c4565ce33faf1f76a4774736d9195c9d7256b6da
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295185"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423831"
 ---
-# <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Azure Stack Hub-PKI-Zertifikatanforderungen
+# <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Zertifikatanforderungen für Azure Stack Hub-PKI (Public Key-Infrastruktur)
 
 Azure Stack Hub verfügt über ein öffentliches Infrastrukturnetz mit extern zugänglichen öffentlichen IP-Adressen, die einer kleinen Gruppe von Azure Stack Hub-Diensten und möglicherweise Mandanten-VMs zugewiesen sind. PKI-Zertifikate (Public Key-Infrastruktur) mit den entsprechenden DNS-Namen für diese Endpunkte der öffentlichen Infrastruktur von Azure Stack Hub werden während der Bereitstellung von Azure Stack Hub benötigt. Dieser Artikel enthält Informationen zu Folgendem:
 
@@ -60,7 +60,7 @@ Zertifikate mit den entsprechenden DNS-Namen für diese Endpunkte der öffentlic
 
 Für Ihre Bereitstellung müssen die Werte [region] und [externalfqdn] mit der Region und den externen Domänennamen übereinstimmen, die Sie für Ihr Azure Stack Hub-System ausgewählt haben. Beispiel: Wenn der Name der Region *Redmond* und der externe Domänenname *contoso.com* lautet, haben die DNS-Namen das Format *&lt;Präfix>.redmond.contoso.com*. Die *&lt;Präfix>* -Werte werden von Microsoft vordefiniert, um den durch das Zertifikat geschützten Endpunkt zu beschreiben. Darüber hinaus hängen die *&lt;Präfix>* -Werte der externen Infrastrukturendpunkte vom Azure Stack Hub-Dienst ab, der den spezifischen Endpunkt verwendet.
 
-Für Produktionsumgebungen wird empfohlen, für jeden Endpunkt eigene Zertifikate zu generieren und in das entsprechende Verzeichnis zu kopieren. In Entwicklungsumgebungen können Zertifikate als einzelnes, in alle Verzeichnisse kopiertes Platzhalterzertifikat bereitgestellt werden, das alle Namespaces in den Feldern für Antragsteller und alternativen Antragstellernamen (Subject Alternative Name, SAN) abdeckt. Ein einzelnes Zertifikat für alle Endpunkte und Dienste ist eine unsichere Methode und sollte daher nur in der Entwicklung verwendet werden. Wie bereits erwähnt, müssen für beide Optionen Platzhalterzertifikate für Endpunkte wie **acs** und Key Vault verwendet werden, wenn dies erforderlich sind.
+Für Produktionsumgebungen wird empfohlen, für jeden Endpunkt eigene Zertifikate zu generieren und in das entsprechende Verzeichnis zu kopieren. In Entwicklungsumgebungen können Zertifikate als einzelnes, in alle Verzeichnisse kopiertes Platzhalterzertifikat bereitgestellt werden, das alle Namespaces in den Feldern für Antragsteller und alternative Antragstellernamen (Subject Alternative Name, SAN) abdeckt. Ein einzelnes Zertifikat für alle Endpunkte und Dienste ist eine unsichere Methode und sollte daher nur in der Entwicklung verwendet werden. Wie bereits erwähnt, müssen für beide Optionen Platzhalterzertifikate für Endpunkte wie **acs** und Key Vault verwendet werden, wenn dies erforderlich sind.
 
 > [!Note]  
 > Während der Bereitstellung müssen Sie Zertifikate in den Bereitstellungsordner kopieren, der zu dem Identitätsanbieter gehört, für den Sie die Bereitstellung ausführen (Azure AD oder AD FS). Wenn Sie ein einzelnes Zertifikat für alle Endpunkte verwenden, müssen Sie diese Zertifikatdatei, wie in den folgenden Tabellen aufgeführt, in jeden Bereitstellungsordner kopieren. Die Ordnerstruktur ist bereits im virtuellen Computer für die Bereitstellung unter folgendem Pfad festgelegt: C:\CloudDeployment\Setup\Certificates.
@@ -91,12 +91,12 @@ Wenn Sie Azure Stack Hub im Azure AD-Bereitstellungsmodus bereitstellen, müssen
 > Alle Zertifikate, die in diesem Abschnitt aufgeführt sind, müssen das gleiche Kennwort haben.
 
 ## <a name="optional-paas-certificates"></a>Optionale PaaS-Zertifikate
-Wenn Sie die zusätzlichen Azure Stack Hub-PaaS-Dienste (SQL, MySQL und App Service) bereitstellen möchten, nachdem Azure Stack Hub bereitgestellt und konfiguriert wurde, müssen Sie zusätzliche Zertifikate anfordern, um die Endpunkte der PaaS-Dienste abzudecken.
+Wenn Sie die zusätzlichen Azure Stack Hub-PaaS-Dienste (z. B. SQL, MySQL, App Service oder Event Hubs) bereitstellen möchten, nachdem Azure Stack Hub bereitgestellt und konfiguriert wurde, müssen Sie zusätzliche Zertifikate anfordern, um die Endpunkte der PaaS-Dienste abzudecken.
 
 > [!IMPORTANT]
-> Die Zertifikate, die Sie für App Service-, SQL- und MySQL-Ressourcenanbieter verwenden, müssen die gleiche Stammzertifizierungsstelle haben wie die Zertifikate, die für die globalen Azure Stack Hub-Endpunkte verwendet werden.
+> Die Zertifikate, die Sie für Ressourcenanbieter verwenden, müssen dieselbe Stammzertifizierungsstelle haben wie die Zertifikate, die für die globalen Azure Stack Hub-Endpunkte verwendet werden.
 
-In der folgenden Tabelle werden die Endpunkte und Zertifikate beschrieben, die für die SQL- und MySQL-Adapter sowie für App Service erforderlich sind. Sie müssen diese Zertifikate nicht in den Azure Stack Hub-Bereitstellungsordner kopieren. Stattdessen stellen Sie diese Zertifikate bei der Installation der zusätzlichen Ressourcenanbieter bereit.
+In der folgenden Tabelle sind die Endpunkte und Zertifikate beschrieben, die für Ressourcenanbieter erforderlich sind. Sie müssen diese Zertifikate nicht in den Azure Stack Hub-Bereitstellungsordner kopieren. Stattdessen stellen Sie diese Zertifikate während der Installation der Ressourcenanbieter bereit.
 
 |Bereich (pro Region)|Zertifikat|Erforderlicher Zertifikatantragsteller und alternative Antragstellernamen|Namespace der Unterdomäne|
 |-----|-----|-----|-----|
@@ -105,6 +105,7 @@ In der folgenden Tabelle werden die Endpunkte und Zertifikate beschrieben, die f
 |App Service|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL-Zertifikat<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL-Zertifikat<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL-Zertifikat<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|Event Hubs|Event Hubs|&#42;.eventhub. *&lt;region>.&lt;fqdn>* (SAN)| eventhub. *&lt;region>.&lt;fqdn>* |
 
 <sup>1</sup> Erfordert ein Zertifikat mit Platzhaltern für mehrere alternative Antragstellernamen. Mehrere Platzhalter für alternative Antragstellernamen auf einem einzigen Zertifikat werden ggf. nicht von allen öffentlichen Zertifizierungsstellen unterstützt.
 

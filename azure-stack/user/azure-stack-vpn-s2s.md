@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: a44af909dc3f3309c51f748b0f3b3f0275843c80
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 36a4ea0532eda0593de2beb9191d6e0911e58276
+ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705065"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80367804"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurieren einer IPsec/IKE-Richtlinie für Standort-zu-Standort-VPN-Verbindungen
 
@@ -64,9 +64,9 @@ Die folgende Tabelle gibt Aufschluss über die unterstützten Kryptografiealgori
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | IKEv2-Verschlüsselung                                     | AES256, AES192, AES128, DES3, DES                                        |
 | IKEv2-Integrität                                      | SHA384, SHA256, SHA1, MD5                                                |
-| DH-Gruppe                                             | ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, Keine         |
+| DH-Gruppe                                             | ECP384, ECP256, DHGroup14, DHGroup2, DHGroup1, Keine                      |
 | IPsec-Verschlüsselung                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, keine |
-| IPsec-Integrität                                      | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                       |
+| IPsec-Integrität                                      | GCMASE256, GCMAES192, GCMAES128                                          |
 | PFS-Gruppe                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, keine                         |
 | QM-SA-Gültigkeitsdauer                                       | (Optional: Wenn kein Wert angegeben wird, werden die Standardwerte verwendet.)<br />                         Sekunden (ganze Zahl; min. 300/Standard: 27.000 Sekunden)<br />                         KB (ganze Zahl; min. 1.024/Standard: 102.400.000 KB) |
 | Datenverkehrsselektor                                     | Richtlinienbasierte Datenverkehrsselektoren werden in Azure Stack Hub nicht unterstützt.         |

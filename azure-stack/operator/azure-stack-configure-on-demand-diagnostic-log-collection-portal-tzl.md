@@ -3,20 +3,20 @@ title: Sofortiges Senden von Azure Stack Hub-Diagnoseprotokollen
 description: Hier wird beschrieben, wie Sie in Azure Stack Hub mithilfe des Administratorportals oder eines PowerShell-Skripts Diagnoseprotokolle bedarfsgesteuert sammeln.
 author: justinha
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 03/30/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: fb79a6378d2dec69804019b3ab0648ce874bf99d
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.lastreviewed: 03/30/2020
+ms.openlocfilehash: 2a46c031be648eedf42e204496ed2a123c926dd9
+ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79520567"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80402718"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>Sofortiges Senden von Azure Stack Hub-Diagnoseprotokollen
 
-Azure Stack-Operatoren können Diagnoseprotokolle bei Bedarf über das Administratorportal oder per PowerShell an den Microsoft-Kundendienst (Microsoft Customer Support Services, CSS) senden, bevor sie Unterstützung anfordern. Wenn Azure Stack Hub mit Azure verbunden ist, empfiehlt es sich, die Option zum **sofortigen Senden von Protokollen** im Administratorportal zu verwenden, da die Protokolle so am einfachsten direkt an Microsoft gesendet werden können. Ist das Portal nicht verfügbar, sollten Operatoren stattdessen [Protokolle sofort per PowerShell senden](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md). 
+Azure Stack-Operatoren können Diagnoseprotokolle bei Bedarf über das Administratorportal oder per PowerShell an den Microsoft-Kundendienst (Microsoft Customer Support Services, CSS) senden, bevor sie Unterstützung anfordern. Wenn Azure Stack Hub mit Azure verbunden ist, empfiehlt es sich, die Option zum **sofortigen Senden von Protokollen** im Administratorportal zu verwenden, da die Protokolle so am einfachsten direkt an Microsoft gesendet werden können. Ist das Portal nicht verfügbar, sollten Operatoren stattdessen [Protokolle nun mit „Send-AzureStackDiagnosticLog“ senden](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md). 
 
 Falls Sie über keine Internetverbindung verfügen oder die Protokolle nur lokal speichern möchten, verwenden Sie die Methode [Get-AzureStackLog](azure-stack-get-azurestacklog.md) für den Protokollversand. Das folgende Flussdiagramm zeigt, welche Option jeweils zum Senden von Diagnoseprotokollen verwendet werden muss: 
 
@@ -31,4 +31,4 @@ Geben Sie Startzeit und Endzeit für die Protokollsammlung an, und klicken Sie a
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Senden von Azure Stack Hub-Diagnoseprotokollen mithilfe des privilegierten Endpunkts (PEP)](azure-stack-get-azurestacklog.md)
+[Senden von Azure Stack Hub-Diagnoseprotokollen mithilfe des privilegierten Endpunkts (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md)

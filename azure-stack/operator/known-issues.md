@@ -7,12 +7,12 @@ ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d06514242069e20957e15e1503b513ece366fba1
-ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
+ms.openlocfilehash: ca29dd169523872b2dcc21b323bc489de5caf9b3
+ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80152148"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80479238"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -111,6 +111,12 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 
 ## <a name="compute"></a>Compute
 
+### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Auf dem Blatt mit der VM-Übersicht wird nicht der richtige Computername angezeigt.
+
+- Geltungsbereich: Dieses Problem betrifft das Release 2002 und höhere Releases.
+- Ursache: Wenn die Details eines virtuellen Computers auf dem Übersichtsblatt angezeigt werden, wird der Computername als **(nicht verfügbar)** angezeigt.
+- Abhilfe: Zeigen Sie das Blatt **Eigenschaften** unter **Einstellungen** an.
+
 ### <a name="nvv4-vm-size-on-portal"></a>NVv4-VM-Größe im Portal
 
 - Geltungsbereich: Dieses Problem betrifft das Release 2002 und höhere Releases.
@@ -138,6 +144,11 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Bei der Erstellung von VMs in einer Verfügbarkeitsgruppe mit drei Fehlerdomänen und der Erstellung einer Instanz einer VM-Skalierungsgruppe tritt während des Updatevorgangs in einer Azure Stack Hub-Umgebung mit vier Knoten der Fehler **FabricVmPlacementErrorUnsupportedFaultDomainSize** auf.
 - Abhilfe: Sie können einzelne VMs in einer Verfügbarkeitsgruppe mit zwei Fehlerdomänen erfolgreich durchführen. Die Erstellung der Skalierungsgruppeninstanz ist während des Updatevorgangs in einer Azure Stack Hub-Bereitstellung mit vier Knoten aber immer noch nicht verfügbar.
+
+### <a name="sql-vm-provision-will-be-failed-in-asdk"></a>Fehler bei der SQL-VM-Bereitstellung in ASDK
+- Geltungsbereich: Dieses Problem gilt nur für ASDK 2002. 
+- Ursache: Wenn Sie eine neue SQL-VM in ASDK 2002 erstellen, wird möglicherweise die Fehlermeldung **Erweiterung mit Publisher "Microsoft.SqlServer.Management", Typ "SqlIaaSAgent" und Typhandlerversion "2.0" wurde im Erweiterungsrepository nicht gefunden** angezeigt. Es ist kein „SqlIaaSAgent“ 2.0 in Azure Stack Hub vorhanden. 
+
 
 ## <a name="resource-providers"></a>Resource Providers
 

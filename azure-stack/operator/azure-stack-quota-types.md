@@ -7,12 +7,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
-ms.openlocfilehash: 5af024f2b3d31e115e80d1e20883b0457037532e
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: bc36b4fe7326596f4ef993ceb087818270cf1b5a
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295053"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423857"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Kontingenttypen in Azure Stack Hub
 
@@ -57,6 +57,12 @@ ms.locfileid: "79295053"
 | Maximale Anzahl von Netzwerkschnittstellenkarten (NICs) |100 |Die maximale Anzahl von Netzwerkschnittstellen, die ein Abonnement an diesem Speicherort erstellen kann |
 | Maximale Anzahl von Lastenausgleichsmodulen |50 |Die maximale Anzahl von Lastenausgleichsmodulen, die ein Abonnement an diesem Speicherort erstellen kann |
 | Maximale Anzahl von Netzwerksicherheitsgruppen |50 |Die maximale Anzahl von Netzwerksicherheitsgruppen, die ein Abonnement an diesem Speicherort erstellen kann |
+
+## <a name="event-hubs-quota-types"></a>Event Hubs-Kontingenttypen
+
+| **Typ** | **Standardwert** | **Beschreibung** |
+| --- | --- | --- |
+| Maximal zulässige Anzahl von VM-Kernen | 10 | Die maximale Anzahl von Kernen, die ein Abonnement an diesem Speicherort erstellen kann (ein virtueller A3-Computer hat beispielsweise vier Kerne) |
 
 ## <a name="view-an-existing-quota"></a>Anzeigen eines vorhandenen Kontingents
 
