@@ -10,10 +10,10 @@ ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
 ms.openlocfilehash: 779eeefa8b567cfb6b5c151c180a59b76468870a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/14/2020
 ms.locfileid: "77704544"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutorial: Einrichten von Ressourcen für Validation-as-a-Service
@@ -64,7 +64,7 @@ Dieser Prozess autorisiert Ihren Mandanten in der Azure AD-Anwendung **Azure St
 
 1. Senden Sie die folgenden Mandanteninformationen unter [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) an Microsoft.
 
-    | Daten | Beschreibung |
+    | Daten | BESCHREIBUNG |
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Name der Organisation | Offizieller Organisationsname |
     | Name des Azure AD-Mandantenverzeichnisses | Registrierter Name des Azure AD-Mandantenverzeichnisses |

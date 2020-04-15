@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.reviewer: seyadava
 ms.lastreviewed: 06/03/2019
 ms.openlocfilehash: a0a13af01fc539788d76377f357ca28db9b05234
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/14/2020
 ms.locfileid: "77703076"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>Bereitstellen eines Ethereum-Blockchainnetzwerks in Azure Stack Hub
@@ -94,11 +94,11 @@ Die Konsortium-Leadervorlage konfiguriert den Speicherbedarf für das erste Memb
     
     ![Leaderbereitstellungsparameter](./media/azure-stack-ethereum/leader-deployment-parameters.png)
 
-    Parametername | Beschreibung | Zulässige Werte | Beispielwert
+    Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
     Subscription | Das Abonnement, für das das Konsortiumsnetzwerk bereitgestellt wird | | Verbrauchsabonnement
     Ressourcengruppe | Die Ressourcengruppe, für die das Konsortiumsnetzwerk bereitgestellt wird. | | EthereumResources
-    Location | Die Azure-Region für die Ressourcengruppe. | | local
+    Position | Die Azure-Region für die Ressourcengruppe. | | local
 
 8. Klicken Sie auf **Erstellen**.
 
@@ -142,11 +142,11 @@ Navigieren Sie zum Überprüfen der Leaderbereitstellung zur Leader-Administrato
 7. Klicken Sie auf **OK**.
 8. Geben Sie unter **Benutzerdefinierte Bereitstellung** **Abonnement**, **Ressourcengruppe** und **Ressourcengruppenstandort** an.
 
-    Parametername | Beschreibung | Zulässige Werte | Beispielwert
+    Parametername | BESCHREIBUNG | Zulässige Werte | Beispielwert
     ---------------|-------------|----------------|-------------
     Subscription | Das Abonnement, für das das Konsortiumsnetzwerk bereitgestellt wird | | Verbrauchsabonnement
     Ressourcengruppe | Die Ressourcengruppe, für die das Konsortiumsnetzwerk bereitgestellt wird. | | MemberResources
-    Location | Die Azure-Region für die Ressourcengruppe. | | local
+    Position | Die Azure-Region für die Ressourcengruppe. | | local
 
 8. Klicken Sie auf **Erstellen**.
 
@@ -196,7 +196,7 @@ Mit dieser Vorlage erstellen Sie eine Verbindung vom Leader zu einem Remotemembe
     ---------------|-------------|----------------|-------------
     Subscription | Das Abonnement des Leaders. | | Verbrauchsabonnement
     Ressourcengruppe | Ressourcengruppe des Leaders. | | EthereumResources
-    Location | Die Azure-Region für die Ressourcengruppe. | | local
+    Position | Die Azure-Region für die Ressourcengruppe. | | local
 
 8. Klicken Sie auf **Erstellen**.
 

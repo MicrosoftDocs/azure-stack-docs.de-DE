@@ -10,10 +10,10 @@ ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: b01cea3fb30b2b707ac778a7878c03861b68c3ba
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/14/2020
 ms.locfileid: "77704657"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Überwachen und Verwalten von Tests im VaaS-Portal
@@ -88,7 +88,7 @@ Wählen Sie im Kontextmenü **Information anzeigen** aus, um allgemeine Informat
 | Herausgeber | Der Herausgeber des Tests |
 | Category |  Der Zweck des Tests |
 | Target services (Zieldienste) | Die Azure Stack Hub-Dienste, die getestet werden |
-| Beschreibung | Die Beschreibung des Tests |
+| BESCHREIBUNG | Die Beschreibung des Tests |
 | Estimated duration (minutes) (Geschätzte Dauer (Minuten)) | Die erwartete Ausführungsdauer des Tests |
 | Links | Alle relevanten Informationen zum Test oder zu Ansprechpartnern |
 
