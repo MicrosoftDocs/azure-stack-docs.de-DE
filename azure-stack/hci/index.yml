@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Dokumentation zu Azure Stack HCI
+summary: Azure Stack HCI ist ein hyperkonvergenter Windows Server 2019-Cluster, der validierte Hardware für die lokale Ausführung virtualisierter Workloads verwendet. So können Kunden problemlos alte Infrastrukturen konsolidieren und zur Nutzung von Clouddiensten eine Verbindung mit Azure herstellen.
+metadata:
+  title: Dokumentation zu Azure Stack HCI
+  description: Azure Stack HCI ist ein hyperkonvergenter Windows Server 2019-Cluster, für den validierte Hardware zum lokalen Ausführen virtualisierter Workloads verwendet wird.
+  ms.topic: landing-page
+  author: khdownie
+  ms.author: v-kedow
+  ms.date: 04/09/2020
+  ms.openlocfilehash: d5a67973b2d9cd2be83346c97f7c5b0de58cbb44
+  ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+  ms.translationtype: HT
+  ms.contentlocale: de-DE
+  ms.lasthandoff: 04/14/2020
+  ms.locfileid: "81119212"
+landingContent:
+- title: Informationen zu Azure Stack HCI
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Was ist Azure Stack HCI?
+      url: overview.md
+  - linkListType: get-started
+    links:
+    - text: Azure Stack HCI-Katalog
+      url: https://www.microsoft.com/cloud-platform/azure-stack-hci-catalog
+- title: Verwalten von Azure Stack HCI
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Erstellen von Volumes
+      url: manage/create-volumes.md
+    - text: Erweitern von Volumes
+      url: manage/extend-volumes.md
+    - text: Löschen von Volumes
+      url: manage/delete-volumes.md
+    - text: Ersetzen von Laufwerken
+      url: manage/replace-drives.md
+    - text: Überwachung mit Azure Monitor
+      url: manage/azure-monitor.md
+    - text: Anfügen einer GPU an eine Linux-VM
+      url: manage/attach-gpu-to-linux-vm.md
+- title: Azure Stack HCI-Konzepte
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Wählen von Laufwerken
+      url: concepts/choose-drives.md
+    - text: Planen von Volumes
+      url: concepts/plan-volumes.md
+    - text: Grundlegendes zum Cache
+      url: concepts/cache.md
+    - text: Fehlertoleranz und Speichereffizienz
+      url: concepts/fault-tolerance.md
+    - text: Quorum für Cluster und Speicherpool
+      url: concepts/quorum.md
