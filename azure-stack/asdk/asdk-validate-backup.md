@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/11/2020
 ms.openlocfilehash: 268bef58cb4176909ec6a13029324b18de75b52d
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512013"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Verwenden des ASDK zum Überprüfen der Azure Stack-Sicherung
@@ -41,7 +41,7 @@ Das folgende Szenario wird beim Überprüfen von Sicherungen auf dem ASDK **nich
 ## <a name="cloud-recovery-deployment"></a>Bereitstellung von Cloudwiederherstellungen
 Infrastruktursicherungen aus der Bereitstellung integrierter Systeme können durch Ausführen einer Bereitstellung von Cloudwiederherstellungen des ASDK überprüft werden. Bei dieser Art der Bereitstellung werden bestimmte Dienstdaten aus einer Sicherung wiederhergestellt, nachdem das ASDK auf dem Hostcomputer installiert wurde.
 
-### <a name="prereqs"></a>Voraussetzungen für die Cloudwiederherstellung
+### <a name="cloud-recovery-prerequisites"></a><a name="prereqs"></a>Voraussetzungen für die Cloudwiederherstellung
 Vor dem Starten einer Bereitstellung für die Cloudwiederherstellung des ASDK benötigen Sie die folgenden Informationen:
 
 **Anforderungen an das Benutzeroberflächen-Installationsprogramm**

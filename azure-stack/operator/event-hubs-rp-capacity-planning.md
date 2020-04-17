@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 7eb9dce19bb25367181b17d3f13ada5ed12eff5d
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.openlocfilehash: 4cd946bf306761533f7c8d6dcba8af75a5001400
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80424620"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806720"
 ---
 # <a name="how-to-do-capacity-planning-for-event-hubs-on-azure-stack-hub"></a>Planen der Kapazität für Event Hubs in Azure Stack Hub
 
@@ -40,7 +40,7 @@ Für alle Event Hubs-Cluster wird ein [D11_V2](../user/azure-stack-vm-sizes.md#m
 
 ## <a name="resource-provider-resource-consumption"></a>Ressourcenverbrauch des Ressourcenanbieters  
 
-Der Ressourcenverbrauch durch den Event Hubs Ressourcenanbieter ist konstant und unabhängig von der Anzahl oder Größe der Cluster, die von Benutzern erstellt wurden. In der folgenden Tabelle sind die Kernauslastung durch den Event Hubs-Ressourcenanbieter in Azure Stack Hub und der ungefähre Ressourcenverbrauch durch andere Ressourcen zusammengestellt. Für die Bereitstellung des Event Hubs-Ressourcenanbieters wird eine VM des Typs [D2_V2](/user/azure-stack-vm-sizes#dv2-series) verwendet.
+Der Ressourcenverbrauch durch den Event Hubs Ressourcenanbieter ist konstant und unabhängig von der Anzahl oder Größe der Cluster, die von Benutzern erstellt wurden. In der folgenden Tabelle sind die Kernauslastung durch den Event Hubs-Ressourcenanbieter in Azure Stack Hub und der ungefähre Ressourcenverbrauch durch andere Ressourcen zusammengestellt. Für die Bereitstellung des Event Hubs-Ressourcenanbieters wird eine VM des Typs [D2_V2](/azure-stack/user/azure-stack-vm-sizes#dv2-series) verwendet.
 
 |                                  | VM-Typ | Clusterknoten | Kerne | VM-Speicher | Arbeitsspeicher | Speicherkonten |
 |----------------------------------|---------|-------|-------|------------|--------|------------------|

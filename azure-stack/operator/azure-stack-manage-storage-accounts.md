@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
 ms.openlocfilehash: 995342f471ed7300d2fb9dd95a6623588a13d1a9
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295329"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Verwalten von Azure Stack Hub-Speicherkonten
@@ -100,7 +100,7 @@ Die Einstellung für den Aufbewahrungszeitraum ermöglicht einem Cloudbetreiber 
 
    ![Aufbewahrungszeitraum im Administratorportal bearbeiten](media/azure-stack-manage-storage-accounts/image10.png)
 
-## <a name="reclaim"></a>Freigeben von Kapazität
+## <a name="reclaim-capacity"></a><a name="reclaim"></a>Freigeben von Kapazität
 Einer der Nebeneffekte eines Aufbewahrungszeitraums ist, dass ein gelöschtes Konto weiterhin Kapazität verbraucht, bis sein Aufbewahrungszeitraum abläuft. Als Cloudbetreiber benötigen Sie ggf. eine Möglichkeit, den Speicherplatz von gelöschten Konten freizugeben, auch wenn der Aufbewahrungszeitraum noch nicht abgelaufen ist.
 
 Sie können Kapazität entweder mithilfe des Azure-Portals oder mit PowerShell freigeben.

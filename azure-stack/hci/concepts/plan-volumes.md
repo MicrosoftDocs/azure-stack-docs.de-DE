@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 03/06/2020
 ms.openlocfilehash: c6410e4f0d60138ce773f7f0abfae1a5c1850bd2
-ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79095227"
 ---
 # <a name="planning-volumes-in-storage-spaces-direct"></a>Planen von Volumes in „Direkte Speicherplätze“
@@ -81,7 +81,7 @@ Die duale Parität bietet die gleiche Fehlertoleranz wie die Drei-Wege-Spiegelun
 
 Welcher Resilienztyp verwendet werden sollte, hängt von den Anforderungen Ihrer Workload ab. In der Tabelle unten ist zusammengefasst, welche Workloads für einen Resilienztyp jeweils gut geeignet sind. Außerdem sind die Leistung und die Speichereffizienz für jeden Resilienztyp angegeben.
 
-| Resilienztyp | Kapazitätseffizienz | Geschwindigkeit | Workloads |
+| Resilienztyp | Kapazitätseffizienz | Geschwindigkeit | Arbeitsauslastungen |
 | ------------------- | ----------------------  | --------- | ------------- |
 | **Spiegel**         | ![Speichereffizienz von 33 %](media/plan-volumes/3-way-mirror-storage-efficiency.png)<br>Drei-Wege-Spiegelung: 33 % <br>Zwei-Wege-Spiegelung: 50%     |![Leistung von 100 %](media/plan-volumes/three-way-mirror-perf.png)<br> Höchste Leistung  | Virtualisierte Workloads<br> Datenbanken<br>Weitere Hochleistungsworkloads |
 | **Parität mit Beschleunigung per Spiegelung** |![Speichereffizienz von ca. 50 %](media/plan-volumes/mirror-accelerated-parity-storage-efficiency.png)<br> Abhängig von Spiegelungs- und Paritätsanteil | ![Leistung von ca. 20 %](media/plan-volumes/mirror-accelerated-parity-perf.png)<br>Deutlich langsamer als die Spiegelung, aber bis zu doppelt so schnell wie die duale Parität<br> Am besten für umfangreiche sequenzielle Schreib- und Lesevorgänge geeignet | Archivierung und Sicherung<br> Virtualisierte Desktopinfrastruktur     |

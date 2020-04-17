@@ -7,12 +7,12 @@ ms.date: 2/3/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 611fec639fbcec478b79d44975b24f2d806df5bc
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: f93ce26acd7474def8495e6e0df28bd3b8669848
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364801"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80614435"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Features von Azure Stack Hub-VMs
 
@@ -108,6 +108,17 @@ Für die Nutzung von Windows-Produkten gelten die Produktnutzungsrechte und Micr
 - VMs, auf denen Windows Server 2012 oder eine frühere Version ausgeführt wird, werden nicht automatisch aktiviert und müssen über die [MAK-Aktivierung](https://technet.microsoft.com/library/ff793438.aspx) aktiviert werden. Zur Verwendung der MAK-Aktivierung müssen Sie Ihren eigenen Product Key angeben.
 
 Bei Microsoft Azure werden Windows-VMs über die KMS-Aktivierung aktiviert. Falls bei der Migration einer VM von Azure Stack Hub nach Azure Probleme mit der Aktivierung auftreten sollten, helfen Ihnen die Informationen unter [Behandlung von Problemen bei der Aktivierung virtueller Windows-Computer](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems) weiter. Weitere Informationen finden Sie im Blogbeitrag [Troubleshooting Windows activation failures on Azure VMs](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) (Behandlung von Windows-Aktivierungsfehlern bei Azure-VMs) des Azure-Supportteams.
+
+## <a name="high-availability"></a>Hochverfügbarkeit
+
+Ihre VM kann aufgrund geplanter Wartungsarbeiten, die vom Azure Stack Hub-Bediener geplant sind, neu gestartet werden. Zur Erreichung von Hochverfügbarkeit für ein Produktionssystem mit mehreren VMs in Azure werden die VMs in einer [Verfügbarkeitsgruppe](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) angeordnet, um sie auf mehrere Fehlerdomänen und Updatedomänen zu verteilen. Im kleineren Rahmen von Azure Stack Hub ist eine Fehlerdomäne in einer Verfügbarkeitsgruppe als einzelner Knoten in der Skalierungseinheit definiert.  
+
+Die Infrastruktur von Azure Stack Hub verfügt zwar bereits über Resilienz gegenüber Ausfällen, aber bei einem Hardwarefehler kommt es bei der zugrunde liegenden Technologie (Failoverclustering) für VMs auf einem betroffenen physischen Server trotzdem noch zu Ausfallzeiten. Azure Stack Hub unterstützt die Verwendung einer Verfügbarkeitsgruppe mit maximal drei Fehlerdomänen, um Konsistenz mit Azure zu erzielen.
+
+|                   |             |
+|-------------------|-------------|
+| **Fehlerdomänen** | In einer Verfügbarkeitsgruppe angeordnete VMs werden physisch voneinander isoliert, indem sie so gleichmäßig wie möglich auf mehrere Fehlerdomänen (Azure Stack Hub-Knoten) verteilt werden. Bei einem Hardwarefehler werden VMs aus der fehlerhaften Fehlerdomäne in anderen Fehlerdomänen neu gestartet. Sie werden getrennt von den anderen VMs in separaten Fehlerdomänen, aber nach Möglichkeit in derselben Verfügbarkeitsgruppe gespeichert. Nachdem die Hardware wieder in den Onlinezustand versetzt wurde, wird für die VMs ein neuer Ausgleichsvorgang durchgeführt, um die Hochverfügbarkeit sicherzustellen. |
+| **Updatedomänen**| Updatedomänen sind eine andere Option von Azure, mit der für Hochverfügbarkeit in Verfügbarkeitsgruppen gesorgt wird. Eine Updatedomäne ist eine logische Gruppe von zugrunde liegender Hardware, die zur gleichen Zeit gewartet werden kann. VMs in derselben Updatedomäne werden während einer geplanten Wartung gemeinsam neu gestartet. Wenn Mandanten VMs in einer Verfügbarkeitsgruppe erstellen, werden die VMs von der Azure-Plattform automatisch auf diese Updatedomänen verteilt. <br>In Azure Stack Hub wird für VMs eine Livemigration über die anderen Onlinehosts im Cluster durchgeführt, bevor der zugrunde liegende Host aktualisiert wird. Da es während eines Hostupdates nicht zu Mandantenausfallzeiten kommt, ist das Updatedomänenfeature in Azure Stack Hub nur für die Vorlagenkompatibilität mit Azure vorhanden. Virtuelle Computer in einer Verfügbarkeitsgruppe zeigen im Portal „0“ als Nummer der Updatedomäne an. |
 
 ## <a name="next-steps"></a>Nächste Schritte
 

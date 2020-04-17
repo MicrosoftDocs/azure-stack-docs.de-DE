@@ -3,16 +3,16 @@ title: DNS-Integration in ein Azure Stack Hub-Rechenzentrum
 description: Erfahren Sie, wie Sie das DNS von Azure Stack Hub in das DNS Ihres Rechenzentrums integrieren.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: 91d65a59d8db50162f5cf6c99f8d3ab1b5aeba86
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d16aea039103c69302c8f84aa7de078907f1efce
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699659"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244075"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>DNS-Integration in ein Azure Stack Hub-Rechenzentrum
 
@@ -72,13 +72,11 @@ Es gibt zwei Arten von DNS-Server:
 
 Azure Stack Hub enthält autoritative und rekursive DNS-Server. Die rekursiven Server werden verwendet, um alle Namen außer denen der internen privaten Zone und der externen öffentlichen DNS-Zone für diese Azure Stack Hub-Bereitstellung aufzulösen.
 
-![DNS-Architektur von Azure Stack Hub](media/azure-stack-integrate-dns/Integrate-DNS-01.png)
+![DNS-Architektur von Azure Stack Hub](media/azure-stack-integrate-dns/Integrate-DNS-01.svg)
 
 ## <a name="resolving-external-dns-names-from-azure-stack-hub"></a>Auflösen von externen DNS-Namen in Azure Stack Hub
 
 Zum Auflösen von DNS-Namen für Endpunkte außerhalb von Azure Stack Hub (z. B. www\.bing.com) müssen Sie DNS-Server bereitstellen, die Azure Stack Hub für die Weiterleitung von DNS-Anforderungen verwenden kann, für die Azure Stack Hub nicht autoritativ ist. Für die Bereitstellung müssen im Arbeitsblatt der Bereitstellung die DNS-Server angegeben werden, an die Azure Stack Hub Anforderungen weiterleitet (im Feld „DNS-Weiterleitung“). Geben Sie für die Fehlertoleranz mindestens zwei Server in diesem Feld an. Ohne diese Werte kommt es bei der Azure Stack Hub-Bereitstellung zu Fehlern. Sie können die Werte für die DNS-Weiterleitung nach der Bereitstellung mit dem [**Set-AzSDnsForwarder**-Cmdlet](#editing-dns-forwarder-ips) bearbeiten. 
-
-
 
 ### <a name="configure-conditional-dns-forwarding"></a>Konfigurieren der bedingten DNS-Weiterleitung
 
@@ -93,14 +91,14 @@ Verwenden Sie für diesen Vorgang einen Computer in Ihrem Rechenzentrumsnetzwerk
 
 1. Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Rechten (Als Administrator ausführen), und stellen Sie eine Verbindung zur IP-Adresse des privilegierten Endpunkts her. Verwenden Sie die Anmeldeinformationen für die CloudAdmin-Authentifizierung.
 
-   ```
+   ```PowerShell
    $cred=Get-Credential 
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $cred
    ```
 
 2. Nachdem Sie eine Verbindung mit dem privilegierten Endpunkt hergestellt haben, führen Sie folgenden PowerShell-Befehl aus. Ersetzen Sie die bereitgestellten Beispielwerte durch Ihren Domänennamen und die IP-Adressen des DNS-Servers, den Sie verwenden möchten.
 
-   ```
+   ```PowerShell
    Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses "192.168.1.1","192.168.1.2"
    ```
 

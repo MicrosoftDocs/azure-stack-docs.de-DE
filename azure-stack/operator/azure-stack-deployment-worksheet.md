@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
 ms.openlocfilehash: 8c13121f5d591abca8a6c83771848d97cc9106db
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77700067"
 ---
 # <a name="deployment-worksheet-for-azure-stack-hub-integrated-systems"></a>Arbeitsblatt für die Bereitstellung von integrierten Azure Stack Hub-Systemen

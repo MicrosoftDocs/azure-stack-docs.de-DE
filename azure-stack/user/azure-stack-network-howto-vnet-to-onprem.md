@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
 ms.openlocfilehash: 1b3854ab04792ade8ca0b66cc63f1fdc2c0e60e9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703892"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Einrichten eines VPN-Gateways für Azure Stack Hub per FortiGate NVA
@@ -42,7 +42,7 @@ In diesem Artikel wird beschrieben, wie Sie eine VPN-Verbindung mit Ihrer Azure 
 
 In der folgenden Tabelle sind als Referenz die Parameter zusammengefasst, die in diesen Bereitstellungen verwendet werden.
 
-| Parameter | value |
+| Parameter | Wert |
 |-----------------------------------|---------------------------|
 | Name der FortiGate-Instanz | forti1 |
 | BYOL: Lizenz/Version | 6.0.3 |
@@ -211,7 +211,7 @@ Erstellen Sie nach dem Aktivieren der NVAs jeweils einen IPSec-VPN-Tunnel auf de
 
 Das lokale VPN-Gerät muss entsprechend konfiguriert werden, damit der IPSec-VPN-Tunnel erstellt werden kann. Die folgende Tabelle enthält die Parameter, die Sie zum Einrichten des lokalen VPN-Geräts benötigen. Informationen zum Konfigurieren des lokalen VPN-Geräts finden Sie in der Dokumentation Ihres Geräts.
 
-| Parameter | value |
+| Parameter | Wert |
 | --- | --- |
 | Remotegateway-IP | Öffentliche IP-Adresse, die „forti1“ zugewiesen ist: siehe [Aktivieren der FortiGate NVA](#activate-the-fortigate-nva). |
 | Remote-IP-Netzwerk | 172.16.0.0/16 (bei Verwendung des IP-Adressbereichs, der in dieser Anleitung für das VNET angegeben ist). |

@@ -7,11 +7,11 @@ ms.date: 1/22/2020
 ms.topic: conceptual
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 57ca779f776e51d8f491c8c9fe3e6a59a37b42ec
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.openlocfilehash: 939479350718ae2176f7d1531e64ad71301e0596
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80423821"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Erste Schritte mit den Azure Stack Hub-Speicherentwicklungstools
@@ -27,40 +27,8 @@ Nutzen Sie diesen Artikel als Leitfaden für die ersten Schritte mit den Azure S
 
 Bei den Speicherclientbibliotheken müssen Sie auf die Version achten, die mit der REST-API kompatibel ist. Sie müssen auch den Azure Stack Hub-Endpunkt in Ihrem Code angeben.
 
-
-::: moniker range=">=azs-2002"
-### <a name="2002-update-or-newer-versions"></a>Update 2002 oder neuere Versionen
-
-| Clientbibliothek | Von Azure Stack Hub unterstützte Version | Link | Endpunktspezifikation |
-|----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET | 11.0.0 | NuGet-Paket:<br>Allgemein: <https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/11.0.0><br>Blob: <https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/11.0.0><br>Queue: <https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/11.0.0><br> <br>GitHub-Release:<br><https://github.com/Azure/azure-storage-net/releases/tag/v11.0.0> | app.config-Datei |
-| Java | 7.0.0 | Maven-Paket:<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/7.0.0><br> <br>GitHub-Release:<br><https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0> | Verbindungszeichenfolgen-Setup |
-| Node.js | 2.8.3 | NPM-Link:<br><https://www.npmjs.com/package/azure-storage><br>(Ausführung: `npm install azure-storage@2.8.3`)<br> <br>GitHub-Release:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3> | Dienstinstanzdeklaration |
-| C++ | 7.1.0 | GitHub-Release:<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v7.1.0> | Verbindungszeichenfolgen-Setup |
-| PHP | 1.2.0 | GitHub-Release:<br>Allgemein: <https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common><br>Blob: <https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob><br>Queue: <https://github.com/Azure/azure-storage-php/releases/tag/v1.1.1-queue><br>Table: <https://github.com/Azure/azure-storage-php/releases/tag/v1.1.0-table><br> <br>Installation über Composer (Weitere Informationen finden Sie [weiter unten](#install-php-client-via-composer---current).) | Verbindungszeichenfolgen-Setup |
-| Python | 2.1.0 | GitHub-Release:<br>Allgemein: <https://github.com/Azure/azure-storage-python/releases/tag/v2.1.0-common><br>Blob: <https://github.com/Azure/azure-storage-python/releases/tag/v2.1.0-blob><br>Queue: <https://github.com/Azure/azure-storage-python/releases/tag/v2.1.0-queue> | Dienstinstanzdeklaration |
-| Ruby | 1.0.1 | RubyGems-Paket:<br>Allgemein: <https://rubygems.org/gems/azure-storage-common/versions/1.0.1><br>Blob: <https://rubygems.org/gems/azure-storage-blob/versions/1.0.1><br>Queue: <https://rubygems.org/gems/azure-storage-queue/versions/1.0.1><br>Table: <https://rubygems.org/gems/azure-storage-table/versions/1.0.1><br> <br>GitHub-Release:<br>Allgemein: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common><br>Blob: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob><br>Queue: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue><br>Table: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table> | Verbindungszeichenfolgen-Setup |
-
-#### <a name="install-php-client-via-composer---current"></a>Installation des PHP-Clients per Composer – Aktuell
-
-Installation über Composer: (Verwenden Sie das Blob als Beispiel).
-
-1. Erstellen Sie eine Datei mit dem Namen **composer.json** im Stammverzeichnis des Projekts mit folgendem Code:
-
-    ```json
-    {
-      "require": {
-      "Microsoft/azure-storage-blob":"1.2.0"
-      }
-    }
-    ```
-
-2. Laden Sie [composer.phar](https://getcomposer.org/composer.phar) in das Stammverzeichnis des Projekts herunter.
-3. Führen Sie `php composer.phar install` aus.
-::: moniker-end
-
-::: moniker range=">=azs-1811 <azs-2002"
-### <a name="previous-versions-1811-to-1910-update"></a>Vorherige Versionen (1811 bis Update 1910)
+::: moniker range=">=azs-1811"
+### <a name="1811-update-or-newer-versions"></a>Update 1811 oder neuere Versionen
 
 | Clientbibliothek | Von Azure Stack Hub unterstützte Version | Link | Endpunktspezifikation |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|

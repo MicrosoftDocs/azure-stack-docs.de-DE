@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: a1faf66aa6bd3195ceece035b4c67234673359bf
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: d0b50cc2237315c1ab6063aef6419db0e18aa395
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366217"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243951"
 ---
 # <a name="border-connectivity"></a>Grenzkonnektivität 
 Die Planung der Netzwerkintegration ist eine wichtige Voraussetzung, um erfolgreich integrierte Azure Stack Hub-Systeme bereitstellen, betreiben und verwalten zu können. Bei der Planung der Konnektivität über Border-Geräte entscheiden Sie zuerst, ob Sie dynamisches Routing mit Border Gateway Protocol (BGP) verwenden möchten. Hierfür muss eine autonome 16-Bit-BGP-Systemnummer (öffentlich oder privat) zugewiesen oder statisches Routing verwendet werden, wenn Border-Geräten eine statische Standardroute zugewiesen wird.
@@ -29,7 +29,7 @@ Der Software Load Balancer (SLB) in der Azure Stack Hub-Lösung stellt mittels P
 
 Um sicherzustellen, dass Benutzerdatenverkehr nach einem Fehler umgehend und transparent wiederhergestellt wird, ermöglicht die zwischen den TOR-Geräten konfigurierte vPC- oder MLAG-Vernetzung die Verwendung von MLAG (Multi-Chassis Link Aggregation) für die Hosts sowie des HSRP- oder VRRP-Protokolls, das Redundanz für die IP-Netzwerke bietet.
 
-![BGP-Routing](media/azure-stack-border-connectivity/bgp-routing.png)
+![BGP-Routing](media/azure-stack-border-connectivity/bgp-routing.svg)
 
 ## <a name="static-routing"></a>Statisches Routing
 Statisches Routing erfordert zusätzliche Konfiguration für die Border-Geräte. Vor jeder Änderung sind mehr manuelle Intervention und Verwaltung sowie eine gründliche Analyse erforderlich. Bei Problemen, die durch Konfigurationsfehler verursacht wurden, kann der Rollback je nach den vorgenommenen Änderungen relativ zeitintensiv sein. Diese Routingmethode wird nicht empfohlen, jedoch unterstützt.
@@ -42,7 +42,7 @@ Die Tor-Geräte sind mit einer statischen Standardroute vorkonfiguriert, die sä
 
 Statisches Routing wird nur auf die Uplinks zwischen den Tor- und Border-Switches angewendet. Im Rack kommt nach wie vor dynamisches BGP-Routing zum Einsatz, da es ein unverzichtbares Hilfsmittel für SLB und andere Komponenten darstellt. Es kann daher nicht deaktiviert oder entfernt werden.
 
-![Statisches Routing](media/azure-stack-border-connectivity/static-routing.png)
+![Statisches Routing](media/azure-stack-border-connectivity/static-routing.svg)
 
 <sup>\*</sup> Das BMC-Netzwerk ist nach der Bereitstellung optional.
 
@@ -58,7 +58,7 @@ Wenn Ihr Rechenzentrum verlangt, dass für den gesamten Datenverkehr ein Proxy v
 
 Ein transparenter Proxy (auch abfangender, inline oder erzwungener Proxy genannt) fängt die normale Kommunikation auf der Netzwerkschicht ab, ohne dass eine spezielle Clientkonfiguration erforderlich ist. Clients müssen nicht wissen, dass der Proxy vorhanden ist.
 
-![Transparenter Proxy](media/azure-stack-border-connectivity/transparent-proxy.png)
+![Transparenter Proxy](media/azure-stack-border-connectivity/transparent-proxy.svg)
 
 Das Abfangen von SSL-Datenverkehr wird [nicht unterstützt](azure-stack-firewall.md#ssl-interception) und kann beim Zugriff auf Endpunkte zu Dienstfehlern führen. Das maximal unterstützte Zeitlimit für die Kommunikation mit Endpunkten, die für die Identität erforderlich sind, ist 60 Sekunden mit drei Wiederholungsversuchen.
 

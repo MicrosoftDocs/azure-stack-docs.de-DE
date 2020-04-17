@@ -7,10 +7,10 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwe
 ms.openlocfilehash: 65fb8a0adebb73fa8740f41d50eb83f869ac534a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77700798"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack-hub"></a>Offlineaktualisieren von Azure App Service in Azure Stack Hub

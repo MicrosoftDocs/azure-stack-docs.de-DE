@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
 ms.openlocfilehash: a44c4cee7948fe9f2cf4a55e7ed337c3932fd95c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704946"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>n-schichtige Windows-Anwendung in Azure Stack Hub mit SQL Server
@@ -139,7 +139,7 @@ Fügen Sie zum Schutz der Jumpbox eine NSG-Regel hinzu, die ausschließlich RDP-
 
 ### <a name="scale-sets"></a>Skalierungsgruppen
 
-Erwägen Sie für die Internet- und Unternehmensschichten die Verwendung von [Skalierungsgruppen für virtuelle Computer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview), anstatt separate VMs bereitzustellen. Eine VM-Skalierungsgruppe ermöglicht die Bereitstellung und Verwaltung einer Gruppe identischer VMs. Erwägen Sie die Verwendung von Skalierungsgruppen, wenn Sie VMs schnell horizontal skalieren müssen.
+Erwägen Sie für die Internet- und Unternehmensschichten die Verwendung von [Skalierungsgruppen für virtuelle Computer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview), anstatt separate VMs bereitzustellen. Eine VM-Skalierungsgruppe ermöglicht die Bereitstellung und Verwaltung einer Gruppe identischer VMs. Erwägen Sie die Verwendung von Skalierungsgruppen, wenn Sie VMs schnell aufskalieren müssen.
 
 Es gibt zwei grundlegende Methoden für das Konfigurieren von virtuellen Computern in einer Skalierungsgruppe:
 

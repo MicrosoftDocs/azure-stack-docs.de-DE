@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: 934aa01fa02d763ce170df219dfee3770d502d22
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703042"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Herstellen einer Verbindung mit Azure Stack Hub über die Azure-Kontoerweiterung in Visual Studio Code
@@ -76,7 +76,7 @@ VS Code ist ein einfacher Editor zum Erstellen und Debuggen von Web- und Cloudan
 
     - Werte:
 
-        | Parameter | Beschreibung |
+        | Parameter | BESCHREIBUNG |
         | --- | --- |
         | `tenant-ID` | Der Wert Ihrer [Mandanten-ID](../operator/azure-stack-identity-overview.md) für Azure Stack Hub. |
         | `activeDirectoryEndpointUrl` | Dies ist die URL aus der loginEndpoint-Eigenschaft. |

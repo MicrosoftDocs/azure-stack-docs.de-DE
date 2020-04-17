@@ -9,10 +9,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
 ms.openlocfilehash: d41455823c6905a947a703412664fc52ff45e1a8
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701121"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 6

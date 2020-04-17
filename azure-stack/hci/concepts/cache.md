@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 02/28/2020
 ms.openlocfilehash: f1fc40a6475b8e51a063491cc120e2c4236cbeea
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79026098"
 ---
 # <a name="understanding-the-cache-in-azure-stack-hci"></a>Grundlegendes zum Cache in Azure Stack HCI
@@ -122,8 +122,8 @@ In dieser Tabelle ist zusammengefasst, welche Laufwerke für die Zwischenspeiche
 | Nur NVMe         | Keine (optional: manuelle Konfiguration) | NVMe            | Lesegeschützt (falls konfiguriert)  |
 | Nur SSD          | Keine (optional: manuelle Konfiguration) | SSD             | Lesegeschützt (falls konfiguriert)  |
 | NVMe und SSD       | NVMe                                | SSD             | Lesegeschützt                  |
-| NVMe und HDD       | NVMe                                | HDD             | Lesen und Schreiben                |
-| SSD und HDD        | SSD                                 | HDD             | Lesen und Schreiben                |
+| NVMe und HDD       | NVMe                                | Festplattenlaufwerk             | Lesen und Schreiben                |
+| SSD und HDD        | SSD                                 | Festplattenlaufwerk             | Lesen und Schreiben                |
 | NVMe und SSD und HDD | NVMe                                | SSD und HDD       | Lesen und Schreiben für HDD, Lesegeschützt für SSD  |
 
 ## <a name="server-side-architecture"></a>Serverseitige Architektur

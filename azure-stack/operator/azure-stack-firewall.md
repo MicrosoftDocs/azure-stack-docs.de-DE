@@ -3,16 +3,16 @@ title: Azure Stack Hub-Firewallintegration für integrierte Azure Stack Hub-Syst
 description: Enthält Informationen zur Azure Stack Hub-Firewallintegration für integrierte Azure Stack Hub-Systeme.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: d0929edd5db0ba45593d5d061f5d831df50f3d35
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: c33c2dbcdb662f23072ef7aca83364643c3cdf0c
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295335"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244200"
 ---
 # <a name="azure-stack-hub-firewall-integration"></a>Azure Stack Hub-Firewallintegration
 Es empfiehlt sich, Azure Stack Hub mit einem Firewallgerät zu schützen. Firewalls können bei der Verteidigung vor Dingen wie DDoS-Angriffen (Denial of Service), bei der Angriffserkennung sowie der Inhaltsuntersuchung helfen. Sie können allerdings auch zu einem Durchsatzengpass für Azure-Speicherdienste wie Blobs, Tabellen und Warteschlangen werden.
@@ -41,7 +41,7 @@ Azure Stack Hub wird in einer Edgebereitstellung direkt hinter dem Edgerouter od
 
 Öffentliche routingfähige IP-Adressen werden für den öffentlichen VIP-Pool aus dem externen Netzwerk zur Bereitstellungszeit angegeben. In einem Edgeszenario wird aus Sicherheitsgründen davon abgeraten, öffentliche routingfähige IP-Adressen in anderen Netzwerken zu verwenden. Dadurch erhalten Benutzer eine vollständig selbstgesteuerte Cloudumgebung – genau wie bei einer öffentlichen Cloud (z.B. Azure).  
 
-![Beispiel für eine Azure Stack Hub-Edgefirewall](./media/azure-stack-firewall/firewallScenarios.png)
+![Beispiel für eine Azure Stack Hub-Edgefirewall](./media/azure-stack-firewall/firewallScenarios.svg)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Firewallszenario mit Unternehmensintranet oder -umkreisnetzwerk
 Bei einer Bereitstellung im Unternehmensintranet oder -umkreisnetzwerk wird Azure Stack Hub in einer Firewall mit mehreren Zonen oder zwischen der Edgefirewall und der internen Unternehmensnetzwerkfirewall bereitgestellt. Dann wird wie im Folgenden beschrieben der Datenverkehr zwischen dem sicheren Umkreisnetzwerk (oder der DMZ) und unsicheren Zonen verteilt:
@@ -50,7 +50,7 @@ Bei einer Bereitstellung im Unternehmensintranet oder -umkreisnetzwerk wird Azur
 - **Umkreiszone**: Das Umkreisnetzwerk wird dort eingesetzt, wo in der Regel externe oder Internet-Apps, z. B. Webserver, bereitgestellt werden. Es wird normalerweise durch eine Firewall überwacht, um Angriffe wie DDoS-Angriffe und Eindringversuche (Hacken) zu verhindern, während gleichzeitig angegebener eingehender Datenverkehr aus dem Internet zugelassen wird. In der DMZ-Zone sollte sich nur der öffentliche VIP-Pool des externen Netzwerks von Azure Stack Hub befinden.
 - **Unsichere Zone**: Dies ist das externe Netzwerk, das Internet. Es wird davon **abgeraten**, Azure Stack Hub in der unsicheren Zone bereitzustellen.
 
-![Beispiel für eine Azure Stack Hub-Bereitstellung in einem Umkreisnetzwerk](./media/azure-stack-firewall/perimeter-network-scenario.png)
+![Beispiel für eine Azure Stack Hub-Bereitstellung in einem Umkreisnetzwerk](./media/azure-stack-firewall/perimeter-network-scenario.svg)
 
 ## <a name="learn-more"></a>Weitere Informationen
 Erfahren Sie mehr über [die von Azure Stack Hub-Endpunkten verwendeten Ports und Protokolle](azure-stack-integrate-endpoints.md).

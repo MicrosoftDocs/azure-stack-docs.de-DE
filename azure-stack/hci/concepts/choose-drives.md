@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 42fb0703ed1e4947a1f35cc14a8708c8372f220e
-ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
+ms.openlocfilehash: ee51dc973c26335cfb6c75de991508a6063e0993
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79095209"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806670"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Auswählen von Laufwerken für Azure Stack HCI
 
@@ -26,7 +26,7 @@ Für „Direkte Speicherplätze“ können derzeit drei Arten von Laufwerken ver
 |----------------------|--------------------------|
 |![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe**-Laufwerke (Non-Volatile Memory Express) sind Solid State Drives, die direkt auf dem PCIe-Bus angeordnet sind. Häufig verwendete Formfaktoren sind 2,5" U.2, PCIe Add-In-Card (AIC) und M.2. NVMe ermöglicht einen höheren IOPS- und E/A-Durchsatz mit geringerer Latenz als alle anderen Laufwerkstypen, die derzeit unterstützt werden.|
 |![SSD](media/choose-drives/SSD-100-px.png)|**SSD** steht für „Solid State Drives“, die über herkömmliche SATA- oder SAS-Verbindungen verbunden sind.|
-|![HDD](media/choose-drives/HDD-100-px.png)|**HDD** steht für rotierende, magnetische Festplattenlaufwerke (Hard Disk Drives) mit hoher Speicherkapazität.|
+|![Festplattenlaufwerk](media/choose-drives/HDD-100-px.png)|**HDD** steht für rotierende, magnetische Festplattenlaufwerke (Hard Disk Drives) mit hoher Speicherkapazität.|
 
 ## <a name="built-in-cache"></a>Integrierter Cache
 
@@ -46,7 +46,7 @@ Hierfür gibt es derzeit drei Möglichkeiten:
 
 2. **NVMe und SSD:** Wenn NVMe-Laufwerke zusammen mit SSDs verwendet werden, werden vom NVMe-Laufwerk automatisch Schreibvorgänge für die SSDs zwischengespeichert. Auf diese Weise können Schreibvorgänge im Cache zusammengefasst werden. Das De-Staging wird hierfür dann nur bei Bedarf durchgeführt, um die Belastung für die SSDs zu verringern. Dies ermöglicht NVMe-ähnliche Schreibeigenschaften, während Lesevorgänge direkt über die ebenfalls schnellen SSDs bereitgestellt werden.
 
-3. **Nur SSDs:** Wie auch bei einer reinen Bereitstellung mit NVMe-Laufwerken ist kein Cache vorhanden, wenn für alle Laufwerke das gleiche Modell verwendet wird. Wenn Sie Modelle mit längerer und kürzerer Lebensdauer mischen, können Sie festlegen, dass Erstere die Schreibvorgänge für Letztere zwischenspeichern ([Einrichtung erforderlich](/windows-server/storage/storage-spaces/understand-the-cache.md#manual-configuration)).
+3. **Nur SSDs:** Wie auch bei einer reinen Bereitstellung mit NVMe-Laufwerken ist kein Cache vorhanden, wenn für alle Laufwerke das gleiche Modell verwendet wird. Wenn Sie Modelle mit längerer und kürzerer Lebensdauer mischen, können Sie festlegen, dass Erstere die Schreibvorgänge für Letztere zwischenspeichern ([Einrichtung erforderlich](/windows-server/storage/storage-spaces/understand-the-cache#manual-configuration)).
 
    >[!NOTE]
    > Ein Vorteil bei der Verwendung von reinen NVMe- oder SSD-Bereitstellungen ohne Cache ist, dass Sie für jedes Laufwerk über nutzbare Speicherkapazität verfügen. Es geht keine Kapazität für die Zwischenspeicherung verloren. Dies kann bei kleineren Bereitstellungen ratsam sein.

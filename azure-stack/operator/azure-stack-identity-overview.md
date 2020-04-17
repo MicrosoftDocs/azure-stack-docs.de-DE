@@ -3,16 +3,16 @@ title: Übersicht über Identitätsanbieter für Azure Stack Hub
 description: Es werden die Identitätsanbieter beschrieben, die Sie mit Azure Stack Hub verwenden können.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 896dc2b2def823a91278fe77062b20146a3c6976
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c9a01d4aaa437549177f6e32c10f4600287732a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699693"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244127"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack-hub"></a>Übersicht über Identitätsanbieter für Azure Stack Hub
 
@@ -32,7 +32,7 @@ Weitere Informationen zu Ihren Optionen, die von Ihrer Azure Stack Hub-Umgebung 
 
 In den nächsten Abschnitten werden häufige Konzepte für Identitätsanbieter und deren Nutzung in Azure Stack Hub beschrieben.
 
-![Terminologie für Identitätsanbieter](media/azure-stack-identity-overview/terminology.png)
+![Terminologie für Identitätsanbieter](media/azure-stack-identity-overview/terminology.svg)
 
 ### <a name="directory-tenants-and-organizations"></a>Verzeichnismandanten und Organisationen
 
@@ -130,7 +130,7 @@ Wenn Sie Azure AD mit Mehrinstanzenfähigkeit einrichten, werden einige Apps auf
 
 ### <a name="authentication-by-apps-and-users"></a>Authentifizierung durch Apps und Benutzer
 
-![Identität zwischen Ebenen von Azure Stack Hub](media/azure-stack-identity-overview/identity-layers.png)
+![Identität zwischen Ebenen von Azure Stack Hub](media/azure-stack-identity-overview/identity-layers.svg)
 
 Für Apps und Benutzer wird die Architektur von Azure Stack Hub anhand von vier Ebenen beschrieben. Für Interaktionen zwischen den einzelnen Ebenen können unterschiedliche Authentifizierungsarten verwendet werden.
 
@@ -141,7 +141,7 @@ Für Apps und Benutzer wird die Architektur von Azure Stack Hub anhand von vier 
 |Ressourcenanbieter     |Aufrufe, die an Ressourcenanbieter übergeben werden, sind per zertifikatbasierter Authentifizierung geschützt. <br>Azure Resource Manager und der Ressourcenanbieter kommunizieren dann über eine API. Für jeden Aufruf, der vom Azure Resource Manager eingeht, überprüft der Ressourcenanbieter den Aufruf mit diesem Zertifikat.|
 |Infrastruktur und Geschäftslogik     |Ressourcenanbieter kommunizieren mit der Geschäftslogik und der Infrastruktur, indem ein Authentifizierungsmodus ihrer Wahl verwendet wird. Für die Standardressourcenanbieter von Azure Stack Hub wird die Windows-Authentifizierung verwendet, um die Kommunikation zu schützen.|
 
-![Für Authentifizierung benötigte Informationen](media/azure-stack-identity-overview/authentication.png)
+![Für Authentifizierung benötigte Informationen](media/azure-stack-identity-overview/authentication.svg)
 
 ### <a name="authenticate-to-azure-resource-manager"></a>Authentifizierung bei Azure Resource Manager
 
@@ -168,7 +168,7 @@ Das Token muss dann den Header einer Anforderung an Azure Resource Manager über
 
 Nachdem alle Überprüfungen abgeschlossen sind, verwendet der Azure Resource Manager die Ansprüche *object id* (oid) und *groups*, um eine Liste mit Ressourcen zu erstellen, auf die der Prinzipal zugreifen kann.
 
-![Diagramm des Protokolls für den Tokenaustausch](media/azure-stack-identity-overview/token-exchange.png)
+![Diagramm des Protokolls für den Tokenaustausch](media/azure-stack-identity-overview/token-exchange.svg)
 
 > [!NOTE]
 > Nach der Bereitstellung ist die globale Azure Active Directory-Administratorberechtigung nicht erforderlich. Für einige Vorgänge werden aber ggf. die Anmeldeinformationen des globalen Administrators benötigt (z. B. für ein Ressourcenanbieter-Installationsskript oder zum Gewähren einer Berechtigung für ein neues Feature). Sie können entweder die globalen Administratorrechte des Kontos vorübergehend wiederherstellen oder ein separates globales Administratorkonto verwenden, das Besitzer des *Standardanbieterabonnements* ist.

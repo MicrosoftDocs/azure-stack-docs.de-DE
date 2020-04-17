@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2019
 ms.openlocfilehash: f0b23df25ef2e9fffe9c5f43ee649ecfe5f74092
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77695290"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>Bereitstellen von VM-Skalierungsgruppen in Azure Stack Hub
@@ -70,7 +70,7 @@ Nach der Erstellung einer VM-Skalierungsgruppe können Benutzer Images in der Sk
 
 2. In der Bereitstellungsvorlage der VM-Skalierungsgruppe ist **nicht** „latest“ für **version**, sondern eine Versionsnummer angegeben:  
 
-    Wenn der Azure Stack Hub-Betreiber ein Image mit einer neueren Version herunterlädt (und die ältere Version löscht), kann die Skalierungsgruppe nicht zentral hochskaliert werden. Dies ist beabsichtigt, da die in der Skalierungsgruppenvorlage angegebene Imageversion verfügbar sein muss.  
+    Wenn der Azure Stack Hub-Betreiber ein Image mit einer neueren Version herunterlädt (und die ältere Version löscht), kann die Skalierungsgruppe nicht hochskaliert werden. Dies ist beabsichtigt, da die in der Skalierungsgruppenvorlage angegebene Imageversion verfügbar sein muss.  
 
 Weitere Informationen finden Sie unter [Einführung in virtuelle Azure Stack-Computer](../user/azure-stack-compute-overview.md#operating-system-disks-and-images).  
 

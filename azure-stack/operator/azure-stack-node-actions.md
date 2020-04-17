@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: 4874b93acf9e869a3b8e66f42191d5419e48fece
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295077"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Aktionen für Knoten einer Skalierungseinheit in Azure Stack Hub

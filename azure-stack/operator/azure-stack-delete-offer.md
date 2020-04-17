@@ -7,12 +7,12 @@ ms.date: 08/13/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: 1f38bc4690e7dd7f5b30fdd0ae14896c02324c3e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0e5f8963b2cdca8f116e1fdd889e1e8087265b0f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700169"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806897"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>Löschen von Kontingenten, Plänen, Angeboten und Abonnements
 
@@ -61,7 +61,6 @@ Alternativ können Sie bestimmte Kontingente mithilfe dieser REST-APIs löschen:
 
 - [Compute](/rest/api/azurestack/quotas%20(compute)/delete)
 - [Network](/rest/api/azurestack/quotas%20(network)/delete)
-- [Storage](/rest/api/azurestack/storagequotas/delete)
 
 > [!NOTE]
 > Ein Kontingent kann nicht gelöscht werden, wenn es von aktuellen Plänen verwendet wird. Sie müssen zuerst den Plan löschen, der auf das Kontingent verweist.

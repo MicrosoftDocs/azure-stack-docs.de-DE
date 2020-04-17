@@ -1,5 +1,5 @@
 ---
-title: Übersicht über die Sammlung von Azure Stack Hub-Diagnoseprotokollen
+title: Übersicht über die Sammlung von Azure Stack Hub-Diagnoseprotokollen
 description: Hier wird die Sammlung von Diagnoseprotokollen in „Hilfe und Support“ von Azure Stack Hub erläutert – einschließlich der bedarfsabhängigen und der proaktiven Protokollsammlung.
 author: justinha
 ms.topic: article
@@ -8,13 +8,13 @@ ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
 ms.openlocfilehash: 8f97ecd20e7ef8db69033268baf96060e1315751
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79520633"
 ---
-# <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Übersicht über die Sammlung von Azure Stack Hub-Diagnoseprotokollen 
+# <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Übersicht über die Sammlung von Azure Stack Hub-Diagnoseprotokollen 
 
 Bei Azure Stack Hub handelt es sich um eine umfangreiche Sammlung von Windows-Komponenten und lokalen Azure-Diensten, die miteinander interagieren. Von allen diesen Komponenten und Diensten werden jeweils eigene Protokolle generiert. Daher haben wir eine nahtlose Umgebung für die Sammlung von Diagnoseprotokollen bereitgestellt, um eine effiziente Problemdiagnose durch den Microsoft-Kundendienst (Customer Support Services, CSS) zu ermöglichen. 
 

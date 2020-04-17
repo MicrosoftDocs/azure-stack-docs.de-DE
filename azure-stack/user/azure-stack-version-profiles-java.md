@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 ms.openlocfilehash: c0be80757eb12daac9d452f79ed7c0f5b7326120
-ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78231637"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Java in Azure Stack Hub
@@ -82,14 +82,14 @@ Führen Sie diese Schritte aus, um das Java SDK zu installieren:
 
 Zur Verwendung des Azure Java SDK mit Azure Stack Hub müssen Sie die folgenden Werte angeben und dann Werte mit Umgebungsvariablen festlegen. Befolgen Sie die Anweisungen in der Tabelle für Ihr Betriebssystem, um die Umgebungsvariablen festzulegen.
 
-| value                     | Umgebungsvariablen | BESCHREIBUNG                                                                                                                                                                                                          |
+| Wert                     | Umgebungsvariablen | BESCHREIBUNG                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Mandanten-ID                 | `AZURE_TENANT_ID`            | Ihre [Mandanten-ID](../operator/azure-stack-identity-overview.md) für Azure Stack Hub.                                                          |
 | Client-ID                 | `AZURE_CLIENT_ID`             | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt gespeichert wurde.                                                                                              |
 | Abonnement-ID           | `AZURE_SUBSCRIPTION_ID`      | Sie verwenden die [Abonnement-ID](../operator/service-plan-offer-subscription-overview.md#subscriptions), um in Azure Stack Hub auf Angebote zuzugreifen.                |
 | Geheimer Clientschlüssel             | `AZURE_CLIENT_SECRET`        | Das Geheimnis der Dienstprinzipalanwendung, die bei der Erstellung des Dienstprinzipals gespeichert wurde.                                                                                                                                   |
 | Resource Manager-Endpunkt | `ARM_ENDPOINT`              | Informationen hierzu finden Sie im Artikel zum [Resource Manager-Endpunkt von Azure Stack Hub](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint). |
-| Location                  | `RESOURCE_LOCATION`    | **Lokal** für Azure Stack Hub.                                                                                                                                                                                                |
+| Standort                  | `RESOURCE_LOCATION`    | **Lokal** für Azure Stack Hub.                                                                                                                                                                                                |
 
 Folgen Sie den [hier](../operator/azure-stack-csp-ref-operations.md) beschriebenen Anweisungen, um die Mandanten-ID für Ihre Azure Stack Hub-Instanz zu ermitteln. Verwenden Sie die Verfahren in den folgenden Abschnitten, um Ihre Umgebungsvariablen festzulegen:
 
