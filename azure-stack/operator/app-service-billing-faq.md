@@ -9,10 +9,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
 ms.openlocfilehash: ea304dc9d95d672377e72ce1dad49d4751b7d5c6
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77694882"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Azure App Service in Azure Stack Hub: Abrechnungsübersicht und häufig gestellte Fragen
@@ -47,7 +47,7 @@ Verbrauchseinheiten werden für dedizierte Worker bereitgestellt, wenn Folgendes
 
 Bei diesem Abrechnungsmodell können Cloudbetreiber einen Pool mit dedizierten Workern bereitstellen, die von Kunden genutzt werden können. Für die Worker muss dann erst bezahlt werden, wenn sie vom App Service-Plan des jeweiligen Mandanten auch wirklich reserviert wurden. 
 
-Angenommen, Sie haben beispielsweise 20 Worker Workertarif „Klein“. Wenn Sie dann fünf Kunden haben, die jeweils zwei App Service-Pläne vom Typ „S1“ erstellen und den App Service-Plan jeweils zentral auf bis zu zwei Instanzen hochskalieren, haben Sie keine verfügbaren Worker mehr. Aus diesem Grund ist auch keine Kapazität für Ihre Kunden bzw. neuen Kunden vorhanden, die zum horizontalen Hochskalieren oder Erstellen neuer App Service-Pläne benötigt werden. 
+Angenommen, Sie haben beispielsweise 20 Worker Workertarif „Klein“. Wenn Sie dann fünf Kunden haben, die jeweils zwei App Service-Pläne vom Typ „S1“ erstellen und den App Service-Plan jeweils zentral auf bis zu zwei Instanzen hochskalieren, haben Sie keine verfügbaren Worker mehr. Aus diesem Grund ist auch keine Kapazität für Ihre Kunden bzw. neuen Kunden vorhanden, die zum Aufskalieren oder Erstellen neuer App Service-Pläne benötigt werden. 
 
 Cloudbetreiber können die aktuelle Anzahl von verfügbaren Workern pro Workertarif anzeigen, indem sie sich die Workertarife in der Azure App Service-Konfiguration in der Azure Stack Hub-Verwaltung ansehen.
 
@@ -69,7 +69,7 @@ Als Cloudbetreiber können Sie Ihr eigenes Preismodell auf ihre Endkunden anwend
 
 ### <a name="as-a-csp-how-can-i-offer-free-and-shared-skus-for-customers-to-try-out-the-service"></a>Wie kann ich als CSP die SKUs „Free“ und „Shared“ für Kunden zum Testen des Diensts anbieten?
 
-Als Cloudbetreiber fallen beim Anbieten der SKUs „Free“ und „Shared“ für Sie Kosten an, da sie in freigegebenen Workern gehostet werden. Zur Verringerung dieser Kosten können Sie die Ebene für freigegebene Worker auf das erforderliche Minimum reduzieren. 
+Als Cloudbetreiber fallen beim Anbieten der SKUs „Free“ und „Shared“ für Sie Kosten an, da sie in freigegebenen Workern gehostet werden. Zur Verringerung dieser Kosten können Sie die Ebene für freigegebene Worker auf das erforderliche Minimum herunterskalieren. 
 
 Beispielsweise müssen Sie mindestens über eine A1-Instanz verfügen, um die App Service-Plan-SKUs „Free“ und „Shared“ und nutzungsbasierte Funktionen anbieten zu können. Da freigegebene Worker mehrinstanzenfähig sind, können damit mehrere Kunden-Apps gehostet werden, die jeweils über die App Service-Sandbox isoliert und geschützt sind. Indem Sie den freigegebenen Worker auf diese Weise skalieren, können Sie Ihre Vorleistungen auf die Kosten von einer vCPU pro Monat begrenzen.
 

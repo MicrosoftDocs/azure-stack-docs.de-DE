@@ -9,10 +9,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 82f43028253638f92866bb679a5ccb5478a5a56e
-ms.sourcegitcommit: 8198753ebafd69d0dbfc6b3548defbd70f4c79c1
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78935076"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 8
@@ -222,7 +222,7 @@ Aufgrund einer Regression in diesem Release müssen App Service-Datenbanken (sow
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
-- Worker können nicht horizontal hochskaliert werden
+- Worker können nicht aufskaliert werden
 
   Neue Worker können die erforderliche Datenbankverbindungszeichenfolge nicht abrufen.  Stellen Sie eine Verbindung mit einer Ihrer Controllerinstanzen wie z. B. CN0-VM her, und führen Sie das folgende PowerShell-Skript aus, um dieses Problem zu beheben:
 

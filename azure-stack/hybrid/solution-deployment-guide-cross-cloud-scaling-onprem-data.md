@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: b376be7855300dab0177bbbe735d6a5bf34d6bb9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701070"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Bereitstellen einer App, die lokale Daten verwendet und mithilfe von Azure und Azure Stack Hub cloudübergreifend skaliert wird
@@ -292,16 +292,16 @@ Sie können die App Service-Umgebungsvariablen verwenden, um an jede Instanz der
 
 ## <a name="enable-automatic-scaling-in-global-azure"></a>Aktivieren der automatischen Skalierung in der globalen Azure-Umgebung
 
-Wenn Sie Ihre Web-App in einer App Service-Umgebung erstellen, beginnt sie mit einer Instanz. Sie können automatisch horizontal hochskalieren, um Instanzen hinzuzufügen und so für Ihre App mehr Computeressourcen bereitzustellen. Auf ähnliche Weise können Sie automatisch horizontal herunterskalieren und die Anzahl von Instanzen reduzieren, die Ihre App benötigt.
+Wenn Sie Ihre Web-App in einer App Service-Umgebung erstellen, beginnt sie mit einer Instanz. Sie können automatisch aufskalieren, um Instanzen hinzuzufügen und so für Ihre App mehr Computeressourcen bereitzustellen. Auf ähnliche Weise können Sie automatisch abskalieren und die Anzahl von Instanzen reduzieren, die Ihre App benötigt.
 
 > [!Note]  
-> Sie müssen über einen App Service-Plan verfügen, um das horizontale Hoch- und Herunterskalieren zu konfigurieren. Wenn Sie keinen Plan besitzen, sollten Sie einen erstellen, bevor Sie mit den nächsten Schritten beginnen.
+> Sie müssen über einen App Service-Plan verfügen, um das Auf- und Abskalieren zu konfigurieren. Wenn Sie keinen Plan besitzen, sollten Sie einen erstellen, bevor Sie mit den nächsten Schritten beginnen.
 
 ### <a name="enable-automatic-scale-out"></a>Aktivieren der automatischen horizontalen Skalierung
 
-1. Suchen Sie in Azure nach dem App Service-Plan für die Standorte, die Sie horizontal hochskalieren möchten, und wählen Sie dann die Option **Horizontal hochskalieren (App Service-Plan)** .
+1. Suchen Sie in Azure nach dem App Service-Plan für die Standorte, die Sie aufskalieren möchten, und wählen Sie dann die Option **Aufskalieren (App Service-Plan)** .
 
-    ![Horizontales Skalieren](media/solution-deployment-guide-hybrid/image16.png)
+    ![Aufskalieren](media/solution-deployment-guide-hybrid/image16.png)
 
 2. Wählen Sie **Automatische Skalierung aktivieren**.
 
@@ -343,11 +343,11 @@ Wenn Sie Ihre Web-App in einer App Service-Umgebung erstellen, beginnt sie mit e
    > [!Note]  
    > Die aktuelle Ressource enthält den Namen bzw. die GUID Ihres App Service-Plans, und die Dropdownlisten **Ressourcentyp** und **Ressource** sind nicht verfügbar.
 
-### <a name="enable-automatic-scale-in"></a>Aktivieren des automatischen horizontalen Herunterskalierens
+### <a name="enable-automatic-scale-in"></a>Aktivieren des automatischen Abskalierens
 
 Bei einer Verringerung des Datenverkehrs kann die Azure-Web-App die Anzahl von aktiven Instanzen reduzieren, um die Kosten zu senken. Diese Aktion ist weniger aggressiv als die horizontale Skalierung und minimiert die Auswirkungen auf App-Benutzer.
 
-1. Navigieren Sie zur Standardbedingung für das horizontale Hochskalieren unter **Standard**, und wählen Sie **+ Regel hinzufügen**. Verwenden Sie die folgenden Kriterien und Aktionen für die Regel.
+1. Navigieren Sie zur Standardbedingung für das Aufskalieren unter **Standard**, und wählen Sie **+ Regel hinzufügen**. Verwenden Sie die folgenden Kriterien und Aktionen für die Regel.
 
 **Kriterien**
 
@@ -433,7 +433,7 @@ Nachdem beide Endpunkte konfiguriert wurden, werden sie im **Traffic Manager-Pro
 
 Mit Azure Application Insights können Sie Ihre App überwachen und basierend auf den von Ihnen konfigurierten Bedingungen Warnungen senden. Beispiele: Die App ist nicht verfügbar, weist Fehler auf oder zeigt Leistungsprobleme an.
 
-Sie nutzen Application Insights-Metriken, um Warnungen zu erstellen. Wenn diese Warnungen ausgelöst werden, wird für die Instanz Ihrer Web-App automatisch von Azure Stack Hub zu Azure gewechselt, um horizontal hochzuskalieren, und dann zurück zu Azure Stack Hub, um horizontal herunterzuskalieren.
+Sie nutzen Application Insights-Metriken, um Warnungen zu erstellen. Wenn diese Warnungen ausgelöst werden, wird für die Instanz Ihrer Web-App automatisch von Azure Stack Hub zu Azure gewechselt, um aufzuskalieren, und dann zurück zu Azure Stack Hub, um abzuskalieren.
 
 ### <a name="create-an-alert-from-metrics"></a>Warnung auf Grundlage von Metriken erstellen
 
@@ -441,7 +441,7 @@ Navigieren Sie zur Ressourcengruppe für dieses Tutorial, und wählen Sie dann d
 
 ![Application Insights](media/solution-deployment-guide-hybrid/image21.png)
 
-Sie verwenden diese Ansicht, um eine Warnung für das horizontale Hochskalieren und eine Warnung für das horizontale Herunterskalieren zu erstellen.
+Sie verwenden diese Ansicht, um eine Warnung für das Aufskalieren und eine Warnung für das Abskalieren zu erstellen.
 
 ### <a name="create-the-scale-out-alert"></a>Erstellen der Warnung für das horizontale Hochskalieren
 
@@ -464,7 +464,7 @@ Sie verwenden diese Ansicht, um eine Warnung für das horizontale Hochskalieren 
 
 9. Wählen Sie in der Menüleiste die Option **Speichern**.
 
-### <a name="create-the-scale-in-alert"></a>Erstellen der Warnung für das horizontale Herunterskalieren
+### <a name="create-the-scale-in-alert"></a>Erstellen der Warnung für das Abskalieren
 
 1. Wählen Sie unter **KONFIGURIEREN** die Option **Warnungen (klassisch)** .
 2. Wählen Sie **Metrikwarnung hinzufügen (klassisch)** .

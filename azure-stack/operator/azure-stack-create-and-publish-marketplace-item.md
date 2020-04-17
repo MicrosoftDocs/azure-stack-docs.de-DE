@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
 ms.openlocfilehash: bb407a03b2a5887b75b8b5d729fa5cc2cc636755
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704453"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack Hub-Marketplace-Elements
@@ -206,7 +206,7 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
 ### <a name="identity-information"></a>Identitätsinformationen
 
-| Name | Erforderlich | type | Einschränkungen | Beschreibung |
+| Name | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
 | Name |X |String |[A-Za-z0-9]+ | |
 | Herausgeber |X |String |[A-Za-z0-9]+ | |
@@ -255,7 +255,7 @@ Zusätzlich zu den oben genannten Metadaten können Marketplace-Autoren benutzer
 | Name | Erforderlich | type | Einschränkungen | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |Maximal 25 Zeichen. | |
-| value |X |String |Maximal 30 Zeichen. | |
+| Wert |X |String |Maximal 30 Zeichen. | |
 
 ### <a name="html-sanitization"></a>HTML-Bereinigung
 

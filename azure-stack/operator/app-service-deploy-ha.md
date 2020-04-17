@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/02/2019
 ms.openlocfilehash: ec4f3dc2a17e362038d11ec988d19ffa9edd6a6e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701852"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Bereitstellen von App Service in einer Hochverfügbarkeitskonfiguration
@@ -229,7 +229,7 @@ Führen Sie zum Bereitstellen des App Service-Ressourcenanbieters die folgenden 
 
 [Fügen Sie die Datenbanken „appservice_hosting“ und „appservice_metering“ einer Verfügbarkeitsgruppe hinzu](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database), wenn Sie für den App Service-Ressourcenanbieter eine SQL Always On-Instanz bereitgestellt haben. Synchronisieren Sie die Datenbanken, um bei einem Datenbankfailover einen Dienstverlust zu verhindern. Sie können auch ein [Skript](https://blog.sqlauthority.com/2017/11/30/sql-server-alwayson-availability-groups-script-sync-logins-replicas/) ausführen, um die AppServices-Anmeldungen vom ursprünglichen primären Server auf einen Failoverserver zu importieren.
 
-[Erweitern Sie App Service.](azure-stack-app-service-add-worker-roles.md) Gegebenenfalls müssen noch weitere App Service-Infrastrukturrollen-Worker hinzugefügt werden, um den zu erwartenden Anwendungsbedarf in Ihrer Umgebung zu decken. Standardmäßig unterstützt App Service in Azure Stack Hub kostenlose und gemeinsam genutzte Workerebenen. Um andere Workerebenen hinzufügen zu können, müssen Sie weitere Workerrollen hinzufügen.
+[Skalieren Sie App Service auf.](azure-stack-app-service-add-worker-roles.md) Gegebenenfalls müssen noch weitere App Service-Infrastrukturrollen-Worker hinzugefügt werden, um den zu erwartenden Anwendungsbedarf in Ihrer Umgebung zu decken. Standardmäßig unterstützt App Service in Azure Stack Hub kostenlose und gemeinsam genutzte Workerebenen. Um andere Workerebenen hinzufügen zu können, müssen Sie weitere Workerrollen hinzufügen.
 
 [Konfigurieren Sie Bereitstellungsquellen.](azure-stack-app-service-configure-deployment-sources.md) Zur Unterstützung der bedarfsgesteuerten Bereitstellung von verschiedenen Quellcodeverwaltungsanbietern wie GitHub, BitBucket, OneDrive und Dropbox sind weitere Konfigurationsschritte erforderlich.
 

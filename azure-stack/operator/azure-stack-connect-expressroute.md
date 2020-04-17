@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
 ms.openlocfilehash: 59fa339cfa58fa2c5c6b0e1b727cf2adee79b7e2
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701495"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Herstellen einer Verbindung von Azure Stack Hub mit Azure mithilfe von Azure ExpressRoute
@@ -93,7 +93,7 @@ Verwenden Sie die folgenden Verfahren, um die erforderlichen Netzwerkressourcen 
 
 5. Geben Sie unter **Virtuelles Netzwerk erstellen** die in der folgenden Tabelle aufgeführten Werte in die entsprechenden Felder ein:
 
-   |Feld  |value  |
+   |Feld  |Wert  |
    |---------|---------|
    |Name     |Tenant1VNet1         |
    |Adressraum     |10.1.0.0/16|

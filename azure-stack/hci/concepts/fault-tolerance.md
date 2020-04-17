@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 02/28/2020
 ms.openlocfilehash: 9ace3960b4c54461a4153c4997694e6d17ee4fd1
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79026116"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-azure-stack-hci"></a>Fehlertoleranz und Speichereffizienz in Azure Stack HCI
@@ -97,7 +97,7 @@ Die Speichereffizienz der Parität mit Beschleunigung per Spiegelung liegt zwisc
 > [!IMPORTANT]
 > Wir empfehlen Ihnen für die meisten leistungsempfindlichen Workloads die Nutzung der Spiegelung. Weitere Informationen zum Abwägen zwischen Leistung und Kapazität je nach Workload finden Sie unter [Planen von Volumes](/windows-server/storage/storage-spaces/plan-volumes#choosing-the-resiliency-type).
 
-## <a name="summary"></a>Zusammenfassung
+## <a name="summary"></a><a name="summary"></a>Zusammenfassung
 
 In diesem Abschnitt sind die in „Direkte Speicherplätze“ verfügbaren Resilienztypen, die minimalen Skalierungsanforderungen der einzelnen Typen, die tolerierte Anzahl von Ausfällen pro Typ und die entsprechende Speichereffizienz zusammengefasst.
 
@@ -108,7 +108,7 @@ In diesem Abschnitt sind die in „Direkte Speicherplätze“ verfügbaren Resil
 |    Zwei-Wege-Spiegelung      |    1                       |    50,0 %                   |
 |    Drei-Wege-Spiegelung    |    2                       |    33,3 %                   |
 |    Duale Parität         |    2                       |    50,0 % bis 80,0 %           |
-|    Gemischt               |    2                       |    33,3 % bis 80,0 %           |
+|    Mixed               |    2                       |    33,3 % bis 80,0 %           |
 
 ### <a name="minimum-scale-requirements"></a>Mindestanforderungen für die Skalierung
 
@@ -117,7 +117,7 @@ In diesem Abschnitt sind die in „Direkte Speicherplätze“ verfügbaren Resil
 |    Zwei-Wege-Spiegelung      |    2                                |
 |    Drei-Wege-Spiegelung    |    3                                |
 |    Duale Parität         |    4                                |
-|    Gemischt               |    4                                |
+|    Mixed               |    4                                |
 
    >[!TIP]
    > Wenn Sie keine [Chassis- oder Rack-Fehlertoleranz](/windows-server/failover-clustering/fault-domains) verwenden, bezieht sich die Anzahl von Fehlerdomänen auf die Anzahl von Servern. Die Anzahl von Laufwerken auf jedem Server wirkt sich nicht darauf aus, welche Resilienztypen Sie verwenden können, solange Sie die Mindestanforderungen für „Direkte Speicherplätze“ erfüllen.
@@ -166,7 +166,7 @@ In dieser Tabelle ist die Speichereffizienz der dualen Parität und Local Recons
 |    15                 |    RS 6+2           |    75,0 %        |
 |    16                 |    LRC (12, 2, 1)   |    80,0 %        |
 
-## <a name="examples"></a>Beispiele
+## <a name="examples"></a><a name="examples"></a>Beispiele
 
 Sofern Sie nicht nur über zwei Server verfügen, empfehlen wir Ihnen die Nutzung der Drei-Wege-Spiegelung bzw. der dualen Parität, weil diese Verfahren eine bessere Fehlertoleranz bieten. Vor allem wird dabei sichergestellt, dass alle Daten auch dann sicher und dauerhaft zugänglich bleiben, wenn zwei Fehlerdomänen – bei „Direkte Speicherplätze“ also zwei Server – von gleichzeitigen Ausfällen betroffen sind.
 

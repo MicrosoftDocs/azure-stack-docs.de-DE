@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
 ms.openlocfilehash: eb9cc45f3c8de162550cb7f882060a9506831d23
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704827"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Hinzufügen eines Mandanten für Nutzung und Abrechnung zu Azure Stack Hub
@@ -69,7 +69,7 @@ Aktualisieren Sie Ihre Registrierung mit dem Abonnement des neuen Kunden. Azure 
 
 Im folgenden Abschnitt werden die Parameter für das Cmdlet **New-AzureRmResource** beschrieben:
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --- | --- |
 |registrationSubscriptionID | Das Azure-Abonnement, das für die anfängliche Registrierung von Azure Stack Hub verwendet wurde.|
 | customerSubscriptionID | Das Azure-Abonnement (nicht Azure Stack Hub), das zu dem Kunden gehört, der registriert werden soll. Muss im CSP-Angebot erstellt werden. In der Praxis über das Partner Center. Wenn ein Kunde über mehrere Azure Active Directory-Mandanten verfügt, muss dieses Abonnement in dem Mandanten erstellt werden, der zum Anmelden bei Azure Stack Hub verwendet wird. Die Kundenabonnement-ID muss aus Kleinbuchstaben bestehen. |

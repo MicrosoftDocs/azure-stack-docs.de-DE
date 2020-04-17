@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
 ms.openlocfilehash: ec02ccd45773c97df71369b1e325120452ce7da1
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702464"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Sichern Ihres virtuellen Computers in Azure Stack Hub mit Commvault

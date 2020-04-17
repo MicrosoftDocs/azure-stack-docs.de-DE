@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
 ms.openlocfilehash: f3b564bc667376361e1bfc57df0ec50e32522401
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77636317"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Bereitstellen von F5 in zwei Azure Stack Hub-Instanzen
@@ -138,7 +138,7 @@ Nach der Installation müssen Sie Ihre Azure Stack Hub-Netzwerksicherheitsgruppe
 
     ![](./media/network-howto-f5/image11.png)
     
-    | Key | value |
+    | Schlüssel | Wert |
     | --- | --- |
     | Name | NGINX_Pool |
     | Health Monitors (Integritätsüberwachungen) | HTTPS |
@@ -158,7 +158,7 @@ Nach der Installation müssen Sie Ihre Azure Stack Hub-Netzwerksicherheitsgruppe
 
 13. Erstellen Sie einen virtuellen Server, indem Sie zu **Local Traffic** > **Virtual Servers** > **Virtual Server List** (Lokaler Datenverkehr > Virtuelle Server > Liste virtueller Server) navigieren und **+** auswählen. Konfigurieren Sie den Pool mit den Werten in der Tabelle. Übernehmen Sie bei allen anderen Feldern die Standardwerte.
 
-    | Key | value |
+    | Schlüssel | Wert |
     | --- | --- |
     |Name | NGINX |
     |Destination Address (Zieladresse) | \<Eigene IP-Adresse der BIG-IP-Instanz> |

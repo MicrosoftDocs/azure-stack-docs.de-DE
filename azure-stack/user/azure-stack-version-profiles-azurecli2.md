@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
 ms.openlocfilehash: d7972047787ed9ae7a5c6525c8da7dc67717c502
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77705252"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Verwalten und Bereitstellen von Ressourcen in Azure Stack Hub mit der Azure CLI
@@ -156,7 +156,7 @@ Um das Zertifizierungsstellen-Stammzertifikats für Azure Stack Hub als vertraue
 
 2. Registrieren Sie Ihre Umgebung. Verwenden Sie beim Ausführen von `az cloud register` die folgenden Parameter:
 
-    | value | Beispiel | BESCHREIBUNG |
+    | Wert | Beispiel | BESCHREIBUNG |
     | --- | --- | --- |
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
     | Resource Manager-Endpunkt | https://management.local.azurestack.external | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
@@ -269,7 +269,7 @@ Bei Verwendung des ASDK müssen Sie das Zertifizierungsstellen-Stammzertifikat a
 
 2. Registrieren Sie Ihre Umgebung. Verwenden Sie beim Ausführen von `az cloud register` die folgenden Parameter:
 
-    | value | Beispiel | BESCHREIBUNG |
+    | Wert | Beispiel | BESCHREIBUNG |
     | --- | --- | --- |
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
     | Resource Manager-Endpunkt | https://management.local.azurestack.external | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
@@ -380,7 +380,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack Hub h
 
 2. Registrieren Sie Ihre Umgebung. Verwenden Sie beim Ausführen von `az cloud register` die folgenden Parameter:
 
-    | value | Beispiel | BESCHREIBUNG |
+    | Wert | Beispiel | BESCHREIBUNG |
     | --- | --- | --- |
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
     | Resource Manager-Endpunkt | https://management.local.azurestack.external | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
@@ -486,7 +486,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack Hub h
 
 2. Registrieren Sie Ihre Umgebung. Verwenden Sie beim Ausführen von `az cloud register` die folgenden Parameter.
 
-    | value | Beispiel | BESCHREIBUNG |
+    | Wert | Beispiel | BESCHREIBUNG |
     | --- | --- | --- |
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
     | Resource Manager-Endpunkt | https://management.local.azurestack.external | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |

@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 ms.openlocfilehash: b468ed4c41c259a0017969615681abcd007d96c7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77695324"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Hinzufügen von Workern und Infrastruktur in App Service unter Azure Stack Hub
@@ -31,7 +31,7 @@ Azure App Service in Azure Stack Hub stellt alle Rollen mithilfe von VM-Skalieru
 
 1. [Einrichten der Azure Stack Hub-Administratorumgebung in PowerShell](azure-stack-powershell-configure-admin.md)
 
-2. Verwenden Sie dieses Beispiel, um die Skalierungsgruppe horizontal hochzuskalieren:
+2. Verwenden Sie dieses Beispiel, um die Skalierungsgruppe aufzuskalieren:
    ```powershell
    
     ##### Scale out the AppService Role instances ######
@@ -93,7 +93,7 @@ Nachdem die Worker vollständig bereitgestellt wurden und einsatzbereit sind, we
 ![Tarife für den neuen App Service-Plan im Azure Stack Hub-Administratorportal](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> Um die Rollen „Management“, „Front-End“ oder „Herausgeber“ horizontal hochzuskalieren, befolgen Sie die gleichen Schritte und wählen dabei den entsprechenden Rollentyp aus. Controller werden nicht als Skalierungsgruppen bereitgestellt. Aus diesem Grund sollten zwei Controller zum Installationszeitpunkt für alle Produktionsbereitstellungen bereitgestellt werden.
+> Um die Rollen „Management“, „Front-End“ oder „Herausgeber“ aufzuskalieren, befolgen Sie die gleichen Schritte und wählen dabei den entsprechenden Rollentyp aus. Controller werden nicht als Skalierungsgruppen bereitgestellt. Aus diesem Grund sollten zwei Controller zum Installationszeitpunkt für alle Produktionsbereitstellungen bereitgestellt werden.
 
 ### <a name="next-steps"></a>Nächste Schritte
 

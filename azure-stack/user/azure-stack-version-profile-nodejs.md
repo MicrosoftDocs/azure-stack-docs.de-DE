@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: acdacb826d75a2df1aca49c9029a0ef02e6744ea
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77705269"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit dem Node.js-SDK (Software Development Kit) in Azure Stack Hub
@@ -82,7 +82,7 @@ Die spezifischen API-Versionen eines Ressourcenanbieters zu erhalten Sie, indem 
 
 Zur Verwendung des Node.js-Azure SDK mit Azure Stack Hub müssen Sie die folgenden Werte angeben und dann Werte mit Umgebungsvariablen festlegen. Befolgen Sie die Anweisungen in der Tabelle für Ihr Betriebssystem, um die Umgebungsvariablen festzulegen.
 
-| value | Umgebungsvariablen | BESCHREIBUNG |
+| Wert | Umgebungsvariablen | BESCHREIBUNG |
 | --- | --- | --- |
 | Mandanten-ID | TENANT\_ID | Der Wert Ihrer [Mandanten-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview) für Azure Stack Hub. |
 | Client-ID | CLIENT\_ID | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Dokuments gespeichert wurde.  |

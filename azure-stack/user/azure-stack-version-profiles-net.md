@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 ms.openlocfilehash: 37ffe5bd8325e309f8d9381cf058cfd07ac48480
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77705201"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit .NET in Azure Stack Hub
@@ -60,14 +60,14 @@ Sie können alle Optionen in derselben Anwendung kombinieren.
 
 Zur Verwendung des .NET Azure SDK mit Azure Stack Hub müssen Sie die folgenden Werte angeben und dann die Werte mit Umgebungsvariablen festlegen. Befolgen Sie die Anweisungen in der Tabelle für Ihr Betriebssystem, um die Umgebungsvariablen festzulegen.
 
-| value                     | Umgebungsvariablen   | BESCHREIBUNG                                                                                                             |
+| Wert                     | Umgebungsvariablen   | BESCHREIBUNG                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Mandanten-ID                 | `AZURE_TENANT_ID `      | Der Wert Ihrer [*Mandanten-ID*][] für Azure Stack Hub.                                                                          |
 | Client-ID                 | `AZURE_CLIENT_ID `      | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde. |
 | Abonnement-ID           | `AZURE_SUBSCRIPTION_ID` | Mit der [*Abonnement-ID*][] greifen Sie in Azure Stack Hub auf Angebote zu.                                                      |
 | Geheimer Clientschlüssel             | `AZURE_CLIENT_SECRET`   | Das App-Geheimnis des Dienstprinzipals, das bei der Erstellung des Dienstprinzipals gespeichert wurde.                                      |
 | Resource Manager-Endpunkt | `ARM_ENDPOINT`          | Siehe [*Der Resource Manager-Endpunkt von Azure Stack Hub*][].                                                                    |
-| Location                  | `RESOURCE_LOCATION`     | Speicherort von Azure Stack Hub
+| Standort                  | `RESOURCE_LOCATION`     | Speicherort von Azure Stack Hub
 
 Folgen Sie den Anweisungen [in diesem Artikel](../operator/azure-stack-csp-ref-operations.md), um die Mandanten-ID für Ihre Azure Stack Hub-Instanz zu suchen. Zum Festlegen Ihrer Umgebungsvariablen führen Sie folgende Schritte aus:
 

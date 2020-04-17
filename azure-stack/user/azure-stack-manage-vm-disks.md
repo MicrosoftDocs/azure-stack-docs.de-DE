@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
 ms.openlocfilehash: 5bcfcb8a5e2af29b0d7b60774853fa35392d9f23
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702481"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Erstellen von VM-Datenträgerspeicher in Azure Stack Hub
