@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
 ms.openlocfilehash: c4565ce33faf1f76a4774736d9195c9d7256b6da
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80423831"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Zertifikatanforderungen für Azure Stack Hub-PKI (Public Key-Infrastruktur)

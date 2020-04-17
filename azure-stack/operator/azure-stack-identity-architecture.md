@@ -3,16 +3,16 @@ title: Identitätsarchitektur für Azure Stack Hub
 description: Erfahren Sie mehr über die Identitätsarchitektur für Azure Stack Hub und über die Unterschiede zwischen Azure AD und AD FS.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 42badc226bfd8339c497c752ee4b547c48a1250c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: ae5cc821ffe621d4e14ef37b426ff36202ed37ed
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699676"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244019"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Identitätsarchitektur für Azure Stack Hub
 
@@ -47,7 +47,7 @@ Eine Topologie mit nur einem Mandanten ist geeignet, wenn Folgendes gilt:
 - Alle Benutzer sind Teil desselben Mandanten.
 - Ein Dienstanbieter hostet eine Azure Stack Hub-Instanz für eine Organisation.
 
-![Azure Stack Hub-Topologie mit einem einzelnen Mandanten und Azure AD](media/azure-stack-identity-architecture/single-tenant.png)
+![Azure Stack Hub-Topologie mit einem einzelnen Mandanten und Azure AD](media/azure-stack-identity-architecture/single-tenant.svg)
 
 Merkmale dieser Topologie:
 
@@ -64,7 +64,7 @@ Eine Topologie mit mehreren Mandanten ist geeignet, wenn Folgendes gilt:
 
 - Ein Dienstanbieter möchte für Benutzer mehrerer Organisationen den Zugriff auf Azure Stack Hub zulassen.
 
-![Azure Stack Hub-Topologie mit mehreren Mandanten und Azure AD](media/azure-stack-identity-architecture/multi-tenant.png)
+![Azure Stack Hub-Topologie mit mehreren Mandanten und Azure AD](media/azure-stack-identity-architecture/multi-tenant.svg)
 
 Merkmale dieser Topologie:
 
@@ -79,7 +79,7 @@ Die AD FS-Topologie ist erforderlich, wenn eine der folgenden Bedingungen zutrif
 - Azure Stack Hub stellt keine Verbindung mit dem Internet her.
 - Azure Stack Hub kann eine Verbindung mit dem Internet herstellen, aber Sie entscheiden sich für AD FS als Identitätsanbieter.
   
-![Azure Stack Hub-Topologie mit AD FS](media/azure-stack-identity-architecture/adfs.png)
+![Azure Stack Hub-Topologie mit AD FS](media/azure-stack-identity-architecture/adfs.svg)
 
 Merkmale dieser Topologie:
 

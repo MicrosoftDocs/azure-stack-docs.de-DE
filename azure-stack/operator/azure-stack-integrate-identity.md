@@ -3,16 +3,16 @@ title: Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum
 description: Erfahren Sie, wie Sie den Azure Stack Hub-AD FS-Identitätsanbieter in die Active Directory-Verbunddienste (AD FS) Ihres Rechenzentrums integrieren.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 999c1b2983342189ca86805a4139e3c7f77b5ceb
-ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
+ms.openlocfilehash: 31ef13db3d0a195d0d9505dec2fabf4124448a0f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80367813"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243803"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum
 
@@ -27,7 +27,7 @@ Die Bereitstellung mit AD FS gestattet Identitäten in einer vorhandenen Active 
 
 Authentifizierung ist ein Teil der Identität. Damit die rollenbasierte Zugriffssteuerung (Role Based Access Control, RBAC) in Azure Stack Hub verwaltet werden kann, muss die Graph-Komponente konfiguriert werden. Wenn der Zugriff auf eine Ressource delegiert wird, sucht die Graph-Komponente das Benutzerkonto mithilfe des LDAP-Protokolls in der vorhandenen Active Directory-Gesamtstruktur.
 
-![AD FS-Architektur von Azure Stack Hub](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
+![AD FS-Architektur von Azure Stack Hub](media/azure-stack-integrate-identity/azure-stack-adfs-architecture.svg)
 
 Die vorhandenen AD FS sind der Konto-Sicherheitstokendienst (STS), der Ansprüche an Azure Stack Hub-AD FS (den Ressourcen-STS) sendet. In Azure Stack Hub wird mithilfe der Automatisierung die Anspruchsanbieter-Vertrauensstellung mit dem Metadatenendpunkt für die vorhandenen AD FS erstellt.
 
@@ -162,7 +162,6 @@ Verwenden Sie ab Version 1807 diese Methode, wenn eine der folgenden Bedingungen
 - Es ist keine Netzwerkkonnektivität mit dem vorhandenen AD FS-Server aus der AD FS-Instanz von Azure Stack Hub gegeben.
 
 Die folgenden Informationen sind als Eingabe für die Automatisierungsparameter erforderlich:
-
 
 |Parameter|BESCHREIBUNG|Beispiel|
 |---------|---------|---------|

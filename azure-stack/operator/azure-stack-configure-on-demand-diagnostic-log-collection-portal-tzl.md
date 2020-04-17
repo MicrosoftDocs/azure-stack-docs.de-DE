@@ -7,14 +7,16 @@ ms.date: 03/30/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 03/30/2020
-ms.openlocfilehash: 2a46c031be648eedf42e204496ed2a123c926dd9
-ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
+ms.openlocfilehash: 990ed8ae3a5ba3d08247c79043b3a407c8a876ed
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80402718"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80682230"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>Sofortiges Senden von Azure Stack Hub-Diagnoseprotokollen
+
+::: moniker range=">= azs-2002"
 
 Azure Stack-Operatoren können Diagnoseprotokolle bei Bedarf über das Administratorportal oder per PowerShell an den Microsoft-Kundendienst (Microsoft Customer Support Services, CSS) senden, bevor sie Unterstützung anfordern. Wenn Azure Stack Hub mit Azure verbunden ist, empfiehlt es sich, die Option zum **sofortigen Senden von Protokollen** im Administratorportal zu verwenden, da die Protokolle so am einfachsten direkt an Microsoft gesendet werden können. Ist das Portal nicht verfügbar, sollten Operatoren stattdessen [Protokolle nun mit „Send-AzureStackDiagnosticLog“ senden](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md). 
 
@@ -29,6 +31,29 @@ Geben Sie Startzeit und Endzeit für die Protokollsammlung an, und klicken Sie a
 
 ![Screenshot der Option zum sofortigen Senden von Protokollen](media/azure-stack-help-and-support/send-logs-now.png)
 
+
+::: moniker-end
+::: moniker range="<= azs-1910"
+## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>Verwenden von „Hilfe und Support“ zum bedarfsgesteuerten Sammeln von Diagnoseprotokollen
+
+Zur Behandlung eines Problems fordert CSS einen Azure Stack Hub-Operator möglicherweise auf, bei Bedarf Diagnoseprotokolle für ein bestimmtes Zeitfenster aus der vorangegangenen Woche zu erfassen. In diesem Fall stellt CSS dem Operator eine SAS-URL zum Hochladen der Sammlung zur Verfügung. 
+Führen Sie die folgenden Schritte aus, um die bedarfsgesteuerte Protokollsammlung mithilfe der SAS-URL von CSS zu konfigurieren:
+
+1. Öffnen Sie **Hilfe und Support – Übersicht**, und klicken Sie auf **Protokolle jetzt sammeln**. 
+1. Wählen Sie ein beliebiges gleitendes Fenster von 1–4 Stunden in den letzten sieben Tagen aus. 
+1. Wählen Sie die lokale Zeitzone aus.
+1. Geben Sie die von CSS bereitgestellte SAS-URL ein.
+
+   ![Screenshot einer bedarfsgesteuerten Protokollsammlung](media/azure-stack-automatic-log-collection/collect-logs-now.png)
+
+>[!NOTE]
+>Wenn die automatische Diagnoseprotokollsammlung aktiviert ist, wird es in **Hilfe und Support** angezeigt, wenn die Protokollsammlung erfolgt. Wenn Sie auf **Jetzt Protokolle sammeln** klicken, um Protokolle eines bestimmten Zeitfensters zu erfassen, während die automatische Protokollsammlung ausgeführt wird, beginnt die bedarfsgesteuerte Protokollsammlung nach dem Abschluss der automatischen Protokollsammlung. 
+
+
+::: moniker-end
+
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 [Senden von Azure Stack Hub-Diagnoseprotokollen mithilfe des privilegierten Endpunkts (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md)
+

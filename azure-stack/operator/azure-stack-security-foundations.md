@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 1/16/2019
-ms.openlocfilehash: 63d50749d3877209dd81ca7a59a38e634b2d46e7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 04/07/2020
+ms.openlocfilehash: 2d1b97bc17543e4fbdc1a1f79c39a01f188332df
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697551"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80891081"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Sicherheitskontrollen der Azure Stack Hub-Infrastruktur
 
@@ -105,11 +105,10 @@ Die Bewertungen umfassen die folgenden Standards:
 - [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) ist eine umfassende Zuordnung über mehrere Standards hinweg, z.B. FedRAMP Moderate, ISO27001, HIPAA, HITRUST, ITAR, NIST SP800-53 und andere.
 - [FedRAMP High](https://www.fedramp.gov/fedramp-releases-high-baseline/) für Behörden.
 
-Die Dokumentation zur Compliance finden Sie im [Microsoft Service Trust-Portal](https://servicetrust.microsoft.com/ViewPage/AzureStack). Die Compliancehandbücher sind eine geschützte Ressource. Sie müssen sich daher mit den Anmeldeinformationen Ihres Azure-Clouddiensts anmelden.
+Die Dokumentation zur Compliance finden Sie im [Microsoft Service Trust-Portal](https://aka.ms/azurestackcompliance). Die Compliancehandbücher sind eine geschützte Ressource. Sie müssen sich daher mit den Anmeldeinformationen Ihres Azure-Clouddiensts anmelden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Konfigurieren von Azure Stack Hub-Sicherheitskontrollen](azure-stack-security-configuration.md)
 - [Erfahren Sie, wie Sie Ihre Geheimnisse in Azure Stack Hub rotieren](azure-stack-rotate-secrets.md).
-- [PCI-DSS- und CSA CCM-Dokumente für Azure Stack Hub](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
-- [DoD- und NIST-Dokumente für Azure Stack Hub](https://servicetrust.microsoft.com/ViewPage/Blueprint)
+- [PCI-DSS- und CSA CCM-Dokumente für Azure Stack Hub](https://aka.ms/azurestackcompliance)

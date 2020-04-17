@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie mehr über den Flow des Netzwerkdatenverkehrs während der Azure Stack Hub-Bereitstellung
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/05/2019
-ms.openlocfilehash: b2acff92365cfd9904a033c381bf85ea843d6b30
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: a663544b21fee671e57483e13030639c7b5edd3b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366397"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243769"
 ---
 # <a name="deployment-network-traffic"></a>Netzwerkdatenverkehr bei der Bereitstellung
 
@@ -21,7 +21,7 @@ Wenn Sie bei der Azure Stack Hub-Bereitstellung mit dem Netzwerkdatenverkehr ver
 
 In dieser Abbildung sind alle Komponenten und Verbindungen des Bereitstellungsvorgangs dargestellt:
 
-![Netzwerktopologie bei der Azure Stack Hub-Bereitstellung](media/deployment-networking/figure1.png)
+![Netzwerktopologie bei der Azure Stack Hub-Bereitstellung](media/deployment-networking/figure1.svg)
 
 > [!NOTE]
 > In diesem Artikel werden die Anforderungen für eine verbundene Bereitstellung beschrieben. Weitere Informationen zu anderen Bereitstellungsmethoden finden Sie unter [Verbindungsmodelle für die Azure Stack Hub-Bereitstellung](azure-stack-connection-models.md).
