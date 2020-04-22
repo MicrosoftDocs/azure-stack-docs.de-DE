@@ -1,22 +1,22 @@
 ---
-title: Beispiele für Hybridmuster und -lösungen für Azure und Azure Stack
-description: Hier finden Sie eine Übersicht über Beispiele für Hybridmuster und -lösungen, mit denen Sie sich einfacher mit Hybridlösungen in Azure und Azure Stack vertraut machen und solche Art von Lösungen erstellen können.
+title: Beispiele für Hybridmuster und -lösungen für Azure und Azure Stack Hub
+description: Hier finden Sie eine Übersicht über Beispiele für Hybridmuster und -lösungen, mit denen Sie sich mit Hybridlösungen in Azure und Azure Stack Hub vertraut machen und solche Art von Lösungen erstellen können.
 author: BryanLa
 ms.topic: overview
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 5603c986c55454ce1d4cbb6aa3930579ad997d71
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d56957c139728898117eab5f8a3a35c98722c0d2
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77689748"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "80812304"
 ---
 # <a name="hybrid-patterns-and-solution-examples-for-azure-and-azure-stack"></a>Beispiele für Hybridmuster und -lösungen für Azure und Azure Stack
 
-Microsoft stellt Azure- und Azure Stack-Produkte und -Lösungen als konsistentes Azure-Ökosystem bereit. Die Microsoft Azure Stack-Familie ist eine Erweiterung von Azure. 
+Microsoft stellt Azure- und Azure Stack-Produkte und -Lösungen als konsistentes Azure-Ökosystem bereit. Die Microsoft Azure Stack-Familie ist eine Erweiterung von Azure.
 
 ## <a name="the-hybrid-cloud-and-hybrid-apps"></a>Hybrid Cloud und Hybrid-Apps
 
@@ -27,9 +27,9 @@ Mit Azure Stack können Sie die Agilität des Cloud Computing für Ihre lokale U
 - Übertragen von Daten in die Cloud oder Speichern der Daten in Ihrem unabhängigen Rechenzentrum zur Einhaltung von Richtlinien
 - Ausführen von hardwarebeschleunigten Workloads für maschinelles Lernen bzw. containerbasierten oder virtualisierten Workloads mit Intelligent Edge
 
-Anwendungen, die mehrere Clouds nutzen, werden auch als *Hybridanwendungen* bezeichnet. Sie können Hybrid Cloud-Apps in Azure erstellen und sie anschließend in Ihrem verbundenen oder nicht verbundenen Rechenzentrum bereitstellen, egal wo sich dieses befindet.
+Apps, die mehrere Clouds nutzen, werden auch als *Hybrid-Apps* bezeichnet. Sie können Hybrid Cloud-Apps in Azure erstellen und sie anschließend in Ihrem verbundenen oder nicht verbundenen Rechenzentrum bereitstellen, egal wo sich dieses befindet.
 
-Szenarien mit Hybridanwendungen unterscheiden sich stark je nach den für die Bereitstellung verfügbaren Ressourcen. Darüber hinaus bringen sie Überlegungen zu Geografie, Sicherheit, Internetzugriff usw. mit sich. Obwohl die hier beschriebenen Muster und Lösungen möglicherweise nicht alle Anforderungen abdecken, bieten sie Richtlinien und Beispiele, die für die Implementierung von Hybridlösungen näher untersucht und wiederverwendet werden können.
+Szenarien mit Hybrid-Apps unterscheiden sich stark je nach den für die Bereitstellung verfügbaren Ressourcen. Darüber hinaus bringen sie Überlegungen zu Geografie, Sicherheit, Internetzugriff usw. mit sich. Obwohl die hier beschriebenen Muster und Lösungen möglicherweise nicht alle Anforderungen abdecken, bieten sie Richtlinien und Beispiele, die für die Implementierung von Hybridlösungen näher untersucht und wiederverwendet werden können.
 
 ## <a name="design-patterns"></a>Entwurfsmuster
 
@@ -38,15 +38,15 @@ Entwurfsmuster filtern generalisierte wiederholbare Entwurfsrichtlinien aus real
 Es gibt zwei Arten von Musterartikeln:
 
 - Einzelnes Muster: Enthält Entwurfsrichtlinien für ein einzelnes allgemeines Szenario.
-- Mehrere Muster: Enthält Entwurfsrichtlinien, bei denen mehrere Muster angewendet werden. Dies ist häufig zur Lösung komplexerer Szenarien oder branchenspezifischer Probleme erforderlich.
+- Mehrere Muster: Enthält Entwurfsrichtlinien, bei denen mehrere Muster angewendet werden. Dieses Muster ist häufig zur Lösung komplexerer Szenarien oder branchenspezifischer Probleme erforderlich.
 
 ## <a name="solution-deployment-guides"></a>Leitfäden zur Lösungsbereitstellung
 
-Schritt-für-Schritt-Anleitungen unterstützen Sie bei der Bereitstellung eines Lösungsbeispiels. Der Leitfaden kann auch auf ein begleitendes Codebeispiel im [Repository mit Lösungsbeispielen](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) auf GitHub verweisen. 
+Schritt-für-Schritt-Anleitungen unterstützen Sie bei der Bereitstellung eines Lösungsbeispiels. Der Leitfaden kann auch auf ein begleitendes Codebeispiel im [Repository mit Lösungsbeispielen](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) auf GitHub verweisen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Siehe die [Azure Stack-Familie mit Produkten und Lösungen](/azure-stack), um mehr über das gesamte Portfolio von Produkten und Lösungen zu erfahren.
+- Im Artikel zur [Azure Stack-Familie mit Produkten und Lösungen](/azure-stack) erfahren Sie mehr über das gesamte Portfolio von Produkten und Lösungen.
 - In den Abschnitten „Muster“ und „Leitfäden zur Lösungsbereitstellung“ des Inhaltsverzeichnisses erfahren Sie mehr über Muster und Lösungen.
-- Im Artikel mit [Entwurfsüberlegungen für Hybridanwendungen](overview-app-design-considerations.md) werden die wichtigen Aspekte in Bezug auf die Softwarequalität beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind.
+- Im Artikel mit [Entwurfsüberlegungen für Hybrid-Apps](overview-app-design-considerations.md) werden die wichtigen Aspekte in Bezug auf die Softwarequalität beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybrid-Apps erforderlich sind.
 - [Richten Sie eine Entwicklungsumgebung in Azure Stack ein](../user/azure-stack-dev-start.md), und [stellen Sie Ihre erste App in Azure Stack bereit](../user/azure-stack-dev-start-deploy-app.md).
