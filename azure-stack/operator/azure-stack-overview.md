@@ -3,16 +3,16 @@ title: Übersicht über Azure Stack Hub
 description: Hier finden Sie eine Übersicht darüber, worum es sich bei Azure Stack Hub handelt und wie Sie damit Azure-Dienste in Ihrem Rechenzentrum ausführen können.
 author: justinha
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: afa7f02f451192640172665e18213d125e24b574
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: dc5fa60f0ab1460a98ec21a0501c3cdcec6a6637
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77698452"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772639"
 ---
 # <a name="azure-stack-hub-overview"></a>Übersicht über Azure Stack Hub
 
@@ -40,11 +40,11 @@ Für Remotestandorte, bei zeitweiligen Konnektivitätsproblemen oder für den Be
 
 ## <a name="deployment-options"></a>Bereitstellungsoptionen
 
-Integrierte Azure Stack Hub-Systeme werden im Rahmen einer Partnerschaft zwischen Microsoft und Hardwarepartnern angeboten. Dadurch entsteht eine Lösung mit cloudbasierten Innovationen und komfortabler Computeverwaltung. Als integriertes Hardware- und Softwaresystem bietet Ihnen Azure Stack Hub nicht nur genau die Flexibilität und Kontrolle, die Sie benötigen, sondern auch die Möglichkeit zur Nutzung innovativer Cloudfeatures. 
+Integrierte Azure Stack Hub-Systeme werden im Rahmen einer Partnerschaft zwischen Microsoft und Hardwarepartnern angeboten. Dadurch entsteht eine Lösung mit cloudbasierten Innovationen und komfortabler Computeverwaltung. Als integriertes Hardware- und Softwaresystem bietet Ihnen Azure Stack Hub nicht nur genau die Flexibilität und Kontrolle, die Sie benötigen, sondern auch die Möglichkeit zur Nutzung innovativer Cloudfeatures.
 
 Ein integriertes Azure Stack Hub-System kann eine Größe von 4 bis 16 Servern haben. Dies wird als *Skalierungseinheit* bezeichnet. Integrierte Systeme werden gemeinsam vom Hardwarepartner und von Microsoft unterstützt. Das folgende Diagramm zeigt ein Beispiel einer Skalierungseinheit: 
 
-![Diagramm eines integrierten Azure Stack Hub-Systems](./media/azure-stack-overview/azure-stack-integrated-system.png)erforderlich. 
+![Diagramm eines integrierten Azure Stack Hub-Systems](./media/azure-stack-overview/azure-stack-integrated-system.svg)erforderlich. 
 
 <!---add info and image on regions, etc--->
 

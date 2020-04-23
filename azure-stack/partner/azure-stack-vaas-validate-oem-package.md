@@ -1,25 +1,26 @@
 ---
-title: Überprüfen von OEM-Paketen mit Validation-as-a-Service in Azure Stack Hub
-description: Hier erfahren Sie, wie Sie OEM-Pakete (Original Equipment Manufacturer, Originalgerätehersteller) mit Validation-as-a-Service überprüfen.
+title: Überprüfen von OEM-Paketen
+titleSuffix: Azure Stack Hub
+description: Hier erfahren Sie, wie Sie OEM-Pakete mit Validation-as-a-Service in Azure Stack Hub überprüfen.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 621bed34b4d5f633b1a104c03c0bca341ec21bdd
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: 4d62dcd1414edbc38b4407d980b7af974190c390
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "79293919"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661415"
 ---
 # <a name="validate-oem-packages"></a>Überprüfen von OEM-Paketen
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Sie können ein neues OEM-Paket testen, wenn für eine abgeschlossene Lösungsvalidierung eine Änderung an der Firmware oder an Treibern vorgenommen wurde. Wenn Ihr Paket den Test bestanden hat, wird es von Microsoft signiert. Der Test muss das aktualisierte OEM-Erweiterungspaket mit den Treibern und der Firmware enthalten, die die Windows Server-Logo- und PCS-Tests bestanden haben.
+Sie können ein neues OEM-Paket (Original Equipment Manufacturer, Originalgerätehersteller) testen, wenn für eine abgeschlossene Lösungsvalidierung eine Änderung an der Firmware oder an Treibern vorgenommen wurde. Wenn Ihr Paket den Test bestanden hat, wird es von Microsoft signiert. Der Test muss das aktualisierte OEM-Erweiterungspaket mit den Treibern und der Firmware enthalten, die die Windows Server-Logo- und PCS-Tests bestanden haben.
 
 [!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
@@ -28,18 +29,18 @@ Sie können ein neues OEM-Paket testen, wenn für eine abgeschlossene Lösungsva
 
 ## <a name="managing-packages-for-validation"></a>Verwalten von Paketen für die Überprüfung
 
-Wenn Sie ein Paket unter Verwendung des Workflows **Paketvalidierung** überprüfen, müssen Sie eine URL zu einem **Azure Storage-Blob** angeben. Dieses Blob ist das signierte OEM-Testpaket, das im Rahmen des Updateprozesses installiert wird. Erstellen Sie das Blob unter Verwendung des Azure Storage-Kontos, das Sie im Rahmen der Einrichtung erstellt haben. (Weitere Informationen finden Sie unter [Tutorial: Einrichten von Ressourcen für Validation-as-a-Service](azure-stack-vaas-set-up-resources.md).)
+Wenn Sie ein Paket unter Verwendung des Workflows **Paketvalidierung** überprüfen, müssen Sie eine URL zu einem **Azure Storage-Blob** angeben. Dieses Blob ist das signierte OEM-Testpaket, das im Rahmen des Updateprozesses installiert wird. Erstellen Sie das Blob unter Verwendung des Azure Storage-Kontos, das Sie im Rahmen der Einrichtung erstellt haben. (Weitere Informationen finden Sie unter [Tutorial: Einrichten von Ressourcen für Validation-as-a-Service](azure-stack-vaas-set-up-resources.md).)
 
 ### <a name="prerequisite-provision-a-storage-container"></a>Voraussetzung: Bereitstellen eines Speichercontainers
 
 Erstellen Sie in Ihrem Speicherkonto einen Container für Paketblobs. Dieser Container kann für alle Paketvalidierungsdurchläufe verwendet werden.
 
-1. Navigieren Sie im [Azure-Portal](https://portal.azure.com) zu dem Speicherkonto, das Sie in [Tutorial: Einrichten von Ressourcen für Validation-as-a-Service](azure-stack-vaas-set-up-resources.md) erstellt haben.
+1. Navigieren Sie im [Azure-Portal](https://portal.azure.com) zu dem Speicherkonto, das Sie unter [Tutorial: Einrichten von Ressourcen für Validation-as-a-Service](azure-stack-vaas-set-up-resources.md) erstellt haben.
 
 2. Wählen Sie auf dem linken Blatt unter **Blobdienst** die Option **Container** aus.
 
 3. Wählen Sie **+ Container** in der Menüleiste aus.
-    1. Geben Sie einen Namen für den Container ein, z.B. `vaaspackages`.
+    1. Geben Sie einen Namen für den Container an. Beispiel: `vaaspackages`.
     1. Wählen Sie die gewünschte Zugriffsebene für nicht authentifizierte Clients wie z.B. VaaS aus. Weitere Informationen dazu, wie Sie in den einzelnen Szenarios VaaS Zugriff auf Pakete gewähren, finden Sie unter [Behandeln der Containerzugriffsebene](#handling-container-access-level).
 
 ### <a name="upload-package-to-storage-account"></a>Hochladen des Pakets in das Speicherkonto
@@ -49,13 +50,13 @@ Erstellen Sie in Ihrem Speicherkonto einen Container für Paketblobs. Dieser Con
     > [!NOTE]
     > Wichtig: Die Inhalte der ZIP-Datei (`.zip`) müssen im Stammverzeichnis der Datei platziert `.zip` werden. Das Paket darf keine Unterordner enthalten.
 
-1. Wählen Sie im [Azure-Portal](https://portal.azure.com) den Paketcontainer aus, und laden Sie das Paket hoch, indem Sie auf der Menüleiste auf **Hochladen** klicken.
+1. Wählen Sie im [Azure-Portal](https://portal.azure.com) den Paketcontainer aus, und laden Sie das Paket hoch, indem Sie auf der Menüleiste **Hochladen** auswählen.
 
 1. Wählen Sie die hochzuladende Paketdatei (`.zip`) aus. Behalten Sie die Standardwerte für **BLOB-Typ** (d.h. **Blockblob**) und **Blockgröße** bei.
 
 ### <a name="generate-package-blob-url-for-vaas"></a>Generieren der Paketblob-URL für VaaS
 
-Wenn Sie im VaaS-Portal einen Workflow vom Typ **Paketvalidierung** erstellen, müssen Sie eine URL für das Azure Storage-Blob angeben, das Ihr Paket enthält. Einige *interaktive* Tests (u. a. **Monatliche Azure Stack Hub-Updateüberprüfung** und **Überprüfung des OEM-Erweiterungspakets**) benötigen auch eine URL zu Paketblobs.
+Wenn Sie im VaaS-Portal einen Workflow vom Typ **Paketvalidierung** erstellen, müssen Sie eine URL für das Azure Storage-Blob angeben, das Ihr Paket enthält. Einige *interaktive* Tests (u. a. **Monatliche Azure Stack Hub-Updateüberprüfung** und **Überprüfung des OEM-Erweiterungspakets**) benötigen auch eine URL zu Paketblobs.
 
 #### <a name="handling-container-access-level"></a>Behandeln der Containerzugriffsebene
 
@@ -73,12 +74,12 @@ Die Optionen zum Gewähren des Zugriffs auf Ihre Pakete sind vom minimalen bis z
 
 #### <a name="option-1-generate-a-blob-sas-url"></a>Option 1: Generieren einer Blob-SAS-URL
 
-Verwenden Sie diese Option, wenn für die Zugriffsebene Ihres Speichercontainers **Private** festgelegt ist, wobei der Container keinen öffentlichen Lesezugriff auf den Container oder seine Blobs zulässt.
+Verwenden Sie diese Option, wenn für die Zugriffsebene Ihres Speichercontainers **Privat** festgelegt ist und der der Container keinen öffentlichen Lesezugriff auf den Container oder seine Blobs zulässt.
 
 > [!NOTE]
 > Diese Methode funktioniert nicht bei *interaktiven* Tests. Siehe [Option 2: Erstellen einer Container-SAS-URL](#option-2-construct-a-container-sas-url).
 
-1. Wechseln Sie im [Azure-Portal](https://portal.azure.com/) zu Ihrem Speicherkonto, und navigieren Sie zu der ZIP-Datei, die das Paket enthält.
+1. Wechseln Sie im [Azure-Portal](https://portal.azure.com/) zu Ihrem Speicherkonto, und navigieren Sie zu der Datei vom Typ `.zip`, die das Paket enthält.
 
 2. Wählen Sie im Kontextmenü **SAS generieren** aus.
 
@@ -105,9 +106,9 @@ Verwenden Sie diese Option, wenn für die Zugriffsebene Ihres Speichercontainers
 1. Wählen Sie als **Startzeit** die aktuelle Zeit aus und als **Endzeit** einen Zeitpunkt, der mindestens 14 Stunden nach der **Startzeit** liegt. Falls Sie andere Tests mit dem gleichen Paket ausführen, können Sie die **Endzeit** ggf. für die Dauer des Tests erhöhen. Bei allen Tests, die über VaaS nach der **Endzeit** geplant werden, tritt ein Fehler auf, und es muss eine neue SAS generiert werden.
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    Das Format sollte wie folgt aussehen: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+    Das Format sollte wie folgt aussehen: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`.
 
-1. Ändern Sie die generierte SAS-URL, um den Paketcontainer (`{containername}`) und den Namen Ihres Paketblobs (`{mypackage.zip}`) einzuschließen: `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+1. Ändern Sie die generierte SAS-URL, um den Paketcontainer (`{containername}`) und den Namen Ihres Paketblobs (`{mypackage.zip}`) einzuschließen. Dies sieht folgendermaßen aus: `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`.
 
     Verwenden Sie diesen Wert, wenn Sie im Portal Paketblob-URLs bereitstellen.
 
@@ -118,7 +119,7 @@ Verwenden Sie diese Option, wenn es akzeptabel ist, nicht authentifizierten Clie
 > [!CAUTION]
 > Diese Option ermöglicht anonymen Lesezugriff auf Ihre Blobs.
 
-1. Legen Sie die Zugriffsebene des Paketcontainers wie im Abschnitt [Erteilen von anonymen Benutzerberechtigungen für Container und Blobs](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs) beschrieben auf **Blob** oder **Container** fest.
+1. Legen Sie die Zugriffsebene des Paketcontainers auf **Blob** oder **Container** fest. Weitere Informationen finden Sie unter [Verwalten des anonymen Lesezugriffs auf Container und Blobs](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
 
     > [!NOTE]
     > Wenn Sie eine Paket-URL für einen *interaktiven* Test angeben, müssen Sie **vollständigen öffentlichen Lesezugriff** auf den Container gewähren, um mit dem Testen fortzufahren.
@@ -148,7 +149,7 @@ Verwenden Sie diese Option, wenn es akzeptabel ist, nicht authentifizierten Clie
     > [!NOTE]
     > Kopieren Sie das Azure Stack Hub-Update und das OEM-Update in **zwei separate** Verzeichnisse.
 
-8. RequireDigitalSignature: Geben Sie **true** an, wenn das Paket von Microsoft signiert sein muss (Ausführen des OEM-Validierungsworkflows). Wenn Sie ein von Microsoft signiertes Paket für das aktuelle AzureStack Hub-Update überprüfen, geben Sie für diesen Wert „false“ an (Ausführen der monatlichen Azure Stack Hub-Updateüberprüfung).
+8. `RequireDigitalSignature`: Geben Sie den Wert **true** an, wenn das Paket von Microsoft signiert sein muss (Ausführen des OEM-Validierungsworkflows). Wenn Sie ein von Microsoft signiertes Paket für das aktuelle AzureStack Hub-Update überprüfen, geben Sie für diesen Wert „false“ an (Ausführen der monatlichen Azure Stack Hub-Updateüberprüfung).
 
 9. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
@@ -168,12 +169,12 @@ Für die OEM-Paketvalidierung müssen die folgenden Tests ausgeführt werden:
 
 ## <a name="run-package-validation-tests"></a>Ausführen von Paketvalidierungstests
 
-1. Auf der Seite mit der **Package Validation tests summary** (Zusammenfassung der Paketvalidierungstests) führen Sie eine Teilmenge der aufgelisteten Tests durch, die für Ihr Szenario geeignet sind.
+1. Auf der Seite **Package Validation tests summary** (Zusammenfassung der Paketvalidierungstests) führen Sie eine Teilmenge der aufgelisteten Tests durch, die für Ihr Szenario geeignet sind.
 
     In den Validierungsworkflows werden beim **Planen** eines Tests die allgemeinen Parameter auf der Workflowebene verwendet, die Sie bei der Workflowerstellung angegeben haben (siehe [Allgemeine Workflowparameter für Validation-as-a-Service in Azure Stack Hub](azure-stack-vaas-parameters.md)). Sollt einer der Testparameterwerte ungültig werden, muss er gemäß den Anweisungen unter [Ändern von Workflowparametern](azure-stack-vaas-monitor-test.md#change-workflow-parameters) erneut angegeben werden.
 
     > [!NOTE]
-    > Wenn Sie einen Validierungstest für eine bereits vorhandene Instanz planen, wird die alte Instanz im Portal durch eine neu erstellte Instanz ersetzt. Die Protokolle für die alte Instanz bleiben erhalten, können aber nicht über das Portal verwendet werden.  
+    > Wenn Sie einen Validierungstest für eine bereits vorhandene Instanz planen, wird die alte Instanz im Portal durch eine neu erstellte Instanz ersetzt. Die Protokolle für die alte Instanz bleiben erhalten, können aber nicht über das Portal verwendet werden.<br><br>
     > Nach erfolgreicher Ausführung eines Tests wird die **Planungsoption** deaktiviert.
 
 2. Wählen Sie den Agent aus, der den Test ausführt. Informationen zum Hinzufügen lokaler Agents für die Ausführung von Tests finden Sie unter [Bereitstellen des lokalen Agents](azure-stack-vaas-local-agent.md).
@@ -184,7 +185,7 @@ Für die OEM-Paketvalidierung müssen die folgenden Tests ausgeführt werden:
 
 5. Überprüfen Sie die Ergebnisse für die **erforderlichen** Tests.
 
-Um eine Anforderung zur Paketsignierung zu übermitteln, senden Sie den Lösungsnamen und Paketvalidierungsnamen, die dieser Ausführung zugeordnet sind, an [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
+Um eine Anforderung zur Paketsignierung zu übermitteln, senden Sie den Lösungsnamen und Paketvalidierungsnamen, die dieser Ausführung zugeordnet sind, in einer E-Mail an [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
