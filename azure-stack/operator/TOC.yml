@@ -316,6 +316,8 @@
               href: app-service-back-up.md
             - name: Wiederherstellen von App Service
               href: app-service-recover.md
+            - name: Entfernen von App Service
+              href: app-service-remove.md
             - name: Häufig gestellte Fragen zur App Service-Abrechnung
               href: app-service-billing-faq.md
             - name: 'App Service in Azure Stack Hub: Versionshinweise'
