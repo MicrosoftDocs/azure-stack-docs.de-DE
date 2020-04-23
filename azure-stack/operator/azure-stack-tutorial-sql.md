@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: bd62be6a7a2990a7a405dd5c5e1ff44e64007b6f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0c61abfab5615d265377341f6fb96fe5b4a18b29
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696800"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81478847"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Erstellen hochverfügbarer SQL-Datenbanken mit Azure Stack Hub
 
@@ -37,7 +37,7 @@ Vergewissern Sie sich, dass der [SQL Server-Ressourcenanbieter](azure-stack-sql-
 
 - Marketplace-Image von [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer).
 - SQL Server 2016 SP1 oder SP2 (Enterprise, Standard oder Developer) im Windows Server 2016-Serverimage. Dieser Artikel verwendet das Marketplace-Image [SQL Server 2016 SP2 Enterprise unter Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016).
-- [SQL Server IaaS Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) Version 1.2.30 oder höher. SQL Server IaaS Extension installiert Komponenten, die von den SQL Server-Elementen im Marketplace für alle Windows-Versionen benötigt werden. Diese Erweiterung ermöglicht die Konfiguration von SQL-spezifischen Einstellungen auf virtuellen SQL-Computern. Wenn die Erweiterung nicht im lokalen Marketplace installiert ist, kann SQL nicht bereitgestellt werden.
+- [Erweiterung für SQL Server-IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), Version 1.3.20180 oder höher. SQL Server IaaS Extension installiert Komponenten, die von den SQL Server-Elementen im Marketplace für alle Windows-Versionen benötigt werden. Diese Erweiterung ermöglicht die Konfiguration von SQL-spezifischen Einstellungen auf virtuellen SQL-Computern. Wenn die Erweiterung nicht im lokalen Marketplace installiert ist, kann SQL nicht bereitgestellt werden.
 - [Custom Script Extension für Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) Version 1.9.1 oder höher. Custom Script Extension ist ein Tool, das zum automatischen Starten von VM-Anpassungstasks nach der Bereitstellung verwendet werden kann.
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) Version 2.76.0.0 oder höher. DSC ist eine Verwaltungsplattform in Windows PowerShell, die die Bereitstellung und Verwaltung von Konfigurationsdaten für Softwaredienste ermöglicht. Die Plattform verwaltet darüber hinaus die Umgebung, in der diese Dienste ausgeführt werden.
 
@@ -58,15 +58,15 @@ Mit den Schritten in diesem Abschnitt stellen Sie mithilfe der [Azure Stack Hub-
 - Eine Verfügbarkeitsgruppe, die die VMs für SQL und den Dateifreigabenzeugen enthält
 
 1. 
-   [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
 2. Klicken Sie auf **\+** **Ressource erstellen** > **Benutzerdefiniert** und dann auf **Vorlagenbereitstellung**.
 
-   ![Bereitstellung einer benutzerdefinierten Vorlage im Azure Stack Hub-Administratorportal](media/azure-stack-tutorial-sqlrp/1.png)
+   ![Bereitstellung einer benutzerdefinierten Vorlage im Azure Stack Hub-Administratorportal](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-1.png)
 
 3. Wählen Sie auf dem Blatt **Benutzerdefinierte Bereitstellung** die Optionen **Vorlage bearbeiten** > **Schnellstartvorlage** aus, und wählen Sie dann aus der Dropdownliste der verfügbaren benutzerdefinierten Vorlagen die Vorlage **sql-2016-alwayson** aus. Wählen Sie **OK** und dann **Speichern** aus.
 
-   [![Bearbeiten einer Vorlage im Azure Stack Hub-Administratorportal](media/azure-stack-tutorial-sqlrp/2-sm.PNG "Auswählen der Schnellstartvorlage")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
+   [![Bearbeiten einer Vorlage im Azure Stack Hub-Administratorportal](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png "Auswählen der Schnellstartvorlage")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png#lightbox)
 
 4. Klicken Sie auf dem Blatt **Benutzerdefinierte Bereitstellung** auf **Parameter bearbeiten**, und sehen Sie sich die Standardwerte an. Ändern Sie die Werte nach Bedarf, um alle erforderlichen Parameterinformationen anzugeben, und wählen Sie dann **OK** aus.
 
@@ -74,22 +74,20 @@ Mit den Schritten in diesem Abschnitt stellen Sie mithilfe der [Azure Stack Hub-
     - Geben Sie komplexe Kennwörter für die Parameter ADMINPASSWORD, SQLSERVERSERVICEACCOUNTPASSWORD und SQLAUTHPASSWORD an.
     - Geben Sie das DNS-Suffix für Reverse-Lookups für den Parameter DNSSUFFIX in Kleinbuchstaben ein (**azurestack.external** bei ASDK-Installationen).
     
-   [![Bearbeiten von Parametern im Azure Stack Hub-Administratorportal](media/azure-stack-tutorial-sqlrp/3-sm.PNG "Bearbeiten benutzerdefinierter Bereitstellungsparameter")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
+   [![Bearbeiten von Parametern im Azure Stack Hub-Administratorportal](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-3.png "Bearbeiten benutzerdefinierter Bereitstellungsparameter")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-3.png#lightbox)
 
 5. Wählen Sie auf dem Blatt **Benutzerdefinierte Bereitstellung** das gewünschte Abonnement aus. Erstellen Sie dann eine neue Ressourcengruppe für die benutzerdefinierte Bereitstellung, oder wählen Sie eine vorhandene Ressourcengruppe aus.
 
     Wählen Sie als Nächstes den Standort der Ressourcengruppe (**lokal** bei ASDK-Installationen), und klicken Sie auf **Erstellen**. Die Einstellungen für die benutzerdefinierte Bereitstellung werden überprüft, und dann wird die Bereitstellung gestartet.
 
-    [![Auswählen eines Abonnements im Azure Stack Hub-Administratorportal](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Erstellen einer benutzerdefinierten Bereitstellung")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
+    [![Auswählen eines Abonnements im Azure Stack Hub-Administratorportal](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-4.png "Erstellen einer benutzerdefinierten Bereitstellung")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-4.png#lightbox)
 
-6. Wählen Sie im Administratorportal **Ressourcengruppen** und dann den Namen der Ressourcengruppe aus, die Sie für die benutzerdefinierte Bereitstellung erstellt haben (in diesem Beispiel: **resource-group**). Überprüfen Sie den Status der Bereitstellung, um sicherzustellen, dass alle Bereitstellungen erfolgreich abgeschlossen wurden.
+6. Wählen Sie im Benutzerportal **Ressourcengruppen** und dann den Namen der Ressourcengruppe aus, die Sie für die benutzerdefinierte Bereitstellung erstellt haben (für dieses Beispiel **resource-group**). Überprüfen Sie den Status der Bereitstellung, um sicherzustellen, dass alle Bereitstellungen erfolgreich abgeschlossen wurden.
     
     Überprüfen Sie danach die Ressourcengruppenelemente, und wählen Sie das Element **SQLPIPsql\<Ressourcengruppenname\>** für die öffentliche IP-Adresse aus. Notieren Sie sich die öffentliche IP-Adresse und den vollqualifizierten Domänennamen (FQDN) der öffentlichen IP-Adresse des Lastenausgleichsmoduls. Diese Informationen müssen Sie an einen Azure Stack Hub-Betreiber weitergeben, damit dieser einen SQL-Hostserver mit dieser SQL Always On-Verfügbarkeitsgruppe erstellen kann.
 
    > [!NOTE]
    > Die Vorlagenbereitstellung dauert mehrere Stunden.
-
-   ![Benutzerdefinierte Bereitstellung im Azure Stack Hub-Administratorportal abgeschlossen](./media/azure-stack-tutorial-sqlrp/5.png)
 
 ### <a name="enable-automatic-seeding"></a>Aktivieren des automatischen Seedings
 

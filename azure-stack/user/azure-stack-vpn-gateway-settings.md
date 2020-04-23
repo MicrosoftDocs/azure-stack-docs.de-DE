@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: b8f7be7885bd4565a13983d858c1f10b30df20b3
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: 6af8d30fc7902e716d974c5ad66049e3a6037f47
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295569"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80812423"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Konfigurieren von VPN-Gatewayeinstellungen für Azure Stack Hub
 
@@ -41,7 +41,7 @@ Die folgende Tabelle zeigt die VPN-Gateway-SKUs, die für Azure Stack Hub angebo
 
 | | VPN-Gatewaydurchsatz |Maximale IPsec-Tunnel für das VPN-Gateway |
 |-------|-------|-------|
-|**Basic-SKU**  | 100 MBit/s  | 20    |
+|**Basic-SKU**  | 100 MBit/s    | 20    |
 |**Standard-SKU**   | 100 MBit/s  | 20 |
 |**High-Performance-SKU** | 200 MBit/s | 10 |
 
@@ -156,7 +156,7 @@ Wenn Sie eine VPN-Verbindung in Azure Stack Hub einrichten, müssen Sie die Verb
 Im Gegensatz zu Azure, das mehrere Angebote als Initiator und Antwortdienst unterstützt, bietet Azure Stack Hub standardmäßig nur Unterstützung für ein Angebot. Wenn Sie verschiedene IPSec/IKE-Einstellungen mit Ihrem VPN-Gerät verwenden müssen, stehen Ihnen weitere Einstellungen zur Verfügung, um Ihre Verbindung manuell zu konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren einer IPsec/IKE-Richtlinie für Site-to-Site-VPN-Verbindungen](azure-stack-vpn-s2s.md).
 
 > [!IMPORTANT] 
-> Bei Verwendung eines S2S-Tunnels werden Pakete mit zusätzlichen Headern weiter verschlüsselt, wodurch sich das Paket insgesamt vergrößert. In diesen Szenarien müssen Sie TCP **MSS** mit **1350** verknüpfen. Wenn Ihre VPN-Geräte MSS-Clamping nicht unterstützen, können Sie stattdessen alternativ den **MTU**-Wert der Tunnelschnittstelle auf **1400** Byte festlegen. Weitere Informationen finden Sie unter [Optimieren der TCP-/IP-Leistung von virtuellen Netzwerken] (virtual-network-tcpip-performance-tuning.md). 
+> Bei Verwendung des S2S-Tunnels werden Pakete mit zusätzlichen Headern weiter verschlüsselt, wodurch sich das Paket insgesamt vergrößert. In diesen Szenarien müssen Sie TCP **MSS** mit **1350** verknüpfen. Wenn Ihre VPN-Geräte MSS-Clamping nicht unterstützen, können Sie stattdessen auch den **MTU**-Wert der Tunnelschnittstelle auf **1400** Bytes festlegen. Weitere Informationen finden Sie unter [Optimieren der TCP-/IP-Leistung von virtuellen Netzwerken](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
 >
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Parameter der IKE-Phase 1 (Hauptmodus)

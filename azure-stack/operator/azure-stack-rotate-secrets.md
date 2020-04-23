@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Erfahren Sie, wie Sie Ihre Geheimnisse in Azure Stack Hub rotieren.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 04/03/2020
 ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: d7179d8b87ee8e543fc7f8b78d1a8113e0e2746b
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: 5ffa1f2f03ca942192acdd881b7e785598c4c94b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367725"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80812372"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Rotieren von Geheimnissen in Azure Stack Hub
 
@@ -60,6 +60,9 @@ Azure Stack Hub verwendet verschiedene Geheimnisse, um eine sichere Kommunikatio
 
 > [!Note]
 > Alle anderen sicheren Schlüssel und Zeichenfolgen (einschließlich BMC- und Wechselkennwörter sowie Kennwörter für Benutzer- und Administratorkonten) werden weiterhin manuell vom Administrator aktualisiert.
+
+> [!Important]
+> Mit diesen Prozeduren werden die Zertifikate, Geheimnisse und Anmeldeinformationen für den Ressourcenanbieter für Azure App Service in Azure Stack Hub nicht rotiert.  Führen Sie zum Rotieren dieser Elemente die Schritte im Artikel [Rotieren von Geheimnissen und Zertifikaten in App Service in Azure Stack Hub](app-service-rotate-certificates.md) aus.
 
 > [!Important]
 > Seit Release 1811 von Azure Stack Hub ist die Geheimnisrotation für interne und externe Zertifikate getrennt.

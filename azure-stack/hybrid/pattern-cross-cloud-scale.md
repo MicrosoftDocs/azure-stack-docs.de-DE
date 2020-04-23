@@ -1,30 +1,30 @@
 ---
-title: Muster für das Entwickeln einer Anwendung in Azure und Azure Stack Hub, die sich cloudübergreifend skalieren lässt.
-description: Erfahren Sie, wie Sie mit Azure und Azure Stack Hub eine skalierbare, cloudübergreifende Anwendung erstellen.
+title: Muster für die cloudübergreifende Skalierung in Azure Stack Hub
+description: Hier erfahren Sie, wie Sie eine skalierbare, cloudübergreifende App in Azure und Azure Stack Hub erstellen.
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4d997735cdef07d1a0b8aeafe99fed9ee6155c82
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: a830f96e97c347cbbcc09a1b17f4836ecb6eb3e6
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77689459"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80891028"
 ---
 # <a name="cross-cloud-scaling-pattern"></a>Cloudübergreifendes Skalierungsmuster
 
-Fügen Sie automatisch Ressourcen zu einer vorhandenen Anwendung hinzu, um eine höhere Auslastung zu ermöglichen.
+Fügen Sie automatisch Ressourcen zu einer vorhandenen App hinzu, um eine höhere Auslastung zu ermöglichen.
 
 ## <a name="context-and-problem"></a>Kontext und Problem
 
 Ihre App kann die Kapazität zum Erfüllen einer unerwartet erhöhten Nachfrage nicht erhöhen. Dieser Mangel an Skalierbarkeit führt dazu, dass Benutzer die App während Spitzennutzungszeiten nicht verwenden können. Die App kann nur von einer festgelegten Anzahl von Benutzern genutzt werden.
 
-Globale Unternehmen benötigen sichere, zuverlässige und verfügbare cloudbasierte Anwendungen. Daher ist es wichtig, erhöhte Anforderungen zu erfüllen und die richtige Infrastruktur zur Unterstützung dieser Anforderungen zu verwenden. Unternehmen haben Probleme beim Ausgleichen von Kosten und bei der Verwaltung der Sicherheit, des Speicherns und der Echtzeitverfügbarkeit von Geschäftsdaten.
+Globale Unternehmen benötigen sichere, zuverlässige und verfügbare cloudbasierte Apps. Daher ist es wichtig, höhere Anforderungen zu erfüllen und die richtige Infrastruktur zur Unterstützung dieser Anforderungen zu verwenden. Unternehmen haben Probleme beim Ausgleichen von Kosten und bei der Verwaltung der Sicherheit, des Speicherns und der Echtzeitverfügbarkeit von Geschäftsdaten.
 
-Sie können Ihre Anwendung möglicherweise nicht in der öffentlichen Cloud ausführen. Es ist für das Unternehmen aber unter Umständen nicht wirtschaftlich, die für die lokale Umgebung erforderliche Kapazität beizubehalten, um für die App Auslastungsspitzen verarbeiten zu können. Mit diesem Muster können Sie die Elastizität der öffentlichen Cloud für Ihre lokale Lösung verwenden.
+Sie können Ihre App möglicherweise nicht in der öffentlichen Cloud ausführen. Es ist für das Unternehmen aber unter Umständen nicht wirtschaftlich, die für die lokale Umgebung erforderliche Kapazität beizubehalten, um für die App Auslastungsspitzen verarbeiten zu können. Mit diesem Muster können Sie die Elastizität der öffentlichen Cloud für Ihre lokale Lösung verwenden.
 
 ## <a name="solution"></a>Lösung
 
@@ -37,43 +37,53 @@ Das cloudübergreifende Skalierungsmuster erweitert eine App, die sich in einer 
 
 ## <a name="components"></a>Komponenten
 
-Das Muster „Cloudübergreifende Skalierung“ besteht aus den folgenden Komponenten.
+Das Muster für die cloudübergreifende Skalierung besteht aus den folgenden Komponenten:
 
-**Traffic Manager**  
+### <a name="outside-the-cloud"></a>Außerhalb der Cloud
 
-Im Diagramm befindet sich Traffic Manager außerhalb der öffentlichen Cloudgruppe, muss allerdings sowohl den Datenverkehr im lokalen Rechenzentrum als auch in der öffentlichen Cloud koordinieren können. Der Balancer bietet Hochverfügbarkeit für Anwendungen, indem er Endpunkte überwacht und bei Bedarf die Failoverumverteilung ermöglicht.
+#### <a name="traffic-manager"></a>Traffic Manager
 
-**Domain Name System (DNS)**  
+Im Diagramm befindet sich Traffic Manager außerhalb der öffentlichen Cloudgruppe, muss allerdings sowohl den Datenverkehr im lokalen Rechenzentrum als auch in der öffentlichen Cloud koordinieren können. Das Ausgleichsmodul bietet Hochverfügbarkeit für Apps, indem es Endpunkte überwacht und bei Bedarf die Failoverumverteilung ermöglicht.
+
+#### <a name="domain-name-system-dns"></a>Domain Name System (DNS)
 
 Das Domain Name System (DNS) ist für die Übersetzung (oder Auflösung) eines Website- oder Dienstnamens in die IP-Adresse verantwortlich.
 
 ### <a name="cloud"></a>Cloud
 
-**Gehosteter Buildserver**  
+#### <a name="hosted-build-server"></a>Gehosteter Buildserver
+
 Umgebung zum Hosten der Buildpipeline.
 
-**Anwendungsressourcen**  
-Die Anwendungsressourcen (wie virtuelle ScaleSets-Computer und Container) müssen horizontal herunter- oder hochskaliert werden können.
+#### <a name="app-resources"></a>App-Ressourcen
 
-**Benutzerdefinierter Domänenname**  
+Die App-Ressourcen (wie VM-Skalierungsgruppen und Container) müssen ab- und aufskaliert werden können.
+
+#### <a name="custom-domain-name"></a>Benutzerdefinierter Domänenname
+
 Verwenden Sie einen benutzerdefinierten Domänennamen für globale Routinganforderungen.
 
-**Öffentliche IP-Adressen**  
-Öffentliche IP-Adressen werden zum Weiterleiten des eingehenden Datenverkehrs über Traffic Manager an den Endpunkt der öffentlichen Cloudanwendungsressourcen verwendet.  
+#### <a name="public-ip-addresses"></a>Öffentliche IP-Adressen
+
+Öffentliche IP-Adressen werden zum Weiterleiten des eingehenden Datenverkehrs über Traffic Manager an den Endpunkt der App-Ressourcen in der öffentlichen Cloud verwendet.  
 
 ### <a name="local-cloud"></a>Lokale Cloud
 
-**Gehosteter Buildserver**  
+#### <a name="hosted-build-server"></a>Gehosteter Buildserver
+
 Umgebung zum Hosten der Buildpipeline.
 
-**Anwendungsressourcen**  
-Die Anwendungsressourcen wie VM-Skalierungsgruppen und Container müssen horizontal herunter- oder hochskaliert werden können.
+#### <a name="app-resources"></a>App-Ressourcen
 
-**Benutzerdefinierter Domänenname**  
+Die App-Ressourcen (wie VM-Skalierungsgruppen und Container) müssen ab- und aufskaliert werden können.
+
+#### <a name="custom-domain-name"></a>Benutzerdefinierter Domänenname
+
 Verwenden Sie einen benutzerdefinierten Domänennamen für globale Routinganforderungen.
 
-**Öffentliche IP-Adressen**  
-Öffentliche IP-Adressen werden zum Weiterleiten des eingehenden Datenverkehrs über Traffic Manager an den Endpunkt der öffentlichen Cloudanwendungsressourcen verwendet. 
+#### <a name="public-ip-addresses"></a>Öffentliche IP-Adressen
+
+Öffentliche IP-Adressen werden zum Weiterleiten des eingehenden Datenverkehrs über Traffic Manager an den Endpunkt der App-Ressourcen in der öffentlichen Cloud verwendet.
 
 ## <a name="issues-and-considerations"></a>Probleme und Überlegungen
 
@@ -108,8 +118,9 @@ Verwenden Sie dieses Muster in folgenden Fällen nicht:
 ## <a name="next-steps"></a>Nächste Schritte
 
 Weitere Informationen zu den in diesem Artikel behandelten Themen:
+
 - In der [Übersicht über Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) erfahren Sie mehr dazu, wie dieser DNS-basierte Lastenausgleich für Datenverkehr funktioniert.
-- Unter [Überlegungen zum Entwurf von Hybridanwendungen](overview-app-design-considerations.md) erfahren Sie mehr zu bewährten Methoden und erhalten Antworten auf weitere Fragen.
-- Siehe die [Azure Stack-Familie mit Produkten und Lösungen](/azure-stack), um mehr über das gesamte Portfolio von Produkten und Lösungen zu erfahren.
+- Unter [Überlegungen zum Entwurf von Hybrid-Apps](overview-app-design-considerations.md) erfahren Sie mehr zu bewährten Methoden und erhalten Antworten auf weitere Fragen.
+- Im Artikel zur [Azure Stack-Familie mit Produkten und Lösungen](/azure-stack) erfahren Sie mehr über das gesamte Portfolio von Produkten und Lösungen.
 
 Wenn Sie bereit sind, das Lösungsbeispiel zu testen, fahren Sie mit dem [Bereitstellungsleitfaden für eine cloudübergreifende Skalierungslösung](solution-deployment-guide-cross-cloud-scaling.md) fort. In diesem Bereitstellungsleitfaden finden Sie detaillierte Anweisungen zum Bereitstellen und Testen der zugehörigen Komponenten. Sie erfahren, wie Sie eine cloudübergreifende Lösung erstellen, um einen manuell ausgelösten Prozess zum Umschalten von einer in Azure Stack Hub gehosteten Web-App zu einer in Azure gehosteten Web-App bereitzustellen. Sie erfahren auch, wie Sie die automatische Skalierung über Traffic Manager nutzen können, um ein flexibles und skalierbares Cloudhilfsprogramm unter Last zu gewährleisten.

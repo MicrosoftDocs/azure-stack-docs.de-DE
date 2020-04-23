@@ -3,29 +3,29 @@ title: Veröffentlichen von Azure Stack Hub-Diensten in Ihrem Rechenzentrum
 description: Hier erfahren Sie, wie Sie Azure Stack Hub-Dienste in Ihrem Rechenzentrum veröffentlichen.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 12/11/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: cf72ecf8d5c5e7bfbf4e640b6193319f9e16d511
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: 320764b823a5dd70808abda08e8cdc53c6a56e7d
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295059"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243871"
 ---
-# <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Veröffentlichen von Azure Stack Hub-Diensten in Ihrem Rechenzentrum 
+# <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Veröffentlichen von Azure Stack Hub-Diensten in Ihrem Rechenzentrum
 
 Azure Stack Hub richtet für die eigenen Infrastrukturrollen virtuelle IP-Adressen (VIPs) ein. Diese VIPs stammen aus dem öffentlichen IP-Adresspool. Jede VIP wird durch eine Zugriffssteuerungsliste (Access Control List, ACL) auf der softwaredefinierten Netzwerkebene geschützt. Für zusätzlichen Schutz werden außerdem übergreifende ACLs für die physischen Switches (TORs und BMC) verwendet. Für jeden Endpunkt in der externen DNS-Zone, die zum Zeitpunkt der Bereitstellung angegeben wurde, wird ein DNS-Eintrag erstellt. Dem Benutzerportal wird z. B. der DNS-Hosteintrag „portal. *&lt;region>.&lt;fqdn>* “ zugewiesen.
 
 Das folgende Architekturdiagramm zeigt die verschiedenen Netzwerkebenen und ACLs:
 
-![Diagramm mit verschiedenen Netzwerkebenen und ACLs](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![Diagramm mit verschiedenen Netzwerkebenen und ACLs](media/azure-stack-integrate-endpoints/integrate-endpoints-01.svg)
 
-### <a name="ports-and-urls"></a>Ports und URLs
+## <a name="ports-and-urls"></a>Ports und URLs
 
 Damit Sie Azure Stack Hub-Dienste (wie Portale, Azure Resource Manager, DNS, usw.) für externe Netzwerke zur Verfügung stellen können, müssen Sie für diese Endpunkte den eingehenden Datenverkehr für bestimmte URLs, Ports und Protokolle zulassen.
- 
+
 In einer Bereitstellung mit einem Uplink zwischen einem transparenten Proxy und einem herkömmlichen Proxyserver bzw. wenn eine Firewall die Lösung schützt, müssen sowohl für die [eingehende](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) als auch die [ausgehende](azure-stack-integrate-endpoints.md#ports-and-urls-outbound) Kommunikation bestimmte Ports und URLs zugelassen werden. Dazu gehören Ports und URLs für Identität, der Marketplace, Patch und Update, Registrierung und Nutzungsdaten.
 
 Das Abfangen von SSL-Datenverkehr wird [nicht unterstützt](azure-stack-firewall.md#ssl-interception) und kann beim Zugriff auf Endpunkte zu Dienstfehlern führen. 
@@ -86,6 +86,7 @@ Das Abfangen von SSL-Datenverkehr wird [nicht unterstützt](azure-stack-firewall
 |Windows Defender|&#42;.wdcp.microsoft.com<br>&#42;.wdcpalt.microsoft.com<br>&#42;.wd.microsoft.com<br>&#42;.update.microsoft.com<br>&#42;.download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Öffentliche VIP - /27<br>Öffentliches Infrastrukturnetzwerk|
 |NTP|(IP des für die Bereitstellung bereitgestellten NTP-Servers)|UDP|123|Öffentliche VIP - /27|
 |DNS|(IP des für die Bereitstellung bereitgestellten DNS-Servers)|TCP<br>UDP|53|Öffentliche VIP - /27|
+|SYSLOG|(IP des für die Bereitstellung bereitgestellten SYSLOG-Servers)|TCP<br>UDP|6514<br>514|Öffentliche VIP - /27|
 |CRL|(URL unter CRL-Verteilungspunkten auf Ihrem Zertifikat)|HTTP|80|Öffentliche VIP - /27|
 |LDAP|Active Directory-Gesamtstruktur, bereitgestellt für die Graph-Integration|TCP<br>UDP|389|Öffentliche VIP - /27|
 |LDAP SSL|Active Directory-Gesamtstruktur, bereitgestellt für die Graph-Integration|TCP|636|Öffentliche VIP - /27|

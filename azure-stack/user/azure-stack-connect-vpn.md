@@ -3,16 +3,16 @@ title: Herstellen einer Verbindung zwischen Azure Stack Hub und Azure über ein 
 description: Herstellen einer Verbindung zwischen virtuellen Netzwerken in Azure Stack Hub und virtuellen Netzwerken in Azure über ein VPN
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 04/07/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: 13ac78c3f0a665e4319db4d3bf70b0274b5b8dd5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c745325c720ed37f93b12fee844a6ebc0b829cca
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704368"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80812440"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Herstellen einer Verbindung zwischen Azure Stack Hub und Azure über ein VPN
 
@@ -112,6 +112,25 @@ Erstellen Sie zunächst die Netzwerkressourcen für Azure. Die folgenden Anweisu
    >Falls Sie einen anderen Wert für den gemeinsam verwendeten Schlüssel nutzen, sollten Sie nicht vergessen, dass er dem Wert für den gemeinsam verwendeten Schlüssel entsprechen muss, den Sie am anderen Ende der Verbindung erstellt haben.
 
 10. Überprüfen Sie den Bereich **Zusammenfassung**, und klicken Sie auf **OK**.
+
+## <a name="create-a-custom-ipsec-policy"></a>Erstellen einer benutzerdefinierten IPsec-Richtlinie
+
+Da sich die Azure Stack Hub-Standardparameter für IPsec-Richtlinien für [Builds ab 1910](azure-stack-vpn-gateway-settings.md#ipsecike-parameters) geändert haben, ist eine benutzerdefinierte IPsec-Richtlinie erforderlich, um Azure und Azure Stack Hub auf den gleichen Stand zu bringen.
+
+1. Erstellen einer benutzerdefinierten Richtlinie:
+
+   ```powershell
+     $IPSecPolicy = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
+     -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
+     -SADataSizeKilobytes 102400000 
+   ```
+
+2. Übernehmen der Richtlinie für die Verbindung:
+
+   ```powershell
+   $Connection = Get-AzVirtualNetworkGatewayConnection -Name myTunnel -ResourceGroupName myRG
+   Set-AzVirtualNetworkGatewayConnection -IpsecPolicies $IPSecPolicy -VirtualNetworkGatewayConnection $Connection
+   ```
 
 ## <a name="create-a-vm"></a>Erstellen einer VM
 

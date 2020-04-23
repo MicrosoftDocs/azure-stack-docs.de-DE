@@ -3,16 +3,16 @@ title: Versionshinweise zum ASDK
 description: Verbesserungen, Fehlerbehebungen und bekannte Probleme im Azure Stack Development Kit (ASDK).
 author: sethmanheim
 ms.topic: article
-ms.date: 03/20/2020
+ms.date: 04/06/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 32b4bfb500a9717f99085fe0759297f999244bbb
-ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
+ms.openlocfilehash: bbe37512d943a45b5981f4e862f55440ade3b08f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80152223"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806708"
 ---
 # <a name="asdk-release-notes"></a>Versionshinweise zum ASDK
 
@@ -32,6 +32,11 @@ Abonnieren Sie den [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](http
 - Das Kennwort für das Entschlüsselungszertifikat ist eine neue Option, um das Kennwort für selbstsignierte Zertifikat (PFX-Datei) anzugeben, das den privaten Schlüssel enthält, der zum Entschlüsseln der Sicherungsdaten notwendig ist. Dieses Kennwort ist nur erforderlich, wenn die Sicherung mit einem Zertifikat verschlüsselt ist.
 - Eine Liste der bekannten Probleme bei Azure Stack in dieser Version finden Sie im Artikel [Bekannte Probleme](../operator/known-issues.md).
 - Beachten Sie, dass verfügbare Hotfixes für Azure Stack nicht für das ASDK gelten.
+
+#### <a name="sql-vm-provision-fails-in-asdk"></a>Fehler bei der SQL-VM-Bereitstellung in ASDK
+
+- Geltungsbereich: Dieses Problem betrifft ASDK 2002.
+- Ursache: Wenn Sie eine neue SQL-VM in ASDK 2002 erstellen, wird möglicherweise die Fehlermeldung **Erweiterung mit Publisher "Microsoft.SqlServer.Management", Typ "SqlIaaSAgent" und Typhandlerversion "2.0" wurde im Erweiterungsrepository nicht gefunden** angezeigt. **SqlIaaSAgent** 2.0 ist in Azure Stack Hub nicht vorhanden.
 ::: moniker-end
 
 ::: moniker range="azs-1910"
@@ -60,7 +65,7 @@ Abonnieren Sie den [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](http
 
 ### <a name="new-features"></a>Neue Funktionen
 
-- Eine Liste der neuen Funktionen in diesem Release finden Sie [in diesem Abschnitt](/azure-stack/operator/release-notes?view=azs-1908#whats-new-1) der Anmerkungen zu dieser Version für Azure Stack.
+- Eine Liste der neuen Funktionen in diesem Release finden Sie [in diesem Abschnitt](/azure-stack/operator/release-notes?view=azs-1908#whats-new-2) der Anmerkungen zu dieser Version für Azure Stack.
 
 <!-- ### Changes -->
 
@@ -83,7 +88,7 @@ Abonnieren Sie den [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](http
 ### <a name="fixed-and-known-issues"></a>Behobene und bekannte Probleme
 
 - Wenn Sie VM-Ressourcen unter Verwendung einiger Marketplace-Images erstellen, können Sie die Bereitstellung eventuell nicht abschließen. Zur Umgehung dieses Problems können Sie auf den Link **Vorlage und Parameter herunterladen** auf der Seite **Zusammenfassung** klicken, und dann klicken Sie auf die Schaltfläche **Bereitstellen** auf dem Blatt **Vorlage**.
-- Eine Liste der in dieser Version behobenen Azure Stack-Probleme finden Sie [in diesem Abschnitt](/azure-stack/operator/release-notes?view=azs-1907#fixes-2) der Azure Stack-Versionshinweise.
+- Eine Liste der in dieser Version behobenen Azure Stack-Probleme finden Sie [in diesem Abschnitt](/azure-stack/operator/release-notes?view=azs-1907#fixes-3) der Azure Stack-Versionshinweise.
 - Eine Liste der bekannten Probleme finden Sie [in diesem Abschnitt](/azure-stack/operator/known-issues?view=azs-1907).
-- Beachten Sie, dass [verfügbare Hotfixes für Azure Stack](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2) nicht auf das Azure Stack ASDK anwendbar sind.
+- Beachten Sie, dass [verfügbare Hotfixes für Azure Stack](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-3) nicht auf das Azure Stack ASDK anwendbar sind.
 ::: moniker-end

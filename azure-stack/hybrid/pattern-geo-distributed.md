@@ -1,21 +1,21 @@
 ---
-title: Muster einer geografisch verteilten App für Intelligent Edge unter Verwendung von Azure und Azure Stack Hub.
+title: Muster für geografisch verteilte Apps in Azure Stack Hub
 description: Erfahren Sie mehr über das Muster einer geografisch verteilten App für Intelligent Edge unter Verwendung von Azure und Azure Stack Hub.
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod2019
-ms.openlocfilehash: aaea4465aaaf69db755186abed6473a636d52580
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 1f6243927390c7a520c2607c722664b2d31fc07f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77689306"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80891034"
 ---
-# <a name="geo-distributed-pattern"></a>Geografisch verteiltes Muster
+# <a name="geo-distributed-app-pattern"></a>Muster für geografisch verteilte Apps
 
-Erfahren Sie, wie Sie App-Endpunkte in mehreren Regionen bereitstellen und den Benutzerdatenverkehr je nach Standort- und Complianceanforderungen weiterleiten können.
+Hier erfahren Sie, wie Sie App-Endpunkte in mehreren Regionen bereitstellen und Benutzerdatenverkehr je nach Standort- und Complianceanforderungen weiterleiten.
 
 ## <a name="context-and-problem"></a>Kontext und Problem
 
@@ -23,27 +23,33 @@ Organisationen mit umfassenden geografischen Ausmaßen bemühen sich um eine sic
 
 ## <a name="solution"></a>Lösung
 
-Durch das Routingmuster für geografischen Datenverkehr von Azure Stack Hub und die Verwendung geografisch verteilter Apps kann Datenverkehr basierend auf verschiedenen Metriken an bestimmte Endpunkte weitergeleitet werden. Durch das Erstellen von Traffic Manager mit geografiebasiertem Routing und der Endpunktkonfiguration wird Datenverkehr basierend auf regionalen Anforderungen bzw. unternehmensinternen und internationalen Bestimmungen an Endpunkte weitergeleitet.
+Durch das Muster für das geografische Datenverkehrsrouting von Azure Stack Hub oder die Verwendung geografisch verteilter Apps kann Datenverkehr basierend auf verschiedenen Metriken an bestimmte Endpunkte weitergeleitet werden. Durch das Erstellen von Traffic Manager mit geografiebasiertem Routing und der Endpunktkonfiguration wird Datenverkehr basierend auf regionalen Anforderungen bzw. unternehmensinternen und internationalen Bestimmungen an Endpunkte weitergeleitet.
 
 ![Geografisch verteiltes Muster](media/pattern-geo-distributed/geo-distribution.png)
 
 ## <a name="components"></a>Komponenten
 
-**Traffic Manager**  
+### <a name="outside-the-cloud"></a>Außerhalb der Cloud
+
+#### <a name="traffic-manager"></a>Traffic Manager
+
 In der Abbildung befindet sich Traffic Manager außerhalb der öffentlichen Cloud, muss allerdings sowohl den Datenverkehr im lokalen Rechenzentrum als auch in der öffentlichen Cloud koordinieren können. Der Balancer leitet Datenverkehr an geografische Standorte weiter.
 
-**Domain Name System (DNS)**  
+#### <a name="domain-name-system-dns"></a>Domain Name System (DNS)
+
 Das Domain Name System (DNS) ist für die Übersetzung (oder Auflösung) eines Website- oder Dienstnamens in die IP-Adresse verantwortlich.
 
 ### <a name="public-cloud"></a>Öffentliche Cloud
 
-**Cloudendpunkt**  
-Öffentliche IP-Adressen werden zum Weiterleiten des eingehenden Datenverkehrs über Traffic Manager an den Endpunkt der öffentlichen Cloudanwendungsressourcen verwendet.  
+#### <a name="cloud-endpoint"></a>Cloudendpunkt
+
+Öffentliche IP-Adressen werden zum Weiterleiten des eingehenden Datenverkehrs über Traffic Manager an den Endpunkt der App-Ressourcen in der öffentlichen Cloud verwendet.  
 
 ### <a name="local-clouds"></a>Lokale Clouds
 
-**Lokaler Endpunkt**  
-Öffentliche IP-Adressen werden zum Weiterleiten des eingehenden Datenverkehrs über Traffic Manager an den Endpunkt der öffentlichen Cloudanwendungsressourcen verwendet.
+#### <a name="local-endpoint"></a>Lokaler Endpunkt
+
+Öffentliche IP-Adressen werden zum Weiterleiten des eingehenden Datenverkehrs über Traffic Manager an den Endpunkt der App-Ressourcen in der öffentlichen Cloud verwendet.
 
 ## <a name="issues-and-considerations"></a>Probleme und Überlegungen
 
@@ -66,13 +72,14 @@ Mit dem Muster wird sichergestellt, dass zwischen Umgebungen eine nahtlose Verwa
 - Meine Organisation verfügt über internationale Zweigniederlassungen, für die benutzerdefinierte regionale Sicherheits- und Verteilungsrichtlinien erforderlich sind.
 - Alle Niederlassungen meiner Organisation rufen per Pullvorgang Daten zu Mitarbeitern, Geschäft und Einrichtungen ab, sodass Berichterstellungsaktivitäten gemäß den lokalen Bestimmungen und Zeitzonen benötigt werden.
 - Anforderungen für eine hohe Skalierbarkeit können durch das horizontale Hochskalieren von Apps erfüllt werden, wobei mehrere App-Bereitstellungen innerhalb einer Region sowie regionsübergreifend erfolgen, um extreme Lastanforderungen zu verarbeiten.
-- Die Anwendungen müssen selbst bei einem Ausfall einer einzelnen Region hochverfügbar sein und auf Clientanforderungen reagieren.
+- Die Apps müssen selbst bei einem Ausfall einer einzelnen Region hochverfügbar sein und auf Clientanforderungen reagieren.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Weitere Informationen zu den in diesem Artikel behandelten Themen:
+
 - In der [Übersicht über Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) erfahren Sie mehr dazu, wie dieser DNS-basierte Lastenausgleich für Datenverkehr funktioniert.
-- Unter [Überlegungen zum Entwurf von Hybridanwendungen](overview-app-design-considerations.md) erfahren Sie mehr zu bewährten Methoden und erhalten Antworten auf weitere Fragen.
-- Siehe die [Azure Stack-Familie mit Produkten und Lösungen](/azure-stack), um mehr über das gesamte Portfolio von Produkten und Lösungen zu erfahren.
+- Unter [Überlegungen zum Entwurf von Hybrid-Apps](overview-app-design-considerations.md) erfahren Sie mehr zu bewährten Methoden und erhalten Antworten auf weitere Fragen.
+- Im Artikel zur [Azure Stack-Familie mit Produkten und Lösungen](/azure-stack) erfahren Sie mehr über das gesamte Portfolio von Produkten und Lösungen.
 
 Wenn Sie bereit sind, das Lösungsbeispiel zu testen, fahren Sie mit dem [Bereitstellungsleitfaden für eine Lösung für geografisch verteilte Apps](solution-deployment-guide-geo-distributed.md) fort. In diesem Bereitstellungsleitfaden finden Sie detaillierte Anweisungen zum Bereitstellen und Testen der zugehörigen Komponenten. Sie erfahren, wie Sie Datenverkehr basierend auf unterschiedlichen Metriken an bestimmte Endpunkte weiterleiten, indem Sie das Muster für geografisch verteilte Apps verwenden. Durch die Erstellung eines Traffic Manager-Profils mit Weiterleitung und Endpunktkonfiguration anhand der Geografie wird sichergestellt, dass Informationen basierend auf regionalen Anforderungen, unternehmensinternen und internationalen Bestimmungen und Ihren Datenanforderungen an Endpunkte weitergeleitet werden.

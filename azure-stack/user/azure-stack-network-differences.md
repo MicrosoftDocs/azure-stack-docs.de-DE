@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 1845a25b0cd66168277e39026a3651e6638cf98c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: e1bdb6425848db2c796fed93520da3b5ef982ee3
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703909"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81274071"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack Hub-Netzwerke: Unterschiede und Überlegungen
 
@@ -38,9 +38,10 @@ Dieser Artikel enthält eine Übersicht über die besonderen Überlegungen für 
 |  | Dienstendpunkte | Unterstützt für interne (kein Internet) Verbindung mit Azure-Diensten | Noch nicht unterstützt. |
 |  | Dienstendpunkt-Richtlinien | Unterstützt | Noch nicht unterstützt. |
 |  | Diensttunnel | Unterstützt | Noch nicht unterstützt.  |
-| Netzwerksicherheitsgruppen | Ergänzte Sicherheitsregeln | Unterstützt | Noch nicht unterstützt. |
+| Netzwerksicherheitsgruppen | Ergänzte Sicherheitsregeln | Unterstützt | Unterstützt. |
 |  | Effektive Sicherheitsregeln | Unterstützt | Noch nicht unterstützt. |
 |  | Anwendungssicherheitsgruppen | Unterstützt | Noch nicht unterstützt. |
+|  | Regelprotokolle | TCP, UDP, ICMP, Any (Beliebig) | Nur TCP, UDP oder Any (Beliebig) |
 | Gateways für virtuelle Netzwerke | Point-to-Site-VPN Gateway | Unterstützt | Noch nicht unterstützt. |
 |  | VNet-zu-VNet-Gateway | Unterstützt | Noch nicht unterstützt. |
 |  | Typ des Gateways für das virtuelle Netzwerk | Azure unterstützt VPN<br> ExpressRoute <br> Hyper Net | Azure Stack Hub unterstützt derzeit nur den VPN-Typ. |

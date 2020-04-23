@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: a3ca9d760969974d9ba6fd35f0907472d2271c61
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 8928c0c163976c03fad4355090958e98b1eb1907
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703501"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806699"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>Konfigurieren von Bereitstellungsquellen für App Services in Azure Stack Hub
 
@@ -27,7 +27,7 @@ Neben lokalem Git werden die folgenden Quellcodeverwaltungsanbieter unterstützt
 
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Anzeigen der Bereitstellungsquellen in der App Service-Verwaltung
 
-1. Melden Sie sich am Azure Stack Hub-Verwaltungsportal (https://adminportal.local.azurestack.external) ) als Dienstadministrator an.
+1. Melden Sie sich beim Azure Stack Hub-Verwaltungsportal als Dienstadministrator an.
 2. Navigieren Sie zu **Alle Dienste**, und wählen Sie den **App Service** aus.
     ![App Service Resource Provider Admin][1] (Administrator von App Service-Ressourcenanbieter)
 3. Klicken Sie auf **Source control configuration** (Konfiguration der Quellcodeverwaltung). Die Liste aller konfigurierten Bereitstellungsquellen wird angezeigt.
@@ -37,15 +37,15 @@ Neben lokalem Git werden die folgenden Quellcodeverwaltungsanbieter unterstützt
 
 Sie benötigen ein GitHub-Konto, um diese Aufgabe abzuschließen. Möglicherweise möchten Sie lieber ein Konto für Ihre Organisation anstelle eines persönlichen Kontos verwenden.
 
-1. Melden Sie sich bei GitHub an, navigieren Sie zu https://www.github.com/settings/developers , und klicken Sie dann auf **Neue Anwendung registrieren**.
+1. Melden Sie sich bei GitHub an, navigieren Sie zu https://www.github.com/settings/developers, und klicken Sie dann auf **Neue Anwendung registrieren**.
     ![GitHub – Neue Anwendung registrieren][3]
 2. Geben Sie unter **Anwendungsname** einen Namen ein. Beispiel: **App Service unter Azure Stack Hub**.
-3. Geben Sie in **Homepage URL** die URL der Startseite ein. Die URL der Homepage muss die Adresse des Azure Stack Hub-Portals sein. Beispiel: https://portal.local.azurestack.external.
+3. Geben Sie in **Homepage URL** die URL der Startseite ein. Die URL der Homepage muss die Adresse des Azure Stack Hub-Portals sein. Beispiel: `https://portal.<region>.<FQDN>`. Weitere Informationen zum vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) von Azure Stack Hub finden Sie unter [DNS-Namespace von Azure Stack Hub](azure-stack-integrate-dns.md#azure-stack-hub-dns-namespace).
 4. Geben Sie in **Application Description** eine Anwendungsbeschreibung ein.
-5. Geben Sie in **Authorization callback URL** die Autorisierungsrückruf-URL ein. In einer Standardbereitstellung von Azure Stack Hub weist die URL das Format https://portal.local.azurestack.external/TokenAuthorize auf. Wenn die Ausführung in einer anderen Domäne erfolgt, müssen Sie „local.azurestack.external“ durch Ihren Domänennamen ersetzen.
+5. Geben Sie in **Authorization callback URL** die Autorisierungsrückruf-URL ein. In einer Standardbereitstellung von Azure Stack Hub weist die URL das Format `https://portal.<region>.<FQDN>/TokenAuthorize` auf. 
 6. Klicken Sie zum Registrieren der Anwendung auf **Register application**. Nun wird eine Seite mit der **Client-ID** und dem **geheimen Clientschlüssel** für die App angezeigt.
     ![GitHub: Anwendungsregistrierung abgeschlossen][5]
-7. Melden Sie sich im Browser auf einer neuen Registerkarte oder in einem neuen Fenster beim Azure Stack Hub-Verwaltungsportal (https://adminportal.local.azurestack.external) ) als Dienstadministrator an.
+7. Melden Sie sich im Browser auf einer neuen Registerkarte oder in einem neuen Fenster beim Azure Stack Hub-Verwaltungsportal als Dienstadministrator an.
 8. Navigieren Sie zu **Resource Providers** (Ressourcenanbieter), und wählen Sie **App Service Resource Provider Admin** (Administrator des App Service-Ressourcenanbieters) aus.
 9. Klicken Sie auf **Source control configuration** (Konfiguration der Quellcodeverwaltung).
 10. Kopieren Sie die **Client-ID** und das **Clientgeheimnis**, und fügen Sie sie in die entsprechenden Eingabefelder für GitHub ein.
@@ -61,14 +61,14 @@ Sie benötigen ein Bitbucket-Konto, um diese Aufgabe abzuschließen. Möglicherw
     ![Bitbucket – OAuth-Consumer hinzufügen][8]
 3. Geben Sie unter **Name** einen Namen für den Consumer ein. Beispiel: **App Service unter Azure Stack Hub**.
 4. Geben Sie eine **Beschreibung** für die App ein.
-5. Geben Sie in **Callback URL** die Rückruf-URL ein. In einer Standardbereitstellung von Azure Stack Hub weist die Rückruf-URL das Format https://portal.local.azurestack.external/TokenAuthorize auf. Wenn die Ausführung in einer anderen Domäne erfolgt, müssen Sie „azurestack.local“ durch Ihren Domänennamen ersetzen. Die URL muss die hier aufgeführte Groß-/Kleinschreibung befolgen, damit die BitBucket-Integration erfolgreich ist.
-6. Geben Sie die **URL** ein. Diese URL muss die Azure Stack Hub-Portal-URL sein. Beispiel: https://portal.local.azurestack.external.
+5. Geben Sie in **Callback URL** die Rückruf-URL ein. In einer Standardbereitstellung von Azure Stack Hub weist die Rückruf-URL das Format `https://portal.<region>.<FQDN>/TokenAuthorize` auf. Die URL muss die hier aufgeführte Groß-/Kleinschreibung befolgen, damit die BitBucket-Integration erfolgreich ist.
+6. Geben Sie die **URL** ein. Diese URL muss die Azure Stack Hub-Portal-URL sein. Beispiel: `https://portal.<region>.<FQDN>`.
 7. Wählen Sie unter **Permissions** die erforderlichen Berechtigungen aus:
     - **Repositorys**: *Lesen*
     - **Webhooks**: *Lesen und Schreiben*
 8. Klicken Sie auf **Speichern**. Unter **OAuth consumers** (OAuth-Consumer) wird diese neue App nun zusammen mit **Key** (Schlüssel) und **Secret** (Geheimnis) angezeigt.
     ![BitBucket: Anwendungsliste][9]
-9.  Melden Sie sich im Browser auf einer neuen Registerkarte oder in einem neuen Fenster beim Azure Stack Hub-Verwaltungsportal (https://adminportal.local.azurestack.external) ) als Dienstadministrator an.
+9.  Melden Sie sich im Browser auf einer neuen Registerkarte oder in einem neuen Fenster beim Azure Stack Hub-Verwaltungsportal als Dienstadministrator an.
 10.  Navigieren Sie zu **Resource Providers** (Ressourcenanbieter), und wählen Sie **App Service Resource Provider Admin** (Administrator von App Service-Ressourcenanbieter) aus.
 11. Klicken Sie auf **Source control configuration** (Konfiguration der Quellcodeverwaltung).
 12. Kopieren Sie den **Schlüssel** und das **Geheimnis**, und fügen Sie sie in das Eingabefeld **Client-ID** bzw. das Eingabefeld **Clientgeheimnis** für BitBucket ein.
@@ -81,7 +81,7 @@ Sie benötigen für diese Aufgabe ein mit einem OneDrive-Konto verknüpftes Micr
 > [!NOTE]
 > OneDrive for Business-Konten werden derzeit nicht unterstützt.
 
-1. Navigieren Sie zu https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm , und melden Sie sich mit Ihrem Microsoft-Konto an.
+1. Navigieren Sie zu https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm, und melden Sie sich mit Ihrem Microsoft-Konto an.
 2. Klicken Sie unter **Meine Anwendungen** auf **App hinzufügen**.
 ![OneDrive-Anwendungen][10]
 3. Geben Sie für die neue App-Registrierung einen **Namen** wie **App Service in Azure Stack Hub** ein, und klicken Sie dann auf **Anwendung erstellen**.
@@ -89,14 +89,14 @@ Sie benötigen für diese Aufgabe ein mit einem OneDrive-Konto verknüpftes Micr
 ![OneDrive-Anwendungseigenschaften][11]
 5. Klicken Sie unter **Anwendungsgeheimnisse** auf **Neues Kennwort generieren**. Notieren Sie sich das Kennwort unter **Neues Kennwort wurde generiert**. Dieses Kennwort ist Ihr Anwendungsgeheimnis. Es kann nicht mehr wiederhergestellt werden, nachdem Sie auf **OK** geklickt haben.
 6. Klicken Sie unter **Plattformen** auf **Plattform hinzufügen**, und wählen Sie dann **Web** aus.
-7. Geben Sie den **Umleitungs-URI** ein. In einer Standardbereitstellung von Azure Stack Hub weist der Umleitungs-URI das Format https://portal.local.azurestack.external/TokenAuthorize auf. Wenn die Ausführung in einer anderen Domäne erfolgt, müssen Sie „azurestack.local“ durch Ihren Domänennamen ersetzen.
+7. Geben Sie den **Umleitungs-URI** ein. In einer Standardbereitstellung von Azure Stack Hub weist der Umleitungs-URI das Format `https://portal.<region>.<FQDN>/TokenAuthorize` auf. 
 ![OneDrive-Anwendung: Webplattform hinzufügen][12]
 8. Fügen Sie **Microsoft Graph-Berechtigungen** - **Delegierte Berechtigungen** hinzu.
     - **Files.ReadWrite.AppFolder**
     - **User. Read**  
       ![OneDrive-Anwendung: Graph-Berechtigungen][13]
 9. Klicken Sie auf **Speichern**.
-10.  Melden Sie sich im Browser auf einer neuen Registerkarte oder in einem neuen Fenster beim Azure Stack Hub-Verwaltungsportal (https://adminportal.local.azurestack.external) ) als Dienstadministrator an.
+10.  Melden Sie sich im Browser auf einer neuen Registerkarte oder in einem neuen Fenster beim Azure Stack Hub-Verwaltungsportal als Dienstadministrator an.
 11.  Navigieren Sie zu **Resource Providers** (Ressourcenanbieter), und wählen Sie **App Service Resource Provider Admin** (Administrator von App Service-Ressourcenanbieter) aus.
 12. Klicken Sie auf **Source control configuration** (Konfiguration der Quellcodeverwaltung).
 13. Kopieren Sie die **Anwendungs-ID** und das **Kennwort**, und fügen Sie sie in das Eingabefeld **Client-ID** bzw. das Eingabefeld **Clientgeheimnis** für OneDrive ein.
@@ -107,7 +107,7 @@ Sie benötigen für diese Aufgabe ein mit einem OneDrive-Konto verknüpftes Micr
 > [!NOTE]
 > Sie benötigen ein Dropbox-Konto, um diese Aufgabe abschließen zu können. Möglicherweise möchten Sie lieber ein Konto für Ihre Organisation anstelle eines persönlichen Kontos verwenden.
 
-1. Navigieren Sie zu https://www.dropbox.com/developers/apps , und melden Sie sich mit den Anmeldeinformationen Ihres DropBox-Kontos an.
+1. Navigieren Sie zu https://www.dropbox.com/developers/apps, und melden Sie sich mit den Anmeldeinformationen Ihres DropBox-Kontos an.
 2. Klicken Sie auf **Create app**.
 
     ![Dropbox-Apps][14]
@@ -118,9 +118,9 @@ Sie benötigen für diese Aufgabe ein mit einem OneDrive-Konto verknüpftes Micr
 ![Registrierung der Dropbox-Anwendung][15]
 6. Klicken Sie auf **Create app** (App erstellen). Es wird eine Seite mit den Einstellungen für die App angezeigt, z. B. **App key** (App-Schlüssel) und **App secret** (App-Geheimnis).
 7. Stellen Sie sicher, dass **App folder name** (Name des App-Ordners) auf **App Service in Azure Stack Hub** festgelegt ist.
-8. Legen Sie den **OAuth 2 Redirect URI** (OAuth 2-Umleitungs-URI) fest, und klicken Sie dann auf **Add** (Hinzufügen). In einer Standardbereitstellung von Azure Stack Hub weist der Umleitungs-URI das Format https://portal.local.azurestack.external/TokenAuthorize auf. Wenn die Ausführung in einer anderen Domäne erfolgt, müssen Sie „azurestack.local“ durch Ihre Domäne ersetzen.
+8. Legen Sie den **OAuth 2 Redirect URI** (OAuth 2-Umleitungs-URI) fest, und klicken Sie dann auf **Add** (Hinzufügen). In einer Standardbereitstellung von Azure Stack Hub weist der Umleitungs-URI das Format `https://portal.<region>.<FQDN>/TokenAuthorize` auf. 
 ![Konfiguration der Dropbox-Anwendung][16]
-9.  Melden Sie sich im Browser auf einer neuen Registerkarte oder in einem neuen Fenster beim Azure Stack Hub-Verwaltungsportal (https://adminportal.local.azurestack.external) ) als Dienstadministrator an.
+9.  Melden Sie sich im Browser auf einer neuen Registerkarte oder in einem neuen Fenster beim Azure Stack Hub-Verwaltungsportal als Dienstadministrator an.
 10.  Navigieren Sie zu **Resource Providers** (Ressourcenanbieter), und wählen Sie **App Service Resource Provider Admin** (Administrator von App Service-Ressourcenanbieter) aus.
 11. Klicken Sie auf **Source control configuration** (Konfiguration der Quellcodeverwaltung).
 12. Kopieren Sie die Werte von **Application Key** (Anwendungsschlüssel) und von **App secret** (App-Geheimnis), und fügen Sie sie in das Eingabefeld **Client-ID** bzw. das Eingabefeld **Clientgeheimnis** für Dropbox ein.

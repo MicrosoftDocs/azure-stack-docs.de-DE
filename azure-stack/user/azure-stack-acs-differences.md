@@ -1,5 +1,6 @@
 ---
 title: 'Azure Stack Hub-Speicher: Unterschiede und Überlegungen'
+titleSuffix: Azure Stack Hub
 description: In diesem Artikel lernen Sie die Unterschiede zwischen Azure Stack Hub-Speicher und Azure-Speicher kennen und erhalten weitere Informationen zur Bereitstellung von Azure Stack Hub.
 author: mattbriggs
 ms.topic: conceptual
@@ -7,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: 3f5701cbb601b82db3b802bfd602c53576230b6f
-ms.sourcegitcommit: f114e9d268a74fde6891180b80c74c148dc0a129
+ms.openlocfilehash: 47e8935e67185b91b73591a28ba3e453e827e708
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80530768"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81394969"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub-Speicher: Unterschiede und Überlegungen
 
@@ -24,35 +25,26 @@ In diesem Artikel sind die bekannten Unterschiede zwischen Azure Stack Hub-Speic
 
 | Funktion | Azure (global) | Azure Stack Hub |
 | --- | --- | --- |
-|File Storage|Cloudbasierte SMB-Dateifreigaben unterstützt|Noch nicht unterstützt
+|File Storage|Cloudbasierte SMB-Dateifreigaben unterstützt | Noch nicht unterstützt.
 |Azure Storage Service Encryption für ruhende Daten|256-Bit-AES-Verschlüsselung. Unterstützung von Verschlüsselung mit vom Kunden verwalteten Schlüsseln in Key Vault|BitLocker-128-Bit-AES-Verschlüsselung. Verschlüsselung mit vom Kunden verwalteten Schlüsseln wird nicht unterstützt.
-|Speicherkontotyp|Konten vom Typ „Allgemein v1 (GPv1)“ und „Allgemein v2 (GPv2)“ sowie Blobspeicherkonten|Nur Konten vom Typ „Allgemein v1 (GPv1)“
-|Replikationsoptionen|Lokal redundanter Speicher, georedundanter Speicher, schreibgeschützter georedundanter Speicher und zonenredundanter Speicher|Lokal redundanter Speicher.
-|Storage Premium|Speicher mit hoher Leistung und geringer Latenz. Unter Storage Premium-Konten werden nur Seitenblobs unterstützt.|Kann bereitgestellt werden, aber ohne Leistungsgrenzwerte oder Garantien. Die Nutzung von Blockblobs, Anfügeblobs, Tabellen und Warteschlangen in Storage Premium-Konten wird nicht blockiert.
-|Verwaltete Datenträger|Unterstützung für Premium und Standard|Unterstützt bei Verwendung von Version 1808 oder höher.
-|Momentaufnahmen eines verwalteten Datenträgers|Allgemein verfügbar|Unterstützt.
-|Inkrementelle Momentaufnahmen von verwalteten Datenträgern|Allgemein verfügbar|Noch nicht unterstützt.
-|Momentaufnahmen verwalteter Datenträger für den virtuellen Computer im ausgeführten Zustand|Allgemein verfügbar|Noch nicht unterstützt.
-|Blobname|1\.024 Zeichen (2.048 Bytes)|880 Zeichen (1.760 Bytes)
-|Maximale Blockblobgröße|4,75 TB (100 MB X 50.000 Blöcke)|4,75 TB (100 MB x 50.000 Blöcke) für das Update 1802 oder eine neuere Version. 50.000 x 4 MB (ca. 195 GB) für vorherige Versionen.
-|Seitenblob-Momentaufnahmenkopie|Die Sicherung nicht verwalteter Azure-VM-Datenträger, die an einen ausgeführten virtuellen Computer angefügt sind, wird unterstützt.|Wird in der [API als asynchroner Vorgang](azure-stack-acs-differences.md) unterstützt.
-|Inkrementelle Momentaufnahmenkopie des Seitenblobs|Unterstützung für Premium- und Standard-Azure-Seitenblobs|Noch nicht unterstützt.
+|Speicherkontotyp|Konten vom Typ „Universell V1“ und „Universell V2“ sowie Blobspeicherkonten |Nur Konten vom Typ „Allgemein v1 (GPv1)“
+|Replikationsoptionen|Lokal redundanter Speicher, georedundanter Speicher, schreibgeschützter georedundanter Speicher und zonenredundanter Speicher |Lokal redundanter Speicher.
+|Storage Premium|Bereitstellen von Speicher mit hoher Leistung und geringer Wartezeit. Unter Storage Premium-Konten werden nur Seitenblobs unterstützt.|Kann bereitgestellt werden, aber ohne Leistungsgrenzwerte oder Garantien. Die Nutzung von Blockblobs, Anfügeblobs, Tabellen und Warteschlangen in Storage Premium-Konten wird nicht blockiert.
+|Verwaltete Datenträger|Unterstützung für Premium und Standard |Unterstützt bei Verwendung von Version 1808 oder höher.
+|Blobname|1\.024 Zeichen (2.048 Bytes) |880 Zeichen (1.760 Bytes)
+|Maximale Blockblobgröße|4,75 TB (100 MB × 50.000 Blöcke) |4,75 TB (100 MB x 50.000 Blöcke) für das Update 1802 oder eine neuere Version. 50.000 x 4 MB (ca. 195 GB) für vorherige Versionen.
+|Seitenblob-Momentaufnahmenkopie|Die Sicherung nicht verwalteter Azure-VM-Datenträger, die an einen ausgeführten virtuellen Computer angefügt sind, wird unterstützt. |Noch nicht unterstützt.
+|Inkrementelle Momentaufnahmenkopie des Seitenblobs|Unterstützung für Premium- und Standard-Azure-Seitenblobs |Noch nicht unterstützt.
 |Abrechnung von Seitenblobs|Gebühren fallen für individuelle Seiten an – unabhängig davon, ob sich diese im Blob oder in der Momentaufnahme befinden. Für Momentaufnahmen, die einem Blob zugeordnet sind, fallen keine zusätzlichen Gebühren an, bis das Basisblob aktualisiert wird.|Gebühren fallen für das Basisblob und für zugeordnete Momentaufnahmen an. Für jede einzelne Momentaufnahme fallen zusätzliche Gebühren an.
 |Speicherebenen für Blobspeicher|Speicherebenen „Heiß“ (Hot), „Kalt“ (Cool) und „Archiv“.|Noch nicht unterstützt.
-|Vorläufiges Löschen für Blobspeicher|Allgemein verfügbar|Noch nicht unterstützt.
-|Maximale Seitenblobgröße|8 TB|1 TB
-|Seitenblob – Seitengröße|512 Bytes|4 KB
+|Vorläufiges Löschen für Blobspeicher|Allgemein verfügbar |Noch nicht unterstützt.
+|Maximale Seitenblobgröße|8 TB |1 TB 
+|Seitenblob – Seitengröße|512 Bytes |4 KB 
 |Größe für Tabellenpartitionsschlüssel und Zeilenschlüssel|1\.024 Zeichen (2.048 Bytes)|400 Zeichen (800 Bytes)
 |Momentaufnahme eines Blobs|Die maximale Anzahl von Momentaufnahmen eines Blobs ist nicht beschränkt.|Die maximale Anzahl von Momentaufnahmen eines Blobs beträgt 1.000.
-|Azure AD-Authentifizierung für Speicher|Allgemein verfügbar|Noch nicht unterstützt.
-|Unveränderliche Blobs|Allgemein verfügbar|Noch nicht unterstützt.
-|Firewallregeln und VNET-Regeln für Speicher|Allgemein verfügbar|Noch nicht unterstützt.|
-|Zuordnen einer benutzerdefinierten Domäne zu einem Blob Storage-Endpunkt|Allgemein verfügbar|Noch nicht unterstützt.|
-|Hosten von statischen Websites in Blob Storage|Allgemein verfügbar|Noch nicht unterstützt.|
-|Verschlüsseln von ruhenden Daten mit vom Kunden verwalteten Schlüsseln|Allgemein verfügbar|Noch nicht unterstützt.|
-|Überprüfen der Integrität von Transaktionsdaten mit CRC64-Hash|Allgemein verfügbar|Noch nicht unterstützt.|
-|Serverseitiges synchrones Kopieren von Daten aus URL|Allgemein verfügbar|Noch nicht unterstützt.|
-|Batch-API für Blob Storage|Allgemein verfügbar|Noch nicht unterstützt.|
+|Azure AD-Authentifizierung für Speicher|In der Vorschauversion. |Noch nicht unterstützt.
+|Unveränderliche Blobs|Allgemein verfügbar |Noch nicht unterstützt.
+|Firewallregeln und VNET-Regeln für Speicher|Allgemein verfügbar |Noch nicht unterstützt.|
 
 Es gibt auch Unterschiede zu Speichermetriken:
 
@@ -103,13 +95,12 @@ Vorherige Versionen:
 
 ## <a name="powershell-version"></a>PowerShell-Version
 
-Bei der PowerShell-Version für das Speichermodul müssen Sie auf die Version achten, die mit der REST-API kompatibel ist. 
+Bei der PowerShell-Version für das Speichermodul müssen Sie auf die Version achten, die mit der REST-API kompatibel ist.
 
 | Modul | Unterstützte Version | Verwendung |
-|----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|---|---|---|
 | Azure.Storage | [4.5.0](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0) | Verwaltet Blobs, Warteschlangen und Tabellen in Azure Stack Hub-Speicherkonten. |
 | AzureRM.Storage | [5.0.4](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.4) | Erstellt und verwaltet Speicherkonten in Azure Stack Hub. |
-
 
 Weitere Informationen zu von Azure Stack Hub unterstützten Speicherclientbibliotheken finden Sie unter: [Erste Schritte mit den Azure Stack Hub-Speicherentwicklungstools](azure-stack-storage-dev.md).
 

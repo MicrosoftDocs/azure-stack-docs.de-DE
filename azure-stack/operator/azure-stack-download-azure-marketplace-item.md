@@ -3,16 +3,16 @@ title: Herunterladen von Marketplace-Elementen aus Azure und Veröffentlichen in
 description: Es wird beschrieben, wie Sie Marketplace-Elemente aus Azure herunterladen und in Azure Stack Hub veröffentlichen.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 02/04/2020
+ms.date: 04/08/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: 38e0f6deea5cfeb86ba3c42c8590004ee5dc99bc
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: a37f8b14a1a21caa8f710afe54868f308971e422
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295191"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80979420"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Herunterladen von Marketplace-Elementen in Azure Stack Hub 
 
@@ -54,9 +54,9 @@ Ihre Azure Stack Hub-Bereitstellung muss über eine Internetverbindung verfügen
 
    ![Hinzufügen aus Azure](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png)
 
-5. Wenn die Version eines Elements als **Mehrere** angegeben ist, können Sie das Element auswählen und in der daraufhin angezeigten Dropdownliste eine bestimmte Version wählen:
+5. Wenn die Version eines Elements als **Mehrere** angegeben ist, können Sie das Element auswählen und in der daraufhin angezeigten Dropdownliste eine bestimmte Version auswählen. Beachten Sie, dass Microsoft nun Attribute hinzufügen kann, die für Administratoren das Herunterladen von Marketplace-Produkten blockieren, die mit ihrer Azure Stack-Instanz inkompatibel sind (aufgrund verschiedener Eigenschaften, z. B. Azure Stack-Version oder Abrechnungsmodell). Diese Attribute können nur von Microsoft hinzugefügt werden:
 
-   ![Hinzufügen aus Azure](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png)
+   [![Hinzufügen aus Azure](media/azure-stack-download-azure-marketplace-item/add-from-azure3sm.png "Mehrere Versionen")](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png#lightbox)
 
 6. Wählen Sie das gewünschte Element aus, und klicken Sie auf **Weiter**. Die Downloadzeiten variieren und hängen von der Netzwerkkonnektivität ab. Wenn der Download abgeschlossen ist, können Sie das neue Marketplace-Element entweder als Azure Stack Hub-Bediener oder -Benutzer bereitstellen.
 

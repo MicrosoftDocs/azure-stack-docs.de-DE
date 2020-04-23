@@ -8,12 +8,12 @@ ms.date: 05/03/2019
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: df143d08f3d5e4445020f4932a47de657805fa7c
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: f71367c86dcb360297fed7250e3a5dfb4bd6beda
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "78366414"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772435"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>Unterschiede zwischen der globalen Azure-Infrastruktur, Azure Stack Hub und Azure Stack HCI
 
@@ -21,7 +21,7 @@ Azure und die Familie der Azure Stack Hub-Dienste werden von Microsoft in einer 
 
 In diesem Artikel werden die Unterschiede zwischen der globalen Azure-Infrastruktur, Azure Stack Hub und Azure Stack HCI erläutert. Er enthält zudem Empfehlungen zu häufigen Szenarien, damit Sie die bestmögliche Auswahl treffen können, wenn es um die Bereitstellung von cloudbasierten Microsoft-Diensten für Ihre Organisation geht.
 
-![Übersicht über die Azure-Infrastruktur](./media/compare-azure-azure-stack/azure-family.png)
+![Übersicht über die Azure-Infrastruktur](./media/compare-azure-azure-stack/azure-family.svg)
 
 ## <a name="global-azure"></a>Globale Azure-Umgebung
 
@@ -52,7 +52,7 @@ Zusätzlich zu den oben beschriebenen Ressourcenanbietern sind noch zusätzliche
 - Ethereum-Blockchain
 - Cloud Foundry
 
-### <a name="example-use-cases-for-azure-stack-hub"></a>Beispiele für Azure Stack Hub-Anwendungsfälle:
+### <a name="example-use-cases-for-azure-stack-hub"></a>Beispiele für Azure Stack Hub-Anwendungsfälle
 
 - Finanzmodelle
 - Klinische Daten und Daten zur Geltendmachung von Ansprüchen
