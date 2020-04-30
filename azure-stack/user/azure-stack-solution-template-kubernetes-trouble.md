@@ -4,15 +4,15 @@ description: Erfahren Sie, wie Sie Probleme bei der Bereitstellung von Kubernete
 author: mattbriggs
 ms.topic: article
 ms.author: mabrigg
-ms.date: 11/14/2019
+ms.date: 04/20/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 0d9e1512cab3ad33bba5cfa2d4f57128edf51cf2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 30743cf5a2edf880c155e443c0608dc7d3f8f55f
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512591"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660213"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Problembehandlung bei der Bereitstellung von Kubernetes in Azure Stack Hub
 

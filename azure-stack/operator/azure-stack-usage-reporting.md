@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 294fec646462d154c8d8f2e1d22c31d2d88220d4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d0d11295d9425e07e34dc59eb2fcc83c6b020582
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696378"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772566"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Melden von Azure Stack Hub-Nutzungsdaten an Azure
 
@@ -28,7 +28,7 @@ Azure Stack Hub-Systeme mit mehreren Knoten, die das nutzungsbasierte Abrechnung
 
 Die Berichterstellung für Nutzungsdaten ist für diejenigen Benutzer der Azure Stack Hub-Systeme mit mehreren Knoten erforderlich, die im Rahmen des nutzungsbasierten Modells lizenziert sind. Sie ist optional für Kunden, die im Rahmen des Kapazitätsmodells lizenziert sind (siehe Seite [Azure Stack erwerben](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)). Für Azure Stack Development Kit-Benutzer (ASDK) können Azure Stack Hub-Operatoren Nutzungsdaten melden und das Feature testen. Allerdings werden Benutzern keinerlei Kosten berechnet, die für die Nutzung anfallen.
 
-![Abrechnungsflow für Nutzungsdaten in Azure Stack Hub](media/azure-stack-usage-reporting/billing-flow.png)
+![Abrechnungsflow für Nutzungsdaten in Azure Stack Hub](media/azure-stack-usage-reporting/billing-flow.svg)
 
 Nutzungsdaten werden von Azure Stack Hub über die Azure-Bridge an Azure gesendet. In Azure verarbeitet das Commerce-System die Nutzungsdaten und erstellt die Rechnung. Nachdem die Rechnung erstellt wurde, kann der Besitzer des Azure-Abonnements diese im [Azure-Kontocenter](https://account.windowsazure.com/subscriptions) anzeigen und von dort herunterladen. Informationen zur Lizenzierung von Azure Stack Hub finden Sie im Dokument [Azure Stack Hub packaging and pricing](https://go.microsoft.com/fwlink/?LinkId=842847) (Paketerstellung und Preise von Azure Stack Hub).
 

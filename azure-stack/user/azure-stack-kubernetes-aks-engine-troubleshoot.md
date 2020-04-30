@@ -3,16 +3,16 @@ title: Problembehandlung bei der AKS-Engine in Azure Stack Hub
 description: In diesem Artikel werden Schritte zur Problembehandlung für die AKS-Engine in Azure Stack Hub beschrieben.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 4/17/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: d362eb0bf418cf292953afc50fe993dc4867253c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 4/17/2020
+ms.openlocfilehash: 8768628e246c439c86bba80f4faac2ff9ae1973d
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069292"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624980"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Problembehandlung bei der AKS-Engine in Azure Stack Hub
 
@@ -142,7 +142,7 @@ Anforderungen:
 
 ## <a name="review-custom-script-extension-error-codes"></a>Überprüfen der Fehlercodes für die benutzerdefinierte Skripterweiterung
 
-Sie können eine Liste der Fehlercodes einsehen, die von der benutzerdefinierten Skripterweiterung (Custom Script Extension, CSE) beim Ausführen Ihres Clusters erstellt wurden. Die CSE-Fehlercodes können nützlich sein, um die Ursache des Problems zu diagnostizieren. Die CSE für den Ubuntu-Server, der im Kubernetes-Cluster verwendet wird, unterstützt viele der AKS-Engine-Vorgänge. Weitere Informationen zu den CSE-Exitcodes finden Sie unter [cse_helpers. sh](https://github.com/Azure/aks-engine/blob/master/parts/k8s/cloud-init/artifacts/cse_helpers.sh).
+Sie können eine Liste der Fehlercodes einsehen, die von der benutzerdefinierten Skripterweiterung (Custom Script Extension, CSE) beim Ausführen Ihres Clusters erstellt wurden. Die CSE-Fehlercodes können nützlich sein, um die Ursache des Problems zu diagnostizieren. Die CSE für den Ubuntu-Server, der im Kubernetes-Cluster verwendet wird, unterstützt viele der AKS-Engine-Vorgänge. Weitere Informationen zu den CSE-Exitcodes finden Sie unter [cse_helpers. sh](https://github.com/Azure/aks-engine/blob/master/pkg/engine/cse.go).
 
 ### <a name="providing-kubernetes-logs-to-a-microsoft-support-engineer"></a>Bereitstellen von Kubernetes-Protokollen für einen Microsoft-Supporttechniker
 

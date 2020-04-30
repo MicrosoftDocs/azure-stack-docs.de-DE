@@ -212,6 +212,8 @@
                       href: azure-stack-kubernetes-aks-engine-overview.md
                     - name: Supportrichtlinie
                       href: azure-stack-kubernetes-aks-engine-support.md
+                    - name: Versionshinweise zur AKS-Engine
+                      href: kubernetes-aks-engine-release-notes.md
                     - name: Einrichten erforderlicher Komponenten
                       href: azure-stack-kubernetes-aks-engine-set-up.md
                     - name: Erstellen eines Linux-Clients
@@ -323,7 +325,7 @@
       href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
     - name: Azure Stack Hub-REST-API-Browser
       href: /rest/api/
-    - name: Azure-Befehlszeilenschnittstelle
+    - name: Azure CLI
       href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
 - name: Verwandte Themen
   items:

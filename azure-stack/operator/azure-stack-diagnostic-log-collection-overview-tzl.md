@@ -7,14 +7,16 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 8f97ecd20e7ef8db69033268baf96060e1315751
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b1c1048a8ad8bdb8d16d2e86c82febc8c74b03af
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79520633"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624940"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Übersicht über die Sammlung von Azure Stack Hub-Diagnoseprotokollen 
+
+::: moniker range=">= azs-2002"
 
 Bei Azure Stack Hub handelt es sich um eine umfangreiche Sammlung von Windows-Komponenten und lokalen Azure-Diensten, die miteinander interagieren. Von allen diesen Komponenten und Diensten werden jeweils eigene Protokolle generiert. Daher haben wir eine nahtlose Umgebung für die Sammlung von Diagnoseprotokollen bereitgestellt, um eine effiziente Problemdiagnose durch den Microsoft-Kundendienst (Customer Support Services, CSS) zu ermöglichen. 
 
@@ -64,18 +66,74 @@ Die Daten werden ausschließlich für die Problembehandlung im Zusammenhang mit 
 
 Protokolle, die im Zuge des sofortigen Sendens von Protokollen gesammelt werden, werden in einen von Microsoft verwalteten und gesteuerten Speicher hochgeladen. Auf diese Protokolle wird von Microsoft im Kontext einer Supportanfrage sowie zur Verbesserung der Integrität von Azure Stack Hub zugegriffen werden. 
 
+
+
 ## <a name="bandwidth-considerations"></a>Bandbreitenaspekte
 
 Die durchschnittliche Größe der Sammlung von Diagnoseprotokollen variiert abhängig von der Art der Ausführung (proaktiv oder manuell). Bei der **proaktiven Protokollsammlung** beträgt die durchschnittliche Größe ca. 2 GB. Beim **sofortigen Senden von Protokollen** hängt die Größe davon ab, wie viele Stunden die Sammlung umfasst.
 
 In der folgenden Tabelle sind Überlegungen zu Umgebungen mit eingeschränkten oder getakteten Azure-Verbindungen aufgelistet.
 
-
 | Netzwerkverbindung | Auswirkung |
 |--------------------|--------|
 | Verbindung mit geringer Bandbreite/hoher Latenz | Der vollständige Upload des Protokolls dauert längere Zeit | 
 | Gemeinsam genutzte Verbindung | Der Upload kann sich auch auf andere Anwendungen/Benutzer auswirken, die die gleiche Netzwerkverbindung nutzen |
 | Getaktete Verbindung | Möglicherweise fallen zusätzliche Nutzungsgebühren seitens Ihres ISPs für die Mehrnutzung des Netzwerks an | 
+
+::: moniker-end
+::: moniker range="<= azs-1910"
+
+## <a name="collecting-logs-from-multiple-azure-stack-hub-systems"></a>Sammeln von Protokollen aus mehreren Azure Stack Hub-Systemen
+
+Richten Sie für jede Azure Stack Hub-Skalierungseinheit, aus der Sie Protokolle sammeln möchten, einen Blobcontainer ein. Informationen zum Konfigurieren der Blobcontainer finden Sie unter [Konfigurieren der automatischen Azure Stack Hub-Diagnoseprotokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md). Es empfiehlt sich, nur Diagnoseprotokolle aus der gleichen Azure Stack Hub-Skalierungseinheit innerhalb eines einzelnen Blobcontainers zu speichern. 
+
+## <a name="retention-policy"></a>Aufbewahrungsrichtlinie
+
+Erstellen Sie eine [Lebenszyklusverwaltungs-Regel](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) in Azure Blob Storage, um die Protokoll-Aufbewahrungsrichtlinie zu verwalten. Wir empfehlen, Diagnoseprotokolle 30 Tage lang aufzubewahren. Melden Sie sich zum Erstellen einer Lebenszyklusverwaltungs-Regel in Azure Storage beim Azure-Portal an, klicken Sie auf **Speicherkonten**, klicken Sie auf den Blobcontainer, und klicken Sie dann unter **Blob-Dienst** auf **Lebenszyklusverwaltung**.
+
+![Screenshot, der die Lebenszyklusverwaltung im Azure-Portal darstellt](media/azure-stack-automatic-log-collection/blob-storage-lifecycle-management.png)
+
+
+## <a name="sas-token-expiration"></a>SAS-Tokenablauf
+
+Legen Sie den Ablauf der SAS-URL auf zwei Jahre fest. Sollten Sie jemals Ihre Speicherkontoschlüssel erneuern, achten Sie darauf, die SAS-URL neu zu generieren. Sie sollten das SAS-Token gemäß den bewährten Methoden verwalten. Weitere Informationen finden Sie unter [Bewährte Methoden bei der Verwendung von SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#best-practices-when-using-sas).
+
+
+## <a name="bandwidth-consumption"></a>Bandbreitenverbrauch
+
+Die durchschnittliche Größe der Sammlung von Diagnoseprotokollen schwankt, je nachdem, ob die Protokollsammlung bedarfsgesteuert oder automatisch ausgeführt wird. 
+
+Bei der bedarfsgesteuerten Protokollsammlung hängt die Größe der Protokollsammlung davon ab, wie viele Stunden erfasst werden. Sie können ein beliebiges gleitendes Fenster von 1–4 Stunden in den letzten sieben Tagen auswählen. 
+
+Wenn die automatische Sammlung von Diagnoseprotokollen aktiviert ist, überwacht der Dienst kritische Warnungen. 
+Wenn eine kritische Warnung ausgelöst und etwa 30 Minuten lang aufrecht erhalten wird, sammelt der Dienst entsprechende Protokolle und lädt sie hoch. 
+Die Größe dieser Protokollsammlung beträgt durchschnittlich ca. 2 GB. 
+Im Fall eines Fehlers bei einem Patch oder Update beginnt die automatische Protokollsammlung nur, wenn eine kritische Warnung ausgelöst wird und ca. 30 Minuten lang besteht. Es empfiehlt sich, die [Anleitung zum Überwachen von Patches und Updates](azure-stack-updates.md) zu befolgen.
+Warnungsüberwachung, Protokollsammlung und Upload erfolgen für den Benutzer transparent. 
+
+
+
+In einem fehlerfreien System werden überhaupt keine Protokolle gesammelt. 
+Bei einem fehlerhaften System wird die Protokollsammlung möglicherweise zweimal oder dreimal im Lauf eines Tages ausgeführt, in der Regel jedoch nur einmal. 
+Maximal könnte sie in einem besonders ungünstigsten Szenario bis zu zehnmal am Tag ausgeführt werden.  
+
+Die folgende Tabelle kann dabei helfen, den Einfluss der aktivierten automatischen Protokollsammlung in Umgebungen mit eingeschränkten oder getakteten Verbindungen einzuschätzen.
+
+| Netzwerkverbindung | Auswirkung |
+|--------------------|--------|
+| Verbindung mit geringer Bandbreite/hoher Latenz | Der vollständige Upload des Protokolls dauert längere Zeit | 
+| Gemeinsam genutzte Verbindung | Der Upload kann sich auch auf andere Anwendungen/Benutzer auswirken, die die gleiche Netzwerkverbindung nutzen |
+| Getaktete Verbindung | Möglicherweise fallen zusätzliche Nutzungsgebühren seitens Ihres ISPs für die Mehrnutzung des Netzwerks an |
+
+
+## <a name="managing-costs"></a>Kostenverwaltung
+
+Gebühren für Azure [Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/) richten sich nach der Menge der pro Monat gespeicherten Daten und nach weiteren Faktoren, wie der Datenredundanz. 
+Wenn Sie nicht über ein Speicherkonto verfügen, können Sie sich beim Azure-Portal anmelden, auf **Speicherkonten** klicken und die Schritte zum [Erstellen einer SAS-URL für Azure-Blobcontainer](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md) ausführen.
+
+Es wird empfohlen, eine [Lebenszyklusverwaltungs-Richtlinie](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) für Azure Blob Storage zu erstellen, um die laufenden Speicherkosten zu minimieren. Informationen zum Einrichten des Speicherkontos finden Sie unter [Konfigurieren der automatischen Azure Stack Hub-Diagnoseprotokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md).
+
+::: moniker-end
 
 ## <a name="see-also"></a>Weitere Informationen
 

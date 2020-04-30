@@ -3,15 +3,15 @@ title: Nutzen der Überwachungsdaten von Azure Stack Hub
 description: Lernen Sie Optionen zum Nutzen von Überwachungsdaten aus Azure Stack Hub kennen.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9bbe39f63a4b59446f5c8d6444381afc9ea89cc8
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 933d05e17098ed7ef27a21d5ed846a420ff2f48a
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703926"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660510"
 ---
 # <a name="consume-monitoring-data-from-azure-stack-hub"></a>Nutzen der Überwachungsdaten von Azure Stack Hub
 

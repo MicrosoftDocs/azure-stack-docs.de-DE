@@ -3,16 +3,16 @@ title: Hinzufügen von Knoten einer Skalierungseinheit in Azure Stack Hub
 description: Erfahren Sie, wie Sie Knoten einer Skalierungseinheit in Azure Stack Hub zu Skalierungseinheiten hinzufügen.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/16/2020
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 8aa33cda9a657d3e0bcec9525f86bd792c855e65
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c264e0abc0fdc5a382b83a23158f860a56aea260
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77688762"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772588"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Hinzufügen zusätzlicher Knoten einer Skalierungseinheit in Azure Stack Hub
 
@@ -22,7 +22,7 @@ Um einen Knoten einer Skalierungseinheit hinzuzufügen, verwenden Sie Azure Stac
 
 Das folgende Flussdiagramm zeigt den allgemeinen Prozess des Hinzufügens eines Knotens zu einer Skalierungseinheit:
 
-![Flow zum Hinzufügen zu Skalierungseinheiten](media/azure-stack-add-scale-node/add-node-flow.png)
+![Flow zum Hinzufügen zu Skalierungseinheiten](media/azure-stack-add-scale-node/add-node-flow.svg)
 <br> *Ob Ihr OEM-Hardwarehersteller die Platzierung des physischen Serverracks vornimmt und die Firmware aktualisiert, hängt von Ihrem Supportvertrag ab.*
 
 Das Hinzufügen eines neuen Knotens kann mehrere Stunden oder Tage dauern. Es gibt keine Auswirkungen auf Workloads, die auf dem System ausgeführt werden, während ein zusätzlicher Skalierungseinheitknoten hinzugefügt wird.

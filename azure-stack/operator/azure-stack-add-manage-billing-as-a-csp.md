@@ -3,16 +3,16 @@ title: Verwalten der Nutzung und Abrechnung für Azure Stack Hub als Cloud Solut
 description: Erfahren Sie, wie Sie Azure Stack Hub als Cloud Solution Provider (CSP) registrieren und Kunden für die Abrechnung hinzufügen.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 73970197e6d0b1c55e29e028e53d6639aa9c0afa
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 8202942a10e4faf48b09e9fd0d456a810d6a08fd
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295437"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772411"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Verwalten der Nutzung und Abrechnung für Azure Stack Hub als Cloud Solution Provider
 
@@ -22,7 +22,7 @@ Als CSP arbeiten Sie mit Azure Stack Hub mit unterschiedlichen Kunden. Jeder Kun
 
 Die folgende Abbildung zeigt die erforderlichen Schritte, um Ihr Konto für gemeinsame Dienste auszuwählen und das Azure-Konto beim Azure Stack Hub-Konto zu registrieren. Nach der Registrierung können Sie Ihre Endkunden integrieren:
 
-[![Verfahren zum Aktivieren der Nutzung und Verwaltung als Cloud Solution Provider](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "Verfahren zum Aktivieren der Nutzung und Verwaltung als Cloud Solution Provider")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
+[![Verfahren zum Aktivieren der Nutzung und Verwaltung als Cloud Solution Provider](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.svg "Verfahren zum Aktivieren der Nutzung und Verwaltung als Cloud Solution Provider")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.svg)
 
 ## <a name="create-a-csp-or-apss-subscription"></a>Erstellen eines CSP- oder APSS-Abonnements
 

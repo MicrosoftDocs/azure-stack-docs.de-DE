@@ -1,18 +1,18 @@
 ---
 title: Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum
 description: Erfahren Sie, wie Sie den Azure Stack Hub-AD FS-Identitätsanbieter in die Active Directory-Verbunddienste (AD FS) Ihres Rechenzentrums integrieren.
-author: IngridAtMicrosoft
+author: BryanLa
 ms.topic: article
 ms.date: 04/10/2020
-ms.author: inhenkel
+ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 31ef13db3d0a195d0d9505dec2fabf4124448a0f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 38e3d36b5269dac3ee3c4190aff001b4ed4921b4
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81243803"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173946"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum
 

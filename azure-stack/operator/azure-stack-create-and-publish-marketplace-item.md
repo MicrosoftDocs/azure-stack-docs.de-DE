@@ -3,16 +3,16 @@ title: Erstellen und Veröffentlichen eines Marketplace-Elements in Azure Stack 
 description: Erfahren Sie, wie Sie ein Azure Stack Hub-Marketplace-Element erstellen und veröffentlichen.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/03/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: bb407a03b2a5887b75b8b5d729fa5cc2cc636755
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 45eb02425b0c90e95bb2b0c1c5278b9408fa1f27
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704453"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660713"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack Hub-Marketplace-Elements
 

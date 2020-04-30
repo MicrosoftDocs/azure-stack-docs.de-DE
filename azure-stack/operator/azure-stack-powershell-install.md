@@ -7,14 +7,14 @@ ms.date: 04/14/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: 937a3610891a2ec532e5c95bc60a9b9c5a8cc684
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d2c40307daa37b8f522fde9010a3d285eebff0fc
+ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81395000"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106940"
 ---
-# <a name="install-powershell-azurerm-or-az-module-for-azure-stack-hub"></a>Installieren des PowerShell AzureRM- oder Az-Moduls für Azure Stack Hub
+# <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Installieren des PowerShell AzureRM-Moduls für Azure Stack Hub
 
 Azure PowerShell AzureRM bietet eine Reihe von Cmdlets, die das Azure Resource Manager-Modell für die Verwaltung von Azure Stack Hub-Ressourcen verwenden.
 

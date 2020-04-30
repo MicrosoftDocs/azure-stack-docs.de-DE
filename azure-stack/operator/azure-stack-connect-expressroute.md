@@ -3,16 +3,16 @@ title: Herstellen einer Verbindung zwischen Azure Stack Hub und Azure mithilfe v
 description: Erfahren Sie, wie Sie mithilfe von ExpressRoute eine Verbindung zwischen virtuellen Netzwerken in Azure Stack Hub und virtuellen Netzwerken in Azure herstellen.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 59fa339cfa58fa2c5c6b0e1b727cf2adee79b7e2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1b68435317136afdbfcc5d1ade16b18a2210baad
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701495"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772703"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Herstellen einer Verbindung von Azure Stack Hub mit Azure mithilfe von Azure ExpressRoute
 
@@ -51,7 +51,7 @@ Für die Verbindungsherstellung zwischen Azure Stack Hub und Azure mithilfe von 
 
 Die folgende Abbildung zeigt die Azure Stack Hub- und die Azure-Umgebung nach der Einrichtung von ExpressRoute anhand der Beispiele in diesem Artikel:
 
-![ExpressRoute-Netzwerk](media/azure-stack-connect-expressroute/Conceptual.png)
+![ExpressRoute-Netzwerk](media/azure-stack-connect-expressroute/conceptual.svg)
 
 In der folgenden Abbildung ist dargestellt, wie für mehrere Mandanten eine Verbindung von der Azure Stack Hub-Infrastruktur über den ExpressRoute-Router mit Azure im hergestellt wird:
 
@@ -68,7 +68,7 @@ Verwenden Sie zum Einrichten der Azure Stack Hub-Umgebung für den ersten Mandan
 >[!NOTE]
 >In diesen Schritten wird gezeigt, wie Sie Ressourcen im Azure Stack Hub-Portal erstellen, Sie können jedoch auch PowerShell verwenden.
 
-![Einrichtung des Azure Stack Hub-Netzwerks](media/azure-stack-connect-expressroute/image2.png)
+![Einrichtung des Azure Stack Hub-Netzwerks](media/azure-stack-connect-expressroute/azure-stack-connect-expressrouteimage-image2.svg)
 
 ### <a name="before-you-begin"></a>Voraussetzungen
 
@@ -267,7 +267,7 @@ Der Router ist der ASDK-Host, der mit der RRAS-Rolle (Routing and Remote Access 
 
 Nachdem Sie Azure Stack Hub konfiguriert haben, können Sie die Azure-Ressourcen bereitstellen. die folgende Abbildung zeigt ein Beispiel für ein virtuelles Mandantennetzwerk in Azure. Sie können für Ihr VNET in Azure ein beliebiges Namens- und Adressierungsschema verwenden. Der Adressbereich der VNETs in Azure und Azure Stack Hub muss aber eindeutig sein und darf sich nicht überschneiden:
 
-![Azure-VNETs](media/azure-stack-connect-expressroute/AzureArchitecture.png)
+![Azure-VNETs](media/azure-stack-connect-expressroute/azurearchitecture.svg)
 
 Die Ressourcen, die Sie in Azure bereitstellen, ähneln den Ressourcen, die Sie in Azure Stack Hub bereitgestellt haben. Sie stellen die folgenden Komponenten bereit:
 

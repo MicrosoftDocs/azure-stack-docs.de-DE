@@ -2,18 +2,18 @@
 title: Überprüfen der Azure Graph-Integration
 titleSuffix: Azure Stack Hub
 description: Verwenden Sie Azure Stack Hub Readiness Checker, um eine Graph-Integration für Azure Stack Hub zu überprüfen.
-author: IngridAtMicrosoft
+author: BryanLa
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: bryanla
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 541be4667328f6ac3906c785329b8816558c8b84
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e4af68d1d4f9a44bb957f318f0f13ec1d2c9ecdd
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78366637"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173841"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>Überprüfen der Graph-Integration für Azure Stack Hub
 
