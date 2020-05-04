@@ -1,5 +1,5 @@
 ---
-title: Konfigurieren der Hybrid Cloud-Konnektivität mithilfe von Azure und Azure Stack Hub
+title: Konfigurieren der Hybrid Cloud-Konnektivität in Azure und Azure Stack Hub
 description: Erfahren Sie, wie Sie die Hybrid Cloud-Konnektivität mithilfe von Azure und Azure Stack Hub konfigurieren.
 author: BryanLa
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4c12cd6eb262aa953637ae6928051e7aa444ef91
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a810579dd3dd50b58b357921657e87103dbfe59a
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695426"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166989"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Konfigurieren der Hybrid Cloud-Konnektivität mithilfe von Azure und Azure Stack Hub
 
@@ -28,67 +28,64 @@ In dieser Lösung erstellen Sie eine Beispielumgebung, die Folgendes ermöglicht
 > ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack Hub ist eine Erweiterung von Azure. Mit Azure Stack Hub holen Sie sich die Agilität und Innovation von Cloud Computing in Ihre lokale Umgebung. Sie erhalten die einzige Hybrid Cloud, mit der Sie Hybrid-Apps überall entwickeln und bereitstellen können.  
 > 
-> Im Artikel [Entwurfsüberlegungen für Hybridanwendungen](overview-app-design-considerations.md) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybrid-Apps, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
-
+> Im Artikel [Überlegungen zum Entwurf von Hybrid-Apps](overview-app-design-considerations.md) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybrid-Apps erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybrid-Apps, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Es sind einige Komponenten erforderlich, um eine Hybrid-Verbindungsbereitstellung zu erstellen. Da die Vorbereitung für einige dieser Komponenten länger dauert, sollten Sie entsprechend planen.
 
-**Azure Stack Hub**
+### <a name="azure"></a>Azure
+
+- Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
+- Erstellen Sie eine [Web-App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) in Azure. Notieren Sie sich die Web-App-URL, da Sie sie in der Lösung benötigen.
+
+### <a name="azure-stack-hub"></a>Azure Stack Hub
 
 Ein Azure-OEM/-Hardwarepartner kann eine Azure Stack Hub-Produktionsumgebung bereitstellen. Ein Azure Stack Development Kit (ASDK) kann von allen Benutzern bereitgestellt werden.
 
-**Azure Stack Hub-Komponenten**
+- Verwenden Sie Ihre Produktionsinstanz von Azure Stack Hub, oder stellen Sie das ASDK über https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 bereit.
+   >[!Note]
+   >Da die Bereitstellung des ASDK bis zu sieben Stunden dauern kann, sollten Sie entsprechend planen.
+
+- Stellen Sie PaaS-Dienste als [App Service](../operator/azure-stack-app-service-deploy.md) für Azure Stack Hub bereit.
+- [Erstellen Sie Pläne und Angebote](../operator/service-plan-offer-subscription-overview.md) in der Azure Stack Hub-Umgebung.
+- [Erstellen Sie ein Mandantenabonnement](../operator/azure-stack-subscribe-plan-provision-vm.md) in Ihrer Azure Stack Hub-Umgebung.
+
+### <a name="azure-stack-hub-components"></a>Azure Stack Hub-Komponenten
 
 Ein Azure Stack Hub-Bediener muss App Service bereitstellen, Pläne, Angebote und ein Mandantenabonnement erstellen und das Windows Server 2016-Image hinzufügen. Wenn Sie bereits über diese Komponenten verfügen, sollten Sie vor dem Beginn dieser Lösung sicherstellen, dass diese die Anforderungen erfüllen.
 
 In diesem Lösungsbeispiel wird davon ausgegangen, dass Sie bereits über Grundkenntnisse in Bezug auf Azure und Azure Stack Hub verfügen. Lesen Sie die folgenden Artikel, um vor dem Starten der Lösung weitere Informationen zu erhalten:
 
- - [Einführung in Azure](https://azure.microsoft.com/overview/what-is-azure/)
- - [Übersicht über Azure Stack Hub](../operator/azure-stack-overview.md)
-
-### <a name="azure"></a>Azure
-
- - Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
- - Erstellen Sie eine [Web-App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) in Azure. Notieren Sie sich die Web-App-URL, da Sie sie in der Lösung benötigen.
-
-### <a name="azure-stack-hub"></a>Azure Stack Hub
-
- - Verwenden Sie Ihre Azure Stack Hub-Produktionsumgebung, oder stellen Sie das Azure Stack Development Kit bereit. Es befindet sich unter https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1.
-   >[!Note]
-   >Da die Bereitstellung des ASDK bis zu sieben Stunden dauern kann, sollten Sie entsprechend planen.
-
- - Stellen Sie PaaS-Dienste als [App Service](../operator/azure-stack-app-service-deploy.md) für Azure Stack Hub bereit.
- - [Erstellen Sie Pläne und Angebote](../operator/service-plan-offer-subscription-overview.md) in der Azure Stack Hub-Umgebung.
- - [Erstellen Sie ein Mandantenabonnement](../operator/azure-stack-subscribe-plan-provision-vm.md) in Ihrer Azure Stack Hub-Umgebung.
+- [Einführung in Azure](https://azure.microsoft.com/overview/what-is-azure/)
+- [Übersicht über Azure Stack Hub](../operator/azure-stack-overview.md)
 
 ### <a name="before-you-begin"></a>Voraussetzungen
 
 Überprüfen Sie, ob Sie die folgenden Kriterien erfüllen, bevor Sie mit der Konfiguration der Hybrid Cloud-Konnektivität beginnen:
 
- - Sie benötigen eine extern zugängliche, öffentliche IPv4-Adresse für Ihr VPN-Gerät. Diese IP-Adresse darf sich nicht hinter einer NAT (Netzwerkadressenübersetzung) befinden.
- - Alle Ressourcen werden in derselben Region bzw. an demselben Standort bereitgestellt.
+- Sie benötigen eine extern zugängliche, öffentliche IPv4-Adresse für Ihr VPN-Gerät. Diese IP-Adresse darf sich nicht hinter einer NAT (Netzwerkadressenübersetzung) befinden.
+- Alle Ressourcen werden in derselben Region bzw. an demselben Standort bereitgestellt.
 
 #### <a name="solution-example-values"></a>Beispielwerte für die Lösung
 
-In den Beispielen dieser Lösung werden die folgenden Werte verwendet. Sie können diese Werte zum Erstellen einer Testumgebung verwenden oder zum besseren Verständnis der Beispiele heranziehen. Weitere Informationen zu VPN-Gatewayeinstellungen im Allgemeinen finden Sie unter [Informationen zu VPN Gateway-Einstellungen](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings).
+In den Beispielen dieser Lösung werden die folgenden Werte verwendet. Sie können diese Werte zum Erstellen einer Testumgebung verwenden oder zum besseren Verständnis der Beispiele heranziehen. Weitere Informationen zu den VPN Gateway-Einstellungen finden Sie unter [Informationen zu VPN Gateway-Einstellungen](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings).
 
 Verbindungsangaben:
 
- - **VPN-Typ**: routenbasiert
- - **Verbindungstyp**: Site-to-Site (IPsec)
- - **Gatewaytyp**: VPN
- - **Azure-Verbindungsname**: Azure-Gateway-AzureStack-S2SGateway (automatisch vom Portal ausgefüllt)
- - **Azure Stack Hub-Verbindungsname**: AzureStack-Gateway-Azure-S2SGateway (automatisch vom Portal ausgefüllt)
- - **Gemeinsam verwendeter Schlüssel**: beliebiger, mit VPN-Hardware kompatibler Schlüssel mit entsprechenden Werten auf beiden Seiten der Verbindung
- - **Abonnement**: beliebiges bevorzugtes Abonnement
- - **Ressourcengruppe**: Test-Infra
+- **VPN-Typ**: routenbasiert
+- **Verbindungstyp**: Site-to-Site (IPsec)
+- **Gatewaytyp**: VPN
+- **Azure-Verbindungsname**: Azure-Gateway-AzureStack-S2SGateway (automatisch vom Portal ausgefüllt)
+- **Azure Stack Hub-Verbindungsname**: AzureStack-Gateway-Azure-S2SGateway (automatisch vom Portal ausgefüllt)
+- **Gemeinsam verwendeter Schlüssel**: beliebiger, mit VPN-Hardware kompatibler Schlüssel mit entsprechenden Werten auf beiden Seiten der Verbindung
+- **Abonnement**: beliebiges bevorzugtes Abonnement
+- **Ressourcengruppe**: Test-Infra
 
 Netzwerk- und Subnetz-IP-Adressen:
 
 | Azure-/Azure Stack Hub-Verbindung | Name | Subnet | IP-Adresse |
-|-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
+|---|---|---|---|
 | Azure: VNet | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |
 | Azure Stack Hub VNET | ApplicationvNet<br>10.100.100.0/23 | ApplicationSubnet <br>10.100.100.0/24 |  |
@@ -116,7 +113,7 @@ Erstellen Sie in Azure wie folgt ein VNet:
 
 Erstellen Sie wie folgt in Azure Stack Hub ein VNET:
 
-* Wiederholen Sie die vorherigen Schritte (1 bis 4) im **Mandantenportal** von Azure Stack Hub.
+1. Wiederholen Sie die oben angegebenen Schritte (1 bis 4) im **Mandantenportal** von Azure Stack Hub.
 
 ## <a name="add-a-gateway-subnet"></a>Hinzufügen eines Gatewaysubnetzes
 
@@ -131,7 +128,7 @@ Navigieren Sie im [Azure-Portal](https://portal.azure.com/) zum virtuellen Resou
     ![Gatewaysubnetz hinzufügen](media/solution-deployment-guide-connectivity/image4.png)
 
 4. Als **Name** für das Subnetz wird automatisch der Wert „GatewaySubnet“ eingefügt. Dieser Wert ist erforderlich, damit Azure das Subnetz als Gatewaysubnetz erkennt.
-5. Passen Sie die angegebenen Werte für **Adressbereich** an Ihre Konfigurationsanforderungen an, und wählen Sie anschließend **OK**.
+5. Passen Sie die angegebenen Werte für **Adressbereich** an Ihre Konfigurationsanforderungen an, und wählen Sie anschließend **OK** aus.
 
 ## <a name="create-a-virtual-network-gateway-in-azure-and-azure-stack"></a>Erstellen eines Gateways für virtuelle Netzwerke in Azure und Azure Stack
 
@@ -140,7 +137,7 @@ Führen Sie die folgenden Schritte aus, um in Azure ein Gateway für virtuelle N
 1. Wählen Sie im Portal auf der linken Seite die Option **+** , und geben Sie im Suchfeld als Suchbegriff „Gateway für virtuelle Netzwerke“ ein.
 2. Wählen Sie unter **Ergebnisse** die Option **Gateway für virtuelle Netzwerke**.
 3. Wählen Sie unter **Gateway für virtuelle Netzwerke** die Option **Erstellen**, um die Seite **Gateway für virtuelle Netzwerke erstellen** zu öffnen.
-4. Geben Sie unter **Gateway für virtuelle Netzwerke erstellen** die Werte für Ihr Netzwerkgateway an, wie unter **Beispielwerte für Tutorial** gezeigt, und geben Sie dann die folgenden weiteren Werte an:
+4. Geben Sie unter **Gateway für virtuelle Netzwerke erstellen** die Werte für Ihr Netzwerkgateway an, indem Sie **Beispielwerte für Tutorial** verwenden. Fügen Sie die folgenden zusätzlichen Werte ein:
 
    - **SKU:** Basic
    - **Virtuelles Netzwerk**: Wählen Sie das zuvor erstellte virtuelle Netzwerk aus. Das von Ihnen erstellte Gatewaysubnetz wird automatisch ausgewählt.
@@ -150,17 +147,17 @@ Führen Sie die folgenden Schritte aus, um in Azure ein Gateway für virtuelle N
      - Geben Sie unter **Name** einen Namen für die öffentliche IP-Adresse ein. Behalten Sie für die SKU die Einstellung **Basic** bei, und wählen Sie dann **OK**, um Ihre Änderungen zu speichern.
 
        > [!Note]
-       > Derzeit unterstützt VPN Gateway nur die dynamische Zuweisung öffentlicher IP-Adressen. Dies bedeutet aber nicht, dass sich die IP-Adresse ändert, nachdem sie Ihrem VPN-Gateway zugewiesen wurde. Die öffentliche IP-Adresse ändert sich nur, wenn das Gateway gelöscht und neu erstellt wird. Die IP-Adresse ändert sich nicht, wenn die Größe geändert wird, das VPN-Gateway zurückgesetzt wird oder andere interne Wartungs-/Upgradevorgänge für das VPN-Gateway durchgeführt werden.
+       > Derzeit unterstützt VPN Gateway nur die dynamische Zuweisung öffentlicher IP-Adressen. Dies bedeutet aber nicht, dass sich die IP-Adresse ändert, nachdem sie Ihrem VPN-Gateway zugewiesen wurde. Die öffentliche IP-Adresse wird nur geändert, wenn das Gateway gelöscht und neu erstellt wird. Die IP-Adresse ändert sich nicht, wenn die Größe geändert wird, das VPN-Gateway zurückgesetzt wird oder andere interne Wartungs-/Upgradevorgänge für das VPN-Gateway durchgeführt werden.
 
-4. Überprüfen Sie Ihre Gatewayeinstellungen.
-5. Wählen Sie **Erstellen**, um das VPN-Gateway zu erstellen. Die Gatewayeinstellungen werden überprüft, und die Kachel „Gateway des virtuellen Netzwerks wird bereitgestellt“ wird auf Ihrem Dashboard angezeigt.
+5. Überprüfen Sie Ihre Gatewayeinstellungen.
+6. Wählen Sie **Erstellen**, um das VPN-Gateway zu erstellen. Die Gatewayeinstellungen werden überprüft, und die Kachel „Gateway des virtuellen Netzwerks wird bereitgestellt“ wird auf Ihrem Dashboard angezeigt.
 
    >[!Note]
    >Die Erstellung eines Gateways kann bis zu 45 Minuten dauern. Unter Umständen müssen Sie die Portalseite aktualisieren, um den Status „Abgeschlossen“ anzuzeigen.
 
     Nach der Erstellung des Gateways wird die zugewiesene IP-Adresse unter dem virtuellen Netzwerk im Portal angezeigt. Das Gateway wird als verbundenes Gerät angezeigt. Wählen Sie das Gerät aus, um weitere Informationen zum Gateway anzuzeigen.
 
-6. Wiederholen Sie die vorherigen Schritte (1-5) für Ihre Azure Stack Hub-Bereitstellung.
+7. Wiederholen Sie die vorherigen Schritte (1-5) für Ihre Azure Stack Hub-Bereitstellung.
 
 ## <a name="create-the-local-network-gateway-in-azure-and-azure-stack-hub"></a>Erstellen des lokalen Netzwerkgateways in Azure und Azure Stack Hub
 
@@ -170,18 +167,18 @@ Mit dem Gateway des lokalen Netzwerks ist normalerweise Ihr lokaler Standort gem
 - Die IP-Adresspräfixe, die über das VPN-Gateway an das VPN-Gerät weitergeleitet werden. Die von Ihnen angegebenen Adresspräfixe befinden sich in Ihrem lokalen Netzwerk.
 
   >[!Note]
-  >Wenn am lokalen Netzwerk Änderungen vorgenommen werden oder Sie die öffentliche IP-Adresse des VPN-Geräts ändern müssen, können Sie diese Werte später bequem aktualisieren.
+  >Wenn am lokalen Netzwerk Änderungen vorgenommen werden oder Sie die öffentliche IP-Adresse des VPN-Geräts ändern müssen, können Sie diese Werte später aktualisieren.
 
 1. Klicken Sie im Portal auf **+Ressource erstellen**.
 2. Geben Sie im Suchfeld den Text **Gateway für lokales Netzwerk** ein, und drücken Sie dann die **EINGABETASTE**, um die Suche zu starten. Eine Liste mit Ergebnissen wird angezeigt.
 3. Wählen Sie **Gateway für lokales Netzwerk** und anschließend **Erstellen**, um die Seite **Lokales Netzwerkgateway erstellen** zu öffnen.
-4. Geben Sie unter **Lokales Netzwerkgateway erstellen** die Werte für Ihr Gateway für das lokale Netzwerk an, indem Sie **Beispielwerte für Tutorial** verwenden. Fügen Sie die folgenden zusätzlichen Werte ein.
+4. Geben Sie unter **Lokales Netzwerkgateway erstellen** die Werte für Ihr Gateway für das lokale Netzwerk an, indem Sie **Beispielwerte für Tutorial** verwenden. Fügen Sie die folgenden zusätzlichen Werte ein:
 
-    - **IP-Adresse**: Die öffentliche IP-Adresse des VPN-Geräts, mit dem Azure oder Azure Stack Hub eine Verbindung herstellen soll. Geben Sie eine gültige öffentliche IP-Adresse an, die nicht hinter einer Netzwerkadressenübersetzung angeordnet ist, damit Azure die Adresse erreichen kann. Falls Sie die IP-Adresse gerade nicht zur Hand haben, können Sie einen Wert aus dem Beispiel als Platzhalter verwenden. In diesem Fall müssen Sie allerdings später den Platzhalter durch die öffentliche IP-Adresse Ihres VPN-Geräts ersetzen. Azure kann erst dann eine Verbindung mit dem Gerät herstellen, wenn Sie eine gültige Adresse angeben.
+    - **IP-Adresse**: Die öffentliche IP-Adresse des VPN-Geräts, mit dem Azure oder Azure Stack Hub eine Verbindung herstellen soll. Geben Sie eine gültige öffentliche IP-Adresse an, die nicht hinter einer Netzwerkadressenübersetzung angeordnet ist, damit Azure die Adresse erreichen kann. Falls Ihnen die IP-Adresse gerade nicht vorliegt, können Sie einen Wert aus dem Beispiel als Platzhalter verwenden. Sie müssen dann später den Platzhalter durch die öffentliche IP-Adresse Ihres VPN-Geräts ersetzen. Azure kann erst dann eine Verbindung mit dem Gerät herstellen, wenn Sie eine gültige Adresse angeben.
     - **Adressraum**: der Adressbereich für das Netzwerk, das dieses lokale Netzwerk darstellt. Sie können mehrere Adressraumbereiche hinzufügen. Achten Sie darauf, dass sich die angegebenen Bereiche nicht mit den Bereichen anderer Netzwerke überschneiden, mit denen Sie eine Verbindung herstellen möchten. Azure leitet den Adressbereich, den Sie angeben, an die lokale IP-Adresse des VPN-Geräts weiter. Verwenden Sie Ihre eigenen Werte, wenn Sie eine Verbindung mit Ihrem lokalen Standort herstellen möchten, und keinen Beispielwert.
     - **BGP-Einstellungen konfigurieren**: Nur beim Konfigurieren von BGP verwenden. Lassen Sie diese Option andernfalls deaktiviert.
     - **Abonnement**: Vergewissern Sie sich, dass das richtige Abonnement angezeigt wird.
-    - **Ressourcengruppe**: Wählen Sie die Ressourcengruppe aus, die Sie verwenden möchten. Sie können entweder eine neue Ressourcengruppe erstellen oder eine auswählen, die Sie bereits erstellt haben.
+    - **Ressourcengruppe**: Wählen Sie die Ressourcengruppe aus, die Sie verwenden möchten. Sie können entweder eine neue Ressourcengruppe erstellen oder eine bereits erstellte auswählen.
     - **Standort**: Wählen Sie den Standort aus, an dem dieses Objekt erstellt wird. Es empfiehlt sich unter Umständen, den gleichen Ort auszuwählen, an dem sich auch Ihr VNet befindet, aber dies ist nicht zwingend erforderlich.
 5. Wenn Sie mit dem Angeben der erforderlichen Werte fertig sind, können Sie **Erstellen** wählen, um das Gateway für das lokale Netzwerk zu erstellen.
 6. Wiederholen Sie diese Schritte (1-5) für Ihre Azure Stack Hub-Bereitstellung.
@@ -206,7 +203,7 @@ Führen Sie die folgenden Schritte aus, um eine Site-to-Site-VPN-Verbindung zwis
     - **Gateway für virtuelle Netzwerke**: Wählen Sie das erstellte Gateway für virtuelle Netzwerke aus.
     - **Lokales Netzwerkgateway**: Wählen Sie das erstellte lokale Netzwerkgateway aus.
     - **Verbindungsname**: Dieser Name wird automatisch mit den Werten der beiden Gateways ausgefüllt.
-    - **Gemeinsam verwendeter Schlüssel**: Dieser Wert muss dem Wert entsprechen, den Sie für Ihr lokales VPN-Gerät verwenden. Im Tutorialbeispiel wird „abc123“ verwendet, aber Sie sollten einen komplexeren Wert verwenden. Entscheidend ist Folgendes: Dieser Wert MUSS dem Wert entsprechen, den Sie beim Konfigurieren Ihres VPN-Geräts angeben.
+    - **Gemeinsam verwendeter Schlüssel**: Dieser Wert muss dem Wert entsprechen, den Sie für Ihr lokales VPN-Gerät verwenden. Im Tutorialbeispiel wird „abc123“ verwendet, aber Sie sollten einen komplexeren Wert verwenden. Entscheidend ist Folgendes: Dieser Wert *muss* dem Wert entsprechen, den Sie beim Konfigurieren Ihres VPN-Geräts angeben.
     - Die Werte für **Abonnement**, **Ressourcengruppe** und **Standort** sind festgelegt.
 
 6. Wählen Sie **OK**, um die Verbindung zu erstellen.

@@ -3,16 +3,16 @@ title: Azure Stack Hub – Bekannte Probleme
 description: Enthält Informationen zu bekannten Problemen in Releases von Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/20/2020
+ms.date: 04/29/2020
 ms.author: sethm
-ms.reviewer: prchint
+ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ca29dd169523872b2dcc21b323bc489de5caf9b3
-ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
+ms.openlocfilehash: df81020ce365f25587c406aaf13617281769834d
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479238"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556422"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -36,7 +36,9 @@ Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die
 ::: moniker range="azs-2002"
 ## <a name="update"></a>Aktualisieren
 
-Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub finden Sie unter [Behandeln von Patch- und Updateproblemen bei Azure Stack](azure-stack-updates-troubleshoot.md).
+Nach dem Anwenden von Update 2002 wird im Administratorportal ggf. fälschlicherweise die Warnung „Ungültige Zeitquelle“ angezeigt. Sie können diese Warnung (False Positive) ignorieren. Der Fehler wird mit einem der nächsten Releases behoben. 
+
+Informationen zu weiteren bekannten Problemen beim Aktualisieren von Azure Stack Hub finden Sie unter [Behandeln von Patch- und Updateproblemen bei Azure Stack](azure-stack-updates-troubleshoot.md).
 
 ## <a name="portal"></a>Portal
 
@@ -81,6 +83,10 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Ursache: Eine explizite **DenyAllOutbound**-Regel kann nicht in einer Netzwerksicherheitsgruppe (NSG) erstellt werden, da dadurch die gesamte interne Kommunikation mit der Infrastruktur, die für die VM-Bereitstellung erforderlich ist, verhindert wird.
 - Häufigkeit: Allgemein
 
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen. 
+- Ursache: Beim Erstellen einer Eingangs- oder Ausgangssicherheitsregel für das Netzwerk wird unter **Protokoll** die Option **ICMP** angezeigt. Dies wird unter Azure Stack Hub derzeit nicht unterstützt. Dieses Problem wurde behoben und tritt im nächsten Azure Stack Hub-Release nicht mehr auf.
+- Häufigkeit: Allgemein
+
 ### <a name="network-interface"></a>Netzwerkschnittstelle
 
 #### <a name="addingremoving-network-interface"></a>Hinzufügen/Entfernen einer Netzwerkschnittstelle
@@ -94,6 +100,13 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Der primäre Netzwerkadapter (Network Interface Card, NIC) einer VM kann nicht geändert werden. Das Löschen oder Trennen der primären NIC führt zu Problemen beim Starten des virtuellen Computers.
+- Häufigkeit: Allgemein
+
+### <a name="public-ip"></a>Öffentliche IP-Adresse
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Der Wert **IdleTimeoutInMinutes** für eine öffentliche IP-Adresse, die einem Lastenausgleich zugeordnet ist, kann nicht geändert werden. Bei diesem Vorgang wird die öffentliche IP-Adresse in einen Fehlerzustand versetzt.
+- Abhilfe: Gehen Sie wie folgt vor, um die öffentliche IP-Adresse wieder in den korrekten Zustand zu versetzen: Ändern Sie den Wert **IdleTimeoutInMinutes** für die Lastenausgleichsregel, in der auf die öffentliche IP-Adresse verwiesen wird, wieder in den ursprünglichen Wert (Standardwert: 4 Minuten).
 - Häufigkeit: Allgemein
 
 ### <a name="virtual-network-gateway"></a>Gateway des virtuellen Netzwerks
@@ -113,8 +126,8 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Auf dem Blatt mit der VM-Übersicht wird nicht der richtige Computername angezeigt.
 
-- Geltungsbereich: Dieses Problem betrifft das Release 2002 und höhere Releases.
-- Ursache: Wenn die Details eines virtuellen Computers auf dem Übersichtsblatt angezeigt werden, wird der Computername als **(nicht verfügbar)** angezeigt.
+- Geltungsbereich: Dieses Problem betrifft alle Releases.
+- Ursache: Wenn die Details eines virtuellen Computers auf dem Übersichtsblatt angezeigt werden, wird der Computername als **(nicht verfügbar)** angezeigt. Dies ist für VMs, die aus speziellen Datenträgern bzw. Datenträgermomentaufnahmen erstellt werden, so beabsichtigt.
 - Abhilfe: Zeigen Sie das Blatt **Eigenschaften** unter **Einstellungen** an.
 
 ### <a name="nvv4-vm-size-on-portal"></a>NVv4-VM-Größe im Portal
@@ -126,7 +139,13 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 ### <a name="vm-boot-diagnostics"></a>VM-Startdiagnose
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Wenn Sie einen neuen virtuellen Windows-Computer (virtual machine, VM) erstellen, wird unter Umständen der folgende Fehler angezeigt: **Fehler beim Starten des virtuellen Computers „vm-name“. Error: Fehler beim Aktualisieren der Einstellungen für die serielle Ausgabe für den virtuellen Computer „vm-name“** . Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer aktivieren, aber Ihr Startdiagnose-Speicherkonto löschen.
+- Ursache: Wenn Sie einen neuen virtuellen Computer erstellen, wird unter Umständen der folgende Fehler angezeigt: **Fehler beim Starten des virtuellen Computers „vm-name“. Error: Fehler beim Aktualisieren der Einstellungen für die serielle Ausgabe für den virtuellen Computer „vm-name“** . Der Fehler tritt auf, wenn Sie die Startdiagnose bei einem virtuellen Computer aktivieren, aber Ihr Startdiagnose-Speicherkonto löschen.
+- Abhilfe: Erstellen Sie das Speicherkonto unter dem zuvor verwendeten Namen neu.
+- Häufigkeit: Allgemein
+
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn Sie versuchen, einen virtuellen Computer mit dem Status „Beendet (Zuordnung aufgehoben)“ zu starten, wird unter Umständen der folgende Fehler angezeigt: **VM diagnostics Storage account 'diagnosticstorageaccount' not found. Ensure storage account is not deleted** (Das Speicherkonto „diagnosticstorageaccount“ für die VM-Diagnose wurde nicht gefunden. Vergewissern Sie sich, dass das Speicherkonto nicht gelöscht wurde.). Der Fehler tritt auf, wenn Sie versuchen, einen virtuellen Computer mit aktivierter Startdiagnose zu starten, aber das Speicherkonto für die Startdiagnose, auf das verwiesen wird, gelöscht wurde.
 - Abhilfe: Erstellen Sie das Speicherkonto unter dem zuvor verwendeten Namen neu.
 - Häufigkeit: Allgemein
 
@@ -145,12 +164,21 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Ursache: Bei der Erstellung von VMs in einer Verfügbarkeitsgruppe mit drei Fehlerdomänen und der Erstellung einer Instanz einer VM-Skalierungsgruppe tritt während des Updatevorgangs in einer Azure Stack Hub-Umgebung mit vier Knoten der Fehler **FabricVmPlacementErrorUnsupportedFaultDomainSize** auf.
 - Abhilfe: Sie können einzelne VMs in einer Verfügbarkeitsgruppe mit zwei Fehlerdomänen erfolgreich durchführen. Die Erstellung der Skalierungsgruppeninstanz ist während des Updatevorgangs in einer Azure Stack Hub-Bereitstellung mit vier Knoten aber immer noch nicht verfügbar.
 
-### <a name="sql-vm-provision-will-be-failed-in-asdk"></a>Fehler bei der SQL-VM-Bereitstellung in ASDK
-- Geltungsbereich: Dieses Problem gilt nur für ASDK 2002. 
-- Ursache: Wenn Sie eine neue SQL-VM in ASDK 2002 erstellen, wird möglicherweise die Fehlermeldung **Erweiterung mit Publisher "Microsoft.SqlServer.Management", Typ "SqlIaaSAgent" und Typhandlerversion "2.0" wurde im Erweiterungsrepository nicht gefunden** angezeigt. Es ist kein „SqlIaaSAgent“ 2.0 in Azure Stack Hub vorhanden. 
+### <a name="sql-vm"></a>SQL-VM
 
+#### <a name="storage-account-creating-failure-when-configuring-auto-backup"></a>Fehler beim Erstellen des Speicherkontos, wenn die automatische Sicherung konfiguriert wird
 
-## <a name="resource-providers"></a>Resource Providers
+- Geltungsbereich: Dieses Problem gilt für 2002.
+- Ursache: Wenn Sie die automatisierte Sicherung von virtuellen SQL-Computern mit einem neuen Speicherkonto konfigurieren, tritt der folgende Fehler auf: **Deployment template validation failed. The template parameter for 'SqlAutobackupStorageAccountKind' is not found.** (Fehler bei der Bereitstellungsvorlagenvalidierung. Der Vorlagenparameter für „SqlAutobackupStorageAccountKind“ wurde nicht gefunden.).
+- Abhilfe: Wenden Sie den aktuellen Hotfix für 2002 an.
+
+#### <a name="auto-backup-cannot-be-configured-with-tls-12-enabled"></a>Die automatische Sicherung kann nicht konfiguriert werden, wenn TLS 1.2. aktiviert ist.
+
+- Geltungsbereich: Dieses Problem gilt für Neuinstallationen von Version 2002 und höheren Versionen und für alle älteren Versionen, in denen TLS 1.2 aktiviert ist.
+- Ursache: Wenn Sie die automatisierte Sicherung von virtuellen SQL-Computern mit einem vorhandenen Speicherkonto konfigurieren, tritt der Fehler **SQL Server-IaaS-Agent: Die zugrunde liegende Verbindung wurde geschlossen: Unerwarteter Fehler beim Senden** auf.
+- Häufigkeit: Allgemein
+
+## <a name="resource-providers"></a>Ressourcenanbieter
 
 ### <a name="sqlmysql"></a>SQL/MySQL
 
@@ -186,7 +214,7 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Abhilfe: Wenn Sie unter diesen beiden Abonnements Ressourcen ausführen, erstellen Sie sie in Benutzerabonnements neu.
 - Häufigkeit: Allgemein
 
-### <a name="subscriptions-lock-blade"></a>Blatt für Abonnementsperre
+### <a name="duplicate-subscription-button-in-lock-blade"></a>Schaltfläche für Duplikatabonnements auf dem Blatt „Sperre“
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Im Administratorportal verfügt das Blatt **Sperren** für Benutzerabonnements über zwei Schaltflächen mit der Bezeichnung **Abonnement**.
@@ -424,7 +452,7 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Abhilfe: Sie können diese Abonnementeigenshaften im Bereich **Essentials** des Blatts **Abonnements – Übersicht** anzeigen.
 - Häufigkeit: Allgemein
 
-### <a name="subscriptions-lock-blade"></a>Blatt für Abonnementsperre
+### <a name="duplicate-subscription-button-in-lock-blade"></a>Schaltfläche für Duplikatabonnements auf dem Blatt „Sperre“
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Im Administratorportal verfügt das Blatt **Sperren** für Benutzerabonnements über zwei Schaltflächen mit der Bezeichnung **Abonnement**.
