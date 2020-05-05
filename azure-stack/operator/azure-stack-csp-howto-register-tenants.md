@@ -3,20 +3,20 @@ title: Hinzufügen von Mandanten für Nutzung und Abrechnung zu Azure Stack Hub
 description: Finden Sie heraus, wie Sie einen Mandanten für die Nutzung und Abrechnung zu Azure Stack Hub hinzufügen.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: eb9cc45f3c8de162550cb7f882060a9506831d23
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d5a846d762d0dab8d07a16c7a7b6f147d8a92324
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704827"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82167023"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Hinzufügen eines Mandanten für Nutzung und Abrechnung zu Azure Stack Hub
 
-Dieser Artikel zeigt, wie Sie einer von einem Cloudlösungsanbieter (Cloud Solution Provider, CSP) verwalteten Azure Stack Hub-Bereitstellung einen Mandanten hinzufügen. Wenn der neue Mandant Ressourcen verwendet, meldet Azure Stack Hub die Nutzung an das CSP-Abonnement des Mandanten.
+In diesem Artikel wird beschrieben, wie Sie einer von einem Cloudlösungsanbieter (Cloud Solution Provider, CSP) verwalteten Azure Stack Hub-Bereitstellung einen Mandanten hinzufügen. Wenn der neue Mandant Ressourcen verwendet, meldet Azure Stack Hub die Nutzung an das CSP-Abonnement des Mandanten.
 
 CSPs bieten häufig mehreren Endkunden (Mandanten) in ihrer Azure Stack Hub-Bereitstellung Dienste an. Durch Hinzufügen von Mandanten zur Azure Stack Hub-Registrierung wird sichergestellt, dass die Nutzung jedes Mandanten gemeldet und dem entsprechenden CSP-Abonnement in Rechnung gestellt wird. Wenn Sie die Schritte in diesem Artikel nicht ausführen, wird die Nutzung durch Mandanten dem für die anfängliche Azure Stack Hub-Registrierung verwendeten Abonnement in Rechnung gestellt. Bevor Sie Azure Stack Hub einen Endkunden zum Nachverfolgen der Nutzung und Verwalten von Mandanten hinzufügen können, müssen Sie Azure Stack Hub als CSP konfigurieren. Informationen zu Schritten und Ressourcen finden Sie unter [Verwalten der Nutzung und Abrechnung für Azure Stack Hub als Cloud Solution Provider](azure-stack-add-manage-billing-as-a-csp.md).
 
@@ -49,14 +49,14 @@ Standardmäßig haben Sie als CSP keinen Zugriff auf das Azure Stack Hub-Abonnem
 
 Aktualisieren Sie Ihre Registrierung mit dem Abonnement des neuen Kunden. Azure meldet die Nutzung des Kunden mithilfe der Kundenidentität aus dem Partner Center. So wird sichergestellt, dass die Nutzung jedes Kunden unter dem individuellen CSP-Abonnement des Kunden gemeldet wird. Dies erleichtert die Nachverfolgung der Nutzung und die Abrechnung. Um diesen Schritt ausführen zu können, müssen Sie zuerst [Azure Stack Hub registrieren](azure-stack-registration.md).
 
-1. Öffnen Sie Windows PowerShell mit einer Eingabeaufforderung mit erhöhten Rechten, und führen Sie Folgendes aus:  
+1. Öffnen Sie Windows PowerShell in einer Eingabeaufforderung mit erhöhten Rechten, und führen Sie Folgendes aus:  
 
    ```powershell
    Add-AzureRmAccount
    ```
 
-   >[!Note]
-   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie lediglich Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit Add-AzureRmAccount anmelden: `Remove-AzureRmAccount-Scope Process`
+   >[!NOTE]
+   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie lediglich Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit **Add-AzureRmAccount** anmelden: `Remove-AzureRmAccount-Scope Process`.
 
 2. Geben Sie Ihre Azure-Anmeldeinformationen ein.
 3. Führen Sie in der PowerShell-Sitzung Folgendes aus:

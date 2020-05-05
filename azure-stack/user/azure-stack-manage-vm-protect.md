@@ -7,12 +7,12 @@ ms.date: 02/18/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 913d0eeed1ba2cfce0b062385a4f544919889f43
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b5618fb39e9fc24fc8a086c99a7e1dd71f6b7a65
+ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512608"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82150232"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Schutz von in Azure Stack Hub bereitgestellten VMsProtect VMs deployed on Azure Stack Hub
 

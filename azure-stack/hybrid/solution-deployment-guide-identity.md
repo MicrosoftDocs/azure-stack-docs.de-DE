@@ -7,14 +7,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 69d4d3d6617bf57f9af82b3f7093f094be142c39
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d8a658e1ea285a19e09e5df27c0d7a349b3372eb
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701019"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82167006"
 ---
-# <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-applications"></a>Konfigurieren einer Hybrid Cloud-Identität für Azure- und Azure Stack Hub-Anwendungen
+# <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-apps"></a>Konfigurieren einer Hybrid Cloud-Identität für Azure- und Azure Stack Hub-Apps
 
 Erfahren Sie, wie Sie eine Hybrid Cloud-Identität für Ihre Azure- und Azure Stack Hub-Apps konfigurieren.
 
@@ -35,10 +35,9 @@ Sie benötigen Azure Stack Hub-Bedienerberechtigungen für die Schritte in diese
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub ist eine Erweiterung von Azure. Mit Azure Stack Hub holen Sie sich die Agilität und Innovation von Cloud Computing in Ihre lokale Umgebung. Sie erhalten die einzige Hybrid Cloud, mit der Sie Hybrid-Apps überall entwickeln und bereitstellen können.  
+> Microsoft Azure Stack Hub ist eine Erweiterung von Azure. Mit Azure Stack Hub holen Sie sich die Agilität und Innovation von Cloud Computing in Ihre lokale Umgebung, indem Sie die einzige Hybrid Cloud aktivieren, mit der Sie Hybrid-Apps überall entwickeln und bereitstellen können.  
 > 
-> Im Artikel [Entwurfsüberlegungen für Hybridanwendungen](overview-app-design-considerations.md) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybridanwendungen erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybrid-Apps, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
-
+> Im Artikel [Überlegungen zum Entwurf von Hybrid-Apps](overview-app-design-considerations.md) werden die wichtigen Aspekte in Bezug auf die Softwarequalität (Platzierung, Skalierbarkeit, Verfügbarkeit, Resilienz, Verwaltbarkeit und Sicherheit) beschrieben, die für das Entwerfen, Bereitstellen und Betreiben von Hybrid-Apps erforderlich sind. Die Überlegungen zum Entwurf dienen als Hilfe beim Optimieren des Designs von Hybrid-Apps, um für Produktionsumgebungen das Auftreten von Problemen zu minimieren.
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Erstellen eines Dienstprinzipals für Azure AD über das Portal
 
@@ -52,22 +51,22 @@ Wenn Sie Azure Stack Hub mit AD FS bereitgestellt haben, können Sie PowerShell
 
 In der Lösung zur [Azure Stack Hub-API](../user/azure-stack-rest-api-use.md) erfahren Sie Schritt für Schritt, wie Sie ein Token für den Zugriff auf die Azure Stack Hub-API abrufen.
 
-## <a name="connect-to-azure-stack-hub-using-powershell"></a>Herstellen einer Verbindung mit Azure Stack Hub mithilfe von PowerShell
+## <a name="connect-to-azure-stack-hub-using-powershell"></a>Herstellen einer Verbindung mit Azure Stack Hub mithilfe von PowerShell
 
 In der Schnellstartanleitung zum [Einrichten von PowerShell in Azure Stack Hub](../operator/azure-stack-powershell-install.md) sind die Schritte erläutert, die zum Installieren von Azure PowerShell und zum Herstellen einer Verbindung mit der Azure Stack Hub-Installation ausgeführt werden müssen.
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
-Sie benötigen eine mit Azure Active Directory verbundene Azure Stack Hub-Installation mit einem Abonnement, auf das Sie zugreifen können. Sollten Sie über keine Azure Stack Hub-Installation verfügen, sehen Sie sich die Anleitung zum Einrichten eines [Azure Stack Development Kit](../asdk/asdk-install.md) an.
+Sie benötigen eine mit Azure AD verbundene Azure Stack Hub-Installation mit einem Abonnement, auf das Sie zugreifen können. Falls Sie keine Azure Stack Hub-Installation haben, sehen Sie sich die Anleitung zum Einrichten eines [Azure Stack Development Kit (ASDK)](../asdk/asdk-install.md) an.
 
 #### <a name="connect-to-azure-stack-hub-using-code"></a>Herstellen einer Verbindung mit Azure Stack Hub mithilfe von Code
 
-Wenn Sie mithilfe von Code eine Verbindung mit Azure Stack Hub herstellen möchten, verwenden Sie die Endpunkte-API von Azure Resource Manager, um die Authentifizierung und die Graph-Endpunkte für Ihre Azure Stack Hub-Installation abzurufen, und führen Sie dann die Authentifizierung mithilfe von REST-Anforderungen durch. Eine Beispielclientanwendung finden Sie auf [GitHub](https://github.com/shriramnat/HybridARMApplication).
+Wenn Sie mithilfe von Code eine Verbindung mit Azure Stack Hub herstellen möchten, verwenden Sie die Endpunkte-API von Azure Resource Manager, um die Authentifizierung und die Graph-Endpunkte für Ihre Azure Stack Hub-Installation abzurufen. Führen Sie anschließend die Authentifizierung mithilfe von REST-Anforderungen durch. Eine Beispielclientanwendung finden Sie auf [GitHub](https://github.com/shriramnat/HybridARMApplication).
 
 >[!Note]
 >Sofern das Azure SDK für Ihre bevorzugte Sprache keine Azure-API-Profile unterstützt, funktioniert das SDK möglicherweise nicht mit Azure Stack Hub. Weitere Informationen zu Azure-API-Profilen finden Sie im Artikel [Verwalten von API-Versionsprofilen in Azure Stack](../user/azure-stack-version-profiles.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
- - Weitere Informationen zur Behandlung der Identität in Azure Stack Hub finden Sie unter [Identitätsarchitektur für Azure Stack Hub](../operator/azure-stack-identity-architecture.md).
- - Weitere Informationen zu Azure-Cloudmustern finden Sie unter [Cloudentwurfsmuster](https://docs.microsoft.com/azure/architecture/patterns).
+- Weitere Informationen zur Behandlung der Identität in Azure Stack Hub finden Sie unter [Identitätsarchitektur für Azure Stack Hub](../operator/azure-stack-identity-architecture.md).
+- Weitere Informationen zu Azure-Cloudmustern finden Sie unter [Cloudentwurfsmuster](https://docs.microsoft.com/azure/architecture/patterns).

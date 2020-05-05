@@ -3,16 +3,16 @@ title: Replizieren von Ressourcen in mehreren Azure Stack Hub-Abonnements
 description: Erfahren Sie, wie Sie Ressourcen mit den Replikatorskripts für Azure Stack Hub-Abonnements replizieren.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/07/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: b8e955075553480b4178223a5475b44e3debd106
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: a20979ff0bb60f058658e9a0f9f540b2c0cb434e
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702345"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173912"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Replizieren von Ressourcen mit dem Replikator für Azure Stack Hub-Abonnements
 
@@ -98,7 +98,7 @@ Wenn die Ausführung des Skripts abgeschlossen ist, sind die drei neuen Ordner *
 
     ![Überprüfen der Ordner](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-3.  Legen Sie den Kontext auf das Zielabonnement fest, ändern Sie den Ordner in **Deployment_Files**, verteilen Sie die Ressourcengruppen, und starten Sie dann die Ressourcenbereitstellung.
+3.  Legen Sie den Kontext auf das Zielabonnement fest, ändern Sie den Ordner in **Deployment_Files**, verteilen Sie die Ressourcengruppen (durch Ausführen des Skripts „DeployResourceGroups.ps1“), und starten Sie dann die Ressourcenbereitstellung (durch Ausführen des Skripts „DeployResources.ps1“).
 
     ![Konfigurieren und Starten der Bereitstellung](./media/azure-stack-network-howto-backup-replicator/image6.png)
 

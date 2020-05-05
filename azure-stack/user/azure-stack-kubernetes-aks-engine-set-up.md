@@ -3,16 +3,16 @@ title: Einrichten der Voraussetzungen für die AKS-Engine in Azure Stack Hub
 description: Richten Sie die Anforderungen für die Ausführung der ASK-Engine in Ihrer Azure Stack Hub-Instanz ein.
 author: mattbriggs
 ms.topic: article
-ms.date: 03/23/2020
+ms.date: 04/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 03/23/2020
-ms.openlocfilehash: f89dd7e1036f3c45df184b498c309fe128fe03ba
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 04/28/2020
+ms.openlocfilehash: 774e96c6366f9922d7fb59b564fd57998c327dca
+ms.sourcegitcommit: 29734b4ca6917b86674c17de9f41b0aaf367a838
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80152206"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82223037"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Einrichten der Voraussetzungen für die AKS-Engine in Azure Stack Hub
 
@@ -32,13 +32,9 @@ Der Cloudbetreiber muss über die folgenden Elemente verfügen.
 | --- | --- | --- | --- | --- |
 | Azure Stack Hub 1910 oder höher | Die AKS-Engine erfordert Azure Stack Hub 1910 oder höher. | Erforderlich | Wenn Sie nicht sicher sind, welche Version von Azure Stack Hub verwendet wird, wenden Sie sich an Ihren Cloudbetreiber. |
 | Benutzerdefinierte Linux-Skripterweiterung | Benutzerdefinierte Linux-Skripterweiterung 2.0<br>Angebot: Custom Script for Linux 2.0<br>Version: 2.0.6 (oder neueste Version)<br>Herausgeber: Microsoft Corp. | Erforderlich | Wenn Sie in Ihrem Abonnement nicht über dieses Element verfügen, wenden Sie sich an Ihren Cloudbetreiber. |
-| AKS-Basis-Ubuntu-Image | AKS-Basisimage<br>Angebot: aks<br> 2019.10.24 (oder neuere Version)<br>Herausgeber: microsoft-aks<br>SKU: aks-ubuntu-1604-201910 | Erforderlich | Wenn Sie in Ihrem Abonnement nicht über dieses Element verfügen, wenden Sie sich an Ihren Cloudbetreiber. Weitere Informationen zur Versionsabhängigkeit finden Sie unter [Abstimmen der Engine auf die Basisimageversion](#matching-engine-to-base-image-version).<br> Wenn Sie der Cloudbetreiber für Azure Stack Hub sind und die AKS-Engine anbieten möchten, befolgen Sie die Anweisungen unter [Hinzufügen der AKS-Engine zum Azure Stack Hub-Marketplace](../operator/azure-stack-aks-engine.md). |
+| AKS-Basis-Ubuntu-Image | AKS Base Ubuntu 16.04-LTS Image Distro, März 2020, Version: 2020.03.19 | Erforderlich | Wenn Sie in Ihrem Abonnement nicht über dieses Element verfügen, wenden Sie sich an Ihren Cloudbetreiber. Weitere Informationen zur Versionsabhängigkeit finden Sie unter [Abstimmen der Engine auf die Basisimageversion](#matching-engine-to-base-image-version).<br> Wenn Sie der Cloudbetreiber für Azure Stack Hub sind und die AKS-Engine anbieten möchten, befolgen Sie die Anweisungen unter [Hinzufügen der AKS-Engine zum Azure Stack Hub-Marketplace](../operator/azure-stack-aks-engine.md). |
 | Dienstprinzipalidentität (SPN) |  Eine Anwendung, Ressourcen über Azure Resource Manager bereitstellen oder konfigurieren muss, muss von einem Dienstprinzipal dargestellt werden. | Erforderlich | Möglicherweise müssen Sie sich für dieses Element an den Azure Stack Hub-Operator wenden.<br>Wenn eine Azure Active Directory-Dienstprinzipalidentität (AAD) verwendet wird, ist für die virtuellen Computer im Kubernetes-Cluster Internetzugriff erforderlich, damit der Dienstprinzipal über AAD authentifiziert werden kann. Besteht kein Internetzugriff, ist der Kubernetes-Cluster nicht funktionsfähig.<br>Anweisungen finden Sie unter [Verwenden einer App-Identität für den Ressourcenzugriff](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals). |
 | (SPN) zugewiesene Rolle **Mitwirkender** | Um einer Anwendung den Zugriff auf Ressourcen in Ihrem Abonnement unter Verwendung ihres Dienstprinzipals zu gestatten, müssen Sie den Dienstprinzipal einer Rolle für eine bestimmte Ressource zuweisen. | Erforderlich | Eine Anleitung hierzu finden Sie unter [Zuweisen einer Rolle](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals#assign-a-role). |
-
-
-Fügen Sie der Anforderungsbeschreibung für „Dienstprinzipal“ Folgendes hinzu: ""
-
 
 
 Sie können die folgenden Elemente festlegen.
@@ -55,12 +51,12 @@ Sie können die folgenden Elemente festlegen.
 
 ## <a name="matching-engine-to-base-image-version"></a>Abstimmen der Engine auf die Basisimageversion
 
-Die **AKS-Engine** verwendet ein erstelltes Image, das AKS-Basisimage. Alle AKS-Engine-Versionen sind von einer bestimmten Imageversion abhängig, die von Ihrem Azure Stack Hub-Operator in Ihrer Azure Stack Hub-Instanz verfügbar gemacht wird. Eine Tabelle mit den AKS-Engine-Versionen und den entsprechenden unterstützten Kubernetes-Versionen finden Sie unter [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) (Unterstützte Kubernetes-Versionen). Beispielsweise hängt die AKS-Engine-Version `v0.43.0` von der Version `2019.10.24` des AKS-Basisimage ab. Bitten Sie Ihren Azure Stack Hub-Operator, die spezifische Imageversion vom Azure Marketplace in den Azure Stack Hub-Marketplace herunterzuladen.
+Die AKS-Engine stellt ein angepasstes Ubuntu-Serverbetriebssystem für jeden Clusterknoten bereit, das **AKS Base Ubuntu 16.04-LTS Image Distro**. Alle AKS-Engine-Versionen sind von einer bestimmten Imageversion abhängig, die von Ihrem Azure Stack Hub-Operator in Ihrer Azure Stack Hub-Instanz verfügbar gemacht wird. Eine Tabelle mit den AKS-Engine-Versionen und den entsprechenden unterstützten Kubernetes-Versionen finden Sie unter [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) (Unterstützte Kubernetes-Versionen). Beispielsweise hängt die AKS-Engine-Version `v0.48.0` von der Version `2020.03.19` des AKS Base Ubuntu 16.04-LTS Image Distro ab. Bitten Sie Ihren Azure Stack Hub-Operator, die spezifische Imageversion vom Azure Marketplace in den Azure Stack Hub-Marketplace herunterzuladen.
 
-Wenn das Image nicht in Ihrem Azure Stack Hub-Marketplace verfügbar ist, lösen Sie einen Fehler aus. Wenn Sie beispielsweise derzeit AKS-Engine Version 0.43.0 verwenden und AKS-Basisimageversion `2019.10.24` nicht verfügbar ist, wird beim Ausführen der AKS-Engine folgende Fehlermeldung angezeigt: 
+Wenn das Image nicht in Ihrem Azure Stack Hub-Marketplace verfügbar ist, lösen Sie einen Fehler aus. Wenn Sie beispielsweise derzeit AKS-Engine Version 0.48.0 verwenden und die AKS-Basisimageversion „AKS Base Ubuntu 16.04-LTS Image Distro“ `2020.03.19` nicht verfügbar ist, wird beim Ausführen der AKS-Engine folgende Fehlermeldung angezeigt: 
 
 ```Text  
-The platform image 'microsoft-aks:aks:aks-ubuntu-1604-201908:2019.08.09' is not available. 
+The platform image 'microsoft-aks:aks:aks-ubuntu-1604-202003:2020.03.19' is not available. 
 Verify that all fields in the storage profile are correct.
 ```
 
@@ -68,8 +64,8 @@ Sie können die aktuelle Version der AKS-Engine überprüfen, indem Sie den folg
 
 ```bash  
 $ aks-engine version
-Version: v0.39.1
-GitCommit: 6fff62731
+Version: v0.48.0
+GitCommit: 44a35c00c
 GitTreeState: clean
 ```
 

@@ -1,38 +1,38 @@
 ---
-title: Muster für das Training eines Machine Learning-Modells (ML) im Edge-Bereich mit Azure und Azure Stack Hub.
-description: Erfahren Sie, wie Sie Azure- und Azure Stack Hub-Dienste für das Training eines ML-Modells im Edge-Bereich einsetzen.
+title: Muster zum Trainieren eines Machine Learning-Modells im Edge-Bereich
+description: Hier erfahren Sie, wie Sie mit Azure und Azure Stack Hub ein Machine Learning-Modell (ML) im Edge-Bereich trainieren.
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4df466a3b1b1e89be704302153e9e835f504445e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 604553ad11961d42063685c1a4b70388605c0db8
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77688864"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166938"
 ---
-# <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>Muster zum Trainieren eines Machine Learning-Modells (ML) im Edge-Bereich
+# <a name="train-machine-learning-model-at-the-edge-pattern"></a>Muster zum Trainieren eines Machine Learning-Modells im Edge-Bereich
 
-Generieren Sie portierbare ML-Modelle anhand von Daten, die nur lokal vorhanden sind.
+Generieren Sie portierbare Machine Learning-Modelle (ML) anhand von Daten, die nur lokal vorhanden sind.
 
 ## <a name="context-and-problem"></a>Kontext und Problem
 
-Viele Organisationen möchten mithilfe von Tools, die ihre Datenanalysten verstehen, Erkenntnisse aus ihren lokalen oder älteren Datenbeständen gewinnen. [Azure Machine Learning](/azure/machine-learning/) bietet native Cloudtools zum Trainieren, Optimieren und Bereitstellen von ML- und Deep Learning-Modellen.  
+Viele Organisationen möchten mithilfe von Tools, die ihre Datenanalysten verstehen, Erkenntnisse aus ihren lokalen oder älteren Datenbeständen gewinnen. [Azure Machine Learning](/azure/machine-learning/) bietet cloudnative Tools zum Trainieren, Optimieren und Bereitstellen von ML- und Deep Learning-Modellen.  
 
-Einige Datenmengen sind jedoch zu groß, um sie in die Cloud zu senden, oder können aus rechtlichen Gründen nicht in die Cloud übertragen werden. Anhand dieses Musters können Datenanalysten mit Azure Machine Learning Modelle trainieren, die lokale Daten und Computeressourcen nutzen. 
+Einige Datenmengen sind jedoch zu groß, um sie in die Cloud zu senden, oder können aus rechtlichen Gründen nicht in die Cloud übertragen werden. Anhand dieses Musters können Datenanalysten mit Azure Machine Learning Modelle trainieren, die lokale Daten und Computeressourcen nutzen.
 
 ## <a name="solution"></a>Lösung
 
-Für das Muster zum Training im Edge-Bereich wird ein in Azure Stack Hub ausgeführter virtueller Computer (VM) verwendet. Die VM ist als Computeziel in Azure ML registriert, sodass sie auf Daten zugreifen kann, die nur lokal verfügbar sind. In diesem Fall werden die Daten im Blob Storage von Azure Stack Hub gespeichert. 
+Für das Muster zum Training im Edge-Bereich wird ein in Azure Stack Hub ausgeführter virtueller Computer (VM) verwendet. Die VM ist als Computeziel in Azure Machine Learning registriert, sodass sie auf Daten zugreifen kann, die nur lokal verfügbar sind. In diesem Fall werden die Daten im Blobspeicher von Azure Stack Hub gespeichert.
 
-Nach dem Training des Modells wird es bei Azure ML registriert, in Containern organisiert und zur Bereitstellung einer Azure Container Registry-Instanz hinzugefügt. Für diese Iteration des Musters muss die Azure Stack Hub-Trainings-VM über das öffentliche Internet erreichbar sein. 
+Nach dem Training des Modells wird es bei Azure ML registriert, in Containern organisiert und zur Bereitstellung einer Azure Container Registry-Instanz hinzugefügt. Für diese Iteration des Musters muss die Azure Stack Hub-Trainings-VM über das öffentliche Internet erreichbar sein.
 
 [![Architektur für das Trainieren von ML-Modellen im Edge-Bereich](media/pattern-train-ml-model-at-edge/solution-architecture.png)](media/pattern-train-ml-model-at-edge/solution-architecture.png)
 
-Die Lösung funktioniert so: 
+Das Muster funktioniert wie folgt:
 
 1. Die Azure Stack Hub-VM wird als Computeziel bei Azure ML bereitgestellt und registriert.
 2. In Azure ML wird ein Experiment erstellt, das die Azure Stack Hub-VM als Computeziel verwendet.
@@ -55,9 +55,9 @@ Diese Lösung verwendet die folgenden Komponenten:
 
 Beachten Sie die folgenden Punkte bei der Entscheidung, wie diese Lösung implementiert werden soll:
 
-### <a name="scalability"></a>Skalierbarkeit 
+### <a name="scalability"></a>Skalierbarkeit
 
-Damit diese Lösung skalierbar ist, müssen Sie in Azure Stack Hub einen entsprechend großen virtuellen Computer für das Training erstellen.
+Damit diese Lösung skalierbar ist, müssen Sie in Azure Stack Hub eine entsprechend große VM für das Training erstellen.
 
 ### <a name="availability"></a>Verfügbarkeit
 
@@ -65,19 +65,20 @@ Stellen Sie sicher, dass die Trainingsskripts und die Azure Stack Hub-VM Zugriff
 
 ### <a name="manageability"></a>Verwaltbarkeit
 
-Sorgen Sie dafür, dass Modelle und Experimente ordnungsgemäß registriert sowie mit Versionsangaben und mit Tags versehen sind, um Verwechslungen bei der Modellbereitstellung zu vermeiden. 
+Sorgen Sie dafür, dass Modelle und Experimente ordnungsgemäß registriert sowie mit Versionsangaben und mit Tags versehen sind, um Verwechslungen bei der Modellbereitstellung zu vermeiden.
 
 ### <a name="security"></a>Sicherheit
 
-Dieses Muster ermöglicht Azure ML den Zugriff auf lokale möglicherweise sensible Daten. Vergewissern Sie sich, dass das Konto, das für die SSH-Verbindung mit der Azure Stack Hub-VM verwendet wird, über ein sicheres Kennwort verfügt und dass Trainingsskripts keine Daten speichern oder in die Cloud hochladen. 
+Dieses Muster ermöglicht Azure Machine Learning den Zugriff auf lokale Daten, die möglicherweise vertraulich sind. Vergewissern Sie sich, dass das Konto, das für die SSH-Verbindung mit der Azure Stack Hub-VM verwendet wird, über ein sicheres Kennwort verfügt und dass Trainingsskripts keine Daten speichern oder in die Cloud hochladen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Weitere Informationen zu den in diesem Artikel behandelten Themen:
+
 - Eine Übersicht über ML und verwandte Themen finden Sie in der [Azure Machine Learning-Dokumentation](/azure/machine-learning).
 - Unter [Azure Container Registry](/azure/container-registry/) erfahren Sie, wie Sie Images für Containerbereitstellungen erstellen, speichern und verwalten.
 - Weitere Informationen zum Ressourcenanbieter und zur Bereitstellung finden Sie unter [App Service in Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview).
-- Unter [Überlegungen zum Entwurf von Hybridanwendungen](overview-app-design-considerations.md) erfahren Sie mehr zu bewährten Methoden und erhalten Antworten auf weitere Fragen.
-- Siehe die [Azure Stack-Familie mit Produkten und Lösungen](/azure-stack), um mehr über das gesamte Portfolio von Produkten und Lösungen zu erfahren.
+- Unter [Überlegungen zum Entwurf von Hybrid-Apps](overview-app-design-considerations.md) finden Sie weitere Informationen zu den bewährten Methoden und Antworten auf Ihre Fragen.
+- Im Artikel zur [Azure Stack-Familie mit Produkten und Lösungen](/azure-stack) erfahren Sie mehr über das gesamte Portfolio von Produkten und Lösungen.
 
 Wenn Sie bereit sind, das Lösungsbeispiel zu testen, fahren Sie mit dem [Bereitstellungsleitfaden zum Trainieren eines ML-Modells im Edge-Bereich](https://aka.ms/edgetrainingdeploy) fort. In diesem Bereitstellungsleitfaden finden Sie detaillierte Anweisungen zum Bereitstellen und Testen der zugehörigen Komponenten.

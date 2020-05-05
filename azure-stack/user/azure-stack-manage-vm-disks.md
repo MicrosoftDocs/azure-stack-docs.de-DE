@@ -3,16 +3,16 @@ title: Erstellen von VM-Datenträgerspeicher in Azure Stack Hub
 description: Erstellen Sie Datenträger für VMs in Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 04/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 5bcfcb8a5e2af29b0d7b60774853fa35392d9f23
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 757b978012fc1b17362343309d57c0df09862a98
+ms.sourcegitcommit: 98f62c33469ba963ba266bd88e206e9144258ea3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702481"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82032840"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Erstellen von VM-Datenträgerspeicher in Azure Stack Hub
 
@@ -28,7 +28,7 @@ Für nicht verwaltete Datenträger müssen Sie ein Speicherkonto erstellen, unte
 
 ## <a name="best-practice-guidelines"></a>Richtlinien zu bewährten Methoden
 
-Es wird empfohlen, Managed Disks für virtuelle Computer zu verwenden, um die Verwaltung und den Kapazitätsausgleich zu erleichtern. Sie müssen vor der Verwendung von Managed Disks kein Speicherkonto und keine Container vorbereiten. Beim Erstellen mehrerer verwalteter Datenträger werden die Datenträger auf mehrere Volumes verteilt, wodurch die Kapazität der Volumes ausgeglichen werden kann.  
+Es wird empfohlen, verwaltete Datenträger für VMs zu verwenden, um die Verwaltung und den Kapazitätsausgleich zu vereinfachen. Sie müssen vor der Verwendung von verwalteten Datenträgern kein Speicherkonto und keine Container vorbereiten. Beim Erstellen mehrerer verwalteter Datenträger werden die Datenträger auf mehrere Volumes verteilt, wodurch die Kapazität der Volumes ausgeglichen werden kann.  
 
 Zur Verbesserung der Leistung und Reduzierung der Gesamtkosten empfehlen wir Ihnen bei der Verwendung von nicht verwalteten Datenträgern, jeden nicht verwalteten Datenträger in einem separaten Container zu platzieren. Sie können Betriebssystem-Datenträger und Datenträger zwar im gleichen Container ablegen, es empfiehlt sich aber, in einem Container entweder einen Betriebssystem-Datenträger oder einen Datenträger zu platzieren und nicht beide gleichzeitig.
 
@@ -42,7 +42,7 @@ In der folgenden Tabelle ist zusammengefasst, wie Sie Datenträger über das Por
 
 | Methode | Tastatur
 |-|-|
-|Benutzerportal|- Fügen Sie einer vorhandenen VM neue Datenträger für Daten hinzu. Von Azure Stack Hub werden neue Datenträger erstellt. </br> </br> - Fügen Sie eine vorhandene Datenträgerdatei (.vhd) einem vorab erstellten virtuellen Computer hinzu. Hierzu müssen Sie die VHD-Datei vorbereiten und dann in Azure Stack Hub hochladen. |
+|Benutzerportal| - Fügen Sie einer vorhandenen VM neue Datenträger für Daten hinzu. Von Azure Stack Hub werden neue Datenträger erstellt. </br> </br> - Fügen Sie einer zuvor erstellten VM eine vorhandene Datenträgerdatei (.vhd) hinzu. Hierzu müssen Sie die VHD-Datei vorbereiten und dann in Azure Stack Hub hochladen. |
 |[PowerShell](#use-powershell-to-add-multiple-disks-to-a-vm) | - Erstellen Sie einen neuen virtuellen Computer mit einem Betriebssystem-Datenträger, und fügen Sie dem virtuellen Computer gleichzeitig einen oder mehrere Datenträger für Daten hinzu. |
 
 ## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Verwenden des Portals zum Hinzufügen von Datenträgern zu einer VM
@@ -56,8 +56,8 @@ Nach der Erstellung einer VM können Sie das Portal für folgende Zwecke verwend
 
 Jeder nicht verwaltete Datenträger, den Sie hinzufügen, sollte in einem separaten Container angeordnet werden.
 
->[!NOTE]  
->Von Azure erstellte und verwaltete Datenträger werden als [verwaltete Datenträger](/azure/virtual-machines/windows/managed-disks-overview) bezeichnet.
+> [!NOTE]  
+> Von Azure erstellte und verwaltete Datenträger werden als [verwaltete Datenträger](/azure/virtual-machines/windows/managed-disks-overview) bezeichnet.
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Verwenden des Portals zum Erstellen und Anfügen eines neuen Datenträgers für Daten
 
@@ -82,11 +82,8 @@ Jeder nicht verwaltete Datenträger, den Sie hinzufügen, sollte in einem separa
    * Wählen Sie den **Kontotyp** aus.
       ![Beispiel: Anfügen eines neuen Datenträgers an den virtuellen Computer](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
-      **SSD Premium**  
-      Premium-Datenträger (SSD) basieren auf Solid State Drives und bieten konsistente Leistung mit geringen Wartezeiten. Sie bieten das beste Preis-Leistungs-Verhältnis und eignen sich ideal für E/A-intensive Apps und Produktionsworkloads.
-
-      **HDD Standard**  
-      Standard-Datenträgern (HDD) basieren auf magnetischen Laufwerken und werden für Apps bevorzugt, in denen nur selten auf Daten zugegriffen wird. Zonenredundante Datenträger basieren auf zonenredundantem Speicher, der Ihre Daten in mehrere Zonen repliziert und so sicherstellt, dass Ihre Daten auch dann verfügbar sind, wenn eine einzelne Zone ausfällt.
+    > [!NOTE]  
+    > Premium-Datenträger (SSD) und Standard-Datenträger (HDD) werden von der gleichen Speicherinfrastruktur in Azure Stack Hub unterstützt. Sie bieten die gleiche Leistung.
 
    * Wählen Sie den **Quelltyp** aus.
 
@@ -101,7 +98,7 @@ Jeder nicht verwaltete Datenträger, den Sie hinzufügen, sollte in einem separa
 
    * Wählen Sie unter **Größe (GiB)** die Größe aus.
 
-     Die Kosten für Standard-Datenträger sind von der Größe des Datenträgers abhängig. Die Kosten und die Leistung von Premium-Datenträgern hängen von der Größe des Datenträgers ab. Weitere Informationen finden Sie unter [Verwaltete Datenträger – Preise ](https://go.microsoft.com/fwlink/?linkid=843142).
+     Die Datenträgerkosten sind von der Größe des Datenträgers abhängig.
 
    * Klicken Sie auf **Erstellen**. Azure Stack Hub erstellt und überprüft den verwalteten Datenträger.
 
@@ -126,10 +123,8 @@ Weitere Informationen zum Arbeiten mit Speicherkonten in Azure Stack Hub finden
     - Verwenden Sie für die VHD-Datei nicht den Container, der den Betriebssystem-Datenträger enthält.  
     - Bevor Sie eine VHD in Azure hochladen, befolgen Sie die Anweisungen unter [Vorbereiten einer Windows-VHD oder -VHDX zum Hochladen in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
     - Lesen Sie [Planen der Migration zu Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/on-prem-to-azure#plan-for-the-migration-to-managed-disks) vor dem Starten der Migration zu [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
-    
+
     ![Beispiel: Hochladen einer VHD-Datei](media/azure-stack-manage-vm-disks/upload-vhd.png)
-
-
 
 2. Nach dem Hochladen der VHD-Datei können Sie die virtuelle Festplatte an einen virtuellen Computer anfügen. Wählen Sie im Menü auf der linken Seite die Option **Virtuelle Computer**.  
  ![Beispiel: Auswählen eines virtuellen Computers auf dem Dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
@@ -166,7 +161,7 @@ Das Cmdlet **Add-AzureRmVMDataDisk** fügt einem virtuellen Computer einen Daten
 
 ### <a name="add-data-disks-to-a-new-vm"></a>Hinzufügen von Datenträgern zu einem **neuen** virtuellen Computer
 
-In den folgenden Beispielen wird mithilfe von PowerShell-Befehlen ein virtueller Computer mit drei Datenträgern erstellt. Die Befehle werden aufgrund der geringfügigen Unterschiede bei der Verwendung verwalteter Datenträger oder nicht verwalteter Datenträger in mehreren Abschnitten bereitgestellt. 
+In den folgenden Beispielen wird mithilfe von PowerShell-Befehlen ein virtueller Computer mit drei Datenträgern erstellt. Die Befehle werden aufgrund der geringfügigen Unterschiede bei der Verwendung verwalteter Datenträger oder nicht verwalteter Datenträger in mehreren Abschnitten bereitgestellt.
 
 #### <a name="create-virtual-machine-configuration-and-network-resources"></a>Erstellen der VM-Konfiguration und -Netzwerkressourcen
 
@@ -212,9 +207,7 @@ $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
 
 ```
 
-#### <a name="add-managed-disk"></a>Hinzufügen eines verwalteten Datenträgers
->[!NOTE]  
->Dieser Abschnitt bezieht sich nur auf das Hinzufügen verwalteter Datenträger. 
+#### <a name="add-managed-disks"></a>Hinzufügen von verwalteten Datenträgern
 
 Die folgenden drei Befehle fügen dem in `$VirtualMachine` gespeicherten virtuellen Computer verwaltete Datenträger hinzu. Die einzelnen Befehle geben jeweils den Namen und zusätzliche Eigenschaften des Datenträgers an:
 
@@ -245,10 +238,7 @@ $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $osDiskName  `
                                       -CreateOption FromImage -Windows
 ```
 
-#### <a name="add-unmanaged-disk"></a>Hinzufügen nicht verwalteter Datenträger
-
->[!NOTE]  
->Dieser Abschnitt bezieht sich nur auf das Hinzufügen von nicht verwalteten Datenträgern. 
+#### <a name="add-unmanaged-disks"></a>Hinzufügen von nicht verwalteten Datenträgern
 
 Die nächsten drei Befehle weisen den Variablen `$DataDiskVhdUri01`, `$DataDiskVhdUri02` und `$DataDiskVhdUri03` die Pfade von drei nicht verwalteten Datenträgern zu. Definieren Sie in der URL einen anderen Pfadnamen, um die Datenträger auf unterschiedliche Container zu verteilen:
 
@@ -294,9 +284,9 @@ $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $osDiskName -Vhd
                                       -CreateOption FromImage -Windows
 ```
 
-
 #### <a name="create-new-virtual-machine"></a>Erstellen eines neuen virtuellen Computers
-Verwenden Sie die folgenden PowerShell-Befehle, um das Betriebssystemimage festzulegen und dem virtuellen Computer eine Netzwerkkonfiguration hinzuzufügen. Starten Sie dann den neuen virtuellen Computer.
+
+Verwenden Sie die folgenden PowerShell-Befehle, um das Betriebssystemimage festzulegen, der VM eine Netzwerkkonfiguration hinzuzufügen und anschließend die neue VM zu starten:
 
 ```powershell
 #Create the new VM
@@ -307,9 +297,9 @@ $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Windows -Com
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $VirtualMachine
 ```
 
+### <a name="add-data-disks-to-an-existing-vm"></a>Hinzufügen von Datenträgern zu einer vorhandenen VM
 
-### <a name="add-data-disks-to-an-existing-vm"></a>Hinzufügen von Datenträgern zu einem **vorhandenen** virtuellen Computer
-In den folgenden Beispielen werden einem vorhandenen virtuellen Computer mithilfe von PowerShell-Befehlen drei Datenträger hinzugefügt.
+In den folgenden Beispielen werden einer vorhandenen VM mithilfe von PowerShell-Befehlen drei Datenträger hinzugefügt:
 
 #### <a name="get-virtual-machine"></a>Abrufen des virtuellen Computers
 
@@ -321,9 +311,6 @@ $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
 ```
 
 #### <a name="add-managed-disk"></a>Hinzufügen eines verwalteten Datenträgers
-
->[!NOTE]  
->Dieser Abschnitt bezieht sich nur auf das Hinzufügen verwalteter Datenträger.
 
 Die nächsten drei Befehle fügen dem in der Variablen `$VirtualMachine` gespeicherten virtuellen Computer die verwalteten Datenträger hinzu. Die einzelnen Befehle geben jeweils den Namen und zusätzliche Eigenschaften des Datenträgers an:
 
@@ -343,9 +330,6 @@ Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3" -Lun 2 `
 ```
 
 #### <a name="add-unmanaged-disk"></a>Hinzufügen nicht verwalteter Datenträger
-
->[!NOTE]  
->Dieser Abschnitt bezieht sich nur auf das Hinzufügen von nicht verwalteten Datenträgern. 
 
 Die nächsten drei Befehle weisen den Variablen `$DataDiskVhdUri01`, `$DataDiskVhdUri02` und `$DataDiskVhdUri03` die Pfade für drei Datenträger zu. Die verschiedenen Pfadnamen in den VHD-URIs geben unterschiedliche Container für die Platzierung der Datenträger an:
 

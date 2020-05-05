@@ -3,16 +3,16 @@ title: 'Azure Stack Hub: Versionshinweise'
 description: Versionshinweise für integrierte Azure Stack Hub-Systeme, einschließlich Updates und Fehlerbehebungen.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/20/2020
+ms.date: 04/22/2020
 ms.author: sethm
-ms.reviewer: prchint
+ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 33c620624feca5b2d416ff1173741209b99011cb
-ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
+ms.openlocfilehash: 3411c1b81634f2bf37ec1724ebb96aedb485fd5d
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80402821"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556327"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -38,6 +38,10 @@ Stellen Sie vor dem Anwenden des Updates sicher, dass Sie die folgenden Informat
 - [Azure Stack-Checkliste für Updateaktivitäten](release-notes-checklist.md)
 
 Unterstützung bei der Problembehandlung von Updates und dem Updateprozess finden Sie unter [Problembehandlung bei Patch- und Updateproblemen für Azure Stack Hub](azure-stack-updates-troubleshoot.md).
+
+## <a name="download-the-update"></a>Herunterladen des Updates
+
+Sie können das Paket mit dem Azure Stack Hub-Update auf der [Azure Stack Hub-Downloadseite](https://aka.ms/azurestackupdatedownload) herunterladen.
 
 <!---------------------------------------------------------->
 <!------------------- SUPPORTED VERSIONS ------------------->
@@ -67,6 +71,7 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 <!-- What's new, also net new experiences and features. -->
 
 - Es ist eine neue Version (1.8.1) von Azure Stack Hub-PowerShell-Modulen für Administratoren basierend auf AzureRM verfügbar.
+- Neue Azure PowerShell-Mandantenmodule werden am 15. April 2020 für Azure Stack Hub veröffentlicht. Die derzeit verwendeten Azure RM-Module funktionieren weiterhin, werden aber nach Build 2002 nicht mehr aktualisiert.
 - Im Azure Stack Hub-Administratorportal wurde eine neue Warnung hinzugefügt, um Konnektivitätsprobleme mit dem konfigurierten Syslog-Server zu melden. Der Titel der Warnung lautet **The Syslog client encountered a networking issue while sending a Syslog message** (Der Syslog-Client hat beim Senden einer Syslog-Nachricht ein Netzwerkproblem erkannt).
 - Im Azure Stack Hub-Administratorportal wurde eine neue Warnung hinzugefügt, um Konnektivitätsprobleme mit dem NTP-Server (Network Time Protocol) zu melden. Der Titel der Warnung lautet **Invalid Time Source on [node name]** (Ungültige Zeitquelle auf [Knotenname]).
 - Für das [Java-SDK](https://azure.microsoft.com/develop/java/) wurden aufgrund einer grundlegenden Änderung in Update 2002 in Bezug auf TLS-Einschränkungen neue Pakete veröffentlicht. Sie müssen die neue Java-SDK-Abhängigkeit installieren. Sie finden die Anleitung unter [Java und API-Versionsprofile](../user/azure-stack-version-profiles-java.md?view=azs-2002#java-and-api-version-profiles).
@@ -87,7 +92,7 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 - Es wurde ein neuer Microservice mit dem Namen DNS Orchestrator eingeführt, mit dem die Resilienzlogik für die internen DNS-Dienste bei Patch- und Updatevorgängen verbessert wird.
 - Es wurde eine neue Anforderungsüberprüfung hinzugefügt, damit beim Erstellen von VMs für ungültige Blob-URIs für den Parameters des Startdiagnose-Speicherkontos ggf. ein Fehler erkannt wird.
 - Für Rdagent und den Host-Agent wurden Verbesserungen in Bezug auf die automatische Wiederherstellung und Protokollierung vorgenommen. Dies sind zwei Dienste auf dem Host, mit denen CRUD-Vorgänge für VMs durchgeführt werden.
-- Der Marketplace-Verwaltung wurde ein neues Feature hinzugefügt, mit dem für Administratoren das Herunterladen von Marketplace-Produkten blockiert werden kann, die mit ihrem Azure Stack inkompatibel sind (aufgrund verschiedener Attribute, z. B. Azure Stack-Version oder Abrechnungsmodell).
+- Der Marketplace-Verwaltung wurde ein neues Feature hinzugefügt, mit dem Microsoft Attribute hinzufügen kann, die für Administratoren das Herunterladen von Marketplace-Produkten blockieren, die mit ihrer Azure Stack-Instanz inkompatibel sind (aufgrund verschiedener Eigenschaften, z. B. Azure Stack-Version oder Abrechnungsmodell). Diese Attribute können nur von Microsoft hinzugefügt werden. Weitere Informationen finden Sie unter [Herunterladen von Marketplace-Elementen mithilfe des Portals](azure-stack-download-azure-marketplace-item.md#use-the-portal-to-download-marketplace-items).
 
 ### <a name="changes"></a>Änderungen
 
@@ -109,7 +114,17 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
   | Microsoft.Backup.Admin | backupLocation         | 2016-05-01 |
   | Microsoft.Backup.Admin | backups                | 2016-05-01 |
   | Microsoft.Backup.Admin | Vorgänge             | 2016-05-01 |
-  
+
+- Wenn Sie einen virtuellen Windows-Computer mithilfe von PowerShell erstellen, müssen Sie das Flag `provisionvmagent` hinzufügen, wenn vom virtuellen Computer Erweiterungen bereitgestellt werden sollen. Ohne dieses Flag wird der virtuelle Computer ohne den Gast-Agent erstellt, sodass keine VM-Erweiterungen bereitgestellt werden können:
+
+   ```powershell
+   $VirtualMachine = Set-AzureRmVMOperatingSystem `
+     -VM $VirtualMachine `
+     -Windows `
+     -ComputerName "MainComputer" `
+     -Credential $Credential -ProvisionVMAgent
+  ```
+
 ### <a name="fixes"></a>Fehlerbehebungen
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
@@ -122,7 +137,7 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 - Es wurde ein Problem behoben, das aufgrund einer hohen Arbeitsspeicherauslastung für die ERCS-Rolle eine häufige Ursache von Azure Stack Hub-Updatefehlern war.
 - Es wurde ein Fehler auf dem Updateblatt behoben, bei dem der Updatestatus während der Vorbereitungsphase eines Azure Stack Hub-Updates nicht als **Wird vorbereitet**, sondern als **Wird installiert** angezeigt wurde.
 - Es wurde ein Problem behoben, bei dem das RSC-Feature auf den physischen Switches zu Inkonsistenzen geführt hat und der Datenverkehr verworfen wurde, der über ein Lastenausgleichsmodul geflossen ist. Das RSC-Feature ist jetzt standardmäßig deaktiviert.
-- Es wurde ein Problem behoben, bei dem das Hinzufügen einer sekundären IP-Adresse zur VM zu RDP-Problemen geführt hat.
+- Es wurde ein Problem behoben, aufgrund dessen mehrere IP-Konfigurationen auf einer Netzwerkschnittstelle (Network Interface, NIC) zu einer fehlerhaften Weiterleitung von Datenverkehr und Unterbrechung der ausgehenden Verbindung geführt haben. 
 - Es wurde ein Problem behoben, bei dem die MAC-Adresse einer NIC zwischengespeichert wurde und die Zuweisung dieser Adresse zu einer anderen Ressource zu VM-Bereitstellungsfehlern geführt hat.
 - Es wurde ein Problem behoben, bei dem für Windows-VM-Images aus dem RETAIL-Kanal die Lizenz per AVMA nicht aktiviert werden konnte.
 - Es wurde ein Problem behoben, bei dem VMs nicht erstellt werden konnten, wenn die Anzahl von virtuellen Kernen, die von der VM angefordert wurden, der Anzahl von physischen Kernen des Knoten entsprochen hat. Es ist jetzt zulässig, dass VMs über eine Anzahl von virtuellen Kernen verfügen, die kleiner oder gleich der Anzahl von physischen Kernen des Knotens ist.
@@ -132,18 +147,6 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 ## <a name="security-updates"></a>Sicherheitsupdates
 
 Informationen zu Sicherheitsupdates in diesem Update von Azure Stack Hub finden Sie unter [Azure Stack Hub-Sicherheitsupdates](release-notes-security-updates.md).
-
-## <a name="update-planning"></a>Updateplanung
-
-Stellen Sie vor dem Anwenden des Updates sicher, dass Sie die folgenden Informationen überprüfen:
-
-- [Bekannte Probleme](known-issues.md)
-- [Sicherheitsupdates](release-notes-security-updates.md)
-- [Azure Stack-Checkliste für Updateaktivitäten](release-notes-checklist.md)
-
-## <a name="download-the-update"></a>Herunterladen des Updates
-
-Sie können das Paket mit dem Azure Stack Hub-Update 2002 auf der [Azure Stack Hub-Downloadseite](https://aka.ms/azurestackupdatedownload) herunterladen.
 
 ## <a name="hotfixes"></a>Hotfixes
 
@@ -159,14 +162,14 @@ Azure Stack Hub-Hotfixes gelten nur für integrierte Azure Stack Hub-Systeme. Ve
 Das Release 2002 von Azure Stack Hub muss auf das Release 1910 mit den folgenden Hotfixes angewendet werden:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub-Hotfix 1.1910.24.108](https://support.microsoft.com/help/4541350)
+- [Azure Stack Hub-Hotfix 1.1910.37.132](https://support.microsoft.com/help/4550133)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Nach erfolgreicher Anwendung des Updates 2002
 
 Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes. Weitere Informationen finden Sie in unserer [Wartungsrichtlinie](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- Es ist kein Azure Stack Hub-Hotfix für 2002 verfügbar.
+- [Azure Stack Hub-Hotfix 1.2002.19.73](https://support.microsoft.com/help/4557355)
 ::: moniker-end
 
 ::: moniker range="azs-1910"
@@ -300,17 +303,7 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 
 Informationen zu Sicherheitsupdates in diesem Update von Azure Stack Hub finden Sie unter [Azure Stack Hub-Sicherheitsupdates](release-notes-security-updates.md).
 
-## <a name="update-planning"></a>Updateplanung
-
-Stellen Sie vor dem Anwenden des Updates sicher, dass Sie die folgenden Informationen überprüfen:
-
-- [Bekannte Probleme](known-issues.md)
-- [Sicherheitsupdates](release-notes-security-updates.md)
-- [Azure Stack-Checkliste für Updateaktivitäten](release-notes-checklist.md)
-
-## <a name="download-the-update"></a>Herunterladen des Updates
-
-Sie können das Paket mit dem Azure Stack Hub-Update 1910 auf der [Azure Stack Hub-Downloadseite](https://aka.ms/azurestackupdatedownload) herunterladen.
+Der Bericht zu den Qualys-Sicherheitsrisiken für diese Version kann von der [Qualys-Website](https://www.qualys.com/azure-stack/) heruntergeladen werden.
 
 ## <a name="hotfixes"></a>Hotfixes
 
@@ -326,14 +319,14 @@ Azure Stack Hub-Hotfixes gelten nur für integrierte Azure Stack Hub-Systeme. Ve
 Das Release 1910 von Azure Stack Hub muss auf das Release 1908 mit den folgenden Hotfixes angewendet werden:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub-Hotfix 1.1908.19.62](https://support.microsoft.com/help/4541349)
+- [Azure Stack Hub-Hotfix 1.1908.25.78](https://support.microsoft.com/help/4552361)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>Nach erfolgreicher Anwendung des Updates 1910
 
 Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes. Weitere Informationen finden Sie in unserer [Wartungsrichtlinie](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub-Hotfix 1.1910.24.108](https://support.microsoft.com/help/4541350)
+- [Azure Stack Hub-Hotfix 1.1910.37.132](https://support.microsoft.com/help/4550133)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -386,7 +379,9 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 
 Informationen zu Sicherheitsupdates in diesem Update von Azure Stack Hub finden Sie unter [Azure Stack Hub-Sicherheitsupdates](release-notes-security-updates.md).
 
-## <a name="download-the-update"></a><a name="download-the-update-1908"></a>Herunterladen des Updates
+Der Bericht zu den Qualys-Sicherheitsrisiken für diese Version kann von der [Qualys-Website](https://www.qualys.com/azure-stack/) heruntergeladen werden.
+
+## <a name="download-the-update"></a>Herunterladen des Updates
 
 Sie können das Paket mit dem Azure Stack Hub-Update 1908 auf der [Azure Stack Hub-Downloadseite](https://aka.ms/azurestackupdatedownload) herunterladen.
 
@@ -401,7 +396,7 @@ Azure Stack Hub-Hotfixes gelten nur für integrierte Azure Stack Hub-Systeme. Ve
 Das Release 1908 von Azure Stack Hub muss auf das Release 1907 mit den folgenden Hotfixes angewendet werden:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub-Hotfix 1.1907.26.70](https://support.microsoft.com/help/4541348)
+- [Azure Stack Hub-Hotfix 1.1907.29.80](https://support.microsoft.com/help/4555650)
 
 Für das Azure Stack Hub-Update 1908 ist **Azure Stack Hub-OEM-Version 2.1 oder höher** vom Hardwareanbieter Ihres Systems erforderlich. OEM-Updates enthalten Treiber- und Firmwareupdates Ihrer Azure Stack Hub-Systemhardware. Weitere Informationen zum Anwenden von OEM-Updates finden Sie unter [Anwenden von OEM-Updates (Originalgerätehersteller) auf Azure Stack Hub](azure-stack-update-oem.md).
 
@@ -410,7 +405,7 @@ Für das Azure Stack Hub-Update 1908 ist **Azure Stack Hub-OEM-Version 2.1 oder
 Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes. Weitere Informationen finden Sie in unserer [Wartungsrichtlinie](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub-Hotfix 1.1908.19.62](https://support.microsoft.com/help/4541349)
+- [Azure Stack Hub-Hotfix 1.1908.25.78](https://support.microsoft.com/help/4552361)
 ::: moniker-end
 
 ::: moniker range="azs-1907"
@@ -504,6 +499,8 @@ Beim Azure Stack Hub-Update 1907 handelt es sich um einen Build vom Typ **Expre
 
 Informationen zu Sicherheitsupdates in diesem Update von Azure Stack Hub finden Sie unter [Azure Stack Hub-Sicherheitsupdates](release-notes-security-updates.md).
 
+Der Bericht zu den Qualys-Sicherheitsrisiken für diese Version kann von der [Qualys-Website](https://www.qualys.com/azure-stack/) heruntergeladen werden.
+
 ## <a name="update-planning"></a>Updateplanung
 
 Stellen Sie vor dem Anwenden des Updates sicher, dass Sie die folgenden Informationen überprüfen:
@@ -534,7 +531,7 @@ Das Release 1907 von Azure Stack Hub muss auf das Release 1906 mit den folgend
 Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes. Weitere Informationen finden Sie in unserer [Wartungsrichtlinie](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub-Hotfix 1.1907.26.70](https://support.microsoft.com/help/4541348)
+- [Azure Stack Hub-Hotfix 1.1907.29.80](https://support.microsoft.com/help/4555650)
 ::: moniker-end
 
 ::: moniker range=">=azs-1907"

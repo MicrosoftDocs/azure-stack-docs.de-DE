@@ -3,16 +3,16 @@ title: Aktualisieren eines Kubernetes-Clusters in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie einen Kubernetes-Cluster in Azure Stack Hub aktualisieren.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 50f63cee7776bd9093d986746ed613b38164b171
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 4/23/2020
+ms.openlocfilehash: 4e7ef93f7199e9257fd602d54d3479a92ac8e8a8
+ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069257"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82218805"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Aktualisieren eines Kubernetes-Clusters in Azure Stack Hub
 
@@ -47,30 +47,16 @@ Beachten Sie bei der Aktualisierung eines Produktionsclusters Folgendes:
 
 In den folgenden Anweisungen werden die minimalen Schritte zum Ausführen des Upgrades verwendet. Weitere Details finden Sie im Artikel [Upgrading Kubernetes Clusters](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md) (Aktualisieren von Kubernetes-Clustern).
 
-1. Sie müssen zunächst die Versionen bestimmen, die Sie für das Upgrade als Ziel festlegen können. Diese Version hängt von der Version ab, die Sie zurzeit verwenden, und verwenden Sie dann diesen Versionswert, um das Upgrade durchzuführen.
+1. Sie müssen zunächst die Versionen bestimmen, die Sie für das Upgrade als Ziel festlegen können. Diese Version hängt von der Version ab, die Sie zurzeit verwenden, und verwenden Sie dann diesen Versionswert, um das Upgrade durchzuführen. Im aktuellen Update werden die Kubernetes-Versionen 1.14.7 und 1.15.10 unterstützt. Die verfügbaren Upgrades finden Sie in dieser Tabelle:
 
-    Führen Sie die folgenden Befehle aus:
+| Aktuelle Version | Upgrade verfügbar |
+| --- | --- |
+|1.14.7 | 1.15.10 |
+|1.14.8 | 1.15.10 |
+|1.15.4 | 1.15.10 |
+|1.15.5 | 1.15.10 |
 
-    ```bash  
-    $ aks-engine get-versions
-    Version Upgrades
-    1.15.0
-    1.14.3  1.15.0
-    1.14.1  1.14.3, 1.15.0
-    1.13.7  1.14.1, 1.14.3
-    1.13.5  1.13.7, 1.14.1, 1.14.3
-    1.12.8  1.13.5, 1.13.7
-    1.12.7  1.12.8, 1.13.5, 1.13.7
-    1.11.10 1.12.7, 1.12.8
-    1.11.9  1.11.10, 1.12.7, 1.12.8
-    1.10.13 1.11.9, 1.11.10
-    1.10.12 1.10.13, 1.11.9, 1.11.10
-    1.9.11  1.10.12, 1.10.13
-    1.9.10  1.9.11, 1.10.12, 1.10.13
-    1.6.9   1.9.10, 1.9.11
-    ```
-
-    Wenn beispielsweise gemäß der Ausgabe des `get-versions`-Befehls Ihre aktuelle Kubernetes-Version „1.13.5“ ist, können Sie ein Upgrade auf „1.13.7, 1.14.1, 1.14.3“ durchführen.
+Eine vollständige Zuordnung von AKS-Engine, AKS-Basisimage und Kubernetes-Versionen finden Sie unter [Unterstützte AKS-Engine-Versionen](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions).
 
 2. Sammeln Sie die Informationen, die Sie zum Ausführen des `upgrade`-Befehls benötigen. Für das Upgrade werden die folgenden Parameter verwendet:
 

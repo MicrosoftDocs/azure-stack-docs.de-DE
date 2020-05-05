@@ -7,16 +7,16 @@ ms.date: 2/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 2/28/2020
-ms.openlocfilehash: e82ddb48b3858acdf25163976854f538400da54b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b8bc4c1a9e56f363fa604e8df7a1fa0dbe37fcb0
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069198"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624981"
 ---
 # <a name="create-an-ssh-key-for-linux-on-azure-stack-hub"></a>Erstellen eines SSH-Schlüssels für Linux in Azure Stack Hub
 
-Sie können auf einem Windows-Computer einen SSH-Schlüssel (Secure Shell) für Ihren Linux-Computer erstellen. Verwenden Sie den öffentlichen Schlüssel, der mit den Schritten in diesem Artikel generiert wurde, für die SSH-Authentifizierung mit VMs. Installieren Sie bei Verwendung eines Windows-Computers Ubuntu unter Windows, um ein Terminal mit Hilfsprogrammen wie Bash, SSH, Git und Ubuntu unter Windows zu erhalten. Führen Sie **ssh-keygen** aus, um Ihren Schlüssel zu erstellen.
+Sie können auf einem Windows-Computer einen SSH-Schlüssel (Secure Shell) für Ihren Linux-Computer erstellen. Verwenden Sie den öffentlichen Schlüssel, der mit den Schritten in diesem Artikel generiert wurde, für die SSH-Authentifizierung mit VMs. Installieren Sie bei Verwendung eines Windows-Computers Ubuntu unter Windows, um ein Terminal mit Hilfsprogrammen wie Bash, SSH, Git, apt usw. zu erhalten. Führen Sie **ssh-keygen** aus, um Ihren Schlüssel zu erstellen.
 
 ## <a name="open-bash-on-windows"></a>Öffnen von Bash unter Windows
 

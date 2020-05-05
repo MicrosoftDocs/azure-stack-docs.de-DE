@@ -3,16 +3,16 @@ title: Verwenden des privilegierten Endpunkts in Azure Stack Hub
 description: Erfahren Sie, wie Sie den privilegierten Endpunkt (PEP) in Azure Stack Hub als Operator verwenden.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/8/2020
+ms.date: 04/28/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 335afce7423872156c84c655d9c94ed59a9592d2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 04/28/2020
+ms.openlocfilehash: 8c68e7dd4aa40d448e76050e4c657ee4cea9763b
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512438"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556398"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Verwenden des privilegierten Endpunkts in Azure Stack Hub
 
@@ -47,7 +47,7 @@ Sie müssen die aktuelle Kultureinstellung auf `en-US` festlegen, wenn Sie den p
       - Führen Sie auf einem integrierten System in einer Windows PowerShell-Sitzung mit erhöhten Rechten den folgenden Befehl aus, um den PEP als vertrauenswürdigen Host auf der gehärteten virtuellen VM hinzuzufügen, die auf dem Hardwarelebenszyklus-Host oder der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird.
 
       ```powershell  
-        winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+    Set-Item WSMan:\localhost\Client\TrustedHosts -Value '<IP Address of Privileged Endpoint>' -Concatenate
       ```
 
       - Wenn Sie das ASDK ausführen, melden Sie sich beim Development Kit-Host an.
@@ -109,7 +109,7 @@ Sie müssen die aktuelle Kultureinstellung auf `en-US` festlegen, wenn Sie den p
    - Stop-AzureStack
    - Get-ClusterLog
 
-## <a name="tips-for-using-the-privileged-endpoint"></a>Verwendungstipps für den privilegierten Endpunkt 
+## <a name="how-to-use-the-privileged-endpoint"></a>Verwenden des privilegierten Endpunkts 
 
 Beim PEP handelt es sich wie bereits erwähnt um einen Endpunkt vom Typ [PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview). Ein JEA-Endpunkt bietet nicht nur eine Ebene mit hoher Sicherheit, sondern schränkt auch einige der grundlegenden PowerShell-Funktionen wie Skriptverwendung und Vervollständigung mittels TAB-TASTE ein. Wenn Sie einen Skriptvorgangstyp testen, schlägt der Vorgang mit Fehler **ScriptsNotAllowed** fehl. Dieser Fehler ist das erwartete Verhalten.
 
@@ -119,7 +119,7 @@ Führen Sie den folgenden Befehl aus, wenn Sie beispielsweise die Parameterliste
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Alternativ können Sie das Cmdlet [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) verwenden, um alle PEP-Cmdlets in die aktuelle Sitzung auf Ihrem lokalen Computer zu importieren. Dadurch stehen alle Cmdlets und Funktionen des PEPs auf Ihrem lokalen Computer zur Verfügung – zusammen mit der Vervollständigung mittels TAB-TASTE und der Skriptverwendung im Allgemeinen.
+Alternativ können Sie das Cmdlet [**Import-PSSession**](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) verwenden, um alle PEP-Cmdlets in die aktuelle Sitzung auf Ihrem lokalen Computer zu importieren. Die Cmdlets und Funktionen des privilegierten Endpunkts sind dann auf Ihrem lokalen Computer verfügbar – zusammen mit der Vervollständigung mittels TAB-TASTE und der Skripterstellung im Allgemeinen. Sie können auch das Modul **[Get-Help](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-help)** ausführen, um Anweisungen zu den Cmdlets anzuzeigen.
 
 Wenn Sie die PEP-Sitzung in Ihren lokalen Computer importieren möchten, führen Sie die folgenden Schritte aus:
 
@@ -197,4 +197,5 @@ Nachdem die Aufzeichnungsprotokolldateien erfolgreich in die Dateifreigabe über
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Azure Stack Hub-Diagnosetools](azure-stack-diagnostic-log-collection-overview-tzl.md)
+- [Azure Stack Hub-Diagnosetools](azure-stack-diagnostic-log-collection-overview-tzl.md)
+- [Referenz zu privilegierten Azure Stack Hub-Endpunkten](../reference/pep-2002/index.md)
