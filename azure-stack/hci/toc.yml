@@ -18,6 +18,8 @@
       href: manage/delete-volumes.md
     - name: Ersetzen von Laufwerken
       href: manage/replace-drives.md
+    - name: Von Azure Site Recovery
+      href: manage/azure-site-recovery.md
     - name: Überwachung mit Azure Monitor
       href: manage/azure-monitor.md
     - name: Anfügen einer GPU an eine Linux-VM
