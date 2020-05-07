@@ -7,12 +7,12 @@ ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 889180858826685150fadb7ad3bef0ffb789b8ec
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 98298b405bd818cb3cd1f67d52d1735a4cc3edd4
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295281"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82846958"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Anforderungen und Überlegungen zu ASDK
 
@@ -28,7 +28,9 @@ Stellen Sie vor der Bereitstellung des Azure Stack Development Kit (ASDK) sicher
 | Compute: Arbeitsspeicher |192 GB RAM. |256 GB RAM. |
 | Compute: BIOS |Hyper-V aktiviert (mit SLAT-Unterstützung). |Hyper-V aktiviert (mit SLAT-Unterstützung). |
 | Netzwerk: NIC |Windows Server 2012 R2-Zertifizierung. Keine speziellen Features erforderlich. | Windows Server 2012 R2-Zertifizierung. Keine speziellen Features erforderlich. |
-| HW-Logo-Zertifizierung |[Certified for Windows Server 2012 R2 (Zertifiziert für Windows Server 2012 R2)](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0). |[Certified for Windows Server 2016 (Zertifiziert für Windows Server 2016)](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0). |
+| HW-Logo-Zertifizierung |[Certified for Windows Server 2012 R2 (Zertifiziert für Windows Server 2012 R2)](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm). 
+|[Certified for Windows Server 2016 (Zertifiziert für Windows Server 2016)](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm). 
+|
 
 <sup>*</sup> Sie benötigen mehr als diese empfohlene Kapazität, wenn Sie viele [Marketplace-Elemente](../operator/azure-stack-create-and-publish-marketplace-item.md) aus Azure hinzufügen möchten.
 

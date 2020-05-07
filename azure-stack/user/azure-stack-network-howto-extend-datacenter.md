@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: d6f93b5aa35a6475472df4ff213d98f684a4f7bb
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 99a8425901213d50c17175ab946aeff78a5aa81d
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661112"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742605"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Erweitern von Speicher auf Azure Stack Hub
 
@@ -30,7 +30,7 @@ Und das bringt uns zum folgenden Szenario: Wie können Sie Azure Stack Hub-Syste
 
 In der Abbildung wird ein Szenario veranschaulicht, in dem eine einzelne VM mit einer Workload zum Lesen/Schreiben von Daten und andere Zwecke eine Verbindung mit externem Speicher herstellt (extern für die VM und die Azure Stack Hub-Instanz selbst). In diesem Artikel konzentrieren wir uns auf das einfache Abrufen von Dateien. Sie können dieses Beispiel jedoch auch auf komplexere Szenarien ausweiten, z. B. die Remotespeicherung von Datenbankdateien.
 
-![](./media/azure-stack-network-howto-extend-datacenter/image1.png)
+![](./media/azure-stack-network-howto-extend-datacenter/azure-stack-network-howto-extend-datacenter-image1.svg)
 
 In der Abbildung ist ersichtlich, dass die VM im Azure Stack Hub-System mit mehreren Netzwerkadaptern bereitgestellt wurde. Sowohl wegen der Redundanz als auch der bewährten Methode hinsichtlich des Speichers ist es unerlässlich, dass zwischen Quelle und Ziel mehrere Pfade vorhanden sind. Komplexer werden die Dinge jedoch, wenn VMs in Azure Stack Hub über öffentliche und auch über private IP-Adressen verfügen, wie z. B. in Azure. Wenn eine Verbindung zwischen externem Speicher und VM erforderlich ist, ist dies nur über die öffentliche IP-Adresse möglich, da die privaten IP-Adressen hauptsächlich in den Azure Stack Hub-Systemen, in VNETs und den Subnetzen verwendet werden. Der externe Speicher wäre nicht in der Lage, mit dem privaten IP-Adressbereich der VM zu kommunizieren, sofern er kein Site-to-Site-VPN durchläuft, um eine Verbindung mit dem VNET selbst herzustellen. Daher konzentrieren wir uns in diesem Beispiel auf die Kommunikation mit dem öffentlichen IP-Adressraum. Ein bemerkenswerter Aspekt des öffentlichen IP-Adressraums in der Abbildung ist, dass zwei unterschiedliche Subnetze für öffentliche IP-Adresspools vorhanden sind. Standardmäßig ist in Azure Stack Hub nur ein Pool für öffentliche IP-Adressen erforderlich, aber für das redundante Routing empfiehlt es sich möglicherweise, einen zweiten hinzuzufügen. Es ist derzeit jedoch nicht möglich, eine IP-Adresse aus einem bestimmten Pool auszuwählen, und sie erhalten unter Umständen tatsächlich VMs mit öffentlichen IP-Adressen aus demselben Pool für mehrere virtuelle Netzwerkkarten.
 

@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 0175e0880edbecc4cb30e05df94cf26e518b8d0e
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: d21df4d1a16f7ea56ec02a1aa1e7821bb7fe4484
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173980"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848233"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Identitätsarchitektur für Azure Stack Hub
 
@@ -26,7 +26,7 @@ Die Wahl des Identitätsanbieters schränkt unter Umständen Ihre Optionen ein �
 |------------------------------|----------|-------|
 |Verbindung mit dem Internet vorhanden     |Ja       |Optional|
 |Unterstützung mehrerer Mandanten     |Ja       |Nein      |
-|Elemente im Marketplace anbieten |Ja       |Ja (Nutzung des Tools für die [Marketplace-Offlinesyndikation](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) ist erforderlich)|
+|Elemente im Marketplace anbieten |Ja       |Ja (Nutzung des Tools für die [Marketplace-Offlinesyndikation](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) ist erforderlich)|
 |Unterstützung der Active Directory Authentication Library (ADAL) |Ja |Ja|
 |Unterstützung von Tools wie Azure-Befehlszeilenschnittstelle, Visual Studio und PowerShell  |Ja |Ja|
 |Erstellen von Dienstprinzipalen über das Azure-Portal     |Ja |Nein|

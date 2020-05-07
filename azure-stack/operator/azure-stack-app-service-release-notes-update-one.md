@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 44baf18b4e7b1acb39125a4ccdeb4228557de4d4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2e8a4e4fe4de85e981bb0f33366b003c5ee907f8
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703518"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847757"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 1
 
@@ -26,14 +26,14 @@ In diesen Versionshinweisen werden die Verbesserungen, Fehlerbehebungen und beka
 
 Die Buildnummer von Update 1 für App Service in Azure Stack Hub lautet **69.0.13698.9**.
 
-### <a name="prerequisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Voraussetzungen
 
 > [!IMPORTANT]
-> Neue Bereitstellungen von Azure App Service in Azure Stack Hub erfordern jetzt aufgrund einer verbesserten SSO-Verarbeitung für Kudu in Azure App Service ein [Platzhalterzertifikat mit drei Antragstellern](azure-stack-app-service-before-you-get-started.md#get-certificates). Der neue Antragsteller lautet **\*.sso.appservice.\<Region\>.\<Domänenname\>.\<Erweiterung\>**
+> Neue Bereitstellungen von Azure App Service in Azure Stack Hub erfordern jetzt aufgrund einer verbesserten SSO-Verarbeitung für Kudu in Azure App Service ein Platzhalterzertifikat mit drei Antragstellern. Der neue Antragsteller lautet **\*.sso.appservice.\<Region\>.\<Domänenname\>.\<Erweiterung\>**
 
 Lesen Sie vor Beginn der Bereitstellung die [Voraussetzungen für das Bereitstellen von App Service in Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 
-### <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
+## <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
 
 Update 1 für Azure App Service in Azure Stack Hub enthält folgende Verbesserungen und Fehlerbehebungen:
 
@@ -77,7 +77,7 @@ Update 1 für Azure App Service in Azure Stack Hub enthält folgende Verbesseru
 
   - Überprüfung der Speicherverbindung in der Auswahl von benutzerdefiniertem Speicher für Azure Functions hinzugefügt.
 
-#### <a name="fixes"></a>Fehlerbehebungen
+### <a name="fixes"></a>Fehlerbehebungen
 
 - Beim Erstellen eines Offlinebereitstellungspakets erhalten Kunden keine „Zugriff verweigert“-Fehlermeldung mehr, wenn sie den Ordner vom App Service-Installationsprogramm aus öffnen.
 
@@ -91,7 +91,7 @@ Update 1 für Azure App Service in Azure Stack Hub enthält folgende Verbesseru
 
 - Der Fehler, dass beim Löschen eines Abonnements, dass Ressourcen im Microsoft.Web-Namespace enthielt, ein falscher Status an den Azure Resource Manager zurückgegeben wurde, wurde behoben.
 
-### <a name="known-issues-with-the-deployment-process"></a>Bekannte Probleme mit dem Bereitsellungsprozess
+## <a name="known-issues-with-the-deployment-process"></a>Bekannte Probleme mit dem Bereitsellungsprozess
 
 - Fehler beim Überprüfen des Zertifikats.
 
@@ -101,11 +101,11 @@ Update 1 für Azure App Service in Azure Stack Hub enthält folgende Verbesseru
 
     Ein Fehler in der Datei „Get-AzureStackRootCert.ps1“ führte dazu, dass Kunden das Azure Stack Hub-Stammzertifikat nicht abrufen konnten, wenn das Skript auf einem Computer ausgeführt wurde, auf dem das Stammzertifikat nicht installiert ist. Das Skript wurde nun ebenfalls erneut veröffentlicht. Dadurch wird das Problem gelöst. [Laden Sie hier die aktualisierten Hilfsskripts herunter](https://aka.ms/appsvconmashelpers). Wenn Sie weiterhin Probleme beim Abrufen des Stammzertifikats mit dem aktualisierten Skript haben, wenden Sie sich an den Support.
 
-### <a name="known-issues-with-the-update-process"></a>Bekannte Probleme mit dem Updateprozess
+## <a name="known-issues-with-the-update-process"></a>Bekannte Probleme mit dem Updateprozess
 
 - Es sind keine Probleme beim Aktualisieren mit Update 1 für Azure App Service in Azure Stack Hub bekannt.
 
-### <a name="known-issues-post-installation"></a>Bekannte Probleme (nach der Installation)
+## <a name="known-issues-post-installation"></a>Bekannte Probleme (nach der Installation)
 
 - Der Austausch von Slots funktioniert nicht.
 
@@ -201,7 +201,7 @@ Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk u
 - Priorität: 700
 - Name: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
 
 Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1802](azure-stack-update-1903.md).
 

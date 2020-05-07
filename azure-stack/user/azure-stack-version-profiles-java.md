@@ -3,16 +3,16 @@ title: Verwenden von API-Versionsprofilen mit Java in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie API-Versionsprofile mit Java in Azure Stack Hub verwenden.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: c0be80757eb12daac9d452f79ed7c0f5b7326120
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 6d072c061839c9d10f1f0d97c01ef9b2fa41e6a7
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78231637"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836154"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Java in Azure Stack Hub
 

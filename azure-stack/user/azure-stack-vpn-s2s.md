@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 36a4ea0532eda0593de2beb9191d6e0911e58276
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a1cf522176e6943ad1975a402affbb81d1aeea4f
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80367804"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643496"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurieren einer IPsec/IKE-Richtlinie für Standort-zu-Standort-VPN-Verbindungen
 
@@ -54,7 +54,7 @@ In diesem Abschnitt wird der Workflow zum Erstellen und Aktualisieren der IPsec/
 
 Die Anweisungen in diesem Artikel helfen Ihnen beim Einrichten und Konfigurieren von IPsec/IKE-Richtlinien, wie in der folgenden Abbildung dargestellt:
 
-![Einrichten und Konfigurieren von IPsec-/IKE-Richtlinien](media/azure-stack-vpn-s2s/site-to-site.png)
+![Einrichten und Konfigurieren von IPsec-/IKE-Richtlinien](media/azure-stack-vpn-s2s/site-to-site.svg)
 
 ## <a name="part-2---supported-cryptographic-algorithms-and-key-strengths"></a>Teil 2: Unterstützte Kryptografiealgorithmen und Schlüsselstärken
 
@@ -64,10 +64,10 @@ Die folgende Tabelle gibt Aufschluss über die unterstützten Kryptografiealgori
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | IKEv2-Verschlüsselung                                     | AES256, AES192, AES128, DES3, DES                                        |
 | IKEv2-Integrität                                      | SHA384, SHA256, SHA1, MD5                                                |
-| DH-Gruppe                                             | ECP384, ECP256, DHGroup14, DHGroup2, DHGroup1, Keine                      |
+| DH-Gruppe                                             | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2, DHGroup1                 |
 | IPsec-Verschlüsselung                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, keine |
 | IPsec-Integrität                                      | GCMASE256, GCMAES192, GCMAES128                                          |
-| PFS-Gruppe                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, keine                         |
+| PFS-Gruppe                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, PFSMM, Keine                  |
 | QM-SA-Gültigkeitsdauer                                       | (Optional: Wenn kein Wert angegeben wird, werden die Standardwerte verwendet.)<br />                         Sekunden (ganze Zahl; min. 300/Standard: 27.000 Sekunden)<br />                         KB (ganze Zahl; min. 1.024/Standard: 102.400.000 KB) |
 | Datenverkehrsselektor                                     | Richtlinienbasierte Datenverkehrsselektoren werden in Azure Stack Hub nicht unterstützt.         |
 
@@ -109,7 +109,7 @@ Weitere Informationen finden Sie unter [RFC3526](https://tools.ietf.org/html/rfc
 
 In diesem Abschnitt werden die Schritte zum Erstellen einer Site-to-Site-VPN-Verbindung mit einer IPsec/IKE-Richtlinie beschrieben. Mit den folgenden Schritten wird die Verbindung erstellt, wie in der folgenden Abbildung dargestellt:
 
-![site-to-site-policy](media/azure-stack-vpn-s2s/site-to-site.png)
+![site-to-site-policy](media/azure-stack-vpn-s2s/site-to-site.svg)
 
 Eine ausführlichere Anleitung zum Erstellen einer Site-to-Site-VPN-Verbindung finden Sie unter [Erstellen einer Site-to-Site-VPN-Verbindung](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell).
 

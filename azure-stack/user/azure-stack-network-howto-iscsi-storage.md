@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: f691ba0cfeadae0d359473db881601e90478276c
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 27442f9bc5107d9dbeb07b19f1f53b84facc5a06
+ms.sourcegitcommit: e591e8531e8fee07a8315fdca29cf8f45a766c81
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660892"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82687440"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Herstellen einer Verbindung mit dem iSCSI-Speicher mit Azure Stack Hub
 
@@ -24,7 +24,7 @@ Die Vorlage finden Sie im Fork **lucidqdreams** des GitHub-Repositorys [Azure In
 
 In der Abbildung ist ein virtueller Computer dargestellt, der über einen (virtuellen oder physischen) Windows-Computer lokal mit einem eingebundenen iSCSI-Datenträger in Azure Stack Hub gehostet wird, sodass Speicher außerhalb von Azure Stack Hub über das iSCSI-Protokoll innerhalb Ihres in Azure Stack Hub gehosteten virtuellen Computers eingebunden werden kann.
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/overview.png)
+![alt text](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
 
 ### <a name="requirements"></a>Requirements (Anforderungen)
 
@@ -57,7 +57,7 @@ In der Abbildung ist ein virtueller Computer dargestellt, der über einen (virtu
 
 In der Abbildung sind die mithilfe der Vorlage zum Erstellen des iSCSI-Clients bereitgestellten Vorlagen dargestellt, über die Sie eine Verbindung mit dem iSCSI-Ziel herstellen können. Mit dieser Vorlage werden der virtuelle Computer und andere Ressourcen bereitgestellt. Außerdem wird die Datei „prepare-iSCSIClient.ps1“ ausgeführt und der virtuelle Computer neu gestartet.
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.png)
+![alt text](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
 
 ### <a name="the-deployment-process"></a>Bereitstellungsprozess
 
@@ -68,7 +68,7 @@ Mit der Ressourcengruppenvorlage wird eine Ausgabe generiert, die als Eingabe f�
 3. Führen Sie `Create-iSCSITarget.ps1` mit den Ausgaben für die IP-Adresse und den Servernamen aus der Vorlage als Ein-/Ausgabeparameter für das Skript auf dem iSCSI-Ziel aus, bei dem es sich um einen virtuellen Computer oder einen physischen Server handeln kann.
 4. Verwenden Sie die externen IP-Adressen des iSCSI-Zielservers als Eingaben, um das Skript `Connect-toiSCSITarget.ps1` auszuführen. 
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/process.png)
+![alt text](./media/azure-stack-network-howto-iscsi-storage/process.svg)
 
 ### <a name="inputs-for-azuredeployjson"></a>Eingaben für „azuredeploy.json“
 
@@ -97,7 +97,7 @@ Mit der Ressourcengruppenvorlage wird eine Ausgabe generiert, die als Eingabe f�
 
 Sie können die Skripts auch auf einem vorhandenen virtuellen Computer ausführen, um eine Verbindung zwischen dem iSCSI-Client und einem iSCSI-Ziel herzustellen. Bei diesem Ablauf gehen Sie so vor, als würden Sie das iSCSI-Ziel selbst erstellen. In der folgenden Abbildung ist die Ausführung der PowerShell-Skripts dargestellt. Die Skripts befinden sich im Skriptverzeichnis.
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/script-flow.png)
+![alt text](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
 
 ### <a name="prepare-iscsiclientps1"></a>Prepare-iSCSIClient.ps1
 

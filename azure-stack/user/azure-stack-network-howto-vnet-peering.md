@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 03ead55141ff6a7b8aa9451b814d399b607ebb47
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 97fc89897d63d368cfface0f5fc7dece4b8480cd
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702175"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742531"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VNET-Peering in Azure Stack Hub mit VMs
 
@@ -23,7 +23,7 @@ Dieses Bereitstellungsmuster bildet die Grundlage, auf der Sie VPN-Tunnel nicht 
 Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ). Die Vorlage befindet sich im Ordner **S2SVPNTunnel**.
 
-![alt text](./media/azure-stack-network-howto-vnet-peering/overview.png)
+![alt text](./media/azure-stack-network-howto-vnet-peering/overview.svg)
 
 ## <a name="requirements"></a>Requirements (Anforderungen)
 
@@ -51,7 +51,7 @@ Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](h
 
 Die Vorlage enthält Standardwerte für die VNET-Benennung und die IP-Adressierung. Hierfür ist ein Kennwort für den Administrator (rrasadmin) erforderlich. Außerdem haben Sie die Möglichkeit, Ihr eigenes Speicherblob mit SAS-Token zu verwenden. Achten Sie darauf, dass diese Werte innerhalb der zulässigen Bereiche liegen, da bei der Bereitstellung Fehler auftreten können. Das PowerShell-DSC-Paket wird auf jedem virtuellen RRAS-Computer ausgeführt und installiert das Routing und alle erforderlichen abhängigen Dienste und Funktionen. Dieses DSC-Paket kann bei Bedarf weiter angepasst werden. Die benutzerdefinierte Skripterweiterung führt das folgende Skript aus, und `Add-Site2Site.ps1` konfiguriert den Tunnel für Site-to-Site-VPNs zwischen den beiden RRAS-Servern mit einem gemeinsam verwendeten Schlüssel. Sie können die ausführliche Ausgabe über die benutzerdefinierte Skripterweiterung anzeigen, um die Ergebnisse der VPN-Tunnelkonfiguration zu prüfen.
 
-![alt text](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.png)
+![alt text](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.svg)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 3f9741019a28548e9f20308312d62ea68e757795
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e8a8d2f156d2608db01a652225540a73722f16fc
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81308245"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848216"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrieren von Azure Stack Hub in Azure
 
@@ -486,7 +486,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | ResourceGroupName | String |  |
 | ResourceGroupLocation | String |  |
 | BillingModel | String | Das Abrechnungsmodell, das von Ihrem Abonnement verwendet wird. Gültige Werte für diesen Parameter: „Capacity“, „PayAsYouUse“ und „Development“. |
-| MarketplaceSyndicationEnabled | True/False | Steuert, ob das Marketplace-Verwaltungsfeature im Portal verfügbar ist. Legen Sie den Wert auf „true“ fest, wenn bei der Registrierung eine Internetverbindung verfügbar ist. Legen Sie den Wert auf „false“ fest, wenn die Registrierung in einer Umgebung ohne Verbindung erfolgt. In Umgebungen ohne Verbindung können Marketplace-Elemente mithilfe des [Offlinesyndikationstools](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) heruntergeladen werden. |
+| MarketplaceSyndicationEnabled | True/False | Steuert, ob das Marketplace-Verwaltungsfeature im Portal verfügbar ist. Legen Sie den Wert auf „true“ fest, wenn bei der Registrierung eine Internetverbindung verfügbar ist. Legen Sie den Wert auf „false“ fest, wenn die Registrierung in einer Umgebung ohne Verbindung erfolgt. In Umgebungen ohne Verbindung können Marketplace-Elemente mithilfe des [Offlinesyndikationstools](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) heruntergeladen werden. |
 | UsageReportingEnabled | True/False | Azure Stack Hub erstellt standardmäßig Berichte zu Nutzungsmetriken. Betreiber, die ein kapazitätsbasiertes Modell verwenden oder eine nicht verbundene Umgebung unterstützen, müssen Nutzungsberichte deaktivieren. Gültige Werte für diesen Parameter: TRUE, FALSE |
 | AgreementNumber | String | Die Nummer der EA-Vereinbarung, unter der die Kapazitäts-SKU für diese Azure Stack-Instanz bestellt wurde. |
 | RegistrationName | String | Legen Sie einen eindeutigen Namen für die Registrierung fest, wenn Sie das Registrierungsskript in mehreren Instanzen von Azure Stack Hub mit der gleichen Azure-Abonnement-ID ausführen. Der Parameter hat den Standardwert **AzureStackRegistration**. Wenn Sie den gleichen Namen jedoch in mehreren Instanzen von Azure Stack Hub verwenden, tritt beim Ausführen des Skripts ein Fehler auf. |
@@ -532,7 +532,7 @@ Bei der Registrierung von Azure Stack Hub können unter Umständen Fehler wie di
 ::: zone pivot="state-disconnected"
 - Sie werden von der Marketplace-Verwaltung weiterhin zur Registrierung und Aktivierung Ihrer Azure Stack Hub-Instanz aufgefordert, obwohl Sie Ihren Stamp bereits mithilfe des nicht verbundenen Prozesses registriert haben.
 
-   Ursache: Dies ist ein bekanntes Problem bei getrennten Umgebungen, daher müssen Sie [Ihren Registrierungsstatus überprüfen](#verify-azure-stack-hub-registration). Verwenden Sie das [Offlinetool](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario), um die Marketplace-Verwaltung zu nutzen.
+   Ursache: Dies ist ein bekanntes Problem bei getrennten Umgebungen, daher müssen Sie [Ihren Registrierungsstatus überprüfen](#verify-azure-stack-hub-registration). Verwenden Sie das [Offlinetool](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected), um die Marketplace-Verwaltung zu nutzen.
 ::: zone-end
 
 ## <a name="next-steps"></a>Nächste Schritte

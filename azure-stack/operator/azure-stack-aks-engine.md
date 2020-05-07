@@ -7,12 +7,12 @@ ms.date: 2/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: abbf82a61c27a58833d286639b281989d3a29fd7
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 5bebac9b3c604b2726cf5cd8f895fb17e0db3486
+ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166955"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82861383"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Hinzufügen von Voraussetzungen für die Azure Kubernetes Services-Engine (AKS) zum Azure Stack Hub-Marketplace
 
@@ -38,7 +38,7 @@ Wenn Sie Active Directory-Verbunddienste (AD FS) als Ihren Identitätsverwaltung
 
 ## <a name="add-the-aks-base-image"></a>Hinzufügen des AKS-Basisimages
 
-Sie können das AKS-Basisimage zum Marketplace hinzufügen, indem Sie das Element aus Azure abrufen. Wenn keine Verbindung mit Ihrer Azure Stack Hub-Instanz besteht, lesen Sie die Anweisungen unter [Herunterladen von Marketplace-Elementen in Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario), um das Element hinzuzufügen. Fügen Sie das in Schritt 5 angegebene Element hinzu.
+Sie können das AKS-Basisimage zum Marketplace hinzufügen, indem Sie das Element aus Azure abrufen. Wenn keine Verbindung mit Ihrer Azure Stack Hub-Instanz besteht, lesen Sie die Anweisungen unter [Herunterladen von Marketplace-Elementen in Azure Stack Hub](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected), um das Element hinzuzufügen. Fügen Sie das in Schritt 5 angegebene Element hinzu.
 
 Fügen Sie das folgende Element zum Marketplace hinzu:
 
@@ -61,7 +61,7 @@ Fügen Sie das folgende Element zum Marketplace hinzu:
 
 ## <a name="add-a-custom-script-extension"></a>Hinzufügen einer benutzerdefinierten Skripterweiterung
 
-Sie können das benutzerdefinierte Skript zum Marketplace hinzufügen, indem Sie das Element aus Azure abrufen. Wenn keine Verbindung mit Ihrer Azure Stack Hub-Instanz besteht, lesen Sie die Anweisungen unter [Herunterladen von Marketplace-Elementen in Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario), um das Element hinzuzufügen.  Fügen Sie das in Schritt 5 angegebene Element hinzu.
+Sie können das benutzerdefinierte Skript zum Marketplace hinzufügen, indem Sie das Element aus Azure abrufen. Wenn keine Verbindung mit Ihrer Azure Stack Hub-Instanz besteht, lesen Sie die Anweisungen unter [Herunterladen von Marketplace-Elementen in Azure Stack Hub](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected), um das Element hinzuzufügen.  Fügen Sie das in Schritt 5 angegebene Element hinzu.
 
 1. Öffnen Sie das [Verwaltungsportal](https://adminportal.local.azurestack.external).
 

@@ -3,16 +3,16 @@ title: Verwenden von API-Versionsprofilen mit Node.js in Azure Stack Hub
 description: Hier erfahren Sie mehr zur Verwendung von API-Versionsprofilen mit Node.js in Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 04/30/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 639c532d4ac105e434557fe18ef8070b656c0849
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 04/30/2020
+ms.openlocfilehash: b838afd49f53adc32af94559cebc5a65db3ee7ef
+ms.sourcegitcommit: 6de5b687197798302c3b1f08e4c82f049a99e49f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660122"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82596804"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit dem Node.js-SDK (Software Development Kit) in Azure Stack Hub
 
@@ -209,9 +209,9 @@ function main() {
 
 Sie können die folgenden Beispiele als Referenzen zum Erstellen von Lösungen mit Node.js- und Azure Stack Hub-API-Profilen verwenden. Sie können die Beispiele von GitHub in den folgenden Repositorys abrufen:
 
-- [Storage node resource provider getting started](https://github.com/sijuman/storage-node-resource-provider-getting-started) (Erste Schritte mit dem Speicherknoten-Ressourcenanbieter)
-- [Compute node manage](https://github.com/sijuman/compute-node-manage-vm) (Computeknotenverwaltung)
-- [Resource-manager node resources and groups](https://github.com/sijuman/resource-manager-node-resources-and-groups) (Ressourcen und Gruppen für Resource Manager-Knoten)
+- [Storage node resource provider getting started](https://github.com/Azure-Samples/hybrid-storage-nodejs-create-storageaccount) (Erste Schritte mit dem Speicherknoten-Ressourcenanbieter)
+- [Compute node manage](https://github.com/Azure-Samples/Hybrid-compute-nodejs-create-vm) (Computeknotenverwaltung)
+- [Resource-manager node resources and groups](https://github.com/Azure-Samples/Hybrid-resourcegroups-nodejs-manageresources) (Ressourcen und Gruppen für Resource Manager-Knoten)
 
 ### <a name="sample-create-storage-account"></a>Beispiel für die Erstellung eines Speicherkontos 
 

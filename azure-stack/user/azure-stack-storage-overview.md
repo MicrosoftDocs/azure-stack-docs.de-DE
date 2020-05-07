@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: ee08259248a49eef08ce0012d60be2705cc4f877
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 69f47c34f55935d73ffb1349b8c90624d6311449
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704912"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742365"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Einführung in Azure Stack Hub-Speicher
 
@@ -37,7 +37,7 @@ Azure Stack Hub-Speicher bietet die folgenden drei Dienste:
 
 Ein Azure Stack Hub-Speicherkonto ist ein sicheres Konto, mit dem Sie auf Dienste in Azure Stack Hub-Speicher zugreifen können. Ihr Speicherkonto stellt den eindeutigen Namespace für Ihre Speicherressourcen bereit. Das folgende Diagramm zeigt die Beziehungen zwischen den Azure Stack Hub-Speicherressourcen in einem Speicherkonto:
 
-![Übersicht zu Azure Stack Hub-Speicher](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
+![Übersicht zu Azure Stack Hub-Speicher](media/azure-stack-storage-overview/azurestackstorageoverview.svg)
 
 ### <a name="blob-storage"></a>Blob Storage
 

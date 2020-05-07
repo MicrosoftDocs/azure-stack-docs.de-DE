@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 916e12061961b22c518d0048e8bc8c191f8542a1
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 4fc7269e81e021f30049f7b93a9651443f381d6b
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660077"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643532"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Bereitstellen hochverfügbarer virtueller Netzwerkgeräte in Azure Stack Hub
 
@@ -40,7 +40,7 @@ In diesem Artikel werden Grundkenntnisse zu Azure Stack Hub-Netzwerken vorausges
 
 Ein NVA kann in vielen Architekturen in einem Umkreisnetzwerk bereitgestellt werden. Die folgende Abbildung veranschaulicht beispielsweise die Verwendung eines einzelnen NVA für eingehenden Datenverkehr.
 
-![Screenshot einer automatisch generierten Beschreibung eines Posts in sozialen Medien](./media/iaas-architecture-nva-architecture/image1.png)
+![Screenshot einer automatisch generierten Beschreibung eines Posts in sozialen Medien](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
 
 In dieser Architektur stellt das NVA eine sichere Netzwerkgrenze dar, indem der gesamte eingehende und ausgehende Netzwerkdatenverkehr überprüft und nur der Datenverkehr weitergeleitet wird, der die Netzwerksicherheitsregeln erfüllt. Aufgrund der Tatsache, dass der gesamte Netzwerkdatenverkehr über das NVA erfolgen muss, stellt das NVA einen Single Point of Failure im Netzwerk dar. Tritt beim NVA ein Fehler auf, steht kein anderer Pfad für den Netzwerkdatenverkehr bereit und keines der Back-End-Subnetze ist verfügbar.
 
@@ -58,7 +58,7 @@ In den folgenden Architekturen sind die für hochverfügbare NVAs erforderlichen
 
 Die folgende Abbildung zeigt eine Hochverfügbarkeitsarchitektur, die ein Umkreisnetzwerk für eingehenden Datenverkehr hinter einem Lastenausgleich mit Internetzugriff implementiert. Diese Architektur bietet Konnektivität für Azure Stack Hub-Workloads für den Layer 7-Datenverkehr, z. B. HTTP oder HTTPS:
 
-![Screenshot einer automatisch generierten Zuordnungsbeschreibung](./media/iaas-architecture-nva-architecture/image2.png)
+![Screenshot einer automatisch generierten Zuordnungsbeschreibung](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image2.svg)
 
 Der Vorteil dieser Architektur ist, dass alle NVAs aktiv sind, und bei Ausfall eines NVA wird der Netzwerkdatenverkehr durch den Lastenausgleich an das andere NVA weitergeleitet. Beide NVAs leiten den Datenverkehr an den internen Lastenausgleich, sodass der Datenverkehr weiter fließt, solange ein NVA aktiv ist. Die NVAs sind erforderlich, um den für virtuelle Computer der Webebene vorgesehenen SSL-Datenverkehr zu beenden. Diese NVAs können nicht auf die Abwicklung des Datenverkehr aus dem Unternehmensnetzwerk ausgeweitet werden, da für diesen Datenverkehr eine andere dedizierte Gruppe von NVAs mit eigenen Netzwerkrouten erforderlich ist.
 
@@ -66,7 +66,7 @@ Der Vorteil dieser Architektur ist, dass alle NVAs aktiv sind, und bei Ausfall e
 
 Die Architektur „Eingehender Datenverkehr mit Layer 7-NVAs“ kann so erweitert werden, dass sie ein ausgehendes Umkreisnetzwerk für Anforderungen umfasst, die aus der Azure Stack Hub-Workload stammen. Die folgende Architektur bietet Hochverfügbarkeit der NVAs im Umkreisnetzwerk für den Layer 7-Datenverkehr, z. B. HTTP oder HTTPS:
 
-![Screenshot einer automatisch generierten Beschreibung für ein Mobiltelefon](./media/iaas-architecture-nva-architecture/image3.png)
+![Screenshot einer automatisch generierten Beschreibung für ein Mobiltelefon](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image4.svg)
 
 In dieser Architektur wird der gesamte aus Azure Stack Hub stammende Datenverkehr an einen internen Lastenausgleich weitergeleitet. Der Lastenausgleich verteilt ausgehende Anforderungen auf eine Gruppe von NVAs. Diese NVAs leiten den Datenverkehr über ihre jeweiligen öffentlichen IP-Adressen an das Internet weiter.
 
@@ -74,7 +74,7 @@ In dieser Architektur wird der gesamte aus Azure Stack Hub stammende Datenverkeh
 
 Bei den beiden Architekturen für ein- und ausgehenden Datenverkehr gab es ein separates Umkreisnetzwerk für ein- und ausgehenden Datenverkehr. Die folgende Architektur veranschaulicht das Erstellen eines Umkreisnetzwerks, das sowohl für ein- als auch ausgehenden Layer 7-Datenverkehr, z. B. HTTP oder HTTPS, verwendet werden kann:
 
-![Screenshot einer automatisch generierten Beschreibung eines Posts in sozialen Medien](./media/iaas-architecture-nva-architecture/image4.png)
+![Screenshot einer automatisch generierten Beschreibung eines Posts in sozialen Medien](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image4.svg)
 
 In der Architektur „Ein-/ausgehender Datenverkehr mit Layer 7-NVAs“ verarbeiten die NVAs eingehende Anforderungen von einem Layer 7-Lastenausgleich. Die NVAs verarbeiten auch ausgehende Anforderungen von den Workload-VMs im Back-End-Pool des Lastenausgleichs. Da eingehender Datenverkehr mit einem Layer-7-Lastenausgleich und ausgehender Datenverkehr mit einem SLB (Azure Stack Hub Basic Load Balancer) weitergeleitet wird, sind die NVAs für die Aufrechterhaltung von Sitzungsaffinität zuständig. Das heißt, dass das der Layer 7-Lastenausgleich eine Zuordnung von ein- und ausgehenden Anforderungen verwaltet, damit es die richtige Antwort an den ursprünglichen Anforderer weiterleiten kann. Der interne Lastenausgleich hat jedoch keinen Zugriff auf die Zuordnungen des Layer 7-Lastenausgleichs und verwendet eine eigene Logik zum Senden von Antworten an die NVAs. Es ist möglich, dass der Lastenausgleich eine Antwort an ein NVA sendet, das die Anforderung nicht ursprünglich vom Layer 7-Lastenausgleich empfangen hat. In diesem Fall müssen die NVAs kommunizieren und die Antwort untereinander übertragen, damit das richtige NVA die Antwort an den Layer 7-Lastenausgleich weiterleiten kann.
 

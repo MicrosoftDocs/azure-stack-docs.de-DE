@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 0b277f33472c25d0dc8e6b813685029aea81a303
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ed14d3a482a61b3daad827d559ef96926b65c551
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701393"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848063"
 ---
 # <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 3
 
@@ -26,7 +26,7 @@ In diesen Versionshinweisen werden die Verbesserungen, Fehlerbehebungen und beka
 
 Die Buildnummer von Update 3 für App Service in Azure Stack Hub lautet **74.0.13698.31**.
 
-### <a name="prerequisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Voraussetzungen
 
 Lesen Sie vor Beginn der Bereitstellung die [Voraussetzungen für das Bereitstellen von App Service in Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 
@@ -34,7 +34,7 @@ Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack Hub auf 1.3 begin
 
 ![Status von App Service-Rollen](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
-### <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
+## <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
 
 Update 3 für Azure App Service in Azure Stack Hub enthält folgende Verbesserungen und Fehlerbehebungen:
 
@@ -66,7 +66,7 @@ Update 3 für Azure App Service in Azure Stack Hub enthält folgende Verbesseru
   - [Wartungsstapelaktualisierung für Windows Server 2016 für x64-basierte Systeme (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
   - [Kumulatives Update für Windows Server 2016 für x64-basierte Systeme aus Juli 2018 (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
 
-### <a name="post-update-steps-optional"></a>Schritte nach dem Updatevorgang (optional)
+## <a name="post-update-steps-optional"></a>Schritte nach dem Updatevorgang (optional)
 
 Führen Sie die folgenden Schritte aus, nachdem das Update für Azure App Service in Azure Stack Hub 1.3 abgeschlossen wurde, falls Sie für bereits vorhandene Bereitstellungen von Azure App Service in Azure Stack Hub eine Migration zu eigenständigen Datenbanken durchführen möchten:
 
@@ -170,7 +170,7 @@ Führen Sie die folgenden Schritte aus, nachdem das Update für Azure App Servic
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
-### <a name="known-issues-post-installation"></a>Bekannte Probleme (nach der Installation)
+## <a name="known-issues-post-installation"></a>Bekannte Probleme (nach der Installation)
 
 - Worker können den Dateiserver nicht erreichen, wenn der App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist. Dieses Problem wird in der Bereitstellungsdokumentation zu Azure App Service in Azure Stack Hub beschrieben.
 
@@ -186,7 +186,7 @@ Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk u
  * Priorität: 700
  * Name: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
 
 Lesen Sie die Dokumentation in den Versionshinweisen zu Azure Stack Hub 1807.
 

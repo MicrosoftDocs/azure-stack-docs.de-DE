@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 1b68435317136afdbfcc5d1ade16b18a2210baad
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: 5d2f30813cc0a7a42e376ec7fb9c76be1f7994eb
+ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772703"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82605690"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Herstellen einer Verbindung von Azure Stack Hub mit Azure mithilfe von Azure ExpressRoute
 
@@ -55,7 +55,7 @@ Die folgende Abbildung zeigt die Azure Stack Hub- und die Azure-Umgebung nach de
 
 In der folgenden Abbildung ist dargestellt, wie für mehrere Mandanten eine Verbindung von der Azure Stack Hub-Infrastruktur über den ExpressRoute-Router mit Azure im hergestellt wird:
 
-![Verbindungen für mehrere Mandanten mit ExpressRoute](media/azure-stack-connect-expressroute/Architecture.png)
+![Verbindungen für mehrere Mandanten mit ExpressRoute](media/azure-stack-connect-expressroute/architecture.svg)
 
 Im Beispiel in diesem Artikel wird die in diesem Diagramm dargestellte mehrinstanzenfähige Architektur verwendet, um Azure Stack Hub mithilfe von privatem ExpressRoute-Peering mit Azure zu verbinden. Bei der Verbindung handelt es sich um eine Site-to-Site-VPN-Verbindung zwischen dem Gateway des virtuellen Netzwerks in Azure Stack Hub und einem ExpressRoute-Router.
 
@@ -328,7 +328,7 @@ Wiederholen Sie diese Schritte für alle zusätzlichen Mandanten-VNETs, für die
 
 Sie können das folgende Konfigurationsdiagramm des ExpressRoute-Routers als Orientierungshilfe für die Konfiguration Ihres ExpressRoute-Routers verwenden. In dieser Abbildung sind zwei Mandanten („Tenant 1“ und „Tenant 2“) mit ihren jeweiligen ExpressRoute-Verbindungen dargestellt. Jeder Mandant ist mit einer eigenen VRF-Instanz (Virtual Routing and Forwarding) auf der LAN- und WAN-Seite des ExpressRoute-Routers verbunden. Durch diese Konfiguration wird eine End-to-End-Isolation zwischen den beiden Mandanten sichergestellt. Notieren Sie sich die IP-Adressen, die in den Routerschnittstellen verwendet werden, während Sie das Konfigurationsbeispiel durcharbeiten.
 
-![Konfiguration des ExpressRoute-Routers](media/azure-stack-connect-expressroute/EndToEnd.png)
+![Konfiguration des ExpressRoute-Routers](media/azure-stack-connect-expressroute/endtoend.svg)
 
 Sie können einen beliebigen Router verwenden, der ein IKEv2-VPN und BGP unterstützt, um die Site-to-Site-VPN-Verbindung von Azure Stack Hub zu beenden. Derselbe Router wird verwendet, um über eine ExpressRoute-Verbindung eine Verbindung mit Azure herzustellen.
 

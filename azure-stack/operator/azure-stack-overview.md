@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: dc5fa60f0ab1460a98ec21a0501c3cdcec6a6637
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: a1e49ef9138c04557c8cd0a54b11ada30d97f334
+ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772639"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82605633"
 ---
 # <a name="azure-stack-hub-overview"></a>Übersicht über Azure Stack Hub
 
@@ -65,7 +65,7 @@ Für getrennte Bereitstellungen von Azure Stack Hub müssen Sie AD FS verwend
 
 Azure Stack Hub verwendet das gleiche Betriebsmodell wie Azure. Ein Azure Stack Hub-Betreiber kann Mandantenbenutzern eine Vielzahl von Diensten und Apps zur Verfügung stellen. Dies ist mit der Bereitstellung von Azure-Diensten für Mandantenbenutzer durch Microsoft vergleichbar. 
 
-![Diagramm mit Azure Stack Hub-Auftragsrollen](./media/azure-stack-overview/azure-stack-job-roles.png)
+![Diagramm mit Azure Stack Hub-Auftragsrollen](./media/azure-stack-overview/azure-stack-job-roles.svg)
 
 Sie können Azure Stack Hub über das Administratorportal, das Benutzerportal oder mit [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) verwalten. Alle Azure Stack Hub-Portale basieren jeweils auf separaten Azure Resource Manager-Instanzen. Ein **Azure Stack Hub-Betreiber** verwendet das Administratorportal, um Azure Stack Hub zu verwalten und Aufgaben wie das Erstellen von Mandantenangeboten, Sicherstellen der Integrität und Überwachen des Status des integrierten Systems auszuführen. Das Benutzerportal bietet eine Self-Service-Benutzeroberfläche für die Nutzung von Cloudressourcen wie virtuelle Computer, Speicherkonten und Web-Apps.
 
