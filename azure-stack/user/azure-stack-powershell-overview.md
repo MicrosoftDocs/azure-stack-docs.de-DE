@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: cf9d17bda49c1fe5d401481d79b61b18442ee7ef
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 76dd8c2275c0d75132a508d6849d8356ff2e1f67
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703807"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643461"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Erste Schritte mit PowerShell in Azure Stack Hub
 
@@ -35,7 +35,7 @@ Ressourcenanbieter stellen sowohl Funktionalität als auch Steuerelemente für d
 
 Im folgenden Blockdiagramm sind die Beziehungen zwischen den Sätzen mit den PowerShell-Modulen dargestellt. Von Ihrem Computer aus können Sie die PowerShell-Module laden und sowohl globale Azure- als auch Azure Stack Hub-Umgebungen verwalten.
 
-![Azure Stack Hub PowerShell](media/azure-stack-powershell-overview/Azure-Stack-PowerShell.png)
+![Azure Stack Hub PowerShell](media/azure-stack-powershell-overview/azure-stack-powerShell.svg)
 
 ### <a name="global-azure"></a>Globale Azure-Umgebung
 

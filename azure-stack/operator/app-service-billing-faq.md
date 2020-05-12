@@ -4,16 +4,16 @@ description: Hier erhalten Sie Informationen zur Abrechnung für Azure App Serv
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: e5ab25785223d1361553f995d22196cd594a6f0a
-ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
+ms.lastreviewed: 04/13/2020
+ms.openlocfilehash: 3717308e28b7dfa62534ee1abd4e71ff06361d50
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82150274"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847944"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Azure App Service in Azure Stack Hub: Abrechnungsübersicht und häufig gestellte Fragen
 
@@ -70,6 +70,9 @@ Als Cloudbetreiber können Sie Ihr eigenes Preismodell auf ihre Endkunden anwend
 ### <a name="as-a-csp-how-can-i-offer-free-and-shared-skus-for-customers-to-try-out-the-service"></a>Wie kann ich als CSP die SKUs „Free“ und „Shared“ für Kunden zum Testen des Diensts anbieten?
 
 Als Cloudbetreiber fallen beim Anbieten der SKUs „Free“ und „Shared“ für Sie Kosten an, da sie in freigegebenen Workern gehostet werden. Zur Verringerung dieser Kosten können Sie die Ebene für freigegebene Worker auf das erforderliche Minimum herunterskalieren.
+
+> [!IMPORTANT] 
+> Die Standardeinstellungen des Installationsprogramms für freigegebene Worker wurden in Azure App Service in Azure Stack Hub 2020.Q2 für Neuinstallationen geändert.  Standardmäßig werden freigegebene Worker mithilfe der A4_v2-Compute-SKU bereitgestellt, die vom Operator zum Installationszeitpunkt oder nach der Installation geändert werden kann.
 
 Beispielsweise müssen Sie mindestens über eine A1-Instanz verfügen, um die App Service-Plan-SKUs „Free“ und „Shared“ und nutzungsbasierte Funktionen anbieten zu können. Da freigegebene Worker mehrinstanzenfähig sind, können damit mehrere Kunden-Apps gehostet werden, die jeweils über die App Service-Sandbox isoliert und geschützt sind. Indem Sie den freigegebenen Worker auf diese Weise skalieren, können Sie Ihre Vorleistungen auf die Kosten von einer vCPU pro Monat begrenzen.
 

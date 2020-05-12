@@ -2,21 +2,21 @@
 title: Bereitstellen einer Java-Webanwendungsressource auf einem virtuellen Computer in Azure Stack Hub
 description: Hier wird beschrieben, wie Sie eine Java-Webanwendungsressource auf einem virtuellen Computer in Azure Stack Hub bereitstellen.
 author: mattbriggs
-ms.topic: overview
-ms.date: 1/22/2020
+ms.topic: how-to
+ms.date: 05/05/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 7ab1370ef77a246b1ccda4ab525040edf9cb596a
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.lastreviewed: 05/05/2020
+ms.openlocfilehash: f252a369588dcf224a1eb7d965a7ff99381e13a6
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77704147"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836205"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Bereitstellen einer Java-Web-App auf einer VM in Azure Stack Hub
 
-Sie können einen virtuellen Computer erstellen, um Ihre Python-Web-App in Azure Stack Hub zu hosten. In diesem Artikel installieren und konfigurieren Sie einen Apache Tomcat-Server auf einer Linux-VM in Azure Stack Hub. Anschließend laden Sie eine Java-Webanwendungsressource (WAR-Datei) auf den Server. Eine WAR-Datei wird zum Verteilen einer Sammlung mit Java-Archivdateien (JAR), komprimierten Dateien mit Java-Ressourcen, z. B. Klassen, Text, Bildern, XML- und HTML-Code, sowie anderen Ressourcen zum Bereitstellen einer Webanwendung verwendet.
+Sie können einen virtuellen Computer erstellen, um Ihre Java-Web-App in Azure Stack Hub zu hosten. In diesem Artikel installieren und konfigurieren Sie einen Apache Tomcat-Server auf einer Linux-VM in Azure Stack Hub und öffnen die entsprechenden Ports. Anschließend laden Sie eine Java-Webanwendungsressource (WAR-Datei) auf den Server. Eine WAR-Datei wird zum Verteilen einer Sammlung mit Java-Archivdateien (JAR), komprimierten Dateien mit Java-Ressourcen, z. B. Klassen, Text, Bildern, XML- und HTML-Code, sowie anderen Ressourcen zum Bereitstellen einer Webanwendung verwendet.
 
 ## <a name="create-a-vm"></a>Erstellen einer VM
 

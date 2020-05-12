@@ -3,16 +3,16 @@ title: Azure Stack Hub – Bekannte Probleme
 description: Enthält Informationen zu bekannten Problemen in Releases von Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: df81020ce365f25587c406aaf13617281769834d
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 35eeee27c2084d0ceec565dea5cecc1ce71ecf7f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82556422"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848097"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -38,7 +38,7 @@ Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die
 
 Nach dem Anwenden von Update 2002 wird im Administratorportal ggf. fälschlicherweise die Warnung „Ungültige Zeitquelle“ angezeigt. Sie können diese Warnung (False Positive) ignorieren. Der Fehler wird mit einem der nächsten Releases behoben. 
 
-Informationen zu weiteren bekannten Problemen beim Aktualisieren von Azure Stack Hub finden Sie unter [Behandeln von Patch- und Updateproblemen bei Azure Stack](azure-stack-updates-troubleshoot.md).
+Informationen zu weiteren bekannten Problemen beim Aktualisieren von Azure Stack Hub finden Sie unter [Behandeln von Patch- und Updateproblemen bei Azure Stack](azure-stack-troubleshooting.md).
 
 ## <a name="portal"></a>Portal
 
@@ -74,6 +74,12 @@ Informationen zu weiteren bekannten Problemen beim Aktualisieren von Azure Stack
 - Geltungsbereich: Dieses Problem betrifft das Release 1908 und höhere Releases.
 - Ursache: Wenn ein Kabel von einem Netzwerkadapter getrennt wird, wird im Administratorportal keine Warnung angezeigt. Dieses Problem ist darauf zurückzuführen, dass dieser Fehler in Windows Server 2019 standardmäßig deaktiviert ist.
 - Häufigkeit: Allgemein
+
+### <a name="access-control-iam"></a>Zugriffssteuerung (IAM)
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Die IAM-Erweiterung ist veraltet. Das Ibiza-Portal ist im Lieferumfang von Azure Stack Hub enthalten und führt ein neues Verhalten ein, das einen Fehler der RBAC-Erweiterung verursacht, wenn Benutzer das Blatt **Zugriffssteuerung (IAM)** für ein Abonnement öffnen, das nicht in der Auswahl für globale Abonnements ausgewählt ist (**Verzeichnis + Abonnement** im Benutzerportal). Auf dem Blatt wird **Laden** in einer Schleife angezeigt, und Benutzer können dem Abonnement keine neuen Rollen hinzufügen. Auf dem Blatt **Hinzufügen** wird ebenfalls **Laden** in einer Schleife angezeigt.
+- Abhilfe: Stellen Sie sicher, dass das Abonnement im Menü **Verzeichnis + Abonnement** aktiviert ist. Sie können wie folgt auf das Menü zugreifen: Über den oberen Portalbereich (in der Nähe der Schaltfläche **Benachrichtigungen**) oder über die Verknüpfung auf dem Blatt **Alle Ressourcen**, die **Wird kein Abonnement angezeigt? Verzeichnis- und Abonnementeinstellungen öffnen** lautet. Das Abonnement muss in diesem Menü ausgewählt werden.
 
 ## <a name="networking"></a>Netzwerk
 
@@ -203,7 +209,7 @@ Informationen zu weiteren bekannten Problemen beim Aktualisieren von Azure Stack
 ::: moniker range="azs-1910"
 ## <a name="update"></a>Aktualisieren
 
-Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub finden Sie unter [Behandeln von Patch- und Updateproblemen bei Azure Stack](azure-stack-updates-troubleshoot.md).
+Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub finden Sie unter [Behandeln von Patch- und Updateproblemen bei Azure Stack](azure-stack-troubleshooting.md).
 
 ## <a name="portal"></a>Portal
 
@@ -246,7 +252,6 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Ursache: Wenn Sie auf dem Uploadblatt des Benutzerportals ein Blob hochladen möchten, können Sie zwischen **AAD** und **Schlüsselauthentifizierung** wählen. **AAD** wird in Azure Stack Hub jedoch nicht unterstützt.
 - Häufigkeit: Allgemein
 
-
 ### <a name="alert-for-network-interface-disconnected"></a>Warnung für getrennte Netzwerkschnittstelle
 
 - Geltungsbereich: Dieses Problem betrifft das Release 1908 und höhere Releases.
@@ -264,7 +269,6 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Im Benutzerportal werden das Feature **VPN-Problembehandlung** sowie **Metriken** in einer VPN-Gatewayressource angezeigt. Dies wird in Azure Stack Hub jedoch nicht unterstützt.
 - Häufigkeit: Allgemein
-
 
 ### <a name="delete-a-storage-container"></a>Löschen eines Speichercontainers
 

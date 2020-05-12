@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Hier erhalten Sie Informationen zur Azure Stack Hub-Wartungsrichtlinie und erfahren, wie Sie den unterstützten Zustand eines integrierten Systems aufrechterhalten.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/07/2020
+ms.date: 05/07/2020
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 9b1459fbb5e484e3fc0588e8c9717f8e09b6e309
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 479343623f59720cd330c3f9d8d8b8c7836a8a0e
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512400"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848148"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub-Wartungsrichtlinie
 
@@ -80,13 +80,19 @@ Beispiel: Wenn die neueste verfügbare Updateversion 1904 ist und die beiden vo
 
 Microsoft-Softwareupdatepakete sind nicht kumulativ und setzen das jeweils vorherige Updatepaket bzw. den vorherigen Hotfix voraus. Wenn Sie eines oder mehrere Updates aufschieben möchten, berücksichtigen Sie die gesamte Laufzeit, wenn Sie auf die neueste Version aktualisieren möchten.
 
+### <a name="resource-provider-version-support"></a>Ressourcenanbieter-Versionsunterstützung
+
+Für Azure Stack Hub-Ressourcenanbieter ist es wichtig zu beachten, dass nur die zuletzt veröffentlichte Version eines bestimmten Ressourcenanbieters unterstützt wird, die mit Ihrer unterstützten Version von Azure Stack Hub kompatibel ist, auch wenn Sie möglicherweise eine ältere Version von Azure Stack Hub verwenden, die sich noch im Supportfenster befindet.
+
+Weitere Informationen zur Kompatibilität von Ressourcenanbietern finden Sie in den Anmerkungen zu dieser Version für den jeweiligen Ressourcenanbieter.
+
 ## <a name="get-support"></a>Support
 
 Azure Stack Hub folgt demselben Supportprozess wie Azure. Unternehmenskunden können dem beschriebenen in [Gewusst wie: Erstellen einer Azure-Supportanfrage](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) beschriebenen Prozess folgen. Wenden Sie sich an Ihren CSP-Support, wenn Sie Kunde eines Cloudlösungsanbieters (Cloud Solution Provider, CSP) sind. Weitere Informationen finden Sie unter [Häufig gestellte Fragen zum Azure-Support](https://azure.microsoft.com/support/faq/).
 
-Informationen zum Beheben von Problemen bei der Aktualisierung finden Sie unter [Bewährte Methoden für die Behandlung von Problemen bei Azure Stack Hub-Patches und -Updates](azure-stack-updates-troubleshoot.md).
+Informationen zum Beheben von Problemen bei der Aktualisierung finden Sie unter [Bewährte Methoden für die Behandlung von Problemen bei Azure Stack Hub-Patches und -Updates](azure-stack-troubleshooting.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Verwalten von Updates in Azure Stack Hub](azure-stack-updates.md)
-- [Bewährte Methoden für die Behandlung von Problemen bei Azure Stack Hub-Patches und -Updates](azure-stack-updates-troubleshoot.md)
+- [Bewährte Methoden für die Behandlung von Problemen bei Azure Stack Hub-Patches und -Updates](azure-stack-troubleshooting.md)

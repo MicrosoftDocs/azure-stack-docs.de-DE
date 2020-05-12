@@ -3,16 +3,16 @@ title: Verwenden von API-Versionsprofilen mit Ruby in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie API-Versionsprofile mit Ruby in Azure Stack Hub verwenden.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 5b79c676b922f0e76ed75e3ad043f53c1fb9d6a5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b59adea78b5325a449bd52b211edc5e04ea5e566
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295491"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836239"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Ruby in Azure Stack Hub
 
@@ -44,7 +44,7 @@ Ein API-Profil ist eine Kombination aus Ressourcenanbietern und Dienstversionen.
 
 - Erstellen Sie ein Abonnement, wenn keins verfügbar ist, und speichern Sie die Abonnement-ID zur späteren Verwendung. Eine Anleitung zum Erstellen eines Abonnements finden Sie im Artikel [Erstellen von Abonnements für Angebote in Azure Stack Hub](../operator/azure-stack-subscribe-plan-provision-vm.md).
 - Erstellen Sie einen Dienstprinzipal, und speichern Sie die ID und das Geheimnis. Eine Anleitung zum Erstellen eines Dienstprinzipals für Azure Stack Hub finden Sie im Artikel [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md).
-- Stellen Sie sicher, dass Ihrem Dienstprinzipal die Rolle „Mitwirkender“ bzw. „Besitzer“ für Ihr Abonnement zugewiesen ist. Eine Anleitung zum Zuweisen einer Rolle zu einem Dienstprinzipal finden Sie unter [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md).
+- Stellen Sie sicher, dass Ihrem Dienstprinzipal die Rolle „Mitwirkender“ bzw. „Besitzer“ für Ihr Abonnement zugewiesen ist. Eine Anleitung zum Zuweisen einer Rolle zu einem Dienstprinzipal finden Sie im Artikel [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md).
 
 ## <a name="install-the-rubygem-packages"></a>Installieren der RubyGem-Pakete
 

@@ -4,16 +4,16 @@ description: Versionshinweise zu Update 8 für App Service in Azure Stack Hub, 
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: ccbe8abd3a8d427005c34084d875af08ed3f5134
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: 5bdf06b740d8a2c12f96494c52a683f50fe31340
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580097"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847808"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 8
 
@@ -26,26 +26,31 @@ In diesen Versionshinweisen werden die neuen Features, Fehlerbehebungen und beka
 
 Die Buildnummer von Update 8 für App Service in Azure Stack Hub lautet **86.0.2.13**.
 
-### <a name="prerequisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Voraussetzungen
 
 Lesen Sie vor Beginn der Bereitstellung die Informationen unter [Voraussetzungen für das Bereitstellen von App Service in Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 
-Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack auf 1.8 beginnen:
+Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack Hub auf Version 1.8 beginnen:
 
 - Stellen Sie sicher, dass alle Rollen in der Azure App Service-Verwaltung im Azure Stack Hub-Administratorportal bereit sind.
+
+- Sichern Sie die App Service-Geheimnisse mithilfe der App Service-Verwaltung im Azure Stack Hub-Verwaltungsportal.
 
 - Sichern Sie App Service- und Masterdatenbanken:
   - AppService_Hosting
   - AppService_Metering
-  - Master
+  - master
 
 - Sichern Sie die Inhaltsdateifreigabe der Mandanten-App.
 
+  > [!Important]
+  > Cloudoperatoren sind für die Verwaltung und den Betrieb des Dateiservers und von SQL Server verantwortlich.  Der Ressourcenanbieter verwaltet diese Ressourcen nicht.  Der Cloudoperator ist für das Sichern der App Service-Datenbanken und der Mandanten-Inhaltsdateifreigabe verantwortlich.
+
 - Beziehen Sie die **benutzerdefinierte Skripterweiterung** (Version **1.9.3**) über den Azure Stack Hub Marketplace.
 
-### <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
+## <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
 
-Update 8 für Azure App Service in Azure Stack enthält folgende Verbesserungen und Fehlerbehebungen:
+Update 8 für Azure App Service in Azure Stack Hub enthält die folgenden Verbesserungen und Fehlerbehebungen:
 
 - Updates für **App Service-Mandanten, Admin, Functions-Portale und Kudu-Tools**. Konsistent mit Azure Stack-Portal-SDK-Version.
 
@@ -83,7 +88,7 @@ Für alle neuen Bereitstellungen von Azure App Service in Azure Stack Hub werden
 
 **TLS 1.2** wird jetzt für alle Apps erzwungen.
 
-### <a name="known-issues-upgrade"></a>Bekannte Probleme (Upgrade):
+## <a name="known-issues-upgrade"></a>Bekannte Probleme (Upgrade):
 
 - Der Upgradevorgang ist nicht erfolgreich, wenn das Failover für den SQL Server-Always On-Cluster auf den zweiten Knoten durchgeführt wurde.
 
@@ -97,14 +102,14 @@ Führen Sie eine der folgenden Aktionen aus, und wählen Sie im Installationspro
 
 - Führen Sie ein Failover des SQL-Clusters auf den vorherigen aktiven Knoten aus.
 
-### <a name="post-deployment-steps"></a>Schritte nach der Bereitstellung
+## <a name="post-deployment-steps"></a>Schritte nach der Bereitstellung
 
 > [!IMPORTANT]
 > Wenn Sie den App Service-Ressourcenanbieter mit einer SQL Always On-Instanz bereitgestellt haben, MÜSSEN Sie die [Datenbanken „appservice_hosting“ und „appservice_metering“ einer Verfügbarkeitsgruppe hinzufügen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) und synchronisieren, damit es im Falle eines Datenbankfailovers nicht zu Dienstausfällen kommt.
 
-### <a name="known-issues-post-installation"></a>Bekannte Probleme (nach der Installation)
+## <a name="known-issues-post-installation"></a>Bekannte Probleme (nach der Installation)
 
-- Worker können den Dateiserver nicht erreichen, wenn App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist. Dies ist in der Bereitstellungsdokumentation zu Azure App Service in Azure Stack dargestellt.
+- Worker können den Dateiserver nicht erreichen, wenn App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist. Dies ist in der Bereitstellungsdokumentation zu Azure App Service in Azure Stack Hub dargestellt.
 
   Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk und eine interne IP-Adresse für die Verbindung mit Ihrem Dateiserver entschieden haben, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Administratorportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
 
@@ -182,6 +187,33 @@ Führen Sie eine der folgenden Aktionen aus, und wählen Sie im Installationspro
     1. Migrieren Sie Anmeldungen zu Benutzern eigenständiger Datenbanken.
 
         ```sql
+        USE appservice_hosting
+        IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
+        BEGIN
+        DECLARE @username sysname ;  
+        DECLARE user_cursor CURSOR  
+        FOR
+            SELECT dp.name
+            FROM sys.database_principals AS dp  
+            JOIN sys.server_principals AS sp
+                ON dp.sid = sp.sid  
+                WHERE dp.authentication_type = 1 AND dp.name NOT IN ('dbo','sys','guest','INFORMATION_SCHEMA');
+            OPEN user_cursor  
+            FETCH NEXT FROM user_cursor INTO @username  
+                WHILE @@FETCH_STATUS = 0  
+                BEGIN  
+                    EXECUTE sp_migrate_user_to_contained
+                    @username = @username,  
+                    @rename = N'copy_login_name',  
+                    @disablelogin = N'do_not_disable_login';  
+                FETCH NEXT FROM user_cursor INTO @username  
+            END  
+            CLOSE user_cursor ;  
+            DEALLOCATE user_cursor ;
+            END
+        GO
+
+        USE appservice_metering
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
         BEGIN
         DECLARE @username sysname ;  
@@ -264,11 +296,11 @@ Führen Sie eine der folgenden Aktionen aus, und wählen Sie im Installationspro
 
     ```
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack verwenden
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
 
-Sehen Sie sich die Dokumentation in den [Versionshinweisen zu Azure Stack 1907](azure-stack-release-notes-1907.md) an.
+Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1907](azure-stack-release-notes-1907.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Einen Überblick über Azure App Service finden Sie unter [Übersicht über Azure App Service und Azure Functions in Azure Stack Hub](azure-stack-app-service-overview.md).
-- Weitere Informationen zum Vorbereiten der Bereitstellung von App Service in Azure Stack finden Sie unter [Voraussetzungen für das Bereitstellen von App Service unter Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
+- Weitere Informationen zum Vorbereiten der Bereitstellung von App Service in Azure Stack Hub finden Sie unter [Voraussetzungen für das Bereitstellen von App Service in Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).

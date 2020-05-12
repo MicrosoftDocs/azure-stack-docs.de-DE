@@ -3,16 +3,16 @@ title: Aktionen für Knoten einer Skalierungseinheit in Azure Stack Hub
 description: Hier erhalten Sie Informationen zu Aktionen für Knoten einer Skalierungseinheit (einschließlich „Einschalten“, „Ausschalten“, „Deaktivieren“ und „Fortsetzen“), und Sie erfahren, wie Sie den Knotenstatus in integrierten Azure Stack Hub-Systemen anzeigen.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 04/30/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 4874b93acf9e869a3b8e66f42191d5419e48fece
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 17ecab0f42c89d6c25daba98652d8dc9d1a9e3b0
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295077"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777745"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Aktionen für Knoten einer Skalierungseinheit in Azure Stack Hub
 
@@ -52,8 +52,37 @@ So zeigen Sie den Status einer Skalierungseinheit an
 | Beendet | Der Knoten ist nicht verfügbar. |
 | Wird hinzugefügt | Der Knoten wird aktiv zur Skalierungseinheit hinzugefügt. |
 | Wird repariert | Der Knoten wird aktiv repariert. |
-| Wartung | Der Knoten wurde angehalten, und es wird kein aktiver Benutzerworkload ausgeführt. |
+| Wartung  | Der Knoten wurde angehalten, und es wird kein aktiver Benutzerworkload ausgeführt. |
 | Korrektur erforderlich | Ein Fehler wurde ermittelt, der eine Reparatur des Knotens erfordert. |
+
+### <a name="azure-stack-hub-shows-adding-status-after-an-operation"></a>Azure Stack Hub zeigt das Hinzufügen des Status nach einem Vorgang an
+
+Azure Stack Hub zeigt möglicherweise den Betriebsstatus des Knotens als **Adding** (Wird hinzugefügt) an, nachdem ein Vorgang wie Drain (Ausgleichen), Resume (Fortsetzen), Repair (Reparieren), Shutdown (Herunterfahren) oder Start (Starten) ausgeführt wurde.
+Dies kann der Fall sein, wenn der Cache der Fabric-Ressourcenanbieterrolle nach einem Vorgang nicht aktualisiert wurde. 
+
+Stellen Sie vor dem Anwenden der folgenden Schritte sicher, dass aktuell kein Vorgang ausgeführt wird. Aktualisieren Sie den Endpunkt entsprechend Ihrer Umgebung.
+
+1. Öffnen Sie PowerShell, und fügen Sie Ihre Azure Stack Hub-Umgebung hinzu. Hierfür muss [Azure Stack Hub PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install) auf dem Computer installiert sein.
+
+   ```powershell
+   Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+   Add-AzureRmAccount -Environment AzureStack
+   ```
+
+2. Führen Sie den folgenden Befehl aus, um die Fabric-Ressourcenanbieterrolle neu zu starten.
+
+   ```powershell
+   Restart-AzsInfrastructureRole -Name FabricResourceProvider
+   ```
+
+3. Überprüfen Sie, ob der Betriebsstatus des betroffenen Skalierungseinheitknotens in **Running** (Wird ausgeführt) geändert wurde. Sie können das Administratorportal oder den folgenden PowerShell-Befehl verwenden:
+
+   ```powershell
+   Get-AzsScaleUnitNode |ft name,scaleunitnodestatus,powerstate
+   ```
+
+4. Wenn der Betriebsstatus des Knotens weiterhin als **Adding** (Wird hinzugefügt) angezeigt wird, öffnen Sie einen Supportfall.
+
 
 ## <a name="scale-unit-node-actions"></a>Knotenaktionen für Skalierungseinheiten
 
@@ -175,4 +204,6 @@ Sollte beim Herunterfahren ein Fehler auftreten, führen Sie vor dem Herunterfah
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Weitere Informationen zum Modul für Azure Stack Hub-Fabric-Operatoren](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
+- [Installieren von Azure Stack PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install)
+- [Weitere Informationen zum Azure Stack Hub Fabric-Operatormodul](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
+- [Überwachen des Vorgangs zum Hinzufügen eines Knotens](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node#monitor-add-node-operations)

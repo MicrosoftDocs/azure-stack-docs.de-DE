@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 3c9c4fca443af34422d76bd30af4efe5de685936
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d6c7e29f83700eb2eb897bcd4b8bfdd65c7dfb4c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695664"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847145"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>Bereitstellen des ASDK über die Befehlszeile mithilfe von PowerShell
 
@@ -158,7 +158,7 @@ Sie müssen Azure Stack bei Azure registrieren, um [Azure Marketplace-Elemente i
 **[Register Azure Stack with Azure](asdk-register.md)** (Registrieren von Azure Stack bei Azure)
 
 ## <a name="next-steps"></a>Nächste Schritte
-Glückwunsch! Nach Abschluss dieser Schritte verfügen Sie über eine ASDK-Umgebung mit [Administratorportal](https://adminportal.local.azurestack.external) und [Benutzerportal](https://portal.local.azurestack.external). 
+Glückwunsch! Nach Abschluss dieser Schritte verfügen Sie über eine ASDK-Umgebung mit Administrator- (`https://adminportal.local.azurestack.external`) und Benutzerportalen (`https://portal.local.azurestack.external`). 
 
 [Konfigurationsaufgaben nach der Installation des ASDK](asdk-post-deploy.md)
 

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d219da5d219b5d341e5c62cfbf823be1334cc614
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 650144e2c1079b65c2d71a47471e600fa9ec4520
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167108"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847621"
 ---
 # <a name="direct-traffic-with-a-geo-distributed-app-using-azure-and-azure-stack-hub"></a>Weiterleiten von Datenverkehr mit einer geografisch verteilten App mithilfe von Azure und Azure Stack Hub
 
@@ -343,7 +343,7 @@ Nach dem Hinzufügen des CNAME-Eintrags sieht die Seite mit den DNS-Einträgen w
 
 #### <a name="test-in-a-browser"></a>Testen in einem Browser
 
-Navigieren Sie zu dem bzw. den oben konfigurierten DNS-Namen (z. B. `northwindcloud.com` oder www.northwindcloud.com).
+Navigieren Sie zu den DNS-Namen, die Sie zuvor konfiguriert haben (z. B. `northwindcloud.com` oben `www.northwindcloud.com`).
 
 ## <a name="part-3-bind-a-custom-ssl-cert"></a>Teil 3: Binden eines benutzerdefinierten SSL-Zertifikats
 
@@ -537,7 +537,7 @@ Navigieren Sie nach Abschluss des Vorgangs zu einer beliebigen HTTP-URL, die auf
 
 - https://<Name_der_App>.azurewebsites.net
 - `https://northwindcloud.com`
-- <https://www.northwindcloud.com>
+- `https://www.northwindcloud.com`
 
 #### <a name="enforce-tls-1112"></a>Erzwingen von TLS 1.1/1.2
 

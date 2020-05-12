@@ -8,23 +8,23 @@ ms.date: 11/11/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 43099dfb4bfb2ffe50e6c8ccdfc05633ff4f3a6e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2c6ad5acc7096f243334165032eb7c134fc5cae0
+ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697160"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82799780"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aktualisieren des SQL-Ressourcenanbieters
+
+> [!IMPORTANT]
+> Überprüfen Sie vor der Aktualisierung des Ressourcenanbieters die Anmerkungen zu dieser Version auf Informationen zu neuen Funktionen, Fehlerbehebungen und bekannten Problemen, die sich auf die Bereitstellung auswirken können. Die Versionshinweise geben auch die minimale Azure Stack Hub-Version an, die für den Ressourcenanbieter erforderlich ist.
 
 Unter Umständen wird ein neuer SQL-Ressourcenanbieter veröffentlicht, wenn Azure Stack Hub auf einen neuen Build aktualisiert wird. Auch wenn der vorhandene Ressourcenanbieter weiterhin funktioniert, ist es ratsam, so schnell wie möglich das Update auf den aktuellen Build durchzuführen.
 
 Ab der Version 1.1.33.0 des SQL-Ressourcenanbieters sind Updates kumulativ und müssen nicht mehr in der Reihenfolge installiert werden, in der sie veröffentlicht wurden (vorausgesetzt, Sie verfügen mindestens über die Version 1.1.24.0). Wenn Sie also beispielsweise die Version 1.1.24.0 des SQL-Ressourcenanbieters verwenden, können Sie auf die Version 1.1.33.0 oder höher upgraden, ohne zuvor die Version 1.1.30.0 installieren zu müssen. In der Versionsliste unter [Bereitstellen des Ressourcenanbieters – Voraussetzungen](./azure-stack-sql-resource-provider-deploy.md#prerequisites) finden Sie die verfügbaren Ressourcenanbieterversionen und die jeweilige Azure Stack Hub-Version, unter der sie unterstützt werden.
 
 Verwenden Sie zum Aktualisieren des Ressourcenanbieters das Skript *UpdateSQLProvider.ps1*. Verwenden Sie Ihr Dienstkonto mit lokalen Administratorrechten, das ein **Besitzer** des Abonnements ist. Das Skript ist im Download des neuen SQL-Ressourcenanbieters enthalten. Der Updateprozess ähnelt dem Prozess zum [Bereitstellen des Ressourcenanbieters](./azure-stack-sql-resource-provider-deploy.md). Das Updateskript verwendet die gleichen Argumente wie das Skript „DeploySqlProvider.ps1“, und Sie müssen Zertifikatinformationen angeben.
-
- > [!IMPORTANT]
- > Überprüfen Sie vor dem Upgrade des Ressourcenanbieters die Versionshinweise auf Informationen zu neuen Funktionen, Fehlerbehebungen und bekannten Problemen, die sich auf die Bereitstellung auswirken können.
 
 ## <a name="update-script-processes"></a>Aktualisieren von Skriptprozessen
 
@@ -54,8 +54,8 @@ Wenn Sie das PowerShell-Skript **UpdateSQLProvider.ps1** ausführen, können Sie
 | **DefaultSSLCertificatePassword** | Das Kennwort für das PFX-Zertifikat. | _Erforderlich_ |
 | **MaxRetryCount** | Die Anzahl von Wiederholungsversuchen für jeden Vorgang, wenn ein Fehler auftritt.| 2 |
 | **RetryDuration** |Das Timeoutintervall zwischen Wiederholungen in Sekunden. | 120 |
-| **Deinstallieren** | Entfernt den Ressourcenanbieter und alle zugeordneten Ressourcen. | Nein |
-| **DebugMode** | Verhindert die automatische Bereinigung nach einem Fehler. | Nein |
+| **Deinstallieren** | Entfernt den Ressourcenanbieter und alle zugeordneten Ressourcen. | Nein  |
+| **DebugMode** | Verhindert die automatische Bereinigung nach einem Fehler. | Nein  |
 
 ## <a name="update-script-powershell-example"></a>Beispiel für ein PowerShell-Aktualisierungsskript
 > [!NOTE]

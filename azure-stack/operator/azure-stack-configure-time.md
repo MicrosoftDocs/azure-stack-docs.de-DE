@@ -1,24 +1,24 @@
 ---
-title: Konfigurieren des Zeitservers für Azure Stack Hub
-description: Hier erfahren Sie, wie Sie den Zeitserver für Azure Stack Hub konfigurieren.
+title: Konfigurieren des Zeitservers in Azure Stack Hub
+description: Erfahren Sie, wie Sie den Zeitserver in Azure Stack Hub konfigurieren.
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 2/19/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: 56d0bfdef5329d5dd20c3b9add4d30e7942801e1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f1627be5d6986cd82fe21a58163f22eb0873eda6
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703535"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836103"
 ---
 # <a name="configure-the-time-server-for-azure-stack-hub"></a>Konfigurieren des Zeitservers für Azure Stack Hub
 
-Sie können den privilegierten Endpunkt (PEP) verwenden, um den Zeitserver in Azure Stack Hub zu aktualisieren. Verwenden Sie einen Hostnamen, der in mindestens zwei IP-Adressen von NTP-Servern aufgelöst wird.
+Sie können den privilegierten Endpunkt (PEP) verwenden, um den Zeitserver in Azure Stack Hub zu aktualisieren. Verwenden Sie einen Hostnamen, der in mindestens zwei IP-Adressen von NTP-Servern (Network Time Protocol) aufgelöst wird.
 
-Azure Stack Hub verwendet NTP (Network Time Protocol) zum Herstellen einer Verbindung mit Zeitservern im Internet. NTP-Server stellen eine genaue Systemzeit bereit. Die Uhrzeit wird auf physischen Netzwerkswitches, auf dem Hardwarelebenszyklus-Host, im Infrastrukturdienst und auf virtuellen Computern von Azure Stack Hub verwendet. Wird die Uhr nicht synchronisiert, treten in Azure Stack Hub unter Umständen schwerwiegende Netzwerk- und Authentifizierungsprobleme auf. Protokolldateien, Dokumente und andere Dateien werden möglicherweise mit falschen Zeitstempeln erstellt.
+Azure Stack Hub verwendet NTP zum Herstellen einer Verbindung mit Zeitservern im Internet. NTP-Server stellen eine genaue Systemzeit bereit. Die Uhrzeit wird auf physischen Netzwerkswitches, auf dem Hardwarelebenszyklus-Host, im Infrastrukturdienst und auf virtuellen Computern von Azure Stack Hub verwendet. Wird die Uhr nicht synchronisiert, treten in Azure Stack Hub unter Umständen schwerwiegende Netzwerk- und Authentifizierungsprobleme auf. Protokolldateien, Dokumente und andere Dateien werden möglicherweise mit falschen Zeitstempeln erstellt.
 
 Die Angabe eines Zeitservers (NTP) ist erforderlich, damit Azure Stack Hub die Uhrzeit synchronisieren kann. Bei der Bereitstellung von Azure Stack Hub geben Sie die Adresse eines NTP-Servers an. Die Uhrzeit ist ein kritischer Rechenzentrumsinfrastruktur-Dienst. Ändert sich der Dienst, müssen Sie die Uhrzeit aktualisieren.
 
@@ -27,7 +27,7 @@ Die Angabe eines Zeitservers (NTP) ist erforderlich, damit Azure Stack Hub die U
 
 ## <a name="configure-time"></a>Konfigurieren der Uhrzeit
 
-1. [Stellen Sie eine Verbindung mit dem PEP her.](azure-stack-privileged-endpoint.md) 
+1. [Stellen Sie eine Verbindung mit dem PEP her.](azure-stack-privileged-endpoint.md)
     > [!Note]  
     > Es ist nicht erforderlich, den privilegierten Endpunkt zu entsperren, indem Sie ein Supportticket erstellen.
 

@@ -3,16 +3,16 @@ title: Übersicht über Azure App Service in Azure Stack
 description: Übersicht über Azure App Service und Azure Functions in Azure Stack Hub.
 author: BryanLa
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 05/05/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: ac9c6707e0b6e179fdae3dac0b4ec94bad11e6d7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 8cf8f5c42eea1ce1884760c974881712954f1af7
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77688881"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847825"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>Übersicht über Azure App Service und Azure Functions in Azure Stack Hub
 
@@ -34,7 +34,7 @@ App Service verfügt über mehrere App-Typen, die jeweils zum Hosten einer besti
 
 - [Web-Apps:](/azure/app-service/overview) Hosten von Websites und Web-Apps.
 - [API-Apps](/azure/app-service/overview) zum Hosten von REST-APIs.
-- Azure Functions zum Hosten ereignisgesteuerter, serverloser Workloads
+- [Azure Functions v1](/azure/azure-functions) zum Hosten ereignisgesteuerter, serverloser Workloads.
 
 Der Begriff *App* bezieht sich auf die Hostingressourcen, die für die Ausführung einer Workload dediziert sind. Wenn wir *Web-App* als Beispiel nehmen, verstehen Sie darunter wahrscheinlich sowohl die Computeressourcen als auch die App-Codeelemente, die zusammen für einen Browser die Funktionalität bereitstellen. In Azure App Service handelt es sich bei einer Web-App um die Computeressourcen, die von Azure Stack Hub zum Hosten Ihres App-Codes bereitgestellt werden.
 
@@ -52,7 +52,6 @@ Der App Service-Ressourcenanbieter verwendet den gleichen Code wie Azure App Ser
 In Azure werden freigegebene und dedizierte Worker verwendet. Ein freigegebener Worker unterstützt das mehrinstanzenfähige App-Hosting mit hoher Dichte, und es gibt nur eine Gruppe von freigegebenen Workern. Dedizierte Server werden nur von einem Mandanten verwendet und können drei Größen haben: Klein, Mittel und Groß. Die Anforderungen von lokalen Kunden können mit diesen Begriffen nicht immer beschrieben werden. In App Service in Azure Stack Hub können Ressourcenanbieter-Administratoren die Workerebenen definieren, die sie verfügbar machen möchten. Sie können mehrere Gruppen mit freigegebenen Workern oder verschiedene Gruppen mit dedizierten Workern definieren. Dies richtet sich nach den jeweiligen speziellen Hostinganforderungen. Mit diesen Definitionen der Workerebenen können dann eigene Preis-SKUs definiert werden.
 
 ## <a name="portal-features"></a>Features im Portal
-
 
 Für Azure App Service in Azure Stack Hub wird die gleiche Benutzeroberfläche wie für Azure App Service verwendet. Dies gilt auch für das Back-End. Einige Features sind in Azure Stack Hub jedoch deaktiviert. Die Azure-spezifischen Erwartungen bzw. Dienste, die für diese Features erforderlich sind, sind in Azure Stack Hub derzeit nicht verfügbar.
 

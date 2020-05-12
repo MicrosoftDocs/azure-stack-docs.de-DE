@@ -6,14 +6,14 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.reviewer: bryanla
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: e1e2c3c6c3d1149b2cd034c2f5e4abfdf26e712f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d84b6a7d7f4ec1777b8e58e8cafc9ba64726393f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80424608"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847873"
 ---
-Haben Sie bereits einen Ressourcenanbieter aus Azure Stack Hub-Marketplace installiert, haben Sie wahrscheinlich alle Schritte für die allgemeinen Voraussetzungen ausgeführt und können diesen Abschnitt überspringen. Andernfalls müssen Sie zunächst die folgenden erforderlichen Schritte ausführen: 
+Wenn Sie bereits einen Ressourcenanbieter installiert haben, haben Sie wahrscheinlich alle Schritte für die folgenden Voraussetzungen ausgeführt und können diesen Abschnitt überspringen. Führen Sie diese Schritte andernfalls aus, bevor Sie fortfahren: 
 
 1. [Registrieren Sie Ihre Azure Stack Hub-Instanz in Azure](../operator/azure-stack-registration.md), wenn Sie dies noch nicht getan haben. Dieser Schritt ist erforderlich, weil eine Verbindung mit Azure herstellen und aus Azure Elemente in Marketplace herunterladen.
 

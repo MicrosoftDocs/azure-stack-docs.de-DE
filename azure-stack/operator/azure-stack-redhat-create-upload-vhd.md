@@ -4,22 +4,22 @@ titleSuffix: Azure Stack Hub
 description: Erfahren Sie, wie Sie eine virtuelle Azure-Festplatte (Virtual Hard Disk, VHD) erstellen und hochladen, die ein Red Hat-Linux-Betriebssystem enthält.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/11/2019
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: d3df1040faec4c14b08f358f49fe9a6e9404fdc0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 8f0642cc1ee90ce8e4ae1d26b6bdae9a3b6cdef5
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698061"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777864"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Vorbereiten eines auf Red Hat basierenden virtuellen Computers für Azure Stack Hub
 
-In diesem Artikel erfahren Sie, wie Sie einen auf Red Hat Enterprise Linux (RHEL) basierenden virtuellen Computer für die Verwendung in Azure Stack Hub vorbereiten. In diesem Artikel werden die RHEL-Versionen 7.1 und höher behandelt. Darüber hinaus werden in diesem Artikel die Hypervisoren Hyper-V, KVM und VMware für die Vorbereitung vorgestellt.
+In diesem Artikel wird beschrieben, wie Sie einen auf Red Hat Enterprise Linux (RHEL) basierenden virtuellen Computer (VM) für die Verwendung in Azure Stack Hub vorbereiten. In diesem Artikel werden die RHEL-Versionen 7.1 und höher behandelt. Darüber hinaus werden in diesem Artikel die Hypervisoren Hyper-V, KVM und VMware für die Vorbereitung vorgestellt.
 
-Informationen zur Unterstützung von Red Hat Enterprise Linux finden Sie unter [Red Hat and Azure Stack Hub: Frequently Asked Questions](https://access.redhat.com/articles/3413531) (Red Hat und Azure Stack: häufig gestellte Fragen).
+Informationen zur Unterstützung von Red Hat Enterprise Linux finden Sie unter [Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531) (Red Hat und Azure Stack: häufig gestellte Fragen).
 
 ## <a name="prepare-a-red-hat-based-vm-from-hyper-v-manager"></a>Vorbereiten eines auf Red Hat basierenden virtuellen Computers über den Hyper-V-Manager
 
@@ -27,14 +27,14 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
 
 ### <a name="rhel-installation-notes"></a>Installationshinweise für RHEL
 
-* Das VHDX-Format wird von Azure Stack Hub nicht unterstützt. Azure unterstützt nur feste virtuelle Festplatten. Sie können Hyper-V Manager verwenden, um den Datenträger in das VHD-Format zu konvertieren, oder Sie können das convert-vhd-Cmdlet verwenden. Wählen Sie bei Verwendung von VirtualBox die Option **Feste Größe** und nicht die standardmäßig dynamisch zugeordnete Option, wenn Sie den Datenträger erstellen.
-* Azure Stack Hub unterstützt nur virtuelle Computer der 1. Generation. Sie können virtuelle Computer der 1. Generation vom VHDX- in das VHD-Dateiformat und von einem dynamisch erweiterbaren Datenträger in einen Datenträger mit fester Größe konvertieren. Die Generation eines virtuellen Computers kann nicht geändert werden. Weitere Informationen finden Sie unter [Sollte ich einen virtuellen Computer der 1. oder der 2. Generation in Hyper-V erstellen?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+* Das VHDX-Format wird von Azure Stack Hub nicht unterstützt. Azure unterstützt nur feste virtuelle Festplatten. Sie können Hyper-V Manager verwenden, um den Datenträger in das VHD-Format zu konvertieren, oder Sie können das Cmdlet **convert-vhd** verwenden. Wählen Sie bei Verwendung von VirtualBox die Option **Feste Größe** und nicht die standardmäßig dynamisch zugeordnete Option, wenn Sie den Datenträger erstellen.
+* Azure Stack Hub unterstützt nur virtuelle Computer der 1. Generation. Sie können virtuelle Computer der 1. Generation vom VHDX- in das VHD-Dateiformat und von einem dynamisch erweiterbaren Datenträger in einen Datenträger mit fester Größe konvertieren. Die Generation einer VM kann nicht geändert werden. Weitere Informationen finden Sie unter [Sollte ich einen virtuellen Computer der 1. oder der 2. Generation in Hyper-V erstellen?](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V).
 * Die maximal zulässige Größe für die virtuelle Festplatte beträgt 1.023 GB.
 * Beim Installieren des Linux-Betriebssystems wird empfohlen, anstelle von LVM (Logical Volume Manager) – bei vielen Installationen oftmals voreingestellt – die Standardpartitionen zu verwenden. So werden LVM-Namenskonflikte mit geklonten virtuellen Computern vermieden. Dies gilt insbesondere dann, wenn Sie einen Betriebssystemdatenträger zur Problembehandlung an einen anderen identischen virtuellen Computer anfügen müssen.
-* Kernel-Unterstützung für die Bereitstellung von UDF-Dateisystemen (Universal Disk Format) ist erforderlich. Beim ersten Starten übergibt das Medium im UDF-Format, das an den Gast angefügt ist, die Bereitstellungskonfiguration an den virtuellen Linux-Computer. Der Azure Linux-Agent muss das UDF-Dateisystem einbinden, um die Konfiguration zu lesen und den virtuellen Computer bereitzustellen.
-* Konfigurieren Sie auf dem Betriebssystemdatenträger keine Swap-Partition. Der Linux-Agent kann so konfiguriert werden, dass auf dem temporären Ressourcendatenträger eine Auslagerungsdatei erstellt wird. Weitere Informationen hierzu finden Sie in den folgenden Schritten.
-* Alle VHDs in Azure benötigen eine virtuelle Größe, die auf 1 MB ausgerichtet ist. Stellen Sie beim Konvertieren von einem RAW-Datenträger in VHD sicher, dass die Größe des RAW-Datenträgers vor der Konvertierung ein Vielfaches von 1 MB beträgt. Einzelheiten erfahren Sie im folgenden Schritt.
-* Azure Stack Hub unterstützt cloud-init. [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) ist ein weit verbreiteter Ansatz zum Anpassen einer Linux-VM beim ersten Start. Sie können mit cloud-init Pakete installieren und Dateien schreiben oder Benutzer und Sicherheit konfigurieren. Da cloud-init während des ersten Startvorgangs aufgerufen wird, müssen Sie keine zusätzlichen Schritte oder Agents auf Ihre Konfiguration anwenden. Anweisungen zum Hinzufügen von cloud-init zu Ihrem Image finden Sie unter [Vorbereiten eines vorhandenen Linux-Azure-VM-Images für die Verwendung mit cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image).
+* Kernel-Unterstützung für die Bereitstellung von UDF-Dateisystemen (Universal Disk Format) ist erforderlich. Beim ersten Starten übergibt das Medium im UDF-Format, das an den Gast angefügt ist, die Bereitstellungskonfiguration an die Linux-VM. Der Azure Linux-Agent muss das UDF-Dateisystem einbinden, um die Konfiguration zu lesen und den virtuellen Computer bereitzustellen.
+* Konfigurieren Sie auf dem Betriebssystem-Datenträger keine Swap-Partition. Der Linux-Agent kann so konfiguriert werden, dass auf dem temporären Ressourcendatenträger eine Auslagerungsdatei erstellt wird. Weitere Informationen hierzu finden Sie in den folgenden Schritten.
+* Alle VHDs in Azure benötigen eine virtuelle Größe, die auf 1 MB ausgerichtet ist. Stellen Sie beim Konvertieren von einem RAW-Datenträger in VHD sicher, dass die Größe des RAW-Datenträgers vor der Konvertierung ein Vielfaches von 1 MB beträgt. Einzelheiten dazu erfahren Sie in den folgenden Schritten.
+* Azure Stack Hub unterstützt cloud-init. [Cloud-init](/azure/virtual-machines/linux/using-cloud-init) ist ein weit verbreiteter Ansatz zum Anpassen einer Linux-VM beim ersten Start. Sie können mit cloud-init Pakete installieren und Dateien schreiben oder Benutzer und Sicherheit konfigurieren. Da cloud-init während des ersten Startvorgangs aufgerufen wird, müssen Sie keine zusätzlichen Schritte oder Agents auf Ihre Konfiguration anwenden. Anweisungen zum Hinzufügen von cloud-init zu Ihrem Image finden Sie unter [Vorbereiten eines vorhandenen Linux-Azure-VM-Images für die Verwendung mit cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image).
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>Vorbereiten eines virtuellen RHEL 7-Computers über den Hyper-V-Manager
 
@@ -44,14 +44,14 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
 
 1. Erstellen oder bearbeiten Sie die Datei `/etc/sysconfig/network`, und fügen Sie ihr den folgenden Text hinzu:
 
-    ```sh
+    ```shell
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
 1. Erstellen oder bearbeiten Sie die Datei `/etc/sysconfig/network-scripts/ifcfg-eth0`, und fügen Sie ggf. den folgenden Text hinzu:
 
-    ```sh
+    ```shell
     DEVICE=eth0
     ONBOOT=yes
     BOOTPROTO=dhcp
@@ -76,15 +76,15 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
 
 1. Modifizieren Sie die Boot-Zeile des Kernels in Ihrer Grub-Konfiguration, um zusätzliche Kernel-Parameter für Azure einzubinden. Öffnen Sie dazu `/etc/default/grub` in einem Text-Editor, und bearbeiten Sie den Parameter `GRUB_CMDLINE_LINUX`. Beispiel:
 
-    ```sh
+    ```shell
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
    Mit dieser Änderung wird sichergestellt, dass alle Konsolennachrichten an den ersten seriellen Port gesendet werden. Dies kann den Azure-Support bei der Behebung von Fehlern unterstützen. Außerdem werden bei dieser Konfiguration die neuen RHEL 7-Benennungskonventionen für Netzwerkkarten deaktiviert.
 
-   Weder grafische Startvorgänge noch Startvorgänge im stillen Modus sind in einer Cloudumgebung nützlich, in der alle Protokolle an den seriellen Port gesendet werden sollen. Sie können die Option `crashkernel` bei Bedarf konfiguriert lassen. Dieser Parameter reduziert den verfügbaren Arbeitsspeicher des virtuellen Computers um mindestens 128 MB. Dies kann bei kleineren virtuellen Computern Probleme verursachen. Es wird empfohlen, die folgenden Parameter zu entfernen:
+   Weder der Graphical Boot noch der Quiet Boot sind in einer Cloudumgebung nützlich, in der alle Protokolle an den seriellen Port gesendet werden sollen. Sie können die Option `crashkernel` bei Bedarf konfiguriert lassen. Dieser Parameter reduziert den verfügbaren Arbeitsspeicher des virtuellen Computers um mindestens 128 MB. Dies kann bei kleineren virtuellen Computern Probleme verursachen. Es wird empfohlen, die folgenden Parameter zu entfernen:
 
-    ```sh
+    ```shell
     rhgb quiet crashkernel=auto
     ```
 
@@ -94,7 +94,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-1. [Optional nach Release 1910] Entfernen und Deinstallieren von cloud-init:
+1. [Optional nach Release 1910] Beenden und Deinstallieren von cloud-init:
 
     ```bash
     systemctl stop cloud-init
@@ -103,11 +103,11 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
 
 1. Stellen Sie sicher, dass der SSH-Server installiert und so konfiguriert ist, dass er beim Booten hochfährt. Ergänzen Sie `/etc/ssh/sshd_config` um die folgende Zeile:
 
-    ```sh
+    ```shell
     ClientAliveInterval 180
     ```
 
-1. Wenn Sie eine benutzerdefinierte VHD für Azure Stack Hub erstellen, denken Sie daran, dass die WALinuxAgent-Versionen zwischen 2.2.20 und 2.2.35 (beide exklusiv) in Azure Stack Hub-Umgebungen vor dem Release 1910 nicht funktionieren. Sie können die Versionen 2.2.20/2.2.35 zum Vorbereiten des Images verwenden. Um zum Vorbereiten Ihres benutzerdefinierten Images Versionen ab 2.2.35 zu verwenden, aktualisieren Sie Ihre Azure Stack Hub-Version auf Release 1903 oder höher, oder installieren Sie den 1901/1902-Hotfix.
+1. Wenn Sie eine benutzerdefinierte VHD für Azure Stack Hub erstellen, beachten Sie, dass die WALinuxAgent-Versionen zwischen 2.2.20 und 2.2.35 (beide exklusiv) in Azure Stack Hub-Umgebungen vor dem Release 1910 nicht funktionieren. Sie können die Versionen 2.2.20/2.2.35 zum Vorbereiten des Images verwenden. Um zum Vorbereiten Ihres benutzerdefinierten Images Versionen ab 2.2.35 zu verwenden, aktualisieren Sie Ihre Azure Stack Hub-Version auf Release 1903 oder höher, oder installieren Sie den 1901/1902-Hotfix.
     
     [Vor Release 1910] Befolgen Sie diese Anweisungen, um einen kompatiblen WALinuxAgent herunterzuladen:
     
@@ -161,11 +161,11 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
         ```
     
 
-1. Erstellen Sie auf dem Betriebssystemdatenträger keinen Auslagerungsbereich.
+1. Erstellen Sie auf dem Betriebssystem-Datenträger keinen Auslagerungsbereich.
 
     Der Azure Linux-Agent kann den Auslagerungsbereich automatisch mit dem lokalen Ressourcendatenträger konfigurieren, der nach der Bereitstellung des virtuellen Computers in Azure mit dem virtuellen Computer verknüpft wird. Der lokale Ressourcendatenträger ist ein temporärer Datenträger und kann geleert werden, wenn die Bereitstellung des virtuellen Computers aufgehoben wird. Passen Sie nach dem Installieren des Azure Linux-Agents im vorherigen Schritt die folgenden Parameter in `/etc/waagent.conf` entsprechend an:
 
-    ```sh
+    ```shell
     ResourceDisk.Format=y
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
@@ -179,7 +179,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
     sudo subscription-manager unregister
     ```
 
-1. Wenn Sie ein System verwenden, das mit einer Zertifizierungsstelle für Unternehmen bereitgestellt wurde, stuft der virtuelle RHEL-Computer das Azure Stack Hub-Stammzertifikat als nicht vertrauenswürdig ein. Verwenden Sie zum Platzieren den vertrauenswürdigen Stammspeicher. Weitere Informationen finden Sie unter [Hinzufügen vertrauenswürdiger Stammzertifikate zum Server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Wenn Sie ein System verwenden, das mit einer Zertifizierungsstelle für Unternehmen bereitgestellt wurde, stuft der virtuelle RHEL-Computer das Azure Stack Hub-Stammzertifikat als nicht vertrauenswürdig ein. Sie müssen dieses Zertifikat in den vertrauenswürdigen Stammspeicher platzieren. Weitere Informationen finden Sie unter [Hinzufügen vertrauenswürdiger Stammzertifikate zum Server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Führen Sie die folgenden Befehle aus, um die Bereitstellung des virtuellen Computers aufzuheben und ihn für die Bereitstellung in Azure vorzubereiten:
 
@@ -189,7 +189,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
     logout
     ```
 
-1. Wählen Sie im Hyper-V-Manager **Aktion** > **Herunterfahren** aus.
+1. Wählen Sie in Hyper-V-Manager **Aktion** und dann **Herunterfahren** aus.
 
 1. Konvertieren Sie die VHD in eine VHD mit fester Größe mit der Hyper-V-Manager-Funktion „Datenträger bearbeiten“ oder dem PowerShell-Befehl „Convert-VHD“. Ihre Linux-VHD kann nun in Azure hochgeladen werden.
 
@@ -207,7 +207,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
 
    Legen Sie ein Stammkennwort mit Guestfish fest:
 
-    ```sh
+    ```shell
     guestfish --rw -a <image-name>
     > <fs> run
     > <fs> list-filesystems
@@ -222,14 +222,14 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
 
 1. Erstellen oder bearbeiten Sie die Datei `/etc/sysconfig/network`, und fügen Sie ihr den folgenden Text hinzu:
 
-    ```sh
+    ```shell
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
 1. Erstellen oder bearbeiten Sie die Datei `/etc/sysconfig/network-scripts/ifcfg-eth0`, und fügen Sie ihr den folgenden Text hinzu:
 
-    ```sh
+    ```shell
     DEVICE=eth0
     ONBOOT=yes
     BOOTPROTO=dhcp
@@ -254,15 +254,15 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
 
 1. Modifizieren Sie die Boot-Zeile des Kernels in Ihrer Grub-Konfiguration, um zusätzliche Kernel-Parameter für Azure einzubinden. Öffnen Sie `/etc/default/grub` in einem Text-Editor, und bearbeiten Sie den Parameter `GRUB_CMDLINE_LINUX`, um diese Konfiguration durchzuführen. Beispiel:
 
-    ```sh
+    ```shell
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
    Mit diesem Befehl wird zudem sichergestellt, dass alle Konsolennachrichten zum ersten seriellen Port gesendet werden. Dieser kann Azure bei der Behebung von Fehlern unterstützen. Außerdem werden mit dem Befehl die neuen RHEL 7-Benennungskonventionen für Netzwerkkarten deaktiviert.
 
-   Weder grafische Startvorgänge noch Startvorgänge im stillen Modus sind in einer Cloudumgebung nützlich, in der alle Protokolle an den seriellen Port gesendet werden. Sie können die Option `crashkernel` bei Bedarf konfiguriert lassen. Dieser Parameter reduziert den verfügbaren Arbeitsspeicher des virtuellen Computers um mindestens 128 MB. Dies kann bei kleineren virtuellen Computern Probleme verursachen. Es wird empfohlen, die folgenden Parameter zu entfernen:
+   Weder der Graphical Boot noch der Quiet Boot sind in einer Cloudumgebung nützlich, in der alle Protokolle an den seriellen Port gesendet werden. Sie können die Option `crashkernel` bei Bedarf konfiguriert lassen. Dieser Parameter reduziert den verfügbaren Arbeitsspeicher des virtuellen Computers um mindestens 128 MB. Dies kann bei kleineren virtuellen Computern Probleme verursachen. Es wird empfohlen, die folgenden Parameter zu entfernen:
 
-    ```sh
+    ```shell
     rhgb quiet crashkernel=auto
     ```
 
@@ -276,7 +276,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
 
     Bearbeiten Sie `/etc/dracut.conf` , und fügen Sie Inhalt hinzu:
 
-    ```sh
+    ```shell
     add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
     ```
 
@@ -301,12 +301,12 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
 
     Ändern Sie die Datei „/etc/ssh/sshd_config“, sodass sie die folgenden Zeilen enthält:
 
-    ```sh
+    ```shell
     PasswordAuthentication yes
     ClientAliveInterval 180
     ```
 
-1. Wenn Sie eine benutzerdefinierte VHD für Azure Stack Hub erstellen, denken Sie daran, dass die WALinuxAgent-Versionen zwischen 2.2.20 und 2.2.35 (beide exklusiv) in Azure Stack Hub-Umgebungen vor dem Release 1910 nicht funktionieren. Sie können die Versionen 2.2.20/2.2.35 zum Vorbereiten des Images verwenden. Um zum Vorbereiten Ihres benutzerdefinierten Images Versionen ab 2.2.35 zu verwenden, aktualisieren Sie Ihre Azure Stack Hub-Version auf Release 1903 oder höher, oder installieren Sie den 1901/1902-Hotfix.
+1. Wenn Sie eine benutzerdefinierte VHD für Azure Stack Hub erstellen, beachten Sie, dass die WALinuxAgent-Versionen zwischen 2.2.20 und 2.2.35 (beide exklusiv) in Azure Stack Hub-Umgebungen vor dem Release 1910 nicht funktionieren. Sie können die Versionen 2.2.20/2.2.35 zum Vorbereiten des Images verwenden. Um zum Vorbereiten Ihres benutzerdefinierten Images Versionen ab 2.2.35 zu verwenden, aktualisieren Sie Ihre Azure Stack Hub-Version auf Release 1903 oder höher, oder installieren Sie den 1901/1902-Hotfix.
 
     [Vor Release 1910] Befolgen Sie diese Anweisungen, um einen kompatiblen WALinuxAgent herunterzuladen:
 
@@ -359,11 +359,11 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
             sudo systemctl enable waagent.service
             ```
 
-1. Erstellen Sie auf dem Betriebssystemdatenträger keinen Auslagerungsbereich.
+1. Erstellen Sie auf dem Betriebssystem-Datenträger keinen Auslagerungsbereich.
 
     Der Azure Linux-Agent kann den Auslagerungsbereich automatisch mit dem lokalen Ressourcendatenträger konfigurieren, der nach der Bereitstellung des virtuellen Computers in Azure mit dem virtuellen Computer verknüpft wird. Der lokale Ressourcendatenträger ist ein temporärer Datenträger und kann geleert werden, wenn die Bereitstellung des virtuellen Computers aufgehoben wird. Passen Sie nach dem Installieren des Azure Linux-Agents im vorherigen Schritt die folgenden Parameter in `/etc/waagent.conf` entsprechend an:
 
-    ```sh
+    ```shell
     ResourceDisk.Format=y
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
@@ -377,7 +377,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
     subscription-manager unregister
     ```
 
-1. Wenn Sie ein System verwenden, das mit einer Zertifizierungsstelle für Unternehmen bereitgestellt wurde, stuft der virtuelle RHEL-Computer das Azure Stack Hub-Stammzertifikat als nicht vertrauenswürdig ein. Verwenden Sie zum Platzieren den vertrauenswürdigen Stammspeicher. Weitere Informationen finden Sie unter [Hinzufügen vertrauenswürdiger Stammzertifikate zum Server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Wenn Sie ein System verwenden, das mit einer Zertifizierungsstelle für Unternehmen bereitgestellt wurde, stuft der virtuelle RHEL-Computer das Azure Stack Hub-Stammzertifikat als nicht vertrauenswürdig ein. Sie müssen dieses Zertifikat in den vertrauenswürdigen Stammspeicher platzieren. Weitere Informationen finden Sie unter [Hinzufügen vertrauenswürdiger Stammzertifikate zum Server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Führen Sie die folgenden Befehle aus, um die Bereitstellung des virtuellen Computers aufzuheben und ihn für die Bereitstellung in Azure vorzubereiten:
 
@@ -392,7 +392,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
 1. Konvertieren Sie das qcow2-Image in das VHD-Format.
 
     > [!NOTE]
-    > Es gibt einen bekannten Fehler in den qemu-img-Versionen ab Version 2.2.1, der zu einer nicht ordnungsgemäßen Formatierung der virtuellen Festplatte führt. Dieses Problem wurde in QEMU 2.6 behoben. Sie sollten entweder qemu-img 2.2.0 oder eine niedrigere Version verwenden oder auf mindestens 2.6 aktualisieren. Referenz: https://bugs.launchpad.net/qemu/+bug/1490611.
+    > In den Versionen qemu-img-Versionen > oder = 2.2.1 taucht ein bekannter Bug auf, der zu Fehlern bei der Formatierung der VHD-führt. Dieses Problem wurde in QEMU 2.6 behoben. Sie sollten entweder qemu-img 2.2.0 oder eine niedrigere Version verwenden oder auf mindestens 2.6 aktualisieren. Referenz: https://bugs.launchpad.net/qemu/+bug/1490611.
 
     Konvertieren Sie das Bild zuerst in das raw-Format:
 
@@ -427,21 +427,21 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
 In diesem Abschnitt wird davon ausgegangen, dass Sie bereits einen virtuellen RHEL-Computer in VMware installiert haben. Weitere Informationen zum Installieren eines Betriebssystems in VMware finden Sie im [VMware-Installationshandbuch für Gastbetriebssysteme](https://aka.ms/aa6z600).
 
 * Beim Installieren des Linux-Betriebssystems wird empfohlen, anstelle von LVM – bei vielen Installationen oftmals voreingestellt – die Standardpartitionen zu verwenden. Dadurch lässt sich vermeiden, dass ein LVM-Namenskonflikt mit geklonten virtuellen Computern auftritt, insbesondere dann, wenn ein Betriebssystemdatenträger zur Fehlerbehebung an einen anderen virtuellen Computer angefügt wird. LVM oder RAID können bei Bedarf auf Datenträgern verwendet werden.
-* Konfigurieren Sie auf dem Betriebssystemdatenträger keine Swap-Partition. Sie können den Linux-Agent zur Erstellung einer Auslagerungsdatei auf dem temporären Ressourcendatenträger konfigurieren. Weitere Informationen zu dieser Konfiguration finden Sie in den folgenden Schritten.
+* Konfigurieren Sie auf dem Betriebssystem-Datenträger keine Swap-Partition. Sie können den Linux-Agent zur Erstellung einer Auslagerungsdatei auf dem temporären Ressourcendatenträger konfigurieren. Weitere Informationen zu dieser Konfiguration finden Sie in den folgenden Schritten.
 * Wählen Sie beim Erstellen der virtuellen Festplatte **Virtuellen Datenträger als einzelne Datei speichern**aus.
 
 ### <a name="prepare-an-rhel-7-vm-from-vmware"></a>Vorbereiten eines virtuellen RHEL 7-Computers über VMware
 
 1. Erstellen oder bearbeiten Sie die Datei `/etc/sysconfig/network`, und fügen Sie ihr den folgenden Text hinzu:
 
-    ```sh
+    ```shell
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
 1. Erstellen oder bearbeiten Sie die Datei `/etc/sysconfig/network-scripts/ifcfg-eth0`, und fügen Sie ihr den folgenden Text hinzu:
 
-    ```sh
+    ```shell
     DEVICE=eth0
     ONBOOT=yes
     BOOTPROTO=dhcp
@@ -464,19 +464,19 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits einen virtuellen RH
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Modifizieren Sie die Boot-Zeile des Kernels in Ihrer Grub-Konfiguration, um zusätzliche Kernel-Parameter für Azure einzubinden. Öffnen Sie dazu `/etc/default/grub` in einem Text-Editor, und bearbeiten Sie den Parameter `GRUB_CMDLINE_LINUX`. Beispiel:
+1. Modifizieren Sie die Boot-Zeile des Kernels in Ihrer Grub-Konfiguration, um zusätzliche Kernel-Parameter für Azure einzubinden. Öffnen Sie dazu `/etc/default/grub` in einem Text-Editor. Ändern Sie den `GRUB_CMDLINE_LINUX`-Parameter. Beispiel:
 
-    ```sh
+    ```shell
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
     Durch diese Konfiguration wird zudem sichergestellt, dass alle Konsolennachrichten zum ersten seriellen Port gesendet werden. Dieser kann Azure bei der Behebung von Fehlern unterstützen. Außerdem werden die neuen RHEL 7-Benennungskonventionen für Netzwerkkarten deaktiviert. Es wird empfohlen, die folgenden Parameter zu entfernen:
 
-    ```sh
+    ```shell
     rhgb quiet crashkernel=auto
     ```
 
-    Weder grafische Startvorgänge noch Startvorgänge im stillen Modus sind in einer Cloudumgebung nützlich, in der alle Protokolle an den seriellen Port gesendet werden sollen. Sie können die Option `crashkernel` bei Bedarf konfiguriert lassen. Dieser Parameter reduziert den verfügbaren Arbeitsspeicher des virtuellen Computers um mindestens 128 MB. Dies kann bei kleineren virtuellen Computern Probleme verursachen.
+    Weder der Graphical Boot noch der Quiet Boot sind in einer Cloudumgebung nützlich, in der alle Protokolle an den seriellen Port gesendet werden sollen. Sie können die Option `crashkernel` bei Bedarf konfiguriert lassen. Dieser Parameter reduziert den verfügbaren Arbeitsspeicher des virtuellen Computers um mindestens 128 MB. Dies kann bei kleineren virtuellen Computern Probleme verursachen.
 
 1. Nachdem Sie die Bearbeitung von `/etc/default/grub` abgeschlossen haben, führen Sie den folgenden Befehl zum erneuten Erstellen der GRUB-Konfiguration aus:
 
@@ -488,7 +488,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits einen virtuellen RH
 
     Bearbeiten Sie `/etc/dracut.conf`und fügen Sie Inhalt hinzu:
 
-    ```sh
+    ```shell
     add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
     ```
 
@@ -507,11 +507,11 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits einen virtuellen RH
 
 1. Stellen Sie sicher, dass der SSH-Server installiert und konfiguriert ist, damit er beim Booten hochfährt. Dies ist normalerweise die Standardeinstellung. Ergänzen Sie `/etc/ssh/sshd_config` um die folgende Zeile:
 
-    ```sh
+    ```shell
     ClientAliveInterval 180
     ```
 
-1. Wenn Sie eine benutzerdefinierte VHD für Azure Stack Hub erstellen, denken Sie daran, dass die WALinuxAgent-Versionen zwischen 2.2.20 und 2.2.35 (beide exklusiv) in Azure Stack Hub-Umgebungen vor dem Release 1910 nicht funktionieren. Sie können die Versionen 2.2.20/2.2.35 zum Vorbereiten des Images verwenden. Um zum Vorbereiten Ihres benutzerdefinierten Images Versionen ab 2.2.35 zu verwenden, aktualisieren Sie Ihre Azure Stack Hub-Version auf Release 1903 oder höher, oder installieren Sie den 1901/1902-Hotfix.
+1. Wenn Sie eine benutzerdefinierte VHD für Azure Stack Hub erstellen, beachten Sie, dass die WALinuxAgent-Versionen zwischen 2.2.20 und 2.2.35 (beide exklusiv) in Azure Stack Hub-Umgebungen vor dem Release 1910 nicht funktionieren. Sie können die Versionen 2.2.20/2.2.35 zum Vorbereiten des Images verwenden. Um zum Vorbereiten Ihres benutzerdefinierten Images höhere Versionen als 2.2.35 zu verwenden, aktualisieren Sie Ihre Azure Stack Hub-Version auf Release 1903 oder höher, oder installieren Sie den 1901/1902-Hotfix.
 
     [Vor Release 1910] Befolgen Sie diese Anweisungen, um einen kompatiblen WALinuxAgent herunterzuladen:
 
@@ -564,11 +564,11 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits einen virtuellen RH
         sudo systemctl enable waagent.service
         ```
         
-1. Erstellen Sie auf dem Betriebssystemdatenträger keinen Auslagerungsbereich.
+1. Erstellen Sie auf dem Betriebssystem-Datenträger keinen Auslagerungsbereich.
 
-    Der Azure Linux-Agent kann den Auslagerungsbereich automatisch mit dem lokalen Ressourcendatenträger konfigurieren, der nach der Bereitstellung des virtuellen Computers in Azure mit dem virtuellen Computer verknüpft wird. Beachten Sie, dass der lokale Ressourcendatenträger ein temporärer Datenträger ist und geleert werden kann, wenn die Bereitstellung des virtuellen Computers aufgehoben wird. Passen Sie nach dem Installieren des Azure Linux-Agents im vorherigen Schritt die folgenden Parameter in `/etc/waagent.conf` entsprechend an:
+    Der Azure Linux-Agent kann den Auslagerungsbereich automatisch mit dem lokalen Ressourcendatenträger konfigurieren, der nach der Bereitstellung des virtuellen Computers in Azure an den virtuellen Computer angefügt wird. Beachten Sie, dass der lokale Ressourcendatenträger ein temporärer Datenträger ist und geleert werden kann, wenn die Bereitstellung der VM aufgehoben wird. Passen Sie nach dem Installieren des Azure Linux-Agents im vorherigen Schritt die folgenden Parameter in `/etc/waagent.conf` entsprechend an:
 
-    ```sh
+    ```shell
     ResourceDisk.Format=y
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
@@ -582,7 +582,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits einen virtuellen RH
     sudo subscription-manager unregister
     ```
 
-1. Wenn Sie ein System verwenden, das mit einer Zertifizierungsstelle für Unternehmen bereitgestellt wurde, stuft der virtuelle RHEL-Computer das Azure Stack Hub-Stammzertifikat als nicht vertrauenswürdig ein. Verwenden Sie zum Platzieren den vertrauenswürdigen Stammspeicher. Weitere Informationen finden Sie unter [Hinzufügen vertrauenswürdiger Stammzertifikate zum Server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Wenn Sie ein System verwenden, das mit einer Zertifizierungsstelle für Unternehmen bereitgestellt wurde, stuft der virtuelle RHEL-Computer das Azure Stack Hub-Stammzertifikat als nicht vertrauenswürdig ein. Sie müssen es im vertrauenswürdigen Stammspeicher platzieren. Weitere Informationen finden Sie unter [Hinzufügen vertrauenswürdiger Stammzertifikate zum Server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Führen Sie die folgenden Befehle aus, um die Bereitstellung des virtuellen Computers aufzuheben und ihn für die Bereitstellung in Azure vorzubereiten:
 
@@ -595,7 +595,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits einen virtuellen RH
 1. Fahren Sie den virtuellen Computer herunter, und konvertieren Sie die VMDK-Datei in das VHD-Format.
 
     > [!NOTE]
-    > Es gibt einen bekannten Fehler in den qemu-img-Versionen ab Version 2.2.1, der zu einer nicht ordnungsgemäßen Formatierung der virtuellen Festplatte führt. Dieses Problem wurde in QEMU 2.6 behoben. Sie sollten entweder qemu-img 2.2.0 oder eine niedrigere Version verwenden oder auf mindestens 2.6 aktualisieren. Referenz: <https://bugs.launchpad.net/qemu/+bug/1490611>.
+    > In den Versionen qemu-img-Versionen > oder = 2.2.1 taucht ein bekannter Bug auf, der zu Fehlern bei der Formatierung der VHD-führt. Dieses Problem wurde in QEMU 2.6 behoben. Sie sollten entweder qemu-img 2.2.0 oder eine niedrigere Version verwenden oder auf mindestens 2.6 aktualisieren.
 
     Konvertieren Sie das Bild zuerst in das raw-Format:
 
@@ -629,7 +629,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits einen virtuellen RH
 
 1. Erstellen Sie eine Kickstart-Datei mit dem folgenden Inhalt, und speichern Sie die Datei. Das Beenden und Deinstallieren von cloud-init ist optional (cloud-init wird in Azure Stack Hub nach Release 1910 unterstützt). Installieren Sie den Agent erst nach Release 1910 aus dem RedHat-Repository. Verwenden Sie vor Release 1910 das Azure-Repository wie im vorherigen Abschnitt beschrieben. Weitere Informationen zur Kickstart-Installation finden Sie im [Kickstart-Installationshandbuch](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
-    ```sh
+    ```shell
     Kickstart for provisioning a RHEL 7 Azure VM
 
     System authorization information
@@ -707,7 +707,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits einen virtuellen RH
     Stop and Uninstall cloud-init
     systemctl stop cloud-init
     yum remove cloud-init
-    
+
     Enable extras repo
     subscription-manager repos --enable=rhel-7-server-extras-rpms
 
@@ -784,7 +784,7 @@ Um dieses Problem zu beheben, müssen Sie „initramfs“ Hyper-V-Module hinzuf�
 
 Bearbeiten Sie `/etc/dracut.conf`, und fügen Sie den folgenden Inhalt hinzu:
 
-```sh
+```shell
 add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 ```
 

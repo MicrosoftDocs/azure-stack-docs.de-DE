@@ -3,16 +3,16 @@ title: 'Verwaltete Azure Stack Hub-Datenträger: Unterschiede und Überlegungen'
 description: Dieser Artikel beschreibt die Unterschiede und zu berücksichtigende Überlegungen bei der Verwendung von verwalteten Datenträgern und verwalteten Images in Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 1abee3556ac45791831c6dcb9fc8dce05477e51e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 335c6e39b067e9a95ec075866279d35b451d7c87
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80479305"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777677"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Verwaltete Azure Stack Hub-Datenträger: Unterschiede und Überlegungen
 
@@ -54,7 +54,7 @@ Es gibt auch Unterschiede zu Speichermetriken:
 
 Verwaltete Azure Stack Hub-Datenträger unterstützen die folgenden API-Versionen:
 
-- 2017-03-30 
+- 2017-03-30
 - 2017-12-01 (nur verwaltete Images, keine Datenträger, keine Momentaufnahmen)
 
 ## <a name="convert-to-managed-disks"></a>Konvertieren in verwaltete Datenträger

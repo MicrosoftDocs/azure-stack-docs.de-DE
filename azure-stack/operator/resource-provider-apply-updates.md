@@ -8,14 +8,17 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/18/2019
-ms.openlocfilehash: 13ea59064ff653ff24fac97a867725c5d9f036d0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 5ec6f85fc2f2e526c4b85521337ab65dc2b939cc
+ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80424770"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82799865"
 ---
 # <a name="how-to-update-an-azure-stack-hub-resource-provider"></a>Aktualisieren eines Azure Stack Hub-Ressourcenanbieters
+
+> [!IMPORTANT]
+> Überprüfen Sie die neuesten Versionshinweise des Ressourcenanbieters auf Informationen zu neuen Funktionen, Fehlerbehebungen und bekannten Problemen, die sich auf die Bereitstellung auswirken können, bevor Sie fortfahren. Die Versionshinweise können auch die minimale Azure Stack Hub-Version angeben, die für den Ressourcenanbieter erforderlich ist.
 
 Ressourcenanbieter, die aus Marketplace installiert wurden, erfordern regelmäßige Wartung. Die Wartung erfolgt durch Anwenden von Dienstupdates, die von Microsoft turnusmäßig bereitgestellt werden. Updates können sowohl neue Features als auch Hotfixes enthalten.  
 

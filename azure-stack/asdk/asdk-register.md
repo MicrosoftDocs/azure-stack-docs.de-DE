@@ -7,12 +7,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 2f0af3bd550b31e70f7c1e722ab79149c57c1a2f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e93b5b16d30017dd7a1ea50d2f990ee983c8f124
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700645"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847128"
 ---
 # <a name="register-the-asdk-with-azure"></a>Registrieren des ASDK bei Azure
 
@@ -209,7 +209,7 @@ Nach Abschluss der Aktivierung sollte eine Meldung ähnlich der folgenden angeze
 
 Sie können die Kachel **Regionsverwaltung** verwenden, um zu überprüfen, ob die Azure Stack-Registrierung erfolgreich war. Diese Kachel steht im Standarddashboard im Administratorportal zur Verfügung.
 
-1. Melden Sie sich beim [Azure Stack-Administratorportal](https://adminportal.local.azurestack.external) an.
+1. Melden Sie am Azure Stack-Administratorportal (`https://adminportal.local.azurestack.external`) an.
 
 2. Wählen Sie im Dashboard **Regionsverwaltung** aus.
 

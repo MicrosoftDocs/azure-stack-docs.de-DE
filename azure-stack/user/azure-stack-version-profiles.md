@@ -3,22 +3,22 @@ title: Verwalten von API-Versionsprofilen in Azure Stack Hub
 description: Erfahren Sie mehr zu API-Versionsprofilen in Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/06/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 2e229c8add5b850384c7b46d05373c4ee19fd266
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f72f0e79fe7b890c65c630ff00ec3870d4756c5e
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295539"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836222"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Verwalten von API-Versionsprofilen in Azure Stack Hub
 
 API-Profile geben den Azure-Ressourcenanbieter und die API-Version für Azure-REST-Endpunkte an. Mithilfe von API-Profilen können Sie benutzerdefinierte Clients in verschiedenen Sprachen erstellen. Jeder Client nutzt ein API-Profil, um eine Verbindung mit dem richtigen Ressourcenanbieter und der richtigen API-Version für Azure Stack Hub herzustellen.
 
-Sie können eine App für die Verwendung mit Azure-Ressourcenanbietern erstellen, ohne genau ermitteln zu müssen, welche Version der jeweiligen Ressourcenanbieter-API mit Azure Stack Hub kompatibel ist. Es reicht, wenn Sie Ihre App auf ein Profil ausrichten. Das SDK wählt dann automatisch die richtige API-Version.
+Sie können eine App für die Verwendung mit Azure-Ressourcenanbietern erstellen, ohne genau wissen zu müssen, welche Version der jeweiligen Ressourcenanbieter-API mit Azure Stack Hub kompatibel ist. Es reicht, wenn Sie Ihre App auf ein Profil ausrichten. Das SDK wählt dann automatisch die richtige API-Version.
 
 Dieses Thema enthält folgende Informationen:
 

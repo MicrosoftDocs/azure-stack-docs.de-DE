@@ -1,5 +1,5 @@
 ---
-title: Arbeitsblatt für die Bereitstellung von integrierten Azure Stack Hub-Systemen
+title: Bereitstellungsarbeitsblatt für Azure Stack Hub
 description: Erfahren Sie, wie Sie das Tool für Bereitstellungsarbeitsblätter zum Bereitstellen von Azure Stack Hub installieren und verwenden.
 author: IngridAtMicrosoft
 ms.topic: article
@@ -7,25 +7,25 @@ ms.date: 04/19/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: 8c13121f5d591abca8a6c83771848d97cc9106db
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1949d198c7d85e60c5a3195dfbd5e725cef834c7
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700067"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836124"
 ---
 # <a name="deployment-worksheet-for-azure-stack-hub-integrated-systems"></a>Arbeitsblatt für die Bereitstellung von integrierten Azure Stack Hub-Systemen
 
-Das Arbeitsblatt für die Azure Stack Hub-Bereitstellung ist eine Windows Forms-Anwendung, mit der alle erforderlichen Bereitstellungsinformationen und -entscheidungen an einem zentralen Ort zusammengefasst werden. Sie können das Arbeitsblatt für die Bereitstellung während der Planung ausfüllen und dann vor Beginn der Bereitstellung prüfen.
+Das Arbeitsblatt für die Azure Stack Hub-Bereitstellung ist eine Windows Forms-App, mit der alle erforderlichen Bereitstellungsinformationen und -entscheidungen an einem zentralen Ort zusammengefasst werden. Sie können das Arbeitsblatt für die Bereitstellung während der Planung ausfüllen und dann vor Beginn der Bereitstellung prüfen.
 
-Bei den für das Arbeitsblatt erforderlichen Informationen geht es um die Bereiche Netzwerk, Sicherheit und Identität. Es müssen wichtige Entscheidungen getroffen werden, für die ggf. Wissen in vielen unterschiedlichen Bereichen benötigt wird. Aus diesem Grund kann es ratsam sein, Teams mit Wissen in diesen Bereichen zurate zu ziehen, um das Arbeitsblatt auszufüllen.
+Bei den für das Arbeitsblatt erforderlichen Informationen geht es um die Bereiche Netzwerk, Sicherheit und Identität. Diese Informationen erfordern möglicherweise spezifische Kenntnisse in bestimmten Bereichen, daher sollten Sie sich an Experten beraten, um das Arbeitsblatt abzuschließen.
 
-Beim Ausfüllen des Arbeitsblatts müssen Sie unter Umständen vor der Bereitstellung einige Konfigurationsänderungen an Ihrer Netzwerkumgebung vornehmen. Dies kann die Reservierung von IP-Adressräumen für die Azure Stack Hub-Lösung sowie die Konfiguration von Routern, Switches und Firewalls zur Vorbereitung der Konnektivität mit der neuen Azure Stack Hub-Lösung umfassen.
+Beim Ausfüllen des Arbeitsblatts müssen Sie unter Umständen vor der Bereitstellung einige Konfigurationsänderungen an Ihrer Netzwerkumgebung vornehmen. Diese Änderungen können die Reservierung von IP-Adressräumen für die Azure Stack Hub-Lösung sowie die Konfiguration von Routern, Switches und Firewalls zur Vorbereitung der Konnektivität mit der neuen Azure Stack Hub-Lösung umfassen.
 
 > [!NOTE]
-> Weitere Informationen zum Ausfüllen des Tools für Bereitstellungsarbeitsblätter finden Sie in [diesem Artikel in der Azure Stack Hub-Dokumentation](azure-stack-datacenter-integration.md).
+> Weitere Informationen zum Ausfüllen des Arbeitsblatttools für die Bereitstellung finden Sie unter [Überlegungen zur Planung der Rechenzentrumsintegration für in Azure Stack Hub integrierte Systeme](azure-stack-datacenter-integration.md).
 
-[![Arbeitsblatt für die Bereitstellung](media/azure-stack-deployment-worksheet/depworksheet.png "Arbeitsblatt für die Bereitstellung")](media/azure-stack-deployment-worksheet/depworksheet.png)
+[![Bereitstellungsarbeitsblatt für die Azure Stack Hub-Bereitstellung](media/azure-stack-deployment-worksheet/depworksheet.png "Arbeitsblatt für die Bereitstellung")](media/azure-stack-deployment-worksheet/depworksheet.png)
 
 ## <a name="installing-the-windows-powershell-module"></a>Installieren des Windows PowerShell-Moduls
 
@@ -64,7 +64,7 @@ Führen Sie die folgenden Schritte aus, um das Arbeitsblatt für die Bereitstell
 
 Das Arbeitsblatt für die Bereitstellung besteht aus separaten Registerkarten zum Sammeln von Umgebungseinstellungen, z. B. **Kundeneinstellungen**, **Netzwerkeinstellungen** und **Skalierungseinheit #** . Sie müssen alle Werte (Ausnahme: Kennzeichnung **Optional**) auf allen Registerkarten angeben, bevor Dateien mit Konfigurationsdaten generiert werden können. Nachdem alle erforderlichen Werte in das Tool eingegeben wurden, können Sie über das Menü **Aktion** die Optionen **Import**, **Export** und **Generieren** verwenden. Folgende JSON-Dateien sind für die Bereitstellung erforderlich:
 
-**Import**: Ermöglicht den Import einer Datei mit Azure Stack Hub-Konfigurationsdaten (ConfigurationData.json), die von diesem Tool generiert wurde, oder von Daten, die mit einer vorherigen Version des Arbeitsblatts für die Bereitstellung erstellt wurden. Beim Durchführen eines Imports werden die Formulare zurückgesetzt und alle zuvor eingegebenen Einstellungen oder generierten Daten gelöscht.
+**Import**: Ermöglicht den Import einer Datei mit Azure Stack Hub-Konfigurationsdaten (ConfigurationData.json), die von diesem Tool generiert wurde, oder dieser Dateien, die mit einer vorherigen Version des Arbeitsblatts für die Bereitstellung erstellt wurden. Beim Durchführen eines Imports werden die Formulare zurückgesetzt und alle zuvor eingegebenen Einstellungen oder generierten Daten gelöscht.
 
 **Export**: Dient zum Überprüfen der derzeit eingegebenen Daten in den Formularen, Generieren der IP-Subnetze und -Zuweisungen und Speichern des Inhalts als Konfigurationsdateien im JSON-Format. Sie können diese Dateien dann verwenden, um die Netzwerkkonfiguration zu generieren und Azure Stack Hub zu installieren.
 
@@ -72,7 +72,7 @@ Das Arbeitsblatt für die Bereitstellung besteht aus separaten Registerkarten zu
 
 **Alles löschen**: Löscht alle Daten, die derzeit in den Formularen als Eingaben vorhanden sind, und führt die Zurücksetzung auf die Standardwerte durch.
 
-**Save or Open your work in-progress** (Arbeit speichern oder öffnen): Sie können teilweise eingegebene Daten speichern und öffnen, während Sie daran arbeiten, indem Sie die Optionen **Datei > Speichern** und **Datei > Öffnen** verwenden. Dies unterscheidet sich von den Optionen **Import** und **Export**, weil dabei alle Daten eingegeben und überprüft worden sein müssen. Bei „Öffnen“/„Speichern“ wird keine Überprüfung durchgeführt, und es müssen nicht in alle Felder Daten eingegeben worden sein, um Ihre Arbeit speichern zu können.
+**Save or Open your work in-progress** (Arbeit speichern oder öffnen): Sie können teilweise eingegebene Daten speichern und öffnen, während Sie daran arbeiten, indem Sie die Optionen **Datei > Speichern** und **Datei > Öffnen** verwenden. Diese Funktion unterscheidet sich von den Optionen **Import** und **Export**, weil dabei alle Daten eingegeben und überprüft worden sein müssen. Bei „Öffnen“/„Speichern“ wird keine Überprüfung durchgeführt, und es müssen nicht in alle Felder Daten eingegeben worden sein, um Ihre Arbeit speichern zu können.
 
 **Logging and Warning messages** (Protokollierung und Warnmeldungen): Während der Verwendung des Formulars werden im PowerShell-Fenster unter Umständen nicht kritische Warnmeldungen angezeigt. Kritische Fehler werden als Popupmeldung angezeigt. Die optionale ausführliche Protokollierung, wobei auch ein Protokoll auf Datenträger geschrieben wird, kann als Hilfe bei der Behandlung von Problemen aktiviert werden.
 

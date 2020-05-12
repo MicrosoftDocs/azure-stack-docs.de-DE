@@ -3,23 +3,23 @@ title: Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack
 description: Hier erfahren Sie, wie Sie in Azure Stack Hub Mandanten registrieren und die Mandantennutzung nachverfolgen.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 72fdb2bf4d19291ff5b0a83c2233354bde4ec201
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b067428a9096855f38f8e1f33a601010dc27359c
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295533"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742309"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack Hub
 
 Dieser Artikel enthält Details zu Registrierungsvorgängen. Sie können diese Vorgänge für die folgenden Aufgaben verwenden:
 
-- Verwalten von Mandantenregistrierungen
-- Verwalten der Nutzungsnachverfolgung von Mandanten
+- Verwalten von Mandantenregistrierungen.
+- Verwalten der Nutzungsnachverfolgung von Mandanten.
 
 ## <a name="add-tenant-to-registration"></a>Hinzufügen von Mandanten zur Registrierung
 

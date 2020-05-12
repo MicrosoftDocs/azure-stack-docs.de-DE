@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 9f7fbb8657ec13aa6c7768e1db4d62f36fbb46cb
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1d5e6d9cbed6f3273cf2e6e18ffcb36d6a627a90
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696446"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742416"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Häufig gestellte Fragen zur Nutzung von Azure Stack Hub
 
@@ -306,13 +306,13 @@ Aktuell können Sie nur nach **gemeldeter Zeit** abfragen.
 
 | **HTTP-Statuscode** | **Fehlercode** | **Beschreibung** |
 | --- | --- | --- |
-| 400/Bad Request |*NoApiVersion* |Der Abfrageparameter der *API-Version* fehlt. |
-| 400/Bad Request |*InvalidProperty* |Eine Eigenschaft fehlt oder weist einen unzulässigen Wert auf. Die Meldung im Fehlercode im Antworttext gibt die fehlende Eigenschaft an. |
-| 400/Bad Request |*RequestEndTimeIsInFuture* |Der Wert für *gemeldeteEndzeit* liegt in der Zukunft. Für dieses Argument sind keine Werte zulässig, die in der Zukunft liegen. |
-| 400/Bad Request |*SubscriberIdIsNotDirectTenant* |Der API-Aufruf eines Anbieters hat eine Abonnement-ID verwendet, die kein gültiger Mandant des Aufrufers ist. |
-| 400/Bad Request |*SubscriptionIdMissingInRequest* |Die Abonnement-ID des Aufrufers fehlt. |
-| 400/Bad Request |*InvalidAggregationGranularity* |Es wurde eine unzulässige Aggregationsgranularität angefordert. Zulässige Werte sind täglich und stündlich. |
-| 503 |*ServiceUnavailable* |Ein wiederholbarer Fehler ist aufgetreten, da der Dienst ausgelastet ist oder der Aufruf gedrosselt wird. |
+| 400/Bad Request |NoApiVersion |Der Abfrageparameter `api-version` fehlt. |
+| 400/Bad Request |InvalidProperty |Eine Eigenschaft fehlt oder weist einen unzulässigen Wert auf. Die Meldung im Fehlercode im Antworttext gibt die fehlende Eigenschaft an. |
+| 400/Bad Request |RequestEndTimeIsInFuture |Der Wert für `ReportedEndTime` liegt in der Zukunft. Für dieses Argument sind keine Werte zulässig, die in der Zukunft liegen. |
+| 400/Bad Request |SubscriberIdIsNotDirectTenant |Der API-Aufruf eines Anbieters hat eine Abonnement-ID verwendet, die keinem Mandanten des Aufrufers zugeordnet werden kann. |
+| 400/Bad Request |SubscriptionIdMissingInRequest |Die Abonnement-ID des Aufrufers fehlt. |
+| 400/Bad Request |InvalidAggregationGranularity |Es wurde eine unzulässige Aggregationsgranularität angefordert. Zulässige Werte sind täglich und stündlich. |
+| 503 |ServiceUnavailable |Ein wiederholbarer Fehler ist aufgetreten, da der Dienst ausgelastet ist oder der Aufruf gedrosselt wird. |
 
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>Welche Gebührenrichtlinie gilt für virtuelle Computer?
 

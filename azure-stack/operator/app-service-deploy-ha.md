@@ -7,12 +7,13 @@ ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: ec4f3dc2a17e362038d11ec988d19ffa9edd6a6e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: e6d8708b15d5402d16b17a722640c9bf0c2251c4
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701852"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848029"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Bereitstellen von App Service in einer Hochverfügbarkeitskonfiguration
 
@@ -90,12 +91,11 @@ Die Ausgabewerte der Vorlage finden Sie wie folgt:
 
 3. Klicken Sie auf **Bereitstellungen**, und wählen Sie **Microsoft.Template** aus.
 
-    ![Microsoft.Template-Bereitstellung](media/app-service-deploy-ha/6.png)
+    ![Microsoft. Bereitstellung von Vorlagen](media/app-service-deploy-ha/6.png)
 
 4. Nachdem Sie die Bereitstellung **Microsoft.Template** ausgewählt haben, wählen Sie **Ausgaben** aus, und erfassen Sie die Parameterausgabe der Vorlage. Diese Informationen werden beim Bereitstellen von App Service benötigt.
 
     ![Parameterausgabe](media/app-service-deploy-ha/7.png)
-
 
 ## <a name="deploy-app-service-in-a-highly-available-configuration"></a>Bereitstellen von App Service in einer Hochverfügbarkeitskonfiguration
 Gehen Sie wie in diesem Abschnitt beschrieben vor, um App Service auf der Grundlage der Azure Stack Hub-Schnellstartvorlage [appservice-fileshare-sqlserver-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) für Azure Stack Hub in einer Hochverfügbarkeitskonfiguration bereitzustellen. 
@@ -111,20 +111,46 @@ Vor dem Ausführen des App Service-Installationsprogramms müssen zunächst eini
 > [!TIP]
 > Nicht alle im Artikel [Vor den ersten Schritten mit App Service](azure-stack-app-service-before-you-get-started.md) beschriebenen Schritte sind erforderlich, da die Vorlagenbereitstellung Ihnen die Konfiguration der Infrastruktur-VMs abnimmt.
 
-- [Laden Sie das App Service-Installationsprogramm und die Hilfsskripts herunter.](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts)
+- [Laden Sie das App Service-Installationsprogramm und die Hilfsskripts herunter.](azure-stack-app-service-before-you-get-started.md#installer-and-helper-scripts)
 - [Laden Sie Elemente aus dem Azure Stack Hub-Marketplace herunter](azure-stack-app-service-before-you-get-started.md#download-items-from-the-azure-marketplace).
-- [Generieren Sie die erforderlichen Zertifikate.](azure-stack-app-service-before-you-get-started.md#get-certificates)
-- Erstellen Sie die ID-Anwendung auf der Grundlage des Identitätsanbieters, den Sie für Azure Stack Hub ausgewählt haben. Eine ID-Anwendung kann entweder für [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app) oder für [Active Directory-Verbunddienste](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app) erstellt werden. (Notieren Sie sich die Anwendungs-ID.)
+- [Generieren Sie erforderliche Zertifikate für Ihren Bereitstellungstyp](azure-stack-app-service-before-you-get-started.md).
+- Erstellen Sie die ID-Anwendung auf der Grundlage des Identitätsanbieters, den Sie für Azure Stack Hub ausgewählt haben. Eine ID-Anwendung kann entweder für [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-ad-app) oder für [Active Directory-Verbunddienste](azure-stack-app-service-before-you-get-started.md#create-an-adfs-app) erstellt werden. (Notieren Sie sich die Anwendungs-ID.)
+<!-- Connected --->
+::: zone pivot="state-connected"
 - Vergewissern Sie sich, dass Sie das Windows Server 2016 Datacenter-Image dem Azure Stack Hub-Marketplace hinzugefügt haben. Dieses Image ist für die App Service-Installation erforderlich.
+::: zone-end
+
+::: zone pivot="state-disconnected"
+<!-- Disconnected --->
+- **Vollständiges VM-Image für Windows Server 2016 Datacenter mit aktiviertem Microsoft.Net 3.5.1 SP1**.  Für Azure App Service in Azure Stack Hub wird vorausgesetzt, dass im Image für die Bereitstellung Microsoft .NET 3.5.1 SP1 aktiviert ist. In über Marketplace syndizierten Windows Server 2016-Images ist diese Funktion nicht aktiviert, und sie können in nicht verbundenen Umgebungen Microsoft Update nicht erreichen, um die über DSIM zu installierenden Pakete herunterzuladen. Daher müssen Sie bei getrennten Bereitstellungen ein Windows Server 2016-Image erstellen und verwenden, für das dieses Feature vorab aktiviert ist.
+
+   Ausführliche Informationen zum Erstellen eines benutzerdefinierten Images und zum Hinzufügen zum Marketplace finden Sie unter [Hinzufügen eines benutzerdefinierten VM-Images zu Azure Stack Hub](azure-stack-add-vm-image.md). Geben Sie beim Hinzufügen des Images zum Marketplace unbedingt die folgenden Eigenschaften an:
+
+   - Herausgeber: MicrosoftWindowsServer
+   - Angebot: WindowsServer
+   - SKU: 2016-Datacenter
+   - Version: Geben Sie die aktuelle Version an.
+
+::: zone-end
+
+<!-- For All --> 
 
 ### <a name="steps-for-app-service-deployment"></a>Schritte für die App Service-Bereitstellung
 Die Installation des App Service-Ressourcenanbieters dauert mindestens eine Stunde. Die erforderliche Zeit hängt davon ab, wie viele Rolleninstanzen bereitgestellt werden. Während der Bereitstellung werden mit dem Installationsprogram folgende Tasks ausgeführt:
 
-- Es erstellt im angegebenen Azure Stack Hub-Speicherkonto einen Blobcontainer.
-- Es erstellt eine DNS-Zone und DNS-Einträge für App Service.
-- Es registriert den App Service-Ressourcenanbieter.
-- Es registriert die App Service-Katalogelemente.
+- Registriert die erforderlichen Ressourcenanbieter im Standardabonnement des Anbieters.
+- Gewährt Mitwirkendenzugriff auf die App Service-Identitätsanwendung.
+- Erstellen einer Ressourcengruppe und eines virtuellen Netzwerks (wenn erforderlich)
+- Erstellen von Speicherkonten und Containern für App Service-Installationsartefakte, den Verwendungsdienst und Ressourcenaktivierung
+- Herunterladen von App Service-Artefakten und Hochladen dieser in das App Service-Speicherkonto
+- Bereitstellen von App Service
+- Registrieren des Nutzungsdiensts
+- Erstellen von DNS-Einträgen für App Service
+- Registrieren der App Service Administrator- und Mandantenressourcenanbieter
+- Registrieren von Katalogelementen: Web-, API-, Funktionen-App-, App Service-Plan-, WordPress-, DNN-, Orchard- und Django-Anwendungen
 
+<!-- Connected --->
+::: zone pivot="state-connected"
 Führen Sie zum Bereitstellen des App Service-Ressourcenanbieters die folgenden Schritte aus:
 
 1. Führen Sie das zuvor heruntergeladene App Service-Installationsprogramm (**appservice.exe**) als Administrator auf einem Computer aus, der auf den Azure-Ressourcenverwaltungsendpunkt des Azure Stack Hub-Administrators zugreifen kann.
@@ -160,17 +186,6 @@ Führen Sie zum Bereitstellen des App Service-Ressourcenanbieters die folgenden 
 9. Da sich der für die App Service-Installation verwendete Computer nicht im gleichen VNet befindet wie der Dateiserver, der die App Service-Dateifreigabe hostet, kann der Name nicht aufgelöst werden. **Dies ist ein erwarteter Fehler**.<br><br>Vergewissern Sie sich, dass die für den Dateifreigabe-UNC-Pfad eingegebenen Informationen und die Kontoinformationen korrekt sind. Wählen Sie anschließend im Dialogfeld mit der Benachrichtigung **Ja** aus, um mit der App Service-Installation fortzufahren.
 
     ![Dialogfeld mit erwartetem Fehler in App Service](media/app-service-deploy-ha/08.png)
-
-    Wenn Sie die Bereitstellung in einem vorhandenen virtuellen Netzwerk durchführen und für die Verbindung mit Ihrem Dateiserver eine interne IP-Adresse verwenden, müssen Sie eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen. Diese Regel ermöglicht SMB-Datenverkehr zwischen dem Workersubnetz und dem Dateiserver. Wechseln Sie im Administratorportal zu WorkersNsg, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
-    - Quelle: Any
-    - Quellportbereich: *
-    - Ziel: IP-Adressen
-    - IP-Zieladressbereich: Bereich der IPs für Ihren Dateiserver
-    - Zielportbereich: 445
-    - Protokoll: TCP
-    - Aktion: Allow
-    - Priorität: 700
-    - Name: Outbound_Allow_SMB445
 
 10. Geben Sie die ID der Identitätsanwendung sowie den Pfad und die Kennwörter für die Identitätszertifikate an, und klicken Sie auf **Weiter**:
     - Identitätsanwendungszertifikat (im Format **sso.appservice.local.azurestack.external.pfx**)
@@ -224,6 +239,138 @@ Führen Sie zum Bereitstellen des App Service-Ressourcenanbieters die folgenden 
 18. Überprüfen Sie den Status der App Service-Bereitstellung. Diese Bereitstellung kann abhängig von Ihrer Bereitstellungskonfiguration und Ihrer Hardware über eine Stunde dauern. Wählen Sie nach erfolgreichem Abschluss des Installationsprogramms die Option **Beenden** aus.
 
     ![Setup abgeschlossen für App Service](media/app-service-deploy-ha/16.png)
+
+::: zone-end
+
+::: zone pivot="state-disconnected"
+<!-- Disconnected --->
+
+## <a name="create-an-offline-installation-package"></a>Erstellen eines Offlineinstallationspakets
+
+Erstellen Sie zum Bereitstellen von Azure App Service in einer Offlineumgebung zunächst ein Offlineinstallationspaket auf einem Computer, der über eine Internetverbindung verfügt.
+
+1. Führen Sie das Installationsprogramm „AppService.exe“ auf einem Computer aus, der mit dem Internet verbunden ist. 
+
+1. Wählen Sie **Erweitert** > **Offlineinstallationspaket erstellen** aus. Dieser Schritt dauert einige Minuten.
+
+    ![Erstellen eines Offlinepakets im Azure App Service-Installationsprogramm][31]
+
+1. Das Azure App Service-Installationsprogramm erstellt ein Offlineinstallationspaket und zeigt den Pfad zu diesem an. Sie können **Ordner öffnen** auswählen, um den Ordner im Datei-Explorer zu öffnen.
+
+    ![Das Offlineinstallationspaket wurde im Azure App Service-Installationsprogramm erfolgreich generiert.](media/azure-stack-app-service-deploy-offline/image02.png)
+
+1. Kopieren Sie das Installationsprogramm („AppService.exe“) und das Offlineinstallationspaket auf einen Computer, der eine Verbindung mit Azure Stack Hub herstellen kann.
+
+## <a name="complete-the-offline-installation-of-azure-app-service-on-azure-stack-hub"></a>Abschließen der Offlineinstallation von Azure App Service in Azure Stack Hub
+
+1. Führen Sie „AppService.exe“ als Administrator auf einem Computer aus, der den Azure Resource Manager-Endpunkt des Azure Stack Hub-Administrators erreichen kann.
+
+1. Wählen Sie **Erweitert** > **Offlineinstallation abschließen** aus.
+
+    ![Abschließen der Offlineinstallation im Azure App Service-Installationsprogramm][32]
+
+1. Navigieren Sie zum Speicherort des zuvor erstellten Offlineinstallationspakets, und wählen Sie dann **Weiter** aus.
+
+    ![Angeben des Pfads zum Offlineinstallationspaket im Azure App Service-Installationsprogramm](media/azure-stack-app-service-deploy-offline/image04.png)
+
+1. Akzeptieren Sie die Lizenzierungsbedingungen von Microsoft, und klicken Sie auf **Weiter**.
+
+    ![Lizenzierungsbedingungen von Microsoft für App Service](media/app-service-deploy-ha/02.png)
+
+1. Akzeptieren Sie die Microsoft-fremden Lizenzierungsbedingungen, und klicken Sie auf **Weiter**.
+
+    ![Microsoft-fremde Lizenzierungsbedingungen für App Service](media/app-service-deploy-ha/03.png)
+
+1. Geben Sie die App Service-Cloudendpunktkonfiguration für Ihre Azure Stack Hub-Umgebung an.
+
+    ![App Service-Cloudendpunktkonfiguration für App Service](media/app-service-deploy-ha/04.png)
+
+1. **Stellen Sie eine Verbindung mit dem Azure Stack Hub-Abonnement her**, das Sie für die Installation verwenden möchten, und wählen Sie den Speicherort aus. 
+
+    ![Herstellen einer Verbindung mit dem Azure Stack Hub-Abonnement in App Service](media/app-service-deploy-ha/05.png)
+
+1. Wählen Sie **Vorhandenes VNET und Subnetze verwenden** und unter **Name der Ressourcengruppe** den Namen für die Ressourcengruppe aus, die zum Bereitstellen der hochverfügbaren Vorlage verwendet wird.  Wählen Sie als Nächstes das virtuelle Netzwerk aus, das im Rahmen der Vorlagenbereitstellung erstellt wurde, und wählen Sie anschließend in der Dropdownliste die entsprechenden Rollensubnetze aus. 
+
+    ![VNet-Auswahl in App Service](media/app-service-deploy-ha/06.png)
+
+1. Geben Sie für die Parameter für Dateifreigabepfad und Dateifreigabebesitzer die zuvor erfassten Informationen aus der Vorlagenausgabe an. Klicken Sie abschließend auf **Weiter**.
+
+    ![Ausgabeinformationen für die Dateifreigabe in App Service](media/app-service-deploy-ha/07.png)
+
+1. Da sich der für die App Service-Installation verwendete Computer nicht im gleichen VNet befindet wie der Dateiserver, der die App Service-Dateifreigabe hostet, kann der Name nicht aufgelöst werden. **Dies ist ein erwarteter Fehler**.  Vergewissern Sie sich, dass die für den Dateifreigabe-UNC-Pfad eingegebenen Informationen und die Kontoinformationen korrekt sind. Wählen Sie anschließend im Dialogfeld mit der Benachrichtigung **Ja** aus, um mit der App Service-Installation fortzufahren.
+
+    ![Dialogfeld mit erwartetem Fehler in App Service](media/app-service-deploy-ha/08.png)
+
+1. Geben Sie die ID der Identitätsanwendung sowie den Pfad und die Kennwörter für die Identitätszertifikate an, und klicken Sie auf **Weiter**:
+    - Identitätsanwendungszertifikat (im Format **sso.appservice.local.azurestack.external.pfx**)
+    - Azure Resource Manager-Stammzertifikat (**AzureStackCertificationAuthority.cer**)
+
+    ![ID-Anwendungszertifikat und Stammzertifikat in App Service](media/app-service-deploy-ha/008.png)
+
+1. Geben Sie als Nächstes die restlichen erforderlichen Informationen für die folgenden Zertifikate an, und klicken Sie auf **Weiter**:
+    - Azure Stack Hub-SSL-Standardzertifikat (im Format **_.appservice.local.azurestack.external.pfx**)
+    - API-SSL-Zertifikat (im Format **api.appservice.local.azurestack.external.pfx**)
+    - Herausgeberzertifikat (im Format **ftp.appservice.local.azurestack.external.pfx**) 
+
+    ![Zusätzliche Konfigurationszertifikate für App Service](media/app-service-deploy-ha/09.png)
+
+1. Geben Sie die SQL Server-Verbindungsinformationen unter Verwendung der SQL Server-Verbindungsinformationen aus der Ausgabe der Hochverfügbarkeitsvorlagenbereitstellung an:
+
+    ![SQL Server-Verbindungsinformationen für App Service](media/app-service-deploy-ha/10.png)
+
+1. Da sich der für die App Service-Installation verwendete Computer nicht im gleichen VNet befindet wie der SQL Server, der die App Service-Datenbanken hostet, kann der Name nicht aufgelöst werden.  **Dieses Verhalten wird erwartet**.  Vergewissern Sie sich, dass der SQL Server-Name und die Kontoinformationen korrekt angegeben sind, und wählen Sie **Ja** aus, um die App Service-Installation fortzusetzen. Klicken Sie auf **Weiter**.
+
+    ![SQL Server-Verbindungsinformationen für App Service](media/app-service-deploy-ha/11.png)
+
+1. Übernehmen Sie die Standardwerte der Rollenkonfiguration, oder legen Sie sie auf die empfohlenen Werte fest, und klicken Sie auf **Weiter**.  Es empfiehlt sich, die Standardwerte für die App Service-Infrastrukturrolleninstanzen wie folgt zu ändern, um eine hochverfügbare Konfiguration zu erhalten:
+
+    |Role|Standard|Empfehlung für Hochverfügbarkeit|
+    |-----|-----|-----|
+    |Controllerrolle|2|2|
+    |Verwaltungsrolle|1|3|
+    |Herausgeberrolle|1|3|
+    |FrontEnd-Rolle|1|3|
+    |Freigegebene Workerrolle|1|2|
+    |     |     |     |
+
+    ![Werte der Infrastrukturrolleninstanzen für App Service](media/app-service-deploy-ha/12.png)
+
+    > [!NOTE]
+    > Wenn Sie anstelle der Standardwerte die in diesem Tutorial empfohlenen Werte verwenden, erhöhen sich die Hardwareanforderungen für die App Service-Installation. Für die empfohlenen 13 virtuellen Computer werden insgesamt 18 Kerne und 32.256 MB RAM benötigt (anstelle der standardmäßigen 9 Kerne und 16.128 MB RAM für 6 virtuelle Computer).
+
+1. Wählen Sie das gewünschte Plattformimage für die Installation der App Service-Infrastruktur-VMs aus, und klicken Sie auf **Weiter**:
+
+    ![Auswahl des Plattformimages für App Service](media/app-service-deploy-ha/13.png)
+
+1. Geben Sie die zu verwendenden Anmeldeinformationen für die App Service-Infrastrukturrollen an, und klicken Sie auf **Weiter**:
+
+    ![Anmeldeinformationen für die Infrastrukturrollen für App Service](media/app-service-deploy-ha/14.png)
+
+1. Überprüfen Sie die Angaben für die App Service-Bereitstellung, und klicken Sie auf **Weiter**, um die Bereitstellung zu starten.
+
+    ![Überprüfen der Installationszusammenfassung für App Service](media/app-service-deploy-ha/15.png)
+
+1. Überprüfen Sie den Status der App Service-Bereitstellung. Diese Bereitstellung kann abhängig von Ihrer Bereitstellungskonfiguration und Ihrer Hardware über eine Stunde dauern. Wählen Sie nach erfolgreichem Abschluss des Installationsprogramms die Option **Beenden** aus.
+
+    ![Setup abgeschlossen für App Service](media/app-service-deploy-ha/16.png)
+
+::: zone-end
+
+## <a name="post-deployment-steps"></a>Schritte nach der Bereitstellung
+
+1. Sie **müssen** [die appservice_hosting-und appservice_metering-Datenbanken einer Verfügbarkeitsgruppe hinzufügen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database). Außerdem müssen Sie die Datenbanken synchronisieren, um bei einem Datenbankfailover einen Dienstverlust zu verhindern.
+
+2. Sie haben App Service in einem vorhandenen virtuellen Netzwerk bereitgestellt und verwenden eine interne IP-Adresse für die Verbindung mit Ihrem Dateiserver. Sie **müssen** eine Sicherheitsregel für ausgehenden Datenverkehr hinzufügen, die den SMB-Verkehr zwischen dem Workersubnetz und dem Dateiserver ermöglicht. Wechseln Sie im Administratorportal zur Netzwerksicherheitsgruppe „WorkersNsg“, und fügen Sie eine Sicherheitsregel für ausgehenden Datenverkehr mit den folgenden Eigenschaften hinzu:
+
+- Quelle: Any
+- Quellportbereich: *
+- Ziel: IP-Adressen
+- IP-Zieladressbereich: Bereich der IPs für Ihren Dateiserver
+- Zielportbereich: 445
+- Protokoll: TCP
+- Aktion: Allow
+- Priorität: 700
+- Name: Outbound_Allow_SMB445
 
 ## <a name="next-steps"></a>Nächste Schritte
 

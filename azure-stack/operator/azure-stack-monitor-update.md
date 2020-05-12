@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 943f391d709f772ec3ed5aa0c99bd738f5de679a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 21d7b22181283a0e634cb0bdd0cc5912f8dac84c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368123"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848182"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Überwachen von Änderungen in Azure Stack Hub mithilfe des privilegierten Endpunkts
 
@@ -160,6 +160,8 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 ## <a name="troubleshoot"></a>Problembehandlung
 
 Der privilegierte Endpunkt ist auf allen ERCS-VMs in der Azure Stack Hub-Umgebung verfügbar. Da die Verbindung nicht an einem Endpunkt mit Hochverfügbarkeit hergestellt wird, können gelegentlich Unterbrechungen, Warnungen oder Fehlermeldungen auftreten. Diese Meldungen weisen möglicherweise darauf hin, dass die Sitzung getrennt wurde oder ein Fehler bei der Kommunikation mit dem ECE-Dienst aufgetreten ist. Dies ist das erwartete Verhalten. Sie können den Vorgang nach einigen Minuten wiederholen oder eine neue Sitzung mit privilegiertem Endpunkt auf einer anderen ERCS-VM erstellen.
+
+Weitere Informationen zur Problembehandlung von Updates finden Sie unter [Azure Stack-Problembehandlung](azure-stack-troubleshooting.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -7,12 +7,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: ab0f54d94b96a7bdd75d13f04fd9146146d42740
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 75e20d593f1fb07e55655a7128c12b5417835dfe
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295203"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82846890"
 ---
 # <a name="asdk-admin-basics"></a>Grundlagen der ASDK-Verwaltung
 Wenn Sie mit der Verwaltung des Azure Stack Development Kits (ASDK) noch nicht vertraut sind, gibt es verschiedene Aspekte, die Sie kennen müssen. Dieser Leitfaden bietet eine Übersicht über Ihre Rolle als Azure Stack-Operator in der Evaluierungsumgebung. Wenn Sie sich mit diesen Informationen vertraut machen, stellen Sie sicher, dass Ihre Testbenutzer schnell produktiv arbeiten können.
@@ -33,7 +33,7 @@ Es gibt einige Überlegungen zu Konten, die Sie beim Verwalten von Azure Stack b
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Welche Tools verwende ich für die Verwaltung?
-Für die Verwaltung von Azure Stack können Sie das [Azure Stack-Administratorportal](https://adminportal.local.azurestack.external) oder PowerShell verwenden. Die einfachste Möglichkeit, sich mit den grundlegenden Konzepten vertraut zu machen, bietet das Portal. Wenn Sie PowerShell verwenden möchten, müssen Sie [PowerShell für Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) installieren und [die Azure Stack-Tools aus GitHub herunterladen](asdk-post-deploy.md#download-the-azure-stack-tools).
+Für die Verwaltung von Azure Stack können Sie das Azure Stack-Administratorportal (`https://adminportal.local.azurestack.external`) oder PowerShell verwenden. Die einfachste Möglichkeit, sich mit den grundlegenden Konzepten vertraut zu machen, bietet das Portal. Wenn Sie PowerShell verwenden möchten, müssen Sie [PowerShell für Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) installieren und [die Azure Stack-Tools aus GitHub herunterladen](asdk-post-deploy.md#download-the-azure-stack-tools).
 
 Azure Stack verwendet den Azure Resource Manager als zugrunde liegenden Mechanismus für die Bereitstellung, Verwaltung und Organisation. Wenn Sie Azure Stack verwalten und Support für Benutzer bereitstellen werden, sollten Sie sich mit dem Azure Resource Manager vertraut machen. Weitere Informationen finden Sie im Whitepaper [Erste Schritte mit dem Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
 
@@ -41,7 +41,7 @@ Azure Stack verwendet den Azure Resource Manager als zugrunde liegenden Mechanis
 Ihre Benutzer möchten Dienste nutzen. Aus ihrer Sicht besteht Ihre Hauptrolle darin, ihnen diese Dienste zur Verfügung zu stellen. Mit dem ASDK finden Sie heraus, welche Dienste Sie anbieten sollten und wie Sie diese Dienste durch die [Erstellung von Plänen, Angeboten und Kontingenten](../operator/azure-stack-tutorial-tenant-vm.md) zur Verfügung stellen. Zudem müssen Sie dem Marketplace Elemente hinzufügen, z. B. Images für virtuelle Computer (VMs). Die einfachste Möglichkeit besteht darin, [Marketplace-Elemente](../operator/azure-stack-create-and-publish-marketplace-item.md) von Azure in Azure Stack herunterzuladen.
 
 > [!NOTE]
-> Wenn Sie Ihre Pläne, Angebote und Dienste testen möchten, sollten Sie das [Benutzerportal](https://portal.local.azurestack.external) verwenden, nicht das [Verwaltungsportal](https://adminportal.local.azurestack.external).
+> Wenn Sie Ihre Pläne, Angebote und Dienste testen möchten, sollten Sie das Benutzerportal (`https://portal.local.azurestack.external`) verwenden, nicht das Administratorportal (`https://adminportal.local.azurestack.external`).
 
 Neben der Bereitstellung von Diensten müssen Sie alle regulären Aufgaben eines Azure Stack-Operators durchführen, um den reibungslosen Betrieb des ASDK sicherzustellen. Diese Pflichten umfassen folgende Aufgaben:
 - Hinzufügen von Benutzerkonten für Azure AD- oder AD FS-Bereitstellungen.

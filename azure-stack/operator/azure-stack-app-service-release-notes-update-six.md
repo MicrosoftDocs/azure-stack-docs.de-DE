@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: e90993c07692a19cc24cf9fab8171489edb270b0
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: cf6895cac1c0be2b55c99ff51ebccc0f46350437
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580117"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847723"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 6
 
@@ -26,7 +26,7 @@ In diesen Versionshinweisen werden die neuen Features, Fehlerbehebungen und beka
 
 Die Buildnummer von Update 6 für App Service in Azure Stack Hub lautet **82.0.1.50**.
 
-### <a name="prerequisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Voraussetzungen
 
 Lesen Sie vor Beginn der Bereitstellung die Informationen unter [Voraussetzungen für das Bereitstellen von App Service in Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 
@@ -34,16 +34,21 @@ Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack Hub auf 1.6 begin
 
 - Stellen Sie sicher, dass alle Rollen in der Azure App Service-Verwaltung im Azure Stack Hub-Administratorportal bereit sind.
 
+- Sichern Sie die App Service-Geheimnisse mithilfe der App Service-Verwaltung im Azure Stack Hub-Verwaltungsportal.
+
 - Sichern Sie App Service- und Masterdatenbanken:
   - AppService_Hosting
   - AppService_Metering
-  - Master
+  - master
 
 - Sichern Sie die Inhaltsdateifreigabe der Mandanten-App.
 
+  > [!Important]
+  > Cloudoperatoren sind für die Verwaltung und den Betrieb des Dateiservers und von SQL Server verantwortlich.  Der Ressourcenanbieter verwaltet diese Ressourcen nicht.  Der Cloudoperator ist für das Sichern der App Service-Datenbanken und der Mandanten-Inhaltsdateifreigabe verantwortlich.
+
 - Beziehen Sie die **benutzerdefinierte Skripterweiterung** (Version **1.9.1**) über den Azure Stack Hub Marketplace.
 
-### <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
+## <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
 
 Update 6 für Azure App Service in Azure Stack Hub enthält die folgenden Verbesserungen und Fehlerbehebungen:
 
@@ -70,12 +75,12 @@ Update 6 für Azure App Service in Azure Stack Hub enthält die folgenden Verbe
 - **Updates des zugrunde liegenden Betriebssystems aller Rollen**:
   - [25. April 2019 – KB4493473 (Betriebssystembuild 14393.2941)](https://support.microsoft.com/help/4493473/windows-10-update-kb4493473)
 
-### <a name="post-deployment-steps"></a>Schritte nach der Bereitstellung
+## <a name="post-deployment-steps"></a>Schritte nach der Bereitstellung
 
 > [!IMPORTANT]
 > Wenn Sie den App Service-Ressourcenanbieter mit einer SQL Always On-Instanz bereitgestellt haben, MÜSSEN Sie die [Datenbanken „appservice_hosting“ und „appservice_metering“ einer Verfügbarkeitsgruppe hinzufügen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) und synchronisieren, damit es bei einem Datenbankfailover nicht zu Dienstausfällen kommt.
 
-### <a name="known-issues-post-installation"></a>Bekannte Probleme (nach der Installation)
+## <a name="known-issues-post-installation"></a>Bekannte Probleme (nach der Installation)
 
 - Worker können den Dateiserver nicht erreichen, wenn App Service in einem bestehenden virtuellen Netzwerk bereitgestellt wird und der Dateiserver nur im privaten Netzwerk verfügbar ist. Dies ist in der Bereitstellungsdokumentation zu Azure App Service in Azure Stack Hub dargestellt.
 
@@ -91,11 +96,11 @@ Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk u
 * Priorität: 700
 * Name: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
 
 Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1908](/azure-stack/operator/release-notes?view=azs-1908).
 
-### <a name="known-issues-for-tenants-deploying-apps-on-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme für Mandanten, die Apps in Azure App Service in Azure Stack Hub bereitstellen
+## <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme für Mandanten, die Anwendungen in Azure App Service in Azure Stack Hub bereitstellen
 
 - Bereitstellungscenter ist abgeblendet bzw. nicht verfügbar.
 

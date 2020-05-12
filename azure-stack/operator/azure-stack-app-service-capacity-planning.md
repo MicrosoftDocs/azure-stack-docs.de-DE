@@ -3,16 +3,16 @@ title: Kapazitätsplanung für App Service-Serverrollen in Azure Stack Hub
 description: Enthält Informationen zur Kapazitätsplanung für App Service-Serverrollen in Azure Stack Hub.
 author: BryanLa
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/20192
-ms.openlocfilehash: 9e9447baf9f5676cac8555513682bab8da750bb2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 04/13/2020
+ms.openlocfilehash: a0cfc16035d82eb230f61900bc0c971a51c86ea1
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701172"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847858"
 ---
 # <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Kapazitätsplanung für App Service-Serverrollen in Azure Stack Hub
 
@@ -20,44 +20,49 @@ Um eine produktionsfertige Bereitstellung von Azure App Service in Azure Stack H
 
 Dieser Artikel enthält Informationen zu der Mindestanzahl von Computeinstanzen und Compute-SKUs, die Sie für jede Produktionsbereitstellung verwenden sollten.
 
+> [!NOTE]
+> Die Anleitung für die empfohlene Compute-SKU für Rollen wurde mit dem Release 2020.Q2 von Azure App Service in Azure Stack Hub aktualisiert, um Standardbereitstellungen mit Azure-Bereitstellungen in Einklang zu bringen.
+
 Sie können Ihre Strategie für die App Service-Kapazität mithilfe dieser Richtlinien planen.
 
 | App Service-Serverrolle | Empfohlene Mindestanzahl von Instanzen | Empfohlene Compute-SKUs|
 | --- | --- | --- |
-| Controller | 2 | A1 |
-| Front-End | 2 | A1 |
-| Verwaltung | 2 | A3 |
-| Herausgeber | 2 | A1 |
-| Webworker – freigegeben | 2 | A1 |
-| Webworker – dediziert | 2 pro Ebene | A1 |
+| Controller | 2 | A4v2 |
+| Front-End | 2 | A4_v2 |
+| Verwaltung | 2 | D3_v2 |
+| Herausgeber | 2 | A2_v2 |
+| Webworker – freigegeben | 2 | A4_v2 |
+| Webworker – dediziert – klein | 2 pro Ebene | A1_v2 |
+| Webworker – dediziert – mittel | 2 pro Ebene | A2_v2 |
+| Webworker – dediziert – groß | 2 pro Ebene | A4_v2 |
 
 ## <a name="controller-role"></a>Controllerrolle
 
-**Empfohlene Mindestanzahl**: Zwei Instanzen von A1 Standard
+**Empfohlene Mindestanzahl**: Zwei Instanzen von A4v2
 
 Der Azure App Service-Controller verbraucht in der Regel nur wenig CPU-, Arbeitsspeicher- und Netzwerkressourcen. Für Hochverfügbarkeit benötigen Sie jedoch zwei Controller. Zwei Controller sind auch die maximale Anzahl zulässiger Controller. Sie können den zweiten Websitecontroller während der Bereitstellung direkt im Installationsprogramm erstellen.
 
 ## <a name="front-end-role"></a>Front-End-Rolle
 
-**Empfohlene Mindestanzahl**: Zwei Instanzen von A1 Standard
+**Empfohlene Mindestanzahl**: Zwei Instanzen von A4v_2
 
 Das Front-End leitet Anforderungen abhängig von der Webworkerverfügbarkeit an Webworker weiter. Für Hochverfügbarkeit sollten Sie über mehr als ein Front-End verfügen, auch mehr als zwei Front-Ends sind möglich. Beachten Sie bei der Kapazitätsplanung, dass jeder Kern ungefähr 100 Anforderungen pro Sekunde verarbeiten kann.
 
 ## <a name="management-role"></a>Verwaltungsrolle
 
-**Empfohlene Mindestanzahl**: Zwei Instanzen von A3 Standard
+**Empfohlene Mindestanzahl**: Zwei Instanzen von D3v2
 
 Die Azure App-Rolle des klassischen Bereitstellungsmodells ist für die Azure Resource Manager- und API-Endpunkte, die Portalerweiterungen (Verwaltungs-, Mandanten-, Functions-Portal) und den Datendienst von App Service zuständig. Die Verwaltungsserverrolle erfordert in einer Produktionsumgebung in der Regel nur etwa 4 GB RAM. Allerdings kann es zu einer hohen CPU-Auslastung kommen, wenn viele Verwaltungsaufgaben (z.B. Websiteerstellungen) ausgeführt werden. Für Hochverfügbarkeit sollten Sie dieser Rolle mehrere Server sowie jedem Server mindestens zwei Kerne zuweisen.
 
 ## <a name="publisher-role"></a>Herausgeberrolle
 
-**Empfohlene Mindestanzahl**: Zwei Instanzen von A1 Standard
+**Empfohlene Mindestanzahl**: Zwei Instanzen von A2v2
 
 Wenn viele Benutzer gleichzeitig veröffentlichen, kann die Herausgeberrolle eine hohe CPU-Auslastung verursachen. Für Hochverfügbarkeit stellen Sie sicher, dass mehrere Herausgeberrollen verfügbar sind. Der Herausgeber verarbeitet nur FTP-/FTPS-Datenverkehr.
 
 ## <a name="web-worker-role"></a>Webworkerrolle
 
-**Empfohlene Mindestanzahl**: Zwei Instanzen von A1 Standard
+**Empfohlene Mindestanzahl**: Zwei Instanzen von A4_v2
 
 Zur Erzielung von Hochverfügbarkeit sollten Sie über mindestens vier Webworkerrollen verfügen: zwei für den Websitemodus „Shared“ und zwei für jede dedizierte Workerebene, die Sie anbieten möchten. Die freigegebenen und dedizierten Computemodi stellen Mandanten verschiedene Dienstebenen bereit. In folgenden Fällen benötigen Sie ggf. zusätzliche Webworker:
 

@@ -3,16 +3,17 @@ title: Herunterladen von Marketplace-Elementen aus Azure und Veröffentlichen in
 description: Es wird beschrieben, wie Sie Marketplace-Elemente aus Azure herunterladen und in Azure Stack Hub veröffentlichen.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 04/13/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: a37f8b14a1a21caa8f710afe54868f308971e422
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: 48b1d7e5c0b4d40b04ac27c872fd015f3b448913
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80979420"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848267"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Herunterladen von Marketplace-Elementen in Azure Stack Hub 
 
@@ -28,15 +29,14 @@ Eine komplette Liste der zum Download verfügbaren Marketplace-Elemente finden S
 > [!NOTE]
 > Der Katalog unterscheidet sich je nach der Cloud, mit der Ihr Azure Stack Hub-System verbunden ist. Die Cloudumgebung wird durch das Azure-Abonnement bestimmt, das Sie zum Registrieren von Azure Stack Hub verwenden.
 
-## <a name="connected-scenario"></a>Verbundenes Szenario
+::: zone pivot="state-connected"
+Eine verbundene Bereitstellung ermöglicht Ihnen das Herunterladen von Marketplace-Elementen über das Administratorportal.
 
-Wenn Azure Stack Hub eine Verbindung mit dem Internet herstellt, können Sie mithilfe des Administratorportals Marketplace-Elemente herunterladen.
-
-### <a name="prerequisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Voraussetzungen
 
 Ihre Azure Stack Hub-Bereitstellung muss über eine Internetverbindung verfügen und bei Azure registriert sein.
 
-### <a name="use-the-portal-to-download-marketplace-items"></a>Herunterladen von Marketplace-Elementen mithilfe des Portals
+## <a name="use-the-portal-to-download-marketplace-items"></a>Herunterladen von Marketplace-Elementen mithilfe des Portals
 
 1. Melden Sie sich beim Azure Stack Hub-Administratorportal an.
 
@@ -61,9 +61,9 @@ Ihre Azure Stack Hub-Bereitstellung muss über eine Internetverbindung verfügen
 6. Wählen Sie das gewünschte Element aus, und klicken Sie auf **Weiter**. Die Downloadzeiten variieren und hängen von der Netzwerkkonnektivität ab. Wenn der Download abgeschlossen ist, können Sie das neue Marketplace-Element entweder als Azure Stack Hub-Bediener oder -Benutzer bereitstellen.
 
 7. Klicken Sie zum Bereitstellen des heruntergeladenen Elements auf **+ Ressource erstellen**, und suchen Sie in den Kategorien nach dem neuen Marketplace-Element. Wählen Sie als Nächstes das Element aus, um den Bereitstellungsprozess zu starten. Der Prozess variiert für verschiedene Marketplace-Elemente.
+::: zone-end
 
-## <a name="disconnected-or-a-partially-connected-scenario"></a>Nicht verbundenes oder partiell verbundenes Szenario
-
+::: zone pivot="state-disconnected"
 Wenn Azure Stack Hub über begrenzte oder keine Internetkonnektivität verfügt, verwenden Sie PowerShell und das *Tool für die Marketplace-Syndikation*, um die Marketplace-Elemente auf einen Computer mit Internetkonnektivität herunterzuladen. Anschließend übertragen Sie die Elemente in Ihre Azure Stack Hub-Umgebung. In einer nicht verbundenen Umgebung können Sie Marketplace-Elemente nicht mit dem Azure Stack Hub-Portal herunterladen.
 
 Das Tool für die Marketplace-Syndikation kann auch in einem verbundenen Szenario verwendet werden.
@@ -73,7 +73,7 @@ Dieses Szenario besteht aus zwei Teilen:
 - **Teil 1**: Herunterladen von Elementen aus dem Marketplace. Sie Konfigurieren auf dem Computer mit Internetzugriff PowerShell und laden das Tool für die Syndikation und anschließend Elemente aus Azure Marketplace herunter.
 - **Teil 2**: Hochladen und Veröffentlichen in Azure Stack Hub-Marketplace. Sie verschieben die heruntergeladenen Dateien in die Azure Stack Hub-Umgebung und veröffentlichen sie anschließend im Azure Stack Hub-Marketplace.
 
-### <a name="prerequisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Voraussetzungen
 
 - Eine verbundene Umgebung (muss nicht Azure Stack Hub sein). Sie müssen verbunden sein, um die Liste der Produkte von Azure mit Details abrufen und alle Elemente lokal herunterladen zu können. Für die übrigen Schritte ist keine Internetkonnektivität erforderlich. Ein Katalog mit den von Ihnen zuvor heruntergeladenen Elementen wird erstellt, den Sie in Ihrer nicht verbundenen Umgebung verwenden können.
 
@@ -98,7 +98,7 @@ Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Mel
 
 ![Marketplace-Verwaltung](media/azure-stack-download-azure-marketplace-item/toolsmsg.png)
 
-### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Herunterladen von Marketplace-Elementen mithilfe des Tools für die Marketplace-Syndikation
+## <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Herunterladen von Marketplace-Elementen mithilfe des Tools für die Marketplace-Syndikation
 
 > [!IMPORTANT]
 > Jedes Mal, wenn Sie Marketplace-Elemente in einem nicht verbundenen Szenario herunterladen, müssen Sie das Tool für die Marketplace-Syndikation herunterladen. An diesem Tool werden häufig Änderungen vorgenommen, und es sollte immer die aktuelle Version für jeden Download verwendet werden.
@@ -168,7 +168,7 @@ Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Mel
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
     ```
 
-### <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>Importieren des Downloads und Veröffentlichen im Azure Stack Hub-Marketplace mithilfe von PowerShell
+## <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>Importieren des Downloads und Veröffentlichen im Azure Stack Hub-Marketplace mithilfe von PowerShell
 
 1. Die[zuvor lokal heruntergeladenen](#use-the-marketplace-syndication-tool-to-download-marketplace-items) Dateien müssen auf einen Computer verschoben werden, der mit Ihrer Azure Stack Hub-Umgebung verbunden ist. Das Tool für die Marketplace-Syndikation muss ebenfalls für Ihre Azure Stack Hub-Umgebung verfügbar sein, da es für den Importvorgang benötigt wird.
 
@@ -187,3 +187,4 @@ Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Mel
     ```
 
 5. Nach erfolgreicher Ausführung des Skripts sollten die Marketplace-Elemente über den Azure Stack Hub-Marketplace verfügbar sein.
+::: zone-end

@@ -3,16 +3,16 @@ title: Bereitstellen von VM-Skalierungsgruppen in Azure Stack Hub
 description: Erfahren Sie, wie Cloudoperator dem Azure Stack Hub-Marketplace VM-Skalierungsgruppen hinzufügen können.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: f0b23df25ef2e9fffe9c5f43ee649ecfe5f74092
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d4383a9848ff2fd3e5f5da1fb71d88c71056bbd2
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695290"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777830"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>Bereitstellen von VM-Skalierungsgruppen in Azure Stack Hub
 
@@ -76,7 +76,7 @@ Weitere Informationen finden Sie unter [Einführung in virtuelle Azure Stack-Com
 
 ## <a name="scale-a-virtual-machine-scale-set"></a>Skalieren einer VM-Skalierungsgruppe
 
-Sie können die Größe einer VM-Skalierungsgruppe skalieren, um sie zu vergrößern oder zu verkleinern.
+Sie können die Größe einer VM-Skalierungsgruppe ändern, um sie zu vergrößern oder zu verkleinern.
 
 1. Wählen Sie im Portal Ihre Skalierungsgruppe aus, und wählen Sie dann **Skalierung** aus.
 

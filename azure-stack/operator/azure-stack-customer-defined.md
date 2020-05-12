@@ -1,47 +1,47 @@
 ---
-title: Ändern bestimmter Einstellungen in der Azure Stack Hub-Switchkonfiguration
-description: In diesem Artikel erfahren Sie, welche Einstellungen Sie in der Azure Stack Hub-Switchkonfiguration anpassen können. Nachdem der Originalgerätehersteller (OEM) die Konfiguration erstellt hat, ändern Sie diese nicht ohne Zustimmung des OEM oder des Microsoft Azure Stack Hub-Technikteams.
+title: Ändern von Einstellungen in der Azure Stack Hub-Switchkonfiguration
+description: Erfahren Sie, welche Einstellungen in der Azure Stack Hub-Switchkonfiguration angepasst werden können.
 author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 19964b761478bb210d3377b177f05f708697167b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9fcbd0203684afbbae9d11ed00db12402d8040dd
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368718"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836001"
 ---
-#  <a name="modify-specific-settings-on-your-azure-stack-hub-switch-configuration"></a>Ändern bestimmter Einstellungen in der Azure Stack Hub-Switchkonfiguration
+# <a name="change-settings-on-your-azure-stack-hub-switch-configuration"></a>Ändern von Einstellungen in der Azure Stack Hub-Switchkonfiguration
 
-Sie können einige Umgebungseinstellungen für Ihre Azure Stack Hub-Switchkonfiguration ändern. Sie können ermitteln, welche der Einstellungen in der Vorlage geändert werden können, die von Ihrem Originalgerätehersteller (Original Equipment Manufacturer, OEM) erstellt wurde. In diesem Artikel werden die einzelnen anpassbaren Einstellungen beschrieben. Zudem wird erläutert, wie sich die Änderungen auf Azure Stack Hub auswirken können. Zu diesen Einstellungen gehören die Aktualisierung von Kennwörtern, Syslog-Server, SNMP-Überwachung, Authentifizierung und die Zugriffssteuerungsliste. 
+Sie können einige Umgebungseinstellungen für Ihre Azure Stack Hub-Switchkonfiguration ändern. Sie können ermitteln, welche der Einstellungen in der Vorlage geändert werden können, die von Ihrem Originalgerätehersteller (Original Equipment Manufacturer, OEM) erstellt wurde. In diesem Artikel werden die einzelnen anpassbaren Einstellungen beschrieben. Zudem wird erläutert, wie sich die Änderungen auf Azure Stack Hub auswirken können. Zu diesen Einstellungen gehören die Aktualisierung von Kennwörtern, Syslog-Server, SNMP-Überwachung (Simple Network Management), Authentifizierung und die Zugriffssteuerungsliste.
 
-Während der Bereitstellung der Azure Stack Hub-Lösung erstellt der Originalgerätehersteller (Original Equipment Manufacturer, OEM) die Switchkonfiguration sowohl für TOR-Instanzen als auch für BMC. Der OEM verwendet das Azure Stack Hub-Automatisierungstool, um zu überprüfen, ob die erforderlichen Konfigurationen auf diesen Geräten ordnungsgemäß festgelegt sind. Die Konfigurationen basieren auf den Informationen in Ihrem [Bereitstellungsarbeitsblatt](azure-stack-deployment-worksheet.md) für Azure Stack Hub. Nachdem der OEM die Konfiguration erstellt hat, ändern Sie diese **nicht** ohne die Zustimmung des OEM oder des Microsoft Azure Stack Hub-Technikteams. Eine Änderung an der Netzwerkgerätekonfiguration kann sich erheblich auf den Betrieb oder die Behebung von Netzwerkproblemen in ihrer Azure Stack Hub-Instanz auswirken.
+Während der Bereitstellung der Azure Stack Hub-Lösung erstellt der Originalgerätehersteller (Original Equipment Manufacturer, OEM) die Switchkonfiguration sowohl für TOR-Instanzen als auch für BMC. Der OEM verwendet das Azure Stack Hub-Automatisierungstool, um zu überprüfen, ob die erforderlichen Konfigurationen auf diesen Geräten ordnungsgemäß festgelegt sind. Die Konfiguration basiert auf den Informationen in Ihrem [Bereitstellungsarbeitsblatt](azure-stack-deployment-worksheet.md) für Azure Stack Hub.
+
+> [!Warning]  
+> Nachdem der OEM die Konfiguration erstellt hat, ändern Sie diese **nicht** ohne die Zustimmung des OEM oder des Microsoft Azure Stack Hub-Technikteams. Eine Änderung an der Netzwerkgerätekonfiguration kann sich erheblich auf den Betrieb oder die Behebung von Netzwerkproblemen in ihrer Azure Stack Hub-Instanz auswirken.
+>
+> Weitere Informationen zu diesen Funktionen in Ihrem Netzwerkgerät und dazu, wie diese Änderungen vorgenommen werden, erhalten Sie bei Ihrem OEM-Hardwareanbieter oder beim Microsoft-Support. Der OEM hat die Konfigurationsdatei mithilfe des Automatisierungstools auf der Grundlage Ihres Bereitstellungsarbeitsblatts für Azure Stack Hub erstellt.
 
 Es gibt jedoch einige Werte, die in der Konfiguration der Netzwerkswitches hinzugefügt, entfernt oder geändert werden können.
 
->[!Warning]  
-> Ändern Sie die Konfiguration **nicht** ohne Zustimmung des OEM oder des Microsoft Azure Stack Hub-Technikteams. Eine Änderung an der Netzwerkgerätekonfiguration kann sich erheblich auf den Betrieb oder die Behebung von Netzwerkproblemen in ihrer Azure Stack Hub-Instanz auswirken.
->
-> Weitere Informationen zu diesen Funktionen in Ihrem Netzwerkgerät und dazu, wie diese Änderungen vorgenommen werden, erhalten Sie bei Ihrem OEM-Hardwareanbieter oder beim Microsoft-Support. Der OEM hat die Konfigurationsdatei mithilfe des Automatisierungstools auf der Grundlage Ihres Bereitstellungsarbeitsblatts für Azure Stack Hub erstellt. 
-
 ## <a name="password-update"></a>Aktualisieren von Kennwörtern
 
-Der Operator kann das Kennwort jedes Benutzers auf den Netzwerkswitches jederzeit aktualisieren. Es ist nicht erforderlich, Informationen im Azure Stack Hub-System zu ändern oder die Schritte zum [Rotieren von Geheimnissen in Azure Stack Hub](azure-stack-rotate-secrets.md) auszuführen.
+Der Operator kann das Kennwort jedes Benutzers für die Netzwerkswitches jederzeit aktualisieren. Es ist nicht erforderlich, Informationen im Azure Stack Hub-System zu ändern oder die Schritte zum [Rotieren von Geheimnissen in Azure Stack Hub](azure-stack-rotate-secrets.md) auszuführen.
 
 ## <a name="syslog-server"></a>Syslog-Server
 
-Operatoren können die Switchprotokolle an einen Syslog-Server in Ihrem Datencenter umleiten. Stellen Sie mit dieser Konfiguration sicher, dass die Protokolle für einen bestimmten Zeitpunkt für die Problembehandlung verwendet werden können. In der Standardeinstellung werden die Protokolle auf den Switches gespeichert. Deren Kapazität zum Speichern von Protokollen ist jedoch beschränkt. Im Abschnitt [Aktualisierungen von Zugriffssteuerungslisten](#access-control-list-updates) finden Sie eine Übersicht dazu, wie die Berechtigungen für den Verwaltungszugriff auf Switches konfiguriert werden.
+Operatoren können die Switchprotokolle an einen Syslog-Server in Ihrem Datencenter umleiten. Stellen Sie mit dieser Konfiguration sicher, dass die Protokolle für einen bestimmten Zeitpunkt für die Problembehandlung verwendet werden können. Standardmäßig werden die Protokolle auf den Switches gespeichert. Deren Kapazität zum Speichern von Protokollen ist jedoch beschränkt. Im Abschnitt [Aktualisierungen von Zugriffssteuerungslisten](#access-control-list-updates) finden Sie eine Übersicht dazu, wie die Berechtigungen für den Verwaltungszugriff auf Switches konfiguriert werden.
 
 ## <a name="snmp-monitoring"></a>SNMP-Überwachung
 
-Der Operator kann das Simple Network Management Protocol (SNMP) v2 oder v3 konfigurieren, um die Netzwerkgeräte zu überwachen und Traps an eine Netzwerküberwachungsanwendung im Datencenter zu senden. Verwenden Sie aus Sicherheitsgründen SNMPv3, da es höhere Sicherheit als v2 bietet. Informationen zu den MIBs und der erforderlichen Konfiguration erhalten Sie bei Ihrem OEM-Hardwareanbieter. Im Abschnitt [Aktualisierungen von Zugriffssteuerungslisten](#access-control-list-updates) finden Sie eine Übersicht dazu, wie die Berechtigungen für den Verwaltungszugriff auf Switches konfiguriert werden.
+Der Operator kann SNMP v2 oder v3 konfigurieren, um die Netzwerkgeräte zu überwachen und Traps an eine Netzwerküberwachungs-App im Rechenzentrum zu senden. Verwenden Sie aus Sicherheitsgründen SNMPv3, da es höhere Sicherheit als v2 bietet. Informationen zu den MIBs und der erforderlichen Konfiguration erhalten Sie bei Ihrem OEM-Hardwareanbieter. Im Abschnitt [Aktualisierungen von Zugriffssteuerungslisten](#access-control-list-updates) finden Sie eine Übersicht dazu, wie die Berechtigungen für den Verwaltungszugriff auf Switches konfiguriert werden.
 
 ## <a name="authentication"></a>Authentifizierung
 
-Der Operator kann entweder RADIUS oder TACACS konfigurieren, um die Authentifizierung auf den Netzwerkgeräten zu verwalten. Informationen zu den unterstützten Methoden und der erforderlichen Konfiguration erhalten Sie bei Ihrem OEM-Hardwareanbieter.  Im Abschnitt [Aktualisierungen von Zugriffssteuerungslisten](#access-control-list-updates) finden Sie eine Übersicht dazu, wie die Berechtigungen für den Verwaltungszugriff auf Switches konfiguriert werden.
+Der Operator kann entweder RADIUS oder TACACS konfigurieren, um die Authentifizierung auf den Netzwerkgeräten zu verwalten. Informationen zu den unterstützten Methoden und der erforderlichen Konfiguration erhalten Sie bei Ihrem OEM-Hardwareanbieter. Im Abschnitt [Aktualisierungen von Zugriffssteuerungslisten](#access-control-list-updates) finden Sie eine Übersicht dazu, wie die Berechtigungen für den Verwaltungszugriff auf Switches konfiguriert werden.
 
 ## <a name="access-control-list-updates"></a>Aktualisierungen von Zugriffssteuerungslisten
 
