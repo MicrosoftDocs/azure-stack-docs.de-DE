@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f3c952695d430befa69c4b3dc2ffaf7787ac8b31
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 7a0777c218a27647214ada7b628cede5f7c01587
+ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847162"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82988221"
 ---
 # <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-apps"></a>Konfigurieren einer Hybrid Cloud-Identität für Azure- und Azure Stack Hub-Apps
 
@@ -41,11 +41,11 @@ Sie benötigen Azure Stack Hub-Bedienerberechtigungen für die Schritte in diese
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Erstellen eines Dienstprinzipals für Azure AD über das Portal
 
-Wenn Sie Azure Stack Hub mit Azure AD als Identitätsspeicher bereitgestellt haben, können Sie Dienstprinzipale genauso wie für Azure erstellen. Im Artikel [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-service-principal) erfahren Sie, wie die Schritte über das Portal ausgeführt werden. Vergewissern Sie sich vorher, dass Sie über die [erforderlichen Azure AD-Berechtigungen](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) verfügen.
+Wenn Sie Azure Stack Hub mit Azure AD als Identitätsspeicher bereitgestellt haben, können Sie Dienstprinzipale genauso wie für Azure erstellen. Im Artikel [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-app-identity) erfahren Sie, wie die Schritte über das Portal ausgeführt werden. Vergewissern Sie sich vorher, dass Sie über die [erforderlichen Azure AD-Berechtigungen](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) verfügen.
 
 ## <a name="create-a-service-principal-for-ad-fs-using-powershell"></a>Erstellen eines Dienstprinzipals für AD FS mithilfe von PowerShell
 
-Wenn Sie Azure Stack Hub mit AD FS bereitgestellt haben, können Sie PowerShell verwenden, um einen Dienstprinzipal zu erstellen, eine Rolle für den Zugriff zuzuweisen und die Anmeldung über PowerShell mit dieser Identität durchzuführen. Im Artikel [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal) erfahren Sie, wie Sie die erforderlichen Schritte mithilfe von PowerShell ausführen.
+Wenn Sie Azure Stack Hub mit AD FS bereitgestellt haben, können Sie PowerShell verwenden, um einen Dienstprinzipal zu erstellen, eine Rolle für den Zugriff zuzuweisen und die Anmeldung über PowerShell mit dieser Identität durchzuführen. Im Artikel [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-app-identity) erfahren Sie, wie Sie die erforderlichen Schritte mithilfe von PowerShell ausführen.
 
 ## <a name="using-the-azure-stack-hub-api"></a>Verwenden der Azure Stack Hub-API
 
