@@ -1,5 +1,5 @@
 ---
-title: Überwachen der Azure Stack Hub-Hardwareintegrität
+title: Überwachen der Hardwareintegrität in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie die Integrität von Azure Stack Hub-Hardwarekomponenten überwachen.
 author: sethmanheim
 ms.topic: conceptual
@@ -7,12 +7,12 @@ ms.date: 02/24/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: dc7be7e80f6277c6788c9b572ad2d74031d811f1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a4f5d82979e209eae124f930d1f59abc1bb88b98
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699727"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375173"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>Überwachen von Azure Stack Hub-Hardwarekomponenten
 
@@ -36,7 +36,7 @@ Beim Senden von Traps an den Listener ist eine Authentifizierung erforderlich, u
 
 Wenn ein SNMP-Trap bei einer der drei ERCS-Instanzen am TCP-Port 162 eingeht, wird die OID intern abgeglichen und eine Warnung ausgelöst. Das Integritäts- und Überwachungssystem von Azure Stack Hub akzeptiert nur vom Hardwarepartner definierte OIDs. Ist Azure Stack Hub eine OID nicht bekannt, erfolgt kein Abgleich mit einer Warnung.
 
-Nach dem Austausch einer fehlerhaften Komponente wird vom BMC ein Ereignis an den SNMP-Listener gesendet, um die Zustandsänderung anzugeben, und die Warnung wird in Azure Stack Hub automatisch geschlossen.
+Nach dem Austausch einer fehlerhaften Komponente wird vom BMC ein Ereignis an den SNMP-Listener gesendet, um die Zustandsänderung anzugeben. Die Warnung wird dann automatisch in Azure Stack Hub geschlossen.
 
 > [!NOTE]
 > Wird der gesamte Knoten oder die gesamte Hauptplatine ausgetauscht, werden vorhandene Warnungen nicht automatisch geschlossen. Gleiches gilt, wenn die Konfiguration des BMC verloren geht (beispielsweise durch Zurücksetzen auf die Werkseinstellungen).

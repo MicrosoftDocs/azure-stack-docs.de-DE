@@ -3,16 +3,16 @@ title: Ausführen von API-Anforderungen an Azure Stack Hub
 description: Erfahren Sie, wie Sie Authentifizierungsinformationen aus Azure abrufen, um API-Anforderungen an Azure Stack Hub zu richten.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 3d7c4e7481b3054eaf44394e9b80f1e07bc75fa9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d44158342b1bca1aec575d51fb7144a8c88e88d1
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703722"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967742"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -22,11 +22,11 @@ Mit den Azure Stack Hub-REST-APIs können Sie Vorgänge wie das Hinzufügen eine
 
 Für die APIs ist die Authentifizierung Ihres Clients beim Microsoft Azure-Anmeldungsendpunkt erforderlich. Der Endpunkt gibt ein Token zurück, das im Header jeder Anforderung verwendet wird, die an die Azure Stack Hub-APIs gesendet wird. Microsoft Azure basiert auf OAuth 2.0.
 
-Dieser Artikel enthält Beispiele, in denen mithilfe des Hilfsprogramms **cURL** Azure Stack Hub-Anforderungen erstellt werden. cURL ist ein Befehlszeilenprogramm mit einer Bibliothek zum Übertragen von Daten. Mit diesen Beispiele wird eine exemplarische Vorgehensweise zum Abrufen eines Tokens für den Zugriff auf die Azure Stack Hub-APIs veranschaulicht. Die meisten Programmiersprachen bieten OAuth 2.0-Bibliotheken, die eine stabile Tokenverwaltung aufweisen und Aufgaben wie das Aktualisieren des Tokens abwickeln.
+Dieser Artikel enthält Beispiele, in denen mithilfe des Hilfsprogramms **cURL** Azure Stack Hub-Anforderungen erstellt werden. cURL ist ein Befehlszeilenprogramm mit einer Bibliothek zum Übertragen von Daten. Mit diesen Beispiele wird der Prozess zum Abrufen eines Tokens für den Zugriff auf die Azure Stack Hub-APIs veranschaulicht. Die meisten Programmiersprachen bieten OAuth 2.0-Bibliotheken, die eine stabile Tokenverwaltung aufweisen und Aufgaben wie das Aktualisieren des Tokens abwickeln.
 
 Sehen Sie sich den gesamten Prozess für die Verwendung der Azure Stack Hub-REST-APIs mit einem generischen REST-Client an (z. B. **cURL**), um die zugrunde liegenden Anforderungen besser verstehen zu können und eine Vorstellung davon zu haben, was Sie in einer Antwortnutzlast erwarten können.
 
-In diesem Artikel werden nicht alle verfügbaren Optionen für das Abrufen von Token wie die interaktive Anmeldung oder das Erstellen dedizierter App-IDs untersucht. In der [Azure-REST-API-Referenz](/rest/api/) wird beschrieben, wie Sie Informationen zu diesen Themen abrufen.
+In diesem Artikel werden nicht alle verfügbaren Optionen für das Abrufen von Token wie die interaktive Anmeldung oder das Erstellen dedizierter App-IDs untersucht. Informationen zu diesen Themen finden Sie in der [Azure-REST-API-Referenz](/rest/api/).
 
 ## <a name="get-a-token-from-azure"></a>Abrufen eines Tokens von Azure
 

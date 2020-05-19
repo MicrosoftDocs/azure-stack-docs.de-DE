@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: 0c61abfab5615d265377341f6fb96fe5b4a18b29
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bf9ed5ced7bfde80219f0d9bddcf285e76183361
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81478847"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202420"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Erstellen hochverfügbarer SQL-Datenbanken mit Azure Stack Hub
 
@@ -95,13 +95,18 @@ Nachdem die Vorlage erfolgreich bereitgestellt und die SQL-Always On-Verfügbark
 
 Wenn Sie eine Verfügbarkeitsgruppe mit automatischem Seeding erstellen, erstellt SQL Server automatisch und ohne jegliches manuelles Eingreifen die sekundären Replikate für jede Datenbank in der Gruppe. Dadurch wird die Hochverfügbarkeit der Always On-Datenbanken sichergestellt.
 
-Verwenden Sie diese SQL-Befehle, um das automatische Seeding für die Always On-Verfügbarkeitsgruppe zu konfigurieren. Ersetzen Sie je nach Bedarf `<InstanceName>` durch den Namen der primären SQL Server-Instanz und `<availability_group_name>` durch den Namen der Always On-Verfügbarkeitsgruppe.
+Verwenden Sie diese SQL-Befehle, um das automatische Seeding für die Always On-Verfügbarkeitsgruppe zu konfigurieren. Ersetzen Sie je nach Bedarf `<PrimaryInstanceName>` durch den Namen der primären SQL Server-Instanz, `<SecondaryInstanceName>` durch den Namen der sekundären SQL Server-Instanz und `<availability_group_name>` durch den Namen der Always On-Verfügbarkeitsgruppe.
 
 Auf der primären SQL Server-Instanz:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON '<InstanceName>'
+      MODIFY REPLICA ON '<PrimaryInstanceName>'
+      WITH (SEEDING_MODE = AUTOMATIC)
+  GO
+  
+  ALTER AVAILABILITY GROUP [<availability_group_name>]
+      MODIFY REPLICA ON '<SecondaryInstanceName>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```

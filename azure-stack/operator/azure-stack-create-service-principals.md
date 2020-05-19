@@ -1,51 +1,53 @@
 ---
 title: Verwenden einer App-Identität für den Ressourcenzugriff
-description: Hier erfahren Sie, wie Sie einen Azure Stack Hub-Dienstprinzipal verwalten. Ein Dienstprinzipal kann mit der rollenbasierten Zugriffssteuerung für die Anmeldung bei und für den Zugriff auf Ressourcen verwendet werden.
+description: Hier erfahren Sie, wie Sie App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen verwenden. Eine App-Identität kann mit der rollenbasierten Zugriffssteuerung für die Anmeldung bei und für den Zugriff auf Ressourcen verwendet werden.
 author: BryanLa
 ms.author: bryanla
 ms.topic: how-to
-ms.date: 11/11/2019
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1c96ee9520285e0bc2b9784fa5d310a1ec2ae60f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.date: 05/07/2020
+ms.lastreviewed: 05/07/2020
+ms.openlocfilehash: 372df0bdb99ce06b22912e9e5c175af07620f5f4
+ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295221"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82988312"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Verwenden einer App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen
 
-Eine Anwendung, die Ressourcen über Azure Resource Manager bereitstellen oder konfigurieren muss, muss durch einen Dienstprinzipal repräsentiert werden. Genau wie ein Benutzer durch einen Benutzerprinzipal repräsentiert wird, ist ein Dienstprinzipal eine Art Sicherheitsprinzipal, der eine App repräsentiert. Der Dienstprinzipal bietet eine Identität für Ihre App, wodurch es Ihnen ermöglicht wird, nur die erforderlichen Berechtigungen an diesen Dienstprinzipal zu delegieren.  
+Eine Anwendung, die Ressourcen über Azure Resource Manager bereitstellen oder konfigurieren muss, muss durch ihre eigene Identität repräsentiert werden. Genau wie ein Benutzer durch einen als Benutzerprinzipal bezeichneten Sicherheitsprinzipal repräsentiert wird, wird eine App durch einen Dienstprinzipal repräsentiert. Der Dienstprinzipal bietet eine Identität für Ihre App, wodurch es Ihnen ermöglicht wird, nur die erforderlichen Berechtigungen an die App zu delegieren.  
 
 Beispiel: Sie verfügen über eine App für die Konfigurationsverwaltung, die Azure Resource Manager zum Inventarisieren von Azure-Ressourcen einsetzt. In diesem Szenario können Sie einen Dienstprinzipal erstellen, diesem die Rolle „Leser“ gewähren und die Konfigurationsverwaltungs-App auf einen schreibgeschützten Zugriff beschränken.
 
 ## <a name="overview"></a>Übersicht
 
-Ein Dienstprinzipal muss – genau wie ein Benutzerprinzipal – während der Authentifizierung Anmeldeinformationen bereitstellen. Diese Authentifizierung besteht aus zwei Elementen:
+Eine App muss genau wie ein Benutzer während der Authentifizierung Anmeldeinformationen bereitstellen. Diese Authentifizierung besteht aus zwei Elementen:
 
-- Einer **Anwendungs-ID**, manchmal auch als „Client-ID“ bezeichnet. Dies ist eine GUID, mit der die Registrierung der App in Ihrem Active Directory-Mandanten eindeutig identifiziert wird.
+- Einer **Anwendungs-ID**, manchmal auch als „Client-ID“ bezeichnet. Dabei handelt es sich um eine GUID, mit der die Registrierung der App in Ihrem Active Directory-Mandanten eindeutig identifiziert wird.
 - Ein der Anwendungs-ID zugeordnetes **Geheimnis**. Sie können entweder eine Clientgeheimnis-Zeichenfolge (ähnlich wie ein Kennwort) generieren, oder Sie geben eine X.509 Zertifikat an (das seinen öffentlichen Schlüssel verwendet).
 
-Das Ausführen einer App unter der Identität eines Dienstprinzipals ist der Ausführung unter einem Benutzerprinzipal aus folgenden Gründen vorzuziehen:
+Das Ausführen einer App unter ihrer eigenen Identität wird aus folgenden Gründen der Ausführung unter der Identität des Benutzers vorgezogen:
 
- - Ein Dienstprinzipal kann ein X.509-Zertifikat für **Anmeldeinformationen mit höherer Sicherheit** verwenden.  
- - Sie können einem Dienstprinzipal **restriktivere Berechtigungen** zuweisen. In der Regel sind diese Berechtigungen genau auf die von der App zu erfüllenden Aufgaben beschränkt, bekannt als das *Prinzip der geringsten Rechte*.
- - Die **Anmeldeinformationen und Berechtigungen eines Dienstprinzipals ändern sich nicht so häufig**, wie die Anmeldeinformationen eines Benutzers. Wenn sich beispielsweise die Verantwortlichkeiten des Benutzers ändern, Kennwortanforderungen eine Änderung erforderlich machen, oder ein Benutzer das Unternehmen verlässt.
+ - **Anmeldeinformationen mit höherer Sicherheit:** Eine App kann sich mithilfe eines X509-Zertifikats anstelle eines freigegebenen Textgeheimnisses oder -kennworts anmelden.  
+ - Einer App können **restriktivere Berechtigungen** zugewiesen werden. In der Regel sind diese Berechtigungen genau auf die von der App zu erfüllenden Aufgaben beschränkt, bekannt als das *Prinzip der geringsten Rechte*.
+ - Die **Anmeldeinformationen und Berechtigungen ändern sich für eine App nicht so häufig** wie die Anmeldeinformationen eines Benutzers. Beispiele: Die Verantwortlichkeiten des Benutzers ändern sich, Kennwortanforderungen machen eine Änderung erforderlich, oder ein Benutzer verlässt das Unternehmen.
 
-Sie beginnen damit, dass Sie eine neue App-Registrierung erstellen, die ein zugeordnetes [Dienstprinzipalobjekt](/azure/active-directory/develop/developer-glossary#service-principal-object) erstellt, um die Identität der App innerhalb des Verzeichnisses darzustellen. Dieses Dokument beschreibt den Prozess zum Erstellen und Verwalten eines Dienstprinzipals, abhängig von dem Verzeichnis, das Sie für Ihre Azure Stack Hub-Instanz ausgewählt haben:
+Sie beginnen damit, dass Sie eine neue App-Registrierung erstellen, die ein zugeordnetes [Dienstprinzipalobjekt](/azure/active-directory/develop/developer-glossary#service-principal-object) erstellt, um die Identität der App innerhalb des Verzeichnisses darzustellen. 
 
-- Azure Active Directory (Azure AD): Azure AD ist ein mehrinstanzenfähiger cloudbasierter Verzeichnis- und Identitätsverwaltungsdienst. Sie können Azure AD mit einer verbundenen Azure Stack Hub-Instanz verwenden.
-- Active Directory-Verbunddienste (AD FS). AD FS bietet einen vereinfachten, geschützten Identitätsverbund und Funktionen für eine einmalige Anmeldung (Single Sign-On, SSO) über das Web. Sie können AD FS sowohl mit verbundenen als auch mit getrennten Azure Stack Hub-Instanzen verwenden.
+Am Anfang dieses Artikels wird der Prozess zum Erstellen und Verwalten eines Dienstprinzipals abhängig von dem Verzeichnis beschrieben, das Sie für Ihre Azure Stack Hub-Instanz ausgewählt haben:
 
-Zuerst erfahren Sie, wie Sie einen Dienstprinzipal verwalten, dann wie Sie den Dienstprinzipal einer Rolle zuweisen und so seinen Zugriff auf Ressourcen einschränken.
+- **Azure Active Directory (Azure AD):** Azure AD ist ein mehrinstanzenfähiger cloudbasierter Verzeichnis- und Identitätsverwaltungsdienst. Sie können Azure AD mit einer verbundenen Azure Stack Hub-Instanz verwenden.
+- **Active Directory-Verbunddienste (AD FS)** . AD FS bietet einen vereinfachten, geschützten Identitätsverbund und Funktionen für eine einmalige Anmeldung (Single Sign-On, SSO) über das Web. Sie können AD FS sowohl mit verbundenen als auch mit getrennten Azure Stack Hub-Instanzen verwenden.
 
-## <a name="manage-an-azure-ad-service-principal"></a>Verwalten eines Azure AD-Dienstprinzipals
+Anschließend erfahren Sie, wie Sie den Dienstprinzipal einer Rolle zuweisen und so seinen Zugriff auf Ressourcen einschränken.
 
-Wenn Sie Azure Stack Hub mit Azure AD als Identitätsverwaltungsdienst bereitgestellt haben, können Sie Dienstprinzipale auf die gleiche Weise wie für Azure erstellen. In diesem Abschnitt erfahren Sie, wie die Schritte über das Azure-Portal ausgeführt werden. Vergewissern Sie sich vorher, ob Sie über die [erforderlichen Azure AD-Berechtigungen](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) verfügen.
+## <a name="manage-an-azure-ad-app-identity"></a>Verwalten einer Azure AD-App-Identität
+
+Wenn Sie Azure Stack Hub mit Azure AD als Identitätsverwaltungsdienst bereitgestellt haben, erstellen Sie Dienstprinzipale auf die gleiche Weise wie für Azure. In diesem Abschnitt erfahren Sie, wie die Schritte über das Azure-Portal ausgeführt werden. Vergewissern Sie sich vorher, ob Sie über die [erforderlichen Azure AD-Berechtigungen](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) verfügen.
 
 ### <a name="create-a-service-principal-that-uses-a-client-secret-credential"></a>Erstellen eines Dienstprinzipals, der Anmeldeinformationen mit einem geheimen Clientschlüssel verwendet
 
-In diesem Abschnitt registrieren Sie Ihre App über das Azure-Portal, wodurch das Dienstprinzipalobjekt in Ihrem Azure AD-Mandanten erstellt wird. In diesem Beispiel wird der Dienstprinzipal mit einem geheimen Clientschlüssel erstellt, aber das Portal unterstützt auch auf X.509-Zertifikaten basierende Anmeldeinformationen.
+In diesem Abschnitt registrieren Sie Ihre App über das Azure-Portal, wodurch das Dienstprinzipalobjekt in Ihrem Azure AD-Mandanten erstellt wird. In diesem Beispiel geben Sie Anmeldeinformationen mit einem geheimen Clientschlüssel an, aber das Portal unterstützt auch auf X.509-Zertifikaten basierende Anmeldeinformationen.
 
 1. Melden Sie sich mit Ihrem Azure-Konto beim [Azure-Portal](https://portal.azure.com) an.
 2. Wählen Sie **Azure Active Directory** > **App-Registrierungen** > **Neue Registrierung** aus.
@@ -57,23 +59,25 @@ In diesem Abschnitt registrieren Sie Ihre App über das Azure-Portal, wodurch da
 8. Um einen geheimen Clientschlüssel zu generieren, wählen Sie die Seite **Zertifikate und Geheimnisse** aus. Wählen Sie **Neuer geheimer Clientschlüssel**.
 9. Geben Sie eine **Beschreibung** für das Geheimnis und eine **Ablauf**dauer an.
 10. Wählen Sie anschließend **Hinzufügen** aus.
-11. Der Wert des Geheimnisses wird angezeigt. Kopieren und speichern Sie diesen Wert an einem anderen Speicherort, da Sie ihn später nicht mehr abrufen können. Sie geben das Geheimnis mit der Anwendungs-ID während der Dienstprinzipalanmeldung in Ihrer Client-App an.
+11. Der Wert des Geheimnisses wird angezeigt. Kopieren und speichern Sie diesen Wert an einem anderen Speicherort, da Sie ihn später nicht mehr abrufen können. Sie geben das Geheimnis mit der Anwendungs-ID in Ihrer Client-App für die Anmeldung an.
 
     ![Gespeicherter Schlüssel in geheimen Clientschlüsseln](./media/azure-stack-create-service-principal/create-service-principal-in-azure-stack-secret.png)
 
-## <a name="manage-an-ad-fs-service-principal"></a>Verwalten eines AD FS-Dienstprinzipals
+Fahren Sie nun mit [Zuweisen einer Rolle](#assign-a-role) fort, um zu erfahren, wie Sie rollenbasierte Zugriffssteuerung für die Identität der App einrichten.
 
-Wenn Sie Azure Stack Hub mit AD FS als Identitätsverwaltungsdienst bereitgestellt haben, müssen Sie PowerShell für die Verwaltung des Dienstprinzipals verwenden. Beispiele für das Verwalten von Anmeldeinformationen des Dienstprinzipals finden Sie im Folgenden. Es werden sowohl ein X.509-Zertifikat als auch ein geheimer Clientschlüssel demonstriert.
+## <a name="manage-an-ad-fs-app-identity"></a>Verwalten einer AD FS-App-Identität
+
+Wenn Sie Azure Stack Hub mit AD FS als Identitätsverwaltungsdienst bereitgestellt haben, müssen Sie PowerShell für die Verwaltung der App-Identität verwenden. Beispiele für das Verwalten von Anmeldeinformationen des Dienstprinzipals finden Sie im Folgenden. Es werden sowohl ein X.509-Zertifikat als auch ein geheimer Clientschlüssel demonstriert.
 
 Die Skripts müssen in einer PowerShell-Konsole mit erhöhten Rechten („Als Administrator ausführen“) ausgeführt werden, wodurch eine weitere Sitzung auf einer VM geöffnet wird, die einen privilegierten Endpunkt für Ihre Azure Stack Hub-Instanz hostet. Sobald die Sitzung des privilegierten Endpunkts eingerichtet wurde, werden zusätzliche Cmdlets ausgeführt und damit der Dienstprinzipal verwaltet. Weitere Informationen zum privilegierten Endpunkt finden Sie unter [Verwenden des privilegierten Endpunkts in Azure Stack Hub](azure-stack-privileged-endpoint.md).
 
 ### <a name="create-a-service-principal-that-uses-a-certificate-credential"></a>Erstellen eines Dienstprinzipals, der Zertifikatanmeldeinformationen verwendet
 
-Wenn Sie ein Zertifikat für Anmeldeinformationen eines Dienstprinzipals erstellen, müssen die folgenden Anforderungen erfüllt sein:
+Wenn Sie ein Zertifikat für Anmeldeinformationen erstellen, müssen die folgenden Anforderungen erfüllt sein:
 
- - Zertifikate müssen für die Produktion von einer internen oder einer öffentlichen Zertifizierungsstelle ausgestellt werden. Wenn Sie eine öffentliche Zertifizierungsstelle verwenden, muss die Zertifizierungsstelle im Rahmen des Microsoft Trusted Root Authority Program in das Basisbetriebssystem-Image aufgenommen werden. Sie finden die vollständige Liste unter [Microsoft Trusted Root Certificate Program: Participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca). Ein Beispiel für das Erstellen eines „selbstsignierten“ Testzertifikats finden Sie auch weiter unten in diesem Artikel unter [Aktualisieren der Zertifikatanmeldeinformationen eines Dienstprinzipals](#update-a-service-principals-certificate-credential). 
+ - Zertifikate müssen für die Produktion von einer internen oder einer öffentlichen Zertifizierungsstelle ausgestellt werden. Wenn Sie eine öffentliche Zertifizierungsstelle verwenden, muss die Zertifizierungsstelle im Rahmen des Microsoft Trusted Root Authority Program in das Basisbetriebssystem-Image aufgenommen werden. Sie finden die vollständige Liste unter [Microsoft Trusted Root Certificate Program: Participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca). Ein Beispiel für das Erstellen eines „selbstsignierten“ Testzertifikats finden Sie auch weiter unten in diesem Artikel unter [Aktualisieren der Zertifikatanmeldeinformationen](#update-a-certificate-credential). 
  - Der Kryptografieanbieter muss als Microsoft Legacy-CSP-Schlüsselanbieter (Microsoft Legacy Cryptographic Service Provider) angegeben werden.
- - Das Zertifikatformat muss eine PFX-Datei sein, da sowohl der öffentliche als auch der private Schlüssel benötigt wird. Windows-Server verwenden PFX-Dateien, die die Datei für den öffentlichen Schlüssel (SSL-Zertifikatdatei) und die zugehörige Datei für den privaten Schlüssel enthalten.
+ - Das Zertifikatformat muss eine PFX-Datei sein, da sowohl der öffentliche als auch der private Schlüssel benötigt wird. Windows-Server verwenden PFX-Dateien, die die Datei für den öffentlichen Schlüssel (TLS-/SSL-Zertifikatdatei) und die zugehörige Datei für den privaten Schlüssel enthalten.
  - Ihre Azure Stack Hub-Infrastruktur muss über Netzwerkzugriff auf den im Zertifikat veröffentlichten Speicherort der Zertifikatsperrliste (Certificate Revocation List, CRL) der Zertifizierungsstelle verfügen. Bei dieser CRL muss es sich um einen HTTP-Endpunkt handeln.
 
 Sobald Sie über ein Zertifikat verfügen, verwenden Sie das folgende PowerShell-Skript, um Ihre App zu registrieren und einen Dienstprinzipal zu erstellen. Den Dienstprinzipal verwenden Sie auch, um sich bei Azure anzumelden. Ersetzen Sie die folgenden Platzhalter durch Ihre eigenen Werte:
@@ -114,7 +118,7 @@ Sobald Sie über ein Zertifikat verfügen, verwenden Sie das folgende PowerShell
     # Register and set an AzureRM environment that targets your Azure Stack Hub instance
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
 
-    # Sign in using the new service principal identity
+    # Sign in using the new service principal
     $SpSignin = Connect-AzureRmAccount -Environment "AzureStackUser" `
     -ServicePrincipal `
     -CertificateThumbprint $SpObject.Thumbprint `
@@ -126,7 +130,7 @@ Sobald Sie über ein Zertifikat verfügen, verwenden Sie das folgende PowerShell
 
    ```
    
-2. Nachdem das Skript vollständig ausgeführt wurde, zeigt es die App-Registrierungsinformationen an, einschließlich der Anmeldeinformationen des Dienstprinzipals. Wie gezeigt, werden die `ClientID` und der `Thumbprint` verwendet, um sich unter der Identität des Dienstprinzipals anzumelden. Nach der erfolgreichen Anmeldung wird die Identität des Dienstprinzipals für die nachfolgende Autorisierung und den Zugriff auf von Azure Resource Manager verwaltete Ressourcen verwendet.
+2. Nachdem das Skript vollständig ausgeführt wurde, zeigt es die App-Registrierungsinformationen an, einschließlich der Anmeldeinformationen des Dienstprinzipals. `ClientID` und `Thumbprint` werden authentifiziert und später für den Zugriff auf Ressourcen autorisiert, die von Azure Resource Manager verwaltet werden.
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -140,7 +144,7 @@ Sobald Sie über ein Zertifikat verfügen, verwenden Sie das folgende PowerShell
 
 Lassen Sie Ihre PowerShell-Konsolensitzung geöffnet, da Sie sie mit dem `ApplicationIdentifier`-Wert im nächsten Abschnitt verwenden werden.
 
-### <a name="update-a-service-principals-certificate-credential"></a>Aktualisieren der Zertifikatanmeldeinformationen eines Dienstprinzipals
+### <a name="update-a-certificate-credential"></a>Aktualisieren der Zertifikatanmeldeinformationen
 
 Nachdem Sie nun einen Dienstprinzipal erstellt haben, erfahren Sie in diesem Abschnitt Folgendes:
 
@@ -189,7 +193,7 @@ Aktualisieren Sie die Zertifikatanmeldeinformationen mithilfe der PowerShell, in
 
 ### <a name="create-a-service-principal-that-uses-client-secret-credentials"></a>Erstellen eines Dienstprinzipals, der Anmeldeinformationen mit einem geheimen Clientschlüssel verwendet
 
-> [!IMPORTANT]
+> [!WARNING]
 > Die Verwendung eines geheimen Clientschlüssels ist weniger sicher als Anmeldeinformationen mit einem X.509-Zertifikat. Nicht nur der Authentifizierungsmechanismus ist weniger sicher, sondern es ist in der Regel auch erforderlich, das Geheimnis in den Quellcode der Client-App einzubetten. Daher ist es dringend angeraten, für Produktions-Apps Zertifikatanmeldeinformationen zu verwenden.
 
 Nun erstellen Sie eine weitere App-Registrierung, aber diesmal geben Sie Anmeldeinformationen mit einem geheimen Clientschlüssel an. Im Gegensatz zu Zertifikatanmeldeinformationen ist das Verzeichnis in der Lage, Anmeldeinformationen mit einem geheimen Clientschlüssel zu generieren. Anstatt den geheimen Clientschlüssel anzugeben, verwenden Sie die Option `-GenerateClientSecret`, um die Generierung des Schlüssels anzufordern. Ersetzen Sie die folgenden Platzhalter durch Ihre eigenen Werte:
@@ -224,7 +228,7 @@ Nun erstellen Sie eine weitere App-Registrierung, aber diesmal geben Sie Anmelde
      # Register and set an AzureRM environment that targets your Azure Stack Hub instance
      Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
 
-     # Sign in using the new service principal identity
+     # Sign in using the new service principal
      $securePassword = $SpObject.ClientSecret | ConvertTo-SecureString -AsPlainText -Force
      $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SpObject.ClientId, $securePassword
      $SpSignin = Connect-AzureRmAccount -Environment "AzureStackUser" -ServicePrincipal -Credential $credential -TenantId $TenantID
@@ -233,7 +237,7 @@ Nun erstellen Sie eine weitere App-Registrierung, aber diesmal geben Sie Anmelde
      $SpObject
      ```
 
-2. Nachdem das Skript vollständig ausgeführt wurde, zeigt es die App-Registrierungsinformationen an, einschließlich der Anmeldeinformationen des Dienstprinzipals. Wie gezeigt, werden die `ClientID` und der generierte `ClientSecret` verwendet, um sich unter der Identität des Dienstprinzipals anzumelden. Nach der erfolgreichen Anmeldung wird die Identität des Dienstprinzipals für die nachfolgende Autorisierung und den Zugriff auf von Azure Resource Manager verwaltete Ressourcen verwendet.
+2. Nachdem das Skript vollständig ausgeführt wurde, zeigt es die App-Registrierungsinformationen an, einschließlich der Anmeldeinformationen des Dienstprinzipals. `ClientID` und `ClientSecret` werden authentifiziert und später für den Zugriff auf Ressourcen autorisiert, die von Azure Resource Manager verwaltet werden.
 
      ```shell  
      ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
@@ -247,7 +251,7 @@ Nun erstellen Sie eine weitere App-Registrierung, aber diesmal geben Sie Anmelde
 
 Lassen Sie Ihre PowerShell-Konsolensitzung geöffnet, da Sie sie mit dem `ApplicationIdentifier`-Wert im nächsten Abschnitt verwenden werden.
 
-### <a name="update-a-service-principals-client-secret"></a>Aktualisieren des geheimen Clientschlüssels eines Dienstprinzipals
+### <a name="update-a-client-secret"></a>Aktualisieren eines geheimen Clientschlüssels
 
 Aktualisieren Sie die Anmeldeinformationen mit einem geheimen Clientschlüssel mithilfe der PowerShell unter Verwendung des Parameters **ResetClientSecret**, der dem geheimen Clientschlüssel sofort ändert. Ersetzen Sie die folgenden Platzhalter durch Ihre eigenen Werte:
 
@@ -318,15 +322,15 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 
 ## <a name="assign-a-role"></a>Zuweisen einer Rolle
 
-Der Zugriff von Benutzern und Apps auf Azure-Ressourcen wird über die rollenbasierte Zugriffssteuerung autorisiert. Um einer App den Zugriff auf Ressourcen in Ihrem Abonnement unter Verwendung ihres Dienstprinzipals zu gestatten, müssen Sie den Dienstprinzipal einer *Rolle* für eine bestimmte *Ressource* *zuweisen*. Entscheiden Sie zuerst, welche Rolle die geeigneten *Berechtigungen* für die App repräsentiert. Informationen zu den verfügbaren Rollen finden Sie unter [Integrierte Rollen für Azure-Ressourcen](/azure/role-based-access-control/built-in-roles).
+Der Zugriff von Benutzern und Apps auf Azure-Ressourcen wird über die rollenbasierte Zugriffssteuerung autorisiert. Um einer App den Zugriff auf Ressourcen in Ihrem Abonnement zu gestatten, müssen Sie den Dienstprinzipal einer *Rolle* für eine bestimmte *Ressource* *zuweisen*. Entscheiden Sie zuerst, welche Rolle die geeigneten *Berechtigungen* für die App repräsentiert. Informationen zu den verfügbaren Rollen finden Sie unter [Integrierte Rollen für Azure-Ressourcen](/azure/role-based-access-control/built-in-roles).
 
-Der Typ der Ressource, die Sie auswählen, bestimmt auch den *Zugriffsbereich* für den Dienstprinzipal. Sie können den Zugriffsbereich auf Ebene des Abonnements, der Ressourcengruppe oder der Ressource festlegen. Niedrigere Ebenen mit geringerem Umfang erben Berechtigungen. Wenn z. B. der Rolle „Leser“ für eine Ressourcengruppe eine App hinzugefügt wird, kann diese Rolle die Ressourcengruppe und alle darin enthaltenen Ressourcen lesen.
+Der Typ der Ressource, die Sie auswählen, bestimmt auch den *Zugriffsbereich* für die App. Sie können den Zugriffsbereich auf Ebene des Abonnements, der Ressourcengruppe oder der Ressource festlegen. Niedrigere Ebenen mit geringerem Umfang erben Berechtigungen. Wenn z. B. der Rolle „Leser“ für eine Ressourcengruppe eine App hinzugefügt wird, kann diese Rolle die Ressourcengruppe und alle darin enthaltenen Ressourcen lesen.
 
 1. Melden Sie sich basierend auf dem Verzeichnis, das Sie bei der Azure Stack Hub-Installation angegeben haben, beim entsprechenden Portal an (etwa für Azure AD beim Azure-Portal oder für AD FS beim Azure Stack Hub-Benutzerportal). In diesem Beispiel zeigen wir einen beim Azure Stack Hub-Benutzerportal angemeldeten Benutzer.
 
    > [!NOTE]
    > Um Rollenzuweisungen für eine bestimmte Ressource hinzuzufügen, muss Ihr Benutzerkonto einer Rolle angehören, die die `Microsoft.Authorization/roleAssignments/write`-Berechtigung deklariert. Beispielsweise einer der integrierten Rollen [Besitzer](/azure/role-based-access-control/built-in-roles#owner)oder [Benutzerzugriffsadministrator](/azure/role-based-access-control/built-in-roles#user-access-administrator).  
-2. Navigieren Sie zu der Ressource, auf die Sie den Zugriff durch den Dienstprinzipal zulassen möchten. In diesem Beispiel weisen Sie den Dienstprinzipal einer Rolle auf Abonnementebene zu, indem Sie zuerst **Abonnements** und dann ein bestimmtes Abonnement auswählen. Sie können stattdessen auch eine Ressourcengruppe oder eine bestimmte Ressource wie z. B. einen virtuellen Computer auswählen.
+2. Navigieren Sie zu der Ressource, auf die Sie den Zugriff durch die App zulassen möchten. In diesem Beispiel weisen Sie den Dienstprinzipal der App einer Rolle auf Abonnementebene zu, indem Sie zuerst **Abonnements** und dann ein bestimmtes Abonnement auswählen. Sie können stattdessen auch eine Ressourcengruppe oder eine bestimmte Ressource wie z. B. einen virtuellen Computer auswählen.
 
      ![Auswählen des Abonnements für die Zuweisung](./media/azure-stack-create-service-principal/select-subscription.png)
 
@@ -343,11 +347,10 @@ Der Typ der Ressource, die Sie auswählen, bestimmt auch den *Zugriffsbereich* f
 
      [![Zugewiesene Rolle](media/azure-stack-create-service-principal/assigned-role.png)](media/azure-stack-create-service-principal/assigned-role.png#lightbox)
 
-Nachdem Sie nun einen Dienstprinzipal erstellt und eine Rolle zugewiesen haben, können Sie diesen Dienstprinzipal in Ihrer App nutzen, um auf Azure Stack Hub-Ressourcen zuzugreifen.  
+Nachdem Sie Ihrer App eine Identität zugewiesen und sie für den Ressourcenzugriff autorisiert haben, können Sie Ihr Skript oder Ihren Code für die Anmeldung und den sicheren Zugriff auf Azure Stack Hub-Ressourcen aktivieren.  
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Hinzufügen von Benutzern für AD FS](azure-stack-add-users-adfs.md)  
 [Verwalten von Benutzerberechtigungen](azure-stack-manage-permissions.md)  
 [Azure Active Directory-Dokumentation](https://docs.microsoft.com/azure/active-directory)  
 [Active Directory-Verbunddienste (AD FS)](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)

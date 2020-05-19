@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 5ffa1f2f03ca942192acdd881b7e785598c4c94b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a16928e233d47c6a3f3a8f612b5d5d22afc08456
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80812372"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375060"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Rotieren von Geheimnissen in Azure Stack Hub
 
@@ -212,7 +212,7 @@ So rotieren Sie externe Geheimnisse:
 
 5. Warten Sie, bis Ihre Geheimnisse rotiert wurden. Die Rotation externer Geheimnisse dauert ca. eine Stunde.
 
-    Wenn die Geheimnisrotation erfolgreich abgeschlossen wurde, wird in der Konsole **Overall action status: Success** (Allgemeiner Aktionsstatus: Erfolgreich) angezeigt.
+    Wenn die Geheimnisrotation erfolgreich abgeschlossen wurde, wird in der Konsole **ActionPlanInstanceID ... CurrentStatus: Completed** gefolgt von **DONE** angezeigt.
 
     > [!Note]
     > Sollte bei der Geheimnisrotation ein Fehler auftreten, befolgen Sie die Anweisungen in der Fehlermeldung, und führen Sie **Start-SecretRotation** mit dem Parameter **-ReRun** erneut aus.
@@ -258,7 +258,7 @@ Remove-PSSession -Session $PEPSession
 
 3. Warten Sie, bis Ihre Geheimnisse rotiert wurden.
 
-   Wenn die Geheimnisrotation erfolgreich abgeschlossen wurde, wird in der Konsole **Overall action status: Success** (Allgemeiner Aktionsstatus: Erfolgreich) angezeigt.
+   Wenn die Geheimnisrotation erfolgreich abgeschlossen wurde, wird in der Konsole **ActionPlanInstanceID ... CurrentStatus: Completed** gefolgt von **DONE** angezeigt.
     > [!Note]
     > Wenn bei der Geheimnisrotation ein Fehler auftritt, befolgen Sie die Anweisungen in der Fehlermeldung, und führen Sie **Start-SecretRotation** mit den Parametern **–Internal** und **-ReRun** erneut aus.  
 

@@ -6,12 +6,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 11/04/2019
-ms.openlocfilehash: 3b08b5e65c0cff4ab82494261fb1663b16bf757d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2b7ab4dbb4eefe867c207b9db4329cbae1bfef4a
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80812406"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202456"
 ---
 # <a name="azure-stack-hci-solutions-overview"></a>Übersicht über Azure Stack HCI-Lösungen
 
@@ -98,6 +98,10 @@ Sie können validierte Azure Stack HCI-Lösungen, für die Windows Server 2019 
 Besuchen Sie unsere [Azure Stack HCI-Website](https://azure.microsoft.com/overview/azure-stack/hci), um sich über die mehr als 70 Azure Stack HCI-Lösungen zu informieren, die diese Microsoft-Partner derzeit im Angebot haben: ASUS, Axellio, Blue Chip, DataON, Dell EMC, Fujitsu, HPE, Hitachi, Huawei, Lenovo, NEC, primeLine Solutions, QCT, SecureGUARD und Supermicro.
 
 ## <a name="video-based-learning"></a>Lernen anhand von Videos
+
+Das Video zum erweiterten Azure-Netzwerk finden Sie unter folgendem Link:
+
+- [Nahtlose Konnektivität mit Azure mit Windows Server und Hybridnetzwerken](https://www.youtube.com/watch?v=do2_4Y2p9dk)
 
 Hier finden Sie einige Videos von den Microsoft Ignite 2019-Sitzungen:
 

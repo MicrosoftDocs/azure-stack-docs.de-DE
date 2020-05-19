@@ -3,16 +3,16 @@ title: Verwalten von Updates
 description: Hier erfahren Sie, wie Sie Updates in Azure Stack Hub verwalten.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 05/13/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 48bc8e2df857b2e1c352ffaa55ef900672d4f78b
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: cdf2ba4d3dd226ea727efe05dc8be671ba172f8b
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772494"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374613"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Verwalten von Updates in Azure Stack Hub
 
@@ -49,7 +49,7 @@ Die drei Updatetypen werden im folgenden Rhythmus veröffentlicht:
 
 Um weiterhin Support zu erhalten, muss Ihre Azure Stack Hub-Umgebung eine unterstützte Azure Stack Hub-Softwareversion aufweisen. Weitere Informationen finden Sie in der [Azure Stack Hub-Wartungsrichtlinie](azure-stack-update-servicing-policy.md).
 
-## <a name="where-to-get-notice-of-an-update"></a>Benachrichtigungen über Updates
+## <a name="how-to-know-an-update-is-available"></a>Wie erkenne ich, dass ein Update verfügbar ist?
 
 Die Benachrichtigungen über Updates hängen von einigen Faktoren ab, z. B. der Internetverbindung und der Art des Updates.
 

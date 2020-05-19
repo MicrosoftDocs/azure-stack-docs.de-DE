@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 38e3d36b5269dac3ee3c4190aff001b4ed4921b4
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: f1217bacebc4c391347506720c760b947e363b3a
+ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173946"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82908597"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum
 
@@ -219,7 +219,7 @@ Sie können das Hilfsskript unter [Azure Stack Hub-Tools](https://github.com/Azu
 
 Wenn Sie die Befehle manuell ausführen möchten, gehen Sie folgendermaßen vor:
 
-1. Kopieren Sie den folgenden Inhalt in eine TXT-Datei (z.B. unter „C:\ClaimRules.txt“ gespeichert) in Ihrer AD FS-Instanz oder Ihrem Farmmitglied des Datencenters:
+1. Kopieren Sie den folgenden Inhalt in eine TXT-Datei (z. B. unter „C:\ClaimIssuanceRules.txt“ gespeichert) in der AD FS-Instanz oder dem Farmmitglied des Rechenzentrums:
 
    ```text
    @RuleTemplate = "LdapClaims"

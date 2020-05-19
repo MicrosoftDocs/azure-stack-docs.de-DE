@@ -7,12 +7,12 @@ ms.date: 11/26/2019
 ms.author: justinha
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 4984f36b4632f2bcb204c93ef409ea82a7f299f5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: cf116e392cc75119eabe8fbea9ccb37f72f4b1a0
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698826"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375144"
 ---
 # <a name="mysql-resource-provider-11470-release-notes"></a>Versionshinweise zum MySQL-Ressourcenanbieter 1.1.47.0
 
@@ -31,19 +31,18 @@ Laden Sie die Binärdatei des MySQL-Ressourcenanbieters herunter, und führen Si
 
 ## <a name="new-features-and-fixes"></a>Neue Features und Fehlerbehebungen
 
-Diese Version des Azure Stack Hub MySQL-Ressourcenanbieters ist ein Hotfixrelease, mit dem der Ressourcenanbieter mit einigen der neuesten Portaländerungen im Update 1910 ohne neue Features kompatibel gemacht werden soll.
+Diese Version des Azure Stack Hub-MySQL-Ressourcenanbieters ist ein Hotfixrelease, mit dem der Ressourcenanbieter mit einigen der neuesten Portaländerungen im Update 1910 kompatibel gemacht werden soll. Die Version enthält keine neuen Features.
 
 Darüber hinaus unterstützt sie das aktuelle Azure Stack Hub-API-Versionsprofil „2019-03-01-hybrid“ sowie das Azure Stack Hub PowerShell-Modul 1.8.0. Daher müssen während der Bereitstellung und Aktualisierung keine bestimmten Verlaufsversionen von Modulen installiert werden.
 
-Es wird empfohlen, nach dem Upgrade auf das Release 1910 den Hotfix für den MySQL-Ressourcenanbieter 1.1.47.0 anzuwenden.
+Es wird empfohlen, nach dem Upgrade von Azure Stack Hub auf das Release 1910 den Hotfix 1.1.47.0 für den MySQL-Ressourcenanbieter anzuwenden.
 
 ## <a name="known-issues"></a>Bekannte Probleme
 
 Keine.
 
 ## <a name="next-steps"></a>Nächste Schritte
-[Informieren Sie sich über den MySQL-Ressourcenanbieter](azure-stack-mysql-resource-provider.md).
 
-[Bereiten Sie sich auf die Bereitstellung des MySQL-Ressourcenanbieters vor](azure-stack-mysql-resource-provider-deploy.md#prerequisites).
-
-[Führen Sie für den MySQL-Ressourcenanbieter ein Upgrade von einer früheren Version durch](azure-stack-mysql-resource-provider-update.md). 
+- [Informieren Sie sich über den MySQL-Ressourcenanbieter](azure-stack-mysql-resource-provider.md).
+- [Bereiten Sie sich auf die Bereitstellung des MySQL-Ressourcenanbieters vor](azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+- [Führen Sie für den MySQL-Ressourcenanbieter ein Upgrade von einer früheren Version durch](azure-stack-mysql-resource-provider-update.md).

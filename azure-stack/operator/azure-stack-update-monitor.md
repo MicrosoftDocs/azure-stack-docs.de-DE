@@ -1,24 +1,24 @@
 ---
-title: Überwachen von Updates in Azure Stack Hub mithilfe von PowerShell
-description: Erfahren Sie, wie Sie mithilfe von PowerShell Updates in Azure Stack Hub überwachen.
+title: Überwachen von Updates mithilfe von PowerShell in Azure Stack Hub
+description: Hier erfahren Sie, wie Sie mit PowerShell Updates in Azure Stack Hub überwachen.
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 0adeafb421c30eaf8753c735b16b85471173a5fc
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 3e6f5ebac251ca18dd15d269ad23ac1632a4794c
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848131"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374991"
 ---
-# <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>Überwachen von Updates in Azure Stack Hub mithilfe von PowerShell
+# <a name="monitor-updates-with-powershell-in-azure-stack-hub"></a>Überwachen von Updates mithilfe von PowerShell in Azure Stack Hub
 
 Sie können die Azure Stack Hub-Verwaltungsendpunkte verwenden, um Ihre Updates zu überwachen und zu verwalten. Sie können darauf mit PowerShell zugreifen. Anweisungen zum Einrichten von PowerShell in Azure Stack Hub finden Sie unter [Installieren von PowerShell für Azure Stack Hub](azure-stack-powershell-install.md).
 
-Sie können das folgende PowerShell-Cmdlet verwenden, um Ihre Updates zu verwalten:
+Sie können die folgenden PowerShell-Cmdlets verwenden, um Ihre Updates zu verwalten:
 
 | Cmdlet | BESCHREIBUNG |
 |------------------------------------------------------|-------------|
@@ -30,7 +30,7 @@ Sie können das folgende PowerShell-Cmdlet verwenden, um Ihre Updates zu verwalt
 
 ## <a name="get-a-list-of-update-runs"></a>Abrufen einer Liste der Updateausführungen
 
-Verwenden Sie zum Abrufen der Liste der Updateausführungen den folgenden Befehl:
+Führen Sie zum Abrufen der Liste der Updateausführungen den folgenden Befehl aus:
 
 ```powershell
 Get-AzsUpdateRun -UpdateName Microsoft1.0.180302.1
@@ -43,9 +43,11 @@ Wenn beim Update ein Fehler auftritt, können Sie den Updatevorgang an der Stell
 ```powershell
 Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsoft1.0.180305.1 | Resume-AzsUpdateRun
 ```
+
 ## <a name="troubleshoot"></a>Problembehandlung
-Weitere Informationen zur Problembehandlung von Updates finden Sie unter [Azure Stack-Problembehandlung](azure-stack-troubleshooting.md).
+
+Weitere Informationen zur Problembehandlung von Updates finden Sie unter [Behandeln von Problemen in Azure Stack Hub](azure-stack-troubleshooting.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
--   [Verwalten von Updates in Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+- [Verwalten von Updates in Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
