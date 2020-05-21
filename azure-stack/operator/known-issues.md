@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 94b90f8a3a648a466ac221a76099a71964e00f9a
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: 31ef3ee64eb98b34160e95fee0a228fc32cee589
+ms.sourcegitcommit: 7c10a45a8de0c5c7649e5329ca5b69a0791e37b5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202436"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83721877"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -264,12 +264,6 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Ursache: Wenn Sie im Benutzerportal einen verwalteten Datenträger vom Typ „SSD Premium“ auswählen, wird in der Dropdownliste **Betriebssystemdatenträger** angezeigt. Die QuickInfo neben dieser Option lautet: **Bestimmte Betriebssystemdatenträger sind mit dem kostenlosen Azure-Konto möglicherweise gebührenfrei verfügbar.** Dies gilt jedoch nicht für Azure Stack Hub. Darüber hinaus enthält die Liste **Free account eligible** (Geeignet für kostenloses Konto), was ebenfalls nicht für Azure Stack Hub gilt.
 - Häufigkeit: Allgemein
 
-### <a name="vpn-troubleshoot-and-metrics"></a>VPN-Problembehandlung und Metriken
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Im Benutzerportal werden das Feature **VPN-Problembehandlung** sowie **Metriken** in einer VPN-Gatewayressource angezeigt. Dies wird in Azure Stack Hub jedoch nicht unterstützt.
-- Häufigkeit: Allgemein
-
 ### <a name="delete-a-storage-container"></a>Löschen eines Speichercontainers
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
@@ -282,12 +276,6 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Wenn Sie im Benutzerportal zu **Virtuelle Computer** navigieren und die Ansicht mithilfe der entsprechenden Schaltfläche im oberen Bereich aktualisieren, werden die Zustände nicht ordnungsgemäß aktualisiert.
 - Abhilfe: Der Status wird automatisch alle fünf Minuten aktualisiert – unabhängig davon, ob auf die Aktualisierungsschaltfläche geklickt wurde. Warten Sie fünf Minuten, und überprüfen Sie den Status.
-- Häufigkeit: Allgemein
-
-### <a name="virtual-network-gateway"></a>Gateway des virtuellen Netzwerks
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Wenn Sie im Benutzerportal eine Routingtabelle erstellen, wird **Gateway für virtuelle Netzwerke** als Option für den Typ des nächsten Hops angezeigt. Dies wird in Azure Stack Hub jedoch nicht unterstützt.
 - Häufigkeit: Allgemein
 
 ### <a name="storage-account-options"></a>Speicherkontooptionen
@@ -364,6 +352,12 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 
 ### <a name="virtual-network-gateway"></a>Gateway des virtuellen Netzwerks
 
+#### <a name="next-hop-type"></a>Typ des nächsten Hops
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn Sie im Benutzerportal eine Routingtabelle erstellen, wird **Gateway für virtuelle Netzwerke** als Option für den Typ des nächsten Hops angezeigt. Dies wird in Azure Stack Hub jedoch nicht unterstützt.
+- Häufigkeit: Allgemein
+
 #### <a name="alerts"></a>Alerts
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
@@ -380,6 +374,10 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Im Benutzerportal wird auf dem Blatt **Verbindungen** ein Feature namens **VPN-Problembehandlung** angezeigt. Diese Funktion wird zurzeit in Azure Stack Hub nicht unterstützt.
+- Häufigkeit: Allgemein
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Im Benutzerportal werden das Feature **VPN-Problembehandlung** sowie **Metriken** in einer VPN-Gatewayressource angezeigt. Dies wird in Azure Stack Hub jedoch nicht unterstützt.
 - Häufigkeit: Allgemein
 
 #### <a name="documentation"></a>Dokumentation
@@ -525,6 +523,12 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Häufigkeit: Allgemein
 
 ### <a name="virtual-network-gateway"></a>Gateway des virtuellen Netzwerks
+
+#### <a name="next-hop-type"></a>Typ des nächsten Hops
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn Sie im Benutzerportal eine Routingtabelle erstellen, wird **Gateway für virtuelle Netzwerke** als Option für den Typ des nächsten Hops angezeigt. Dies wird in Azure Stack Hub jedoch nicht unterstützt.
+- Häufigkeit: Allgemein
 
 #### <a name="alerts"></a>Alerts
 
@@ -689,6 +693,12 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Häufigkeit: Allgemein
 
 ### <a name="virtual-network-gateway"></a>Gateway des virtuellen Netzwerks
+
+#### <a name="next-hop-type"></a>Typ des nächsten Hops
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Wenn Sie im Benutzerportal eine Routingtabelle erstellen, wird **Gateway für virtuelle Netzwerke** als Option für den Typ des nächsten Hops angezeigt. Dies wird in Azure Stack Hub jedoch nicht unterstützt.
+- Häufigkeit: Allgemein
 
 #### <a name="alerts"></a>Alerts
 
