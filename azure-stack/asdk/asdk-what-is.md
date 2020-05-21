@@ -7,12 +7,12 @@ ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: a37547a7c2e5a737685e370307a1ae8f37d5d363
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 6e58e60e0863e2ef40abc95689430f8e378a4fd4
+ms.sourcegitcommit: e75218d2e04f41620cc09caf04473ad4c7289253
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "79295635"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83708192"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Was ist das Azure Stack Development Kit (ASDK)?
 [Integrierte Microsoft Azure Stack Hub-Systeme](../operator/azure-stack-overview.md) haben eine Größe von 4 bis 16 Knoten, und der Support wird von einem Hardwarepartner und von Microsoft gemeinsam bereitgestellt. Mit integrierten Azure Stack Hub-Systemen ermöglichen Sie neue Szenarien für Ihre Produktionsworkloads. Wenn Sie ein Azure Stack Hub-Betreiber sind, der die Infrastruktur integrierter Systeme verwaltet und Dienste anbietet, hilft Ihnen die [Dokumentation für Betreiber](/azure-stack/operator) weiter.
@@ -67,7 +67,7 @@ Derzeit werden folgende zusätzliche PaaS-Dienste (Platform-as-a-Service) unters
 > Damit diese Dienste Benutzern zur Verfügung gestellt werden können, sind zusätzliche Konfigurationsschritte erforderlich. Die Dienste sind nach der ASDK-Installation nicht standardmäßig verfügbar.
 
 ## <a name="service-roadmap"></a>Roadmap für Dienste
-Die Unterstützung von Azure-Diensten in Azure Stack Hub wird kontinuierlich weiter ausgebaut. Informationen zur weiteren Entwicklung von Azure Stack Hub finden Sie in der [Roadmap für Azure Stack](https://azure.microsoft.com/roadmap/?tag=azure-stack). 
+Die Unterstützung von Azure-Diensten in Azure Stack Hub wird kontinuierlich weiter ausgebaut. Informationen zur weiteren Entwicklung von Azure Stack Hub finden Sie in der [Roadmap für Azure Stack](https://azure.microsoft.com/updates/?query=azure%20stack%20hub).
 
 
 ## <a name="next-steps"></a>Nächste Schritte
