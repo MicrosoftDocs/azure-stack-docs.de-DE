@@ -50,8 +50,8 @@
       href: /azure/active-directory/
 - name: Ressourcen
   items:
-    - name: "Roadmap für Azure\_Stack\_Hub"
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure Stack Hub-Roadmap
+      href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
     - name: MSDN-Forum für Azure Stack Hub
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureStack'
     - name: Feedback zur Azure Stack Hub-Dokumentation
