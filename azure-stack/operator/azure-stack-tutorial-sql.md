@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: bf9ed5ced7bfde80219f0d9bddcf285e76183361
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: be747a57b61b2d06a667bd577dd135c6220fc968
+ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202420"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83403855"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Erstellen hochverfügbarer SQL-Datenbanken mit Azure Stack Hub
 
@@ -35,8 +35,8 @@ Vergewissern Sie sich, dass der [SQL Server-Ressourcenanbieter](azure-stack-sql-
 > [!IMPORTANT]
 > Alle folgenden Elemente sind erforderlich, um die Azure Stack Hub-Schnellstartvorlage zu verwenden.
 
-- Marketplace-Image von [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer).
-- SQL Server 2016 SP1 oder SP2 (Enterprise, Standard oder Developer) im Windows Server 2016-Serverimage. Dieser Artikel verwendet das Marketplace-Image [SQL Server 2016 SP2 Enterprise unter Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016).
+- Marketplace-Image von Windows Server 2016 Datacenter
+- SQL Server 2016 SP1 oder SP2 (Enterprise oder Developer) im Windows Server 2016-Serverimage. Dieser Artikel verwendet das Marketplace-Image SQL Server 2016 SP2 Enterprise unter Windows Server 2016.
 - [Erweiterung für SQL Server-IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), Version 1.3.20180 oder höher. SQL Server IaaS Extension installiert Komponenten, die von den SQL Server-Elementen im Marketplace für alle Windows-Versionen benötigt werden. Diese Erweiterung ermöglicht die Konfiguration von SQL-spezifischen Einstellungen auf virtuellen SQL-Computern. Wenn die Erweiterung nicht im lokalen Marketplace installiert ist, kann SQL nicht bereitgestellt werden.
 - [Custom Script Extension für Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) Version 1.9.1 oder höher. Custom Script Extension ist ein Tool, das zum automatischen Starten von VM-Anpassungstasks nach der Bereitstellung verwendet werden kann.
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) Version 2.76.0.0 oder höher. DSC ist eine Verwaltungsplattform in Windows PowerShell, die die Bereitstellung und Verwaltung von Konfigurationsdaten für Softwaredienste ermöglicht. Die Plattform verwaltet darüber hinaus die Umgebung, in der diese Dienste ausgeführt werden.
@@ -45,7 +45,7 @@ Weitere Informationen zum Hinzufügen von Elementen zum Azure Stack-Marketplace
 
 ## <a name="create-a-sql-server-alwayson-availability-group"></a>Erstellen einer SQL Server-Always On-Verfügbarkeitsgruppe
 
-Mit den Schritten in diesem Abschnitt stellen Sie mithilfe der [Azure Stack Hub-Schnellstartvorlage „sql-2016-alwayson“](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson) eine SQL Server-Always On-Verfügbarkeitsgruppe bereit. Diese Vorlage stellt zwei SQL Server Enterprise-Instanzen – Standard oder Developer – in einer Always On-Verfügbarkeitsgruppe bereit. Er erstellt die folgenden Ressourcen:
+Mit den Schritten in diesem Abschnitt stellen Sie mithilfe der [Azure Stack Hub-Schnellstartvorlage „sql-2016-alwayson“](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson) eine SQL Server-Always On-Verfügbarkeitsgruppe bereit. Diese Vorlage stellt zwei SQL Server Enterprise- oder Developer-Instanzen in einer Always On-Verfügbarkeitsgruppe bereit. Er erstellt die folgenden Ressourcen:
 
 - Eine Netzwerksicherheitsgruppe
 - Ein virtuelles Netzwerk
@@ -53,7 +53,7 @@ Mit den Schritten in diesem Abschnitt stellen Sie mithilfe der [Azure Stack Hub-
 - Vier öffentliche IP-Adressen (eine für AD, zwei für jede SQL-VM und eine für das öffentliche Lastenausgleichsmodul, das an den SQL Always On-Listener gebunden ist)
 - Ein externes Lastenausgleichsmodul für SQL-VMs mit einer öffentlichen IP-Adresse, die an den SQL Always On-Listener gebunden ist
 - Eine VM (Windows Server 2016), die als Domänencontroller für eine neue Gesamtstruktur mit einer einzelnen Domäne konfiguriert ist
-- Zwei VMs (Windows Server 2016), die mit SQL Server 2016 SP1 oder SP2 Enterprise, Standard oder Developer Edition konfiguriert und gruppiert sind. Hierbei muss es sich um Marketplace-Images handeln.
+- Zwei VMs (Windows Server 2016), die mit SQL Server 2016 SP1 oder SP2 Enterprise oder Developer Edition konfiguriert und gruppiert sind. Hierbei muss es sich um Marketplace-Images handeln.
 - Eine VM (Windows Server 2016), die als Dateifreigabenzeuge für den Cluster konfiguriert ist
 - Eine Verfügbarkeitsgruppe, die die VMs für SQL und den Dateifreigabenzeugen enthält
 

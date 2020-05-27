@@ -3,25 +3,41 @@ title: Bereitstellen von Azure Cognitive Services in Azure Stack Hub
 description: Erfahren Sie, wie Sie Azure Cognitive Services in Azure Stack Hub bereitstellen.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/13/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ff5dd1ccb8193e9dae3d97401793773e3e28fb4d
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 05/13/2020
+ms.openlocfilehash: 857d934a9cb55052a5e27d15943f05f032d05d6c
+ms.sourcegitcommit: d5d89bbe8a3310acaff29a7a0cd7ac4f2cf5bfe7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660179"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83554980"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Bereitstellen von Azure Cognitive Services in Azure Stack Hub
 
-> [!Note]  
-> Die Azure Cognitive Services in Azure Stack Hub befinden sich in der Vorschau.
-
-Sie können Azure Cognitive Services mit Containerunterstützung in Azure Stack Hub verwenden. Containerunterstützung in Azure Cognitive Services ermöglicht es Ihnen, dieselben umfassenden APIs zu nutzen, die in Azure zur Verfügung stehen. Durch Ihre Nutzung von Containern können Sie flexibel festlegen, wo die in [Docker-Containern](https://www.docker.com/what-container) übermittelten Services bereitgestellt und gehostet werden sollen. Die Containerunterstützung ist derzeit als Vorschauversion für einige Azure Cognitive Services verfügbar, einschließlich [Maschinelles Sehen](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Gesichtserkennung](https://docs.microsoft.com/azure/cognitive-services/face/overview) und [Textanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) sowie [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
+Sie können Azure Cognitive Services mit Containerunterstützung in Azure Stack Hub verwenden. Containerunterstützung in Azure Cognitive Services ermöglicht es Ihnen, dieselben umfassenden APIs zu nutzen, die in Azure zur Verfügung stehen. Durch Ihre Nutzung von Containern können Sie flexibel festlegen, wo die in [Docker-Containern](https://www.docker.com/what-container) übermittelten Services bereitgestellt und gehostet werden sollen. 
 
 Die Verwendung von Containern ist ein Ansatz zur Softwareverteilung, bei dem eine App oder ein Dienst, einschließlich der Abhängigkeiten und Konfiguration, als Containerimage gepackt wird. Mit wenigen oder keinen Änderungen können Sie ein Image auf einem Containerhost bereitstellen. Jeder Container ist von anderen Containern und dem zugrunde liegenden Betriebssystem isoliert. Das System selbst enthält nur die Komponenten, die zur Ausführung Ihres Images erforderlich sind. Ein Containerhost hat einen kleineren Fußabdruck als ein virtueller Computer. Sie können auch Container aus Images für kurzfristige Aufgaben erstellen und wieder entfernen, wenn sie nicht mehr benötigt werden.
+
+Die Containerunterstützung ist derzeit für einige Dienste von Azure Cognitive Services verfügbar:
+
+- Language Understanding
+- Textanalyse (Stimmungsanalyse 3.0)
+
+> [!IMPORTANT]
+> Einige Dienste von Azure Cognitive Services für Azure Stack Hub befinden sich derzeit in der öffentlichen Vorschauphase.
+> Die Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Die Containerunterstützung ist derzeit als öffentliche Vorschauversion für einige Dienste von Azure Cognitive Services verfügbar:
+
+- Lesen (Optische Zeichenerkennung \[Optical Character Recognition, OCR])
+- Schlüsselwortextraktion
+- Spracherkennung
+- Anomalieerkennung
+- Formularerkennung
+- Spracherkennung (benutzerdefiniert, Standard)
+- Sprachsynthese (benutzerdefiniert, Standard)
 
 ## <a name="use-containers-with-cognitive-services-on-azure-stack-hub"></a>Verwenden von Containern mit Cognitive Services in Azure Stack Hub
 
@@ -141,12 +157,37 @@ Details zu den Schlüsselfeldern:
 Verwenden Sie den folgenden Befehl, um die Cognitive Services-Container bereitzustellen:
 
 ```bash  
-    Kubectl apply -f <yamlFineName>
+    Kubectl apply -f <yamlFileName>
 ```
 Verwenden Sie den folgenden Befehl, um den Prozess der Bereitstellung zu überwachen: 
 ```bash  
     Kubectl get pod - watch
 ```
+
+## <a name="configure-http-proxy-settings"></a>Konfigurieren der HTTP-Proxyeinstellungen
+
+Die Workerknoten benötigen einen Proxy und SSL. Wenn Sie einen HTTP-Proxy für ausgehende Anforderungen konfigurieren möchten, verwenden Sie diese zwei Argumente:
+
+- **HTTP_PROXY**: der zu verwendende Proxy, z. B. `https://proxy:8888`
+- **HTTP_PROXY_CREDS**: beliebige Anmeldeinformationen, die zur Authentifizierung bei dem Proxy erforderlich sind, z. B. `username:password`
+
+### <a name="set-up-the-proxy"></a>Einrichten des Proxys
+
+1. Fügen Sie an beiden Speicherorten eine Datei vom Typ `http-proxy.conf` hinzu:
+    - `/etc/system/system/docker.service.d/`
+    - `/cat/etc/environment/`
+
+2. Überprüfen Sie, ob Sie sich mit den vom Cognitive Services-Team bereitgestellten Anmeldeinformationen beim Container anmelden können, und führen Sie im folgenden Container einen `docker pull`-Vorgang aus: 
+
+    `docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest`
+
+    Führen Sie folgenden Befehl aus:
+
+    `docker run hello-world pull`
+
+### <a name="ssl-interception-setup"></a>Setup des Abfangens von SSL
+
+1. Fügen Sie `/usr/local/share/ca-certificates` das Zertifikat zum **Abfangen von HTTPS** hinzu, und aktualisieren Sie den Speicher mit `update-ca-certificates`. 
 
 ## <a name="test-the-cognitive-service"></a>Testen des Cognitive Service
 
