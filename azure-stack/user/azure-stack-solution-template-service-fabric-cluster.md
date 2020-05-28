@@ -3,16 +3,16 @@ title: Bereitstellen eines gesicherten Service Fabric-Clusters in Azure Stack Hu
 description: Hier erfahren Sie, wie Sie einen gesicherten Service Fabric-Cluster in Azure Stack Hub bereitstellen.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: b09e23fafdfcdff83329e70538cd8d072081a678
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: 4ccbdfe93f8ed960002c251e0d18e24f29a9b229
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "77687545"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111862"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Bereitstellen eines Service Fabric-Clusters in Azure Stack Hub
 
