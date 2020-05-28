@@ -3,16 +3,16 @@ title: Bereitstellen von Azure Cognitive Services in Azure Stack Hub
 description: Erfahren Sie, wie Sie Azure Cognitive Services in Azure Stack Hub bereitstellen.
 author: mattbriggs
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 05/21/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.lastreviewed: 05/13/2020
-ms.openlocfilehash: 857d934a9cb55052a5e27d15943f05f032d05d6c
-ms.sourcegitcommit: d5d89bbe8a3310acaff29a7a0cd7ac4f2cf5bfe7
+ms.lastreviewed: 05/21/2020
+ms.openlocfilehash: 07af0665b2bc7993a90100edccc0a4831700c432
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83554980"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780762"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Bereitstellen von Azure Cognitive Services in Azure Stack Hub
 
@@ -174,7 +174,7 @@ Die Workerknoten benötigen einen Proxy und SSL. Wenn Sie einen HTTP-Proxy für 
 ### <a name="set-up-the-proxy"></a>Einrichten des Proxys
 
 1. Fügen Sie an beiden Speicherorten eine Datei vom Typ `http-proxy.conf` hinzu:
-    - `/etc/system/system/docker.service.d/`
+    - `/etc/system/systemd/docker.service.d/`
     - `/cat/etc/environment/`
 
 2. Überprüfen Sie, ob Sie sich mit den vom Cognitive Services-Team bereitgestellten Anmeldeinformationen beim Container anmelden können, und führen Sie im folgenden Container einen `docker pull`-Vorgang aus: 

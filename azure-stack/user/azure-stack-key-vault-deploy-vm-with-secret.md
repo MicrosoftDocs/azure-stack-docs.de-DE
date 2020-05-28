@@ -3,16 +3,16 @@ title: Bereitstellen einer Azure Stack Hub-VM mithilfe eines in Key Vault gespei
 description: Hier erfahren Sie, wie Sie einen virtuellen Computer mithilfe eines Kennworts bereitstellen, das in einer Azure Stack Hub-Key Vault-Instanz gespeichert ist.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 7c68c2b5ecc5a56449e67dd0ffa403b3363cfab9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f010700c86e4481063528bd1148d7898e8bd17fe
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702889"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111879"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Bereitstellen einer Azure Stack Hub-VM mithilfe eines in Key Vault gespeicherten Kennworts
 

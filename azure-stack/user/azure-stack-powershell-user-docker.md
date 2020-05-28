@@ -3,16 +3,16 @@ title: Verwenden von Docker zum Ausführen von PowerShell in Azure Stack Hub
 description: Verwenden von Docker zum Ausführen von PowerShell in Azure Stack Hub
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: 2a23469b36bd05aaef1c6597fc0be6e0c1bab783
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9d761114908919ef1b98436997c7225ba1544ae3
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79312971"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111828"
 ---
 # <a name="use-docker-to-run-powershell-in-azure-stack-hub"></a>Verwenden von Docker zum Ausführen von PowerShell in Azure Stack Hub
 

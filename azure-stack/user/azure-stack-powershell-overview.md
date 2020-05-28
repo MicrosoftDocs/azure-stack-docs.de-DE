@@ -3,16 +3,16 @@ title: PowerShell in Azure Stack Hub
 description: PowerShell in Azure Stack Hub verfügt über eine Reihe von Modulen und Kontexten.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 76dd8c2275c0d75132a508d6849d8356ff2e1f67
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: b54e8a184c90408c0d27054446a91f09c34749fb
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643461"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111810"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Erste Schritte mit PowerShell in Azure Stack Hub
 

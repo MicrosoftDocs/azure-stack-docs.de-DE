@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: In diesem Artikel lernen Sie die Unterschiede zwischen Azure Stack Hub-Speicher und Azure-Speicher kennen und erhalten weitere Informationen zur Bereitstellung von Azure Stack Hub.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: 47e8935e67185b91b73591a28ba3e453e827e708
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 4206ebb6e8195c43ad043f09567d0911222c1e20
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81394969"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111930"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub-Speicher: Unterschiede und Überlegungen
 

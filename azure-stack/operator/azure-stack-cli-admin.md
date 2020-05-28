@@ -3,15 +3,15 @@ title: Aktivieren der Azure CLI für Azure Stack Hub-Benutzer
 description: Erfahren Sie, wie Sie die plattformübergreifende Befehlszeilenschnittstelle (Command-Line Interface, CLI) aktivieren, um Ressourcen in Azure Stack Hub zu verwalten und bereitzustellen.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 8ecb1fde96c4d53bd94c57199635af21d7cf7196
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d81f7bc0894ea204b9cd956f30e3f302747a6de6
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700866"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111431"
 ---
 # <a name="enable-azure-cli-for-azure-stack-hub-users"></a>Aktivieren der Azure CLI für Azure Stack Hub-Benutzer
 
