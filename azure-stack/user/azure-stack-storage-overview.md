@@ -3,15 +3,15 @@ title: Einführung in Azure Stack Hub-Speicher
 description: Informieren Sie sich über Azure Stack Hub-Speicherdienste.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 69f47c34f55935d73ffb1349b8c90624d6311449
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: d45b8069915ea920d6366daeefdfb53953301102
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742365"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146987"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Einführung in Azure Stack Hub-Speicher
 

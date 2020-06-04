@@ -3,16 +3,16 @@ title: Schutz von in Azure Stack Hub bereitgestellten VMsProtect VMs deployed on
 description: Erfahren Sie, wie Sie einen Wiederherstellungsplan erstellen, um in Azure Stack Hub bereitgestellte VMs vor Datenverlust und ungeplanten Ausfallzeiten zu schützen.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: b5618fb39e9fc24fc8a086c99a7e1dd71f6b7a65
-ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
+ms.openlocfilehash: 3a59f36b5bae91255628d79b14ee727a5990ef11
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82150232"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146936"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Schutz von in Azure Stack Hub bereitgestellten VMsProtect VMs deployed on Azure Stack Hub
 

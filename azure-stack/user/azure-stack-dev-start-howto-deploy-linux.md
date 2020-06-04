@@ -3,16 +3,16 @@ title: Bereitstellen eines virtuellen Linux-Computers in Azure Stack Hub
 description: Stellen Sie eine App in Azure Stack Hub bereit.
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 63fffbf1a9dcc5048286f93b18b20eb72174b8cd
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 35863d41776ece59592d57264db6522e47ee4208
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77704198"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146953"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack Hub
 

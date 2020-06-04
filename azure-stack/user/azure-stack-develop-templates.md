@@ -3,16 +3,16 @@ title: Entwickeln von Vorlagen für Azure Stack Hub
 description: Erfahren Sie, wie Vorlagen für den Azure Resource Manager entwickelt werden, um Portabilität von Apps zwischen Azure und Azure Stack Hub zu erreichen.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: ce9ee8a982ade764947af3c6e2fb2f880cefc217
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: dd43abbf1194aa4aaa3ca1cc75a3e2ff6262bbbc
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702974"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146749"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>Entwickeln von Vorlagen für Azure Stack Hub mit Azure Resource Manager
 
