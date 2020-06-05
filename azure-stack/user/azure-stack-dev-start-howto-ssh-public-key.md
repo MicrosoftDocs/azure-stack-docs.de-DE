@@ -3,16 +3,16 @@ title: Verwenden eines öffentlichen SSH-Schlüssels mit Azure Stack Hub
 description: Verwenden eines öffentlichen SSH-Schlüssels
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 5f65b0ff096fbf84b140406b7cb98fdbdf5b0b11
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 1b5a83d8fa6626233acc3abbde69494310cbd06e
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "79295629"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146919"
 ---
 # <a name="use-an-ssh-public-key"></a>Verwenden eines öffentlichen SSH-Schlüssels
 
@@ -83,7 +83,7 @@ Bevor Sie die Verbindung herstellen, benötigen Sie Folgendes:
 
     ![PuTTY-Konfigurationsbereich: Privater SSH-Schlüssel](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)
 
-5. Wählen Sie neben dem Feld **Private key file for authentication** (Datei mit privatem Schlüssel für die Authentifizierung) die Option **Durchsuchen**, und suchen Sie für Ihr öffentlich-privates Schlüsselpaar dann nach der Datei mit dem privaten Schlüssel ( *\<Dateiname>.ppk*).
+5. Wählen Sie neben dem Feld **Private key file for authentication** (Datei mit privatem Schlüssel für die Authentifizierung) die Option **Durchsuchen**, und suchen Sie für Ihr öffentlich-privates Schlüsselpaar dann nach der Datei mit dem privaten Schlüssel ( *\<filename>.ppk*).
 6. Wählen Sie in der Struktur **Kategorie** die Option **Sitzung**.
 
     ![PuTTY-Konfigurationsbereich: Feld „Saved Sessions“ (Gespeicherte Sitzungen)](media/azure-stack-dev-start-howto-ssh-public-key/003-puTTY-save-session.png)
@@ -114,7 +114,7 @@ Zum Verschieben von Dateien für Ihren Linux-Computer können Sie FileZilla nutz
     ![FileZilla-Einstellungsbereich](media/azure-stack-dev-start-howto-ssh-public-key/006-filezilla-add-private-key.png)
 
 1. Erweitern Sie in der Struktur **Seite auswählen** die Option **Verbindung**, und wählen Sie **SFTP**.
-1. Wählen Sie **Add key file** (Schlüsseldatei hinzufügen), und geben Sie dann Ihre Datei mit dem privaten Schlüssel ein (z. B. *\<Dateiname>.ppk*).
+1. Wählen Sie **Add key file** (Schlüsseldatei hinzufügen), und geben Sie dann Ihre Datei mit dem privaten Schlüssel ein (z. B. *\<filename>.ppk*).
 1. Klicken Sie auf **OK**.
 
 ### <a name="open-your-connection"></a>Öffnen der Verbindung
