@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 7fd43ca4e9ccd6eda5f09198a7b2efe1e9da073a
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 222212a26362a617322b65f93509a0cd2a313999
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111403"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146868"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack-hub"></a>Verschieben Ihres Marketplace-Elementclusters in die AKS-Engine in Azure Stack Hub
 
@@ -28,12 +28,8 @@ Nachdem die über das Kubernetes-Azure Stack Hub-Marketplace-Element initiierte 
 4.  In Ihrer Sitzung auf dem virtuellen Bereitstellungscomputer finden Sie die AKS-Engine unter folgendem Pfad: `./var/lib/waagent/custom-script/download/0/bin/aks-engine`
 5.  Suchen Sie die Datei `.json`, in der die als Eingabe in der AKS-Engine verwendeten Cluster beschrieben werden. Die Datei befindet sich unter `/var/lib/waagent/custom-script/download/0/bin/azurestack.json`. Beachten Sie, dass die Datei die Dienstprinzipal-Anmeldeinformationen für die Bereitstellung des Clusters enthält. Wenn Sie die Datei aufbewahren möchten, empfiehlt es sich, sie in einen geschützten Speicher zu verschieben.
 6.  Navigieren Sie zu dem von der AKS-Engine generierten Ausgabeverzeichnis unter `/var/lib/waagent/custom-script/download/0/_output/<resource group name>`. Suchen Sie in diesem Verzeichnis die Ausgabe `apimodel.json` unter dem Pfad `/var/lib/waagent/custom-script/download/0/bin/apimodel.json`. Das Verzeichnis und die Datei `apimodel.json` enthalten alle generierten Zertifikate, Schlüssel und Anmeldeinformationen, die für die Bereitstellung des Kubernetes-Clusters benötigt wurden. Speichern Sie diese Ressourcen an einem sicheren Speicherort.
-<<<<<<< HEAD
-7.  Suchen Sie die Kubernetes-Konfigurationsdatei, die häufig als **kubeconfig**-Datei bezeichnet wird, unter dem Pfad `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json`, wobei **<location>** dem Azure Stack Hub-Speicherortbezeichner entspricht. Diese Datei ist nützlich, wenn Sie **kubectl** für den Zugriff auf Ihren Kubernetes-Cluster einrichten möchten.
-=======
-7.  Suchen Sie die Kubernetes-Konfigurationsdatei, die häufig als **kubeconfig**-Datei bezeichnet wird, unter dem Pfad `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json`, wobei **`<location>`** dem Azure Stack Hub-Speicherortbezeichner entspricht. Diese Datei ist nützlich, wenn Sie **kubectl** für den Zugriff auf Ihren Kubernetes-Cluster einrichten möchten.
+7.  Suchen Sie die Kubernetes-Konfigurationsdatei, die häufig als **kubeconfig**-Datei bezeichnet wird, unter dem Pfad `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json`, wobei **\<location>** dem Azure Stack Hub-Speicherortbezeichner entspricht. Diese Datei ist nützlich, wenn Sie **kubectl** für den Zugriff auf Ihren Kubernetes-Cluster einrichten möchten.
 
->>>>>>> bd9784471c39194c2918fd281a81b031ee90bafb
 
 ## <a name="use-the-aks-engine-with-your-newly-created-cluster"></a>Verwenden der AKS-Engine mit dem neu erstellten Cluster
 
@@ -47,4 +43,3 @@ Nachdem Sie die AKS-Engine, die Eingabedatei „apimodel.json“, das Ausgabever
 
 - Informieren Sie sich über die [AKS-Engine in Azure Stack Hub](azure-stack-kubernetes-aks-engine-overview.md).  
 - [Problembehandlung bei der AKS-Engine in Azure Stack Hub](azure-stack-kubernetes-aks-engine-troubleshoot.md)  
-
