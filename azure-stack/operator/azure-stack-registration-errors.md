@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 4b193ada5c9a188b725ea88dc2d5f54905a5e537
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: d4cd7b00b00f4447f9ba9a8bc341452ae6464897
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375082"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158332"
 ---
 # <a name="usage-and-billing-registration-error-codes"></a>Fehlercodes für Nutzungs- und Abrechnungsregistrierung
 
@@ -23,7 +23,7 @@ Wenn Sie CSP (Cloud Solution Provider, Cloudlösungsanbieter) sind, können die 
 | Fehler   | Details  | Kommentare  |
 |---|---|---|
 | RegistrationNotFound | Die bereitgestellte Registrierung wurde nicht gefunden. Stellen Sie sicher, dass die folgenden Informationen ordnungsgemäß bereitgestellt wurden:<br>1. Abonnementbezeichner (bereitgestellter Wert: **Abonnementbezeichner**),<br>2. Ressourcengruppe (bereitgestellter Wert: **Ressourcengruppe**),<br>3. Registrierungsname (bereitgestellter Wert: **Registrierungsname**). | Dieser Fehler tritt in der Regel auf, wenn die Informationen, die auf die anfängliche Registrierung verweisen, nicht korrekt sind. Wenn Sie die Ressourcengruppe und den Namen Ihrer Registrierung überprüfen müssen, finden Sie beides im Azure-Portal, indem Sie alle Ressourcen auflisten. Wenn Sie mehrere Registrierungsressourcen finden, sehen Sie sich die **CloudDeploymentID** in den Eigenschaften an, und wählen Sie die Registrierung, deren **CloudDeploymentID** derjenigen Ihrer Cloud entspricht. Sie können diesen PowerShell-Befehl auf Azure Stack Hub anwenden, um die **CloudDeploymentID** zu suchen:<br>`$azureStackStampInfo = Invoke-Command -Session $session -ScriptBlock { Get-AzureStackStampInformation }` |
-| BadCustomerSubscriptionId | Der bereitgestellte **Kundenabonnementbezeichner** und der Abonnementbezeichner für den **Registrierungsnamen** befinden sich nicht im Besitz desselben Microsoft-Cloudlösungsanbieters. Überprüfen Sie, ob der Kundenabonnementbezeichner korrekt ist. Wenden Sie sich an den Support, wenn das Problem weiterhin besteht. | Dieser Fehler tritt auf, wenn das Kundenabonnement ein CSP-Abonnement ist, aber zu einem anderen CSP-Partner als das in der anfänglichen Registrierung verwendete Abonnement gehört. Diese Überprüfung soll verhindern, dass ein CSP-Partner die Abrechnung erhält, der nicht für die verwendete Azure Stack Hub-Instanz verantwortlich ist. |
+| BadCustomerSubscriptionId | Der bereitgestellte **Kundenabonnementbezeichner** und der Abonnementbezeichner für den **Registrierungsnamen** befinden sich nicht im Besitz desselben Microsoft-Cloudlösungsanbieters. Überprüfen Sie, ob der Kundenabonnementbezeichner korrekt ist. Bei der Kundenabonnement-ID wird zwischen Groß-/Kleinschreibung unterschieden. Wenden Sie sich an den Support, wenn das Problem weiterhin besteht. | Dieser Fehler tritt auf, wenn das Kundenabonnement ein CSP-Abonnement ist, aber zu einem anderen CSP-Partner als das in der anfänglichen Registrierung verwendete Abonnement gehört. Diese Überprüfung soll verhindern, dass ein CSP-Partner die Abrechnung erhält, der nicht für die verwendete Azure Stack Hub-Instanz verantwortlich ist. |
 | InvalidCustomerSubscriptionId  | Der **Kundenabonnementbezeichner** ist ungültig. Stellen Sie sicher, dass ein gültiges Azure-Abonnement bereitgestellt wird. |   |
 | CustomerSubscriptionNotFound  | Der **Kundenabonnementbezeichner** wurde unter dem **Registrierungsnamen** nicht gefunden. Stellen Sie sicher, dass ein gültiges Azure-Abonnement verwendet wird, und dass die Abonnement-ID der Registrierung mithilfe von PUT hinzugefügt wurde. | Dieser Fehler tritt auf, wenn ein Benutzer überprüfen möchte, ob ein Mandant dem Abonnement hinzugefügt wurde, aber festgestellt wird, dass das Kundenabonnement nicht der Registrierung zugeordnet ist. Der Kunde wurde der Registrierung nicht hinzugefügt, bzw. die Abonnement-ID wurde falsch geschrieben. |
 | UnauthorizedCspRegistration | Der angegebene **Registrierungsname** ist nicht mehrinstanzenfähig. Senden Sie eine E-Mail an azstCSP@microsoft.com, und beziehen Sie Registrierungsnamen, Ressourcengruppe und den in der Registrierung verwendeten Abonnementbezeichner ein. | Die Mehrinstanzenfähigkeit einer Registrierung muss von Microsoft bestätigt werden, bevor Sie mit dem Hinzufügen von Mandanten beginnen können. |

@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: cdbe5150b72a720fa527d3bb1b1e32f5a66a6955
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0760e7d796c6e17c88089675fa6ff659eb684cc7
+ms.sourcegitcommit: 721b82b3a1711f2825ec76ab6d75964b4f508631
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295563"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84301027"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referenz für den Infrastructure Backup-Dienst
 
@@ -111,6 +111,15 @@ Sie sollten die Sicherung mindestens zweimal täglich durchführen und Sicherung
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SMB-Dateifreigabe, gehostet auf einem Speichergerät innerhalb der vertrauenswürdigen Netzwerkumgebung. | Port 445 ist erforderlich, wenn sich die Azure Stack Hub-Instanz in einer Umgebung mit Firewall befindet. Infrastructure Backup Controller initiiert eine Verbindung mit dem SMB-Dateiserver über Port 445. |
 | Zur Verwendung des FQDN des Dateiservers muss der Name über den PEP aufgelöst werden können.             |                                                                                                                                                                                         |
+
+#### <a name="firewall-rules"></a>Firewallregeln
+Stellen Sie sicher, dass Sie Firewallregeln einrichten, um Verbindungen zwischen den ERCS-VMs und dem externen Speicherort zuzulassen. 
+
+| `Source` | Ziel | Protokoll/Port |
+|------------------|-----------------------|--------------------------------|
+| ERCS-VM 1        | Speicherort      | 445/SMB                        |
+| ERCS-VM 2        | Speicherort      | 445/SMB                        |
+| ERCS-VM 3        | Speicherort      | 445/SMB                        |
 
 > [!Note]  
 > Es müssen keine eingehenden Ports geöffnet werden.

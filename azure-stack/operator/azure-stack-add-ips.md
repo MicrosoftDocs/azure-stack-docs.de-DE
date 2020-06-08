@@ -3,20 +3,22 @@ title: Hinzufügen öffentlicher IP-Adressen in Azure Stack Hub
 description: Erfahren Sie, wie Sie Azure Stack Hub öffentliche IP-Adressen hinzufügen.
 author: justinha
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/28/2020
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 8cd89a90cb29c802c79e900e07cdb50bfe9c0894
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 423f274dab5569273cc35ec4aac6b082326217f3
+ms.sourcegitcommit: f4c2d5b87bc86ac4accb4d4df5b731b67d1a346c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847910"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203135"
 ---
 # <a name="add-public-ip-addresses"></a>Hinzufügen öffentlicher IP-Adressen
 
-In diesem Artikel werden externe Adressen als öffentliche IP-Adressen bezeichnet. Im Kontext von Azure Stack Hub ist eine öffentliche IP-Adresse eine IP-Adresse, auf die von außerhalb von Azure Stack Hub zugegriffen werden kann. Ob dieses externe Netzwerk öffentlich internetroutingfähig ist oder sich in einem Intranet befindet und einen privaten Adressraum verwendet, spielt für die Zwecke dieses Artikels keine Rolle, da die Schritte identisch sind.
+In diesem Artikel werden externe Adressen als öffentliche IP-Adressen bezeichnet. Im Kontext von Azure Stack Hub ist eine öffentliche IP-Adresse eine IP-Adresse, auf die von außerhalb von Azure Stack Hub zugegriffen werden kann. Ob dieses externe Netzwerk öffentlich internetroutingfähig ist oder sich in einem Intranet befindet und einen privaten Adressraum verwendet, spielt für die Zwecke dieses Artikels keine Rolle, da die Schritte identisch sind. 
+
+Sie können zwar mehrere IP-Pools einrichten, Sie können jedoch nicht auswählen, welcher Pool verwendet wird. Azure Stack Hub verwendet alle IP-Pools als einen Thread. Wenn Sie eine Ressource erstellen, können Sie keine IP-Adresse für die Zuweisung auswählen.
 
 > [!IMPORTANT]
 > Die Schritte in diesem Artikel gelten nur für Systeme, die mit dem Partner-Toolkit, Version 1809 oder höher bereitgestellt wurden. Für Systeme, die vor Version 1809 bereitgestellt wurden, müssen die Zugriffssteuerungslisten (Access Control Lists, ACLs) des TOR-Switches (Top-of-Rack) aktualisiert werden, um den neuen öffentlichen VIP-Poolbereich ZUZULASSEN. Wenn Sie ältere Switchkonfigurationen ausführen, wenden Sie sich an ihren OEM, um entweder die entsprechenden ZULASSUNGS-ACLs für den neuen öffentlichen IP-Pool hinzuzufügen, oder wiederholen Sie die Konfiguration des Switches mit dem neuesten Partner-Toolkit, um zu verhindern, dass die neuen öffentlichen IP-Adressen blockiert werden.

@@ -6,16 +6,15 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ms.openlocfilehash: 372df0bdb99ce06b22912e9e5c175af07620f5f4
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ms.openlocfilehash: 011018493cee92d23675369a9704f5bcf3503ebe
+ms.sourcegitcommit: fe9b2fae89e595c8e739251b7a0d6ea3a0d8659a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988312"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84262666"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Verwenden einer App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen
-
-Eine Anwendung, die Ressourcen über Azure Resource Manager bereitstellen oder konfigurieren muss, muss durch ihre eigene Identität repräsentiert werden. Genau wie ein Benutzer durch einen als Benutzerprinzipal bezeichneten Sicherheitsprinzipal repräsentiert wird, wird eine App durch einen Dienstprinzipal repräsentiert. Der Dienstprinzipal bietet eine Identität für Ihre App, wodurch es Ihnen ermöglicht wird, nur die erforderlichen Berechtigungen an die App zu delegieren.  
+<meta name="robots" content="nosnippet"> Eine Anwendung, die Ressourcen über Azure Resource Manager bereitstellen oder konfigurieren muss, muss durch ihre eigene Identität repräsentiert werden. Genau wie ein Benutzer durch einen als Benutzerprinzipal bezeichneten Sicherheitsprinzipal repräsentiert wird, wird eine App durch einen Dienstprinzipal repräsentiert. Der Dienstprinzipal bietet eine Identität für Ihre App, wodurch es Ihnen ermöglicht wird, nur die erforderlichen Berechtigungen an die App zu delegieren.  
 
 Beispiel: Sie verfügen über eine App für die Konfigurationsverwaltung, die Azure Resource Manager zum Inventarisieren von Azure-Ressourcen einsetzt. In diesem Szenario können Sie einen Dienstprinzipal erstellen, diesem die Rolle „Leser“ gewähren und die Konfigurationsverwaltungs-App auf einen schreibgeschützten Zugriff beschränken.
 
@@ -337,7 +336,7 @@ Der Typ der Ressource, die Sie auswählen, bestimmt auch den *Zugriffsbereich* f
 3. Wählen Sie die Seite **Zugriffssteuerung (IAM)** aus, die für alle Ressourcen universell ist, die rollenbasierte Zugriffssteuerung unterstützen.
 4. Wählen Sie **+ Hinzufügen** aus.
 5. Wählen Sie unter **Rolle** die Rolle aus, die Sie der App zuweisen möchten.
-6. Suchen Sie unter **Auswählen** nach Ihrer App, indem Sie einen vollständigen Anwendungsnamen oder einen Teil eines solchen Namens verwenden. Während der Registrierung wird der Anwendungsname als *Azurestack -\<NameIhrerApp\>-\<ClientID\>* generiert. Wenn Sie beispielsweise den Anwendungsnamen *App2* verwendet haben, und die ClientID *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* während der Erstellung zugewiesen wurde, wäre der vollständige Name *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Sie können entweder nach der exakten Zeichenfolge oder nach einem Teil davon suchen, z. B. *Azurestack* oder *Azurestack-App2*.
+6. Suchen Sie unter **Auswählen** nach Ihrer App, indem Sie einen vollständigen Anwendungsnamen oder einen Teil eines solchen Namens verwenden. Während der Registrierung wird der Anwendungsname im Format *Azurestack-\<YourAppName\>-\<ClientId\>* generiert. Wenn Sie beispielsweise den Anwendungsnamen *App2* verwendet haben, und die ClientID *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* während der Erstellung zugewiesen wurde, wäre der vollständige Name *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Sie können entweder nach der exakten Zeichenfolge oder nach einem Teil davon suchen, z. B. *Azurestack* oder *Azurestack-App2*.
 7. Sobald Sie die App gefunden haben, wählen Sie sie aus, und sie wird unter **Ausgewählte Mitglieder** angezeigt.
 8. Wählen Sie **Speichern** aus, um das Zuweisen der Rolle abzuschließen.
 

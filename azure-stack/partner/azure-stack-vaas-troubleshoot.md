@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1bcca404c451190ccf1d0b82e93aea655e069044
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 310a8a8d958428af2ce29f6c465a788e64870b8e
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661402"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146970"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Problembehandlung für Validation-as-a-Service
 
@@ -40,13 +40,22 @@ Wenn der Agent-Prozess nicht ordnungsgemäß heruntergefahren wird, wird der auf
 
 ## <a name="vm-images"></a>VM-Images
 
+### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>Fehler beim Hochladen eines VM-Images im Skript `VaaSPreReq`
+Lesen Sie den Abschnitt **Behandeln langsamer Netzwerkverbindung** weiter unten. Dort finden Sie manuelle Schritte zum Hochladen der VM-Images in den Azure Stack-Stempel.
+
 ### <a name="handle-slow-network-connectivity"></a>Behandeln langsamer Netzwerkverbindung
 
-Sie können das PIR-Image in eine Freigabe in Ihrem lokalen Rechenzentrum herunterladen. Dann können Sie das Image überprüfen.
+#### <a name="1-verify-that-the-environment-is-healthy"></a>1. Überprüfen der Umgebung auf Fehlerfreiheit
+
+1. Überprüfen Sie in der DVM/Jumpbox, ob Sie sich mit den Administratoranmeldeinformationen beim Verwaltungsportal anmelden können.
+
+2. Vergewissern Sie sich, dass keine Benachrichtigungen oder Warnungen vorhanden sind.
+
+3. Wenn die Umgebung fehlerfrei ist, laden Sie die erforderlichen VM-Images manuell für VaaS-Testläufe hoch, indem Sie die Schritte im Abschnitt unten ausführen:
 
 <!-- This is from the appendix to the Deploy local agent topic. -->
 
-#### <a name="download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>Herunterladen eines PIR-Images in die lokale Freigabe bei einem langsamen Netzwerkdatenverkehr
+#### <a name="2-download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>2. Herunterladen eines PIR-Images in die lokale Freigabe bei einem langsamen Netzwerkdatenverkehr
 
 1. Laden Sie AzCopy hier herunter: [vaasexternaldependencies(AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip).
 
@@ -67,7 +76,7 @@ Sie können das PIR-Image in eine Freigabe in Ihrem lokalen Rechenzentrum herunt
 > [!Note]  
 > LocalFileShare ist der Freigabepfad oder der lokale Pfad.
 
-#### <a name="verifying-pir-image-file-hash-value"></a>Überprüfen des Hashwerts von PIR-Imagedateien
+#### <a name="3-verifying-pir-image-file-hash-value"></a>3. Überprüfen des Hashwerts von PIR-Imagedateien
 
 Sie können das **Get-HashFile**-Cmdlet verwenden, um den Hashwert für die heruntergeladenen PIR-Imagedateien abzurufen und die Integrität der Images zu überprüfen.
 
@@ -81,19 +90,26 @@ Sie können das **Get-HashFile**-Cmdlet verwenden, um den Hashwert für die heru
 | OpenLogic-CentOS-69-20180105.vhd | C8B874FE042E33B488110D9311AF1A5C7DC3B08E6796610BF18FDD6728C7913C |
 | Debian8_latest.vhd | 06F8C11531E195D0C90FC01DFF5DC396BB1DD73A54F8252291ED366CACD996C1 |
 
-### <a name="failure-happens-when-uploading-vm-image-in-the-vaasprereq-script"></a>Fehler beim Hochladen eines VM-Images im Skript `VaaSPreReq`
+#### <a name="4-upload-vm-images-to-a-storage-account"></a>4. Hochladen der VM-Images in ein Speicherkonto
 
-Überprüfen Sie zunächst, ob die Umgebung fehlerfrei ist:
+1. Verwenden Sie ein vorhandenes Speicherkonto, oder erstellen Sie ein neues in Azure.
 
-1. Überprüfen Sie in der DVM/Jumpbox, ob Sie sich mit den Administratoranmeldeinformationen beim Administratorportal anmelden können.
-1. Vergewissern Sie sich, dass keine Benachrichtigungen oder Warnungen vorhanden sind.
+2. Erstellen Sie einen Container, in den die Images hochgeladen werden.
 
-Wenn die Umgebung fehlerfrei ist, laden Sie manuell die fünf erforderlichen VM-Images für VaaS-Testläufe hoch:
+3. Laden Sie die VM-Images aus dem [*LocalFileShare*] oben (in den Sie die VM-Images hochgeladen haben) in den soeben erstellten Container hoch.
+    > [!IMPORTANT]
+    > Ändern Sie „Öffentliche Zugriffsebene“ des Containers in „Blob (anonymer Lesezugriff nur für Blobs)“.
 
-1. Melden Sie sich als Dienstadministrator beim Administratorportal an. Die Administratorportal-URL finden Sie im ECE-Store und in Ihrer Stempelinformationsdatei. Anweisungen hierzu finden Sie unter [Umgebungsparameter](azure-stack-vaas-parameters.md#environment-parameters).
-1. Wählen Sie **Weitere Dienste** > **Ressourcenanbieter** > **Compute** > **VM-Images** aus.
-1. Wählen Sie die Schaltfläche **+ Hinzufügen** am oberen Rand des Blatts **VM-Images** aus.
-1. Ändern oder überprüfen Sie die Werte der folgenden Felder für das erste VM-Image:
+#### <a name="5-upload-vm-images-to-azure-stack-environment"></a>5. Hochladen der VM-Images in die Azure Stack Umgebung
+
+1. Melden Sie sich als Dienstadministrator beim Verwaltungsportal an. Die Administratorportal-URL finden Sie im ECE-Store und in Ihrer Stempelinformationsdatei. Anweisungen hierzu finden Sie unter [Umgebungsparameter](azure-stack-vaas-parameters.md#environment-parameters).
+
+2. Wählen Sie **Weitere Dienste** > **Ressourcenanbieter** > **Compute** > **VM-Images** aus.
+
+3. Wählen Sie die Schaltfläche **+ Hinzufügen** am oberen Rand des Blatts **VM-Images** aus.
+
+4. Ändern oder überprüfen Sie die Werte der folgenden Felder für das erste VM-Image:
+
     > [!IMPORTANT]
     > Nicht alle Standardwerte sind für das vorhandene Marketplace-Element richtig.
 
@@ -104,22 +120,24 @@ Wenn die Umgebung fehlerfrei ist, laden Sie manuell die fünf erforderlichen VM-
     | Betriebssystemtyp | Windows |
     | SKU | 2012-R2-Datacenter |
     | Version | 1.0.0 |
-    | Betriebssystem-Datenträgerblob-URI | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
+    | Betriebssystem-Datenträgerblob-URI | https://<*Speicherkonto*>/<*Containername*>/WindowsServer2012R2DatacenterBYOL.vhd |
 
-1. Wählen Sie die Schaltfläche **Erstellen**.
-1. Wiederholen Sie diesen Vorgang für die verbleibenden VM-Images.
 
-Alle fünf VM-Images weisen die folgenden Eigenschaften auf:
+5. Wählen Sie die Schaltfläche **Erstellen**.
+
+6. Wiederholen Sie diesen Vorgang für die verbleibenden VM-Images.
+
+Alle erforderlichen VM-Images weisen die folgenden Eigenschaften auf:
 
 | Herausgeber  | Angebot  | Betriebssystemtyp | SKU | Version | Betriebssystem-Datenträgerblob-URI |
 |---------|---------|---------|---------|---------|---------|
-| MicrosoftWindowsServer| Windows Server | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
-| MicrosoftWindowsServer | Windows Server | Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
-| MicrosoftWindowsServer | Windows Server | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
-| Canonical | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
-| Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |
-| OpenLogic | CentOS | Linux | 6.9 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/OpenLogic-CentOS-69-20180105.vhd |
-| credativ | Debian | Linux | 8 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Debian8_latest.vhd |
+| MicrosoftWindowsServer| Windows Server | Windows | 2012-R2-Datacenter | 1.0.0 | https://[*Speicherkonto*]/[*Containername*]/WindowsServer2012R2DatacenterBYOL.vhd |
+| MicrosoftWindowsServer | Windows Server | Windows | 2016-Datacenter | 1.0.0 | https://[*Speicherkonto*]/[*Containername*]/Server2016DatacenterFullBYOL.vhd |
+| MicrosoftWindowsServer | Windows Server | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://[*Speicherkonto*]/[*Containername*]/Server2016DatacenterCoreBYOL.vhd |
+| Canonical | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://[*Speicherkonto*]/[*Containername*]/Ubuntu1404LTS.vhd |
+| Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://[*Speicherkonto*]/[*Containername*]/Ubuntu1604-20170619.1.vhd |
+| OpenLogic | CentOS | Linux | 6.9 | 1.0.0 | https://[*Speicherkonto*]/[*Containername*]/OpenLogic-CentOS-69-20180105.vhd |
+| Credativ | Debian | Linux | 8 | 1.0.0 | https://[*Speicherkonto*]/[*Containername*]/Debian8_latest.vhd |
 
 ## <a name="next-steps"></a>Nächste Schritte
 

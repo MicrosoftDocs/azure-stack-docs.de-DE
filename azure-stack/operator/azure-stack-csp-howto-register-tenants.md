@@ -3,16 +3,16 @@ title: Hinzufügen von Mandanten für Nutzung und Abrechnung zu Azure Stack Hub
 description: Finden Sie heraus, wie Sie einen Mandanten für die Nutzung und Abrechnung zu Azure Stack Hub hinzufügen.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/24/2020
+ms.date: 5/28/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: d5a846d762d0dab8d07a16c7a7b6f147d8a92324
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.lastreviewed: 5/28/2020
+ms.openlocfilehash: 08185a25c608c735aa99ca7f7d2b060c8b67042b
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167023"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158383"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Hinzufügen eines Mandanten für Nutzung und Abrechnung zu Azure Stack Hub
 
@@ -72,7 +72,7 @@ Im folgenden Abschnitt werden die Parameter für das Cmdlet **New-AzureRmResourc
 | Parameter | BESCHREIBUNG |
 | --- | --- |
 |registrationSubscriptionID | Das Azure-Abonnement, das für die anfängliche Registrierung von Azure Stack Hub verwendet wurde.|
-| customerSubscriptionID | Das Azure-Abonnement (nicht Azure Stack Hub), das zu dem Kunden gehört, der registriert werden soll. Muss im CSP-Angebot erstellt werden. In der Praxis über das Partner Center. Wenn ein Kunde über mehrere Azure Active Directory-Mandanten verfügt, muss dieses Abonnement in dem Mandanten erstellt werden, der zum Anmelden bei Azure Stack Hub verwendet wird. Die Kundenabonnement-ID muss aus Kleinbuchstaben bestehen. |
+| customerSubscriptionID | Das Azure-Abonnement (nicht Azure Stack Hub), das zu dem Kunden gehört, der registriert werden soll. Muss im CSP-Angebot erstellt werden. In der Praxis über das Partner Center. Wenn ein Kunde über mehrere Azure Active Directory-Mandanten verfügt, muss dieses Abonnement in dem Mandanten erstellt werden, der zum Anmelden bei Azure Stack Hub verwendet wird. Bei der Kundenabonnement-ID wird zwischen Groß-/Kleinschreibung unterschieden. |
 | resourceGroup | Die Ressourcengruppe in Azure, in dem Ihre Registrierung gespeichert ist. |
 | registrationName | Der Name der Registrierung Ihrer Azure Stack Hub-Instanz. Dies ist ein in Azure gespeichertes Objekt. 
 

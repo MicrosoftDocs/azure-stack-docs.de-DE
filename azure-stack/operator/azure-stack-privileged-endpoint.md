@@ -7,12 +7,12 @@ ms.date: 04/28/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
-ms.openlocfilehash: 8c68e7dd4aa40d448e76050e4c657ee4cea9763b
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: ff1a4f255f81c10c29c87320bdb71fcbaf9b234b
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82556398"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158349"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Verwenden des privilegierten Endpunkts in Azure Stack Hub
 
@@ -87,6 +87,8 @@ Sie müssen die aktuelle Kultureinstellung auf `en-US` festlegen, wenn Sie den p
       > Wenn Sie keine Verbindung mit dem ERCS-Endpunkt herstellen können, wiederholen Sie die Schritte 1 und 2 mit einer anderen ERCS-VM-IP-Adresse.
 
 3. Nachdem Sie eine Verbindung hergestellt haben, ändert sich die Eingabeaufforderung in **[*IP-Adresse oder ERCS-VM-Name*]: PS>** oder zu **[azs-ercs01]: PS>** (abhängig von der Umgebung). Führen Sie `Get-Command` aus, um die Liste der verfügbaren Cmdlets anzuzeigen.
+
+    Eine Referenz zu Cmdlets finden Sie unter [Referenz zu privilegierten Azure Stack Hub-Endpunkten](../reference/pep-2002/index.md).
 
    Viele dieser Cmdlets sind nur für integrierte Systemumgebungen vorgesehen (z.B. die Cmdlets im Zusammenhang mit der Datacenter-Integration). In der ASDK wurden die folgenden Cmdlets überprüft:
 

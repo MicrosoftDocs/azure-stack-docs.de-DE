@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: b067428a9096855f38f8e1f33a601010dc27359c
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 89ef1d91ae2c6cb41a26bed04cb87abf33da1650
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742309"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158366"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack Hub
 
@@ -40,7 +40,7 @@ Weitere Informationen zu Azure Stack Hub und API-Profilen finden Sie unter [Verw
 | Parameter                  | BESCHREIBUNG |
 |---                         | --- |
 | registrationSubscriptionID | Das Azure-Abonnement, das für die anfängliche Registrierung verwendet wurde. |
-| customerSubscriptionID     | Das Azure-Abonnement (nicht Azure Stack Hub), das zu dem Kunden gehört, der registriert werden soll. Muss im CSP-Angebot (Cloud Solution Provider) über Partner Center erstellt werden. Wenn ein Kunde über mehrere Mandanten verfügt, erstellen Sie für den Mandanten ein Abonnement zum Anmelden bei Azure Stack Hub. |
+| customerSubscriptionID     | Das Azure-Abonnement (nicht Azure Stack Hub), das zu dem Kunden gehört, der registriert werden soll. Muss im CSP-Angebot (Cloud Solution Provider) über Partner Center erstellt werden. Wenn ein Kunde über mehrere Mandanten verfügt, erstellen Sie für den Mandanten ein Abonnement zum Anmelden bei Azure Stack Hub. Bei der Kundenabonnement-ID wird zwischen Groß-/Kleinschreibung unterschieden. |
 | resourceGroup              | Die Ressourcengruppe in Azure, in dem Ihre Registrierung gespeichert ist. |
 | registrationName           | Der Name der Registrierung Ihrer Azure Stack Hub-Instanz. Dies ist ein in Azure gespeichertes Objekt. Der Name hat in der Regel die Form **azurestack-CloudID**, wobei **CloudID** die Cloud-ID Ihrer Azure Stack Hub-Bereitstellung ist. |
 
@@ -124,7 +124,7 @@ Sie können einen Mandanten entfernen, der einer Registrierung hinzugefügt wurd
 | registrationSubscriptionID | Abonnement-ID für die Registrierung.   |
 | resourceGroup              | Die Ressourcengruppe für die Registrierung.   |
 | registrationName           | Der Name der Registrierung.  |
-| customerSubscriptionID     | Die Kundenabonnement-ID.  |
+| customerSubscriptionID     | Die Kundenabonnement-ID. Bei der Kundenabonnement-ID wird zwischen Groß-/Kleinschreibung unterschieden.  |
 
 ### <a name="powershell"></a>PowerShell
 
