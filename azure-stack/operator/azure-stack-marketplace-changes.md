@@ -3,16 +3,16 @@ title: Neuerungen im Azure Stack Hub-Marketplace
 description: Hier finden Sie Informationen zu den Neuerungen im Azure Stack Hub-Marketplace, u. a. zu neuen, veralteten und aktualisierten Marketplace-Elementen.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/18/2020
+ms.date: 05/22/2020
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 952c77069126288bfe41f9775140aea44071580a
-ms.sourcegitcommit: 458ffe9638bd358e6b5d9e79145b4c1b70c3bacd
+ms.lastreviewed: 05/22/2020
+ms.openlocfilehash: 9d9f86dce51b13960a7543636e79954a71992a84
+ms.sourcegitcommit: f2203f070c17e19ba1a41d681662bac3ab50ed12
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83550145"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83854353"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Änderungen im Azure Stack Hub-Marketplace
 
@@ -63,6 +63,24 @@ Der Artikel [Azure Stack Hub-Marketplace-Elemente](azure-stack-marketplace-azure
 
 ## <a name="updated-marketplace-items"></a>Aktualisierte Marketplace-Elemente
 
+- 21.05.2020 Ubuntu Server 16.04 LTS – Version 16.04.202004290
+- 21.05.2020 Ubuntu Server 18.04 LTS – Version 18.04.202004080
+- 21.05.2020 Windows Server 2008 R2 SP1 BYOL – Version 7601.24552.2004101827
+- 21.05.2020 Windows Server 2008 R2 SP1 (nutzungsbasierte Bezahlung) – Version 7601.24552.2004101827
+- 21.05.2020 Windows Server 2012 Datacenter (BYOL) – Version 9200.23016.2004101828
+- 21.05.2020 Windows Server 2012 Datacenter (nutzungsbasierte Bezahlung) – Version 9200.23016.2004101828
+- 21.05.2020 Windows Server 2012 R2 Datacenter (BYOL) – Version 9600.19676.2004101829
+- 21.05.2020 Windows Server 2012 R2 Datacenter (nutzungsbasierte Bezahlung) – Version 9600.19676.2004101829
+- 21.05.2020 Windows Server 2016 Datacenter (BYOL) – Version 14393.3630.2004101604
+- 21.05.2020 Windows Server 2016 Datacenter (nutzungsbasierte Bezahlung) – Version 14393.3630.2004101604
+- 21.05.2020 Windows Server 2016 Datacenter Server Core (BYOL) – Version 14393.3630.2004101604
+- 21.05.2020 Windows Server 2016 Datacenter Server Core (nutzungsbasierte Bezahlung) – Version 14393.3630.2004101604
+- 21.05.2020 Windows Server 2019 Datacenter Server Core (BYOL) – Version 17763.1158.2004131759
+- 21.05.2020 Windows Server 2019 Datacenter Server Core (nutzungsbasierte Bezahlung) – Version 17763.1158.2004131759
+- 21.05.2020 Windows Server 2019 Datacenter (BYOL) – Version 17763.1158.2004131759
+- 21.05.2020 Windows Server 2019 Datacenter (nutzungsbasierte Bezahlung) – Version 17763.1158.2004131759
+- 21.05.2020 Windows Server 2019 Datacenter mit Containern (BYOL) – Version 17763.1158.2004131759
+- 21.05.2020 Windows Server 2019 Datacenter mit Containern (nutzungsbasierte Bezahlung) – Version 17763.1158.2004131759
 - 15.05.2020: Bitnami AbanteCart: Version 1.2.2004220207
 - 15.05.2020: Bitnami Canvas LMS: Version 2020.5.2005120909
 - 15.05.2020: Bitnami Neos: Version 5.2.2005130917

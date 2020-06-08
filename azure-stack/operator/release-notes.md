@@ -3,16 +3,16 @@ title: 'Azure Stack Hub: Versionshinweise'
 description: Versionshinweise für integrierte Azure Stack Hub-Systeme, einschließlich Updates und Fehlerbehebungen.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 05/21/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 54f993cd76f0d850e0dd82a2e1b9817806f2c517
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ms.openlocfilehash: d8da583fbf954857e2331ce963ec2ae7f0883ea2
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988319"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780810"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -162,7 +162,7 @@ Azure Stack Hub-Hotfixes gelten nur für integrierte Azure Stack Hub-Systeme. Ve
 Das Release 2002 von Azure Stack Hub muss auf das Release 1910 mit den folgenden Hotfixes angewendet werden:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub-Hotfix 1.1910.37.132](https://support.microsoft.com/help/4550133)
+- [Azure Stack Hub-Hotfix 1.1910.40.138](https://support.microsoft.com/help/4558082)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Nach erfolgreicher Anwendung des Updates 2002
 
@@ -319,14 +319,14 @@ Azure Stack Hub-Hotfixes gelten nur für integrierte Azure Stack Hub-Systeme. Ve
 Das Release 1910 von Azure Stack Hub muss auf das Release 1908 mit den folgenden Hotfixes angewendet werden:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub-Hotfix 1.1908.25.78](https://support.microsoft.com/help/4552361)
+- [Azure Stack Hub-Hotfix 1.1908.29.87](https://support.microsoft.com/help/4558083)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>Nach erfolgreicher Anwendung des Updates 1910
 
 Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes. Weitere Informationen finden Sie in unserer [Wartungsrichtlinie](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub-Hotfix 1.1910.37.132](https://support.microsoft.com/help/4550133)
+- [Azure Stack Hub-Hotfix 1.1910.40.138](https://support.microsoft.com/help/4558082)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -405,7 +405,7 @@ Für das Azure Stack Hub-Update 1908 ist **Azure Stack Hub-OEM-Version 2.1 oder
 Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes. Weitere Informationen finden Sie in unserer [Wartungsrichtlinie](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub-Hotfix 1.1908.25.78](https://support.microsoft.com/help/4552361)
+- [Azure Stack Hub-Hotfix 1.1908.29.87](https://support.microsoft.com/help/4558083)
 ::: moniker-end
 
 ::: moniker range="azs-1907"

@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: cda4a78a507f94d5e40f723cb5489a9e79990d50
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ms.openlocfilehash: 497a051c67b05683a874de955c069256c19bba9a
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988295"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780785"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrieren von Azure Stack Hub in Azure
 
@@ -252,7 +252,7 @@ Wenn Sie Azure Stack Hub in einer nicht verbundenen Umgebung (ohne Internetverbi
 
 ### <a name="connect-to-azure-and-register"></a>Verbinden mit Azure und Registrieren
 
-Führen Sie auf dem Computer, der mit dem Internet verbunden ist, die gleichen Schritte aus, um das Modul „RegisterWithAzure.psm1“ zu importieren und sich im richtigen Azure PowerShell-Kontext anzumelden. Rufen Sie dann „Register-AzsEnvironment“ auf. Geben Sie das Registrierungstoken für die Registrierung bei Azure an. Wenn Sie mehrere Instanzen von Azure Stack Hub mit der gleichen Azure-Abonnement-ID registrieren, legen Sie einen eindeutigen Namen für die Registrierung fest.
+Führen Sie auf dem Computer, der mit dem Internet verbunden ist, die gleichen Schritte aus, um das Modul „RegisterWithAzure.psm1“ zu importieren und sich im richtigen Azure PowerShell-Kontext anzumelden. Rufen Sie dann „Register-AzsEnvironment“ auf. Geben Sie das Registrierungstoken für die Registrierung bei Azure an. Wenn Sie mehrere Instanzen von Azure Stack Hub mit der gleichen Azure-Abonnement-ID registrieren, legen Sie einen eindeutigen Namen für die Registrierung fest.
 
 Sie benötigen Ihr Registrierungstoken und einen eindeutigen Tokennamen.
 
@@ -357,22 +357,40 @@ In folgenden Fällen müssen Sie Ihre Registrierung aktualisieren oder verlänge
 - Wenn Sie Ihr Abrechnungsmodell ändern.
 - Wenn Sie Änderungen für die kapazitätsbasierte Abrechnung vornehmen (Knoten hinzufügen/entfernen).
 
+### <a name="prerequisites"></a>Voraussetzungen
+
+Sie benötigen die folgenden Informationen im [Administratorportal](#verify-azure-stack-hub-registration), um die Registrierung zu erneuern oder zu ändern:
+
+| Administratorportal | Cmdlet-Parameter | Notizen | 
+|-----|-----|-----|
+| ABONNEMENT-ID FÜR DIE REGISTRIERUNG | Subscription | Die bei der vorherigen Registrierung verwendete Abonnement-ID |
+| RESSOURCENGRUPPE FÜR DIE REGISTRIERUNG | ResourceGroupName | Die Ressourcengruppe, in der die vorherige Registrierungsressource vorhanden ist |
+| REGISTRIERUNGSNAME | RegistrationName | Der bei der vorherigen Registrierung verwendete Registrierungsname |
+
 ### <a name="change-the-subscription-you-use"></a>Ändern des verwendeten Abonnements
 
-Wenn Sie das von Ihnen verwendete Abonnement ändern möchten, müssen Sie zuerst das Cmdlet **Remove-AzsRegistration** ausführen und sich anschließend vergewissern, dass Sie im richtigen Azure PowerShell-Kontext angemeldet sind. Führen Sie dann **Set-AzsRegistration** mit allen geänderten Parametern (einschließlich `<billing model>`) aus. Bei der Ausführung von **Remove-AzsRegistration** müssen Sie bei dem Abonnement angemeldet sein, das bei der Registrierung verwendet wurde, und die Werte der Parameter `RegistrationName` und `ResourceGroupName` wie im Administratorportal gezeigt verwenden ([Ermitteln aktueller Registrierungsdetails](#verify-azure-stack-hub-registration)):
+Wenn Sie das von Ihnen verwendete Abonnement ändern möchten, müssen Sie zuerst das Cmdlet **Remove-AzsRegistration** ausführen und sich anschließend vergewissern, dass Sie im richtigen Azure PowerShell-Kontext angemeldet sind. Führen Sie dann **Set-AzsRegistration** mit allen geänderten Parametern (einschließlich `<billing model>`) aus. Bei der Ausführung von **Remove-AzsRegistration** müssen Sie bei dem Abonnement angemeldet sein, das bei der Registrierung verwendet wurde, und die Werte der Parameter `RegistrationName` und `ResourceGroupName` wie im [Administratorportal](#verify-azure-stack-hub-registration) angezeigt verwenden:
 
   ```powershell  
+  # select the subscription used during the registration (shown in portal)
+  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  # unregister using the parameter values from portal
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
-  Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
+  # switch to new subscription id
+  Select-AzureRmSubscription -Subscription '<New subscription ID>'
+  # register 
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' --ResourceGroupName '<Registration resource group name>'
   ```
 
-### <a name="change-the-billing-model-or-how-to-offer-features"></a>Ändern des Abrechnungsmodells oder des Angebots von Features
+### <a name="change-billing-model-how-features-are-offered-or-re-register-your-instance"></a>Ändern des Abrechnungsmodells, des Verfahrens zum Anbieten von Features oder erneutes Registrieren Ihrer Instanz
 
-Wenn Sie das Abrechnungsmodell oder das Angebot von Features für Ihre Installation ändern möchten, können Sie die Registrierungsfunktion aufrufen, um die neuen Werte festzulegen. Die aktuelle Registrierung muss zuvor nicht entfernt werden:
+Dieser Abschnitt bietet Anweisungen für den Fall, dass Sie das Abrechnungsmodell ändern möchten, dass Sie ändern möchten, wie Features angeboten werden, oder dass Sie die Instanz erneut registrieren möchten. In allen diesen Fällen wird die-Registrierungsfunktion aufgerufen, um die neuen Werte festzulegen. Die aktuelle Registrierung muss zuvor nicht entfernt werden. Melden Sie sich mit der Abonnement-ID an, die im [Administratorportal](#verify-azure-stack-hub-registration) angezeigt wird. Führen Sie dann die Registrierung erneut mit einem neuen `BillingModel`-Wert aus,und lassen Sie die im [Administratorportal](#verify-azure-stack-hub-registration) angezeigten Werte für die Parameter `RegistrationName` und `ResourceGroupName` unverändert:
 
   ```powershell  
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
+  # select the subscription used during the registration
+  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  # rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   ```
 ::: zone-end
 
@@ -389,7 +407,7 @@ Sie müssen zuerst die Aktivierungsressource aus Azure Stack Hub und dann die Re
 
 Zum Entfernen der Aktivierungsressource in Azure Stack Hub führen Sie die folgenden PowerShell-Cmdlets in Ihrer Azure Stack Hub-Umgebung aus:  
 
-  ```Powershell
+  ```powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
@@ -397,21 +415,20 @@ Um die Registrierungsressource in Azure zu entfernen, vergewissern Sie sich als 
 
 Sie können das Registrierungstoken verwenden, mit dem die Ressource erstellt wurde:  
 
-  ```Powershell
+  ```powershell
   $RegistrationToken = "<registration token>"
   Unregister-AzsEnvironment -RegistrationToken $RegistrationToken
   ```
 
-Alternativ können Sie den Registrierungsnamen nutzen:
+Oder Sie können den Registrierungsnamen und die Registrierungsressourcengruppe aus dem [Administratorportal](#verify-azure-stack-hub-registration) verwenden:
 
-  ```Powershell
-  $RegistrationName = "AzureStack-<unique-registration-name>"
-  Unregister-AzsEnvironment -RegistrationName $RegistrationName
+  ```powershell
+  Unregister-AzsEnvironment -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   ```
 
 ### <a name="re-register-using-connected-steps"></a>Erneutes Registrieren in einem verbundenen Szenario
 
-Wenn Sie das Abrechnungsmodell von der kapazitätsbasierten Abrechnung im getrennten Zustand in die nutzungsbasierte Abrechnung im verbundenen Zustand ändern, registrieren Sie sich gemäß den [Schritten für das verbundene Modell](azure-stack-registration.md?pivots=state-connected#change-the-billing-model-or-how-to-offer-features) erneut. 
+Wenn Sie das Abrechnungsmodell von der kapazitätsbasierten Abrechnung im getrennten Zustand in die nutzungsbasierte Abrechnung im verbundenen Zustand ändern, registrieren Sie sich gemäß den [Schritten für das verbundene Modell](azure-stack-registration.md?pivots=state-connected#change-billing-model-how-features-are-offered-or-re-register-your-instance) erneut. 
 
 >[!Note] 
 >Dadurch wird nur der Abrechnungsmechanismus, aber nicht das Identitätsmodell geändert, und Sie verwenden weiterhin AD FS als Identitätsquelle.

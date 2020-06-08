@@ -1,17 +1,18 @@
 ---
-title: Konfigurieren von Site-to-Site-VPN-Verbindungen mit IPsec/IKE
+title: Konfigurieren von Site-to-Site-VPN-Verbindungen mit IPsec/IKE in Azure Stack Hub
 description: Informationen zur IPsec/IKE-Richtlinie und Ihrer Konfiguration für Site-to-Site-VPN- oder VNET-zu-VNET-Verbindungen in Azure Stack Hub.
 author: sethmanheim
+ms.custom: contperfq4
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 05/21/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 2456bd234b8affaecf061871ca701f45088f17c4
-ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
+ms.openlocfilehash: fdc1f71e5d4c5afa8b3989b69795d150cf96de67
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967793"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780680"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurieren einer IPsec/IKE-Richtlinie für Standort-zu-Standort-VPN-Verbindungen
 
@@ -38,9 +39,17 @@ Beachten Sie die folgenden wichtigen Informationen, wenn Sie diese Richtlinien v
 
 - Vergewissern Sie sich in den Spezifikationen Ihres VPN-Geräteanbieters, dass die Richtlinie von Ihren lokalen VPN-Geräten unterstützt wird. Site-to-Site-Verbindungen können nicht hergestellt werden, wenn die Richtlinien inkompatibel sind.
 
-## <a name="part-1---workflow-to-create-and-set-ipsecike-policy"></a>Teil 1: Workflow zum Erstellen und Festlegen der IPsec/IKE-Richtlinie
+### <a name="prerequisites"></a>Voraussetzungen
 
-In diesem Abschnitt wird der Workflow zum Erstellen und Aktualisieren der IPsec/IKE-Richtlinie für eine Site-to-Site-VPN-Verbindung beschrieben:
+Bevor Sie beginnen, stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
+
+- Ein Azure-Abonnement. Wenn Sie noch kein Azure-Abonnement besitzen, können Sie Ihre [MSDN-Abonnentenvorteile](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) aktivieren oder sich für ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/) registrieren.
+
+- Die Azure Resource Manager-PowerShell-Cmdlets. Weitere Informationen zum Installieren der PowerShell-Cmdlets finden Sie unter [Installieren von PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md).
+
+## <a name="part-1---create-and-set-ipsecike-policy"></a>Teil 1: Erstellen und Festlegen der IPsec/IKE-Richtlinie
+
+In diesem Abschnitt werden die Schritte zum Erstellen und Aktualisieren der IPsec/IKE-Richtlinie für eine Site-to-Site-VPN-Verbindung beschrieben:
 
 1. Erstellen eines virtuellen Netzwerks und eines VPN-Gateways
 
@@ -58,7 +67,7 @@ Die Anweisungen in diesem Artikel helfen Ihnen beim Einrichten und Konfigurieren
 
 ## <a name="part-2---supported-cryptographic-algorithms-and-key-strengths"></a>Teil 2: Unterstützte Kryptografiealgorithmen und Schlüsselstärken
 
-Die folgende Tabelle gibt Aufschluss über die unterstützten Kryptografiealgorithmen und Schlüsselstärken, die von den Azure Stack Hub-Kunden konfiguriert werden können:
+Die folgende Tabelle gibt Aufschluss über die unterstützten Kryptografiealgorithmen und Schlüsselstärken, die in Azure Stack Hub konfiguriert werden können:
 
 | IPsec/IKEv2                                          | Tastatur                                                                  |
 |------------------------------------------------------|--------------------------------------------------------------------------|
@@ -81,7 +90,7 @@ Die folgende Tabelle gibt Aufschluss über die unterstützten Kryptografiealgori
   - PFS-Gruppe (Schnellmodus/Phase 2)
   - Bei der SA-Gültigkeitsdauer handelt es sich lediglich um eine lokale Angabe. Diese muss nicht übereinstimmen.
 
-- Wenn GCMAES als IPsec-Verschlüsselungsalgorithmus verwendet wird, müssen Sie denselben GCMAES-Algorithmus und dieselbe Schlüssellänge für die IPsec-Integrität auswählen. Beispiel: Verwendung von GCMAES128 für beide.
+- Wenn GCMAES als IPsec-Verschlüsselungsalgorithmus verwendet wird, müssen Sie für die IPsec-Integrität denselben GCMAES-Algorithmus und dieselbe Schlüssellänge auswählen (beispielsweise „GCMAES128“ für beides).
 
 - Für die obige Tabelle gilt Folgendes:
 
@@ -112,14 +121,6 @@ In diesem Abschnitt werden die Schritte zum Erstellen einer Site-to-Site-VPN-Ver
 ![site-to-site-policy](media/azure-stack-vpn-s2s/site-to-site.svg)
 
 Eine ausführlichere Anleitung zum Erstellen einer Site-to-Site-VPN-Verbindung finden Sie unter [Erstellen einer Site-to-Site-VPN-Verbindung](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell).
-
-### <a name="prerequisites"></a>Voraussetzungen
-
-Bevor Sie beginnen, stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
-
-- Ein Azure-Abonnement. Wenn Sie noch kein Azure-Abonnement besitzen, können Sie Ihre [MSDN-Abonnentenvorteile](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) aktivieren oder sich für ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/) registrieren.
-
-- Die Azure Resource Manager-PowerShell-Cmdlets. Weitere Informationen zum Installieren der PowerShell-Cmdlets finden Sie unter [Installieren von PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md).
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>Schritt 1: Erstellen des virtuellen Netzwerks, VPN-Gateways und Gateways des lokalen Netzwerks
 
@@ -226,9 +227,9 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 
 Im vorherigen Abschnitt wurde gezeigt, wie Sie eine IPsec/IKE-Richtlinie für eine vorhandene Site-to-Site-Verbindung verwalten. In diesem Abschnitt werden die folgenden Vorgänge für eine Verbindung beschrieben:
 
-1. Anzeigen der IPsec/IKE-Richtlinie einer Verbindung
-2. Hinzufügen oder Aktualisieren der IPsec/IKE-Richtlinie für eine Verbindung
-3. Entfernen der IPsec/IKE-Richtlinie aus einer Verbindung
+- Anzeigen der IPsec/IKE-Richtlinie einer Verbindung
+- Hinzufügen oder Aktualisieren der IPsec/IKE-Richtlinie für eine Verbindung
+- Entfernen der IPsec/IKE-Richtlinie aus einer Verbindung
 
 > [!NOTE]
 > Die IPsec-/IKE-Richtlinie wird nur für routenbasierte VPN-Gateways vom Typ *Standard* und *HighPerformance* unterstützt. Sie funktioniert nicht bei Gateways mit der SKU *Basic*.
@@ -297,7 +298,7 @@ PfsGroup : None
 
 ### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. Entfernen einer IPsec/IKE-Richtlinie aus einer Verbindung
 
-Wenn Sie die benutzerdefinierte Richtlinie für eine Verbindung entfernen, verwendet das Azure-VPN-Gateway wieder die [IPsec/IKE-Standardvorschläge](azure-stack-vpn-gateway-settings.md#ipsecike-parameters) und beginnt eine neue Aushandlung mit Ihrem lokalen VPN-Gerät.
+Nachdem Sie die benutzerdefinierte Richtlinie für eine Verbindung entfernt haben, verwendet das Azure-VPN-Gateway wieder die [IPsec/IKE-Standardvorschläge](azure-stack-vpn-gateway-settings.md#ipsecike-parameters) und beginnt eine neue Aushandlung mit Ihrem lokalen VPN-Gerät.
 
 ```powershell
 $RG1 = "TestPolicyRG1"
