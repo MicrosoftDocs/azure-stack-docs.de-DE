@@ -6,15 +6,16 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ms.openlocfilehash: 011018493cee92d23675369a9704f5bcf3503ebe
-ms.sourcegitcommit: fe9b2fae89e595c8e739251b7a0d6ea3a0d8659a
+ms.openlocfilehash: 8a86c1c19f4239e6af1e7094ee8803865f9fd70d
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84262666"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666412"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Verwenden einer App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen
-<meta name="robots" content="nosnippet"> Eine Anwendung, die Ressourcen über Azure Resource Manager bereitstellen oder konfigurieren muss, muss durch ihre eigene Identität repräsentiert werden. Genau wie ein Benutzer durch einen als Benutzerprinzipal bezeichneten Sicherheitsprinzipal repräsentiert wird, wird eine App durch einen Dienstprinzipal repräsentiert. Der Dienstprinzipal bietet eine Identität für Ihre App, wodurch es Ihnen ermöglicht wird, nur die erforderlichen Berechtigungen an die App zu delegieren.  
+
+Eine Anwendung, die Ressourcen über Azure Resource Manager bereitstellen oder konfigurieren muss, muss durch ihre eigene Identität repräsentiert werden. Genau wie ein Benutzer durch einen als Benutzerprinzipal bezeichneten Sicherheitsprinzipal repräsentiert wird, wird eine App durch einen Dienstprinzipal repräsentiert. Der Dienstprinzipal bietet eine Identität für Ihre App, wodurch es Ihnen ermöglicht wird, nur die erforderlichen Berechtigungen an die App zu delegieren.  
 
 Beispiel: Sie verfügen über eine App für die Konfigurationsverwaltung, die Azure Resource Manager zum Inventarisieren von Azure-Ressourcen einsetzt. In diesem Szenario können Sie einen Dienstprinzipal erstellen, diesem die Rolle „Leser“ gewähren und die Konfigurationsverwaltungs-App auf einen schreibgeschützten Zugriff beschränken.
 

@@ -3,15 +3,15 @@ title: Bereitstellen einer VM mit einem sicher gespeicherten Zertifikat in Azure
 description: Erfahren Sie, wie Sie eine VM bereitstellen und mithilfe eines Schlüsseltresors in Azure Stack Hub ein Zertifikat per Push auf die VM übertragen.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 06/12/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: f808d3dca853ef114d215be08f3e6ae3f6737fb5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7f193a0a58018217d8b68758546de269f799b90e
+ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702787"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744867"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Bereitstellen einer VM mit einem sicher gespeicherten Zertifikat in Azure Stack Hub
 
