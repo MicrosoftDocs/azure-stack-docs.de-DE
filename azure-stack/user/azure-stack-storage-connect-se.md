@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 701b2a0c6bae3fa4f246877f49f73aca8482b0de
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: a72179e26ab4c873aa67ece9e207f4e6f4e71579
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660372"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631237"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Herstellen einer Verbindung zwischen dem Storage-Explorer und einem Azure Stack Hub-Abonnement oder -Speicherkonto
 
@@ -107,7 +107,7 @@ Gehen Sie wie folgt vor, um den Storage-Explorer mit einem Azure Stack Hub-Abon
     | Feld | Notizen |
     | ---   | ---   |
     | Umgebungsname | Dieses Feld kann vom Benutzer angepasst werden. |
-    | Azure Resource Manager-Endpunkt | Die Beispiele von Azure Resource Manager-Ressourcenendpunkten des Azure Stack Development Kit.<br>Für Bediener: https://adminmanagement.local.azurestack.external <br> Für Benutzer: https://management.local.azurestack.external |
+    | Azure Resource Manager-Endpunkt | Die Beispiele von Azure Resource Manager-Ressourcenendpunkten des Azure Stack Development Kit.<br>Für Bediener: `https://adminmanagement.local.azurestack.external` <br> Für Benutzer: `https://management.local.azurestack.external` |
 
     Wenn Sie in einem integrierten Azure Stack Hub-System arbeiten und den Verwaltungsendpunkt nicht kennen, wenden Sie sich an den zuständigen Operator.
 

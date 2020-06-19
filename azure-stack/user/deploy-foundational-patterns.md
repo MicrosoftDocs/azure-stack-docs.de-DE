@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 8fedf1e2cd932b5c3a5e84efb6b36bb14c1854d1
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: b41b0fd7d9ce86a8e56fb8f445e52c224df65a65
+ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660765"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84533755"
 ---
 # <a name="deploy-foundational-patterns-overview"></a>Bereitstellen grundlegender Muster: Übersicht
 
@@ -63,4 +63,4 @@ Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](h
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Dokumentation zu Hybridmustern und -lösungen von Azure](https://docs.microsoft.com/azure-stack/hybrid/)
+[Dokumentation zu Hybridmustern und -lösungen von Azure](\hybrid\app-solutions)

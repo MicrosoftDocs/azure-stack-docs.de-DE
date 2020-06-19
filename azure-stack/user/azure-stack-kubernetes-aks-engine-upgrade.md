@@ -7,12 +7,12 @@ ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 4e7ef93f7199e9257fd602d54d3479a92ac8e8a8
-ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
+ms.openlocfilehash: 347d790a4e70e37e83be43019f25b875b7ff2302
+ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82218805"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84533721"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Aktualisieren eines Kubernetes-Clusters in Azure Stack Hub
 
@@ -90,7 +90,7 @@ Eine vollständige Zuordnung von AKS-Engine, AKS-Basisimage und Kubernetes-Versi
 
 ## <a name="steps-to-only-upgrade-the-os-image"></a>Schritte zum alleinigen Upgrade des Betriebssystemimages
 
-1. Sehen Sie sich die [Tabelle der unterstützten Kubernetes-Versionen](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) an, und überprüfen Sie, ob Sie über die Version von aks-engine und des AKS-Basisimages verfügen, für die Sie das Upgrade durchführen möchten. Führen Sie `aks-engine version` aus, um die Version von aks-engine anzuzeigen.
+1. Sehen Sie sich die [Tabelle der unterstützten Kubernetes-Versionen](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) an, und überprüfen Sie, ob Sie über die Version von aks-engine und des AKS-Basisimages verfügen, für die Sie das Upgrade durchführen möchten. Führen Sie `aks-engine version` aus, um die Version von aks-engine anzuzeigen.
 2. Aktualisieren Sie die AKS-Engine entsprechend. Führen Sie auf dem Computer, auf dem Sie aks-engine installiert haben, Folgendes aus: `./get-akse.sh --version vx.xx.x`. Ersetzen Sie dabei **x.xx.x** durch die Zielversion.
 3. Bitten Sie Ihren Azure Stack Hub-Operator, die erforderliche Version des AKS-Basisimages im Azure Stack-Marketplace hinzuzufügen, den Sie verwenden möchten.
 4. Führen Sie den Befehl `aks-engine upgrade` mit derselben Version von Kubernetes aus, die Sie bereits verwenden, fügen Sie jedoch `--force` hinzu. Ein Beispiel finden Sie unter [Erzwingen eines Upgrades](#forcing-an-upgrade).
