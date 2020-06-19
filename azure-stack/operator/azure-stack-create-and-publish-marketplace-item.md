@@ -3,16 +3,16 @@ title: Erstellen und Veröffentlichen eines Marketplace-Elements in Azure Stack 
 description: Erfahren Sie, wie Sie ein Azure Stack Hub-Marketplace-Element erstellen und veröffentlichen.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 45eb02425b0c90e95bb2b0c1c5278b9408fa1f27
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 16ea5f5873e7904931fb05d6113c0b6cb74f9612
+ms.sourcegitcommit: bc246d59f4ad42cc2cc997884f9d52c5097f0964
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660713"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85069120"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack Hub-Marketplace-Elements
 
@@ -149,7 +149,7 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 11. Wenn Sie die Änderungen an den Dateien abgeschlossen haben, konvertieren Sie sie in eine AZPKG-Datei. Sie führen die Konvertierung mithilfe des Tools **AzureGallery.exe** und des zuvor heruntergeladenen Beispielkatalogpakets durch. Führen Sie den folgenden Befehl aus:
 
     ```shell
-    .\AzureGallery.exe package –m c:\<path>\<gallery package name>\manifest.json –o c:\Temp
+    .\AzureGallery.exe package -m c:\<path>\<gallery package name>\manifest.json -o c:\Temp
     ```
 
     > [!NOTE]
@@ -175,7 +175,7 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
     ```powershell
     Add-AzsGalleryItem -GalleryItemUri `
-    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
+    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg -Verbose
     ```
 
 5. Vergewissern Sie sich, dass Sie über ein gültiges Speicherkonto verfügen, das zum Speichern des Elements verfügbar ist. Den `GalleryItemURI`-Wert erhalten Sie über das Azure Stack Hub-Administratorportal. Wählen **Speicherkonto -> Blobeigenschaften -> URL** mit der Erweiterung „.azpkg“ aus. Das Speicherkonto ist nur für die temporäre Verwendung zum Veröffentlichen im Marketplace vorgesehen.
@@ -233,7 +233,7 @@ Marketplace verwendet die folgenden Symbole:
 | Groß |115 px |115 px |Immer erforderlich |
 | Medium |90 px |90 px |Immer erforderlich |
 | Klein |40 px |40 px |Immer erforderlich |
-| Screenshot |533 px |324 px |Immer erforderlich |
+| Screenshot |533 px |324 px |Optional |
 
 ### <a name="categories"></a>Kategorien
 
