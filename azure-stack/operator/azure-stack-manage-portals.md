@@ -7,12 +7,12 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: 358837da19ad34f82f81a94da0c89b165574ea49
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: d7951500afe21ec0800328230d6b5f1653934c40
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77699251"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819195"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>Verwenden des Administratorportals in Azure Stack Hub
 
@@ -24,7 +24,7 @@ Rufen Sie zum Zugreifen auf das Administratorportal die Portal-URL auf, und meld
 
 | Environment | URL des Administratorportals |   
 | -- | -- | 
-| ASDK| https://adminportal.local.azurestack.external  |
+| ASDK| `https://adminportal.local.azurestack.external`  |
 | Integrierte Systeme | https://adminportal.&lt;*Region*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
@@ -77,8 +77,8 @@ Klicken Sie oben rechts im Administratorportal auf das Symbol „Hilfe und Suppo
 
 Wenn Sie oben rechts im Administratorportal auf das Symbol „Hilfe“ (Fragezeichen) und dann auf **Hilfe und Support** und unter **Support** auf **Neue Supportanfrage** klicken, geschieht Folgendes:
 
-- Bei Verwendung eines integrierten Systems wird mit dieser Aktion eine Website geöffnet, auf der Sie direkt ein Supportticket beim Microsoft-Kundensupport (Microsoft Customer Support Services, CSS) öffnen können. Informationen dazu, wann Sie den Microsoft-Support und wann den Support des OEM-Hardwareanbieters kontaktieren sollten, finden Sie unter [Supportquellen](azure-stack-manage-basics.md#where-to-get-support).
-- Bei Verwendung des ASDK wird mit dieser Aktion direkt die [Website mit den Azure Stack Hub-Foren](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack) geöffnet. Diese Foren werden regelmäßig überprüft. Da das ASDK eine Evaluierungsumgebung ist, wird über Microsoft CSS kein offizieller Support angeboten.
+- Bei Verwendung eines integrierten Systems wird mit dieser Aktion eine Website geöffnet, auf der Sie direkt ein Supportticket beim Microsoft-Support öffnen können. Informationen dazu, wann Sie den Microsoft-Support und wann den Support des OEM-Hardwareanbieters kontaktieren sollten, finden Sie unter [Supportquellen](azure-stack-manage-basics.md#where-to-get-support).
+- Bei Verwendung des ASDK wird mit dieser Aktion direkt die [Website mit den Azure Stack Hub-Foren](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack) geöffnet. Diese Foren werden regelmäßig überprüft. Da das ASDK eine Evaluierungsumgebung ist, wird über Microsoft-Support kein offizieller Support angeboten.
 
 ### <a name="quick-access-to-the-azure-roadmap"></a>Schneller Zugriff auf die Azure-Roadmap
 

@@ -3,16 +3,16 @@ title: Erstellen eines virtuellen Computers mit einer Communityvorlage
 description: Hier erfahren Sie, wie Sie das ASDK (Azure Stack Development Kit) zum Erstellen eines virtuellen Computers mit einer vordefinierten Vorlage und einer benutzerdefinierten GitHub-Vorlage verwenden.
 author: sethmanheim
 ms.topic: tutorial
-ms.date: 01/23/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 9e8df158444b0cbb2b6efaea6f99766f36b26241
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: dc666d486f0b36a043ba8da969312879ad785e50
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "77704334"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813828"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Tutorial: Erstellen eines virtuellen Computers mit einer Communityvorlage
 
@@ -31,7 +31,7 @@ Azure Stack Hub-Schnellstartvorlagen werden auf GitHub im [globalen Repository
 
 Im Laufe der Zeit haben viele GitHub-Benutzer einen Beitrag zum Repository geleistet, wodurch eine Sammlung mit mehr als 400 Bereitstellungsvorlagen entstanden ist. Dieses Repository ist ein guter Ausgangspunkt, um ein Verständnis dafür zu entwickeln, wie Sie verschiedene Arten von Umgebungen in Azure Stack Hub bereitstellen können.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Einige dieser Vorlagen wurden von Mitgliedern der Community und nicht von Microsoft erstellt. Jede Vorlage wird von dessen Besitzer, nicht von Microsoft, unter einem Lizenzvertrag lizenziert. Microsoft ist für diese Vorlagen nicht verantwortlich und führt dafür keine Tests in Bezug auf die Sicherheit, Kompatibilität oder Leistung durch. Vorlagen aus der Community werden von keinem Microsoft-Supportprogramm oder -Dienst unterstützt und „wie besehen“ ohne jegliche Gewährleistung zur Verfügung gestellt.
 
 Wenn Sie Azure Resource Manager-Vorlagen für GitHub beitragen möchten, stellen Sie sie im Repository [AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates) bereit. Weitere Informationen zu diesem Repository und zu Beiträgen dafür finden Sie in der [Infodatei](https://aka.ms/aa6zktg).
@@ -118,7 +118,7 @@ Nachdem der virtuelle Linux-Computer nun erfolgreich erstellt wurde, können Sie
 
     ![Dashboard](media/azure-stack-create-vm-template/12.PNG)
 
-5. Navigieren Sie zum Bereitstellen einer Beispielanwendung zur offiziellen Seite mit der Kubernetes-Dokumentation, und überspringen Sie den Abschnitt „Create Minikube Cluster“ (Minikube-Cluster erstellen), da Sie diesen bereits erstellt haben. Fahren Sie mit dem Abschnitt „Create your Node.js application“ (Node.js-Anwendung erstellen) unter https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/ fort.
+5. Navigieren Sie zum Bereitstellen einer Beispielanwendung zur offiziellen Seite mit der Kubernetes-Dokumentation, und überspringen Sie den Abschnitt „Create Minikube Cluster“ (Minikube-Cluster erstellen), da Sie diesen bereits erstellt haben. Fahren Sie mit dem Abschnitt [Erstellen der Node.js-Anwendung](https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/) fort.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

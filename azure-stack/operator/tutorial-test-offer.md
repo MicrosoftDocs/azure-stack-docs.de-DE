@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 2aae33b324be4828b514ffbd019992aae989f50b
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: b0dd6b5013a19c120d1d8e69594406292ee6ac6c
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "80423848"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631356"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Tutorial: Testen eines Dienstangebots
 
@@ -37,7 +37,7 @@ Bevor Sie mit diesem Tutorial beginnen, müssen folgende Schritte ausgeführt we
 1. Melden Sie sich mit einem Benutzerkonto beim Benutzerportal an. 
 
    - Bei einem integrierten System variiert die URL je nach Region und dem externen Domänennamen des Betreibers und hat das Format https://portal.&lt;*Region*&gt;.&lt;*FQDN*&gt;.
-   - Wenn Sie das Azure Stack Development Kit verwenden, lautet die Portaladresse https://portal.local.azurestack.external.
+   - Wenn Sie das Azure Stack Development Kit verwenden, lautet die Portaladresse `https://portal.local.azurestack.external`.
 
 1. Wählen Sie die Kachel **Erwerben eines Abonnements** aus.
 

@@ -7,12 +7,12 @@ ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 6e58e60e0863e2ef40abc95689430f8e378a4fd4
-ms.sourcegitcommit: e75218d2e04f41620cc09caf04473ad4c7289253
+ms.openlocfilehash: 197d1b47b3127b21f3b843a77a57642894270a71
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708192"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819239"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Was ist das Azure Stack Development Kit (ASDK)?
 [Integrierte Microsoft Azure Stack Hub-Systeme](../operator/azure-stack-overview.md) haben eine Größe von 4 bis 16 Knoten, und der Support wird von einem Hardwarepartner und von Microsoft gemeinsam bereitgestellt. Mit integrierten Azure Stack Hub-Systemen ermöglichen Sie neue Szenarien für Ihre Produktionsworkloads. Wenn Sie ein Azure Stack Hub-Betreiber sind, der die Infrastruktur integrierter Systeme verwaltet und Dienste anbietet, hilft Ihnen die [Dokumentation für Betreiber](/azure-stack/operator) weiter.
@@ -42,7 +42,7 @@ Zwischen ASDK-Bereitstellungen mit einem einzelnen Knoten und Azure Stack Hub-
 |**Resilienz**|Die Konfiguration mit einem einzelnen Knoten bietet keine Hochverfügbarkeit.|Funktionen für Hochverfügbarkeit werden unterstützt.|
 |**Netzwerk**|Der ASDK-Host leitet den gesamten ASDK-Netzwerkdatenverkehr weiter. Es müssen keine zusätzlichen Switchanforderungen erfüllt werden.|Bei Bereitstellungen mit mehreren Knoten ist eine komplexere [Netzwerkroutinginfrastruktur](../operator/azure-stack-network.md#network-infrastructure) erforderlich, einschließlich TOR-Switches (Top-Of-Rack), BMC-Switches (Baseboard Management Controller, Baseboard-Verwaltungscontroller) und Grenzswitches (Datencenter-Netzwerkswitches).|
 |**Patch- und Updateprozess**|Wenn Sie zu einer neuen ASDK-Version wechseln möchten, müssen Sie das ASDK erneut auf dem ASDK-Hostcomputer bereitstellen.|Zum Aktualisieren der installierten Azure Stack Hub-Version wird der Prozess zum [Patchen und Aktualisieren](../operator/azure-stack-updates.md) verwendet.|
-|**Unterstützung**|MSDN-Azure Stack-Forum. Microsoft-Kundendienst und -Support (Customer Service and Support, CSS) steht für produktionsfremde Umgebungen *nicht* zur Verfügung.|[MSDN-Azure Stack-Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) und uneingeschränkter CSS-Support.|
+|**Unterstützung**|MSDN-Azure Stack-Forum. Microsoft-Support steht für produktionsfremde Umgebungen *nicht* zur Verfügung.|[MSDN-Azure Stack-Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) und uneingeschränkter Support|
 | | |
 
 ## <a name="learn-about-available-services"></a>Weitere Informationen zu verfügbaren Diensten

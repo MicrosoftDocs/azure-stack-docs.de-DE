@@ -3,15 +3,15 @@ title: Unterschiede zwischen Azure Stack Hub und Azure beim Verwenden von Dienst
 description: Hier finden Sie grundlegende Informationen zu den Unterschieden zwischen Azure und Azure Stack Hub beim Verwenden von Diensten und Erstellen von Apps.
 author: sethmanheim
 ms.topic: overview
-ms.date: 01/06/2020
+ms.date: 06/11/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 9d60c9300d2a717f280ab16a7f6c55d67a13f28c
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: fb5f30d97d1c12a94b5366a358dc21450965fd93
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "80362149"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819533"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Unterschiede zwischen Azure Stack Hub und Azure beim Verwenden von Diensten und Erstellen von Apps
 
@@ -27,7 +27,7 @@ Beim [Inhalt der technischen Dokumentation von Azure](/azure) wird davon ausgega
 
 * Azure Stack Hub stellt eine Teilmenge dieser Dienste und Features bereit, die in Azure verfügbar sind.
 * Ihr Unternehmen oder Service Provider kann auswählen, welche Dienste angeboten werden sollen. Die verfügbaren Optionen schließen unter Umständen benutzerdefinierte Dienste oder Anwendungen mit ein. Sie enthalten unter Umständen eine eigene angepasste Dokumentation.
-* Sie müssen die richtigen Azure Stack Hub-spezifischen Endpunkte verwenden (z. B. die URLs für die Portaladresse und den Azure Resource Manager-Endpunkt).
+* Verwenden Sie die richtigen Azure Stack Hub-spezifischen Endpunkte (z. B. die URLs für die Portaladresse und den Azure Resource Manager-Endpunkt).
 * Sie müssen PowerShell- und API-Versionen verwenden, die von Azure Stack Hub unterstützt werden. Mit der Verwendung von unterstützten Versionen wird sichergestellt, dass Ihre Apps sowohl in Azure Stack Hub als auch in Azure funktionieren.
 
 ## <a name="cheat-sheet-high-level-differences"></a>Cheat Sheet: Allgemeine Unterschiede
@@ -37,10 +37,10 @@ In der folgenden Tabelle sind die allgemeinen Unterschiede zwischen Azure Stack 
 | Bereich | Azure (global) | Azure Stack Hub |
 | -------- | ------------- | ----------|
 | Wer ist der Betreiber? | Microsoft | Ihre Organisation bzw. Ihr Dienstanbieter.|
-| An wen können Sie sich wenden, um Support zu erhalten? | Microsoft | Wenden Sie sich bei einem integrierten System an Ihren Azure Stack Hub-Betreiber (in Ihrer Organisation oder bei Ihrem Dienstanbieter), um Unterstützung zu erhalten.<br><br>Support zum Azure Stack Development Kit (ASDK) erhalten Sie in den [Microsoft-Foren](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack). Da das Development Kit eine Evaluierungsumgebung ist, wird über den Microsoft-Kundensupport (Customer Support Services, CSS) kein offizieller Support angeboten.
+| An wen können Sie sich wenden, um Support zu erhalten? | Microsoft | Wenden Sie sich bei einem integrierten System an Ihren Azure Stack Hub-Betreiber (in Ihrer Organisation oder bei Ihrem Dienstanbieter), um Unterstützung zu erhalten.<br><br>Support zum Azure Stack Development Kit (ASDK) erhalten Sie in den [Microsoft-Foren](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack). Da das Development Kit eine Evaluierungsumgebung ist, wird über den Microsoft-Support kein offizieller Support angeboten.
 | Verfügbare Dienste | Sehen Sie sich die Liste mit den [Azure-Produkten](https://azure.microsoft.com/services/?b=17.04b) an. Die verfügbaren Dienste variieren je nach Azure-Region. | Azure Stack Hub unterstützt eine Teilgruppe der Azure-Dienste. Die Dienste variieren in Abhängigkeit davon, was von Ihrer Organisation oder Ihrem Dienstanbieter angeboten wird.
-| Azure Resource Manager-Endpunkt* | `https://management.azure.com` | Verwenden Sie bei einem integrierten Azure Stack Hub-System den vom Azure Stack Hub-Betreiber bereitgestellten Endpunkt.<br><br>Verwenden Sie für das Development Kit den folgenden Link: https://management.local.azurestack.external.
-| Portal-URL* | [https://portal.azure.com](https://portal.azure.com) | Verwenden Sie bei einem integrierten Azure Stack Hub-System die vom Azure Stack Hub-Betreiber bereitgestellte URL.<br><br>Verwenden Sie für das Development Kit den folgenden Link: https://portal.local.azurestack.external.
+| Azure Resource Manager-Endpunkt* | `https://management.azure.com` | Verwenden Sie bei einem integrierten Azure Stack Hub-System den vom Azure Stack Hub-Betreiber bereitgestellten Endpunkt.<br><br>Verwenden Sie für das Development Kit den folgenden Link: `https://management.local.azurestack.external`.
+| Portal-URL* | [https://portal.azure.com](https://portal.azure.com) | Verwenden Sie bei einem integrierten Azure Stack Hub-System die vom Azure Stack Hub-Betreiber bereitgestellte URL.<br><br>Verwenden Sie für das Development Kit den folgenden Link: `https://portal.local.azurestack.external`.
 | Region | Sie können die Region für die Bereitstellung auswählen. | Verwenden Sie bei einem integrierten Azure Stack Hub-System die im System verfügbare Region.<br><br>Für das Azure Stack Development Kit (ASDK) lautet die Region immer **local**.
 | Ressourcengruppen | Eine Ressourcengruppe kann mehrere Regionen umfassen. | Sowohl für integrierte Systeme als auch für das Development Kit gibt es nur eine Region.
 |Unterstützte Namespaces, Ressourcentypen und API-Versionen | Aktuelle Versionen (oder frühere Versionen, die noch nicht als veraltet eingestuft sind). | Azure Stack Hub unterstützt bestimmte Versionen. Informationen hierzu finden Sie im Abschnitt [Versionsanforderungen](#version-requirements) dieses Artikels.

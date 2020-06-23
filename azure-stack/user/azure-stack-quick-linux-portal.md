@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 75056bbadb3ab5792bd51ed3dcb348ef3d42aa3e
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 5a9d6902d317af76145dde564cef56ac2f42dce8
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660421"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631278"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Schnellstart: Erstellen eines virtuellen Linux-Server mit dem Azure Stack Hub-Portal
 
@@ -63,7 +63,7 @@ So erstellen Sie ein SSH-Schlüsselpaar:
 
 Die Adresse des Azure Stack Hub-Portals hängt davon ab, mit welchem Azure Stack Hub-Produkt Sie eine Verbindung herstellen:
 
-* Navigieren Sie für das ASDK zu https://portal.local.azurestack.external.
+* Navigieren Sie für das ASDK zu `https://portal.local.azurestack.external`.
 
 * Rufen Sie bei einem integrierten Azure Stack Hub-System die vom Azure Stack Hub-Betreiber bereitgestellte URL auf.
 
@@ -152,7 +152,7 @@ Mit einer Netzwerksicherheitsgruppe (NSG) wird eingehender und ausgehender Daten
 
 Nachdem NGINX installiert und Port 80 auf dem virtuellen Computer geöffnet wurde, können Sie über die öffentliche IP-Adresse des virtuellen Computers auf den Webserver zugreifen. (Die öffentliche IP-Adresse wird auf der Seite **Übersicht** des virtuellen Computers angezeigt.)
 
-Öffnen Sie einen Webbrowser, und navigieren Sie zu *http://\<öffentliche IP-Adresse>* .
+Öffnen Sie einen Webbrowser, und navigieren Sie zu *http://\<public IP address>* .
 
 ![Willkommensseite des NGINX-Webservers](media/azure-stack-quick-linux-portal/linux-05a.png)
 
