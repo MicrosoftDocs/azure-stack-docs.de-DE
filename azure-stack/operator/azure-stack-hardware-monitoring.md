@@ -3,16 +3,16 @@ title: Überwachen der Hardwareintegrität in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie die Integrität von Azure Stack Hub-Hardwarekomponenten überwachen.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: a4f5d82979e209eae124f930d1f59abc1bb88b98
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: dff881fe332367b0911c21c0e23745210feb9051
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375173"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813762"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>Überwachen von Azure Stack Hub-Hardwarekomponenten
 
@@ -26,11 +26,11 @@ Das Integritäts- und Überwachungssystem von Azure Stack Hub überwacht den Sta
 - Startlaufwerke
 
 > [!NOTE]
-> Informieren Sie sich vor dem Aktivieren dieses Features unbedingt bei Ihrem Hardwarepartner, ob die Komponenten bereit sind. Von Ihrem Hardwarepartner erhalten Sie auch ausführliche Informationen zu den Schritten, die zum Aktivieren dieses Features im BMC ausgeführt werden müssen.
+> Informieren Sie sich vor dem Aktivieren dieses Features unbedingt bei Ihrem Hardwarepartner, ob die Komponenten bereit sind. Von Ihrem Hardwarepartner erhalten Sie auch ausführliche Informationen zu den Schritten, die zum Aktivieren dieses Features im Baseboard-Verwaltungscontroller (Baseboard Management Controller, BMC) ausgeführt werden müssen.
 
 ## <a name="snmp-listener-scenario"></a>SNMP-Listenerszenario
 
-Ein Listener vom Typ „SNMP v3“ wird in allen drei ERCS-Instanzen am TCP-Port 162 ausgeführt. Der Baseboard-Verwaltungscontroller (Baseboard Management Controller, BMC) muss so konfiguriert sein, dass er SNMP-Traps an den Azure Stack Hub-Listener sendet. Die drei PEP-IP-Adressen finden Sie im Administratorportal in der Ansicht mit den Regionseigenschaften.
+Ein Listener vom Typ „SNMP v3“ wird in allen drei ERCS-Instanzen am TCP-Port 162 ausgeführt. Der BMC muss so konfiguriert sein, dass er SNMP-Traps an den Azure Stack Hub-Listener sendet. Die drei PEP-IP-Adressen finden Sie im Administratorportal in der Ansicht mit den Regionseigenschaften.
 
 Beim Senden von Traps an den Listener ist eine Authentifizierung erforderlich, und es müssen die gleichen Anmeldeinformationen wie beim Zugriff auf den Basis-BMC verwendet werden.
 

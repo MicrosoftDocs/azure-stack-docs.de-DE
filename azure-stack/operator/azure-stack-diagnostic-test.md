@@ -7,16 +7,16 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 9b082876dca1e39f99ac0b98a7e438aa1231b3c2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bb83d8dcf567bac6081083e34c0770a277879282
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512540"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819492"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Überprüfen des Azure Stack Hub-Systemstatus
 
-Es ist sehr wichtig, dass Sie als Azure Stack Hub-Operator bei Bedarf die Integrität und den Status Ihres Systems ermitteln können. Das Azure Stack Hub-Überprüfungstool (**Test-AzureStack**) ist ein PowerShell-Cmdlet, mit dem Sie eine Reihe von Tests auf Ihrem System ausführen können, um vorliegende Fehler zu identifizieren. In der Regel werden Sie aufgefordert, dieses Tool über den [privilegierten Endpunkt (PEP)](azure-stack-privileged-endpoint.md) auszuführen, wenn Sie sich wegen eines Problems an den Microsoft-Kundendienst und -Support (Microsoft Customer Services Support, CSS) wenden. Wenn die systemweiten Integritäts- und Statusinformationen vorliegen, kann CSS detaillierte Protokolle sammeln und analysieren, sich auf den Bereich konzentrieren, in dem der Fehler aufgetreten ist, und mit Ihnen zusammenarbeiten, um das Problem zu beheben.
+Es ist sehr wichtig, dass Sie als Azure Stack Hub-Operator bei Bedarf die Integrität und den Status Ihres Systems ermitteln können. Das Azure Stack Hub-Überprüfungstool (**Test-AzureStack**) ist ein PowerShell-Cmdlet, mit dem Sie eine Reihe von Tests auf Ihrem System ausführen können, um vorliegende Fehler zu identifizieren. In der Regel werden Sie aufgefordert, dieses Tool über den [privilegierten Endpunkt (PEP)](azure-stack-privileged-endpoint.md) auszuführen, wenn Sie sich wegen eines Problems an den Microsoft-Support wenden. Wenn die systemweiten Integritäts- und Statusinformationen vorliegen, kann der Microsoft-Support detaillierte Protokolle sammeln und analysieren, sich auf den Bereich konzentrieren, in dem der Fehler aufgetreten ist, und mit Ihnen zusammenarbeiten, um das Problem zu beheben.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Ausführen des Überprüfungstools und Zugreifen auf die Ergebnisse
 
@@ -49,9 +49,9 @@ Wie oben bereits erwähnt, wird das Überprüfungstool über den PEP ausgeführt
 
 1. Führen Sie `Get-AzureStackLog` aus, wenn für Tests **FAIL** (FEHLER) gemeldet wird. Eine Anleitung zu einem integrierten System finden Sie unter [Ausführen von „Get-AzureStackLog“ in integrierten Azure Stack Hub-Systemen](azure-stack-get-azurestacklog.md).
 
-   Das Cmdlet sammelt Protokolle, die von Test-AzureStack generiert wurden. Wir empfehlen Ihnen, keine Protokolle zu erfassen und sich stattdessen an den Microsoft-Kundendienst und -Support (CSS) zu wenden, wenn bei Tests eine **WARNUNG** gemeldet wird.
+   Das Cmdlet sammelt Protokolle, die von Test-AzureStack generiert wurden. Wir empfehlen Ihnen, keine Protokolle zu erfassen und sich stattdessen an den Microsoft-Support zu wenden, wenn bei Tests eine **WARNUNG** gemeldet wird.
 
-1. Wenn Sie durch den CSS angewiesen wurden, das Überprüfungstool auszuführen, fordert der CSS-Mitarbeiter die von Ihnen gesammelten Protokolle an, um die Behebung Ihres Problems fortsetzen zu können.
+1. Wenn Sie vom Microsoft-Support angewiesen wurden, das Überprüfungstool auszuführen, fordert der Mitarbeiter des Microsoft-Supports die von Ihnen gesammelten Protokolle an, um die Behebung Ihres Problems fortsetzen zu können.
 
 ## <a name="tests-available"></a>Verfügbare Tests
 

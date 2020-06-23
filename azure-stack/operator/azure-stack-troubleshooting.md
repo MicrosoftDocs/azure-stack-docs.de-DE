@@ -8,12 +8,12 @@ ms.date: 05/13/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 15/13/2020
-ms.openlocfilehash: 4910a7aaa2462cb53c4ce89246c92a60f61d5017
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: de19e65866413ec4e498c9a21848c1f43af6d65a
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375004"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819516"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Behandeln von Problemen in Azure Stack Hub
 
@@ -21,7 +21,7 @@ Dieses Dokument enthält Informationen zur Problembehandlung für integrierte Az
 
 ## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
 
-Diese Abschnitte enthalten Links zu Dokumentationen, in denen Sie Antworten auf häufige Fragen finden, die an den Microsoft-Kundensupport gesendet werden.
+Diese Abschnitte enthalten Links zu Dokumentationen, in denen Sie Antworten auf häufige Fragen finden, die an den Microsoft-Support gesendet werden.
 
 ### <a name="purchase-considerations"></a>Überlegungen zum Kauf
 
@@ -80,7 +80,7 @@ Wählen Sie den Typ des Kontos für gemeinsame Dienste aus, das Sie für Azure S
 
 ### <a name="get-scale-unit-metrics"></a>Abrufen der Metriken von Skalierungseinheiten
 
-Sie können PowerShell verwenden, um ohne CSS-Hilfe Informationen zur Stempelauslastung zu erhalten. Rufen Sie die Stempelauslastung wie folgt ab:
+Sie können PowerShell verwenden, um ohne Hilfe seitens des Microsoft-Supports Informationen zur Stempelauslastung zu erhalten. Rufen Sie die Stempelauslastung wie folgt ab:
 
 1. Erstellen Sie eine PEP-Sitzung.
 2. Führen Sie `test-azurestack` aus.

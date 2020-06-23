@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: c90231d96f3f076b0824222fba43c8d9ef680fa5
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 4559eb88c044d38182a14f1bafecf2f7019cd5cb
+ms.sourcegitcommit: 7df4f3fbb211063e9eef6ac1e2734de72dc6078b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146783"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977137"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Features von Azure Stack Hub-VMs
 
@@ -36,6 +36,7 @@ ms.locfileid: "84146783"
 | VM-Skalierungsgruppen|Die automatische Skalierung wird unterstützt.|Die automatische Skalierung wird nicht unterstützt.<br><br>Fügen Sie einer Skalierungsgruppe mit dem Portal, Resource Manager-Vorlagen oder PowerShell weitere Instanzen hinzu. |
 | Cloudzeuge | Wählen Sie die Endpunkte aus den in Azure Stack Hub verfügbaren Speicherkontoeigenschaften aus. | [Cloudzeuge](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) ist ein Quorumzeugentyp für Failovercluster, der Microsoft Azure zum Bereitstellen einer Stimme für das Clusterquorum verwendet.<br>Die Endpunkte in Global Azure sehen im Vergleich zu Azure Stack Hub möglicherweise wie folgt aus:<br>Für Global Azure:<br>`https://mywitness.blob.core.windows.net/`<br>Für Azure Stack Hub:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | Diagnose des virtuellen Computers | Die Linux-VM-Diagnose wird unterstützt. | Die Linux-VM-Diagnose wird in Azure Stack Hub nicht unterstützt. Wenn Sie eine Linux-VM mit aktivierter VM-Diagnose bereitstellen, schlägt die Bereitstellung fehl. Die Bereitstellung schlägt auch fehl, wenn Sie die grundlegenden Linux-VM-Metriken über die Diagnoseeinstellungen aktivieren. |
+| Geschachtelte Virtualisierung: VM-Größen | Unterstützt | Nicht unterstützt |
 
 ## <a name="vm-sizes"></a>VM-Größen
 

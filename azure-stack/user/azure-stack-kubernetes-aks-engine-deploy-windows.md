@@ -7,12 +7,12 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: efe8b85d9363e0c5e3c07bf4190314e030707a9a
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: a68736088f8da95b0a7851007b8add4038c8199c
+ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82556452"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84533738"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Installieren der AKS-Engine unter Windows in Azure Stack Hub
 
@@ -35,8 +35,8 @@ Sie können die Client-VM installieren, um Ihren Kubernetes-Cluster in einer mit
 2. Stellen Sie eine Verbindung mit Ihrer VM her.
 3. [Installieren Sie Chocolatey mithilfe der PowerShell-Anweisungen](https://chocolatey.org/install#install-with-powershellexe). 
 
-    Die Chocolatey-Website enthält folgende Informationen: Chocolatey ist ein Paket-Manager wie z. B. apt-get oder yum, aber für Windows. Er wurde als dezentralisiertes Framework für die schnelle Installation von Anwendungen und Tools konzipiert, die Sie benötigen. Er basiert auf der NuGet-Infrastruktur und verwendet derzeit schwerpunktmäßig PowerShell zur Bereitstellung von Paketen aus den Distributionen für Ihren Computer.
-4. Suchen Sie die Version der AKS-Engine in der Tabelle [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) (Unterstützte Kubernetes-Versionen). Die AKS-Basis-Engine muss in Ihrem Azure Stack Hub-Marketplace verfügbar sein. Beim Ausführen des Befehls müssen Sie die Version `--version v0.48.0` angeben. Wenn Sie die Version nicht angeben, installiert der Befehl die neueste Version, die möglicherweise ein VHD-Image erfordert, das in Ihrem Marketplace nicht verfügbar ist.
+    Gemäß der Chocolatey-Website: Chocolatey ist ein Paket-Manager wie z. B. apt-get oder yum, aber für Windows. Er wurde als dezentralisiertes Framework für die schnelle Installation von Anwendungen und Tools konzipiert, die Sie benötigen. Er basiert auf der NuGet-Infrastruktur und verwendet derzeit schwerpunktmäßig PowerShell zur Bereitstellung von Paketen aus den Distributionen für Ihren Computer.
+4. Suchen Sie die Version der AKS-Engine in der Tabelle [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) (Unterstützte Kubernetes-Versionen). Die AKS-Basis-Engine muss in Ihrem Azure Stack Hub-Marketplace verfügbar sein. Beim Ausführen des Befehls müssen Sie die Version `--version v0.48.0` angeben. Wenn Sie die Version nicht angeben, installiert der Befehl die neueste Version, die möglicherweise ein VHD-Image erfordert, das in Ihrem Marketplace nicht verfügbar ist.
 5. Führen Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten aus, und beziehen Sie die Versionsnummer ein:
 
     ```PowerShell  

@@ -7,12 +7,12 @@ ms.date: 04/17/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 04/17/2020
-ms.openlocfilehash: e77252cf89d52291d7d4071d83981eb36bb062ef
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 067817e29858113fc22b596aa394d6e0942e921a
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836171"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819421"
 ---
 # <a name="proactive-diagnostic-log-collection-in-azure-stack-hub"></a>Proaktive Diagnoseprotokollsammlung in Azure Stack Hub
 
@@ -20,7 +20,7 @@ ms.locfileid: "82836171"
 
 Sparen Sie Zeit beim Kundensupport, indem Sie die Diagnoseprotokolle proaktiv sammeln, wenn eine Warnung auf Azure Stack Hub ausgelöst wird.
 
-Wenn die Integritätsbedingungen des Systems untersucht werden müssen, können die Protokolle automatisch zur Analyse hochgeladen werden, bevor eine Supportanfrage für den Microsoft-Kundensupport (Customer Support Services, CSS) erstellt wird.
+Wenn die Integritätsbedingungen des Systems untersucht werden müssen, können die Protokolle automatisch zur Analyse hochgeladen werden, bevor eine Supportanfrage für den Microsoft-Support erstellt wird.
 
 ## <a name="steps-to-configure-proactive-log-collection"></a>Schritte zum Konfigurieren der proaktiven Protokollsammlung
 
@@ -41,13 +41,13 @@ Gehen Sie zum Konfigurieren der proaktiven Protokollsammlung wie folgt vor. Die 
 
 Es wird empfohlen, die Funktion zur automatischen Sammlung von Diagnoseprotokollen zu konfigurieren, um die Protokollsammlung und den Kundensupport zu optimieren.
 
-Wenn die Integritätsbedingungen des Systems untersucht werden müssen, können die Protokolle automatisch zur Analyse durch die Microsoft Customer Support Services (CSS) hochgeladen werden.
+Wenn die Integritätsbedingungen des Systems untersucht werden müssen, können die Protokolle automatisch zur Analyse durch den Microsoft-Support hochgeladen werden.
 
 ## <a name="create-an-azure-blob-container-sas-url"></a>Erstellen einer SAS-URL für Azure-Blobcontainer
 
 Bevor Sie die automatische Protokollsammlung konfigurieren können, müssen Sie eine SAS (Shared Access Signature) für einen Blobcontainer abrufen. Mit einer SAS können Sie Zugriff auf Ressourcen unter Ihrem Speicherkonto erteilen, ohne dafür Kontoschlüssel weitergeben zu müssen.
 
-Sie können Azure Stack Hub-Protokolldateien in einem Blobcontainer in Azure speichern und dann die SAS-URL übergeben, über die CSS die Protokolle sammeln kann.
+Sie können Azure Stack Hub-Protokolldateien in einem Blobcontainer in Azure speichern und dann die SAS-URL übergeben, über die der Microsoft-Support die Protokolle sammeln kann.
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
@@ -135,7 +135,7 @@ Der Verlauf der von Azure Stack Hub gesammelten Protokolle wird auf der Seite **
 
 Bei aktivierter proaktiver Protokollsammlung werden Protokolle hochgeladen, wenn eines der folgenden Ereignisse ausgelöst wird.
 
-**Fehler bei Update** ist beispielsweise eine Warnung, durch die eine proaktive Sammlung von Diagnoseprotokollen ausgelöst wird. Ist die Funktion aktiviert, werden Diagnoseprotokolle bei einem Updatefehler proaktiv gesammelt, um CSS bei der Behandlung des Problems zu unterstützen. Die Diagnoseprotokolle werden nur erfasst, wenn die Warnung für **Fehler bei Update** ausgelöst wird.
+**Fehler bei Update** ist beispielsweise eine Warnung, durch die eine proaktive Sammlung von Diagnoseprotokollen ausgelöst wird. Ist die Funktion aktiviert, werden Diagnoseprotokolle bei einem Updatefehler proaktiv gesammelt, um den Microsoft-Support bei der Behandlung des Problems zu unterstützen. Die Diagnoseprotokolle werden nur erfasst, wenn die Warnung für **Fehler bei Update** ausgelöst wird.
 
 | Titel der Warnung | FaultIdType |
 |---|---|

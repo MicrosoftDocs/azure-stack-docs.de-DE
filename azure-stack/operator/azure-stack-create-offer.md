@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: fe2cb87c666e8c3447eca46bdcb49c71514bccdc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ab12123410971dcbff3a4750650dd5508ca93efe
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704487"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631153"
 ---
 # <a name="create-an-offer-in-azure-stack-hub"></a>Erstellen eines Angebots in Azure Stack Hub
 
@@ -21,7 +21,7 @@ ms.locfileid: "77704487"
 ::: moniker range=">=azs-1902"
 ## <a name="create-an-offer-1902-and-later"></a>Erstellen von Angeboten (ab 1902)
 
-1. Melden Sie sich beim [Azure Stack Hub-Administratorportal](https://adminportal.local.azurestack.external) an, und wählen Sie **+ Ressource erstellen** > **Angebote + Pläne** > **Angebot** aus.
+1. Melden Sie sich beim Azure Stack Hub-Administratorportal `https://adminportal.local.azurestack.external` an, und wählen Sie **+ Ressource erstellen**, dann **Angebote + Pläne** und schließlich **Angebot** aus.
 
    ![Erstellen eines Angebots in Azure Stack Hub](media/azure-stack-create-offer/offers.png)
 
@@ -68,7 +68,7 @@ Der Zustand eines Angebots kann auf zwei Arten geändert werden:
 ::: moniker range="<=azs-1901"
 ## <a name="create-an-offer-1901-and-earlier"></a>Erstellen von Angeboten (bis 1901)
 
-1. Melden Sie sich beim [Azure Stack Hub-Administratorportal](https://adminportal.local.azurestack.external) an, und wählen Sie **+ Ressource erstellen** > **Mandantenangebote + Pläne** > **Angebot** aus.
+1. Melden Sie sich beim Azure Stack Hub-Administratorportal `https://adminportal.local.azurestack.external` an, und wählen Sie **+ Ressource erstellen**, dann **Mandantenangebote + Pläne** und schließlich **Angebot** aus.
 
    ![Erstellen eines Angebots in Azure Stack Hub](media/azure-stack-create-offer/image01.png)
   

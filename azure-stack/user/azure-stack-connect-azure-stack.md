@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 1b4db2cf67231f8660948af43d4935bbcf9c846c
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: d94f9130825493ea521441a43a58aa053ff2cc05
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111896"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631400"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Herstellen einer Verbindung mit Azure Stack Hub
 
@@ -28,7 +28,7 @@ Bei einer Remotedesktopverbindung kann ein einzelner gleichzeitiger Benutzer das
 
 2. Öffnen Sie auf dem Development Kit-Computer den Server-Manager, klicken Sie auf **Lokaler Server**, deaktivieren Sie die Verstärkte Sicherheitskonfiguration für Internet Explorer, und schließen Sie den Server-Manager.
 
-3. Navigieren Sie zu (https://portal.local.azurestack.external/), und melden Sie sich mit Ihren Benutzeranmeldeinformationen an, um das Portal zu öffnen.
+3. Um das Portal zu öffnen, wechseln Sie zu `https://portal.local.azurestack.external/`, und melden Sie sich mit Ihren Benutzeranmeldeinformationen an.
 
 
 ## <a name="connect-to-azure-stack-hub-with-vpn"></a>Herstellen einer Verbindung mit Azure Stack Hub per VPN
@@ -97,7 +97,7 @@ Stellen Sie eine Verbindung mit der Azure Stack Hub-Instanz her, indem Sie eines
 
 ### <a name="test-the-vpn-connectivity"></a>Testen der VPN-Konnektivität
 
-Öffnen Sie zum Testen der Portalverbindung einen Browser, und navigieren Sie zum Benutzerportal (https://portal.local.azurestack.external/). Melden Sie sich an, und erstellen Sie anschließend Ressourcen.  
+Öffnen Sie zum Testen der Portalverbindung einen Browser, und wechseln Sie zum Benutzerportal `https://portal.local.azurestack.external/`, melden Sie sich an, und erstellen Sie anschließend Ressourcen.  
 
 ## <a name="next-steps"></a>Nächste Schritte
 

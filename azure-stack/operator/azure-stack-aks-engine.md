@@ -3,20 +3,20 @@ title: Hinzufügen von Voraussetzungen für die Azure Kubernetes Services-Engine
 description: Hier erfahren Sie, wie Sie Voraussetzungen für die AKS-Engine zum Azure Stack Hub-Marketplace hinzufügen.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/27/2020
+ms.date: 6/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 5bebac9b3c604b2726cf5cd8f895fb17e0db3486
-ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
+ms.lastreviewed: 6/08/2020
+ms.openlocfilehash: 7090ac774da41e8f7f1bc319a9956cba8f8b0f4a
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82861383"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630442"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Hinzufügen von Voraussetzungen für die Azure Kubernetes Services-Engine (AKS) zum Azure Stack Hub-Marketplace
 
-Sie können es Ihren Benutzern ermöglichen, die Azure Kubernetes Service-Engine (AKS) einzurichten, indem Sie die in diesem Artikel beschriebenen Elemente zu Ihrer Azure Stack Hub-Instanz hinzufügen. Ihre Benutzer können dann einen Kubernetes-Cluster in einem einzelnen, koordinierten Vorgang bereitstellen. In diesem Artikel werden die Schritte erläutert, die Sie ausführen müssen, um die AKS-Engine Ihren Benutzern sowohl in verbundenen als auch in nicht verbundenen Umgebungen zur Verfügung zu stellen. Die AKS-Engine benötigt eine Dienstprinzipalidentität sowie im Marketplace eine benutzerdefinierte Skripterweiterung und das AKS-Basisimage. Die AKS-Engine erfordert die Ausführung von [Azure Stack Hub 1910](release-notes.md?view=azs-1910) oder höher.
+Sie können es Ihren Benutzern ermöglichen, die Azure Kubernetes Service-Engine (AKS) einzurichten, indem Sie die in diesem Artikel beschriebenen Elemente zu Ihrer Azure Stack Hub-Instanz hinzufügen. Ihre Benutzer können dann einen Kubernetes-Cluster in einem einzelnen, koordinierten Vorgang bereitstellen. In diesem Artikel werden die Schritte erläutert, die Sie ausführen müssen, um die AKS-Engine Ihren Benutzern sowohl in verbundenen als auch in nicht verbundenen Umgebungen zur Verfügung zu stellen. Die AKS-Engine benötigt eine Dienstprinzipalidentität sowie im Marketplace eine benutzerdefinierte Skripterweiterung und das AKS-Basisimage. Die AKS-Engine erfordert die Ausführung von [Azure Stack Hub 1910](release-notes.md?view=azs-1910) oder höher.
 
 ## <a name="check-your-users-service-offering"></a>Überprüfen des Dienstangebots für Ihre Benutzer
 
@@ -42,7 +42,7 @@ Sie können das AKS-Basisimage zum Marketplace hinzufügen, indem Sie das Elemen
 
 Fügen Sie das folgende Element zum Marketplace hinzu:
 
-1. Melden Sie sich beim [Verwaltungsportal](https://adminportal.local.azurestack.external) an.
+1. Melden Sie sich beim Verwaltungsportal `https://adminportal.local.azurestack.external` an.
 
 1. Wählen Sie **Alle Dienste** aus, und wählen Sie dann unter der Kategorie **VERWALTUNG** die Option **Marketplace-Verwaltung** aus.
 
@@ -50,12 +50,12 @@ Fügen Sie das folgende Element zum Marketplace hinzu:
 
 1. Geben Sie `AKS Base` ein.
 
-1. Wählen Sie die Imageversion aus, die der Version der AKS-Engine entspricht. Eine Liste der AKS-Basisimages für verschiedene Versionen der AKS-Engine finden Sie unter [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) (Unterstützte Kubernetes-Versionen). 
+1. Wählen Sie die Imageversion aus, die der Version der AKS-Engine entspricht. Eine Liste der AKS-Basisimages für verschiedene Versionen der AKS-Engine finden Sie unter [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) (Unterstützte Kubernetes-Versionen). 
 
     Wählen Sie in der Liste Folgendes aus:
     - **Herausgeber**: Azure Kubernetes Service
     - **Angebot**: aks
-    - **Version**: AKS-Basisimage 16.04-LTS Image Distro, October 2019 (2019.10.24 oder Version mit Zuordnung zur AKS-Engine)
+    - **Version**: AKS-Basis Ubuntu 16.04-LTS Image Distro, März 2020 (2020.03.19 oder die Version, die der AKS-Engine entspricht)
 
 1. Wählen Sie **Herunterladen** aus.
 
@@ -63,7 +63,7 @@ Fügen Sie das folgende Element zum Marketplace hinzu:
 
 Sie können das benutzerdefinierte Skript zum Marketplace hinzufügen, indem Sie das Element aus Azure abrufen. Wenn keine Verbindung mit Ihrer Azure Stack Hub-Instanz besteht, lesen Sie die Anweisungen unter [Herunterladen von Marketplace-Elementen in Azure Stack Hub](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected), um das Element hinzuzufügen.  Fügen Sie das in Schritt 5 angegebene Element hinzu.
 
-1. Öffnen Sie das [Verwaltungsportal](https://adminportal.local.azurestack.external).
+1. Öffnen Sie das Verwaltungsportal `https://adminportal.local.azurestack.external`.
 
 1. Wählen Sie **Alle Dienste** aus, und wählen Sie dann unter der Kategorie **VERWALTUNG** die Option **Marketplace-Verwaltung** aus.
 

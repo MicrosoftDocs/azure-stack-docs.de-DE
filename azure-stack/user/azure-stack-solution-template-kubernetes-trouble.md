@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 04/20/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 30743cf5a2edf880c155e443c0608dc7d3f8f55f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 3f51aa2c8d1d2987d3823e8fefe953d4cc6cc890
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660213"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631079"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Problembehandlung bei der Bereitstellung von Kubernetes in Azure Stack Hub
 
@@ -93,7 +93,7 @@ Sie können auf den VMs, die Ihren Kubernetes-Cluster unterstützen, Bereitstell
 
 Sie können den Bereitstellungsstatus überprüfen, wenn Sie Ihren Kubernetes-Cluster bereitstellen, um Probleme zu überprüfen.
 
-1. Öffnen Sie das [Azure Stack Hub-Portal](https://portal.local.azurestack.external).
+1. Öffnen Sie das Azure Stack Hub-Portal `https://portal.local.azurestack.external`.
 2. Wählen Sie **Ressourcengruppen** aus, und wählen Sie dann den Namen der Ressourcengruppe aus, die beim Bereitstellen des Kubernetes-Clusters verwendet wurde.
 3. Wählen Sie **Bereitstellungen** und dann den **Bereitstellungsnamen** aus.
 

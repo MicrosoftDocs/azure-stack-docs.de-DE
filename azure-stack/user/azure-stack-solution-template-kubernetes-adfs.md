@@ -7,12 +7,12 @@ ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: adca3be6659d140dcf05776d04696ff7302a9ab3
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2dbef9bd19fac12541f738fc530dbf58f5c85c35
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79313151"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631213"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Bereitstellen von Kubernetes in Azure Stack Hub mithilfe der Active Directory-Verbunddienste
 
@@ -55,7 +55,7 @@ Falls Sie als Identitätslösung AD FS verwenden, müssen Sie mit Ihrem Azure St
 
 ## <a name="deploy-kubernetes"></a>Bereitstellen von Kubernetes
 
-1. Öffnen Sie das [Azure Stack Hub-Portal](https://portal.local.azurestack.external).
+1. Öffnen Sie das Azure Stack Hub-Portal `https://portal.local.azurestack.external`.
 
 1. Wählen Sie **+ Ressource erstellen** > **Compute** > **Kubernetes-Cluster** aus. Klicken Sie auf **Erstellen**.
 

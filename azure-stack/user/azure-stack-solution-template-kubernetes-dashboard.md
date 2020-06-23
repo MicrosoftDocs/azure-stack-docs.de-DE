@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 82c3a0c7c43494a3a1a2790ba4672c3d498a61cd
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 0efcac6635a94b3fdc5551f9aa61b5c774e93905
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111563"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631183"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Zugreifen auf das Kubernetes-Dashboard in Azure Stack Hub 
 
@@ -47,7 +47,7 @@ Sie können die URL für das Dashboard vom Masterknoten in Ihrem Cluster abrufen
 
 1. Rufen Sie die öffentliche IP-Adresse und den Benutzernamen für Ihren Clustermaster aus dem Azure Stack Hub-Dashboard ab. Rufen Sie diese Informationen wie folgt ab:
 
-    - Melden Sie sich beim [Azure Stack Hub-Portal](https://portal.local.azurestack.external/) an.
+    - Melden Sie sich beim Azure Stack Hub-Portal `https://portal.local.azurestack.external/` an.
     - Wählen Sie **Alle Dienste** > **Alle Ressourcen**. Suchen Sie in Ihrer Clusterressourcengruppe nach dem Master. Der Master hat den Namen `k8s-master-<sequence-of-numbers>`. 
 
 2. Öffnen Sie den Masterknoten im Portal. Kopieren Sie die **öffentliche IP-Adresse**. Klicken Sie auf **Verbinden**, um Ihren Benutzernamen im Feld **Mit lokalem VM-Konto anmelden** abzurufen. Dies ist der Benutzername, den Sie beim Erstellen Ihres Clusters festgelegt haben. Verwenden Sie die öffentliche IP-Adresse und nicht die private IP-Adresse, die auf dem Blatt „Verbinden“ angegeben ist.

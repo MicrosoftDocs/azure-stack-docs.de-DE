@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: be747a57b61b2d06a667bd577dd135c6220fc968
-ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
+ms.openlocfilehash: 6d5c80403a355186632c245baecd0796ac3acbf9
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83403855"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630987"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Erstellen hochverfügbarer SQL-Datenbanken mit Azure Stack Hub
 
@@ -35,8 +35,8 @@ Vergewissern Sie sich, dass der [SQL Server-Ressourcenanbieter](azure-stack-sql-
 > [!IMPORTANT]
 > Alle folgenden Elemente sind erforderlich, um die Azure Stack Hub-Schnellstartvorlage zu verwenden.
 
-- Marketplace-Image von Windows Server 2016 Datacenter
-- SQL Server 2016 SP1 oder SP2 (Enterprise oder Developer) im Windows Server 2016-Serverimage. Dieser Artikel verwendet das Marketplace-Image SQL Server 2016 SP2 Enterprise unter Windows Server 2016.
+- Windows Server 2016 Datacenter.
+- SQL Server 2016 SP1 oder SP2 (Enterprise, Standard oder Developer) im Windows Server 2016-Serverimage. 
 - [Erweiterung für SQL Server-IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), Version 1.3.20180 oder höher. SQL Server IaaS Extension installiert Komponenten, die von den SQL Server-Elementen im Marketplace für alle Windows-Versionen benötigt werden. Diese Erweiterung ermöglicht die Konfiguration von SQL-spezifischen Einstellungen auf virtuellen SQL-Computern. Wenn die Erweiterung nicht im lokalen Marketplace installiert ist, kann SQL nicht bereitgestellt werden.
 - [Custom Script Extension für Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) Version 1.9.1 oder höher. Custom Script Extension ist ein Tool, das zum automatischen Starten von VM-Anpassungstasks nach der Bereitstellung verwendet werden kann.
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) Version 2.76.0.0 oder höher. DSC ist eine Verwaltungsplattform in Windows PowerShell, die die Bereitstellung und Verwaltung von Konfigurationsdaten für Softwaredienste ermöglicht. Die Plattform verwaltet darüber hinaus die Umgebung, in der diese Dienste ausgeführt werden.
@@ -84,7 +84,7 @@ Mit den Schritten in diesem Abschnitt stellen Sie mithilfe der [Azure Stack Hub-
 
 6. Wählen Sie im Benutzerportal **Ressourcengruppen** und dann den Namen der Ressourcengruppe aus, die Sie für die benutzerdefinierte Bereitstellung erstellt haben (für dieses Beispiel **resource-group**). Überprüfen Sie den Status der Bereitstellung, um sicherzustellen, dass alle Bereitstellungen erfolgreich abgeschlossen wurden.
     
-    Überprüfen Sie danach die Ressourcengruppenelemente, und wählen Sie das Element **SQLPIPsql\<Ressourcengruppenname\>** für die öffentliche IP-Adresse aus. Notieren Sie sich die öffentliche IP-Adresse und den vollqualifizierten Domänennamen (FQDN) der öffentlichen IP-Adresse des Lastenausgleichsmoduls. Diese Informationen müssen Sie an einen Azure Stack Hub-Betreiber weitergeben, damit dieser einen SQL-Hostserver mit dieser SQL Always On-Verfügbarkeitsgruppe erstellen kann.
+    Überprüfen Sie danach die Ressourcengruppenelemente, und wählen Sie das Element **SQLPIPsql\<resource group name\>** für die öffentliche IP-Adresse aus. Notieren Sie sich die öffentliche IP-Adresse und den vollqualifizierten Domänennamen (FQDN) der öffentlichen IP-Adresse des Lastenausgleichsmoduls. Diese Informationen müssen Sie an einen Azure Stack Hub-Betreiber weitergeben, damit dieser einen SQL-Hostserver mit dieser SQL Always On-Verfügbarkeitsgruppe erstellen kann.
 
    > [!NOTE]
    > Die Vorlagenbereitstellung dauert mehrere Stunden.
@@ -141,7 +141,7 @@ Verwenden Sie diese Befehle, um die Serveroption „contained database authentic
 
 Nachdem die SQL Server-Always On-Verfügbarkeitsgruppe erstellt und ordnungsgemäß konfiguriert wurde, muss ein Azure Stack Hub-Betreiber einen Azure Stack Hub-SQL-Hostserver erstellen. Der SQL-Hostserver stellt Benutzern die zusätzliche Kapazität zur Verfügung, damit diese Datenbanken erstellen können.
 
-Verwenden Sie die öffentliche IP-Adresse oder den vollständigen vollqualifizierten Domänennamen für die öffentliche IP-Adresse des Lastenausgleichsmoduls, die bzw. den Sie beim Erstellen der Ressourcengruppe (**SQLPIPsql\<Ressourcengruppenname\>** ) für die SQL AlwaysOn-Verfügbarkeitsgruppe erfasst haben. Darüber hinaus benötigen Sie die Anmeldeinformationen für die SQL Server-Authentifizierung, die für den Zugriff auf die SQL Server-Instanzen in der AlwaysOn-Verfügbarkeitsgruppe verwendet werden.
+Verwenden Sie die öffentliche IP-Adresse oder den vollständigen vollqualifizierten Domänennamen für die öffentliche IP-Adresse des Lastenausgleichsmoduls, die bzw. den Sie beim Erstellen der Ressourcengruppe (**SQLPIPsql\<resource group name\>** ) für die SQL AlwaysOn-Verfügbarkeitsgruppe erfasst haben. Darüber hinaus benötigen Sie die Anmeldeinformationen für die SQL Server-Authentifizierung, die für den Zugriff auf die SQL Server-Instanzen in der AlwaysOn-Verfügbarkeitsgruppe verwendet werden.
 
 > [!NOTE]
 > Dieser Schritt muss im Azure Stack Hub-Administratorportal von einem Azure Stack Hub-Betreiber ausgeführt werden.

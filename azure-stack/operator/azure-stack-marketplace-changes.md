@@ -3,16 +3,16 @@ title: Neuerungen im Azure Stack Hub-Marketplace
 description: Hier finden Sie Informationen zu den Neuerungen im Azure Stack Hub-Marketplace, u. a. zu neuen, veralteten und aktualisierten Marketplace-Elementen.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 06/16/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 17a4a5d617332a38ac33af38b97452f5bd2975ff
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 6649f7d282c869fbd348310a2bfdf883727282ff
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146817"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819362"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Änderungen im Azure Stack Hub-Marketplace
 
@@ -63,6 +63,8 @@ Der Artikel [Azure Stack Hub-Marketplace-Elemente](azure-stack-marketplace-azure
 
 ## <a name="updated-marketplace-items"></a>Aktualisierte Marketplace-Elemente
 
+- 16.06.2020: SQLIaaSExtension – Version 1.3.20370
+- 12.06.2020: Bitnami Grafana – Version 6.7.2006040249
 - 21.05.2020 Ubuntu Server 16.04 LTS – Version 16.04.202004290
 - 21.05.2020 Ubuntu Server 18.04 LTS – Version 18.04.202004080
 - 21.05.2020 Windows Server 2008 R2 SP1 BYOL – Version 7601.24552.2004101827

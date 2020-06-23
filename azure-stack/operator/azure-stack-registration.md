@@ -3,18 +3,18 @@ title: Registrieren von Azure Stack Hub in Azure
 titleSuffix: Azure Stack Hub
 description: Erfahren Sie, wie Sie integrierte Azure Stack Hub-Systeme bei Azure registrieren, um Azure Marketplace-Elemente herunterladen und die Datenberichterstellung einrichten zu können.
 author: IngridAtMicrosoft
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 497a051c67b05683a874de955c069256c19bba9a
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: e21b3a68d17f07006997b70eb1ff3dfa22bad229
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780785"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819557"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrieren von Azure Stack Hub in Azure
 
@@ -326,7 +326,7 @@ Optional können Sie mit dem Cmdlet „Get-Content“ auf eine Datei zeigen, die
 
 Sie können die Kachel **Regionsverwaltung** verwenden, um zu überprüfen, ob die Azure Stack Hub-Registrierung erfolgreich war. Diese Kachel steht im Standarddashboard im Administratorportal zur Verfügung. Der Status kann „registriert“ oder „nicht registriert“ lauten. Beim Status „registriert“ wird außerdem die ID des Azure-Abonnements angezeigt, mit dem Sie Ihre Azure Stack Hub-Instanz registriert haben, sowie die Gruppe und der Name der Registrierungsressource.
 
-1. Melden Sie sich beim [Azure Stack Hub-Administratorportal](https://adminportal.local.azurestack.external) an.
+1. Melden Sie sich beim Azure Stack Hub-Administratorportal `https://adminportal.local.azurestack.external` an.
 
 2. Wählen Sie im Dashboard **Regionsverwaltung** aus.
 

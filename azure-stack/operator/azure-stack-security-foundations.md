@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 2d1b97bc17543e4fbdc1a1f79c39a01f188332df
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 35b4fbd97032df00236a67dd5b776a2f3fada8ea
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80891081"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819253"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Sicherheitskontrollen der Azure Stack Hub-Infrastruktur
 
@@ -48,9 +48,7 @@ Weitere Informationen zum Erzwingen von TLS 1.2 auf den externen Endpunkten von 
 
 ## <a name="secret-management"></a>Verwaltung von Geheimnissen
 
-In der Azure Stack Hub-Infrastruktur werden zahlreiche Geheimnisse eingesetzt, wie z. B. Kennwörter. Die meisten von ihnen werden automatisch rotiert, da sie gruppenverwaltete Dienstkonten (group Managed Service Account, gMSA) sind, die alle 24 Stunden rotiert werden.
-
-Die verbleibenden Geheimnisse, die keine gruppenverwalteten Dienstkonten sind, können manuell mit einem Skript im privilegierten Endpunkt rotiert werden.
+In der Azure Stack Hub-Infrastruktur werden zahlreiche Geheimnisse eingesetzt, wie z. B. Kennwörter und Zertifikate. Die meisten der den internen Dienstkonten zugeordneten Kennwörter werden alle 24 Stunden automatisch rotiert, weil es sich dabei um [gruppenverwaltete Dienstkonten (gMSA)](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) handelt, einen Typ von Domänenkonto, der direkt vom internen Domänencontroller verwaltet wird.
 
 Die Azure Stack Hub-Infrastruktur verwendet für alle internen Zertifikate RSA-Schlüssel mit 4096 Bit. Zertifikate mit der gleichen Schlüssellänge können auch für die externen Endpunkte verwendet werden. Weitere Informationen zu Geheimnissen und zur Zertifikatsrotation finden Sie unter [Rotieren von Geheimnissen in Azure Stack Hub](azure-stack-rotate-secrets.md).
 

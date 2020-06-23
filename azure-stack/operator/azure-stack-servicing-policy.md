@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Hier erhalten Sie Informationen zur Azure Stack Hub-Wartungsrichtlinie und erfahren, wie Sie den unterstützten Zustand eines integrierten Systems aufrechterhalten.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 06/09/2020
 ms.author: sethm
-ms.reviewer: harik
+ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 479343623f59720cd330c3f9d8d8b8c7836a8a0e
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 6b2a3a281e16ff658b7124071cdb83326d0cbbde
+ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848148"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636834"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub-Wartungsrichtlinie
 
@@ -52,9 +52,9 @@ Informationen zu einem bestimmten Update und darüber, wie sie es herunterladen,
 
 ## <a name="hotfixes"></a>Hotfixes
 
-Gelegentlich stellt Microsoft Hotfixes für Azure Stack Hub zur Verfügung, um Probleme präventiv oder zeitnah zu beheben. Jeder Hotfix wird mit einem entsprechenden Microsoft Knowledge Base-Artikel veröffentlicht, der das Problem, die Ursache und die Lösung beschreibt.
+Gelegentlich stellt Microsoft Hotfixes für Azure Stack Hub zur Verfügung, um Probleme präventiv oder zeitnah zu beheben. Jeder Hotfix wird mit einem entsprechenden Microsoft Knowledge Base-Artikel veröffentlicht, der die in dem Hotfix behandelten Probleme detailliert beschreibt.
 
-Hotfixes werden wie die regulären Pakete mit vollständigen Updates für Azure Stack Hub heruntergeladen und installiert. Im Gegensatz zu einem vollständigen Update können Hotfixes jedoch innerhalb von Minuten installiert werden. Azure Stack Hub-Operators wird empfohlen, die Wartungsfenster bei der Installation von Hotfixes festzulegen. Hotfixes aktualisieren die Version Ihrer Azure Stack Hub-Cloud, sodass Sie leicht feststellen können, ob der Hotfix angewendet wurde. Für jede Version von Azure Stack Hub, die noch unterstützt wird, wird ein separater Hotfix bereitgestellt. Jeder Fix für eine bestimmte Iteration ist kumulativ und enthält die vorherigen Updates für dieselbe Version. Wenn Sie mehr über die Anwendbarkeit eines bestimmten Hotfixes erfahren möchten, lesen Sie den entsprechenden Knowledge Base-Artikel. Siehe die Links mit den Versionshinweisen im vorherigen Abschnitt.
+Hotfixes werden wie die regulären Pakete mit vollständigen Updates für Azure Stack Hub heruntergeladen und installiert. Im Gegensatz zu einem vollständigen Update können Hotfixes jedoch innerhalb von Minuten installiert werden. Azure Stack Hub-Operators wird empfohlen, die Wartungsfenster bei der Installation von Hotfixes festzulegen. Hotfixes aktualisieren die Version Ihrer Azure Stack Hub-Cloud, sodass Sie leicht feststellen können, ob der Hotfix angewendet wurde. Für jede Version von Azure Stack Hub, die noch unterstützt wird, wird ein separater Hotfix bereitgestellt. **Jeder Hotfix für eine bestimmte Iteration ist kumulativ und enthält die vorherigen Hotfixes für dieselbe Version.** Wenn Sie mehr über die Anwendbarkeit eines bestimmten Hotfixes erfahren möchten, lesen Sie den entsprechenden Knowledge Base-Artikel. Siehe die Links mit den Versionshinweisen im vorherigen Abschnitt.
 
 Informationen zu den derzeit verfügbaren Hotfixes finden Sie in den Versionshinweisen für das jeweilige Update:
 

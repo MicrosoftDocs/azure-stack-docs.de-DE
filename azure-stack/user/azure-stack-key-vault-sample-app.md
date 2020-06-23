@@ -3,19 +3,19 @@ title: Zugriff auf Azure Stack Hub-Key Vault-Geheimnisse durch Apps zulassen
 description: Erfahren Sie, wie Sie eine Beispiel-App ausführen, die Schlüssel und Geheimnisse aus einem Schlüsseltresor in Azure Stack Hub abruft.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 16973c1c381cfecb611370f940f92a7695f9434f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2941adf109f9e8c142523f607bce969427127ec3
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702770"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813787"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Zugriff auf Azure Stack Hub-Key Vault-Geheimnisse durch Apps zulassen
 
-Nutzen Sie die Schritte in diesem Artikel, um die Beispiel-App **HelloKeyVault** auszuführen, die Schlüssel und Geheimnisse aus einem Schlüsseltresor in Azure Stack Hub abruft.
+In den Schritten in diesem Artikel wird beschrieben, wie Sie die Beispiel-App **HelloKeyVault** ausführen, die Schlüssel und Geheimnisse aus einem Schlüsseltresor in Azure Stack Hub abruft.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -130,7 +130,7 @@ Notieren Sie die vom Skript zurückgegeben Werte für **VaultUrl**, **AuthClient
 
 ## <a name="download-and-configure-the-sample-application"></a>Herunterladen und Konfigurieren der Beispielanwendung
 
-Laden Sie den Beispielschlüsseltresor von der Seite mit den [Azure Key Vault-Clientbeispielen](https://www.microsoft.com/download/details.aspx?id=45343) herunter. Extrahieren Sie den Inhalt der ZIP-Datei auf Ihrer Entwicklungsarbeitsstation. Der Beispielordner enthält zwei Apps. In diesem Artikel wird **HelloKeyVault** verwendet.
+Laden Sie den Beispielschlüsseltresor von der Seite mit den [Azure Key Vault-Clientbeispielen](https://www.microsoft.com/download/details.aspx?id=45343) herunter. Extrahieren Sie den Inhalt der ZIP-Datei auf Ihrer Entwicklungsarbeitsstation. Der Ordner „samples“ enthält zwei Apps, von denen in diesem Artikel **HelloKeyVault** verwendet wird.
 
 So laden Sie das **HelloKeyVault**-Beispiel:
 

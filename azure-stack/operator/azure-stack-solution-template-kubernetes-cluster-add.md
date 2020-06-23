@@ -8,12 +8,12 @@ ms.date: 03/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 03/24/2020v
-ms.openlocfilehash: bd8867b4bd7fae79f82752a0f4cdbd1457efc0ef
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 092d73339eb2ea733cb0fb67404bf52cc9539343
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80229538"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630755"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Hinzufügen von Kubernetes zum Azure Stack Hub-Marketplace
 
@@ -28,7 +28,7 @@ In diesem Artikel wird das Bereitstellen der Ressourcen für einen eigenständig
 
 Erstellen Sie einen Plan, ein Angebot und ein Abonnement für das Marketplace-Element für Kubernetes. Sie können auch einen vorhandenen Plan und ein vorhandenes Angebot verwenden.
 
-1. Melden Sie sich beim [Administratorportal](https://adminportal.local.azurestack.external) an.
+1. Melden Sie sich beim Administratorportal `https://adminportal.local.azurestack.external` an.
 
 1. Erstellen Sie einen Plan als Basisplan. Anweisungen hierzu finden Sie unter [Erstellen von Plänen in Azure Stack Hub](azure-stack-create-plan.md).
 
@@ -60,7 +60,7 @@ Wenn Sie Active Directory-Verbunddienste (AD FS) als Ihren Identitätsverwaltung
 
 Fügen Sie dem Azure Stack Hub-Marketplace das folgende Ubuntu-Serverimage hinzu:
 
-1. Melden Sie sich beim [Administrator Portal](https://adminportal.local.azurestack.external) an.
+1. Melden Sie sich beim Administratorportal `https://adminportal.local.azurestack.external` an.
 
 1. Wählen Sie **Alle Dienste** aus, und wählen Sie dann unter der Kategorie **VERWALTUNG** die Option **Marketplace-Verwaltung** aus.
 
@@ -80,7 +80,7 @@ Fügen Sie dem Azure Stack Hub-Marketplace das folgende Ubuntu-Serverimage hinzu
 
 Fügen Sie Kubernetes aus dem Azure Stack Hub-Marketplace hinzu:
 
-1. Öffnen Sie das [Administratorportal](https://adminportal.local.azurestack.external).
+1. Öffnen Sie das Administratorportal `https://adminportal.local.azurestack.external`.
 
 1. Wählen Sie **Alle Dienste** aus, und wählen Sie dann unter der Kategorie **VERWALTUNG** die Option **Marketplace-Verwaltung** aus.
 
@@ -100,7 +100,7 @@ Fügen Sie Kubernetes aus dem Azure Stack Hub-Marketplace hinzu:
 
 ## <a name="add-kubernetes-to-the-marketplace"></a>Hinzufügen von Kubernetes zum Marketplace
 
-1. Öffnen Sie das [Administratorportal](https://adminportal.local.azurestack.external).
+1. Öffnen Sie das Administratorportal `https://adminportal.local.azurestack.external`.
 
 1. Wählen Sie **Alle Dienste** aus, und wählen Sie dann unter der Kategorie **VERWALTUNG** die Option **Marketplace-Verwaltung** aus.
 

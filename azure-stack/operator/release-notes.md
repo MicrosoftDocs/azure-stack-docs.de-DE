@@ -3,16 +3,16 @@ title: 'Azure Stack Hub: Versionshinweise'
 description: Versionshinweise für integrierte Azure Stack Hub-Systeme, einschließlich Updates und Fehlerbehebungen.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/29/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 39e6c3ce9b942398954c5c81cbce172095520d90
-ms.sourcegitcommit: c167bf3724139aafe40066f9533985ed7d919c0e
+ms.openlocfilehash: adb3d5d995b9bb267dacf957a9a7f15582114484
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84329213"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819454"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -157,6 +157,8 @@ Azure Stack Hub veröffentlicht regelmäßig Hotfixes. Installieren Sie den aktu
 
 Azure Stack Hub-Hotfixes gelten nur für integrierte Azure Stack Hub-Systeme. Versuchen Sie nicht, Hotfixes auf dem ASDK zu installieren.
 
+Weitere Informationen zu Hotfixes finden Sie unter [Azure Stack Hub-Wartungsrichtlinie](azure-stack-servicing-policy.md#hotfixes).
+
 ### <a name="prerequisites-before-applying-the-2002-update"></a>Voraussetzungen: Vor dem Anwenden des Updates 2002
 
 Das Release 2002 von Azure Stack Hub muss auf das Release 1910 mit den folgenden Hotfixes angewendet werden:
@@ -166,7 +168,7 @@ Das Release 2002 von Azure Stack Hub muss auf das Release 1910 mit den folgend
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Nach erfolgreicher Anwendung des Updates 2002
 
-Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes. Weitere Informationen finden Sie in unserer [Wartungsrichtlinie](azure-stack-servicing-policy.md).
+Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
 - [Azure Stack Hub-Hotfix 1.2002.28.93](https://support.microsoft.com/help/4562966)
@@ -222,7 +224,7 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
     - Integration mit Azure Arc
     - Integration mit Azure Monitor für Container
   - Verwenden von Windows-Containern mit AKS-Engine
-  - Erhalten von CSS- und Engineering-Support für ihre Bereitstellungen
+  - Erhalten von Microsoft- und Engineering-Support für ihre Bereitstellungen.
 
 ### <a name="improvements"></a>Verbesserungen
 
@@ -429,7 +431,7 @@ Beim Azure Stack Hub-Update 1907 handelt es sich um einen Build vom Typ **Expre
 
 <!-- What's new, also net new experiences and features. -->
 
-- Allgemein verfügbare Version des Azure Stack Hub-Sammlungsdiensts für Diagnoseprotokolle, um die Sammlung von Diagnoseprotokollen zu vereinfachen und zu verbessern. Der Azure Stack Hub-Sammlungsdienst für Diagnoseprotokolle stellt ein vereinfachtes Verfahren zum Sammeln und Teilen von Diagnoseprotokollen mit Microsoft Customer Support Services (CSS) zur Verfügung. Dieser Sammlungsdienst für Diagnoseprotokolle bietet eine neue Benutzeroberfläche im Azure Stack Hub-Administratorportal, über die Operatoren beim Erreichen bestimmter kritischer Warnschwellen den automatischen Upload von Diagnoseprotokollen in einen Speicherblob einrichten können. Der Dienst kann auch dazu verwendet werden, den gleichen Vorgang bedarfsgesteuert auszuführen. Weitere Informationen finden Sie im Artikel [Sammlung von Diagnoseprotokollen](azure-stack-diagnostic-log-collection-overview.md).
+- Allgemein verfügbare Version des Azure Stack Hub-Sammlungsdiensts für Diagnoseprotokolle, um die Sammlung von Diagnoseprotokollen zu vereinfachen und zu verbessern. Der Azure Stack Hub-Sammlungsdienst für Diagnoseprotokolle stellt ein vereinfachtes Verfahren zum Sammeln und Teilen von Diagnoseprotokollen dem Microsoft-Support zur Verfügung. Dieser Sammlungsdienst für Diagnoseprotokolle bietet eine neue Benutzeroberfläche im Azure Stack Hub-Administratorportal, über die Operatoren beim Erreichen bestimmter kritischer Warnschwellen den automatischen Upload von Diagnoseprotokollen in einen Speicherblob einrichten können. Der Dienst kann auch dazu verwendet werden, den gleichen Vorgang bedarfsgesteuert auszuführen. Weitere Informationen finden Sie im Artikel [Sammlung von Diagnoseprotokollen](azure-stack-diagnostic-log-collection-overview.md).
 
 - Allgemein verfügbare Version der Azure Stack Hub-Netzwerkinfrastruktur-Überprüfung als Teil des Azure Stack Hub-Überprüfungstools **Test-AzureStack**. Die Azure Stack Hub-Netzwerkinfrastruktur stellt einen Teil von **Test-AzureStack** dar und ermöglicht das Bestimmen eines Fehlers in der Netzwerkinfrastruktur von Azure Stack Hub. Der Test überprüft die Konnektivität der Netzwerkinfrastruktur, indem er das softwaredefinierte Netzwerk von Azure Stack Hub umgeht. Er veranschaulicht Verbindungen von einer öffentlichen VIP mit den konfigurierten DNS-Forwardern, NTP-Servern und Identitätsendpunkten. Außerdem überprüft er die Konnektivität mit Azure, wenn Azure AD als Identitätsanbieter verwendet wird, oder mit dem Partnerserver, wenn ADFS verwendet wird. Weitere Informationen finden Sie im Artikel zum [Azure Stack Hub-Überprüfungstool](azure-stack-diagnostic-test.md).
 

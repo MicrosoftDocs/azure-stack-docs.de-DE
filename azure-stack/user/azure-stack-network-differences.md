@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 2a71320a660c7dbf74ad885226bb7fcbfa78b35f
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 459d6177015cbca40d2f8f830eba85dc87be18c7
+ms.sourcegitcommit: e79aafb05c5fc512a83f0ebc6d76503213ccbc70
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111393"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730678"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack Hub-Netzwerke: Unterschiede und Überlegungen
 
@@ -52,6 +52,7 @@ Dieser Artikel enthält eine Übersicht über die besonderen Überlegungen für 
 |  | Ändern der Gatewaygröße | Azure unterstützt das Ändern der Gatewaygröße nach der Bereitstellung. | Die Größenänderung wird nicht unterstützt. |
 |  | Verfügbarkeitskonfiguration | Aktiv/aktiv | Aktiv/passiv |
 |  | UsePolicyBasedTrafficSelectors | Azure unterstützt die Verwendung richtlinienbasierter Datenverkehrsselektoren mit routenbasierten Gatewayverbindungen. | Noch nicht unterstützt. |
+|  | Überwachung und Warnungen | Azure verwendet Azure Monitor, um die Möglichkeit zum Einrichten von Warnungen für VPN-Ressourcen zu bieten. | Noch nicht unterstützt.|
 | Load Balancer | SKU | Load Balancer Basic und Standard werden unterstützt. | Nur Load Balancer Basic wird unterstützt.<br>Die SKU-Eigenschaft wird nicht unterstützt.<br>Der Load Balancer der SKU „Basic“ (/path/) darf nicht mehr als fünf Front-End-IP-Konfigurationen aufweisen.  |
 |  | Zones | Verfügbarkeitszonen werden unterstützt. | Noch nicht unterstützt |
 |  | Unterstützung eingehender NAT-Regeln für Dienstendpunkte | Azure unterstützt das Festlegen von Dienstendpunkten für eingehende NAT-Regeln. | Da Azure Stack Hub noch keine Dienstendpunkte unterstützt, können diese nicht festgelegt werden. |

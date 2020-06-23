@@ -3,15 +3,15 @@ title: Verwalten von Key Vault in Azure Stack Hub über das Portal
 description: Erfahren Sie, wie Sie Key Vault in Azure Stack Hub über das Azure Stack Hub-Portal verwalten.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 50348aff594b058606aae49981e497f8b3515235
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 5413c37b0574e022716a1a0d333c18e78a818937
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702923"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666384"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>Verwalten von Key Vault in Azure Stack Hub über das Portal
 
@@ -23,7 +23,7 @@ Sie müssen ein Angebot abonnieren, das den Azure Key Vault-Dienst umfasst.
 
 ## <a name="create-a-key-vault"></a>Erstellen eines Schlüsseltresors
 
-1. Melden Sie sich am [Benutzerportal](https://portal.local.azurestack.external) an.
+1. Melden Sie sich beim Benutzerportal `https://portal.local.azurestack.external` an.
 
 2. Wählen Sie im Dashboard **+ Ressource erstellen**, **Sicherheit + Identität** und anschließend **Schlüsseltresor** aus.
 
@@ -49,7 +49,7 @@ Gehen Sie nach dem Erstellen eines Schlüsseltresors wie folgt vor, um Schlüsse
 
 ### <a name="create-a-key"></a>Erstellen eines Schlüssels
 
-1. Melden Sie sich beim Azure Stack Hub-[Benutzerportal](https://portal.local.azurestack.external) an.
+1. Melden Sie sich beim Azure Stack Hub-Benutzerportal `https://portal.local.azurestack.external` an.
 
 2. Wählen Sie im Dashboard **Alle Ressourcen** aus, wählen Sie den zuvor erstellten Schlüsseltresor aus, und klicken Sie dann auf die Kachel **Schlüssel**.
 
@@ -69,7 +69,7 @@ Nach erfolgreicher Erstellung des Schlüssels können Sie ihn unter **Schlüssel
 
 ### <a name="create-a-secret"></a>Erstellen eines Geheimnisses
 
-1. Melden Sie sich am [Benutzerportal](https://portal.local.azurestack.external) an.
+1. Melden Sie sich beim Benutzerportal `https://portal.local.azurestack.external` an.
 
 2. Wählen Sie im Dashboard **Alle Ressourcen** aus, wählen Sie den zuvor erstellten Schlüsseltresor aus, und klicken Sie dann auf die Kachel **Geheimnisse**.
 

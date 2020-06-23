@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 995342f471ed7300d2fb9dd95a6623588a13d1a9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2d836c601f292b25a472b38d1afef464a3b22960
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295329"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630928"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Verwalten von Azure Stack Hub-Speicherkonten
 
@@ -22,7 +22,7 @@ Erfahren Sie, wie Sie Azure Stack Hub-Speicherkonten verwalten. Sie können Spe
 
 Sie können die Liste der Speicherkonten in der Region in Azure Stack Hub abrufen, indem Sie wie folgt vorgehen:
 
-1. Melden Sie sich beim [Administrator Portal](https://adminportal.local.azurestack.external) an.
+1. Melden Sie sich beim Administratorportal `https://adminportal.local.azurestack.external` an.
 
 2. Wählen Sie **Alle Dienste** > **Speicher** > **Speicherkonten** aus.
 
@@ -89,7 +89,7 @@ Die Einstellung für den Aufbewahrungszeitraum ermöglicht einem Cloudbetreiber 
 
 **Ändern des Aufbewahrungszeitraums:**
 
-1. Melden Sie sich beim [Administrator Portal](https://adminportal.local.azurestack.external) an.
+1. Melden Sie sich beim Administratorportal `https://adminportal.local.azurestack.external` an.
 2. Wählen Sie **Alle Dienste** > **Regionsverwaltung** unter **Verwaltung** aus.
 3. Wählen Sie **Ressourcenanbieter** > **Speicher** > **Einstellungen** aus. Der Pfad lautet: „Startseite“ > „*Region* – Ressourcenanbieter“ > „Speicher“.
 4. Klicken Sie auf **Konfiguration**, und bearbeiten Sie dann den Wert für den Aufbewahrungszeitraum.

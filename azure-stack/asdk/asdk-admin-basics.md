@@ -7,12 +7,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 75e20d593f1fb07e55655a7128c12b5417835dfe
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 70d2cfd7ce2dddd73117783c97003178281927d9
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82846890"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819381"
 ---
 # <a name="asdk-admin-basics"></a>Grundlagen der ASDK-Verwaltung
 Wenn Sie mit der Verwaltung des Azure Stack Development Kits (ASDK) noch nicht vertraut sind, gibt es verschiedene Aspekte, die Sie kennen müssen. Dieser Leitfaden bietet eine Übersicht über Ihre Rolle als Azure Stack-Operator in der Evaluierungsumgebung. Wenn Sie sich mit diesen Informationen vertraut machen, stellen Sie sicher, dass Ihre Testbenutzer schnell produktiv arbeiten können.
@@ -56,7 +56,7 @@ Fragen rund um den Support für das ASDK können Sie im [Azure Stack-MSDN-Forum]
 Sie können auch auf die Foren zugreifen, indem Sie in der oberen rechten Ecke des Administratorportals auf **Hilfe** (das Fragezeichen) klicken. Klicken Sie anschließend auf **Hilfe und Support**, um die **Übersicht** zu Hilfe und Support zu öffnen. Dort finden Sie einen Link zum Forum. MSDN-Foren werden regelmäßig überprüft.  
 
 > [!IMPORTANT]
-> Da das ASDK eine Evaluierungsumgebung ist, wird über Microsoft Customer Support Services (CSS) kein offizieller Support angeboten.
+> Da das ASDK eine Evaluierungsumgebung ist, wird über Microsoft-Support kein offizieller Support angeboten.
 
 ## <a name="next-steps"></a>Nächste Schritte
 [Bereitstellen des ASDK](asdk-install.md)

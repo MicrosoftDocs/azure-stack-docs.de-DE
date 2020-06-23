@@ -7,12 +7,12 @@ ms.date: 04/30/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 17ecab0f42c89d6c25daba98652d8dc9d1a9e3b0
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: e78b396822c86c9785ddecc691f57c27afeb6fcd
+ms.sourcegitcommit: e79aafb05c5fc512a83f0ebc6d76503213ccbc70
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777745"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730712"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Aktionen für Knoten einer Skalierungseinheit in Azure Stack Hub
 
@@ -52,7 +52,7 @@ So zeigen Sie den Status einer Skalierungseinheit an
 | Beendet | Der Knoten ist nicht verfügbar. |
 | Wird hinzugefügt | Der Knoten wird aktiv zur Skalierungseinheit hinzugefügt. |
 | Wird repariert | Der Knoten wird aktiv repariert. |
-| Wartung  | Der Knoten wurde angehalten, und es wird kein aktiver Benutzerworkload ausgeführt. |
+| Wartung | Der Knoten wurde angehalten, und es wird kein aktiver Benutzerworkload ausgeführt. |
 | Korrektur erforderlich | Ein Fehler wurde ermittelt, der eine Reparatur des Knotens erfordert. |
 
 ### <a name="azure-stack-hub-shows-adding-status-after-an-operation"></a>Azure Stack Hub zeigt das Hinzufügen des Status nach einem Vorgang an
@@ -159,7 +159,7 @@ Weitere Informationen finden Sie unter [Enable-AzsScaleUnitNode](https://docs.mi
 ## <a name="repair"></a>Reparieren
 
 > [!CAUTION]  
-> Der Firmwareabgleich ist für den Erfolg des in diesem Artikel beschriebenen Vorgangs entscheidend. Wenn Sie diesen Schritt auslassen, kann dies zu einem instabilen System, Leistungseinbußen, Sicherheitsbedrohungen oder Fehlern bei der Bereitstellung des Betriebssystems durch die Azure Stack Hub-Automatisierung führen. Lesen Sie immer die Dokumentation des Hardwarepartners, wenn Sie Hardware austauschen, um sicherzustellen, dass die angewendete Firmware der OEM-Version entspricht, die im [Azure Stack Hub-Administratorportal](azure-stack-updates.md) angezeigt wird.<br><br>
+> Der Firmwareabgleich ist für den Erfolg des in diesem Artikel beschriebenen Vorgangs entscheidend. Wenn Sie diesen Schritt auslassen, kann dies zu einem instabilen System, Leistungseinbußen, Sicherheitsrisiken oder Fehlern bei der Bereitstellung des Betriebssystems durch die Azure Stack Hub-Automatisierung führen. Lesen Sie immer die Dokumentation des Hardwarepartners, wenn Sie Hardware austauschen, um sicherzustellen, dass die angewendete Firmware der OEM-Version entspricht, die im [Azure Stack Hub-Administratorportal](azure-stack-updates.md) angezeigt wird.<br><br>
 Weitere Informationen und Links zur Partnerdokumentation finden Sie unter [Ersetzen einer Hardwarekomponente](azure-stack-replace-component.md).
 
 | Hardwarepartner | Region | URL |

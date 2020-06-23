@@ -3,15 +3,15 @@ title: DNS in Azure Stack Hub
 description: Erfahren Sie mehr über DNS in Azure Stack Hub und das Erstellen und Verwalten von DNS-Zonen
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/11/2020
 ms.author: sethm
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: b9afba6322b80d487f4ba7d4324adcd42a8fd85a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7ab3775b0424a8cba0b84bc3d3ccb40705b192fb
+ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703008"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744900"
 ---
 # <a name="use-dns-in-azure-stack-hub"></a>Verwenden von DNS in Azure Stack Hub
 
@@ -43,7 +43,7 @@ Sie verfügen über einen Lastenausgleich, der Anforderungen einer Web-App verar
 
 Sie können DNS-Zonen und -Einträge in Azure Stack Hub erstellen und verwalten.
 
-Azure Stack Hub stellt ähnlich wie Azure einen DNS-Dienst bereit. Dabei werden APIs verwendet, die mit den Azure DNS-APIs konsistent sind.  Durch das Hosten Ihrer Domänen in Azure Stack Hub-DNS können Sie Ihre DNS-Einträge mithilfe der gleichen Anmeldeinformationen, APIs und Tools verwalten. Sie können auch die gleiche Abrechnung und den gleichen Support wie für die anderen Azure-Dienste verwenden.
+Azure Stack Hub stellt ähnlich wie Azure einen DNS-Dienst bereit. Dabei werden APIs verwendet, die mit den Azure DNS-APIs konsistent sind. Durch das Hosten Ihrer Domänen in Azure Stack Hub-DNS können Sie Ihre DNS-Einträge mithilfe der gleichen Anmeldeinformationen, APIs und Tools verwalten. Sie können auch die gleiche Abrechnung und den gleichen Support wie für die anderen Azure-Dienste verwenden.
 
 Die Azure Stack Hub-DNS-Infrastruktur ist kompakter als in Azure. Die Größe und der Speicherort einer Azure Stack Hub-Bereitstellung wirken sich auf den Bereich, den Umfang und die Leistung von DNS aus. Das bedeutet auch, dass Leistung, Verfügbarkeit, globale Verteilung und Hochverfügbarkeit von Bereitstellung zu Bereitstellung variieren können.
 
@@ -55,7 +55,7 @@ DNS in Azure Stack Hub ist DNS in Azure ähnlich, aber es gibt ein paar wichtige
 
 * **Nicht mehrinstanzenfähig:** Der DNS-Dienst in Azure Stack Hub ist nicht mehrinstanzenfähig. Für mehrere Mandanten kann nicht dieselbe DNS-Zone erstellt werden. Dies ist nur für das erste Abonnement erfolgreich, mit dem versucht wird, die Zone zu erstellen. Spätere Anforderungen schlagen fehl. Dies ist ein weiterer wichtiger Unterschied zwischen DNS in Azure und Azure Stack Hub.
 
-* **Tags, Metadaten und ETags:** Außerdem gibt es kleinere Unterschiede in Bezug darauf, wie Azure Stack Hub Tags, Metadaten, ETags und Grenzwerte verarbeitet.
+* **Tags, Metadaten und ETags:** Außerdem gibt es kleinere Unterschiede in der Art, wie Azure Stack Hub Tags, Metadaten, ETags und Grenzwerte verarbeitet.
 
 Weitere Informationen zu Azure DNS finden Sie unter [DNS-Zonen und -Einträge](/azure/dns/dns-zones-records).
 

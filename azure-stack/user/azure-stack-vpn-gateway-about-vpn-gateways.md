@@ -3,15 +3,15 @@ title: Erstellen von VPN-Gateways für Azure Stack Hub
 description: Erstellen und Konfigurieren von VPN-Gateways für Azure Stack Hub
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 35e17b6527b39bc12ad8f140b98a27fa6f4b69ac
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2393a088e64ec0a3144fe7d5f4c5c3d2c8e25ab1
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295257"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813723"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>Erstellen von VPN-Gateways für Azure Stack Hub
 
@@ -25,8 +25,8 @@ Jedes virtuelle Netzwerk kann über zwei Gateways für virtuelle Netzwerke, aber
 
 Bevor Sie VPN-Gateways für Azure Stack Hub erstellen und konfigurieren, sollten Sie die [Überlegungen zu Azure Stack Hub-Netzwerken](azure-stack-network-differences.md) lesen, um zu erfahren, wie Konfigurationen für Azure Stack Hub sich von Azure unterscheiden.
 
->[!NOTE]
->In Azure muss der Bandbreitendurchsatz für die ausgewählte VPN Gateway-SKU auf alle Verbindungen aufgeteilt werden, die mit dem Gateway hergestellt wurden. In Azure Stack Hub wird der Bandbreitenwert jedoch für die VPN Gateway-SKU auf jede Verbindungsressource angewendet, die mit dem Gateway verbunden ist.
+> [!NOTE]
+> In Azure muss der Bandbreitendurchsatz für die ausgewählte VPN Gateway-SKU auf alle Verbindungen aufgeteilt werden, die mit dem Gateway hergestellt wurden. In Azure Stack Hub wird der Bandbreitenwert jedoch für die VPN Gateway-SKU auf jede Verbindungsressource angewendet, die mit dem Gateway verbunden ist.
 >
 > Beispiel:
 >
@@ -116,8 +116,8 @@ In der folgenden Tabelle sind die Gatewaytypen und der geschätzte zusammengefas
 **(2)** Bei der maximalen Tunnelanzahl handelt es sich um die Summe pro Azure Stack Hub-Bereitstellung für alle Abonnements.  
 **(3)** BGP-Routing wird von der Basic-SKU nicht unterstützt.
 
->[!NOTE]
->Zwischen zwei Azure Stack Hub-Bereitstellungen kann nur eine Site-to-Site-VPN-Verbindung hergestellt werden. Der Grund: Wegen einer Einschränkung ist für die Plattform nur eine einzelne VPN-Verbindung mit der gleichen IP-Adresse zulässig. Da Azure Stack Hub das mehrinstanzenfähige Gateway nutzt, das eine öffentliche IP-Adresse für alle VPN-Gateways im Azure Stack Hub-System verwendet, kann zwischen zwei Azure Stack Hub-Systemen nur eine VPN-Verbindung hergestellt werden. Diese Einschränkung gilt auch für das Herstellen mehrerer Site-to-Site-VPN-Verbindungen mit einem beliebigen VPN-Gateway, das eine einzige IP-Adresse nutzt. Azure Stack Hub lässt nicht zu, dass mehrere Ressourcen des lokalen Netzwerkgateways mit der gleichen IP-Adresse erstellt werden.
+> [!NOTE]
+> Zwischen zwei Azure Stack Hub-Bereitstellungen kann nur eine Site-to-Site-VPN-Verbindung hergestellt werden. Der Grund: Wegen einer Einschränkung ist für die Plattform nur eine einzelne VPN-Verbindung mit der gleichen IP-Adresse zulässig. Da Azure Stack Hub das mehrinstanzenfähige Gateway nutzt, das eine öffentliche IP-Adresse für alle VPN-Gateways im Azure Stack Hub-System verwendet, kann zwischen zwei Azure Stack Hub-Systemen nur eine VPN-Verbindung hergestellt werden. Diese Einschränkung gilt auch für das Herstellen mehrerer Site-to-Site-VPN-Verbindungen mit einem beliebigen VPN-Gateway, das eine einzige IP-Adresse nutzt. Azure Stack Hub lässt nicht zu, dass mehrere Ressourcen des lokalen Netzwerkgateways mit der gleichen IP-Adresse erstellt werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

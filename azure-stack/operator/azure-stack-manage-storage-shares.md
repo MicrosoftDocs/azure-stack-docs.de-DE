@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 15908ca3057cb347f1dd02c7ee5113c0e9d0b9de
-ms.sourcegitcommit: e75218d2e04f41620cc09caf04473ad4c7289253
+ms.openlocfilehash: ecac1c8c69a8f332a85bf0a934f688f14dbcaddd
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708313"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630996"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Verwalten der Speicherkapazität für Azure Stack Hub
 
@@ -90,7 +90,7 @@ Als Cloudbetreiber können Sie die Speicherkapazität einer Freigabe mithilfe de
 ### <a name="use-the-administrator-portal"></a>Verwenden des Administratorportals
 Als Cloudbetreiber können Sie die Speicherkapazität für alle Freigaben im Administratorportal abrufen.
 
-1. Melden Sie sich beim [Administrator Portal](https://adminportal.local.azurestack.external) an.
+1. Melden Sie sich beim Administratorportal `https://adminportal.local.azurestack.external` an.
 2. Wählen Sie **Alle Dienste** > **Speicher** > **Dateifreigaben** aus, um die Dateifreigabeliste mit den Nutzungsinformationen zu öffnen.
 
     ![Beispiel: Speicherdateifreigaben im Azure Stack Hub-Administratorportal](media/azure-stack-manage-storage-shares/storage-file-shares.png)
@@ -152,7 +152,7 @@ Sie können die Kapazität freigeben, die von gelöschten Mandantenkonten beansp
 
 Weitere Informationen finden Sie unter [Verwalten von Speicherkonten in Azure Stack Hub](azure-stack-manage-storage-accounts.md#reclaim) im Abschnitt „Freigeben von Kapazität“.
 
-::: moniker range="<azs-2002"
+::: moniker range="<azs-1910"
 
 ### <a name="migrate-a-container-between-volumes"></a>Migrieren eines Containers zwischen Volumes
 *Diese Option gilt nur für in Azure Stack Hub integrierte Systeme.*
@@ -242,7 +242,7 @@ Durch die Migration werden alle Containerblobs in der neuen Freigabe konsolidier
 Die extremste Methode zum Verwalten von Speicherplatz ist das Verschieben von VM-Datenträgern. Bei der Verschiebung eines angefügten Containers (Container mit einem VM-Datenträger) handelt es sich um einen komplexen Vorgang. Lassen Sie sich daher vom Microsoft-Support dabei unterstützen.
 
 ::: moniker-end
-::: moniker range=">=azs-2002"
+::: moniker range=">=azs-1910"
 
 ### <a name="migrate-a-managed-disk-between-volumes"></a>Migrieren eines verwalteten Datenträgers zwischen Volumes
 *Diese Option gilt nur für in Azure Stack Hub integrierte Systeme.*
@@ -263,7 +263,10 @@ Sie können Speicherplatz auf einem intensiv genutzten Volume freigeben, indem S
    $StorageSubSystem = (Get-AzsStorageSubSystem -ScaleUnit $ScaleUnit.Name)[0]
    $Volumes = (Get-AzsVolume -ScaleUnit $ScaleUnit.Name -StorageSubSystem $StorageSubSystem.Name | Where-Object {$_.VolumeLabel -Like "ObjStore_*"})
    $SourceVolume  = ($Volumes | Sort-Object RemainingCapacityGB)[0]
-   $Disks = Get-AzsDisk -Status All -ScaleUnit $ScaleUnit.name -VolumeLabel $SourceVolume.VolumeLabel | Select-Object -First 10
+   $VolumeName = $SourceVolume.Name.Split("/")[2]
+   $VolumeName = $VolumeName.Substring($VolumeName.IndexOf(".")+1)
+   $MigrationSource = "\\SU1FileServer."+$VolumeName+"\SU1_"+$SourceVolume.VolumeLabel
+   $Disks = Get-AzsDisk -Status All -SharePath $MigrationSource | Select-Object -First 10
    ```
    Untersuchen Sie dann „$disks“:
 
@@ -277,13 +280,16 @@ Sie können Speicherplatz auf einem intensiv genutzten Volume freigeben, indem S
 
    ```powershell
    $DestinationVolume  = ($Volumes | Sort-Object RemainingCapacityGB -Descending)[0]
+   $VolumeName = $DestinationVolume.Name.Split("/")[2]
+   $VolumeName = $VolumeName.Substring($VolumeName.IndexOf(".")+1)
+   $MigrationTarget = "\\SU1FileServer."+$VolumeName+"\SU1_"+$DestinationVolume.VolumeLabel
    ```
 
 4. Starten Sie die Migration für verwaltete Datenträger. Die Migration erfolgt asynchron. Falls Sie die Migration weiterer Datenträger starten, bevor die erste Migration abgeschlossen ist, können Sie den Status der einzelnen Aufträge anhand des jeweiligen Auftragsnamens nachverfolgen.
 
    ```powershell
    $jobName = "MigratingDisk"
-   Start-AzsDiskMigrationJob -Disks $Disks -TargetScaleUnit $ScaleUnit.name -TargetVolumeLabel $DestinationVolume.VolumeLabel -Name $jobName
+   Start-AzsDiskMigrationJob -Disks $Disks -TargetShare $MigrationTarget -Name $jobName
    ```
 
 5. Verwenden Sie die Auftragsnamen, um den Status des Migrationsauftrags zu überprüfen. Nach Abschluss der Datenträgermigration wird **MigrationStatus** auf **Abgeschlossen** festgelegt.
