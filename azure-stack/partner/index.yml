@@ -1,40 +1,57 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation für Azure Stack Hub-Partner
+summary: Hier erfahren Sie, wie Sie Ihre Hardware zum Hosten von Azure Stack Hub überprüfen. Validation-as-a-Service ist ein nativer Azure-Dienst, der für Lösungspartner konzipiert wurde, die zusammen mit Microsoft Angebote entwickeln.
 metadata:
-  title: 'Dokumentation für Azure Stack Hub-Partner: Tutorials, API-Referenz'
-  description: 'Hier erfahren Sie, wie Sie Ihre Hardware zum Hosten von Azure Stack Hub überprüfen. Validation-as-a-Service ist ein nativer Azure-Dienst, der für Lösungspartner konzipiert wurde, die zusammen mit Microsoft Azure Stack Hub-Angebote entwickeln.'
-  services: azure-stack
-  author: mattbriggs
-  manager: femila
+  title: Azure Stack Hub-Partner
+  description: Hier erfahren Sie, wie Sie Ihre Hardware zum Hosten von Azure Stack Hub überprüfen. Validation-as-a-Service ist ein nativer Azure-Dienst, der für Lösungspartner konzipiert wurde, die zusammen mit Microsoft Angebote entwickeln.
   ms.service: azure-stack
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: partner
   ms.topic: landing-page
-  ms.date: 07/25/2018
+  author: mattbriggs
   ms.author: mabrigg
-  ms.reviewer: johnhas
-abstract:
-  description: 'Sie können mit Validation-as-a-Service Ihre Hardware für die Verwendung mit Azure Stack Hub überprüfen. Bei dem Dienst handelt es sich um einen nativen Azure-Dienst, der für Lösungspartner konzipiert wurde, die zusammen mit Microsoft Azure Stack Hub-Angebote entwickeln.'
-sections:
-  - title: Fünfminütiger Schnellstart
-    items:
-      - type: paragraph
-        text: 'Hier erfahren Sie, wie Sie das Validation-as-a-Service-Portal zum Planen von Tests für Ihre Hardware verwenden.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/i_account-management.svg
-            text: Planen des ersten Tests mithilfe des Validation-as-a-Service-Portals
-            href: azure-stack-vaas-schedule-test-pass.md
-  - title: Schritt-für-Schritt-Tutorials
-    items:
-      - type: paragraph
-        text: 'Hier erfahren Sie, wie Sie Ihre Azure Stack Hub-Hardware überprüfen.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">Überprüfen einer neuen Azure Stack Hub-Lösung</a>
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">Überprüfen von OEM-Paketen</a>
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Überprüfen der Softwareupdates von Microsoft</a>
+  ms.date: 06/22/2020
+  ms.openlocfilehash: 1e1deb2af682bbe732d374873e0b0ccbd292fce7
+  ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+  ms.translationtype: HT
+  ms.contentlocale: de-DE
+  ms.lasthandoff: 06/22/2020
+  ms.locfileid: "85197020"
+landingContent:
+- title: Informationen zu Validation-as-a-Service für Azure Stack Hub
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Was ist Validation-as-a-Service?
+      url: azure-stack-vaas-overview.md
+  - linkListType: whats-new
+    links:
+    - text: Versionshinweise
+      url: azure-stack-vaas-release-notes.md
+- title: Erste Schritte
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Informationen zum Verwenden des Validation-as-a-Service-Portals
+      url: azure-stack-vaas-schedule-test-pass.md
+    - text: Überprüfen einer Lösung
+      url: azure-stack-vaas-validate-solution-new.md
+- title: Verwendung
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Überprüfen einer neuen Azure Stack Hub-Lösung
+      url: azure-stack-vaas-validate-solution-new.md
+    - text: Überprüfen von OEM-Paketen
+      url: azure-stack-vaas-validate-oem-package.md
+    - text: Überprüfen der Softwareupdates von Microsoft
+      url: azure-stack-vaas-validate-microsoft-updates.md
+    - text: Problembehandlung für Validation-as-a-Service
+      url: azure-stack-vaas-troubleshoot.md
+  - linkListType: concept
+    links:
+    - text: Wichtige Begriffe
+      url: azure-stack-vaas-key-concepts.md
+    - text: Bewährte Methoden
+      url: azure-stack-vaas-best-practice.md
+    - text: Allgemeine Parameter
+      url: azure-stack-vaas-parameters.md
