@@ -3,16 +3,16 @@ title: Einführung in Azure Stack Hub-VMs
 description: Enthält Informationen zu Azure Stack Hub-VMs.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: 576580732440cabd8ae1c140d13130b81b212d16
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9dda1268962952e4828b292a472ba342f1fadd23
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295575"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813733"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Einführung in Azure Stack Hub-VMs
 
@@ -57,7 +57,7 @@ Für Ihr Abonnement gelten standardmäßig bestimmte Kontingentgrenzen, die die 
 
 ### <a name="operating-system-disks-and-images"></a>Betriebssystem-Datenträger und Images
 
-Virtuelle Computer in Azure Stack Hub sind auf das VHD-/VHDX-Format (virtuelle Festplatten der 1. Generation) beschränkt. VHDs können zum Speichern des Computerbetriebssystems und von Daten verwendet werden. VHDs werden auch für die Images verwendet, die Sie auswählen, um ein Betriebssystem zu installieren. Azure Stack Hub bietet einen Marketplace für verschiedene Versionen und Arten von Betriebssystemen. Marketplace-Images werden anhand von Herausgeber, Angebot, SKU und Version identifiziert (üblicherweise wird die aktuelle Version mit **latest** gekennzeichnet).
+Virtuelle Computer in Azure Stack Hub sind auf das VHD-/VHDX-Format (virtuelle Festplatten der 1. Generation) beschränkt. VHDs können zum Speichern des Computerbetriebssystems und von Daten verwendet werden. VHDs werden auch für die Images verwendet, die Sie zum Installieren eines Betriebssystems verwenden. Azure Stack Hub bietet einen Marketplace für verschiedene Versionen und Arten von Betriebssystemen. Marketplace-Images werden anhand von Herausgeber, Angebot, SKU und Version identifiziert (üblicherweise wird die aktuelle Version mit **latest** gekennzeichnet).
 
 In der folgenden Tabelle ist angegeben, wie Sie die Informationen zu einem Image finden:
 
@@ -71,8 +71,7 @@ Sie können ein eigenes Image hochladen und verwenden. In diesem Fall werden Her
 
 ### <a name="extensions"></a>Erweiterungen
 
-Mit VM-Erweiterungen können Sie den Funktionsumfang Ihres virtuellen Computers mittels Konfiguration nach der Bereitstellung sowie mittels automatisierter Aufgaben erweitern.
-Mit Erweiterungen können folgende allgemeine Aufgaben umgesetzt werden:
+Mit VM-Erweiterungen können Sie den Funktionsumfang Ihres virtuellen Computers mittels Konfiguration nach der Bereitstellung sowie mittels automatisierter Aufgaben erweitern. Mit Erweiterungen können Sie folgende allgemeine Aufgaben umsetzen:
 
 - **Ausführen benutzerdefinierter Skripts**: Die Erweiterung für benutzerdefinierte Skripts unterstützt Sie beim Konfigurieren von Workloads auf dem virtuellen Computer, indem beim Bereitstellen des virtuellen Computers Ihr Skript ausgeführt wird.
 
@@ -87,7 +86,7 @@ Die Ressourcen in der folgenden Tabelle werden vom virtuellen Computer verwendet
 |Resource|Erforderlich|BESCHREIBUNG|
 |---------|---------|---------|
 |Resource group|Ja|Der virtuelle Computer muss sich in einer Ressourcengruppe befinden.|
-|Speicherkonto|Nein|Bei Verwendung verwalteter Datenträger benötigt die VM das Speicherkonto nicht, um die virtuellen Festplatten zu speichern. <br>Bei Verwendung von nicht verwalteten Datenträgern benötigt der virtuelle Computer das Speicherkonto, um die virtuellen Festplatten zu speichern.|
+|Speicherkonto|Nein|Bei Verwendung verwalteter Datenträger benötigt die VM das Speicherkonto nicht, um die virtuellen Festplatten zu speichern. |
 |Virtuelles Netzwerk|Ja|Der virtuelle Computer muss einem virtuellen Netzwerk angehören.|
 |Öffentliche IP-Adresse|Nein|Für den Remotezugriff kann dem virtuellen Computer eine öffentliche IP-Adresse zugewiesen werden.|
 |Netzwerkschnittstelle|Ja|Der virtuelle Computer benötigt die Netzwerkschnittstelle für die Kommunikation im Netzwerk.|
@@ -95,11 +94,11 @@ Die Ressourcen in der folgenden Tabelle werden vom virtuellen Computer verwendet
 
 ## <a name="create-your-first-vm"></a>Erstellen Ihres ersten virtuellen Computers
 
-Zum Erstellen eines virtuellen Computers stehen Ihnen mehrere Möglichkeiten zur Verfügung. Welche Möglichkeit Sie auswählen, richtet sich nach Ihrer Umgebung. Die folgende Tabelle enthält hilfreiche Informationen zur Erstellung Ihres ersten virtuellen Computers:
+Es gibt mehrere Methoden zum Erstellen einer VM. Welche Möglichkeit Sie auswählen, richtet sich nach Ihrer Umgebung. Die folgende Tabelle enthält hilfreiche Informationen zur Erstellung Ihres ersten virtuellen Computers:
 
 |Methode|Artikel|
 |---------|---------|
-|Azure Stack Hub-Portal|Erstellen einer Windows-VM mit dem Azure Stack Hub-Portal<br>[Erstellen einer Linux-VM mit dem Azure Stack Hub-Portal](azure-stack-quick-linux-portal.md)|
+|Azure Stack Hub-Portal|[Erstellen einer Windows-VM mit dem Azure Stack Hub-Portal](azure-stack-quick-windows-portal.md).<br>[Erstellen einer Linux-VM mit dem Azure Stack Hub-Portal](azure-stack-quick-linux-portal.md).|
 |Vorlagen|Azure Stack Hub-Schnellstartvorlagen befinden sich hier:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://aka.ms/aa6z60s)|
 |PowerShell|[Erstellen einer Windows-VM in Azure Stack Hub mit PowerShell](azure-stack-quick-create-vm-windows-powershell.md)<br>[Erstellen einer Linux-VM in Azure Stack Hub mit PowerShell](azure-stack-quick-create-vm-linux-powershell.md)|
 |Befehlszeilenschnittstelle (CLI)|[Erstellen einer Windows-VM in Azure Stack Hub mit der CLI](azure-stack-quick-create-vm-windows-cli.md)<br>[Erstellen einer Linux-VM in Azure Stack Hub mit der CLI](azure-stack-quick-create-vm-linux-cli.md)|
@@ -115,17 +114,17 @@ Sie können virtuelle Computer über ein browserbasiertes Portal, über Befehlsz
 
 ### <a name="get-information-about-your-vm"></a>Abrufen von Informationen zu Ihrem virtuellen Computer
 
-Die folgende Tabelle zeigt einige der Methoden, mit denen Sie Informationen zu einem virtuellen Computer abrufen können.
+Die folgende Tabelle zeigt einige der Methoden, mit denen Sie Informationen zu einem virtuellen Computer abrufen können:
 
 |Methode|BESCHREIBUNG|
 |---------|---------|
 |Azure Stack Hub-Portal|Klicken Sie im Hub-Menü auf **Virtual Machines**, und wählen Sie dann in der Liste den gewünschten virtuellen Computer aus. Auf der Seite des virtuellen Computers finden Sie Übersichtsinformationen, Einstellungswerte und Überwachungsmetriken.|
-|Azure PowerShell|Die Verwaltung von virtuellen Computern erfolgt in Azure und Azure Stack Hub auf die gleiche Weise. Weitere Informationen zur Verwendung von PowerShell finden Sie im folgenden Azure-Thema:<br>[Erstellen und Verwalten von virtuellen Windows-Computern mit dem Azure PowerShell-Modul](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|Client-SDKs|Die Verwendung von C# zur Verwaltung von virtuellen Computern erfolgt in Azure und Azure Stack Hub auf die gleiche Weise. Weitere Informationen finden Sie im folgenden Azure-Thema:<br>[Erstellen und Verwalten von virtuellen Windows-Computern in Azure mithilfe von C#](/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|Die Verwaltung von virtuellen Computern erfolgt in Azure und Azure Stack Hub auf die gleiche Weise. Weitere Informationen zum Verwenden von PowerShell finden Sie in dem Azure-Thema [Erstellen und Verwalten von virtuellen Windows-Computern mit dem Azure PowerShell-Modul](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes).|
+|Client-SDKs|Die Verwendung von C# zur Verwaltung von virtuellen Computern erfolgt in Azure und Azure Stack Hub auf die gleiche Weise. Weitere Informationen finden Sie unter [Erstellen und Verwalten von virtuellen Windows-Computern in Azure mithilfe von C#](/azure/virtual-machines/windows/csharp).|
 
 ### <a name="connect-to-your-vm"></a>Herstellen einer Verbindung mit Ihrer VM
 
-Sie können die Schaltfläche **Verbinden** im Azure Stack Hub-Portal verwenden, um eine Verbindung mit Ihrem virtuellen Computer herzustellen.
+Sie können die Option **Verbinden** im Azure Stack Hub-Portal verwenden, um eine Verbindung mit Ihrem virtuellen Computer herzustellen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

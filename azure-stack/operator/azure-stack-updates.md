@@ -1,18 +1,18 @@
 ---
 title: Verwalten von Updates
 description: Hier erfahren Sie, wie Sie Updates in Azure Stack Hub verwalten.
-author: IngridAtMicrosoft
+author: sethmanheim
 ms.topic: how-to
-ms.date: 05/13/2020
-ms.author: inhenkel
+ms.date: 06/09/2020
+ms.author: sethm
 ms.lastreviewed: 09/10/2019
-ms.reviewer: ppacent
-ms.openlocfilehash: cdf2ba4d3dd226ea727efe05dc8be671ba172f8b
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.reviewer: niy
+ms.openlocfilehash: d3f365f825e30e03e74d2e822653ee3ccfdb9e58
+ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374613"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636868"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Verwalten von Updates in Azure Stack Hub
 
@@ -63,7 +63,17 @@ Die Benachrichtigungen über Updates hängen von einigen Faktoren ab, z. B. der
 
     OEM-Updates hängen vom Hersteller ab. Sie müssen einen Kommunikationskanal mit Ihrem OEM einrichten, damit Sie wissen, wann Updates Ihres OEM angewendet werden müssen. Weitere Informationen zu OEMs und zum OEM-Updateprozess finden Sie unter [Anwenden von OEM-Updates (Originalgerätehersteller) auf Azure Stack Hub](azure-stack-update-oem.md).
 
-## <a name="update-processes"></a>Updateprozesse
+### <a name="major-version-to-major-version"></a>Hauptversion auf Hauptversion
+
+Ein Update von einer Hauptversion auf eine Hauptversion muss Schritt für Schritt erfolgen: Die aktuelle Umgebung kann nur auf die nächste Hauptversion aktualisiert werden, und Sie können kein Hauptversionsupdate überspringen.
+
+Wenn Ihre Azure Stack Hub-Umgebung beispielsweise 1908.x ist, und die neueste verfügbare Updateversion ist 2002.x, sollten Sie von 1908 auf 1910 aktualisieren und dann auf 2002.
+
+### <a name="hotfixes-within-major-versions"></a>Hotfixes innerhalb von Hauptversionen
+
+Innerhalb derselben Hauptversionsnummer kann Azure Stack Hub mehrere Hotfixes freigeben. Hotfixes sind kumulativ. Das neueste Hotfixpaket enthält alle früheren Hotfixes für diese Version. Weitere Informationen finden Sie unter [Hotfixes](azure-stack-servicing-policy.md#hotfixes).
+
+## <a name="update-process"></a>Updateprozess
 
 Wenn Sie wissen, dass ein Update verfügbar ist, können Sie es mit den folgenden Schritten anwenden.
 

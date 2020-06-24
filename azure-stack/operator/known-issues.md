@@ -3,16 +3,16 @@ title: Azure Stack Hub – Bekannte Probleme
 description: Enthält Informationen zu bekannten Problemen in Releases von Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 06/17/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 31ef3ee64eb98b34160e95fee0a228fc32cee589
-ms.sourcegitcommit: 7c10a45a8de0c5c7649e5329ca5b69a0791e37b5
+ms.openlocfilehash: 68b83e78f29e60d4dac2b980dd9fd4aefb3bcf66
+ms.sourcegitcommit: 7df4f3fbb211063e9eef6ac1e2734de72dc6078b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83721877"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977171"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -83,14 +83,23 @@ Informationen zu weiteren bekannten Problemen beim Aktualisieren von Azure Stack
 
 ## <a name="networking"></a>Netzwerk
 
-### <a name="network-security-groups"></a>Netzwerksicherheitsgruppen
+### <a name="denyalloutbound-rule-cannot-be-created"></a>Die DenyAllOutbound-Regel kann nicht erstellt werden.
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen. 
 - Ursache: Eine explizite **DenyAllOutbound**-Regel kann nicht in einer Netzwerksicherheitsgruppe (NSG) erstellt werden, da dadurch die gesamte interne Kommunikation mit der Infrastruktur, die für die VM-Bereitstellung erforderlich ist, verhindert wird.
 - Häufigkeit: Allgemein
 
+### <a name="icmp-protocol-not-supported-for-nsg-rules"></a>Das ICMP-Protokoll wird für NSG-Regeln nicht unterstützt.
+
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen. 
 - Ursache: Beim Erstellen einer Eingangs- oder Ausgangssicherheitsregel für das Netzwerk wird unter **Protokoll** die Option **ICMP** angezeigt. Dies wird unter Azure Stack Hub derzeit nicht unterstützt. Dieses Problem wurde behoben und tritt im nächsten Azure Stack Hub-Release nicht mehr auf.
+- Häufigkeit: Allgemein
+
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Eine NSG kann nicht gelöscht werden, wenn NICs nicht an die laufende VM angefügt sind.
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Beim Aufheben der Zuordnung einer NSG und einer NIC, die nicht an eine laufende VM angefügt ist, schlägt der Updatevorgang (PUT) für dieses Objekt auf der Ebene des Netzwerkcontrollers fehl. Die NSG wird auf der Ebene des Netzwerkressourcenanbieters aktualisiert, aber nicht auf dem Netzwerkcontroller, sodass die NSG in einen fehlerhaften Zustand wechselt.
+- Abhilfe: Fügen Sie die NICs an, die der NSG zugeordnet sind, die mit laufenden VMs entfernt werden muss, und heben Sie die Zuordnung der NSG auf, oder entfernen Sie alle NICs, die der NSG zugeordnet sind.
 - Häufigkeit: Allgemein
 
 ### <a name="network-interface"></a>Netzwerkschnittstelle
@@ -129,6 +138,11 @@ Informationen zu weiteren bekannten Problemen beim Aktualisieren von Azure Stack
   - [Angeben von benutzerdefinierten IPsec/IKE-Richtlinien](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
 ## <a name="compute"></a>Compute
+### <a name="cannot-create-a-vmss-with-standard_ds2_v2-vm-size-on-portal"></a>VMSS kann nicht mit der VM-Größe „Standard_DS2_v2“ im Portal erstellt werden.
+
+- Geltungsbereich: Dieses Problem gilt für Release 2002.
+- Ursache: Es gibt einen Portalfehler, der die VMSS-Erstellung mit der VM-Größe „Standard_DS2_v2“ verhindert. Beim Erstellen wird ein Fehler ausgegeben: "{"code":"DeploymentFailed","message":"Mindestens ein Ressourcenbereitstellungsvorgang ist fehlgeschlagen. Listen Sie die Bereitstellungsvorgänge auf, um Details anzuzeigen. Weitere Informationen zur Verwendung finden Sie unter https://aka.ms/arm-debug.","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\": \" NetworkProfileValidationError\" ,\r\n \" message\": \" Die VM-Größe „Standard_DS2_v2“ ist nicht in der Liste der zulässigen VM-Größen für beschleunigten Netzwerkbetrieb, die auf der VM bei Index 0 für die VM-Skalierungs Gruppe „/subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss“ aktiviert werden soll. Zulässige Größen: .\"\r\n }\r\n}"}]}"
+- Abhilfe: Erstellen Sie eine VMSS mit PowerShell oder einer Resource Manager-Vorlage.
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Auf dem Blatt mit der VM-Übersicht wird nicht der richtige Computername angezeigt.
 
@@ -138,7 +152,7 @@ Informationen zu weiteren bekannten Problemen beim Aktualisieren von Azure Stack
 
 ### <a name="nvv4-vm-size-on-portal"></a>NVv4-VM-Größe im Portal
 
-- Geltungsbereich: Dieses Problem betrifft das Release 2002 und höhere Releases.
+- Geltungsbereich: Dieses Problem gilt für Release 2002 und höher.
 - Ursache: Bei der Erstellung des virtuellen Computers wird die VM-Größe angezeigt: NV4as_v4. Bei Kunden mit der erforderlichen Hardware für die AMD Mi25-basierte Azure Stack Hub-GPU-Vorschau ist die VM-Bereitstellung erfolgreich. Bei allen anderen Kunden tritt bei der VM-Bereitstellung mit dieser VM-Größe ein Fehler auf.
 - Abhilfe: Entwurfsbedingt bei der Vorbereitung für die Azure Stack Hub-GPU-Vorschau
 
@@ -149,6 +163,7 @@ Informationen zu weiteren bekannten Problemen beim Aktualisieren von Azure Stack
 - Abhilfe: Erstellen Sie das Speicherkonto unter dem zuvor verwendeten Namen neu.
 - Häufigkeit: Allgemein
 
+### <a name="vm-boot-diagnostics"></a>VM-Startdiagnose
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Wenn Sie versuchen, einen virtuellen Computer mit dem Status „Beendet (Zuordnung aufgehoben)“ zu starten, wird unter Umständen der folgende Fehler angezeigt: **VM diagnostics Storage account 'diagnosticstorageaccount' not found. Ensure storage account is not deleted** (Das Speicherkonto „diagnosticstorageaccount“ für die VM-Diagnose wurde nicht gefunden. Vergewissern Sie sich, dass das Speicherkonto nicht gelöscht wurde.). Der Fehler tritt auf, wenn Sie versuchen, einen virtuellen Computer mit aktivierter Startdiagnose zu starten, aber das Speicherkonto für die Startdiagnose, auf das verwiesen wird, gelöscht wurde.
@@ -335,6 +350,13 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Ursache: Im Benutzerportal wird auf dem Blatt **Virtuelles Netzwerk** eine Option zum Verwenden von **Dienstendpunkten** angezeigt. Diese Funktion wird zurzeit in Azure Stack Hub nicht unterstützt.
 - Häufigkeit: Allgemein
 
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Eine NSG kann nicht gelöscht werden, wenn NICs nicht an die laufende VM angefügt sind.
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Beim Aufheben der Zuordnung einer NSG und einer NIC, die nicht an eine laufende VM angefügt ist, schlägt der Updatevorgang (PUT) für dieses Objekt auf der Ebene des Netzwerkcontrollers fehl. Die NSG wird auf der Ebene des Netzwerkressourcenanbieters aktualisiert, aber nicht auf dem Netzwerkcontroller, sodass die NSG in einen fehlerhaften Zustand wechselt.
+- Abhilfe: Fügen Sie die NICs an, die der NSG zugeordnet sind, die mit laufenden VMs entfernt werden muss, und heben Sie die Zuordnung der NSG auf, oder entfernen Sie alle NICs, die der NSG zugeordnet sind.
+- Häufigkeit: Allgemein
+
 ### <a name="network-interface"></a>Netzwerkschnittstelle
 
 #### <a name="addingremoving-network-interface"></a>Hinzufügen/Entfernen einer Netzwerkschnittstelle
@@ -375,6 +397,8 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Im Benutzerportal wird auf dem Blatt **Verbindungen** ein Feature namens **VPN-Problembehandlung** angezeigt. Diese Funktion wird zurzeit in Azure Stack Hub nicht unterstützt.
 - Häufigkeit: Allgemein
+
+#### <a name="vpn-troubleshooter"></a>VPN-Problembehandlung
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Im Benutzerportal werden das Feature **VPN-Problembehandlung** sowie **Metriken** in einer VPN-Gatewayressource angezeigt. Dies wird in Azure Stack Hub jedoch nicht unterstützt.
@@ -504,6 +528,13 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Im Benutzerportal wird auf dem Blatt **Virtuelles Netzwerk** eine Option zum Verwenden von **Dienstendpunkten** angezeigt. Diese Funktion wird zurzeit in Azure Stack Hub nicht unterstützt.
+- Häufigkeit: Allgemein
+
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Eine NSG kann nicht gelöscht werden, wenn NICs nicht an die laufende VM angefügt sind.
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Beim Aufheben der Zuordnung einer NSG und einer NIC, die nicht an eine laufende VM angefügt ist, schlägt der Updatevorgang (PUT) für dieses Objekt auf der Ebene des Netzwerkcontrollers fehl. Die NSG wird auf der Ebene des Netzwerkressourcenanbieters aktualisiert, aber nicht auf dem Netzwerkcontroller, sodass die NSG in einen fehlerhaften Zustand wechselt.
+- Abhilfe: Fügen Sie die NICs an, die der NSG zugeordnet sind, die mit laufenden VMs entfernt werden muss, und heben Sie die Zuordnung der NSG auf, oder entfernen Sie alle NICs, die der NSG zugeordnet sind.
 - Häufigkeit: Allgemein
 
 ### <a name="network-interface"></a>Netzwerkschnittstelle
@@ -662,6 +693,13 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen. 
 - Ursache: Wenn Sie dem Back-End-Pool eines Lastenausgleichs Verfügbarkeitsgruppen-VMs hinzufügen, wird im Portal die Fehlermeldung **Fehler beim Speichern des Back-End-Pools des Lastenausgleichs** angezeigt. Hierbei handelt es sich lediglich um ein kosmetisches Problem im Portal. Die Funktion wird dadurch nicht beeinträchtigt, und virtuelle Computer werden dem Back-End-Pool intern erfolgreich hinzugefügt. 
+- Häufigkeit: Allgemein
+
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Eine NSG kann nicht gelöscht werden, wenn NICs nicht an die laufende VM angefügt sind.
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Beim Aufheben der Zuordnung einer NSG und einer NIC, die nicht an eine laufende VM angefügt ist, schlägt der Updatevorgang (PUT) für dieses Objekt auf der Ebene des Netzwerkcontrollers fehl. Die NSG wird auf der Ebene des Netzwerkressourcenanbieters aktualisiert, aber nicht auf dem Netzwerkcontroller, sodass die NSG in einen fehlerhaften Zustand wechselt.
+- Abhilfe: Fügen Sie die NICs an, die der NSG zugeordnet sind, die mit laufenden VMs entfernt werden muss, und heben Sie die Zuordnung der NSG auf, oder entfernen Sie alle NICs, die der NSG zugeordnet sind.
 - Häufigkeit: Allgemein
 
 ### <a name="network-security-groups"></a>Netzwerksicherheitsgruppen
