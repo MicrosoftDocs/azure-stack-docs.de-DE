@@ -1,17 +1,17 @@
 ---
 title: Hinzufügen oder Entfernen von Servern für einen Azure Stack HCI-Cluster
 description: Hier erfahren Sie, wie Sie Serverknoten in Azure Stack HCI in einem Cluster hinzufügen oder entfernen.
-ms.topic: article
+ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
 ms.date: 05/20/2020
-ms.openlocfilehash: 4d8e122c8a0b68740ecf34f8140322ee627d03e7
-ms.sourcegitcommit: 91f4baa7a770b7a82f1ddccec4dbac14be530d06
+ms.openlocfilehash: 81b78e542fe14981e0b0ba501a326a537a2a54cb
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83769039"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196816"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>Hinzufügen oder Entfernen von Servern für einen Azure Stack HCI-Cluster
 

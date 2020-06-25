@@ -3,14 +3,14 @@ title: Grundlegendes zum Cache in Azure Stack HCI
 description: Es wird beschrieben, wie das Zwischenspeichern von Lese- und Schreibvorgängen in „Direkte Speicherplätze“ und Azure Stack HCI funktioniert.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: f1fc40a6475b8e51a063491cc120e2c4236cbeea
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 063dab5f6f395e33a42a9722b399a469f6ce6ac7
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79026098"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196918"
 ---
 # <a name="understanding-the-cache-in-azure-stack-hci"></a>Grundlegendes zum Cache in Azure Stack HCI
 
@@ -171,7 +171,7 @@ Ob Sie den CSV-Cache nutzen, ist allein Ihre Entscheidung. In „Direkte Speiche
 
 ## <a name="manual-configuration"></a>Manuelle Konfiguration
 
-Für die meisten Bereitstellungen ist die manuelle Konfiguration nicht erforderlich. Falls Sie sie durchführen möchten, helfen Ihnen die Informationen in den folgenden Abschnitten weiter. 
+Für die meisten Bereitstellungen ist die manuelle Konfiguration nicht erforderlich. Falls Sie sie durchführen möchten, helfen Ihnen die Informationen in den folgenden Abschnitten weiter.
 
 Wenn Sie nach dem Setup Änderungen am Cachegerätemodell vornehmen müssen, können Sie das Dokument mit den Supportkomponenten des Integritätsdiensts bearbeiten. Dies ist in der [Übersicht über den Integritätsdienst](/windows-server/failover-clustering/health-service-overview#supported-components-document) beschrieben.
 

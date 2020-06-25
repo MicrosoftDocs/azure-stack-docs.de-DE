@@ -3,14 +3,14 @@ title: Erweitern von Volumes in Azure Stack HCI
 description: Hier erfahren Sie, wie Sie die Größe von Volumes in Azure Stack HCI mithilfe von Windows Admin Center und PowerShell ändern.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 703931b0dccb533b2b924847eb3302f0efa46d1a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1369d3bcd0393fd322d17e1977524732d5b97ccf
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79089302"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196442"
 ---
 # <a name="extending-volumes-in-storage-spaces-direct"></a>Erweitern von Volumes in „Direkte Speicherplätze“
 > Gilt für: Windows Server 2019
@@ -61,7 +61,7 @@ Um Zuordnungen zwischen Objekten im Stapel zu folgen, verknüpfen Sie Cmdlets vo
 So gelangen Sie beispielsweise von einem virtuellen Datenträger zum zugehörigen Volume:
 
 ```PowerShell
-Get-VirtualDisk <FriendlyName> | Get-Disk | Get-Partition | Get-Volume 
+Get-VirtualDisk <FriendlyName> | Get-Disk | Get-Partition | Get-Volume
 ```
 
 ### <a name="step-1--resize-the-virtual-disk"></a>Schritt 1: Ändern der Größe des virtuellen Datenträgers
@@ -71,7 +71,7 @@ Der virtuelle Datenträger verwendet unter Umständen Speicherebenen. Dies ist a
 Führen Sie zur Überprüfung das folgende Cmdlet aus:
 
 ```PowerShell
-Get-VirtualDisk <FriendlyName> | Get-StorageTier 
+Get-VirtualDisk <FriendlyName> | Get-StorageTier
 ```
 
 Wenn das Cmdlet nichts zurückgibt, verwendet der virtuelle Datenträger keine Speicherebenen.
@@ -126,7 +126,7 @@ $VirtualDisk = Get-VirtualDisk <FriendlyName>
 # Get its partition
 $Partition = $VirtualDisk | Get-Disk | Get-Partition | Where PartitionNumber -Eq 2
 
-# Resize to its maximum supported size 
+# Resize to its maximum supported size
 $Partition | Resize-Partition -Size ($Partition | Get-PartitionSupportedSize).SizeMax
 ```
 

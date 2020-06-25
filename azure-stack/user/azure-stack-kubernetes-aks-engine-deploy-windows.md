@@ -7,12 +7,12 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: a68736088f8da95b0a7851007b8add4038c8199c
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.openlocfilehash: 612d5fa11c2f34c73925212103c2699c9581f107
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533738"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85197037"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Installieren der AKS-Engine unter Windows in Azure Stack Hub
 
@@ -40,7 +40,7 @@ Sie können die Client-VM installieren, um Ihren Kubernetes-Cluster in einer mit
 5. Führen Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten aus, und beziehen Sie die Versionsnummer ein:
 
     ```PowerShell  
-        choco install aks-engine --version 0.48.0 -y
+        choco install aks-engine --version 0.51.0 -y
     ```
 
 > [!Note]  
@@ -65,7 +65,7 @@ Sie können die Client-VM installieren, um Ihren Kubernetes-Cluster in einer Azu
 7.  Führen Sie den folgenden Befehl in einer Eingabeaufforderung mit erhöhten Rechten aus. Beziehen Sie die richtige Versionsnummer ein:
 
     ```PowerShell  
-        choco install aks-engine --version 0.48.0 -y
+        choco install aks-engine --version 0.51.0 -y
     ```
 
 ## <a name="verify-the-installation"></a>Überprüfen der Installation

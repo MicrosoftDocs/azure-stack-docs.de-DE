@@ -3,14 +3,14 @@ title: Ersetzen fehlerhafter Laufwerke in Azure Stack HCI
 description: Hier erfahren Sie, wie Sie fehlerhafte Laufwerke in Azure Stack HCI ersetzen.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2020
-ms.openlocfilehash: e0aaed5d444a0d7b617ecd2ccd350a9812be8a2c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f4e67545519f54d630c8a83e100d2b4918025f0e
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79025972"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196374"
 ---
 # <a name="replace-failed-drives-on-azure-stack-hci"></a>Ersetzen fehlerhafter Laufwerke in Azure Stack HCI
 

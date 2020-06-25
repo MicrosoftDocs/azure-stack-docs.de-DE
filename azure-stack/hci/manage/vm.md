@@ -2,16 +2,16 @@
 title: Verwalten von VMs in Azure Stack HCI mithilfe von Windows Admin Center
 description: Hier erfahren Sie, wie Sie virtuelle Computer (Virtual Machines, VMs) in einem Cluster in Azure Stack HCI mit Windows Admin Center erstellen und verwalten.
 author: v-dasis
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: f3ba9415cd5d91260067a1648bdb38c196be206a
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 21bb8cf8c88a66fdb4ecee8d45d3e13127faabec
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83794408"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196493"
 ---
 # <a name="manage-vms-on-azure-stack-hci-using-windows-admin-center"></a>Verwalten von VMs in Azure Stack HCI mithilfe von Windows Admin Center
 
@@ -61,7 +61,7 @@ Sie können Ressourcennutzung und Leistungsmetriken für alle VMs in Ihrem Clust
 :::image type="content" source="media/manage-vm/host-metrics.png" alt-text="Bildschirm mit Hostmetriken":::
 
 1. Führen Sie unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
-1. Auf der Registerkarte **Zusammenfassung** rechts findet sich eine holistische Ansicht der Hyper-V-Hostressourcen und -leistung für einen ausgewählten Server oder Cluster. Hierzu zählen folgende Angaben: 
+1. Auf der Registerkarte **Zusammenfassung** rechts findet sich eine holistische Ansicht der Hyper-V-Hostressourcen und -leistung für einen ausgewählten Server oder Cluster. Hierzu zählen folgende Angaben:
     - Anzahl der ausgeführten, beendeten, angehaltenen und gespeicherten VMs
     - Aktuelle Integritätswarnungen oder Ereignisse aus Hyper-V-Ereignisprotokollen für Cluster
     - CPU- und Speicherauslastung mit Aufschlüsselung nach Host und Gast
@@ -148,7 +148,7 @@ Mit Windows Admin Center können Sie problemlos einen neuen virtuellen Computer 
 1. Wählen Sie unter **Virtuelle Prozessoren** die Anzahl der virtuellen Prozessoren aus und geben Sie an, ob die geschachtelte Virtualisierung aktiviert werden soll.
 1. Wählen Sie unter **Arbeitsspeicher** die Menge des Arbeitsspeichers beim Start aus (4 GB wird als Minimum empfohlen), sowie einen Minimum- und Maximalbereich von dynamischem Arbeitsspeicher, welcher der VM zugeordnet werden soll.
 1. Wählen Sie in der Dropdownliste unter **Netzwerk** einen Netzwerkadapter aus.
-1. Klicken Sie unter **Speicher** auf **Hinzufügen**, und wählen Sie aus, ob eine neue virtuelle Festplatte erstellt oder eine vorhandene virtuelle Festplatte verwendet werden soll. Wenn Sie eine vorhandene virtuelle Festplatte verwenden, klicken Sie auf **Durchsuchen**, und wählen Sie den entsprechenden Dateipfad aus.  
+1. Klicken Sie unter **Speicher** auf **Hinzufügen**, und wählen Sie aus, ob eine neue virtuelle Festplatte erstellt oder eine vorhandene virtuelle Festplatte verwendet werden soll. Wenn Sie eine vorhandene virtuelle Festplatte verwenden, klicken Sie auf **Durchsuchen**, und wählen Sie den entsprechenden Dateipfad aus.
 1. Führen Sie unter **Betriebssystem** einen der folgenden Schritte aus:
    - Wählen Sie **Betriebssystem zu einem späteren Zeitpunkt installieren** aus, wenn Sie später ein Betriebssystem für die VM installieren möchten.
    - Wählen Sie **Install an operating system from an image file (*.iso)** (Betriebssystem von Imagedatei (*.iso) installieren) aus, klicken Sie auf **Durchsuchen**, und wählen Sie dann die gewünschte ISO-Imagedatei aus.

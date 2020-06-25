@@ -1,17 +1,17 @@
 ---
 title: Schützen von Azure Stack HCI-VMs mithilfe von Azure Site Recovery
 description: Verwenden von Windows Admin Center, um Azure Stack HCI-VMs mit Azure Site Recovery zu schützen.
-ms.topic: article
+ms.topic: how-to
 author: davannaw-msft
 ms.author: dawhite
 ms.date: 04/30/2020
 ms.localizationpriority: low
-ms.openlocfilehash: 01b6f16b3812b5f11f95d9d11f6563a1631fd690
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: 0465666549e0ae8801c9bab0be6d8a3d6dad8891
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783998"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196459"
 ---
 # <a name="protect-azure-stack-hci-vms-using-azure-site-recovery"></a>Schützen von Azure Stack HCI-VMs mithilfe von Azure Site Recovery
 
@@ -53,13 +53,13 @@ Führen Sie die folgenden Schritte pro Hostserver oder Cluster mit den VMs aus, 
 
    - **Abonnement:** Das Azure-Abonnement, das Sie für die VM-Replikation auf diesem Host verwenden möchten.
    - **Ressourcengruppe:** Ein neuer Ressourcengruppenname.
-   - **Recovery Services-Tresor**: Ein Name für den Azure Site Recovery-Tresor für die geschützten VMs auf diesem Host.  
+   - **Recovery Services-Tresor**: Ein Name für den Azure Site Recovery-Tresor für die geschützten VMs auf diesem Host.
    - **Standort:** Die Azure-Region, in der die Azure Site Recovery-Ressourcen erstellt werden sollen.
 
     :::image type="content" source="media/azure-site-recovery/set-up-host-with-asr.png" alt-text="Die Seite „Host mit Azure Site Recovery einrichten“ in Windows Admin Center.":::
 
 1. Warten Sie, bis die folgende Benachrichtigung angezeigt wird: **Site Recovery-Einstellung wurde abgeschlossen**.
- 
+
 Dieser Vorgang kann bis zu 10 Minuten dauern. Sie können den Fortschritt überwachen, indem Sie zu **Benachrichtigungen** wechseln (das Glockensymbol in der oberen rechten Ecke von Windows Admin Center).
 
 >[!NOTE]
@@ -81,11 +81,11 @@ Führen Sie die folgenden Schritte aus, um Ihre VMs zu schützen:
 
     :::image type="content" source="media/azure-site-recovery/protect-vm-setting-asr.png" alt-text="Definieren des Speicherkontos für Azure Site Recovery, um eine VM in Windows Admin Center zu schützen.":::
 
-    Azure Site Recovery startet den Replikationsprozess. Die VM wird geschützt, wenn der Wert in der Spalte **Geschützt** im Raster **VM-Bestand** in **Ja** geändert wird. Dieser Vorgang kann mehrere Minuten dauern.  
+    Azure Site Recovery startet den Replikationsprozess. Die VM wird geschützt, wenn der Wert in der Spalte **Geschützt** im Raster **VM-Bestand** in **Ja** geändert wird. Dieser Vorgang kann mehrere Minuten dauern.
 
 ## <a name="step-3-configure-and-run-a-test-failover-in-the-azure-portal"></a>Schritt 3: Konfigurieren und Ausführen eines Testfailovers im Azure-Portal
 Vor dem Starten der VM-Replikation ist es nicht erforderlich, diesen Schritt abzuschließen. Die VM ist bereits ausschließlich mit Replikation geschützt. Es empfiehlt sich jedoch, beim Einrichten von Azure Site Recovery Failovereinstellungen zu konfigurieren.
- 
+
 Führen Sie die folgenden Schritte aus, um ein Failover auf eine Azure-VM vorzubereiten:
 1. Richten Sie ein Azure-Netzwerk ein, das von der VM mit Failover an dieses VNET angefügt wird. Weitere Informationen finden Sie unter[Einrichten der Notfallwiederherstellung von lokalen Hyper-V-VMs in Azure](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-prepare-azure).
 

@@ -3,14 +3,14 @@ title: Löschen von Volumes in Azure Stack HCI
 description: Hier erfahren Sie, wie Sie Volumes in Azure Stack HCI mithilfe von Windows Admin Center und PowerShell löschen.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/17/2020
-ms.openlocfilehash: cf556a9b6c130907e8607d8e5b9436b71756a3d4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ffa848436169a55e2a2ad4f878e1e3aecaf29d6e
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79511894"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196357"
 ---
 # <a name="deleting-volumes-in-azure-stack-hci"></a>Löschen von Volumes in Azure Stack HCI
 
@@ -33,7 +33,7 @@ Sehen Sie sich ein kurzes Anleitungsvideo zum Löschen eines Volumes mit Windows
 
 Verwenden Sie das Cmdlet **Remove-VirtualDisk**, um Volumes in „Direkte Speicherplätze“ zu löschen. Dieses Cmdlet wird verwendet, um das Objekt **VirtualDisk** zu löschen und den beanspruchten Speicherplatz in dem Speicherpool freizugeben, durch den das Objekt **VirtualDisk** verfügbar gemacht wurde.
 
-Starten Sie zunächst PowerShell auf Ihrem Verwaltungs-PC, und führen Sie das Cmdlet **Get-VirtualDisk** mit dem Parameter **CimSession** aus. Hierbei handelt es sich um den Namen eines Clusters oder Serverknotens mit „Direkte Speicherplätze“ (beispielsweise *<Clustername>.microsoft.com*): 
+Starten Sie zunächst PowerShell auf Ihrem Verwaltungs-PC, und führen Sie das Cmdlet **Get-VirtualDisk** mit dem Parameter **CimSession** aus. Hierbei handelt es sich um den Namen eines Clusters oder Serverknotens mit „Direkte Speicherplätze“ (beispielsweise *<Clustername>.microsoft.com*):
 
 ```PowerShell
 Get-VirtualDisk -CimSession clustername.microsoft.com

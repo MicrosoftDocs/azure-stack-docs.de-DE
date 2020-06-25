@@ -1,17 +1,17 @@
 ---
 title: Übersicht über Azure Stack HCI-Lösungen
 description: Hier finden Sie eine Übersicht über Azure Stack HCI-Lösungen.
-ms.topic: article
+ms.topic: overview
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 11/04/2019
-ms.openlocfilehash: 2b7ab4dbb4eefe867c207b9db4329cbae1bfef4a
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: 6bff4799f31f12d567158cccc02c14cbf90895fc
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202456"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196425"
 ---
 # <a name="azure-stack-hci-solutions-overview"></a>Übersicht über Azure Stack HCI-Lösungen
 
