@@ -7,12 +7,12 @@ ms.date: 6/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 6/08/2020
-ms.openlocfilehash: 7090ac774da41e8f7f1bc319a9956cba8f8b0f4a
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 750c19a3b46200150eefe999acab2099e79ec85f
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630442"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85197003"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Hinzufügen von Voraussetzungen für die Azure Kubernetes Services-Engine (AKS) zum Azure Stack Hub-Marketplace
 
@@ -55,7 +55,7 @@ Fügen Sie das folgende Element zum Marketplace hinzu:
     Wählen Sie in der Liste Folgendes aus:
     - **Herausgeber**: Azure Kubernetes Service
     - **Angebot**: aks
-    - **Version**: AKS-Basis Ubuntu 16.04-LTS Image Distro, März 2020 (2020.03.19 oder die Version, die der AKS-Engine entspricht)
+    - **Version**: AKS Base Ubuntu 16.04-LTS Image Distro, Mai 2020 (2020.05.13 oder die Version, die der AKS-Engine entspricht)
 
 1. Wählen Sie **Herunterladen** aus.
 
