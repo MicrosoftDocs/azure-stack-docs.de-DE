@@ -3,16 +3,16 @@ title: Konfigurieren der Mehrinstanzenfähigkeit in Azure Stack Hub
 description: Erfahren Sie, wie Sie mehrere Azure Active Directory-Mandanten in Azure Stack Hub aktivieren und deaktivieren.
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 06/18/2020
 ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: ffad503fec50952eca492e16ca0051e69d1c1f14
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: 16b8ca5999507bd64d3416c3ee22fdd5c827c8b5
+ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173878"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85107163"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Konfigurieren der Mehrinstanzenfähigkeit in Azure Stack Hub
 
@@ -76,7 +76,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 Nachdem der Azure Stack Hub-Operator die Verwendung des Fabrikam-Verzeichnisses mit Azure Stack Hub aktiviert hat, muss Mary Azure Stack Hub beim Verzeichnismandanten von Fabrikam registrieren.
 
-#### <a name="registering-azure-stack-hub-with-the-guest-directory"></a>Registrieren von Azure Stack Hub beim Gastverzeichnis
+#### <a name="register-azure-stack-hub-with-the-guest-directory"></a>Registrieren von Azure Stack Hub beim Gastverzeichnis
 
 Mary (Verzeichnisadministratorin von Fabrikam) führt im Gastverzeichnis „fabrikam.onmicrosoft.com“ die folgenden Befehle aus:
 
@@ -94,7 +94,7 @@ Register-AzSWithMyDirectoryTenant `
 ```
 
 > [!IMPORTANT]
-> Wenn Ihr Azure Stack Hub-Administrator künftig neue Dienste oder Updates installiert, müssen Sie dieses Skript unter Umständen erneut ausführen.
+> Wenn Ihr Azure Stack Hub-Administrator künftig neue Dienste oder Updates installiert, müssen Sie dieses Skript möglicherweise erneut ausführen.
 >
 > Sie können dieses Skript zu einem beliebigen Zeitpunkt erneut ausführen, um den Status der Azure Stack Hub-Apps in Ihrem Verzeichnis zu überprüfen.
 >
@@ -110,7 +110,7 @@ Mary leitet alle [fremden Prinzipale](/azure/role-based-access-control/rbac-and-
 
 Wenn Sie in Azure Stack Hub nicht länger mehrere Mandanten benötigen, können Sie die Mehrinstanzenfähigkeit deaktivieren, indem Sie die folgenden Schritte in der angegebenen Reihenfolge ausführen:
 
-1. Als Administrator für das Gastverzeichnis (in diesem Szenario Mary) führen Sie *Unregister-AzsWithMyDirectoryTenant* aus. Das Cmdlet deinstalliert alle Azure Stack Hub-Apps aus dem neuen Verzeichnis.
+1. Als Administrator für das Gastverzeichnis (Mary in diesem Szenario) führen Sie *Unregister-AzsWithMyDirectoryTenant* aus. Das Cmdlet deinstalliert alle Azure Stack Hub-Apps aus dem neuen Verzeichnis.
 
     ``` PowerShell
     ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -125,7 +125,7 @@ Wenn Sie in Azure Stack Hub nicht länger mehrere Mandanten benötigen, können 
      -Verbose 
     ```
 
-2. Als Dienstadministrator von Azure Stack Hub (in diesem Szenario also Sie) führen Sie *Unregister-AzSGuestDirectoryTenant* aus.
+2. Als Dienstadministrator von Azure Stack Hub (Sie in diesem Szenario) führen Sie *Unregister-AzSGuestDirectoryTenant* aus.
 
     ``` PowerShell
     ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -148,6 +148,42 @@ Wenn Sie in Azure Stack Hub nicht länger mehrere Mandanten benötigen, können 
 
     > [!WARNING]
     > Die Schritte zur Deaktivierung der Mehrinstanzenfähigkeit müssen in dieser Reihenfolge ausgeführt werden. Schritt 1 schlägt fehl, wenn Schritt 2 zuerst abgeschlossen wird.
+
+## <a name="retrieve-azure-stack-hub-identity-health-report"></a>Abrufen des Berichts zur Azure Stack Hub-Identitätsintegrität 
+
+Ersetzen Sie die Platzhalter `<region>`, `<domain>` und `<homeDirectoryTenant>`, und führen Sie dann das folgende Cmdlet als Azure Stack Hub-Administrator aus:
+
+```powershell
+
+$AdminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
+$DirectoryName = "<homeDirectoryTenant>.onmicrosoft.com"
+$healthReport = Get-AzsHealthReport -AdminResourceManagerEndpoint $AdminResourceManagerEndpoint -DirectoryTenantName $DirectoryName
+Write-Host "Healthy directories: "
+$healthReport.directoryTenants | Where status -EQ 'Healthy' | Select -Property tenantName,tenantId,status | ft
+
+
+Write-Host "Unhealthy directories: "
+$healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property tenantName,tenantId,status | ft
+```
+
+### <a name="update-azure-ad-tenant-permissions"></a>Aktualisieren von Azure AD-Mandantenberechtigungen
+
+Durch diese Aktion wird die Warnung in Azure Stack Hub gelöscht, was darauf hinweist, dass für ein Verzeichnis ein Update erforderlich ist. Führen Sie im Ordner **Azurestack-tools-master/identity** die folgenden Befehle aus:
+
+```powershell
+Import-Module ..\Connect\AzureStack.Connect.psm1
+Import-Module ..\Identity\AzureStack.Identity.psm1
+
+$adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
+
+# This is the primary tenant Azure Stack is registered to:
+$homeDirectoryTenantName = "<homeDirectoryTenant>.onmicrosoft.com"
+
+Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
+   -DirectoryTenantName $homeDirectoryTenantName -Verbose
+```
+
+Sie werden vom Skript zur Eingabe von Administratoranmeldeinformationen im Azure AD-Mandanten aufgefordert. Die Ausführung dauert einige Minuten. Die Warnung sollte nach dem Ausführen des Cmdlets nicht mehr angezeigt werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

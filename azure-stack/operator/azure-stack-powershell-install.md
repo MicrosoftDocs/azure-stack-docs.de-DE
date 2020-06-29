@@ -7,12 +7,12 @@ ms.date: 04/14/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: d2c40307daa37b8f522fde9010a3d285eebff0fc
-ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
+ms.openlocfilehash: 114be8564f264f38715ebacbb74c85559540c72f
+ms.sourcegitcommit: 8ad3ff64e6a47e512c7ae4442d5418fa79345fb5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106940"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85264157"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Installieren des PowerShell AzureRM-Moduls für Azure Stack Hub
 
@@ -266,6 +266,25 @@ In Szenarien, für die ein Proxyserver für den Zugriff auf das Internet erforde
    #Alternatively, to prompt for separate credentials that can be used for #proxy authentication
    [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
    ```
+
+## <a name="known-issue"></a>Bekanntes Problem
+
+###  <a name="method-get_serializationsettings-error"></a>Fehler „Method get_SerializationSettings“ 
+
+- Ursache: Das PowerShell Az-Modul und die PowerShell AzureRM-Module sind nicht kompatibel.
+
+    Der folgende Fehler gibt an, dass die AzureRM-Module und Az-Module in der gleichen Sitzung geladen werden: 
+
+    ```powershell  
+    >  Method 'get_SerializationSettings' in type 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' does 
+    not have an implementation.
+    ```
+
+- Abhilfe: Deinstallieren Sie die in Konflikt stehenden Module. 
+
+  Wenn Sie die AzureRM-Module verwenden möchten, deinstallieren Sie die Az-Module. Deinstallieren Sie AzureRM, wenn Sie die Az-Module nutzen möchten. Schließen Sie die PowerShell-Sitzung, und deinstallieren Sie die Az- oder AzureRM-Module. 
+  
+  Anweisungen finden Sie unter [Deinstallieren vorhandener Versionen der Azure Stack Hub-PowerShell-Module](#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

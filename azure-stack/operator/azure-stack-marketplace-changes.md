@@ -3,20 +3,20 @@ title: Neuerungen im Azure Stack Hub-Marketplace
 description: Hier finden Sie Informationen zu den Neuerungen im Azure Stack Hub-Marketplace, u. a. zu neuen, veralteten und aktualisierten Marketplace-Elementen.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 06/19/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 6649f7d282c869fbd348310a2bfdf883727282ff
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: a1e7b227a0e18475a1fcfac3246f193f54b84ced
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819362"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196952"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Änderungen im Azure Stack Hub-Marketplace
 
-In diesem Artikel sind die jüngsten Ergänzungen, Updates, Änderungen und Entfernungen von [Azure Stack Hub-Marketplace-Elementen](azure-stack-marketplace-azure-items.md) aus den letzten drei Monaten aufgeführt. Die Informationen in diesem Abschnitt werden häufig aktualisiert. Überprüfen Sie sie daher regelmäßig auf Änderungen.
+In diesem Artikel sind aktuelle Ergänzungen, Updates, Änderungen und Entfernungen von [Azure Stack Hub-Marketplace-Elementen](azure-stack-marketplace-azure-items.md) aufgeführt. Die Informationen in diesem Abschnitt werden häufig aktualisiert. Überprüfen Sie sie daher regelmäßig auf Änderungen.
 
 Der Artikel [Azure Stack Hub-Marketplace-Elemente](azure-stack-marketplace-azure-items.md) enthält immer die aktuellste Liste der verfügbaren Elemente im Azure Stack Hub-Marketplace.
 
@@ -63,6 +63,7 @@ Der Artikel [Azure Stack Hub-Marketplace-Elemente](azure-stack-marketplace-azure
 
 ## <a name="updated-marketplace-items"></a>Aktualisierte Marketplace-Elemente
 
+- 19.06.2020: Bitnami GitLab CE: Version 13.0.2006110322
 - 16.06.2020: SQLIaaSExtension – Version 1.3.20370
 - 12.06.2020: Bitnami Grafana – Version 6.7.2006040249
 - 21.05.2020 Ubuntu Server 16.04 LTS – Version 16.04.202004290
