@@ -2,22 +2,22 @@
 title: Verwenden des privilegierten Endpunkts (PEP) zum Erfassen von Diagnoseprotokollen
 description: Hier erfahren Sie, wie Sie in Azure Stack Hub mithilfe des Administratorportals oder eines PowerShell-Skripts Diagnoseprotokolle bedarfsgesteuert sammeln.
 author: justinha
+ms.custom: conteperfq4
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 06/30/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 03/05/2020
-ms.openlocfilehash: df5a98e8526181a84d8b214fbdf82eb1dba00088
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 06/30/2020
+ms.openlocfilehash: b8be0f88b53bb599b716d50ac75e1d6d18515475
+ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79520651"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85764581"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Senden von Azure Stack Hub-Diagnoseprotokollen mithilfe des privilegierten Endpunkts (PEP)
 
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
-
 
 Um „Get-AzureStackLog“ in einem integrierten System ausführen zu können, benötigen Sie Zugriff auf den privilegierten Endpunkt (PEP). Im Anschluss finden Sie ein Beispielskript, das Sie unter Verwendung des PEP ausführen können, um Protokolle zu sammeln. Wenn Sie eine laufende Protokollsammlung abbrechen, um eine neue Sammlung zu starten, warten Sie fünf Minuten, bevor Sie die neue Protokollsammlung starten, und geben Sie `Remove-PSSession -Session $session` ein.
 

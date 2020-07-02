@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: b41b0fd7d9ce86a8e56fb8f445e52c224df65a65
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.openlocfilehash: d3450c78c3dc0632d5230d65bcd176b5067be852
+ms.sourcegitcommit: 2a144c367a17eb1f8db58dd7bf1c820520182015
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533755"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85835074"
 ---
 # <a name="deploy-foundational-patterns-overview"></a>Bereitstellen grundlegender Muster: Übersicht
 
@@ -43,7 +43,7 @@ In jedem Artikel werden die folgenden allgemeinen Aspekte behandelt:
 Verwenden Sie die Speichermuster, um Ihre Speicheroptionen mit Azure Stack Hub zu erweitern. In Azure Stack Hub ist der Speicher endlich. Stellen Sie eine Verbindung mit den Ressourcen in Ihrem vorhandenen Rechenzentrum her. Suchen Sie nach der Anleitung zum Erstellen einer Windows-VM in Azure Stack Hub, um eine Verbindung mit einem externen iSCSI-Ziel herzustellen. Sie können sich darüber informieren, wie Sie Schlüsselfunktionen wie Multipfad-E/A (MPIO) aktivieren, um Leistung und Konnektivität zwischen der VM und dem externen Speicher zu optimieren.
 
 | iSCSI-Speicher | Erweitern des Speichers |
-| --- | --- | --- |
+| --- | --- |
 | ![Verbinden mit iSCSI-Speicher](media/deploy-foundational-patterns/icon-storage-87-storage-accounts-classic.svg)<br>[Verbinden mit iSCSI-Speicher](azure-stack-network-howto-iscsi-storage.md) | ![Erweitern des Rechenzentrums](media/deploy-foundational-patterns/icon-storage-88-recovery-services-vaults.svg)<br>[Erweitern des Rechenzentrums](azure-stack-network-howto-extend-datacenter.md) |
 
 ## <a name="backup"></a>Backup
@@ -53,9 +53,9 @@ Sie können die Muster für Sicherung und Notfallwiederherstellung verwenden, um
 
 
 |  Sichern  |  Kopieren  |
-| --- | --- | --- |
+| --- | --- |
 | ![Sichern Ihres virtuellen Computers in Azure Stack Hub mit Commvault](media/deploy-foundational-patterns/icon-storage-100-import-export-jobs.svg)<br>[Sichern Ihres virtuellen Computers in Azure Stack Hub mit Commvault](azure-stack-network-howto-backup-commvault.md) | ![Kopieren der Abonnementressourcen](media/deploy-foundational-patterns/icon-storage-94-data-box.svg)<br>[Kopieren der Abonnementressourcen](azure-stack-network-howto-backup-replicator.md) |
-|  | ![Sichern Ihrer Speicherkonten in Azure Stack Hub](media/deploy-foundational-patterns/icon-storage-93-storage-sync-services.svg)<br>[Sichern Ihrer Speicherkonten in Azure Stack Hub](azure-stack-network-howto-backup-storage.md)  |
+|  ![Sichern Ihrer Speicherkonten in Azure Stack Hub](media/deploy-foundational-patterns/icon-storage-93-storage-sync-services.svg)<br>[Sichern Ihrer Speicherkonten in Azure Stack Hub](azure-stack-network-howto-backup-storage.md)  | |
 
 ## <a name="github-samples"></a>GitHub-Beispiele
 
@@ -63,4 +63,4 @@ Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](h
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Dokumentation zu Hybridmustern und -lösungen von Azure](\hybrid\app-solutions)
+[Dokumentation zu Hybridmustern und -lösungen von Azure](/hybrid/app-solutions)
