@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: a5776189c1792844b6d9bf2ec229ec02936f82c1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2ebbc1d7a2d6a159c4d35303c833875452c20c01
+ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423879"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85764607"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Übersicht: Azure Stack Hub-Dienste, -Pläne, -Angebote und Abonnements
 
@@ -98,6 +98,10 @@ Berücksichtigen Sie beim Planen Ihrer Angebote Folgendes:
 Über Abonnements können Benutzer auf Ihre Angebote zugreifen. Wenn Sie ein Azure Stack Hub-Bediener bei einem Dienstanbieter sind, erwerben Benutzer (Mandanten) Ihre Dienste, indem sie Ihre Angebote abonnieren. Wenn Sie ein Azure Stack Hub-Bediener in einer Organisation sind, können Ihre Benutzer (Mitarbeiter) die von Ihnen angebotenen Dienste abonnieren, ohne dafür zu bezahlen.
 
 Benutzer erstellen neue Abonnements und erhalten Zugriff auf vorhandene Abonnements, indem sie sich bei Azure Stack Hub anmelden. Jedes Abonnement stellt eine Zuordnung zu einem einzelnen Angebot dar. Das Angebot (und seine Pläne und Kontingente), das einem Abonnement zugewiesen ist, kann nicht mit anderen Abonnements gemeinsam genutzt werden. Jede Ressource, die von einem Benutzer erstellt wird, ist einem Abonnement zugeordnet.
+
+Als Azure Stack Hub-Operator können Sie Informationen zu Mandantenabonnements anzeigen. Sie können jedoch nicht auf die Inhalte dieser Abonnements zugreifen, es sei denn, Sie werden von einem Mandantenadministrator dieses Abonnements explizit über die RBAC hinzugefügt. Dadurch können Mandanten eine Trennung der Befugnisse und Zuständigkeiten zwischen Bereichen für Azure Stack Hub-Operatoren und -Mandanten erzwingen. 
+
+Es gibt eine Ausnahme für diesen Fall: Der Abonnementbesitzer kann dem Operator keinen Zugriff auf das Abonnement erteilen. In dieser Situation muss der Administrator den Besitz des Abonnements übernehmen, wie unter [Ändern des Abrechnungsbesitzers für ein Azure Stack Hub-Benutzerabonnement](azure-stack-change-subscription-owner.md) erläutert.
 
 ### <a name="default-provider-subscription"></a>Standardabonnement des Anbieters
 

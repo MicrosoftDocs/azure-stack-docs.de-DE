@@ -4,27 +4,28 @@ description: Es wird beschrieben, wie Sie Laufwerke für „Direkte Speicherplä
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: c16907c9fab70bd185e0174b79ce746770ff646a
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/01/2020
+ms.openlocfilehash: 693414f25687c923af3a3be8c1c421f08076cd28
+ms.sourcegitcommit: 92392e7275ab7fbbb9b75d0529d66adbd11070a3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196850"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85814295"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Auswählen von Laufwerken für Azure Stack HCI
 
->Gilt für: Windows Server 2019
+>Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
 Dieses Thema enthält eine Anleitung zur Auswahl von Laufwerken für [Direkte Speicherplätze](/windows-server/storage/storage-spaces/storage-spaces-direct-overview), um Ihre Leistungs- und Kapazitätsanforderungen für Azure Stack HCI zu erfüllen.
 
 ## <a name="drive-types"></a>Laufwerkstypen
 
-Für „Direkte Speicherplätze“ können derzeit drei Arten von Laufwerken verwendet werden:
+Für „Direkte Speicherplätze“ können derzeit vier Arten von Laufwerken verwendet werden:
 
 |||
 |----------------------|--------------------------|
-|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe**-Laufwerke (Non-Volatile Memory Express) sind Solid State Drives, die direkt auf dem PCIe-Bus angeordnet sind. Häufig verwendete Formfaktoren sind 2,5" U.2, PCIe Add-In-Card (AIC) und M.2. NVMe ermöglicht einen höheren IOPS- und E/A-Durchsatz mit geringerer Latenz als alle anderen Laufwerkstypen, die derzeit unterstützt werden.|
+|![PMem](media/choose-drives/pmem-100px.png)|**PMem** bezieht sich auf persistenten Speicher. Dabei handelt es sich um eine neue Art von Hochleistungsspeicher mit geringen Wartezeiten.|
+|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe**-Laufwerke (Non-Volatile Memory Express) sind Solid State Drives, die direkt auf dem PCIe-Bus angeordnet sind. Häufig verwendete Formfaktoren sind 2,5" U.2, PCIe Add-In-Card (AIC) und M.2. NVMe ermöglicht einen höheren IOPS- und E/A-Durchsatz mit geringerer Wartezeit als alle anderen Laufwerkstypen, die derzeit unterstützt werden. Eine Ausnahme davon bildet PMem.|
 |![SSD](media/choose-drives/SSD-100-px.png)|**SSD** steht für „Solid State Drives“, die über herkömmliche SATA- oder SAS-Verbindungen verbunden sind.|
 |![Festplattenlaufwerk](media/choose-drives/HDD-100-px.png)|**HDD** steht für rotierende, magnetische Festplattenlaufwerke (Hard Disk Drives) mit hoher Speicherkapazität.|
 
@@ -100,3 +101,4 @@ Weitere Informationen finden Sie auch unter:
 - [Hardwareanforderungen für „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements)
 - [Planen von Volumes in Azure Stack HCI](plan-volumes.md)
 - [Fehlertoleranz und Speichereffizienz](fault-tolerance.md)
+- [Grundlagen und Bereitstellung des persistenten Speichers](/windows-server/storage/storage-spaces/deploy-pmem)

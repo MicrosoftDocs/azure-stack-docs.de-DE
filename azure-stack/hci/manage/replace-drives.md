@@ -4,17 +4,17 @@ description: Hier erfahren Sie, wie Sie fehlerhafte Laufwerke in Azure Stack HC
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/27/2020
-ms.openlocfilehash: f4e67545519f54d630c8a83e100d2b4918025f0e
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 06/24/2020
+ms.openlocfilehash: 93aa7035719fcfd6d96be0c21fc4616608e8af85
+ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196374"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85764548"
 ---
 # <a name="replace-failed-drives-on-azure-stack-hci"></a>Ersetzen fehlerhafter Laufwerke in Azure Stack HCI
 
-Azure Stack HCI arbeitet mit direkt verbundenen SATA-, SAS- oder NVME-Laufwerken, die physisch an nur jeweils einen Server angeschlossen sind. Im Falle eines Laufwerksausfalls benötigen Sie Zugang zur physischen Serverhardware, um das Laufwerk auszutauschen.
+Azure Stack HCI arbeitet mit direkt verbundenen SATA-, SAS- oder NVME-Laufwerken oder Laufwerken für persistenten Speicher, die physisch an nur jeweils einen Server angeschlossen sind. Im Falle eines Laufwerksausfalls benötigen Sie Zugang zur physischen Serverhardware, um das Laufwerk auszutauschen.
 
 ## <a name="find-the-alert"></a>Anzeigen der Warnung
 Im Falle eines Laufwerksausfalls wird links oben im Bereich **Warnungen** des Dashboards **Windows Admin Center** eine Warnung angezeigt. Alternativ können Sie im Navigationsbereich auf der linken Seite die Option **Laufwerke** auswählen oder auf der Kachel in der rechten unteren Ecke auf den Link **VIEW DRIVES >** (LAUFWERKE ANZEIGEN >) klicken, um die Laufwerke zu durchsuchen und sich über deren Status zu informieren. Das Raster auf der Registerkarte **Ansicht** kann sortiert, gruppiert und nach Schlüsselwörtern durchsucht werden.
@@ -29,4 +29,5 @@ Im Falle eines Laufwerksausfalls wird links oben im Bereich **Warnungen** des Da
 Das neue Laufwerk wird unter **Laufwerke > Bestand** angezeigt. Im Laufe der Zeit wird die Warnung entfernt, die Volumes werden repariert und kehren zum Status „OK“ zurück, und der Speicher wird mit dem neuen Laufwerk ausgeglichen – alles ganz ohne Benutzeraktion.
 
 ## <a name="next-steps"></a>Nächste Schritte
--  Informationen zur Nachverfolgung der Speicherintegrität auf unterschiedlichen Ebenen (einschließlich der Laufwerksebene) finden Sie unter [Behandeln von Problemen im Zusammenhang mit Integritäts- und Betriebszuständen von Speicherplätzen und „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/storage-spaces-states).
+- Informationen zur Nachverfolgung der Speicherintegrität auf unterschiedlichen Ebenen (einschließlich der Laufwerksebene) finden Sie unter [Behandeln von Problemen im Zusammenhang mit Integritäts- und Betriebszuständen von Speicherplätzen und „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/storage-spaces-states).
+- Lesen Sie bei Verwendung von PMem die Informationen unter [Grundlagen und Bereitstellung des persistenten Speichers](/windows-server/storage/storage-spaces/deploy-pmem).

@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: f933e9c4e70f533d4194b48c7b9e4d6e4bf380b0
-ms.sourcegitcommit: d5d89bbe8a3310acaff29a7a0cd7ac4f2cf5bfe7
+ms.openlocfilehash: 04c381bfefa40cc04f59e4b5f6641c2a227d14b8
+ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83554963"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85376798"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>Behandeln von Problemen mit virtuellen Netzwerkgeräten
 
@@ -84,7 +84,7 @@ Für jedes NVA müssen grundlegende Konfigurationsanforderungen erfüllt werden,
 ### <a name="check-whether-traffic-can-be-routed-to-the-nva"></a>Überprüfen, ob der Datenverkehr an das NVA weitergeleitet werden kann
 
 1. Suchen Sie einen virtuellen Computer, der zum Umleiten des Datenverkehrs an das virtuelle Netzwerkgerät konfiguriert ist.
-1. Um zu überprüfen, ob es sich beim NVA um den nächsten Hop handelt, führen Sie **Tracert \<Private IP des NVA\>** für Windows bzw. **Traceroute \<Private IP des NVA\>** aus.
+1. Um zu überprüfen, ob es sich beim NVA um den nächsten Hop handelt, führen Sie **Tracert \<Private IP of NVA\>** für Windows bzw. **Traceroute \<Private IP of NVA\>** aus.
 1. Wenn das NVA nicht als nächster Hop aufgeführt ist, überprüfen und aktualisieren Sie die Azure Stack Hub-Routingtabellen.
 
 Einige Betriebssysteme auf Gastebene verfügen möglicherweise über Firewallrichtlinien zum Blockieren von ICMP-Datenverkehr. Aktualisieren Sie diese Firewallregeln, damit die vorangehenden Befehle funktionieren.
@@ -92,7 +92,7 @@ Einige Betriebssysteme auf Gastebene verfügen möglicherweise über Firewallric
 ### <a name="check-whether-traffic-can-reach-the-nva"></a>Überprüfen, ob der Datenverkehr das NVA erreichen kann
 
 1. Suchen Sie einen virtuellen Computer, der mit dem NVA verbunden sein sollte.
-1. Überprüfen Sie, ob Netzwerksicherheitsgruppen (NSGs) Datenverkehr blockieren. Führen Sie unter Windows **ping** (ICMP) bzw. **Test-NetConnection \<Private IP des NVA\>** (TCP) aus. Führen Sie unter Linux **Tcpping \<Private IP des NVA\>** aus.
+1. Überprüfen Sie, ob Netzwerksicherheitsgruppen (NSGs) Datenverkehr blockieren. Führen Sie unter Windows **ping** (ICMP) bzw. **Test-NetConnection \<Private IP of NVA\>** (TCP) aus. Führen Sie unter Linux **Tcpping \<Private IP of NVA\>** aus.
 1. Wenn Ihre NSGs Datenverkehr blockieren, ändern Sie sie so, dass Datenverkehr zugelassen wird.
 
 ### <a name="check-whether-the-nva-and-vms-are-listening-for-expected-traffic"></a>Überprüfen, ob das NVA und die VMs auf erwarteten Datenverkehr lauschen
@@ -163,4 +163,4 @@ Wenn Sie sehen, dass Pakete eingehen, aber keine Antwort enthalten, müssen Sie 
 
 ### <a name="create-a-support-ticket"></a>Erstellen ein Supporttickets
 
-Wenn das Problem mit den oben genannten Schritten nicht behoben werden kann, erstellen Sie ein [Supportticket](../operator/azure-stack-manage-basics.md#where-to-get-support), und verwenden Sie das [Tool für die bedarfsgesteuerte Protokollsammlung](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md), um Protokolle bereitzustellen.
+Wenn das Problem mit den oben genannten Schritten nicht behoben werden kann, erstellen Sie ein [Supportticket](../operator/azure-stack-manage-basics.md#where-to-get-support), und verwenden Sie das [Tool für die bedarfsgesteuerte Protokollsammlung](../operator/azure-stack-diagnostic-log-collection-overview.md), um Protokolle bereitzustellen.
