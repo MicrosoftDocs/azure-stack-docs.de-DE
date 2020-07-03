@@ -236,6 +236,8 @@
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Verwenden von Azure Monitor für Container
                       href: 'https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-hybrid-setup'
+                    - name: Bekannte Probleme mit der AKS-Engine auf Azure Stack Hub
+                      href: azure-stack-kubernetes-aks-engine-known-issues.md
                 - name: Marketplace-Element
                   items:
                     - name: Bereitstellen eines Kubernetes-Clusters
@@ -254,7 +256,7 @@
               href: azure-stack-solution-template-cognitive-services.md
     - name: Bereitstellen von Apps
       items:
-        - name: 'Bereitstellen einer C#-Web-App auf einem virtuellen Windows-Computer'
+        - name: Bereitstellen einer C#-Web-App auf einem virtuellen Windows-Computer
           href: azure-stack-dev-start-howto-vm-dotnet.md
         - name: Bereitstellen einer Web-App auf einem virtuellen Linux-Computer
           items:
