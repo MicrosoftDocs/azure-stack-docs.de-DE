@@ -3,16 +3,16 @@ title: Azure Stack Hub – Bekannte Probleme
 description: Enthält Informationen zu bekannten Problemen in Releases von Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/17/2020
+ms.date: 07/06/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 68b83e78f29e60d4dac2b980dd9fd4aefb3bcf66
-ms.sourcegitcommit: 7df4f3fbb211063e9eef6ac1e2734de72dc6078b
+ms.openlocfilehash: 5f0210d32367212769da66b2a55b1fff91fb5017
+ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84977171"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86033220"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -100,6 +100,12 @@ Informationen zu weiteren bekannten Problemen beim Aktualisieren von Azure Stack
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Beim Aufheben der Zuordnung einer NSG und einer NIC, die nicht an eine laufende VM angefügt ist, schlägt der Updatevorgang (PUT) für dieses Objekt auf der Ebene des Netzwerkcontrollers fehl. Die NSG wird auf der Ebene des Netzwerkressourcenanbieters aktualisiert, aber nicht auf dem Netzwerkcontroller, sodass die NSG in einen fehlerhaften Zustand wechselt.
 - Abhilfe: Fügen Sie die NICs an, die der NSG zugeordnet sind, die mit laufenden VMs entfernt werden muss, und heben Sie die Zuordnung der NSG auf, oder entfernen Sie alle NICs, die der NSG zugeordnet sind.
+- Häufigkeit: Allgemein
+
+### <a name="load-balancer-directing-traffic-to-one-backend-vm-in-specific-scenarios"></a>Load Balancer leitet Datenverkehr in bestimmten Szenarien an eine Back-End-VM weiter 
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen. 
+- Ursache: Beim Aktivieren der **Sitzungsaffinität** in einem Lastenausgleich verwendet der 2-Tupel-Hash die PA-IP-Adresse (physische IP-Adresse) anstelle der privaten IP-Adressen, die den VMs zugewiesen sind. In Szenarien, in denen Datenverkehr, der an den Lastenausgleich weitergeleitet wird, über ein VPN eingeht oder alle virtuellen Clientcomputer (Quell-IPs) sich im gleichen Knoten befinden und die Sitzungsaffinität aktiviert ist, wird der gesamte Datenverkehr an eine Back-End-VM geleitet.
 - Häufigkeit: Allgemein
 
 ### <a name="network-interface"></a>Netzwerkschnittstelle

@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: a141beed4df6b34175f37d9e1e60e694f3ab71f2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 6ea6d73e14b5c164691ed42deab298109b1c1ad8
+ms.sourcegitcommit: a5bb340c5689f7dcf1ef3a340416f7f337782170
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700509"
+ms.lasthandoff: 07/03/2020
+ms.locfileid: "85937955"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Bewährte Methoden für den Infrastructure Backup-Dienst
 
@@ -53,6 +53,7 @@ Der Schlüssel muss in einem sicheren Speicherort (z.B. globales Azure Key Vault
 ### <a name="backups"></a>Backups
 
  - Sicherungsaufträge werden während der Ausführung des Systems ausgeführt, sodass bei der Verwaltung und in den Benutzer-Apps keine Ausfallzeiten entstehen. Die Sicherungsaufträge für eine Lösung mit angemessener Last dauern erwartungsgemäß 20 bis 40 Minuten.
+ - Automatische Sicherungen werden bei Patch-, Update- und FRU-Vorgängen nicht gestartet. Geplante Sicherungsaufträge werden standardmäßig übersprungen. Bedarfsgesteuerte Anforderungen für Sicherungen werden während dieser Vorgänge ebenfalls blockiert.    
  - Entsprechend den OEM-Anweisungen sollten manuell gesicherte Netzwerkswitches und der Hardwarelebenszyklus-Host (Hardware Lifecycle Host, HLH) in der gleichen Sicherungsfreigabe gespeichert werden, in der der Infrastructure Backup-Controller Sicherungsdaten auf Steuerungsebene speichert. Es empfiehlt sich, Switch- und HLH-Konfigurationen im Ordner der Region zu speichern. Bei mehreren Azure Stack Hub-Instanzen in derselben Region empfiehlt sich die Verwendung eines Bezeichners für jede Konfiguration, die zu einer Skalierungseinheit gehört.
 
 ### <a name="folder-names"></a>Ordnernamen

@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Verwenden Sie Azure Stack Hub Readiness Checker, um eine Azure-Identität zu überprüfen.
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 06/25/2020
 ms.author: bryanla
-ms.reviewer: unknown
-ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 0852c977494dcd91545b1ea13430811b83eeeddb
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.reviewer: jerskine
+ms.lastreviewed: 06/25/2020
+ms.openlocfilehash: 63f071b50b2e0dac09b5a8ae628001734457d7b8
+ms.sourcegitcommit: 28850ae18844213ee410cfe96fc936655b5f6412
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173828"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86148121"
 ---
 # <a name="validate-azure-identity"></a>Überprüfen der Azure-Identität
 
@@ -28,13 +28,21 @@ Durch eine Überprüfung wird sichergestellt, dass Ihre Umgebung von Azure Stack
 
 ## <a name="get-the-readiness-checker-tool"></a>Beziehen des Tools zur Bereitschaftsüberprüfung
 
-Laden Sie die neueste Version des Azure Stack Hub Readiness Checker (AzsReadinessChecker) aus dem [PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) herunter.  
+Laden Sie die neueste Version des Azure Stack Hub Readiness Checker (AzsReadinessChecker) aus dem [PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) herunter.
+
+## <a name="install-and-configure"></a>Installieren und konfigurieren
+
+### <a name="azurerm-powershell"></a>[AzureRM PowerShell](#tab/rm)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Die folgenden Voraussetzungen müssen erfüllt sein:
 
-**Auf dem Computer, auf dem das Tool ausgeführt wird, muss Folgendes installiert sein:**
+#### <a name="azurerm-powershell-modules"></a>AzureRM PowerShell-Module
+
+Die Az PowerShell-Module müssen installiert sein. Anleitungen finden Sie unter [Installieren des PowerShell AzureRM-Moduls](azure-stack-powershell-install.md).
+
+#### <a name="the-computer-on-which-the-tool-runs"></a>Auf dem Computer, auf dem das Tool ausgeführt wird, muss Folgendes installiert sein:
 
 - Windows 10 oder Windows Server 2016 mit Internetkonnektivität
 - PowerShell 5.1 oder höher Um Ihre Version zu überprüfen, führen Sie den folgenden PowerShell-Befehl aus, und überprüfen Sie dann die **Hauptversion** und die **Nebenversionen**:  
@@ -44,7 +52,7 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
 - [PowerShell, konfiguriert für Azure Stack Hub](azure-stack-powershell-install.md).
 - Die neueste Version des Tools [Microsoft Azure Stack Hub Readiness Checker](https://aka.ms/AzsReadinessChecker).
 
-**Azure AD-Umgebung:**
+#### <a name="azure-ad-environment"></a>Azure AD-Umgebung
 
 - Bestimmen Sie das Azure AD-Konto, das Sie für Azure Stack Hub verwenden möchten, und stellen Sie sicher, dass es sich um das Konto eines globalen Azure AD-Administrators handelt.
 - Ermitteln Sie den Namen Ihres Azure AD-Mandanten. Der Mandantenname muss der primäre Domänenname für Ihre Azure AD-Instanz sein. Beispiel: **contoso.onmicrosoft.com**.
@@ -87,6 +95,62 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
    Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
    Invoke-AzsAzureIdentityValidation Completed
    ```
+
+
+### <a name="az-powershell"></a>[Az PowerShell](#tab/az)
+
+### <a name="prerequisites"></a>Voraussetzungen
+
+Die folgenden Voraussetzungen müssen erfüllt sein:
+
+#### <a name="az-powershell-modules"></a>Az PowerShell-Module
+
+Die Az PowerShell-Module müssen installiert sein. Anleitungen finden Sie unter [Installieren des PowerShell Az-Vorschaumoduls](powershell-install-az-module.md).
+
+#### <a name="azure-active-directory-azure-ad-environment"></a>Azure Active Directory-Umgebung (Azure AD)
+
+- Bestimmen Sie das Azure AD-Konto, das Sie für Azure Stack Hub verwenden möchten, und stellen Sie sicher, dass es sich um das Konto eines globalen Azure AD-Administrators handelt.
+- Ermitteln Sie den Namen Ihres Azure AD-Mandanten. Der Mandantenname muss der primäre Domänenname für Ihre Azure AD-Instanz sein. Beispiel: **contoso.onmicrosoft.com**.
+
+### <a name="steps-to-validate-azure-identity"></a>Schritte zum Überprüfen der Azure-Identität
+
+1. Öffnen Sie auf einem Computer, der die Voraussetzungen erfüllt, eine administrative PowerShell-Eingabeaufforderung, und führen Sie den folgenden Befehl zum Installieren von **AzsReadinessChecker** aus:  
+
+   ```powershell
+   Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
+   Install-AzProfile -Profile 2019-03-01-hybrid -Force
+   Install-Module -Name Microsoft.AzureStack.ReadinessChecker -AllowPrerelease
+   ```
+
+2. Führen Sie an der PowerShell-Eingabeaufforderung den folgenden Befehl aus. Ersetzen Sie `contoso.onmicrosoft.com` durch den Azure AD-Mandantennamen:
+
+   ```powershell
+   Connect-AzAccount -tenant contoso.onmicrosoft.com
+   ```
+
+3. Führen Sie an der PowerShell-Eingabeaufforderung folgenden Befehl aus, um die Überprüfung Ihrer Azure AD-Instanz zu starten. Ersetzen Sie `contoso.onmicrosoft.com` durch den Azure AD-Mandantennamen:
+
+   ```powershell
+   Invoke-AzsAzureIdentityValidation -AADDirectoryTenantName contoso.onmicrosoft.com 
+   ```
+
+4. Wenn das Tool ausgeführt wird, überprüfen Sie die Ausgabe. Vergewissern Sie sich, dass der Status für die Installationsanforderungen **OK** lautet. Eine erfolgreiche Überprüfung wie etwa im folgenden Beispiel wird angezeigt:
+
+   ```powershell
+   Invoke-AzsAzureIdentityValidation v1.2005.1269 started.
+   Starting Azure Identity Validation
+
+   Checking Installation Requirements: OK
+
+   Finished Azure Identity Validation
+
+   Log location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+   Report location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+   Invoke-AzsAzureIdentityValidation Completed
+   ```
+
+--- 
+
 
 ## <a name="report-and-log-file"></a>Berichts- und Protokolldatei
 

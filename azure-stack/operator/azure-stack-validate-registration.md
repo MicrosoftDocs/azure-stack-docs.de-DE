@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie eine Azure-Registrierung mit dem Azure Stack Hub Readiness Checker-Tool überprüfen.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 06/25/2020
 ms.author: inhenkel
-ms.reviewer: unknown
-ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 131e4b186078e566c81a2b4aac3e34f3898213bc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.reviewer: jerskine
+ms.lastreviewed: 06/25/2020
+ms.openlocfilehash: 24bec6b10017dd824800f860273c003dc8b53f0b
+ms.sourcegitcommit: 28850ae18844213ee410cfe96fc936655b5f6412
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78366482"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86148148"
 ---
 # <a name="validate-azure-registration"></a>Überprüfen der Azure-Registrierung
 
@@ -28,11 +28,19 @@ Weitere Informationen zur Azure Stack Hub-Registrierung finden Sie unter [Regist
 
 Laden Sie die neueste Version von **AzsReadinessChecker** aus dem [PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) herunter.  
 
-## <a name="prerequisites"></a>Voraussetzungen
+## <a name="install-and-configure"></a>Installieren und konfigurieren
+
+### <a name="azurerm-powershell"></a>[AzureRM PowerShell](#tab/rm)
+
+### <a name="prerequisites"></a>Voraussetzungen
 
 Die folgenden Voraussetzungen müssen erfüllt sein:
 
-### <a name="the-computer-on-which-the-tool-runs"></a>Auf dem Computer, auf dem das Tool ausgeführt wird, muss Folgendes installiert sein:
+#### <a name="azurerm-powershell-modules"></a>AzureRM PowerShell-Module
+
+Die Az PowerShell-Module müssen installiert sein. Anleitungen finden Sie unter [Installieren des PowerShell AzureRM-Moduls](azure-stack-powershell-install.md).
+
+#### <a name="the-computer-on-which-the-tool-runs"></a>Auf dem Computer, auf dem das Tool ausgeführt wird, muss Folgendes installiert sein:
 
 - Windows 10 oder Windows Server 2016 mit Internetkonnektivität
 - PowerShell 5.1 oder höher Um Ihre Version zu überprüfen, führen Sie das folgende PowerShell-Cmdlet aus, und überprüfen Sie dann die **Hauptversion** und die **Nebenversionen**:  
@@ -42,13 +50,13 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
 - [PowerShell, konfiguriert für Azure Stack Hub](azure-stack-powershell-install.md).
 - Die neueste Version des Tools [Microsoft Azure Stack Hub Readiness Checker](https://aka.ms/AzsReadinessChecker).  
 
-### <a name="azure-active-directory-aad-environment"></a>AAD-Umgebung (Azure Active Directory)
+#### <a name="azure-active-directory-azure-ad-environment"></a>Azure Active Directory-Umgebung (Azure AD)
 
 - Sie müssen über den Benutzernamen und das Kennwort eines Kontos verfügen, das der Besitzer eines Azure-Abonnements ist, unter dem Sie Azure Stack Hub verwenden.  
 - Ermitteln Sie die Abonnement-ID für das Azure-Abonnement, das Sie verwenden möchten.
 - Legen Sie die Azure-Umgebung (**AzureEnvironment**) fest, die Sie verwenden möchten. Unterstützte Werte für den Umgebungsnamensparameter sind je nach Ihrem verwendeten Azure-Abonnement **AzureCloud**, **AzureChinaCloud** oder **AzureUSGovernment**.
 
-## <a name="steps-to-validate-the-azure-registration"></a>Schritte zum Überprüfen der Azure-Registrierung
+### <a name="steps-to-validate-the-azure-registration"></a>Schritte zum Überprüfen der Azure-Registrierung
 
 1. Öffnen Sie auf einem Computer, der die Voraussetzungen erfüllt, eine administrative PowerShell-Eingabeaufforderung, und führen Sie den folgenden Befehl zum Installieren von **AzsReadinessChecker** aus:
 
@@ -81,13 +89,68 @@ Die folgenden Voraussetzungen müssen erfüllt sein:
 
 5. Wenn das Tool ausgeführt wird, überprüfen Sie die Ausgabe. Vergewissern Sie sich, dass der Status für die Anmelde- und Registrierungsanforderungen richtig ist. Eine erfolgreiche Validierungsausgabe sieht in etwa wie folgt aus:
 
-   ```shell
+   ```powershell
    Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
    Checking Registration Requirements: OK
    Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
    Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
    Invoke-AzsRegistrationValidation Completed
    ```
+
+### <a name="az-powershell"></a>[Az PowerShell](#tab/az)
+
+### <a name="prerequisites"></a>Voraussetzungen
+
+Die folgenden Voraussetzungen müssen erfüllt sein:
+
+#### <a name="az-powershell-modules"></a>Az PowerShell-Module
+
+Die Az PowerShell-Module müssen installiert sein. Anleitungen finden Sie unter [Installieren des PowerShell Az-Vorschaumoduls](powershell-install-az-module.md).
+
+#### <a name="azure-active-directory-aad-environment"></a>AAD-Umgebung (Azure Active Directory)
+
+- Sie müssen über den Benutzernamen und das Kennwort eines Kontos verfügen, das der Besitzer eines Azure-Abonnements ist, unter dem Sie Azure Stack Hub verwenden.  
+- Ermitteln Sie die Abonnement-ID für das Azure-Abonnement, das Sie verwenden möchten.
+
+### <a name="steps-to-validate-the-azure-registration"></a>Schritte zum Überprüfen der Azure-Registrierung
+
+1. Öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie den folgenden Befehl zum Installieren von **AzsReadinessChecker** aus:
+
+   ```powershell
+   Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
+   Install-AzProfile -Profile 2019-03-01-hybrid -Force
+   Install-Module -Name Microsoft.AzureStack.ReadinessChecker -AllowPrerelease
+   ```
+
+2. Führen Sie an der PowerShell-Eingabeaufforderung den folgenden Befehl aus, um `$subscriptionID` als zu verwendendes Azure-Abonnement festzulegen. Ersetzen Sie `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` durch Ihre eigene Abonnement-ID:
+
+   ```powershell
+   $subscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+   ```
+
+3. Führen Sie an der PowerShell-Eingabeaufforderung den folgenden Befehl aus: 
+
+   ```powershell
+   Connect-AzAccount -subscription $subscriptionID
+   ```
+
+4. Führen Sie an der PowerShell-Eingabeaufforderung den folgenden Befehl aus, um die Überprüfung Ihres Abonnements zu starten. Geben Sie den Namen Ihres Azure AD-Administrators und Ihres Azure AD-Mandanten an:
+
+   ```powershell
+   Invoke-AzsRegistrationValidation  -RegistrationSubscriptionID $subscriptionID
+   ```
+
+5. Wenn das Tool ausgeführt wird, überprüfen Sie die Ausgabe. Vergewissern Sie sich, dass der Status für die Anmelde- und Registrierungsanforderungen richtig ist. Eine erfolgreiche Validierungsausgabe sieht in etwa wie folgt aus:
+
+   ```powershell
+   Invoke-AzsRegistrationValidation v1.2005.1269 started.
+   Checking Registration Requirements: OK
+
+   Log location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+   Report location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+   Invoke-AzsRegistrationValidation Completed
+   ```
+---
 
 ## <a name="report-and-log-file"></a>Berichts- und Protokolldatei
 

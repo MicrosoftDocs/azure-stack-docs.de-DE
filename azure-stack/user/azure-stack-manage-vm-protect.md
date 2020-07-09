@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 3a59f36b5bae91255628d79b14ee727a5990ef11
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 1fd3c8de163d8539a0a3bf09e75e33959413fe96
+ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146936"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86033235"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Schutz von in Azure Stack Hub bereitgestellten VMsProtect VMs deployed on Azure Stack Hub
 
@@ -71,7 +71,7 @@ Sicherungsprodukte können die Konfiguration virtueller IaaS-Computer sowie die 
 > [!Important]  
 > Die Verwendung von Datenträgermomentaufnahmen wird für aktive virtuelle Computer derzeit nicht unterstützt. Die Erstellung einer Momentaufnahme eines Datenträgers, der an einen aktiven virtuellen Computer angefügt ist, kann die Leistung oder die Verfügbarkeit des Betriebssystems oder der Anwendung auf dem virtuellen Computer beeinträchtigen. Falls keine geplante Ausfallzeit möglich ist, sollte zum Schutz der Anwendung ein gastinterner Agent verwendet werden. 
 
-### <a name="vms-in-a-scale-set-or-availability-group"></a>Virtuelle Computer in einer Skalierungs- oder Verfügbarkeitsgruppe
+### <a name="vms-in-a-scale-set-or-availability-set"></a>Virtuelle Computer in einer Skalierungs- oder Verfügbarkeitsgruppe
 
 Virtuelle Computer in einer Skalierungs- oder Verfügbarkeitsgruppe, die als kurzlebige Ressourcen gelten, sollten nicht auf der VM-Ebene gesichert werden. Das gilt insbesondere für zustandslose Anwendungen. Bei zustandsbehafteten Anwendungen in einer Skalierungs- oder Verfügbarkeitsgruppe sollten die Anwendungsdaten (beispielsweise eine Datenbank oder ein Volume in einem Speicherpool) ggf. geschützt werden. 
 
@@ -83,7 +83,7 @@ Bei diesem Ansatz wird die Anwendung in einer Cloud bereitgestellt, und die Date
  
 ### <a name="high-availabilityautomatic-failover"></a>Hochverfügbarkeit und automatisches Failover
 
-Bei zustandslosen Anwendungen, bei denen nur Ausfallzeiten von wenigen Sekunden oder Minuten akzeptabel sind, empfiehlt sich eine Hochverfügbarkeitskonfiguration. Hochverfügbare Anwendungen sind für die Bereitstellung an mehreren Standorten in einer Aktiv/Aktiv-Topologie konzipiert, in der alle Instanzen Anforderungen verarbeiten können. Bei lokalen Hardwareausfällen implementiert die Azure Stack Hub-Infrastruktur Hochverfügbarkeit im physischen Netzwerk mithilfe von zwei Top-of-Rack-Switches. Bei Ausfällen auf der Computeebene verwendet Azure Stack Hub mehrere Knoten in einer Skalierungseinheit. Auf der VM-Ebene können Sie Skalierungsgruppen in Kombination mit Fehlerdomänen verwenden, um sicherzustellen, dass Knotenausfälle nicht zum Ausfall Ihrer Anwendung führen. Hierzu muss die gleiche Anwendung an einem sekundären Standort in der gleichen Konfiguration bereitgestellt werden. Um eine Aktiv/Aktiv-Anwendung zu erhalten, können Anforderungen mithilfe eines Lastenausgleichs oder DNS an alle verfügbaren Instanzen weitergeleitet werden.
+Bei zustandslosen Anwendungen, bei denen nur Ausfallzeiten von wenigen Sekunden oder Minuten akzeptabel sind, empfiehlt sich eine Hochverfügbarkeitskonfiguration. Hochverfügbare Anwendungen sind für die Bereitstellung an mehreren Standorten in einer Aktiv/Aktiv-Topologie konzipiert, in der alle Instanzen Anforderungen verarbeiten können. Bei lokalen Hardwareausfällen implementiert die Azure Stack Hub-Infrastruktur Hochverfügbarkeit im physischen Netzwerk mithilfe von zwei Top-of-Rack-Switches. Bei Ausfällen auf der Computeebene verwendet Azure Stack Hub mehrere Knoten in einer Skalierungseinheit und führt ein automatisches Failover für eine VM durch. Auf der VM-Ebene können Sie Skalierungsgruppen oder VM in Verfügbarkeitsgruppen verwenden, um sicherzustellen, dass Knotenausfälle nicht zum Ausfall Ihrer Anwendung führen. Hierzu muss die gleiche Anwendung an einem sekundären Standort in der gleichen Konfiguration bereitgestellt werden. Um eine Aktiv/Aktiv-Anwendung zu erhalten, können Anforderungen mithilfe eines Lastenausgleichs oder DNS an alle verfügbaren Instanzen weitergeleitet werden.
 
 ### <a name="no-recovery"></a>Keine Wiederherstellung
 

@@ -3,16 +3,16 @@ title: Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack 
 description: Erfahren Sie, wie Sie einen Kubernetes-Cluster in Azure Stack Hub von einer Client-VM bereitstellen, auf der die AKS-Engine ausgeführt wird.
 author: mattbriggs
 ms.topic: article
-ms.date: 4/23/2020
+ms.date: 07/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 85f9e789db3ce86b04b490be83f355eb73e7329e
-ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
+ms.lastreviewed: 07/07/2020
+ms.openlocfilehash: 6dd3cb20570bcd4cf580f169f8ba9cbc44a673ac
+ms.sourcegitcommit: 84b089387f5cf89e3a72e576f1c7649667075e0a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82218822"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86137180"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub
 
@@ -90,6 +90,9 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
     | ssh | Geben Sie den öffentlichen Schlüssel ein, der für die SSH-Authentifizierung bei virtuellen Computern verwendet wird. Verwenden Sie `ssh-rsa` und dann den Schlüssel. Anweisungen zum Erstellen eines öffentlichen Schlüssels finden Sie unter [Erstellen eines SSH-Schlüssels für Linux in Azure Stack Hub](create-ssh-key-on-windows.md). |
 
     Wenn Sie die Bereitstellung in einem benutzerdefinierten virtuellen Netzwerk ausführen möchten, finden Sie Anweisungen zum Ermitteln und Hinzufügen der erforderlichen Schlüssel und Werte zu den entsprechenden Arrays im API-Modell unter [Bereitstellen eines Kubernetes-Clusters zu einem benutzerdefinierten virtuellen Netzwerk in Azure Stack Hub](kubernetes-aks-engine-custom-vnet.md).
+
+    > [!Note]  
+    > Mit der AKS-Engine für Azure Stack Hub können Sie keine eigenen Zertifikate für die Erstellung des Clusters bereitstellen.
 
 ### <a name="more-information-about-the-api-model"></a>Weitere Informationen zum API-Modell
 
