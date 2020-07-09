@@ -106,8 +106,6 @@
         - name: Überprüfen der Azure-Registrierung
           href: azure-stack-validate-registration.md
           items:
-            - name: Referenz zum Cmdlet „Start-AzsReadiness“
-              href: azure-stack-azsreadiness-cmdlet.md
             - name: Anzeigen des Bereitschaftsberichts
               href: azure-stack-validation-report.md
         - name: Externe Überwachung

@@ -1,39 +1,53 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation zum Azure Stack Development Kit
+summary: Informationen zum Bereitstellen und Verwenden des Azure Stack Development Kits
 metadata:
   title: 'Dokumentation zum Azure Stack Development Kit: Tutorials, API-Referenz'
-  description: Informationen zum Bereitstellen und Verwenden des Azure Stack Development Kits
-  services: azure-stack
-  author: mattbriggs
-  manager: femila
+  description: Das Azure Stack Development Kit (ASDK) ist eine Bereitstellung von Azure Stack mit einem Knoten, die Sie kostenlos herunterladen und verwenden können. Das ASDK stellt eine Nicht-Produktionsumgebung bereit, in der Sie anhand von mit Azure konsistenten APIs und Tools Azure Stack evaluieren und moderne Anwendungen entwickeln können.
   ms.service: azure-stack
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: asdk
   ms.topic: landing-page
-  ms.date: 04/13/2018
-  ms.author: mabrigg
-abstract:
-  description: 'Das Azure Stack Development Kit (ASDK) ist eine Bereitstellung von Azure Stack mit einem Knoten, die Sie kostenlos herunterladen und verwenden können. Das ASDK stellt eine Nicht-Produktionsumgebung bereit, in der Sie anhand von mit Azure konsistenten APIs und Tools Azure Stack evaluieren und moderne Anwendungen entwickeln können. <br/><br/>Wenn Sie ein Azure Stack-Betreiber sind, der die Infrastruktur integrierter Systeme verwaltet und Dienste anbietet, hilft Ihnen die <a href="/azure-stack/operator">Dokumentation für Betreiber</a> weiter.<br/><br/>Wenn Sie ein Azure Stack-Benutzer sind, der Dienste verwendet oder Apps für Azure Stack erstellt, helfen Ihnen die Informationen in unserer <a href="/azure-stack/user">Dokumentation für Benutzer</a> weiter.'
-sections:
-  - title: Schritt-für-Schritt-Tutorials
-    items:
-      - type: paragraph
-        text: 'Hier wird beschrieben, wie Sie Ihrer ASDK-Bereitstellung Dienste hinzufügen.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure-stack/asdk/asdk-install">Bereitstellen des ASDK</a>
-          - html: <a href="/azure-stack/operator/azure-stack-create-and-publish-marketplace-item">Hinzufügen eines Azure Stack Hub-Marketplace-Elements</a>
-          - html: <a href="/azure-stack/operator/azure-stack-tutorial-tenant-vm">Anbieten von IaaS-Diensten</a>
-          - html: <a href="/azure-stack/user/azure-stack-subscribe-services">Abonnieren von Angeboten</a>
-          - html: <a href="/azure-stack/operator/create-add-on-plan">Aktualisieren von Angeboten und Plänen</a>
-          - html: <a href="/azure-stack/user/azure-stack-create-vm-template">Erstellen eines virtuellen Azure-Computers über eine Vorlage</a>
-  - title: Verweis
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Befehlszeile
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/?view=azure-cli-2017-03-09-profile">Azure Stack-Befehlszeilenschnittstelle</a></p>
+  author: justinha
+  ms.author: justinha
+  ms.date: 07/02/2020
+  ms.openlocfilehash: 85d70f0c63ac220c6683b12ad893758c1c57552d
+  ms.sourcegitcommit: 84b089387f5cf89e3a72e576f1c7649667075e0a
+  ms.translationtype: HT
+  ms.contentlocale: de-DE
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86137148"
+landingContent:
+- title: Bereitstellen des ASDK
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Bereitstellen des ASDK
+      url: asdk-install.md
+  - linkListType: deploy
+    links:
+    - text: Versionshinweise
+      url: asdk-release-notes.md
+- title: Erste Schritte
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Hinzufügen eines Azure Stack Hub-Marketplace-Elements
+      url: ../operator/azure-stack-create-and-publish-marketplace-item.md
+  - linkListType: tutorial
+    links:
+    - text: Anbieten von IaaS-Diensten
+      url: ../operator/azure-stack-tutorial-tenant-vm.md
+- title: Verwendung
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Abonnieren von Angeboten
+      url: ../user/azure-stack-subscribe-services.md
+    - text: Erstellen eines virtuellen Azure-Computers über eine Vorlage
+      url: ../user/azure-stack-create-vm-template.md
+  - linkListType: concept
+    links:
+    - text: Planung und Anforderungen
+      url: asdk-deploy-considerations.md
+    - text: Bereitstellungsarchitektur
+      url: asdk-architecture.md
