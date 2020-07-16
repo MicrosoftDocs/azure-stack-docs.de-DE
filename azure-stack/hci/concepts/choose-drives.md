@@ -4,17 +4,17 @@ description: Es wird beschrieben, wie Sie Laufwerke für „Direkte Speicherplä
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 693414f25687c923af3a3be8c1c421f08076cd28
-ms.sourcegitcommit: 92392e7275ab7fbbb9b75d0529d66adbd11070a3
+ms.date: 07/14/2020
+ms.openlocfilehash: f243bcefec74f23efb555e0dbf72597736687694
+ms.sourcegitcommit: 2be3dd5419b0d003a9598a42541ebb1d251aea3d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85814295"
+ms.lasthandoff: 07/15/2020
+ms.locfileid: "86390788"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Auswählen von Laufwerken für Azure Stack HCI
 
->Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
+>Gilt für: Windows Server 2019
 
 Dieses Thema enthält eine Anleitung zur Auswahl von Laufwerken für [Direkte Speicherplätze](/windows-server/storage/storage-spaces/storage-spaces-direct-overview), um Ihre Leistungs- und Kapazitätsanforderungen für Azure Stack HCI zu erfüllen.
 
