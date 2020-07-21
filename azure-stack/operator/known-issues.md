@@ -3,16 +3,16 @@ title: Azure Stack Hub – Bekannte Probleme
 description: Enthält Informationen zu bekannten Problemen in Releases von Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 07/10/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 5f0210d32367212769da66b2a55b1fff91fb5017
-ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
+ms.openlocfilehash: d0a212b231f187ca9ed2ce5520639b0e08a3d7e2
+ms.sourcegitcommit: e433e6f772789ab00c131c24650e700c65e6d73a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86033220"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86272962"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -74,12 +74,6 @@ Informationen zu weiteren bekannten Problemen beim Aktualisieren von Azure Stack
 - Geltungsbereich: Dieses Problem betrifft das Release 1908 und höhere Releases.
 - Ursache: Wenn ein Kabel von einem Netzwerkadapter getrennt wird, wird im Administratorportal keine Warnung angezeigt. Dieses Problem ist darauf zurückzuführen, dass dieser Fehler in Windows Server 2019 standardmäßig deaktiviert ist.
 - Häufigkeit: Allgemein
-
-### <a name="access-control-iam"></a>Zugriffssteuerung (IAM)
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Die IAM-Erweiterung ist veraltet. Das Ibiza-Portal ist im Lieferumfang von Azure Stack Hub enthalten und führt ein neues Verhalten ein, das einen Fehler der RBAC-Erweiterung verursacht, wenn Benutzer das Blatt **Zugriffssteuerung (IAM)** für ein Abonnement öffnen, das nicht in der Auswahl für globale Abonnements ausgewählt ist (**Verzeichnis + Abonnement** im Benutzerportal). Auf dem Blatt wird **Laden** in einer Schleife angezeigt, und Benutzer können dem Abonnement keine neuen Rollen hinzufügen. Auf dem Blatt **Hinzufügen** wird ebenfalls **Laden** in einer Schleife angezeigt.
-- Abhilfe: Stellen Sie sicher, dass das Abonnement im Menü **Verzeichnis + Abonnement** aktiviert ist. Sie können wie folgt auf das Menü zugreifen: Über den oberen Portalbereich (in der Nähe der Schaltfläche **Benachrichtigungen**) oder über die Verknüpfung auf dem Blatt **Alle Ressourcen**, die **Wird kein Abonnement angezeigt? Verzeichnis- und Abonnementeinstellungen öffnen** lautet. Das Abonnement muss in diesem Menü ausgewählt werden.
 
 ## <a name="networking"></a>Netzwerk
 

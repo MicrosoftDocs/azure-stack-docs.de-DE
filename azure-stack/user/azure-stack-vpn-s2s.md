@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/21/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: fdc1f71e5d4c5afa8b3989b69795d150cf96de67
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 81608b62ad84a5b26028a80da40bc5a627b231f6
+ms.sourcegitcommit: 7447a9b9312cdae2f5fa13a700be84cd1ffdd456
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780680"
+ms.lasthandoff: 07/14/2020
+ms.locfileid: "86302132"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurieren einer IPsec/IKE-Richtlinie für Standort-zu-Standort-VPN-Verbindungen
 
@@ -73,12 +73,14 @@ Die folgende Tabelle gibt Aufschluss über die unterstützten Kryptografiealgori
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | IKEv2-Verschlüsselung                                     | AES256, AES192, AES128, DES3, DES                                        |
 | IKEv2-Integrität                                      | SHA384, SHA256, SHA1, MD5                                                |
-| DH-Gruppe                                             | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2, DHGroup1                 |
+| DH-Gruppe                                             | ECP384, DHGroup14, DHGroup2, DHGroup1, ECP256 *, DHGroup24*             |
 | IPsec-Verschlüsselung                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, keine |
 | IPsec-Integrität                                      | GCMASE256, GCMAES192, GCMAES128                                          |
 | PFS-Gruppe                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, PFSMM, Keine                  |
 | QM-SA-Gültigkeitsdauer                                       | (Optional: Wenn kein Wert angegeben wird, werden die Standardwerte verwendet.)<br />                         Sekunden (ganze Zahl; min. 300/Standard: 27.000 Sekunden)<br />                         KB (ganze Zahl; min. 1.024/Standard: 102.400.000 KB) |
 | Datenverkehrsselektor                                     | Richtlinienbasierte Datenverkehrsselektoren werden in Azure Stack Hub nicht unterstützt.         |
+
+\* Diese Parameter sind nur in den Builds 2002 und höher verfügbar. 
 
 - Ihre lokale VPN-Gerätekonfiguration muss folgenden Algorithmus- und Parameterangaben für die Azure-IPsec-/IKE-Richtlinie entsprechen oder selbige enthalten:
 
@@ -108,9 +110,11 @@ Die folgende Tabelle enthält die entsprechenden Diffie-Hellman-Gruppen, die von
 | 1                    | DHGroup1  | PFS1          | 768-Bit-MODP  |
 | 2                    | DHGroup2  | PFS2          | 1024-Bit-MODP |
 | 14                   | DHGroup14<br/>DHGroup2048 | PFS2048       | 2048-Bit-MODP |
-| 19                   | ECP256    | ECP256        | 256-Bit-ECP   |
+| 19                   | ECP256*    | ECP256        | 256-Bit-ECP   |
 | 20                   | ECP384    | ECP384        | 384-Bit-ECP   |
-| 24                   | DHGroup24 | PFS24         | 2048-Bit-MODP |
+| 24                   | DHGroup24* | PFS24         | 2048-Bit-MODP |
+
+\* Diese Parameter sind nur in den Builds 2002 und höher verfügbar. 
 
 Weitere Informationen finden Sie unter [RFC3526](https://tools.ietf.org/html/rfc3526) und [RFC5114](https://tools.ietf.org/html/rfc5114).
 

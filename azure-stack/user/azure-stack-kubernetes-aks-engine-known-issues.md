@@ -7,12 +7,12 @@ ms.date: 07/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 07/02/2020
-ms.openlocfilehash: 4012f350fff45e3d09b543692fa315ffeeec1240
-ms.sourcegitcommit: a5bb340c5689f7dcf1ef3a340416f7f337782170
+ms.openlocfilehash: 4fdcc16679051087968161c0ac36175155a2717a
+ms.sourcegitcommit: e433e6f772789ab00c131c24650e700c65e6d73a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85942305"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86272919"
 ---
 # <a name="known-issues-with-the-aks-engine-on-azure-stack-hub"></a>Bekannte Probleme mit der AKS-Engine auf Azure Stack Hub
 
@@ -23,9 +23,9 @@ In diesem Thema werden bekannte Probleme der AKS-Engine auf Azure Stack Hub beha
 * Während des Upgrades (aks-engine upgrade) eines Kubernetes-Clusters von Version 1.15.x auf 1.16.x sind für ein Upgrade der folgenden Kubernetes-Komponenten zusätzliche manuelle Schritte erforderlich: **kube-proxy**, **azure-cni-networkmonitor**, **csi-secrets-store**, **kubernetes-dashboard**. Nachfolgend wird beschrieben, welche Probleme möglicherweise auftreten und wie Sie diese umgehen können.
 
   * In verbundenen Umgebungen ist dieses Problem nicht offensichtlich, da es im Cluster keine Anzeichen dafür gibt, dass die betroffenen Komponenten nicht aktualisiert wurden. Alles funktioniert scheinbar wie erwartet.
-  * In nicht verbundenen Umgebungen können Sie dieses Problem erkennen, wenn Sie den Status der Systempods abfragen und feststellen, dass die Pods für die unten aufgeführten Komponenten nicht den Status „Bereit“ aufweisen:
+  <!-- * In disconnected environments, you can see this problem when you run a query for the system pods status and see that the pods for the components mentioned below are not in "Ready" state: -->
 
-    ```PowerShell
+    ```bash  
     kubectl get pods -n kube-system
     ```
 
@@ -38,7 +38,7 @@ In diesem Thema werden bekannte Probleme der AKS-Engine auf Azure Stack Hub beha
     |**csi-secrets-store**  |`sudo sed -i s/Always/IfNotPresent/g /etc/kubernetes/addons/secrets-store-csi-driver.yaml`<br>`kubectl delete ds csi-secrets-store -n kube-system` | Getrennt |
     |**kubernetes-dashboard** |Führen Sie den folgenden Befehl auf jedem Masterknoten aus:<br>`sudo sed -i s/Always/IfNotPresent/g /etc/kubernetes/addons/kubernetes-dashboard.yaml` |Getrennt |
 
-* Kubernetes 1.17 wird in diesem Release nicht unterstützt. Einige PRs verweisen zwar auf 1.17, diese Version wird jedoch nicht unterstützt.
+* Kubernetes 1.17 wird in diesem Release nicht unterstützt. Obwohl es GitHub-Pullanforderungen (PR) gibt, die sich auf die Version 1.17 beziehen, wird diese nicht unterstützt.
 
 ## <a name="basic-load-balancer-sku-limitations"></a>Einschränkungen der Load Balancer Basic-SKU
 
@@ -46,7 +46,7 @@ In diesem Thema werden bekannte Probleme der AKS-Engine auf Azure Stack Hub beha
 
   Sie können Kubernetes zwingen, Pods in einem bestimmten Agentpool zu erstellen, indem Sie die [Knotenauswahl](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/) „agentpool: MY_POOL_NAME“ in Ihrer Podvorlage hinzufügen.
 
-  ```powershell
+  ```json
   nodeSelector:
 
         agentpool: linuxpool

@@ -48,12 +48,12 @@
                 - name: Übersicht über Azure Stack Hub PowerShell
                   href: azure-stack-powershell-overview.md
                 - name: Installieren von Azure Stack Hub PowerShell
-                  href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-powershell-install.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: Verbinden mit PowerShell
                   href: azure-stack-powershell-configure-user.md
                 - name: Herunterladen von Azure Stack Hub-Tools
-                  href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-powershell-download.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: Ausführen von PowerShell mithilfe von Docker
                   href: azure-stack-powershell-user-docker.md
@@ -118,7 +118,7 @@
             - name: Verwenden der rollenbasierten Zugriffssteuerung
               href: azure-stack-manage-permissions.md
             - name: Verwenden einer App-Identität für den Ressourcenzugriff
-              href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: ../operator/azure-stack-create-service-principals.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Verwenden von Diensten
           items:
             - name: Compute
@@ -239,7 +239,7 @@
                     - name: Problembehandlung für die AKS-Engine
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Verwenden von Azure Monitor für Container
-                      href: 'https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-hybrid-setup'
+                      href: /azure/azure-monitor/insights/container-insights-hybrid-setup
                     - name: Bekannte Probleme mit der AKS-Engine auf Azure Stack Hub
                       href: azure-stack-kubernetes-aks-engine-known-issues.md
                 - name: Marketplace-Element
@@ -336,13 +336,13 @@
     - name: REST-APIs für Azure Stack Hub-Administratoren
       href: /rest/api/azure-stack/
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest'
+      href: /cli/azure/reference-index?view=azure-cli-latest
 - name: Verwandte Themen
   items:
     - name: Dokumentation für Azure Stack Hub-Bediener
-      href: /azure-stack/operator/
+      href: ../operator/index.yml
     - name: ASDK-Dokumentation
-      href: /azure-stack/asdk/
+      href: ../asdk/index.yml
 - name: Ressourcen
   items:
     - name: Azure Stack Hub-Roadmap
@@ -356,4 +356,4 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
     - name: Training und Zertifizierung
-      href: /azure-stack/operator/azure-stack-train-and-cert
+      href: ../operator/azure-stack-train-and-cert.md
