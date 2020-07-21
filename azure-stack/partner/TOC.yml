@@ -45,7 +45,7 @@
 - name: Verwandte Themen
   items:
     - name: Dokumentation für Azure Stack Hub-Bediener
-      href: /azure-stack/operator
+      href: ../operator/index.yml
     - name: Azure Active Directory
       href: /azure/active-directory/
 - name: Ressourcen
@@ -61,4 +61,4 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
     - name: Training und Zertifizierung
-      href: /azure-stack/operator/azure-stack-train-and-cert
+      href: ../operator/azure-stack-train-and-cert.md
