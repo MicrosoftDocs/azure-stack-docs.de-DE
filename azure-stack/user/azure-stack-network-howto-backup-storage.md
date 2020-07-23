@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 1af0a054c90369ba3f1e97d55dac7e5eec20ee43
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 673d1d58a441d5265e8ad6dd23a448d089c2776e
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111964"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567313"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Sichern Ihrer Speicherkonten in Azure Stack Hub
 
@@ -26,13 +26,13 @@ In diesem Abschnitt werden die allgemeine Struktur und die Hauptkomponenten der 
 
 ### <a name="application-layer"></a>Anwendungsschicht
 
-Daten können zwischen Speicherkonten in separaten Azure Stack Hub-Skalierungseinheiten repliziert werden, indem mehrere [Put Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)- oder [Put Block](https://docs.microsoft.com/rest/api/storageservices/put-block)-Vorgänge ausgegeben werden, um Objekte an mehreren Speicherorten zu schreiben. Alternativ kann die Anwendung den [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob)-Vorgang ausgeben, um das Blob in ein Speicherkonto in einer separaten Skalierungseinheit zu kopieren, nachdem der Put-Vorgang für das primäre Konto abgeschlossen wurde.
+Daten können zwischen Speicherkonten in separaten Azure Stack Hub-Skalierungseinheiten repliziert werden, indem mehrere [Put Blob](/rest/api/storageservices/put-blob)- oder [Put Block](/rest/api/storageservices/put-block)-Vorgänge ausgegeben werden, um Objekte an mehreren Speicherorten zu schreiben. Alternativ kann die Anwendung den [Copy Blob](/rest/api/storageservices/copy-blob)-Vorgang ausgeben, um das Blob in ein Speicherkonto in einer separaten Skalierungseinheit zu kopieren, nachdem der Put-Vorgang für das primäre Konto abgeschlossen wurde.
 
 ### <a name="scheduled-copy-task"></a>Geplante Kopieraufgabe
 
 Das Tool AzCopy ist ideal, um Daten aus lokalen Dateisystemen, dem Azure-Cloudspeicher, Azure Stack Hub-Speicher und S3 zu kopieren. Derzeit können mit AzCopy keine Daten zwischen zwei Azure Stack Hub-Speicherkonten kopiert werden. Zum Kopieren von Objekten aus einem Azure Stack Hub-Quellspeicherkonto in ein Azure Stack Hub-Zielspeicherkonto ist ein zwischengeschaltetes lokales Dateisystem erforderlich.
 
-Weitere Informationen finden Sie im Abschnitt zu AzCopy im Artikel [Verwenden der Datenübertragungstools im Azure Stack Hub-Speicher](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer?view=azs-1908#azcopy).
+Weitere Informationen finden Sie im Abschnitt zu AzCopy im Artikel [Verwenden der Datenübertragungstools im Azure Stack Hub-Speicher](./azure-stack-storage-transfer.md?view=azs-1908#azcopy).
 
 ### <a name="azure-stack-hub-source"></a>Azure Stack Hub (Quelle)
 
@@ -54,7 +54,7 @@ Sie können einen Linux- oder Windows-Server als Zwischenserver erstellen. Der S
 - Anweisungen zum Einrichten eines Linux-Servers finden Sie unter [Erstellen eines virtuellen Linux-Servers mit dem Azure Stack Hub-Portal](azure-stack-quick-linux-portal.md).  
 - Anweisungen zum Einrichten eines Windows-Servers finden Sie unter [Erstellen eines virtuellen Windows Server-Computers mit dem Azure Stack Hub-Portal](azure-stack-quick-windows-portal.md).  
 
-Nach dem Einrichten des Windows-Servers müssen Sie [PowerShell für Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) und [Azure Stack Hub-Tools](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) installieren.
+Nach dem Einrichten des Windows-Servers müssen Sie [PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) und [Azure Stack Hub-Tools](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) installieren.
 
 ## <a name="set-up-backup-for-storage-accounts"></a>Einrichten der Sicherung für Speicherkonten
 
@@ -112,7 +112,7 @@ Nach dem Einrichten des Windows-Servers müssen Sie [PowerShell für Azure Stack
 
     - Für einen Windows-Server:
 
-    Informationen zur Verwendung der Windows-Aufgabenplanung finden Sie unter [Aufgabenplanung für Entwickler](https://docs.microsoft.com/windows/win32/taskschd/task-scheduler-start-page).
+    Informationen zur Verwendung der Windows-Aufgabenplanung finden Sie unter [Aufgabenplanung für Entwickler](/windows/win32/taskschd/task-scheduler-start-page).
     
 
 ## <a name="use-your-storage-account-in-a-disaster"></a>Verwenden Ihres Speicherkontos in einem Notfall

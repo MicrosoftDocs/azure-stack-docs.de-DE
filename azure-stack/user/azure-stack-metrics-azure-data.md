@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: ea2ccd33bc64c01b4ab5ba56024a54aa82453e63
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: bd8a7ee4082f446c9d175a9b3b69fa0e5a460b24
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112032"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567415"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Verwenden von Azure Monitor in Azure Stack Hub
 
 Dieser Artikel bietet eine Übersicht über den Azure Monitor-Dienst in Azure Stack Hub. Er beschreibt die Vorgänge beim Betrieb von Azure Monitor und enthält zusätzliche Informationen zur Verwendung von Azure Monitor in Azure Stack Hub.
 
-Eine Übersicht über Azure Monitor finden Sie im allgemeinen Azure-Artikel [Azure Monitor – Übersicht](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
+Eine Übersicht über Azure Monitor finden Sie im allgemeinen Azure-Artikel [Azure Monitor – Übersicht](/azure/monitoring-and-diagnostics/monitoring-get-started).
 
 ![Blatt „Monitor“ in Azure Stack Hub](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
@@ -71,7 +71,7 @@ Die zuvor aufgelisteten Computeressourcen sind einem dedizierten virtuellen Host
 
 ### <a name="activity-log"></a>Aktivitätsprotokoll
 
-Sie können die Aktivitätsprotokolle nach Informationen zu Ihren Computeressourcen aus Sicht der Azure Stack Hub-Infrastruktur durchsuchen. Dieses Protokoll enthält Informationen wie etwa den Erstellungs- oder Löschzeitpunkt von Ressourcen. Die Aktivitätsprotokolle in Azure Stack Hub sind mit denen in Azure konsistent. Weitere Informationen finden Sie in der Beschreibung [Überwachen der Abonnementaktivität per Azure-Aktivitätsprotokoll](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). 
+Sie können die Aktivitätsprotokolle nach Informationen zu Ihren Computeressourcen aus Sicht der Azure Stack Hub-Infrastruktur durchsuchen. Dieses Protokoll enthält Informationen wie etwa den Erstellungs- oder Löschzeitpunkt von Ressourcen. Die Aktivitätsprotokolle in Azure Stack Hub sind mit denen in Azure konsistent. Weitere Informationen finden Sie in der Beschreibung [Überwachen der Abonnementaktivität per Azure-Aktivitätsprotokoll](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). 
 
 
 ## <a name="azure-monitor-sources-everything-else"></a>Azure Monitor-Quellen: Sonstiges
@@ -114,9 +114,9 @@ Einige Beispiele für Visualisierungsmethoden:
 Sie können mit Nachverfolgung, Routing und Abfragen von Daten mithilfe einer der folgenden Methoden arbeiten. Manche Methoden sind unter Umständen für bestimmte Aktionen oder Datentypen nicht verfügbar. 
 
  - [Azure Stack Hub-Benutzerportal](azure-stack-use-portal.md)
- - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
- - [Plattformübergreifende Befehlszeilenschnittstelle](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
- - [REST-API](https://docs.microsoft.com/rest/api/monitor)
+ - [PowerShell](/azure/monitoring-and-diagnostics/insights-powershell-samples)
+ - [Plattformübergreifende Befehlszeilenschnittstelle](/azure/monitoring-and-diagnostics/insights-cli-samples)
+ - [REST-API](/rest/api/monitor)
  - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 > [!Important]  

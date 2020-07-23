@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 35b4fbd97032df00236a67dd5b776a2f3fada8ea
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 27ba6098755d93ef1de902a9a4e052f1ff6b53d5
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819253"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487871"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Sicherheitskontrollen der Azure Stack Hub-Infrastruktur
 
@@ -48,7 +48,7 @@ Weitere Informationen zum Erzwingen von TLS 1.2 auf den externen Endpunkten von 
 
 ## <a name="secret-management"></a>Verwaltung von Geheimnissen
 
-In der Azure Stack Hub-Infrastruktur werden zahlreiche Geheimnisse eingesetzt, wie z. B. Kennwörter und Zertifikate. Die meisten der den internen Dienstkonten zugeordneten Kennwörter werden alle 24 Stunden automatisch rotiert, weil es sich dabei um [gruppenverwaltete Dienstkonten (gMSA)](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) handelt, einen Typ von Domänenkonto, der direkt vom internen Domänencontroller verwaltet wird.
+In der Azure Stack Hub-Infrastruktur werden zahlreiche Geheimnisse eingesetzt, wie z. B. Kennwörter und Zertifikate. Die meisten der den internen Dienstkonten zugeordneten Kennwörter werden alle 24 Stunden automatisch rotiert, weil es sich dabei um [gruppenverwaltete Dienstkonten (gMSA)](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) handelt, einen Typ von Domänenkonto, der direkt vom internen Domänencontroller verwaltet wird.
 
 Die Azure Stack Hub-Infrastruktur verwendet für alle internen Zertifikate RSA-Schlüssel mit 4096 Bit. Zertifikate mit der gleichen Schlüssellänge können auch für die externen Endpunkte verwendet werden. Weitere Informationen zu Geheimnissen und zur Zertifikatsrotation finden Sie unter [Rotieren von Geheimnissen in Azure Stack Hub](azure-stack-rotate-secrets.md).
 
@@ -59,7 +59,7 @@ Azure Stack Hub nutzt die neuesten Sicherheitsfeatures von Windows Server. Eines
 Autorisierter Code wurde von Microsoft oder dem OEM-Partner signiert. Der signierte autorisierte Code befindet sich in der Liste der zulässigen Software, die in einer von Microsoft definierten Richtlinie angegeben wird. Anders gesagt kann nur Software ausgeführt werden, die zur Ausführung in der Azure Stack Hub-Infrastruktur genehmigt wurde. Jeder Versuch, nicht autorisierten Code auszuführen, wird blockiert, und eine Warnung wird generiert. Azure Stack Hub erzwingt Codeintegrität für den Benutzermodus (User Mode Code Integrity, UMCI) und Hypervisor-Codeintegrität (HVCI).
 
 Die WDAC-Richtlinie verhindert auch die Ausführung von Drittanbieter-Agents oder -Software in der Azure Stack Hub-Infrastruktur.
-Weitere Informationen zu WDAD finden Sie unter [Windows Defender-Anwendungssteuerung und virtualisierungsbasierter Schutz der Codeintegrität](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control).
+Weitere Informationen zu WDAD finden Sie unter [Windows Defender-Anwendungssteuerung und virtualisierungsbasierter Schutz der Codeintegrität](/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control).
 
 ## <a name="credential-guard"></a>Credential Guard
 

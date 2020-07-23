@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 19680b9e8317e419c0b696d79213f29bcbee2263
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 60ad202ef08d7afd72591640fa1d4d8beef0c476
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367605"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488007"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Verschlüsselung für ruhende Daten in Azure Stack Hub
 
@@ -56,4 +56,4 @@ Wenn Sie vermuten, dass Ihr System Probleme mit BitLocker hat, z. B. dass Azure
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Weitere Informationen zur Sicherheit von Azure Stack Hub](azure-stack-security-foundations.md).
-- Weitere Informationen dazu, wie BitLocker CSVs schützt, finden Sie unter [Schützen von freigegebenen Clustervolumes (Cluster Shared Volumes, CSVs) und Storage Area Networks (SANs) mit BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker).
+- Weitere Informationen dazu, wie BitLocker CSVs schützt, finden Sie unter [Schützen von freigegebenen Clustervolumes (Cluster Shared Volumes, CSVs) und Storage Area Networks (SANs) mit BitLocker](/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker).

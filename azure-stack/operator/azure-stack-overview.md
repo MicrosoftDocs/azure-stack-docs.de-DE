@@ -8,12 +8,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 468e6617ecf4b8be13b56176c805d07c994acda6
-ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
+ms.openlocfilehash: 5acbe557c58d33785e0c227c2014264fbcd06a06
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86033281"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488415"
 ---
 # <a name="azure-stack-hub-overview"></a>Übersicht über Azure Stack Hub
 
@@ -68,13 +68,13 @@ Azure Stack Hub verwendet das gleiche Betriebsmodell wie Azure. Ein Azure Stack 
 
 ![Diagramm mit Azure Stack Hub-Auftragsrollen](./media/azure-stack-overview/azure-stack-job-roles.svg)
 
-Sie können Azure Stack Hub über das Administratorportal, das Benutzerportal oder mit [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) verwalten. Alle Azure Stack Hub-Portale basieren jeweils auf separaten Azure Resource Manager-Instanzen. Ein **Azure Stack Hub-Betreiber** verwendet das Administratorportal, um Azure Stack Hub zu verwalten und Aufgaben wie das Erstellen von Mandantenangeboten, Sicherstellen der Integrität und Überwachen des Status des integrierten Systems auszuführen. Das Benutzerportal bietet eine Self-Service-Benutzeroberfläche für die Nutzung von Cloudressourcen wie virtuelle Computer, Speicherkonten und Web-Apps.
+Sie können Azure Stack Hub über das Administratorportal, das Benutzerportal oder mit [PowerShell](/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) verwalten. Alle Azure Stack Hub-Portale basieren jeweils auf separaten Azure Resource Manager-Instanzen. Ein **Azure Stack Hub-Betreiber** verwendet das Administratorportal, um Azure Stack Hub zu verwalten und Aufgaben wie das Erstellen von Mandantenangeboten, Sicherstellen der Integrität und Überwachen des Status des integrierten Systems auszuführen. Das Benutzerportal bietet eine Self-Service-Benutzeroberfläche für die Nutzung von Cloudressourcen wie virtuelle Computer, Speicherkonten und Web-Apps.
 
 > Weitere Informationen zum Verwalten von Azure Stack Hub über das Administratorportal finden Sie unter [Schnellstart: Verwenden des Azure Stack Hub-Verwaltungsportals](azure-stack-manage-portals.md).
 
-Als Azure Stack Hub-Betreiber können Sie [VMs](azure-stack-tutorial-tenant-vm.md), [Web-Apps](azure-stack-app-service-overview.md) sowie hochverfügbare [SQL Server](azure-stack-tutorial-sql.md)-Datenbanken und [MySQL](azure-stack-tutorial-mysql.md)-Serverdatenbanken bereitstellen. Sie können auch [Azure Resource Manager-Schnellstartvorlagen für Azure Stack Hub](https://github.com/Azure/AzureStack-QuickStart-Templates) zum Bereitstellen von SharePoint, Exchange usw. verwenden.
+Als Azure Stack Hub-Betreiber können Sie [VMs](./tutorial-offer-services.md?view=azs-2002), [Web-Apps](azure-stack-app-service-overview.md) sowie hochverfügbare [SQL Server](azure-stack-tutorial-sql.md)-Datenbanken und [MySQL](azure-stack-tutorial-mysql.md)-Serverdatenbanken bereitstellen. Sie können auch [Azure Resource Manager-Schnellstartvorlagen für Azure Stack Hub](https://github.com/Azure/AzureStack-QuickStart-Templates) zum Bereitstellen von SharePoint, Exchange usw. verwenden.
 
-Ein Betreiber kann Azure Stack Hub über das [Administratorportal](azure-stack-manage-portals.md) oder mit [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) verwalten. Sie können Azure Stack Hub zur [Bereitstellung von Diensten](service-plan-offer-subscription-overview.md) für Mandanten mit Plänen, Kontingenten, Angeboten und Abonnements konfigurieren. Mandantenbenutzer können mehrere Angebote abonnieren. Angebote können einen oder mehrere Pläne enthalten und die Pläne wiederum einen oder mehrere Dienste. Betreiber können auch die Kapazität verwalten und auf Warnungen reagieren.
+Ein Betreiber kann Azure Stack Hub über das [Administratorportal](azure-stack-manage-portals.md) oder mit [PowerShell](/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) verwalten. Sie können Azure Stack Hub zur [Bereitstellung von Diensten](service-plan-offer-subscription-overview.md) für Mandanten mit Plänen, Kontingenten, Angeboten und Abonnements konfigurieren. Mandantenbenutzer können mehrere Angebote abonnieren. Angebote können einen oder mehrere Pläne enthalten und die Pläne wiederum einen oder mehrere Dienste. Betreiber können auch die Kapazität verwalten und auf Warnungen reagieren.
 
 Benutzer nutzen Dienste, die der Betreiber anbietet. Benutzer können Dienste, die sie abonniert haben – z. B. Web-Apps, Speicher und virtuelle Computer – bereitstellen, überwachen und verwalten. Benutzer können Azure Stack Hub über das Benutzerportal oder mit PowerShell verwalten.
 
@@ -90,7 +90,7 @@ Es gibt drei grundlegende IaaS-Ressourcenanbieter (Infrastructure-as-a-Service):
 
 - **Compute**: Mit dem Computeressourcenanbieter können Azure Stack Hub-Mandanten eigene VMs erstellen. Der Computeressourcenanbieter bietet die Möglichkeit, VMs und VM-Erweiterungen zu erstellen. Der Erweiterungsdienst für virtuelle Computer unterstützt die Bereitstellung von IaaS-Funktionen für virtuelle Windows- und Linux-Computer. Beispielsweise können Sie den Computeressourcenanbieter zum Bereitstellen einer Linux-VM verwenden und während der Bereitstellung Bash-Skripts ausführen, um die VM zu konfigurieren.
 - **Netzwerkressourcenanbieter:** Der Netzwerkressourcenanbieter bietet eine Reihe von Features für Software-Defined Networking (SDN) und Netzwerkfunktionsvirtualisierung (Network Function Virtualization, NFV) für die private Cloud. Mit dem Netzwerkressourcenanbieter können Sie Ressourcen wie Software-Lastenausgleichsmodule, öffentliche IP-Adressen, Netzwerksicherheitsgruppen und virtuelle Netzwerke erstellen.
-- **Speicherressourcenanbieter:** Der Speicherressourcenanbieter umfasst vier mit Azure konsistente Speicherdienste: [Blob](https://docs.microsoft.com/azure/storage/common/storage-introduction#blob-storage), [Warteschlange](https://docs.microsoft.com/azure/storage/common/storage-introduction#queue-storage), [Tabelle](https://docs.microsoft.com/azure/storage/common/storage-introduction#table-storage) und [Key Vault](https://docs.microsoft.com/azure/key-vault/)-Kontoverwaltung mit Funktionen zur Verwaltung und Überwachung von Geheimnissen (z. B. Kennwörter und Zertifikate). Der Speicherressourcenanbieter bietet außerdem einen Speichercloud-Verwaltungsdienst, um die Dienstanbieterverwaltung von Speicherdiensten zu vereinfachen, die mit Azure konsistent sind. Azure Storage bietet die Flexibilität zum Speichern und Abrufen großer Mengen von unstrukturierten Daten, z. B. Dokumenten und Mediendateien mit Azure-Blobs, und von strukturierten NoSQL-basierten Daten mit Azure-Tabellen.
+- **Speicherressourcenanbieter:** Der Speicherressourcenanbieter umfasst vier mit Azure konsistente Speicherdienste: [Blob](/azure/storage/common/storage-introduction#blob-storage), [Warteschlange](/azure/storage/common/storage-introduction#queue-storage), [Tabelle](/azure/storage/common/storage-introduction#table-storage) und [Key Vault](/azure/key-vault/)-Kontoverwaltung mit Funktionen zur Verwaltung und Überwachung von Geheimnissen (z. B. Kennwörter und Zertifikate). Der Speicherressourcenanbieter bietet außerdem einen Speichercloud-Verwaltungsdienst, um die Dienstanbieterverwaltung von Speicherdiensten zu vereinfachen, die mit Azure konsistent sind. Azure Storage bietet die Flexibilität zum Speichern und Abrufen großer Mengen von unstrukturierten Daten, z. B. Dokumenten und Mediendateien mit Azure-Blobs, und von strukturierten NoSQL-basierten Daten mit Azure-Tabellen.
 
 ### <a name="optional-resource-providers"></a>Optionale Ressourcenanbieter
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
 ms.custom: contperfq4
-ms.openlocfilehash: e5123a5a9810ce9da4516b67aab8bbd8dfa433e5
-ms.sourcegitcommit: 9c3339e0e3c3a953d64feff9ae08d94300c351ff
+ms.openlocfilehash: 4b1a3e41be03eec55c84731ac220521376fc16d2
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85449887"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489214"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Verwenden einer App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen
 
@@ -353,5 +353,5 @@ Nachdem Sie Ihrer App eine Identität zugewiesen und sie für den Ressourcenzugr
 ## <a name="next-steps"></a>Nächste Schritte
 
 [Verwalten von Benutzerberechtigungen](azure-stack-manage-permissions.md)  
-[Azure Active Directory-Dokumentation](https://docs.microsoft.com/azure/active-directory)  
-[Active Directory-Verbunddienste (AD FS)](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)
+[Azure Active Directory-Dokumentation](/azure/active-directory)  
+[Active Directory-Verbunddienste (AD FS)](/windows-server/identity/active-directory-federation-services)

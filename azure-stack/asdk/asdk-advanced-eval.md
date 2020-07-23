@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 2c4a83ea024f83c0181cfe77c598519746deaeed
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d8a97ea33b810c258e81ed42ace9a571f5de7bfd
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695358"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489860"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>ASDK-Aufgaben zur erweiterten Evaluierung
 Wenn Sie sich mit den grundlegenden Dienstfeatures und -funktionen des Azure Stack Development Kits (ASDK) vertraut gemacht haben, können Sie Ihre Kenntnisse zu Azure Stack vertiefen, indem Sie erweiterte Szenarien ausprobieren. Diese erweiterten Evaluierungsaufgaben sind vollständig in der Dokumentation für Azure Stack-Bediener beschrieben.
@@ -28,12 +28,12 @@ Bei diesen Aufgaben ist die [Delegierung von Angeboten in Azure Stack](../operat
 ## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Verfügbarmachen von SQL-Datenbanken für Ihre Azure Stack-Benutzer
 Als Azure Stack-Bediener können Sie Angebote erstellen, die es Ihren Benutzern (Mandanten) ermöglichen, SQL-Datenbanken zu erstellen, die sie mit ihren cloudbasierten Apps, Websites und Workloads verwenden können. Die Bereitstellung dieser benutzerdefinierten, bedarfsgesteuerten, cloudbasierten Datenbanken für Ihre Benutzer spart diesen Zeit und Ressourcen.
 
-Verwenden Sie den SQL Server-Ressourcenanbieteradapter, um [Ihren Azure Stack-Benutzern SQL-Datenbanken als Azure Stack-Dienst zur Verfügung zu stellen](../operator/azure-stack-tutorial-sql-server.md). Nachdem Sie den Ressourcenanbieter installiert haben, verbinden Sie ihn mit mindestens einer SQL Server-Instanz.
+Verwenden Sie den SQL Server-Ressourcenanbieteradapter, um [Ihren Azure Stack-Benutzern SQL-Datenbanken als Azure Stack-Dienst zur Verfügung zu stellen](../operator/azure-stack-sql-resource-provider.md?view=azs-2002). Nachdem Sie den Ressourcenanbieter installiert haben, verbinden Sie ihn mit mindestens einer SQL Server-Instanz.
 
 ## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Verfügbarmachen von Web- und API-Apps für Ihre Azure Stack-Benutzer
 Als Azure Stack-Bediener können Sie Angebote erstellen, die es Ihren Benutzern (Mandanten) ermöglichen, Azure Functions sowie Web- und API-Apps zu erstellen. Die Bereitstellung des Zugriffs auf diese bedarfsgesteuerten, cloudbasierten Apps für Ihre Benutzer spart diesen Zeit und Ressourcen.
 
-Stellen Sie den App Service-Ressourcenanbieter bereit, um [Ihren Azure Stack-Benutzern Web- und API-Apps zur Verfügung zu stellen](../operator/azure-stack-tutorial-app-service.md).
+Stellen Sie den App Service-Ressourcenanbieter bereit, um [Ihren Azure Stack-Benutzern Web- und API-Apps zur Verfügung zu stellen](../operator/azure-stack-app-service-overview.md?view=azs-2002).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

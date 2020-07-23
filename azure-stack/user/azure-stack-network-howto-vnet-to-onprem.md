@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 17ba031e6aa1c9e7c0699309d98183ed38cbd4e7
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 9b7086f63e22ede89ae0ed21be1aec8453532de6
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631369"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567449"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Einrichten eines VPN-Gateways für Azure Stack Hub per FortiGate NVA
 
@@ -23,7 +23,7 @@ In diesem Artikel wird beschrieben, wie Sie eine VPN-Verbindung mit Ihrer Azure 
 -  Zugriff auf ein integriertes Azure Stack Hub-System mit verfügbarer Kapazität, um die erforderlichen Compute-, Netzwerk- und Ressourcenanforderungen für diese Lösung zu erfüllen. 
 
     > [!Note]  
-    > Diese Anleitung funktioniert aufgrund der Netzwerkeinschränkungen des Azure Stack Development Kit (ASDK) **nicht** für das ASDK. Weitere Informationen finden Sie unter [Anforderungen und Überlegungen zu ASDK](https://docs.microsoft.com/azure-stack/asdk/asdk-deploy-considerations).
+    > Diese Anleitung funktioniert aufgrund der Netzwerkeinschränkungen des Azure Stack Development Kit (ASDK) **nicht** für das ASDK. Weitere Informationen finden Sie unter [Anforderungen und Überlegungen zu ASDK](../asdk/asdk-deploy-considerations.md).
 
 -  Zugriff auf ein VPN-Gerät im lokalen Netzwerk, auf dem das integrierte Azure Stack Hub-System gehostet wird. Das Gerät muss einen IPSec-Tunnel erstellen, für den die unter [Bereitstellungsparameter](#deployment-parameters) beschriebenen Parameter erfüllt werden.
 
@@ -241,7 +241,7 @@ Sie können über das lokale VPN-Gerät die Weiterleitung zwischen dem VNET-Netz
 
 Überprüfen Sie die Verbindung wie folgt:
 
-1. Erstellen Sie in den Azure Stack Hub-VNETs einen virtuellen Computer und im lokalen Netzwerk ein System. Sie können die Anleitung zum Erstellen eines virtuellen Computers unter [Schnellstart: Erstellen eines virtuellen Windows Server-Computers mit dem Azure Stack Hub-Portal](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal) befolgen.
+1. Erstellen Sie in den Azure Stack Hub-VNETs einen virtuellen Computer und im lokalen Netzwerk ein System. Sie können die Anleitung zum Erstellen eines virtuellen Computers unter [Schnellstart: Erstellen eines virtuellen Windows Server-Computers mit dem Azure Stack Hub-Portal](./azure-stack-quick-windows-portal.md) befolgen.
 
 2. Überprüfen Sie beim Erstellen der Azure Stack Hub-VM und beim Vorbereiten des lokalen Systems Folgendes:
 

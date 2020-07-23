@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: ce401b20d6baa66807e6ee5f7ee1e94503b653af
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1c44bbc0e185d15ef14b2a7f57aa1309b82a4298
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703161"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489469"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>Aktivieren der Sicherung für Azure Stack Hub über das Administratorportal
 
@@ -28,8 +28,8 @@ Der Infrastructure Backup-Dienst sichert jedoch keine IaaS-VMS, Netzwerkkonfigur
 Administratoren und Benutzer sind für die Sicherung und Wiederherstellung von IaaS- und PaaS-Ressourcen verantwortlich, die separat von den Infrastruktursicherungsprozessen erfolgen muss. Informationen zum Sichern von IaaS- und PaaS-Ressourcen finden Sie unter folgenden Links:
 
 - [Schutz von in Azure Stack Hub bereitgestellten VMs](../user/azure-stack-manage-vm-protect.md)
-- [Sichern Ihrer App in Azure](https://docs.microsoft.com/azure/app-service/manage-backup)
-- [Was ist SQL Server in Azure-VMs? (Windows)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
+- [Sichern Ihrer App in Azure](/azure/app-service/manage-backup)
+- [Was ist SQL Server in Azure-VMs? (Windows)](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 
 ## <a name="enable-or-reconfigure-backup"></a>Sicherung aktivieren oder neu konfigurieren
@@ -67,7 +67,7 @@ Administratoren und Benutzer sind für die Sicherung und Wiederherstellung von I
    > [!Note]
    > **1901 und höher**: Azure Stack Hub akzeptiert ein Zertifikat zum Verschlüsseln von Infrastruktursicherungsdaten. Stellen Sie sicher, dass das Zertifikat mit dem öffentlichen und privaten Schlüssel an einem sicheren Ort gespeichert wird. Aus Sicherheitsgründen sollten Sie das Zertifikat mit den öffentlichen und privaten Schlüsseln nicht zum Konfigurieren von Sicherungseinstellungen verwenden. Weitere Informationen zum Verwalten des Lebenszyklus dieses Zertifikats finden Sie unter [Bewährte Methoden für den Infrastructure Backup-Dienst](azure-stack-backup-best-practices.md).
    > 
-   > **Bis 1811:** Azure Stack Hub akzeptiert einen symmetrischen Schlüssel zum Verschlüsseln von Infrastruktursicherungsdaten. Verwenden Sie das [Cmdlet „New-AzsEncryptionKey64“ zum Erstellen eines Schlüssels](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Nach dem Upgrade von 1811 auf 1901 wird der Verschlüsselungsschlüssel in den Sicherungseinstellungen gespeichert. Wir empfehlen Ihnen, die Sicherungseinstellungen zu aktualisieren und ein Zertifikat zu verwenden. Die Verschlüsselungsschlüsselunterstützung ist nun veraltet. Sie haben mindestens drei Releases Zeit, um die Einstellungen zu aktualisieren und ein Zertifikat zu verwenden.
+   > **Bis 1811:** Azure Stack Hub akzeptiert einen symmetrischen Schlüssel zum Verschlüsseln von Infrastruktursicherungsdaten. Verwenden Sie das [Cmdlet „New-AzsEncryptionKey64“ zum Erstellen eines Schlüssels](/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Nach dem Upgrade von 1811 auf 1901 wird der Verschlüsselungsschlüssel in den Sicherungseinstellungen gespeichert. Wir empfehlen Ihnen, die Sicherungseinstellungen zu aktualisieren und ein Zertifikat zu verwenden. Die Verschlüsselungsschlüsselunterstützung ist nun veraltet. Sie haben mindestens drei Releases Zeit, um die Einstellungen zu aktualisieren und ein Zertifikat zu verwenden.
 
 10. Wählen Sie **OK** aus, um die Backup Controller-Einstellungen zu speichern.
 
@@ -115,7 +115,7 @@ Neue Sicherungen beginnen mit der Verwendung des öffentlichen Schlüssels in de
 ![Azure Stack Hub – Zertifikatfingerabdruck anzeigen](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>Abwärtskompatibilitätsmodus
-Wenn Sie die Sicherung vor der Aktualisierung auf 1901 konfiguriert haben, werden die Einstellungen ohne Änderungen im Verhalten übernommen. In diesem Fall wird der Verschlüsselungsschlüssel aus Gründen der Abwärtskompatibilität unterstützt. Sie können den Verschlüsselungsschlüssel aktualisieren oder wechseln, um ein Zertifikat zu verwenden. Sie haben mindestens drei Releases Zeit, um die Aktualisierung des Verschlüsselungsschlüssels fortzusetzen. Nutzen Sie diesen Zeitraum, um zu einem Zertifikat überzugehen. Verwenden Sie zum Erstellen eines neuen Verschlüsselungsschlüssels das Cmdlet [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
+Wenn Sie die Sicherung vor der Aktualisierung auf 1901 konfiguriert haben, werden die Einstellungen ohne Änderungen im Verhalten übernommen. In diesem Fall wird der Verschlüsselungsschlüssel aus Gründen der Abwärtskompatibilität unterstützt. Sie können den Verschlüsselungsschlüssel aktualisieren oder wechseln, um ein Zertifikat zu verwenden. Sie haben mindestens drei Releases Zeit, um die Aktualisierung des Verschlüsselungsschlüssels fortzusetzen. Nutzen Sie diesen Zeitraum, um zu einem Zertifikat überzugehen. Verwenden Sie zum Erstellen eines neuen Verschlüsselungsschlüssels das Cmdlet [New-AzsEncryptionKeyBase64](/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
 
 ![Azure Stack Hub – Verschlüsselungsschlüssel im Abwärtskompatibilitätsmodus verwenden](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 

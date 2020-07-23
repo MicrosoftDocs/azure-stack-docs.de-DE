@@ -7,16 +7,16 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 428c95a4f9d387cd298a1965f165278dfdc5a763
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 34e48ce402678a8fa2f1632e0431cfb38fb895e9
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111981"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567279"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VNET-Peering in Azure Stack Hub mit VMs
 
-Sie können zwei Azure Stack Hub-VNETs innerhalb derselben Azure Stack Hub-Umgebung miteinander verbinden. Es ist derzeit nicht möglich, Azure Stack Hub-VNETs mithilfe des integrierten [Gateways des virtuellen Netzwerks](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) zu verbinden. Sie müssen virtuelle Netzwerkgeräte (NVAs) verwenden, um einen VPN-Tunnel zwischen zwei Azure Stack Hub-VNETs zu erstellen. In der Vorlage, auf die in diesem Artikel verwiesen wird, werden zwei Windows Server 2016-VMs mit installiertem RRAS bereitgestellt. Die beiden RRAS-Server sind so konfiguriert, dass ein S2SVPN IKEv2-Tunnel zwischen zwei VNETs implementiert wird. Die entsprechenden NSG- und UDR-Regeln werden erstellt, um das Routing zwischen den Subnetzen in jedem VNET zuzulassen, das als **intern** festgelegt ist. 
+Sie können zwei Azure Stack Hub-VNETs innerhalb derselben Azure Stack Hub-Umgebung miteinander verbinden. Es ist derzeit nicht möglich, Azure Stack Hub-VNETs mithilfe des integrierten [Gateways des virtuellen Netzwerks](./azure-stack-network-differences.md) zu verbinden. Sie müssen virtuelle Netzwerkgeräte (NVAs) verwenden, um einen VPN-Tunnel zwischen zwei Azure Stack Hub-VNETs zu erstellen. In der Vorlage, auf die in diesem Artikel verwiesen wird, werden zwei Windows Server 2016-VMs mit installiertem RRAS bereitgestellt. Die beiden RRAS-Server sind so konfiguriert, dass ein S2SVPN IKEv2-Tunnel zwischen zwei VNETs implementiert wird. Die entsprechenden NSG- und UDR-Regeln werden erstellt, um das Routing zwischen den Subnetzen in jedem VNET zuzulassen, das als **intern** festgelegt ist. 
 
 Dieses Bereitstellungsmuster bildet die Grundlage, auf der Sie VPN-Tunnel nicht nur innerhalb der Azure Stack Hub-Instanz, sondern auch zwischen Azure Stack Hub-Instanzen und mit anderen Ressourcen erstellen können, z. B. lokale Netzwerke mit Verwendung von Windows-RRAS-Tunnel für Site-to-Site-VPNs. 
 

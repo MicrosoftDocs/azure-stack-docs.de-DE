@@ -8,12 +8,12 @@ ms.date: 1/16/2020
 ms.author: inhenkel
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 6bc12104ef8ce325fe9b1773373ef235a33919e5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: afaf8f4716443631ae0d2bbe1b82cd84b9d0e424
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696956"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487735"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Konfigurieren der Azure Stack Hub-Telemetrie
 
@@ -24,7 +24,7 @@ Telemetriedaten liefern Azure Stack Hub-Operatoren wertvolle Erkenntnisse zu Unt
 > [!NOTE]
 > Azure Stack Hub kann auch für die Weiterleitung abrechnungsrelevanter Nutzungsinformationen an Azure konfiguriert werden. Dies ist für Azure Stack Hub-Kunden mit mehreren Knoten erforderlich, die sich für nutzungsbasierte Bezahlung entscheiden. Nutzungsberichte werden unabhängig von Telemetriedaten gesteuert und sind für Kunden mit mehreren Knoten, die sich für das Kapazitätsmodell entscheiden, sowie für Azure Stack Development Kit-Benutzer nicht erforderlich. Für diese Szenarien können Verwendungsberichte [mithilfe des Registrierungsskripts](azure-stack-usage-reporting.md) deaktiviert werden.
 
-Die Azure Stack Hub-Telemetrie basiert auf der Windows Server 2016-Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“. Diese Komponente verwendet die TraceLogging-Technologie [Ereignisablaufverfolgung für Windows (Event Tracing for Windows, ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx), um Ereignisse und Daten zu erfassen und zu speichern. Die gleiche Technologie wird von Azure Stack-Komponenten zum Veröffentlichen von Ereignissen und Daten verwendet, die mithilfe der öffentlichen APIs für die Protokollierung und Nachverfolgung von Betriebssystemereignissen erfasst werden. Zu diesen Azure Stack Hub-Komponenten zählen beispielsweise folgende Anbieter: Netzwerkressource, Speicherressource, Überwachungsressource und Aktualisierungsressource. Die Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ verschlüsselt Daten per SSL und nutzt das Anheften von Zertifikaten, um Daten über HTTPS an den Datenverwaltungsdienst von Microsoft zu übertragen.
+Die Azure Stack Hub-Telemetrie basiert auf der Windows Server 2016-Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“. Diese Komponente verwendet die TraceLogging-Technologie [Ereignisablaufverfolgung für Windows (Event Tracing for Windows, ETW)](/windows/win32/tracelogging/trace-logging-about), um Ereignisse und Daten zu erfassen und zu speichern. Die gleiche Technologie wird von Azure Stack-Komponenten zum Veröffentlichen von Ereignissen und Daten verwendet, die mithilfe der öffentlichen APIs für die Protokollierung und Nachverfolgung von Betriebssystemereignissen erfasst werden. Zu diesen Azure Stack Hub-Komponenten zählen beispielsweise folgende Anbieter: Netzwerkressource, Speicherressource, Überwachungsressource und Aktualisierungsressource. Die Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ verschlüsselt Daten per SSL und nutzt das Anheften von Zertifikaten, um Daten über HTTPS an den Datenverwaltungsdienst von Microsoft zu übertragen.
 
 > [!IMPORTANT]
 > Zur Ermöglichung des Telemetriedatenflusses muss der Port 443 (HTTPS) in Ihrem Netzwerk geöffnet sein. Die Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ stellt unter `https://v10.events.data.microsoft.com` eine Verbindung mit dem Datenverwaltungsdienst von Microsoft her. Außerdem stellt die Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ eine Verbindung mit `https://settings-win.data.microsoft.com` her, um Konfigurationsinformationen herunterzuladen. Andere Diagnosedatendienste stellen für die Fehlerberichterstattung eine Verbindung mit `https://watson.telemetry.microsoft.com` her.

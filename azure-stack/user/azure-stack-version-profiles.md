@@ -7,12 +7,12 @@ ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: f72f0e79fe7b890c65c630ff00ec3870d4756c5e
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 8dd456ad26605c592160ffdc4a4c0d0ea28b2628
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836222"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567330"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Verwalten von API-Versionsprofilen in Azure Stack Hub
 
@@ -73,7 +73,7 @@ Es gibt Codebeispiele, die Sie dabei unterstützen, mithilfe von Profilen Ihre L
 - **.NET** <br>
 Verwenden Sie das API-Profil, um die aktuelle stabilste Version der einzelnen Ressourcentypen in einem Ressourcenanbieterpaket abzurufen. Weitere Informationen finden Sie unter [Verwenden von API-Versionsprofilen mit .NET in Azure Stack Hub](azure-stack-version-profiles-net.md).
 - **PowerShell**  
-Rufen Sie mit dem über den PowerShell-Katalog verfügbaren Modul **AzureRM.Bootstrapper** die PowerShell-Cmdlets ab, die für die Arbeit mit API-Versionsprofilen erforderlich sind. Informationen finden Sie unter [Use API version profiles for PowerShell in Azure Stack](azure-stack-version-profiles-powershell.md) (Verwenden von API-Versionsprofilen für PowerShell in Azure Stack).
+Rufen Sie mit dem über den PowerShell-Katalog verfügbaren Modul **AzureRM.Bootstrapper** die PowerShell-Cmdlets ab, die für die Arbeit mit API-Versionsprofilen erforderlich sind. Informationen finden Sie unter [Use API version profiles for PowerShell in Azure Stack](../operator/azure-stack-powershell-install.md?view=azs-2002) (Verwenden von API-Versionsprofilen für PowerShell in Azure Stack).
 - **Azure-Befehlszeilenschnittstelle**  
 Aktualisieren Sie Ihre Umgebungskonfiguration so, dass das spezifische API-Versionsprofil für Azure Stack Hub verwendet wird. Weitere Informationen finden Sie unter [Verwenden von API-Versionsprofilen für die Azure CLI](azure-stack-version-profiles-azurecli2.md).
 - **Go**  

@@ -7,12 +7,12 @@ ms.date: 04/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 757b978012fc1b17362343309d57c0df09862a98
-ms.sourcegitcommit: 98f62c33469ba963ba266bd88e206e9144258ea3
+ms.openlocfilehash: 95fafe541db48ced7025d7750b46de9789b441cf
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82032840"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567500"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Erstellen von VM-Datenträgerspeicher in Azure Stack Hub
 
@@ -121,8 +121,8 @@ Weitere Informationen zum Arbeiten mit Speicherkonten in Azure Stack Hub finden
 1. [Bereiten Sie eine VHD-Datei vor](/azure/virtual-machines/windows/classic/createupload-vhd), um sie als Datenträger für einen virtuellen Computer zu verwenden. Laden Sie die VHD-Datei in ein Speicherkonto hoch, das Sie mit der VM verwenden, an die Sie die VHD-Datei anfügen möchten.
 
     - Verwenden Sie für die VHD-Datei nicht den Container, der den Betriebssystem-Datenträger enthält.  
-    - Bevor Sie eine VHD in Azure hochladen, befolgen Sie die Anweisungen unter [Vorbereiten einer Windows-VHD oder -VHDX zum Hochladen in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-    - Lesen Sie [Planen der Migration zu Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/on-prem-to-azure#plan-for-the-migration-to-managed-disks) vor dem Starten der Migration zu [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+    - Bevor Sie eine VHD in Azure hochladen, befolgen Sie die Anweisungen unter [Vorbereiten einer Windows-VHD oder -VHDX zum Hochladen in Azure](/azure/virtual-machines/windows/prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json).
+    - Lesen Sie [Planen der Migration zu Managed Disks](/azure/virtual-machines/windows/on-prem-to-azure#plan-for-the-migration-to-managed-disks) vor dem Starten der Migration zu [Managed Disks](/azure/virtual-machines/windows/managed-disks-overview).
 
     ![Beispiel: Hochladen einer VHD-Datei](media/azure-stack-manage-vm-disks/upload-vhd.png)
 

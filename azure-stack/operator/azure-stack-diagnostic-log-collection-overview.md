@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: d3c6ecaa062f97aef76835d3c291b4ecaf405b11
-ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
+ms.openlocfilehash: f7d9335e612387a780e002a2fe3d070436a10c5a
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85377157"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488976"
 ---
 # <a name="diagnostic-log-collection-in-azure-stack-hub"></a>Diagnoseprotokollsammlung in Azure Stack Hub
 
@@ -35,7 +35,7 @@ Das Feature für die Sammlung von Diagnoseprotokollen bietet zwei Optionen zum S
 
 ### <a name="send-logs-proactively"></a>Proaktives Senden von Protokollen
 
-Die [proaktive Protokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md) optimiert und vereinfacht die Sammlung von Diagnoseprotokollen, damit Kunden vor dem Erstellen einer Supportanfrage Protokolle an Microsoft senden können. Diagnoseprotokolle werden aus Azure Stack Hub proaktiv zur Analyse hochgeladen. Diese Protokolle werden nur gesammelt, wenn eine [Systemintegritätswarnung](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md#proactive-diagnostic-log-collection-alerts) ausgelöst wird, und der Microsoft-Support greift nur im Kontext einer Supportanfrage auf diese Protokolle zu.
+Die [proaktive Protokollsammlung](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002) optimiert und vereinfacht die Sammlung von Diagnoseprotokollen, damit Kunden vor dem Erstellen einer Supportanfrage Protokolle an Microsoft senden können. Diagnoseprotokolle werden aus Azure Stack Hub proaktiv zur Analyse hochgeladen. Diese Protokolle werden nur gesammelt, wenn eine [Systemintegritätswarnung](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002#proactive-diagnostic-log-collection-alerts) ausgelöst wird, und der Microsoft-Support greift nur im Kontext einer Supportanfrage auf diese Protokolle zu.
 
 #### <a name="how-the-data-is-handled"></a>Datenverarbeitung
 
@@ -49,9 +49,9 @@ Mit der **proaktiven Protokollsammlung** gesammelte Protokolle werden in ein von
 
 ### <a name="send-logs-now"></a>Sofortiges Senden von Protokollen
 
-Das [sofortige Senden von Protokollen](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) ist eine manuelle Option, bei der Diagnoseprotokolle nur dann aus Azure Stack Hub hochgeladen werden, wenn Sie (als Kunde) die Sammlung initiieren, was in der Regel vor der Erstellung einer Supportanfrage der Fall ist.
+Das [sofortige Senden von Protokollen](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) ist eine manuelle Option, bei der Diagnoseprotokolle nur dann aus Azure Stack Hub hochgeladen werden, wenn Sie (als Kunde) die Sammlung initiieren, was in der Regel vor der Erstellung einer Supportanfrage der Fall ist.
 
-Azure Stack-Operatoren können Diagnoseprotokolle bei Bedarf über das Administratorportal oder mit PowerShell an den Microsoft-Support senden. Wenn Azure Stack Hub mit Azure verbunden ist, empfiehlt sich das [sofortige Senden von Protokollen über das Administratorportal](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md), da die Protokolle so am einfachsten direkt an Microsoft gesendet werden können. Ist das Portal nicht verfügbar, sollten Operatoren stattdessen [Protokolle sofort per PowerShell senden](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md).
+Azure Stack-Operatoren können Diagnoseprotokolle bei Bedarf über das Administratorportal oder mit PowerShell an den Microsoft-Support senden. Wenn Azure Stack Hub mit Azure verbunden ist, empfiehlt sich das [sofortige Senden von Protokollen über das Administratorportal](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002), da die Protokolle so am einfachsten direkt an Microsoft gesendet werden können. Ist das Portal nicht verfügbar, sollten Operatoren stattdessen [Protokolle sofort per PowerShell senden](./azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md?view=azs-2002).
 
 Falls Sie über keine Internetverbindung verfügen oder die Protokolle nur lokal speichern möchten, verwenden Sie die Methode [Get-AzureStackLog](azure-stack-get-azurestacklog.md) für den Protokollversand. Das folgende Flussdiagramm zeigt, welche Option jeweils zum Senden von Diagnoseprotokollen verwendet werden muss:
 
@@ -82,17 +82,17 @@ In der folgenden Tabelle sind Überlegungen zu Umgebungen mit eingeschränkten o
 
 ## <a name="collecting-logs-from-multiple-azure-stack-hub-systems"></a>Sammeln von Protokollen aus mehreren Azure Stack Hub-Systemen
 
-Richten Sie für jede Azure Stack Hub-Skalierungseinheit, aus der Sie Protokolle sammeln möchten, einen Blobcontainer ein. Informationen zum Konfigurieren der Blobcontainer finden Sie unter [Konfigurieren der automatischen Azure Stack Hub-Diagnoseprotokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md). Es empfiehlt sich, nur Diagnoseprotokolle aus der gleichen Azure Stack Hub-Skalierungseinheit innerhalb eines einzelnen Blobcontainers zu speichern.
+Richten Sie für jede Azure Stack Hub-Skalierungseinheit, aus der Sie Protokolle sammeln möchten, einen Blobcontainer ein. Informationen zum Konfigurieren der Blobcontainer finden Sie unter [Konfigurieren der automatischen Azure Stack Hub-Diagnoseprotokollsammlung](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002). Es empfiehlt sich, nur Diagnoseprotokolle aus der gleichen Azure Stack Hub-Skalierungseinheit innerhalb eines einzelnen Blobcontainers zu speichern.
 
 ## <a name="retention-policy"></a>Aufbewahrungsrichtlinie
 
-Erstellen Sie eine [Lebenszyklusverwaltungs-Regel](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) in Azure Blob Storage, um die Protokoll-Aufbewahrungsrichtlinie zu verwalten. Wir empfehlen, Diagnoseprotokolle 30 Tage lang aufzubewahren. Melden Sie sich zum Erstellen einer Lebenszyklusverwaltungs-Regel in Azure Storage beim Azure-Portal an, wählen Sie **Speicherkonten** aus, wählen Sie den Blobcontainer aus, und wählen Sie dann unter **Blob-Dienst** die Option **Lebenszyklusverwaltung** aus.
+Erstellen Sie eine [Lebenszyklusverwaltungs-Regel](/azure/storage/blobs/storage-lifecycle-management-concepts) in Azure Blob Storage, um die Protokoll-Aufbewahrungsrichtlinie zu verwalten. Wir empfehlen, Diagnoseprotokolle 30 Tage lang aufzubewahren. Melden Sie sich zum Erstellen einer Lebenszyklusverwaltungs-Regel in Azure Storage beim Azure-Portal an, wählen Sie **Speicherkonten** aus, wählen Sie den Blobcontainer aus, und wählen Sie dann unter **Blob-Dienst** die Option **Lebenszyklusverwaltung** aus.
 
 ![Lebenszyklusverwaltung im Azure-Portal](media/azure-stack-automatic-log-collection/blob-storage-lifecycle-management.png)
 
 ## <a name="sas-token-expiration"></a>SAS-Tokenablauf
 
-Legen Sie den Ablauf der SAS-URL auf zwei Jahre fest. Sollten Sie jemals Ihre Speicherkontoschlüssel erneuern, achten Sie darauf, die SAS-URL neu zu generieren. Sie sollten das SAS-Token gemäß den bewährten Methoden verwalten. Weitere Informationen finden Sie unter [Bewährte Methoden bei der Verwendung von SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#best-practices-when-using-sas).
+Legen Sie den Ablauf der SAS-URL auf zwei Jahre fest. Sollten Sie jemals Ihre Speicherkontoschlüssel erneuern, achten Sie darauf, die SAS-URL neu zu generieren. Sie sollten das SAS-Token gemäß den bewährten Methoden verwalten. Weitere Informationen finden Sie unter [Bewährte Methoden bei der Verwendung von SAS](/azure/storage/common/storage-dotnet-shared-access-signature-part-1#best-practices-when-using-sas).
 
 ## <a name="bandwidth-consumption"></a>Bandbreitenverbrauch
 
@@ -114,12 +114,12 @@ Die folgende Tabelle kann dabei helfen, den Einfluss der aktivierten automatisch
 
 ## <a name="managing-costs"></a>Kostenverwaltung
 
-Gebühren für Azure [Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/) richten sich nach der Menge der pro Monat gespeicherten Daten und nach weiteren Faktoren, etwa der Datenredundanz. Wenn Sie nicht über ein Speicherkonto verfügen, können Sie sich beim Azure-Portal anmelden, **Speicherkonten** auswählen und die Schritte zum [Erstellen einer SAS-URL für Azure-Blobcontainer](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md) ausführen.
+Gebühren für Azure [Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/) richten sich nach der Menge der pro Monat gespeicherten Daten und nach weiteren Faktoren, etwa der Datenredundanz. Wenn Sie nicht über ein Speicherkonto verfügen, können Sie sich beim Azure-Portal anmelden, **Speicherkonten** auswählen und die Schritte zum [Erstellen einer SAS-URL für Azure-Blobcontainer](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002) ausführen.
 
-Es wird empfohlen, eine [Lebenszyklusverwaltungs-Richtlinie](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) für Azure Blob Storage zu erstellen, um die laufenden Speicherkosten zu minimieren. Informationen zum Einrichten des Speicherkontos finden Sie unter [Konfigurieren der automatischen Azure Stack Hub-Diagnoseprotokollsammlung](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md).
+Es wird empfohlen, eine [Lebenszyklusverwaltungs-Richtlinie](/azure/storage/blobs/storage-lifecycle-management-concepts) für Azure Blob Storage zu erstellen, um die laufenden Speicherkosten zu minimieren. Informationen zum Einrichten des Speicherkontos finden Sie unter [Konfigurieren der automatischen Azure Stack Hub-Diagnoseprotokollsammlung](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002).
 
 ::: moniker-end
 
 ## <a name="see-also"></a>Weitere Informationen
 
-[Verarbeiten von Azure Stack Hub-Protokoll- und -Kundendaten](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
+[Verarbeiten von Azure Stack Hub-Protokoll- und -Kundendaten](./azure-stack-data-collection.md)

@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 56782d79483f544dc019b4c162ed9af1a1163e4b
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 96858ce40e5839f3a5bcff55a11467155ebdc15e
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111243"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488364"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Herstellen einer Verbindung mit Azure Stack Hub über PowerShell
 
@@ -76,4 +76,4 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 - [Entwickeln von Vorlagen für Azure Stack Hub](../user/azure-stack-develop-templates.md)
 - [Bereitstellen von Vorlagen mit PowerShell](../user/azure-stack-deploy-template-powershell.md)
-  - [Azure Stack Hub-Modulreferenz](https://docs.microsoft.com/powershell/azure/azure-stack/overview)
+  - [Azure Stack Hub-Modulreferenz](/powershell/azure/azure-stack/overview)

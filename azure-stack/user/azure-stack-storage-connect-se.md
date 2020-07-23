@@ -7,16 +7,16 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: a72179e26ab4c873aa67ece9e207f4e6f4e71579
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: c92b037d34026df65569747949cca98d75910fad
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631237"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566786"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Herstellen einer Verbindung zwischen dem Storage-Explorer und einem Azure Stack Hub-Abonnement oder -Speicherkonto
 
-In diesem Artikel erfahren Sie, wie Sie über den [Azure Storage-Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) eine Verbindung mit Ihren Azure Stack Hub-Abonnements und -Speicherkonten herstellen. Der Storage-Explorer ist eine eigenständige App, über die Sie unter Windows, macOS und Linux komfortabel mit Azure Stack Hub-Speicherdaten arbeiten können.
+In diesem Artikel erfahren Sie, wie Sie über den [Azure Storage-Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) eine Verbindung mit Ihren Azure Stack Hub-Abonnements und -Speicherkonten herstellen. Der Storage-Explorer ist eine eigenständige App, über die Sie unter Windows, macOS und Linux komfortabel mit Azure Stack Hub-Speicherdaten arbeiten können.
 
 > [!NOTE]  
 > Es stehen mehrere Tools zum Verschieben von Daten in und aus Azure Stack Hub-Speicher zur Verfügung. Weitere Informationen finden Sie unter [Datenübertragungstools für Azure Stack Hub-Speicher](azure-stack-storage-transfer.md).

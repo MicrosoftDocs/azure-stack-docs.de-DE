@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 2aa3e3b3e2a04dba8e44396ecf3b4d3adbf1ded2
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: ffcf27ad55cdc4a5456f89fb076ca42120078d5d
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563836"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486783"
 ---
 # <a name="new-azurebridgeserviceprincipal"></a>New-AzureBridgeServicePrincipal
 
@@ -105,4 +105,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Informationen dazu, wie Sie auf den privilegierten Endpunkt zugreifen und ihn verwenden, finden Sie unter [Verwenden des privilegierten Endpunkts in Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+Informationen dazu, wie Sie auf den privilegierten Endpunkt zugreifen und ihn verwenden, finden Sie unter [Verwenden des privilegierten Endpunkts in Azure Stack Hub](../../operator/azure-stack-privileged-endpoint.md).

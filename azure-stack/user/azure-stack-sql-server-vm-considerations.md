@@ -7,28 +7,28 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: ec1a5b07498e380eeef3989df1185537afef360f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ce84ad377d4fec9e58a2822275477b728968ff46
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704844"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566633"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>Bewährte SQL Server-Methoden zum Optimieren der Leistung in Azure Stack Hub
 
 Dieser Artikel enthält bewährte SQL Server-Methoden zur Optimierung von SQL Server und zur Leistungsverbesserung in virtuellen Microsoft Azure Stack Hub-Computern (VMs). Verwenden Sie beim Ausführen von SQL Server auf Azure Stack Hub-VMs die gleichen Optionen zur Optimierung der Datenbankleistung, die für SQL Server in einer lokalen Serverumgebung gelten. Die Leistung einer relationalen Datenbank in einer Azure Stack Hub-Cloud hängt von vielen Faktoren ab, z. B. der Größe der Familie einer VM und der Konfiguration der Datenträger.
 
-Wenn Sie SQL Server-Images erstellen, [empfiehlt sich die Bereitstellung der virtuellen Computer im Azure Stack Hub-Portal](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Laden Sie im Azure Stack Hub-Administratorportal die SQL-IaaS-Erweiterung unter „Marketplace Management“ (Marketplace-Verwaltung) sowie die gewünschten SQL Server-VM-Images herunter. Zur Auswahl stehen SQL Server 2016 SP1, SQL Server 2016 SP2 und SQL Server 2017.
+Wenn Sie SQL Server-Images erstellen, [empfiehlt sich die Bereitstellung der virtuellen Computer im Azure Stack Hub-Portal](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Laden Sie im Azure Stack Hub-Administratorportal die SQL-IaaS-Erweiterung unter „Marketplace Management“ (Marketplace-Verwaltung) sowie die gewünschten SQL Server-VM-Images herunter. Zur Auswahl stehen SQL Server 2016 SP1, SQL Server 2016 SP2 und SQL Server 2017.
 
 > [!NOTE]  
 > Im Artikel wird zwar die Bereitstellung einer SQL Server-VM mit dem globalen Azure-Portal beschrieben, aber die Anweisungen gelten auch für Azure Stack Hub. Es sollten nur die folgenden Unterschiede beachtet werden: Für den Betriebssystem-Datenträger ist keine SSD verfügbar, und es gibt kleinere Unterschiede bei der Speicherkonfiguration.
 
-In den VM-Images können Sie für SQL Server nur BYOL (Bring-Your-Own-License, Verwendung einer eigenen Lizenz) verwenden. Für Windows Server ist das Standardlizenzmodell PAYG (Pay-as-you-go, nutzungsbasierte Bezahlung). Ausführliche Informationen zum Windows Server-Lizenzmodell in VM finden Sie im Artikel [Windows Server in Azure Stack Hub-Marketplace-FAQ](https://docs.microsoft.com/azure-stack/operator/azure-stack-windows-server-faq#what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server).  
+In den VM-Images können Sie für SQL Server nur BYOL (Bring-Your-Own-License, Verwendung einer eigenen Lizenz) verwenden. Für Windows Server ist das Standardlizenzmodell PAYG (Pay-as-you-go, nutzungsbasierte Bezahlung). Ausführliche Informationen zum Windows Server-Lizenzmodell in VM finden Sie im Artikel [Windows Server in Azure Stack Hub-Marketplace-FAQ](../operator/azure-stack-windows-server-faq.md#what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server).  
 
 Schwerpunkt dieses Artikels ist die *bestmögliche* Leistung für SQL Server auf Azure Stack Hub-VMs. Wenn Ihre Workload weniger anspruchsvoll ist, sind möglicherweise nicht alle empfohlenen Optimierungen erforderlich. Berücksichtigen Sie bei der Evaluierung dieser Empfehlungen Ihre Leistungsanforderungen und Workloadmuster.
 
 > [!NOTE]  
-> Einen Leitfaden zur Leistung für SQL Server auf Azure-VMs finden Sie in [diesem Artikel](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
+> Einen Leitfaden zur Leistung für SQL Server auf Azure-VMs finden Sie in [diesem Artikel](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 
 ## <a name="checklist-for-sql-server-best-practices"></a>Checkliste für bewährte SQL Server-Methoden
 
@@ -98,7 +98,7 @@ Es empfiehlt sich, TempDB auf einem Datenträger für Daten zu speichern, da jed
 
 - **Datenträgerstriping:** Für einen höheren Durchsatz können Sie zusätzliche Datenträger für Daten hinzufügen und Datenträgerstriping verwenden. Um die Anzahl der benötigten Datenträger zu ermitteln, müssen Sie die Anzahl der IOPS analysieren, die für die Protokolldateien, Ihre Daten und die TempDB-Dateien erforderlich sind. Beachten Sie, dass IOPS-Grenzwerte pro Datenträger basierend auf der Serie der VM-Familie gelten – nicht basierend auf der VM-Größe. Limits für die Netzwerkbandbreite basieren dagegen auf der VM-Größe. Weitere Details finden Sie in den Tabellen unter [In Azure Stack Hub unterstützte VM-Größen](azure-stack-vm-sizes.md). Verwenden Sie die folgenden Richtlinien:
 
-  - Verwenden Sie [Speicherplätze](https://technet.microsoft.com/library/hh831739.aspx) für Windows 2012 und höher entsprechend den folgenden Richtlinien:
+  - Verwenden Sie [Speicherplätze](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)) für Windows 2012 und höher entsprechend den folgenden Richtlinien:
 
     1. Legen Sie die Überlappung (Stripesetgröße) für OLTP-Workloads (Online Transaction Processing) auf 64 KB (65.536 Bytes) und für Data Warehousing-Workloads auf 256 KB (262.144 Bytes) fest, um Leistungseinbußen durch falsche Partitionsausrichtung zu vermeiden. Dies muss mit PowerShell festgelegt werden.
 
@@ -123,14 +123,14 @@ Es empfiehlt sich, TempDB auf einem Datenträger für Daten zu speichern, da jed
 
 ## <a name="io-guidance"></a>E/A-Leitfaden
 
-- Erwägen Sie die Aktivierung der sofortigen Dateiinitialisierung, um die für die anfängliche Dateizuordnung erforderliche Zeit zu verringern. Um die sofortige Dateiinitialisierung nutzen zu können, gewähren Sie dem SQL Server-Dienstkonto (MSSQLSERVER) die Berechtigung **SE_MANAGE_VOLUME_NAME**, und fügen Sie sie der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzu. Wenn Sie ein SQL Server-Plattformimage für Azure verwenden, wird das Standarddienstkonto (**NT Service\MSSQLSERVER**) nicht der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzugefügt. Anders ausgedrückt: Die sofortige Dateiinitialisierung wird in einem SQL Server-Azure-Plattformimage nicht aktiviert. Starten Sie den SQL Server-Dienst neu, nachdem Sie das SQL Server-Dienstkonto der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzugefügt haben. Möglicherweise sind bei Verwendung dieses Features bestimmte Sicherheitsaspekte zu berücksichtigen. Weitere Informationen finden Sie unter [Datenbankdatei-Initialisierung](https://msdn.microsoft.com/library/ms175935.aspx).
+- Erwägen Sie die Aktivierung der sofortigen Dateiinitialisierung, um die für die anfängliche Dateizuordnung erforderliche Zeit zu verringern. Um die sofortige Dateiinitialisierung nutzen zu können, gewähren Sie dem SQL Server-Dienstkonto (MSSQLSERVER) die Berechtigung **SE_MANAGE_VOLUME_NAME**, und fügen Sie sie der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzu. Wenn Sie ein SQL Server-Plattformimage für Azure verwenden, wird das Standarddienstkonto (**NT Service\MSSQLSERVER**) nicht der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzugefügt. Anders ausgedrückt: Die sofortige Dateiinitialisierung wird in einem SQL Server-Azure-Plattformimage nicht aktiviert. Starten Sie den SQL Server-Dienst neu, nachdem Sie das SQL Server-Dienstkonto der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzugefügt haben. Möglicherweise sind bei Verwendung dieses Features bestimmte Sicherheitsaspekte zu berücksichtigen. Weitere Informationen finden Sie unter [Datenbankdatei-Initialisierung](/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver15).
 - **Automatische Vergrößerung** ist eine Behelfslösung für unerwartetes Wachstum. Führen Sie die tägliche Verwaltung Ihres Daten- und Protokolldateiwachstums nicht mit automatischer Vergrößerung durch. Wenn die automatische Vergrößerung verwendet wird, vergrößern Sie die Datei vorab mit dem Switch **Größe**.
 - Stellen Sie sicher, dass **Automatische Verkleinerung** deaktiviert ist, um unnötigen Mehraufwand zu vermeiden, der sich negativ auf die Leistung auswirken kann.
-- Richten Sie standardmäßige Dateispeicherorte für Sicherungen und Datenbanken ein. Verwenden Sie die Empfehlungen in diesem Artikel, und nehmen Sie die Änderungen im Fenster mit den Servereigenschaften vor. Eine Anleitung finden Sie unter [Anzeigen oder Ändern der Standardspeicherorte für Daten- und Protokolldateien (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx). Der folgende Screenshot zeigt, wo diese Änderungen vorgenommen werden:
+- Richten Sie standardmäßige Dateispeicherorte für Sicherungen und Datenbanken ein. Verwenden Sie die Empfehlungen in diesem Artikel, und nehmen Sie die Änderungen im Fenster mit den Servereigenschaften vor. Eine Anleitung finden Sie unter [Anzeigen oder Ändern der Standardspeicherorte für Daten- und Protokolldateien (SQL Server Management Studio)](/sql/database-engine/configure-windows/view-or-change-the-default-locations-for-data-and-log-files?view=sql-server-ver15). Der folgende Screenshot zeigt, wo diese Änderungen vorgenommen werden:
 
     > ![Anzeigen oder Ändern der Standardspeicherorte](./media/sql-server-vm-considerations/image1.png)
 
-- Aktivieren Sie gesperrte Seiten, um E/A- und Auslagerungsaktivitäten zu verringern. Weitere Informationen finden Sie unter [Aktivieren der Option zum Sperren von Seiten im Speicher (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).
+- Aktivieren Sie gesperrte Seiten, um E/A- und Auslagerungsaktivitäten zu verringern. Weitere Informationen finden Sie unter [Aktivieren der Option zum Sperren von Seiten im Speicher (Windows)](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-ver15).
 
 - Es kann auch sinnvoll sein, alle Datendateien (einschließlich Sicherungen) beim Übertragen in bzw. aus Azure Stack Hub zu komprimieren.
 
@@ -140,7 +140,7 @@ Für manche Bereitstellungen können durch Verwendung erweiterter Konfigurations
 
 - **Sicherung im Azure Stack-Speicher** **.** Wenn Sie Sicherungen für eine auf Azure Stack Hub-VMs ausgeführte SQL Server-Instanz erstellen, können Sie die SQL Server-Sicherung über URLs verwenden. Dieses Feature steht ab SQL Server 2012 SP1 CU2 zur Verfügung und wird für Sicherungen auf die angefügten Datenträgern für Daten empfohlen.
 
-    Befolgen Sie beim Sichern oder Wiederherstellen mithilfe von Azure Storage die Empfehlungen unter [SQL Server-URL-Sicherung – bewährte Methoden und Problembehandlung](https://msdn.microsoft.com/library/jj919149.aspx) und [Wiederherstellen von in Microsoft Azure gespeicherten Sicherungen](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). Darüber hinaus können Sie diese Sicherungen automatisieren, indem Sie die Informationen unter [Automatisierte Sicherung für SQL Server 2014-VMs (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup) verwenden.
+    Befolgen Sie beim Sichern oder Wiederherstellen mithilfe von Azure Storage die Empfehlungen unter [SQL Server-URL-Sicherung – bewährte Methoden und Problembehandlung](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting?view=sql-server-ver15) und [Wiederherstellen von in Microsoft Azure gespeicherten Sicherungen](/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). Darüber hinaus können Sie diese Sicherungen automatisieren, indem Sie die Informationen unter [Automatisierte Sicherung für SQL Server 2014-VMs (Resource Manager)](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup) verwenden.
 
 -   **Sicherung im Azure Stack Hub-Speicher.** Sie können Sicherungen im Azure Stack Hub-Speicher auf ähnliche Weise durchführen wie Sicherungen in Azure Storage. Wenn Sie eine Sicherung in SQL Server Management Studio (SSMS) erstellen, müssen Sie die Konfigurationsinformationen manuell eingeben. SSMS kann nicht verwendet werden, um den Speichercontainer oder die Shared Access Signature zu erstellen. Mit SSMS kann nur eine Verbindung mit Azure-Abonnements, jedoch nicht mit Azure Stack Hub-Abonnements hergestellt werden. Stattdessen müssen Sie das Speicherkonto, den Container und die Shared Access Signature im Azure Stack Hub-Portal oder über PowerShell erstellen.
 

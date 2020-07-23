@@ -7,16 +7,16 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 3ec8b0b3ac6f4687fd782dfc692f1c705c5ed733
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: dd82a3a9c2b6eff74c8f6823fc37b8767431ca02
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78366346"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489231"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub-Computekapazität
 
-Die für Azure Stack Hub unterstützten [VM-Größen (virtuelle Computer)](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) stellen eine Teilmenge der in Azure unterstützten VM-Größen dar. Azure erzwingt Ressourcengrenzwerte auf verschiedene Arten, um einen übermäßigen Ressourcenverbrauch (auf dem lokalen Server und auf der Dienstebene) zu vermeiden. Wenn keine Einschränkungen für die Nutzung durch Mandanten gelten würden, würde die Mandantenerfahrung beeinträchtigt, wenn andere Mandanten Ressourcen übermäßig nutzen. Für ausgehenden Netzwerkdatenverkehr des virtuellen Computers gelten Bandbreitenobergrenzen für Azure Stack Hub, die mit den Azure-Einschränkungen übereinstimmen. Für Speicherressourcen in Azure Stack Hub werden Speicher-IOPS-Grenzwerte verwendet, um beim Speicherzugriff grundsätzlich einen übermäßigen Ressourcenverbrauch durch Mandanten zu vermeiden.
+Die für Azure Stack Hub unterstützten [VM-Größen (virtuelle Computer)](../user/azure-stack-vm-sizes.md) stellen eine Teilmenge der in Azure unterstützten VM-Größen dar. Azure erzwingt Ressourcengrenzwerte auf verschiedene Arten, um einen übermäßigen Ressourcenverbrauch (auf dem lokalen Server und auf der Dienstebene) zu vermeiden. Wenn keine Einschränkungen für die Nutzung durch Mandanten gelten würden, würde die Mandantenerfahrung beeinträchtigt, wenn andere Mandanten Ressourcen übermäßig nutzen. Für ausgehenden Netzwerkdatenverkehr des virtuellen Computers gelten Bandbreitenobergrenzen für Azure Stack Hub, die mit den Azure-Einschränkungen übereinstimmen. Für Speicherressourcen in Azure Stack Hub werden Speicher-IOPS-Grenzwerte verwendet, um beim Speicherzugriff grundsätzlich einen übermäßigen Ressourcenverbrauch durch Mandanten zu vermeiden.
 
 >[!IMPORTANT]
 >Mit dem [Azure Stack Hub Capacity Planner](https://aka.ms/azstackcapacityplanner) wird die IOPS-Leistung nicht berücksichtigt oder garantiert.
@@ -25,7 +25,7 @@ Die für Azure Stack Hub unterstützten [VM-Größen (virtuelle Computer)](https
 
 Die Azure Stack Hub-Platzierungsengine verteilt Mandanten-VMs auf die verfügbaren Hosts.
 
-Bei der Platzierung virtueller Computer werden von Azure Stack Hub zwei Aspekte berücksichtigt. Erstens: Steht auf dem Host genügend Arbeitsspeicher für den VM-Typ zur Verfügung? Zweitens: Gehören die VMs zu einer [Verfügbarkeitsgruppe](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability), oder handelt es sich bei Ihnen um [VM-Skalierungsgruppen](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)?
+Bei der Platzierung virtueller Computer werden von Azure Stack Hub zwei Aspekte berücksichtigt. Erstens: Steht auf dem Host genügend Arbeitsspeicher für den VM-Typ zur Verfügung? Zweitens: Gehören die VMs zu einer [Verfügbarkeitsgruppe](/azure/virtual-machines/windows/manage-availability), oder handelt es sich bei Ihnen um [VM-Skalierungsgruppen](/azure/virtual-machine-scale-sets/overview)?
 
 Zur Erreichung von Hochverfügbarkeit für ein Produktionssystem mit mehreren virtuellen Computern (VMs) in Azure Stack Hub werden die VMs in einer Verfügbarkeitsgruppe platziert, um sie auf mehrere Fehlerdomänen zu verteilen. Die Definition einer Fehlerdomäne in einer Verfügbarkeitsgruppe ist ein einzelner Knoten in der Skalierungseinheit. Azure Stack Hub unterstützt die Verwendung einer Verfügbarkeitsgruppe mit maximal drei Fehlerdomänen, um Konsistenz mit Azure zu erzielen. In einer Verfügbarkeitsgruppe angeordnete VMs werden physisch voneinander isoliert, indem sie so gleichmäßig wie möglich auf mehrere Fehlerdomänen (Azure Stack Hub-Hosts) verteilt werden. Bei einem Hardwarefehler werden VMs aus der fehlerhaften Fehlerdomäne in anderen Fehlerdomänen neu gestartet. Sie werden nach Möglichkeit getrennt von den anderen VMs in separaten Fehlerdomänen in derselben Verfügbarkeitsgruppe gespeichert. Nachdem der Host wieder in den Onlinezustand versetzt wurde, wird für die VMs ein neuer Ausgleichsvorgang durchgeführt, um die Hochverfügbarkeit sicherzustellen.  
 

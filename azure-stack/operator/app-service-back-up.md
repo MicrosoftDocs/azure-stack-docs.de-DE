@@ -7,12 +7,12 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: c559a90234b486f8501eeb7b0b8249e41dcdb8fa
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 3b12c794550c3d39809369ae86117d9c684e1a53
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701478"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489792"
 ---
 # <a name="back-up-app-service-on-azure-stack-hub"></a>Sichern von App Service in Azure Stack Hub
 
@@ -61,7 +61,7 @@ Sichern Sie mit den folgenden PowerShell-Befehlen die Datenbanken manuell, währ
   ```
 
 > [!NOTE]
-> Falls Sie SQL AlwaysOn-Datenbanken sichern müssen, folgen Sie [diesen Anweisungen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017). 
+> Falls Sie SQL AlwaysOn-Datenbanken sichern müssen, folgen Sie [diesen Anweisungen](/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017). 
 
 Nachdem alle Datenbanken erfolgreich gesichert wurden, kopieren Sie die BAK-Dateien zusammen mit den Informationen zu den App Service-Geheimnissen an einen sicheren Ort.
 

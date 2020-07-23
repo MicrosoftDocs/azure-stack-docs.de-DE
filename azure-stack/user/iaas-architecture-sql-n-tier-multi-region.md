@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 7667039bc64fe45f912cb855d5cb832b7fe5d28f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: fe96b2adeb679492a2f6ca820880763c0c2c0686
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81659885"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567806"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>Ausführen einer n-schichtigen Anwendung in mehreren Azure Stack Hub-Regionen für Hochverfügbarkeit
 
@@ -29,15 +29,15 @@ Diese Architektur basiert auf der Architektur aus [N-schichtige Anwendung mit SQ
 
 -   **Primäre und sekundäre Regionen**. Verwenden Sie zwei Regionen, um eine höhere Verfügbarkeit zu erreichen. Eine ist die primäre Region. Die andere Region ist für das Failover.
 
--   **Azure Traffic Manager**. [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) leitet eingehende Anforderungen an eine der Regionen weiter. Während des normalen Betriebs werden Anforderungen an die primäre Region weitergeleitet. Wenn diese Region nicht mehr verfügbar ist, führt Traffic Manager ein Failover zur sekundären Region aus. Weitere Informationen finden Sie im Abschnitt [Traffic Manager-Konfiguration](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server#traffic-manager-configuration).
+-   **Azure Traffic Manager**. [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) leitet eingehende Anforderungen an eine der Regionen weiter. Während des normalen Betriebs werden Anforderungen an die primäre Region weitergeleitet. Wenn diese Region nicht mehr verfügbar ist, führt Traffic Manager ein Failover zur sekundären Region aus. Weitere Informationen finden Sie im Abschnitt [Traffic Manager-Konfiguration](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server#traffic-manager-configuration).
 
--   **Ressourcengruppen**: Erstellen Sie separate [Ressourcengruppen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) für die primäre Region und die sekundäre Region. Dies bietet Ihnen die Flexibilität, jede Region als eine einzelne Ressourcensammlung zu verwalten. Sie können beispielsweise eine Region erneut bereitstellen, ohne die andere außer Betrieb zu nehmen. [Verknüpfen Sie die Ressourcengruppen](https://docs.microsoft.com/azure/resource-group-link-resources), damit Sie eine Abfrage zum Auflisten aller Ressourcen für die Anwendung ausführen können.
+-   **Ressourcengruppen**: Erstellen Sie separate [Ressourcengruppen](/azure/azure-resource-manager/resource-group-overview) für die primäre Region und die sekundäre Region. Dies bietet Ihnen die Flexibilität, jede Region als eine einzelne Ressourcensammlung zu verwalten. Sie können beispielsweise eine Region erneut bereitstellen, ohne die andere außer Betrieb zu nehmen. [Verknüpfen Sie die Ressourcengruppen](/azure/resource-group-link-resources), damit Sie eine Abfrage zum Auflisten aller Ressourcen für die Anwendung ausführen können.
 
 -   **Virtuelle Netzwerke**. Erstellen Sie für jede Region ein separates virtuelles Netzwerk. Stellen Sie sicher, dass sich die Adressräume nicht überschneiden.
 
--   **SQL Server Always On-Verfügbarkeitsgruppe**. Bei Verwendung von SQL Server werden [SQL Always On-Verfügbarkeitsgruppen](https://msdn.microsoft.com/library/hh510230.aspx) empfohlen, um Hochverfügbarkeit zu erzielen. Erstellen Sie eine einzelne Verfügbarkeitsgruppe, die SQL Server-Instanzen in beiden Regionen enthält.
+-   **SQL Server Always On-Verfügbarkeitsgruppe**. Bei Verwendung von SQL Server werden [SQL Always On-Verfügbarkeitsgruppen](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15) empfohlen, um Hochverfügbarkeit zu erzielen. Erstellen Sie eine einzelne Verfügbarkeitsgruppe, die SQL Server-Instanzen in beiden Regionen enthält.
 
--   **VNET-zu-VNET-VPN-Verbindung**. Da VNET-Peering noch nicht für Azure Stack Hub verfügbar ist, verwenden Sie eine VNET-zu-VNET-VPN-Verbindung, um die beiden VNETs zu verbinden. Weitere Informationen finden Sie unter [Gewusst wie: Verbinden von zwei VNETs per Peering](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908).
+-   **VNET-zu-VNET-VPN-Verbindung**. Da VNET-Peering noch nicht für Azure Stack Hub verfügbar ist, verwenden Sie eine VNET-zu-VNET-VPN-Verbindung, um die beiden VNETs zu verbinden. Weitere Informationen finden Sie unter [Gewusst wie: Verbinden von zwei VNETs per Peering](./azure-stack-network-howto-vnet-to-vnet.md?view=azs-1908).
 
 ## <a name="recommendations"></a>Empfehlungen
 
@@ -57,9 +57,9 @@ In dieser Referenzarchitektur liegt der Fokus auf aktiv/passiv mit Hot Standby, 
 
 Beachten Sie beim Konfigurieren von Traffic Manager die folgenden Punkte:
 
--   **Routing:** Traffic Manager unterstützt mehrere [Routingalgorithmen](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods). Verwenden Sie für das in diesem Artikel beschriebenen Szenario Routing nach *Priorität* (ehemals Routingmethode *Failover*). Bei dieser Einstellung sendet Traffic Manager alle Anforderungen an die primäre Region, bis die primäre Region nicht mehr erreichbar ist. Zu diesem Zeitpunkt wird automatisch ein Failover zur sekundären Region ausgeführt. Weitere Informationen finden Sie unter [Konfigurieren der Routingmethode „Failover“](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-failover-routing-method).
+-   **Routing:** Traffic Manager unterstützt mehrere [Routingalgorithmen](/azure/traffic-manager/traffic-manager-routing-methods). Verwenden Sie für das in diesem Artikel beschriebenen Szenario Routing nach *Priorität* (ehemals Routingmethode *Failover*). Bei dieser Einstellung sendet Traffic Manager alle Anforderungen an die primäre Region, bis die primäre Region nicht mehr erreichbar ist. Zu diesem Zeitpunkt wird automatisch ein Failover zur sekundären Region ausgeführt. Weitere Informationen finden Sie unter [Konfigurieren der Routingmethode „Failover“](/azure/traffic-manager/traffic-manager-configure-failover-routing-method).
 
--   **Integritätstest:** Traffic Manager verwendet einen HTTP- oder HTTPS-[Test](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring), um die Verfügbarkeit jeder Region zu überwachen. Der Test prüft auf eine HTTP 200-Antwort für einen angegebenen URL-Pfad. Es hat sich bewährt, einen Endpunkt zu erstellen, der die Gesamtintegrität der Anwendung meldet, und diesen Endpunkt für den Integritätstest zu verwenden. Andernfalls meldet der Test eventuell einen fehlerfreien Endpunkt, obwohl wichtige Teile der Anwendung fehlerhaft sind. Weitere Informationen finden Sie unter [Überwachungsmuster für den Integritätsendpunkt](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring).
+-   **Integritätstest:** Traffic Manager verwendet einen HTTP- oder HTTPS-[Test](/azure/traffic-manager/traffic-manager-monitoring), um die Verfügbarkeit jeder Region zu überwachen. Der Test prüft auf eine HTTP 200-Antwort für einen angegebenen URL-Pfad. Es hat sich bewährt, einen Endpunkt zu erstellen, der die Gesamtintegrität der Anwendung meldet, und diesen Endpunkt für den Integritätstest zu verwenden. Andernfalls meldet der Test eventuell einen fehlerfreien Endpunkt, obwohl wichtige Teile der Anwendung fehlerhaft sind. Weitere Informationen finden Sie unter [Überwachungsmuster für den Integritätsendpunkt](/azure/architecture/patterns/health-endpoint-monitoring).
 
 Wenn Traffic Manager ein Failover ausführt, können die Clients die Anwendung für eine bestimmte Zeit nicht erreichen. Die Dauer wird durch folgende Faktoren beeinflusst:
 
@@ -67,13 +67,13 @@ Wenn Traffic Manager ein Failover ausführt, können die Clients die Anwendung f
 
 -   Die DNS-Server müssen die zwischengespeicherten DNS-Einträge für die IP-Adresse aktualisieren, die von der DNS-Gültigkeitsdauer (TTL) abhängig ist. Die Standardgültigkeitsdauer beträgt 300 Sekunden (5 Minuten), Sie können diesen Wert aber bei der Erstellung des Traffic Manager-Profils anpassen.
 
-Weitere Informationen finden Sie unter [Traffic Manager-Überwachung](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring).
+Weitere Informationen finden Sie unter [Traffic Manager-Überwachung](/azure/traffic-manager/traffic-manager-monitoring).
 
 Bei Failovern durch Traffic Manager sollten Sie ein manuelles Failback ausführen, anstatt ein automatisches Failback zu implementieren. Andernfalls könnte eine Situation eintreten, bei der die Anwendung zwischen den Regionen hin und her wechselt. Überprüfen Sie vor einem Failback, ob alle Subsysteme der Anwendung fehlerfrei sind.
 
 Beachten Sie, dass Traffic Manager in der Standardeinstellung automatisch Failbacks ausführt. Um dies zu verhindern, verringern Sie die Priorität der primären Region nach einem Failover manuell. Angenommen, die primäre Region hat die Priorität 1 und die sekundäre Datenbank die Priorität 2. Nach einem Failover legen Sie dann die Priorität der primären Region auf 3 fest, um ein automatisches Failback zu verhindern. Wenn Sie wieder zurück wechseln möchten, ändern Sie die Priorität wieder in 1.
 
-Mit dem folgenden Befehl für die [Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/) wird die Priorität aktualisiert:
+Mit dem folgenden Befehl für die [Azure-Befehlszeilenschnittstelle](/cli/azure/) wird die Priorität aktualisiert:
 
 ```cli  
 az network traffic-manager endpoint update --resource-group <resource-group> --profile-name <profile>
@@ -105,15 +105,15 @@ So konfigurieren Sie die Verfügbarkeitsgruppe:
 
 -   Weisen Sie jedem Domänencontroller eine statische IP-Adresse zu.
 
--   Erstellen Sie ein [VPN](https://docs.microsoft.com/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways), um eine Kommunikation zwischen zwei virtuellen Netzwerken zu ermöglichen.
+-   Erstellen Sie ein [VPN](./azure-stack-vpn-gateway-about-vpn-gateways.md), um eine Kommunikation zwischen zwei virtuellen Netzwerken zu ermöglichen.
 
--   Fügen Sie für jedes virtuelle Netzwerk die IP-Adressen der Domänencontroller (beider Regionen) zur DNS-Serverliste hinzu. Sie können den folgenden CLI-Befehl verwenden. Weitere Informationen finden Sie unter [Ändern von DNS-Servern](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
+-   Fügen Sie für jedes virtuelle Netzwerk die IP-Adressen der Domänencontroller (beider Regionen) zur DNS-Serverliste hinzu. Sie können den folgenden CLI-Befehl verwenden. Weitere Informationen finden Sie unter [Ändern von DNS-Servern](/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
     ```cli
     az network vnet update --resource-group <resource-group> --name <vnet-name> --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4,172.16.0.6"
     ```
 
--   Erstellen Sie einen [Windows Server-Failovercluster](https://msdn.microsoft.com/library/hh270278.aspx) (WSFC), der die SQL Server-Instanzen in beiden Regionen enthält.
+-   Erstellen Sie einen [Windows Server-Failovercluster](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15) (WSFC), der die SQL Server-Instanzen in beiden Regionen enthält.
 
 -   Erstellen Sie eine SQL Server Always On-Verfügbarkeitsgruppe, die SQL Server-Instanzen sowohl in der primären als auch der sekundären Region enthält. Die Schritte finden Sie unter [Erweitern der Always On-Verfügbarkeitsgruppe auf ein Azure-Remoterechenzentrum (PowerShell)](https://techcommunity.microsoft.com/t5/DataCAT/Extending-AlwaysOn-Availability-Group-to-Remote-Azure-Datacenter/ba-p/305217).
 
@@ -134,10 +134,10 @@ Traffic Manager ist eine mögliche Schwachstelle im System. Wenn beim Traffic Ma
 
 Für den SQL Server-Cluster sind zwei Failoverszenarien zu berücksichtigen:
 
--   Bei allen SQL Server-Datenbankreplikaten in der primären Region treten Fehler auf. Dies kann z. B. während eines regionalen Ausfalls vorkommen. In diesem Fall müssen Sie für die Verfügbarkeitsgruppe ein manuelles Failover ausführen, obwohl Traffic Manager automatisch ein Failover auf dem Front-End ausführt. Führen Sie die Schritte unter [Ausführen eines erzwungenen manuellen Failovers einer SQL Server-Verfügbarkeitsgruppe](https://msdn.microsoft.com/library/ff877957.aspx) aus, in denen beschrieben ist, wie ein erzwungenes Failover mithilfe von SQL Server Management Studio, Transact-SQL oder PowerShell in SQL Server 2016 ausgeführt wird.
+-   Bei allen SQL Server-Datenbankreplikaten in der primären Region treten Fehler auf. Dies kann z. B. während eines regionalen Ausfalls vorkommen. In diesem Fall müssen Sie für die Verfügbarkeitsgruppe ein manuelles Failover ausführen, obwohl Traffic Manager automatisch ein Failover auf dem Front-End ausführt. Führen Sie die Schritte unter [Ausführen eines erzwungenen manuellen Failovers einer SQL Server-Verfügbarkeitsgruppe](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15) aus, in denen beschrieben ist, wie ein erzwungenes Failover mithilfe von SQL Server Management Studio, Transact-SQL oder PowerShell in SQL Server 2016 ausgeführt wird.
 
     > [!Warning]  
-    > Bei einem erzwungenem Failover besteht das Risiko eines Datenverlusts. Sobald die primäre Region wieder online ist, erstellen Sie eine Momentaufnahme der Datenbank, und verwenden Sie [tablediff](https://msdn.microsoft.com/library/ms162843.aspx), um die Unterschiede zu ermitteln.
+    > Bei einem erzwungenem Failover besteht das Risiko eines Datenverlusts. Sobald die primäre Region wieder online ist, erstellen Sie eine Momentaufnahme der Datenbank, und verwenden Sie [tablediff](/sql/tools/tablediff-utility?view=sql-server-ver15), um die Unterschiede zu ermitteln.
 
 -   Traffic Manager führt ein Failover zur sekundären Region aus, doch ist das primäre SQL Server-Datenbankreplikat weiterhin verfügbar. So kann beispielsweise die Front-End-Ebene fehlgeschlagen, ohne dass dies Auswirkungen auf die virtuellen SQL Server-Computer hat. In diesem Fall wird der Internetdatenverkehr an die sekundäre Region weitergeleitet, und diese Region kann immer noch eine Verbindung mit dem primären Replikat herstellen. Es kommt jedoch zu erhöhter Latenz, da die SQL Server-Verbindungen regionsübergreifend verlaufen. In dieser Situation sollten Sie auf folgende Weise ein manuelles Failover ausführen:
 
@@ -171,4 +171,4 @@ Messen Sie die Wiederherstellungszeiten, und stellen Sie sicher, dass diese Ihre
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Weitere Informationen zu Azure-Cloudmustern finden Sie unter [Cloudentwurfsmuster](https://docs.microsoft.com/azure/architecture/patterns).
+- Weitere Informationen zu Azure-Cloudmustern finden Sie unter [Cloudentwurfsmuster](/azure/architecture/patterns).

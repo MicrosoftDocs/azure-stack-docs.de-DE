@@ -7,12 +7,12 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 612d5fa11c2f34c73925212103c2699c9581f107
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: 6b10f43081ae9781005fcbc13eec50bd03b5128e
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85197037"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566106"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Installieren der AKS-Engine unter Windows in Azure Stack Hub
 
@@ -31,7 +31,7 @@ Wenn Sie Ihren Clientcomputer auswählen, sollten Sie Folgendes beachten:
 
 Sie können die Client-VM installieren, um Ihren Kubernetes-Cluster in einer mit dem Internet verbundenen Azure Stack Hub-Instanz zu verwalten.
 
-1. Erstellen Sie unter Azure Stack Hub eine Windows-VM. Anweisungen dazu finden Sie unter [Schnellstart: Erstellen eines virtuellen Windows Server-Computers mit dem Azure Stack Hub-Portal](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal).
+1. Erstellen Sie unter Azure Stack Hub eine Windows-VM. Anweisungen dazu finden Sie unter [Schnellstart: Erstellen eines virtuellen Windows Server-Computers mit dem Azure Stack Hub-Portal](./azure-stack-quick-windows-portal.md).
 2. Stellen Sie eine Verbindung mit Ihrer VM her.
 3. [Installieren Sie Chocolatey mithilfe der PowerShell-Anweisungen](https://chocolatey.org/install#install-with-powershellexe). 
 
@@ -52,9 +52,9 @@ Sie können die Client-VM installieren, um Ihren Kubernetes-Cluster in einer Azu
 
 1.  Wechseln Sie von einem Computer mit Internetzugriff zu GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest). Laden Sie ein Archiv (*.tar.gz) für einen Windows-Computer herunter, z. B. `aks-engine-v0.38.8-windows-amd64.tar.gz`.
 
-2.  Erstellen Sie ein Speicherkonto in ihrer Azure Stack Hub-Instanz, um die Archivdatei (*.tar.gz) mit der AKS-Engine-Binärdatei hochzuladen. Anweisungen zur Verwendung von Azure Storage-Explorer finden Sie unter [Herstellen einer Verbindung von Storage-Explorer mit einem Azure Stack-Abonnement oder -Speicherkonto](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
+2.  Erstellen Sie ein Speicherkonto in ihrer Azure Stack Hub-Instanz, um die Archivdatei (*.tar.gz) mit der AKS-Engine-Binärdatei hochzuladen. Anweisungen zur Verwendung von Azure Storage-Explorer finden Sie unter [Herstellen einer Verbindung von Storage-Explorer mit einem Azure Stack-Abonnement oder -Speicherkonto](./azure-stack-storage-connect-se.md).
 
-3. Erstellen Sie unter Azure Stack Hub eine Windows-VM. Anweisungen dazu finden Sie unter [Schnellstart: Erstellen eines virtuellen Windows Server-Computers mit dem Azure Stack Hub-Portal](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)
+3. Erstellen Sie unter Azure Stack Hub eine Windows-VM. Anweisungen dazu finden Sie unter [Schnellstart: Erstellen eines virtuellen Windows Server-Computers mit dem Azure Stack Hub-Portal](./azure-stack-quick-windows-portal.md)
 
 4.  Laden Sie die Datei von der Blob-URL des Azure Stack Hub-Speicherkontos, wo Sie die Archivdatei (*.tar.gz) hochgeladen haben, auf Ihre Verwaltungs-VM herunter. Extrahieren Sie das Archiv in ein Verzeichnis, auf das Sie über die Eingabeaufforderung zugreifen können.
 
@@ -88,8 +88,8 @@ Wenn Sie die Client-VM für die AKS-Engine auf dem ASDK auf einem außerhalb des
 
 Wenn Sie ein ASDK verwenden und Ihr Azure Resource Manager-Endpunkt ein selbstsigniertes Zertifikat verwendet, müssen Sie dieses Zertifikat explizit dem vertrauenswürdigen Zertifikatspeicher des Computers hinzufügen. Sie finden das ASDK-Stammzertifikat auf jedem virtuellen Computer, den Sie im ASDK bereitstellen.
 
-1. Exportieren Sie das Zertifizierungsstellen-Stammzertifikat. Anweisungen finden Sie unter [Exportieren des Azure Stack Hub-Zertifizierungsstellen-Stammzertifikats](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#export-the-azure-stack-hub-ca-root-certificate).
-2. Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack Hub als vertrauenswürdig ein. Anweisungen finden Sie unter [Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack Hub als vertrauenswürdig](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#trust-the-azure-stack-hub-ca-root-certificate).
+1. Exportieren Sie das Zertifizierungsstellen-Stammzertifikat. Anweisungen finden Sie unter [Exportieren des Azure Stack Hub-Zertifizierungsstellen-Stammzertifikats](./azure-stack-version-profiles-azurecli2.md#export-the-azure-stack-hub-ca-root-certificate).
+2. Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack Hub als vertrauenswürdig ein. Anweisungen finden Sie unter [Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack Hub als vertrauenswürdig](./azure-stack-version-profiles-azurecli2.md#trust-the-azure-stack-hub-ca-root-certificate).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -7,12 +7,12 @@ ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: ee0410467a7e2608580da5c209a97f86a60b675a
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: aaee4195a4c3fccedd14ddedf63d663af6bfb565
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631198"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566803"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Bereitstellen von Kubernetes in Azure Stack Hub mithilfe von Azure Active Directory
 
@@ -27,7 +27,7 @@ Stellen Sie zum Einstieg sicher, dass Sie über die erforderlichen Berechtigunge
 
 1. Überprüfen Sie, ob Sie Anwendungen in Ihrem Azure Active Directory-Mandanten (Azure AD) erstellen können. Sie benötigen diese Berechtigungen für die Kubernetes-Bereitstellung.
 
-    Anweisungen zum Überprüfen Ihrer Berechtigungen finden Sie unter [Erstellen einer Azure Active Directory-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff mithilfe des Portals](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+    Anweisungen zum Überprüfen Ihrer Berechtigungen finden Sie unter [Erstellen einer Azure Active Directory-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff mithilfe des Portals](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
 1. Generieren Sie ein öffentlich-privates SSH-Schlüsselpaar für die Anmeldung bei der Linux-VM in Azure Stack Hub. Sie benötigen den öffentlichen Schlüssel bei der Clustererstellung.
 

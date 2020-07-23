@@ -7,12 +7,12 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 2369ffbd1d3fc72c9d2df7ff87be6131f7aabcd7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 01f02fcf624db0a8ce47084ec5aa331e0831014b
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703314"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489282"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>Aktivieren der Sicherung für Azure Stack Hub mit PowerShell
 
@@ -42,7 +42,7 @@ Bearbeiten Sie in der gleichen PowerShell-Sitzung das folgende PowerShell-Skript
 | `$frequencyInHours` | Die Häufigkeit in Stunden bestimmt, wie oft Sicherungen erstellt werden. Der Standardwert ist 12. Scheduler unterstützt maximal 12 und mindestens 4.|
 | `$retentionPeriodInDays` | Die Vermerkdauer in Tagen bestimmt, wie viele Tage Sicherungen am externen Speicherort beibehalten werden. Der Standardwert ist 7. Scheduler unterstützt maximal 14 und mindestens 2. Nach Ablauf ihrer Vermerkdauer werden Sicherungen automatisch aus dem externen Speicherort gelöscht.|
 | `$encryptioncertpath` | Gilt ab 1901 und höher. Der Parameter ist ab der Azure Stack Hub-Modulversion 1.7 und höher verfügbar. Der Verschlüsselungszertifikatpfad gibt den Dateipfad zu der CER-Datei mit dem öffentlichen Schlüssel an, die für die Datenverschlüsselung verwendet wird. |
-| `$encryptionkey` | Gilt bis zum Build 1811. Der Parameter ist bis zur Azure Stack Hub-Modulversion 1.6 verfügbar. Der Verschlüsselungsschlüssel wird für die Datenverschlüsselung verwendet. Verwenden Sie das Cmdlet [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64), um einen neuen Verschlüsselungsschlüssel zu erstellen. |
+| `$encryptionkey` | Gilt bis zum Build 1811. Der Parameter ist bis zur Azure Stack Hub-Modulversion 1.6 verfügbar. Der Verschlüsselungsschlüssel wird für die Datenverschlüsselung verwendet. Verwenden Sie das Cmdlet [New-AzsEncryptionKeyBase64](/powershell/module/azs.backup.admin/new-azsencryptionkeybase64), um einen neuen Verschlüsselungsschlüssel zu erstellen. |
 |     |     |
 
 ### <a name="enable-backup-on-1901-and-later-using-certificate"></a>Aktivieren der Sicherung unter Verwendung eines Zertifikats unter 1901 und höher

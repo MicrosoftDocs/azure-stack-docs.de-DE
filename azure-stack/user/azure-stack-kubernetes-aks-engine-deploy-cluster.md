@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 6dd3cb20570bcd4cf580f169f8ba9cbc44a673ac
-ms.sourcegitcommit: 84b089387f5cf89e3a72e576f1c7649667075e0a
+ms.openlocfilehash: c687e704f1e8cb1d0e650dd0e283567a07d96fd2
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86137180"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566208"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub
 
@@ -68,7 +68,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
     | --- | --- |
     | dnsPrefix | Geben Sie eine eindeutige Zeichenfolge ein, die zur Identifizierung des Hostnamens von virtuellen Computern dienen soll. Beispielsweise einen Namen, der auf dem Namen der Ressourcengruppe basiert. |
     | count |  Geben Sie die Anzahl der Masters ein, die für die Bereitstellung vorgesehen sind. Der minimale Wert für eine Hochverfügbarkeitsbereitstellung beträgt 3, aber 1 ist für Bereitstellungen ohne Hochverfügbarkeit zulässig. |
-    | vmSize |  Geben Sie [eine Größe ein, die von Azure Stack Hub unterstützt wird](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), z. B. `Standard_D2_v2`. |
+    | vmSize |  Geben Sie [eine Größe ein, die von Azure Stack Hub unterstützt wird](./azure-stack-vm-sizes.md), z. B. `Standard_D2_v2`. |
     | distro | Geben Sie `aks-ubuntu-16.04` ein. |
 
 8.  Aktualisieren Sie in `agentPoolProfiles` Folgendes:
@@ -76,7 +76,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
     | Feld | BESCHREIBUNG |
     | --- | --- |
     | count | Geben Sie die Anzahl der Agents ein, die für die Bereitstellung vorgesehen sind. Pro Abonnement können maximal 50 Knoten verwendet werden. Wenn Sie mehr als einen Cluster pro Abonnement bereitstellen, stellen Sie sicher, dass die Gesamtanzahl der Agents 50 nicht überschreitet. Stellen Sie sicher, dass Sie die Konfigurationselemente aus der [JSON-Datei für das API-Beispielmodell](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json) verwenden.  |
-    | vmSize | Geben Sie [eine Größe ein, die von Azure Stack Hub unterstützt wird](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), z. B. `Standard_D2_v2`. |
+    | vmSize | Geben Sie [eine Größe ein, die von Azure Stack Hub unterstützt wird](./azure-stack-vm-sizes.md), z. B. `Standard_D2_v2`. |
     | distro | Geben Sie `aks-ubuntu-16.04` ein. |
 
 
@@ -123,7 +123,7 @@ Fahren Sie mit der Bereitstellung eines Clusters fort:
     | output-directory | kube-rg | Geben Sie den Namen des Verzeichnisses ein, in dem die Ausgabedatei `apimodel.json` sowie andere generierte Dateien enthalten sein sollen. |
     | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie die Dienstprinzipal-GUID ein. Die als Anwendungs-ID identifizierte Client-ID, wenn Ihr Azure Stack Hub-Administrator den Dienstprinzipal erstellt hat. |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie das Dienstprinzipalgeheimnis ein. Sie richten den geheimen Clientschlüssel beim Erstellen Ihres Diensts ein. |
-    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie Ihre Abonnement-ID ein. Weitere Informationen finden Sie unter [Abonnieren von Angeboten](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer). |
+    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie Ihre Abonnement-ID ein. Weitere Informationen finden Sie unter [Abonnieren von Angeboten](./azure-stack-subscribe-services.md#subscribe-to-an-offer). |
 
     Beispiel:
 

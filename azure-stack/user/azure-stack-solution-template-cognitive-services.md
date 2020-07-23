@@ -7,12 +7,12 @@ ms.date: 05/21/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 05/21/2020
-ms.openlocfilehash: 07af0665b2bc7993a90100edccc0a4831700c432
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 217dc3a46d277aa8abf57379224dcad0fca4d983
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780762"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566752"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Bereitstellen von Azure Cognitive Services in Azure Stack Hub
 
@@ -55,7 +55,7 @@ Die Containerunterstützung ist derzeit als öffentliche Vorschauversion für ei
 
 Stellen Sie mit Azure Stack Hub Cognitive Services-Container in einem Kubernetes-Cluster zusammen mit Ihren App-Containern bereit, um Hochverfügbarkeit und eine elastische Skalierung zu erzielen. Sie können Ihre App entwickeln, indem Sie Cognitive Services mit Komponenten kombinieren, die in App Services, Functions, Blob Storage, SQL- oder mySQL-Datenbanken integriert sind.
 
-Weitere Informationen zu Cognitive Services-Containern finden Sie unter [Containerunterstützung in Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support).
+Weitere Informationen zu Cognitive Services-Containern finden Sie unter [Containerunterstützung in Azure Cognitive Services](/azure/cognitive-services/cognitive-services-container-support).
 
 ## <a name="deploy-the-azure-face-api"></a>Bereitstellen der Azure-Gesichtserkennungs-API
 
@@ -65,7 +65,7 @@ In diesem Artikel wird beschrieben, wie Sie die Azure-Gesichtserkennungs-API in 
 
 Bevor Sie beginnen, müssen Sie Folgendes durchführen:
 
-1.  Fordern Sie Zugriff auf die Containerregistrierung an, um Images des Gesichtserkennungscontainers aus der Containerregistrierung von Azure Cognitive Services zu pullen. Ausführlichere Informationen finden Sie unter [Anfordern des Zugriffs auf die private Containerregistrierung](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#request-access-to-the-private-container-registry).
+1.  Fordern Sie Zugriff auf die Containerregistrierung an, um Images des Gesichtserkennungscontainers aus der Containerregistrierung von Azure Cognitive Services zu pullen. Ausführlichere Informationen finden Sie unter [Anfordern des Zugriffs auf die private Containerregistrierung](/azure/cognitive-services/face/face-how-to-install-containers#request-access-to-the-private-container-registry).
 
 2.  Bereiten Sie einen Kubernetes-Cluster in Azure Stack Hub vor. Informationen dazu finden Sie im Artikel [Bereitstellen von Kubernetes in Azure Stack Hub](azure-stack-solution-template-kubernetes-deploy.md).
 
@@ -73,7 +73,7 @@ Bevor Sie beginnen, müssen Sie Folgendes durchführen:
 
 Erstellen Sie in Azure eine Cognitive Service-Ressource, um eine Vorschau der Gesichtserkennungs-, LUIS- oder Texterkennungscontainer anzuzeigen. Sie müssen den Abonnementschlüssel und die Endpunkt-URL der Ressource verwenden, um die Cognitive Services-Container zu instanziieren.
 
-1. Erstellen Sie eine Azure-Ressource im Azure-Portal. Wenn Sie die Container für die Gesichtserkennung in einer Vorschau anzeigen möchten, müssen Sie zuerst im Azure-Portal eine entsprechende Gesichtserkennungsressource erstellen. Weitere Informationen finden Sie unter [Quickstart: Erstellen eines Cognitive Services-Kontos im Azure-Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Erstellen Sie eine Azure-Ressource im Azure-Portal. Wenn Sie die Container für die Gesichtserkennung in einer Vorschau anzeigen möchten, müssen Sie zuerst im Azure-Portal eine entsprechende Gesichtserkennungsressource erstellen. Weitere Informationen finden Sie unter [Quickstart: Erstellen eines Cognitive Services-Kontos im Azure-Portal](/azure/cognitive-services/cognitive-services-apis-create-account).
 
    > [!Note]
    >  Die Ressource für Gesichtserkennung oder maschinelles Sehen muss den F0-Tarif verwenden.
@@ -205,7 +205,7 @@ Sie können die externe IP-Adresse mithilfe des folgenden Befehls abrufen:
 
 ## <a name="try-the-services-with-python"></a>Ausprobieren der Dienste mit Python
 
-Sie können versuchen, die Cognitive Services in Ihrer Azure Stack Hub-Instanz zu überprüfen, indem Sie einige einfache Python-Skripts ausführen. Als Referenz stehen Ihnen offizielle Python-Schnellstartbeispiele für [maschinelles Sehen](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Gesichtserkennung](https://docs.microsoft.com/azure/cognitive-services/face/overview), [Textanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) und [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS) zur Verfügung.
+Sie können versuchen, die Cognitive Services in Ihrer Azure Stack Hub-Instanz zu überprüfen, indem Sie einige einfache Python-Skripts ausführen. Als Referenz stehen Ihnen offizielle Python-Schnellstartbeispiele für [maschinelles Sehen](/azure/cognitive-services/computer-vision/home), [Gesichtserkennung](/azure/cognitive-services/face/overview), [Textanalyse](/azure/cognitive-services/text-analytics/overview) und [Language Understanding](/azure/cognitive-services/luis/luis-container-howto) (LUIS) zur Verfügung.
 
 Bei der Verwendung von Python-Apps müssen in Bezug auf die Überprüfung der Dienste, die in Containern ausgeführt werden, zwei Dinge beachtet werden: 
 1. Cognitive Services in Containern benötigen keine Unterschlüssel für die Authentifizierung, aber es ist weiterhin eine beliebige Zeichenfolge als Platzhalter erforderlich, um die Anforderungen des SDK zu erfüllen. 
@@ -234,10 +234,10 @@ print(faces)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Installieren und Ausführen von Containern für Maschinelles Sehen-API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
+[Installieren und Ausführen von Containern für Maschinelles Sehen-API](/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 
-[Installieren und Ausführen von Containern für Gesichtserkennungs-API](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers)
+[Installieren und Ausführen von Containern für Gesichtserkennungs-API](/azure/cognitive-services/face/face-how-to-install-containers)
 
-[Installieren und Ausführen von Containern für Textanalyse-API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)
+[Installieren und Ausführen von Containern für Textanalyse-API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)
 
-[Installieren und Ausführen von Containern für Language Understanding (LUIS)-API](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto)
+[Installieren und Ausführen von Containern für Language Understanding (LUIS)-API](/azure/cognitive-services/luis/luis-container-howto)

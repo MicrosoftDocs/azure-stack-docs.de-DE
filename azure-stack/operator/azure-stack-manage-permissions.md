@@ -7,12 +7,12 @@ ms.date: 12/23/2019
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: f74f35a8b1124ed9678e6b4bc254d4d2cd05a84e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c54e086ad8edefcb8e7a799c5153af6b7ce5b194
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699268"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488534"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>Festlegen von Zugriffsberechtigungen mithilfe der rollenbasierten Zugriffssteuerung
 
@@ -23,7 +23,7 @@ Ein Benutzer in Azure Stack Hub kann ein Leser, ein Besitzer oder ein Mitwirkend
  - Besitzer: Der Benutzer kann alles verwalten, einschließlich des Zugriffs auf Ressourcen.
  - Benutzerdefiniert: Der Benutzer hat begrenzten, spezifischen Zugriff auf Ressourcen.
 
- Weitere Informationen zum Erstellen einer benutzerdefinierten Rolle finden Sie unter [Benutzerdefinierte Rollen für Azure-Ressourcen](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+ Weitere Informationen zum Erstellen einer benutzerdefinierten Rolle finden Sie unter [Benutzerdefinierte Rollen für Azure-Ressourcen](/azure/role-based-access-control/custom-roles).
 
 ## <a name="set-access-permissions-for-a-user"></a>Festlegen von Zugriffsberechtigungen für Benutzer
 

@@ -7,23 +7,23 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 838ce4ab909019ce14569a8c5ad5da0b19457a90
-ms.sourcegitcommit: f082a8aa7e9cfaeab21b750d58520db58147ff1a
+ms.openlocfilehash: 3f826291ab387c6e9cb7c830e17104e959986386
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84679704"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566327"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatisieren von VM-Aktualisierung und -Verwaltung in Azure Stack Hub
 Verwenden Sie die folgenden Features der Azure Automation-Lösung, um Windows- und Linux-VMs zu verwalten, die mit Azure Stack Hub bereitgestellt werden:
 
-- **[Updateverwaltung](https://docs.microsoft.com/azure/automation/automation-update-management)** : Mit der Updateverwaltungslösung können Sie den Status der verfügbaren Updates auf allen Agent-Computern schnell auswerten und den Prozess der Installation der erforderlichen Updates für virtuelle Windows- und Linux-Computer verwalten.
+- **[Updateverwaltung](/azure/automation/automation-update-management)** : Mit der Updateverwaltungslösung können Sie den Status der verfügbaren Updates auf allen Agent-Computern schnell auswerten und den Prozess der Installation der erforderlichen Updates für virtuelle Windows- und Linux-Computer verwalten.
 
-- **[Änderungsnachverfolgung](https://docs.microsoft.com/azure/automation/automation-change-tracking)** : Änderungen an installierter Software, an Windows-Diensten, an der Windows-Registrierung und an Windows-Dateien sowie an Linux-Daemons auf den überwachten Servern werden zur Verarbeitung an den Azure Monitor-Dienst in der Cloud gesendet. Auf die empfangenen Daten wird Logik angewendet, und der Clouddienst zeichnet die Daten auf. Mithilfe der Informationen auf dem Dashboard zur Änderungsnachverfolgung können Sie ganz leicht die Änderungen erkennen, die an Ihrer Serverinfrastruktur vorgenommen wurden.
+- **[Änderungsnachverfolgung](/azure/automation/automation-change-tracking)** : Änderungen an installierter Software, an Windows-Diensten, an der Windows-Registrierung und an Windows-Dateien sowie an Linux-Daemons auf den überwachten Servern werden zur Verarbeitung an den Azure Monitor-Dienst in der Cloud gesendet. Auf die empfangenen Daten wird Logik angewendet, und der Clouddienst zeichnet die Daten auf. Mithilfe der Informationen auf dem Dashboard zur Änderungsnachverfolgung können Sie ganz leicht die Änderungen erkennen, die an Ihrer Serverinfrastruktur vorgenommen wurden.
 
-- **[Bestand](https://docs.microsoft.com/azure/automation/automation-vm-inventory)** . Die Bestandsnachverfolgung für eine Azure Stack Hub-VM bietet eine browserbasierte Benutzeroberfläche zum Einrichten und Konfigurieren der Bestandssammlung.
+- **[Bestand](/azure/automation/automation-vm-inventory)** . Die Bestandsnachverfolgung für eine Azure Stack Hub-VM bietet eine browserbasierte Benutzeroberfläche zum Einrichten und Konfigurieren der Bestandssammlung.
 
-- **[Azure Monitor für VMs](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)** : Azure Monitor für VMs überwacht Ihre virtuellen Azure- und Azure Stack Hub-Computer (VMs) und VM-Skalierungsgruppen bedarfsorientiert. Der Dienst analysiert die Leistung und Integrität Ihrer Windows- und Linux-VMs und überwacht außerdem deren Prozesse und Abhängigkeiten von anderen Ressourcen und externen Prozessen.
+- **[Azure Monitor für VMs](/azure/azure-monitor/insights/vminsights-overview)** : Azure Monitor für VMs überwacht Ihre virtuellen Azure- und Azure Stack Hub-Computer (VMs) und VM-Skalierungsgruppen bedarfsorientiert. Der Dienst analysiert die Leistung und Integrität Ihrer Windows- und Linux-VMs und überwacht außerdem deren Prozesse und Abhängigkeiten von anderen Ressourcen und externen Prozessen.
 
 > [!IMPORTANT]
 > Diese Lösungen sind identisch mit den Lösungen, die zum Verwalten von virtuellen Azure-Computern verwendet werden. Sowohl Azure- als auch Azure Stack Hub-VMs werden auf die gleiche Weise, unter Verwendung der gleichen Benutzeroberfläche und mit den gleichen Tools verwaltet. Für Azure Stack Hub-VMs gelten für die Verwendung von Updateverwaltung, Änderungsnachverfolgung, Bestandsnachverfolgung und Azure Monitor für VMs mit Azure Stack Hub die gleichen Preise wie für Azure-VMs.
@@ -37,9 +37,9 @@ Um die Azure Automation-Features Azure Monitor für VMs, Bestands- und Änderung
 > [!TIP]
 > Wenn Sie diese Features bereits für virtuelle Azure-Computer aktiviert haben, können Sie die bereits vorhandenen Anmeldeinformationen für den LogAnalytics-Arbeitsbereich verwenden. Wenn Sie bereits über eine LogAnalytics-WorkspaceID und einen Primärschlüssel verfügen, die bzw. den Sie verwenden möchten, fahren Sie [mit dem nächsten Abschnitt fort](./vm-update-management.md#in-the-azure-stack-hub-administrator-portal). Andernfalls fahren Sie mit diesem Abschnitt fort, um einen neuen LogAnalytics-Arbeitsbereich und ein Automation-Konto zu erstellen.
 
-Der erste Schritt zur Aktivierung dieser Lösungen besteht darin, [einen LogAnalytics-Arbeitsbereich](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) in Ihrem Azure-Abonnement zu erstellen. Ein Log Analytics-Arbeitsbereich ist eine eigene Azure Monitor-Umgebung mit eigenem Datenrepository, eigenen Datenquellen und eigenen Lösungen. Nachdem Sie einen Arbeitsbereich erstellt haben, notieren Sie sich die WorkspaceID und den Schlüssel. Um diese Informationen anzuzeigen, wechseln Sie zum Blatt „Arbeitsbereich“, klicken Sie auf **Erweiterte Einstellungen**, und überprüfen Sie dann die Werte für die **Arbeitsbereich-ID** und den **Primärschlüssel**. 
+Der erste Schritt zur Aktivierung dieser Lösungen besteht darin, [einen LogAnalytics-Arbeitsbereich](/azure/log-analytics/log-analytics-quick-create-workspace) in Ihrem Azure-Abonnement zu erstellen. Ein Log Analytics-Arbeitsbereich ist eine eigene Azure Monitor-Umgebung mit eigenem Datenrepository, eigenen Datenquellen und eigenen Lösungen. Nachdem Sie einen Arbeitsbereich erstellt haben, notieren Sie sich die WorkspaceID und den Schlüssel. Um diese Informationen anzuzeigen, wechseln Sie zum Blatt „Arbeitsbereich“, klicken Sie auf **Erweiterte Einstellungen**, und überprüfen Sie dann die Werte für die **Arbeitsbereich-ID** und den **Primärschlüssel**. 
 
-Im nächsten Schritt müssen Sie ein [Automation-Konto erstellen](https://docs.microsoft.com/azure/automation/automation-create-standalone-account). Ein Automation-Konto ist ein Container für Ihre Azure Automation-Ressourcen. Es bietet eine Möglichkeit, Ihre Umgebungen zu trennen oder Ihre Automation-Workflows und -Ressourcen besser zu organisieren. Nachdem das Automation-Konto erstellt wurde, müssen Sie das Bestands- und Änderungsnachverfolgungs- sowie das Updateverwaltungsfeature aktivieren. Gehen Sie folgendermaßen vor, um die einzelnen Funktionen zu aktivieren:
+Im nächsten Schritt müssen Sie ein [Automation-Konto erstellen](/azure/automation/automation-create-standalone-account). Ein Automation-Konto ist ein Container für Ihre Azure Automation-Ressourcen. Es bietet eine Möglichkeit, Ihre Umgebungen zu trennen oder Ihre Automation-Workflows und -Ressourcen besser zu organisieren. Nachdem das Automation-Konto erstellt wurde, müssen Sie das Bestands- und Änderungsnachverfolgungs- sowie das Updateverwaltungsfeature aktivieren. Gehen Sie folgendermaßen vor, um die einzelnen Funktionen zu aktivieren:
 
 1. Navigieren Sie im Azure-Portal zu dem Automation-Konto, das Sie verwenden möchten.
 
@@ -65,7 +65,7 @@ Als Lösung umfasst Azure Monitor für VMs die Unterstützung für die Überwach
 
 3. Eine Abhängigkeitszuordnung zeigt die mit der VM verbundenen Komponenten aus verschiedenen Ressourcengruppen und Abonnements an.
 
-Aktivieren Sie nach der Erstellung des Log Analytics-Arbeitsbereichs die Leistungsindikatoren im Arbeitsbereich für die Sammlung auf Linux- und Windows-VMs. Installieren und aktivieren Sie anschließend die Projektmappen „ServiceMap“ und „InfrastructureInsights“ in Ihrem Arbeitsbereich. Der Prozess wird in der Anleitung [Bereitstellen von Azure Monitor für VMs](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview) beschrieben.
+Aktivieren Sie nach der Erstellung des Log Analytics-Arbeitsbereichs die Leistungsindikatoren im Arbeitsbereich für die Sammlung auf Linux- und Windows-VMs. Installieren und aktivieren Sie anschließend die Projektmappen „ServiceMap“ und „InfrastructureInsights“ in Ihrem Arbeitsbereich. Der Prozess wird in der Anleitung [Bereitstellen von Azure Monitor für VMs](/azure/azure-monitor/insights/vminsights-enable-overview) beschrieben.
 
 ### <a name="in-the-azure-stack-hub-administrator-portal"></a>Im Azure Stack Hub-Administratorportal
 Nachdem Sie die Azure Automation-Lösungen im Azure-Portal aktiviert haben, müssen Sie sich als Nächstes als Cloudadministrator beim Azure Stack Hub-Administratorportal anmelden und die Erweiterungen **Azure Monitor, Update- und Konfigurationsverwaltung** und **Azure Monitor, Update- und Konfigurationsverwaltung für Linux** aus dem Azure Stack Hub-Marketplace herunterladen.
@@ -89,7 +89,7 @@ Führen Sie die folgenden Schritte aus, um die Updateverwaltung für Azure Stack
 
    [![](media//vm-update-management/4-sm.PNG "Providing the WorkspaceID and Key")](media//vm-update-management/4-lg.PNG) 
 
-4. Wie in der [Dokumentation zur Updateverwaltung](https://docs.microsoft.com/azure/automation/automation-update-management) beschrieben, müssen Sie die Updateverwaltungslösung für jeden virtuellen Computer aktivieren, den Sie verwalten möchten. Um die Lösung für alle virtuellen Computer zu aktivieren, die den Arbeitsbereich verwenden, wählen Sie **Updateverwaltung** aus, klicken Sie auf **Computer verwalten**, und wählen Sie dann die Option **Auf allen verfügbaren und zukünftigen Computern aktivieren** aus.
+4. Wie in der [Dokumentation zur Updateverwaltung](/azure/automation/automation-update-management) beschrieben, müssen Sie die Updateverwaltungslösung für jeden virtuellen Computer aktivieren, den Sie verwalten möchten. Um die Lösung für alle virtuellen Computer zu aktivieren, die den Arbeitsbereich verwenden, wählen Sie **Updateverwaltung** aus, klicken Sie auf **Computer verwalten**, und wählen Sie dann die Option **Auf allen verfügbaren und zukünftigen Computern aktivieren** aus.
 
    [![](media//vm-update-management/5-sm.PNG "Enable Update Management solution on all machines")](media//vm-update-management/5-lg.PNG) 
 
@@ -109,7 +109,7 @@ Die Azure Stack Hub-VMs können nun zusammen mit den Azure-VMs in geplante Updat
 
 ##  <a name="create-an-update-deployment-schedule"></a>Erstellen eines Zeitplans für die Updatebereitstellung
 
-Um einen Zeitplan für die Updatebereitstellung zu erstellen, müssen Sie die Computer mit einem PowerShell-Cmdlet oder der Azure-Rest-API übergeben. Erstellen Sie den Zeitplan für Ihre Computer mit dem folgenden PowerShell-Beispiel. Sie können das Cmdlet **[New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule)** mit dem Parameter `ForUpdateConfiguration` verwenden, um einen Zeitplan zu erstellen. Verwenden Sie dann das Cmdlet **[New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsoftwareupdateconfiguration)** , und übergeben Sie die Azure Stack Hub-Computer an den Parameter `NonAzureComputer`. Zum Ausführen dieses Skripts müssen Sie das globale [Azure PowerShell Az-Modul](https://docs.microsoft.com/powershell/azure/) verwenden.
+Um einen Zeitplan für die Updatebereitstellung zu erstellen, müssen Sie die Computer mit einem PowerShell-Cmdlet oder der Azure-Rest-API übergeben. Erstellen Sie den Zeitplan für Ihre Computer mit dem folgenden PowerShell-Beispiel. Sie können das Cmdlet **[New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule)** mit dem Parameter `ForUpdateConfiguration` verwenden, um einen Zeitplan zu erstellen. Verwenden Sie dann das Cmdlet **[New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/az.automation/new-azautomationsoftwareupdateconfiguration)** , und übergeben Sie die Azure Stack Hub-Computer an den Parameter `NonAzureComputer`. Zum Ausführen dieses Skripts müssen Sie das globale [Azure PowerShell Az-Modul](/powershell/azure/) verwenden.
 
 Dies wird anhand des folgenden Beispiels veranschaulicht:
 
@@ -124,21 +124,21 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 ```
 
 ## <a name="enable-azure-monitor-for-vms-running-on-azure-stack-hub"></a>Aktivieren von Azure Monitor für VMs, die in Azure Stack Hub ausgeführt werden
-Sobald die VM die Erweiterungen **Azure Monitor, Update- und Konfigurationsverwaltung** und **Azure Monitor-Dependency-Agent** installiert hat, beginnt sie mit dem Melden von Daten in der [Azure Monitor für VMs](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)-Lösung. 
+Sobald die VM die Erweiterungen **Azure Monitor, Update- und Konfigurationsverwaltung** und **Azure Monitor-Dependency-Agent** installiert hat, beginnt sie mit dem Melden von Daten in der [Azure Monitor für VMs](/azure/azure-monitor/insights/vminsights-overview)-Lösung. 
 
 > [!TIP]
-> Für die Erweiterung **Azure Monitor- Dependency-Agent** sind keine Parameter erforderlich. Der Dependency-Agent für das Zuordnungsfeature von Azure Monitor für VMs überträgt selbst keine Daten und erfordert keine Änderungen an Firewalls oder Ports. Die Zuordnungsdaten werden immer vom Log Analytics-Agent an den Azure Monitor-Dienst übertragen, entweder direkt oder über das [OMS-Gateway](https://docs.microsoft.com/azure/azure-monitor/platform/gateway), falls Ihre IT-Sicherheitsrichtlinien es nicht zulassen, dass Computer im Netzwerk eine Verbindung mit dem Internet herstellen.
+> Für die Erweiterung **Azure Monitor- Dependency-Agent** sind keine Parameter erforderlich. Der Dependency-Agent für das Zuordnungsfeature von Azure Monitor für VMs überträgt selbst keine Daten und erfordert keine Änderungen an Firewalls oder Ports. Die Zuordnungsdaten werden immer vom Log Analytics-Agent an den Azure Monitor-Dienst übertragen, entweder direkt oder über das [OMS-Gateway](/azure/azure-monitor/platform/gateway), falls Ihre IT-Sicherheitsrichtlinien es nicht zulassen, dass Computer im Netzwerk eine Verbindung mit dem Internet herstellen.
 
 Azure Monitor für VMs beinhaltet einen Satz Leistungsdiagramme, die auf verschiedene Key Performance Indicators (KPIs) abzielen, um Sie beim Bestimmen der Leistung eines virtuellen Computers zu unterstützen. Die Diagramme zeigen die Ressourcenverwendung über einen Zeitraum, sodass Sie Engpässe und Anomalien identifizieren können. Sie können auch zu einer Perspektive wechseln, die jeden Computer auflistet, um die Ressourcenverwendung auf der Grundlage der ausgewählten Metrik darzustellen. Beim Thema Leistung sind zwar viele Elemente zu berücksichtigen, Azure Monitor für VMs überwacht jedoch Betriebssystem-Key Performance Indicators im Zusammenhang mit Prozessor, Arbeitsspeicher, Netzwerkadapter und Datenträgerverwendung. Leistungsdiagramme ergänzen die Funktion zur Integritätsüberprüfung und helfen dabei, Probleme offenzulegen, die auf einen möglichen Ausfall einer Systemkomponente hinweisen. Azure Monitor für VMS unterstützt außerdem die Kapazitätsplanung, -feinabstimmung und -optimierung, um Effizienz zu erzielen.
 
-   ![Registerkarte „Leistung“ für Azure Monitor-VMs](https://docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-performance/vminsights-performance-aggview-01.png)
+   ![Registerkarte „Leistung“ für Azure Monitor-VMs](/azure/azure-monitor/insights/media/vminsights-performance/vminsights-performance-aggview-01.png)
 
 Das Anzeigen der ermittelten App-Komponenten auf Windows- und Linux-VMs, die in Azure Stack Hub ausgeführt werden, kann mit Azure Monitor für VMs auf zwei Arten erfolgen. Erstens direkt in einer VM und zweitens übergreifend für Gruppen von VMs in Azure Monitor.
-Der Artikel [Verwenden der Zuordnung in Azure Monitor für VMs zum Verstehen von Anwendungskomponenten](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-maps) hilft Ihnen, die Erfahrungen zwischen den beiden Perspektiven und die Verwendung der Zuordnungsfunktion zu verstehen.
+Der Artikel [Verwenden der Zuordnung in Azure Monitor für VMs zum Verstehen von Anwendungskomponenten](/azure/azure-monitor/insights/vminsights-maps) hilft Ihnen, die Erfahrungen zwischen den beiden Perspektiven und die Verwendung der Zuordnungsfunktion zu verstehen.
 
-   ![Registerkarte „Azure Monitor VMs Map“ (Azure Monitor-VM-Karte)](https://docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
+   ![Registerkarte „Azure Monitor VMs Map“ (Azure Monitor-VM-Karte)](/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Falls Ihnen [Azure Monitor für VMs](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) keine Leistungsdaten anzeigt, müssen Sie die Sammlung von Leistungsdaten für Windows und Linux in den „Erweiterten Einstellungen“ Ihres [LogAnalytics-Arbeitsbereichs](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters) aktivieren.
+Falls Ihnen [Azure Monitor für VMs](/azure/azure-monitor/insights/vminsights-overview) keine Leistungsdaten anzeigt, müssen Sie die Sammlung von Leistungsdaten für Windows und Linux in den „Erweiterten Einstellungen“ Ihres [LogAnalytics-Arbeitsbereichs](/azure/azure-monitor/platform/data-sources-performance-counters) aktivieren.
 
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Aktivieren der Updateverwaltung mithilfe einer Resource Manager-Vorlage
 Wenn Sie eine große Anzahl von Azure Stack Hub-VMs verwenden, können Sie [diese Azure Resource Manager-Vorlage](https://aka.ms/aa6zdzy) verwenden, um die Lösung einfacher auf den VMs bereitzustellen. Die Vorlage stellt die Microsoft Monitoring Agent-Erweiterung auf einer vorhandenen Azure Stack Hub-VM bereit und fügt sie einem vorhandenen Azure LogAnalytics-Arbeitsbereich hinzu.

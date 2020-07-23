@@ -8,18 +8,18 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: 6d5c80403a355186632c245baecd0796ac3acbf9
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: ce3f6e0542678fe2d399e101a90a916cf412599f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630987"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487718"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Erstellen hochverfügbarer SQL-Datenbanken mit Azure Stack Hub
 
 Als Azure Stack Hub-Operator können Sie virtuelle Servercomputer zum Hosten von SQL Server-Datenbanken konfigurieren. Wenn ein SQL-Hostserver erstellt und über Azure Stack Hub verwaltet wird, können Benutzer, die SQL-Dienste abonniert haben, ganz einfach SQL-Datenbanken erstellen.
 
-Dieser Artikel zeigt, wie Sie eine Azure Stack Hub-Schnellstartvorlage verwenden, um eine [SQL Server-Always On-Verfügbarkeitsgruppe](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) zu erstellen, diese als Azure Stack Hub-SQL-Hostserver hinzufügen und dann eine hochverfügbare SQL-Datenbank erstellen.
+Dieser Artikel zeigt, wie Sie eine Azure Stack Hub-Schnellstartvorlage verwenden, um eine [SQL Server-Always On-Verfügbarkeitsgruppe](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) zu erstellen, diese als Azure Stack Hub-SQL-Hostserver hinzufügen und dann eine hochverfügbare SQL-Datenbank erstellen.
 
 Sie lernen Folgendes:
 
@@ -37,7 +37,7 @@ Vergewissern Sie sich, dass der [SQL Server-Ressourcenanbieter](azure-stack-sql-
 
 - Windows Server 2016 Datacenter.
 - SQL Server 2016 SP1 oder SP2 (Enterprise, Standard oder Developer) im Windows Server 2016-Serverimage. 
-- [Erweiterung für SQL Server-IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), Version 1.3.20180 oder höher. SQL Server IaaS Extension installiert Komponenten, die von den SQL Server-Elementen im Marketplace für alle Windows-Versionen benötigt werden. Diese Erweiterung ermöglicht die Konfiguration von SQL-spezifischen Einstellungen auf virtuellen SQL-Computern. Wenn die Erweiterung nicht im lokalen Marketplace installiert ist, kann SQL nicht bereitgestellt werden.
+- [Erweiterung für SQL Server-IaaS](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), Version 1.3.20180 oder höher. SQL Server IaaS Extension installiert Komponenten, die von den SQL Server-Elementen im Marketplace für alle Windows-Versionen benötigt werden. Diese Erweiterung ermöglicht die Konfiguration von SQL-spezifischen Einstellungen auf virtuellen SQL-Computern. Wenn die Erweiterung nicht im lokalen Marketplace installiert ist, kann SQL nicht bereitgestellt werden.
 - [Custom Script Extension für Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) Version 1.9.1 oder höher. Custom Script Extension ist ein Tool, das zum automatischen Starten von VM-Anpassungstasks nach der Bereitstellung verwendet werden kann.
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) Version 2.76.0.0 oder höher. DSC ist eine Verwaltungsplattform in Windows PowerShell, die die Bereitstellung und Verwaltung von Konfigurationsdaten für Softwaredienste ermöglicht. Die Plattform verwaltet darüber hinaus die Umgebung, in der diese Dienste ausgeführt werden.
 
@@ -91,7 +91,7 @@ Mit den Schritten in diesem Abschnitt stellen Sie mithilfe der [Azure Stack Hub-
 
 ### <a name="enable-automatic-seeding"></a>Aktivieren des automatischen Seedings
 
-Nachdem die Vorlage erfolgreich bereitgestellt und die SQL-Always On-Verfügbarkeitsgruppe damit erstellt wurde, müssen Sie in jeder SQL Server-Instanz in der Verfügbarkeitsgruppe das [automatische Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) aktivieren.
+Nachdem die Vorlage erfolgreich bereitgestellt und die SQL-Always On-Verfügbarkeitsgruppe damit erstellt wurde, müssen Sie in jeder SQL Server-Instanz in der Verfügbarkeitsgruppe das [automatische Seeding](/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) aktivieren.
 
 Wenn Sie eine Verfügbarkeitsgruppe mit automatischem Seeding erstellen, erstellt SQL Server automatisch und ohne jegliches manuelles Eingreifen die sekundären Replikate für jede Datenbank in der Gruppe. Dadurch wird die Hochverfügbarkeit der Always On-Datenbanken sichergestellt.
 
@@ -124,7 +124,7 @@ Auf sekundären SQL Server-Instanzen:
 
 ### <a name="configure-contained-database-authentication"></a>Konfigurieren der Authentifizierung der eigenständigen Datenbank
 
-Stellen Sie vor dem Hinzufügen einer eigenständigen Datenbank zu einer Verfügbarkeitsgruppe sicher, dass die Serveroption für die Authentifizierung der eigenständigen Datenbank für jede Serverinstanz auf 1 festgelegt ist, die ein Verfügbarkeitsreplikat für die Verfügbarkeitsgruppe hostet. Weitere Informationen finden Sie unter [Contained Database Authentication (Serverkonfigurationsoption)](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Stellen Sie vor dem Hinzufügen einer eigenständigen Datenbank zu einer Verfügbarkeitsgruppe sicher, dass die Serveroption für die Authentifizierung der eigenständigen Datenbank für jede Serverinstanz auf 1 festgelegt ist, die ein Verfügbarkeitsreplikat für die Verfügbarkeitsgruppe hostet. Weitere Informationen finden Sie unter [Contained Database Authentication (Serverkonfigurationsoption)](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
 Verwenden Sie diese Befehle, um die Serveroption „contained database authentication“ zur Authentifizierung der eigenständigen Datenbank für jede SQL Server-Instanz in der Verfügbarkeitsgruppe festzulegen:
 

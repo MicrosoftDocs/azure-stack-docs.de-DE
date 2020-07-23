@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 789f516355407a5b1c69c4c359b8377a63e06123
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 75c92eeaf37bbf519bc72bb189c60253cace6627
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111401"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566701"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>Bereitstellen von Kubernetes für die Verwendung von Containern in Azure Stack Hub
 
@@ -59,4 +59,4 @@ Sie können zudem den **Helm**-Paket-Manager zum Installieren und Bereitstellen 
 
 [Bereitstellen von Kubernetes in Azure Stack Hub mithilfe der Active Directory-Verbunddienste (Active Directory Federated Services, AD FS)](azure-stack-solution-template-kubernetes-adfs.md)
 
-[Kubernetes in Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+[Kubernetes in Azure](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

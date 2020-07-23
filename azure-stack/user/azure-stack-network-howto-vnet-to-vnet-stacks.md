@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 7a109786a0b7be75977e0f2d505752d41031b33c
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: e6dcf70f32289498b4d9adcaaeb371806f3a2370
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631319"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567432"
 ---
 # <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Einrichten einer VNET-zu-VNET-Verbindung in Azure Stack Hub per Fortinet FortiGate NVA
 
@@ -25,7 +25,7 @@ In diesem Artikel wird die derzeit geltende Azure Stack Hub-Einschränkung besch
 -  Zugriff auf ein integriertes Azure Stack Hub-System mit verfügbarer Kapazität, um die erforderlichen Compute-, Netzwerk- und Ressourcenanforderungen für diese Lösung zu erfüllen. 
 
     > [!Note]  
-    > Diese Anleitung funktioniert aufgrund der Netzwerkeinschränkungen des Azure Stack Development Kit (ASDK) **nicht** für das ASDK. Weitere Informationen finden Sie unter [Anforderungen und Überlegungen zu ASDK](https://docs.microsoft.com/azure-stack/asdk/asdk-deploy-considerations).
+    > Diese Anleitung funktioniert aufgrund der Netzwerkeinschränkungen des Azure Stack Development Kit (ASDK) **nicht** für das ASDK. Weitere Informationen finden Sie unter [Anforderungen und Überlegungen zu ASDK](../asdk/asdk-deploy-considerations.md).
 
 -  Eine Lösung für ein virtuelles Netzwerkgerät (Network Virtual Appliance, NVA), die heruntergeladen und im Azure Stack Hub-Marketplace veröffentlicht wird. Mit einem virtuellen Netzwerkgerät (Network Virtual Appliance, NVA) wird der Fluss des Netzwerkdatenverkehrs aus einem Umkreisnetzwerk in andere Netzwerke oder Subnetze gesteuert. In diesem Verfahren wird die Lösung [FortiGate Next-Generation Firewall – Single VM](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm) genutzt.
 

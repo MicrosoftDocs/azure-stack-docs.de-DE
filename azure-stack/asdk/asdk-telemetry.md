@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: df742ed6c0a2b082aaddd4498c313474a47c6227
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 455ad320466d1306b1bded888ff8ff0c0fbb52c7
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80362176"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489962"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack-Telemetriedaten
 
@@ -23,7 +23,7 @@ Telemetriedaten liefern Azure Stack-Betreibern wertvolle Einblicke in Unternehme
 > [!NOTE]
 > Azure Stack kann auch für die Weiterleitung abrechnungsrelevanter Nutzungsinformationen an Azure konfiguriert werden. Dies ist für Azure Stack-Kunden mit mehreren Knoten erforderlich, die sich für nutzungsbasierte Bezahlung entscheiden. Verwendungsberichte werden unabhängig von Telemetriedaten gesteuert und sind für Kunden mit mehreren Knoten, die sich für das Kapazitätsmodell entscheiden, sowie für Azure Stack Development Kit-Benutzer (ASDK) nicht erforderlich. Für diese Szenarien können Verwendungsberichte [mithilfe des Registrierungsskripts](../operator/azure-stack-usage-reporting.md) deaktiviert werden.
 
-Azure Stack-Telemetriedaten basieren auf der Komponente *Benutzererfahrung und Telemetrie im verbundenen Modus von Windows Server 2016*. Diese verwendet die Ablaufprotokollierungstechnologie [Ereignisablaufverfolgung für Windows (Event Tracing for Windows, ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) zur Erfassung und Speicherung von Telemetrieereignissen und -daten. Die gleiche Protokollierungstechnologie wird von Azure Stack-Komponenten zum Veröffentlichen von Ereignissen und Daten verwendet, die mithilfe der öffentlichen APIs für die Protokollierung und Nachverfolgung von Betriebssystemereignissen erfasst werden. Beispiele für Azure Stack-Komponenten sind etwa Netzwerkressourcenanbieter, Speicherressourcenanbieter, Überwachungsressourcenanbieter und Aktualisierungsressourcenanbieter. Die Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ verschlüsselt Daten per SSL und nutzt das Anheften von Zertifikaten, um Telemetriedaten über HTTPS an den Datenverwaltungsdienst von Microsoft zu übertragen.
+Azure Stack-Telemetriedaten basieren auf der Komponente *Benutzererfahrung und Telemetrie im verbundenen Modus von Windows Server 2016*. Diese verwendet die Ablaufprotokollierungstechnologie [Ereignisablaufverfolgung für Windows (Event Tracing for Windows, ETW)](/windows/win32/tracelogging/trace-logging-about) zur Erfassung und Speicherung von Telemetrieereignissen und -daten. Die gleiche Protokollierungstechnologie wird von Azure Stack-Komponenten zum Veröffentlichen von Ereignissen und Daten verwendet, die mithilfe der öffentlichen APIs für die Protokollierung und Nachverfolgung von Betriebssystemereignissen erfasst werden. Beispiele für Azure Stack-Komponenten sind etwa Netzwerkressourcenanbieter, Speicherressourcenanbieter, Überwachungsressourcenanbieter und Aktualisierungsressourcenanbieter. Die Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ verschlüsselt Daten per SSL und nutzt das Anheften von Zertifikaten, um Telemetriedaten über HTTPS an den Datenverwaltungsdienst von Microsoft zu übertragen.
 
 > [!NOTE]
 > Zur Unterstützung des Telemetriedatenflusses muss Port 443 (HTTPS) in Ihrem Netzwerk geöffnet sein. Die Komponente „Benutzererfahrung und Telemetrie im verbundenen Modus“ stellt unter `https://v10.vortex-win.data.microsoft.com` eine Verbindung mit dem Datenverwaltungsdienst von Microsoft und außerdem eine mit `https://settings-win.data.microsoft.com` her, um Konfigurationsinformationen herunterzuladen.

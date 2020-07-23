@@ -7,12 +7,12 @@ ms.date: 04/07/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: 186559752531021ff74833ac71184e692d40a04d
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: dc143c4cfc6beec14891caa7e23d3f058f49eae5
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643579"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567670"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Herstellen einer Verbindung zwischen Azure Stack Hub und Azure über ein VPN
 
@@ -318,4 +318,4 @@ Im Abschnitt **Verbindung** können Sie die Datenmenge ermitteln, die über die 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Bereitstellen von Apps in Azure und Azure Stack Hub](azure-stack-solution-pipeline.md)
+* [Bereitstellen von Apps in Azure und Azure Stack Hub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/hybrid-devops)

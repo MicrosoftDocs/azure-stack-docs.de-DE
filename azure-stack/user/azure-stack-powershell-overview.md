@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: b54e8a184c90408c0d27054446a91f09c34749fb
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 9731586043f42358bef0e8e37f9de7e23feebbff
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111810"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567041"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Erste Schritte mit PowerShell in Azure Stack Hub
 
@@ -22,9 +22,9 @@ Dieser Artikel hilft Ihnen bei der Orientierung in Bezug auf die verschiedenen P
 
 | API | PowerShell-Referenz | REST-Referenz |
 | --- | --- | --- |
-| Azure Resource Manager (global) | [Azure PowerShell-Module](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [REST-API-Browser](https://docs.microsoft.com/rest/api/) |
+| Azure Resource Manager (global) | [Azure PowerShell-Module](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [REST-API-Browser](/rest/api/) |
 | Azure Stack Hub: Resource Manager | [Verwalten von API-Versionsprofilen in Azure Stack Hub](azure-stack-version-profiles.md) | [Verwalten von API-Versionsprofilen in Azure Stack Hub](azure-stack-version-profiles.md) |
-| Azure Stack Hub-Administratorendpunkte | [Azure Stack Hub-Administratormodul](https://docs.microsoft.com/powershell/azure/azure-stack/overview) | [REST-API-Browser – Azure Stack Hub](https://docs.microsoft.com/rest/api/?term=Azure%20Azure%20Stack%20Admin) |
+| Azure Stack Hub-Administratorendpunkte | [Azure Stack Hub-Administratormodul](/powershell/azure/azure-stack/overview) | [REST-API-Browser – Azure Stack Hub](/rest/api/?term=Azure Azure Stack Admin) |
 | Privilegierter Endpunkt in Azure Stack Hub | [Verwenden des privilegierten Endpunkts in Azure Stack Hub](../operator/azure-stack-privileged-endpoint.md) | |
 
 Jede Schnittstelle kontaktiert Ressourcenanbieter in globalen Azure- oder Azure Stack Hub-Umgebungen. Ressourcenanbieter aktivieren Azure-Funktionen. Beispielweise ermöglicht der Azure Compute-Ressourcenanbieter programmatischen Zugriff auf die Erstellung und Verwaltung von virtuellen Computern und deren unterstützenden Ressourcen.
@@ -39,7 +39,7 @@ Im folgenden Blockdiagramm sind die Beziehungen zwischen den Sätzen mit den Pow
 
 ### <a name="global-azure"></a>Globale Azure-Umgebung
 
-Azure PowerShell enthält eine Reihe von Cmdlets, für die die aktuelle Version von Azure Resource Manager für die Arbeit mit Ihren Azure-Ressourcen verwendet wird. Für Azure PowerShell wird die .NET Standard-Version verwendet. Dies bedeutet, dass Sie Versionen von PowerShell mit Windows, macOS und Linux nutzen können. Azure PowerShell steht auch in Azure Cloud Shell zur Verfügung. Weitere Informationen finden Sie unter [Erste Schritte mit Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Azure PowerShell enthält eine Reihe von Cmdlets, für die die aktuelle Version von Azure Resource Manager für die Arbeit mit Ihren Azure-Ressourcen verwendet wird. Für Azure PowerShell wird die .NET Standard-Version verwendet. Dies bedeutet, dass Sie Versionen von PowerShell mit Windows, macOS und Linux nutzen können. Azure PowerShell steht auch in Azure Cloud Shell zur Verfügung. Weitere Informationen finden Sie unter [Erste Schritte mit Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ### <a name="azure-stack-hub-resource-manager"></a>Azure Stack Hub: Resource Manager
 

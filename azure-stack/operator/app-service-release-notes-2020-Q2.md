@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 57cdd5ed496d0792f2d36f1e12d5fb8fce1d4370
-ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
+ms.openlocfilehash: 9a04f99df8093f0f37d68137dfbe9ff18664d385
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82861400"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489741"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>App Service on Azure Stack Hub 2020 Q2: Versionshinweise
 
@@ -119,7 +119,7 @@ Für ASDK-Bereitstellungen können Sie die Instanzen auf niedrigere SKUs abskali
 ## <a name="post-deployment-steps"></a>Schritte nach der Bereitstellung
 
 > [!IMPORTANT]
-> Wenn Sie den App Service-Ressourcenanbieter mit einer SQL Always On-Instanz bereitgestellt haben, MÜSSEN Sie [die Datenbanken „appservice_hosting“ und „appservice_metering“ einer Verfügbarkeitsgruppe hinzufügen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) und die Datenbanken synchronisieren, damit es im Falle eines Datenbankfailovers nicht zu Dienstausfällen kommt.
+> Wenn Sie den App Service-Ressourcenanbieter mit einer SQL Always On-Instanz bereitgestellt haben, MÜSSEN Sie [die Datenbanken „appservice_hosting“ und „appservice_metering“ einer Verfügbarkeitsgruppe hinzufügen](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) und die Datenbanken synchronisieren, damit es im Falle eines Datenbankfailovers nicht zu Dienstausfällen kommt.
 
 ## <a name="known-issues-update"></a>Bekannte Probleme (Update)
 

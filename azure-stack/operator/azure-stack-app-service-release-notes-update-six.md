@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 974b338ff7da9bd4442d4aadc02d475bd01686df
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 932686cb52e7aa2a1aa1c948e1ab5d5469d4bf30
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374624"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489588"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 6
 
@@ -78,7 +78,7 @@ Update 6 für Azure App Service in Azure Stack Hub enthält die folgenden Verbe
 ## <a name="post-deployment-steps"></a>Schritte nach der Bereitstellung
 
 > [!IMPORTANT]
-> Wenn Sie den App Service-Ressourcenanbieter mit einer SQL Always On-Instanz bereitgestellt haben, MÜSSEN Sie die [Datenbanken „appservice_hosting“ und „appservice_metering“ einer Verfügbarkeitsgruppe hinzufügen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) und synchronisieren, damit es bei einem Datenbankfailover nicht zu Dienstausfällen kommt.
+> Wenn Sie den App Service-Ressourcenanbieter mit einer SQL Always On-Instanz bereitgestellt haben, MÜSSEN Sie die [Datenbanken „appservice_hosting“ und „appservice_metering“ einer Verfügbarkeitsgruppe hinzufügen](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) und synchronisieren, damit es bei einem Datenbankfailover nicht zu Dienstausfällen kommt.
 
 ## <a name="known-issues-post-installation"></a>Bekannte Probleme (nach der Installation)
 
@@ -98,7 +98,7 @@ Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk u
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
 
-Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1908](/azure-stack/operator/release-notes?view=azs-1908).
+Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1908](./release-notes.md?view=azs-1908).
 
 ## <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme für Mandanten, die Anwendungen in Azure App Service in Azure Stack Hub bereitstellen
 

@@ -4,15 +4,17 @@ description: Hier erfahren Sie, wie Sie fehlerhafte Laufwerke in Azure Stack HC
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 06/24/2020
-ms.openlocfilehash: 93aa7035719fcfd6d96be0c21fc4616608e8af85
-ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
+ms.date: 07/21/2020
+ms.openlocfilehash: d3d03f1e5cc89186e2eb8198b52e96bffbd21768
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85764548"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866482"
 ---
 # <a name="replace-failed-drives-on-azure-stack-hci"></a>Ersetzen fehlerhafter Laufwerke in Azure Stack HCI
+
+> Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
 Azure Stack HCI arbeitet mit direkt verbundenen SATA-, SAS- oder NVME-Laufwerken oder Laufwerken für persistenten Speicher, die physisch an nur jeweils einen Server angeschlossen sind. Im Falle eines Laufwerksausfalls benötigen Sie Zugang zur physischen Serverhardware, um das Laufwerk auszutauschen.
 

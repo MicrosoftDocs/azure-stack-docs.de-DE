@@ -7,22 +7,22 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: aac2f9a0991bdae7f15d7fc54517a880ab384785
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: da15bfa9b19da8d65f54db86633b5ec300d76067
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80068943"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567721"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Clusters in einem benutzerdefinierten virtuellen Netzwerk in Azure Stack Hub 
 
 Sie können einen Kubernetes-Cluster mithilfe der AKS-Engine (Azure Kubernetes Service) in einem benutzerdefinierten virtuellen Netzwerk bereitstellen. In diesem Artikel erfahren Sie, wie Sie die benötigten Informationen in Ihrem virtuellen Netzwerk finden. Hier werden Schritte zum Berechnen der von Ihrem Cluster verwendeten IP-Adressen, zum Festlegen der Werte im API-Modell sowie zum Festlegen der Routingtabelle und der Netzwerksicherheitsgruppe beschrieben.
 
-Der Kubernetes-Cluster in Azure Stack Hub mit der AKS-Engine verwendet das kubenet-Netzwerk-Plug-In. Informationen zum kubenet-Netzwerk-Plug-In in Azure finden Sie unter [Verwenden von kubenet-Netzwerken mit Ihren eigenen IP-Adressbereichen in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-kubenet).
+Der Kubernetes-Cluster in Azure Stack Hub mit der AKS-Engine verwendet das kubenet-Netzwerk-Plug-In. Informationen zum kubenet-Netzwerk-Plug-In in Azure finden Sie unter [Verwenden von kubenet-Netzwerken mit Ihren eigenen IP-Adressbereichen in Azure Kubernetes Service (AKS)](/azure/aks/configure-kubenet).
 
 ## <a name="create-custom-virtual-network"></a>Erstellen des benutzerdefinierten virtuellen Netzwerks
 
-Sie müssen in Ihrer Azure Stack Hub-Instanz über ein benutzerdefiniertes virtuelles Netzwerk verfügen. Weitere Informationen finden Sie unter [Quickstart: Erstellen eines virtuellen Netzwerks im Azure-Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
+Sie müssen in Ihrer Azure Stack Hub-Instanz über ein benutzerdefiniertes virtuelles Netzwerk verfügen. Weitere Informationen finden Sie unter [Quickstart: Erstellen eines virtuellen Netzwerks im Azure-Portal](/azure/virtual-network/quick-create-portal).
 
 Erstellen Sie in Ihrem virtuellen Netzwerk ein neues Subnetz. Sie benötigen die Ressourcen-ID und den IP-Adressbereich des Subnetzes. Die Ressourcen-ID und der Bereich werden bei der Clusterbereitstellung in Ihrem API-Modell verwendet.
 
@@ -130,4 +130,4 @@ Kehren Sie nach der Clusterbereitstellung zu Ihrem virtuellen Netzwerk im Azure�
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Informieren Sie sich über die [AKS-Engine in Azure Stack Hub](azure-stack-kubernetes-aks-engine-overview.md).  
-- Lesen Sie [Azure Monitor für Container – Übersicht](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+- Lesen Sie [Azure Monitor für Container – Übersicht](/azure/azure-monitor/insights/container-insights-overview).

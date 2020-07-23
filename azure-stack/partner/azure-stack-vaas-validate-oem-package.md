@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4d62dcd1414edbc38b4407d980b7af974190c390
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: afbe701cb9943494329baec929aadbe62eaf8ada
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661415"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490234"
 ---
 # <a name="validate-oem-packages"></a>Überprüfen von OEM-Paketen
 
@@ -62,7 +62,7 @@ Wenn Sie im VaaS-Portal einen Workflow vom Typ **Paketvalidierung** erstellen, m
 
 Welche Zugriffsebene VaaS mindestens benötigt, hängt davon ab, ob Sie einen Workflow für die Paketvalidierung erstellen oder einen *interaktiven* Test planen.
 
-Im Fall der Zugriffsebenen **Private** und **Blob** müssen Sie vorübergehenden Zugriff auf das Paketblob gewähren, indem Sie VaaS eine [Shared Access Signature](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1?) (SAS) geben. Die **Container**-Zugriffsebene erfordert nicht, dass Sie SAS-URLs generieren, aber ermöglicht nicht authentifizierten Zugriff auf den Container und seine Blobs.
+Im Fall der Zugriffsebenen **Private** und **Blob** müssen Sie vorübergehenden Zugriff auf das Paketblob gewähren, indem Sie VaaS eine [Shared Access Signature](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) geben. Die **Container**-Zugriffsebene erfordert nicht, dass Sie SAS-URLs generieren, aber ermöglicht nicht authentifizierten Zugriff auf den Container und seine Blobs.
 
 |Zugriffsebene | Workflowanforderung | Testanforderung |
 |---|---------|---------|
@@ -119,7 +119,7 @@ Verwenden Sie diese Option, wenn es akzeptabel ist, nicht authentifizierten Clie
 > [!CAUTION]
 > Diese Option ermöglicht anonymen Lesezugriff auf Ihre Blobs.
 
-1. Legen Sie die Zugriffsebene des Paketcontainers auf **Blob** oder **Container** fest. Weitere Informationen finden Sie unter [Verwalten des anonymen Lesezugriffs auf Container und Blobs](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
+1. Legen Sie die Zugriffsebene des Paketcontainers auf **Blob** oder **Container** fest. Weitere Informationen finden Sie unter [Verwalten des anonymen Lesezugriffs auf Container und Blobs](/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
 
     > [!NOTE]
     > Wenn Sie eine Paket-URL für einen *interaktiven* Test angeben, müssen Sie **vollständigen öffentlichen Lesezugriff** auf den Container gewähren, um mit dem Testen fortzufahren.

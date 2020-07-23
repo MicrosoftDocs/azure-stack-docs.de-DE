@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 01/22/2020
-ms.openlocfilehash: fcfd453cf6ccbbbc8f5e65b9db475ab4fdad33b0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 84e32744a2a337f9a6c64c558195de02e3a7db92
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295071"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489163"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>Erstellen einer Site-to-Site-VPN-Verbindung zwischen zwei virtuellen Netzwerken in unterschiedlichen ASDK-Umgebungen
 
@@ -42,7 +42,7 @@ Zum Durchführen der Verbindungskonfiguration müssen Sie zwei ASDK-Umgebungen b
 
 ## <a name="prepare-an-offer-on-poc1-and-poc2"></a>Vorbereiten eines Angebots in POC1 und POC2
 
-Bereiten Sie sowohl in POC1 als auch POC2 ein Angebot vor, damit ein Benutzer das Angebot abonnieren kann, und stellen Sie die virtuellen Computer (VMs) bereit. Informationen zum Erstellen eines Angebots finden Sie unter [Verfügbarmachen von virtuellen Computern für Ihre Azure Stack Hub-Benutzer](azure-stack-tutorial-tenant-vm.md).
+Bereiten Sie sowohl in POC1 als auch POC2 ein Angebot vor, damit ein Benutzer das Angebot abonnieren kann, und stellen Sie die virtuellen Computer (VMs) bereit. Informationen zum Erstellen eines Angebots finden Sie unter [Verfügbarmachen von virtuellen Computern für Ihre Azure Stack Hub-Benutzer](./tutorial-offer-services.md?view=azs-2002).
 
 ## <a name="review-and-complete-the-network-configuration-table"></a>Überprüfen und Ausfüllen der Netzwerk-Konfigurationstabelle
 

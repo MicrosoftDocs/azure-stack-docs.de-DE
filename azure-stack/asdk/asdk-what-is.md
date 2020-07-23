@@ -7,15 +7,15 @@ ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 197d1b47b3127b21f3b843a77a57642894270a71
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 38aaf52936d09c999765118e36bfcde909409cdd
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819239"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489911"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Was ist das Azure Stack Development Kit (ASDK)?
-[Integrierte Microsoft Azure Stack Hub-Systeme](../operator/azure-stack-overview.md) haben eine Größe von 4 bis 16 Knoten, und der Support wird von einem Hardwarepartner und von Microsoft gemeinsam bereitgestellt. Mit integrierten Azure Stack Hub-Systemen ermöglichen Sie neue Szenarien für Ihre Produktionsworkloads. Wenn Sie ein Azure Stack Hub-Betreiber sind, der die Infrastruktur integrierter Systeme verwaltet und Dienste anbietet, hilft Ihnen die [Dokumentation für Betreiber](/azure-stack/operator) weiter.
+[Integrierte Microsoft Azure Stack Hub-Systeme](../operator/azure-stack-overview.md) haben eine Größe von 4 bis 16 Knoten, und der Support wird von einem Hardwarepartner und von Microsoft gemeinsam bereitgestellt. Mit integrierten Azure Stack Hub-Systemen ermöglichen Sie neue Szenarien für Ihre Produktionsworkloads. Wenn Sie ein Azure Stack Hub-Betreiber sind, der die Infrastruktur integrierter Systeme verwaltet und Dienste anbietet, hilft Ihnen die [Dokumentation für Betreiber](../operator/index.yml) weiter.
 
 Das ASDK ist eine Azure Stack Hub-Bereitstellung mit einem einzelnen Knoten, die Sie **kostenlos** herunterladen und verwenden können. Alle ASDK-Komponenten werden auf virtuellen Computern installiert, die auf einem einzelnen Hostcomputer ausgeführt werden, der die [Mindesthardwareanforderungen](asdk-deploy-considerations.md#hardware) erfüllen muss. Das ASDK stellt eine *produktionsfremde* Umgebung bereit, in der Sie anhand von mit Azure konsistenten APIs und Tools Azure Stack Hub evaluieren und moderne Anwendungen entwickeln können. 
 

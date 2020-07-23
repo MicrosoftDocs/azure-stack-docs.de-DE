@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 5d2f30813cc0a7a42e376ec7fb9c76be1f7994eb
-ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
+ms.openlocfilehash: b30016866f0d3b7da4c449c40cff54d77adf3e2f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82605690"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489265"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Herstellen einer Verbindung von Azure Stack Hub mit Azure mithilfe von Azure ExpressRoute
 
@@ -601,4 +601,4 @@ Wenn Sie wissen möchten, wie viel Datenverkehr über Ihre Verbindung übertrage
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Bereitstellen von Apps in Azure und Azure Stack Hub](../user/azure-stack-solution-pipeline.md)
+[Bereitstellen von Apps in Azure und Azure Stack Hub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/hybrid-devops)

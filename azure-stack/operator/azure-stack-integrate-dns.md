@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: d16aea039103c69302c8f84aa7de078907f1efce
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: be6ea1e8dbf8b17e02a4117f5f2d20cb9cfbbcfe
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81244075"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488721"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>DNS-Integration in ein Azure Stack Hub-Rechenzentrum
 
@@ -133,7 +133,7 @@ Wenn der virtuelle Computer für die Bereitstellung nicht mehr verfügbar ist od
 
 Der einfachste und sicherste Weg, um Azure Stack Hub in Ihre DNS-Infrastruktur zu integrieren, ist die bedingte Weiterleitung der Zone von dem Server aus, der die übergeordnete Zone hostet. Dieser Ansatz wird empfohlen, wenn Sie die direkte Kontrolle über die DNS-Server besitzen, die die übergeordnete Zone für Ihren externen DNS-Namespace von Azure Stack Hub hosten.
 
-Wenn Sie nicht mit der bedingten Weiterleitung mit DNS vertraut sind, lesen Sie folgenden TechNet-Artikel: [Zuweisen einer bedingten Weiterleitung für einen Domänennamen](https://technet.microsoft.com/library/cc794735), oder die Dokumentation zu Ihrer DNS-Lösung.
+Wenn Sie nicht mit der bedingten Weiterleitung mit DNS vertraut sind, lesen Sie folgenden TechNet-Artikel: [Zuweisen einer bedingten Weiterleitung für einen Domänennamen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794735(v=ws.10)), oder die Dokumentation zu Ihrer DNS-Lösung.
 
 In Szenarien, in denen Sie angegeben haben, dass Ihre externe Azure Stack Hub-DNS-Zone wie die untergeordnete Domäne des Namens Ihrer Unternehmensdomäne aussehen soll, kann die bedingte Weiterleitung nicht verwendet werden. Die DNS-Delegierung muss konfiguriert werden.
 

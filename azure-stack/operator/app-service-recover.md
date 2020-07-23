@@ -7,12 +7,12 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: e04fa2f3e9d03f1982ef67d4d19549b7b73a1f1a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ba57de42f882ce62d433768f4fd2a265b862459c
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701682"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489758"
 ---
 # <a name="app-service-recovery-on-azure-stack-hub"></a>App Service-Wiederherstellung in Azure Stack Hub
 
@@ -39,7 +39,7 @@ Nach dem [Vorbereiten der SQL Server-Instanz](azure-stack-app-service-before-yo
 3. Stellen Sie sicher, dass beide App Service-Datenbanken erfolgreich wiederhergestellt wurden, und beenden Sie SQL Server Management Studio.
 
 > [!NOTE]
-> Informationen zur Wiederherstellung nach einem Fehler einer Failoverclusterinstanz finden Sie unter [Wiederherstellen nach einem Fehler der Failoverclusterinstanz](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017). 
+> Informationen zur Wiederherstellung nach einem Fehler einer Failoverclusterinstanz finden Sie unter [Wiederherstellen nach einem Fehler der Failoverclusterinstanz](/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017). 
 
 ## <a name="restore-the-app-service-file-share-content"></a>Wiederherstellen des Inhalts der App Service-Dateifreigabe
 Nach dem [Vorbereiten des Dateiservers](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server) zum Hosten der App Service-Dateifreigabe müssen Sie den Inhalt der Mandantendateifreigabe aus einer Sicherung wiederherstellen. Sie können die Dateien mit einer beliebigen Methode an den Speicherort der neu erstellten App Service-Dateifreigabe kopieren. Wenn Sie dieses Beispiel auf dem Dateiserver ausführen, werden PowerShell und Robocopy verwendet, um eine Verbindung mit einer Remotefreigabe herzustellen und die Dateien in die Freigabe zu kopieren:

@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: d61ce13c46e53f5eb2b9ed8fa544096db6ca8590
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 496d22eac80c00c723732b6c5d12543b059f8c31
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660148"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566599"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Verwenden der Datenübertragungstools im Azure Stack Hub-Speicher
 
@@ -276,7 +276,7 @@ Azure Storage-Explorer ist eine eigenständige App von Microsoft. Mit ihr könne
 
 [blobfuse](https://github.com/Azure/azure-storage-fuse) ist ein virtueller Dateisystemtreiber für Azure Blob Storage, der Ihnen den Zugriff auf vorhandene Blockblobdaten in Ihrem Speicherkonto über das Linux-Dateisystem ermöglicht. Azure Blob Storage ist ein Objektspeicherdienst und verfügt daher nicht über einen hierarchischen Namespace. Blobfuse stellt diesen Namespace mithilfe des Schemas für virtuelle Verzeichnisse bereit. Dabei wird als Trennzeichen ein Schrägstrich (`/`) verwendet. blobfuse funktioniert sowohl unter Azure als auch unter Azure Stack Hub. 
 
-Weitere Informationen zum Bereitstellen von Blobspeicher als Dateisystem mit blobfuse unter Linux finden Sie unter [Einbinden von Blob Storage als Dateisystem mit blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux). 
+Weitere Informationen zum Bereitstellen von Blobspeicher als Dateisystem mit blobfuse unter Linux finden Sie unter [Einbinden von Blob Storage als Dateisystem mit blobfuse](/azure/storage/blobs/storage-how-to-mount-container-linux). 
 
 Für Azure Stack Hub muss *blobEndpoint* neben „accountName“, „accountKey/sasToken“ und „containerName“ bei der Konfiguration der Anmeldeinformationen für das Speicherkonto angegeben werden.
 

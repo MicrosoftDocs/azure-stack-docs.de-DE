@@ -8,12 +8,12 @@ ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 8f0642cc1ee90ce8e4ae1d26b6bdae9a3b6cdef5
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: 3c1fdb568b1d0ceb91cad85bc054b614efcf0b26
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777864"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488143"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Vorbereiten eines auf Red Hat basierenden virtuellen Computers für Azure Stack Hub
 
@@ -23,7 +23,7 @@ Informationen zur Unterstützung von Red Hat Enterprise Linux finden Sie unter [
 
 ## <a name="prepare-a-red-hat-based-vm-from-hyper-v-manager"></a>Vorbereiten eines auf Red Hat basierenden virtuellen Computers über den Hyper-V-Manager
 
-In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von der Red Hat-Website besitzen und das RHEL-Image auf einer virtuellen Festplatte (VHD) installiert haben. Weitere Informationen zum Installieren eines Betriebssystemimages mit dem Hyper-V-Manager finden Sie unter [Installieren von Hyper-V und Erstellen eines virtuellen Computers](https://technet.microsoft.com/library/hh846766.aspx).
+In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von der Red Hat-Website besitzen und das RHEL-Image auf einer virtuellen Festplatte (VHD) installiert haben. Weitere Informationen zum Installieren eines Betriebssystemimages mit dem Hyper-V-Manager finden Sie unter [Installieren von Hyper-V und Erstellen eines virtuellen Computers](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 ### <a name="rhel-installation-notes"></a>Installationshinweise für RHEL
 
@@ -34,7 +34,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
 * Kernel-Unterstützung für die Bereitstellung von UDF-Dateisystemen (Universal Disk Format) ist erforderlich. Beim ersten Starten übergibt das Medium im UDF-Format, das an den Gast angefügt ist, die Bereitstellungskonfiguration an die Linux-VM. Der Azure Linux-Agent muss das UDF-Dateisystem einbinden, um die Konfiguration zu lesen und den virtuellen Computer bereitzustellen.
 * Konfigurieren Sie auf dem Betriebssystem-Datenträger keine Swap-Partition. Der Linux-Agent kann so konfiguriert werden, dass auf dem temporären Ressourcendatenträger eine Auslagerungsdatei erstellt wird. Weitere Informationen hierzu finden Sie in den folgenden Schritten.
 * Alle VHDs in Azure benötigen eine virtuelle Größe, die auf 1 MB ausgerichtet ist. Stellen Sie beim Konvertieren von einem RAW-Datenträger in VHD sicher, dass die Größe des RAW-Datenträgers vor der Konvertierung ein Vielfaches von 1 MB beträgt. Einzelheiten dazu erfahren Sie in den folgenden Schritten.
-* Azure Stack Hub unterstützt cloud-init. [Cloud-init](/azure/virtual-machines/linux/using-cloud-init) ist ein weit verbreiteter Ansatz zum Anpassen einer Linux-VM beim ersten Start. Sie können mit cloud-init Pakete installieren und Dateien schreiben oder Benutzer und Sicherheit konfigurieren. Da cloud-init während des ersten Startvorgangs aufgerufen wird, müssen Sie keine zusätzlichen Schritte oder Agents auf Ihre Konfiguration anwenden. Anweisungen zum Hinzufügen von cloud-init zu Ihrem Image finden Sie unter [Vorbereiten eines vorhandenen Linux-Azure-VM-Images für die Verwendung mit cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image).
+* Azure Stack Hub unterstützt cloud-init. [Cloud-init](/azure/virtual-machines/linux/using-cloud-init) ist ein weit verbreiteter Ansatz zum Anpassen einer Linux-VM beim ersten Start. Sie können mit cloud-init Pakete installieren und Dateien schreiben oder Benutzer und Sicherheit konfigurieren. Da cloud-init während des ersten Startvorgangs aufgerufen wird, müssen Sie keine zusätzlichen Schritte oder Agents auf Ihre Konfiguration anwenden. Anweisungen zum Hinzufügen von cloud-init zu Ihrem Image finden Sie unter [Vorbereiten eines vorhandenen Linux-Azure-VM-Images für die Verwendung mit cloud-init](/azure/virtual-machines/linux/cloudinit-prepare-custom-image).
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>Vorbereiten eines virtuellen RHEL 7-Computers über den Hyper-V-Manager
 

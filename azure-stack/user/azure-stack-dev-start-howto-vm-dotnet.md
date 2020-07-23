@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1f986c1d09397fae9d765f2a64a7fda267f4ac98
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 9b6ac818a4347b50cc68fcb618ce50f2aa31afc8
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661073"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567568"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Bereitstellen einer C#-Web-App (ASP.NET) auf einem virtuellen Computer in Azure Stack Hub
 
@@ -97,8 +97,7 @@ In diesem Artikel wird eine C# 6.0-App mit ASP.NET Core 2.2 auf einem Windows�
 
 ## <a name="create-an-app"></a>Erstellen einer App 
 
-Sie können eine eigene Web-App oder das Beispiel unter [Veröffentlichen einer ASP.NET Core-App in Azure mit Visual Studio](https://docs.microsoft.com/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.2&tabs=visual-studio
-) verwenden. Dieser Artikel beschreibt das Erstellen und Veröffentlichen einer ASP.NET-Web-App auf einem virtuellen Azure-Computer mithilfe des Veröffentlichungsfeatures für Azure Virtual Machines in Visual Studio 2017. Nachdem Sie Ihre App installiert und sichergestellt haben, dass sie lokal ausgeführt wird, aktualisieren Sie das Veröffentlichungsziel in den virtuellen Windows-Computer in Ihrer Azure Stack Hub-Instanz.
+Sie können eine eigene Web-App oder das Beispiel unter [Veröffentlichen einer ASP.NET Core-App in Azure mit Visual Studio](/aspnet/core/tutorials/razor-pages/razor-pages-start?tabs=visual-studio&view=aspnetcore-2.2) verwenden. Dieser Artikel beschreibt das Erstellen und Veröffentlichen einer ASP.NET-Web-App auf einem virtuellen Azure-Computer mithilfe des Veröffentlichungsfeatures für Azure Virtual Machines in Visual Studio 2017. Nachdem Sie Ihre App installiert und sichergestellt haben, dass sie lokal ausgeführt wird, aktualisieren Sie das Veröffentlichungsziel in den virtuellen Windows-Computer in Ihrer Azure Stack Hub-Instanz.
 
 ## <a name="deploy-and-run-the-app"></a>Bereitstellen und Ausführen der App
 
@@ -136,4 +135,4 @@ Erstellen Sie ein Veröffentlichungsziel für Ihre VM in Azure Stack Hub.
 
 - Erfahren Sie mehr über das [Einrichten einer Entwicklungsumgebung in Azure Stack Hub](azure-stack-dev-start.md).
 - Weitere Informationen zu [häufigen Bereitstellungen für Azure Stack Hub als IaaS](azure-stack-dev-start-deploy-app.md)
-- Sehen Sie sich den [Leitfaden für C#](https://docs.microsoft.com/dotnet/csharp/) an, um die Programmiersprache C# zu erlernen und auf weitere Ressourcen für C# zuzugreifen.
+- Sehen Sie sich den [Leitfaden für C#](/dotnet/csharp/) an, um die Programmiersprache C# zu erlernen und auf weitere Ressourcen für C# zuzugreifen.

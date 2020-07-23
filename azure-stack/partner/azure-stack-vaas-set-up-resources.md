@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b3cbaff12c4d4decb0d7204fa558dd5690fe638
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 1076dc69190b79728d28be99c7b84629e80b5709
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112015"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490166"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutorial: Einrichten von Ressourcen für Validation-as-a-Service
 
@@ -30,13 +30,13 @@ In diesem Tutorial lernen Sie Folgendes:
 
 ## <a name="configure-an-azure-ad-tenant"></a>Konfigurieren eines Azure AD-Mandanten
 
-Ein Azure AD-Mandant wird dazu verwendet, eine Organisation zu registrieren und Benutzer bei VaaS zu authentifizieren. Der Partner verwendet die Funktionen zur rollenbasierten Zugriffssteuerung (Role-Based Access Control, RBAC) des Mandanten, um die zur Verwendung von VaaS berechtigten Benutzer in der Partnerorganisation zu verwalten. Weitere Informationen finden Sie unter [Was ist Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+Ein Azure AD-Mandant wird dazu verwendet, eine Organisation zu registrieren und Benutzer bei VaaS zu authentifizieren. Der Partner verwendet die Funktionen zur rollenbasierten Zugriffssteuerung (Role-Based Access Control, RBAC) des Mandanten, um die zur Verwendung von VaaS berechtigten Benutzer in der Partnerorganisation zu verwalten. Weitere Informationen finden Sie unter [Was ist Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis).
 
 ### <a name="create-a-tenant"></a>Erstellen eines Mandanten
 
 Erstellen Sie einen Mandanten, mit dem Ihre Organisation auf VaaS-Dienste zugreift. Verwenden Sie einen aussagekräftigen Namen (etwa `ContosoVaaS@onmicrosoft.com`).
 
-1. Erstellen Sie im [Azure-Portal](https://portal.azure.com) einen Azure AD-Mandanten, oder verwenden Sie einen vorhandenen Mandanten. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
+1. Erstellen Sie im [Azure-Portal](https://portal.azure.com) einen Azure AD-Mandanten, oder verwenden Sie einen vorhandenen Mandanten. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](/azure/active-directory/get-started-azure-ad). -->
 
 2. Fügen Sie Mitglieder Ihrer Organisation zum Mandanten hinzu. Diese Benutzer sind für das Anzeigen oder Planen von Tests mithilfe des Diensts verantwortlich. Nach Abschluss der Registrierung legen Sie die Zugriffsebene der Benutzer fest.
 
@@ -68,7 +68,7 @@ Dieser Prozess autorisiert Ihren Mandanten in der Azure AD-Anwendung **Azure St
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Name der Organisation | Offizieller Organisationsname |
     | Name des Azure AD-Mandantenverzeichnisses | Registrierter Name des Azure AD-Mandantenverzeichnisses |
-    | ID des Azure AD-Mandantenverzeichnisses | Dem Verzeichnis zugeordnete GUID des Azure AD-Mandantenverzeichnisses. Informationen dazu, wie Sie die ID Ihres Azure AD-Mandantenverzeichnisses ermitteln, finden Sie unter [Abrufen der Mandanten-ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
+    | ID des Azure AD-Mandantenverzeichnisses | Dem Verzeichnis zugeordnete GUID des Azure AD-Mandantenverzeichnisses. Informationen dazu, wie Sie die ID Ihres Azure AD-Mandantenverzeichnisses ermitteln, finden Sie unter [Abrufen der Mandanten-ID](/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
 
 2. Warten Sie auf die Bestätigung des Teams für die Azure Stack Hub-Überprüfung, um sicherzugehen, dass Ihr Mandant das Azure Stack Hub-Validierungsportal verwenden kann.
 

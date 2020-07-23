@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 35863d41776ece59592d57264db6522e47ee4208
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 67b1971c3579de31374b9babdf6696e2950dbb35
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146953"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567534"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack Hub
 
@@ -87,7 +87,7 @@ Führen Sie zum Bereitstellen des virtuellen Computers die Anweisungen in den fo
 
     b. Wählen Sie als **Speicher** die Option **Premium-Datenträger (SSD)** oder **Standard-Datenträger (HDD)** aus. Premium-Datenträger (SSD) basieren auf Solid State Drives und bieten konsistente Leistung mit geringen Wartezeiten. Sie bieten das beste Preis-Leistungs-Verhältnis und eignen sich ideal für E/A-intensive Anwendungen und Produktionsworkloads. Standard-Datenträger basieren auf magnetischen Laufwerken und werden für Anwendungen bevorzugt, in denen nur selten auf Daten zugegriffen wird. Zonenredundante Datenträger basieren auf zonenredundantem Speicher (ZRS), der Ihre Daten in mehreren Zonen repliziert, und sind auch dann verfügbar, wenn eine einzelne Zone ausfällt. 
 
-    c. Wählen Sie **Verwaltete Datenträger verwenden**. Wenn Sie dieses Feature aktivieren, wird die Verfügbarkeit von Datenträgern von Azure automatisch verwaltet. Sie profitieren von Datenredundanz und Fehlertoleranz, ohne selbst Speicherkonten erstellen und verwalten zu müssen. Verwaltete Datenträger sind möglicherweise nicht in allen Regionen verfügbar. Weitere Informationen finden Sie unter [Einführung in verwaltete Azure-Datenträger](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+    c. Wählen Sie **Verwaltete Datenträger verwenden**. Wenn Sie dieses Feature aktivieren, wird die Verfügbarkeit von Datenträgern von Azure automatisch verwaltet. Sie profitieren von Datenredundanz und Fehlertoleranz, ohne selbst Speicherkonten erstellen und verwalten zu müssen. Verwaltete Datenträger sind möglicherweise nicht in allen Regionen verfügbar. Weitere Informationen finden Sie unter [Einführung in verwaltete Azure-Datenträger](/azure/virtual-machines/windows/managed-disks-overview).
 
     d. Klicken Sie auf **Virtuelles Netzwerk**, um Ihr Netzwerk zu konfigurieren. Virtuelle Netzwerke sind in Azure logisch voneinander isoliert. Sie können ihre IP-Adressbereiche, Subnetze, Routingtabellen, Gateways und Sicherheitseinstellungen wie bei einem herkömmlichen Netzwerk in Ihrem Rechenzentrum konfigurieren. Virtuelle Computer im gleichen virtuellen Netzwerk können standardmäßig aufeinander zugreifen. 
 

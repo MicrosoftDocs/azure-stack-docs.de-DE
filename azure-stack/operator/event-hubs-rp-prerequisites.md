@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 7fd04e0952810bd4080d9c4431589cd53ccd0536
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1d03c4fab16920b3df367050030c88162d9f1002
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80424614"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490098"
 ---
 # <a name="prerequisites-for-installing-event-hubs-on-azure-stack-hub"></a>Voraussetzungen für das Installieren von Event Hubs in Azure Stack Hub
 
@@ -25,7 +25,7 @@ Die folgenden Voraussetzungen müssen erfüllt sein, bevor Sie Event Hubs in Azu
 > Für diese Voraussetzungen wird vorausgesetzt, dass Sie bereits mindestens ein integriertes Azure Stack Hub-System mit 4 Knoten bereitgestellt haben. Der Event Hubs-Ressourcenanbieter wird im Azure Stack Development Kit (ASDK) nicht unterstützt.
 
 > [!IMPORTANT]
-> Für Event Hubs ist Azure Stack Hub in der Buildversion 2002 oder höher erforderlich. Beachten Sie, dass Azure Stack Hub-Builds inkrementell sind. Wenn Sie z. B. [Version 1908](/azure-stack/operator/release-notes?view=azs-1908#1908-build-reference) installiert haben, müssen Sie zunächst ein Upgrade auf [1910](/azure-stack/operator/release-notes?view=azs-1910#1910-build-reference) und dann auf 2002 durchführen. Das heißt, Sie dürfen keinen zwischen zwei Builds liegenden Build überspringen.
+> Für Event Hubs ist Azure Stack Hub in der Buildversion 2002 oder höher erforderlich. Beachten Sie, dass Azure Stack Hub-Builds inkrementell sind. Wenn Sie z. B. [Version 1908](./release-notes.md?view=azs-1908#1908-build-reference) installiert haben, müssen Sie zunächst ein Upgrade auf [1910](./release-notes.md?view=azs-1910#1910-build-reference) und dann auf 2002 durchführen. Das heißt, Sie dürfen keinen zwischen zwei Builds liegenden Build überspringen.
 
 ## <a name="common-prerequisites"></a>Allgemeine Voraussetzungen
 

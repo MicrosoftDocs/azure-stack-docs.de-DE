@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 8f0205425b49ee9e828056e5613a8166d02d95d9
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 7da28f1cbe1087ff9f791c27979091de1869a56f
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111631"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566990"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>Durchführen einer Bereitstellung mit Visual Studio Code für Azure Stack Hub
 
@@ -37,7 +37,7 @@ Das Azure Stack Hub-Bereitstellungsschema unterstützt Hybridprofile mit Azure R
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - Zugriff auf Azure Stack Hub
-- [Installation von Azure Stack Hub PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json) auf einem Computer, mit dem auf die Verwaltungsendpunkte zugegriffen werden kann
+- [Installation von Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json) auf einem Computer, mit dem auf die Verwaltungsendpunkte zugegriffen werden kann
 
 ## <a name="install-resource-manager-tools-extension"></a>Installieren der Azure Resource Manager-Tools-Erweiterung
 

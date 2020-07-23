@@ -7,12 +7,12 @@ ms.date: 04/30/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: b838afd49f53adc32af94559cebc5a65db3ee7ef
-ms.sourcegitcommit: 6de5b687197798302c3b1f08e4c82f049a99e49f
+ms.openlocfilehash: 92f05840d8a2a8f58f70abd10e2860224f706d2b
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82596804"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566497"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit dem Node.js-SDK (Software Development Kit) in Azure Stack Hub
 
@@ -72,7 +72,7 @@ Die spezifischen API-Versionen eines Ressourcenanbieters zu erhalten Sie, indem 
 
 4. Installieren Sie die Clientbibliothek des Ressourcenanbieters mithilfe von npm. Führen Sie dies an der Befehlszeile aus: `npm install <package-name>`. Beispielsweise können Sie `npm install @azure/arm-authorization-profile-2019-03-01-hybrid` ausführen, um die Autorisierungsbibliothek des Ressourcenanbieters zu installieren.
 
-5.  Erstellen Sie ein Abonnement, und notieren Sie sich die Abonnement-ID zum Verwenden des SDKs. Eine Anleitung finden Sie unter [Erstellen von Abonnements für Angebote in Azure Stack Hub](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm).
+5.  Erstellen Sie ein Abonnement, und notieren Sie sich die Abonnement-ID zum Verwenden des SDKs. Eine Anleitung finden Sie unter [Erstellen von Abonnements für Angebote in Azure Stack Hub](/azure/azure-stack/azure-stack-subscribe-plan-provision-vm).
 
 6.  Erstellen Sie einen Dienstprinzipal, und speichern Sie die Client-ID und das Clientgeheimnis. Die Client-ID wird beim Erstellen eines Dienstprinzipals auch als „Anwendungs-ID“ bezeichnet. Weitere Anleitungen finden Sie unter [Bereitstellen des Anwendungszugriffs auf Azure Stack Hub](../operator/azure-stack-create-service-principals.md).
 
@@ -84,11 +84,11 @@ Zur Verwendung des Node.js-Azure SDK mit Azure Stack Hub müssen Sie die folgend
 
 | Wert | Umgebungsvariablen | BESCHREIBUNG |
 | --- | --- | --- |
-| Mandanten-ID | TENANT\_ID | Der Wert Ihrer [Mandanten-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview) für Azure Stack Hub. |
+| Mandanten-ID | TENANT\_ID | Der Wert Ihrer [Mandanten-ID](/azure/azure-stack/azure-stack-identity-overview) für Azure Stack Hub. |
 | Client-ID | CLIENT\_ID | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Dokuments gespeichert wurde.  |
-| Abonnement-ID | AZURE\_SUBSCRIPTION\_ID   Mithilfe der [Abonnement-ID](/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions) greifen Sie auf Angebote in Azure Stack Hub zu.  |
+| Abonnement-ID | AZURE\_SUBSCRIPTION\_ID   Mithilfe der [Abonnement-ID](../operator/service-plan-offer-subscription-overview.md#subscriptions) greifen Sie auf Angebote in Azure Stack Hub zu.  |
 | Geheimer Clientschlüssel | APPLICATION\_SECRET | Die Geheimnisanwendung des Dienstprinzipals, die bei der Erstellung des Dienstprinzipals gespeichert wurde. |
-| Resource Manager-Endpunkt | ARM\_ENDPOINT | Siehe [Der Resource Manager-Endpunkt von Azure Stack Hub](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-hub-resource-manager-endpoint). |
+| Resource Manager-Endpunkt | ARM\_ENDPOINT | Siehe [Der Resource Manager-Endpunkt von Azure Stack Hub](/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-hub-resource-manager-endpoint). |
 
 #### <a name="set-your-environmental-variables-for-nodejs"></a>Festlegen Ihrer Umgebungsvariablen für Node.js
 
@@ -147,7 +147,7 @@ JSON-Beispieldatei:
 
     Das Profil umfasst die aktuellen Versionen aller Dienste. Verwenden Sie die neuesten Versionen aller Dienste in Azure.
 
-Weitere Informationen zu Azure Stack Hub und API-Profilen finden Sie unter [Zusammenfassung zu API-Profilen](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles#summary-of-api-profiles).
+Weitere Informationen zu Azure Stack Hub und API-Profilen finden Sie unter [Zusammenfassung zu API-Profilen](/azure/azure-stack/user/azure-stack-version-profiles#summary-of-api-profiles).
 
 ### <a name="azure-nodejs-sdk-api-profile-usage"></a>Verwendung des API-Profils aus dem Azure Node.js SDK
 
@@ -221,7 +221,7 @@ Sie können die folgenden Beispiele als Referenzen zum Erstellen von Lösungen m
     git clone https://github.com/sijuman/storage-node-resource-provider-getting-started.git
     ```
 
-2.  Erstellen Sie einen Azure-Dienstprinzipal, und weisen Sie eine Rolle zu, um auf das Abonnement zuzugreifen. Anweisungen finden Sie unter [Verwenden von Azure PowerShell zum Erstellen eines Dienstprinzipals mit einem Zertifikat](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
+2.  Erstellen Sie einen Azure-Dienstprinzipal, und weisen Sie eine Rolle zu, um auf das Abonnement zuzugreifen. Anweisungen finden Sie unter [Verwenden von Azure PowerShell zum Erstellen eines Dienstprinzipals mit einem Zertifikat](/azure/azure-stack/azure-stack-create-service-principals).
 
 3.  Rufen Sie die folgenden erforderlichen Werte ab:
     - Mandanten-ID

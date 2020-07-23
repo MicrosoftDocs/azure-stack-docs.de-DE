@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9d39763397ce39c83a50bb57d97f0b5b8e07de6b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7166ab4072776adef3d3b3fd233bf082214ad39a
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367987"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488211"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Austauschen eines Skalierungseinheitenknotens für ein in Azure Stack Hub integriertes System
 
@@ -29,7 +29,7 @@ Das folgende Flussdiagramm zeigt den allgemeinen FRU-Vorgang zum Austauschen ein
 *Diese Aktion ist abhängig vom physischen Zustand der Hardware möglicherweise nicht erforderlich.
 
 > [!Note]  
-> Wenn das Herunterfahren fehlschlägt, empfiehlt es sich, den Vorgang zum Entladen gefolgt vom Vorgang zum Beenden zu verwenden. Weitere Informationen finden Sie unter [Knotenaktionen für Skalierungseinheiten in Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
+> Wenn das Herunterfahren fehlschlägt, empfiehlt es sich, den Vorgang zum Entladen gefolgt vom Vorgang zum Beenden zu verwenden. Weitere Informationen finden Sie unter [Knotenaktionen für Skalierungseinheiten in Azure Stack Hub](./azure-stack-node-actions.md).
 
 ## <a name="review-alert-information"></a>Überprüfen von Warnungsinformation
 

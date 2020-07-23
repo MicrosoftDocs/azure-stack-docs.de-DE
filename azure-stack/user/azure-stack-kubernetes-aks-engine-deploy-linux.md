@@ -7,12 +7,12 @@ ms.date: 06/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/19/2020
-ms.openlocfilehash: cfe1d5fd33ac64f00cecaf5acdbe24a643c79e5e
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: 48cb6d5de8de8fdf9f044e855a2b8067a319c809
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85197054"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566174"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Installieren der AKS-Engine unter Linux in Azure Stack Hub
 
@@ -31,7 +31,7 @@ Wenn Sie Ihren Clientcomputer auswählen, sollten Sie Folgendes beachten:
 
 Sie können die Client-VM installieren, um Ihren Kubernetes-Cluster in einer mit dem Internet verbundenen Azure Stack Hub-Instanz zu verwalten.
 
-1. Erstellen Sie eine Linux-VM in ihrer Azure Stack Hub-Instanz. Anweisungen dazu finden Sie unter [Schnellstart: Erstellen eines virtuellen Linux-Server mit dem Azure Stack Hub-Portal](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
+1. Erstellen Sie eine Linux-VM in ihrer Azure Stack Hub-Instanz. Anweisungen dazu finden Sie unter [Schnellstart: Erstellen eines virtuellen Linux-Server mit dem Azure Stack Hub-Portal](./azure-stack-quick-linux-portal.md).
 2. Stellen Sie eine Verbindung mit Ihrer VM her.
 3. Suchen Sie die Version der AKS-Engine in der Tabelle [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) (Unterstützte Kubernetes-Versionen). Das AKS-Basisimage muss in Ihrem Azure Stack Hub-Marketplace verfügbar sein. Beim Ausführen des Befehls müssen Sie die Version `--version v0.51.0` angeben. Wenn Sie die Version nicht angeben, wird mit dem Befehl die neueste Version installiert. Diese erfordert unter Umständen ein VHD-Image, das in Ihrem Marketplace nicht verfügbar ist.
 4. Führen Sie den folgenden Befehl aus:
@@ -51,9 +51,9 @@ Sie können die Client-VM installieren, um Ihren Kubernetes-Cluster in einer Azu
 
 1.  Wechseln Sie von einem Computer mit Internetzugriff zu GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest). Laden Sie ein Archiv (*.tar.gz) für einen Linux-Computer herunter, z. B. `aks-engine-v0.xx.x-linux-amd64.tar.gz`.
 
-2.  Erstellen Sie ein Speicherkonto in ihrer Azure Stack Hub-Instanz, um die Archivdatei (*.tar.gz) mit der AKS-Engine-Binärdatei hochzuladen. Anweisungen zur Verwendung von Azure Storage-Explorer finden Sie unter [Herstellen einer Verbindung von Storage-Explorer mit einem Azure Stack-Abonnement oder -Speicherkonto](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
+2.  Erstellen Sie ein Speicherkonto in ihrer Azure Stack Hub-Instanz, um die Archivdatei (*.tar.gz) mit der AKS-Engine-Binärdatei hochzuladen. Anweisungen zur Verwendung von Azure Storage-Explorer finden Sie unter [Herstellen einer Verbindung von Storage-Explorer mit einem Azure Stack-Abonnement oder -Speicherkonto](./azure-stack-storage-connect-se.md).
 
-3. Erstellen Sie eine Linux-VM in ihrer Azure Stack Hub-Instanz. Anweisungen dazu finden Sie unter [Schnellstart: Erstellen eines virtuellen Linux-Server mit dem Azure Stack Hub-Portal](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
+3. Erstellen Sie eine Linux-VM in ihrer Azure Stack Hub-Instanz. Anweisungen dazu finden Sie unter [Schnellstart: Erstellen eines virtuellen Linux-Server mit dem Azure Stack Hub-Portal](./azure-stack-quick-linux-portal.md).
 
 3.  Laden Sie die Datei von der Blob-URL des Azure Stack Hub-Speicherkontos, wo Sie die Archivdatei (*.tar.gz) hochgeladen haben, auf Ihre Verwaltungs-VM herunter. Extrahieren Sie das Archiv in das `/usr/local/bin`-Verzeichnis.
 

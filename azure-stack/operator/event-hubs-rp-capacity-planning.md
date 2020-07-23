@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 71bc2a58dd3420aad1672c431f3c5114364980c4
-ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
+ms.openlocfilehash: 06b0dabf4c7fc54d5c886e7ecc777f8a754e3ef0
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82605661"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490115"
 ---
 # <a name="how-to-do-capacity-planning-for-event-hubs-on-azure-stack-hub"></a>Planen der Kapazität für Event Hubs in Azure Stack Hub
 
@@ -40,7 +40,7 @@ Für alle Event Hubs-Cluster wird ein [D11_V2](../user/azure-stack-vm-sizes.md#m
 
 ## <a name="resource-provider-resource-consumption"></a>Ressourcenverbrauch des Ressourcenanbieters  
 
-Der Ressourcenverbrauch durch den Event Hubs Ressourcenanbieter ist konstant und unabhängig von der Anzahl oder Größe der Cluster, die von Benutzern erstellt wurden. In der folgenden Tabelle sind die Kernauslastung durch den Event Hubs-Ressourcenanbieter in Azure Stack Hub und der ungefähre Ressourcenverbrauch durch andere Ressourcen zusammengestellt. Für die Bereitstellung des Event Hubs-Ressourcenanbieters wird eine VM des Typs [D2_V2](/azure-stack/user/azure-stack-vm-sizes#dv2-series) verwendet.
+Der Ressourcenverbrauch durch den Event Hubs Ressourcenanbieter ist konstant und unabhängig von der Anzahl oder Größe der Cluster, die von Benutzern erstellt wurden. In der folgenden Tabelle sind die Kernauslastung durch den Event Hubs-Ressourcenanbieter in Azure Stack Hub und der ungefähre Ressourcenverbrauch durch andere Ressourcen zusammengestellt. Für die Bereitstellung des Event Hubs-Ressourcenanbieters wird eine VM des Typs [D2_V2](../user/azure-stack-vm-sizes.md#dv2-series) verwendet.
 
 |                                  | VM-Typ | Clusterknoten | Kerne | VM-Speicher | Arbeitsspeicher | Speicherkonten | Öffentliche IP-Adressen |
 |----------------------------------|---------|---------------|-------|------------|--------|------------------|------------|
@@ -68,8 +68,3 @@ In der folgenden Tabelle ist der Event Hubs-Gesamtverbrauch für verschiedene Ko
 ## <a name="next-steps"></a>Nächste Schritte
 
 Führen Sie die im Artikel [Voraussetzungen für das Installieren von Event Hubs in Azure Stack Hub](event-hubs-rp-prerequisites.md) aufgeführten Schritte aus, bevor Sie mit dem Installationsvorgang beginnen.
-
-
-
-
-

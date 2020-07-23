@@ -7,12 +7,12 @@ ms.date: 07/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 07/02/2020
-ms.openlocfilehash: 4fdcc16679051087968161c0ac36175155a2717a
-ms.sourcegitcommit: e433e6f772789ab00c131c24650e700c65e6d73a
+ms.openlocfilehash: 02f4d8ec694ffc56966029f35dd12fd263a5cb8b
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86272919"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566140"
 ---
 # <a name="known-issues-with-the-aks-engine-on-azure-stack-hub"></a>Bekannte Probleme mit der AKS-Engine auf Azure Stack Hub
 
@@ -42,7 +42,7 @@ In diesem Thema werden bekannte Probleme der AKS-Engine auf Azure Stack Hub beha
 
 ## <a name="basic-load-balancer-sku-limitations"></a>Einschränkungen der Load Balancer Basic-SKU
 
-* Einschränkung eines einzelnen Agentpools. Derzeit unterstützt Azure Stack Hub nur die Load Balancer Basic-SKU. Diese SKU [beschränkt](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus) die Back-End-Poolendpunkte auf virtuelle Computer in einer einzelnen Verfügbarkeitsgruppe (oder VM-Skalierungsgruppe sein). Dies bedeutet, dass alle Replikate eines LoadBalancer-Diensts im selben Agentpool bereitgestellt werden müssen. Außerdem bedeutet es, dass jeder einzelne Cluster entweder einen Linux-LoadBalancer-Dienst oder einen Windows-LoadBalancer-Dienst enthalten kann.
+* Einschränkung eines einzelnen Agentpools. Derzeit unterstützt Azure Stack Hub nur die Load Balancer Basic-SKU. Diese SKU [beschränkt](/azure/load-balancer/concepts#limitations) die Back-End-Poolendpunkte auf virtuelle Computer in einer einzelnen Verfügbarkeitsgruppe (oder VM-Skalierungsgruppe sein). Dies bedeutet, dass alle Replikate eines LoadBalancer-Diensts im selben Agentpool bereitgestellt werden müssen. Außerdem bedeutet es, dass jeder einzelne Cluster entweder einen Linux-LoadBalancer-Dienst oder einen Windows-LoadBalancer-Dienst enthalten kann.
 
   Sie können Kubernetes zwingen, Pods in einem bestimmten Agentpool zu erstellen, indem Sie die [Knotenauswahl](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/) „agentpool: MY_POOL_NAME“ in Ihrer Podvorlage hinzufügen.
 

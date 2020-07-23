@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/16/2020
 ms.author: justinha
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: 62cccdb235432f6ca870605e061be2c2c0dac74a
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: bacaccd664996af7dafa7fd6b7b3518b7dcaa851
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819260"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488551"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Grundlagen zur Verwaltung von Azure Stack Hub
 
@@ -96,7 +96,7 @@ Neben der Bereitstellung von Diensten müssen Sie die regulären Aufgaben eines 
 
 ## <a name="what-to-tell-your-users"></a>Wichtige Informationen für Ihre Benutzer
 
-Sie müssen Ihre Benutzer über verschiedene Punkte informieren, z. B. die Arbeit mit Diensten in Azure Stack Hub, das Herstellen einer Verbindung mit der Umgebung und das Abonnieren von Angeboten. Zusätzlich zu benutzerdefinierter Dokumentation, die Sie ggf. für Ihre Benutzer bereitstellen möchten, können Sie Benutzer auch an die [Benutzerdokumentation zu Azure Stack Hub](/azure-stack/user/) weiterleiten.
+Sie müssen Ihre Benutzer über verschiedene Punkte informieren, z. B. die Arbeit mit Diensten in Azure Stack Hub, das Herstellen einer Verbindung mit der Umgebung und das Abonnieren von Angeboten. Zusätzlich zu benutzerdefinierter Dokumentation, die Sie ggf. für Ihre Benutzer bereitstellen möchten, können Sie Benutzer auch an die [Benutzerdokumentation zu Azure Stack Hub](../user/index.yml) weiterleiten.
 
 **Grundlegendes zum Arbeiten mit Diensten in Azure Stack Hub**
 

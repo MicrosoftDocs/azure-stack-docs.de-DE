@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: a30c3a4f745e46a5e7b58d4355f1c193d8702e28
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0345c3290b717385d8080dc6be771660ea22a2e1
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295425"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487905"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Hinzufügen von Hostservern für den SQL-Ressourcenanbieter
 
@@ -41,7 +41,7 @@ Sie können SQL Server-Datenbankhostserver auf einer VM in [Azure Stack Hub](azu
 
 Images für SQL-IaaS-VMs sind über das Marketplace-Verwaltungsfeature verfügbar. Diese Images sind mit den in Azure verfügbaren SQL-VMs identisch.
 
-Laden Sie vor dem Bereitstellen eines virtuellen SQL-Computers mit einem Marketplace-Element unbedingt immer die neueste Version der **SQL-IaaS-Erweiterung** herunter. Die IaaS-Erweiterung und die zugehörigen Portalerweiterungen stellen zusätzliche Features wie das automatische Patchen und Sicherungen bereit. Weitere Informationen zu dieser Erweiterung finden Sie unter [Automatisieren von Verwaltungsaufgaben auf virtuellen Azure-Computern mit der SQL Server-IaaS-Agent-Erweiterung](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+Laden Sie vor dem Bereitstellen eines virtuellen SQL-Computers mit einem Marketplace-Element unbedingt immer die neueste Version der **SQL-IaaS-Erweiterung** herunter. Die IaaS-Erweiterung und die zugehörigen Portalerweiterungen stellen zusätzliche Features wie das automatische Patchen und Sicherungen bereit. Weitere Informationen zu dieser Erweiterung finden Sie unter [Automatisieren von Verwaltungsaufgaben auf virtuellen Azure-Computern mit der SQL Server-IaaS-Agent-Erweiterung](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 > [!NOTE]
 > Die SQL-IaaS-Erweiterung ist für alle Images vom Typ „SQL unter Windows“ im Marketplace _erforderlich_. Der virtuelle Computer wird nicht bereitgestellt, wenn Sie die Erweiterung nicht heruntergeladen haben. Bei Linux-basierten SQL-VM-Images wird sie nicht verwendet.
@@ -66,7 +66,7 @@ Die folgenden Informationen stellen zusätzliche Sicherheitshinweise dar:
 
 * Der gesamte Azure Stack Hub-Speicher wird mit BitLocker verschlüsselt, sodass jede SQL-Instanz in Azure Stack Hub verschlüsselten Blobspeicher verwendet.
 * Der SQL-Ressourcenanbieter bietet vollständige Unterstützung für TLS 1.2. Stellen Sie sicher, dass alle SQL Server-Instanzen, die über den SQL-Ressourcenanbieter verwaltet werden, _nur_ für TLS 1.2 konfiguriert sind und dass der Ressourcenanbieter standardmäßig dieses Protokoll verwendet. TLS 1.2 wird von allen unterstützten SQL Server-Versionen unterstützt. Weitere Informationen finden Sie unter [TLS 1.2-Unterstützung für Microsoft SQL Server](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* Verwenden Sie den SQL Server-Konfigurations-Manager zum Festlegen der Option **ForceEncryption**, um sicherzustellen, dass die gesamte Kommunikation mit dem Computer mit SQL Server immer verschlüsselt wird. Weitere Informationen finden Sie unter [Konfigurieren des Servers zum Erzwingen verschlüsselter Verbindungen](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
+* Verwenden Sie den SQL Server-Konfigurations-Manager zum Festlegen der Option **ForceEncryption**, um sicherzustellen, dass die gesamte Kommunikation mit dem Computer mit SQL Server immer verschlüsselt wird. Weitere Informationen finden Sie unter [Konfigurieren des Servers zum Erzwingen verschlüsselter Verbindungen](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
 * Stellen Sie sicher, dass alle Client-Apps ebenfalls über eine verschlüsselte Verbindung kommunizieren.
 * Der Ressourcenanbieter ist so konfiguriert, dass er den von der SQL Server-Instanz verwendeten Zertifikaten vertraut.
 
@@ -106,15 +106,15 @@ Führen Sie die folgenden Schritte aus, um einen eigenständigen Hostserver hinz
 
 Für das Konfigurieren von SQL-AlwaysOn-Instanzen sind zusätzliche Schritte und drei virtuelle (oder physische) Computer erforderlich. In diesem Artikel wird davon ausgegangen, dass Sie bereits über solide Kenntnisse zu AlwaysOn-Verfügbarkeitsgruppen verfügen. Weitere Informationen finden Sie in den folgenden Artikeln:
 
-* [Einführung in SQL Server Always On-Verfügbarkeitsgruppen auf virtuellen Azure-Computern](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Always On-Verfügbarkeitsgruppen (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Einführung in SQL Server Always On-Verfügbarkeitsgruppen auf virtuellen Azure-Computern](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Always On-Verfügbarkeitsgruppen (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
 > Der SQL-Adapterressourcenanbieter unterstützt _ausschließlich_ SQL 2016 SP1 Enterprise oder spätere Instanzen für AlwaysOn-Verfügbarkeitsgruppen. Diese Adapterkonfiguration erfordert neue SQL-Features wie z.B. automatisches Seeding.
 
 ### <a name="automatic-seeding"></a>Automatisches Seeding
 
-Sie müssen das [automatische Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) für jede Verfügbarkeitsgruppe für jede Instanz von SQL Server aktivieren.
+Sie müssen das [automatische Seeding](/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) für jede Verfügbarkeitsgruppe für jede Instanz von SQL Server aktivieren.
 
 Um das automatische Seeding für alle Instanzen zu aktivieren, bearbeiten Sie den folgenden SQL-Befehl für jede Instanz und führen ihn dann auf dem primären Replikat für jede sekundäre Instanz aus:
 
@@ -136,7 +136,7 @@ Führen Sie auf den sekundären Knoten den folgenden SQL-Befehl aus:
 
 ### <a name="configure-contained-database-authentication"></a>Konfigurieren der Authentifizierung der eigenständigen Datenbank
 
-Stellen Sie vor dem Hinzufügen einer eigenständigen Datenbank zu einer Verfügbarkeitsgruppe sicher, dass die Serveroption für die Authentifizierung der eigenständigen Datenbank für jede Serverinstanz auf 1 festgelegt ist, die ein Verfügbarkeitsreplikat für die Verfügbarkeitsgruppe hostet. Weitere Informationen finden Sie unter [Serverkonfigurationsoption für die Authentifizierung der eigenständigen Datenbank](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Stellen Sie vor dem Hinzufügen einer eigenständigen Datenbank zu einer Verfügbarkeitsgruppe sicher, dass die Serveroption für die Authentifizierung der eigenständigen Datenbank für jede Serverinstanz auf 1 festgelegt ist, die ein Verfügbarkeitsreplikat für die Verfügbarkeitsgruppe hostet. Weitere Informationen finden Sie unter [Serverkonfigurationsoption für die Authentifizierung der eigenständigen Datenbank](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
 Verwenden Sie diese Befehle, um die Serveroption für die Authentifizierung der eigenständigen Datenbank für jede Instanz festzulegen:
 

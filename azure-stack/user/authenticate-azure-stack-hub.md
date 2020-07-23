@@ -7,16 +7,16 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: ba55e6b5a6025d93f4e630d17fa9af731460105b
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 43461dc60afd98086f99fdf508e7248db975ca0e
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661089"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567653"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>Abrufen von Authentifizierungsinformationen für Azure Stack Hub
 
-Für die Authentifizierung bei Azure Stack Hub müssen Sie die Abonnement-ID, die Mandanten-ID, den Standort und den Resource Manager-Endpunkt von Azure Stack Hub angeben. Diese Werte können Sie über den [Azure Stack Hub-Resource Manager-Endpunkt](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint) für Azure Stack Hub abrufen. Sie können sie auch mithilfe der in diesem Artikel beschriebenen Schritte abrufen.
+Für die Authentifizierung bei Azure Stack Hub müssen Sie die Abonnement-ID, die Mandanten-ID, den Standort und den Resource Manager-Endpunkt von Azure Stack Hub angeben. Diese Werte können Sie über den [Azure Stack Hub-Resource Manager-Endpunkt](./azure-stack-version-profiles-ruby.md?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint) für Azure Stack Hub abrufen. Sie können sie auch mithilfe der in diesem Artikel beschriebenen Schritte abrufen.
 
 ## <a name="values-needed-to-authenticate"></a>Für die Authentifizierung erforderliche Werte
 
@@ -74,4 +74,4 @@ Zum Abrufen des Metadatenendpunkts, der auf die Eigenschaften (etwa Katalogendpu
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Informieren Sie sich ausführlicher über die Verwendung von [Azure Stack Hun Resource Manager](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1910) mit Azure Stack Hub.
+Informieren Sie sich ausführlicher über die Verwendung von [Azure Stack Hun Resource Manager](./azure-stack-version-profiles.md?view=azs-1910) mit Azure Stack Hub.

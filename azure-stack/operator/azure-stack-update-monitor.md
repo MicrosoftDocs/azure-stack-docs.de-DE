@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 3e6f5ebac251ca18dd15d269ad23ac1632a4794c
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 315cf773c63e3154ce92472c15d18b5e4bbbe019
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374991"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487548"
 ---
 # <a name="monitor-updates-with-powershell-in-azure-stack-hub"></a>Überwachen von Updates mithilfe von PowerShell in Azure Stack Hub
 
@@ -22,11 +22,11 @@ Sie können die folgenden PowerShell-Cmdlets verwenden, um Ihre Updates zu verwa
 
 | Cmdlet | BESCHREIBUNG |
 |------------------------------------------------------|-------------|
-| [Get-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdate?view=azurestackps-1.8.0) | Abrufen der Liste verfügbarer Updates |
-| [Get-AzsUpdateLocation](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateLocation?view=azurestackps-1.8.0)| Abrufen der Liste der Updatespeicherorte |
-| [Get-AzsUpdateRun](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateRun?view=azurestackps-1.8.0) | Abrufen der Liste der Updateausführungen  |
-| [Install-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Install-AzsUpdate?view=azurestackps-1.8.0) | Anwenden eines bestimmten Updates an einem Updatespeicherort |
-| [Resume-AzsUpdateRun](https://docs.microsoft.com/powershell/module/azs.update.admin/Resume-AzsUpdateRun?view=azurestackps-1.8.0) | Fortsetzen einer zuvor gestarteten fehlerhaften Updateausführung |
+| [Get-AzsUpdate](/powershell/module/azs.update.admin/get-azsupdate?view=azurestackps-1.8.0) | Abrufen der Liste verfügbarer Updates |
+| [Get-AzsUpdateLocation](/powershell/module/azs.update.admin/get-azsupdatelocation?view=azurestackps-1.8.0)| Abrufen der Liste der Updatespeicherorte |
+| [Get-AzsUpdateRun](/powershell/module/azs.update.admin/get-azsupdaterun?view=azurestackps-1.8.0) | Abrufen der Liste der Updateausführungen  |
+| [Install-AzsUpdate](/powershell/module/azs.update.admin/install-azsupdate?view=azurestackps-1.8.0) | Anwenden eines bestimmten Updates an einem Updatespeicherort |
+| [Resume-AzsUpdateRun](/powershell/module/azs.update.admin/resume-azsupdaterun?view=azurestackps-1.8.0) | Fortsetzen einer zuvor gestarteten fehlerhaften Updateausführung |
 
 ## <a name="get-a-list-of-update-runs"></a>Abrufen einer Liste der Updateausführungen
 
@@ -50,4 +50,4 @@ Weitere Informationen zur Problembehandlung von Updates finden Sie unter [Behand
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Verwalten von Updates in Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+- [Verwalten von Updates in Azure Stack Hub](./azure-stack-updates.md)

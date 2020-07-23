@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 04cca678b32c04faac1b3c8f12a09deb918fb0c0
-ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
+ms.openlocfilehash: 8e6ec9fcb6428b9f8dad7c4f78acde54291b30f1
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86033258"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488619"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum
 
@@ -64,7 +64,7 @@ Bei Active Directory-Bereitstellungen mit mehreren Standorten sollten Sie den Ac
 
 Fügen Sie das Azure Stack Hub-Subnetz [mit öffentlicher VIP](azure-stack-network.md#public-vip-network) dem Active Directory-Standort hinzu, der Azure Stack Hub am nächsten liegt. Nehmen wir beispielsweise an, dass Ihr Active Directory zwei Standorte hat: Seattle und Redmond. Wenn Azure Stack Hub am Standort „Seattle“ bereitgestellt wurde, fügen Sie das Azure Stack Hub-Subnetz mit öffentlicher VIP dem Azure Active Directory-Standort für „Seattle“ hinzu.
 
-Weitere Informationen zu Active Directory-Standorten finden Sie unter [Entwerfen der Standorttopologie](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+Weitere Informationen zu Active Directory-Standorten finden Sie unter [Entwerfen der Standorttopologie](/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 
 > [!Note]  
 > Wenn Ihr Active Directory aus einem einzigen Standort besteht, können Sie diesen Schritt überspringen. Wenn Sie ein Catch-All-Subnetz konfiguriert haben, vergewissern Sie sich, dass das Azure Stack Hub-Subnetz mit öffentlicher VIP-Adresse kein Teil davon ist.
@@ -260,7 +260,7 @@ Wenn Sie die Befehle manuell ausführen möchten, gehen Sie folgendermaßen vor:
    ```
 
     > [!Note]  
-    > Die von der integrierten Windows-Authentifizierung (WIA) unterstützten Benutzer-Agent-Zeichenfolgen können für Ihre AD FS-Bereitstellung veraltet sein und müssen möglicherweise aktualisiert werden, um die neuesten Clients zu unterstützen. Weitere Informationen zum Aktualisieren der von WIA unterstützten Zeichenfolgen für den Benutzer-Agent finden Sie im Artikel [Konfigurieren der formularbasierten Authentifizierung für Geräte im Intranet, die WIA nicht unterstützen](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br><br>Die Schritte zum Aktivieren der formularbasierten Authentifizierungsrichtlinie finden Sie unter [Konfigurieren von Authentifizierungsrichtlinien](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
+    > Die von der integrierten Windows-Authentifizierung (WIA) unterstützten Benutzer-Agent-Zeichenfolgen können für Ihre AD FS-Bereitstellung veraltet sein und müssen möglicherweise aktualisiert werden, um die neuesten Clients zu unterstützen. Weitere Informationen zum Aktualisieren der von WIA unterstützten Zeichenfolgen für den Benutzer-Agent finden Sie im Artikel [Konfigurieren der formularbasierten Authentifizierung für Geräte im Intranet, die WIA nicht unterstützen](/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br><br>Die Schritte zum Aktivieren der formularbasierten Authentifizierungsrichtlinie finden Sie unter [Konfigurieren von Authentifizierungsrichtlinien](/windows-server/identity/ad-fs/operations/configure-authentication-policies).
 
 3. Zum Hinzufügen der Vertrauensstellung der vertrauenden Seite führen Sie den folgenden Windows PowerShell-Befehl für Ihre AD FS-Instanz oder Ihr Farmmitglied aus. Aktualisieren Sie unbedingt den AD FS-Endpunkt, und verweisen Sie auf die Datei, die Sie in Schritt 1 erstellt haben.
 

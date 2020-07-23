@@ -7,16 +7,16 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: ae72fcbeccdb4500cf9182c01e2913188abd2895
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 62e5eba50b4fec5da72fe9f692d3e4a9e5d377a1
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80068987"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567704"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Verwenden von Azure Monitor für Container in Azure Stack Hub
 
-Sie können [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) für Container verwenden, um Ihre Container in einem von der AKS-Engine bereitgestellten Kubernetes-Cluster in Azure Stack Hub zu überwachen. 
+Sie können [Azure Monitor](/azure/azure-monitor/) für Container verwenden, um Ihre Container in einem von der AKS-Engine bereitgestellten Kubernetes-Cluster in Azure Stack Hub zu überwachen. 
 
 > [!IMPORTANT]
 > Azure Monitor für Container in Azure Stack Hub ist zurzeit als öffentliche Vorschauversion verfügbar.
@@ -59,4 +59,4 @@ Unterstützte API-Definitionen für den Azure Stack Hub-Cluster finden Sie in d
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Informieren Sie sich über die [AKS-Engine in Azure Stack Hub](azure-stack-kubernetes-aks-engine-overview.md).  
-- Lesen Sie [Azure Monitor für Container – Übersicht](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+- Lesen Sie [Azure Monitor für Container – Übersicht](/azure/azure-monitor/insights/container-insights-overview).

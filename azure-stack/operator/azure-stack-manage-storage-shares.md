@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: ecac1c8c69a8f332a85bf0a934f688f14dbcaddd
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 1c80f8d0d83ab734be98d8e26d4c3abe803ae514
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630996"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488704"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Verwalten der Speicherkapazität für Azure Stack Hub
 
@@ -45,7 +45,7 @@ Da die Speicherobjekte (Blobs usw.) jeweils auf einem einzelnen Volume enthalten
 
 Wenn der freie Speicherplatz eines Objektspeichervolumes knapp wird und Aktionen zum [Freigeben](#reclaim-capacity) von Speicherplatz nicht erfolgreich oder verfügbar sind, können Azure Stack Hub-Cloudoperatoren die Speicherobjekte zwischen Volumes migrieren.
 
-Informationen zur Verwendung von Blobspeicher in Azure Stack Hub durch Mandantenbenutzer finden Sie unter [Azure Stack Hub-Speicherdienste](/azure-stack/user/azure-stack-storage-overview).
+Informationen zur Verwendung von Blobspeicher in Azure Stack Hub durch Mandantenbenutzer finden Sie unter [Azure Stack Hub-Speicherdienste](../user/azure-stack-storage-overview.md).
 
 ### <a name="containers"></a>Container
 Mandantenbenutzer erstellen Container, die dann zum Speichern von Blobdaten verwendet werden. Obwohl Benutzer entscheiden, in welchem Container Blobs platziert werden sollen, bestimmt der Speicherdienst mithilfe eines Algorithmus, auf welchem Volume der Container platziert wird. Der Algorithmus wählt in der Regel das Volume mit dem meisten verfügbaren Speicherplatz.  
@@ -173,7 +173,7 @@ Durch die Migration werden alle Containerblobs in der neuen Freigabe konsolidier
 > Bei der Migration von Blobs für einen Container handelt es sich um einen Offlinevorgang, der die Verwendung von PowerShell erfordert. Bis zum Abschluss der Migration sind alle Blobs für den Container, den Sie migrieren, offline und können nicht verwendet werden. Außerdem sollten Sie es vermeiden, ein Upgrade für Azure Stack Hub durchzuführen, bis alle Migrationsvorgänge abgeschlossen sind.
 
 #### <a name="migrate-containers-by-using-powershell"></a>Migrieren von Containern mithilfe von PowerShell
-1. Vergewissern Sie sich, dass [Azure PowerShell installiert und konfiguriert](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) ist. Weitere Informationen finden Sie unter [Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell](https://go.microsoft.com/fwlink/?LinkId=394767).
+1. Vergewissern Sie sich, dass [Azure PowerShell installiert und konfiguriert](/powershell/azure/) ist. Weitere Informationen finden Sie unter [Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell](https://go.microsoft.com/fwlink/?LinkId=394767).
 2. Überprüfen Sie den Container, um zu ermitteln, welche Daten sich auf der Freigabe befinden, die Sie migrieren möchten. Verwenden Sie das Cmdlet `Get-AzsStorageContainer`, um die Container zu ermitteln, die sich auf einem Volume am besten für die Migration eignen:
 
    ```powershell  
@@ -324,4 +324,4 @@ Die extremste Methode zum Verwalten von Speicherplatz ist das Verschieben von ni
 ::: moniker-end
 
 ## <a name="next-steps"></a>Nächste Schritte
-Weitere Informationen zum Anbieten von VMs für Benutzer finden Sie unter [Verwalten der Speicherkapazität für Azure Stack Hub](azure-stack-tutorial-tenant-vm.md).
+Weitere Informationen zum Anbieten von VMs für Benutzer finden Sie unter [Verwalten der Speicherkapazität für Azure Stack Hub](./tutorial-offer-services.md?view=azs-2002).

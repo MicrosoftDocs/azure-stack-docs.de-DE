@@ -7,25 +7,25 @@ ms.date: 03/30/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 03/30/2020
-ms.openlocfilehash: 2c741440deb92be81497b34a7e485d4628501100
-ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
+ms.openlocfilehash: a4939e308b4f91fc0a9821499bb51615d11ab131
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85377156"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489248"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>Sofortiges Senden von Azure Stack Hub-Diagnoseprotokollen
 
 ::: moniker range=">= azs-2002"
 
-Azure Stack-Operatoren können Diagnoseprotokolle bei Bedarf über das Administratorportal oder per PowerShell an den Microsoft-Support senden, bevor sie Unterstützung anfordern. Wenn Azure Stack Hub mit Azure verbunden ist, empfiehlt es sich, die Option zum **sofortigen Senden von Protokollen** im Administratorportal zu verwenden, da die Protokolle so am einfachsten direkt an Microsoft gesendet werden können. Ist das Portal nicht verfügbar, sollten Operatoren stattdessen [Protokolle nun mit „Send-AzureStackDiagnosticLog“ senden](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md). 
+Azure Stack-Operatoren können Diagnoseprotokolle bei Bedarf über das Administratorportal oder per PowerShell an den Microsoft-Support senden, bevor sie Unterstützung anfordern. Wenn Azure Stack Hub mit Azure verbunden ist, empfiehlt es sich, die Option zum **sofortigen Senden von Protokollen** im Administratorportal zu verwenden, da die Protokolle so am einfachsten direkt an Microsoft gesendet werden können. Ist das Portal nicht verfügbar, sollten Operatoren stattdessen [Protokolle nun mit „Send-AzureStackDiagnosticLog“ senden](./azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md?view=azs-2002). 
 
 Falls Sie über keine Internetverbindung verfügen oder die Protokolle nur lokal speichern möchten, verwenden Sie die Methode [Get-AzureStackLog](azure-stack-get-azurestacklog.md) für den Protokollversand. Das folgende Flussdiagramm zeigt, welche Option jeweils zum Senden von Diagnoseprotokollen verwendet werden muss: 
 
 ![Flussdiagramm zum sofortigen Senden von Protokollen an Microsoft](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
 >[!NOTE]
->Als Alternative zum bedarfsgesteuerten Sammeln von Protokollen können Sie den Problembehandlungsprozess auch optimieren, indem Sie [Diagnoseprotokolle proaktiv sammeln](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md). Wenn die Integritätsbedingungen des Systems untersucht werden müssen, werden die Protokolle automatisch zur Analyse hochgeladen, bevor eine Anfrage an den Microsoft-Support gesendet wird. Wenn die proaktive Diagnoseprotokollsammlung aktiviert ist, wird unter **Hilfe und Support** angezeigt, wenn die Protokollsammlung erfolgt. Wenn Sie auf die Option zum **sofortigen Senden von Protokollen** klicken, um Protokolle eines bestimmten Zeitfensters zu erfassen, während die proaktive Protokollsammlung ausgeführt wird, beginnt die bedarfsgesteuerte Protokollsammlung nach dem Abschluss der proaktiven Protokollsammlung.
+>Als Alternative zum bedarfsgesteuerten Sammeln von Protokollen können Sie den Problembehandlungsprozess auch optimieren, indem Sie [Diagnoseprotokolle proaktiv sammeln](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002). Wenn die Integritätsbedingungen des Systems untersucht werden müssen, werden die Protokolle automatisch zur Analyse hochgeladen, bevor eine Anfrage an den Microsoft-Support gesendet wird. Wenn die proaktive Diagnoseprotokollsammlung aktiviert ist, wird unter **Hilfe und Support** angezeigt, wenn die Protokollsammlung erfolgt. Wenn Sie auf die Option zum **sofortigen Senden von Protokollen** klicken, um Protokolle eines bestimmten Zeitfensters zu erfassen, während die proaktive Protokollsammlung ausgeführt wird, beginnt die bedarfsgesteuerte Protokollsammlung nach dem Abschluss der proaktiven Protokollsammlung.
 
 Geben Sie Startzeit und Endzeit für die Protokollsammlung an, und klicken Sie auf die Option zum **Erfassen und Hochladen**. 
 
@@ -55,5 +55,4 @@ Führen Sie die folgenden Schritte aus, um die bedarfsgesteuerte Protokollsammlu
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Senden von Azure Stack Hub-Diagnoseprotokollen mithilfe des privilegierten Endpunkts (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md)
-
+[Senden von Azure Stack Hub-Diagnoseprotokollen mithilfe des privilegierten Endpunkts (PEP)](./azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md?view=azs-2002)

@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 908589061e1038f92a014cf62de216b4c52dce8d
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 636d4834b391055911ffc37a005fe40d253ec1d6
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847774"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489673"
 ---
 # <a name="app-service-on-azure-stack-hub-update-4-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 4
 
@@ -94,7 +94,7 @@ Update 4 für Azure App Service in Azure Stack Hub enthält folgende Verbesseru
 ## <a name="post-deployment-steps"></a>Schritte nach der Bereitstellung
 
 > [!IMPORTANT]  
-> Wenn Sie den App Service-Ressourcenanbieter mit einer SQL Always On-Instanz bereitgestellt haben, *müssen* [Sie die Datenbanken „appservice_hosting“ und „appservice_metering“ einer Verfügbarkeitsgruppe](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) hinzufügen und die Datenbanken synchronisieren, damit es im Falle eines Datenbankfailovers nicht zu Dienstausfällen kommt.
+> Wenn Sie den App Service-Ressourcenanbieter mit einer SQL Always On-Instanz bereitgestellt haben, *müssen* [Sie die Datenbanken „appservice_hosting“ und „appservice_metering“ einer Verfügbarkeitsgruppe](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) hinzufügen und die Datenbanken synchronisieren, damit es im Falle eines Datenbankfailovers nicht zu Dienstausfällen kommt.
 
 ## <a name="post-update-steps-optional"></a>Schritte nach dem Update (optional)
 
@@ -103,7 +103,7 @@ Führen Sie die folgenden Schritte aus, nachdem das Update für Azure App Servic
 > [!IMPORTANT]
 > Das Migrationsverfahren dauert etwa 5 bis 10 Minuten. Das Verfahren umfasst das Beenden der vorhandenen Datenbankanmeldesitzungen. Planen Sie Ausfallzeiten für die Migration und Überprüfung von Azure App Service in Azure Stack Hub nach der Migration ein. Wenn Sie diese Schritte nach dem Upgrade auf Azure App Service in Azure Stack Hub 1.3 ausgeführt haben, müssen sie nicht mehr ausgeführt werden.
 
-1. [Fügen Sie App Service-Datenbanken („appservice_hosting“ und „appservice_metering“) einer Verfügbarkeitsgruppe hinzu](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
+1. [Fügen Sie App Service-Datenbanken („appservice_hosting“ und „appservice_metering“) einer Verfügbarkeitsgruppe hinzu](/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
 
 1. Aktivieren Sie die eigenständige Datenbank.
     ```sql
@@ -243,7 +243,7 @@ Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk u
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
 
-Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1809](azure-stack-update-1903.md).
+Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1809](./release-notes.md?view=azs-2002).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

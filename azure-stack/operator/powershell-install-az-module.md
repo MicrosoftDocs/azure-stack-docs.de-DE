@@ -7,12 +7,12 @@ ms.date: 06/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 06/22/2020
-ms.openlocfilehash: c0ce996e1c94b731af808d410c8891c1fcf1395e
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: 14747b3eec8dfb3d3722eab7dd02c5d0d08b816b
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85197071"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490030"
 ---
 # <a name="install-powershell-az-preview-module-for-azure-stack-hub"></a>Installieren des PowerShell Az-Vorschaumoduls für Azure Stack Hub
 
@@ -33,9 +33,9 @@ Sie können mit Azure Stack Hub kompatible PowerShell Az-Module in einem Szenar
 
 ## <a name="1-verify-your-prerequisites"></a>1. Überprüfen der Voraussetzungen
 
-Az-Module werden nur für [Azure Stack Hub mit Update 2002](https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2002#2002-build-reference) und den aktuellen [Hotfix](https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2002#hotfixes) unterstützt.
+Az-Module werden nur für [Azure Stack Hub mit Update 2002](./release-notes.md?view=azs-2002#2002-build-reference) und den aktuellen [Hotfix](./release-notes.md?view=azs-2002#hotfixes) unterstützt.
 
-Azure PowerShell kann mit PowerShell 5.1 oder höher unter Windows oder mit PowerShell Core 6.x und höher auf allen Plattformen verwendet werden. Sie sollten die [letzte Version von PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell-core) installieren, die für Ihr Betriebssystem verfügbar ist. Bei der Ausführung in PowerShell Core gibt es keine zusätzlichen Anforderungen an Azure PowerShell.
+Azure PowerShell kann mit PowerShell 5.1 oder höher unter Windows oder mit PowerShell Core 6.x und höher auf allen Plattformen verwendet werden. Sie sollten die [letzte Version von PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core) installieren, die für Ihr Betriebssystem verfügbar ist. Bei der Ausführung in PowerShell Core gibt es keine zusätzlichen Anforderungen an Azure PowerShell.
 
 Führen Sie den Befehl aus, um Ihre PowerShell-Version zu überprüfen:
 
@@ -46,12 +46,12 @@ $PSVersionTable.PSVersion
 ### <a name="prerequisites-for-windows"></a>Voraussetzungen für Windows
 So verwenden Sie Azure PowerShell in PowerShell 5.1 unter Windows:
 
-1. Führen Sie bei Bedarf ein Update auf [Windows PowerShell 5.1](https://docs.microsoft.com//powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell) aus. Unter Windows 10 ist PowerShell 5.1 bereits installiert.
-2. Installieren Sie [.NET Framework 4.7.2 oder höher](https://docs.microsoft.com//dotnet/framework/install).
+1. Führen Sie bei Bedarf ein Update auf [Windows PowerShell 5.1](//powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell) aus. Unter Windows 10 ist PowerShell 5.1 bereits installiert.
+2. Installieren Sie [.NET Framework 4.7.2 oder höher](//dotnet/framework/install).
 3. Vergewissern Sie sich, dass die aktuelle Version von PowerShellGet installiert ist. Führen Sie `Install-Module PowerShellGet -MinimumVersion 2.2.3 -Force` aus. 
 
 ## <a name="2-prerequisites-for-linux-and-mac"></a>2. Voraussetzungen für Linux und Mac
-Mindestens PowerShell Core 6.x erforderlich. Anweisungen finden Sie unter [diesem Link](https://docs.microsoft.com//powershell/scripting/install/installing-powershell-core-on-windows).
+Mindestens PowerShell Core 6.x erforderlich. Anweisungen finden Sie unter [diesem Link](//powershell/scripting/install/installing-powershell-core-on-windows).
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3. Deinstallieren vorhandener Versionen der Azure Stack Hub-PowerShell-Module
 
@@ -84,7 +84,7 @@ Install-Module -Name AzureStack -RequiredVersion 2.0.1-preview -AllowPrerelease
 > Azure Stack Hub-Modulversion 2.0.0 ist ein Breaking Change. Ausführliche Informationen finden Sie unter [Migrieren von AzureRM zum Az-Modul von Azure PowerShell in Azure Stack Hub](migrate-azurerm-az.md).
 
 > [!WARNING]
-> Die Module AzureRM und Az können für PowerShell 5.1 für Windows nicht gleichzeitig installiert sein. Wenn AzureRM weiterhin auf Ihrem System verfügbar sein soll, installieren Sie das Az-Modul für PowerShell Core 6.x oder höher. Installieren Sie dazu [PowerShell Core 6.x oder höher](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows), und befolgen Sie dann diese Anweisungen in einem PowerShell Core-Terminal.
+> Die Module AzureRM und Az können für PowerShell 5.1 für Windows nicht gleichzeitig installiert sein. Wenn AzureRM weiterhin auf Ihrem System verfügbar sein soll, installieren Sie das Az-Modul für PowerShell Core 6.x oder höher. Installieren Sie dazu [PowerShell Core 6.x oder höher](/powershell/scripting/install/installing-powershell-core-on-windows), und befolgen Sie dann diese Anweisungen in einem PowerShell Core-Terminal.
 
 ## <a name="5-disconnected-install-without-internet-connection"></a>5. Nicht verbunden: Installieren ohne Internetverbindung
 
@@ -130,7 +130,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 2. Melden Sie sich bei der getrennten Arbeitsstation an, und kopieren Sie die Pakete vom USB-Gerät an einen Speicherort auf der Arbeitsstation.
 
-3. Manuelles Bootstrapping des NuGet-Anbieters auf Ihrer getrennten Arbeitsstation Anweisungen finden Sie unter [Manuelles Bootstrapping des NuGet-Anbieters auf einem Computer, der nicht mit dem Internet verbunden ist](https://docs.microsoft.com/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
+3. Manuelles Bootstrapping des NuGet-Anbieters auf Ihrer getrennten Arbeitsstation Anweisungen finden Sie unter [Manuelles Bootstrapping des NuGet-Anbieters auf einem Computer, der nicht mit dem Internet verbunden ist](/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
 
 4. Registrieren Sie diesen Speicherort als Standardrepository, und installieren Sie die Module AzureRM und `AzureStack` aus diesem Repository:
 

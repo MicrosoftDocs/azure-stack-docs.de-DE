@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 2d836c601f292b25a472b38d1afef464a3b22960
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: a99339b2a8708bac8c20b5f2fb507e42fc7588de
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630928"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488653"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Verwalten von Azure Stack Hub-Speicherkonten
 
@@ -123,7 +123,7 @@ Sie können auch PowerShell verwenden, um den Aufbewahrungszeitraum explizit au�
 **Freigeben von Kapazität mithilfe von PowerShell:**
 
 1. Vergewissern Sie sich, dass Azure PowerShell installiert und konfiguriert ist. Ist dies nicht der Fall, gehen Sie folgendermaßen vor: 
-   * Anweisungen zur Installation und zur Zuordnung der aktuellen Azure PowerShell-Version an Ihr Azure-Abonnement finden Sie unter [Installieren und Konfigurieren von Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+   * Anweisungen zur Installation und zur Zuordnung der aktuellen Azure PowerShell-Version an Ihr Azure-Abonnement finden Sie unter [Installieren und Konfigurieren von Azure PowerShell](/powershell/azure/).
    Weitere Informationen zu Azure Resource Manager-Cmdlets finden Sie unter [Verwenden von Azure PowerShell mit dem Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767).
 2. Führen Sie die folgenden Cmdlets aus:
 
@@ -135,7 +135,7 @@ Sie können auch PowerShell verwenden, um den Aufbewahrungszeitraum explizit au�
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ```
 
-Weitere Informationen finden Sie in der [Azure Stack Hub-PowerShell-Dokumentation](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
+Weitere Informationen finden Sie in der [Azure Stack Hub-PowerShell-Dokumentation](/powershell/azure/azure-stack/overview).
  
 
 ## <a name="next-steps"></a>Nächste Schritte

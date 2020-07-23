@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: f447f4969e9cb9bcb4d56ea5961473e1028e44f3
-ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
+ms.openlocfilehash: 563892dd4275c6e42fdda1f7046edc7418f50350
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106906"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488398"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planen der Netzwerkintegration für Azure Stack
 
@@ -92,7 +92,7 @@ Dieses Netzwerk des Typs „/29“ (6 Host-IP-Adressen) dient zum Verbinden der
 
 ## <a name="permitted-networks"></a>Zugelassene Netzwerke
 
-Ab 1910 steht auf dem Arbeitsblatt für die Bereitstellung dieses neue Feld zur Verfügung, mit dem der Operator einige Zugriffssteuerungslisten (Access Control Lists, ACLs) ändern kann, um den Zugriff auf Verwaltungsschnittstellen für Netzwerkgeräte sowie auf den Hardwarelebenszyklus-Host (HLH) über einen vertrauenswürdigen Netzwerkbereich des Rechenzentrums zu ermöglichen. Durch die Änderung der Zugriffssteuerungsliste kann der Operator seinen Jumpbox-VMs für die Verwaltung innerhalb eines bestimmten Netzwerkbereichs Zugriff auf die Schnittstelle für die Switchverwaltung, das HLH-Betriebssystem und den HLH-BMC gewähren. Der Operator kann Subnetze für diese Liste angeben. Ist die Liste leer, wird der Zugriff standardmäßig verweigert. Dank dieser neuen Funktion ist nach der Bereitstellung kein manueller Eingriff mehr erforderlich, wie unter [Ändern bestimmter Einstellungen in der Azure Stack-Switchkonfiguration](https://docs.microsoft.com/azure-stack/operator/azure-stack-customer-defined#access-control-list-updates) beschrieben.
+Ab 1910 steht auf dem Arbeitsblatt für die Bereitstellung dieses neue Feld zur Verfügung, mit dem der Operator einige Zugriffssteuerungslisten (Access Control Lists, ACLs) ändern kann, um den Zugriff auf Verwaltungsschnittstellen für Netzwerkgeräte sowie auf den Hardwarelebenszyklus-Host (HLH) über einen vertrauenswürdigen Netzwerkbereich des Rechenzentrums zu ermöglichen. Durch die Änderung der Zugriffssteuerungsliste kann der Operator seinen Jumpbox-VMs für die Verwaltung innerhalb eines bestimmten Netzwerkbereichs Zugriff auf die Schnittstelle für die Switchverwaltung, das HLH-Betriebssystem und den HLH-BMC gewähren. Der Operator kann Subnetze für diese Liste angeben. Ist die Liste leer, wird der Zugriff standardmäßig verweigert. Dank dieser neuen Funktion ist nach der Bereitstellung kein manueller Eingriff mehr erforderlich, wie unter [Ändern bestimmter Einstellungen in der Azure Stack-Switchkonfiguration](./azure-stack-customer-defined.md#access-control-list-updates) beschrieben.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -8,16 +8,16 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 134839230eef3bb76c8df82cb2bd79b5127dfed9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7021bf8bcc9a6a81ba625e2c9e88a6f5133b81be
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697262"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487939"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Wartungsvorgänge von SQL-Ressourcenanbietern
 
-Der SQL-Ressourcenanbieter wird auf einem gesperrten virtuellen Computer (virtual machine, VM) ausgeführt. Damit Wartungsvorgänge durchgeführt werden können, müssen Sie die Sicherheit der VM aktualisieren. Verwenden Sie hierzu den Endpunkt *DBAdapterMaintenance* mit [PowerShell Just Enough Administration (JEA)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview), um dem Prinzip der geringsten Rechte zu entsprechen. Das Ressourcenanbieter-Installationspaket enthält ein Skript für diese Aktion.
+Der SQL-Ressourcenanbieter wird auf einem gesperrten virtuellen Computer (virtual machine, VM) ausgeführt. Damit Wartungsvorgänge durchgeführt werden können, müssen Sie die Sicherheit der VM aktualisieren. Verwenden Sie hierzu den Endpunkt *DBAdapterMaintenance* mit [PowerShell Just Enough Administration (JEA)](/powershell/scripting/learn/remoting/jea/overview), um dem Prinzip der geringsten Rechte zu entsprechen. Das Ressourcenanbieter-Installationspaket enthält ein Skript für diese Aktion.
 
 ## <a name="patching-and-updating"></a>Patchen und Aktualisieren
 

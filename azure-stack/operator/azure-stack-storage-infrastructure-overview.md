@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.lastreviewed: 5/5/2020
 ms.reviewer: jiaha
 ms.custom: contperfq4
-ms.openlocfilehash: a8bc501587c4f4450a07704734391a8e889e3296
-ms.sourcegitcommit: 7d4c28353bc138bbae744d9dbca79fe934c2e94b
+ms.openlocfilehash: 86809f68e488f077b0a8125d92db325b40dc5452
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83624583"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487818"
 ---
 # <a name="azure-stack-hub-storage-infrastructure-overview"></a>Azure Stack Hub-Speicherinfrastruktur: Übersicht
 
@@ -99,7 +99,7 @@ Die Anzahl von temporären VM-Volumes und Objektspeichervolumes entspricht der A
 - Die Anzahl von Volumes bleibt auch dann gleich, wenn ein Knoten fehlerhaft ist oder entfernt wurde.
 
 > [!NOTE]
-> Bei Verwendung des [Azure Stack Development Kit (ASDK)](https://docs.microsoft.com/azure-stack/asdk/) ist ein einzelnes Volume mit mehreren [Freigaben](azure-stack-manage-storage-shares.md) vorhanden.
+> Bei Verwendung des [Azure Stack Development Kit (ASDK)](../asdk/index.yml) ist ein einzelnes Volume mit mehreren [Freigaben](azure-stack-manage-storage-shares.md) vorhanden.
 
 ### <a name="fault-tolerance-and-mirroring"></a>Fehlertoleranz und Spiegelung
 

@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: a9b81eb49abdcd08cef13e89845473db5c9c9032
-ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
+ms.openlocfilehash: f08f2af4cf85d1e4346b6fc378135d218216c9d0
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85377160"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488840"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack Hub: Hilfe und Support
 
@@ -66,8 +66,8 @@ Diese Tutorialreihe wird in Abhängigkeit davon angepasst, ob Sie das ASDK oder 
 
 Sie können Diagnoseprotokolle auf zwei Arten an Microsoft senden:
 
-- [Proaktives Senden von Protokollen:](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md) Wenn diese Option aktiviert ist, wird die Protokollsammlung durch bestimmte Integritätswarnungen ausgelöst.
-- [Sofortiges Senden von Protokollen:](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) Sie können manuell ein bestimmtes gleitendes Fenster als Zeitrahmen für die Protokollsammlung auswählen.
+- [Proaktives Senden von Protokollen:](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002) Wenn diese Option aktiviert ist, wird die Protokollsammlung durch bestimmte Integritätswarnungen ausgelöst.
+- [Sofortiges Senden von Protokollen:](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) Sie können manuell ein bestimmtes gleitendes Fenster als Zeitrahmen für die Protokollsammlung auswählen.
 
 ![Optionen für die Sammlung von Diagnoseprotokollen](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 
@@ -105,6 +105,6 @@ Wählen Sie im Administratorportal oben rechts **Hilfe** (Fragezeichen) und dann
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Informieren Sie sich über die [Erfassung von Diagnoseprotokollen](azure-stack-diagnostic-log-collection-overview-tzl.md).
+- Informieren Sie sich über die [Erfassung von Diagnoseprotokollen](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002).
 - Erfahren Sie, wie Sie [Ihre Cloud-ID ermitteln](azure-stack-find-cloud-id.md).
 - Informieren Sie sich über die [Problembehandlung für Azure Stack Hub](azure-stack-troubleshooting.md).

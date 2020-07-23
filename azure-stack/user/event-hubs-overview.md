@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: c7c1d11d2ef432ddc8b750fde5cb6970c4076db4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b2e03617b8409e321edb3b2d924f5f0762ad9b9f
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80614404"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566412"
 ---
 # <a name="event-hubs-on-azure-stack-hub-overview"></a>Event Hubs in Azure Stack Hub – Übersicht
 
@@ -66,7 +66,7 @@ Die [Azure Event Hubs-Dokumentation](/azure/event-hubs/) gilt für beide Edition
 
 ### <a name="operator-documentation"></a>Operator-Dokumentation 
  
-Weitere Informationen zur Event Hubs in Azure Stack Hub-Operatorfunktionalität finden Sie im Artikel [Event Hubs in Azure Stack Hub – Übersicht](/azure-stack/operator/event-hubs-rp-overview). Diese Dokumentation enthält Informationen zu Aktivitäten wie:
+Weitere Informationen zur Event Hubs in Azure Stack Hub-Operatorfunktionalität finden Sie im Artikel [Event Hubs in Azure Stack Hub – Übersicht](../operator/event-hubs-rp-overview.md). Diese Dokumentation enthält Informationen zu Aktivitäten wie:
 
 - Installieren von Event Hubs
 - Verfügbarmachen von Event Hubs für Benutzer

@@ -7,12 +7,12 @@ ms.date: 06/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/19/2020
-ms.openlocfilehash: 5c60fc396e15f7dd280740c7541a4207eb56d3ef
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: 37ae031199c0e547e635fc0473d833dc94865523
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85197088"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566038"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Einrichten der Voraussetzungen für die AKS-Engine in Azure Stack Hub
 
@@ -33,21 +33,21 @@ Der Cloudbetreiber muss über die folgenden Elemente verfügen.
 | Azure Stack Hub 2002 oder höher | Die AKS-Engine erfordert Azure Stack Hub 2002 oder höher. | Erforderlich | Wenn Sie nicht sicher sind, welche Version von Azure Stack Hub verwendet wird, wenden Sie sich an Ihren Cloudbetreiber. |
 | Benutzerdefinierte Linux-Skripterweiterung | Benutzerdefinierte Linux-Skripterweiterung 2.0<br>Angebot: Custom Script for Linux 2.0<br>Version: 2.0.6 (oder neueste Version)<br>Herausgeber: Microsoft Corp. | Erforderlich | Wenn Sie in Ihrem Abonnement nicht über dieses Element verfügen, wenden Sie sich an Ihren Cloudbetreiber. |
 | AKS-Basis-Ubuntu-Image | AKS Base Ubuntu 16.04-LTS Image Distro, Mai 2020 (2020.05.13) | Erforderlich | Wenn Sie in Ihrem Abonnement nicht über dieses Element verfügen, wenden Sie sich an Ihren Cloudbetreiber. Weitere Informationen zur Versionsabhängigkeit finden Sie unter [Abstimmen der Engine auf die Basisimageversion](#matching-engine-to-base-image-version).<br> Wenn Sie der Cloudbetreiber für Azure Stack Hub sind und die AKS-Engine anbieten möchten, befolgen Sie die Anweisungen unter [Hinzufügen der AKS-Engine zum Azure Stack Hub-Marketplace](../operator/azure-stack-aks-engine.md). |
-| Dienstprinzipalidentität (SPN) |  Eine Anwendung, Ressourcen über Azure Resource Manager bereitstellen oder konfigurieren muss, muss von einem Dienstprinzipal dargestellt werden. | Erforderlich | Möglicherweise müssen Sie sich für dieses Element an den Azure Stack Hub-Operator wenden.<br>Wenn eine Azure Active Directory-Dienstprinzipalidentität (AAD) verwendet wird, ist für die virtuellen Computer im Kubernetes-Cluster Internetzugriff erforderlich, damit der Dienstprinzipal über AAD authentifiziert werden kann. Besteht kein Internetzugriff, ist der Kubernetes-Cluster nicht funktionsfähig.<br>Anweisungen finden Sie unter [Verwenden einer App-Identität für den Ressourcenzugriff](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals). |
-| (SPN) zugewiesene Rolle **Mitwirkender** | Um einer Anwendung den Zugriff auf Ressourcen in Ihrem Abonnement unter Verwendung ihres Dienstprinzipals zu gestatten, müssen Sie den Dienstprinzipal einer Rolle für eine bestimmte Ressource zuweisen. | Erforderlich | Eine Anleitung hierzu finden Sie unter [Zuweisen einer Rolle](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals#assign-a-role). |
+| Dienstprinzipalidentität (SPN) |  Eine Anwendung, Ressourcen über Azure Resource Manager bereitstellen oder konfigurieren muss, muss von einem Dienstprinzipal dargestellt werden. | Erforderlich | Möglicherweise müssen Sie sich für dieses Element an den Azure Stack Hub-Operator wenden.<br>Wenn eine Azure Active Directory-Dienstprinzipalidentität (AAD) verwendet wird, ist für die virtuellen Computer im Kubernetes-Cluster Internetzugriff erforderlich, damit der Dienstprinzipal über AAD authentifiziert werden kann. Besteht kein Internetzugriff, ist der Kubernetes-Cluster nicht funktionsfähig.<br>Anweisungen finden Sie unter [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md). |
+| (SPN) zugewiesene Rolle **Mitwirkender** | Um einer Anwendung den Zugriff auf Ressourcen in Ihrem Abonnement unter Verwendung ihres Dienstprinzipals zu gestatten, müssen Sie den Dienstprinzipal einer Rolle für eine bestimmte Ressource zuweisen. | Erforderlich | Eine Anleitung hierzu finden Sie unter [Zuweisen einer Rolle](../operator/azure-stack-create-service-principals.md#assign-a-role). |
 
 
 Sie können die folgenden Elemente festlegen.
 
 | Voraussetzung | BESCHREIBUNG | Erforderlich | Instructions |
 | --- | --- | --- | --- |
-| Azure Stack Hub-Abonnement | Sie greifen über Abonnements auf Angebote in Ihrer Azure Stack Hub-Instanz zu. Das Angebot enthält die Dienste, die Ihnen zur Verfügung stehen. | Erforderlich | Zum Bereitstellen von Mandantenworkloads in Azure Stack Hub müssen Sie zuerst ein [Azure Stack Hub-Abonnement](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services) erhalten. |
-| Resource group | Eine Ressourcengruppe ist ein Container, der verwandte Ressourcen für eine Azure-Lösung enthält. Wenn Sie keine vorhandene Ressourcengruppe angeben, erstellt das Tool eine für Sie. | Optional | [Verwalten von Azure Resource Manager-Gruppen mithilfe des Azure-Portals](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal) |
-| Privater öffentlicher Schlüssel | Zur Verwendung einer offenen SSH-Verbindung zwischen Ihrem Entwicklungscomputer und der Server-VM auf Ihrer Azure Stack Hub-Instanz, auf der Ihre Web-App gehostet wird, müssen Sie ein öffentlich-privates SSH-Schlüsselpaar (Secure Shell) erstellen. | Erforderlich | Anweisungen zum Generieren eines Schlüssels finden Sie unter [SSH Key Generation](https://docs.microsoft.com/azure-stack/user/azure-stack-dev-start-howto-ssh-public-key) (SSH-Schlüsselgenerierung).|
+| Azure Stack Hub-Abonnement | Sie greifen über Abonnements auf Angebote in Ihrer Azure Stack Hub-Instanz zu. Das Angebot enthält die Dienste, die Ihnen zur Verfügung stehen. | Erforderlich | Zum Bereitstellen von Mandantenworkloads in Azure Stack Hub müssen Sie zuerst ein [Azure Stack Hub-Abonnement](./azure-stack-subscribe-services.md) erhalten. |
+| Resource group | Eine Ressourcengruppe ist ein Container, der verwandte Ressourcen für eine Azure-Lösung enthält. Wenn Sie keine vorhandene Ressourcengruppe angeben, erstellt das Tool eine für Sie. | Optional | [Verwalten von Azure Resource Manager-Gruppen mithilfe des Azure-Portals](/azure/azure-resource-manager/manage-resource-groups-portal) |
+| Privater öffentlicher Schlüssel | Zur Verwendung einer offenen SSH-Verbindung zwischen Ihrem Entwicklungscomputer und der Server-VM auf Ihrer Azure Stack Hub-Instanz, auf der Ihre Web-App gehostet wird, müssen Sie ein öffentlich-privates SSH-Schlüsselpaar (Secure Shell) erstellen. | Erforderlich | Anweisungen zum Generieren eines Schlüssels finden Sie unter [SSH Key Generation](./azure-stack-dev-start-howto-ssh-public-key.md) (SSH-Schlüsselgenerierung).|
 
 
 > [!Note]  
-> Sie können die Voraussetzungen für die AKS-Engine auch mit [Azure CLI für Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2) oder [PowerShell für Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install) schaffen.
+> Sie können die Voraussetzungen für die AKS-Engine auch mit [Azure CLI für Azure Stack Hub](./azure-stack-version-profiles-azurecli2.md) oder [PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md) schaffen.
 
 ## <a name="matching-engine-to-base-image-version"></a>Abstimmen der Engine auf die Basisimageversion
 

@@ -7,18 +7,18 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 4fc7269e81e021f30049f7b93a9651443f381d6b
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: 19cfee9cf4e2698bcb75cb7dd15a9439ed55341a
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643532"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566089"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Bereitstellen hochverfügbarer virtueller Netzwerkgeräte in Azure Stack Hub
 
 In diesem Artikel erfahren Sie, wie eine Reihe virtueller Netzwerkgeräte (Network Virtual Appliances, NVAs) für Hochverfügbarkeit in Azure Stack Hub bereitgestellt wird. Ein NVA wird normalerweise verwendet, um den Netzwerkdatenverkehrsfluss von einem Umkreisnetzwerk (auch als DMZ bekannt) zu anderen Netzwerken oder Subnetzen zu steuern. Der Artikel enthält Beispielarchitekturen für nur eingehenden, nur ausgehenden sowie ein- und ausgehenden Datenverkehr.
 
-Im [Azure Stack Hub Marketplace](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items) sind NVAs unterschiedlicher Anbieter verfügbar. Verwenden Sie eines davon, um eine optimale Leistung zu erzielen.
+Im [Azure Stack Hub Marketplace](../operator/azure-stack-marketplace-azure-items.md) sind NVAs unterschiedlicher Anbieter verfügbar. Verwenden Sie eines davon, um eine optimale Leistung zu erzielen.
 
 Diese Architektur besteht aus den folgenden Komponenten.
 
@@ -26,13 +26,13 @@ Diese Architektur besteht aus den folgenden Komponenten.
 
 -   **Virtuelles Netzwerk und Subnetze**. Jede Azure-VM wird in einem virtuellen Netzwerk bereitgestellt, das in Subnetze segmentiert werden kann. Erstellen Sie für jede Schicht ein separates Subnetz.
 
--   **Layer 7-Lastenausgleich.** Da Application Gateway noch nicht für Azure Stack Hub verfügbar ist, sind Alternativen in [Azure Stack Hub Marketplace](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items) verfügbar, wie z. B.: [KEMP LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) oder [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
+-   **Layer 7-Lastenausgleich.** Da Application Gateway noch nicht für Azure Stack Hub verfügbar ist, sind Alternativen in [Azure Stack Hub Marketplace](../operator/azure-stack-marketplace-azure-items.md) verfügbar, wie z. B.: [KEMP LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) oder [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
--   **Lastenausgleichsmodule**. Verwenden Sie [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) zum Verteilen von Netzwerkdatenverkehr von der Webschicht auf die Geschäftsschicht und von der Geschäftsschicht an SQL Server.
+-   **Lastenausgleichsmodule**. Verwenden Sie [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) zum Verteilen von Netzwerkdatenverkehr von der Webschicht auf die Geschäftsschicht und von der Geschäftsschicht an SQL Server.
 
 -   **Netzwerksicherheitsgruppen** (NSGs). Verwenden Sie NSGs, um den Netzwerkdatenverkehr im virtuellen Netzwerk zu beschränken. In der hier gezeigten dreischichtigen Architektur akzeptiert die Datenbankschicht beispielsweise keinen Datenverkehr vom Web-Front-End, sondern nur von der Geschäftsschicht und dem Verwaltungssubnetz.
 
--   **Benutzerdefinierte Routen**. Verwenden Sie [*benutzerdefinierten Routen*](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview/) zum Weiterleiten von Datenverkehr an den jeweiligen Lastenausgleich.
+-   **Benutzerdefinierte Routen**. Verwenden Sie [*benutzerdefinierten Routen*](/azure/virtual-network/virtual-networks-udr-overview/) zum Weiterleiten von Datenverkehr an den jeweiligen Lastenausgleich.
 
 In diesem Artikel werden Grundkenntnisse zu Azure Stack Hub-Netzwerken vorausgesetzt.
 
@@ -84,4 +84,4 @@ In der Architektur „Ein-/ausgehender Datenverkehr mit Layer 7-NVAs“ verarbe
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Weitere Informationen zu Azure Stack Hub-VMs finden Sie unter [Features von Azure Stack Hub-VMs](azure-stack-vm-considerations.md).  
-- Weitere Informationen zu Azure-Cloudmustern finden Sie unter [Cloudentwurfsmuster](https://docs.microsoft.com/azure/architecture/patterns).
+- Weitere Informationen zu Azure-Cloudmustern finden Sie unter [Cloudentwurfsmuster](/azure/architecture/patterns).

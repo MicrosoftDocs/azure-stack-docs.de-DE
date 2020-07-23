@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: c64b95874e6718fd394796dd0254f38127211f68
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: bb43fc0503e05e09dc121597027179b8b0a276b5
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631172"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566433"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Verwalten und Bereitstellen von Ressourcen in Azure Stack Hub mit der Azure CLI
 
@@ -81,7 +81,7 @@ Sie können einen öffentlich zugänglichen Endpunkt einrichten, der eine VM-Ali
 
 ### <a name="install-or-upgrade-cli"></a>Installieren oder Aktualisieren der CLI
 
-Melden Sie sich an Ihrer Entwicklungsarbeitsstation an und installieren die CLI. Für Azure Stack Hub wird Version 2.0 oder höher der Azure CLI benötigt. Für die neueste Version der API-Profile ist eine aktuelle Version der CLI erforderlich. Mit den im Artikel [Installieren der Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) beschriebenen Schritten installieren Sie die CLI. 
+Melden Sie sich an Ihrer Entwicklungsarbeitsstation an und installieren die CLI. Für Azure Stack Hub wird Version 2.0 oder höher der Azure CLI benötigt. Für die neueste Version der API-Profile ist eine aktuelle Version der CLI erforderlich. Mit den im Artikel [Installieren der Azure CLI](/cli/azure/install-azure-cli) beschriebenen Schritten installieren Sie die CLI. 
 
 1. Öffnen Sie ein Terminal oder ein Eingabeaufforderungsfenster, und führen Sie den folgenden Befehl aus, um zu überprüfen, ob die Installation erfolgreich war:
 
@@ -198,7 +198,7 @@ Um das Zertifizierungsstellen-Stammzertifikats für Azure Stack Hub als vertraue
 
    - Melden Sie sich als *Dienstprinzipal* an: 
     
-     [Erstellen Sie einen Dienstprinzipal über das Azure-Portal](azure-stack-create-service-principals.md) oder die CLI, und weisen Sie ihm eine Rolle zu, bevor Sie sich anmelden. Melden Sie sich anschließend mit dem folgenden Befehl an:
+     [Erstellen Sie einen Dienstprinzipal über das Azure-Portal](../operator/azure-stack-create-service-principals.md?view=azs-2002) oder die CLI, und weisen Sie ihm eine Rolle zu, bevor Sie sich anmelden. Melden Sie sich anschließend mit dem folgenden Befehl an:
 
      ```azurecli  
      az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
@@ -424,7 +424,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack Hub h
    
    * Anmelden als *Dienstprinzipal*:
     
-     [Erstellen Sie einen Dienstprinzipal über das Azure-Portal](azure-stack-create-service-principals.md) oder die CLI, und weisen Sie ihm eine Rolle zu, bevor Sie sich anmelden. Melden Sie sich anschließend mit dem folgenden Befehl an:
+     [Erstellen Sie einen Dienstprinzipal über das Azure-Portal](../operator/azure-stack-create-service-principals.md?view=azs-2002) oder die CLI, und weisen Sie ihm eine Rolle zu, bevor Sie sich anmelden. Melden Sie sich anschließend mit dem folgenden Befehl an:
 
      ```azurecli  
      az login \

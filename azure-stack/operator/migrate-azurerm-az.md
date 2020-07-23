@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: bcfd4b467013a6f207efa37bc02917d3800e3eb0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 5dc6ef639875803bdb321d1f3aaafdc707ba7ea1
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81395182"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490047"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Migrieren von AzureRM zu Azure PowerShell Az in Azure Stack Hub
 
 Das Az-Modul bietet die gleichen Features wie AzureRM, verwendet aber kürzere und konsistentere Cmdlet-Namen.
 Für die AzureRM-Cmdlets geschriebene Skripts funktionieren nicht automatisch auch mit dem neuen Modul. Zur Vereinfachung des Übergangs bietet Az Tools, die es Ihnen ermöglichen, Ihre bereits vorhandenen Skripts mit AzureRM auszuführen. Eine Migration zu einem neuen Befehlssatz ist immer unangenehm. Dieser Artikel hilft Ihnen jedoch dabei, den Umstieg auf das neue Modul in die Wege zu leiten.
 
-Die vollständige Liste mit grundlegenden Änderungen zwischen AzureRM und Az finden Sie im [Migrationsleitfaden für Az 1.0.0](https://docs.microsoft.com/powershell/azure/migrate-az-1.0.0).
+Die vollständige Liste mit grundlegenden Änderungen zwischen AzureRM und Az finden Sie im [Migrationsleitfaden für Az 1.0.0](/powershell/azure/migrate-az-1.0.0).
 
 ## <a name="check-for-installed-versions-of-azurerm"></a>Durchführen einer Überprüfung auf installierte Versionen von AzureRM
 
@@ -43,7 +43,7 @@ Gehen Sie zum Installieren des Az-Moduls von Azure PowerShell wie folgt vor:
 
 * __EMPFOHLEN__: [Deinstallieren Sie das AzureRM-Modul.](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)
   Achten Sie darauf, _alle_ installierten Versionen von AzureRM zu entfernen, nicht nur die neueste Version.
-* [Installieren Sie das Az-Modul.](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* [Installieren Sie das Az-Modul.](/powershell/azure/install-az-ps)
 
 ## <a name="enable-azurerm-compatibility-aliases"></a>Aktivieren von AzureRM-Kompatibilitätsaliasen 
 

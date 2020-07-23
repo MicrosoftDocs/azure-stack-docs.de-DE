@@ -7,12 +7,12 @@ ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 347d790a4e70e37e83be43019f25b875b7ff2302
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.openlocfilehash: dc89c8939f7a0ad988586df3fe0e33a02c2f7c79
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533721"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567551"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Aktualisieren eines Kubernetes-Clusters in Azure Stack Hub
 
@@ -65,7 +65,7 @@ Eine vollständige Zuordnung von AKS-Engine, AKS-Basisimage und Kubernetes-Versi
     | azure-env | AzureStackCloud | Um der AKS-Engine mitzuteilen, dass die Zielplattform Azure Stack Hub ist, verwenden Sie `AzureStackCloud`. |
     | location | local | Der Regionsname für Ihre Azure Stack Hub-Instanz. Für das ASDK ist `local` für die Region festgelegt. |
     | resource-group | kube-rg | Geben Sie den Namen einer neuen Ressourcengruppe ein, oder wählen Sie eine vorhandene Ressourcengruppe aus. Der Ressourcenname muss alphanumerisch und in Kleinbuchstaben angegeben sein. |
-    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie Ihre Abonnement-ID ein. Weitere Informationen finden Sie unter [Abonnieren von Angeboten](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer). |
+    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie Ihre Abonnement-ID ein. Weitere Informationen finden Sie unter [Abonnieren von Angeboten](./azure-stack-subscribe-services.md#subscribe-to-an-offer). |
     | api-model | ./kubernetes-azurestack.json | Pfad zur Clusterkonfigurationsdatei oder zum API-Modell. |
     | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie die Dienstprinzipal-GUID ein. Die als Anwendungs-ID identifizierte Client-ID, wenn Ihr Azure Stack Hub-Administrator den Dienstprinzipal erstellt hat. |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie das Dienstprinzipalgeheimnis ein. Dies ist das Clientgeheimnis, das Sie beim Erstellen Ihres Diensts einrichten. |

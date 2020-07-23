@@ -8,16 +8,16 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: d0ca1abfbecc76ac3d6dd3362626a19b7ee52d0a
-ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
+ms.openlocfilehash: 2906846b3f9aac2a748955032d8f9bce060f14cd
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86033190"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488245"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Verwenden des privilegierten Endpunkts in Azure Stack Hub
 
-Als Azure Stack Hub-Operator verwenden Sie das Administratorportal, PowerShell oder Azure Resource Manager-APIs für die meisten alltäglichen Verwaltungsaufgaben. Für einige weniger häufig ausgeführten Vorgänge müssen Sie jedoch den *privilegierten Endpunkt* (PEP) verwenden. Bei dem PEP handelt es sich um eine vorkonfigurierte PowerShell-Remotekonsole, die Ihnen gerade so viele Funktionen zur Verfügung stellt, wie Sie zur Ausführung einer erforderlichen Aufgabe benötigen. Der Endpunkt nutzt [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview), um nur einen eingeschränkten Satz von Cmdlets verfügbar zu machen. Es wird ein Konto mit geringen Berechtigungen verwendet, um auf den PEP zuzugreifen und den eingeschränkten Satz von Cmdlets aufzurufen. Es sind keine Administratorkonten erforderlich. Die Skripterstellung ist nicht zulässig, um die Sicherheit zu erhöhen.
+Als Azure Stack Hub-Operator verwenden Sie das Administratorportal, PowerShell oder Azure Resource Manager-APIs für die meisten alltäglichen Verwaltungsaufgaben. Für einige weniger häufig ausgeführten Vorgänge müssen Sie jedoch den *privilegierten Endpunkt* (PEP) verwenden. Bei dem PEP handelt es sich um eine vorkonfigurierte PowerShell-Remotekonsole, die Ihnen gerade so viele Funktionen zur Verfügung stellt, wie Sie zur Ausführung einer erforderlichen Aufgabe benötigen. Der Endpunkt nutzt [PowerShell JEA (Just Enough Administration)](/powershell/scripting/learn/remoting/jea/overview), um nur einen eingeschränkten Satz von Cmdlets verfügbar zu machen. Es wird ein Konto mit geringen Berechtigungen verwendet, um auf den PEP zuzugreifen und den eingeschränkten Satz von Cmdlets aufzurufen. Es sind keine Administratorkonten erforderlich. Die Skripterstellung ist nicht zulässig, um die Sicherheit zu erhöhen.
 
 Sie können den PEP nutzen, um diese Aufgaben durchzuführen:
 
@@ -41,7 +41,7 @@ Sie finden die IP-Adresse auch im Azure Stack Hub-Administratorportal. Öffnen S
 Sie müssen die aktuelle Kultureinstellung auf `en-US` festlegen, wenn Sie den privilegierten Endpunkt ausführen. Andernfalls werden Cmdlets wie „Test-AzureStack“ oder „Get-AzureStackLog“ nicht wie erwartet ausgeführt.
 
 > [!NOTE]
-> Aus Sicherheitsgründen darf mit dem PEP nur über eine gehärtete VM, die auf dem Hardwarelebenszyklus-Host basiert, oder über einen dedizierten, sicheren Computer (beispielsweise eine [Arbeitsstation mit privilegiertem Zugriff](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)) eine Verbindung hergestellt werden. Die ursprüngliche Konfiguration des Hardwarelebenszyklus-Hosts darf nicht geändert werden (einschließlich der Installation neuer Software), und er darf nicht zum Herstellen einer Verbindung mit dem PEP verwendet werden.
+> Aus Sicherheitsgründen darf mit dem PEP nur über eine gehärtete VM, die auf dem Hardwarelebenszyklus-Host basiert, oder über einen dedizierten, sicheren Computer (beispielsweise eine [Arbeitsstation mit privilegiertem Zugriff](/windows-server/identity/securing-privileged-access/privileged-access-workstations)) eine Verbindung hergestellt werden. Die ursprüngliche Konfiguration des Hardwarelebenszyklus-Hosts darf nicht geändert werden (einschließlich der Installation neuer Software), und er darf nicht zum Herstellen einer Verbindung mit dem PEP verwendet werden.
 
 1. Richten Sie die Vertrauensstellung ein.
 
@@ -114,7 +114,7 @@ Sie müssen die aktuelle Kultureinstellung auf `en-US` festlegen, wenn Sie den p
 
 ## <a name="how-to-use-the-privileged-endpoint"></a>Verwenden des privilegierten Endpunkts 
 
-Beim PEP handelt es sich wie bereits erwähnt um einen Endpunkt vom Typ [PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview). Ein JEA-Endpunkt bietet nicht nur eine Ebene mit hoher Sicherheit, sondern schränkt auch einige der grundlegenden PowerShell-Funktionen wie Skriptverwendung und Vervollständigung mittels TAB-TASTE ein. Wenn Sie einen Skriptvorgangstyp testen, schlägt der Vorgang mit Fehler **ScriptsNotAllowed** fehl. Dieser Fehler ist das erwartete Verhalten.
+Beim PEP handelt es sich wie bereits erwähnt um einen Endpunkt vom Typ [PowerShell JEA](/powershell/scripting/learn/remoting/jea/overview). Ein JEA-Endpunkt bietet nicht nur eine Ebene mit hoher Sicherheit, sondern schränkt auch einige der grundlegenden PowerShell-Funktionen wie Skriptverwendung und Vervollständigung mittels TAB-TASTE ein. Wenn Sie einen Skriptvorgangstyp testen, schlägt der Vorgang mit Fehler **ScriptsNotAllowed** fehl. Dieser Fehler ist das erwartete Verhalten.
 
 Führen Sie den folgenden Befehl aus, wenn Sie beispielsweise die Parameterliste für ein bestimmtes Cmdlet erhalten möchten:
 
@@ -122,7 +122,7 @@ Führen Sie den folgenden Befehl aus, wenn Sie beispielsweise die Parameterliste
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Alternativ können Sie das Cmdlet [**Import-PSSession**](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) verwenden, um alle PEP-Cmdlets in die aktuelle Sitzung auf Ihrem lokalen Computer zu importieren. Die Cmdlets und Funktionen des privilegierten Endpunkts sind dann auf Ihrem lokalen Computer verfügbar – zusammen mit der Vervollständigung mittels TAB-TASTE und der Skripterstellung im Allgemeinen. Sie können auch das Modul **[Get-Help](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-help)** ausführen, um Anweisungen zu den Cmdlets anzuzeigen.
+Alternativ können Sie das Cmdlet [**Import-PSSession**](/powershell/module/microsoft.powershell.utility/import-pssession?view=powershell-5.1) verwenden, um alle PEP-Cmdlets in die aktuelle Sitzung auf Ihrem lokalen Computer zu importieren. Die Cmdlets und Funktionen des privilegierten Endpunkts sind dann auf Ihrem lokalen Computer verfügbar – zusammen mit der Vervollständigung mittels TAB-TASTE und der Skripterstellung im Allgemeinen. Sie können auch das Modul **[Get-Help](/powershell/module/microsoft.powershell.core/get-help)** ausführen, um Anweisungen zu den Cmdlets anzuzeigen.
 
 Wenn Sie die PEP-Sitzung in Ihren lokalen Computer importieren möchten, führen Sie die folgenden Schritte aus:
 
@@ -200,5 +200,5 @@ Nachdem die Aufzeichnungsprotokolldateien erfolgreich in die Dateifreigabe über
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Azure Stack Hub-Diagnosetools](azure-stack-diagnostic-log-collection-overview-tzl.md)
+- [Azure Stack Hub-Diagnosetools](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)
 - [Referenz zu privilegierten Azure Stack Hub-Endpunkten](../reference/pep-2002/index.md)

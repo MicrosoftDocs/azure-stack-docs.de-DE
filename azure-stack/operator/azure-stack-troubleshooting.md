@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/13/2020
-ms.openlocfilehash: ea96a990682e601d2cbe555185bdf5d4b8b6cbad
-ms.sourcegitcommit: 71620f2b014d9e73ce34123ca6757ee9a626617c
+ms.openlocfilehash: e58d57b50f0f11c3e05d660063b5abd94c8e4575
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86380132"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487565"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Behandeln von Problemen in Azure Stack Hub
 
@@ -30,7 +30,7 @@ Diese Abschnitte enthalten Links zu Dokumentationen, in denen Sie Antworten auf 
 
 ### <a name="updates-and-diagnostics"></a>Updates und Diagnose
 
-* [Verwenden von Diagnosetools in Azure Stack Hub](azure-stack-diagnostics.md)
+* [Verwenden von Diagnosetools in Azure Stack Hub](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)
 * [Überprüfen des Azure Stack Hub-Systemstatus](azure-stack-diagnostic-test.md)
 * [Veröffentlichungsintervall für Updatepakete](azure-stack-servicing-policy.md#update-package-release-cadence)
 * [Überprüfen und Behandeln von Problemen mit dem Knotenstatus](azure-stack-node-actions.md)
@@ -66,7 +66,7 @@ Ein Benutzer in Azure Stack Hub kann ein Leser, ein Besitzer oder ein Mitwirkend
 
 Wenn die integrierten Rollen für Azure-Ressourcen die Ansprüche Ihrer Organisation nicht erfüllen, können Sie Ihre eigenen benutzerdefinierten Rollen erstellen. In diesem Tutorial erstellen Sie mithilfe von Azure PowerShell eine benutzerdefinierte Rolle namens „Reader Support Tickets“.
 
-* [Tutorial: Erstellen einer benutzerdefinierten Rolle für Azure-Ressourcen mithilfe von Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell)
+* [Tutorial: Erstellen einer benutzerdefinierten Rolle für Azure-Ressourcen mithilfe von Azure PowerShell](/azure/role-based-access-control/tutorial-custom-role-powershell)
 
 ### <a name="manage-usage-and-billing-as-a-csp"></a>Verwalten der Nutzung und Abrechnung als CSP
 
@@ -122,7 +122,7 @@ Führen Sie auf der VM den folgenden Befehl aus:
 slmgr /ipk <AVMA_key>
 ```
 
-Ausführliche Informationen finden Sie unter [VM-Aktivierung](https://docs.microsoft.com/windows-server/get-started-19/vm-activation-19).
+Ausführliche Informationen finden Sie unter [VM-Aktivierung](/windows-server/get-started-19/vm-activation-19).
 
 ### <a name="default-image-and-gallery-item"></a>Standardimage und Katalogelement
 
@@ -147,7 +147,7 @@ Es kann bis zu 14 Stunden dauern, bis freigegebene Kapazität im Portal angezeig
 
 ### <a name="azure-storage-explorer-not-working-with-azure-stack-hub"></a>Azure Storage-Explorer funktioniert nicht mit Azure Stack Hub.
 
-Wenn Sie ein integriertes System in einem nicht verbundenen Szenario verwenden, wird die Verwendung einer Unternehmenszertifizierungsstelle empfohlen. Exportieren Sie das Stammzertifikat im Base64-Format, und importieren Sie es in Azure Storage-Explorer. Entfernen Sie unbedingt den nachgestellten Schrägstrich (`/`) vom Resource Manager-Endpunkt. Weitere Informationen finden Sie unter [Vorbereiten für die Verbindung mit Azure Stack Hub](/azure-stack/user/azure-stack-storage-connect-se).
+Wenn Sie ein integriertes System in einem nicht verbundenen Szenario verwenden, wird die Verwendung einer Unternehmenszertifizierungsstelle empfohlen. Exportieren Sie das Stammzertifikat im Base64-Format, und importieren Sie es in Azure Storage-Explorer. Entfernen Sie unbedingt den nachgestellten Schrägstrich (`/`) vom Resource Manager-Endpunkt. Weitere Informationen finden Sie unter [Vorbereiten für die Verbindung mit Azure Stack Hub](../user/azure-stack-storage-connect-se.md).
 
 ## <a name="troubleshoot-app-service"></a>Problembehandlung von App Service
 
@@ -159,11 +159,11 @@ Wenn beim Skript „Create-AADIdentityApp.ps1“, das für App Service benötigt
 
 Der Azure Stack Hub-Patch und -Updatevorgang ermöglicht den Betreibern das konsistente und optimierte Anwenden von Updatepaketen. Probleme bei Patch- und Updatevorgängen sind zwar selten, können jedoch auftreten. Die folgenden Schritte werden empfohlen, wenn während des Patch- und Updatevorgangs ein Problem auftritt:
 
-0. **Voraussetzungen:** Stellen Sie sicher, dass Sie die [Checkliste für Updateaktivitäten](release-notes-checklist.md) befolgt und die [proaktive Protokollsammlung konfiguriert](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md) haben.
+0. **Voraussetzungen:** Stellen Sie sicher, dass Sie die [Checkliste für Updateaktivitäten](release-notes-checklist.md) befolgt und die [proaktive Protokollsammlung konfiguriert](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002) haben.
 
 1. Führen Sie die Behebungsschritte in der Fehlerwarnung aus, die beim Fehlschlagen des Updates erstellt wurde.
 
-2. Wenn Sie das Problem nicht beheben konnten, erstellen Sie ein [Azure Stack Hub-Supportticket](azure-stack-help-and-support-overview-tzl.md). Stellen Sie sicher, dass für die Zeitspanne, in der das Problem aufgetreten ist, [Protokolle gesammelt](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) wurden.
+2. Wenn Sie das Problem nicht beheben konnten, erstellen Sie ein [Azure Stack Hub-Supportticket](./azure-stack-help-and-support-overview.md?view=azs-2002). Stellen Sie sicher, dass für die Zeitspanne, in der das Problem aufgetreten ist, [Protokolle gesammelt](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) wurden.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Häufige Probleme bei Azure Stack Hub-Patches und -Updates
 

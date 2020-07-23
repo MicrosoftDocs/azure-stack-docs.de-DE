@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 459d6177015cbca40d2f8f830eba85dc87be18c7
-ms.sourcegitcommit: e79aafb05c5fc512a83f0ebc6d76503213ccbc70
+ms.openlocfilehash: f47e3c48bf6a43276f9e4b11c2e3f0f43a224f18
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730678"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567347"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack Hub-Netzwerke: Unterschiede und Überlegungen
 
@@ -31,7 +31,7 @@ Dieser Artikel enthält eine Übersicht über die besonderen Überlegungen für 
 |  | Namenserver für die Zonendelegierung | Azure bietet vier Namenserver für jede erstellte Benutzerzone (Mandantenzone). | Azure Stack Hub bietet zwei Namenserver für jede erstellte Benutzerzone (Mandantenzone). |
 | Azure Firewall | Netzwerksicherheitsdienst | Azure Firewall ist ein verwalteter, cloudbasierter Netzwerksicherheitsdienst, der Ihre Azure Virtual Network-Ressourcen schützt. | Noch nicht unterstützt. |
 | Virtual Network | Peering in virtuellen Netzwerken | Verbinden von zwei virtuellen Netzwerken in derselben Region über das Azure-Backbonenetzwerk | Noch nicht unterstützt |
-|  | IPv6-Adressen | Sie können eine IPv6-Adresse als Teil der [Netzwerkschnittstellenkonfiguration](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions) zuweisen. | Es wird nur IPv4 unterstützt. |
+|  | IPv6-Adressen | Sie können eine IPv6-Adresse als Teil der [Netzwerkschnittstellenkonfiguration](/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions) zuweisen. | Es wird nur IPv4 unterstützt. |
 |  | DDoS Protection-Plan | Unterstützt | Noch nicht unterstützt. |
 |  | IP-Konfigurationen für Skalierungsgruppe | Unterstützt | Noch nicht unterstützt. |
 |  | Dienste für privaten Zugriff (Subnetz) | Unterstützt | Noch nicht unterstützt. |
