@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: a16928e233d47c6a3f3a8f612b5d5d22afc08456
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: d66f4c6a83dbac71b407990f65922354ee353dc3
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375060"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488109"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Rotieren von Geheimnissen in Azure Stack Hub
 
@@ -25,12 +25,12 @@ Geheimnisse tragen zur Gewährleistung einer sicheren Kommunikation zwischen Azu
 ## <a name="rotate-secrets-overview"></a>Übersicht über die Geheimnisrotation
 
 1. Bereiten Sie die Zertifikate vor, die für die Geheimnisrotation verwendet werden.
-2. Sehen Sie sich die [Azure Stack Hub-PKI-Zertifikatanforderungen](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs) an.
+2. Sehen Sie sich die [Azure Stack Hub-PKI-Zertifikatanforderungen](./azure-stack-pki-certs.md) an.
 3. [Verwenden Sie den privilegierten Endpunkt](azure-stack-privileged-endpoint.md), und führen Sie **Test-azurestack** aus, um zu überprüfen, ob alles in Ordnung ist.  
 4. Machen Sie sich mit der [Vorbereitung der Geheimnisrotation](#pre-steps-for-secret-rotation) vertraut.
-5. [Überprüfen Sie Azure Stack Hub-PKI-Zertifikate](https://docs.microsoft.com/azure-stack/operator/azure-stack-validate-pki-certs). Vergewissern Sie sich, dass das Kennwort keine Sonderzeichen wie `*` oder `)` enthält.
-6. Vergewissern Sie sich, dass als PFX-Verschlüsselung **TripleDES-SHA1** verwendet wird. Lesen Sie bei Bedarf die Informationen unter [Beheben allgemeiner Probleme mit Azure Stack Hub-PKI-Zertifikaten](https://docs.microsoft.com/azure-stack/operator/azure-stack-remediate-certs#pfx-encryption).
-7. Bereiten Sie die Ordnerstruktur vor.  Ein Beispiel finden Sie im Abschnitt [Rotieren externer Geheimnisse](https://docs.microsoft.com/azure-stack/operator/azure-stack-rotate-secrets#rotating-external-secrets).
+5. [Überprüfen Sie Azure Stack Hub-PKI-Zertifikate](./azure-stack-validate-pki-certs.md). Vergewissern Sie sich, dass das Kennwort keine Sonderzeichen wie `*` oder `)` enthält.
+6. Vergewissern Sie sich, dass als PFX-Verschlüsselung **TripleDES-SHA1** verwendet wird. Lesen Sie bei Bedarf die Informationen unter [Beheben allgemeiner Probleme mit Azure Stack Hub-PKI-Zertifikaten](./azure-stack-remediate-certs.md#pfx-encryption).
+7. Bereiten Sie die Ordnerstruktur vor.  Ein Beispiel finden Sie im Abschnitt [Rotieren externer Geheimnisse](#rotating-external-secrets).
 8. [Starten Sie die Geheimnisrotation.](#use-powershell-to-rotate-secrets)
 
 ## <a name="rotate-secrets"></a>Rotieren von Geheimnissen
@@ -141,7 +141,7 @@ Diese Warnungen können durch Ausführen der Geheimnisrotation behandelt werden.
 > Die Fehlermeldung deutet darauf hin, dass ein Problem mit dem Zugriff auf Ihre Dateifreigabe vorliegt. Tatsächlich wird hier jedoch die Ordnerstruktur erzwungen. Weitere Informationen finden Sie im Microsoft Azure Stack Readiness Checker im [PublicCertHelper-Modul](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1).
 >
 > Darüber hinaus muss die Ordnerstruktur der Dateifreigabe mit **Certificates** beginnen, da sonst ebenfalls ein Überprüfungsfehler auftritt.
-> Die Einbindung der Dateifreigabe sollte die Form **\\\\\<IPAddress>\\\<ShareName>\\** aufweisen und den Ordner **Certificates\AAD** oder **Certificates\ADFS** enthalten.
+> Die Einbindung der Dateifreigabe muss die Form **\\\\\<IPAddress>\\\<ShareName>\\** aufweisen und den Ordner **Certificates\AAD** oder **Certificates\ADFS** enthalten.
 >
 > Beispiel:
 > - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
@@ -152,7 +152,7 @@ Diese Warnungen können durch Ausführen der Geheimnisrotation behandelt werden.
 
 So rotieren Sie externe Geheimnisse:
 
-1. Platzieren Sie die neue Gruppe externer Ersatzzertifikate in der Verzeichnisstruktur des Verzeichnisses **\Certificates\\\<Identitätsanbieter>** , das Sie im Rahmen der Vorbereitungsschritte erstellt haben. Berücksichtigen Sie dabei das Format, wie unter [Azure Stack Hub-PKI-Zertifikatanforderungen](azure-stack-pki-certs.md#mandatory-certificates) im Abschnitt **Erforderliche Zertifikate** erläutert.
+1. Platzieren Sie die neue Gruppe externer Ersatzzertifikate in der Verzeichnisstruktur des Verzeichnisses **/Certificates\\\<IdentityProvider>** , das Sie im Rahmen der Vorbereitungsschritte erstellt haben. Berücksichtigen Sie dabei das Format, wie unter **Azure Stack Hub-PKI-Zertifikatanforderungen** im Abschnitt [Erforderliche Zertifikate](azure-stack-pki-certs.md) erläutert.
 
     Beispiel der Ordnerstruktur für den Azure AD-Identitätsanbieter:
     ```powershell
@@ -200,7 +200,7 @@ So rotieren Sie externe Geheimnisse:
     > [!IMPORTANT]  
     > Geben Sie die Sitzung nicht ein. Speichern Sie die Sitzung als Variable.
 
-3. Führen Sie **[Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** aus. Übergeben Sie die PowerShell-Sitzungsvariable für den privilegierten Endpunkt als Parameter **Session**.
+3. Führen Sie **[Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-5.1)** aus. Übergeben Sie die PowerShell-Sitzungsvariable für den privilegierten Endpunkt als Parameter **Session**.
 
 4. Führen Sie **Start-SecretRotation** mit den folgenden Parametern aus:
     - **PfxFilesPath**  

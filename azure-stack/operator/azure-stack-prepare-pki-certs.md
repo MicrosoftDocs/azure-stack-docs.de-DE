@@ -8,18 +8,18 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: a371723250e52fb98e5c1ab7dc3151d1d4b9cbf3
-ms.sourcegitcommit: c1f48c19c8a9c438fd22298bc570c12a9b19bb45
+ms.openlocfilehash: fa252ee475cc58fa13429ec7ef9a6cbbf37b6a0f
+ms.sourcegitcommit: 9bbaa8dc7edb9632f1d06f76ebf8f49c8cb8eed6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86410639"
+ms.lasthandoff: 07/17/2020
+ms.locfileid: "86437131"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation
 
 Die [von der Zertifizierungsstelle Ihrer Wahl bezogenen](azure-stack-get-pki-certs.md) Zertifikatdateien müssen mit Eigenschaften importiert und exportiert werden, die die Zertifikatanforderungen von Azure Stack Hub erfüllen.
 
-## <a name="prepare-certificates-for-deployment-with-azure-stack-readiness-checker"></a>Vorbereiten von Zertifikaten für die Bereitstellung (mit Azure Stack Readiness Checker)
+## <a name="prepare-certificates-for-deployment-with-azure-stack-readiness-checker"></a>Vorbereiten von Zertifikaten für die Bereitstellung mit Azure Stack Readiness Checker
 
 Verwenden Sie das Azure Stack Hub Readiness Checker-Tool zum Importieren, Packen und Validieren von Zertifikaten, die für die Bereitstellung oder Rotation bereit sind.
 
@@ -30,7 +30,7 @@ Zum Packen von PKI-Zertifikaten für eine Azure Stack Hub-Bereitstellung muss Ih
 - Microsoft Azure Stack Hub Readiness Checker
 - Von der Zertifizierungsstelle zurückgegebene Zertifikate in einem einzigen Verzeichnis im CER-Format (andere konfigurierbare Formate: CERT, SST oder PFX).
 - Windows 10 oder Windows Server 2016 oder höher
-- Verwenden Sie das gleiche System, das die Zertifikatsignieranforderung generiert hat. (Es sei denn, das Ziel sind vorab in PFX-Dateien gepackte Zertifikate.)
+- Verwenden Sie dasselbe System, auf dem die Zertifikatsignieranforderung generiert wurde (es sei denn, Sie verwenden ein in PFXs vorab gepacktes Zertifikat).
 
 ## <a name="generate-certificate-signing-requests-for-new-deployments"></a>Generieren von Zertifikatsignieranforderungen für neue Bereitstellungen
 

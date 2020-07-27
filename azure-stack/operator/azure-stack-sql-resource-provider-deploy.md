@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: bc59808b0b1ebb954812882442cb6dc2d8b02e83
-ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
+ms.openlocfilehash: 0c91d214ba35a3bda98da05e2e7359c45707d760
+ms.sourcegitcommit: 09fbc4e8fc53828647d515bfb556dfe42df28c19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82908486"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86419095"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Bereitstellen des SQL Server-Ressourcenanbieters in Azure Stack Hub
 
@@ -49,7 +49,7 @@ Damit Sie den Azure Stack Hub-SQL-Ressourcenanbieter bereitstellen können, müs
     |-----|-----|
     |Bedingte DNS-Weiterleitung ist ordnungsgemäß festgelegt.|[Azure Stack Hub-Rechenzentrumsintegration – DNS](azure-stack-integrate-dns.md)|
     |Eingangsports für Ressourcenanbieter sind geöffnet.|[Azure Stack Hub-Rechenzentrumsintegration – Ports und Protokolle (eingehend)](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |PKI-Zertifikatantragsteller und SAN sind ordnungsgemäß festgelegt.|[Obligatorische PKI-Voraussetzungen für die Azure Stack Hub-Bereitstellung](azure-stack-pki-certs.md#mandatory-certificates)<br>[PaaS-Zertifikatvoraussetzungen für die Azure Stack Hub-Bereitstellung](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |PKI-Zertifikatantragsteller und SAN sind ordnungsgemäß festgelegt.|[Obligatorische PKI-Voraussetzungen für die Azure Stack Hub-Bereitstellung](azure-stack-pki-certs.md)<br>[PaaS-Zertifikatvoraussetzungen für die Azure Stack Hub-Bereitstellung](azure-stack-pki-certs.md)|
     |     |     |
 
 Führen Sie in einem nicht verbundenen Szenario die folgenden Schritte aus, um die erforderlichen PowerShell-Module manuell herunterzuladen und das Repository zu registrieren.
@@ -88,7 +88,7 @@ New-Item -Path $env:ProgramFiles -name "SqlMySqlPsh" -ItemType "Directory"
 
 ### <a name="certificates"></a>Zertifikate
 
-_Nur bei Installationen in integrierten Systemen_. Sie müssen das SQL-PaaS-PKI-Zertifikat bereitstellen, das im Abschnitt „Optionale PaaS-Zertifikate“ der [PKI-Anforderungen für die Azure Stack Hub-Bereitstellung](./azure-stack-pki-certs.md#optional-paas-certificates) beschrieben ist. Platzieren Sie die .pfx-Datei an dem durch den **DependencyFilesLocalPath**-Parameter festgelegten Speicherort. Geben Sie für ASDK-Systeme kein Zertifikat an.
+_Nur bei Installationen in integrierten Systemen_. Sie müssen das SQL-PaaS-PKI-Zertifikat bereitstellen, das im Abschnitt „Optionale PaaS-Zertifikate“ der [PKI-Anforderungen für die Azure Stack Hub-Bereitstellung](./azure-stack-pki-certs.md) beschrieben ist. Platzieren Sie die .pfx-Datei an dem durch den **DependencyFilesLocalPath**-Parameter festgelegten Speicherort. Geben Sie für ASDK-Systeme kein Zertifikat an.
 
 ## <a name="deploy-the-sql-resource-provider"></a>Bereitstellen des SQL-Ressourcenanbieters
 
@@ -200,7 +200,7 @@ Mit den folgenden Schritten können Sie überprüfen, ob der SQL-Ressourcenanbie
 
 1. Melden Sie sich als Dienstadministrator beim Verwaltungsportal an.
 2. Wählen Sie **Ressourcengruppen** aus.
-3. Wählen Sie die Ressourcengruppe **system.\<Speicherort\>.sqladapter** aus.
+3. Wählen Sie die Ressourcengruppe **system.\<location\>.sqladapter** aus.
 4. Auf der Zusammenfassungsseite der Ressourcengruppenübersicht sollten keine fehlerhaften Bereitstellungen angezeigt werden.
 
     ![Überprüfen der Bereitstellung des SQL-Ressourcenanbieters im Azure Stack Hub-Administratorportal](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)

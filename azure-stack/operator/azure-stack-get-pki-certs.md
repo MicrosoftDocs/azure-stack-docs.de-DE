@@ -1,28 +1,27 @@
 ---
-title: Generieren von Zertifikatsignieranforderungen für Azure Stack Hub
-description: Es wird beschrieben, wie Sie Zertifikatsignieranforderungen für Azure Stack Hub-PKI-Zertifikate in integrierten Azure Stack Hub-Systemen generieren.
+title: Abrufen von Zertifikatsignieranforderungen für die Bereitstellung in Azure Stack Hub
+description: Erfahren Sie, wie Sie Zertifikatsignieranforderungen für Azure Stack Hub-PKI-Zertifikate in integrierten Azure Stack Hub-Systemen abrufen.
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 22781a4613b495e8441dd3f24ed7684932bdeb90
-ms.sourcegitcommit: c1f48c19c8a9c438fd22298bc570c12a9b19bb45
+ms.openlocfilehash: 37f308a9b554453a1f7c10219d68b1255c23cbf0
+ms.sourcegitcommit: 09fbc4e8fc53828647d515bfb556dfe42df28c19
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 07/16/2020
-ms.locfileid: "86410583"
+ms.locfileid: "86419264"
 ---
-# <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Generieren von Zertifikatsignieranforderungen für Azure Stack Hub
+# <a name="get-certificate-signing-requests-for-deployment-in-azure-stack-hub"></a>Abrufen von Zertifikatsignieranforderungen für die Bereitstellung in Azure Stack Hub
 
 Sie können mit dem Azure Stack Hub Readiness Checker-Tool Zertifikatsignieranforderungen (CSRs) erstellen, die für eine Azure Stack Hub-Bereitstellung geeignet sind. Zertifikate müssen mit genügend Zeit zum Testen vor dem Einsatz angefordert, generiert und validiert werden. Sie können das Tool [aus dem PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) abrufen.
 
 Mit dem Azure Stack Hub Readiness Checker-Tool (AzsReadinessChecker) können Sie die folgenden Zertifikate anfordern:
 
-- **Standardzertifikatanforderungen** gemäß [Generieren der Zertifikatsignieranforderung für neue Bereitstellungen](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments).
-- **Erneuerungszertifikatanforderungen** gemäß [Generieren der Zertifikatsignieranforderung für die Zertifikaterneuerung](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-certificate-renewal).
-- **Platform-as-a-Service**: Sie können PaaS-Namen (Platform-as-a-Service ) für Zertifikate anfordern, wie unter [Azure Stack Hub-PKI-Zertifikatanforderungen: Optionale PaaS-Zertifikate](azure-stack-pki-certs.md#optional-paas-certificates) angegeben.
+- **Standardzertifikatanforderungen** gemäß [Generieren der Zertifikatsignieranforderung](azure-stack-get-pki-certs.md).
+- **Platform-as-a-Service**: Sie können PaaS-Namen (Platform-as-a-Service ) für Zertifikate anfordern, wie unter [Azure Stack Hub-PKI-Zertifikatanforderungen: Optionale PaaS-Zertifikate](azure-stack-pki-certs.md) angegeben.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

@@ -1,26 +1,26 @@
 ---
-title: Planen von Volumes in Azure Stack HCI
+title: Planen von Volumes in Azure Stack HCI
 description: Es wird beschrieben, wie Sie Speichervolumes in Azure Stack HCI planen.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: f056fbbb8c8e05da6f0a4fc7a7fb38d36249747f
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: 34806347a8a5e71cb15c93073b546c52f534cdf5
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196935"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866942"
 ---
-# <a name="planning-volumes-in-storage-spaces-direct"></a>Planen von Volumes in „Direkte Speicherplätze“
+# <a name="plan-volumes-in-azure-stack-hci"></a>Planen von Volumes in Azure Stack HCI
 
-> Gilt für: Windows Server 2019
+> Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-Dieses Thema enthält eine Anleitung zum Planen von Volumes in „Direkte Speicherplätze“, um die Leistungs- und Kapazitätsanforderungen für Ihre Workloads zu erfüllen, einschließlich Auswahl von Dateisystem, Resilienztyp und Größe.
+Dieses Thema enthält eine Anleitung zum Planen von Volumes in Azure Stack HCI, um die Leistungs- und Kapazitätsanforderungen für Ihre Workloads zu erfüllen, einschließlich Auswahl von Dateisystem, Resilienztyp und Größe.
 
 ## <a name="review-what-are-volumes"></a>Überprüfung: Was sind Volumes?
 
-In Volumes ordnen Sie die Dateien an, die von Ihren Workloads benötigt werden, z. B. VHD- oder VHDX-Dateien für virtuelle Hyper-V-Computer. Für Volumes werden die Laufwerke im Speicherpool kombiniert, um die Fehlertoleranz, Skalierbarkeit und Leistungsvorteile von „Direkte Speicherplätze“ zu erhalten.
+In Volumes ordnen Sie die Dateien an, die von Ihren Workloads benötigt werden, z. B. VHD- oder VHDX-Dateien für virtuelle Hyper-V-Computer. Für Volumes werden die Laufwerke im Speicherpool kombiniert, um die Fehlertoleranz, Skalierbarkeit und Leistungsvorteile von [Direkte Speicherplätze](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) zu erhalten, der softwaredefinierten Speichertechnologie hinter Azure Stack HCI.
 
    >[!NOTE]
    > In der gesamten Dokumentation für „Direkte Speicherplätze“ verwenden wir den Begriff „Volume“, um sowohl auf das Volume als auch auf den zugrunde liegenden virtuellen Datenträger zu verweisen – einschließlich der Funktionalität, die von anderen integrierten Windows-Features, z. B. freigegebenen Clustervolumes (Cluster Shared Volumes, CSV) und ReFS, bereitgestellt wird. Eine genaue Kenntnis dieser Unterschiede auf Implementierungsebene ist nicht erforderlich, um „Direkte Speicherplätze“ erfolgreich planen und bereitstellen zu können.
@@ -191,6 +191,5 @@ Weitere Informationen finden Sie unter [Erstellen von Volumes in Azure Stack HC
 
 Weitere Informationen finden Sie auch unter:
 
-- [Azure Stack HCI: Übersicht](../overview.md)
 - [Auswählen von Laufwerken für „Direkte Speicherplätze“](choose-drives.md)
 - [Fehlertoleranz und Speichereffizienz](fault-tolerance.md)

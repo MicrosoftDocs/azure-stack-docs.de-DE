@@ -3,16 +3,16 @@ title: Identitätsarchitektur für Azure Stack Hub
 description: Erfahren Sie mehr über die Identitätsarchitektur für Azure Stack Hub und über die Unterschiede zwischen Azure AD und AD FS.
 author: BryanLa
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 07/20/2020
 ms.author: bryanla
 ms.reviewer: fiseraci
-ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: d21df4d1a16f7ea56ec02a1aa1e7821bb7fe4484
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.lastreviewed: 07/20/2020
+ms.openlocfilehash: fa79df515e2676655ea98b6024179d3f56c41fbf
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848233"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566191"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Identitätsarchitektur für Azure Stack Hub
 
@@ -34,6 +34,7 @@ Die Wahl des Identitätsanbieters schränkt unter Umständen Ihre Optionen ein �
 |Erstellen von Dienstprinzipalen mit Geheimnissen (Schlüsseln)    |Ja |Ja|
 |Anwendungen können den Graph-Dienst verwenden           |Ja |Nein|
 |Anwendungen können einen Identitätsanbieter zum Anmelden verwenden |Ja |Ja (für Anwendungen muss ein Verbund mit lokalen AD FS-Instanzen eingerichtet werden) |
+| Verwaltete Systemidentitäten | Nein | Nein |
 
 ## <a name="topologies"></a>Topologien
 

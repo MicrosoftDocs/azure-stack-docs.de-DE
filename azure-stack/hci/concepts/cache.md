@@ -4,17 +4,17 @@ description: Es wird beschrieben, wie das Zwischenspeichern von Lese- und Schrei
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 063dab5f6f395e33a42a9722b399a469f6ce6ac7
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: 214e4fa6fde30d69d063326cc0c7548bb75b694a
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196918"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86867010"
 ---
 # <a name="understanding-the-cache-in-azure-stack-hci"></a>Grundlegendes zum Cache in Azure Stack HCI
 
->Gilt für: Windows Server 2019
+> Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
 [Direkte Speicherplätze](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) verfügt über einen integrierten serverseitigen Cache, um die Speicherleistung zu erhöhen. Es handelt sich um einen großen, persistenten Echtzeitcache für Lese- *und* Schreibvorgänge. Der Cache wird automatisch konfiguriert, wenn „Direkte Speicherplätze“ aktiviert wird. In den meisten Fällen ist keine manuelle Verwaltung erforderlich.
 Die Funktionsweise des Caches hängt davon ab, welche Laufwerkstypen vorhanden sind.
@@ -26,36 +26,16 @@ Im folgenden Video wird ausführlich veranschaulicht, wie die Zwischenspeicherun
 
 ## <a name="drive-types-and-deployment-options"></a>Laufwerkstypen und Bereitstellungsoptionen
 
-Für „Direkte Speicherplätze“ können derzeit drei Arten von Speichergeräten verwendet werden:
+Für „Direkte Speicherplätze“ können derzeit vier Arten von Laufwerken verwendet werden:
 
-<table>
-    <tr style="border: 0;">
-        <td style="padding: 10px; border: 0; width:70px">
-            <img src="media/cache/NVMe-100px.png">
-        </td>
-        <td style="padding: 10px; border: 0;" valign="middle">
-            NVMe (Non-Volatile Memory Express)
-        </td>
-    </tr>
-    <tr style="border: 0;">
-        <td style="padding: 10px; border: 0; width:70px">
-            <img src="media/cache/SSD-100px.png">
-        </td>
-        <td style="padding: 10px; border: 0;" valign="middle">
-            SATA/SAS SSD (Solid State Drive)
-        </td>
-    </tr>
-    <tr style="border: 0;">
-        <td style="padding: 10px; border: 0; width:70px">
-            <img src="media/cache/HDD-100px.png">
-        </td>
-        <td style="padding: 10px; border: 0;" valign="middle">
-            HDD (Hard Disk Drive)
-        </td>
-    </tr>
-</table>
+|||
+|----------------------|--------------------------|
+|![PMem](media/choose-drives/pmem-100px.png)|**PMem** bezieht sich auf persistenten Speicher. Dabei handelt es sich um eine neue Art von Hochleistungsspeicher mit geringen Wartezeiten.|
+|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe**-Laufwerke (Non-Volatile Memory Express) sind Solid State Drives, die direkt auf dem PCIe-Bus angeordnet sind. Häufig verwendete Formfaktoren sind 2,5" U.2, PCIe Add-In-Card (AIC) und M.2. NVMe ermöglicht einen höheren IOPS- und E/A-Durchsatz mit geringerer Wartezeit als alle anderen Laufwerkstypen, die derzeit unterstützt werden. Eine Ausnahme davon bildet PMem.|
+|![SSD](media/choose-drives/SSD-100-px.png)|**SSD** steht für „Solid State Drives“, die über herkömmliche SATA- oder SAS-Verbindungen verbunden sind.|
+|![Festplattenlaufwerk](media/choose-drives/HDD-100-px.png)|**HDD** steht für rotierende, magnetische Festplattenlaufwerke (Hard Disk Drives) mit hoher Speicherkapazität.|
 
-Es gibt sechs Möglichkeiten, diese Speichergeräte zu kombinieren. Wir nutzen zwei Kategorien für die Gruppierung: „nur Flash“ und „Hybrid“.
+Es gibt verschiedene Möglichkeiten, diese Speichergeräte zu kombinieren. Wir verwenden zwei Kategorien zur Unterteilung: „nur Flash“ und „Hybrid“.
 
 ### <a name="all-flash-deployment-possibilities"></a>Optionen bei Nur-Flash-Bereitstellungen
 
@@ -84,7 +64,7 @@ Wenn Sie über SSDs und HDDs verfügen, übernehmen die SSDs die Zwischenspeiche
    >[!NOTE]
    > Cachelaufwerke tragen keine nutzbare Speicherkapazität bei. Alle im Cache gespeicherten Daten sind auch an anderen Orten gespeichert. Dies ist spätestens nach dem De-Staging der Fall. Dies bedeutet, dass sich die gesamte Rohspeicherkapazität Ihrer Bereitstellung nur aus der Summe Ihrer Kapazitätslaufwerke ergibt.
 
-Wenn alle Laufwerke denselben Typ haben, wird nicht automatisch ein Cache konfiguriert. Sie haben die Möglichkeit, Laufwerke mit längerer Lebensdauer manuell so zu konfigurieren, dass sie die Zwischenspeicherung für Laufwerke desselben Typs mit kürzerer Lebensdauer übernehmen. Dies ist im Abschnitt [Manuelle Konfiguration](#manual-configuration) beschrieben.
+Wenn alle Laufwerke denselben Typ haben, wird nicht automatisch ein Cache konfiguriert. Sie können manuell konfigurieren, dass Laufwerke mit höherer Belastbarkeit als Cache für Laufwerke desselben Typs dienen, die für geringere Belastungen ausgelegt sind. Informationen hierzu finden Sie im Abschnitt [Manuelle Konfiguration](#manual-configuration).
 
    >[!TIP]
    > Bei Bereitstellungen ausschließlich mit Laufwerken vom Typ NVMe oder SSD kann die Speichereffizienz deutlich erhöht werden, wenn keine Laufwerke für Cacheaufgaben genutzt werden müssen. Dies gilt vor allem für Bereitstellungen mit sehr kleinem Umfang.
@@ -97,17 +77,17 @@ Das Verhalten des Caches wird automatisch anhand des Typs von Laufwerken ermitte
 
 ### <a name="write-only-caching-for-all-flash-deployments"></a>Lesegeschützte Zwischenspeicherung für reine Flash-Bereitstellungen
 
-Bei der Zwischenspeicherung für SSD-Laufwerke (NVMe oder SSDs) werden nur Schreibvorgänge zwischengespeichert. So wird die Abnutzung der Kapazitätslaufwerke reduziert, weil viele erstmalig bzw. erneut durchgeführte Schreibvorgänge im Cache zusammengefasst werden, für die das De-Staging dann nur nach Bedarf erfolgt. Dies führt zu einer Verringerung des kumulativen Datenverkehrs für die Kapazitätslaufwerke und zu einer Verlängerung der Lebensdauer. Aus diesem Grund empfehlen wir Ihnen, für den Cache Laufwerke mit [längerer Lebensdauer und Schreibvorgangoptimierung](http://whatis.techtarget.com/definition/DWPD-device-drive-writes-per-day) auszuwählen. Die Kapazitätslaufwerke verfügen in Bezug auf Schreibvorgänge ggf. über eine kürzere Lebensdauer.
+Bei der Zwischenspeicherung für SSD-Laufwerke (NVMe oder SSDs) werden nur Schreibvorgänge zwischengespeichert. Hierdurch wird die Belastung von Kapazitätslaufwerken reduziert, weil viele Schreibvorgänge und erneute Schreibvorgänge im Cache zusammengefügt werden können und die Aufhebung der Bereitstellung nur bei Bedarf durchgeführt wird. So wird der Gesamtdatenverkehr für die Kapazitätslaufwerke verringert und deren Lebensdauer erhöht. Aus diesem Grund empfehlen wir Ihnen, für den Cache Laufwerke mit [längerer Lebensdauer und Schreibvorgangoptimierung](http://whatis.techtarget.com/definition/DWPD-device-drive-writes-per-day) auszuwählen. Die Kapazitätslaufwerke verfügen in Bezug auf Schreibvorgänge ggf. über eine kürzere Lebensdauer.
 
-Da Lesevorgänge keine signifikante Auswirkung auf die Lebensdauer des Flashspeichers haben und Solid State Drives generell eine niedrigere Leselatenz aufweisen, werden Lesevorgänge nicht zwischengespeichert, sondern direkt von den Kapazitätslaufwerken bereitgestellt (sofern die Daten nicht so neu sind, dass das De-Staging noch nicht durchgeführt wurde). Der Cache kann in diesem Fall ausschließlich für Schreibvorgänge genutzt werden, sodass sich die Effektivität erhöht.
+Da Lesevorgänge keine signifikante Auswirkung auf die Flash-Lebensdauer haben und Festkörperlaufwerke eine niedrige Leselatenz haben, werden Lesevorgänge nicht zwischengespeichert. Diese Daten werden direkt von den Kapazitätslaufwerken bereitgestellt (es sei denn, die Daten wurden erst vor so kurzer Zeit geschrieben, dass die Bereitstellung noch nicht aufgehoben wurde). Der Cache kann in diesem Fall ausschließlich für Schreibvorgänge genutzt werden, sodass sich die Effektivität erhöht.
 
-Dies führt dazu, dass Merkmale der Schreibvorgänge, z. B. die Schreiblatenz, von den Cachelaufwerken vorgegeben werden, während die Merkmale der Lesevorgänge von den Kapazitätslaufwerken vorgegeben werden. Beide sind jeweils konsistent, vorhersagbar und einheitlich.
+Dies führt dazu, dass Merkmale von Schreibvorgängen, z. B. die Schreiblatenz, von den Cachelaufwerken diktiert werden, während die Merkmale von Lesevorgängen von den Kapazitätslaufwerken vorgegeben werden. Beide sind jeweils konsistent, vorhersagbar und einheitlich.
 
 ### <a name="readwrite-caching-for-hybrid-deployments"></a>Zwischenspeicherung von Lese-/Schreibvorgängen für Hybridbereitstellungen
 
-Beim Zwischenspeichern für Festplattenlaufwerke (HDDs) werden *sowohl Lese- als auch Schreibvorgänge* zwischengespeichert, um in beiden Fällen Latenzwerte wie bei Flashspeicher zu erzielen (häufig ca. um den Faktor 10 verbessert). Im Lesecache werden Daten gespeichert, die vor kurzer Zeit und häufig gelesen werden, um den Zugriff zu beschleunigen und zufälligen Datenverkehr für die HDDs möglichst gering zu halten. (Aufgrund von Such- und Rotationsverzögerungen sind die Latenz und die Verlustzeit aufgrund des zufälligen Zugriffs auf eine HDD nicht zu unterschätzen.) Schreibvorgänge werden zwischengespeichert, um Bursts aufzufangen und – wie oben bereits geschildert – erstmalig und erneut durchgeführte Schreibvorgänge zusammenzufassen und den kumulativen Datenverkehr für die Kapazitätslaufwerke zu verringern.
+Beim Zwischenspeichern für Festplattenlaufwerke (HDDs) werden *sowohl Lese- als auch Schreibvorgänge* zwischengespeichert, um in beiden Fällen Latenzwerte wie bei Flashspeicher zu erzielen (häufig ca. um den Faktor 10 verbessert). Im Lesecache werden Daten gespeichert, die vor kurzer Zeit und häufig gelesen werden, um den Zugriff zu beschleunigen und zufälligen Datenverkehr für die HDDs möglichst gering zu halten. (Da es aufgrund von Suchvorgängen und Rotationsbewegungen zu Verzögerungen kommt, ist die Latenz und verlorene Zeit durch zufällige Zugriffe auf eine HDD nicht zu vernachlässigen.) Schreibvorgänge werden zwischengespeichert, um Datenverkehrsspitzen aufzufangen und, wie zuvor, das Schreiben und erneute Schreiben zusammenzufügen und so den Gesamtdatenverkehr für die Kapazitätslaufwerke zu verringern.
 
-Von „Direkte Speicherplätze“ wird ein Algorithmus implementiert, mit dem die Zufälligkeit von Schreibvorgängen vor dem De-Staging beseitigt wird. Für Datenträger wird ein E/A-Muster emuliert, dass sequenziell erscheint, obwohl der eigentliche E/A-Ablauf der Workload (z. B. virtuelle Computer) zufälliger Art ist. Auf diese Weise werden die IOPS-Rate und der Durchsatz für die HDDs erhöht.
+Für „Direkte Speicherplätze“ wird ein Algorithmus implementiert, mit dem die Zufälligkeit von Schreibvorgängen beseitigt wird, bevor deren Bereitstellung aufgehoben wird. So soll ein E/A-Muster für das Laufwerk emuliert werden, das auch dann noch sequenziell erscheint, wenn die tatsächliche Eingabe/Ausgabe von der Workload (z. B. virtuelle Computer) zufälliger Art ist. Auf diese Weise werden die IOPS-Rate und der Durchsatz für die HDDs erhöht.
 
 ### <a name="caching-in-deployments-with-drives-of-all-three-types"></a>Zwischenspeicherung bei Bereitstellungen mit allen drei Laufwerkstypen
 
@@ -115,7 +95,7 @@ Wenn Laufwerke aller drei Typen vorhanden sind, übernehmen die NVMe-Laufwerke d
 
 ## <a name="summary"></a>Zusammenfassung
 
-In dieser Tabelle ist zusammengefasst, welche Laufwerke für die Zwischenspeicherung und welche für die Kapazität verwendet werden und wie das Cacheverhalten für die einzelnen Bereitstellungsoptionen aussieht.
+In der folgenden Tabelle ist angegeben, welche Laufwerke zum Zwischenspeichern verwendet werden, welche als Kapazitätslaufwerke eingesetzt werden und welches Cacheverhalten für jede Bereitstellungsmöglichkeit gilt.
 
 | Bereitstellung     | Cachelaufwerke                        | Kapazitätslaufwerke | Cacheverhalten (Standard)  |
 | -------------- | ----------------------------------- | --------------- | ------------------------- |
@@ -128,11 +108,11 @@ In dieser Tabelle ist zusammengefasst, welche Laufwerke für die Zwischenspeiche
 
 ## <a name="server-side-architecture"></a>Serverseitige Architektur
 
-Der Cache wird auf Laufwerksebene implementiert: Einzelne Cachelaufwerke auf einem Server sind an ein oder mehrere Kapazitätslaufwerke auf demselben Server gebunden.
+Der Cache wird auf Laufwerksebene implementiert: Einzelne Cachelaufwerke innerhalb eines Servers sind an mindestens ein Kapazitätslaufwerk auf demselben Server gebunden.
 
-Da sich der Cache unterhalb der restlichen Elemente des softwaredefinierten Speicherstapels von Windows befindet, verfügt er nicht über ein „Konzeptbewusstsein“, z. B. in Bezug auf Speicherplätze oder Fehlertoleranz, und benötigt dies auch nicht. Sie können sich dies wie die Erstellung von „Hybridlaufwerken“ (teilweise Flash, teilweise Datenträger) vorstellen, die dann für Windows bereitgestellt werden. Wie auch bei einem echten Hybridlaufwerk ist die Echtzeitverschiebung von heißen und kalten Daten zwischen den schnelleren und langsameren Teilen der physischen Medien von außen nahezu unsichtbar.
+Da sich der Cache unterhalb der restlichen Elemente des per Software definierten Speicherstapels von Windows befindet, verfügt er über keinerlei Informationen zu vorhandenen Konzepten wie Speicherplätzen oder Fehlertoleranz (und dies ist auch nicht erforderlich). Sie können sich dies wie die Erstellung von „Hybridlaufwerken“ (teilweise Flash, teilweise Datenträger) vorstellen, die dann für Windows bereitgestellt werden. Wie bei einem richtigen Hybridlaufwerk auch, ist die Echtzeitverschiebung von heißen und kalten Daten zwischen den schnelleren und langsameren Teilen der physischen Medien von außen nahezu unsichtbar.
 
-Da die Resilienz bei „Direkte Speicherplätze“ mindestens auf der Serverebene angeordnet ist (Datenkopien werden immer auf andere Server geschrieben, und es wird maximal eine Kopie pro Server erstellt), profitieren Daten im Cache von der gleichen Resilienz wie Daten außerhalb des Caches.
+Wenn sichergestellt ist, dass die Resilienz in Direkte Speicherplätze mindestens auf Serverebene angeordnet ist (Datenkopien also immer auf unterschiedliche Server geschrieben werden und maximal eine Kopie pro Server vorliegt), profitieren die Daten im Cache von der gleichen Resilienz wie für Daten außerhalb des Cache.
 
 ![Serverseitige Cachearchitektur](media/cache/Cache-Server-Side-Architecture.png)
 
@@ -144,11 +124,11 @@ Die Bindung zwischen Cache- und Kapazitätslaufwerken kann ein beliebiges Verhä
 
 ![Dynamische Bindung](media/cache/Dynamic-Binding.gif)
 
-Wir empfehlen Ihnen, aus Symmetriegründen als Anzahl von Kapazitätslaufwerken ein Vielfaches der Anzahl von Cachelaufwerken zu wählen. Wenn Sie beispielsweise vier Cachelaufwerke verwenden, erhalten Sie eine gleichmäßigere Leistung, wenn Sie acht Kapazitätslaufwerke (Verhältnis 1:2) nutzen, und nicht sieben oder neun.
+Wir empfehlen Ihnen, aus Symmetriegründen als Anzahl von Kapazitätslaufwerken ein Vielfaches der Anzahl von Cachelaufwerken zu wählen. Wenn Sie beispielsweise über vier Cachelaufwerke verfügen, ist die Leistung bei Verwendung von acht Kapazitätslaufwerken ausgeglichener (Verhältnis 1:2) als bei Verwendung von sieben oder neun Laufwerken.
 
 ## <a name="handling-cache-drive-failures"></a>Vorgehensweise bei Ausfällen von Cachelaufwerken
 
-Wenn ein Cachelaufwerk ausfällt, gehen alle Schreibvorgänge, für die bisher noch kein De-Staging durchgeführt wurde, für den *lokalen Server* verloren. Dies bedeutet also, dass sie nur noch in den anderen Kopien (auf anderen Servern) vorhanden sind. Wie nach anderen Laufwerksausfällen auch, ist für Speicherplätze eine automatische Wiederherstellung möglich und wird auch durchgeführt, indem die intakten Kopien herangezogen werden.
+Wenn ein Cachelaufwerk ausfällt, gehen alle Schreibvorgänge, für die die Bereitstellung noch nicht aufgehoben wurde, *auf dem lokalen Server* verloren. Dies bedeutet, dass nur noch die anderen Kopien (auf anderen Servern) vorliegen. Wie nach anderen Laufwerksausfällen auch, ist für Speicherplätze eine automatische Wiederherstellung möglich und wird auch durchgeführt, indem die intakten Kopien herangezogen werden.
 
 Für kurze Zeit werden die Kapazitätslaufwerke, die an das ausgefallene Cachelaufwerk gebunden waren, als fehlerhaft angezeigt. Nachdem die Cachebindung wiederhergestellt (automatisch) und die Reparatur der Daten durchgeführt wurde (automatisch), werden sie wieder als fehlerfrei angezeigt.
 
@@ -167,7 +147,7 @@ Der softwaredefinierte Speicherstapel von Windows enthält noch mehrere andere C
 
 Für „Direkte Speicherplätze“ sollte das Standardverhalten des Speicherplätze-Zurückschreibcaches nicht geändert werden. Beispielsweise sollten Parameter wie **-WriteCacheSize** im Cmdlet **New-Volume** nicht verwendet werden.
 
-Ob Sie den CSV-Cache nutzen, ist allein Ihre Entscheidung. In „Direkte Speicherplätze“ ist er standardmäßig deaktiviert, aber es kommt mit dem neuen Cache, der in diesem Thema beschrieben wird, nicht zu einem Konflikt. In bestimmten Szenarien können hiermit wertvolle Leistungssteigerungen erzielt werden. Weitere Informationen finden Sie unter [Aktivieren des CSV-Caches](/windows-server/failover-clustering/failover-cluster-csvs#enable-the-csv-cache-for-read-intensive-workloads-optional).
+Ob Sie den CSV-Cache nutzen, ist allein Ihre Entscheidung. Er ist in Direkte Speicherplätze standardmäßig deaktiviert, steht aber in keinerlei Konflikt mit dem neuen Cache, der in diesem Thema beschrieben wird. In bestimmten Szenarien können hiermit wertvolle Leistungssteigerungen erzielt werden. Weitere Informationen finden Sie unter [Aktivieren des CSV-Caches](/windows-server/failover-clustering/failover-cluster-csvs#enable-the-csv-cache-for-read-intensive-workloads-optional).
 
 ## <a name="manual-configuration"></a>Manuelle Konfiguration
 
@@ -177,9 +157,9 @@ Wenn Sie nach dem Setup Änderungen am Cachegerätemodell vornehmen müssen, kö
 
 ### <a name="specify-cache-drive-model"></a>Angeben des Cachelaufwerk-Modells
 
-Bei Bereitstellungen, bei denen alle Laufwerke den gleichen Typ haben, z. B. nur NVMe oder SSD, wird kein Cache konfiguriert. Dies liegt daran, dass Windows Merkmale wie die Lebensdauer für Schreibvorgänge bei Laufwerken desselben Typs nicht automatisch unterscheiden kann.
+Bei Bereitstellungen, bei denen alle Laufwerke den gleichen Typ haben, z. B. Bereitstellungen nur mit NVMe- oder SSD-Komponenten, wird kein Cache konfiguriert, da Windows für Laufwerke des gleichen Typs nicht automatisch zwischen Merkmalen wie der Schreibbelastbarkeit unterscheiden kann.
 
-Wenn Laufwerke mit längerer Lebensdauer die Zwischenspeicherung für Laufwerke desselben Typs mit kürzerer Lebensdauer übernehmen sollen, können Sie mit dem Parameter **-CacheDeviceModel** des Cmdlets **Enable-ClusterS2D** angeben, welches Laufwerkmodell verwendet werden soll. Nachdem „Direkte Speicherplätze“ aktiviert wurde, werden alle Laufwerke dieses Modells für die Zwischenspeicherung genutzt.
+Wenn Sie Laufwerke mit höherer Belastbarkeit als Cache für Laufwerke des gleichen Typs mit geringerer Belastbarkeit verwenden möchten, können Sie angeben, welches Laufwerksmodell mit dem Parameter **-CacheDeviceModel** des **Enable-ClusterS2D**-Cmdlets verwendet werden soll. Nachdem „Direkte Speicherplätze“ aktiviert wurde, werden alle Laufwerke dieses Modells für die Zwischenspeicherung genutzt.
 
    >[!TIP]
    > Achten Sie darauf, dass Sie die Modellzeichenfolge exakt so angeben, wie sie in der Ausgabe von **Get-PhysicalDisk** enthalten ist.
@@ -207,7 +187,7 @@ Geben Sie anschließend den folgenden Befehl ein, und geben Sie dabei das Modell
 Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
 ```
 
-Sie können überprüfen, ob die gewünschten Laufwerke für die Zwischenspeicherung genutzt werden, indem Sie **Get-PhysicalDisk** in PowerShell ausführen und nachsehen, ob für die jeweilige **Usage**-Eigenschaft **„Journal“** angegeben ist.
+Sie können überprüfen, ob die gewünschten Laufwerke für die Zwischenspeicherung verwendet werden, indem Sie **Get-PhysicalDisk** in PowerShell ausführen und sicherstellen, dass für die **Usage**-Eigenschaft der Wert **"Journal"** angegeben ist.
 
 ### <a name="manual-deployment-possibilities"></a>Optionen bei manuellen Bereitstellungen
 
@@ -255,17 +235,17 @@ CacheModeSSD : ReadWrite
 
 ## <a name="sizing-the-cache"></a>Anpassen der Cachegröße
 
-Die Größe des Caches sollte so ausgelegt sein, dass der Arbeitssatz (die Daten, die aktiv gelesen oder geschrieben werden) Ihrer Anwendungen und Workloads abgedeckt ist.
+Die Größe des Caches sollte so gewählt werden, dass sie für den Arbeitssatz (die Daten, die aktiv gelesen oder geschrieben werden) Ihrer Anwendungen und Workloads ausreicht.
 
-Dies ist insbesondere bei Hybridbereitstellungen mit Festplattenlaufwerken wichtig. Wenn der aktive Arbeitssatz die Größe des Caches überschreitet oder sich zu schnell verändert, kommt es vermehrt zu Lesecachefehlern, und das De-Staging der Schreibvorgänge muss aggressiver erfolgen. Dies wirkt sich negativ auf die Gesamtleistung aus.
+Dies ist insbesondere bei Hybridbereitstellungen mit Festplattenlaufwerken wichtig. Wenn der aktive Arbeitssatz die Größe des Caches übersteigt oder sich zu schnell verändert, kommt es vermehrt zu Lesecachefehlern, und die Aufhebung der Bereitstellung von Schreibvorgängen muss aggressiver erfolgen, wodurch die Gesamtleistung beeinträchtigt wird.
 
-Sie können das integrierte Hilfsprogramm „Leistungsmonitor“ (PerfMon.exe) unter Windows verwenden, um die Rate an Cachefehlern zu untersuchen. Sie können insbesondere den Wert für **Cache Miss Reads/sec** (Cachefehler für Lesevorgänge pro Sek.) des Indikatorensatzes **Cluster Storage Hybrid Disk** (Clusterspeicher-Hybriddatenträger) mit dem IOPS-Gesamtwert für Lesevorgänge Ihrer Bereitstellung vergleichen. Jeder „Hybriddatenträger“ entspricht einem Kapazitätslaufwerk.
+Sie können das integrierte Hilfsprogramm „Leistungsmonitor“ (PerfMon.exe) unter Windows verwenden, um die Rate an Cachefehlern zu untersuchen. Genauer gesagt: Sie können den Wert **Cache Miss Reads/sec** des Indikatorsatzes **Cluster Storage Hybrid Disk** mit dem IOPS-Gesamtwert für Lesevorgänge Ihrer Bereitstellung vergleichen. Jeder „Hybriddatenträger“ entspricht einem Kapazitätslaufwerk.
 
 Beispielsweise führen zwei Cachelaufwerke, die an vier Kapazitätslaufwerke gebunden sind, zu vier „Hybriddatenträger“-Objektinstanzen pro Server.
 
 ![Leistungsmonitor](media/cache/PerfMon.png)
 
-Es gibt keine allgemeingültige Regel, aber wenn es für zu viele Lesevorgänge zu Cachefehlern kommt, ist dieser ggf. nicht groß genug. In diesem Fall sollten Sie erwägen, Cachelaufwerke hinzuzufügen, um Ihren Cache zu erweitern. Sie können Cache- oder Kapazitätslaufwerke jederzeit einzeln hinzufügen.
+Es gibt keine allgemeingültige Regel, aber wenn es für zu viele Lesevorgänge zu Cachefehlern kommt, reicht die Größe ggf. nicht aus, und Sie sollten erwägen, zur Erweiterung des Caches mehr Cachelaufwerke hinzuzufügen. Sie können Cache- oder Kapazitätslaufwerke jederzeit einzeln hinzufügen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

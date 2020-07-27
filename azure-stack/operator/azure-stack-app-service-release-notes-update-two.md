@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2019
-ms.openlocfilehash: 9c9838a93c0ee46ce0556cd86e9f6ae8b4c7c9d4
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: b06ab0601616f8c089d7bcf90526dae97a8c6e5f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848046"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489537"
 ---
 # <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 2
 
@@ -29,7 +29,7 @@ Die Buildnummer von Update 2 für App Service in Azure Stack Hub lautet **72.0.
 ## <a name="prerequisites"></a>Voraussetzungen
 
 > [!IMPORTANT]
-> Neue Bereitstellungen von Azure App Service in Azure Stack Hub erfordern jetzt aufgrund einer verbesserten SSO-Verarbeitung für Kudu in Azure App Service ein Platzhalterzertifikat mit drei Antragstellern. Der neue Antragsteller lautet: **\*.sso.appservice.\<Region\>.\<Domänenname\>.\<Erweiterung\>**
+> Neue Bereitstellungen von Azure App Service in Azure Stack Hub erfordern jetzt aufgrund einer verbesserten SSO-Verarbeitung für Kudu in Azure App Service ein Platzhalterzertifikat mit drei Antragstellern. Der neue Antragsteller ist **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
 
 Lesen Sie vor Beginn der Bereitstellung die [Voraussetzungen für das Bereitstellen von App Service in Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 
@@ -55,11 +55,11 @@ Update 2 für Azure App Service in Azure Stack Hub enthält folgende Verbesseru
   - .NET Core-Komponenten wurden aktualisiert, um mit Azure App Service in einer öffentlichen Cloud konsistent zu sein.
   - Aktualisierte Kudu
 
-- Feature für den automatischen Austausch von Bereitstellungsslots aktiviert: [Konfigurieren des automatischen Austauschs](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap).
+- Feature für den automatischen Austausch von Bereitstellungsslots aktiviert: [Konfigurieren des automatischen Austauschs](/azure/app-service/deploy-staging-slots#configure-auto-swap).
 
 - Feature zum Testen in Produktionsumgebungen aktiviert: [Einführung in Tests in einer Produktionsumgebung](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/).
 
-- Azure-Funktionsproxys aktiviert: [Verwenden von Azure-Funktionsproxys](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
+- Azure-Funktionsproxys aktiviert: [Verwenden von Azure-Funktionsproxys](/azure/azure-functions/functions-proxies).
 
 - UX-Unterstützung der App Service-Administratorerweiterung hinzugefügt für:
   - Rotation für Geheimnisse
@@ -85,7 +85,7 @@ Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk u
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
 
-Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1804](azure-stack-update-1903.md).
+Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1804](./release-notes.md?view=azs-2002).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

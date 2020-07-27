@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b078158bebf83835e4a0a0eb6d92ba90b4679ca9
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: dac1902747c79b68116c0341f50c47c3e0998c0f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173964"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488789"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack-hub"></a>Übersicht über Identitätsanbieter für Azure Stack Hub
 
@@ -51,7 +51,7 @@ Die Erstellung und Verwaltung von Benutzern und Gruppen hängt von der Identitä
 
 In Azure Stack Hub gilt für Benutzerkonten Folgendes:
 
-- Sie werden im Format *Benutzername\@Domäne* erstellt. AD FS ordnet Benutzerkonten zwar einer Active Directory-Instanz zu, aber für AD FS wird die Verwendung des Formats *\\\<Domäne>\\\<Alias>* nicht unterstützt.
+- Sie werden im Format *Benutzername\@Domäne* erstellt. AD FS ordnet Benutzerkonten zwar einer Active Directory-Instanz zu, aber für AD FS wird die Verwendung des Formats *\\\<domain>\\\<alias>* nicht unterstützt.
 - Sie können für die Verwendung der mehrstufigen Authentifizierung konfiguriert werden.
 - Sie sind auf das Verzeichnis beschränkt, für das sie zuerst registriert werden. Dies ist das Organisationsverzeichnis.
 - Sie können aus Ihren lokalen Verzeichnissen importiert werden. Weitere Informationen finden Sie unter [Integrieren Ihrer lokalen Identitäten in Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
@@ -137,7 +137,7 @@ Für Apps und Benutzer wird die Architektur von Azure Stack Hub anhand von vier 
 |Ebene    |Authentifizierung zwischen Ebenen  |
 |---------|---------|
 |Tools und Clients, z. B. das Administratorportal     | Zum Zugreifen auf oder Ändern einer Ressource in Azure Stack Hub nutzen Tools und Clients [JSON Web Tokens](/azure/active-directory/develop/active-directory-token-and-claims), um einen Aufruf von Azure Resource Manager durchzuführen. <br>Azure Resource Manager überprüft das JSON Web Token und sieht sich die *Ansprüche* im ausgestellten Token an, um die Autorisierungsebene einzuschätzen, die für den Benutzer oder den Dienstprinzipal in Azure Stack Hub besteht. |
-|Azure Resource Manager und seine Kerndienste     |Azure Resource Manager kommuniziert mit Ressourcenanbietern, um die Kommunikation von Benutzern zu übertragen. <br> Für Übertragungen werden *direkte imperative* Aufrufe oder *deklarative* Aufrufe über [Azure Resource Manager-Vorlagen](/azure-stack/user/azure-stack-arm-templates) verwendet.|
+|Azure Resource Manager und seine Kerndienste     |Azure Resource Manager kommuniziert mit Ressourcenanbietern, um die Kommunikation von Benutzern zu übertragen. <br> Für Übertragungen werden *direkte imperative* Aufrufe oder *deklarative* Aufrufe über [Azure Resource Manager-Vorlagen](../user/azure-stack-arm-templates.md) verwendet.|
 |Ressourcenanbieter     |Aufrufe, die an Ressourcenanbieter übergeben werden, sind per zertifikatbasierter Authentifizierung geschützt. <br>Azure Resource Manager und der Ressourcenanbieter kommunizieren dann über eine API. Für jeden Aufruf, der vom Azure Resource Manager eingeht, überprüft der Ressourcenanbieter den Aufruf mit diesem Zertifikat.|
 |Infrastruktur und Geschäftslogik     |Ressourcenanbieter kommunizieren mit der Geschäftslogik und der Infrastruktur, indem ein Authentifizierungsmodus ihrer Wahl verwendet wird. Für die Standardressourcenanbieter von Azure Stack Hub wird die Windows-Authentifizierung verwendet, um die Kommunikation zu schützen.|
 
@@ -188,7 +188,7 @@ Ausführliche Informationen zur Verwendung von Azure PowerShell für die Authent
 
 ### <a name="authenticate-with-azure-cli"></a>Authentifizieren mit der Azure CLI
 
-Informationen zur Verwendung von Azure PowerShell für die Authentifizierung bei Azure Stack Hub finden Sie unter [Installieren und Konfigurieren der Azure CLI für die Verwendung mit Azure Stack Hub](/azure-stack/user/azure-stack-version-profiles-azurecli2).
+Informationen zur Verwendung von Azure PowerShell für die Authentifizierung bei Azure Stack Hub finden Sie unter [Installieren und Konfigurieren der Azure CLI für die Verwendung mit Azure Stack Hub](../user/azure-stack-version-profiles-azurecli2.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 2e8a4e4fe4de85e981bb0f33366b003c5ee907f8
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 48ba500c7b9315c4fbc8a622b99d4707f4eb86a7
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847757"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489622"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 1
 
@@ -29,7 +29,7 @@ Die Buildnummer von Update 1 für App Service in Azure Stack Hub lautet **69.0.
 ## <a name="prerequisites"></a>Voraussetzungen
 
 > [!IMPORTANT]
-> Neue Bereitstellungen von Azure App Service in Azure Stack Hub erfordern jetzt aufgrund einer verbesserten SSO-Verarbeitung für Kudu in Azure App Service ein Platzhalterzertifikat mit drei Antragstellern. Der neue Antragsteller lautet **\*.sso.appservice.\<Region\>.\<Domänenname\>.\<Erweiterung\>**
+> Neue Bereitstellungen von Azure App Service in Azure Stack Hub erfordern jetzt aufgrund einer verbesserten SSO-Verarbeitung für Kudu in Azure App Service ein Platzhalterzertifikat mit drei Antragstellern. Der neue Antragsteller ist **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
 
 Lesen Sie vor Beginn der Bereitstellung die [Voraussetzungen für das Bereitstellen von App Service in Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 
@@ -203,7 +203,7 @@ Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk u
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
 
-Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1802](azure-stack-update-1903.md).
+Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1802](./release-notes.md?view=azs-2002).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

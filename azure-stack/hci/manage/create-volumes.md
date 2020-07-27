@@ -4,19 +4,19 @@ description: Hier wird beschrieben, wie Sie Volumes in Azure Stack HCI mithilfe
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/28/2020
-ms.openlocfilehash: e5ef5d16ca1d03ec7f6c6cbd1318b7d1e5e90096
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: 61f3515bcec6e0819b175db149d27f15a347f132
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196408"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866572"
 ---
-# <a name="creating-volumes-in-azure-stack-hci"></a>Erstellen von Volumes in Azure Stack HCI
+# <a name="create-volumes-in-azure-stack-hci"></a>Erstellen von Volumes in Azure Stack HCI
 
-> Gilt für: Windows Server 2019
+> Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-In diesem Thema wird beschrieben, wie Sie mit Windows Admin Center und Windows PowerShell Volumes in einem „Direkte Speicherplätze“-Cluster erstellen, auf den Volumes mit Dateien arbeiten und dafür die Datendeduplizierung und -komprimierung aktivieren.
+In diesem Thema wird beschrieben, wie Sie mit Windows Admin Center und Windows PowerShell Volumes in einem Azure Stack HCI-Cluster erstellen, auf den Volumes mit Dateien arbeiten und dafür die Datendeduplizierung und -komprimierung aktivieren. Informationen zum Erstellen von Volumes und zum Einrichten der Replikation für Stretchingcluster finden Sie unter [Erstellen von Stretchingvolumes](create-stretched-volumes.md).
 
 ## <a name="create-a-three-way-mirror-volume"></a>Erstellen eines Volumes für Drei-Wege-Spiegelung
 
@@ -147,9 +147,9 @@ Sie haben es geschafft! Wiederholen Sie diese Schritte bei Bedarf, um mehr als e
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zum Durchführen anderer Aufgaben der Speicherverwaltung in „Direkte Speicherplätze“ finden Sie unter:
+Verwandte Themen und andere Speicherverwaltungsaufgaben finden Sie unter:
 
 - [Direkte Speicherplätze – Übersicht](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Planen von Volumes in „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/plan-volumes)
-- [Erweitern von Volumes in „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/resize-volumes)
-- [Löschen von Volumes in „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/delete-volumes)
+- [Planen von Volumes](../concepts/plan-volumes.md)
+- [Erweitern von Volumes](extend-volumes.md)
+- [Löschen von Volumes](delete-volumes.md)

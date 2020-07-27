@@ -4,17 +4,17 @@ description: Hier finden Sie Informationen zum Cluster- und Poolquorum in „Dir
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 82b1ab24567b124c4a2450149e37e9f05aab8bf8
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: cf9ecc42ed839fc133eb64b38b314816f19aecd7
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196867"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866908"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>Grundlegendes zum Cluster- und Poolquorum in Azure Stack HCI
 
->Gilt für: Windows Server 2019
+> Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
 [Windows Server-Failoverclustering](/windows-server/failover-clustering/failover-clustering-overview) bietet Hochverfügbarkeit für Workloads. Diese Ressourcen gelten als hochverfügbar, wenn die Knoten, die Ressourcen hosten, online sind. In der Regel erfordert der Cluster jedoch, dass mehr als die Hälfte der Knoten ausgeführt wird. Dies wird als *Quorum* bezeichnet.
 
@@ -227,4 +227,4 @@ Jedes der 24 Laufwerke verfügt über eine Stimme, und Knoten 2 hat ebenfalls 
 Weitere Informationen finden Sie unter
 
 - [Konfigurieren und Verwalten des Quorums](/windows-server/failover-clustering/manage-cluster-quorum)
-- [Bereitstellen eines Cloudzeugen](/windows-server/failover-clustering/deploy-cloud-witness)
+- [Einrichten eines Clusterzeugen](../deploy/witness.md)
