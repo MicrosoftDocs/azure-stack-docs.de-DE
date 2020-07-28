@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Hier finden Sie Informationen zu den Unterschieden zwischen der globalen Azure-Infrastruktur, Azure Stack Hub und Azure Stack HCI.
 author: justinha
 ms.topic: overview
-ms.date: 05/03/2019
+ms.date: 07/10/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: f71367c86dcb360297fed7250e3a5dfb4bd6beda
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: 96730a5afb143d8a5198c07bdc5b5df14c6483bd
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772435"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866155"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>Unterschiede zwischen der globalen Azure-Infrastruktur, Azure Stack Hub und Azure Stack HCI
 
@@ -29,7 +29,7 @@ Bei Microsoft Azure handelt es sich um Clouddienste, die stetig erweitert werden
 
 Über die globale Azure-Infrastruktur werden mehr als 100 Dienste angeboten, die in 54 Regionen weltweit verfügbar sind. Die aktuelle Liste mit den globalen Azure-Diensten finden Sie unter [*Verfügbare Produkte nach Region*](https://azure.microsoft.com/regions/services). Die in Azure verfügbaren Dienste sind nach Kategorie und danach aufgeführt, ob sie bereits allgemein verfügbar sind oder sich noch in der Vorschauphase befinden.
 
-Weitere Informationen zu globalen Azure-Diensten finden Sie auf der [Seite zu den ersten Schritten mit Azure](https://docs.microsoft.com/azure/?pivot=get-started&panel=get-started1).
+Weitere Informationen zu globalen Azure-Diensten finden Sie auf der [Seite zu den ersten Schritten mit Azure](/azure/?panel=get-started1&pivot=get-started).
 
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
@@ -68,15 +68,9 @@ Weitere Informationen zu Azure Stack Hub finden Sie unter [Was ist Azure Stack H
 
 ## <a name="azure-stack-hci"></a>Azure Stack HCI
 
-Mit [Azure Stack HCI](../hci/overview.md)-Lösungen können Sie virtuelle Computer lokal ausführen und über eine HCI-Lösung (Hyper-Converged Infrastructure, hyperkonvergente Infrastruktur) leicht eine Verbindung mit Azure herstellen. Setzen Sie einheitliche Azure-Dienste für die lokale Erstellung und Ausführung von Cloud-Apps ein, um die Einhaltung gesetzlicher Bestimmungen und technischer Anforderungen zu gewährleisten. Zusätzlich zur lokalen Ausführung von virtualisierten Apps können Sie mit Azure Stack HCI veraltete Serverinfrastruktur austauschen und konsolidieren und mithilfe von Windows Admin Center für Clouddienste eine Verbindung mit Azure herstellen.
+[Azure Stack HCI](../hci/overview.md) ist ein hyperkonvergenter Cluster, bei dem überprüfte Hardware eingesetzt wird, um virtualisierte Windows- und Linux-Workloads lokal auszuführen und eine einfache Verbindungsherstellung mit Azure für die cloudbasierte Sicherung, Wiederherstellung und Überwachung zu ermöglichen. Azure Stack HCI basiert ursprünglich auf Windows Server 2019 und wird jetzt als Azure-Dienst mit einem abonnementbasierten Lizenzierungsmodell und integrierten Hybridfunktionen bereitgestellt. Obwohl Azure Stack HCI auf den gleichen Betriebssystem-Hauptkomponenten wie Windows Server basiert, handelt es sich um eine völlig neue Produktlinie, bei der es um die Erzielung des bestmöglichen Virtualisierungshosts geht.
 
-Über Azure Stack HCI werden überprüfte HCI-Lösungen auf Basis von Hyper-V und Direkte Speicherplätze mit Windows Server 2019 Software-Defined Datacenter (SDDC) bereitgestellt. Windows Admin Center wird für die Verwaltung und den integrierten Zugriff auf Azure-Dienste genutzt, z. B.:
-
-- Azure Backup
-- Azure Site Recovery
-- Azure Monitor und Update
-
-Eine aktualisierte Liste mit Azure-Diensten, mit denen Sie für Azure Stack HCI eine Verbindung herstellen können, finden Sie unter [Connecting Windows Server to Azure hybrid services](https://docs.microsoft.com/windows-server/azure-hybrid-services/index) (Verbinden von Windows Server mit Azure-Hybriddiensten).
+Für Azure Stack HCI wird von Microsoft überprüfte Hardware eines OEM-Partners verwendet, um eine optimale Leistung und Zuverlässigkeit sicherzustellen. Die Lösungen beinhalten Unterstützung für Technologien wie NVMe-Laufwerke, persistenten Speicher und RDMA-Netzwerke (Remote-Direct Memory Access, Remotezugriff auf den direkten Speicher).
 
 ### <a name="example-use-cases-for-azure-stack-hci"></a>Beispiele für Azure Stack HCI-Anwendungsfälle
 
@@ -86,7 +80,7 @@ Eine aktualisierte Liste mit Azure-Diensten, mit denen Sie für Azure Stack HCI 
 - Unternehmenskritische Infrastruktur
 - Kostengünstige Speicherung
 - Hochverfügbarkeit und Notfallwiederherstellung in der Cloud
-- Unternehmens-Apps, z. B. SQL Server
+- Virtualisieren von Unternehmens-Apps, z. B. SQL Server
 
 Besuchen Sie die [Azure Stack HCI-Website](https://azure.microsoft.com/overview/azure-stack/hci/), um sich über die mehr als 70 Azure Stack HCI-Lösungen zu informieren, die Microsoft-Partner derzeit im Angebot haben.
 
