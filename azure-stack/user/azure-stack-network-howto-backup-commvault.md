@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 390c6fdb3268dee90b0928b5a280d60c08c1e7fa
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 6468c3508f2cf37b847768bd6b418a1d1a538f0d
+ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742498"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86892080"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Sichern Ihres virtuellen Computers in Azure Stack Hub mit Commvault
 
@@ -32,7 +32,7 @@ In diesem Artikel werden die folgenden Themen behandelt:
 
 3. Konfigurieren von Commvault für die Azure Stack Hub-Quellinstanz und Hinzufügen der virtuellen Computer in der Azure Stack Hub-Zielinstanz zur VM-Gruppe
 
-4. Konfigurieren von Commvault Live Sync
+4. Konfigurieren Sie Commvault Live Sync.
 
 Sie können auch kompatible Partner-VM-Images herunterladen und bereitstellen, um Ihre virtuellen Azure Stack Hub-Computer in einer Azure-Cloud oder einer anderen Azure Stack Hub-Instanz zu schützen. In diesem Artikel wird der Schutz der virtuellen Computer mithilfe von Commvault Live Sync erläutert.
 
@@ -40,7 +40,7 @@ Die Topologie dieses Ansatzes ist in der folgenden Abbildung dargestellt:
 
 ![](./media/azure-stack-network-howto-backup-commvault/backup-vm-commvault-diagram.svg)
 
-## <a name="create-the-commvault-vm-form-the-commvault-marketplace-item"></a>Erstellen des virtuellen Commvault-Computers über das Commvault-Marketplace-Element
+## <a name="create-the-commvault-vm-from-the-commvault-marketplace-item"></a>Erstellen des virtuellen Commvault-Computers aus dem Commvault-Marketplace-Element
 
 1. Öffnen Sie das Azure Stack Hub-Benutzerportal.
 
@@ -107,7 +107,7 @@ Die Topologie dieses Ansatzes ist in der folgenden Abbildung dargestellt:
 
 ## <a name="get-your-service-principal"></a>Abrufen des Dienstprinzipals
 
-Sie müssen wissen, ob Azure AD oder AD FS als Identity Manager festgelegt ist. In der folgenden Tabelle sind die Informationen aufgeführt, die Sie zum Einrichten von Commvault in Ihrer Azure Stack Hub-Instanz benötigen.
+Sie müssen wissen, ob Azure AD oder ADFS als Identity Manager festgelegt ist. In der folgenden Tabelle sind die Informationen aufgeführt, die Sie zum Einrichten von Commvault in Ihrer Azure Stack Hub-Instanz benötigen.
 
 | Element | BESCHREIBUNG | `Source` |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -124,8 +124,8 @@ Sie müssen wissen, ob Azure AD oder AD FS als Identity Manager festgelegt ist
 
 2. Installieren Sie Azure Stack Hub PowerShell und Azure Stack Hub-Tools auf dem virtuellen Commvault-Computer.
 
-    a. Anweisungen zum Installieren von Azure Stack Hub PowerShell finden Sie unter [Installieren von PowerShell für Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
-    b. Anweisungen zum Installieren von Azure Stack Hub-Tools finden Sie unter [Herunterladen von Azure Stack Hub-Tools von GitHub](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908).
+    a. Anweisungen zum Installieren von Azure Stack Hub PowerShell finden Sie unter [Installieren von PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
+    b. Anweisungen zum Installieren von Azure Stack Hub-Tools finden Sie unter [Herunterladen von Azure Stack Hub-Tools von GitHub](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908).
 
 3. Öffnen Sie nach der Installation von Commvault auf dem virtuellen Commvault-Computer die CommCell Console. Wählen Sie unter „Start“ die Option **Commvault** > **Commvault CommCell Console** aus.
 

@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: c3512a441116f57f74921cec38d5937b89a1978c
-ms.sourcegitcommit: d04b8f2d431ec1e12bcf5aa976fb06ec109caa25
+ms.openlocfilehash: 95d038b53432e94d0259352a2d71c88c24f68c1f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82868474"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489724"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Voraussetzungen für das Bereitstellen von App Service unter Azure Stack Hub
 
@@ -75,7 +75,7 @@ Das API-Zertifikat wird der Verwaltungsrolle zugeordnet. Der Ressourcenanbieter 
 
 | Format | Beispiel |
 | --- | --- |
-| api.appservice.\<Region\>.\<Domänenname\>.\<Erweiterung\> | api.appservice.redmond.azurestack.external |
+| api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="publishing-certificate"></a>Veröffentlichungszertifikat
 
@@ -83,7 +83,7 @@ Das Zertifikat für die Herausgeberrolle schützt den FTPS-Datenverkehr für App
 
 | Format | Beispiel |
 | --- | --- |
-| ftp.appservice.\<Region\>.\<Domänenname\>.\<Erweiterung\> | ftp.appservice.redmond.azurestack.external |
+| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>Identitätszertifikat
 
@@ -96,7 +96,7 @@ Das Zertifikat für die Identität muss einen Antragsteller enthalten und dem fo
 
 | Format | Beispiel |
 | --- | --- |
-| sso.appservice.\<Region\>.\<Domänenname\>.\<Erweiterung\> | sso.appservice.redmond.azurestack.external |
+| sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
 ### <a name="validate-certificates"></a>Überprüfen von Zertifikaten
 
@@ -228,7 +228,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 Für die Hosting- und Messdatenbanken von Azure App Service in Azure Stack Hub müssen Sie eine SQL Server-Instanz für die App Service-Datenbanken vorbereiten.
 
-Für die Produktion und Lösungen mit Hochverfügbarkeit sollten Sie eine Vollversion von SQL Server 2014 SP2 oder höher verwenden, Authentifizierung im gemischten Modus aktivieren und die Bereitstellung in einer [Hochverfügbarkeitskonfiguration](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server) durchführen.
+Für die Produktion und Lösungen mit Hochverfügbarkeit sollten Sie eine Vollversion von SQL Server 2014 SP2 oder höher verwenden, Authentifizierung im gemischten Modus aktivieren und die Bereitstellung in einer [Hochverfügbarkeitskonfiguration](/sql/sql-server/failover-clusters/high-availability-solutions-sql-server) durchführen.
 
 Auf die SQL Server-Instanz für Azure App Service in Azure Stack Hub muss von allen App Service-Rollen zugegriffen werden können. Sie können SQL Server im Standardabonnement des Anbieters in Azure Stack Hub bereitstellen. Alternativ können Sie die vorhandene Infrastruktur in Ihrer Organisation nutzen (sofern eine Verbindung mit Azure Stack Hub besteht). Denken Sie bei Verwendung eines Azure Marketplace-Images daran, die Firewall entsprechend zu konfigurieren.
 
@@ -388,7 +388,7 @@ Führen Sie die folgenden Schritte aus, um den Dienstprinzipal in Ihrem Azure AD
 1. Suchen Sie nach der Anwendungs-ID, die Sie in Schritt 7 notiert haben. 
 1. Wählen Sie in der Liste die App Service-Anwendungsregistrierung aus.
 1. Wählen Sie im linken Bereich **API-Berechtigungen** aus.
-1. Wählen Sie **Administratorzustimmung für \<Mandant\> erteilen** aus, wobei \<Mandant\> der Name Ihres Azure AD Mandanten ist. Bestätigen Sie die Gewährung der Zustimmung, indem Sie **Ja** auswählen.
+1. Wählen Sie **Administratorzustimmung für \<tenant\> erteilen** aus, wobei \<tenant\> der Name Ihres Azure AD-Mandanten ist. Bestätigen Sie die Gewährung der Zustimmung, indem Sie **Ja** auswählen.
 
 ```powershell
     Create-AADIdentityApp.ps1

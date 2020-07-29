@@ -1,22 +1,22 @@
 ---
 title: Installieren von Azure Stack Hub-Updates
 description: Erfahren Sie, wie Sie Azure Stack Hub-Updates installieren.
-author: IngridAtMicrosoft
+author: sethmanheim
 ms.topic: how-to
-ms.date: 03/04/2020
-ms.author: inhenkel
+ms.date: 07/22/2020
+ms.author: sethm
 ms.lastreviewed: 09/10/2019
-ms.reviewer: ppace
-ms.openlocfilehash: 461bad387dd5616eba227df4bd9b6e8beee40e43
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.reviewer: sranthar
+ms.openlocfilehash: e46bc4258883e01b80b78a96bf95cfe8012934d9
+ms.sourcegitcommit: 16ff77f7157e5b04a8cd401b095f7b71f51d5a11
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295101"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86949541"
 ---
 # <a name="install-azure-stack-hub-updates"></a>Installieren von Azure Stack Hub-Updates
 
-Sie können Updatepakete über das Blatt **Update** in Azure Stack Hub installieren. In diesem Artikel werden Sie durch die Schritte zum Aktualisieren, Überwachen und Beheben von Problemen mit dem Updatevorgang geführt. Verwenden Sie das Blatt „Update“, um Updateinformationen anzuzeigen, Updates zu installieren, den Aktualisierungsfortschritt zu überwachen, den Aktualisierungsverlauf zu überprüfen und die aktuelle Version des Azure Stack Hub- und OEM-Pakets anzuzeigen.
+Sie können Updatepakete über das Blatt **Update** im Azure Stack Hub-Verwaltungsportal installieren. In diesem Artikel werden die Schritte zum Aktualisieren, Überwachen und Beheben von Problemen mit dem Updatevorgang beschrieben. Verwenden Sie das Blatt **Update**, um Updateinformationen anzuzeigen, Updates zu installieren, den Aktualisierungsfortschritt zu überwachen, den Aktualisierungsverlauf zu überprüfen und die aktuelle Version des Azure Stack Hub- und OEM-Pakets anzuzeigen.
 
 Sie können Updates über das Administratorportal verwalten und im Dashboard den Abschnitt **Updates** verwenden, um Folgendes durchzuführen:
 
@@ -29,24 +29,22 @@ Sie können Updates über das Administratorportal verwalten und im Dashboard den
 
 Die aktuelle Version von Azure Stack Hub können Sie auf dem Blatt **Update** anzeigen. So öffnen Sie das Blatt
 
-1.  Öffnen Sie das Azure Stack Hub-Administratorportal.
+1. Öffnen Sie das Azure Stack Hub-Administratorportal.
 
-2.  Wählen Sie **Dashboard** aus. Auf dem Blatt **Updates** ist die aktuelle Version aufgeführt.
+2. Wählen Sie **Dashboard** aus. Auf dem Blatt **Updates** ist die aktuelle Version aufgeführt. In dieser Abbildung wird beispielsweise die Version 1.1903.0.35 angezeigt:
 
     ![Kachel „Updates“ auf dem Standarddashboard](./media/azure-stack-update-apply/image1.png)
 
-    In dieser Abbildung wird beispielsweise die Version 1.1903.0.35 angezeigt.
-
 ## <a name="install-updates-and-monitor-progress"></a>Installieren von Updates und Überwachen des Status
 
-> [!Important]
-> Vergewissern Sie sich vor dem Anwenden von Updates in Azure Stack Hub, dass Sie **alle** Schritte in der [Prüfliste für das Update](release-notes-checklist.md) ausgeführt und ein entsprechendes Wartungsfenster für den von Ihnen angesetzten Updatetyp geplant haben.
+> [!IMPORTANT]
+> Vergewissern Sie sich vor dem Anwenden von Updates in Azure Stack Hub, dass Sie alle Schritte in der [Prüfliste für das Update](release-notes-checklist.md) ausgeführt und ein entsprechendes Wartungsfenster für den von Ihnen angesetzten Updatetyp geplant haben.
 
 1. Öffnen Sie das Azure Stack Hub-Administratorportal.
 
 2. Wählen Sie **Dashboard** aus. Wählen Sie **Update** aus.
 
-3. Wählen Sie das verfügbare Update aus, das Sie installieren möchten. Wenn kein Update als **Verfügbar** markiert ist, müssen Sie das [Updatepaket vorbereiten](azure-stack-update-prepare-package.md).
+3. Wählen Sie das verfügbare Update aus, das Sie installieren möchten. Wenn kein Update als **Verfügbar** markiert ist, [bereiten Sie das Updatepaket vor](azure-stack-update-prepare-package.md).
 
 4. Wählen Sie **Jetzt aktualisieren** aus.
 
@@ -56,11 +54,11 @@ Die aktuelle Version von Azure Stack Hub können Sie auf dem Blatt **Update** an
 
 6. Wählen Sie auf dem Blatt mit den Details zur Updateausführung die Option **Download summary** (Zusammenfassung herunterladen) aus, um die vollständigen Protokolle herunterzuladen.
 
-    Falls beim Überwachen des Updates ein Problem auftritt, können Sie den [privilegierten Endpunkt](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint) nutzen, um den Status einer Azure Stack Hub-Updateausführung zu überwachen. Darüber hinaus können Sie den privilegierten Endpunkt verwenden, um einen nicht erfolgreichen Updatevorgang ab dem letzten erfolgreichen Schritt fortzusetzen, wenn das Azure Stack Hub-Portal nicht mehr verfügbar ist. Anweisungen hierzu finden Sie unter [Überwachen von Updates in Azure Stack Hub mithilfe von PowerShell](azure-stack-update-monitor.md).
+    Falls beim Überwachen des Updates ein Problem auftritt, können Sie den [privilegierten Endpunkt](./azure-stack-privileged-endpoint.md) nutzen, um den Status einer Azure Stack Hub-Updateausführung zu überwachen. Darüber hinaus können Sie den privilegierten Endpunkt verwenden, um einen nicht erfolgreichen Updatevorgang ab dem letzten erfolgreichen Schritt fortzusetzen, wenn das Azure Stack Hub-Portal nicht mehr verfügbar ist. Anweisungen hierzu finden Sie unter [Überwachen von Updates in Azure Stack Hub mithilfe von PowerShell](azure-stack-update-monitor.md).
 
     ![Details zur Azure Stack Hub-Updateausführung](./media/azure-stack-update-apply/image3.png)
 
-7. Nach Abschluss des Vorgangs gibt der Updateressourcenanbieter die Bestätigungsmeldung **Erfolgreich** aus. Hiermit wird angegeben, dass der Updateprozess abgeschlossen ist und wie lange er gedauert hat. Sie können über den Filter Informationen zu allen verfügbaren oder installierten Updates anzeigen.
+7. Nach Abschluss des Vorgangs zeigt der Updateressourcenanbieter die Bestätigungsmeldung **Erfolgreich** an. Hiermit wird angegeben, dass der Updateprozess abgeschlossen ist und wie lange er gedauert hat. Sie können über den Filter Informationen zu allen verfügbaren oder installierten Updates anzeigen.
 
     ![azure-stack-update-apply](./media/azure-stack-update-apply/image4.png)
 
@@ -78,5 +76,5 @@ Die aktuelle Version von Azure Stack Hub können Sie auf dem Blatt **Update** an
 
 ## <a name="next-steps"></a>Nächste Schritte
 
--   [Übersicht über das Verwalten von Updates in Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
--   [Azure Stack Hub-Wartungsrichtlinie](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  
+- [Übersicht über das Verwalten von Updates in Azure Stack Hub](./azure-stack-updates.md)  
+- [Azure Stack Hub-Wartungsrichtlinie](./azure-stack-servicing-policy.md)  

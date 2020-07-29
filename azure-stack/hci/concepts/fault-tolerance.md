@@ -4,17 +4,17 @@ description: Enthält eine Beschreibung der Resilienzoptionen in „Direkte Spei
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 1505e86133fe66bebf4198e0d0620a8632f067c8
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: f7ac25f80a738d2c6c59d2561668ac13d112b442
+ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196901"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86947128"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-azure-stack-hci"></a>Fehlertoleranz und Speichereffizienz in Azure Stack HCI
 
->Gilt für: Windows Server 2019
+> Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
 In diesem Thema werden die für „Direkte Speicherplätze“ verfügbaren Resilienzoptionen vorgestellt, und es werden jeweils Skalierungsanforderungen, Speichereffizienz und allgemeine Vor- und Nachteile beschrieben. Darüber hinaus werden einige Nutzungshinweise gegeben, um Ihnen den Einstieg zu erleichtern, und es wird auf hilfreiche Dokumente, Blogs und Ressourcen mit weiteren Informationen verwiesen.
 
@@ -28,7 +28,7 @@ Wie auch bei RAID gibt es für „Direkte Speicherplätze“ verschiedene Mögli
 
 ## <a name="mirroring"></a>Spiegelung
 
-Die Spiegelung ermöglicht Fehlertoleranz, indem mehrere Kopien aller Daten aufbewahrt werden. Dies ähnelt am ehesten RAID-1. Das Striping und die Anordnung dieser Daten ist nicht trivial (weitere Informationen in [diesem Blog](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/)), aber es lässt sich festhalten, dass alle per Spiegelung gespeicherten Daten vollständig mehrfach geschrieben werden. Jede Kopie wird auf andere physische Hardware (unterschiedliche Laufwerke von nicht identischen Servern) geschrieben, für die angenommen wird, dass sie nicht gemeinsam ausfallen.
+Die Spiegelung ermöglicht Fehlertoleranz, indem mehrere Kopien aller Daten aufbewahrt werden. Dies ähnelt am ehesten RAID-1. Das Striping und die Anordnung dieser Daten ist nicht trivial (weitere Informationen in [diesem Blog](https://techcommunity.microsoft.com/t5/storage-at-microsoft/deep-dive-the-storage-pool-in-storage-spaces-direct/ba-p/425959)), aber es lässt sich festhalten, dass alle per Spiegelung gespeicherten Daten vollständig mehrfach geschrieben werden. Jede Kopie wird auf andere physische Hardware (unterschiedliche Laufwerke von nicht identischen Servern) geschrieben, für die angenommen wird, dass sie nicht gemeinsam ausfallen.
 
 „Direkte Speicherplätze“ verfügt über zwei Spiegelungsarten: „Zwei-Wege“ und „Drei-Wege“.
 
@@ -84,11 +84,11 @@ Bei Festplattenlaufwerken (HDDs) beträgt die Gruppengröße vier Symbole, und b
 
 ![Local Reconstruction Codes](media/fault-tolerance/local-reconstruction-codes-180px.png)
 
-Wir empfehlen Ihnen diese eingehende und dennoch gut lesbare Beschreibung zum [Umgang von Local Reconstruction Codes mit unterschiedlichen Fehlerszenarien und den Gründen für ihre Attraktivität](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/) von unserem Mitarbeiter [Claus Joergensen](https://twitter.com/clausjor).
+Wir empfehlen Ihnen diese eingehende und dennoch gut lesbare Beschreibung zum [Umgang von Local Reconstruction Codes mit unterschiedlichen Fehlerszenarien und den Gründen für ihre Attraktivität](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB) von unserem Mitarbeiter [Claus Joergensen](https://twitter.com/clausjor).
 
 ## <a name="mirror-accelerated-parity"></a>Parität mit Beschleunigung per Spiegelung
 
-Bei einem Volume von „Direkte Speicherplätze“ kann teilweise die Spiegelung und teilweise die Parität festgelegt werden. Schreibvorgänge landen zuerst im gespiegelten Teil und werden später dann allmählich in den Paritätsteil verschoben. Hierbei wird praktisch die [Spiegelung genutzt, um das Erasure Coding zu beschleunigen](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/).
+Bei einem Volume von „Direkte Speicherplätze“ kann teilweise die Spiegelung und teilweise die Parität festgelegt werden. Schreibvorgänge landen zuerst im gespiegelten Teil und werden später dann allmählich in den Paritätsteil verschoben. Hierbei wird praktisch die [Spiegelung genutzt, um das Erasure Coding zu beschleunigen](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB).
 
 Zum Mischen von Drei-Wege-Spiegelung und dualer Parität benötigen Sie mindestens vier Fehlerdomänen (also vier Server).
 
@@ -202,14 +202,14 @@ Während der Lebensdauer von „Speicherplätze“ kann das Feature eine beliebi
 
 ## <a name="usage"></a>Verwendung
 
-Lesen Sie [Erstellen von Volumes in „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/create-volumes).
+Lesen Sie [Erstellen von Volumes](../manage/create-volumes.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Weitere Informationen zu den hier erwähnten Themen finden Sie in den folgenden Artikeln:
 
 - [Erasure Coding in Azure von Microsoft Research](https://www.microsoft.com/research/publication/erasure-coding-in-windows-azure-storage/)
-- [Local Reconstruction Codes und Beschleunigung von Paritätsvolumes](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)
-- [Volumes in der Speicherverwaltungs-API](https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/)
+- [Local Reconstruction Codes und Beschleunigung von Paritätsvolumes](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)
+- [Volumes in der Speicherverwaltungs-API](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)
 - [Demo zur Speichereffizienz bei der Microsoft Ignite 2016](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
 - [Capacity Calculator (Vorschau) für „Direkte Speicherplätze“](https://aka.ms/s2dcalc)

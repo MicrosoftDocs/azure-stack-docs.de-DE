@@ -4,17 +4,17 @@ description: Es wird beschrieben, wie Sie Laufwerke für „Direkte Speicherplä
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: f243bcefec74f23efb555e0dbf72597736687694
-ms.sourcegitcommit: 2be3dd5419b0d003a9598a42541ebb1d251aea3d
+ms.date: 07/21/2020
+ms.openlocfilehash: 7ae6a7abc3bb9dc0f73f64c72c56e2436b91a990
+ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/15/2020
-ms.locfileid: "86390788"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86947145"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Auswählen von Laufwerken für Azure Stack HCI
 
->Gilt für: Windows Server 2019
+> Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
 Dieses Thema enthält eine Anleitung zur Auswahl von Laufwerken für [Direkte Speicherplätze](/windows-server/storage/storage-spaces/storage-spaces-direct-overview), um Ihre Leistungs- und Kapazitätsanforderungen für Azure Stack HCI zu erfüllen.
 
@@ -86,7 +86,7 @@ Bei Workloads, für die nur selten eine sehr hohe Kapazität und Schreibvorgäng
 
 Jeder Server muss mindestens über zwei Cachelaufwerke verfügen (Mindestanforderung zur Erzielung von Redundanz). Wir empfehlen Ihnen, als Anzahl von Kapazitätslaufwerken ein Vielfaches der Anzahl von Cachelaufwerken zu wählen. Wenn Sie beispielsweise vier Cachelaufwerke verwenden, erhalten Sie eine einheitlichere Leistung, wenn Sie acht Kapazitätslaufwerke (Verhältnis 1:2) nutzen, und nicht sieben oder neun.
 
-Die Cachegröße sollte so gewählt werden, dass der Arbeitssatz Ihrer Anwendungen und Workloads abgedeckt werden kann (also alle Daten, die jeweils aktiv gelesen und geschrieben werden). Darüber hinaus besteht für die Cachegröße keine weitere Anforderung. Für Bereitstellungen mit HDDs sind 10 % Kapazität ein guter Ausgangspunkt. Wenn beispielsweise jeder Server über vier 4-TB-HDDs mit insgesamt 16 TB Kapazität verfügt, ergibt sich für zwei 800-GB-SSDs ein Gesamtcache von 1,6 TB pro Server. Bei reinen Flash-Bereitstellungen – vor allem mit SSDs mit sehr [langer Lebensdauer](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/) – kann es ratsam sein, eher mit fünf Prozent Kapazität zu beginnen. Beispiel: Wenn jeder Server über eine Kapazität von 24 x 1,2-TB-SSD = 28,8 TB verfügt, ergeben sich 2 x 750-GB-NVMe = 1,5 TB an Cache pro Server. Sie können später jederzeit Cachelaufwerke hinzufügen oder entfernen, um dies anzupassen.
+Die Cachegröße sollte so gewählt werden, dass der Arbeitssatz Ihrer Anwendungen und Workloads abgedeckt werden kann (also alle Daten, die jeweils aktiv gelesen und geschrieben werden). Darüber hinaus besteht für die Cachegröße keine weitere Anforderung. Für Bereitstellungen mit HDDs sind 10 % Kapazität ein guter Ausgangspunkt. Wenn beispielsweise jeder Server über vier 4-TB-HDDs mit insgesamt 16 TB Kapazität verfügt, ergibt sich für zwei 800-GB-SSDs ein Gesamtcache von 1,6 TB pro Server. Bei reinen Flash-Bereitstellungen – vor allem mit SSDs mit sehr [langer Lebensdauer](https://techcommunity.microsoft.com/t5/storage-at-microsoft/understanding-ssd-endurance-drive-writes-per-day-dwpd-terabytes/ba-p/426024) – kann es ratsam sein, eher mit fünf Prozent Kapazität zu beginnen. Beispiel: Wenn jeder Server über eine Kapazität von 24 x 1,2-TB-SSD = 28,8 TB verfügt, ergeben sich 2 x 750-GB-NVMe = 1,5 TB an Cache pro Server. Sie können später jederzeit Cachelaufwerke hinzufügen oder entfernen, um dies anzupassen.
 
 ### <a name="general"></a>Allgemein
 
@@ -96,7 +96,6 @@ Wir empfehlen Ihnen, die Gesamtspeicherkapazität pro Server auf ca. 400 TB (Te
 
 Weitere Informationen finden Sie auch unter:
 
-- [Azure Stack HCI: Übersicht](../overview.md)
 - [Grundlegendes zum Cache in Azure Stack HCI](cache.md)
 - [Hardwareanforderungen für „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements)
 - [Planen von Volumes in Azure Stack HCI](plan-volumes.md)

@@ -3,16 +3,16 @@ title: 'Azure Stack Hub: Versionshinweise'
 description: Versionshinweise für integrierte Azure Stack Hub-Systeme, einschließlich Updates und Fehlerbehebungen.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 07/21/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 4519c52d9075ba78d7a66d982400f706b3bd72f0
-ms.sourcegitcommit: 84b089387f5cf89e3a72e576f1c7649667075e0a
+ms.openlocfilehash: aef85fb3ee99254350c604a819befd27728a8b7c
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86137199"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86867027"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -71,7 +71,7 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 <!-- What's new, also net new experiences and features. -->
 
 - Es ist eine neue Version (1.8.1) von Azure Stack Hub-PowerShell-Modulen für Administratoren basierend auf AzureRM verfügbar.
-- Eine neue Version der Azure Stack Hub-Administrator-REST-API ist verfügbar. Details zu Endpunkten und Breaking Changes finden Sie in der [API-Referenz](https://docs.microsoft.com/rest/api/azure-stack/).
+- Eine neue Version der Azure Stack Hub-Administrator-REST-API ist verfügbar. Details zu Endpunkten und Breaking Changes finden Sie in der [API-Referenz](/rest/api/azure-stack/).
 - Neue Azure PowerShell-Mandantenmodule werden am 15. April 2020 für Azure Stack Hub veröffentlicht. Die derzeit verwendeten Azure RM-Module funktionieren weiterhin, werden aber nach Build 2002 nicht mehr aktualisiert.
 - Im Azure Stack Hub-Administratorportal wurde eine neue Warnung hinzugefügt, um Konnektivitätsprobleme mit dem konfigurierten Syslog-Server zu melden. Der Titel der Warnung lautet **The Syslog client encountered a networking issue while sending a Syslog message** (Der Syslog-Client hat beim Senden einer Syslog-Nachricht ein Netzwerkproblem erkannt).
 - Im Azure Stack Hub-Administratorportal wurde eine neue Warnung hinzugefügt, um Konnektivitätsprobleme mit dem NTP-Server (Network Time Protocol) zu melden. Der Titel der Warnung lautet **Invalid Time Source on [node name]** (Ungültige Zeitquelle auf [Knotenname]).
@@ -86,8 +86,8 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 - Mit dem Azure Stack Hub Readiness Checker-Tool wird jetzt die AD Graph-Integration überprüft, indem alle TCP/IP-Ports verwendet werden, die AD Graph zugeordnet sind.
 - Für das Offlinesyndikationstool wurden Verbesserungen in Bezug auf die Zuverlässigkeit durchgeführt. Das Tool ist nicht mehr auf GitHub verfügbar und wurde [in den PowerShell-Katalog verschoben](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/). Weitere Informationen finden Sie unter [Herunterladen von Marketplace-Elementen in Azure Stack Hub](azure-stack-download-azure-marketplace-item.md).
 - Eine neue Überwachungsfunktion wird eingeführt. Die Warnung bei wenig freiem Speicherplatz für physische Hosts und Infrastruktur-VMs wird von der Plattform automatisch bereinigt. Nur wenn bei dieser Aktion ein Fehler auftritt, wird die Warnung im Azure Stack Hub-Administratorportal angezeigt, damit der Operator entsprechende Maßnahmen ergreifen kann.
-- Verbesserungen in Bezug auf die [Erfassung von Diagnoseprotokollen](azure-stack-diagnostic-log-collection-overview-tzl.md). Mit der neuen Umgebung wird die Erfassung von Diagnoseprotokollen optimiert und vereinfacht, indem die Anforderung zum Vorabkonfigurieren eines Blobspeicherkontos beseitigt wird. Die Speicherumgebung ist so vorkonfiguriert, dass Sie vor dem Erstellen einer Supportanfrage Protokolle senden können und so weniger Zeit für einen Anruf beim Support verloren geht.
-- Die Zeit für die [proaktive und bedarfsabhängige Erfassung von Protokollen](azure-stack-diagnostic-log-collection-overview-tzl.md) konnte jeweils um 80 % reduziert werden. Die Protokollerfassung kann länger als erwartet dauern, aber von Azure Stack Hub-Operators muss keine Aktion durchgeführt werden, sofern die Protokollerfassung nicht fehlschlägt.
+- Verbesserungen in Bezug auf die [Erfassung von Diagnoseprotokollen](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002). Mit der neuen Umgebung wird die Erfassung von Diagnoseprotokollen optimiert und vereinfacht, indem die Anforderung zum Vorabkonfigurieren eines Blobspeicherkontos beseitigt wird. Die Speicherumgebung ist so vorkonfiguriert, dass Sie vor dem Erstellen einer Supportanfrage Protokolle senden können und so weniger Zeit für einen Anruf beim Support verloren geht.
+- Die Zeit für die [proaktive und bedarfsabhängige Erfassung von Protokollen](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002) konnte jeweils um 80 % reduziert werden. Die Protokollerfassung kann länger als erwartet dauern, aber von Azure Stack Hub-Operators muss keine Aktion durchgeführt werden, sofern die Protokollerfassung nicht fehlschlägt.
 - Der Downloadstatus eines Azure Stack Hub-Updatepakets wird jetzt auf dem Updateblatt angezeigt, nachdem ein Update initiiert wurde. Dies gilt nur für verbundene Azure Stack Hub-Systeme, bei denen [Updatepakete per automatischem Download vorbereitet werden](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages).
 - Verbesserungen in Bezug auf die Zuverlässigkeit für den Netzwerkcontroller-Host-Agent.
 - Es wurde ein neuer Microservice mit dem Namen DNS Orchestrator eingeführt, mit dem die Resilienzlogik für die internen DNS-Dienste bei Patch- und Updatevorgängen verbessert wird.
@@ -137,7 +137,7 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 - Es wurde ein Problem behoben, bei dem für Vorgänge des Add-On-Ressourcenanbieters ein Fehler aufgetreten ist, nachdem die Azure Stack Hub-Geheimnisrotation durchgeführt wurde.
 - Es wurde ein Problem behoben, das aufgrund einer hohen Arbeitsspeicherauslastung für die ERCS-Rolle eine häufige Ursache von Azure Stack Hub-Updatefehlern war.
 - Es wurde ein Fehler auf dem Updateblatt behoben, bei dem der Updatestatus während der Vorbereitungsphase eines Azure Stack Hub-Updates nicht als **Wird vorbereitet**, sondern als **Wird installiert** angezeigt wurde.
-- Es wurde ein Problem behoben, bei dem das RSC-Feature auf den physischen Switches zu Inkonsistenzen geführt hat und der Datenverkehr verworfen wurde, der über ein Lastenausgleichsmodul geflossen ist. Das RSC-Feature ist jetzt standardmäßig deaktiviert.
+- Es wurde ein Problem behoben, bei dem das RSC-Feature auf den virtuellen Switches zu Inkonsistenzen geführt hat und der Datenverkehr verworfen wurde, der über ein Lastenausgleichsmodul geflossen ist. Das RSC-Feature ist jetzt standardmäßig deaktiviert.
 - Es wurde ein Problem behoben, aufgrund dessen mehrere IP-Konfigurationen auf einer Netzwerkschnittstelle (Network Interface, NIC) zu einer fehlerhaften Weiterleitung von Datenverkehr und Unterbrechung der ausgehenden Verbindung geführt haben. 
 - Es wurde ein Problem behoben, bei dem die MAC-Adresse einer NIC zwischengespeichert wurde und die Zuweisung dieser Adresse zu einer anderen Ressource zu VM-Bereitstellungsfehlern geführt hat.
 - Es wurde ein Problem behoben, bei dem für Windows-VM-Images aus dem RETAIL-Kanal die Lizenz per AVMA nicht aktiviert werden konnte.
@@ -609,5 +609,3 @@ Um auf archivierte Versionshinweise für eine ältere Version zuzugreifen, verwe
 ::: moniker range="<azs-1907"
 Sie können auf [ältere Versionen der Azure Stack Hub-Versionshinweise im TechNet-Katalog](https://aka.ms/azsarchivedrelnotes) zugreifen. Diese archivierten Dokumente werden nur zu Referenzzwecken bereitgestellt und bedeuten nicht, dass Support für diese Versionen geleistet wird. Informationen zum Azure Stack Hub-Support finden Sie unter [Azure Stack Hub-Wartungsrichtlinie](azure-stack-servicing-policy.md). Weitere Hilfe erhalten Sie beim Microsoft-Kundensupport (Microsoft Customer Support Services, CSS).
 ::: moniker-end
-
-

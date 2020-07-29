@@ -7,12 +7,12 @@ ms.date: 04/30/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e78b396822c86c9785ddecc691f57c27afeb6fcd
-ms.sourcegitcommit: e79aafb05c5fc512a83f0ebc6d76503213ccbc70
+ms.openlocfilehash: e82e551930196c3c0c2e958957172e26bf9861cb
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730712"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488333"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Aktionen für Knoten einer Skalierungseinheit in Azure Stack Hub
 
@@ -62,7 +62,7 @@ Dies kann der Fall sein, wenn der Cache der Fabric-Ressourcenanbieterrolle nach 
 
 Stellen Sie vor dem Anwenden der folgenden Schritte sicher, dass aktuell kein Vorgang ausgeführt wird. Aktualisieren Sie den Endpunkt entsprechend Ihrer Umgebung.
 
-1. Öffnen Sie PowerShell, und fügen Sie Ihre Azure Stack Hub-Umgebung hinzu. Hierfür muss [Azure Stack Hub PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install) auf dem Computer installiert sein.
+1. Öffnen Sie PowerShell, und fügen Sie Ihre Azure Stack Hub-Umgebung hinzu. Hierfür muss [Azure Stack Hub PowerShell](./azure-stack-powershell-install.md) auf dem Computer installiert sein.
 
    ```powershell
    Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
@@ -101,7 +101,7 @@ Sie müssen Azure Stack Hub-PowerShell-Module installieren. Diese Cmdlets befind
 
 Die Aktion **Beenden** schaltet den Knoten aus. Dies entspricht dem Drücken des Netzschalters. Es wird kein Signal zum Herunterfahren an das Betriebssystem gesendet. Probieren Sie bei geplanten Beenden-Vorgängen immer zuerst den Vorgang zum Herunterfahren aus.
 
-Diese Aktion wird normalerweise verwendet, wenn ein Knoten nicht mehr reagiert und keine Anforderungen mehr verarbeitet.
+Diese Aktion wird normalerweise verwendet, wenn ein Knoten nicht mehr auf Anforderungen reagiert.
 
 Um die Beenden-Aktion auszuführen, öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus:
 
@@ -111,7 +111,7 @@ Um die Beenden-Aktion auszuführen, öffnen Sie eine PowerShell-Eingabeaufforder
 
 Versuchen Sie in dem unwahrscheinlichen Fall, dass die Beenden-Aktion nicht funktioniert, den Vorgang noch mal, und falls er ein zweites Mal fehlschlägt, verwenden Sie stattdessen die BMC-Webbenutzeroberfläche.
 
-Weitere Informationen finden Sie unter [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
+Weitere Informationen finden Sie unter [Stop-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
 ## <a name="start"></a>Start
 
@@ -125,7 +125,7 @@ Um die Starten-Aktion auszuführen, öffnen Sie eine PowerShell-Eingabeaufforder
 
 Sollte der unwahrscheinliche Fall eintreten, dass die Aktion „Starten“ nicht funktioniert, wiederholen Sie den Vorgang. Wenn auch beim zweiten Mal ein Fehler auftritt, verwenden Sie stattdessen die BMC-Webschnittstelle.
 
-Weitere Informationen finden Sie unter [Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
+Weitere Informationen finden Sie unter [Start-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
 
 ## <a name="drain"></a>Entladen
 
@@ -142,7 +142,7 @@ Um die Entladen-Aktion auszuführen, öffnen Sie eine PowerShell-Eingabeaufforde
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-Weitere Informationen finden Sie unter [Disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
+Weitere Informationen finden Sie unter [Disable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
 
 ## <a name="resume"></a>Fortfahren
 
@@ -154,7 +154,7 @@ Um die Fortsetzen-Aktion auszuführen, öffnen Sie eine PowerShell-Eingabeauffor
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-Weitere Informationen finden Sie unter [Enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
+Weitere Informationen finden Sie unter [Enable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
 
 ## <a name="repair"></a>Reparieren
 
@@ -204,6 +204,6 @@ Sollte beim Herunterfahren ein Fehler auftreten, führen Sie vor dem Herunterfah
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Installieren von Azure Stack PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install)
-- [Weitere Informationen zum Azure Stack Hub Fabric-Operatormodul](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
-- [Überwachen des Vorgangs zum Hinzufügen eines Knotens](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node#monitor-add-node-operations)
+- [Installieren von Azure Stack PowerShell](./azure-stack-powershell-install.md)
+- [Weitere Informationen zum Azure Stack Hub Fabric-Operatormodul](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
+- [Überwachen des Vorgangs zum Hinzufügen eines Knotens](./azure-stack-add-scale-node.md#monitor-add-node-operations)

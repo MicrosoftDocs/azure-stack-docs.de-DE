@@ -4,18 +4,19 @@ description: Hier erfahren Sie, wie Sie die Größe von Volumes in Azure Stack 
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 03/10/2020
-ms.openlocfilehash: 1369d3bcd0393fd322d17e1977524732d5b97ccf
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: bb4a72e28bd6126d12dbdb1f97d0579fb98bca8e
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196442"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866590"
 ---
-# <a name="extending-volumes-in-storage-spaces-direct"></a>Erweitern von Volumes in „Direkte Speicherplätze“
-> Gilt für: Windows Server 2019
+# <a name="extending-volumes-in-azure-stack-hci"></a>Erweitern von Volumes in Azure Stack HCI
 
-In diesem Thema erfahren Sie, wie Sie die Größe von Volumes in einem Cluster mit [Direkte Speicherplätze](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) mithilfe von Windows Admin Center ändern.
+> Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
+
+In diesem Thema erfahren Sie, wie Sie die Größe von Volumes in einem Azure Stack HCI-Cluster mithilfe von Windows Admin Center ändern.
 
 > [!WARNING]
 > **Das Ändern der Größe des zugrunde liegenden Speichers, der von „Direkte Speicherplätze“ verwendet wird, wird nicht unterstützt.** Wenn Sie „Direkte Speicherplätze“ in einer virtualisierten Speicherumgebung ausführen (etwa in Azure), wird das Ändern der Größe oder Merkmale der Speichergeräte, die von den virtuellen Computern verwendet werden, nicht unterstützt und führt dazu, dass nicht mehr auf die Daten zugegriffen werden kann. Gehen Sie stattdessen wie unter [Hinzufügen von Servern oder Laufwerken zu „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/add-nodes) beschrieben vor, um vor der Erweiterung von Volumes zusätzliche Kapazität hinzuzufügen.
@@ -26,7 +27,7 @@ Sehen Sie sich ein kurzes Anleitungsvideo zum Ändern der Größe eines Volumes 
 
 ## <a name="extending-volumes-using-windows-admin-center"></a>Erweitern von Volumes mithilfe von Windows Admin Center
 
-1. Stellen Sie in Windows Admin Center eine Verbindung mit einem Cluster mit „Direkte Speicherplätze“ her, und wählen Sie im Bereich **Tools** die Option **Volumes** aus.
+1. Stellen Sie in Windows Admin Center eine Verbindung mit einem Azure Stack HCI-Cluster her, und wählen Sie im Bereich **Tools** die Option **Volumes** aus.
 2. Wählen Sie auf der Seite **Volumes** die Registerkarte **Bestand** und anschließend das Volume aus, dessen Größe Sie ändern möchten.
 
     Auf der Seite mit den Volumedetails wird die Speicherkapazität für das Volume angezeigt. Die Seite mit den Volumedetails kann auch direkt über das Dashboard geöffnet werden. Wählen auf dem Dashboard im Bereich „Warnungen“ die Warnung aus, die angezeigt wird, wenn die Speicherkapazität eines Volumes nahezu erschöpft ist, und wählen Sie dann **Go To Volume** (Zum Volume) aus.
@@ -143,6 +144,6 @@ Das ist alles!
 
 Schrittanleitungen für weitere wichtige Speicherverwaltungsaufgaben finden Sie unter den folgenden Links:
 
-- [Planen von Volumes in „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/plan-volumes)
-- [Erstellen von Volumes in „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/create-volumes)
-- [Löschen von Volumes in „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/delete-volumes)
+- [Planen von Volumes](../concepts/plan-volumes.md)
+- [Erstellen von Volumes](create-volumes.md)
+- [Löschen von Volumes](delete-volumes.md)
