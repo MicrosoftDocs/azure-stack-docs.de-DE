@@ -3,27 +3,52 @@ title: Verwalten von VMs in Azure Stack HCI mithilfe von Windows Admin Center
 description: Hier erfahren Sie, wie Sie virtuelle Computer (Virtual Machines, VMs) in einem Cluster in Azure Stack HCI mit Windows Admin Center erstellen und verwalten.
 author: v-dasis
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 07/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 21bb8cf8c88a66fdb4ecee8d45d3e13127faabec
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: cecf03b01a4c621226d7439bc307eb9317918fa7
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196493"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866443"
 ---
 # <a name="manage-vms-on-azure-stack-hci-using-windows-admin-center"></a>Verwalten von VMs in Azure Stack HCI mithilfe von Windows Admin Center
 
-> Gilt für Windows Server 2019.
+> Gilt für die Azure Stack HCI, Version 20H2; Windows Server 2019
 
 Mit Windows Admin Center können Sie virtuelle Computer (Virtual Machines, VMs) in Azure Stack HCI erstellen und verwalten.
+
+## <a name="create-a-new-vm"></a>Erstellen eines neuen virtuellen Computers
+
+Mit Windows Admin Center können Sie problemlos einen neuen virtuellen Computer erstellen.
+
+:::image type="content" source="media/manage-vm/new-vm.png" alt-text="Bildschirm „Neue VM“" lightbox="media/manage-vm/new-vm.png":::
+
+1. Wählen Sie auf der Startseite von Windows Admin Center unter **Alle Verbindungen**, den Server oder Cluster aus, auf dem Sie den neuen virtuellen Computer erstellen möchten.
+1. Führen Sie unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
+1. Wählen Sie unter **Virtuelle Computer** die Registerkarte **Inventar** aus, und wählen Sie anschließend **Neu** aus.
+1. Geben Sie im Feld **Neuer virtueller Computer** einen Namen für Ihre VM ein.
+1. Wählen Sie **Generation 2 (empfohlen)** aus.
+1. Wählen Sie in der Dropdownliste einen vorab zugewiesenen Dateipfad aus, oder klicken Sie auf **Durchsuchen**, um den Ordner auszuwählen, in dem die VM-Konfigurationsdatei und die VHD-Dateien gespeichert werden sollen. Sie können zu einer beliebigen SMB-Freigabe im Netzwerk navigieren, indem Sie als Pfad *\\server\share* eingeben.
+
+1. Wählen Sie unter **Virtuelle Prozessoren** die Anzahl der virtuellen Prozessoren aus und geben Sie an, ob die geschachtelte Virtualisierung aktiviert werden soll.
+1. Wählen Sie unter **Arbeitsspeicher** die Menge des Arbeitsspeichers beim Start aus (4 GB wird als Minimum empfohlen), sowie einen Minimum- und Maximalbereich von dynamischem Arbeitsspeicher, welcher der VM zugeordnet werden soll.
+1. Wählen Sie in der Dropdownliste unter **Netzwerk** einen Netzwerkadapter aus.
+1. Klicken Sie unter **Speicher** auf **Hinzufügen**, und wählen Sie aus, ob eine neue virtuelle Festplatte erstellt oder eine vorhandene virtuelle Festplatte verwendet werden soll. Wenn Sie eine vorhandene virtuelle Festplatte verwenden, klicken Sie auf **Durchsuchen**, und wählen Sie den entsprechenden Dateipfad aus.  
+1. Führen Sie unter **Betriebssystem** einen der folgenden Schritte aus:
+   - Wählen Sie **Betriebssystem zu einem späteren Zeitpunkt installieren** aus, wenn Sie später ein Betriebssystem für die VM installieren möchten.
+   - Wählen Sie **Install an operating system from an image file (*.iso)** (Betriebssystem von Imagedatei (*.iso) installieren) aus, klicken Sie auf **Durchsuchen**, und wählen Sie dann die gewünschte ISO-Imagedatei aus.
+   - Wählen Sie **Betriebssystem von einem netzwerkbasierten Installationsserver installieren** aus, wenn Sie später ein Betriebssystem auf diese Weise auf der VM installieren möchten. Sie müssen zuvor einen Netzwerkadapter ausgewählt haben, andernfalls schlägt der Vorgang fehl.
+1. Wenn Sie fertig sind, klicken Sie auf **Erstellen**, um die VM zu erstellen.
+1. Zeigen Sie zum Starten der VM in der Liste **Virtuelle Computer** mit dem Mauszeiger auf die neue VM, aktivieren Sie links das entsprechende Kontrollkästchen, und wählen Sie **Starten** aus.
+1. Vergewissern Sie sich unter **Status**, ob der VM-Status **Wird ausgeführt** ist.
 
 ## <a name="get-a-list-of-vms"></a>Abrufen einer Liste von VMs
 
 Sie können auf einfache Weise alle VMs auf einem Server in Ihrem Cluster anzeigen.
 
-:::image type="content" source="media/manage-vm/vm-inventory.png" alt-text="Bildschirm „Virtuelle Computer“":::
+:::image type="content" source="media/manage-vm/vm-inventory.png" alt-text="Bildschirm „Virtuelle Computer“" lightbox="media/manage-vm/vm-inventory.png":::
 
 1. Führen Sie in Windows Admin Center unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
 1. Auf der Registerkarte **Inventar** rechts werden alle auf dem aktuellen Server oder im Cluster verfügbaren VMs aufgelistet; hier finden sich auch Befehle zum Verwalten einzelner VMs. Ihre Möglichkeiten:
@@ -40,7 +65,7 @@ Sie können auf einfache Weise alle VMs auf einem Server in Ihrem Cluster anzeig
 
 Sie können ausführliche Informationen und Leistungsdiagramme für eine bestimmte VM auf ihrer dedizierten Seite einsehen.
 
-:::image type="content" source="media/manage-vm/vm-details.png" alt-text="Bildschirm mit detaillierten Informationen für VMs":::
+:::image type="content" source="media/manage-vm/vm-details.png" alt-text="Bildschirm mit detaillierten Informationen für VMs" lightbox="media/manage-vm/vm-details.png":::
 
 1. Führen Sie unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
 1. Klicken Sie rechts auf die Registerkarte **Inventar**, und wählen Sie anschließend die VM aus. Auf der nächsten Seite können Sie folgende Aufgaben ausführen:
@@ -58,7 +83,7 @@ Sie können ausführliche Informationen und Leistungsdiagramme für eine bestimm
 
 Sie können Ressourcennutzung und Leistungsmetriken für alle VMs in Ihrem Cluster anzeigen.
 
-:::image type="content" source="media/manage-vm/host-metrics.png" alt-text="Bildschirm mit Hostmetriken":::
+:::image type="content" source="media/manage-vm/host-metrics.png" alt-text="Bildschirm mit Hostmetriken" lightbox="media/manage-vm/host-metrics.png":::
 
 1. Führen Sie unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
 1. Auf der Registerkarte **Zusammenfassung** rechts findet sich eine holistische Ansicht der Hyper-V-Hostressourcen und -leistung für einen ausgewählten Server oder Cluster. Hierzu zählen folgende Angaben:
@@ -82,19 +107,19 @@ Es gibt eine Vielzahl von Einstellungen, die Sie für eine VM ändern können.
     - Wählen Sie die entsprechenden Einstellungen in den Dropdownfeldern aus, um die Standardaktionen zum Starten/Beenden von VMs zu ändern.
     - Wenn Sie Zeitintervalle für das Anhalten oder Starten einer VM ändern möchten, geben Sie die entsprechenden Werte in die angezeigten Felder ein.
 
-        :::image type="content" source="media/manage-vm/vm-settings-general.png" alt-text="Bildschirm mit allgemeinen Einstellungen für VMs":::
+        :::image type="content" source="media/manage-vm/vm-settings-general.png" alt-text="Bildschirm mit allgemeinen Einstellungen für VMs" lightbox="media/manage-vm/vm-settings-general.png":::
 
 1. Wählen Sie **Arbeitsspeicher** aus, um den Arbeitsspeicher beim Starten von VMs, den Bereich des dynamischen Arbeitsspeichers, den Prozentsatz des Arbeitsspeicherpuffers sowie die Arbeitsspeichergewichtung zu ändern.
 
-    :::image type="content" source="media/manage-vm/vm-settings-memory.png" alt-text="Bildschirm zum Ändern von Arbeitsspeichereinstellungen für VMs":::
+    :::image type="content" source="media/manage-vm/vm-settings-memory.png" alt-text="Bildschirm zum Ändern von Arbeitsspeichereinstellungen für VMs" lightbox="media/manage-vm/vm-settings-memory.png":::
 
 1. Wählen Sie **Prozessoren** aus, um die Anzahl der virtuellen Prozessoren zu ändern, um die geschachtelte Virtualisierung zu aktivieren oder um das simultane Multithreading (SMT) zu aktivieren.
 
-    :::image type="content" source="media/manage-vm/vm-settings-processor.png" alt-text="Bildschirm zum Ändern von Prozessoreinstellungen für VMs":::
+    :::image type="content" source="media/manage-vm/vm-settings-processor.png" alt-text="Bildschirm zum Ändern von Prozessoreinstellungen für VMs" lightbox="media/manage-vm/vm-settings-processor.png":::
 
 1. Wenn Sie einen neuen virtuellen Datenträger hinzufügen möchten, wählen Sie **Datenträger** aus. Wählen Sie anschließend aus, ob Sie einen leeren virtuellen Datenträger erstellen oder eine vorhandene virtuelle Festplatte oder ISO-Imagedatei verwenden möchten. Klicken Sie auf **Durchsuchen**, und wählen Sie den Pfad zum virtuellen Datenträger oder zur Imagedatei aus.
 
-    :::image type="content" source="media/manage-vm/vm-settings-disk.png" alt-text="Bildschirm zum Ändern von Datenträgereinstellungen für VMs":::
+    :::image type="content" source="media/manage-vm/vm-settings-disk.png" alt-text="Bildschirm zum Ändern von Datenträgereinstellungen für VMs" lightbox="media/manage-vm/vm-settings-disk.png":::
 
 1. Um Einstellungen für Netzwerkadapter hinzuzufügen, zu entfernen oder zu ändern, wählen Sie **Netzwerke** aus, und führen Sie die folgenden Schritte aus:
     - Geben Sie den zu verwendenden virtuellen Switch an, und geben Sie an, ob die Erkennung virtueller LANs aktiviert werden soll (Sie müssen auch den VLAN-Bezeichner angeben).
@@ -103,18 +128,18 @@ Es gibt eine Vielzahl von Einstellungen, die Sie für eine VM ändern können.
         - Aktivieren des Spoofings von MAC-Adressen
         - Aktivieren der Bandbreitenverwaltung und Angeben des Maximal-/Minimalbereichs
 
-        :::image type="content" source="media/manage-vm/vm-settings-network.png" alt-text="Bildschirm zum Ändern von Netzwerkeinstellungen für VMs":::
+        :::image type="content" source="media/manage-vm/vm-settings-network.png" alt-text="Bildschirm zum Ändern von Netzwerkeinstellungen für VMs" lightbox="media/manage-vm/vm-settings-network.png":::
 
 1. Wählen Sie **Startreihenfolge** aus, um Startgeräte hinzuzufügen oder um die VM-Startsequenz zu ändern.
 
-    :::image type="content" source="media/manage-vm/vm-settings-boot.png" alt-text="Bildschirm zum Ändern der VM-Startreihenfolge":::
+    :::image type="content" source="media/manage-vm/vm-settings-boot.png" alt-text="Bildschirm zum Ändern der VM-Startreihenfolge" lightbox="media/manage-vm/vm-settings-boot.png":::
 
 1. Wählen Sie **Prüfpunkte** aus, um VM-Prüfpunkte zu aktivieren, um den Prüfpunkttyp auszuwählen und den Ort des Prüfpunkts auszuwählen.
 
     > [!NOTE]
     > Die Prüfpunkteinstellung **Produktion** wird empfohlen. Bei dieser Einstellung wird Sicherungstechnologie im Gastbetriebssystem verwendet, um datenkonsistente Prüfpunkte zu erstellen. Bei der Einstellung **Standard** werden VHD-Momentaufnahmen verwendet, um Prüfpunkte mit dem Anwendungs- und Dienststatus zu erstellen.
 
-     :::image type="content" source="media/manage-vm/vm-settings-checkpoint.png" alt-text="Bildschirm zum Ändern von VM-Prüfpunkten":::
+     :::image type="content" source="media/manage-vm/vm-settings-checkpoint.png" alt-text="Bildschirm zum Ändern von VM-Prüfpunkten" lightbox="media/manage-vm/vm-settings-checkpoint.png":::
 
 1. Wählen Sie zum Ändern der VM-Sicherheitseinstellungen **Sicherheit** aus, und führen Sie folgende Schritte aus:
     - Wählen Sie **Sicheren Start aktivieren** aus, um zu verhindern, dass nicht autorisierter Code beim Starten ausgeführt wird (empfohlen). Wählen Sie außerdem im Dropdownfeld eine Microsoft-Vorlage oder eine Open-Source-Vorlage aus.
@@ -130,7 +155,7 @@ Es gibt eine Vielzahl von Einstellungen, die Sie für eine VM ändern können.
 
     - Wählen Sie unter **Sicherheitsrichtlinie** die Option **Enable Shielding** (Schutz aktivieren) aus, um auf weitere Schutzoptionen für die VM zuzugreifen.
 
-        :::image type="content" source="media/manage-vm/vm-settings-security.png" alt-text="Ändern von VM-Sicherheitseinstellungen":::
+        :::image type="content" source="media/manage-vm/vm-settings-security.png" alt-text="Ändern von VM-Sicherheitseinstellungen" lightbox="media/manage-vm/vm-settings-security.png":::
 
 ## <a name="create-a-new-vm"></a>Erstellen eines neuen virtuellen Computers
 
@@ -161,7 +186,7 @@ Mit Windows Admin Center können Sie problemlos einen neuen virtuellen Computer 
 
 Sie können einen virtuellen Computer wie folgt auf einfache Weise auf einen anderen Server im Cluster verschieben:
 
-:::image type="content" source="media/manage-vm/vm-more-move.png" alt-text="Bildschirm „VM verschieben“":::
+:::image type="content" source="media/manage-vm/vm-more-move.png" alt-text="Bildschirm „VM verschieben“" lightbox="media/manage-vm/vm-more-move.png":::
 
 1. Führen Sie unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
 1. Klicken Sie rechts auf die Registerkarte **Inventar**. Wählen Sie einen virtuellen Computer aus der Liste aus, und wählen Sie **Mehr > Verschieben** aus.
@@ -173,7 +198,7 @@ Sie können einen virtuellen Computer wie folgt auf einfache Weise auf einen and
 
 Sie können eine VM auf einfache Weise importieren oder exportieren. In der folgenden Prozedur wird der Importvorgang beschrieben.
 
-:::image type="content" source="media/manage-vm/vm-more-import.png" alt-text="Bildschirm zum Importieren von VMs":::
+:::image type="content" source="media/manage-vm/vm-more-import.png" alt-text="Bildschirm zum Importieren von VMs" lightbox="media/manage-vm/vm-more-import.png":::
 
 1. Führen Sie unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
 1. Klicken Sie rechts auf die Registerkarte **Inventar**. Wählen Sie einen gruppierten virtuellen Computer in der Liste aus, und wählen Sie **Mehr > Importieren** aus.
@@ -207,8 +232,8 @@ Anstatt mit Windows Admin Center können Sie Ihre VMs auch über einen Hyper-V-H
 
 Sie können Windows Admin Center verwenden, um Azure Site Recovery zu konfigurieren und Ihre lokalen VMs in Azure zu replizieren. Dies ist ein optionaler Dienst zum Hinzufügen von Werten. Informationen zu den ersten Schritten finden Sie unter [Schützen von VMs mit Azure Site Recovery](azure-site-recovery.md).
 
-:::image type="content" source="media/manage-vm/vm-more-azure.png" alt-text="Bildschirm zum Einrichten von Azure Site Recovery":::
+:::image type="content" source="media/manage-vm/vm-more-azure.png" alt-text="Bildschirm zum Einrichten von Azure Site Recovery" lightbox="media/manage-vm/vm-more-azure.png":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sie können VMs auch mit Windows PowerShell-Hyper-V-Cmdlets erstellen und verwalten. Weitere Informationen finden Sie unter [Hyper-V](https://docs.microsoft.com/powershell/module/hyper-v/?view=win10-ps).
+Sie können VMs auch mit der Windows PowerShell erstellen und verwalten. Weitere Informationen hierzu finden Sie unter [Verwalten von VMs in der Azure Stack HCI mithilfe der Windows PowerShell](vm-powershell.md).
