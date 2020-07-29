@@ -4,17 +4,17 @@ description: Verwenden Sie Azure Monitor in Windows Admin Center zum Überwachen
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 04/03/2020
-ms.openlocfilehash: 43bcc5be8fd96e33d16cfdebd87e0d965c8eff41
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: f721b16d6742cde5e27fae8b81d8d256c7defa2a
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196969"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866806"
 ---
 # <a name="monitor-azure-stack-hci-with-azure-monitor"></a>Überwachen von Azure Stack HCI mit Azure Monitor
 
-> Gilt für: Windows Server 2019
+> Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
 [Azure Monitor](/azure/azure-monitor/overview) sammelt, analysiert und verarbeitet Telemetriedaten von einer Vielzahl von Ressourcen, einschließlich Windows-Servern und virtuellen Computern (Virtual Machines, VMs), sowohl lokal als auch in der Cloud. Azure Monitor ruft zwar Daten aus Azure-VMs und anderen Azure-Ressourcen ab, in diesem Artikel wird jedoch die Funktionsweise von Azure Monitor mit lokalen Servern und VMs beschrieben, die in Azure Stack HCI ausgeführt werden, insbesondere mit Windows Admin Center.
 
@@ -24,7 +24,7 @@ Von lokalen Windows-Servern generierte Daten werden in einem Log Analytics-Arbei
 
 Wenn Sie eine Überwachungslösung in einem Log Analytics-Arbeitsbereich aktivieren, beginnen alle Server, die an diesen Arbeitsbereich berichten, mit dem Sammeln von Daten, die für diese Lösung relevant sind, damit die Lösung Erkenntnisse für alle Server im Arbeitsbereich generieren kann.
 
-Um Telemetriedaten auf einem lokalen Server zu sammeln und per Push in den Log Analytics-Arbeitsbereich zu übertragen, erfordert Azure Monitor die Installation von Microsoft Monitoring Agent (MMA). Bestimmte Überwachungslösungen erfordern zudem einen sekundären Agent. Beispielsweise benötigt Azure Monitor für VMs auch einen ServiceMap-Agent für zusätzliche Funktionalität, die von dieser Lösung bereitgestellt wird.
+Um Diagnosedaten auf einem lokalen Server zu sammeln und per Push in den Log Analytics-Arbeitsbereich zu übertragen, erfordert Azure Monitor die Installation von Microsoft Monitoring Agent (MMA). Bestimmte Überwachungslösungen erfordern zudem einen sekundären Agent. Beispielsweise benötigt Azure Monitor für VMs auch einen ServiceMap-Agent für zusätzliche Funktionalität, die von dieser Lösung bereitgestellt wird.
 
 Einige Lösungen, z. B. die Azure-Updateverwaltung, benötigen auch Azure Automation, damit Ressourcen sowohl in Azure-Umgebungen als auch in Umgebungen außerhalb von Azure zentral verwaltet werden können. Beispielsweise verwendet die Azure-Updateverwaltung Azure Automation, um die Installation von Updates auf allen Computern in Ihrer Umgebung zentral über das Azure-Portal zu planen und zu orchestrieren.
 
@@ -60,7 +60,7 @@ Wenn Sie in Windows Admin Centers eine weitere Überwachungslösung auf demselbe
 
 Wenn Sie eine Verbindung mit einem anderen Server herstellen, aber bereits einen Log Analytics Arbeitsbereich eingerichtet haben (entweder über Windows Admin Center oder manuell im Azure-Portal), können Sie MMA auch auf dem Server installieren und ihn mit einem vorhandenen Arbeitsbereich verbinden. Wenn Sie einen Server mit einem Arbeitsbereich verbinden, beginnt er automatisch mit dem Sammeln von Daten und der Berichterstellung in Lösungen, die in diesem Arbeitsbereich installiert sind.
 
-## <a name="azure-monitor-for-virtual-machines-aka-virtual-machine-insights"></a>Azure Monitor für virtuelle Computer (auch als „Virtual Machine Insights“ bezeichnet)
+## <a name="azure-monitor-for-virtual-machines-virtual-machine-insights"></a>Azure Monitor für virtuelle Computer (Erkenntnisse über virtuelle Computer)
 
 Wenn Sie Azure Monitor für VMs in **Servereinstellungen** einrichten, aktiviert Windows Admin Center die Lösung Azure Monitor für VMs (auch als „Virtual Machine Insights“ bezeichnet). Mit dieser Lösung können Sie die Integrität und Ereignisse des Servers überwachen, E-Mail-Warnungen erstellen, eine konsolidierte Ansicht der Serverleistung in Ihrer Umgebung erhalten und Apps, Systeme und Dienste visualisieren, die mit einem bestimmten Server verbunden sind.
 
@@ -110,7 +110,7 @@ Informationen zur unterstützten Konfiguration finden Sie in den Abschnitten zu 
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
-#### <a name="login-in-to-azure-portal"></a>Anmelden beim Azure-Portal
+#### <a name="log-in-to-azure-portal"></a>Anmelden beim Azure-Portal
 
 Melden Sie sich unter [https://portal.azure.com](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) beim Azure-Portal an.
 
@@ -228,7 +228,7 @@ Event
 
 Die Daten werden in der Standardlistenansicht zurückgegeben. Sie können ablesen, wie viele Datensätze insgesamt zurückgegeben wurden.
 
-:::image type="content" source="media/monitor/log-analytics-portal-eventlist-01.png" alt-text="Screenshot einer einfachen Abfrage":::
+:::image type="content" source="media/monitor/log-analytics-portal-eventlist-01.png" alt-text="Screenshot: einfache Abfrage":::
 
 Auf der linken Seite des Bildschirms befindet sich der Filterbereich, über den Sie Filter zu Abfragen hinzufügen können, ohne die Abfrage direkt zu verändern.  Mehrere Datensatzeigenschaften werden für diesen Datensatztyp angezeigt, und Sie können einen oder mehrere Eigenschaftenwerte auswählen, um Ihre Suchergebnisse einzugrenzen.
 
@@ -238,7 +238,7 @@ Aktivieren Sie das Kontrollkästchen neben **Fehler** unter **EVENTLEVELNAME**, 
 Event | where (EventLevelName == "Error")
 ```
 
-:::image type="content" source="media/monitor/log-analytics-portal-eventlist-02.png" alt-text="Screenshot von Filter":::
+:::image type="content" source="media/monitor/log-analytics-portal-eventlist-02.png" alt-text="Screenshot: Filter":::
 
 Nachdem Sie die entsprechenden Abfragen für relevante Ereignisse durchgeführt haben, speichern Sie sie für den nächsten Schritt.
 
@@ -247,16 +247,16 @@ Sehen wir uns nun ein Beispiel für das Erstellen einer Warnung an.
 
 1. Klicken Sie im Azure-Portal auf **Alle Dienste**. Geben Sie in der Liste mit den Ressourcen **Log Analytics** ein. Sobald Sie mit der Eingabe beginnen, wird die Liste auf der Grundlage Ihrer Eingabe gefiltert. Wählen Sie **Log Analytics**.
 2. Klicken Sie im linken Bereich auf **Warnungen** und dann oben auf der Seite auf **Neue Warnungsregel**, um eine neue Warnung zu erstellen.
-    :::image type="content" source="media/monitor/alert-rule-02.png" alt-text="Screenshot: Erstellen einer neuen Warnungsregel":::
+    :::image type="content" source="media/monitor/alert-rule-02.png" alt-text="Screenshot: neue Warnungsregel erstellen":::
 3. Im ersten Schritt wählen Sie im Abschnitt **Warnung erstellen** Ihren Log Analytics-Arbeitsbereich als Ressource aus, da es sich dabei um ein protokollbasiertes Warnungssignal handelt.  Wenn Sie mehrere Abonnements besitzen, filtern Sie die Ergebnisse, indem Sie in der Dropdownliste das gewünschte **Abonnement** auswählen, das den zuvor erstellten Log Analytics-Arbeitsbereich enthält.  Filtern Sie den **Ressourcentyp**, indem Sie in der Dropdownliste **Log Analytics** auswählen.  Wählen Sie abschließend die **Ressource** mit dem Namen **DefaultLAWorkspace** aus, und klicken Sie dann auf **Fertig**.
-    :::image type="content" source="media/monitor/alert-rule-03.png" alt-text="Screenshot: Erstellen einer neuen Warnungsregel, Schritt 1":::
+    :::image type="content" source="media/monitor/alert-rule-03.png" alt-text="Schritt: Neue Warnungsregel erstellen – Schritt 1":::
 4. Klicken Sie im Abschnitt **Warnungskriterien** auf **Kriterien hinzufügen**, um die gespeicherte Abfrage auszuwählen, und geben Sie dann eine Logik für die Warnungsregel an.
 5. Konfigurieren Sie die Warnung mit den folgenden Informationen: a. Wählen Sie in der Dropdownliste **Basierend auf** die Option **Metrische Maßeinheit** aus.  Mit „Metrische Maßeinheit“ wird eine Warnung für jedes Objekt in der Abfrage mit einem Wert erzeugt, der den angegebenen Schwellenwert überschreitet.
    b. Wählen Sie für **Bedingung** die Option **Größer als** aus, und geben Sie einen Schwellenwert an.
    c. Legen Sie dann fest, wann die Warnung ausgelöst werden soll. Sie können beispielsweise **Aufeinanderfolgende Sicherheitsverletzungen** und in der Dropdownliste **Größer als** den Wert 3 auswählen.
    d. Ändern Sie unter „Evaluation based on“ (Auswertung basierend auf) den Wert für **Zeitraum** in **30** Minuten und den Wert für **Häufigkeit** in 5. Die Regel wird alle fünf Minuten ausgeführt und gibt Datensätze zurück, die innerhalb der letzten 30 Minuten erstellt wurden.  Durch die Verwendung eines weiter gefassten Zeitfensters wird potenziellen Datenlatenzen Rechnung getragen und sichergestellt, dass die Abfrage Daten zurückgibt, um ein falsch negatives Ergebnis zu vermeiden, bei dem die Warnung nie ausgelöst wird.
 6. Klicken Sie auf **Fertig**, um die Warnungsregel fertig zu stellen.
-    :::image type="content" source="media/monitor/alert-signal-logic-02.png" alt-text="Screenshot: Konfigurieren eines Warnungssignals":::
+    :::image type="content" source="media/monitor/alert-signal-logic-02.png" alt-text="Screenshot: Konfigurieren des Warnungssignals":::
 7. Geben Sie nun im zweiten Schritt im Feld **Name der Warnungsregel** einen Namen für die Warnung ein, etwa **Warnung bei allen Fehlerereignissen**.  Geben Sie eine **Beschreibung** mit Details zu Ihrer Warnung ein, und wählen Sie für **Schweregrad** aus den angegebenen Optionen **Kritisch (Schweregrad 0)** aus.
 8. Um die Warnungsregel direkt bei der Erstellung zu aktivieren, übernehmen Sie den Standardwert für **Regel beim Erstellen aktivieren**.
 9. Im dritten und letzten Schritt geben Sie eine **Aktionsgruppe** an. Dadurch wird sichergestellt, dass bei jeder Warnungsauslösung die gleichen Aktionen ausgeführt werden und diese für jede definierte Regel verwendet werden können. Konfigurieren Sie eine neue Aktionsgruppe mit den folgenden Informationen: a. Klicken Sie auf **Neue Aktionsgruppe**, und der Bereich **Aktionsgruppe hinzufügen** wird angezeigt.
@@ -266,17 +266,17 @@ Sehen wir uns nun ein Beispiel für das Erstellen einer Warnung an.
    e. Wählen Sie im Bereich **E-Mail/SMS/Push/Sprachanruf** die bevorzugte Einstellung aus, und richten Sie sie ein. Aktivieren Sie beispielsweise **E-Mail**, und geben Sie eine gültige SMTP-E-Mail-Adresse ein, an die die Nachricht gesendet werden soll.
    f. Klicken Sie auf **OK** , um die Änderungen zu speichern.<br><br>
 
-    :::image type="content" source="media/monitor/action-group-properties-01.png" alt-text="Screenshot: Erstellen der neuen Aktionsgruppe":::
+    :::image type="content" source="media/monitor/action-group-properties-01.png" alt-text="Screenshot: neue Aktionsgruppe erstellen":::
 
 10. Klicken Sie auf **OK**, um die Aktionsgruppe zu erstellen.
 11. Klicken Sie auf **Warnungsregel erstellen**, um die Warnungsregel fertig zu stellen. Die Ausführung beginnt sofort.
-    :::image type="content" source="media/monitor/alert-rule-01.png" alt-text="Screenshot: Abschließen der Erstellung der neuen Warnungsregel":::
+    :::image type="content" source="media/monitor/alert-rule-01.png" alt-text="Screenshot: Abschließen der Erstellung einer neuen Warnungsregel":::
 
 ### <a name="example-alert"></a>Beispiel für Warnung
 
 Hier ist ein Beispiel für eine Warnung in Azure dargestellt.
 
-:::image type="content" source="media/monitor/alert.gif" alt-text="Screenshot: Warnung in Azure":::
+:::image type="content" source="media/monitor/alert.gif" alt-text="Screenshot: Azure-Warnung":::
 
 Unten ist ein Beispiel für die E-Mail dargestellt, die von Azure Monitor gesendet wird:
 
@@ -299,7 +299,7 @@ Wenn Windows Admin Center das Onboarding eines Servers in die Lösung Virtual Ma
 
 ## <a name="disabling-monitoring"></a>Deaktivieren der Überwachung
 
-Deinstallieren Sie MMA, um den Server vollständig vom Log Analytics-Arbeitsbereich zu trennen. Dies bewirkt, dass dieser Server keine Daten mehr an den Arbeitsbereich sendet und alle in diesem Arbeitsbereich installierten Lösungen keine Daten mehr von diesem Server sammeln und verarbeiten. Dies wirkt sich jedoch nicht auf den Arbeitsbereich selbst aus. Alle Ressourcen, die an diesen Arbeitsbereich berichten, berichten weiterhin an diesen. Wenn Sie MMA in WAC deinstallieren möchten, wechseln Sie zu **Apps & Features**, suchen Sie **Microsoft Monitoring Agent**, und klicken Sie auf **Deinstallieren**.
+Deinstallieren Sie MMA, um den Server vollständig vom Log Analytics-Arbeitsbereich zu trennen. Dies bewirkt, dass dieser Server keine Daten mehr an den Arbeitsbereich sendet und alle in diesem Arbeitsbereich installierten Lösungen keine Daten mehr von diesem Server sammeln und verarbeiten. Dies wirkt sich jedoch nicht auf den Arbeitsbereich selbst aus. Alle Ressourcen, die an diesen Arbeitsbereich berichten, berichten weiterhin an diesen. Wenn Sie den MMA-Agent innerhalb von Windows Admin Center deinstallieren möchten, stellen Sie eine Serververbindung her, navigieren Sie dann zu **Installierte Apps**, suchen Sie den Microsoft Monitoring Agent, und wählen Sie dann **Entfernen** aus.
 
 Wenn Sie eine bestimmte Lösung in einem Arbeitsbereich deaktivieren möchten, müssen Sie [die Überwachungslösung aus dem Azure-Portal entfernen](/azure/azure-monitor/insights/solutions#remove-a-management-solution). Das Entfernen einer Überwachungslösung bedeutet, dass die von dieser Lösung erstellten Erkenntnisse für _keinen_ der Server mehr generiert werden, die an diesen Arbeitsbereich berichten. Wenn Sie z. B. die Lösung Azure Monitor für VMs deinstallieren, werden keine Erkenntnisse mehr zur VM- oder Serverleistung von den Computern angezeigt, die mit Ihrem Arbeitsbereich verbunden sind.
 
