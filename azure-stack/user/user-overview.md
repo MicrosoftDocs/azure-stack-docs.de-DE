@@ -3,16 +3,16 @@ title: Was ist Azure Stack Hub für einen Benutzer?
 description: Hier erfahren Sie mehr über die Verwendung von Azure Stack Hub als Entwickler.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 7/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: dbd85bdf95dfc3008dc125e1c96d68bc41e7cbfc
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 7c930b823fd82854499433bbe5bda8654b481877
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86565970"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250893"
 ---
 # <a name="what-is-azure-stack-hub"></a>Was ist Azure Stack Hub?
 

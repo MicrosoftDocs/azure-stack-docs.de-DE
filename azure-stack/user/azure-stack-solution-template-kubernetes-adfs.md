@@ -3,21 +3,21 @@ title: Bereitstellen von Kubernetes in Azure Stack Hub mithilfe der Active Direc
 description: Erfahren Sie, wie Sie Kubernetes in Azure Stack Hub mithilfe der Active Directory-Verbunddienste (AD FS) bereitstellen.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/12/2020
+ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: 2dbef9bd19fac12541f738fc530dbf58f5c85c35
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 45395524fa921560f6c2b0fef94b26b47595e957
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631213"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250995"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Bereitstellen von Kubernetes in Azure Stack Hub mithilfe der Active Directory-Verbunddienste
 
 > [!Note]  
-> Verwenden Sie das Kubernetes-Azure Stack-Marketplace-Element nur, um Cluster als Proof of Concept bereitzustellen. Verwenden Sie für unterstützte Kubernetes-Cluster in Azure Stack  [die AKS-Engine](azure-stack-kubernetes-aks-engine-overview.md).
+> Verwenden Sie das Kubernetes-Azure Stack-Marketplace-Element nur, um Cluster als Proof of Concept bereitzustellen. Verwenden Sie für unterstützte Kubernetes-Cluster in Azure Stack [die AKS-Engine](azure-stack-kubernetes-aks-engine-overview.md).
 
 Sie können die Schritte in diesem Artikel zum Bereitstellen und Einrichten der Ressourcen für Kubernetes befolgen. Verwenden Sie diese Schritte, wenn Sie Active Directory-Verbunddienste (AD FS) als Ihren Identitätsverwaltungsdienst nutzen.
 

@@ -3,16 +3,16 @@ title: Verwenden von Azure Monitor für Container in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie Azure Monitor für Container in Azure Stack Hub verwenden.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 7/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 62e5eba50b4fec5da72fe9f692d3e4a9e5d377a1
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 956a42ba847b128b6c0c578648f7003fe9fd40a4
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567704"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87251097"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Verwenden von Azure Monitor für Container in Azure Stack Hub
 

@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: b573018148f07116d5a49df5a2ac5ce931486228
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.openlocfilehash: 970a128933e8bb65320e8d3d5a0657fac4bc208b
+ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947162"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87397531"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Ausführen eines virtuellen Linux-Computers in Azure Stack Hub
 
@@ -70,7 +70,7 @@ Die Netzwerkkomponenten enthalten die folgenden Ressourcen:
 
 -   **Öffentliche IP-Adresse/virtuelle IP-Adresse**. Eine öffentliche IP-Adresse wird für die Kommunikation mit der VM benötigt, z. B. per Remotedesktop (RDP). Die öffentliche IP-Adresse kann dynamisch oder statisch sein. Die Standardeinstellung ist „Dynamisch“. Falls Sie mehrere Netzwerkschnittstellenkarten für Ihre VM benötigen, sollten Sie sich darüber im Klaren sein, dass für jede [VM-Größe](./azure-stack-vm-sizes.md) eine maximale Anzahl von Netzwerkschnittstellenkarten definiert ist.
 
--   Sie können auch einen vollständig qualifizierten Domänennamen (FQDN) für die IP-Adresse erstellen. Sie können anschließend einen [CNAME-Eintrag](https://en.wikipedia.org/wiki/CNAME_record) in DNS registrieren, der auf den FQDN verweist. Weitere Informationen finden Sie unter [Erstellen eines vollqualifizierten Domänennamens im Azure-Portal](/azure/virtual-machines/virtual-machines-linux-portal-create-fqdn).
+-   Sie können auch einen vollständig qualifizierten Domänennamen (FQDN) für die IP-Adresse erstellen. Sie können anschließend einen [CNAME-Eintrag](https://en.wikipedia.org/wiki/CNAME_record) in DNS registrieren, der auf den FQDN verweist. Weitere Informationen finden Sie unter [Erstellen eines vollqualifizierten Domänennamens im Azure-Portal](/azure/virtual-machines/linux/portal-create-fqdn).
 
 -   **Netzwerksicherheitsgruppe (NSG)** . Netzwerksicherheitsgruppen dienen zum Zulassen oder Verweigern von Netzwerkdatenverkehr zu VMs. NSGs können entweder Subnetzen oder einzelnen VM-Instanzen zugeordnet werden.
 
@@ -78,7 +78,7 @@ Alle Netzwerksicherheitsgruppen enthalten eine Reihe von [Standardregeln](/azure
 
 ## <a name="operations"></a>Operationen (Operations)
 
-**SSH**. Bevor Sie eine Linux-VM erstellen, wird ein 2048-Bit-RSA-Paar aus privatem und öffentlichem Schlüssel generiert. Verwenden Sie die öffentliche Schlüsseldatei bei der Erstellung der VM. Weitere Informationen finden Sie unter [Verwenden von SSH mit Linux auf Azure](/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+**SSH**. Bevor Sie eine Linux-VM erstellen, wird ein 2048-Bit-RSA-Paar aus privatem und öffentlichem Schlüssel generiert. Verwenden Sie die öffentliche Schlüsseldatei bei der Erstellung der VM. Weitere Informationen finden Sie unter [Verwenden von SSH mit Linux auf Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 **Diagnose**: Aktivieren Sie die Überwachung und Diagnose, einschließlich grundlegender Integritätsmetriken, Infrastrukturprotokolle zur Diagnose sowie der [Startdiagnose](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Startdiagnosen dienen dazu, einen Fehler beim Startvorgang zu untersuchen, wenn Ihre VM einen nicht startfähigen Zustand hat. Erstellen Sie ein Azure Storage-Konto zum Speichern der Protokolle. Ein standardmäßiger lokal redundanter Speicher (LRS) reicht für Diagnoseprotokolle aus. Weitere Informationen finden Sie unter [Aktivieren von Überwachung und Diagnose](./azure-stack-metrics-azure-data.md).
 

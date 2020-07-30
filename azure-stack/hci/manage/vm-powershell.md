@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: d765c4fb9417cf845095266bd13f7dd5d3044dbc
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.openlocfilehash: bbb77e9d96daa3f7f6eefd88812a11656e2acc5d
+ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947485"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87397429"
 ---
 # <a name="manage-vms-on-azure-stack-hci-using-windows-powershell"></a>Verwalten von VMs in Azure Stack HCI mithilfe von Windows PowerShell
 
@@ -77,7 +77,7 @@ Im folgenden Beispiel wird eine Liste aller VMs auf Server1 zurückgegeben.
 Get-VM -ComputerName Server1
 ```
 
-Im folgenden Beispiel wird eine Liste aller ausgeführten VMs auf einem Server zurückgegeben, indem mit dem `Where-Object`-Befehl ein Filter hinzugefügt wird. Weitere Informationen finden Sie in der Dokumentation zum [Verwenden von „Where-Object“](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-powershell-1.0/ee177028(v=technet.10)>).
+Im folgenden Beispiel wird eine Liste aller ausgeführten VMs auf einem Server zurückgegeben, indem mit dem `Where-Object`-Befehl ein Filter hinzugefügt wird. Weitere Informationen finden Sie in der Dokumentation zum [Verwenden von „Where-Object“](/previous-versions/windows/it-pro/windows-powershell-1.0/ee177028(v=technet.10)).
 
 ```powershell
 Get-VM -ComputerName Server1 | Where-Object -Property State -eq "Running"

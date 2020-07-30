@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 2dda2d52a1819f715f0b80f8d14c247ba256ed7f
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: f2498804505aec7b4e4131032758c09a6ff8168d
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489775"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250876"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>Konfigurieren von Bereitstellungsquellen für App Services in Azure Stack Hub
 
@@ -40,7 +40,7 @@ Neben lokalem Git werden die folgenden Quellcodeverwaltungsanbieter unterstützt
 
 Sie benötigen ein GitHub-Konto, um diese Aufgabe abzuschließen. Möglicherweise möchten Sie lieber ein Konto für Ihre Organisation anstelle eines persönlichen Kontos verwenden.
 
-1. Melden Sie sich bei GitHub an, navigieren Sie zu https://www.github.com/settings/developers, und wählen Sie dann **Neue Anwendung registrieren** aus.
+1. Melden Sie sich bei GitHub an, navigieren Sie zu <https://www.github.com/settings/developers>, und wählen Sie dann **Neue Anwendung registrieren** aus.
 
     ![GitHub: Neue Anwendung registrieren][3]
 
@@ -96,7 +96,7 @@ Sie benötigen für diese Aufgabe ein mit einem OneDrive-Konto verknüpftes Micr
 > [!NOTE]
 > OneDrive for Business-Konten werden derzeit nicht unterstützt.
 
-1. Navigieren Sie zu https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm, und melden Sie sich mit Ihrem Microsoft-Konto an.
+1. Navigieren Sie zu <https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm>, und melden Sie sich mit Ihrem Microsoft-Konto an.
 2. Wählen Sie unter **Meine Anwendungen** die Option **App hinzufügen** aus.
 
     ![OneDrive-Anwendungen][10]
@@ -129,7 +129,7 @@ Sie benötigen für diese Aufgabe ein mit einem OneDrive-Konto verknüpftes Micr
 > [!NOTE]
 > Sie benötigen ein Dropbox-Konto, um diese Aufgabe abschließen zu können. Möglicherweise möchten Sie lieber ein Konto für Ihre Organisation anstelle eines persönlichen Kontos verwenden.
 
-1. Navigieren Sie zu https://www.dropbox.com/developers/apps, und melden Sie sich mit den Anmeldeinformationen Ihres Dropbox-Kontos an.
+1. Navigieren Sie zu <https://www.dropbox.com/developers/apps>, und melden Sie sich mit den Anmeldeinformationen Ihres Dropbox-Kontos an.
 2. Wählen Sie **App erstellen** aus.
 
     ![Dropbox-Apps][14]

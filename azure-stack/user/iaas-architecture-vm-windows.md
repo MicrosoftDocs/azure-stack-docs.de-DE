@@ -3,16 +3,16 @@ title: Ausführen eines virtuellen Windows-Computers in Azure Stack Hub
 description: Erfahren Sie, wie Sie in Azure Stack Hub einen virtuellen Windows-Computer ausführen.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 3/9/2020
+ms.date: 7/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 3/9/2020
-ms.openlocfilehash: 11ab20369bc95d86f4a1468c4eda670015f33e65
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: d642f01ca55fc18b832a04328be835703dfb5dd2
+ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567772"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87397548"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Ausführen eines virtuellen Windows-Computers in Azure Stack Hub
 
@@ -40,7 +40,7 @@ Die Datenträger-IOPS (Input/Output Operations Per Second, Ein-/Ausgabevorgänge
 
 Wir empfehlen auch die Verwendung von [Managed Disks](./azure-stack-managed-disk-considerations.md). Verwaltete Datenträger führen die Speicherverarbeitung für Sie durch, sodass die Datenträgerverwaltung vereinfacht wird. Bei verwalteten Datenträgern ist kein Speicherkonto erforderlich. Sie geben einfach die Größe und den Typ des Datenträgers an, und dieser wird als Ressource mit Hochverfügbarkeit bereitgestellt.
 
-Der Datenträger für das Betriebssystem ist eine in Blob Storage für Azure Stack Hub gespeicherte virtuelle Festplatte, sodass diese weiterhin bestehen bleibt, auch wenn der Hostcomputer ausgefallen ist. Es empfiehlt sich zudem, mindestens einen [Datenträger für Daten](./azure-stack-manage-vm-disks.md) (VHD für Anwendungsdaten) zu erstellen. Installieren Sie, sofern möglich, Anwendungen auf einem Datenträger für Daten und nicht auf dem Datenträger für das Betriebssystem. Einige ältere Anwendungen müssen möglicherweise Komponenten auf dem Laufwerk „C:“ installieren. In diesem Fall können Sie die [Größe des Datenträgers für das Betriebssystem](/azure/virtual-machines/virtual-machines-windows-expand-os-disk) mit PowerShell ändern.
+Der Datenträger für das Betriebssystem ist eine in Blob Storage für Azure Stack Hub gespeicherte virtuelle Festplatte, sodass diese weiterhin bestehen bleibt, auch wenn der Hostcomputer ausgefallen ist. Es empfiehlt sich zudem, mindestens einen [Datenträger für Daten](./azure-stack-manage-vm-disks.md) (VHD für Anwendungsdaten) zu erstellen. Installieren Sie, sofern möglich, Anwendungen auf einem Datenträger für Daten und nicht auf dem Datenträger für das Betriebssystem. Einige ältere Anwendungen müssen möglicherweise Komponenten auf dem Laufwerk „C:“ installieren. In diesem Fall können Sie die [Größe des Datenträgers für das Betriebssystem](/azure/virtual-machines/windows/expand-os-disk) mit PowerShell ändern.
 
 Die VM wird auch mit einem temporären Datenträger erstellt (Laufwerk D: unter Windows). Dieser Datenträger wird in der Azure Stack Hub-Speicherinfrastruktur auf einem temporären Volume gespeichert. Er kann bei Neustarts und anderen Ereignissen im VM-Lebenszyklus gelöscht werden. Verwenden Sie diesen Datenträger nur für temporäre Daten, z. B. Auslagerungsdateien.
 
@@ -56,7 +56,7 @@ Die Netzwerkkomponenten enthalten die folgenden Ressourcen:
 
 -   Reservieren Sie eine [statische IP-Adresse](/azure/virtual-network/virtual-networks-reserved-public-ip), falls Sie eine feste IP-Adresse benötigen, die sich nicht ändert – wenn Sie z. B. einen A-Eintrag in DNS erstellen oder die IP-Adresse einer Liste mit sicheren Adressen hinzufügen müssen.
 
--   Sie können auch einen vollständig qualifizierten Domänennamen (FQDN) für die IP-Adresse erstellen. Sie können anschließend einen [CNAME-Eintrag](https://en.wikipedia.org/wiki/CNAME_record) in DNS registrieren, der auf den FQDN verweist. Weitere Informationen finden Sie unter [Erstellen eines vollqualifizierten Domänennamens im Azure-Portal](/azure/virtual-machines/virtual-machines-windows-portal-create-fqdn).
+-   Sie können auch einen vollständig qualifizierten Domänennamen (FQDN) für die IP-Adresse erstellen. Sie können anschließend einen [CNAME-Eintrag](https://en.wikipedia.org/wiki/CNAME_record) in DNS registrieren, der auf den FQDN verweist. Weitere Informationen finden Sie unter [Erstellen eines vollqualifizierten Domänennamens im Azure-Portal](/azure/virtual-machines/windows/portal-create-fqdn).
 
 -   **Netzwerksicherheitsgruppen (NSG)** NSGs dienen dazu, Netzwerkdatenverkehr zu VMs zuzulassen oder zu verweigern. NSGs können entweder Subnetzen oder einzelnen VM-Instanzen zugeordnet werden.
 

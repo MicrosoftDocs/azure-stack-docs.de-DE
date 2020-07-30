@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Erfahren Sie, welche Gastbetriebssysteme mit Azure Stack Hub verwendet werden können.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 17af4430f84f744a6ff4c8994ff453939fadb747
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 2275f00f8df77b3822537ca73ec35b342b477617
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661247"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250298"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Für Azure Stack Hub unterstützte Gastbetriebssysteme
 
