@@ -4,19 +4,23 @@ description: Enthält eine Übersicht über Azure Stack HCI.
 ms.topic: overview
 author: khdownie
 ms.author: v-kedow
-ms.date: 07/22/2020
-ms.openlocfilehash: fccb9ff45afbeb5fee0bc7c971adcdea1f532404
-ms.sourcegitcommit: 16ff77f7157e5b04a8cd401b095f7b71f51d5a11
+ms.date: 07/29/2020
+ms.openlocfilehash: e67b3191d10c65e9b78ed4915854dd1b6149ae08
+ms.sourcegitcommit: 3988d4c79bd3f7dd0b8c3d571f14c4a2e88371e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86949592"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87411545"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Übersicht über die Azure Stack HCI-Lösung
 
 Azure Stack HCI ist eine hyperkonvergente Clusterlösung, mit der virtualisierte Windows- und Linux-Workloads in einer lokalen Hybridumgebung ausgeführt werden. Mit Azure-Hybriddiensten wird der Cluster um Funktionen erweitert, z. B. cloudbasierte Überwachung, Site Recovery und VM-Sicherungen, und Sie erhalten einen zentralen Überblick über Ihre gesamten Azure Stack HCI-Bereitstellungen im Azure-Portal. Sie können den Cluster mit Ihren vorhandenen Tools verwalten, z. B. Windows Admin Center, System Center und PowerShell.
 
 Version 20H2 von Azure Stack HCI umfasst ein neues Betriebssystem, das sich derzeit in der öffentlichen Vorschauphase (Public Preview) befindet. Diese Version ist für lokale Cluster bestimmt, in denen virtualisierte Workloads ausgeführt werden, und sie verfügt über integrierte Hybrid Cloud-Verbindungen. Azure Stack HCI wird daher als Azure-Dienst bereitgestellt und basierend auf einem Azure-Abonnement abgerechnet.
+
+Nehmen Sie sich einige Minuten Zeit, um sich das Video zu den allgemeinen Features von Azure Stack HCI anzusehen:
+
+> [!VIDEO https://www.youtube.com/embed/fw8RVqo9dcs]
 
 Azure Stack HCI ist im Grunde genommen eine Lösung, die Folgendes vereint:
 
@@ -140,7 +144,7 @@ Ja. Der Cluster muss mindestens einmal alle 30 Tage eine Verbindung mit Azure h
 
 ### <a name="can-i-upgrade-from-windows-server-2019-to-azure-stack-hci"></a>Kann ich ein Upgrade von Windows Server 2019 auf Azure Stack HCI durchführen?
 
-Derzeit ist ein Upgrade von Windows Server 2019 auf Azure Stack HCI nur möglich, indem Sie ein [paralleles Clusterupgrade](/windows-server/failover-clustering/cluster-operating-system-rolling-upgrade) durchführen. Ein direktes Upgrade ist derzeit nicht verfügbar.
+Derzeit gibt es kein direktes Upgrade von Windows Server auf Azure Stack HCI. Bleiben Sie in Bezug auf spezielle Migrationshinweise für Kunden mit hyperkonvergenten Clustern, die auf Windows Server 2019 und 2016 basieren, auf dem neuesten Stand.
 
 ### <a name="what-do-azure-stack-hub-and-azure-stack-hci-solutions-have-in-common"></a>Welche Gemeinsamkeiten haben Azure Stack Hub- und Azure Stack HCI-Lösungen?
 
@@ -173,6 +177,22 @@ Ja. Es wird eine sehr begrenzte Menge von Daten gesammelt. Diese Daten werden ve
 ### <a name="to-which-endpoints-is-the-data-transmitted"></a>An welche Endpunkte werden die Daten übertragen?  
 
 Azure Stack HCI verwendet den folgenden Endpunkt für die Übertragung von Abrechnungsdaten: *-azurestackhci-usage.azurewebsites.net
+
+### <a name="how-do-i-identify-an-azure-stack-hci-server"></a>Wie ermittle ich einen Azure Stack HCI-Server?
+
+In Windows Admin Center wird das Betriebssystem in der Liste „Alle Verbindungen“ und an verschiedenen anderen Orten aufgeführt. Alternativ können Sie den folgenden PowerShell-Befehl verwenden, um den Namen und die Version des Betriebssystems abzufragen.
+
+```PowerShell
+Get-ComputerInfo -Property 'osName', 'osDisplayVersion'
+```
+
+Hier ist eine Beispielausgabe angegeben:
+
+```
+OsName                    OSDisplayVersion
+------                    ----------------
+Microsoft Azure Stack HCI 20H2
+```
 
 ## <a name="the-azure-stack-family"></a>Azure Stack-Familie
 
