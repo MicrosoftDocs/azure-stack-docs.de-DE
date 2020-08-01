@@ -343,6 +343,8 @@
       href: ../operator/index.yml
     - name: ASDK-Dokumentation
       href: ../asdk/index.yml
+    - name: "Azure\_Hybrid Cloud-Dokumentation"
+      href: /hybrid
 - name: Ressourcen
   items:
     - name: Azure Stack Hub-Roadmap

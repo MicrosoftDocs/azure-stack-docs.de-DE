@@ -57,6 +57,8 @@
       href: ../operator/index.yml
     - name: Dokumentation für Azure Stack Hub-Benutzer
       href: ../user/index.yml
+    - name: "Azure\_Hybrid Cloud-Dokumentation"
+      href: /hybrid
 - name: Ressourcen
   items:
     - name: Azure Stack-Roadmap
