@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Erfahren Sie, wie Sie Probleme in Azure Stack Hub beheben, z. B. mit VMs, Speicher und App Service.
 author: justinha
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 07/21/2020
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/13/2020
-ms.openlocfilehash: e58d57b50f0f11c3e05d660063b5abd94c8e4575
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 07/21/2020
+ms.openlocfilehash: cef555f353b00a0ccfc494b91b5cf4d3c69ac9e9
+ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487565"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87397446"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Behandeln von Problemen in Azure Stack Hub
 
@@ -91,6 +91,46 @@ Sie können PowerShell verwenden, um ohne Hilfe seitens des Microsoft-Supports I
 Weitere Informationen finden Sie unter [Azure Stack Hub-Diagnose](azure-stack-get-azurestacklog.md).
 
 ## <a name="troubleshoot-virtual-machines-vms"></a>Problembehandlung bei virtuellen Computern
+
+### <a name="reset-linux-vm-password"></a>Zurücksetzen des Kennworts eines virtuellen Linux-Computers
+
+Wenn Sie das Kennwort für eine Linux-VM vergessen haben und die Option **Kennwort zurücksetzen** aufgrund von Problemen mit der VMAccess-Erweiterung nicht funktioniert, können Sie mit folgenden Schritten eine Rücksetzung ausführen:
+
+1. Wählen Sie eine Linux-VM aus, die als Wiederherstellungs-VM genutzt werden soll.
+
+1. Melden Sie sich beim Benutzerportal an:
+   1. Notieren Sie sich VM-Größe, NIC, öffentliche IP-Adresse, Netzwerksicherheitsgruppe und Datenträger.
+   1. Beenden Sie die betroffene VM.
+   1. Entfernen Sie die betroffene VM.
+   1. Fügen Sie den Datenträger der betroffenen VM als Datenträger an die Wiederherstellungs-VM an (möglicherweise dauert es einige Minuten, bis der Datenträger verfügbar ist).
+
+1. Melden Sie sich bei der Wiederherstellungs-VM an, und führen Sie den folgenden Befehl aus:
+
+   ```
+   sudo su –
+   mkdir /tempmount
+   fdisk -l
+   mount /dev/sdc2 /tempmount /*adjust /dev/sdc2 as necessary*/
+   chroot /tempmount/
+   passwd root /*substitute root with the user whose password you want to reset*/
+   rm -f /.autorelabel /*Remove the .autorelabel file to prevent a time consuming SELinux relabel of the disk*/
+   exit /*to exit the chroot environment*/
+   umount /tempmount
+   ```
+
+1. Melden Sie sich beim Benutzerportal an:
+
+   1. Trennen Sie den Datenträger von der Wiederherstellungs-VM.
+   1. Erstellen Sie die VM auf Grundlage des Datenträgers neu.
+   1. Stellen Sie sicher, dass Sie die öffentliche IP-Adresse von der vorherigen VM übertragen, die Datenträger anfügen usw.
+
+
+Sie können auch eine Momentaufnahme des ursprünglichen Datenträgers anlegen und daraus einen neuen Datenträger erstellen, anstatt die Änderungen direkt auf dem ursprünglichen Datenträger auszuführen. Weitere Informationen finden Sie in den folgenden Themen:
+
+- [Zurücksetzen des Kennworts](/azure/virtual-machines/troubleshooting/reset-password)
+- [Erstellen eines Datenträgers aus einer Momentaufnahme](/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-linux#create-a-disk-from-the-snapshot)
+- [Erstellen und Zurücksetzen des Stammkennworts](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-terminal_menu_editing_during_boot#sec-Changing_and_Resetting_the_Root_Password)
+
 
 ### <a name="license-activation-fails-for-windows-server-2012-r2-during-provisioning"></a>Fehler bei der Lizenzaktivierung Windows Server 2012 R2 während der Bereitstellung
 

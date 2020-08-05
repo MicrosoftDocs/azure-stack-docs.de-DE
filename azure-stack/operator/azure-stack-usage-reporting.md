@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: d0d11295d9425e07e34dc59eb2fcc83c6b020582
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: 8dff2f6debb12b8579e3b8e0b451b8d6bac17cad
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772566"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250349"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Melden von Azure Stack Hub-Nutzungsdaten an Azure
 
@@ -26,7 +26,7 @@ Azure Stack Hub-Systeme mit mehreren Knoten, die das nutzungsbasierte Abrechnung
 > [!IMPORTANT]
 > Alle Workloads [müssen in Mandantenabonnements bereitgestellt werden](#are-users-charged-for-the-infrastructure-vms), um die Lizenzbestimmungen von Azure Stack Hub einzuhalten.
 
-Die Berichterstellung für Nutzungsdaten ist für diejenigen Benutzer der Azure Stack Hub-Systeme mit mehreren Knoten erforderlich, die im Rahmen des nutzungsbasierten Modells lizenziert sind. Sie ist optional für Kunden, die im Rahmen des Kapazitätsmodells lizenziert sind (siehe Seite [Azure Stack erwerben](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)). Für Azure Stack Development Kit-Benutzer (ASDK) können Azure Stack Hub-Operatoren Nutzungsdaten melden und das Feature testen. Allerdings werden Benutzern keinerlei Kosten berechnet, die für die Nutzung anfallen.
+Das Melden von Nutzungsdaten ist für diejenigen Benutzer von Azure Stack Hub-Systemen mit mehreren Knoten erforderlich, die im Rahmen des nutzungsbasierten Modells lizenziert sind. Sie ist optional für Kunden, die im Rahmen des Kapazitätsmodells lizenziert sind (siehe Seite [Azure Stack erwerben](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)). Für Azure Stack Development Kit-Benutzer (ASDK) können Azure Stack Hub-Operatoren Nutzungsdaten melden und das Feature testen. Allerdings werden Benutzern keinerlei Kosten berechnet, die für die Nutzung anfallen.
 
 ![Abrechnungsflow für Nutzungsdaten in Azure Stack Hub](media/azure-stack-usage-reporting/billing-flow.svg)
 

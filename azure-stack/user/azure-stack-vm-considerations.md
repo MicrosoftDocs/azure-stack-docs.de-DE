@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: b1fcbc1adf09a111b66e2ecb9847729cdd06b2d0
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 726c632964e0580a5d55219f161e2bc8d6e679de
+ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567143"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87397497"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Features von Azure Stack Hub-VMs
 
@@ -24,7 +24,7 @@ ms.locfileid: "86567143"
 | --- | --- | --- |
 | VM-Images | Azure Marketplace enthält Images, die Sie zum Erstellen eines virtuellen Computers verwenden können. Auf der Seite [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) können Sie die Liste mit den Images anzeigen, die im Azure Marketplace verfügbar sind. | Im Azure Stack Hub-Marketplace sind standardmäßig keine Images verfügbar. Der Azure Stack Hub-Cloudadministrator muss Images veröffentlichen oder auf den Azure Stack Hub-Marketplace herunterladen, bevor sie von Benutzern verwendet werden können. |
 | VHD-Generation | Virtuelle Computer der Generation 2 unterstützen wichtige Features, die bei virtuellen Computern der Generation 1 nicht unterstützt werden. Zu diesen Features gehören mehr Speicher, Intel Software Guard Extensions (Intel SGX) und virtualisierter persistenter Speicher (vPMEM). Virtuelle Computer der Generation 2, die lokal ausgeführt werden, weisen auch einige Features auf, die in Azure noch nicht unterstützt werden. Weitere Informationen finden Sie unter [Unterstützung für VMs der Generation 2 in Azure](/azure/virtual-machines/windows/generation-2).  | Azure Stack Hub unterstützt nur virtuelle Computer der 1. Generation. Sie können virtuelle Computer der 1. Generation vom VHDX- in das VHD-Dateiformat und von einem dynamisch erweiterbaren Datenträger in einen Datenträger mit fester Größe konvertieren. Die Generation eines virtuellen Computers kann nicht geändert werden. Weitere Informationen finden Sie unter [Unterstützung für VMs der Generation 2 in Azure](/azure/virtual-machines/windows/generation-2). |
-| Größen virtueller Computer | Azure unterstützt eine Vielzahl von Größen für VMs. Informationen zu den verfügbaren Größen und Optionen finden Sie in den Themen [Größen für virtuelle Windows-Computer in Azure](/azure/virtual-machines/virtual-machines-windows-sizes) und [Größen für virtuelle Linux-Computer in Azure](/azure/virtual-machines/linux/sizes). | Azure Stack Hub unterstützt eine Teilmenge der VM-Größen, die in Azure verfügbar sind. Die Liste mit den unterstützten Größen finden Sie in diesem Artikel im Abschnitt [VM-Größen](#vm-sizes). |
+| Größen virtueller Computer | Azure unterstützt eine Vielzahl von Größen für VMs. Informationen zu den verfügbaren Größen und Optionen finden Sie unter [VM-Größen für Azure](/azure/virtual-machines/sizes). | Azure Stack Hub unterstützt eine Teilmenge der VM-Größen, die in Azure verfügbar sind. Die Liste mit den unterstützten Größen finden Sie in diesem Artikel im Abschnitt [VM-Größen](#vm-sizes). |
 | Kontingente für virtuelle Computer | [Kontingentgrenzen](/azure/azure-resource-manager/management/azure-subscription-service-limits#managing-limits) werden von Microsoft festgelegt. | Der Azure Stack Hub-Cloudadministrator muss Kontingente zuweisen, bevor Benutzern VMs angeboten werden. |
 | VM-Erweiterungen |Azure unterstützt viele verschiedene VM-Erweiterungen. Weitere Informationen zu den verfügbaren Erweiterungen finden Sie im Artikel zu den [Erweiterungen und Features für VMs](/azure/virtual-machines/windows/extensions-features).| Azure Stack Hub unterstützt eine Teilmenge der Erweiterungen, die in Azure verfügbar sind, und jede Erweiterung hat eine bestimmte Version. Der Azure Stack Hub-Cloudadministrator kann jeweils wählen, welche Erweiterungen für seine Benutzer verfügbar gemacht werden sollen. Die Liste mit den unterstützten Erweiterungen finden Sie in diesem Artikel im Abschnitt [VM-Erweiterungen](#vm-extensions). |
 | Netzwerk für virtuelle Computer | Öffentliche IP-Adressen, die einer Mandanten-VM zugewiesen sind, sind über das Internet zugänglich.<br><br><br>Azure-VMs verfügen über einen festen DNS-Namen. | Öffentliche IP-Adressen, die einer Mandanten-VM zugewiesen sind, sind nur in der Azure Stack Development Kit-Umgebung zugänglich. Ein Benutzer muss per [RDP](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) oder [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) Zugriff auf das Azure Stack Development Kit haben, um eine Verbindung mit einer VM herstellen zu können, die in Azure Stack Hub erstellt wird.<br><br>VMs, die in einer bestimmten Azure Stack Hub-Instanz erstellt werden, verfügen über einen DNS-Namen basierend auf dem Wert, der vom Cloudadministrator konfiguriert wird. |

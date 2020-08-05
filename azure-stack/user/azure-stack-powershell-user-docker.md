@@ -7,14 +7,14 @@ ms.date: 7/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 7/20/2020
-ms.openlocfilehash: f66eacdcd65feedaf52324dc84b32d84677ce80b
-ms.sourcegitcommit: 16ff77f7157e5b04a8cd401b095f7b71f51d5a11
+ms.openlocfilehash: e3efdd0e218ae82cfcea14b20f4b172e5cc87f32
+ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86949524"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87397344"
 ---
-# <a name="use-docker-to-run-powershell-in-azure-stack-hub"></a>Verwenden von Docker zum Ausführen von PowerShell in Azure Stack Hub
+# <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Verwenden von Docker zum Ausführen von PowerShell für Azure Stack Hub
 
 In diesem Artikel nutzen Sie Docker zum Erstellen eines Containers, in dem die für die Nutzung der verschiedenen Schnittstellen benötigte Version von PowerShell ausgeführt wird. Hier finden Sie Anweisungen zur Verwendung von AzureRM-Modulen und den neuesten Az-Modulen. Für AzureRM ist ein Windows-basierter Container erforderlich. Az verwendet einen Linux-basierten Container.
 
@@ -34,11 +34,9 @@ In diesem Artikel nutzen Sie Docker zum Erstellen eines Containers, in dem die f
 
 Sie benötigen einen Dienstprinzipal in Ihrem Azure AD-Mandanten (Azure Active Directory), um PowerShell für den Zugriff auf die Ressource in Azure Stack Hub zu verwenden. Sie delegieren Berechtigungen mit der rollenbasierten Zugriffskontrolle (RBAC) für Benutzer. Möglicherweise müssen Sie den Dienstprinzipal von Ihrem Cloudoperator anfordern.
 
-1. Befolgen Sie zum Einrichten Ihres Dienstprinzipals die Anleitung unter [Gewähren des Anwendungszugriffs auf Azure Stack Hub-Ressourcen durch Erstellen von Dienstprinzipalen](azure-stack-create-service-principals.md).
+1. Befolgen Sie zum Einrichten Ihres Dienstprinzipals die Anleitung unter [Gewähren des Anwendungszugriffs auf Azure Stack Hub-Ressourcen durch Erstellen von Dienstprinzipalen](../operator/azure-stack-create-service-principals.md?view=azs-2002).
 
 2. Notieren Sie sich die Anwendungs-ID, das Geheimnis, Ihre Mandanten-ID und Ihre Objekt-ID zur späteren Verwendung.
-
-1. Befolgen Sie zum Einrichten Ihres Dienstprinzipals die Anleitung unter [Gewähren des Anwendungszugriffs auf Azure Stack Hub-Ressourcen durch Erstellen von Dienstprinzipalen](../operator/azure-stack-create-service-principals.md?view=azs-2002).
 
 ## <a name="run-powershell-in-docker"></a>Ausführen von PowerShell in Docker
 

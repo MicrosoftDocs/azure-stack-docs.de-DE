@@ -3,16 +3,16 @@ title: Herstellen einer Verbindung zwischen Azure Stack Hub und Azure über ein 
 description: Herstellen einer Verbindung zwischen virtuellen Netzwerken in Azure Stack Hub und virtuellen Netzwerken in Azure über ein VPN
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 07/23/2020
 ms.author: sethm
-ms.reviewer: scottnap
+ms.reviewer: TBD
 ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: dc143c4cfc6beec14891caa7e23d3f058f49eae5
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 2ea7dfcccf2b2f4590e09f60db4530d7ebe6d319
+ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567670"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133757"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Herstellen einer Verbindung zwischen Azure Stack Hub und Azure über ein VPN
 
@@ -35,7 +35,7 @@ Die folgende Abbildung zeigt die endgültige Verbindungskonfiguration:
 
 Die Tabelle mit den Beispielen für die Netzwerkkonfiguration enthält die Werte, die für die Beispiele in diesem Artikel verwendet werden. Sie können diese Werte verwenden oder sie zum besseren Verständnis der Beispiele in diesem Artikel heranziehen:
 
-|   |Azure Stack Hub|Azure|
+| Wert   |Azure Stack Hub|Azure|
 |---------|---------|---------|
 |Name des virtuellen Netzwerks     |Azs-VNet|AzureVNet |
 |Adressraum des virtuellen Netzwerks |10.1.0.0/16|10.100.0.0/16|
@@ -119,9 +119,9 @@ Da sich die Azure Stack Hub-Standardparameter für IPsec-Richtlinien für [Build
 1. Erstellen einer benutzerdefinierten Richtlinie:
 
    ```powershell
-     $IPSecPolicy = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
-     -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
-     -SADataSizeKilobytes 102400000 
+   $IPSecPolicy = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
+   -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
+   -SADataSizeKilobytes 102400000
    ```
 
 2. Übernehmen der Richtlinie für die Verbindung:
@@ -202,7 +202,7 @@ Ein Dienstadministrator kann sich als Benutzer anmelden, um die Pläne, Angebote
 
 ### <a name="create-the-local-network-gateway"></a>Erstellen des Gateways des lokalen Netzwerks
 
-Es gibt Unterschiede zwischen einem *Gateway des lokalen Netzwerks* in Azure Stack Hub und in einer Azure-Bereitstellung.
+Das Konzept eines *Gateways des lokalen Netzwerks* in Azure Stack Hub unterscheidet sich von dem Konzept in einer Azure-Bereitstellung.
 
 In einer Azure-Bereitstellung stellt ein lokales Netzwerkgateway ein lokales physisches Gerät (am Benutzerstandort) dar, für das Sie eine Verbindung mit einem Gateway für virtuelle Netzwerke in Azure herstellen. In Azure Stack Hub sind jedoch beide Enden der Verbindung Gateways für virtuelle Netzwerke.
 
@@ -256,8 +256,8 @@ Nachdem die Site-to-Site-Verbindung hergestellt wurde, sollten Sie sicherstellen
 * Melden Sie sich an der VM an, die Sie in Azure Stack Hub erstellt haben, und pingen Sie die VM in Azure.
 * Melden Sie sich an der VM an, die Sie in Azure erstellt haben, und pingen Sie die VM in Azure Stack Hub.
 
->[!NOTE]
->Um sicherzustellen, dass Sie den Datenverkehr über die Site-to-Site-Verbindung senden, sollten Sie den Ping nicht an die VIP-Adresse, sondern an die direkte IP-Adresse (DIP) der VM im Remotesubnetz senden.
+> [!NOTE]
+> Um sicherzustellen, dass Sie den Datenverkehr über die Site-to-Site-Verbindung senden, sollten Sie den Ping nicht an die VIP-Adresse, sondern an die direkte IP-Adresse (DIP) der VM im Remotesubnetz senden.
 
 ### <a name="sign-in-to-the-user-vm-in-azure-stack-hub"></a>Anmelden beim virtuellen Benutzercomputer in Azure Stack Hub
 

@@ -3,16 +3,16 @@ title: Bereitstellen der AKS-Engine unter Windows in Azure Stack Hub
 description: Erfahren Sie, wie Sie einen Windows-Computer in Ihrer Azure Stack Hub-Instanz zum Hosten der AKS-Engine verwenden, um einen Kubernetes-Cluster bereitzustellen und zu verwalten.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 6b10f43081ae9781005fcbc13eec50bd03b5128e
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: d973099817dada07b8d91ccd5d561f8b3fce5944
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566106"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87251029"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Installieren der AKS-Engine unter Windows in Azure Stack Hub
 
@@ -79,7 +79,7 @@ Nachdem die Client-VM eingerichtet ist, überprüfen Sie, ob Sie die AKS-Engine 
     aks-engine version
     ```
 
-Wenn Sie nicht überprüfen können, ob Sie die AKS-Engine auf Ihrer Client-VM installiert haben, finden Sie weitere Informationen unter [Problembehandlung bei der AKS-Engine unter Azure Stack](azure-stack-kubernetes-aks-engine-troubleshoot.md).
+Wenn Sie nicht überprüfen können, ob die AKS-Engine auf der Client-VM installiert ist, finden Sie weitere Informationen unter [Problembehandlung bei der AKS-Engine unter Azure Stack](azure-stack-kubernetes-aks-engine-troubleshoot.md).
 
 
 ## <a name="asdk-installation"></a>ASDK-Installation

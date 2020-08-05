@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Hier finden Sie eine Liste der häufig gestellten Fragen zum Azure Stack Hub-Marketplace für Windows Server.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/19/2020
+ms.date: 07/23/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 95719c6b0651932ab41cef5321db06b77eb4fc63
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: fff299a0d537bb4190e66a57eb642db7e8b9824d
+ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069447"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133638"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Häufig gestellte Fragen zum Azure Stack Hub Marketplace
 
@@ -23,7 +23,7 @@ In diesem Artikel werden einige häufig gestellte Fragen zu Marketplace-Elemente
 
 ### <a name="who-should-i-contact-for-support-issues-with-azure-stack-hub-marketplace-items"></a>An wen kann ich mich bei Supportproblemen mit Azure Stack Hub Marketplace-Elementen wenden?
 
-Der Azure Marketplace-Supportleitfaden gilt auch für Azure Stack Hub Marketplace-Elemente. Herausgeber sind dafür verantwortlich, technischen Support für ihre Produkte im Azure Stack Hub Marketplace bereitzustellen. Weitere Informationen zum Supportleitfaden für Azure Marketplace-Elemente finden Sie im Artikel mit häufig gestellten Fragen zu Azure Marketplace im Abschnitt [Kundendienst](/azure/marketplace/marketplace-faq-publisher-guide#customer-support).
+Der Azure Marketplace-Supportleitfaden gilt auch für Azure Stack Hub Marketplace-Elemente. Herausgeber sind dafür verantwortlich, technischen Support für ihre Produkte im Azure Stack Hub Marketplace bereitzustellen. Weitere Informationen zum Supportleitfaden für Azure Marketplace-Elemente finden Sie im [Artikel mit häufig gestellten Fragen zu Azure Marketplace](/azure/marketplace/marketplace-faq-publisher-guide#customer-support).
 
 ### <a name="how-do-i-update-to-a-newer-windows-image"></a>Wie führe ich eine Aktualisierung auf ein neueres Windows-Image durch?
 
@@ -31,7 +31,7 @@ Finden Sie zunächst heraus, ob Azure Resource Manager-Vorlagen auf bestimmte Ve
 
 Falls VM-Skalierungsgruppen auf eine bestimmte Version verweisen, sollten Sie dann überlegen, ob diese später skaliert werden, und entscheiden, ob Sie ältere Versionen beibehalten möchten. Löschen Sie vor dem Herunterladen der neueren Images die älteren Images im Azure Stack Hub-Marketplace, wenn keine dieser Bedingungen zutrifft. Verwenden Sie zum Löschen die Marketplace-Verwaltung, falls das ursprüngliche Image auf diese Weise heruntergeladen wurde. Laden Sie dann die neuere Version herunter.
 
-### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack-hub"></a>Welche Lizenzierungsoptionen sind für Windows Server-Marketplace-Images in Azure Stack Hub verfügbar?
+### <a name="what-are-the-licensing-options-for-windows-server-images-on-azure-stack-hub-marketplace"></a>Welche Lizenzierungsoptionen sind für Windows Server-Images in Azure Stack Hub-Marketplace verfügbar?
 
 Microsoft bietet über den Azure Stack Hub-Marketplace zwei Versionen von Windows Server-Images an. In einer Azure Stack Hub-Umgebung kann nur eine Imageversion verwendet werden.  
 
@@ -58,7 +58,7 @@ $vm.LicenseType = "None"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
-Sie können den Lizenztyp Ihrer VM überprüfen, indem Sie die folgenden Befehle ausführen. Wenn das Lizenzmodell **Windows_Server** lautet, wird Ihnen der BYOL-Preis in Rechnung gestellt. Andernfalls werden Ihnen die Windows-Verbrauchseinheiten pro Modell mit nutzungsbasierter Zahlung berechnet.
+Sie können den Lizenztyp Ihrer VM überprüfen, indem Sie den folgenden Befehl ausführen. Wenn das Lizenzmodell **Windows_Server** lautet, wird Ihnen der BYOL-Preis in Rechnung gestellt. Andernfalls werden Ihnen die Windows-Verbrauchseinheiten pro Modell mit nutzungsbasierter Zahlung berechnet.
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
@@ -78,7 +78,7 @@ Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 
 Diese Images wenden den **licenseType**-Parameter an, weshalb das Modell mit nutzungsbasierter Zahlung angewendet wird. Sie können diesen Parameter festlegen (siehe hierzu die Antwort zur vorherigen häufig gestellten Frage). Dies gilt nur für die Windows Server-Software, nicht für sich überlagernde Produkte wie SQL, für das Bring Your Own License erforderlich ist. Die Lizenzierung mit nutzungsbasierter Zahlung gilt nicht für sich überlagernde Softwareprodukte.
 
-Sie können die **licenseType**-Eigenschaft für SQL Server-Images aus dem Azure Stack Hub-Marketplace nur ändern, wenn die Version XX.X.20190410 oder höher lautet. Wenn Sie eine ältere Version der SQL Server-Images aus dem Azure Stack Hub-Marketplace ausführen, können Sie das **licenseType**-Attribut nicht ändern, und Sie müssen die Bereitstellung mit den neuesten SQL Server-Images aus dem Azure Stack Hub-Marketplace erneut ausführen.
+Sie können die **licenseType**-Eigenschaft für SQL Server-Images vom Azure Stack Hub-Marketplace nur ändern, wenn die Version **XX.X.20190410** oder höher lautet. Wenn Sie eine ältere Version der SQL Server-Images aus dem Azure Stack Hub-Marketplace ausführen, können Sie das **licenseType**-Attribut nicht ändern, und Sie müssen die Bereitstellung mit den neuesten SQL Server-Images aus dem Azure Stack Hub-Marketplace erneut ausführen.
 
 ### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>Ich besitze ein Enterprise Agreement (EA) und verwende meine Windows Server-EA-Lizenz. Wie stelle ich sicher, dass die Images ordnungsgemäß abgerechnet werden?
 
@@ -119,7 +119,7 @@ Es wird empfohlen, die Befehlszeile `slmgr /ipk` mit dem entsprechenden Schlüss
 
 Führen Sie den Befehl `slmgr /ipk` aus. Für Azure-Images wird das Fallback auf AVMA möglicherweise nicht richtig ausgeführt, aber wenn eine Verbindung mit dem Azure KMS-System hergestellt werden kann, werden sie aktiviert. Es wird empfohlen, sicherzustellen, dass diese VMs für die Verwendung von AVMA konfiguriert sind.
 
-### <a name="i-have-performed-all-of-these-steps-but-my-vms-are-still-not-activating"></a>Ich habe all diese Schritte ausgeführt, aber meine VMs sind noch nicht aktiviert.
+### <a name="i-have-performed-all-of-these-steps-but-my-vms-are-still-not-activating"></a>Ich habe all diese Schritte ausgeführt, aber meine VMs sind immer noch nicht aktiviert.
 
 Wenden Sie sich an Ihren Hardwareanbieter, um sicherzustellen, dass die richtigen BIOS-Marker installiert wurden.
 

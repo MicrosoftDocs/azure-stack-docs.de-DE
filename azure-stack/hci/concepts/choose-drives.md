@@ -4,13 +4,13 @@ description: Es wird beschrieben, wie Sie Laufwerke für „Direkte Speicherplä
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 7ae6a7abc3bb9dc0f73f64c72c56e2436b91a990
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.date: 07/22/2020
+ms.openlocfilehash: 56d9c2cf09d05de59700c70fd7851999db42265f
+ms.sourcegitcommit: aca1b05b570aa72bfe410c9cf7109f590526ed84
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947145"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115209"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Auswählen von Laufwerken für Azure Stack HCI
 
@@ -37,7 +37,7 @@ Weitere Informationen finden Sie unter [Grundlegendes zum Cache in „Direkte Sp
 
 ## <a name="option-1--maximizing-performance"></a>Option 1: Maximieren der Leistung
 
-Wir empfehlen Ihnen die Nutzung von reinen Flash-Bereitstellungen, um eine vorhersagbare und einheitliche Latenz unterhalb des Millisekundenbereichs für zufällige Lese- und Schreibvorgänge aller Daten oder einen sehr hohen IOPS- (bei uns [über sechs Millionen](https://www.youtube.com/watch?v=0LviCzsudGY&t=28m)!) bzw. E/A-Durchsatz (bei uns [mehr als 1 TB/s](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=16m50s)!) zu erzielen.
+Wir empfehlen Ihnen die Nutzung von reinen Flash-Bereitstellungen, um eine vorhersagbare und einheitliche Latenz unterhalb des Millisekundenbereichs für zufällige Lese- und Schreibvorgänge aller Daten oder einen sehr hohen IOPS-Wert (bei uns [über 13 Millionen](https://techcommunity.microsoft.com/t5/storage-at-microsoft/the-new-hci-industry-record-13-7-million-iops-with-windows/ba-p/428314)!) bzw. E/A-Durchsatz (bei uns Lesevorgänge mit mehr als 500 GB/s!) zu erzielen.
 
 Hierfür gibt es derzeit drei Möglichkeiten:
 

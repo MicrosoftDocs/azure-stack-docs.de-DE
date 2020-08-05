@@ -4,13 +4,13 @@ description: Es wird beschrieben, wie Sie Speichervolumes in Azure Stack HCI pla
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 34806347a8a5e71cb15c93073b546c52f534cdf5
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.date: 07/27/2020
+ms.openlocfilehash: c40d1ca54bfe71088b18413371b90bd26f8b7386
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866942"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250451"
 ---
 # <a name="plan-volumes-in-azure-stack-hci"></a>Planen von Volumes in Azure Stack HCI
 
@@ -35,7 +35,7 @@ Auf alle Volumes kann von allen Servern des Clusters gleichzeitig zugegriffen we
 
 Wir empfehlen Ihnen, als Anzahl von Volumes ein Vielfaches der Anzahl von Servern Ihres Clusters zu wählen. Wenn Sie beispielsweise vier Server verwenden, erzielen Sie mit vier Volumes eine einheitlichere Leistung als mit drei oder fünf. Der Cluster kann den „Volumebesitz“ (ein Server führt die Metadatenorchestrierung für jedes Volume durch) dann gleichmäßig auf die Server verteilen.
 
-Wir empfehlen Ihnen, die Gesamtzahl von Volumes für Windows Server 2019 auf 64 Volumes pro Cluster zu begrenzen.
+Wir empfehlen, die Gesamtzahl von Volumes auf 64 pro Cluster zu begrenzen.
 
 ## <a name="choosing-the-filesystem"></a>Auswählen des Dateisystems
 
@@ -55,13 +55,13 @@ Volumes unter „Direkte Speicherplätze“ bieten Resilienz als Schutz vor Hard
 
 ### <a name="with-two-servers"></a>Mit zwei Servern
 
-Bei zwei Servern im Cluster können Sie die Zwei-Wege-Spiegelung verwenden. Wenn Sie Windows Server 2019 ausführen, können Sie auch die geschachtelte Resilienz nutzen.
+Bei zwei Servern im Cluster können Sie die Zwei-Wege-Spiegelung oder die geschachtelte Resilienz verwenden.
 
 Bei der Zwei-Wege-Spiegelung werden zwei Kopien aller Daten beibehalten (eine Kopie auf dem Laufwerk jedes Servers). Die Speichereffizienz beträgt hierbei 50 %. Zum Schreiben von 1 TB an Daten benötigen Sie mindestens 2 TB an physischer Speicherkapazität im Speicherpool. Bei der Zwei-Wege-Spiegelung kann jeweils problemlos ein Hardwarefehler toleriert werden (ein Server oder Laufwerk).
 
 ![Zwei-Wege-Spiegelung](media/plan-volumes/two-way-mirror.png)
 
-Die geschachtelte Resilienz (nur unter Windows Server 2019 verfügbar) ermöglicht die Datenresilienz zwischen Servern mit Zwei-Wege-Spiegelung und fügt innerhalb eines Servers dann Resilienz per Zwei-Wege-Spiegelung oder Parität mit Beschleunigung per Spiegelung hinzu. Die Schachtelung ermöglicht auch dann Datenresilienz, wenn ein Server neu gestartet wird oder nicht verfügbar ist. Hierbei beträgt die Speichereffizienz für die geschachtelte Zwei-Wege-Spiegelung 25 % und ca. 35 - 40 % für die geschachtelte Parität mit Beschleunigung per Spiegelung. Bei der geschachtelten Resilienz können jeweils zwei Hardwarefehler toleriert werden (zwei Laufwerke oder ein Server und ein Laufwerk auf dem verbleibenden Server). Aufgrund dieser zusätzlichen Resilienz empfehlen wir Ihnen die Verwendung der geschachtelten Resilienz in Produktionsbereitstellungen mit Clustern mit zwei Servern, wenn Sie Windows Server 2019 ausführen. Weitere Informationen finden Sie unter [Geschachtelte Resilienz](/windows-server/storage/storage-spaces/nested-resiliency).
+Die geschachtelte Resilienz sorgt für Datenresilienz zwischen Servern mit Zwei-Wege-Spiegelung und fügt dann Resilienz auf einem Server mit Zwei-Wege-Spiegelung oder Parität mit Beschleunigung per Spiegelung hinzu. Die Schachtelung ermöglicht auch dann Datenresilienz, wenn ein Server neu gestartet wird oder nicht verfügbar ist. Hierbei beträgt die Speichereffizienz für die geschachtelte Zwei-Wege-Spiegelung 25 % und ca. 35 - 40 % für die geschachtelte Parität mit Beschleunigung per Spiegelung. Bei der geschachtelten Resilienz können jeweils zwei Hardwarefehler toleriert werden (zwei Laufwerke oder ein Server und ein Laufwerk auf dem verbleibenden Server). Aufgrund dieser zusätzlichen Datenresilienz empfiehlt sich die Verwendung der geschachtelten Resilienz in Produktionsbereitstellungen mit Clustern aus zwei Servern. Weitere Informationen finden Sie unter [Geschachtelte Resilienz](/windows-server/storage/storage-spaces/nested-resiliency).
 
 ![Geschachtelte Parität mit Beschleunigung per Spiegelung](media/plan-volumes/nested-mirror-accelerated-parity.png)
 

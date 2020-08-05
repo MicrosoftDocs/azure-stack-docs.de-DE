@@ -3,20 +3,20 @@ title: Hinzufügen von Voraussetzungen für die Azure Kubernetes Services-Engine
 description: Hier erfahren Sie, wie Sie Voraussetzungen für die AKS-Engine zum Azure Stack Hub-Marketplace hinzufügen.
 author: mattbriggs
 ms.topic: article
-ms.date: 6/08/2020
+ms.date: 7/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 6/08/2020
-ms.openlocfilehash: 750c19a3b46200150eefe999acab2099e79ec85f
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.lastreviewed: 7/24/2020
+ms.openlocfilehash: 848a08be84017b1f830074ce0a7552154d760568
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85197003"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250825"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Hinzufügen von Voraussetzungen für die Azure Kubernetes Services-Engine (AKS) zum Azure Stack Hub-Marketplace
 
-Sie können es Ihren Benutzern ermöglichen, die Azure Kubernetes Service-Engine (AKS) einzurichten, indem Sie die in diesem Artikel beschriebenen Elemente zu Ihrer Azure Stack Hub-Instanz hinzufügen. Ihre Benutzer können dann einen Kubernetes-Cluster in einem einzelnen, koordinierten Vorgang bereitstellen. In diesem Artikel werden die Schritte erläutert, die Sie ausführen müssen, um die AKS-Engine Ihren Benutzern sowohl in verbundenen als auch in nicht verbundenen Umgebungen zur Verfügung zu stellen. Die AKS-Engine benötigt eine Dienstprinzipalidentität sowie im Marketplace eine benutzerdefinierte Skripterweiterung und das AKS-Basisimage. Die AKS-Engine erfordert die Ausführung von [Azure Stack Hub 1910](release-notes.md?view=azs-1910) oder höher.
+Sie können die AKS-Engine (Azure Kubernetes Services) für Ihre Benutzer einrichten. Fügen Sie Ihrem Azure Stack Hub die Elemente hinzu, die in diesem Artikel beschrieben werden. Ihre Benutzer können dann einen Kubernetes-Cluster in einem einzelnen, koordinierten Vorgang bereitstellen. In diesem Artikel werden die Schritte erläutert, die Sie ausführen müssen, um die AKS-Engine Ihren Benutzern sowohl in verbundenen als auch in nicht verbundenen Umgebungen zur Verfügung zu stellen. Die AKS-Engine benötigt eine Dienstprinzipalidentität sowie im Marketplace eine benutzerdefinierte Skripterweiterung und das AKS-Basisimage. Die AKS-Engine erfordert die Ausführung von [Azure Stack Hub 1910](release-notes.md?view=azs-1910) oder höher.
 
 ## <a name="check-your-users-service-offering"></a>Überprüfen des Dienstangebots für Ihre Benutzer
 

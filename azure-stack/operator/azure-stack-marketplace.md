@@ -3,20 +3,20 @@ title: Der Azure Stack Hub-Marketplace – Übersicht
 description: Eine Übersicht über den Azure Stack Hub-Marketplace und Marketplace-Elemente.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 638ffe45cef9301059fd9e9e39b74b793e2ba86a
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: b9f01cb8237a3a6764b6ce450e279700a17eea01
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661349"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250808"
 ---
 # <a name="azure-stack-hub-marketplace-overview"></a>Der Azure Stack Hub-Marketplace – Übersicht
 
-Der Azure Stack Hub-Marketplace ist eine Sammlung von Diensten, Apps und Ressourcen, die für Azure Stack angepasst wurden. Zu den Ressourcen gehören u. a. Netzwerke, VMs und Speicher. Verwenden Sie den Azure Stack Hub-Marketplace, um neue Ressourcen zu erstellen und neue Apps bereitzustellen, oder suchen Sie nach den Elementen, die Sie verwenden möchten, und wählen Sie sie aus. Benutzer müssen ein Angebot abonnieren, das ihnen Zugriff auf das Marketplace-Element gewährt, um dieses verwenden zu können.
+Der Azure Stack Hub-Marketplace ist eine Sammlung von Diensten, Apps und Ressourcen, die für Azure Stack angepasst wurden. Zu den Ressourcen gehören u. a. Netzwerke, VMs und Speicher. Verwenden Sie den Azure Stack Hub-Marketplace, um neue Ressourcen zu erstellen und neue Apps bereitzustellen, oder suchen Sie nach den Elementen, die Sie verwenden möchten, und wählen Sie sie aus. Um ein Marketplace-Element verwenden zu können, müssen Benutzer ein Angebot abonnieren, das ihnen Zugriff auf dieses Element gewährt.
 
 Als Azure Stack Hub-Betreiber entscheiden Sie, welche Elemente Sie dem Azure Stack Hub-Marketplace hinzufügen (veröffentlichen). Sie können Elemente wie Datenbanken und App Services veröffentlichen. Durch die Veröffentlichung werden Elemente für alle Benutzer sichtbar. Sie können benutzerdefinierte Elemente veröffentlichen, die Sie erstellen, oder Sie können Elemente aus einer wachsenden [Liste von Azure Marketplace-Elementen](azure-stack-marketplace-azure-items.md) veröffentlichen. Wenn Sie ein Element im Azure Stack Hub-Marketplace veröffentlichen, wird es Benutzern innerhalb von fünf Minuten angezeigt.
 

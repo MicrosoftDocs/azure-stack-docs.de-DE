@@ -7,16 +7,18 @@ ms.date: 06/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 06/22/2020
-ms.openlocfilehash: 14747b3eec8dfb3d3722eab7dd02c5d0d08b816b
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 3bfd3fd2a7eaef4715677cf38af936aa19cf98cf
+ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86490030"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87397412"
 ---
 # <a name="install-powershell-az-preview-module-for-azure-stack-hub"></a>Installieren des PowerShell Az-Vorschaumoduls für Azure Stack Hub
 
 In diesem Artikel wird erläutert, wie Sie mithilfe von PowerShellGet das Azure PowerShell Az-Modul und kompatible Azure Stack Hub-Administratormodule installieren. Die Az-Module können auf Windows-, macOS- und Linux-Plattformen installiert werden.
+
+Sie können die Az-Module für Azure Stack Hub auch in einem Docker-Container ausführen. Anleitungen finden Sie unter [Verwenden von Docker zum Ausführen von PowerShell für Azure Stack Hub](../user/azure-stack-powershell-user-docker.md).
 
 Wenn Sie das PowerShell AzureRM-Modul für Azure Stack Hub installieren möchten, lesen Sie die Informationen unter [Installieren des PowerShell AzureRM-Moduls für Azure Stack Hub](azure-stack-powershell-install.md).
 
@@ -46,12 +48,12 @@ $PSVersionTable.PSVersion
 ### <a name="prerequisites-for-windows"></a>Voraussetzungen für Windows
 So verwenden Sie Azure PowerShell in PowerShell 5.1 unter Windows:
 
-1. Führen Sie bei Bedarf ein Update auf [Windows PowerShell 5.1](//powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell) aus. Unter Windows 10 ist PowerShell 5.1 bereits installiert.
-2. Installieren Sie [.NET Framework 4.7.2 oder höher](//dotnet/framework/install).
+1. Führen Sie bei Bedarf ein Update auf [Windows PowerShell 5.1](/powershell/scripting/windows-powershell/install/installing-windows-powershell#upgrading-existing-windows-powershell) aus. Unter Windows 10 ist PowerShell 5.1 bereits installiert.
+2. Installieren Sie [.NET Framework 4.7.2 oder höher](/dotnet/framework/install).
 3. Vergewissern Sie sich, dass die aktuelle Version von PowerShellGet installiert ist. Führen Sie `Install-Module PowerShellGet -MinimumVersion 2.2.3 -Force` aus. 
 
 ## <a name="2-prerequisites-for-linux-and-mac"></a>2. Voraussetzungen für Linux und Mac
-Mindestens PowerShell Core 6.x erforderlich. Anweisungen finden Sie unter [diesem Link](//powershell/scripting/install/installing-powershell-core-on-windows).
+Mindestens PowerShell Core 6.x erforderlich. Anweisungen finden Sie unter [diesem Link](/powershell/scripting/install/installing-powershell-core-on-windows).
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3. Deinstallieren vorhandener Versionen der Azure Stack Hub-PowerShell-Module
 
