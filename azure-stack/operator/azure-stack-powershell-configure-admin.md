@@ -3,16 +3,16 @@ title: Herstellen einer Verbindung mit Azure Stack Hub über PowerShell
 description: Enthält Informationen zum Herstellen einer Verbindung mit Azure Stack Hub über PowerShell.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 8/4/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 96858ce40e5839f3a5bcff55a11467155ebdc15e
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 8/4/2020
+ms.openlocfilehash: 3001d06deb81e275f3b62127cb555d3afceaff3c
+ms.sourcegitcommit: c75e2cfd96f37a3497958eb87446888477f85bc9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488364"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810795"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Herstellen einer Verbindung mit Azure Stack Hub über PowerShell
 
@@ -61,8 +61,7 @@ Stellen Sie mit Azure Active Directory-Verbunddiensten (Azure AD FS) die Verbind
   Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
   ```
 
-> [!Note]  
-> AD FS unterstützt nur die interaktive Authentifizierung mit Benutzeridentitäten. Wenn ein Objekt mit Anmeldeinformationen erforderlich ist, müssen Sie einen Dienstprinzipalnamen (SPN) verwenden. Weitere Informationen zum Einrichten eines Dienstprinzipals mit Azure Stack Hub und AD FS als Identitätsverwaltungsdienst finden Sie unter [Verwalten einer AD FS-App-Identität](azure-stack-create-service-principals.md#manage-an-ad-fs-app-identity).
+[!Include [AD FS only supports interactive authentication with user identities](../includes/note-powershell-adfs.md)]
 
 ## <a name="test-the-connectivity"></a>Testen der Konnektivität
 

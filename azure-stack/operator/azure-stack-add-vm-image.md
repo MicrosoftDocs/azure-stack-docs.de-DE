@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/10/2020
-ms.openlocfilehash: ebcb85ba88d90d43a1364b465c4f66e6851d09cb
-ms.sourcegitcommit: 2be3dd5419b0d003a9598a42541ebb1d251aea3d
+ms.openlocfilehash: 54732e12b330eeda8ba65e9b4add0b78547ac891
+ms.sourcegitcommit: 635c8c69d90b7e941659d54141d9f1c58f51cf45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/15/2020
-ms.locfileid: "86390771"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87477623"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Hinzufügen eines benutzerdefinierten VM-Images zu Azure Stack Hub
 
@@ -314,7 +314,7 @@ Fügen Sie das VM-Image als Azure Stack Hub-Bediener über das Portal hinzu.
 
 Um das VM-Image als Azure Stack Hub-Bediener über das Azure Stack Hub-Portal zu entfernen, führen Sie die folgenden Schritte aus:
 
-1. Öffnen Sie das Azure Stack Hub-[Administratorportal](https://adminportal.local.azurestack.external).
+1. Öffnen Sie das Azure Stack Hub-[Administratorportal](https://portal.azure.com/signin/index).
 
 2. Wenn dem VM-Image ein Marketplace-Element zugeordnet ist, wählen Sie **Marketplace-Verwaltung** und dann das zu löschende VM-Marketplace-Element aus.
 

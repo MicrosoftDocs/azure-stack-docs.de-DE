@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 970a128933e8bb65320e8d3d5a0657fac4bc208b
-ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
+ms.openlocfilehash: d7284e454b93db28dd47323342fb01e42c51c014
+ms.sourcegitcommit: 9be88793533d21b756718af9a82349760c4abd52
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87397531"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87523491"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Ausführen eines virtuellen Linux-Computers in Azure Stack Hub
 
@@ -70,7 +70,7 @@ Die Netzwerkkomponenten enthalten die folgenden Ressourcen:
 
 -   **Öffentliche IP-Adresse/virtuelle IP-Adresse**. Eine öffentliche IP-Adresse wird für die Kommunikation mit der VM benötigt, z. B. per Remotedesktop (RDP). Die öffentliche IP-Adresse kann dynamisch oder statisch sein. Die Standardeinstellung ist „Dynamisch“. Falls Sie mehrere Netzwerkschnittstellenkarten für Ihre VM benötigen, sollten Sie sich darüber im Klaren sein, dass für jede [VM-Größe](./azure-stack-vm-sizes.md) eine maximale Anzahl von Netzwerkschnittstellenkarten definiert ist.
 
--   Sie können auch einen vollständig qualifizierten Domänennamen (FQDN) für die IP-Adresse erstellen. Sie können anschließend einen [CNAME-Eintrag](https://en.wikipedia.org/wiki/CNAME_record) in DNS registrieren, der auf den FQDN verweist. Weitere Informationen finden Sie unter [Erstellen eines vollqualifizierten Domänennamens im Azure-Portal](/azure/virtual-machines/linux/portal-create-fqdn).
+-   Sie können auch einen vollständig qualifizierten Domänennamen (FQDN) für die IP-Adresse erstellen. Sie können anschließend einen [CNAME-Eintrag](https://en.wikipedia.org/wiki/CNAME_record) in DNS registrieren, der auf den FQDN verweist. Weitere Informationen finden Sie unter [Erstellen eines vollqualifizierten Domänennamens im Azure-Portal](/azure/virtual-machines/windows/portal-create-fqdn).
 
 -   **Netzwerksicherheitsgruppe (NSG)** . Netzwerksicherheitsgruppen dienen zum Zulassen oder Verweigern von Netzwerkdatenverkehr zu VMs. NSGs können entweder Subnetzen oder einzelnen VM-Instanzen zugeordnet werden.
 

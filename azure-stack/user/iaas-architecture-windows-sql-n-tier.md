@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: e8563a21ec3c49fa9d5789b28a556645dc73b1ce
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 722c6dbc5d806e9d37817e5f9279e3e51a0ddc14
+ms.sourcegitcommit: 635c8c69d90b7e941659d54141d9f1c58f51cf45
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567755"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87477589"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>n-schichtige Windows-Anwendung in Azure Stack Hub mit SQL Server
 
@@ -169,7 +169,7 @@ Virtuelle Netzwerke stellen in Azure eine Isolationsbegrenzung für Datenverkehr
 
 **DMZ**. Für die Erstellung einer DMZ zwischen dem Internet und dem virtuellen Azure-Netzwerk sollten Sie eventuell eine virtuelle Netzwerkappliance (Network Virtual Appliance, NVA) hinzufügen. NVA ist ein Oberbegriff für eine virtuelle Appliance, die netzwerkbezogene Aufgaben wie Erstellung von Firewalls, Paketüberprüfung, Überwachung und benutzerdefiniertes Routing ausführen kann.
 
-**Verschlüsselung**. Verschlüsseln Sie sensible ruhende Daten, und verwalten Sie die Verschlüsselungsschlüssel für die Datenbank mithilfe von [Key Vault in Azure Stack Hub](./azure-stack-key-vault-manage-portal.md). Weitere Informationen finden Sie unter [Konfigurieren der Azure-Schlüsseltresor-Integration für SQL Server auf virtuellen Azure-Computern](/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault). Es empfiehlt sich außerdem, Anwendungsgeheimnisse wie Datenbankverbindungszeichenfolgen in Key Vault zu speichern.
+**Verschlüsselung**. Verschlüsseln Sie sensible ruhende Daten, und verwalten Sie die Verschlüsselungsschlüssel für die Datenbank mithilfe von [Key Vault in Azure Stack Hub](./azure-stack-key-vault-manage-portal.md). Weitere Informationen finden Sie unter [Konfigurieren der Azure-Schlüsseltresor-Integration für SQL Server auf virtuellen Azure-Computern](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). Es empfiehlt sich außerdem, Anwendungsgeheimnisse wie Datenbankverbindungszeichenfolgen in Key Vault zu speichern.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
