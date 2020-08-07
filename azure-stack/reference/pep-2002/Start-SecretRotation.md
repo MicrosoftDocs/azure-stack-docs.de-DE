@@ -1,18 +1,18 @@
 ---
-title: Privilegierter Endpunkt „Close-PrivilegedEndpoint“ für Azure Stack Hub
-description: 'Referenz zu privilegierten Azure Stack-Endpunkten für PowerShell: Close-PrivilegedEndpoint'
+title: Cmdlet „Start-SecretRotation“ des privilegierten Endpunkts für Azure Stack Hub
+description: 'Referenz zu privilegierten Azure Stack Hub-Endpunkten für PowerShell: Start-SecretRotation'
 author: mattbriggs
 ms.topic: reference
-ms.date: 04/27/2020
+ms.date: 07/29/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: e06d51a735daae8c82e1203f7f5e98bfbea47851
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 12614343df051b9283f2e3b8fc2af56f8fc4058e
+ms.sourcegitcommit: eb91a28a19a74f799b093ae2a705f7f6e4c5cd49
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86486137"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87436442"
 ---
 # <a name="start-secretrotation"></a>Start-SecretRotation
 
@@ -27,12 +27,12 @@ Start-SecretRotation [-PathAccessCredential <Object>] [-ReRun] [-CertificatePass
 ```
 
 ## <a name="description"></a>BESCHREIBUNG
-Ruft den Prozess für die Geheimnisrotation auf.
+Ruft den Geheimnisrotationsprozess für Infrastrukturgeheimnisse eines Azure Stack Hub-Systems auf. Standardmäßig werden nur die Zertifikate der externen Netzwerkinfrastruktur-Endpunkte rotiert. Weitere Einzelheiten finden Sie unter [Rotieren von Geheimnissen in Azure Stack Hub](../../operator/azure-stack-rotate-secrets.md).
 
 ## <a name="parameters"></a>Parameter
 
 ### <a name="-internal"></a>-Internal
- 
+Rotieren Sie Geheimnisse für interne Netzwerkinfrastruktur-Endpunkte.
 
 ```yaml
 Type: SwitchParameter

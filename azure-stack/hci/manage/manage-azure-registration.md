@@ -4,13 +4,13 @@ description: Vorgehensweise in PowerShell zum Verwalten Ihrer Azure-Registrierun
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: 297643ca5f47c619572e213da2ffd1502d7d1b6f
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.date: 07/29/2020
+ms.openlocfilehash: 696ef552dcf49f31fb613a22393617e653f7e10d
+ms.sourcegitcommit: eb91a28a19a74f799b093ae2a705f7f6e4c5cd49
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86868003"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87436466"
 ---
 # <a name="manage-azure-registration"></a>Verwalten der Azure-Registrierung
 
@@ -60,11 +60,21 @@ Das Einholen der Genehmigung bei Ihrem Azure Active Directory-Administrator kann
 
 Wenn Sie bereit sind, Ihren Azure Stack HCI-Cluster außer Betrieb zu setzen, verwenden Sie das Cmdlet `Unregister-AzStackHCI` zum Aufheben der Registrierung. Dadurch werden alle über Azure Arc bereitgestellten Überwachungs-, Support-und Abrechnungsfunktionen beendet. Die Azure-Ressource, die den Cluster darstellt, und die Azure Active Directory-App-Identität werden gelöscht, nicht jedoch die Ressourcengruppe, da sie andere, damit nicht in Zusammenhang stehende Ressourcen enthalten kann.
 
-Für die Minimalsyntax sind keinerlei Parameter erforderlich, Sie müssen sich lediglich bei Azure authentifizieren, bevor Sie das folgende Cmdlet ausführen:
+Wenn Sie das Cmdlet `Unregister-AzStackHCI` für einen Clusterknoten ausführen, verwenden Sie diese Syntax, und geben Sie Ihre Azure-Abonnement-ID sowie den Ressourcennamen des Azure Stack HCI-Clusters an, dessen Registrierung Sie aufheben möchten:
 
 ```PowerShell
-Unregister-AzStackHCI
+Unregister-AzStackHCI -SubscriptionId "e569b8af-6ecc-47fd-a7d5-2ac7f23d8bfe" -ResourceName HCI001
 ```
+
+Sie werden aufgefordert, „microsoft.com/devicelogin“ auf einem anderen Gerät (etwa auf Ihrem PC oder Smartphone) aufzurufen, den Code einzugeben und sich dort für die Authentifizierung mit Azure anzumelden.
+
+Wenn Sie das Cmdlet auf einem Verwaltungs-PC ausführen, müssen Sie zudem den Namen eines Servers im Cluster angeben:
+
+```PowerShell
+Unregister-AzStackHCI -ComputerName ClusterNode1 -SubscriptionId "e569b8af-6ecc-47fd-a7d5-2ac7f23d8bfe" -ResourceName HCI001
+```
+
+Ein interaktives Azure-Anmeldefenster wird angezeigt. Welche Aufforderungen genau angezeigt werden, unterscheidet sich je nach Ihren Sicherheitseinstellungen (z. B. zweistufige Authentifizierung). Folgen Sie den Anweisungen, um sich anzumelden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
