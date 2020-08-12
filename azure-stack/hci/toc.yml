@@ -6,6 +6,8 @@
       href: overview.md
     - name: Bekannte Probleme
       href: known-issues.md
+    - name: Versionshinweise
+      href: release-notes.md
 - name: Erste Schritte
   items:
     - name: Verwenden von Azure Stack HCI mit Windows Admin Center

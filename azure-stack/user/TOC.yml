@@ -129,6 +129,8 @@
                   href: azure-stack-vm-considerations.md
                 - name: VM-Größen
                   href: azure-stack-vm-sizes.md
+                - name: Unterstützte GPU-VMs
+                  href: gpu-vms-about.md
                 - name: Verwalten von VM-Datenträgern
                   href: azure-stack-manage-vm-disks.md
                 - name: Überlegungen zu verwalteten Datenträgern
