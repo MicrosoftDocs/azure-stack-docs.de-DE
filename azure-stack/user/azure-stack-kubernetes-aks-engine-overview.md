@@ -7,12 +7,12 @@ ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 40ca1f0f9df3edd69f20be2d97d1c691d9f4ca79
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 1d5feae579b2ced90ce01b9ca6d5d36c1f7dc874
+ms.sourcegitcommit: e03727655e288ace0cf2c4789acea143c1b7b4ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87251012"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88039611"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack-hub"></a>Was ist die AKS-Engine in Azure Stack Hub?
 

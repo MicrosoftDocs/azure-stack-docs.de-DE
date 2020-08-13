@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 0760e7d796c6e17c88089675fa6ff659eb684cc7
-ms.sourcegitcommit: 721b82b3a1711f2825ec76ab6d75964b4f508631
+ms.openlocfilehash: 8fc10bd53bfcf9822f46eb977c02055db1a65cb7
+ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84301027"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939292"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referenz für den Infrastructure Backup-Dienst
 
@@ -75,30 +75,15 @@ Es handelt sich um folgende Anforderungen:
 
 #### <a name="smb-encryption"></a>SMB-Verschlüsselung
 
-**1907 und höher**
+::: moniker range=">=azs-1907"
 
 Der Infrastructure Backup-Dienst unterstützt das Übertragen von Sicherungsdaten an einen externen Speicherort mit aktivierter serverseitiger SMB-Verschlüsselung. Wenn der Server keine SMB-Verschlüsselung unterstützt oder die Funktion auf ihm nicht aktiviert ist, greift der Infrastructure Backup-Dienst auf die unverschlüsselte Datenübertragung zurück. Sicherungsdaten, die auf dem externen Speicherort platziert werden, sind im Ruhezustand immer verschlüsselt, unabhängig von der SMB-Verschlüsselung.
+
+::: moniker-end
 
 #### <a name="storage-location-sizing"></a>Speicherortgröße
 
 Sie sollten die Sicherung mindestens zweimal täglich durchführen und Sicherungen höchstens sieben Tage lang aufbewahren. Dies ist das Standardverhalten bei aktivierten Infrastruktursicherungen auf Azure Stack Hub.
-
-**1907 und höher**
-
-***Mit dem Azure AD-Identitätsanbieter verbundenes System***
-
-| Umgebungsgröße | Voraussichtliche Größe der Sicherung | Gesamtmenge des erforderlichen Speicherplatzes |
-|-------------------|--------------------------|--------------------------------|
-| 4–16 Knoten/ASDK   | 1 GB                     | 20 GB                          |
-
-***Per ADFS mit dem AD-Identitätsanbieter des Unternehmens verbundenes System***
-
-| Umgebungsgröße | Voraussichtliche Größe der Sicherung | Gesamtmenge des erforderlichen Speicherplatzes |
-|-------------------|--------------------------|--------------------------------|
-| 4 bis 16 Knoten        | 20 GB                    | 280 GB                        |
-| ASDK              | 10 GB                    | 140 GB                        |
-
-**Vor 1907**
 
 | Umgebungsgröße | Voraussichtliche Größe der Sicherung | Gesamtmenge des erforderlichen Speicherplatzes |
 |-------------------|--------------------------|--------------------------------|
