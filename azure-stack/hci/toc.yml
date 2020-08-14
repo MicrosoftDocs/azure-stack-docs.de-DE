@@ -62,6 +62,8 @@
           href: manage/cluster-powershell.md
         - name: Aktualisieren des Clusters
           href: manage/update-cluster.md
+        - name: Überwachen des Clusters
+          href: manage/monitor-cluster.md
         - name: Hinzufügen oder Entfernen von Servern
           href: manage/add-cluster.md
         - name: Verwalten der Azure-Registrierung
