@@ -3,16 +3,16 @@ title: Bekannte Probleme mit der AKS-Engine auf Azure Stack Hub
 description: Informationen zu bekannten Probleme bei Verwendung der AKS-Engine auf Azure Stack Hub
 author: mattbriggs
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 08/05/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 07/02/2020
-ms.openlocfilehash: 02f4d8ec694ffc56966029f35dd12fd263a5cb8b
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.lastreviewed: 08/05/2020
+ms.openlocfilehash: 75a4fe1dfbe8738bd806ac1f0eaae2c41b3f2e28
+ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566140"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87865199"
 ---
 # <a name="known-issues-with-the-aks-engine-on-azure-stack-hub"></a>Bekannte Probleme mit der AKS-Engine auf Azure Stack Hub
 
@@ -40,21 +40,9 @@ In diesem Thema werden bekannte Probleme der AKS-Engine auf Azure Stack Hub beha
 
 * Kubernetes 1.17 wird in diesem Release nicht unterstützt. Obwohl es GitHub-Pullanforderungen (PR) gibt, die sich auf die Version 1.17 beziehen, wird diese nicht unterstützt.
 
-## <a name="basic-load-balancer-sku-limitations"></a>Einschränkungen der Load Balancer Basic-SKU
+## <a name="aks-engine-get-versions-command-limitations"></a>Einschränkungen im Zusammenhang mit dem Befehl „aks-engine get-versions“
 
-* Einschränkung eines einzelnen Agentpools. Derzeit unterstützt Azure Stack Hub nur die Load Balancer Basic-SKU. Diese SKU [beschränkt](/azure/load-balancer/concepts#limitations) die Back-End-Poolendpunkte auf virtuelle Computer in einer einzelnen Verfügbarkeitsgruppe (oder VM-Skalierungsgruppe sein). Dies bedeutet, dass alle Replikate eines LoadBalancer-Diensts im selben Agentpool bereitgestellt werden müssen. Außerdem bedeutet es, dass jeder einzelne Cluster entweder einen Linux-LoadBalancer-Dienst oder einen Windows-LoadBalancer-Dienst enthalten kann.
-
-  Sie können Kubernetes zwingen, Pods in einem bestimmten Agentpool zu erstellen, indem Sie die [Knotenauswahl](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/) „agentpool: MY_POOL_NAME“ in Ihrer Podvorlage hinzufügen.
-
-  ```json
-  nodeSelector:
-
-        agentpool: linuxpool
-  ```
-  
-  Wenn bereits ein LoadBalancer-Dienst in Ihrem Cluster erstellt wurde, können Sie herausfinden, welcher Agentpool als Back-End-Pool des Lastenausgleichs ausgewählt wurde, indem Sie das Blatt mit den Back-End-Pools des Lastenausgleichs im Azure Stack Hub-Portal überprüfen. Sobald Sie über diese Informationen verfügen, können Sie den Ziel-Agentpool angeben, indem Sie die YAML-Datei der Bereitstellung/des Pods (wie im vorherigen Absatz erläutert) aktualisieren.
-
-* Befehlsbereich für `get-versions`. Die Ausgabe des `get-versions`-Befehls bezieht sich nur auf Azure und nicht auf Azure Stack Hub-Clouds. Weitere Informationen zu den verschiedenen Upgradepfaden finden Sie unter [Schritte zum Durchführen eines Upgrades auf eine neuere Kubernetes-Version](azure-stack-kubernetes-aks-engine-upgrade.md#steps-to-upgrade-to-a-newer-kubernetes-version).
+Die Ausgabe des Befehls **aks-engine** `get-versions` bezieht sich allgemein auf Azure, nicht speziell auf Azure Stack Hub. Weitere Informationen zu den verschiedenen Upgradepfaden finden Sie unter [Schritte zum Durchführen eines Upgrades auf eine neuere Kubernetes-Version](azure-stack-kubernetes-aks-engine-upgrade.md#steps-to-upgrade-to-a-newer-kubernetes-version).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

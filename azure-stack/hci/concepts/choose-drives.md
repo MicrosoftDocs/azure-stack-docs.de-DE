@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 56d9c2cf09d05de59700c70fd7851999db42265f
-ms.sourcegitcommit: aca1b05b570aa72bfe410c9cf7109f590526ed84
+ms.openlocfilehash: ca2903e6d7680b38f21482076bf46e49097d444f
+ms.sourcegitcommit: cfc453689a5a2f2491ce00ab77a7c5bfddfe01d8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115209"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87997757"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Auswählen von Laufwerken für Azure Stack HCI
 
@@ -22,7 +22,7 @@ Dieses Thema enthält eine Anleitung zur Auswahl von Laufwerken für [Direkte Sp
 
 Für „Direkte Speicherplätze“ können derzeit vier Arten von Laufwerken verwendet werden:
 
-|||
+| Art des Laufwerks | BESCHREIBUNG |
 |----------------------|--------------------------|
 |![PMem](media/choose-drives/pmem-100px.png)|**PMem** bezieht sich auf persistenten Speicher. Dabei handelt es sich um eine neue Art von Hochleistungsspeicher mit geringen Wartezeiten.|
 |![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe**-Laufwerke (Non-Volatile Memory Express) sind Solid State Drives, die direkt auf dem PCIe-Bus angeordnet sind. Häufig verwendete Formfaktoren sind 2,5" U.2, PCIe Add-In-Card (AIC) und M.2. NVMe ermöglicht einen höheren IOPS- und E/A-Durchsatz mit geringerer Wartezeit als alle anderen Laufwerkstypen, die derzeit unterstützt werden. Eine Ausnahme davon bildet PMem.|

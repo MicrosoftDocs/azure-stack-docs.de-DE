@@ -4,13 +4,15 @@ description: Es wird beschrieben, wie das Zwischenspeichern von Lese- und Schrei
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 214e4fa6fde30d69d063326cc0c7548bb75b694a
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 08/11/2020
+ms.openlocfilehash: 39d67ffb49b8fa8ceb343038883602b3e940f8e1
+ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86867010"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88145621"
 ---
 # <a name="understanding-the-cache-in-azure-stack-hci"></a>Grundlegendes zum Cache in Azure Stack HCI
 
@@ -28,7 +30,7 @@ Im folgenden Video wird ausführlich veranschaulicht, wie die Zwischenspeicherun
 
 Für „Direkte Speicherplätze“ können derzeit vier Arten von Laufwerken verwendet werden:
 
-|||
+| Art des Laufwerks | BESCHREIBUNG |
 |----------------------|--------------------------|
 |![PMem](media/choose-drives/pmem-100px.png)|**PMem** bezieht sich auf persistenten Speicher. Dabei handelt es sich um eine neue Art von Hochleistungsspeicher mit geringen Wartezeiten.|
 |![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe**-Laufwerke (Non-Volatile Memory Express) sind Solid State Drives, die direkt auf dem PCIe-Bus angeordnet sind. Häufig verwendete Formfaktoren sind 2,5" U.2, PCIe Add-In-Card (AIC) und M.2. NVMe ermöglicht einen höheren IOPS- und E/A-Durchsatz mit geringerer Wartezeit als alle anderen Laufwerkstypen, die derzeit unterstützt werden. Eine Ausnahme davon bildet PMem.|

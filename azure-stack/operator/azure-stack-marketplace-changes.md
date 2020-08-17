@@ -3,16 +3,16 @@ title: Neuerungen im Azure Stack Hub-Marketplace
 description: Hier finden Sie Informationen zu den Neuerungen im Azure Stack Hub-Marketplace, u. a. zu neuen, veralteten und aktualisierten Marketplace-Elementen.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 08/07/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 7bb7baf25b2f3eb6799e1ffca834c818c3bcb667
-ms.sourcegitcommit: c75e2cfd96f37a3497958eb87446888477f85bc9
+ms.openlocfilehash: f876ebf99169d4c73fa4b437ae60844ea99e94d4
+ms.sourcegitcommit: cfc453689a5a2f2491ce00ab77a7c5bfddfe01d8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810778"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87997727"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Änderungen im Azure Stack Hub-Marketplace
 
@@ -53,6 +53,12 @@ Der Artikel [Azure Stack Hub-Marketplace-Elemente](azure-stack-marketplace-azure
 
 ## <a name="deprecated-marketplace-items"></a>Veraltete Marketplace-Elemente
 
+- Bitnami Shopware
+- SQL Server 2017 Standard unter SUSE Linux Enterprise Server (SLES) 12 SP2
+- Kostenlose Lizenz: SQL Server 2017 Developer unter SUSE Linux Enterprise Server (SLES) 12 SP2
+- Kostenlose Lizenz: SQL Server 2017 Express unter SUSE Linux Enterprise Server (SLES) 12 SP2
+- SQL Server 2017 Enterprise unter SUSE Linux Enterprise Server (SLES) 12 SP2
+- SQL Server 2017 Web unter SUSE Linux Enterprise Server (SLES) 12 SP2
 - Bitnami Codiad
 - Bitnami X2Engine Sales CRM
 - Bitnami SugarCRM

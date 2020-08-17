@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 245951e86128fb71e6820f3b57bdf2723506d4bc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ab90c0e9ef0f873fbed44932e9ffc418077fee4a
+ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78935054"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939576"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Wiederherstellen nach schwerwiegendem Datenverlust
 
@@ -52,10 +52,10 @@ Bei einem Notfall, nach dem die Hardware nicht mehr genutzt werden kann, ist die
 Azure Stack Hub unterstützt die Bereitstellung im sogenannten Cloudwiederherstellungsmodus. Dieser Modus wird nur verwendet, wenn Sie Azure Stack Hub wiederherstellen möchten, nachdem die Lösung infolge eines Notfalls oder Produktfehlers nicht mehr wiederherstellbar war. Bei diesem Bereitstellungsmodus werden keine der in der Lösung gespeicherten Benutzerdaten wiederhergestellt. Der Umfang dieses Bereitstellungsmodus beschränkt sich auf die Wiederherstellung der folgenden Daten:
 
  - Bereitstellungseingaben
- - Daten des internen Identitätsdiensts (ADFS-Bereitstellungen).
+ - Daten des internen Identitätsdiensts
  - Partneridentifizierungskonfiguration (ADFS-Bereitstellungen).
  - Von interner Zertifizierungsstelle verwendete Stammzertifikate.
- - Benutzerdaten der Azure Resource Manager-Konfiguration, z. B. Abonnements, Tarife, Angebote, Speicher- und Netzwerkkontingente sowie Computeressourcen.
+ - Benutzerdaten der Azure Resource Manager-Konfiguration (beispielsweise Abonnements, Tarife, Angebote, Ressourcengruppen, Tags, Speicher- und Netzwerkkontingente sowie Computeressourcen).
  - Key Vault-Geheimnisse und Tresore.
  - RBAC-Richtlinienzuweisungen und Rollenzuweisungen
 

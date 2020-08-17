@@ -3,16 +3,16 @@ title: Proaktive Diagnoseprotokollsammlung in Azure Stack Hub
 description: Erfahren Sie, wie Sie die proaktive Diagnoseprotokollsammlung in Azure Stack Hub konfigurieren – Hilfe und Support.
 author: justinha
 ms.topic: article
-ms.date: 04/17/2020
+ms.date: 06/16/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 04/17/2020
-ms.openlocfilehash: a348b2c301b7fbfbffe31f9ea5dff3fbb3e92b44
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 06/16/2020
+ms.openlocfilehash: fe1ae4c0c979d579df99b6e440d62dd16a9df2e9
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489333"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88074161"
 ---
 # <a name="proactive-diagnostic-log-collection-in-azure-stack-hub"></a>Proaktive Diagnoseprotokollsammlung in Azure Stack Hub
 
@@ -21,6 +21,9 @@ ms.locfileid: "86489333"
 Sparen Sie Zeit beim Kundensupport, indem Sie die Diagnoseprotokolle proaktiv sammeln, wenn eine Warnung auf Azure Stack Hub ausgelöst wird.
 
 Wenn die Integritätsbedingungen des Systems untersucht werden müssen, können die Protokolle automatisch zur Analyse hochgeladen werden, bevor eine Supportanfrage für den Microsoft-Support erstellt wird.
+
+>[!NOTE]
+>Falls Sie über keine Internetverbindung verfügen oder die Protokolle nur lokal speichern möchten, verwenden Sie die Methode [Get-AzureStackLog](azure-stack-get-azurestacklog.md) für den Protokollversand. 
 
 ## <a name="steps-to-configure-proactive-log-collection"></a>Schritte zum Konfigurieren der proaktiven Protokollsammlung
 
@@ -118,6 +121,9 @@ Führen Sie diese Schritte aus, um der Benutzeroberfläche der Protokollsammlung
 >Die automatische Protokollsammlung kann jederzeit deaktiviert und wieder aktiviert werden. Die SAS-URL-Konfiguration ändert sich dadurch nicht. Wenn die automatische Protokollsammlung wieder aktiviert wird, durchläuft die zuvor eingegebene SAS-URL die gleichen Überprüfungen, und eine abgelaufene SAS-URL wird abgelehnt.
 
 ::: moniker-end
+
+>[!NOTE]
+>Falls für eine lokale Dateifreigabe Protokollspeicherorteinstellungen konfiguriert sind, stellen Sie sicher, dass Lebenszyklusverwaltungsrichtlinien vorhanden sind, die das Erreichen des Größenkontingents für den Freigabespeicher verhindern. Die lokale Dateifreigabe wird von Azure Stack Hub nicht überwacht, und von Azure Stack Hub werden keine Aufbewahrungsrichtlinien erzwungen.
 
 ## <a name="view-log-collection"></a>Anzeigen der Protokollsammlung
 

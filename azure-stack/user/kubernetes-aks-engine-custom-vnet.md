@@ -3,22 +3,28 @@ title: Bereitstellen eines Kubernetes-Clusters in einem benutzerdefinierten virt
 description: Hier erfahren Sie, wie Sie einen Kubernetes-Cluster in einem benutzerdefinierten virtuellen Netzwerk in Azure Stack Hub bereitstellen.
 author: mattbriggs
 ms.topic: article
-ms.date: 7/24/2020
+ms.date: 08/05/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: f2d0dbf140e5296df7533ba99bb06a081d97afe0
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.lastreviewed: 08/05/2020
+ms.openlocfilehash: f6fca607f9e963fc2c007c27ebed05cecdf2e35a
+ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250332"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87865222"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Clusters in einem benutzerdefinierten virtuellen Netzwerk in Azure Stack Hub 
 
 Sie können einen Kubernetes-Cluster mithilfe der AKS-Engine (Azure Kubernetes Service) in einem benutzerdefinierten virtuellen Netzwerk bereitstellen. In diesem Artikel erfahren Sie, wie Sie die benötigten Informationen in Ihrem virtuellen Netzwerk finden. Hier werden Schritte zum Berechnen der von Ihrem Cluster verwendeten IP-Adressen, zum Festlegen der Werte im API-Modell sowie zum Festlegen der Routingtabelle und der Netzwerksicherheitsgruppe beschrieben.
 
 Der Kubernetes-Cluster in Azure Stack Hub mit der AKS-Engine verwendet das kubenet-Netzwerk-Plug-In. Informationen zum kubenet-Netzwerk-Plug-In in Azure finden Sie unter [Verwenden von kubenet-Netzwerken mit Ihren eigenen IP-Adressbereichen in Azure Kubernetes Service (AKS)](/azure/aks/configure-kubenet).
+
+## <a name="constraints-when-creating-a-custom-virtual-network"></a>Einschränkungen beim Erstellen eines benutzerdefinierten virtuellen Netzwerks
+
+-  Das benutzerdefinierte VNET muss sich im gleichen Abonnement befinden wie alle anderen Komponenten des Kubernetes-Clusters.
+-  Die Pools mit den Masterknoten und den Agent-Knoten müssen sich im gleichen virtuellen Netzwerk befinden. Sie können Ihre Knoten in unterschiedlichen Subnetzen innerhalb des gleichen virtuellen Netzwerks bereitstellen.
+-  Das Kubernetes-Clustersubnetz muss einen IP-Adressbereich verwenden, der im Adressraum des IP-Adressbereichs des benutzerdefinierten VNETs liegt. Weitere Informationen finden Sie unter [Ermitteln des IP-Adressblocks](#get-the-ip-address-block).
 
 ## <a name="create-custom-virtual-network"></a>Erstellen des benutzerdefinierten virtuellen Netzwerks
 
@@ -40,8 +46,6 @@ Erstellen Sie in Ihrem virtuellen Netzwerk ein neues Subnetz. Sie benötigen die
     ![CIDR-Block des virtuellen Netzwerks](media/kubernetes-aks-engine-custom-vnet/virtual-network-cidr-block.png)
     
 6. Notieren Sie sich auf dem Subnetzblatt den Adressbereich und den CIDR-Block des virtuellen Netzwerks (beispielsweise `10.1.0.0 - 10.1.0.255 (256 addresses)` und `10.1.0.0/24`).
-
-
 
 ## <a name="get-the-ip-address-block"></a>Ermitteln des IP-Adressblocks
 
@@ -69,7 +73,6 @@ In diesem Beispiel müsste die Eigenschaft `firstConsecutiveStaticIP` auf `10.1.
 
 Bei größeren Subnetzen (beispielsweise „/16“ mit mehr als 60.000 Adressen) ist es ggf. nicht ohne Weiteres möglich, Ihre statischen IP-Zuweisungen auf den hinteren Bereich des Netzwerkraums festzulegen. Legen Sie den statischen IP-Adressbereich Ihres Clusters nach den ersten 24 Adressen Ihres IP-Adressbereichs fest, um die Resilienz des Clusters bei der Beanspruchung von Adressen zu gewährleisten.
 
-
 ## <a name="update-the-api-model"></a>Aktualisieren des API-Modells
 
 Aktualisieren Sie das API-Modell, das verwendet wird, um den Cluster über die AKS-Engine in Ihrem benutzerdefinierten virtuellen Netzwerk bereitzustellen.
@@ -87,6 +90,12 @@ Legen Sie in **agentPoolProfiles** die folgenden Werte fest:
 | --- | --- | --- |
 | vnetSubnetId | `/subscriptions/77e28b6a-582f-42b0-94d2-93b9eca60845/resourceGroups/MDBN-K8S/providers/Microsoft.Network/virtualNetworks/MDBN-K8S/subnets/default` | Geben Sie die Azure Resource Manager-Pfad-ID des Subnetzes an.  |
 
+Suchen Sie in **orchestratorProfile** nach **kubernetesConfig**, und legen Sie den folgenden Wert fest:
+
+| Feld | Beispiel | BESCHREIBUNG |
+| --- | --- | --- |
+| clusterSubnet | `172.16.244.0/24` | Der IP-Adressbereich des Clustersubnetzes (Podnetzwerk) muss im Adressraum des IP-Adressbereichs des benutzerdefinierten VNETs liegen. |
+
 Beispiel:
 
 ```json
@@ -103,6 +112,13 @@ Beispiel:
     "vnetSubnetId": "/subscriptions/77e28b6a-582f-42b0-94d2-93b9eca60845/resourceGroups/MDBN-K8S/providers/Microsoft.Network/virtualNetworks/MDBN-K8S/subnets/default",
     ...
   },
+    ...
+"kubernetesConfig": [
+  {
+    ...
+    "clusterSubnet": "172.16.244.0/24",
+    ...
+  },
 
 ```
 
@@ -110,7 +126,7 @@ Beispiel:
 
 Nachdem Sie die Werte Ihrem API-Modell hinzugefügt haben, können Sie den Cluster mithilfe des Befehls `deploy` und der AKS-Engine über Ihren Clientcomputer bereitstellen. Eine entsprechende Anleitung finden Sie unter [Bereitstellen eines Kubernetes-Clusters](azure-stack-kubernetes-aks-engine-deploy-cluster.md#deploy-a-kubernetes-cluster).
 
-## <a name="set-the-route-table-and-network-security-group"></a>Festlegen der Routingtabelle und der Netzwerksicherheitsgruppe
+## <a name="set-the-route-table"></a>Festlegen der Routingtabelle
 
 Kehren Sie nach der Clusterbereitstellung zu Ihrem virtuellen Netzwerk im Azure Stack-Benutzerportal zurück. Legen Sie auf dem Subnetzblatt sowohl die Routingtabelle als auch die Netzwerksicherheitsgruppe (NSG) fest – ohne Verwendung von Azure CNI beispielsweise „`networkPlugin`: `kubenet`“ im API-Modellkonfigurationsobjekt `kubernetesConfig`. Ermitteln Sie nach erfolgreicher Bereitstellung eines Clusters in Ihrem benutzerdefinierten virtuellen Netzwerk die ID der Routingtabellenressource auf dem Blatt **Netzwerk** in der Ressourcengruppe Ihres Clusters.
 
@@ -122,7 +138,6 @@ Kehren Sie nach der Clusterbereitstellung zu Ihrem virtuellen Netzwerk im Azure�
     ![Routingtabelle und Netzwerksicherheitsgruppe](media/kubernetes-aks-engine-custom-vnet/virtual-network-rt-nsg.png)
     
 5. Wählen Sie **Routingtabelle** und anschließend die Routingtabelle für Ihren Cluster aus.
-6. Wählen Sie **Netzwerksicherheitsgruppe** und anschließend die NSG für Ihren Cluster aus.
 
 > [!Note]  
 > Bei benutzerdefinierten virtuellen Netzwerken für Kubernetes-Windows-Cluster gibt es ein [bekanntes Problem](https://github.com/Azure/aks-engine/issues/371).

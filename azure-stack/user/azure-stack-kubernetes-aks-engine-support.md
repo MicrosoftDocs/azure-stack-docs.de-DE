@@ -3,16 +3,16 @@ title: Supportrichtlinien für die AKS-Engine in Azure Stack Hub
 description: Dieses Thema enthält die Supportrichtlinien für die AKS-Engine in Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 07/24/2020
+ms.date: 08/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 106b93873a157b1c37790dcb89f817ec1663d7ef
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.lastreviewed: 08/10/2020
+ms.openlocfilehash: a41aba4dbca012e7eaaee123ce46eb5022bb5870
+ms.sourcegitcommit: 17ef9f9119f5fea9782adeefb9a430e6a3a650e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250961"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88170437"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Supportrichtlinien für die AKS-Engine in Azure Stack Hub
 
@@ -20,9 +20,9 @@ Dieser Artikel enthält Details zu den Richtlinien für technischen Support und 
 
 ## <a name="self-managed-kubernetes-clusters-on-azure-stack-hub-with-aks-engine"></a>Selbstverwaltete Kubernetes-Cluster in Azure Stack Hub mit AKS-Engine
 
-IaaS-Cloudkomponenten (Infrastructure-as-a-Service), z. B. Compute- oder Netzwerkkomponenten, bieten Benutzern auf niedriger Ebene Zugriff auf Steuerelemente und Anpassungsoptionen. Die AKS-Engine ermöglicht dem Benutzer, Kubernetes-Cluster mit transparentem Einsatz dieser IaaS-Komponenten einzurichten; Benutzer können auf alle Aspekte ihrer Bereitstellungen zugreifen und sie beeinflussen.
+IaaS-Cloudkomponenten (Infrastructure-as-a-Service), z. B. Compute- oder Netzwerkkomponenten, bieten Benutzern auf niedriger Ebene Zugriff auf Steuerelemente und Anpassungsoptionen. Die AKS-Engine ermöglicht es dem Benutzer, Kubernetes-Cluster mit transparenter Nutzung dieser IaaS-Komponenten einzurichten, damit Benutzer auf alle Aspekte ihrer Bereitstellungen zugreifen und sie beeinflussen können.
 
-Wenn ein Cluster erstellt wird, definiert der Kunde die Master- und Workerknoten von Kubernetes, die von der AKS-Engine erstellt werden. Auf diesen Knoten werden Kundenworkloads ausgeführt. Kunden sind die Besitzer der Master- und Workerknoten und können sie anzeigen oder ändern. Sorglos geänderte Knoten können zu Daten- und Workloadverlusten führen und dazu, dass der Cluster nicht mehr funktioniert. Außerdem überschreiben AKS-Engine-Vorgänge, wie z. B. Upgrade oder Skalierung, alle außerhalb des zulässigen Bereichs liegenden Änderungen. Wenn der Cluster z. B. über statische Pods verfügt, werden diese nach einem Upgradevorgang der AKS-Engine nicht beibehalten.
+Wenn ein Cluster erstellt wird, definiert der Kunde die Master- und Workerknoten von Kubernetes, die von der AKS-Engine erstellt werden. Auf diesen Knoten werden Kundenworkloads ausgeführt. Kunden sind die Besitzer der Master- und Workerknoten und können sie anzeigen oder ändern. Sorglos geänderte Knoten können zu Daten- und Workloadverlusten führen und dazu, dass der Cluster nicht mehr funktioniert. Außerdem überschreiben AKS-Engine-Vorgänge, wie z. B. Upgrade oder Skalierung, alle außerhalb des zulässigen Bereichs liegenden Änderungen. Wenn der Cluster also beispielsweise über statische Pods verfügt, werden diese bei einem Upgradevorgang der AKS-Engine nicht beibehalten.
 
 Da Clusterknoten von Kunden privaten Code ausführen und vertrauliche Daten speichern, kann der Microsoft-Support nur eingeschränkt darauf zugreifen. Der Microsoft-Support kann sich ohne ausdrückliche Genehmigung oder Hilfe des Kunden nicht bei diesen Knoten anmelden, Befehle ausführen oder Protokolle anzeigen.
 
@@ -32,10 +32,10 @@ Microsoft bietet technischen Support für Folgendes:
 
 -  Probleme mit AKS-Engine-Befehlen: bereitstellen, generieren, aktualisieren und skalieren. Das Verhalten des Tools in Azure sollte konsistent sein.
 -  Probleme mit einem gemäß der [Übersicht über die AKS-Engine](azure-stack-kubernetes-aks-engine-overview.md) bereitgestellten Kubernetes-Cluster.
--  Probleme mit der Konnektivität mit anderen Azure Stack Hub-Diensten 
+-  Probleme mit der Konnektivität mit anderen Azure Stack Hub-Diensten 
 -  Probleme mit der Kubernetes-API-Konnektivität
--  Probleme mit der Funktionalität des Azure Stack Hub-Kubernetes-Anbieters und der Konnektivität mit Azure Resource Manager
--  Probleme mit der von der AKS-Engine generierten Konfiguration nativer Azure Stack Hub-Artefakte wie Lastenausgleichsmodulen, Netzwerksicherheitsgruppen, VNETs, Subnetzen, Netzwerkschnittstellen, Routingtabelle, Verfügbarkeitsgruppen, öffentlichen IP-Adressen, Speicherkonto und VMs 
+-  Probleme mit der Funktionalität des Azure Stack Hub-Kubernetes-Anbieters und der Konnektivität mit Azure Resource Manager
+-  Probleme mit der von der AKS-Engine generierten Konfiguration nativer Azure Stack Hub-Artefakte wie Lastenausgleichsmodulen, Netzwerksicherheitsgruppen, VNETs, Subnetzen, Netzwerkschnittstellen, Routingtabelle, Verfügbarkeitsgruppen, öffentlichen IP-Adressen, Speicherkonto und virtuellen Computern 
 -  Probleme mit Netzwerkleistung und Wartezeit
 -  Probleme mit dem AKS-Basisimage, das von der AKS-Engine in getrennten Bereitstellungen verwendet wird. 
 
@@ -47,7 +47,7 @@ Microsoft bietet für Folgendes keinen technischen Support:
 -  Azure Stack Hub-Kubernetes-Marketplace-Element.
 -  Verwendung der folgenden Optionen und Add-Ons von AKS-Engine zur Clusterdefinition.
     -  Nicht unterstützte Add-Ons:  
-            – AAD-Podidentität  
+            – Azure AD-Podidentität  
             – ACI-Connector  
             – Blobfuse Flex Volume  
             – Automatische Clusterskalierung  
@@ -85,6 +85,7 @@ Microsoft bietet für Folgendes keinen technischen Support:
 -  Drittanbietersoftware. Diese Software kann z. B. Tools für Sicherheitsscans und Netzwerkgeräte oder -software umfassen.
 -  Probleme mit Multi-Cloud- oder Multi-Vendor-Erweiterungen. Microsoft unterstützt z. B. keine Probleme bei der Ausführung einer vereinten Multipublic-Cloudanbieterlösung.
 -  Netzwerkanpassungen, die nicht im Abschnitt [Von der AKS-Engine unterstützte Bereiche](#aks-engine-supported-areas) aufgeführt werden.
+-  In Produktionsumgebungen sollten nur hochverfügbare Kubernetes-Cluster verwendet werden (also Cluster, die mit mindestens drei Mastern und drei Agent-Knoten bereitgestellt wurden). Alles darunter kann in Produktionsbereitstellungen nicht unterstützt werden.
 
 ##  <a name="security-issues-and-patching"></a>Sicherheitsprobleme und -patches
 
@@ -92,9 +93,9 @@ Wenn in einer oder mehreren Komponenten der AKS-Engine oder des Kubernetes-Anbie
 
 ## <a name="kubernetes-marketplace-item"></a>Kubernetes-Marketplace-Element
 
-Benutzer können ein Kubernetes-Marketplace-Element herunterladen, mit dem sie Kubernetes-Cluster indirekt über eine Vorlage im Azure Stack Hub-Benutzerportal mithilfe der AKS-Engine bereitstellen können. Dies ist einfacher als die direkte Verwendung der AKS-Engine. Mit diesem nützlichen Tool können schnell Cluster für Demonstrationen, Tests und Entwicklung eingerichtet werden. Es ist nicht für die Produktion vorgesehen, da es nicht zu der Gruppe von Elementen gehört, für die Microsoft Support bietet.
+Benutzer können ein Kubernetes-Marketplace-Element herunterladen, mit dem sie Kubernetes-Cluster indirekt mithilfe der AKS-Engine über eine Vorlage im Azure Stack Hub-Benutzerportal bereitstellen können. Das ist einfacher als die direkte Verwendung der AKS-Engine. Das Kubernetes-Marketplace-Element ist ein praktisches Tool zur schnellen Einrichtung von Clustern für Demonstrationen, Tests und für die Entwicklung. Es ist nicht für die Produktion vorgesehen, da es nicht zu der Gruppe von Elementen gehört, für die Microsoft Support bietet.
 
-## <a name="preview-features"></a>Previewfunktionen
+## <a name="preview-features"></a>Vorschaufeatures
 
 Für Features und Funktionen, die ausführliche Tests und Benutzerfeedback erfordern, veröffentlicht Microsoft neue Previewfunktionen oder Features hinter einem Featureflag. Betrachten Sie diese Features als Features einer Vorab- oder Betaversion. Previewfunktionen oder Features mit Featureflag sind nicht für die Produktionsumgebung vorgesehen. Kontinuierliche Änderungen an Funktionalität und Verhalten, Fehlerbehebungen und andere Änderungen können zu instabilen Clustern und Downtime führen. Diese Features werden von Microsoft nicht unterstützt.
 

@@ -3,22 +3,22 @@ title: Verwalten von Updates
 description: Hier erfahren Sie, wie Sie Updates in Azure Stack Hub verwalten.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 07/16/2020
 ms.author: sethm
-ms.lastreviewed: 09/10/2019
+ms.lastreviewed: 07/16/2020
 ms.reviewer: niy
-ms.openlocfilehash: a2fadeaf7700b08f2fab70f882f5f6c1fc03f48f
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: b5aa356cfdb77cac5609b7e835add0d32a8e26cf
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487514"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88073855"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Verwalten von Updates in Azure Stack Hub
 
 Mit vollständigen Updates und Express-Updates, Hotfixes sowie Treiber- und Firmwareupdates vom Originalgerätehersteller (Original Equipment Manufacturer, OEM) kann Azure Stack Hub auf dem aktuellen Stand gehalten werden. In diesem Artikel werden die unterschiedlichen Arten von Updates und die voraussichtlichen Veröffentlichungstermine beschrieben, und Sie erfahren, wo Sie weitere Informationen zum aktuellen Release erhalten.
 
-> [!Note]  
+> [!NOTE]  
 > Sie können Azure Stack Hub-Updatepakete nicht auf das Azure Stack Development Kit (ASDK) anwenden. Die Updatepakete sind für integrierte Systeme vorgesehen. Weitere Informationen finden Sie unter [Erneutes Bereitstellen des ASDK](../asdk/asdk-redeploy.md).
 
 ## <a name="update-package-types"></a>Updatepakettypen
@@ -33,7 +33,9 @@ Es gibt drei Arten von Updatepaketen für integrierte Systeme:
 
     **Express**-Updatepakete sind bereichsbezogen und führen keine Aktualisierung der zugrunde liegenden Betriebssysteme des physischen Hosts durch.
 
-- **Azure Stack Hub-Hotfixes**. Microsoft stellt Hotfixes für Azure Stack Hub zur Verfügung, die ein bestimmtes Problem beheben, das oft präventiv oder zeitkritisch ist. Jeder Hotfix wird mit einem entsprechenden Microsoft Knowledge Base-Artikel veröffentlicht, der das Problem, die Ursache und die Lösung beschreibt. Hotfixes werden wie die regulären Pakete mit vollständigen Updatepaketen für Azure Stack Hub heruntergeladen und installiert. Hotfixes sind kumulativ und können innerhalb von Minuten installiert werden.
+- **Azure Stack Hub-Hotfixes**. Microsoft stellt [Hotfixes für Azure Stack Hub](azure-stack-servicing-policy.md#hotfixes) zur Verfügung, um ein bestimmtes Problem zu beheben, das häufig hinderlich oder zeitkritisch ist. Jeder Hotfix wird mit einem entsprechenden Microsoft Knowledge Base-Artikel veröffentlicht, der das Problem, die Ursache und die Lösung beschreibt. Hotfixes werden wie die regulären Pakete mit vollständigen Updatepaketen für Azure Stack Hub heruntergeladen und installiert. Hotfixes sind kumulativ und können innerhalb von Minuten installiert werden.
+
+   Ab dem Build 2005 werden bei der Aktualisierung auf eine neue Hauptversion (z. B. von 1.2002.x auf 1.2005.x) die aktuellen Hotfixes (sofern verfügbar) in der neuen Hauptversion automatisch installiert. Wenn danach ein Hotfix für Ihren Build veröffentlicht wird, sollten Sie ihn installieren.
 
 - **Updates des OEM-Hardwareanbieters:** Azure Stack Hub-Hardwarepartner sind für den End-to-End-Wartungslebenszyklus (inklusive Leitung) der hardwarebezogenen Firmware- und Treiberupdatepakete verantwortlich. Darüber hinaus obliegt den Azure Stack Hub-Hardwarepartnern die Leitung für die gesamte Software und Hardware des Hardwarelebenszyklus-Hosts. Die OEM-Hardwareanbieter hosten diese Updatepakete auf ihren Downloadwebsites.
 
@@ -43,11 +45,11 @@ Die drei Updatetypen werden im folgenden Rhythmus veröffentlicht:
 
 - **Azure Stack Hub-Softwareupdates**. Microsoft gibt in der Regel jeden Monat Softwareupdatepakete heraus.
 
-- **Azure Stack Hub-Hotfixes**. Hotfixes sind zeitkritische Releases, die jederzeit veröffentlicht werden können.
+- **Azure Stack Hub-Hotfixes**. Hotfixes sind zeitkritische Releases, die jederzeit veröffentlicht werden können. Bei einem Upgrade von einer Hauptversion auf eine andere Hauptversion (etwa von 1.2002.x auf 1.2005.x) werden die aktuellen Hotfixes (sofern verfügbar) in der neuen Hauptversion automatisch installiert.
 
 - **Updates des OEM-Hardwareanbieters**. OEM-Hardwareanbieter veröffentlichen ihre Updates nach Bedarf.
 
-Um weiterhin Support zu erhalten, muss Ihre Azure Stack Hub-Umgebung eine unterstützte Azure Stack Hub-Softwareversion aufweisen. Weitere Informationen finden Sie in der [Azure Stack Hub-Wartungsrichtlinie](azure-stack-update-servicing-policy.md).
+Um weiterhin Support zu erhalten, muss Ihre Azure Stack Hub-Umgebung eine unterstützte Azure Stack Hub-Softwareversion aufweisen. Weitere Informationen finden Sie in der [Azure Stack Hub-Wartungsrichtlinie](azure-stack-servicing-policy.md).
 
 ## <a name="how-to-know-an-update-is-available"></a>Wie erkenne ich, dass ein Update verfügbar ist?
 
@@ -69,6 +71,8 @@ Ein Update von einer Hauptversion auf eine Hauptversion muss Schritt für Schrit
 
 Wenn Ihre Azure Stack Hub-Umgebung beispielsweise 1908.x ist, und die neueste verfügbare Updateversion ist 2002.x, sollten Sie von 1908 auf 1910 aktualisieren und dann auf 2002.
 
+Ab dem Build 2005 werden bei der Aktualisierung auf eine neue Hauptversion (z. B. von 1.2002.x auf 1.2005.x) die aktuellen Hotfixes (sofern verfügbar) in der neuen Hauptversion automatisch installiert.
+
 ### <a name="hotfixes-within-major-versions"></a>Hotfixes innerhalb von Hauptversionen
 
 Innerhalb derselben Hauptversionsnummer kann Azure Stack Hub mehrere Hotfixes freigeben. Hotfixes sind kumulativ. Das neueste Hotfixpaket enthält alle früheren Hotfixes für diese Version. Weitere Informationen finden Sie unter [Hotfixes](azure-stack-servicing-policy.md#hotfixes).
@@ -81,7 +85,7 @@ Wenn Sie wissen, dass ein Update verfügbar ist, können Sie es mit den folgende
 
 1. **Planen des Updates**
 
-    Bereiten Sie Ihre Azure Stack Hub-Instanz vor, um den Aktualisierungsprozess so reibungslos wie möglich zu gestalten, damit die Benutzer nur minimal beeinträchtigt werden. Informieren Sie Ihre Benutzer über mögliche Dienstausfälle, und befolgen Sie dann die Schritte zum Vorbereiten der Instanz auf das Update. Führen Sie unbedingt **ALLE** Schritte in der [Azure Stack Hub-Checkliste für Updateaktivitäten](release-notes-checklist.md) aus, um sicherzustellen, dass Sie die erforderlichen Schritte zum Anwenden eines Updates abgeschlossen haben. Planen Sie darüber hinaus ein entsprechendes Wartungsfenster für den angewendeten Updatetyp.
+    Bereiten Sie Ihre Azure Stack Hub-Instanz vor, um den Aktualisierungsprozess so reibungslos wie möglich zu gestalten, damit die Benutzer nur minimal beeinträchtigt werden. Informieren Sie Ihre Benutzer über mögliche Dienstausfälle, und befolgen Sie dann die Schritte zum Vorbereiten der Instanz auf das Update. Führen Sie unbedingt alle Schritte der [Azure Stack Hub-Checkliste für Updateaktivitäten](release-notes-checklist.md) aus, um sicherzustellen, dass die Voraussetzungen zum Anwenden eines Updates erfüllt sind. Planen Sie darüber hinaus ein entsprechendes Wartungsfenster für den angewendeten Updatetyp.
 
 2. **Hochladen und Vorbereiten des Updatepakets**
 
@@ -93,7 +97,7 @@ Wenn Sie wissen, dass ein Update verfügbar ist, können Sie es mit den folgende
 
 3. **Anwenden des Updates**
 
-    Wenden Sie das Update an, indem Sie in Azure Stack Hub das Blatt **Update** verwenden. Überwachen Sie während des Updatevorgangs den Status, und führen Sie ggf. eine Problembehandlung aus. Weitere Informationen finden Sie unter [Anwenden eines Azure Stack Hub-Updates](azure-stack-apply-updates.md).
+    Wenden Sie das Update über das Blatt **Update** des Azure Stack Hub-Portals an. Überwachen Sie während des Updatevorgangs den Status, und führen Sie ggf. eine Problembehandlung aus. Weitere Informationen finden Sie unter [Anwenden eines Azure Stack Hub-Updates](azure-stack-apply-updates.md).
 
 ## <a name="the-update-resource-provider"></a>Der Updateressourcenanbieter
 

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/10/2019
-ms.openlocfilehash: a02458ba7790fdf48d8b506abfea0e771b8a179e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 06/15/2020
+ms.openlocfilehash: 84a60646a383d83ba2913b268d51f1cd74f214b9
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699421"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88074144"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Integrieren von Azure Stack Hub in Überwachungslösungen mithilfe der Syslog-Weiterleitung
 
@@ -234,6 +234,8 @@ Prefix fields
 * Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <PEP Event ID>
 * Name: <PEP Task Name>
 * Severity: mapped from PEP Level (details see the PEP Severity table below)
+* Who: account used to connect to the PEP
+* WhichIP: IP address of the device used to connect to the PEP
 ```
 
 Tabelle der Ereignisse für den privilegierten Endpunkt:
@@ -271,6 +273,8 @@ Prefix fields
 * Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <REP Event ID>
 * Name: <REP Task Name>
 * Severity: mapped from REP Level (details see the REP Severity table below)
+* Who: account used to connect to the REP
+* WhichIP: IP address of the device used to connect to the REP
 ```
 
 Tabelle der Ereignisse für den Wiederherstellungsendpunkt:
@@ -364,7 +368,7 @@ Tabelle der benutzerdefinierten Erweiterungen für in Azure Stack Hub erstellte 
 
 | Name der benutzerdefinierten Erweiterung | Beispiel | 
 |-----------------------|---------|
-|MasEventDescription|BESCHREIBUNG: Das Benutzerkonto \<TestUser\> wurde für \<TestDomain\> erstellt. Es stellt ein potenzielles Sicherheitsrisiko dar. -- KORREKTUR: Wenden Sie sich an den Support. Die Behebung dieses Problems muss durch den Kundendienst erfolgen. Versuchen Sie nicht, dieses Problem ohne dessen Hilfe zu beheben. Bevor Sie eine Supportanfrage stellen, starten Sie anhand der Anleitung unter https://aka.ms/azurestacklogfiles den Erfassungsprozess für Protokolldateien.
+|MasEventDescription|BESCHREIBUNG: Für \<TestDomain\> wurde ein Benutzerkonto (\<TestUser\>) erstellt. Es stellt ein potenzielles Sicherheitsrisiko dar. – PROBLEMBEHANDLUNG: Wenden Sie sich an den Support. Die Behebung dieses Problems muss durch den Kundendienst erfolgen. Versuchen Sie nicht, dieses Problem ohne dessen Hilfe zu beheben. Bevor Sie eine Supportanfrage stellen, starten Sie anhand der Anleitung unter https://aka.ms/azurestacklogfiles den Erfassungsprozess für Protokolldateien.
 
 ### <a name="cef-mapping-for-alerts-closed"></a>CEF-Zuordnung für Warnungen geschlossen
 

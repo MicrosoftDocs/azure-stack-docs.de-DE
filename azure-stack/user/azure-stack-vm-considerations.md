@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 726c632964e0580a5d55219f161e2bc8d6e679de
-ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
+ms.openlocfilehash: 993fb7a054cd350f0231eeb2108cc5a43ddb3f9e
+ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87397497"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88145436"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Features von Azure Stack Hub-VMs
 
@@ -45,6 +45,7 @@ Azure Stack Hub erzwingt Ressourcengrenzwerte, um einen übermäßigen Ressource
 - Für ausgehenden Netzwerkdatenverkehr des virtuellen Computers gelten Bandbreitenobergrenzen. Die Obergrenzen in Azure Stack Hub sind mit denen in Azure identisch.
 - Für Speicherressourcen implementiert Azure Stack Hub Speicher-IOPS-Grenzwerte (Input/Output Operations Per Second), um den allgemeinen übermäßigen Ressourcenverbrauch für die Speichernutzung durch Mandanten zu vermeiden.
 - Für VM-Datenträger ist Datenträger-IOPS unter Azure Stack Hub keine Funktion des Datenträgertyps, sondern der VM-Größe. Dies bedeutet, dass der IOPS-Grenzwert für einen zweiten Datenträger für einen virtuellen Computer der Standard_Fs-Reihe 2300 IOPS beträgt (unabhängig davon, ob Sie einen Datenträger des Typs SSD oder HDD auswählen).
+- An den virtuellen Computer angefügte temporäre Datenträger sind nicht persistent und können bei Vorgängen auf der Steuerungsebene (also beispielsweise beim Anpassen der Größe oder beim Beenden/Aufheben der Zuordnung) verloren gehen.
 
 Die folgende Tabelle enthält die in Azure Stack Hub unterstützten virtuellen Computer sowie ihre Konfiguration:
 

@@ -3,15 +3,15 @@ title: Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell
 description: Erfahren Sie, wie Sie mithilfe von Windows PowerShell einen hyperkonvergenten Cluster für Azure Stack HCI erstellen.
 author: v-dasis
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ab2edb1dc5650a313ba84af89d0ff386e60f8264
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: e92aa28deadbf334e3cd545e5cd9bc6b0e12e6c4
+ms.sourcegitcommit: 673d9b7cf723bc8ef6c04aee5017f539a815da51
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86868071"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88110467"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell
 
@@ -30,12 +30,14 @@ Für das Stretchingcluster-Szenario verwenden wir ClusterS1 als Namen und ansons
 
 Weitere Informationen zu Stretchingclustern finden Sie unter [Stretchingcluster: Übersicht](../concepts/stretched-clusters.md).
 
+Wenn Sie Azure Stack HCI testen möchten, aber nur wenig oder keine Ersatzhardware haben, lesen Sie den [Evaluierungsleitfaden für Azure Stack HCI](https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md). Dort wird Schritt für Schritt beschrieben, wie Sie Azure Stack HCI mit geschachtelter Virtualisierung in Azure oder auf einem lokalen physischen System ausprobieren können.
+
 ## <a name="before-you-begin"></a>Voraussetzungen
 
 Stellen Sie Folgendes sicher, bevor Sie beginnen:
 
 - Lesen Sie die Hardware- und sonstigen Anforderungen in [Vor dem Bereitstellen von Azure Stack HCI](before-you-start.md).
-- Installieren Sie das Azure Stack HCI-Betriebssystem auf jedem Server im Cluster. Mehr dazu finden Sie unter [Bereitstellen des Azure Stack HCI-Betriebssystems](operating-system.md).
+- Sie haben das Azure Stack HCI-Betriebssystem auf jedem Server im Cluster installiert. Mehr dazu finden Sie unter [Bereitstellen des Azure Stack HCI-Betriebssystems](operating-system.md).
 - Auf jedem Server ist ein Konto vorhanden, das Mitglied der lokalen Administratorgruppe ist.
 - Sie verfügen über Berechtigungen zum Erstellen von Objekten in Active Directory.
 
@@ -58,7 +60,7 @@ Zum Herstellen von Verbindungen mit den Servern müssen Sie zunächst über Netz
 Öffnen Sie PowerShell, und verwenden Sie entweder den vollqualifizierten Domänennamen oder die IP-Adresse des Servers, mit dem Sie eine Verbindung herstellen möchten. Nachdem Sie den folgenden Befehl auf jedem Server (Server1, Server2, Server3, Server4) ausgeführt haben, werden Sie zur Eingabe eines Kennworts aufgefordert:
 
    ```powershell
-   Enter-PSSession -ComputerName Server1 -Credential Server1\Administrator
+   Enter-PSSession -ComputerName "Server1" -Credential "Server1\Administrator"
    ```
 
 Hier sehen Sie ein weiteres Beispiel für den gleichen Vorgang:
@@ -104,7 +106,7 @@ Der nächste Schritt besteht darin, auf jedem Server für den Cluster die erford
 - BitLocker
 - Data Center Bridging (für RoCEv2-Netzwerkadapter)
 - Failoverclustering
-- Dateiserver (für Dateifreigabezeugen oder das Hosten von Dateifreigaben)
+- Dateiserver
 - FS-Datendeduplizierungsmodul
 - Hyper-V
 - RSAT-AD-PowerShell-Modul
@@ -113,7 +115,7 @@ Der nächste Schritt besteht darin, auf jedem Server für den Cluster die erford
 Verwenden Sie für jeden Server den folgenden Befehl:
 
 ```powershell
-Install-WindowsFeature -ComputerName Server1 -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering  -IncludeAllSubFeature -IncludeManagementTools", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica"
+Install-WindowsFeature -ComputerName "Server1" -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica" -IncludeAllSubFeature -IncludeManagementTools
 ```
 
 Um den Befehl auf allen Servern im Cluster zugleich auszuführen, verwenden Sie das folgende Skript, und ändern Sie die Liste der Variablen am Anfang für Ihre Umgebung entsprechend.
@@ -121,11 +123,11 @@ Um den Befehl auf allen Servern im Cluster zugleich auszuführen, verwenden Sie 
 ```powershell
 # Fill in these variables with your values
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica"
+$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica"
 
 # This part runs the Install-WindowsFeature cmdlet on all servers in $ServerList, passing the list of features in $FeatureList.
 Invoke-Command ($ServerList) {
-    Install-WindowsFeature -Name $Using:Featurelist
+    Install-WindowsFeature -Name $Using:Featurelist -IncludeAllSubFeature -IncludeManagementTools
 }
 ```
 Starten Sie anschließend alle Server neu:
@@ -137,7 +139,7 @@ Restart-Computer -ComputerName $ServerList
 
 ## <a name="step-2-configure-networking"></a>Schritt 2: Konfigurieren der Netzwerkeinstellungen
 
-Bei diesem Schritt wird davon ausgegangen, dass Sie RDMA und andere Netzwerke für Ihre Umgebung bereits eingerichtet haben.
+In diesem Schritt werden verschiedene Netzwerkelemente in Ihrer Umgebung konfiguriert.
 
 ### <a name="disable-unused-networks"></a>Deaktivieren nicht verwendeter Netzwerke
 
@@ -155,7 +157,7 @@ Get-NetAdapter -CimSession $Servers | Where-Object Status -eq Disconnected | Dis
 
 ### <a name="assign-virtual-network-adapters"></a>Zuweisen von virtuellen Netzwerkadaptern
 
-Als Nächstes weisen Sie zur Verwaltung und für Ihren restlichen Datenverkehr virtuelle Netzwerkadapter (vNICs) zu, wie hier im Beispiel zu sehen:
+Als Nächstes weisen Sie zur Verwaltung und für Ihren restlichen Datenverkehr virtuelle Netzwerkadapter (vNICs) zu, wie im folgenden Beispiel zu sehen. Sie müssen mindestens einen Netzwerkadapter für die Clusterverwaltung konfigurieren.
 
 ```powershell
 $Servers = "Server1", "Server2", "Server3", "Server4"
@@ -174,7 +176,9 @@ Get-VMNetworkAdapter -CimSession $Servers -ManagementOS
 
 ### <a name="create-virtual-switches"></a>Erstellen virtueller Switches
 
-Für jeden Serverknoten in Ihrem Cluster ist ein virtueller Switch erforderlich. Im folgenden Beispiel wird ein virtueller Switch mit SR-IOV-Funktion mithilfe von verbundenen Netzwerkadaptern erstellt (der Status ist UP). Die aktivierte SR-IOV-Funktion kann nützlich sein, da sie für RDMA-fähige vmNICs (vNICs für VMs) erforderlich ist.
+Für jeden Serverknoten in Ihrem Cluster ist ein virtueller Switch erforderlich. Im folgenden Beispiel wird ein virtueller Switch mit SR-IOV-Funktion mithilfe von verbundenen Netzwerkadaptern erstellt (der Status ist UP). Die aktivierte SR-IOV-Funktion kann auch hilfreich sein, da sie für RDMA-fähige vmNICs (vNICs für VMs) erforderlich ist.
+
+Für das NIC-Teaming müssen alle Netzwerkadapter identisch sein.
 
 ```powershell
 $Servers = "Server1", "Server2", "Server3", "Server4"
@@ -325,7 +329,7 @@ Invoke-Command ($ServerList) {
 In diesem Schritt stellen Sie sicher, dass die Serverknoten ordnungsgemäß für die Erstellung eines Clusters konfiguriert sind. Das Cmdlet `Test-Cluster` wird für Tests verwendet, mit denen überprüft wird, ob Ihre Konfiguration passend ist, um als hyperkonvergenter Cluster zu fungieren. Im Beispiel unten wird der Parameter `-Include` mit Angabe der spezifischen Testkategorien verwendet. Dadurch wird sichergestellt, dass die richtigen Tests in die Überprüfung eingeschlossen werden.
 
 ```powershell
-Test-Cluster -Cluster –Node Server1, Server2, Server3, Server4 –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+Test-Cluster -Cluster –Node "Server1", "Server2", "Server3", "Server4" –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
 ```
 
 ## <a name="step-4-create-the-cluster"></a>Schritt 4: Erstellen des Clusters
@@ -338,13 +342,14 @@ Beim Erstellen des Clusters wird eine Warnung dieses Inhalts angezeigt: `"There 
 > Wenn die Server statische IP-Adressen verwenden, ändern Sie den folgenden Befehl so, dass er die statischen IP-Adressen berücksichtigt, indem Sie den folgenden Parameter hinzufügen und die IP-Adresse angeben: `–StaticAddress <X.X.X.X>;`.
 
 ```powershell
- New-Cluster –Name Cluster1 –Node Server1, Server2, Server3, Server4 –NoStorage
+ New-Cluster –Name "Cluster1" –Node "Server1", "Server2", "Server3", "Server4" –NoStorage
 ```
 
 Herzlichen Glückwunsch, Ihr Cluster wurde soeben erstellt.
 
-> [!NOTE]
-> Nachdem der Cluster erstellt wurde, kann es eine Weile dauern, bis der Clustername repliziert wird. Wenn das Auflösen des Clusters nicht erfolgreich ist, können Sie in den meisten Fällen den Computernamen eines Serverknotens im Cluster anstelle des Clusternamens angeben.
+Nach der Erstellung des Clusters kann es etwas dauern, bis der Clustername in Ihrer Domäne repliziert wurde. Dies gilt insbesondere dann, wenn Active Directory neue Arbeitsgruppenserver hinzugefügt wurden. Auch wenn der Cluster in Windows Admin Center angezeigt wird, ist er möglicherweise noch nicht zum Herstellen einer Verbindung verfügbar.
+
+Falls der Cluster auch nach einiger Zeit nicht erfolgreich aufgelöst werden kann, können Sie in den meisten Fällen anstelle des Clusternamens den Namen eines der gruppierten Server verwenden, um eine Verbindung herzustellen.
 
 ## <a name="step-5-set-up-sites-stretched-cluster"></a>Schritt 5: Einrichten von Standorten (Stretchingcluster)
 
@@ -352,20 +357,20 @@ Diese Aufgabe wird nur ausgeführt, wenn Sie einen Stretchingcluster zwischen zw
 
 ### <a name="step-51-create-sites"></a>Schritt 5.1: Erstellen von Websites
 
-Im Cmdlet unten stellt *FaultDomain* lediglich einen Namen für einen Standort dar. Im Beispiel wird `ClusterS1` als Name des Stretchingclusters verwendet.
+Im Cmdlet unten stellt *FaultDomain* lediglich einen Namen für einen Standort dar. In diesem Beispiel wird „ClusterS1“ als Name des Stretchingclusters verwendet.
 
 ```powershell
-New-ClusterFaultDomain -CimSession ClusterS1 -Type Site -Name Site1
+New-ClusterFaultDomain -CimSession "ClusterS1" -FaultDomainType Site -Name "Site1"
 ```
 
 ```powershell
-New-ClusterFaultDomain -CimSession ClusterS1 -Type Site -Name Site2
+New-ClusterFaultDomain -CimSession "ClusterS1" -FaultDomainType Site -Name "Site2"
 ```
 
 Verwenden Sie das Cmdlet `Get-ClusterFaultDomain`, um zu überprüfen, ob beide Standorte für den Cluster erstellt wurden.
 
 ```powershell
-Get-ClusterFaultDomain
+New-ClusterFaultDomain -CimSession "ClusterS1"
 ```
 
 ### <a name="step-52-assign-server-nodes"></a>Schritt 5.2: Zuweisen von Serverknoten
@@ -373,17 +378,17 @@ Get-ClusterFaultDomain
 Als Nächstes weisen wir die vier Serverknoten ihren jeweiligen Standorten zu. Im Beispiel unten werden Server1 und Server2 Site1 (Standort1), Server3 und Server4 dagegen Site2 (Standort2) zugewiesen.
 
 ```powershell
-Set-ClusterFaultDomain -CimSession ClusterS1 -Name Server1, Server2 -Parent Site1
+Set-ClusterFaultDomain -CimSession "ClusterS1" -Name "Server1", "Server2" -Parent "Site1"
 ```
 
 ```powershell
-Set-ClusterFaultDomain -CimSession ClusterS1 -Name Server3, Server4 -Parent Site2
+Set-ClusterFaultDomain -CimSession "ClusterS1" -Name "Server3", "Server4" -Parent "Site2"
 ```
 
 Überprüfen Sie mithilfe des Cmdlets `Get-ClusterFaultDomain`, ob sich die Knoten an den richtigen Standorten befinden.
 
 ```powershell
-Get-ClusterFaultDomain -CimSession ClusterS1
+Get-ClusterFaultDomain -CimSession "ClusterS1"
 ```
 
 ### <a name="step-53-set-a-preferred-site"></a>Schritt 5.3: Festlegen eines bevorzugten Standorts
@@ -391,7 +396,7 @@ Get-ClusterFaultDomain -CimSession ClusterS1
 Sie können auch einen global *bevorzugten* Standort definieren, was bedeutet, dass die angegebenen Ressourcen und Gruppen an dem bevorzugten Standort ausgeführt werden müssen.  Diese Einstellung kann mit dem folgenden Befehl auf Standortebene festgelegt werden:  
 
 ```powershell
-(Get-Cluster).PreferredSite = Site1
+(Get-Cluster).PreferredSite = "Site1"
 ```
 
 Die Angabe eines bevorzugten Standorts für Stretchingcluster bietet die folgenden Vorteile:
@@ -431,20 +436,20 @@ Bei Stretchingclustern führt das Cmdlet `Enable-ClusterStorageSpacesDirect` au�
 Mit dem folgenden Befehl wird Direkte Speicherplätze aktiviert. Sie können außerdem einen Anzeigenamen für einen Speicherpool angeben, wie hier gezeigt:
 
 ```powershell
-New-CimSession -Cluster Cluster1 | Enable-ClusterStorageSpacesDirect -PoolFriendlyName 'Cluster1 Storage Pool'
+$session = New-CimSession -Cluster "Cluster1" | Enable-ClusterStorageSpacesDirect -PoolFriendlyName "Cluster1 Storage Pool"
 ```
 
 Verwenden Sie diesen Befehl, um die Speicherpools anzuzeigen:
 
 ```powershell
-Get-StoragePool -Cluster Cluster1
+Get-StoragePool -CimSession $session
 ```
 
 Herzlichen Glückwunsch, Sie haben nun einen Barebonescluster erstellt.
 
 ## <a name="after-you-create-the-cluster"></a>Nach dem Erstellen des Clusters
 
-Jetzt, da Sie die Clustererstellung abgeschlossen haben, gibt es noch einige wichtige Aufgaben, die Sie ausführen müssen, um einen voll funktionsfähigen Cluster zu erhalten:
+Nach Abschluss dieses Vorgangs gibt es noch einige wichtige Aufgaben, die Sie ausführen müssen:
 
 - Einrichten eines Clusterzeugen. Mehr dazu finden Sie unter [Einrichten eines Clusterzeugen](witness.md).
 - Erstellen Ihrer Volumes. Mehr dazu finden Sie unter [Erstellen von Volumes](../manage/create-volumes.md).

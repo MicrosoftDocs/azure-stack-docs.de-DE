@@ -5,14 +5,14 @@ author: mattbriggs
 ms.author: mabrigg
 ms.date: 5/27/2020
 ms.topic: conceptual
-ms.reviewer: xiaofmao
-ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: bc682604e5c57c3a878c7c5dc17a0bfc18e36e60
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.reviewer: jiahan
+ms.lastreviewed: 08/12/2020
+ms.openlocfilehash: fb1165cb78ad14f9fc4d785df9a712e556c53b91
+ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111803"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88145487"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Erste Schritte mit den Azure Stack Hub-Speicherentwicklungstools
 
@@ -27,8 +27,40 @@ Nutzen Sie diesen Artikel als Leitfaden für die ersten Schritte mit den Azure S
 
 Bei den Speicherclientbibliotheken müssen Sie auf die Version achten, die mit der REST-API kompatibel ist. Sie müssen auch den Azure Stack Hub-Endpunkt in Ihrem Code angeben.
 
-::: moniker range=">=azs-1811"
-### <a name="1811-update-or-newer-versions"></a>Update 1811 oder neuere Versionen
+
+::: moniker range=">=azs-2005"
+### <a name="2005-update-or-newer-versions"></a>Update 2005 oder neuere Versionen
+
+| Clientbibliothek | Von Azure Stack Hub unterstützte Version | Link | Endpunktspezifikation |
+|----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| .NET | 11.0.0 | NuGet-Paket:<br>Allgemein: <https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/11.0.0><br>Blob: <https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/11.0.0><br>Queue:<br><https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/11.0.0><br> <br>GitHub-Release:<br><https://github.com/Azure/azure-storage-net/releases/tag/v11.0.0> | app.config-Datei |
+| Java | 12.0.0-preview.3 | Maven-Paket:<br><https://mvnrepository.com/artifact/com.azure/azure-storage-file/12.0.0-preview.3><br> <br>GitHub-Release:<br><https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage> | Verbindungszeichenfolgen-Setup |
+| Node.js | 2.8.3 | NPM-Link:<br><https://www.npmjs.com/package/azure-storage><br>(Ausführung: `npm install azure-storage@2.8.3`)<br> <br>GitHub-Release:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3> | Dienstinstanzdeklaration |
+| C++ | 7.1.0 | GitHub-Release:<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v7.1.0> | Verbindungszeichenfolgen-Setup |
+| PHP | 1.2.0 | GitHub-Release:<br>Allgemein: <https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common><br>Blob: <https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob><br>Queue:<br><https://github.com/Azure/azure-storage-php/releases/tag/v1.1.1-queue><br>Table: <https://github.com/Azure/azure-storage-php/releases/tag/v1.1.0-table><br> <br>Installation über Composer (Weitere Informationen finden Sie [weiter unten](#install-php-client-via-composer---current).) | Verbindungszeichenfolgen-Setup |
+| Python | 2.1.0 | GitHub-Release:<br>Allgemein:<br><https://github.com/Azure/azure-storage-python/releases/tag/v2.1.0-common><br>Blob:<br><https://github.com/Azure/azure-storage-python/releases/tag/v2.1.0-blob><br>Queue:<br><https://github.com/Azure/azure-storage-python/releases/tag/v2.1.0-queue> | Dienstinstanzdeklaration |
+| Ruby | 1.0.1 | RubyGems-Paket:<br>Allgemein:<br><https://rubygems.org/gems/azure-storage-common/versions/1.0.1><br>Blob: <https://rubygems.org/gems/azure-storage-blob/versions/1.0.1><br>Queue: <https://rubygems.org/gems/azure-storage-queue/versions/1.0.1><br>Table: <https://rubygems.org/gems/azure-storage-table/versions/1.0.1><br> <br>GitHub-Release:<br>Allgemein: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common><br>Blob: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob><br>Queue: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue><br>Table: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table> | Verbindungszeichenfolgen-Setup |
+
+#### <a name="install-php-client-via-composer---current"></a>Installation des PHP-Clients per Composer – Aktuell
+
+Installation über Composer: (Verwenden Sie das Blob als Beispiel).
+
+1. Erstellen Sie eine Datei mit dem Namen **composer.json** im Stammverzeichnis des Projekts mit folgendem Code:
+
+    ```json
+    {
+      "require": {
+      "Microsoft/azure-storage-blob":"1.2.0"
+      }
+    }
+    ```
+
+2. Laden Sie [composer.phar](https://getcomposer.org/composer.phar) in das Stammverzeichnis des Projekts herunter.
+3. Führen Sie `php composer.phar install` aus.
+::: moniker-end
+
+::: moniker range=">=azs-1811 <=azs-2005"
+### <a name="previous-versions-1811-to-2002-update"></a>Vorherige Versionen (Update 1811 bis 2002)
 
 | Clientbibliothek | Von Azure Stack Hub unterstützte Version | Link | Endpunktspezifikation |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -172,14 +204,14 @@ AccountKey=mykey;
 EndpointSuffix=local.azurestack.external
 ```
 
-## <a name="blob-storage"></a>Blob Storage
+## <a name="blob-storage"></a>Blobspeicher
 
 Die folgenden Tutorials zu Azure Blob Storage gelten für Azure Stack Hub. Beachten Sie die im vorherigen Abschnitt [Beispiele](#examples) beschriebene bestimmte Endpunktsuffix-Voraussetzung für Azure Stack Hub.
 
 * [Erste Schritte mit Azure Blob Storage mit .NET](/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
-* [Gewusst wie: Verwenden von Blob Storage mit Java](/azure/storage/blobs/storage-java-how-to-use-blob-storage)
+* [Verwenden des Blob-Speichers mit Java](/azure/storage/blobs/storage-java-how-to-use-blob-storage)
 * [Gewusst wie: Verwenden von Blob Storage mit Node.js](/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage)
-* [Verwenden des BLOB-Speichers mit C++](/azure/storage/blobs/storage-c-plus-plus-how-to-use-blobs)
+* [Verwenden des Blob-Speichers mit C++](/azure/storage/blobs/storage-c-plus-plus-how-to-use-blobs)
 * [Gewusst wie: Verwenden von Blob Storage mit PHP](/azure/storage/blobs/storage-php-how-to-use-blobs)
 * [Verwenden von Azure Blob Storage mit Python](/azure/storage/blobs/storage-python-how-to-use-blob-storage)
 * [Gewusst wie: Verwenden von Blob Storage mit Ruby](/azure/storage/blobs/storage-ruby-how-to-use-blob-storage)
@@ -189,19 +221,19 @@ Die folgenden Tutorials zu Azure Blob Storage gelten für Azure Stack Hub. Beach
 Die folgenden Tutorials zu Azure Queue Storage gelten für Azure Stack Hub. Beachten Sie die im vorherigen Abschnitt [Beispiele](#examples) beschriebene bestimmte Endpunktsuffix-Voraussetzung für Azure Stack Hub.
 
 * [Erste Schritte mit Azure Queue Storage mit .NET](/azure/storage/queues/storage-dotnet-how-to-use-queues)
-* [Gewusst wie: Verwenden von Queue Storage mit Java](/azure/storage/queues/storage-java-how-to-use-queue-storage)
-* [Gewusst wie: Verwenden von Queue Storage mit Node.js](/azure/storage/queues/storage-nodejs-how-to-use-queues)
+* [Verwenden des Warteschlangenspeichers mit Java](/azure/storage/queues/storage-java-how-to-use-queue-storage)
+* [How to use Queue storage from Node.js (Verwenden von Queue Storage mit Node.js)](/azure/storage/queues/storage-nodejs-how-to-use-queues)
 * [Verwenden des Warteschlangenspeichers mit C++](/azure/storage/queues/storage-c-plus-plus-how-to-use-queues)
 * [Gewusst wie: Verwenden von Queue Storage mit PHP](/azure/storage/queues/storage-php-how-to-use-queues)
 * [Gewusst wie: Verwenden von Queue Storage mit Python](/azure/storage/queues/storage-python-how-to-use-queue-storage)
 * [Gewusst wie: Verwenden von Queue Storage mit Ruby](/azure/storage/queues/storage-ruby-how-to-use-queue-storage)
 
-## <a name="table-storage"></a>Table Storage
+## <a name="table-storage"></a>Tabellenspeicher
 
 Die folgenden Tutorials zu Azure Table Storage gelten für Azure Stack Hub. Beachten Sie die im vorherigen Abschnitt [Beispiele](#examples) beschriebene bestimmte Endpunktsuffix-Voraussetzung für Azure Stack Hub.
 
 * [Erste Schritte mit Azure Table Storage mit .NET](/azure/cosmos-db/table-storage-how-to-use-dotnet)
-* [Gewusst wie: Verwenden von Table Storage mit Java](/azure/cosmos-db/table-storage-how-to-use-java)
+* [Verwenden des Tabellenspeichers mit Java](/azure/cosmos-db/table-storage-how-to-use-java)
 * [Verwenden des Azure-Tabellenspeichers mit Node.js](/azure/cosmos-db/table-storage-how-to-use-nodejs)
 * [Verwenden des Tabellenspeichers mit C++](/azure/cosmos-db/table-storage-how-to-use-c-plus)
 * [Gewusst wie: Verwenden von Table Storage mit PHP](/azure/cosmos-db/table-storage-how-to-use-php)

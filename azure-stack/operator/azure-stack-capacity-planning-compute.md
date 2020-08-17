@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: dd82a3a9c2b6eff74c8f6823fc37b8767431ca02
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 72bebdc5933f09aef58de25627d8b627d7987bdb
+ms.sourcegitcommit: 17ef9f9119f5fea9782adeefb9a430e6a3a650e6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489231"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88170420"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub-Computekapazität
 
@@ -40,6 +40,10 @@ Da Platzierungsalgorithmen das vorhandene Verhältnis der Überbereitstellung vo
 Es gibt eine neue Überlegung für die genaue Planung von Azure Stack Hub-Kapazität. Mit dem Update 1901 (und jedem künftigen Update) gibt es jetzt ein Limit für die Gesamtanzahl von VMs, die erstellt werden können. Dieses Limit soll temporär sein, um Lösungsinstabilitäten zu vermeiden. Die Ursache des Stabilitätsproblems bei einer höheren Anzahl von VMs wird untersucht, aber es steht kein genauer Zeitplan für die Korrektur fest. Die Anzahl ist nun auf 60 VMs pro Server und auf 700 VMs pro Gesamtlösung begrenzt. Beispielsweise wäre ein Azure Stack Hub-VM-Limit bei 480 Servern 8 (8 * 60). Bei einer Azure Stack Hub-Lösung mit 12 bis 16 Servern läge das Limit bei 700. Dieses Limit wurde unter Berücksichtigung aller Überlegungen hinsichtlich der Computekapazität eingerichtet, z. B. der Resilienzreserve und des CPU-Verhältnisses zwischen virtuell und physisch, die ein Operator bei dem Stamp beibehalten möchte. Weitere Informationen finden Sie in der neuen Version von Capacity Planner.
 
 Falls das VM-Skalierungslimit erreicht wird, werden die folgenden Fehlercodes als Ergebnis zurückgegeben: `VMsPerScaleUnitLimitExceeded` und `VMsPerScaleUnitNodeLimitExceeded`.
+
+## <a name="consideration-for-batch-deployment-of-vms"></a>Überlegungen zur Batchbereitstellung virtueller Computer
+
+In Releases bis einschließlich 2002 konnten mit zwei bis fünf virtuellen Computern pro Batch und einer fünfminütigen Pause zwischen Batches bis zu 700 virtuelle Computer zuverlässig bereitgestellt werden. Mit der Azure Stack Hub-Version 2005 können virtuelle Computer zuverlässig in Batches mit bis zu 50 virtuellen Computern und einer fünfminütigen Pause zwischen Batchbereitstellungen bereitgestellt werden.
 
 ## <a name="considerations-for-deallocation"></a>Überlegungen zur Aufhebung der Zuweisung
 

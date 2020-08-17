@@ -3,16 +3,16 @@ title: Hinzufügen von Knoten einer Skalierungseinheit in Azure Stack Hub
 description: Erfahren Sie, wie Sie Knoten einer Skalierungseinheit in Azure Stack Hub zu Skalierungseinheiten hinzufügen.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 08/03/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: c264e0abc0fdc5a382b83a23158f860a56aea260
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.lastreviewed: 08/03/2020
+ms.openlocfilehash: cc9023e6f7653d13d11a0a63cb65c59840f64ab7
+ms.sourcegitcommit: 952d26ad08fcc28ad3ad83e27644e61497623a44
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772588"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889244"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Hinzufügen zusätzlicher Knoten einer Skalierungseinheit in Azure Stack Hub
 
@@ -51,7 +51,7 @@ Die folgenden Schritte bieten einen allgemeinen Überblick über das Hinzufügen
 
 Zum Hinzufügen neuer Knoten können Sie das Administratorportal oder PowerShell verwenden. Bei diesem Vorgang wird zunächst der neue Knoten zur Skalierungseinheit als verfügbare Computekapazität hinzugefügt, und dann die Speicherkapazität automatisch erweitert. Die Kapazität wird automatisch erweitert, da es sich bei Azure Stack Hub um ein hyperkonvergentes System handelt, in dem *Compute-* und *Speicherressourcen* gemeinsam skaliert werden.
 
-### <a name="use-the-administrator-portal"></a>Verwenden des Administratorportals
+### <a name="administrator-portal"></a>[Administratorportal](#tab/portal)
 
 1. Melden Sie sich beim Azure Stack Hub-Administratorportal als Azure Stack-Operator an.
 2. Navigieren Sie zu **+Ressource erstellen** > **Kapazität** > **Skalierungseinheitknoten**.
@@ -60,7 +60,7 @@ Zum Hinzufügen neuer Knoten können Sie das Administratorportal oder PowerShell
    ![Hinzufügen von Knotendetails](media/azure-stack-add-scale-node/select-node2.png)
  
 
-### <a name="use-powershell"></a>Verwenden von PowerShell
+### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/AzureRM)
 
 Fügen Sie mithilfe des Cmdlets **New-AzsScaleUnitNodeObject** einen Knoten hinzu.  
 
@@ -76,6 +76,23 @@ Bevor Sie eines der folgenden PowerShell-Beispielskripts verwenden, ersetzen Sie
  
   Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```  
+
+### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
+
+Fügen Sie mithilfe des Cmdlets **Add-AzsScaleUnitNode** einen Knoten hinzu.  
+
+Ersetzen Sie vor der Verwendung der folgenden PowerShell-Beispielskripts die Werte *name_of_new_node*, *name_of_scale_unit_cluster* und *BMCIP_address_of_new_node* durch Werte aus Ihrer Azure Stack Hub-Umgebung.
+
+  > [!Note]  
+  > Bei der Benennung eines Knotens müssen Sie den Namen auf weniger als 15 Zeichen beschränken. Außerdem können Sie keinen Namen verwenden, der ein Leerzeichen oder eines der folgenden Zeichen enthält: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
+
+**Hinzufügen eines Knotens:**
+  ```powershell
+  ## Add a single Node 
+    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
+  ```  
+
+---
 
 ## <a name="monitor-add-node-operations"></a>Überwachen des Vorgangs zum Hinzufügen eines Knotens 
 Über das Administratorportal oder PowerShell können Sie den Status des Vorgangs zum Hinzufügen eines Knotens abrufen. Vorgänge zum Hinzufügen eines Knoten können mehrere Stunden oder sogar Tage in Anspruch nehmen.
@@ -120,17 +137,17 @@ Der Status für Skalierungseinheit und Skalierungseinheitknoten kann mit PowerSh
 ## <a name="troubleshooting"></a>Problembehandlung
 Die folgenden Probleme treten häufig beim Hinzufügen eines Knotens auf. 
 
-**Szenario 1:**  Beim Vorgang zum Hinzufügen eines Knotens zur Skalierungseinheit tritt ein Fehler auf, aber mindestens ein Knoten wird mit dem Status „Angehalten“ aufgeführt.  
-- Abhilfe: Verwenden Sie den Reparaturvorgang, um einen oder mehrere Knoten zu reparieren. Es kann immer nur ein einziger Reparaturvorgang gleichzeitig ausgeführt werden.
+**Szenario 1:** Beim Vorgang zum Hinzufügen eines Knotens zur Skalierungseinheit tritt ein Fehler auf, aber mindestens ein Knoten wird mit dem Status „Angehalten“ aufgeführt.  
+- Problemlösung: Verwenden Sie den Reparaturvorgang, um einen oder mehrere Knoten zu reparieren. Es kann immer nur ein einziger Reparaturvorgang gleichzeitig ausgeführt werden.
 
 **Szenario 2:** Ein oder mehrere Skalierungseinheitknoten wurden hinzugefügt, aber die Speichererweiterung war nicht erfolgreich. In diesem Szenario meldet das Objekt des Skalierungseinheitknotens den Status „Wird ausgeführt“, aber die Aufgabe „Speicher wird konfiguriert“ wird nicht gestartet.  
-- Abhilfe: Verwenden Sie den privilegierten Endpunkt, um die Speicherintegrität zu überprüfen, indem Sie das folgende PowerShell-Cmdlet ausführen:
+- Problemlösung: Verwenden Sie den privilegierten Endpunkt, um die Speicherintegrität zu überprüfen, indem Sie das folgende PowerShell-Cmdlet ausführen:
   ```powershell
      Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
   ```
  
 **Szenario 3:** Sie haben eine Warnung erhalten, die darauf hinweist, dass ein Fehler bei der horizontalen Skalierung des Speichers aufgetreten ist.  
-- Abhilfe: In diesem Fall war die Aufgabe der Speicherkonfiguration nicht erfolgreich. Bitte wenden Sie sich bei diesem Problem an den Support.
+- Problemlösung: In diesem Fall war die Aufgabe der Speicherkonfiguration nicht erfolgreich. Bitte wenden Sie sich bei diesem Problem an den Support.
 
 
 ## <a name="next-steps"></a>Nächste Schritte 

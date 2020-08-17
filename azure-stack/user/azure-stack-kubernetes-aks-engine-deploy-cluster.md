@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: c687e704f1e8cb1d0e650dd0e283567a07d96fd2
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 38a362cdc29cac4f0862fe598d9ac29d5f60fd68
+ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566208"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87865148"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub
 
@@ -123,7 +123,7 @@ Fahren Sie mit der Bereitstellung eines Clusters fort:
     | output-directory | kube-rg | Geben Sie den Namen des Verzeichnisses ein, in dem die Ausgabedatei `apimodel.json` sowie andere generierte Dateien enthalten sein sollen. |
     | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie die Dienstprinzipal-GUID ein. Die als Anwendungs-ID identifizierte Client-ID, wenn Ihr Azure Stack Hub-Administrator den Dienstprinzipal erstellt hat. |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie das Dienstprinzipalgeheimnis ein. Sie richten den geheimen Clientschlüssel beim Erstellen Ihres Diensts ein. |
-    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie Ihre Abonnement-ID ein. Weitere Informationen finden Sie unter [Abonnieren von Angeboten](./azure-stack-subscribe-services.md#subscribe-to-an-offer). |
+    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Geben Sie Ihre Abonnement-ID ein. Geben Sie ein Abonnement für den Mandanten an. Bereitstellungen für das administrative Abonnement werden nicht unterstützt.  Weitere Informationen finden Sie unter [Abonnieren von Angeboten](./azure-stack-subscribe-services.md#subscribe-to-an-offer). |
 
     Beispiel:
 

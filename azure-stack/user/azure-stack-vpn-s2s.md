@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/21/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 81608b62ad84a5b26028a80da40bc5a627b231f6
-ms.sourcegitcommit: 7447a9b9312cdae2f5fa13a700be84cd1ffdd456
+ms.openlocfilehash: 88013fbde291d05daa41adf0c65db563c867ff5a
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86302132"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88074297"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurieren einer IPsec/IKE-Richtlinie für Standort-zu-Standort-VPN-Verbindungen
 
@@ -75,7 +75,7 @@ Die folgende Tabelle gibt Aufschluss über die unterstützten Kryptografiealgori
 | IKEv2-Integrität                                      | SHA384, SHA256, SHA1, MD5                                                |
 | DH-Gruppe                                             | ECP384, DHGroup14, DHGroup2, DHGroup1, ECP256 *, DHGroup24*             |
 | IPsec-Verschlüsselung                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, keine |
-| IPsec-Integrität                                      | GCMASE256, GCMAES192, GCMAES128                                          |
+| IPsec-Integrität                                      | GCMAES256, GCMAES192, GCMAES128                                          |
 | PFS-Gruppe                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, PFSMM, Keine                  |
 | QM-SA-Gültigkeitsdauer                                       | (Optional: Wenn kein Wert angegeben wird, werden die Standardwerte verwendet.)<br />                         Sekunden (ganze Zahl; min. 300/Standard: 27.000 Sekunden)<br />                         KB (ganze Zahl; min. 1.024/Standard: 102.400.000 KB) |
 | Datenverkehrsselektor                                     | Richtlinienbasierte Datenverkehrsselektoren werden in Azure Stack Hub nicht unterstützt.         |

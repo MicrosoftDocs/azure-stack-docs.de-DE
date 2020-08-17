@@ -4,24 +4,24 @@ description: Hier finden Sie Informationen zum Vorbereiten der Bereitstellung vo
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: defa210cded7f7911586a91e10d3d028d8624261
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.date: 08/03/2020
+ms.openlocfilehash: fc12f638970e82c293a9143c398892a88049f6cd
+ms.sourcegitcommit: 952d26ad08fcc28ad3ad83e27644e61497623a44
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947111"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889193"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Vor dem Bereitstellen von Azure Stack HCI
 
-> Gilt für: Azure Stack HCI, v20H2
+> Gilt für: Azure Stack HCI, Version 20H2
 
 In dieser Schrittanleitung erfahren Sie Folgendes:
 
 - Ermitteln, ob Ihre Hardware die grundlegenden Anforderungen für einen Azure Stack HCI-Standardcluster (ein Standort) oder einen Azure Stack HCI-Stretchingcluster (zwei Standorte) erfüllt
 - Sicherstellen, dass die maximal unterstützten Hardwarespezifikationen nicht überschritten werden
 - Erfassen der erforderlichen Informationen für eine erfolgreiche Bereitstellung
-- Installieren von Windows Admin Center auf einem Verwaltungscomputer
+- Installieren von Windows Admin Center auf einem Verwaltungscomputer oder Server
 
 ## <a name="determine-hardware-requirements"></a>Ermitteln der Hardwareanforderungen
 
@@ -41,7 +41,13 @@ Microsoft empfiehlt den Erwerb einer validierten Azure Stack HCI-Hardware-/Softw
 
 ### <a name="networking-requirements"></a>Netzwerkanforderungen
 
-Ein Azure Stack HCI-Cluster erfordert eine Netzwerkverbindung mit hoher und zuverlässiger Bandbreite sowie geringer Latenz zwischen den einzelnen Serverknoten. Zwischen den Serverknoten finden unterschiedliche Arten von Kommunikation statt:
+Ein Azure Stack HCI-Cluster erfordert eine Netzwerkverbindung mit hoher und zuverlässiger Bandbreite sowie geringer Latenz zwischen den einzelnen Serverknoten. Überprüfen Sie Folgendes:
+
+- Vergewissern Sie sich, dass mindestens ein Netzwerkadapter verfügbar und für die Clusterverwaltung dediziert ist.
+- Vergewissern Sie sich, dass physische Switches in Ihrem Netzwerk so konfiguriert sind, dass sie Datenverkehr für beliebige VLANs zulassen, die Sie verwenden möchten.
+
+
+Zwischen den Serverknoten finden unterschiedliche Arten von Kommunikation statt:
 
 - Clusterkommunikation (Knotenbeitritte, Clusterupdates, Registrierungsupdates)
 - Taktinformationen des Clusters
@@ -163,10 +169,13 @@ Sammeln Sie zur Vorbereitung der Bereitstellung die folgenden Informationen zu I
 - **Statische IP-Adressen**: Azure Stack HCI erfordert statische IP-Adressen für den Speicher- und Workloaddatenverkehr (VM) und unterstützt keine dynamische Zuweisung von IP-Adressen durch DHCP für dieses Hochgeschwindigkeitsnetzwerk. Sie können DHCP für den Verwaltungsnetzwerkadapter verwenden. Falls Sie jedoch zwei Adapter in einer Teamkonfiguration einsetzen, müssen Sie wieder statische IP-Adressen verwenden. Fragen Sie Ihren Netzwerkadministrator nach den IP-Adressen, die Sie für die einzelnen Server im Cluster verwenden sollten.
 - **RDMA-Netzwerkfunktionen**: Es gibt zwei Arten von RDMA-Protokollen: iWARP und RoCE. Informieren Sie sich darüber, welches Protokoll Ihre Netzwerkadapter verwenden. Wenn es sich um RoCE handelt, beachten Sie auch die Version (v1 oder v2). Im Fall von RoCE müssen Sie auch das Modell Ihres Top-of-Rack-Switchs beachten.
 - **VLAN-ID**: Informieren Sie sich über die VLAN-ID, die für die Netzwerkserver auf den Servern verwendet werden soll (sofern vorhanden). Diese Informationen sollten Sie von Ihrem Netzwerkadministrator erhalten.
+- **Standortnamen:** Bei Stretchingclustern werden zwei Standorte für die Notfallwiederherstellung verwendet. Standorte können mithilfe von Active Directory Domain Services oder automatisch vom Clustererstellungs-Assistenten eingerichtet werden. Wenden Sie sich im Zusammenhang mit der Einrichtung von Standorten an Ihren Domänenadministrator. Weitere Informationen finden Sie unter [Active Directory Domain Services – Übersicht](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 ## <a name="install-windows-admin-center"></a>Installieren von Windows Admin Center
 
-Windows Admin Center ist eine lokal bereitgestellte, browserbasierte App zum Verwalten von Azure Stack HCI. Die einfachste Möglichkeit zum [Installieren von Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install) ist die Verwendung eines lokalen Verwaltungscomputers, die Installation auf einem Server ist jedoch ebenfalls möglich.
+Windows Admin Center ist eine lokal bereitgestellte, browserbasierte App zum Verwalten von Azure Stack HCI. Die einfachste Möglichkeit zum [Installieren von Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install) ist die Verwendung eines lokalen Verwaltungscomputers (Desktopmodus). Die Installation auf einem Server (Dienstmodus) ist jedoch ebenfalls möglich.
+
+Bei der Installation von Windows Admin Center auf einem Server muss für Aufgaben, die CredSSP erfordern (etwa Clustererstellung sowie Installation von Updates und Erweiterungen), ein Konto verwendet werden, das der Gatewayadministratorgruppe auf dem Windows Admin Center-Server angehört. Weitere Informationen finden Sie in den ersten beiden Abschnitten des Artikels [Konfigurieren der Benutzerzugriffssteuerung und von Berechtigungen](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

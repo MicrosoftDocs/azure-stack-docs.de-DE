@@ -6,14 +6,14 @@ author: mattbriggs
 ms.topic: conceptual
 ms.date: 5/27/2020
 ms.author: mabrigg
-ms.reviwer: xiaofmao
-ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: 6ca925e0571d295c13d0a32d71131b176b686838
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.reviwer: jiahan
+ms.lastreviewed: 08/12/2020
+ms.openlocfilehash: 3f4ed6bd83414d158ef80996cadf024653956d38
+ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567619"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88145385"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub-Speicher: Unterschiede und Überlegungen
 
@@ -57,8 +57,11 @@ Die folgenden Versionen werden für Azure Stack Hub-Speicher unterstützt:
 
 Azure Storage-Dienst-APIs:
 
-Update 1811 oder neuere Versionen:
+Update 2005 oder neuere Versionen:
 
+- [2019-02-02](/rest/api/storageservices/version-2019-02-02)
+- [2018-11-09](/rest/api/storageservices/version-2018-11-09)
+- [2018-03-28](/rest/api/storageservices/version-2018-03-28)
 - [2017-11-09](/rest/api/storageservices/version-2017-11-09)
 - [2017-07-29](/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](/rest/api/storageservices/version-2017-04-17)
@@ -69,6 +72,8 @@ Update 1811 oder neuere Versionen:
 
 Vorherige Versionen:
 
+- [2017-11-09](/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](/rest/api/storageservices/version-2015-12-11)

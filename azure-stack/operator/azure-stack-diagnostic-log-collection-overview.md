@@ -3,41 +3,58 @@ title: Diagnoseprotokollsammlung in Azure Stack Hub
 description: Erfahren Sie mehr über die Diagnoseprotokollsammlung in Azure Stack Hub – Hilfe und Support.
 author: justinha
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 05/11/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: f7d9335e612387a780e002a2fe3d070436a10c5a
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 05/11/2020
+ms.openlocfilehash: c924c5a48337106c08d1112328c32c031d7371bc
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488976"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88074235"
 ---
 # <a name="diagnostic-log-collection-in-azure-stack-hub"></a>Diagnoseprotokollsammlung in Azure Stack Hub
 
-::: moniker range=">= azs-2002"
 
 Bei Azure Stack Hub handelt es sich um eine umfangreiche Sammlung von Windows-Komponenten und lokalen Azure-Diensten, die miteinander interagieren. Von allen diesen Komponenten und Diensten werden jeweils eigene Protokolle generiert. Daher haben wir eine nahtlose Umgebung für die Sammlung von Diagnoseprotokollen bereitgestellt, um eine effiziente Problemdiagnose durch den Microsoft-Support zu ermöglichen.
 
 Die Sammlung von Diagnoseprotokollen in **Hilfe und Support**  unterstützt Operatoren bei der schnellen Sammlung und Weitergabe von Diagnoseprotokollen an den Microsoft-Support über eine einfache Benutzeroberfläche ohne PowerShell. Protokolle werden auch gesammelt, wenn andere Infrastrukturdienste ausgefallen sind.  
 
-Es wird empfohlen, diesen Ansatz für die Protokollsammlung zu verwenden und nur dann auf einen [privilegierten Endpunkt (PEP)](azure-stack-get-azurestacklog.md) zurückzugreifen, wenn das Administratorportal oder das Blatt **Hilfe und Support** nicht verfügbar ist.
+Die Sammlung von Diagnoseprotokollen in „Hilfe und Support“ unterstützt Operatoren bei der schnellen Sammlung und Weitergabe von Diagnoseprotokollen an den Microsoft-Kundendienst (Customer Support Services, CSS) über eine einfache Benutzeroberfläche ohne PowerShell. Protokolle werden auch gesammelt, wenn andere Infrastrukturdienste ausgefallen sind.  
+
+::: moniker range=">= azs-2002"
+
+Es wird empfohlen, diesen Ansatz für die Protokollsammlung zu verwenden und nur dann auf einen [privilegierten Endpunkt (PEP)](azure-stack-get-azurestacklog.md) zurückzugreifen, wenn das Administratorportal oder das Blatt „Hilfe und Support“ nicht verfügbar ist. 
 
 >[!NOTE]
->Azure Stack Hub muss registriert sein und über eine Internetverbindung verfügen, um die Diagnoseprotokollsammlung verwenden zu können. Sollte Azure Stack Hub nicht registriert sein, [verwenden Sie den privilegierten Endpunkt (PEP)](azure-stack-get-azurestacklog.md) für die Weitergabe von Protokollen.
+>Azure Stack Hub muss registriert sein, um die Diagnoseprotokollsammlung verwenden zu können. Ist Azure Stack Hub nicht registriert, verwenden Sie [Get-AzureStackLog](azure-stack-get-azurestacklog.md), um Protokolle weiterzugeben. 
 
 ![Optionen für die Diagnoseprotokollsammlung in Azure Stack Hub](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 
 ## <a name="collection-options-and-data-handling"></a>Sammlungsoptionen und Datenverarbeitung
 
-Das Feature für die Sammlung von Diagnoseprotokollen bietet zwei Optionen zum Senden von Protokollen. In der folgenden Tabelle werden die einzelnen Optionen sowie die jeweilige Verarbeitung der Daten erläutert:
+::: moniker-end
+::: moniker range=">= azs-2005"
 
-### <a name="send-logs-proactively"></a>Proaktives Senden von Protokollen
+Azure Stack Hub verfügt (abhängig von der Konnektivität mit Azure) über geeignete Möglichkeiten, um Diagnoseprotokolle zu erfassen, zu speichern und an CSS zu senden. Wenn Azure Stack Hub eine Verbindung mit Azure herstellen kann, empfiehlt es sich, die **proaktive Protokollsammlung** zu aktivieren. Dadurch werden automatisch Diagnoseprotokolle in ein von Microsoft gesteuertes Speicherblob in Azure hochgeladen, wenn eine kritische Warnung ausgelöst wird. Alternativ können Sie Protokolle mithilfe der Option zum **sofortigen Senden von Protokollen** bei Bedarf erfassen oder Protokolle lokal speichern, wenn keine Verbindung zwischen Azure Stack Hub und Azure besteht. 
+
+In den folgenden Abschnitten werden die einzelnen Optionen sowie die jeweilige Verarbeitung der Daten erläutert. 
+
+::: moniker-end
+
+::: moniker range="= azs-2002"
+Das Feature für die Sammlung von Diagnoseprotokollen bietet zwei Optionen zum Senden von Protokollen. In den folgenden Abschnitten werden die einzelnen Optionen sowie die jeweilige Verarbeitung der Daten erläutert. 
+::: moniker-end
+
+::: moniker range=">= azs-2002"
+
+## <a name="send-logs-proactively"></a>Proaktives Senden von Protokollen
 
 Die [proaktive Protokollsammlung](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002) optimiert und vereinfacht die Sammlung von Diagnoseprotokollen, damit Kunden vor dem Erstellen einer Supportanfrage Protokolle an Microsoft senden können. Diagnoseprotokolle werden aus Azure Stack Hub proaktiv zur Analyse hochgeladen. Diese Protokolle werden nur gesammelt, wenn eine [Systemintegritätswarnung](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002#proactive-diagnostic-log-collection-alerts) ausgelöst wird, und der Microsoft-Support greift nur im Kontext einer Supportanfrage auf diese Protokolle zu.
 
-#### <a name="how-the-data-is-handled"></a>Datenverarbeitung
+
+### <a name="how-the-data-is-handled"></a>Datenverarbeitung
 
 Sie erklären sich damit einverstanden, dass Microsoft in regelmäßigen Abständen und ausschließlich auf der Grundlage von Azure Stack Hub-Systemintegritätswarnungen automatisch Protokolle gesammelt. Darüber hinaus erklären Sie sich damit einverstanden, dass diese Protokolle in ein von Microsoft verwaltetes und gesteuertes Azure-Speicherkonto hochgeladen und dort aufbewahrt werden.
 
@@ -47,23 +64,38 @@ Der Widerruf Ihrer Einwilligung hat keine Auswirkungen auf Daten, die bereits mi
 
 Mit der **proaktiven Protokollsammlung** gesammelte Protokolle werden in ein von Microsoft verwaltetes und gesteuertes Azure-Speicherkonto hochgeladen. Auf diese Protokolle kann von Microsoft im Kontext einer Supportanfrage sowie zur Verbesserung der Integrität von Azure Stack Hub zugegriffen werden.
 
-### <a name="send-logs-now"></a>Sofortiges Senden von Protokollen
+## <a name="send-logs-now"></a>Sofortiges Senden von Protokollen
 
 Das [sofortige Senden von Protokollen](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) ist eine manuelle Option, bei der Diagnoseprotokolle nur dann aus Azure Stack Hub hochgeladen werden, wenn Sie (als Kunde) die Sammlung initiieren, was in der Regel vor der Erstellung einer Supportanfrage der Fall ist.
 
 Azure Stack-Operatoren können Diagnoseprotokolle bei Bedarf über das Administratorportal oder mit PowerShell an den Microsoft-Support senden. Wenn Azure Stack Hub mit Azure verbunden ist, empfiehlt sich das [sofortige Senden von Protokollen über das Administratorportal](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002), da die Protokolle so am einfachsten direkt an Microsoft gesendet werden können. Ist das Portal nicht verfügbar, sollten Operatoren stattdessen [Protokolle sofort per PowerShell senden](./azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md?view=azs-2002).
 
-Falls Sie über keine Internetverbindung verfügen oder die Protokolle nur lokal speichern möchten, verwenden Sie die Methode [Get-AzureStackLog](azure-stack-get-azurestacklog.md) für den Protokollversand. Das folgende Flussdiagramm zeigt, welche Option jeweils zum Senden von Diagnoseprotokollen verwendet werden muss:
+::: moniker-end
+::: moniker range="= azs-2002"
+Falls Sie über keine Internetverbindung verfügen oder die Protokolle nur lokal speichern möchten, verwenden Sie die Methode [Get-AzureStackLog](azure-stack-get-azurestacklog.md) für den Protokollversand. Das folgende Flussdiagramm zeigt, welche Option jeweils zum Senden von Diagnoseprotokollen verwendet werden muss: 
+::: moniker-end
+
+::: moniker range=">= azs-2002"
 
 ![Flussdiagramm zum sofortigen Senden von Protokollen an Microsoft](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
-#### <a name="how-the-data-is-handled"></a>Datenverarbeitung
+### <a name="how-the-data-is-handled"></a>Datenverarbeitung
 
 Durch Initiieren der Sammlung von Diagnoseprotokollen über Azure Stack Hub erklären Sie sich damit einverstanden, dass diese Protokolle in ein von Microsoft verwaltetes und gesteuertes Azure-Speicherkonto hochgeladen und dort aufbewahrt werden. Der Microsoft-Support kann im Rahmen der Supportanfrage umgehend und ohne weitere Kundeninteraktion hinsichtlich der Protokollsammlung auf diese Protokolle zugreifen.
 
-Die Daten werden ausschließlich für die Problembehandlung im Zusammenhang mit Systemintegritätswarnungen genutzt und ohne Ihre Einwilligung nicht zu Marketing- oder Werbezwecken oder für andere gewerbliche Zwecke verwendet. Die Daten können bis zu 90 Tage aufbewahrt werden, und alle von Microsoft gesammelten Daten werden im Einklang mit unseren [üblichen Datenschutzprinzipien](https://privacy.microsoft.com/) verarbeitet.
+::: moniker-end
 
-Protokolle, die im Zuge des **sofortigen Sendens von Protokollen** gesammelt werden, werden in einen von Microsoft verwalteten und gesteuerten Speicher hochgeladen. Auf diese Protokolle wird von Microsoft im Kontext einer Supportanfrage sowie zur Verbesserung der Integrität von Azure Stack Hub zugegriffen werden.
+::: moniker range=">= azs-2005"
+
+## <a name="save-logs-locally"></a>Lokales Speichern von Protokollen
+
+Sie können Protokolle in einer lokalen SMB-Freigabe speichern, wenn Azure Stack Hub nicht mit Azure verbunden ist. Geben Sie auf dem Blatt **Einstellungen** den Pfad sowie einen Benutzernamen und ein Kennwort mit Schreibberechtigung für die Freigabe ein. Während eines Supportfalls werden von Microsoft CSS ausführliche Schritte für die Übertragung dieser lokalen Protokolle bereitgestellt.
+
+![Screenshot der Optionen für die Sammlung von Diagnoseprotokollen](media/azure-stack-help-and-support/save-logs-locally.png)
+
+::: moniker-end
+
+::: moniker range=">= azs-2002"
 
 ## <a name="bandwidth-considerations"></a>Bandbreitenaspekte
 

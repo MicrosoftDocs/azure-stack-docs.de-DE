@@ -3,22 +3,53 @@ title: Versionshinweise zum ASDK
 description: Verbesserungen, Fehlerbehebungen und bekannte Probleme im Azure Stack Development Kit (ASDK).
 author: sethmanheim
 ms.topic: article
-ms.date: 04/06/2020
+ms.date: 08/10/2020
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 84a29b2e596f0dc595b89330502345cc7f263533
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 08/10/2020
+ms.openlocfilehash: 6bbbc76acd38984924c454c26204f1edb0d68142
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489996"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88074127"
 ---
 # <a name="asdk-release-notes"></a>Versionshinweise zum ASDK
 
 Dieser Artikel bietet Informationen zu Änderungen, Fehlerbehebungen und bekannten Problemen im Azure Stack Development Kit (ASDK). Wenn Sie nicht sicher sind, welche Version Sie ausführen, [überprüfen Sie sie im Portal](../operator/azure-stack-updates.md).
 
 Abonnieren Sie den ![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS](https://docs.microsoft.com/api/search/rss?search=ASDK+release+notes&locale=en-us#)-Feed, um in Bezug auf Neuerungen im ASDK auf dem Laufenden zu bleiben.
+
+::: moniker range="azs-2005"
+## <a name="build-12005040"></a>Build 1.2005.0.40
+
+### <a name="new-features"></a>Neue Funktionen
+
+- Eine Liste der in diesem Release behobenen Probleme, Änderungen und neuen Features finden Sie in den entsprechenden Abschnitten in den [Azure Stack-Versionshinweisen](../operator/release-notes.md).
+
+### <a name="fixed-and-known-issues"></a>Behobene und bekannte Probleme
+
+- Das Kennwort für das Entschlüsselungszertifikat ist eine neue Option, um das Kennwort für selbstsignierte Zertifikat (PFX-Datei) anzugeben, das den privaten Schlüssel enthält, der zum Entschlüsseln der Sicherungsdaten notwendig ist. Dieses Kennwort ist nur erforderlich, wenn die Sicherung mit einem Zertifikat verschlüsselt ist.
+- Es wurde ein Problem behoben, das dazu führte, dass die Cloudwiederherstellung nicht erfolgreich war, wenn sich das ursprüngliche Kennwort des externen Zertifikats im Quellsystem mit mehreren Knoten geändert hat. 
+- Eine Liste der bekannten Probleme bei Azure Stack in dieser Version finden Sie im Artikel [Bekannte Probleme](../operator/known-issues.md).
+- Beachten Sie, dass verfügbare Hotfixes für Azure Stack nicht für das ASDK gelten.
+
+#### <a name="initial-configuration-fails-in-asdk"></a>Anfängliche Konfiguration im ASDK nicht erfolgreich
+
+- Beim Bereitstellen des ASDK werden möglicherweise die Fehlermeldungen **Status of 'Deployment-Phase0-DeployBareMetal' is 'Error'** (Status von „Deployment-Phase0-DeployBareMetal“: Fehler) und **Status of 'Deployment-InitialSteps' is 'Error'** (Status von „Deployment-InitialSteps“: Fehler) angezeigt.
+
+- Problemumgehung:
+
+1. Öffnen Sie die Datei „C:\CloudDeployment\Roles\PhysicalMachines\Tests\BareMetal.Tests.ps1“ in einem beliebigen Editor mit Zeilenzählung (beispielsweise in PowerShell ISE).
+
+2. Ersetzen Sie die Zeile 822 durch Folgendes:
+
+   ```powershell
+
+   PartNumber = if($_.PartNumber) {$_.PartNumber.Trim()} else {""};
+
+   ```  
+::: moniker-end
 
 ::: moniker range="azs-2002"
 ## <a name="build-12002035"></a>Build 1.2002.0.35
@@ -30,7 +61,9 @@ Abonnieren Sie den ![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS](
 ### <a name="fixed-and-known-issues"></a>Behobene und bekannte Probleme
 
 - Das Kennwort für das Entschlüsselungszertifikat ist eine neue Option, um das Kennwort für selbstsignierte Zertifikat (PFX-Datei) anzugeben, das den privaten Schlüssel enthält, der zum Entschlüsseln der Sicherungsdaten notwendig ist. Dieses Kennwort ist nur erforderlich, wenn die Sicherung mit einem Zertifikat verschlüsselt ist.
+
 - Eine Liste der bekannten Probleme bei Azure Stack in dieser Version finden Sie im Artikel [Bekannte Probleme](../operator/known-issues.md).
+
 - Beachten Sie, dass verfügbare Hotfixes für Azure Stack nicht für das ASDK gelten.
 
 #### <a name="sql-vm-provision-fails-in-asdk"></a>Fehler bei der SQL-VM-Bereitstellung in ASDK
@@ -40,6 +73,7 @@ Abonnieren Sie den ![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS](
 ::: moniker-end
 
 ::: moniker range="azs-1910"
+
 ## <a name="build-11910058"></a>Build 1.1910.0.58
 
 ### <a name="new-features"></a>Neue Funktionen
@@ -57,38 +91,4 @@ Abonnieren Sie den ![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS](
 - Ein Bereitstellungsproblem behoben, bei dem ein langsamer ladender Spoolerdienst das Entfernen einiger Windows-Features verhindert und einen Neustart erfordert hat.
 - Eine Liste der bekannten Probleme bei Azure Stack in dieser Version finden Sie im Artikel [Bekannte Probleme](../operator/known-issues.md).
 - Beachten Sie, dass verfügbare Hotfixes für Azure Stack nicht für das ASDK gelten.
-::: moniker-end
-
-::: moniker range="azs-1908"
-  
-## <a name="build-11908020"></a>Build 1.1908.0.20
-
-### <a name="new-features"></a>Neue Funktionen
-
-- Eine Liste der neuen Funktionen in diesem Release finden Sie [in diesem Abschnitt](../operator/release-notes.md?view=azs-1908#whats-new-2) der Anmerkungen zu dieser Version für Azure Stack.
-
-<!-- ### Changes -->
-
-### <a name="fixed-and-known-issues"></a>Behobene und bekannte Probleme
-
-<!-- - For a list of Azure Stack issues fixed in this release, see [this section](../operator/release-notes.md?view=azs-1908#fixes-1) of the Azure Stack release notes. -->
-- Eine Liste der bekannten Probleme finden Sie [in diesem Abschnitt](../operator/known-issues.md?view=azs-1908).
-- Beachten Sie, dass verfügbare Hotfixes für Azure Stack nicht für das ASDK gelten.
-::: moniker-end
-
-::: moniker range="azs-1907"
-## <a name="build-11907020"></a>Build 1.1907.0.20
-
-### <a name="new-features"></a>Neue Funktionen
-
-- Eine Liste der neuen Funktionen in diesem Release finden Sie [in diesem Abschnitt](../operator/release-notes.md?view=azs-1907#whats-in-this-update) der Anmerkungen zu dieser Version für Azure Stack.
-
-<!-- ### Changes -->
-
-### <a name="fixed-and-known-issues"></a>Behobene und bekannte Probleme
-
-- Wenn Sie VM-Ressourcen unter Verwendung einiger Marketplace-Images erstellen, können Sie die Bereitstellung eventuell nicht abschließen. Zur Umgehung dieses Problems können Sie auf den Link **Vorlage und Parameter herunterladen** auf der Seite **Zusammenfassung** klicken, und dann klicken Sie auf die Schaltfläche **Bereitstellen** auf dem Blatt **Vorlage**.
-- Eine Liste der in dieser Version behobenen Azure Stack-Probleme finden Sie [in diesem Abschnitt](../operator/release-notes.md?view=azs-1907#fixes-3) der Azure Stack-Versionshinweise.
-- Eine Liste der bekannten Probleme finden Sie [in diesem Abschnitt](../operator/known-issues.md?view=azs-1907).
-- Beachten Sie, dass [verfügbare Hotfixes für Azure Stack](../operator/release-notes.md?view=azs-1907#hotfixes-3) nicht auf das Azure Stack ASDK anwendbar sind.
 ::: moniker-end

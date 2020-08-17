@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Hier erhalten Sie Informationen zur Azure Stack Hub-Wartungsrichtlinie und erfahren, wie Sie den unterstützten Zustand eines integrierten Systems aufrechterhalten.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/09/2020
+ms.date: 08/11/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 38fb04f0b3dae557eee18271146312c57347bd89
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 22ba6cd5ae2552541c1eeb67ce38699ca012e640
+ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487854"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88145470"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub-Wartungsrichtlinie
 
@@ -21,9 +21,9 @@ Dieser Artikel beschreibt die Wartungsrichtlinie für integrierte Azure Stack Hu
 
 ## <a name="download-update-packages-for-integrated-systems"></a>Herunterladen der Updatepakete für integrierte Systeme
 
-Microsoft veröffentlicht sowohl vollständige monatliche Updatepakete als auch Hotfixpakete, um spezielle Probleme zu behandeln.
+Microsoft veröffentlicht sowohl vollständige Updatepakete als auch Hotfixpakete, um spezielle Probleme zu behandeln.
 
-Monatliche Updatepakete werden in einem sicheren Azure-Endpunkt gehostet. Sie können sie manuell mithilfe des [Downloadtools für Azure Stack Hub-Updates](https://aka.ms/azurestackupdatedownload) herunterladen. Wenn Ihre Skalierungseinheit verbunden ist, wird das Update automatisch im Administratorportal als **Update verfügbar** angezeigt. Vollständige, monatlich Updatepakete werden bei jeder Veröffentlichung ausführlich dokumentiert. Weitere Informationen zu jedem Release erhalten Sie, wenn Sie im Abschnitt [Updatepaketrelease-Intervall](#update-package-release-cadence) dieses Artikels auf das jeweilige Release klicken.
+Vollständige Updatepakete werden an einem sicheren Azure-Endpunkt gehostet. Sie können sie manuell mithilfe des [Downloadtools für Azure Stack Hub-Updates](https://aka.ms/azurestackupdatedownload) herunterladen. Wenn Ihre Skalierungseinheit verbunden ist, wird das Update automatisch im Administratorportal als **Update verfügbar** angezeigt. Weitere Informationen zu jedem Release erhalten Sie, wenn Sie im Abschnitt [Updatepaketrelease-Intervall](#update-package-release-cadence) dieses Artikels auf das jeweilige Release klicken.
 
 Hotfixupdatepakete werden in demselben sicheren Azure-Endpunkt gehostet. Sie können sie mithilfe der eingebetteten Links in jedem der jeweiligen Hotfix-KB-Artikel herunterladen, z. B. [Azure Stack Hub-Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Ähnlich wie bei den vollständigen, monatlichen Updatepaketen können Azure Stack Hub-Operators die XML-, BIN- und EXE-Dateien herunterladen und mithilfe des Verfahrens unter [Anwenden von Updates in Azure Stack Hub](azure-stack-apply-updates.md) importieren. Azure Stack Hub-Operators mit verbundenen Skalierungseinheiten werden die Hotfixes automatisch im Administratorportal mit der Meldung **Update verfügbar** angezeigt.
 
@@ -45,36 +45,32 @@ Die Dokumentation zur Planung und Verwaltung von Updates sowie zur Ermittlung Ih
 
 Informationen zu einem bestimmten Update und darüber, wie sie es herunterladen, finden Sie in den Versionshinweisen zu diesem Update:
 
-- [Azure Stack Hub 2002-Update](./release-notes.md?view=azs-2002)
-- [Azure Stack Hub 1910-Update](./release-notes.md?view=azs-1910)
-- [Azure Stack Hub 1908-Update](./release-notes.md?view=azs-1908)
-- [Azure Stack Hub 1907-Update](./release-notes.md?view=azs-1907)
+- [Azure Stack Hub 2005-Update](/azure-stack/operator/release-notes?view=azs-2005)
+- [Azure Stack Hub 2002-Update](/azure-stack/operator/release-notes?view=azs-2002)
+- [Azure Stack Hub 1910-Update](/azure-stack/operator/release-notes?view=azs-1910)
 
 ## <a name="hotfixes"></a>Hotfixes
 
-Gelegentlich stellt Microsoft Hotfixes für Azure Stack Hub zur Verfügung, um Probleme präventiv oder zeitnah zu beheben. Jeder Hotfix wird mit einem entsprechenden Microsoft Knowledge Base-Artikel veröffentlicht, der die in dem Hotfix behandelten Probleme detailliert beschreibt.
+Gelegentlich stellt Microsoft Hotfixes für Azure Stack Hub zur Verfügung, um Probleme präventiv oder zeitnah zu beheben. Jeder Hotfix wird mit einem entsprechenden Microsoft KB-Artikel (Knowledge Base) veröffentlicht, der die in dem Hotfix behandelten Probleme detailliert beschreibt.
 
-Hotfixes werden wie die regulären Pakete mit vollständigen Updates für Azure Stack Hub heruntergeladen und installiert. Im Gegensatz zu einem vollständigen Update können Hotfixes jedoch innerhalb von Minuten installiert werden. Azure Stack Hub-Operators wird empfohlen, die Wartungsfenster bei der Installation von Hotfixes festzulegen. Hotfixes aktualisieren die Version Ihrer Azure Stack Hub-Cloud, sodass Sie leicht feststellen können, ob der Hotfix angewendet wurde. Für jede Version von Azure Stack Hub, die noch unterstützt wird, wird ein separater Hotfix bereitgestellt. **Jeder Hotfix für eine bestimmte Iteration ist kumulativ und enthält die vorherigen Hotfixes für dieselbe Version.** Wenn Sie mehr über die Anwendbarkeit eines bestimmten Hotfixes erfahren möchten, lesen Sie den entsprechenden Knowledge Base-Artikel. Siehe die Links mit den Versionshinweisen im vorherigen Abschnitt.
+Ab dem Build 2005 werden bei der Aktualisierung auf eine neue Hauptversion (z. B. von 1.2002.x auf 1.2005.x) die aktuellen Hotfixes (sofern verfügbar) in der neuen Hauptversion automatisch installiert. Wenn danach ein Hotfix für Ihren Build veröffentlicht wird, sollten Sie ihn installieren.
+
+Hotfixes werden wie die regulären Pakete mit vollständigen Updates für Azure Stack Hub heruntergeladen und installiert. Im Gegensatz zu einem vollständigen Update können Hotfixes jedoch innerhalb von Minuten installiert werden. Azure Stack Hub-Operators wird empfohlen, die Wartungsfenster bei der Installation von Hotfixes festzulegen. Hotfixes aktualisieren die Version Ihrer Azure Stack Hub-Cloud, sodass Sie leicht feststellen können, ob der Hotfix angewendet wurde. Für jede Version von Azure Stack Hub, die noch unterstützt wird, wird ein separater Hotfix bereitgestellt. **Jeder Hotfix für eine bestimmte Iteration ist kumulativ und enthält die vorherigen Hotfixes für dieselbe Version.** Wenn Sie mehr über die Anwendbarkeit eines bestimmten Hotfixes erfahren möchten, lesen Sie den entsprechenden KB-Artikel. Siehe die Links mit den Versionshinweisen im vorherigen Abschnitt.
 
 Informationen zu den derzeit verfügbaren Hotfixes finden Sie in den Versionshinweisen für das jeweilige Update:
 
-- [Azure Stack Hub 2002-Hotfix](./release-notes.md?view=azs-2002#hotfixes)
-- [Azure Stack Hub 1910-Hotfix](./release-notes.md?view=azs-1910#hotfixes-1)
-- [Azure Stack Hub 1908-Hotfix](./release-notes.md?view=azs-1908#hotfixes-2)
-- [Azure Stack Hub 1907-Hotfix](./release-notes.md?view=azs-1907#hotfixes-3)
+- [Azure Stack Hub 2005-Hotfix](/azure-stack/operator/release-notes?view=azs-2005#hotfixes)
+- [Azure Stack Hub 2002-Hotfix](/azure-stack/operator/release-notes?view=azs-2002#hotfixes-1)
+- [Azure Stack Hub 1910-Hotfix](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-2)
 
 ## <a name="keep-your-system-under-support"></a>Halten Sie den Support für Ihr System aufrecht
 
-::: moniker range="azs-2002"
-
 > [!IMPORTANT]  
-> Mit dem Azure Stack Hub 2002-Update erweitert Microsoft vorübergehend Ihre Azure Stack Hub-Supportrichtlinienanweisungen. Wir arbeiten weltweit mit Kunden zusammen, die auf COVID-19 reagieren. In diesem Zusammenhang müssen die Kunden ggf. wichtige Entscheidungen für ihre Azure Stack Hub-Systeme und deren Aktualisierung und Verwaltung treffen und daher sicherstellen, dass die Geschäftsabläufe in ihrem Rechenzentrum weiterhin normal erfolgen. Zur Unterstützung der Kunden bietet Microsoft eine temporäre Erweiterung zur Änderung der Supportrichtlinien an, die die drei letzten Updateversionen umfasst. In diesem Rahmen werden das neu veröffentlichte Update 2002 sowie die drei letzten Updateversionen (z. B. 1910, 1908 und 1907) unterstützt.
-
-::: moniker-end
+> Mit dem [Release 2002](release-notes.md?view=azs-2002) von Azure Stack Hub und zur Unterstützung unserer Kunden auf der ganzen Welt, die auf COVID-19 reagieren und ggf. wichtige Entscheidungen für ihre Azure Stack Hub-Systeme treffen, hat Microsoft seine Supportrichtlinie vorübergehend um drei frühere Updateversionen (N-3) erweitert. Mit dem Release 2005 setzen wir diese Erweiterung für weitere 45 Tage fort (bis zum 25. September 2020). In diesem Rahmen werden das neu veröffentlichte Update 2005 sowie die drei letzten Updateversionen (2002, 1910 und 1908 bzw. N-3) unterstützt. Nach diesen 45 Tagen (nach dem 25. September 2020) kehren wir zu unserer Standardsupportrichtlinie zurück, sodass dann die Versionen 2005, 2002 und 1910 bzw. N-2 unterstützt werden.
 
 Damit die Azure Stack Hub-Instanz auch weiterhin unterstützt wird, muss diese die zuletzt veröffentlichte Updateversion oder eine der beiden vorherigen Updateversionen ausführen.
 
-Hotfixes werden nicht als Updatehauptversionen angesehen. Wenn die Version der Azure Stack Hub-Instanz *mehr als zwei Updates* zurückliegt, wird sie als nicht konform eingestuft. Sie müssen mindestens auf die niedrigste unterstützte Version aktualisieren, um Support zu erhalten.
+Hotfixes werden nicht als Updatehauptversionen angesehen. Wenn die Version der Azure Stack Hub-Instanz mehr als zwei Updates zurückliegt, wird sie als nicht konform eingestuft. Sie müssen mindestens auf die niedrigste unterstützte Version aktualisieren, um Support zu erhalten.
 
 Beispiel: Wenn die neueste verfügbare Updateversion 1904 ist und die beiden vorherigen Updatepakete die Versionen 1903 und 1902 waren, besteht für 1902 und 1903 weiterhin Support. Allerdings gibt es für 1901 keinen Support mehr. Die Richtlinie gilt, wenn es für einen oder zwei Monate kein Release gab. Beispiel: Wenn die aktuelle Version 1807 ist und es keine Version 1806 gab, besteht für die vorherigen beiden Updatepakete 1805 und 1804 weiterhin Support.
 
