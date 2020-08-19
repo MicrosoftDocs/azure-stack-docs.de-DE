@@ -100,6 +100,8 @@
       href: concepts/choose-drives.md
     - name: Planen von Volumes
       href: concepts/plan-volumes.md
+    - name: Softwaredefiniertes Netzwerk
+      href: concepts/software-defined-networking.md
     - name: Grundlegendes zum Cache
       href: concepts/cache.md
     - name: Fehlertoleranz und Speichereffizienz
