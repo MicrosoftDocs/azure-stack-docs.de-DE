@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 772871cffa3d5394d1d8b939fa22ae91bc90d4ac
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: e0c152f3c541b3bc2dad042ae88f162b539cec60
+ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "80423900"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88564801"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Erstellen eines Dienstangebots für Benutzer in Azure Stack Hub
 
@@ -133,7 +133,7 @@ Bei der Angebotserstellung erstellen Sie sowohl ein Angebot als auch einen Plan.
 1. Melden Sie sich mit einem Cloudadministratorkonto beim Administratorportal an.
 
     - Bei einem integrierten System variiert die URL je nach Region und dem externen Domänennamen des Betreibers und hat das Format `https://adminportal.<region>.<FQDN>`.
-    - Wenn Sie das Azure Stack Development Kit verwenden, lautet die URL <https://adminportal.local.azurestack.external>.
+    - Wenn Sie das Azure Stack Development Kit verwenden, lautet die URL `https://adminportal.local.azurestack.external`.
 
     Wählen Sie dann **+ Ressource erstellen** > **Angebote + Pläne** > **Angebot** aus.
 

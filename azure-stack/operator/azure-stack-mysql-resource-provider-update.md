@@ -3,16 +3,16 @@ title: Aktualisieren des MySQL-Ressourcenanbieters in Azure Stack Hub
 description: Erfahren Sie, wie Sie den MySQL-Ressourcenanbieter in Azure Stack Hub aktualisieren können.
 author: bryanla
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 909927d82953cb21c8665afcb45c82131675c2e4
-ms.sourcegitcommit: c1f48c19c8a9c438fd22298bc570c12a9b19bb45
+ms.openlocfilehash: 3e508523230fa1beb072652d86f5cb6a07adb835
+ms.sourcegitcommit: eb9ec6bab69543c63d6e51b37387cc80ecb7be87
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86410572"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612281"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Aktualisieren des MySQL-Ressourcenanbieters in Azure Stack Hub
 
@@ -109,14 +109,14 @@ $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
 
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
-.$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
--VMLocalCredential $vmLocalAdminCreds ` 
--CloudAdminCredential $cloudAdminCreds ` 
--PrivilegedEndpoint $privilegedEndpoint ` 
--AzureEnvironment $AzureEnvironment ` 
--DefaultSSLCertificatePassword $PfxPass ` 
--DependencyFilesLocalPath $tempDir\cert ` 
--AcceptLicense 
+.$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
+-VMLocalCredential $vmLocalAdminCreds `
+-CloudAdminCredential $cloudAdminCreds `
+-PrivilegedEndpoint $privilegedEndpoint `
+-AzureEnvironment $AzureEnvironment `
+-DefaultSSLCertificatePassword $PfxPass `
+-DependencyFilesLocalPath $tempDir\cert `
+-AcceptLicense
 ```  
 
 Wenn das Updateskript für den Ressourcenanbieter ausgeführt ist, schließen Sie die aktuelle PowerShell-Sitzung.

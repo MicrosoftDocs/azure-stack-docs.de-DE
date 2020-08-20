@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: sranthar
-ms.openlocfilehash: ef2813c34bd089ef1bb429ba704e02faa06005be
-ms.sourcegitcommit: 16ff77f7157e5b04a8cd401b095f7b71f51d5a11
+ms.openlocfilehash: e0ad221764e116bb2b5f73601da3ac6917681ff0
+ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86949626"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88564784"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Vorbereiten eines Azure Stack Hub-Updatepakets
 
@@ -45,7 +45,7 @@ Das Updatepaket für Azure Stack Hub-Updates und -Hotfixes ist für verbundene S
 
 ### <a name="automatic-download-and-preparation-for-update-packages"></a>Automatisches Herunterladen und Vorbereiten von Updatepaketen
 
-Azure Stack Hub-Softwareupdates und -Hotfixes werden auf Systemen mit Internetverbindung mit den **Azure Stack Hub-Endpunkten für automatische Updates** (<https://*.azureedge.net> und <https://aka.ms/azurestackautomaticupdate>) automatisch vorbereitet. Weitere Informationen zum Einrichten der Konnektivität mit den **Azure Stack Hub-Endpunkten für automatische Updates** finden Sie in der Beschreibung der Endpunkte für **Patches und Updates** unter [Azure Stack Hub-Firewallintegration](./azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
+Azure Stack Hub-Softwareupdates und -Hotfixes werden auf Systemen mit Internetverbindung mit den **Azure Stack Hub-Endpunkten für automatische Updates** (`https://*.azureedge.net` und `https://aka.ms/azurestackautomaticupdate`) automatisch vorbereitet. Weitere Informationen zum Einrichten der Konnektivität mit den **Azure Stack Hub-Endpunkten für automatische Updates** finden Sie in der Beschreibung der Endpunkte für **Patches und Updates** unter [Azure Stack Hub-Firewallintegration](./azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
 
 ### <a name="where-to-download-azure-stack-hub-update-packages"></a>Downloadorte von Azure Stack Hub-Updatepaketen
 

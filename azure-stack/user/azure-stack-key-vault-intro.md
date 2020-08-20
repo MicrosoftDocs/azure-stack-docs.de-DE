@@ -3,15 +3,15 @@ title: Einführung in Key Vault in Azure Stack Hub
 description: Erfahren Sie, wie Key Vault Schlüssel und Geheimnisse in Azure Stack Hub verwaltet.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/10/2020
 ms.author: sethm
-ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 9842d0aa2892218b9d3e8ef527df8f83574487b8
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.lastreviewed: 08/10/2020
+ms.openlocfilehash: 7387778055a50b138766cc7f8c416b206f4b9db9
+ms.sourcegitcommit: 77f53d8f4188feea7dd2197650ee860104b1e2aa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666463"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88501074"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack-hub"></a>Einführung in Key Vault in Azure Stack Hub
 
@@ -39,7 +39,7 @@ Jeder Benutzer mit einem Azure Stack Hub-Abonnement kann Schlüsseltresore erste
 * Autorisieren des Zugriffs von Benutzern oder Apps auf den Schlüsseltresor, sodass sie die Schlüssel und Geheimnisse verwalten oder verwenden können
 * Konfigurieren der Schlüsselverwendung (beispielsweise Signieren oder Verschlüsseln)
 
-Der Betreiber kann Entwicklern Uniform Resource Identifiers (URIs) zur Verfügung stellen, die sie in ihren Apps aufrufen können. Darüber hinaus kann der Betreiber Sicherheitsadministratoren Protokollinformationen zur Schlüsselverwendung zur Verfügung stellen.
+Der Betreiber kann Entwicklern Uniform Resource Identifiers (URIs) zur Verfügung stellen, die sie in ihren Apps aufrufen können.
 
 Entwickler können die Schlüssel außerdem durch Verwendung von APIs direkt verwalten. Weitere Informationen finden Sie im [Entwicklerhandbuch zu Azure-Schlüsseltresor](/azure/key-vault/key-vault-developers-guide).
 
