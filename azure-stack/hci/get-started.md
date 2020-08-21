@@ -4,25 +4,27 @@ description: Stellen Sie schnell eine Verbindung mit einem vorhandenen Azure Sta
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/29/2020
-ms.openlocfilehash: 30b2533bd33bd39488a3e010262c9e950a84295c
-ms.sourcegitcommit: 952d26ad08fcc28ad3ad83e27644e61497623a44
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 08/12/2020
+ms.openlocfilehash: 4dff1265bd542cebe1268ea54248a7c869bd3df1
+ms.sourcegitcommit: a3e042c782a38ecf3baf7a64b1d492a655972f9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87889155"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88198779"
 ---
 # <a name="get-started-with-azure-stack-hci-and-windows-admin-center"></a>Erste Schritte mit Azure Stack HCI und Windows Admin Center
 
 > Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-Dieses Thema enthält eine Anleitung zum Herstellen einer Verbindung mit einem Azure Stack HCI-Cluster sowie zum Überwachen der Cluster- und Speicherleistung.
+Dieses Thema enthält eine Anleitung zum Herstellen einer Verbindung mit einem Azure Stack HCI-Cluster sowie zum Überwachen der Cluster- und Speicherleistung. Falls Sie noch keinen Cluster eingerichtet haben, finden Sie unter [Was ist der Bereitstellungsprozess für Azure Stack HCI?](deploy/deployment-overview.md) entsprechende Anweisungen.
 
 ## <a name="install-windows-admin-center"></a>Installieren von Windows Admin Center
 
-Windows Admin Center ist eine lokal bereitgestellte, browserbasierte App zum Verwalten von Azure Stack HCI. Die einfachste Möglichkeit zum [Installieren von Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install) ist die Verwendung eines lokalen Verwaltungscomputers (Desktopmodus), die Installation auf einem Server (Dienstmodus) ist jedoch ebenfalls möglich.
+Windows Admin Center ist eine lokal bereitgestellte, browserbasierte App zum Verwalten von Azure Stack HCI. Die einfachste Möglichkeit zum [Installieren von Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install) ist die Verwendung eines lokalen Verwaltungscomputers (Desktopmodus). Die Installation auf einem Server (Dienstmodus) ist jedoch ebenfalls möglich.
 
-Bei der Installation von Windows Admin Center auf einem Server muss für Aufgaben, die CredSSP erfordern (etwa Clustererstellung sowie Installation von Updates und Erweiterungen), ein Konto verwendet werden, das Mitglied der Gatewayadministratorgruppe auf dem Windows Admin Center-Server ist. Weitere Informationen finden Sie in den ersten beiden Abschnitten des Artikels [Konfigurieren der Benutzerzugriffssteuerung und von Berechtigungen](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions).
+Bei der Installation von Windows Admin Center auf einem Server muss für Aufgaben, die CredSSP erfordern (etwa Clustererstellung sowie Installation von Updates und Erweiterungen), ein Konto verwendet werden, das der Gatewayadministratorgruppe auf dem Windows Admin Center-Server angehört. Weitere Informationen finden Sie in den ersten beiden Abschnitten des Artikels [Konfigurieren der Benutzerzugriffssteuerung und von Berechtigungen](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions).
 
 ## <a name="add-and-connect-to-an-azure-stack-hci-cluster"></a>Hinzufügen eines Azure Stack HCI-Clusters und Herstellen einer Verbindung mit dem Cluster
 
