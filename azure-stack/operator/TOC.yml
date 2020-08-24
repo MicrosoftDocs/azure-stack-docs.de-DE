@@ -88,9 +88,10 @@
               href: azure-stack-validate-adfs.md
             - name: Überprüfen der Graph-Integration
               href: azure-stack-validate-graph.md
-        - name: PKI-Anforderungen für die Azure Stack Hub-Bereitstellung
-          href: azure-stack-pki-certs.md
+        - name: PKI-Anforderungen und -Prozesse
           items:
+            - name: PKI-Zertifikatanforderungen
+              href: azure-stack-pki-certs.md
             - name: Generieren von PKI-Zertifikaten
               href: azure-stack-get-pki-certs.md
             - name: Vorbereiten von Azure Stack Hub-PKI-Zertifikaten
@@ -452,8 +453,6 @@
           href: azure-stack-backup-reference.md
     - name: Support
       items:
-        - name: Arbeitsstation mit Operatorzugriff
-          href: operator-access-workstation.md
         - name: Hilfe- und Supportportal
           items:
             - name: Übersicht
