@@ -135,6 +135,8 @@
                   href: azure-stack-manage-vm-disks.md
                 - name: Überlegungen zu verwalteten Datenträgern
                   href: azure-stack-managed-disk-considerations.md
+                - name: Vorlagen für verwaltete Datenträger
+                  href: virtual-machines-use-managed-disks-template.md
                 - name: Löschen eines virtuellen Computers mit Abhängigkeiten
                   href: delete-vm.md
                 - name: Schützen von virtuellen Computern
