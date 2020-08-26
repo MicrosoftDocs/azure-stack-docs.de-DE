@@ -8,23 +8,23 @@ ms.topic: reference
 ms.date: 07/07/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: ec859cfc977c5596f44bf349c765c68873ea7430
-ms.sourcegitcommit: 17ef9f9119f5fea9782adeefb9a430e6a3a650e6
+ms.openlocfilehash: 33bdc3fa38edace2656d86eec20b12917020cac1
+ms.sourcegitcommit: 977c47a5587a747dbd67aa110381759ba39044b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88170352"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88512375"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Grafikprozessor (GPU)-VM in Azure Stack Hub
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme*
 
-In diesem Artikel erfahren Sie, welche Grafikprozessormodelle (Graphics Processing Unit, GPU) im Azure Stack Hub-System mit mehreren Knoten unterstützt werden. Außerdem finden Sie hier Anweisungen zum Installieren der mit den GPUs verwendeten Treiber. Die GPU-Unterstützung in Azure Stack Hub ermöglicht Lösungen wie künstliche Intelligenz, Training, Rückschluss und Datenvisualisierung. Der AMD Radeon Instinct Mi25 kann zur Unterstützung von grafikintensiven Anwendungen wie Autodesk AutoCAD verwendet werden.
+In diesem Artikel erfahren Sie, welche GPU-Modelle (Graphics Processing Unit, Grafikprozessor) im Azure Stack Hub-System mit mehreren Knoten unterstützt werden. Außerdem finden Sie hier Anweisungen zum Installieren der mit den GPUs verwendeten Treiber. Die GPU-Unterstützung in Azure Stack Hub ermöglicht Lösungen wie künstliche Intelligenz, Training, Rückschluss und Datenvisualisierung. Der AMD Radeon Instinct MI25 kann zur Unterstützung von grafikintensiven Anwendungen wie Autodesk AutoCAD verwendet werden.
 
-Während des Public Preview-Zeitraums stehen drei GPU-Modelle zur Auswahl: NVIDIA V100, NVIDIA T4 und AMD Mi25. Diese physischen GPUs entsprechen den folgenden Azure-VM-Typen der N-Serie:
+Während des Public Preview-Zeitraums stehen drei GPU-Modelle zur Auswahl: NVIDIA V100, NVIDIA T4 und AMD MI25. Diese physischen GPUs entsprechen den folgenden Azure-VM-Typen der N-Serie:
 - [NCv3](https://docs.microsoft.com/azure/virtual-machines/ncv3-series)
-- [NVv4 (AMD Mi25)](https://docs.microsoft.com/azure/virtual-machines/nvv4-series)
-- NCas_T4_v3
+- [NVv4 (AMD MI25)](https://docs.microsoft.com/azure/virtual-machines/nvv4-series)
+- NCas_v4
 
 > [!IMPORTANT]  
 > Die GPU-Unterstützung in Azure Stack Hub ist zurzeit als öffentliche Vorschauversion verfügbar. Wenn Sie am Vorschauprogramm teilnehmen möchten, füllen Sie das Formular unter [aka.ms/azurestackhubgpupreview](https://aka.ms/azurestackhubgpupreview) aus.
@@ -42,23 +42,23 @@ NCv3-Serien-VMs werden mit NVIDIA Tesla V100-GPUs betrieben. Kunden können dies
 
 ## <a name="nvv4"></a>NVv4
 
-Die VMs der NVv4-Serie verfügen über [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25)-GPUs. Mit der NVv4-Serie führt Azure Stack Hub VMs mit partiellen GPUs ein. Diese Größe kann für GPU-beschleunigte Grafikanwendungen und virtuelle Desktops verwendet werden. Von virtuellen Computern der NVv4-Serie wird derzeit nur das Windows-Gastbetriebssystem unterstützt. 
+Die VMs der NVv4-Serie verfügen über [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-MI25)-GPUs. Mit der NVv4-Serie führt Azure Stack Hub VMs mit partiellen GPUs ein. Diese Größe kann für GPU-beschleunigte Grafikanwendungen und virtuelle Desktops verwendet werden. Von virtuellen Computern der NVv4-Serie wird derzeit nur das Windows-Gastbetriebssystem unterstützt. 
 
 | Size | vCPU | Memory: GiB | Temporärer Speicher (SSD): GiB | GPU | GPU-Arbeitsspeicher: GiB | Max. Anzahl Datenträger | Maximale Anzahl NICs | 
 | --- | --- | --- | --- | --- | --- | --- | --- |   
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 | 
 
-## <a name="ncas_t4_v3"></a>NCas_T4_v3
+## <a name="ncas_v4"></a>NCas_v4
 
-Die neue NVIDIA T4-VM-Größe ermöglicht die Ausführung einfacher Machine Learning-, Rückschluss- und Visualisierungsworkloads in Azure Stack Hub. Diese VM-Größe kann zurzeit nicht über das Portal bereitgestellt werden. Stattdessen müssen Sie PowerShell oder die CLI verwenden.
+Die neue NVIDIA T4-VM-Größe ermöglicht die Ausführung einfacher Machine Learning-, Rückschluss- und Visualisierungsworkloads in Azure Stack Hub. Diese VM-Größe kann zurzeit *nicht* über das Portal bereitgestellt werden. Verwenden Sie stattdessen PowerShell oder die CLI.
 
 
 | Size | vCPU | Memory: GiB | GPU | GPU-Arbeitsspeicher: GiB | Max. Anzahl Datenträger | Maximale Anzahl NICs | 
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC4as_T4_v3 |4 |28 | 1 | 16 | 8 | 4 | 
-| Standard_NC8as_T4_v3 |4 |56 | 1 | 16 | 16 | 8 | 
-| Standard_NC16as_T4_v3 |4 |112 | 1 | 16 | 32 | 8 | 
-| Standard_NC64as_T4_v3 |4 |448 | 4 | 64 | 32 | 8 | 
+| Standard_NC4as_v4 |4 |28 | 1 | 16 | 8 | 4 | 
+| Standard_NC8as_v4 |4 |56 | 1 | 16 | 16 | 8 | 
+| Standard_NC16as_v4 |4 |112 | 1 | 16 | 32 | 8 | 
+| Standard_NC64as_v4 |4 |448 | 4 | 64 | 32 | 8 | 
 
 
 ## <a name="patch-and-update-fru-behavior-of-vms"></a>Patch- und Update- sowie FRU-Verhalten von VMs 
@@ -72,8 +72,8 @@ Vorgänge wie Patchen und Aktualisieren (Patch und Update, PnU) und der Austausc
 
 ## <a name="guest-driver-installation"></a>Installation des Gasttreibers 
 
-### <a name="amd-mi25"></a>AMD Mi25
-Im Artikel [Installieren von AMD-GPU-Treibern für virtuelle Computer der N-Serie unter Windows](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup) finden Sie Anweisungen zum Installieren des Treibers für den AMD Radeon Instinct Mi25 auf der GPU-fähigen NVv4-VM sowie zum Überprüfen der Treiberinstallation. Diese Erweiterung funktioniert nur im verbundenen Modus.
+### <a name="amd-mi25"></a>AMD MI25
+Im Artikel [Installieren von AMD-GPU-Treibern für virtuelle Computer der N-Serie unter Windows](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup) erfahren Sie, wie Sie den Treiber für AMD Radeon Instinct MI25 auf dem GPU-fähigen virtuellen NVv4-Computer installieren und die Treiberinstallation überprüfen. Diese Erweiterung funktioniert nur im verbundenen Modus.
 
 ### <a name="nvidia"></a>NVIDIA
 

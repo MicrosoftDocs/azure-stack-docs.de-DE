@@ -3,16 +3,16 @@ title: Verwenden von Docker zum Ausführen von PowerShell in Azure Stack Hub
 description: Verwenden von Docker zum Ausführen von PowerShell in Azure Stack Hub
 author: mattbriggs
 ms.topic: how-to
-ms.date: 7/20/2020
+ms.date: 8/17/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 7/20/2020
-ms.openlocfilehash: e3efdd0e218ae82cfcea14b20f4b172e5cc87f32
-ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
+ms.lastreviewed: 8/17/2020
+ms.openlocfilehash: e803641b9d63a8b1136f720ce51eb5f7ca79c6e7
+ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87397344"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88564750"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Verwenden von Docker zum Ausführen von PowerShell für Azure Stack Hub
 
@@ -65,7 +65,13 @@ Die Dockerfile öffnet das Microsoft-Image *microsoft/windowsservercore*, in dem
 4. Starten Sie einen interaktiven Container, indem Sie Folgendes eingeben, nachdem das Image erstellt wurde:
 
     ```bash  
-        docker run -it azure-stack-powershell powershell
+    docker run -it azure-stack-powershell powershell
+    ```
+
+    Notieren Sie sich den Containernamen. Sie können den gleichen Container verwenden, anstatt jedes Mal einen neuen Container zu erstellen. Führen Sie hierzu den folgenden Docker-Befehl aus:
+
+    ```bash  
+        docker exec -it "Container name" powershell
     ```
 
 5. Die Shell ist bereit für Ihre Cmdlets bereit.
@@ -82,7 +88,8 @@ Die Dockerfile öffnet das Microsoft-Image *microsoft/windowsservercore*, in dem
     ```powershell
     $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
     $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
-    Connect-AzureRmAccount -ServicePrincipal -Credential $pscredential -TenantId <TenantID>
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint <Your Azure Resource Manager endoint>
+    Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId <TenantID> -ServicePrincipal -Credential $pscredential
     ```
 
    PowerShell gibt Ihr Kontoobjekt zurück:

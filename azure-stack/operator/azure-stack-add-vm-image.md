@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/10/2020
-ms.openlocfilehash: 54732e12b330eeda8ba65e9b4add0b78547ac891
-ms.sourcegitcommit: 635c8c69d90b7e941659d54141d9f1c58f51cf45
+ms.openlocfilehash: 71b097b46d388371ef997288f43474873d92af85
+ms.sourcegitcommit: cdfc7bf5fee5e6cb4c531ba58d23a83c36be7de4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87477623"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88251407"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Hinzufügen eines benutzerdefinierten VM-Images zu Azure Stack Hub
 
@@ -36,7 +36,7 @@ Es gibt zwei Arten von benutzerdefinierten Images: **generalisierte** und **spez
 
 #### <a name="vhd-is-from-outside-azure"></a>Wenn die VHD nicht von Azure stammt
 
-Folgen Sie den Schritten in [Hochladen einer generalisierten VHD und Verwendung dieser zum Erstellen neuer VMs in Azure](/azure/virtual-machines/windows/upload-generalized-managed), um **Sysprep** für Ihre VHD korrekt auszuführen und sie zu generalisieren.
+Führen Sie die Schritte in [Vorbereiten einer Windows-VHD oder -VHDX zum Hochladen in Azure](/azure/virtual-machines/windows/prepare-for-upload-vhd-image) aus, um Ihre VHD vor dem Hochladen ordnungsgemäß zu generalisieren.
 
 #### <a name="vhd-is-from-azure"></a>Wenn die VHD von Azure stammt
 

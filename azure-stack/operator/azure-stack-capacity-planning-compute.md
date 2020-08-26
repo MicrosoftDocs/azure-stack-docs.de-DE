@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 72bebdc5933f09aef58de25627d8b627d7987bdb
-ms.sourcegitcommit: 17ef9f9119f5fea9782adeefb9a430e6a3a650e6
+ms.openlocfilehash: 8cb772d76b4bfd01a7e0c260c6ff3d20bdec3e0a
+ms.sourcegitcommit: 977c47a5587a747dbd67aa110381759ba39044b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88170420"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88512477"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub-Computekapazität
 
@@ -43,7 +43,7 @@ Falls das VM-Skalierungslimit erreicht wird, werden die folgenden Fehlercodes al
 
 ## <a name="consideration-for-batch-deployment-of-vms"></a>Überlegungen zur Batchbereitstellung virtueller Computer
 
-In Releases bis einschließlich 2002 konnten mit zwei bis fünf virtuellen Computern pro Batch und einer fünfminütigen Pause zwischen Batches bis zu 700 virtuelle Computer zuverlässig bereitgestellt werden. Mit der Azure Stack Hub-Version 2005 können virtuelle Computer zuverlässig in Batches mit bis zu 50 virtuellen Computern und einer fünfminütigen Pause zwischen Batchbereitstellungen bereitgestellt werden.
+In Releases bis einschließlich 2002 konnten mit zwei bis fünf virtuellen Computern pro Batch und einer fünfminütigen Pause zwischen Batches bis zu 700 virtuelle Computer zuverlässig bereitgestellt werden. Mit der Azure Stack Hub-Version 2005 können virtuelle Computer zuverlässig in Batches mit bis zu 40 virtuellen Computern und einer fünfminütigen Pause zwischen Batchbereitstellungen bereitgestellt werden.
 
 ## <a name="considerations-for-deallocation"></a>Überlegungen zur Aufhebung der Zuweisung
 

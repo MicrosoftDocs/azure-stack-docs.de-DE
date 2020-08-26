@@ -7,12 +7,12 @@ ms.date: 07/09/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/09/2020
-ms.openlocfilehash: b21738b7e7083a582413993f45312379fedb6085
-ms.sourcegitcommit: ecec5eece56136d950e1c61c5115000ca87477ea
+ms.openlocfilehash: a33c732309d2b74ef341f248a7e89dcbd35a4221
+ms.sourcegitcommit: 77f53d8f4188feea7dd2197650ee860104b1e2aa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86236344"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88501040"
 ---
 # <a name="known-issues-vms-on-azure-stack-hub"></a>Bekannte Probleme: VMs in Azure Stack Hub
 
@@ -32,7 +32,7 @@ In diesem Artikel finden Sie Informationen zur Problembehandlung bei bekannten P
 - **Geltungsbereich**  
     Dieses Problem tritt bei Azure Stack Hub, Release 2002 und höher, auf.  
 - **Ursache**  
-    Bei der Erstellung des virtuellen Computers wird die VM-Größe angezeigt: NV4as_v4. Bei Kunden mit der erforderlichen Hardware für die AMD Mi25-basierte Azure Stack Hub-GPU-Vorschau ist die VM-Bereitstellung erfolgreich. Bei allen anderen Kunden tritt bei der VM-Bereitstellung mit dieser VM-Größe ein Fehler auf.  
+    Bei der Erstellung des virtuellen Computers wird die VM-Größe angezeigt: NV4as_v4. Bei Kunden mit der erforderlichen Hardware für die AMD MI25-basierte Azure Stack Hub-GPU-Vorschau ist die VM-Bereitstellung erfolgreich. Bei allen anderen Kunden tritt bei der VM-Bereitstellung mit dieser VM-Größe ein Fehler auf.  
 - **Problembehandlung**  
     Keine.  
 - **Vorkommen**  
