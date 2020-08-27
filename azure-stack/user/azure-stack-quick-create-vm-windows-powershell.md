@@ -3,17 +3,17 @@ title: Erstellen eines virtuellen Windows Server-Computers mit PowerShell in Azu
 description: Hier wird beschrieben, wie Sie einen virtuellen Windows Server-Computer mit PowerShell in Azure Stack Hub erstellen.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 6249624fc2a8246f6ebe38176aae3e5fd3eb39b3
-ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
+ms.openlocfilehash: 9366cfedee1be411ef6c61df58760b482381444a
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86033243"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88819115"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>Schnellstart: Erstellen eines virtuellen Windows Server-Computers mit PowerShell in Azure Stack Hub
 

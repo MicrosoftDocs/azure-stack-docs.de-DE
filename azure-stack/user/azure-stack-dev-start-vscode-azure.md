@@ -3,16 +3,16 @@ title: Herstellen einer Verbindung mit Azure Stack Hub über die Azure-Kontoerwe
 description: Stellen Sie als Entwickler eine Verbindung mit Azure Stack Hub her, indem Sie die Azure-Kontoerweiterung in Visual Studio Code verwenden.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 768b93c2ef2d984fcc75f6893be6260a1c4fbb1c
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: a3cd09d7138029ba578648e1599916fd71b42292
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661049"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920609"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Herstellen einer Verbindung mit Azure Stack Hub über die Azure-Kontoerweiterung in Visual Studio Code
 
@@ -20,7 +20,7 @@ In diesem Artikel wird Schritt für Schritt beschrieben, wie Sie eine Verbindung
 
 VS Code ist ein einfacher Editor zum Erstellen und Debuggen von Web- und Cloudanwendungen. ASP.NET Core, Python, NodeJS, Go und andere Entwickler verwenden VS Code. Mit der Azure-Kontoerweiterung können Sie eine einzelne Azure-Anmeldung mit Abonnementfilterung für zusätzliche Azure-Erweiterungen verwenden. Die Erweiterung macht die Azure Cloud Shell im VS Code-integrierten Terminal verfügbar. Mit der Erweiterung können Sie eine Verbindung mit Ihrem Azure Stack Hub-Abonnement herstellen, indem Sie sowohl Azure Active Directory (Azure AD) als auch Active Directory-Verbunddienste (AD FS) für Ihren Identitäts-Manager verwenden. Sie können sich bei Azure Stack Hub anmelden, Ihr Abonnement auswählen und eine neue Befehlszeile in einer Cloud Shell-Instanz öffnen. 
 
-> [!Note]  
+> [!NOTE]  
 > Sie können die Schritte in diesem Artikel für eine AD FS-Umgebung (Active Directory-Verbunddienste) nutzen. Verwenden Sie Ihre AD FS-Anmeldeinformationen und -Endpunkte.
 
 ## <a name="pre-requisites-for-the-azure-account-extension"></a>Voraussetzungen für die Azure-Kontoerweiterung

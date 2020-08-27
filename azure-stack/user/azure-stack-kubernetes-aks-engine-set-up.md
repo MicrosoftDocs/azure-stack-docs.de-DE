@@ -7,12 +7,12 @@ ms.date: 06/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/19/2020
-ms.openlocfilehash: 37ae031199c0e547e635fc0473d833dc94865523
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 278db618c4628c27241ab1b364a355272a3a3e1b
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566038"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920864"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Einrichten der Voraussetzungen für die AKS-Engine in Azure Stack Hub
 
@@ -46,7 +46,7 @@ Sie können die folgenden Elemente festlegen.
 | Privater öffentlicher Schlüssel | Zur Verwendung einer offenen SSH-Verbindung zwischen Ihrem Entwicklungscomputer und der Server-VM auf Ihrer Azure Stack Hub-Instanz, auf der Ihre Web-App gehostet wird, müssen Sie ein öffentlich-privates SSH-Schlüsselpaar (Secure Shell) erstellen. | Erforderlich | Anweisungen zum Generieren eines Schlüssels finden Sie unter [SSH Key Generation](./azure-stack-dev-start-howto-ssh-public-key.md) (SSH-Schlüsselgenerierung).|
 
 
-> [!Note]  
+> [!NOTE]  
 > Sie können die Voraussetzungen für die AKS-Engine auch mit [Azure CLI für Azure Stack Hub](./azure-stack-version-profiles-azurecli2.md) oder [PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md) schaffen.
 
 ## <a name="matching-engine-to-base-image-version"></a>Abstimmen der Engine auf die Basisimageversion

@@ -3,16 +3,16 @@ title: Herstellen einer Verbindung mit dem iSCSI-Speicher mit Azure Stack Hub
 description: Erfahren Sie, wie Sie mit Azure Stack Hub eine Verbindung mit dem iSCSI-Speicher herstellen.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 27442f9bc5107d9dbeb07b19f1f53b84facc5a06
-ms.sourcegitcommit: e591e8531e8fee07a8315fdca29cf8f45a766c81
+ms.openlocfilehash: 17f768ddfeb2422c2e3f1c4d3947c6b142ac13bc
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82687440"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818724"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Herstellen einer Verbindung mit dem iSCSI-Speicher mit Azure Stack Hub
 

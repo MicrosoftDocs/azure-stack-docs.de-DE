@@ -3,16 +3,16 @@ title: Einrichten eines VPN-Gateways für Azure Stack Hub
 description: Es wird beschrieben, wie Sie ein VPN-Gateway für Azure Stack Hub einrichten.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 9b7086f63e22ede89ae0ed21be1aec8453532de6
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: a2ec06ef5e01fa2614a2e54af03162a5b4dddbdf
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567449"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920796"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Einrichten eines VPN-Gateways für Azure Stack Hub per FortiGate NVA
 
@@ -22,14 +22,14 @@ In diesem Artikel wird beschrieben, wie Sie eine VPN-Verbindung mit Ihrer Azure 
 
 -  Zugriff auf ein integriertes Azure Stack Hub-System mit verfügbarer Kapazität, um die erforderlichen Compute-, Netzwerk- und Ressourcenanforderungen für diese Lösung zu erfüllen. 
 
-    > [!Note]  
+    > [!NOTE]  
     > Diese Anleitung funktioniert aufgrund der Netzwerkeinschränkungen des Azure Stack Development Kit (ASDK) **nicht** für das ASDK. Weitere Informationen finden Sie unter [Anforderungen und Überlegungen zu ASDK](../asdk/asdk-deploy-considerations.md).
 
 -  Zugriff auf ein VPN-Gerät im lokalen Netzwerk, auf dem das integrierte Azure Stack Hub-System gehostet wird. Das Gerät muss einen IPSec-Tunnel erstellen, für den die unter [Bereitstellungsparameter](#deployment-parameters) beschriebenen Parameter erfüllt werden.
 
 -  Eine NVA-Lösung (Network Virtual Appliance) in Ihrem Azure Stack Hub-Marketplace. Mit einem virtuellen Netzwerkgerät (Network Virtual Appliance, NVA) wird der Fluss des Netzwerkdatenverkehrs aus einem Umkreisnetzwerk in andere Netzwerke oder Subnetze gesteuert. In diesem Verfahren wird die Lösung [FortiGate Next-Generation Firewall – Single VM](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm) genutzt.
 
-    > [!Note]  
+    > [!NOTE]  
     > Wenden Sie sich an Ihren Cloudbetreiber, falls **Fortinet FortiGate-VM For Azure BYOL** und **FortiGate NGFW – Single VM Deployment (BYOL)** in Ihrem Azure Stack Hub-Marketplace nicht verfügbar sind.
 
 -  Zum Aktivieren der FortiGate-NVA benötigen Sie mindestens eine verfügbare FortiGate-Lizenzdatei. Informationen zur Beschaffung dieser Lizenzen finden Sie in der Fortinet-Dokumentbibliothek im Artikel zum [Registrieren und Herunterladen Ihrer Lizenz](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license).
@@ -58,7 +58,7 @@ In der folgenden Tabelle sind als Referenz die Parameter zusammengefasst, die in
 | Name der öffentlichen IP-Adresse | forti1-publicip1 |
 | Typ der öffentlichen IP-Adresse | statischen |
 
-> [!Note]
+> [!NOTE]
 > \* Wählen Sie einen anderen Adressraum und andere Subnetzpräfixe aus, wenn es für `172.16.0.0/16` zu einer Überschneidung mit dem lokalen Netzwerk oder dem Azure Stack Hub-VIP-Pool kommt.
 
 ## <a name="deploy-the-fortigate-ngfw-marketplace-items"></a>Bereitstellen der FortiGate NGFW-Marketplace-Elemente
@@ -176,7 +176,7 @@ Erstellen Sie nach dem Aktivieren der NVAs jeweils einen IPSec-VPN-Tunnel auf de
 
 16. Wählen Sie **Vorinstallierter Schlüssel** aus, und geben Sie einen vorinstallierten Schlüssel ein (und notieren Sie ihn). 
 
-    > [!Note]  
+    > [!NOTE]  
     > Sie benötigen diesen Schlüssel zum Einrichten der Verbindung mit dem lokalen VPN-Gerät. Es muss eine *genaue* Übereinstimmung sein.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image17.png)

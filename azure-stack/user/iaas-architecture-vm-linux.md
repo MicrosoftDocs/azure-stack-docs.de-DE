@@ -3,16 +3,16 @@ title: Ausführen eines virtuellen Linux-Computers in Azure Stack Hub
 description: Erfahren Sie, wie Sie in Azure Stack Hub einen virtuellen Linux-Computer ausführen.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: d7284e454b93db28dd47323342fb01e42c51c014
-ms.sourcegitcommit: 9be88793533d21b756718af9a82349760c4abd52
+ms.openlocfilehash: 949bc2a89d485057d92e5c805fa63a7972ac1fb0
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87523491"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920286"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Ausführen eines virtuellen Linux-Computers in Azure Stack Hub
 
@@ -100,7 +100,7 @@ Führen Sie für Ihre VMs ein Onboarding bei [Azure Security Center](/azure/secu
 
 **Zugriffssteuerung:** Steuern Sie den Zugriff auf Azure-Ressourcen mithilfe der [rollenbasierten Zugriffssteuerung](/azure/active-directory/role-based-access-control-what-is) (Role-Based Access Control, RBAC). Mithilfe der RBAC können Sie Mitglieder Ihres DevOps-Teams Autorisierungsrollen zuweisen. Die Rolle „Leser“ kann beispielsweise Azure-Ressourcen anzeigen, diese aber nicht erstellen, verwalten oder löschen. Einige Berechtigungen gelten spezifisch für einen Azure-Ressourcentyp. Die VM-Rolle „Mitwirkender“ kann z. B. eine VM neu starten oder Ihre Zuordnung aufheben, das Administratorkennwort zurücksetzen, eine neue VM erstellen usw. Andere [integrierte RBAC-Rollen](/azure/active-directory/role-based-access-built-in-roles), die für diese Architektur nützlich sein können, sind u. a. [DevTest Labs-Benutzer](/azure/active-directory/role-based-access-built-in-roles#devtest-labs-user) und [Netzwerkmitwirkender](/azure/active-directory/role-based-access-built-in-roles#network-contributor).
 
-> [!Note]  
+> [!NOTE]  
 > Die RBAC schränkt nicht die Aktionen eines Benutzers ein, der bei einer VM angemeldet ist. Diese Berechtigungen werden vom Kontotyp im Gastbetriebssystem bestimmt.
 
 **Überwachungsprotokolle:** Verwenden Sie [Aktivitätsprotokolle](./azure-stack-metrics-azure-data.md?#activity-log), um Bereitstellungsaktionen und andere VM-Ereignisse anzuzeigen.

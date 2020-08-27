@@ -7,12 +7,12 @@ ms.date: 7/23/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ac9e373881ef5d7c88a0397130fdfd560e41e352
-ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
+ms.openlocfilehash: f54c8a442b9df31ff112f1e385b15c441c7c0ffd
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133740"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920677"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack-hub"></a>Einrichten einer Entwicklungsumgebung in Azure Stack Hub 
 
@@ -106,7 +106,7 @@ Wenn Sie einen Windows 10-Computer verwenden, können Sie mit PowerShell 5.0 u
 
 Wenn Sie einen Linux-Computer verwenden, können Sie mit der Azure-Befehlszeilenschnittstelle, Visual Studio Code oder in Ihrer bevorzugten integrierten Entwicklungsumgebung arbeiten. 
 
-> [!Note]   
+> [!NOTE]   
 > Wenn Sie einen Linux-Computer mit dem ASDK verwenden, muss sich Ihr Remotecomputer im gleichen Netzwerk befinden wie das ASDK. Sie können keine Verbindung über ein VPN herstellen. 
 
 ### <a name="set-up-your-tools"></a>Einrichten der Tools 
@@ -135,7 +135,7 @@ Wenn Sie einen Linux-Computer verwenden, können Sie mit der Azure-Befehlszeilen
 
 Auf einem macOS-Computer können Sie mit der Azure CLI und Visual Studio Code oder in Ihrer bevorzugten integrierten Entwicklungsumgebung arbeiten. 
 
-> [!Note]   
+> [!NOTE]   
 > Wenn Sie einen macOS-Computer mit dem ASDK verwenden, muss sich Ihr Remotecomputer im gleichen Netzwerk befinden wie das ASDK. Sie können keine Verbindung über ein VPN herstellen. 
 
 ### <a name="set-up-your-tools"></a>Einrichten der Tools 

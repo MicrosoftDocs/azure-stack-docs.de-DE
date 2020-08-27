@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie einen Test im Azure Stack Hub-Validierungsportal planen.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 649ad123107d01059f2b5fdc25adc1b847e2e2c5
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: b4d94d7fca7f2d145a8dc7b19f1f9d7b6a68cd9b
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661189"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764816"
 ---
 # <a name="scheduling-a-test"></a>Planen eines Tests
 

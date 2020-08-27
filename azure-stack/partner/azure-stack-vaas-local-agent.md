@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie den lokalen Agent für Validation-as-a-Service in Azure Stack Hub bereitstellen.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ff20f82244adbbf4b1aebebd31bbf99e716bd6ce
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 7661177ec292d7c0b678f05d95c33d90f8e57c2c
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661274"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764782"
 ---
 # <a name="deploy-the-local-agent"></a>Bereitstellen des lokalen Agents
 

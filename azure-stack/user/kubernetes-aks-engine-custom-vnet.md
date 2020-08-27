@@ -7,12 +7,12 @@ ms.date: 08/05/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 08/05/2020
-ms.openlocfilehash: f6fca607f9e963fc2c007c27ebed05cecdf2e35a
-ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
+ms.openlocfilehash: 0b13c0e1655fe9df0cf030872fe8f545219394ba
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87865222"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920082"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Clusters in einem benutzerdefinierten virtuellen Netzwerk in Azure Stack Hub 
 
@@ -135,11 +135,11 @@ Kehren Sie nach der Clusterbereitstellung zu Ihrem virtuellen Netzwerk im Azure�
 3. Geben Sie den Namen Ihres virtuellen Netzwerks in das Suchfeld ein.
 4. Wählen Sie **Subnetze** und anschließend den Namen des Subnetzes aus, das Ihren Cluster enthält.
     
-    ![Routingtabelle und Netzwerksicherheitsgruppe](media/kubernetes-aks-engine-custom-vnet/virtual-network-rt-nsg.png)
+    ![Routingtabelle und Netzwerksicherheitsgruppe](media/kubernetes-aks-engine-custom-vnet/virtual-network-route-table.png)
     
 5. Wählen Sie **Routingtabelle** und anschließend die Routingtabelle für Ihren Cluster aus.
 
-> [!Note]  
+> [!NOTE]  
 > Bei benutzerdefinierten virtuellen Netzwerken für Kubernetes-Windows-Cluster gibt es ein [bekanntes Problem](https://github.com/Azure/aks-engine/issues/371).
 
 ## <a name="next-steps"></a>Nächste Schritte

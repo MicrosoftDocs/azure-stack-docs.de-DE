@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 6468c3508f2cf37b847768bd6b418a1d1a538f0d
-ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
+ms.openlocfilehash: 7fa7ad106e58c08d6841f7961bb79be5fa49cc72
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86892080"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920711"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Sichern Ihres virtuellen Computers in Azure Stack Hub mit Commvault
 
@@ -46,7 +46,7 @@ Die Topologie dieses Ansatzes ist in der folgenden Abbildung dargestellt:
 
 2. Wählen Sie **Ressource erstellen** > **Compute** > **Commvault** aus.
 
-    > [!Note]  
+    > [!NOTE]  
     > Wenn Commvault nicht zur Verfügung steht, wenden Sie sich an Ihren Cloudbetreiber.
 
     ![Erstellen eines virtuellen Computers](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-01.png)

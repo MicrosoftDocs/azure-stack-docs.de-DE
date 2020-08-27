@@ -3,16 +3,16 @@ title: Aktualisieren eines Kubernetes-Clusters in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie einen Kubernetes-Cluster in Azure Stack Hub aktualisieren.
 author: mattbriggs
 ms.topic: article
-ms.date: 4/23/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: dc89c8939f7a0ad988586df3fe0e33a02c2f7c79
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 4dd690fe5dc88c3edce02a09d594f9728297b4c9
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567551"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920694"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Aktualisieren eines Kubernetes-Clusters in Azure Stack Hub
 
@@ -42,7 +42,7 @@ Beachten Sie bei der Aktualisierung eines Produktionsclusters Folgendes:
 
 ## <a name="steps-to-upgrade-to-a-newer-kubernetes-version"></a>Schritte zum Durchführen eines Upgrades auf eine neuere Kubernetes-Version
 
-> [!Note]  
+> [!NOTE]  
 > Das AKS-Basisimage wird auch aktualisiert, wenn Sie eine neuere Version der AKS-Engine verwenden und das Image im Marketplace verfügbar ist.
 
 In den folgenden Anweisungen werden die minimalen Schritte zum Ausführen des Upgrades verwendet. Weitere Details finden Sie im Artikel [Upgrading Kubernetes Clusters](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md) (Aktualisieren von Kubernetes-Clustern).

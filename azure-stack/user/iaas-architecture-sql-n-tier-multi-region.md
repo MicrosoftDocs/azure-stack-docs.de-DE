@@ -3,22 +3,22 @@ title: Ausführen einer n-schichtigen Anwendung in mehreren Azure Stack Hub-Regi
 description: Erfahren Sie, wie Sie eine n-schichtige Anwendung in mehreren Azure Stack Hub-Regionen für Hochverfügbarkeit ausführen.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: fe96b2adeb679492a2f6ca820880763c0c2c0686
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 164533628b605ff1723a50ba2dbcf8ea413ad3bd
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567806"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920337"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>Ausführen einer n-schichtigen Anwendung in mehreren Azure Stack Hub-Regionen für Hochverfügbarkeit
 
 Diese Referenzarchitektur zeigt eine Reihe bewährter Methoden zum Ausführen einer n-schichtigen Anwendung in mehreren Azure Stack Hub-Regionen, um Verfügbarkeit und eine stabile Infrastruktur für die Notfallwiederherstellung zu erzielen. In diesem Dokument wird Traffic Manager verwendet, um Hochverfügbarkeit zu erreichen. Wenn Traffic Manager jedoch keine bevorzugte Lösung in Ihrer Umgebung ist, kann auch ein Paar hochverfügbarer Lastenausgleiche eingesetzt werden.
 
-> [!Note]  
+> [!NOTE]  
 > Beachten Sie bitte, dass der in der folgenden Architektur verwendete Traffic Manager in Azure konfiguriert werden muss und die Endpunkte, die zur Konfiguration des Traffic Manager-Profils verwendet werden, öffentlich routingfähige IP-Adressen sein müssen.
 
 ## <a name="architecture"></a>Aufbau
@@ -123,7 +123,7 @@ So konfigurieren Sie die Verfügbarkeitsgruppe:
 
     -   Legen Sie ein oder mehrere sekundäre Replikate in der sekundären Region ab. Konfigurieren Sie diese aus Leistungsgründen für die Verwendung *asynchroner* Commits. (Andernfalls müssen alle T-SQL-Transaktionen auf einem Roundtrip über das Netzwerk zur sekundären Region warten.)
 
-> [!Note]  
+> [!NOTE]  
 > Replikate mit asynchronem Commit unterstützen kein automatisches Failover.
 
 ## <a name="availability-considerations"></a>Überlegungen zur Verfügbarkeit

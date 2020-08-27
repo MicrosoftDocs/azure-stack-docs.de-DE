@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie Softwareupdates von Microsoft mit Validation-as-a-Service in Azure Stack Hub überprüfen.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 46618ee2ab650842ebab9fc90b18b24131ac5d07
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: e0c9d3153da8030f828dc540f69a1d57b5e9d90a
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661120"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764850"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Überprüfen der Softwareupdates von Microsoft
 

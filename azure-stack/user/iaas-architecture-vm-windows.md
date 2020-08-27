@@ -7,12 +7,12 @@ ms.date: 7/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 3/9/2020
-ms.openlocfilehash: d642f01ca55fc18b832a04328be835703dfb5dd2
-ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
+ms.openlocfilehash: 3419e701aede4864cac62ace216a574a6dcc1226
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87397548"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920167"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Ausführen eines virtuellen Windows-Computers in Azure Stack Hub
 
@@ -91,7 +91,7 @@ Führen Sie für Ihre VMs ein Onboarding bei [Azure Security Center](/azure/secu
 
 **Zugriffssteuerung:** Steuern Sie den Zugriff auf Azure-Ressourcen mithilfe der [rollenbasierten Zugriffssteuerung](/azure/active-directory/role-based-access-control-what-is) (Role-Based Access Control, RBAC). Mithilfe der RBAC können Sie Mitglieder Ihres DevOps-Teams Autorisierungsrollen zuweisen. Die Rolle „Leser“ kann beispielsweise Azure-Ressourcen anzeigen, diese aber nicht erstellen, verwalten oder löschen. Einige Berechtigungen gelten spezifisch für einen Azure-Ressourcentyp. Die VM-Rolle „Mitwirkender“ kann z. B. eine VM neu starten oder Ihre Zuordnung aufheben, das Administratorkennwort zurücksetzen, eine neue VM erstellen usw. Andere [integrierte RBAC-Rollen](/azure/active-directory/role-based-access-built-in-roles), die für diese Architektur nützlich sein können, sind u. a. [DevTest Labs-Benutzer](/azure/active-directory/role-based-access-built-in-roles#devtest-labs-user) und [Netzwerkmitwirkender](/azure/active-directory/role-based-access-built-in-roles#network-contributor).
 
-> [!Note]  
+> [!NOTE]  
 > Die RBAC schränkt nicht die Aktionen eines Benutzers ein, der bei einer VM angemeldet ist. Diese Berechtigungen werden vom Kontotyp im Gastbetriebssystem bestimmt.
 
 **Überwachungsprotokolle:** Verwenden Sie [Aktivitätsprotokolle](./azure-stack-metrics-azure-data.md?#activity-log), um Bereitstellungsaktionen und andere VM-Ereignisse anzuzeigen.

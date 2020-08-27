@@ -3,15 +3,15 @@ title: Erstellen einer Linux-VM in Azure Stack Hub mit PowerShell
 description: Erstellen Sie mit PowerShell einen virtuellen Linux-Computer in Azure Stack Hub.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2b66bee551c9f562b10fe0690e0387217b6d67ea
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: dfb0311ab08093a309c7bee1d709d746fa8f0b52
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660494"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818367"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Schnellstart: Erstellen eines virtuellen Linux-Servers mit PowerShell in Azure Stack Hub
 

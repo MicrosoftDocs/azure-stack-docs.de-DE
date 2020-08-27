@@ -3,16 +3,16 @@ title: Herstellen einer Verbindung zwischen dem Storage-Explorer und einem Azure
 description: Hier erfahren Sie, wie Sie eine Verbindung zwischen dem Storage-Explorer und einem Azure Stack Hub-Abonnement herstellen.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: c92b037d34026df65569747949cca98d75910fad
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: ff36107a50a534dbb14b77747839bf1aabd0ebbb
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566786"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920371"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Herstellen einer Verbindung zwischen dem Storage-Explorer und einem Azure Stack Hub-Abonnement oder -Speicherkonto
 
@@ -29,7 +29,7 @@ Nachdem Sie eine Verbindung mit einem Azure Stack Hub-Abonnement oder -Speicher
 
 Damit der Storage-Explorer auf das Azure Stack Hub-Abonnement zugreifen kann, benötigen Sie direkten Zugriff auf Azure Stack Hub oder eine VPN-Verbindung. Weitere Informationen zur Einrichtung einer VPN-Verbindung mit Azure Stack Hub finden Sie unter [Herstellen einer Verbindung mit Azure Stack Hub per VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn).
 
-> [!Note]  
+> [!NOTE]  
 > Verwenden Sie für das ASDK nicht das Stammzertifikat (CA.cer), das während des Setupprozesses erstellt wurde, wenn Sie über ein VPN eine Verbindung mit dem ASDK herstellen.  Dies ist ein DER-codiertes (Distinguished Encoding Rules) Zertifikat, das es dem Storage-Explorer nicht erlaubt, Ihre Azure Stack Hub-Abonnements abzurufen. Gehen Sie wie folgt vor, um ein Base64-codiertes Zertifikat zur Verwendung mit Storage-Explorer zu exportieren.
 
 Für nicht verbundene integrierte Systeme und für das ASDK empfiehlt es sich, eine interne Unternehmenszertifizierungsstelle zu verwenden, um das Stammzertifikat im Base64-Format zu exportieren und anschließend in Azure Storage-Explorer zu importieren.  
@@ -89,7 +89,7 @@ Gehen Sie wie folgt vor, um den Storage-Explorer mit einem Azure Stack Hub-Abon
 
 ## <a name="connect-to-an-azure-stack-hub-subscription-with-ad-fs-account"></a>Herstellen einer Verbindung mit einem Azure Stack Hub-Abonnement mit einem AD FS-Konto
 
-> [!Note]  
+> [!NOTE]  
 > Der Bereich für die AD FS-Anmeldung (Active Directory-Verbunddienste) unterstützt Storage-Explorer 1.2.0 oder neuere Versionen mit Azure Stack Hub 1804 oder einem neueren Update.
 Gehen Sie wie folgt vor, um den Storage-Explorer mit einem Azure Stack Hub-Abonnement zu verbinden, das zu einem AD FS-Konto gehört.
 

@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Referenz für die Ressourcennutzungs-APIs, die Azure Stack Hub-Nutzungsinformationen abrufen.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/25/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b38b6ac920fefa808ed5f9ee21f93d06d58098d4
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 25bb94429624a1fde1ec8e1a963250837eebd0d9
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742289"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857557"
 ---
 # <a name="tenant-resource-usage-api-reference"></a>Referenz zur Ressourcennutzungs-API für Mandanten
 

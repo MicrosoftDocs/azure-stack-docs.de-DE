@@ -4,19 +4,19 @@ description: Erfahren Sie, wie Sie Probleme bei der Bereitstellung von Kubernete
 author: mattbriggs
 ms.topic: article
 ms.author: mabrigg
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 8342d8eccca348771630777ed212c18111f88bda
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 9a88b6ff0e759c38ad62e6455cbee25eaa9be9eb
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566718"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920762"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Problembehandlung bei der Bereitstellung von Kubernetes in Azure Stack Hub
 
-> [!Note]  
+> [!NOTE]  
 > Verwenden Sie die Kubernetes-Erweiterung für Azure Stack Hub aus dem Marketplace nur, um Cluster als Proof of Concept bereitzustellen. Verwenden Sie für unterstützte Kubernetes-Cluster in Azure Stack Hub [die AKS-Engine](azure-stack-kubernetes-aks-engine-overview.md).
 
 In diesem Artikel wird erläutert, wie Sie Probleme mit Ihrem Kubernetes-Cluster beheben. Um mit der Problembehandlung zu beginnen, überprüfen Sie zunächst die für die Bereitstellung erforderlichen Elemente. Sie müssen möglicherweise die Bereitstellungsprotokolle von Azure Stack Hub oder den Linux-VMs erfassen, die Kubernetes hosten. Wenden Sie sich an Ihren Azure Stack Hub-Administrator, um Protokolle von einem Verwaltungsendpunkt abzurufen.
@@ -155,7 +155,7 @@ Gehen Sie wie folgt vor, um die Clusterprotokolldateien zu sammeln und herunterz
 
     Das Protokollsammlerskript sucht in den Protokolldateien auch nach Fehlern. Wenn es ein bekanntes Problem findet, fügt es der Ausgabe Schritte zur Problembehandlung hinzu. Stellen Sie sicher, dass Sie die aktuelle Version des Skripts ausführen, um die Wahrscheinlichkeit zu erhöhen, dass bekannte Probleme gefunden werden.
 
-> [!Note]  
+> [!NOTE]  
 > In diesem GitHub-[Repository](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) finden Sie weitere Details zum Protokollsammlerskript.
 
 ## <a name="next-steps"></a>Nächste Schritte

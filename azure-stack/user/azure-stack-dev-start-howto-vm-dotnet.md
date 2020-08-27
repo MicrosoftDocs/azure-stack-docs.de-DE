@@ -3,16 +3,16 @@ title: Bereitstellen einer C#-Web-App (ASP.NET) auf einem virtuellen Computer in
 description: Stellen Sie eine C#-Web-App (ASP.NET) auf einem virtuellen Computer in Azure Stack Hub bereit.
 author: mattbriggs
 ms.topic: overview
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9b6ac818a4347b50cc68fcb618ce50f2aa31afc8
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: ec60c16ac4bff55064cd0b0643b2aafb101dd5c2
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567568"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88819149"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Bereitstellen einer C#-Web-App (ASP.NET) auf einem virtuellen Computer in Azure Stack Hub
 

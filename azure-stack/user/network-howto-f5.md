@@ -3,16 +3,16 @@ title: Bereitstellen von F5 in zwei Azure Stack Hub-Instanzen
 description: Hier erfahren Sie, wie Sie F5 in zwei Azure Stack Hub-Instanzen bereitstellen.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: cfbd828923c7653da0f0bfd86ee74703897996c7
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 29f23f30fd154da33e4a39ab306a4edd9d921b9b
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661445"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920201"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Bereitstellen von F5 in zwei Azure Stack Hub-Instanzen
 
@@ -62,7 +62,7 @@ Nehmen Sie die Bereitstellung in Azure Stack Hub-Instanz A und B vor.
 
     ![](./media/network-howto-f5/image4.png)
 
-    > [!Note]  
+    > [!NOTE]  
     > Jede BIG-IP-Bereitstellung dauert etwa 20 Minuten.
 
 ## <a name="configure-big-ip-appliances"></a>Konfigurieren der BIG-IP-Appliances
@@ -90,7 +90,7 @@ Führen Sie die folgenden Schritte für Azure Stack Hub A und B aus.
 
 1. Melden Sie sich bei BIG-IP an, und erstellen Sie eine DNS-Synchronisierungsgruppe. Anweisungen finden Sie in der Dokumentation zum [Erstellen einer BIG-IP-DNS-Synchronisierungsgruppe](https://f5-dns-automation-demo-12-1-x.readthedocs.io/en/latest/lab2/sync-group.html).
 
-    > [!Note]  
+    > [!NOTE]  
     > Die lokale IP-Adresse der BIG-IP-Appliance finden Sie in der Ressourcengruppe **F5-GSLB**. Die Netzwerkschnittstelle ist „f5stack1-ext“, und Sie möchten eine Verbindung mit der öffentlichen oder privaten IP-Adresse (je nach Zugriff) herstellen.
 
     ![](./media/network-howto-f5/image5.png)
@@ -113,7 +113,7 @@ Nach der Installation müssen Sie Ihre Azure Stack Hub-Netzwerksicherheitsgruppe
 
 4. Stellen Sie eine einfache Webanwendungsworkload in Ihrer Azure Stack Hub-Umgebung bereit, um einen Lastenausgleich hinter der BIG-IP-Instanz vorzunehmen. Ein Beispiel für die Verwendung des NGNIX-Servers finden Sie im Artikel zur [Bereitstellung von NGINX und NGINX Plus unter Docker](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/).
 
-    > [!Note]  
+    > [!NOTE]  
     > Stellen Sie eine Instanz von NGNIX auf Azure Stack Hub A und Azure Stack Hub B bereit.
 
 5. Nachdem NGNIX in einem Docker-Container auf einer Ubuntu-VM in jeder Azure Stack Hub-Instanz bereitgestellt wurde, überprüfen Sie, ob Sie die Standardwebseite auf den Servern erreichen können.
@@ -143,7 +143,7 @@ Nach der Installation müssen Sie Ihre Azure Stack Hub-Netzwerksicherheitsgruppe
     | Name | NGINX_Pool |
     | Health Monitors (Integritätsüberwachungen) | HTTPS |
     | Node Name (Knotenname) | NGINX |
-    | Adresse | \<Ihre private NGINX-IP-Adresse> |
+    | Adresse | \<your NGINX private IP address> |
     | Service Port (Dienstport) | 443 |
 
 11. Wählen Sie **Finished** (Fertig) aus. Wenn Sie die Einstellungen richtig konfiguriert haben, wird der Poolstatus grün angezeigt.
@@ -158,10 +158,10 @@ Nach der Installation müssen Sie Ihre Azure Stack Hub-Netzwerksicherheitsgruppe
 
 13. Erstellen Sie einen virtuellen Server, indem Sie zu **Local Traffic** > **Virtual Servers** > **Virtual Server List** (Lokaler Datenverkehr > Virtuelle Server > Liste virtueller Server) navigieren und **+** auswählen. Konfigurieren Sie den Pool mit den Werten in der Tabelle. Übernehmen Sie bei allen anderen Feldern die Standardwerte.
 
-    | Schlüssel | Wert |
+    | Key | Wert |
     | --- | --- |
     |Name | NGINX |
-    |Destination Address (Zieladresse) | \<Eigene IP-Adresse der BIG-IP-Instanz> |
+    |Destination Address (Zieladresse) | \<Self IP address of the BIG-IP> |
     |Service Port (Dienstport) | 443 |
     |SSL Profile (Client) (SSL-Profil (Client)) | clientssl |
     |Source Address Translation (Quelladressenübersetzung) | Auto Map (Automatische Zuordnung) |

@@ -3,16 +3,16 @@ title: Bereitstellen hochverfügbarer virtueller Netzwerkgeräte in Azure Stack 
 description: Erfahren Sie, wie Sie hochverfügbare virtuelle Netzwerkgeräte in Azure Stack Hub bereitstellen.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 19cfee9cf4e2698bcb75cb7dd15a9439ed55341a
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 6fdb1a5ff99b125b513bd4afc39570ee73c1c5b6
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566089"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920405"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Bereitstellen hochverfügbarer virtueller Netzwerkgeräte in Azure Stack Hub
 
@@ -78,7 +78,7 @@ Bei den beiden Architekturen für ein- und ausgehenden Datenverkehr gab es ein s
 
 In der Architektur „Ein-/ausgehender Datenverkehr mit Layer 7-NVAs“ verarbeiten die NVAs eingehende Anforderungen von einem Layer 7-Lastenausgleich. Die NVAs verarbeiten auch ausgehende Anforderungen von den Workload-VMs im Back-End-Pool des Lastenausgleichs. Da eingehender Datenverkehr mit einem Layer-7-Lastenausgleich und ausgehender Datenverkehr mit einem SLB (Azure Stack Hub Basic Load Balancer) weitergeleitet wird, sind die NVAs für die Aufrechterhaltung von Sitzungsaffinität zuständig. Das heißt, dass das der Layer 7-Lastenausgleich eine Zuordnung von ein- und ausgehenden Anforderungen verwaltet, damit es die richtige Antwort an den ursprünglichen Anforderer weiterleiten kann. Der interne Lastenausgleich hat jedoch keinen Zugriff auf die Zuordnungen des Layer 7-Lastenausgleichs und verwendet eine eigene Logik zum Senden von Antworten an die NVAs. Es ist möglich, dass der Lastenausgleich eine Antwort an ein NVA sendet, das die Anforderung nicht ursprünglich vom Layer 7-Lastenausgleich empfangen hat. In diesem Fall müssen die NVAs kommunizieren und die Antwort untereinander übertragen, damit das richtige NVA die Antwort an den Layer 7-Lastenausgleich weiterleiten kann.
 
-> [!Note]  
+> [!NOTE]  
 > Sie können das Problem des asymmetrischen Routings auch beheben, indem Sie sicherstellen, dass die NVAs eine eingehende Übersetzung der Quellnetzwerkadresse (SNAT) ausführen. Dadurch wird die ursprüngliche Quell-IP des Anforderers durch eine der IP-Adressen des NVA ersetzt, der für den eingehenden Datenfluss verwendet wird. Auf diese Weise ist sichergestellt, dass Sie mehrere NVAs gleichzeitig verwenden und dabei die Routensymmetrie beibehalten können.
 
 ## <a name="next-steps"></a>Nächste Schritte

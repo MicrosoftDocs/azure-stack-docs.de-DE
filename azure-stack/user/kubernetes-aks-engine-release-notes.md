@@ -7,12 +7,12 @@ ms.date: 06/29/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/25/2020
-ms.openlocfilehash: ff396f6123109b00e693f2f88a5bac244cb2ec7b
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 2764bd986cec4b5355c7fd6e9340ef3a1b6c8ce2
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567686"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920014"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Versionshinweise für die AKS-Engine in Azure Stack Hub
 ::: moniker range=">=azs-2002"
@@ -217,7 +217,7 @@ Sie finden die aktuelle Version und die Upgradeversion jeweils in der folgenden 
 
     - `"orchestratorVersion": "1.15.10"`
 
-    > [!Note]  
+    > [!NOTE]  
     > Falls die Kubernetes-Version in der JSON-Datei des API-Modells nicht explizit angegeben ist, wird Version `1.15` verwendet ([\#2932](https://github.com/Azure/aks-engine/issues/2932)). Für „orchestratorVersion“ wird dann standardmäßig ` 1.15.11` verwendet, und dies führt während der Bereitstellung des Clusters zu einem Fehler.
 
 -   Bei Version 0.43.1 der AKS-Engine passen die Standardeinstellungen für die Häufigkeit, mit der der Cloudanbieter die Steuerungsschleife und andere Aufgaben durchführt, nicht gut zu den Schwellenwerten für eingehende Anforderungen, die von Azure Stack Hub Resource Manager verwendet werden. Bei diesem Update werden die Standardeinstellungen für Azure Stack Hub geändert, um die Wiederholungslast für Azure Stack Hub Resource Manager zu reduzieren ([\#2861](https://github.com/Azure/aks-engine/issues/2861)).

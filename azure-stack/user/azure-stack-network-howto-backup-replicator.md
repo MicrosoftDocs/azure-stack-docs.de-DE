@@ -3,16 +3,16 @@ title: Replizieren von Ressourcen in mehreren Azure Stack Hub-Abonnements
 description: Erfahren Sie, wie Sie Ressourcen mit den Replikatorskripts für Azure Stack Hub-Abonnements replizieren.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: a20979ff0bb60f058658e9a0f9f540b2c0cb434e
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: 7f3c3c2ff61b629d4942edcaf53100e6bb5e7eb5
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173912"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920592"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Replizieren von Ressourcen mit dem Replikator für Azure Stack Hub-Abonnements
 
@@ -80,7 +80,7 @@ Zum Ausführen des Azure-Abonnementreplikators (v3) müssen Sie „resource_retr
 
 Wenn die Ausführung des Skripts abgeschlossen ist, sind die drei neuen Ordner **Deployment_Files**, **Parameter_Files** und **Custom_ARM_Templates** vorhanden.
 
- > [!Note]  
+ > [!NOTE]  
  > Vor dem Ausführen eines der generierten Skripts müssen Sie die richtige Umgebung festlegen und sich beim Zielabonnement anmelden (beispielsweise in der neuen Azure Stack Hub-Instanz) sowie das Arbeitsverzeichnis auf den Ordner **Deployment_Files** festlegen.
 
 „Deployment_Files“ enthält die beiden Dateien **DeployResourceGroups.ps1** und **DeployResources.ps1**. Durch das Ausführen von „DeployResourceGroups.ps1“ werden die Ressourcengruppen bereitgestellt. Durch das Ausführen von „DeployResources.ps1“ werden alle verarbeiteten Ressourcen bereitgestellt. Wenn das Tool mit **All** oder **Microsoft.Compute/virtualMachines** als Ressourcentyp ausgeführt wurde, fordert „DeployResources.ps1“ den Benutzer zur Eingabe eines VM-Administratorkennworts auf, mit dem alle VMs erstellt werden.
@@ -91,7 +91,7 @@ Wenn die Ausführung des Skripts abgeschlossen ist, sind die drei neuen Ordner *
 
     ![Führen Sie das Skript aus.](./media/azure-stack-network-howto-backup-replicator/image2.png)
 
-    > [!Note]  
+    > [!NOTE]  
     > Vergessen Sie nicht, die Quellumgebung und den Abonnementkontext für die PS-Instanz zu konfigurieren. 
 
 2.  Überprüfen Sie die neu erstellten Ordner:
@@ -170,7 +170,7 @@ Wenn Sie das Tool mit **All** als Ressourcentyp ausführen, wird beim Repliziere
             - Konfiguration der Netzwerksicherheitsgruppe  
             - Konfiguration der Verfügbarkeitsgruppe  
 
-> [!Note]  
+> [!NOTE]  
 > Erstellt nur verwaltete Datenträger für Betriebssystem- und andere Datenträger. Speicherkonten werden derzeit nicht unterstützt. 
 
 ### <a name="limitations"></a>Einschränkungen

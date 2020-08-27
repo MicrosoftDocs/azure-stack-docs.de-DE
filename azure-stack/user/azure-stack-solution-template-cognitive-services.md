@@ -7,12 +7,12 @@ ms.date: 05/21/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 05/21/2020
-ms.openlocfilehash: 217dc3a46d277aa8abf57379224dcad0fca4d983
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 8a1c71a86f5b0fe6290bddab35726eca5bda0144
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566752"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920626"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Bereitstellen von Azure Cognitive Services in Azure Stack Hub
 
@@ -75,7 +75,7 @@ Erstellen Sie in Azure eine Cognitive Service-Ressource, um eine Vorschau der Ge
 
 1. Erstellen Sie eine Azure-Ressource im Azure-Portal. Wenn Sie die Container für die Gesichtserkennung in einer Vorschau anzeigen möchten, müssen Sie zuerst im Azure-Portal eine entsprechende Gesichtserkennungsressource erstellen. Weitere Informationen finden Sie unter [Quickstart: Erstellen eines Cognitive Services-Kontos im Azure-Portal](/azure/cognitive-services/cognitive-services-apis-create-account).
 
-   > [!Note]
+   > [!NOTE]
    >  Die Ressource für Gesichtserkennung oder maschinelles Sehen muss den F0-Tarif verwenden.
 
 2. Rufen Sie die Endpunkt-URL und den Abonnementschlüssel für die Azure-Ressource ab. Verwenden Sie nach der Erstellung der Azure-Ressource den Abonnementschlüssel und die Endpunkt-URL aus der Ressource, um den entsprechenden Gesichtserkennungs-, LUIS- oder Texterkennungscontainer für die Vorschau zu instanziieren.

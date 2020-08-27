@@ -3,16 +3,16 @@ title: Erstellen eines virtuellen Linux-Computers mit Azure Stack Hub
 description: Erstellen Sie einen virtuellen Linux-Server mit Azure Stack Hub.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 5a9d6902d317af76145dde564cef56ac2f42dce8
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 0d75607eb111762fc49e6e3ccbef05353a5fab5f
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631278"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920660"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Schnellstart: Erstellen eines virtuellen Linux-Server mit dem Azure Stack Hub-Portal
 
@@ -79,7 +79,7 @@ Die Adresse des Azure Stack Hub-Portals hängt davon ab, mit welchem Azure Stack
 
 1. Geben Sie die Informationen des virtuellen Computers ein. Wählen Sie unter „Authentifizierungstyp“ die Option **Öffentlicher SSH-Schlüssel** aus, fügen Sie den von Ihnen gespeicherten öffentlichen SSH-Schlüssel ein, und wählen Sie dann **OK** aus.
 
-    > [!Note]  
+    > [!NOTE]  
     > Entfernen Sie alle voran- und nachgestellten Leerzeichen des Schlüssels.
 
    ![Authentifizierung](media/azure-stack-quick-linux-portal/image3.png)

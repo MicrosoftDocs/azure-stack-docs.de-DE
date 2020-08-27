@@ -3,16 +3,16 @@ title: Einrichten eines Multi-Site-to-Site-VPN-Tunnels in Azure Stack Hub
 description: Erfahren Sie, wie Sie einen Multi-Site-to-Site-VPN-Tunnel in Azure Stack Hub einrichten.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: ccfab1377a21c9de1df46c9695d10e4afab84dea
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 4ea38352ca26c94c02f588a786122e51494fadc2
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661501"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920847"
 ---
 # <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Einrichten eines Multi-Site-to-Site-VPN-Tunnels in Azure Stack Hub
 
@@ -69,7 +69,7 @@ Hierbei handelt es sich um einen Vorgang mit mehreren Schritten. Für diese Lös
 
 Sie können wie bei der Bereitstellung von **WebTier** vorgehen. Es werden jedoch andere Parameter verwendet, wie im Folgenden gezeigt:
 
-> [!Note]  
+> [!NOTE]  
 > Der AppTier-Adressraum ist **10.20.0.0/16**, und Sie können sehen, dass **WestUS2** der Speicherort der Ressourcengruppe ist.
 
 ![](./media/azure-stack-network-howto-vpn-tunnel/image6.png)
@@ -144,7 +144,7 @@ Wenn Sie die Ausgabe über die benutzerdefinierte Skripterweiterung anzeigen, k�
 
 2.  Wenn Sie das Skript `Add-Site2SiteIKE.ps1` aus dem Repository kopieren und lokal ausführen, werden mit dem Skript **WindowsFeature** und **RemoteAccess** installiert.
 
-    > [!Note]
+    > [!NOTE]
     > Abhängig von Ihrer Umgebung müssen Sie möglicherweise das System neu starten.
 
     Entsprechende Informationen finden Sie in der Netzwerkkonfiguration des lokalen Computers.
@@ -193,10 +193,10 @@ Wenn Sie die Ausgabe über die benutzerdefinierte Skripterweiterung anzeigen, k�
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image23.png)
 
-    > [!Note]  
+    > [!NOTE]  
     > Sie können die RDP-Verbindung sowohl vom ersten zum zweiten Computer als auch vom zweiten zum ersten Computer testen.
 
-    > [!Note]  
+    > [!NOTE]  
     > Um diese Lösung lokal zu implementieren, müssen Sie Routen für das Azure Stack Hub-Remotenetzwerk in der Switchinginfrastruktur oder zumindest auf spezifischen virtuellen Computern bereitstellen.
 
 ### <a name="deploying-a-gre-tunnel"></a>Bereitstellen eines GRE-Tunnels

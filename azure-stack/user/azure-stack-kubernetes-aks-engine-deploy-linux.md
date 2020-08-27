@@ -7,12 +7,12 @@ ms.date: 06/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/19/2020
-ms.openlocfilehash: 48cb6d5de8de8fdf9f044e855a2b8067a319c809
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: acf4e70c2d798aa9883a40957f3758057a4b835d
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566174"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920558"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Installieren der AKS-Engine unter Linux in Azure Stack Hub
 
@@ -42,7 +42,7 @@ Sie können die Client-VM installieren, um Ihren Kubernetes-Cluster in einer mit
         ./get-akse.sh --version v0.51.0
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > Wenn bei der Installation ein Fehler auftritt, können Sie die Schritte in der [getrennten Umgebung](#install-in-a-disconnected-environment) ausprobieren, oder [probieren Sie GoFish aus](azure-stack-kubernetes-aks-engine-troubleshoot.md#try-gofish), einen alternativen Paket-Manager.
 
 ## <a name="install-in-a-disconnected-environment"></a>Installieren in einer getrennten Umgebung

@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 38a362cdc29cac4f0862fe598d9ac29d5f60fd68
-ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
+ms.openlocfilehash: e791f05f76831e9448c4eba796ca8a12d631b9cd
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87865148"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919997"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub
 
@@ -32,7 +32,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
     curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > Wenn Sie die Verbindungen getrennt haben, können Sie die Datei herunterladen und manuell auf den getrennten Computer kopieren, auf dem Sie sie bearbeiten möchten. Sie können die Datei mithilfe von Tools wie [PuTTY oder WinSCP](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html) auf Ihren Linux-Computer kopieren.
 
 2.  Wenn Sie das API-Modell in einem Editor öffnen möchten, können Sie nano verwenden:
@@ -41,7 +41,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
     nano ./kubernetes-azurestack.json
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > Wenn nano nicht installiert ist, können Sie nano auf Ubuntu installieren: `sudo apt-get install nano`.
 
 3.  Suchen Sie in der Datei „kubernetes-azurestack.json“ nach „orchestratorRelease“ und „orchestratorVersion“. Wählen Sie eine der unterstützten Kubernetes-Versionen aus. Verwenden Sie beispielsweise für `orchestratorRelease` 1.14 oder 1.15 und für `orchestratorVersion` 1.14.7 oder 1.15.10. Geben Sie `orchestratorRelease` als x.xx und „orchestratorVersion“ als x.xx.x an. Eine Liste der aktuellen Versionen finden Sie unter [Unterstützte AKS-Engine-Versionen](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions).
@@ -57,7 +57,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
         },
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > Wenn Sie Azure AD für Ihr Identitätssystem verwenden, müssen Sie das Feld **identitySystem** nicht hinzufügen.
 
 6. Suchen Sie nach `portalURL`, und geben Sie die URL für das Mandantenportal an. Beispiel: `https://portal.local.azurestack.external`.
@@ -91,7 +91,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
 
     Wenn Sie die Bereitstellung in einem benutzerdefinierten virtuellen Netzwerk ausführen möchten, finden Sie Anweisungen zum Ermitteln und Hinzufügen der erforderlichen Schlüssel und Werte zu den entsprechenden Arrays im API-Modell unter [Bereitstellen eines Kubernetes-Clusters zu einem benutzerdefinierten virtuellen Netzwerk in Azure Stack Hub](kubernetes-aks-engine-custom-vnet.md).
 
-    > [!Note]  
+    > [!NOTE]  
     > Mit der AKS-Engine für Azure Stack Hub können Sie keine eigenen Zertifikate für die Erstellung des Clusters bereitstellen.
 
 ### <a name="more-information-about-the-api-model"></a>Weitere Informationen zum API-Modell
