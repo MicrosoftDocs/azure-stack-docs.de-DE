@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 8cb772d76b4bfd01a7e0c260c6ff3d20bdec3e0a
-ms.sourcegitcommit: 977c47a5587a747dbd67aa110381759ba39044b7
+ms.openlocfilehash: d87014dfe5d09a6c41e5108b8ae10b26e23b62d8
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88512477"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920184"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub-Computekapazität
 
@@ -96,6 +96,26 @@ Der Wert V (größter virtueller Computer in der Skalierungseinheit) basiert dyn
 **F:** Von meinem Mandanten wurde eine neue VM bereitgestellt. Wie lange dauert es, bis die verbleibende Kapazität im Funktionsdiagramm des Administratorportals angezeigt wird?
 
 **A:** Das Kapazitätsblatt wird alle 15 Minuten aktualisiert.
+
+**F:** Wie kann ich die verfügbaren Kerne und die zugewiesenen Kerne anzeigen?
+
+**A:** Führen Sie in **PowerShell-** den Befehl `test-azurestack -include AzsVmPlacement -debug` aus, wodurch eine Ausgabe wie die folgende generiert wird:
+
+    ```console
+    Starting Test-AzureStack
+    Launching AzsVmPlacement
+     
+    Azure Stack Scale Unit VM Placement Summary Results
+     
+    Cluster Node    VM Count VMs Running Physical Core Total Virtual Co Physical Memory Total Virtual Mem
+    ------------    -------- ----------- ------------- ---------------- --------------- -----------------
+    LNV2-Node02     20       20          28            66               256             119.5            
+    LNV2-Node03     17       16          28            62               256             110              
+    LNV2-Node01     11       11          28            47               256             111              
+    LNV2-Node04     10       10          28            49               256             101              
+    
+    PASS : Azure Stack Scale Unit VM Placement Summary
+    ```
 
 **F:** Meine Kapazität schwankt, obwohl sich die Anzahl bereitgestellter VMs in meiner Azure Stack Hub-Instanz nicht geändert hat. Warum?
 

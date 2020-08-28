@@ -3,16 +3,16 @@ title: Erstellen und Veröffentlichen eines Marketplace-Elements in Azure Stack 
 description: Erfahren Sie, wie Sie ein Azure Stack Hub-Marketplace-Element erstellen und veröffentlichen.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/11/2020
+ms.date: 08/18/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 16ea5f5873e7904931fb05d6113c0b6cb74f9612
-ms.sourcegitcommit: bc246d59f4ad42cc2cc997884f9d52c5097f0964
+ms.openlocfilehash: db8a05c8a3f8d4c219cb37de018df46c60f39348
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85069120"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764544"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack Hub-Marketplace-Elements
 
@@ -22,10 +22,14 @@ Jedes im Azure Stack Hub-Marketplace veröffentlichte Element verwendet das Azur
 
 In den Beispielen in diesem Artikel wird veranschaulicht, wie Sie ein einzelnes VM-Marketplace-Angebot vom Typ Windows oder Linux erstellen.
 
-## <a name="create-a-marketplace-item"></a>Erstellen von Marketplace-Elementen
+### <a name="prerequisites"></a>Voraussetzungen
 
-> [!IMPORTANT]
-> Vor dem Erstellen des VM-Marketplace-Elements laden Sie das benutzerdefinierte VM-Image in das Azure Stack Hub-Portal hoch. Dabei gehen Sie nach den Anweisungen unter [Hinzufügen eines VM-Images zu Azure Stack Hub](azure-stack-add-vm-image.md) vor. Befolgen Sie dann die Anweisungen in diesem Artikel, um das Image zu verpacken (Erstellen einer AZPKG-Datei) und in den Azure Stack Hub-Marketplace hochzuladen.
+Führen Sie die folgenden Schritte aus, bevor Sie das VM-Marketplace-Element erstellen:
+
+1. Laden Sie das benutzerdefinierte VM-Image in das Azure Stack Hub-Portal hoch. Dabei gehen Sie nach den Anweisungen unter [Hinzufügen eines VM-Images zu Azure Stack Hub](azure-stack-add-vm-image.md) vor. 
+2. Befolgen Sie die Anweisungen in diesem Artikel, um das Image zu verpacken (Erstellen einer AZPKG-Datei) und in den Azure Stack Hub-Marketplace hochzuladen.
+
+## <a name="create-a-marketplace-item"></a>Erstellen von Marketplace-Elementen
 
 Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-Element zu erstellen:
 
@@ -46,6 +50,8 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
    > [!NOTE]  
    > Führen Sie in der Azure Resource Manager-Vorlage niemals eine Hartcodierung von Geheimnissen wie Produktschlüsseln, Kennwörtern oder anderen kundenbezogenen Informationen durch. JSON-Vorlagendateien sind nach der Veröffentlichung im Katalog ohne Authentifizierung zugänglich. Speichern Sie alle Geheimnisse in [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter), und rufen Sie sie in der Vorlage auf.
 
+   Es wird empfohlen, dass Sie vor dem Veröffentlichen Ihrer eigenen benutzerdefinierten Vorlage versuchen, das Beispiel unverändert zu veröffentlichen, und sicherstellen, dass es in Ihrer Umgebung funktioniert. Nachdem Sie überprüft haben, dass dieser Schritt funktioniert, löschen Sie das Beispiel aus dem Katalog, und nehmen Sie iterative Änderungen vor, bis Sie mit dem Ergebnis zufrieden sind.
+
    Die folgende Vorlage ist ein Beispiel für die Datei „Manifest.json“:
 
     ```json
@@ -61,29 +67,19 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
        "longSummary": "ms-resource:longSummary",
        "description": "ms-resource:description",
        "longDescription": "ms-resource:description",
-       "uiDefinition": {
-          "path": "UIDefinition.json" (7)
-          },
        "links": [
         { "displayName": "ms-resource:documentationLink", "uri": "http://go.microsoft.com/fwlink/?LinkId=532898" }
         ],
        "artifacts": [
           {
-             "name": "<Template name>",
-             "type": "Template",
-             "path": "DeploymentTemplates\\<Template name>.json", (8)
              "isDefault": true
           }
        ],
-       "categories":[ (9)
-          "Custom",
-          "<Template name>"
-          ],
        "images": [{
           "context": "ibiza",
           "items": [{
              "id": "small",
-             "path": "icons\\Small.png", (10)
+             "path": "icons\\Small.png", (7)
              "type": "icon"
              },
              {
@@ -113,10 +109,7 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
     - (4): Der Name, den Kunden sehen
     - (5): Der Herausgebername, den Kunden sehen
     - (6): Der offizielle Firmenname des Herausgebers
-    - (7): Der Pfad, unter dem die Datei **UIDefinition.json** gespeichert wird  
-    - (8): Der Pfad und der Name der JSON-Hauptvorlagendatei
-    - (9): Die Namen der Kategorien, in denen diese Vorlage angezeigt wird
-    - (10): Der Pfad und der Name für die einzelnen Symbole
+    - (7): Der Pfad und der Name für die einzelnen Symbole
 
 5. Für alle Felder, die auf **ms-resource** verweisen, müssen Sie die entsprechenden Werte in der Datei **strings/resources.json** ändern:
 
@@ -130,8 +123,6 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
     "documentationLink": "Documentation"
     }
     ```
-
-    ![Paketanzeige](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![Paketanzeige](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
 6. Testen Sie die Vorlage mit den [Azure Stack Hub-APIs](../user/azure-stack-profiles-azure-resource-manager-versions.md), um sicherzustellen, dass die Ressource bereitgestellt werden kann.
 
@@ -186,12 +177,12 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
 6. Nachdem Ihr Element erfolgreich im Marketplace veröffentlicht wurde, können Sie den Inhalt aus dem Speicherkonto löschen.
 
-   > [!CAUTION]  
-   > Auf alle Standardartefakte des Katalogs und Ihre benutzerdefinierten Katalogartefakte kann jetzt unter den folgenden URLs ohne Authentifizierung zugegriffen werden:  
-   `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
-   `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
+   Auf alle Standardartefakte des Katalogs und Ihre benutzerdefinierten Katalogartefakte kann jetzt unter den folgenden URLs ohne Authentifizierung zugegriffen werden:
 
-6. Sie können ein Marketplace-Element mit dem Cmdlet **Remove-AzureRMGalleryItem** entfernen. Beispiel:
+   - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+   - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+
+7. Sie können ein Marketplace-Element mit dem Cmdlet **Remove-AzureRMGalleryItem** entfernen. Beispiel:
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose

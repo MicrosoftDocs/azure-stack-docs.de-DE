@@ -1,199 +1,123 @@
 ---
-title: Erstellen von Zertifikatsignieranforderungen für Azure Stack Hub
-description: Erfahren Sie, wie Sie Zertifikatsignieranforderungen für Azure Stack Hub-PKI-Zertifikate in integrierten Azure Stack Hub-Systemen erstellen.
+title: Azure Stack Hub-PKI-Zertifikatanforderungen
+description: Informationen zu den Azure Stack Hub-PKI-Zertifikatanforderungen für in Azure Stack Hub integrierte Systeme.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 07/15/2020
+ms.topic: conceptual
+ms.date: 08/19/2020
 ms.author: inhenkel
-ms.reviewer: jerskine
-ms.lastreviewed: 07/15/2020
-ms.openlocfilehash: 29bdad07a9d32bf60350fdeab73271387aa631f6
-ms.sourcegitcommit: 09fbc4e8fc53828647d515bfb556dfe42df28c19
+ms.reviewer: ppacent
+ms.lastreviewed: 12/16/2019
+ms.openlocfilehash: 93712c3eedb3045d99b9c2ed46a066b8505771dd
+ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86419160"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724879"
 ---
-# <a name="create-certificate-signing-requests-for-azure-stack-hub"></a>Erstellen von Zertifikatsignieranforderungen für Azure Stack Hub
+# <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Zertifikatanforderungen für Azure Stack Hub-PKI (Public Key-Infrastruktur)
 
-Sie können mit dem Azure Stack Hub Readiness Checker-Tool Zertifikatsignieranforderungen (CSRs) erstellen, die für eine Azure Stack Hub-Bereitstellung geeignet sind. Zertifikate müssen mit genügend Zeit zum Testen vor dem Einsatz angefordert, generiert und validiert werden. Sie können das Tool [aus dem PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) abrufen.
+Azure Stack Hub verfügt über ein öffentliches Infrastrukturnetz mit extern zugänglichen öffentlichen IP-Adressen, die einer kleinen Gruppe von Azure Stack Hub-Diensten und möglicherweise Mandanten-VMs zugewiesen sind. PKI-Zertifikate (Public Key-Infrastruktur) mit den entsprechenden DNS-Namen für diese Endpunkte der öffentlichen Infrastruktur von Azure Stack Hub werden während der Bereitstellung von Azure Stack Hub benötigt. Dieser Artikel enthält Informationen zu Folgendem:
 
-Mit dem Azure Stack Hub Readiness Checker-Tool (AzsReadinessChecker) können Sie die folgenden Zertifikate anfordern:
+- Zertifikatanforderungen für Azure Stack Hub.
+- Erforderliche Zertifikate für die Azure Stack Hub-Bereitstellung.
+- Optionale Zertifikate, die beim Bereitstellen von Ressourcenanbietern (RPs) erforderlich sind, die Mehrwert schaffen.
 
-- **Standardzertifikatanforderungen** gemäß [Generieren der Zertifikatsignieranforderung für neue Bereitstellungen](azure-stack-get-pki-certs.md).
-- **Erneuerungszertifikatanforderungen** gemäß [Generieren der Zertifikatsignieranforderung für die Zertifikaterneuerung](azure-stack-get-pki-certs.md).
-- **Platform-as-a-Service**: Sie können PaaS-Namen (Platform-as-a-Service ) für Zertifikate anfordern, wie unter [Azure Stack Hub-PKI-Zertifikatanforderungen: Optionale PaaS-Zertifikate](azure-stack-pki-certs.md) angegeben.
+> [!NOTE]
+> Azure Stack Hub verwendet standardmäßig auch Zertifikate, die von einer internen, in Active Directory integrierten Zertifizierungsstelle (Certificate Authority, CA) für die Authentifizierung zwischen den Knoten ausgestellt werden. Um das Zertifikat zu überprüfen, vertrauen alle Azure Stack Hub-Infrastrukturcomputer dem Stammzertifikat der internen Zertifizierungsstelle, indem sie dieses Zertifikat dem lokalen Zertifikatspeicher hinzufügen. In Azure Stack Hub werden keine Zertifikate angeheftet oder auf eine Whitelist gesetzt. Der SAN der einzelnen Serverzertifikate wird anhand des FQDN des Ziels überprüft. Außerdem werden die gesamte Vertrauenskette sowie das Ablaufdatum des Zertifikats (standardmäßige TLS-Server-Authentifizierung ohne Anheften von Zertifikaten) überprüft.
 
-## <a name="prerequisites"></a>Voraussetzungen
+## <a name="certificate-requirements"></a>Zertifikatanforderungen
+In der folgenden Liste werden die allgemeinen Anforderungen an Zertifikatausstellung, Sicherheit und Formatierung beschrieben:
 
-Ihr System muss die folgenden Voraussetzungen erfüllen, bevor Sie Zertifikatsignieranforderungen für PKI-Zertifikate für eine Azure Stack Hub-Bereitstellung generieren:
+- Zertifikate müssen von einer internen oder öffentlichen Zertifizierungsstelle ausgestellt werden. Wenn eine öffentliche Zertifizierungsstelle verwendet wird, muss diese im Rahmen des Microsoft Trusted Root Authority Program in das Basisbetriebssystem-Image aufgenommen werden. Sie finden die vollständige Liste unter [Microsoft Trusted Root Certificate Program: Participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+- Ihre Azure Stack Hub-Infrastruktur muss über Netzwerkzugriff auf den im Zertifikat veröffentlichten Speicherort der Zertifikatsperrliste (Certificate Revocation List, CRL) der Zertifizierungsstelle verfügen. Bei dieser CRL muss es sich um einen HTTP-Endpunkt handeln.
+::: moniker range="< azs-1903"
+- Beim Rotieren von Zertifikaten in Builds vor 1903 müssen diese entweder von der gleichen internen Zertifizierungsstelle stammen, die auch zum Signieren der bei der Bereitstellung angegebenen Zertifikate verwendet wurde, oder von einer der oben angegebenen öffentlichen Zertifizierungsstellen.
+::: moniker-end
+::: moniker range=">= azs-1903"
+- Bei rotierenden Zertifikaten ab Build 1903 können Zertifikate von einer beliebigen Unternehmens- oder öffentlichen Zertifizierungsstelle ausgestellt werden.
+::: moniker-end
+- Die Verwendung selbstsignierter Zertifikate wird nicht unterstützt.
+- Für Bereitstellung und Rotation können Sie entweder ein einziges Zertifikat verwenden, das alle Namespaces in den Feldern „Antragstellername“ und „Alternativer Antragstellername“ des Zertifikats abdeckt, ODER Sie können einzelne Zertifikate für jeden der nachfolgenden Namespaces verwenden, die die Azure Stack Hub-Dienste benötigen, die Sie nutzen möchten. Beide Ansätze erfordern bei Bedarf die Verwendung von Platzhaltern für Endpunkte, z. B. **KeyVault** und **KeyVaultInternal**.
+- Die PFX-Verschlüsselung des Zertifikats sollte mit 3DES erfolgen.
+- Der Zertifikatsignaturalgorithmus sollte nicht SHA-1 sein.
+- Das Zertifikatsformat muss PFX sein, da sowohl der öffentliche als auch der private Schlüssel für die Installation von Azure Stack Hub benötigt werden. Für den privaten Schlüssel muss das Schlüsselattribut des lokalen Computers festgelegt sein.
+- Die PFX-Verschlüsselung muss 3DES sein. (Dies ist beim Exportieren von einem Windows 10-Client oder einem Windows Server 2016-Zertifikatspeicher Standard.)
+- Die PFX-Zertifikatdateien müssen im Feld „Schlüsselverwendung“ einen Wert in „Digitale Signatur“ und „Schlüsselchiffrierung“ enthalten.
+- Die PFX-Zertifikatdateien müssen die Werte „Serverauthentifizierung (1.3.6.1.5.5.7.3.1)“ und „Clientauthentifizierung (1.3.6.1.5.5.7.3.2)“ im Feld „Erweiterte Schlüsselverwendung“ aufweisen.
+- Das Feld „Ausgestellt für:“ des Zertifikats darf nicht mit dem Feld „Ausgestellt von:“ identisch sein.
+- Die Kennwörter aller PFX-Zertifikatdateien müssen zum Zeitpunkt der Bereitstellung identisch sein.
+- Für die PFX-Zertifikatdatei muss ein komplexes Kennwort verwendet werden. Notieren Sie sich dieses Kennwort, da Sie es später als Bereitstellungsparameter benötigen. Das Kennwort muss die folgenden Komplexitätsanforderungen erfüllen.
+    - Mindestlänge von 8 Zeichen.
+    - Mindestens drei der folgenden Elemente: Großbuchstaben, Kleinbuchstaben, Zahlen von 0–9, Sonderzeichen, alphabetische Zeichen, die weder Groß- noch Kleinbuchstaben sind.
+- Stellen Sie sicher, dass die Antragstellernamen und alternativen Antragstellernamen in der Erweiterung für alternative Antragstellernamen (x509v3_config) übereinstimmen. Im Feld für den alternativen Antragstellernamen können Sie zusätzliche Hostnamen (Websites, IP-Adressen, allgemeine Namen) angeben, die durch ein einzelnes SSL-Zertifikat geschützt werden sollen.
 
-- Microsoft Azure Stack Hub Readiness Checker
-- Zertifikatattribute:
-  - Regionsname
-  - Externer vollqualifizierter Domänenname (FQDN)
-  - Subject
-- Windows 10 oder Windows Server 2016 oder höher
+> [!NOTE]  
+> Selbstsignierte Zertifikate werden nicht unterstützt.  
+> Bei der Bereitstellung von Azure Stack Hub im getrennten Modus wird die Verwendung von Zertifikaten empfohlen, die von einer Unternehmenszertifizierungsstelle ausgestellt wurden. Dies ist wichtig, da Clients, die auf Azure Stack Hub-Endpunkte zugreifen, in der Lage sein müssen, eine Verbindung mit der Zertifikatsperrliste (Certificate Revocation List, CRL) herzustellen.
 
-  > [!NOTE]  
-  > Wenn Sie die Zertifikate von Ihrer Zertifizierungsstelle erhalten haben, müssen Sie auf demselben System die Schritte in [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten](azure-stack-prepare-pki-certs.md) ausführen!
+> [!NOTE]  
+> Das Vorhandensein von Zwischenzertifizierungsstellen in der Vertrauenskette eines Zertifikats *wird unterstützt*.
 
-## <a name="generate-certificate-signing-requests-for-new-deployments"></a>Generieren von Zertifikatsignieranforderungen für neue Bereitstellungen
+## <a name="mandatory-certificates"></a>Erforderliche Zertifikate
+Die Tabelle in diesem Abschnitt beschreibt die PKI-Zertifikate für öffentliche Azure Stack Hub-Endpunkte, die sowohl für Azure AD- als auch für AD FS-gestützte Azure Stack Hub-Bereitstellungen erforderlich sind. Zertifikatsanforderungen werden nach Bereichen gruppiert, ebenso wie die verwendeten Namespaces und die Zertifikate, die für jeden Namespace benötigt werden. Die Tabelle beschreibt auch den Ordner, in den Ihr Lösungsanbieter die verschiedenen Zertifikate für jeden öffentlichen Endpunkt kopiert.
 
-Gehen Sie wie folgt vor, um Zertifikatsignieranforderungen für neue Azure Stack Hub-PKI-Zertifikate vorzubereiten:
+Zertifikate mit den entsprechenden DNS-Namen für diese Endpunkte der öffentlichen Infrastruktur von Azure Stack Hub sind erforderlich. Der DNS-Name von Endpunkten wird im folgenden Format angegeben: *&lt;Präfix>.&lt;Region>.&lt;FQDN>* .
 
-1. Führen Sie an einer PowerShell-Eingabeaufforderung (5.1 oder höher) das folgende Cmdlet aus, um AzsReadinessChecker zu installieren:
+Für Ihre Bereitstellung müssen die Werte [region] und [externalfqdn] mit der Region und den externen Domänennamen übereinstimmen, die Sie für Ihr Azure Stack Hub-System ausgewählt haben. Beispiel: Wenn der Name der Region *Redmond* und der externe Domänenname *contoso.com* lautet, haben die DNS-Namen das Format *&lt;Präfix>.redmond.contoso.com*. Die *&lt;Präfix>* -Werte werden von Microsoft vordefiniert, um den durch das Zertifikat geschützten Endpunkt zu beschreiben. Darüber hinaus hängen die *&lt;Präfix>* -Werte der externen Infrastrukturendpunkte vom Azure Stack Hub-Dienst ab, der den spezifischen Endpunkt verwendet.
 
-    ```powershell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker
-    ```
+Für Produktionsumgebungen wird empfohlen, für jeden Endpunkt eigene Zertifikate zu generieren und in das entsprechende Verzeichnis zu kopieren. In Entwicklungsumgebungen können Zertifikate als einzelnes, in alle Verzeichnisse kopiertes Platzhalterzertifikat bereitgestellt werden, das alle Namespaces in den Feldern für Antragsteller und alternative Antragstellernamen (Subject Alternative Name, SAN) abdeckt. Ein einzelnes Zertifikat für alle Endpunkte und Dienste ist eine unsichere Methode und sollte daher nur in der Entwicklung verwendet werden. Wie bereits erwähnt, müssen für beide Optionen Platzhalterzertifikate für Endpunkte wie **acs** und Key Vault verwendet werden, wenn dies erforderlich sind.
 
-2. Deklarieren Sie den **Antragsteller**. Beispiel:
+> [!Note]  
+> Während der Bereitstellung müssen Sie Zertifikate in den Bereitstellungsordner kopieren, der zu dem Identitätsanbieter gehört, für den Sie die Bereitstellung ausführen (Azure AD oder AD FS). Wenn Sie ein einzelnes Zertifikat für alle Endpunkte verwenden, müssen Sie diese Zertifikatdatei, wie in den folgenden Tabellen aufgeführt, in jeden Bereitstellungsordner kopieren.Die Ordnerstruktur ist bereits im virtuellen Computer für die Bereitstellung unter folgendem Pfad festgelegt: C:\CloudDeployment\Setup\Certificates.
 
-    ```powershell  
-    $subject = "C=US,ST=Washington,L=Redmond,O=Microsoft,OU=Azure Stack Hub"
-    ```
+| Bereitstellungsordner | Erforderlicher Zertifikatantragsteller und alternative Antragstellernamen | Bereich (pro Region) | Namespace der Unterdomäne |
+|-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
+| Öffentliches Portal | portal.&lt;Region>.&lt;FQDN> | Portale | &lt;Region>.&lt;FQDN> |
+| Verwaltungsportal | adminportal.&lt;Region>.&lt;FQDN> | Portale | &lt;Region>.&lt;FQDN> |
+| Azure Resource Manager (Öffentlich) | management.&lt;Region>.&lt;FQDN> | Azure Resource Manager | &lt;Region>.&lt;FQDN> |
+| Azure Resource Manager (Verwaltung) | adminmanagement.&lt;Region>.&lt;FQDN> | Azure Resource Manager | &lt;Region>.&lt;FQDN> |
+| ACSBlob | *.blob.&lt;Region>.&lt;FQDN><br>(SSL-Platzhalterzertifikat) | Blob Storage | blob.&lt;Region>.&lt;FQDN> |
+| ACSTable | *.table.&lt;Region>.&lt;FQDN><br>(SSL-Platzhalterzertifikat) | Table Storage | table.&lt;Region>.&lt;FQDN> |
+| ACSQueue | *.queue.&lt;Region>.&lt;FQDN><br>(SSL-Platzhalterzertifikat) | Queue Storage | queue.&lt;Region>.&lt;FQDN> |
+| KeyVault | *.vault.&lt;Region>.&lt;FQDN><br>(SSL-Platzhalterzertifikat) | Key Vault | vault.&lt;Region>.&lt;FQDN> |
+| KeyVaultInternal | *.adminvault.&lt;Region>.&lt;FQDN><br>(SSL-Platzhalterzertifikat) |  Interner Schlüsseltresor |  adminvault.&lt;Region>.&lt;FQDN> |
+| Administratorerweiterungshost | *.adminhosting.\<region>.\<fqdn> (SSL-Platzhalterzertifikate) | Administratorerweiterungshost | adminhosting.\<region>.\<fqdn> |
+| Öffentlicher Erweiterungshost | *.hosting.\<region>.\<fqdn> (SSL-Platzhalterzertifikate) | Öffentlicher Erweiterungshost | hosting.\<region>.\<fqdn> |
 
-    > [!NOTE]  
-    > Wenn ein allgemeiner Name (Common Name, CN) angegeben wird, wird er für jede Zertifikatanforderung konfiguriert. Wenn kein CN angegeben wird, wird für die Zertifikatanforderung der erste DNS-Name des Azure Stack Hub-Diensts konfiguriert.
+Wenn Sie Azure Stack Hub im Azure AD-Bereitstellungsmodus bereitstellen, müssen Sie nur die in der vorigen Tabelle aufgeführten Zertifikate anfordern. Wenn Sie jedoch Azure Stack Hub mit dem AD FS-Bereitstellungsmodus bereitstellen, müssen Sie auch die in der folgenden Tabelle beschriebenen Zertifikate anfordern:
 
-3. Deklarieren Sie ein Ausgabeverzeichnis, das bereits vorhanden ist. Beispiel:
+|Bereitstellungsordner|Erforderlicher Zertifikatantragsteller und alternative Antragstellernamen|Bereich (pro Region)|Namespace der Unterdomäne|
+|-----|-----|-----|-----|
+|ADFS|adfs. *&lt;region>.&lt;fqdn>*<br>(SSL-Zertifikat)|ADFS|*&lt;region>.&lt;fqdn>*|
+|Graph|graph. *&lt;region>.&lt;fqdn>*<br>(SSL-Zertifikat)|Graph|*&lt;region>.&lt;fqdn>*|
+|
 
-    ```powershell  
-    $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
-    ```
+> [!IMPORTANT]
+> Alle Zertifikate, die in diesem Abschnitt aufgeführt sind, müssen das gleiche Kennwort haben.
 
-4. Deklarieren des Identitätssystems
+## <a name="optional-paas-certificates"></a>Optionale PaaS-Zertifikate
+Wenn Sie die zusätzlichen Azure Stack Hub-PaaS-Dienste (z. B. SQL, MySQL, App Service oder Event Hubs) bereitstellen möchten, nachdem Azure Stack Hub bereitgestellt und konfiguriert wurde, müssen Sie zusätzliche Zertifikate anfordern, um die Endpunkte der PaaS-Dienste abzudecken.
 
-    Azure Active Directory (Azure AD):
+> [!IMPORTANT]
+> Die Zertifikate, die Sie für Ressourcenanbieter verwenden, müssen dieselbe Stammzertifizierungsstelle haben wie die Zertifikate, die für die globalen Azure Stack Hub-Endpunkte verwendet werden.
 
-    ```powershell
-    $IdentitySystem = "AAD"
-    ```
+In der folgenden Tabelle sind die Endpunkte und Zertifikate beschrieben, die für Ressourcenanbieter erforderlich sind. Sie müssen diese Zertifikate nicht in den Azure Stack Hub-Bereitstellungsordner kopieren. Stattdessen stellen Sie diese Zertifikate während der Installation der Ressourcenanbieter bereit.
 
-    Active Directory-Verbunddienste (AD FS):
+|Bereich (pro Region)|Zertifikat|Erforderlicher Zertifikatantragsteller und alternative Antragstellernamen|Namespace der Unterdomäne|
+|-----|-----|-----|-----|
+|SQL, MySQL|SQL und MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>(SSL-Platzhalterzertifikat)|dbadapter. *&lt;region>.&lt;fqdn>*|
+|App Service|Webdatenverkehr: SSL-Standardzertifikat|&#42;.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice. *&lt;Region>.&lt;FQDN>*<br>(SSL-Platzhalterzertifikat für mehrere Domänen<sup>1</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|App Service|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL-Zertifikat<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|App Service|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL-Zertifikat<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|App Service|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL-Zertifikat<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|Event Hubs|Event Hubs|&#42;.eventhub. *&lt;region>.&lt;fqdn>* (SAN)| eventhub. *&lt;region>.&lt;fqdn>* |
 
-    ```powershell
-    $IdentitySystem = "ADFS"
-    ```
-    > [!NOTE]  
-    > Der Parameter ist nur für die CertificateType-Bereitstellung erforderlich.
+<sup>1</sup> Erfordert ein Zertifikat mit Platzhaltern für mehrere alternative Antragstellernamen. Mehrere Platzhalter für alternative Antragstellernamen auf einem einzigen Zertifikat werden ggf. nicht von allen öffentlichen Zertifizierungsstellen unterstützt.
 
-5. Deklarieren Sie einen **Regionsnamen** und **externen FQDN** für die Azure Stack Hub-Bereitstellung.
+<sup>2</sup> Ein Platzhalterzertifikat des Typs &#42;.appservice. *&lt;region>.&lt;fqdn>* kann nicht anstelle dieser drei Zertifikate (api.appservice. *&lt;region>.&lt;fqdn>* , ftp.appservice. *&lt;region>.&lt;fqdn>* und sso.appservice. *&lt;region>.&lt;fqdn>* ) verwendet werden. App Service erfordert explizit die Verwendung separater Zertifikate für diese Endpunkte.
 
-    ```powershell
-    $regionName = 'east'
-    $externalFQDN = 'azurestack.contoso.com'
-    ```
-
-    > [!NOTE]  
-    > `<regionName>.<externalFQDN>` bildet die Grundlage für die Erstellung aller externen DNS-Namen in Azure Stack Hub. In diesem Beispiel heißt das Portal `portal.east.azurestack.contoso.com`.  
-
-6. So generieren Sie Zertifikatsignieranforderungen für die Bereitstellung:
-
-    ```powershell  
-    New-AzsHubDeploymentCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ```
-
-    Um Zertifikatanforderungen für andere Azure Stack Hub-Dienste zu generieren, ändern Sie den Wert für `-CertificateType`. Beispiel:
-
-    ```powershell  
-    # App Services
-    New-AzsHubAppServicesCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
-
-    # DBAdapter
-    New-AzsHubDbAdapterCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
-
-    # EventHubs
-    New-AzsHubEventHubsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
-
-    # IoTHub
-    New-AzsHubIoTHubCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
-    ```
-
-7. Um als Alternative für Dev/Test-Umgebungen eine einzelne Zertifikatanforderung mit mehreren alternativen Antragstellernamen zu generieren, fügen Sie den Parameter und Wert **--RequestType SingleCSR** hinzu (wird für Produktionsumgebungen **nicht** empfohlen):
-
-    ```powershell  
-    New-AzsHubDeploymentCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -RequestType SingleCSR -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ```
-
-8.  Überprüfen Sie die Ausgabe:
-
-    ```powershell  
-    Starting Certificate Request Process for Deployment
-    CSR generating for following SAN(s): *.adminhosting.east.azurestack.contoso.com,*.adminvault.east.azurestack.contoso.com,*.blob.east.azurestack.contoso.com,*.hosting.east.azurestack.contoso.com,*.queue.east.azurestack.contoso.com,*.table.east.azurestack.contoso.com,*.vault.east.azurestack.contoso.com,adminmanagement.east.azurestack.contoso.com,adminportal.east.azurestack.contoso.com,management.east.azurestack.contoso.com,portal.east.azurestack.contoso.com
-    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\[*redacted*]\Documents\AzureStackCSR\Deployment_east_azurestack_contoso_com_SingleCSR_CertRequest_20200710165538.req
-    Certreq.exe output: CertReq: Request Created
-    ```
-
-9.  Übermitteln Sie die generierte **REQ**-Datei an Ihre (interne oder öffentliche) Zertifizierungsstelle. Das Ausgabeverzeichnis von **New-AzsCertificateSigningRequest** enthält die Zertifikatsignieranforderungen, die für die Übermittlung an eine Zertifizierungsstelle erforderlich sind. Das Verzeichnis enthält zu Ihrer Referenz auch ein Unterverzeichnis, das die bei der Generierung von Zertifikatanforderungen verwendeten INF-Dateien enthält. Vergewissern Sie sich, dass Ihre Zertifizierungsstelle Zertifikate mit Ihrer generierten Anforderung erstellt, die die [Azure Stack Hub-PKI-Voraussetzungen](azure-stack-pki-certs.md) erfüllen.
-
-## <a name="generate-certificate-signing-requests-for-certificate-renewal"></a>Generieren von Zertifikatsignieranforderungen für die Zertifikaterneuerung
-
-Gehen Sie wie folgt vor, um Zertifikatsignieranforderungen für die Erneuerung vorhandener Azure Stack Hub-PKI-Zertifikate vorzubereiten:
-
-1. Führen Sie an einer PowerShell-Eingabeaufforderung (5.1 oder höher) das folgende Cmdlet aus, um AzsReadinessChecker zu installieren:
-
-    ```powershell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker
-    ```
-
-2. Deklarieren Sie den **stampEndpoint**. Beispiel:
-
-    ```powershell  
-    $stampEndpoint = 'portal.east.azurestack.contoso.com'
-    ```
-
-    > [!NOTE]  
-    > Für den oben genannten Endpunkt ist HTTPS-Konnektivität erforderlich.
-    > Der oben genannte Endpunkt sollte mit einem der Zertifikate übereinstimmen, die für den Zertifikatstyp erforderlich sind. Für Bereitstellungszertifikate ist z. B. der Endpunkt „portal.region.domain“ erforderlich, für AppServices „sso.appservices.region.domain“ usw. Das an den Endpunkt gebundene Zertifikat wird zum Klonen von Attributen wie Betreff, Schlüssellänge, Signaturalgorithmus verwendet.  Es ist nur ein vorhandener Endpunkt erforderlich, und die Signierungsanforderungen erstellen alle erforderlichen Zertifikate.
-
-3. Deklarieren Sie ein Ausgabeverzeichnis, das bereits vorhanden ist. Beispiel:
-
-    ```powershell  
-    $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
-    ```
-
-4. So generieren Sie Zertifikatsignieranforderungen für die Bereitstellung:
-
-    ```powershell  
-    New-AzsHubDeploymentCertificateSigningRequest -StampEndpoint $stampEndpoint -OutputRequestPath $OutputDirectory
-    ```
-
-    Um Zertifikatanforderungen für andere Azure Stack Hub-Dienste zu generieren, verwenden Sie:
-
-    ```powershell  
-    # App Services
-    New-AzsHubAppServicesCertificateSigningRequest -StampEndpoint $stampEndpoint -OutputRequestPath $OutputDirectory
-
-    # DBAdapter
-    New-AzsHubDBAdapterCertificateSigningRequest -StampEndpoint $stampEndpoint -OutputRequestPath $OutputDirectory
-
-    # EventHubs
-    New-AzsHubEventHubsCertificateSigningRequest -StampEndpoint $stampEndpoint -OutputRequestPath $OutputDirectory
-
-    # IoTHub
-    New-AzsHubIotHubCertificateSigningRequest -StampEndpoint $stampEndpoint -OutputRequestPath $OutputDirectory
-    ```
-
-5. Um als Alternative für Dev/Test-Umgebungen eine einzelne Zertifikatanforderung mit mehreren alternativen Antragstellernamen zu generieren, fügen Sie den Parameter und Wert **--RequestType SingleCSR** hinzu (wird für Produktionsumgebungen **nicht** empfohlen):
-
-    ```powershell  
-    New-AzsHubDeploymentCertificateSigningRequest -StampEndpoint $stampendpoint -OutputRequestPath $OutputDirectory -RequestType SingleCSR
-    ```
-
-6.  Überprüfen Sie die Ausgabe:
-
-    ```powershell  
-    Querying StampEndpoint portal.east.azurestack.contoso.com for existing certificate
-    Starting Certificate Request Process for Deployment
-    CSR generating for following SAN(s): *.adminhosting.east.azurestack.contoso.com,*.adminvault.east.azurestack.contoso.com,*.blob.east.azurestack.contoso.com,*.hosting.east.azurestack.contoso.com,*.queue.east.azurestack.contoso.com,*.table.east.azurestack.contoso.com,*.vault.east.azurestack.contoso.com,adminmanagement.east.azurestack.contoso.com,adminportal.east.azurestack.contoso.com,management.east.azurestack.contoso.com,portal.east.azurestack.contoso.com
-    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\[*redacted*]\Documents\AzureStackCSR\Deployment_east_azurestack_contoso_com_SingleCSR_CertRequest_20200710122723.req
-    Certreq.exe output: CertReq: Request Created
-    ```
-
-7.  Übermitteln Sie die generierte **REQ**-Datei an Ihre (interne oder öffentliche) Zertifizierungsstelle. Das Ausgabeverzeichnis von **New-AzsCertificateSigningRequest** enthält die Zertifikatsignieranforderungen, die für die Übermittlung an eine Zertifizierungsstelle erforderlich sind. Das Verzeichnis enthält zu Ihrer Referenz auch ein Unterverzeichnis, das die bei der Generierung von Zertifikatanforderungen verwendeten INF-Dateien enthält. Vergewissern Sie sich, dass Ihre Zertifizierungsstelle Zertifikate mit Ihrer generierten Anforderung erstellt, die die [Azure Stack Hub-PKI-Voraussetzungen](azure-stack-pki-certs.md) erfüllen.
+## <a name="learn-more"></a>Weitere Informationen
+Erfahren Sie mehr zum [Generieren von PKI-Zertifikaten für die Azure Stack Hub-Bereitstellung](azure-stack-get-pki-certs.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
-
-[Vorbereiten von Azure Stack Hub-PKI-Zertifikaten](azure-stack-prepare-pki-certs.md)
+[Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum](azure-stack-integrate-identity.md)

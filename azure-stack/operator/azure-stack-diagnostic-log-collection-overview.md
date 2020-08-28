@@ -3,16 +3,16 @@ title: Diagnoseprotokollsammlung in Azure Stack Hub
 description: Erfahren Sie mehr über die Diagnoseprotokollsammlung in Azure Stack Hub – Hilfe und Support.
 author: justinha
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 08/24/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 05/11/2020
-ms.openlocfilehash: c924c5a48337106c08d1112328c32c031d7371bc
-ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
+ms.lastreviewed: 08/24/2020
+ms.openlocfilehash: 841c031b6009cdb7970194a3268010e745e9e0f0
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88074235"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764510"
 ---
 # <a name="diagnostic-log-collection-in-azure-stack-hub"></a>Diagnoseprotokollsammlung in Azure Stack Hub
 
@@ -89,7 +89,7 @@ Durch Initiieren der Sammlung von Diagnoseprotokollen über Azure Stack Hub erkl
 
 ## <a name="save-logs-locally"></a>Lokales Speichern von Protokollen
 
-Sie können Protokolle in einer lokalen SMB-Freigabe speichern, wenn Azure Stack Hub nicht mit Azure verbunden ist. Geben Sie auf dem Blatt **Einstellungen** den Pfad sowie einen Benutzernamen und ein Kennwort mit Schreibberechtigung für die Freigabe ein. Während eines Supportfalls werden von Microsoft CSS ausführliche Schritte für die Übertragung dieser lokalen Protokolle bereitgestellt.
+Sie können Protokolle in einer lokalen SMB-Freigabe speichern, wenn Azure Stack Hub nicht mit Azure verbunden ist. Geben Sie auf dem Blatt **Einstellungen** den Pfad sowie einen Benutzernamen und ein Kennwort mit Schreibberechtigung für die Freigabe ein. Während eines Supportfalls werden von Microsoft-Support ausführliche Schritte für die Übertragung dieser lokalen Protokolle bereitgestellt. Wenn das Administratorportal nicht verfügbar ist, können Sie [Get-AzureStackLog](azure-stack-get-azurestacklog.md) verwenden, um Protokolle lokal zu speichern.
 
 ![Screenshot der Optionen für die Sammlung von Diagnoseprotokollen](media/azure-stack-help-and-support/save-logs-locally.png)
 

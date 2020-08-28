@@ -1,27 +1,28 @@
 ---
-title: Abrufen von Zertifikatsignieranforderungen für die Bereitstellung in Azure Stack Hub
-description: Erfahren Sie, wie Sie Zertifikatsignieranforderungen für Azure Stack Hub-PKI-Zertifikate in integrierten Azure Stack Hub-Systemen abrufen.
+title: Generieren von Zertifikatsignieranforderungen für Azure Stack Hub
+description: Es wird beschrieben, wie Sie Zertifikatsignieranforderungen für Azure Stack Hub-PKI-Zertifikate in integrierten Azure Stack Hub-Systemen generieren.
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 37f308a9b554453a1f7c10219d68b1255c23cbf0
-ms.sourcegitcommit: 09fbc4e8fc53828647d515bfb556dfe42df28c19
+ms.openlocfilehash: 6bcdc7aacfadb37d348eaa33449065b9fb345446
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86419264"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818350"
 ---
-# <a name="get-certificate-signing-requests-for-deployment-in-azure-stack-hub"></a>Abrufen von Zertifikatsignieranforderungen für die Bereitstellung in Azure Stack Hub
+# <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Generieren von Zertifikatsignieranforderungen für Azure Stack Hub
 
 Sie können mit dem Azure Stack Hub Readiness Checker-Tool Zertifikatsignieranforderungen (CSRs) erstellen, die für eine Azure Stack Hub-Bereitstellung geeignet sind. Zertifikate müssen mit genügend Zeit zum Testen vor dem Einsatz angefordert, generiert und validiert werden. Sie können das Tool [aus dem PowerShell-Katalog](https://aka.ms/AzsReadinessChecker) abrufen.
 
 Mit dem Azure Stack Hub Readiness Checker-Tool (AzsReadinessChecker) können Sie die folgenden Zertifikate anfordern:
 
-- **Standardzertifikatanforderungen** gemäß [Generieren der Zertifikatsignieranforderung](azure-stack-get-pki-certs.md).
-- **Platform-as-a-Service**: Sie können PaaS-Namen (Platform-as-a-Service ) für Zertifikate anfordern, wie unter [Azure Stack Hub-PKI-Zertifikatanforderungen: Optionale PaaS-Zertifikate](azure-stack-pki-certs.md) angegeben.
+- **Standardzertifikatanforderungen** gemäß [Generieren der Zertifikatsignieranforderung für neue Bereitstellungen](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments).
+- **Erneuerungszertifikatanforderungen** gemäß [Generieren der Zertifikatsignieranforderung für die Zertifikaterneuerung](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-certificate-renewal).
+- **Platform-as-a-Service**: Sie können PaaS-Namen (Platform-as-a-Service ) für Zertifikate anfordern, wie unter [Azure Stack Hub-PKI-Zertifikatanforderungen: Optionale PaaS-Zertifikate](azure-stack-pki-certs.md#optional-paas-certificates) angegeben.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -137,15 +138,15 @@ Gehen Sie wie folgt vor, um Zertifikatsignieranforderungen für die Erneuerung v
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. Deklarieren Sie den **stampEndpoint**. Beispiel:
+2. Deklarieren Sie **stampEndpoint** im Format „regionname.domain.com“ des Azure Stack Hub-Systems. Beispiel (wenn die Adresse des Azure Stack Hub-Mandantenportals https://portal.east.azurestack.contoso.com): lautet):
 
     ```powershell  
-    $stampEndpoint = 'portal.east.azurestack.contoso.com'
+    $stampEndpoint = 'east.azurestack.contoso.com'
     ```
 
     > [!NOTE]  
-    > Für den oben genannten Endpunkt ist HTTPS-Konnektivität erforderlich.
-    > Der oben genannte Endpunkt sollte mit einem der Zertifikate übereinstimmen, die für den Zertifikatstyp erforderlich sind. Für Bereitstellungszertifikate ist z. B. der Endpunkt „portal.region.domain“ erforderlich, für AppServices „sso.appservices.region.domain“ usw. Das an den Endpunkt gebundene Zertifikat wird zum Klonen von Attributen wie Betreff, Schlüssellänge, Signaturalgorithmus verwendet.  Es ist nur ein vorhandener Endpunkt erforderlich, und die Signierungsanforderungen erstellen alle erforderlichen Zertifikate.
+    > Für das oben genannte Azure Stack Hub-System ist HTTPS-Konnektivität erforderlich.
+    > Die Bereitschaftsüberprüfung verwendet den stampEndpoint (Region und Domäne), um einen Zeiger auf vorhandene Zertifikate zu erstellen, die für den Zertifikattyp erforderlich sind, z. B. wird bei Bereitstellungszertifikaten vom Tool „portal“ vorangestellt, sodass „portal.east.azurestack.contoso.com“ beim Klonen von Zertifikaten, für AppServices „sso.appservices.east.azurestack.contoso.com“ usw. verwendet wird. Das an den berechneten Endpunkt gebundene Zertifikat wird zum Klonen von Attributen wie Betreff, Schlüssellänge, Signaturalgorithmus verwendet.  Wenn Sie eines dieser Attribute ändern möchten, sollten Sie stattdessen die Schritte zum [Generieren der Zertifikatsignieranforderung für neue Bereitstellungen](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments) befolgen.
 
 3. Deklarieren Sie ein Ausgabeverzeichnis, das bereits vorhanden ist. Beispiel:
 

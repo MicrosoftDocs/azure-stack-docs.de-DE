@@ -3,16 +3,16 @@ title: Azure Stack Hub – Bekannte Probleme
 description: Enthält Informationen zu bekannten Problemen in Releases von Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 08/25/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: 2513fe687bdfc08fe34a4c0cf05e388b84947fee
-ms.sourcegitcommit: 77f53d8f4188feea7dd2197650ee860104b1e2aa
+ms.openlocfilehash: d403128cfe2cfe34bb9f5ed188a8591656819e1e
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88501057"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818333"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -102,6 +102,12 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 
 ## <a name="compute"></a>Compute
 
+### <a name="issues-using-vm-extensions-in-ubuntu-server-2004"></a>Probleme bei Verwendung von VM-Erweiterungen in Ubuntu Server 20.04
+
+- Geltungsbereich: Dieses Problem gilt für **Ubuntu Server 20.04 LTS**.
+- Ursache: Einige Linux-Distributionen wurden auf Python 3.8 umgestellt, und der Legacy-Einstiegspunkt `/usr/bin/python` für Python wurde vollständig entfernt. Benutzer von Linux-Distributionen, die auf Python 3.x umgestellt haben, müssen sicherstellen, dass der Legacy-Einstiegspunkt `/usr/bin/python` vorhanden ist, bevor sie diese Erweiterungen auf ihren VMs bereitstellen. Andernfalls tritt bei der Bereitstellung der Erweiterung möglicherweise ein Fehler auf.
+- Abhilfe: Befolgen Sie die Lösungsschritte in [Probleme bei Verwendung von VM-Erweiterungen in Python 3-fähigen Linux Azure Virtual Machines-Systemen](/azure/virtual-machines/extensions/issues-using-vm-extensions-python-3), aber überspringen Sie Schritt 2, da Azure Stack Hub nicht über die Funktion **Befehl ausführen** verfügt.
+
 ### <a name="nvv4-vm-size-on-portal"></a>NVv4-VM-Größe im Portal
 
 - Geltungsbereich: Dieses Problem betrifft das Release 2002 und höhere Releases.
@@ -122,6 +128,16 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
 - Ursache: Bei der Erstellung von VMs in einer Verfügbarkeitsgruppe mit drei Fehlerdomänen und der Erstellung einer Instanz einer VM-Skalierungsgruppe tritt während des Updatevorgangs in einer Azure Stack Hub-Umgebung mit vier Knoten der Fehler **FabricVmPlacementErrorUnsupportedFaultDomainSize** auf.
 - Abhilfe: Sie können einzelne VMs in einer Verfügbarkeitsgruppe mit zwei Fehlerdomänen erfolgreich durchführen. Die Erstellung der Skalierungsgruppeninstanz ist während des Updatevorgangs in einer Azure Stack Hub-Bereitstellung mit vier Knoten aber immer noch nicht verfügbar.
+
+## <a name="storage"></a>Storage
+
+### <a name="retention-period-reverts-to-0"></a>Aufbewahrungszeitraum wird auf „0“ zurückgesetzt
+
+- Geltungsbereich: Dieses Problem betrifft die Releases 2002 und 2005.
+- Ursache: Wenn Sie in der Einstellung für den Aufbewahrungszeitraum einen anderen Zeitraum als 0 angeben, wird der Wert beim Update 2002 oder 2005 auf „0“ (Standardwert für diese Einstellung) zurückgesetzt. Die Einstellung „0 Tage“ wird unmittelbar nach Abschluss des Updates wirksam, was dazu führt, dass alle vorhandenen gelöschten Speicherkonten und anstehende neu gelöschten Speicherkonten ab sofort nicht mehr aufbewahrt und für die regelmäßige automatische Speicherbereinigung gekennzeichnet werden, die stündlich ausgeführt wird.
+- Abhilfe: Legen Sie manuell einen korrekten Aufbewahrungszeitraum fest. Alle Speicherkonten, die bereits vor der Festlegung des neuen Aufbewahrungszeitraums für die automatische Speicherbereinigung gekennzeichnet wurden, sind nicht wiederherstellbar.  
+
+## <a name="resource-providers"></a>Ressourcenanbieter
 
 ### <a name="sqlmysql"></a>SQL/MySQL
 
@@ -309,6 +325,14 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Geltungsbereich: Dieses Problem gilt für Neuinstallationen von Version 2002 und höheren Versionen und für alle älteren Versionen, in denen TLS 1.2 aktiviert ist.
 - Ursache: Wenn Sie die automatisierte Sicherung von virtuellen SQL-Computern mit einem vorhandenen Speicherkonto konfigurieren, tritt der Fehler **SQL Server-IaaS-Agent: Die zugrunde liegende Verbindung wurde geschlossen: Unerwarteter Fehler beim Senden** auf.
 - Häufigkeit: Allgemein
+
+## <a name="storage"></a>Storage
+
+### <a name="retention-period-revert-to-0"></a>Aufbewahrungszeitraum wird auf „0“ zurückgesetzt
+
+- Geltungsbereich: Dieses Problem betrifft die Releases 2002 und 2005.
+- Ursache: Wenn Sie in der Einstellung für den Aufbewahrungszeitraum zuvor einen anderen Zeitraum als 0 angegeben haben, wird der Wert bei den Updates 2002 und 2005 auf „0“ (Standardwert für diese Einstellung) zurückgesetzt. Die Einstellung „0 Tage“ wird unmittelbar nach Abschluss des Updates wirksam, was dazu führt, dass alle vorhandenen gelöschten Speicherkonten und anstehende neu gelöschten Speicherkonten ab sofort nicht mehr aufbewahrt und für die regelmäßige automatische Speicherbereinigung gekennzeichnet werden, die stündlich ausgeführt wird. 
+- Abhilfe: Legen Sie manuell einen geeigneten Aufbewahrungszeitraum fest. Alle Speicherkonten, die bereits vor der Festlegung des neuen Aufbewahrungszeitraums für die automatische Speicherbereinigung gekennzeichnet wurden, sind jedoch nicht wiederherstellbar.  
 
 ## <a name="resource-providers"></a>Ressourcenanbieter
 

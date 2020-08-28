@@ -7,12 +7,12 @@ ms.date: 06/18/2020
 ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 16b8ca5999507bd64d3416c3ee22fdd5c827c8b5
-ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
+ms.openlocfilehash: e99c1cc09f3dc6b0a04ff22f5b5dc96004ba305e
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85107163"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857504"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Konfigurieren der Mehrinstanzenfähigkeit in Azure Stack Hub
 
@@ -24,16 +24,17 @@ Sie können Azure Stack Hub so konfigurieren, dass Benutzer mehrerer Azure AD-Ma
 
 Der vorliegende Leitfaden beschreibt die erforderlichen Schritte – im Kontext dieses Szenarios –, um die Mehrinstanzenfähigkeit in Azure Stack Hub zu konfigurieren. In diesem Szenario müssen sowohl Sie als auch Mary einige Schritte ausführen, um es Benutzern von Fabrikam zu ermöglichen, sich bei der Azure Stack Hub-Bereitstellung in Contoso anzumelden und dort Dienste zu nutzen.
 
+Als Cloud Solution Provider (CSP) haben Sie zusätzliche Möglichkeiten, einen [Azure Stack Hub für mehrere Mandanten zu konfigurieren und zu verwalten](azure-stack-add-manage-billing-as-a-csp.md). 
+
 ## <a name="enable-multi-tenancy"></a>Aktivieren der Mehrinstanzenfähigkeit
 
 Damit Sie die Mehrinstanzenfähigkeit in Azure Stack Hub konfigurieren können, müssen einige Voraussetzungen erfüllt sein:
   
  - Mary und Sie müssen Verwaltungsschritte sowohl in dem Verzeichnis, in dem Azure Stack Hub installiert ist (Contoso), als auch im Gastverzeichnis (Fabrikam) koordinieren.
  - Stellen Sie sicher, dass Sie PowerShell für Azure Stack Hub [installiert](azure-stack-powershell-install.md) und [konfiguriert](azure-stack-powershell-configure-admin.md) haben.
- - [Laden Sie die Azure Stack Hub-Tools herunter](azure-stack-powershell-download.md), und importieren Sie die Module „Connect“ und „Identity“:
+ - [Laden Sie die Azure Stack Hub-Tools herunter](azure-stack-powershell-download.md), und importieren Sie die Identity-Module:
 
     ```powershell
-    Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
     ```
 
@@ -168,10 +169,9 @@ $healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property t
 
 ### <a name="update-azure-ad-tenant-permissions"></a>Aktualisieren von Azure AD-Mandantenberechtigungen
 
-Durch diese Aktion wird die Warnung in Azure Stack Hub gelöscht, was darauf hinweist, dass für ein Verzeichnis ein Update erforderlich ist. Führen Sie im Ordner **Azurestack-tools-master/identity** die folgenden Befehle aus:
+Durch diese Aktion wird die Warnung in Azure Stack Hub gelöscht, was darauf hinweist, dass für ein Verzeichnis ein Update erforderlich ist. Führen Sie im Ordner **Azurestack-tools-master/identity** den folgenden Befehl aus:
 
 ```powershell
-Import-Module ..\Connect\AzureStack.Connect.psm1
 Import-Module ..\Identity\AzureStack.Identity.psm1
 
 $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"

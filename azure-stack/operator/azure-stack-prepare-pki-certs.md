@@ -1,47 +1,46 @@
 ---
 title: Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation
 titleSuffix: Azure Stack Hub
-description: Hier erfahren Sie, wie Sie PKI-Zertifikate für die Bereitstellung integrierter Azure Stack Hub-Systeme oder für die Rotation von Geheimnissen in einer vorhandenen Azure Stack Hub-Umgebung vorbereiten.
+description: Erfahren Sie mehr zum Vorbereiten von PKI-Zertifikaten für die Azure Stack Hub-Bereitstellung oder die Geheimnisrotation.
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: fa252ee475cc58fa13429ec7ef9a6cbbf37b6a0f
-ms.sourcegitcommit: 9bbaa8dc7edb9632f1d06f76ebf8f49c8cb8eed6
+ms.openlocfilehash: 3d129c3ed588fbaaa2ca234d19890c88b2dad364
+ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86437131"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724896"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation
 
-Die [von der Zertifizierungsstelle Ihrer Wahl bezogenen](azure-stack-get-pki-certs.md) Zertifikatdateien müssen mit Eigenschaften importiert und exportiert werden, die die Zertifikatanforderungen von Azure Stack Hub erfüllen.
+Die [von der Zertifizierungsstelle bezogenen](azure-stack-get-pki-certs.md) Zertifikatdateien müssen mit Eigenschaften importiert und exportiert werden, die die Zertifikatanforderungen von Azure Stack Hub erfüllen.
 
-## <a name="prepare-certificates-for-deployment-with-azure-stack-readiness-checker"></a>Vorbereiten von Zertifikaten für die Bereitstellung mit Azure Stack Readiness Checker
-
-Verwenden Sie das Azure Stack Hub Readiness Checker-Tool zum Importieren, Packen und Validieren von Zertifikaten, die für die Bereitstellung oder Rotation bereit sind.
+In diesem Artikel erfahren Sie, wie Sie Zertifikate importieren, verpacken und validieren, um sich auf die Azure Stack Hub-Bereitstellung oder die Geheimnisrotation vorzubereiten. 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Zum Packen von PKI-Zertifikaten für eine Azure Stack Hub-Bereitstellung muss Ihr System folgende Voraussetzungen erfüllen:
 
-- Microsoft Azure Stack Hub Readiness Checker
-- Von der Zertifizierungsstelle zurückgegebene Zertifikate in einem einzigen Verzeichnis im CER-Format (andere konfigurierbare Formate: CERT, SST oder PFX).
+- Von der Zertifizierungsstelle zurückgegebene Zertifikate werden in einem einzigen Verzeichnis im CER-Format gespeichert (andere konfigurierbare Formate: CERT, SST oder PFX).
 - Windows 10 oder Windows Server 2016 oder höher
 - Verwenden Sie dasselbe System, auf dem die Zertifikatsignieranforderung generiert wurde (es sei denn, Sie verwenden ein in PFXs vorab gepacktes Zertifikat).
 
-## <a name="generate-certificate-signing-requests-for-new-deployments"></a>Generieren von Zertifikatsignieranforderungen für neue Bereitstellungen
+Fahren Sie mit dem entsprechenden Abschnitt [Vorbereiten von Zertifikaten (Azure Stack Readiness Checker)](#prepare-certificates-azure-stack-readiness-checker) oder [Vorbereiten von Zertifikaten (manuelle Schritte)](#prepare-certificates-manual-steps) fort.
 
-Gehen Sie wie folgt vor, um die Zertifikate für neue Azure Stack Hub-PKI-Zertifikate zu packen:
+## <a name="prepare-certificates-azure-stack-readiness-checker"></a>Vorbereiten von Zertifikaten (Azure Stack Readiness Checker)
 
-1. Führen Sie an einer PowerShell-Eingabeaufforderung (5.1 oder höher) das folgende Cmdlet aus, um AzsReadinessChecker zu installieren:
+Führen Sie diese Schritte aus, um Zertifikate mithilfe der PowerShell-Cmdlets von Azure Stack Readiness Checker zu packen:
+
+1. Führen Sie an einer PowerShell-Eingabeaufforderung (5.1 oder höher) das folgende Cmdlet aus, um das Azure Stack Readiness Checker-Modul zu installieren:
 
     ```powershell  
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
-2. Deklarieren Sie den **Pfad**, unter dem sich die Zertifikate auf dem Datenträger befinden. Beispiel:
+2. Geben Sie den **Pfad** zur Zertifikatdatei an. Beispiel:
 
     ```powershell  
         $Path = "$env:USERPROFILE\Documents\AzureStack"
@@ -124,9 +123,9 @@ Gehen Sie wie folgt vor, um die Zertifikate für neue Azure Stack Hub-PKI-Zertif
 
     Nach erfolgreicher Überprüfung können die Zertifikate ohne weitere Schritte für die Bereitstellung oder Rotation verwendet werden.
 
-## <a name="prepare-certificates-for-deployment-manual-steps"></a>Vorbereiten von Zertifikaten für die Bereitstellung (manuelle Schritte)
+## <a name="prepare-certificates-manual-steps"></a>Vorbereiten von Zertifikaten (manuelle Schritte)
 
-Führen Sie die folgenden Schritte aus, um die Azure Stack Hub-PKI-Zertifikate vorzubereiten und zu überprüfen, die für die Bereitstellung einer neuen Azure Stack Hub-Umgebung oder für die Geheimnisrotation in einer vorhandenen Azure Stack Hub-Umgebung verwendet werden.
+Führen Sie die folgenden manuellen Schritte aus, um die Zertifikate für neue Azure Stack Hub-PKI-Zertifikate zu packen.
 
 ### <a name="import-the-certificate"></a>Importieren des Zertifikats
 
@@ -144,7 +143,7 @@ Führen Sie die folgenden Schritte aus, um die Azure Stack Hub-PKI-Zertifikate v
 
    ![Konfigurieren des Zertifikatspeichers für den Zertifikatimport](./media/prepare-pki-certs/3.png)
 
-   a. Wenn Sie eine PFX-Datei importieren, wird Ihnen ein zusätzliches Dialogfeld angezeigt. Geben Sie auf der Seite **Schutz für den privaten Schlüssel** das Kennwort für Ihre Zertifikatdateien ein, und aktivieren Sie die Option **Schlüssel als exportierbar markieren. Dadurch können Sie Ihre Schlüssel später sichern oder transportieren**. Wählen Sie **Weiter** aus.
+   a. Wenn Sie eine PFX-Datei importieren, wird Ihnen ein zusätzliches Dialogfeld angezeigt. Geben Sie auf der Seite **Schutz für den privaten Schlüssel** das Kennwort für Ihre Zertifikatdateien ein, und aktivieren Sie die Option **Schlüssel als exportierbar markieren**. Dadurch können Sie Ihre Schlüssel später sichern oder transportieren. Wählen Sie **Weiter** aus.
 
    ![Markieren des Schlüssels als exportierbar](./media/prepare-pki-certs/2.png)
 
@@ -174,7 +173,7 @@ Führen Sie die folgenden Schritte aus, um die Azure Stack Hub-PKI-Zertifikate v
    > [!NOTE]
    > Je nachdem, über wie viele Azure Stack Hub-Zertifikate Sie verfügen, müssen Sie diesen Vorgang möglicherweise mehrmals ausführen.
 
-6. Wählen Sie **Ja, privaten Schlüssel exportieren** aus, und klicken Sie dann auf **Weiter**.
+6. Wählen Sie **Ja, privaten Schlüssel exportieren** aus, und wählen Sie dann **Weiter** aus.
 
 7. Gehen Sie im Abschnitt für das Exportdateiformat wie folgt vor:
     

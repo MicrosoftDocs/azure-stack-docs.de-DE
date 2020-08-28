@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 563892dd4275c6e42fdda1f7046edc7418f50350
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 590746d7ed761905e9a9642b631adc7c3d6b3d4e
+ms.sourcegitcommit: 412ff05b0a0baa9d9c83a482f836453d1aa7c097
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488398"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88886865"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planen der Netzwerkintegration für Azure Stack
 
@@ -23,10 +23,15 @@ Dieser Artikel enthält Informationen zur Netzwerkinfrastruktur von Azure Stack,
 
 ## <a name="physical-network-design"></a>Entwurf des physischen Netzwerks
 
-Die Azure Stack-Lösung benötigt eine zuverlässige und hoch verfügbare physische Infrastruktur, um ihren Betrieb und ihre Dienste zu unterstützen. Zum Integrieren von Azure Stack in das Netzwerk werden Uplinks von den Top-of-Rack-Switches (ToR) zum nächsten Switch oder Router benötigt, der in dieser Dokumentation als „Grenze“ (Border) bezeichnet wird. Die ToR-Einheiten können per Uplink mit einer Grenze bzw. einem Grenzpaar verbunden werden. Die ToR-Einheit wird mit unserem Automatisierungstool vorkonfiguriert. Zwischen ToR und Grenze wird mindestens eine Verbindung erwartet, wenn BGP-Routing und mindestens zwei Verbindungen (eine pro ToR) zwischen ToR und Grenze verwendet werden und das statische Routing genutzt wird. Für jede Routingoption sind maximal vier Verbindungen möglich. Diese Verbindungen sind auf SFP+- oder SFP28-Medien und Geschwindigkeiten von 1 GB, 10 GB oder 25 GB beschränkt. Angaben zur Verfügbarkeit erhalten Sie bei Ihrem OEM-Hardwarehersteller (Original Equipment Manufacturer). In der folgenden Abbildung ist der empfohlene Entwurf dargestellt:
+Die Azure Stack-Lösung benötigt eine zuverlässige und hoch verfügbare physische Infrastruktur, um ihren Betrieb und ihre Dienste zu unterstützen. Zum Integrieren von Azure Stack in das Netzwerk werden Uplinks von den Top-of-Rack-Switches (ToR) zum nächsten Switch oder Router benötigt, der in dieser Dokumentation als „Grenze“ (Border) bezeichnet wird. Die ToR-Einheiten können per Uplink mit einer Grenze bzw. einem Grenzpaar verbunden werden. Die ToR-Einheit wird mit unserem Automatisierungstool vorkonfiguriert. Zwischen ToR und Grenze wird mindestens eine Verbindung erwartet, wenn BGP-Routing und mindestens zwei Verbindungen (eine pro ToR) zwischen ToR und Grenze verwendet werden und das statische Routing genutzt wird. Für jede Routingoption sind maximal vier Verbindungen möglich. Diese Verbindungen sind auf SFP+- oder SFP28-Medien und Mindestgeschwindigkeiten von 1 GB beschränkt. Angaben zur Verfügbarkeit erhalten Sie bei Ihrem OEM-Hardwarehersteller (Original Equipment Manufacturer). In der folgenden Abbildung ist der empfohlene Entwurf dargestellt:
 
 ![Empfohlener Entwurf des Azure Stack-Netzwerks](media/azure-stack-network/physical-network.svg)
 
+#### <a name="bandwidth-allocation"></a>Bandbreitenzuordnung
+
+Azure Stack Hub wird mithilfe der Windows Server 2019-Failovercluster und Spaces Direct-Technologien erstellt. Ein Teil der physischen Netzwerkkonfiguration von Azure Stack Hub erfolgt so, dass die Trennung von Datenverkehr und Bandbreitengarantien genutzt werden, um sicherzustellen, dass die Spaces Direct-Speicherkommunikation die für die Lösung erforderliche Leistung und Skalierbarkeit erfüllen kann.  Die Netzwerkkonfiguration verwendet Datenverkehrsklassen, um die RDMA-basierte Spaces Direct-Kommunikation von derjenigen der Netzwerkauslastung durch die Azure Stack Hub-Infrastruktur und/oder den Mandanten voneinander zu trennen.  Zum Abgleich mit den aktuellen, für Windows Server 2019 definierten bewährten Methoden wechselt Azure Stack Hub zur Verwendung einer zusätzlichen Datenverkehrsklasse oder Priorität, um die Kommunikation zwischen den Servern weiter zu trennen und dadurch die Failovercluster-Steuerungskommunikation zu unterstützen.  Diese neue Datenverkehrsklassen-Definition wird so konfiguriert, dass 2 % der verfügbaren, physischen Bandbreite reserviert wird. Diese Konfiguration von Datenverkehrsklassen und Bandbreitenreservierung wird durch eine Änderung an den Top-of-Rack (ToR)-Switches der Azure Stack Hub-Lösung und am Host oder an den Servern von Azure Stack Hub erreicht. Beachten Sie, dass auf den Grenznetzwerkgeräten der Kunden keine Änderungen erforderlich sind. Das Ergebnis dieser Änderungen bietet eine bessere Resilienz bei der Failoverclusterkommunikation und soll Situationen vermeiden, in denen die Netzwerkbandbreite vollständig genutzt wird und dadurch Failovercluster-Steuerungsmeldungen unterbrochen werden.  Beachten Sie, dass die Failoverclusterkommunikation eine kritische Komponente der Azure Stack Hub-Infrastruktur ist und bei längeren Unterbrechungen zur Instabilität der Spaces Direct-Speicherdienste oder anderer Dienste führen kann, was sich schließlich auf die Stabilität von Mandanten- oder Endbenutzerworkloads auswirkt.
+
+Beachten Sie, dass die beschriebenen Änderungen in Release 2008 auf der Hostebene eines Azure Stack Hub-Systems hinzugefügt werden. Wenden Sie sich an ihren OEM, um die erforderlichen Änderungen an den ToR-Netzwerkswitches vornehmen zu lassen. Diese ToR-Änderung kann entweder vor der Aktualisierung auf Release 2008 oder nach dem Aktualisieren auf 2008 ausgeführt werden.  Die Konfigurationsänderung an den ToR-Switches ist erforderlich, um die Failoverclusterkommunikation zu verbessern.
 
 ## <a name="logical-networks"></a>Logische Netzwerke
 

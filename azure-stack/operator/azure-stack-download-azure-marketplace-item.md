@@ -3,19 +3,19 @@ title: Herunterladen von Marketplace-Elementen aus Azure und Veröffentlichen in
 description: Es wird beschrieben, wie Sie Marketplace-Elemente aus Azure herunterladen und in Azure Stack Hub veröffentlichen.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 08/19/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 5774d06e07c6f4bc7f71d5dcd58257fcbb8700ee
-ms.sourcegitcommit: fe48fd5310004d68a4f28589e4d311708babb634
+ms.openlocfilehash: 2c502a80d5253b90200d3829a6167b419d711bd2
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86210040"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764527"
 ---
-# <a name="download-marketplace-items-to-azure-stack-hub"></a>Herunterladen von Marketplace-Elementen in Azure Stack Hub 
+# <a name="download-marketplace-items-to-azure-stack-hub"></a>Herunterladen von Marketplace-Elementen in Azure Stack Hub
 
 Als Cloudbetreiber können Sie Elemente aus dem Marketplace in Azure Stack Hub herunterladen und mithilfe der Azure Stack Hub-Umgebung für alle Benutzer verfügbar machen. Die zur Auswahl stehenden Optionen stammen aus einer speziell zusammengestellten Liste mit Azure Marketplace-Elementen, die vorab getestet wurden und für Azure Stack Hub geeignet sind. Dieser Liste werden regelmäßig weitere Elemente hinzugefügt. Prüfen Sie daher, ob neue Inhalte verfügbar sind.
 
@@ -87,12 +87,13 @@ Dieses Szenario besteht aus zwei Teilen:
 
   - Die [PowerShell-Umgebung für den Azure Stack Hub-Bediener](azure-stack-powershell-configure-admin.md) muss konfiguriert sein, um den Import eines heruntergeladenen Marketplace-Elements zu ermöglichen.
 
-- Laden Sie mit dem folgenden Befehl das Modul „Azs.Syndication.Admin“ aus dem PowerShell-Katalog herunter:
-  ```
+- Laden Sie mit dem folgenden Befehl das Modul **Azs.Syndication.Admin** aus dem PowerShell-Katalog herunter:
+
+  ```powershell
   Install-Module -Name Azs.Syndication.Admin
   ```
   
-- .NET Framework 4.7 oder höhere Versionen
+- .NET Framework 4.7 oder höher.
 
 Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Meldung ignorieren, die auf dem Blatt für die Marketplace-Verwaltung angezeigt wird, da sie für den Anwendungsfall mit getrennter Umgebung nicht relevant ist:
 
@@ -105,15 +106,16 @@ Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Mel
 
 1. Öffnen Sie auf einem Computer mit Internetverbindung eine PowerShell-Konsole als Administrator.
 
-2. Melden Sie sich mit dem Azure-Konto, das Sie zum Registrieren von Azure Stack Hub verwendet haben, bei der entsprechenden Azure-Cloud und dem entsprechenden Azure AD-Mandanten an. Führen Sie zum Hinzufügen des Kontos in PowerShell **Add-AzureRmAccount** aus. 
+2. Melden Sie sich mit dem Azure-Konto, das Sie zum Registrieren von Azure Stack Hub verwendet haben, bei der entsprechenden Azure-Cloud und dem entsprechenden Azure AD-Mandanten an. Führen Sie zum Hinzufügen des Kontos in PowerShell`Add-AzureRmAccount` aus:
 
    ```powershell  
    Login-AzureRmAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'
    ```
+
    Sie werden aufgefordert, Ihre Anmeldeinformationen für das Azure-Konto einzugeben. Je nach Konfiguration Ihres Kontos müssen Sie ggf. die zweistufige Authentifizierung verwenden.
 
    > [!NOTE]
-   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie lediglich Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit **Add-AzureRmAccount** anmelden: **Remove-AzureRmAccount-Scope Process**.
+   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit `Add-AzureRmAccount` anmelden: `Remove-AzureRmAccount -Scope Process`.
 
 3. Sollten Sie über mehrere Abonnements verfügen, führen Sie den folgenden Befehl aus, um das für die Registrierung verwendete Abonnement auszuwählen:
 
@@ -127,7 +129,7 @@ Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Mel
    Install-Module -Name Azs.Syndication.Admin
    ```
 
-5. Führen Sie den folgenden Befehl aus, um die herunterzuladenden Marketplace-Elemente wie VM-Images, Erweiterungen oder Lösungsvorlagen auszuwählen. 
+5. Führen Sie den folgenden Befehl aus, um die herunterzuladenden Marketplace-Elemente wie VM-Images, Erweiterungen oder Lösungsvorlagen auszuwählen:
 
    ```powershell
    $products = Select-AzsMarketplaceItem

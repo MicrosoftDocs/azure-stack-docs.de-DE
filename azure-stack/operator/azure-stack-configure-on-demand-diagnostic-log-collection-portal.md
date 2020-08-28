@@ -3,16 +3,16 @@ title: Sofortiges Senden von Azure Stack Hub-Diagnoseprotokollen
 description: Hier wird beschrieben, wie Sie in Azure Stack Hub mithilfe des Administratorportals oder eines PowerShell-Skripts Diagnoseprotokolle bedarfsgesteuert sammeln.
 author: justinha
 ms.topic: article
-ms.date: 03/30/2020
+ms.date: 08/24/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 03/30/2020
-ms.openlocfilehash: a4939e308b4f91fc0a9821499bb51615d11ab131
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 08/24/2020
+ms.openlocfilehash: abcf70b6d714f9a759aeaa9a7f591a60e195594f
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489248"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764646"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>Sofortiges Senden von Azure Stack Hub-Diagnoseprotokollen
 
@@ -31,6 +31,14 @@ Geben Sie Startzeit und Endzeit für die Protokollsammlung an, und klicken Sie a
 
 ![Screenshot der Option zum sofortigen Senden von Protokollen](media/azure-stack-help-and-support/send-logs-now.png)
 
+
+::: moniker-end
+::: moniker range=">= azs-2005"
+## <a name="save-logs-locally"></a>Lokales Speichern von Protokollen
+
+Sie können Protokolle in einer lokalen SMB-Freigabe speichern, wenn Azure Stack Hub nicht mit Azure verbunden ist. Geben Sie auf dem Blatt **Einstellungen** den Pfad sowie einen Benutzernamen und ein Kennwort mit Schreibberechtigung für die Freigabe ein. Während eines Supportfalls werden von Microsoft-Support ausführliche Schritte für die Übertragung dieser lokalen Protokolle bereitgestellt. Wenn das Administratorportal nicht verfügbar ist, können Sie [Get-AzureStackLog](azure-stack-get-azurestacklog.md) verwenden, um Protokolle lokal zu speichern.
+
+![Screenshot der Optionen für die Sammlung von Diagnoseprotokollen](media/azure-stack-help-and-support/save-logs-locally.png)
 
 ::: moniker-end
 ::: moniker range="<= azs-1910"

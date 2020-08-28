@@ -7,12 +7,12 @@ ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 1fc7914755cfa78cf02fa13101559caca766d20c
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 400ae8a487d18b37efdfc52c087019183702a638
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250859"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857567"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Verwalten der Nutzung und Abrechnung für Azure Stack Hub als Cloud Solution Provider
 
@@ -32,6 +32,10 @@ Wählen Sie den Typ des Kontos für gemeinsame Dienste aus, das Sie für Azure S
 
 - Cloud Solution Provider
 - Partner Shared Services-Abonnement
+
+Wir haben ein Videotutorial erstellt, das Ihnen helfen soll zu verstehen, wie Sie Ihre Rechte für mehrere Mandanten verwalten:
+
+> [!VIDEO https://www.youtube.com/embed/ZP6jkbLeS34]
 
 #### <a name="azure-partner-shared-services"></a>Azure Partner Shared Services
 
