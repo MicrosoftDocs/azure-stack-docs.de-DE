@@ -7,12 +7,12 @@ ms.date: 04/30/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 92f05840d8a2a8f58f70abd10e2860224f706d2b
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: b378ce7f3e894a2ec9de532393907c1266e2eeed
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566497"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920354"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit dem Node.js-SDK (Software Development Kit) in Azure Stack Hub
 
@@ -55,7 +55,7 @@ Um mit der aktuellsten API-Version eines Diensts zu arbeiten, verwenden Sie das 
 
 Die spezifischen API-Versionen eines Ressourcenanbieters zu erhalten Sie, indem Sie die im Paket definierten spezifischen API-Versionen verwenden.
 
-  > [!Note]  
+  > [!NOTE]  
   > Sie können alle Optionen in derselben Anwendung kombinieren.
 
 ## <a name="install-the-nodejs-sdk"></a>Installieren des Node.js SDK
@@ -112,7 +112,7 @@ Microsoft Azure Resource Manager ist ein Verwaltungsframework, mit dem Administr
 
 Sie können die Metadateninformationen vom Resource Manager-Endpunkt abrufen. Der Endpunkt gibt eine JSON-Datei zurück, die die erforderlichen Informationen zum Ausführen Ihres Codes enthält.
 
-> [!Note]  
+> [!NOTE]  
 > Der **ResourceManagerUrl**-Wert im Azure Stack Development Kit (ASDK) lautet: `https://management.local.azurestack.external` Die **ResourceManagerUrl** in integrierten Systemen lautet `https://management.region.<fqdn>/`, wobei `<fqdn>` Ihr vollqualifizierter Domänenname ist.
 Zum Abrufen der erforderlichen Metadaten verwenden Sie Folgendes: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
 
@@ -221,16 +221,21 @@ Sie können die folgenden Beispiele als Referenzen zum Erstellen von Lösungen m
     git clone https://github.com/sijuman/storage-node-resource-provider-getting-started.git
     ```
 
+1. `cd` in ihren Klon des Repositorys.
+
 2.  Erstellen Sie einen Azure-Dienstprinzipal, und weisen Sie eine Rolle zu, um auf das Abonnement zuzugreifen. Anweisungen finden Sie unter [Verwenden von Azure PowerShell zum Erstellen eines Dienstprinzipals mit einem Zertifikat](/azure/azure-stack/azure-stack-create-service-principals).
 
 3.  Rufen Sie die folgenden erforderlichen Werte ab:
     - Mandanten-ID
-    - Client-ID
+    - Client-ID (Anwendungs-ID)
     - Geheimer Clientschlüssel
     - Azure-Abonnement-ID
     - Resource Manager-Endpunkt von Azure Stack Hub
 
 4.  Legen Sie die folgenden Umgebungsvariablen fest, und verwenden Sie dabei die Informationen, die Sie aus dem mithilfe der Eingabeaufforderung erstellten Dienstprinzipal abgerufen haben:
+
+    > [!NOTE]  
+    > Verwenden Sie unter Windows **set** anstelle von **export**.
 
     ```bash  
     export TENANT_ID=<your tenant id>
@@ -239,9 +244,6 @@ Sie können die folgenden Beispiele als Referenzen zum Erstellen von Lösungen m
     export AZURE_SUBSCRIPTION_ID=<your subscription id>
     export ARM_ENDPOINT=<your Azure Stack Hub Resource manager URL>
     ```
-
-    > [!Note]  
-    > Verwenden Sie unter Windows **set** anstelle von **export**.
 
 5.  Öffnen Sie die `index.js`-Datei der Beispielanwendung.
 
