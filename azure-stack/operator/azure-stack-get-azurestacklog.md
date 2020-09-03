@@ -4,16 +4,16 @@ description: Hier erfahren Sie, wie Sie in Azure Stack Hub mithilfe des Administ
 author: justinha
 ms.custom: conteperfq4
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 09/02/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 06/30/2020
-ms.openlocfilehash: b8be0f88b53bb599b716d50ac75e1d6d18515475
-ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: 29f46fceab5e87bc7dff59a4e4c80a48fa8f34fc
+ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85764581"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89410955"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Senden von Azure Stack Hub-Diagnoseprotokollen mithilfe des privilegierten Endpunkts (PEP)
 
@@ -83,25 +83,25 @@ if ($session) {
 * Sammeln Sie Protokolle für die Mehrwert-Ressourcenanbieter. Die allgemeine Syntax sieht wie folgt aus:
  
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvider <<value-add RP name>>
+  Get-AzureStackLog -FilterByResourceProvider <<value-add RP name>>
   ```
  
   Protokollsammlung für IoT Hub: 
 
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvider IotHub
+  Get-AzureStackLog -FilterByResourceProvider IotHub
   ```
  
   Protokollsammlung für Event Hubs:
 
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvider eventhub
+  Get-AzureStackLog -FilterByResourceProvider eventhub
   ```
  
   Protokollsammlung für Azure Stack Edge:
 
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvide databoxedge
+  Get-AzureStackLog -FilterByResourceProvide databoxedge
   ```
 
 * Erfassen Sie Protokolle, und speichern Sie sie im angegebenen Azure Storage-Blobcontainer. Die allgemeine Syntax für diesen Vorgang lautet wie folgt:

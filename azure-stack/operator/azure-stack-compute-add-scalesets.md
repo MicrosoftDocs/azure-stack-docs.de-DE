@@ -3,16 +3,16 @@ title: Bereitstellen von VM-Skalierungsgruppen in Azure Stack Hub
 description: Erfahren Sie, wie Cloudoperator dem Azure Stack Hub-Marketplace VM-Skalierungsgruppen hinzufügen können.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: d4383a9848ff2fd3e5f5da1fb71d88c71056bbd2
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: 3714b69e2a65baeb0a5b0ba9a029a5b3144bee1a
+ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777830"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89089693"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>Bereitstellen von VM-Skalierungsgruppen in Azure Stack Hub
 
@@ -33,9 +33,6 @@ In Azure Stack Hub unterstützen VM-Skalierungsgruppen keine automatische Skalie
 * **Betriebssystemimage**: Bevor eine VM-Skalierungsgruppe erstellt werden kann, müssen Sie die VM-Images, die darin verwendet werden sollen, aus dem [Azure Stack Hub-Marketplace](azure-stack-download-azure-marketplace-item.md) herunterladen. Die Images müssen bereits vorhanden sein, damit ein Benutzer eine neue Skalierungsgruppe erstellen kann.
 
 ## <a name="use-the-azure-stack-hub-portal"></a>Verwenden des Azure Stack Hub-Portals
-
->[!IMPORTANT]  
-> Die Informationen in diesem Abschnitt gelten bei Verwendung von Azure Stack Hub Version 1808 oder höher.
 
 1. Melden Sie sich beim Azure Stack Hub-Portal an. Navigieren Sie dann zu **Alle Dienste** und **VM-Skalierungsgruppen**, und wählen Sie unter **COMPUTE** die Option **VM-Skalierungsgruppen** aus.
    ![Auswählen von VM-Skalierungsgruppen](media/azure-stack-compute-add-scalesets/all-services.png)

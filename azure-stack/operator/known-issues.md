@@ -3,16 +3,16 @@ title: Azure Stack Hub – Bekannte Probleme
 description: Enthält Informationen zu bekannten Problemen in Releases von Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/25/2020
+ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: d403128cfe2cfe34bb9f5ed188a8591656819e1e
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.openlocfilehash: 664d89ecfde65906bbda33d71d9adc24284a33ba
+ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818333"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89410972"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -39,13 +39,6 @@ Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die
 Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub finden Sie unter [Problembehandlung von Azure Stack Hub-Updates](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates).
 
 ## <a name="portal"></a>Portal
-
-### <a name="subscription-permissions"></a>Abonnementberechtigungen
-
-- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Sie können mit den Azure Stack Hub-Portalen keine Berechtigungen für Ihr Abonnement anzeigen.
-- Abhilfe: Verwenden Sie [PowerShell zum Überprüfen der Berechtigungen](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Häufigkeit: Allgemein
 
 ### <a name="administrative-subscriptions"></a>Verwaltungsabonnements
 
@@ -120,6 +113,12 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Ursache: Wenn Sie einen neuen virtuellen Computer erstellen, wird unter Umständen eine Fehlermeldung wie die folgende angezeigt: **Dieses Abonnement hat die Kapazität für „Regionale vCPUs gesamt“ an diesem Standort erreicht. 50 „Regionale vCPUs gesamt“ sind verfügbar, und alle werden verwendet.** Dies deutet darauf hin, dass das Kontingent für die Gesamtanzahl verfügbarer Kerne erreicht wurde.
 - Abhilfe: Erkundigen Sie sich bei Ihrem Betreiber nach einem Add-On-Plan mit zusätzlichem Kontingent. Das Kontingent des aktuellen Plans kann nicht bearbeitet werden, oder das höhere Kontingent wird nicht berücksichtigt.
 - Häufigkeit: Selten
+
+### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Auf dem Blatt mit der VM-Übersicht wird nicht der richtige Computername angezeigt.
+
+- Geltungsbereich: Dieses Problem betrifft alle Releases.
+- Ursache: Wenn die Details eines virtuellen Computers auf dem Übersichtsblatt angezeigt werden, wird der Computername als **(nicht verfügbar)** angezeigt. Dies ist für VMs, die aus speziellen Datenträgern bzw. Datenträgermomentaufnahmen erstellt werden, so beabsichtigt.
+- Abhilfe: Zeigen Sie das Blatt **Eigenschaften** unter **Einstellungen** an.
 
 ### <a name="virtual-machine-scale-set"></a>VM-Skalierungsgruppe
 
