@@ -3,15 +3,15 @@ title: Bereitstellen einer VM mit einem sicher gespeicherten Zertifikat in Azure
 description: Erfahren Sie, wie Sie eine VM bereitstellen und mithilfe eines Schlüsseltresors in Azure Stack Hub ein Zertifikat per Push auf die VM übertragen.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 09/01/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 7f193a0a58018217d8b68758546de269f799b90e
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: 0291245616570804f7f6ddb22ba619433566507e
+ms.sourcegitcommit: 0714ce748e20065b52f8283d5dbba7ab068978d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744867"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89285514"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Bereitstellen einer VM mit einem sicher gespeicherten Zertifikat in Azure Stack Hub
 
@@ -44,7 +44,7 @@ Die folgenden Schritte beschreiben den Prozess, der zum Übertragen eines Zertif
 
 ## <a name="create-a-key-vault-secret"></a>Erstellen eines Geheimnisses im Schlüsseltresor
 
-Das folgende Skript erstellt ein Zertifikat im PFX-Format sowie einen Schlüsseltresor und speichert das Zertifikat als Geheimnis im Schlüsseltresor.
+Das folgende Skript erstellt ein Zertifikat im PFX-Format sowie einen Schlüsseltresor und speichert das Zertifikat als Geheimnis im Schlüsseltresor. Der `contentType` des Geheimnisses muss auf `pfx` festgelegt werden.
 
 > [!IMPORTANT]
 > Beim Erstellen des Schlüsseltresors muss der Parameter `-EnabledForDeployment` verwendet werden. Dieser Parameter stellt sicher, dass von Azure Resource Manager-Vorlagen auf den Schlüsseltresor verwiesen werden kann.
@@ -169,7 +169,7 @@ Wenn die Vorlage erfolgreich bereitgestellt wurde, wird die folgende Ausgabe ang
 Azure Stack Hub überträgt das Zertifikat während der Bereitstellung per Pushvorgang auf die VM. Der Zertifikatspeicherort hängt vom Betriebssystem der VM ab:
 
 * Unter Windows wird das Zertifikat dem Zertifikatspeicherort **LocalMachine** mit dem vom Benutzer angegebenen Zertifikatspeicher hinzugefügt.
-* Unter Linux wird das Zertifikat unter dem Verzeichnis **/var/lib/waagent** abgelegt, mit dem Dateinamen **UppercaseThumbprint.crt** für die X.509 Zertifikatdatei und **UppercaseThumbprint.prv**  für den privaten Schlüssel.
+* Unter Linux wird das Zertifikat unter dem Verzeichnis **/var/lib/waagent** abgelegt, mit dem Dateinamen **UppercaseThumbprint.crt** für die X.509 Zertifikatdatei und **UppercaseThumbprint.prv ** für den privaten Schlüssel.
 
 ## <a name="retire-certificates"></a>Zurückziehen von Zertifikaten
 

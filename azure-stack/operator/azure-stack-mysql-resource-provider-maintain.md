@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 219689721c66bcf97bb776874a1b33e84fcfa6d0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f5f0c15f4e445536f7eff4fa9a73555eda7cddd9
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698724"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364846"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack Hub
 
@@ -92,6 +92,7 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
 - Das [während der Bereitstellung angegebene](azure-stack-pki-certs.md) externe SSL-Zertifikat
 - Das während der Bereitstellung angegebene Kennwort des lokalen Administratorkontos für den virtuellen Computer des Ressourcenanbieters
 - Das Kennwort des Diagnosebenutzers (dbadapterdiag) für den Ressourcenanbieter
+- (version >= 1.1.47.0) Während der Bereitstellung generiertes Key Vault-Zertifikat.
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>PowerShell-Beispiele für die Rotation von Geheimnissen
 
@@ -105,8 +106,8 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
     -DiagnosticsUserPassword $passwd `
     -DependencyFilesLocalPath $certPath `
     -DefaultSSLCertificatePassword $certPasswd `  
-    -VMLocalCredential $localCreds
-
+    -VMLocalCredential $localCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
 ```
 
 **Ändern des Kennworts für den Diagnosebenutzer:**
@@ -117,7 +118,6 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
     -CloudAdminCredential $cloudCreds `
     -AzCredential $adminCreds `
     -DiagnosticsUserPassword  $passwd
-
 ```
 
 **Ändern des Kennworts des lokalen Administratorkontos für die VM**
@@ -128,7 +128,6 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
     -CloudAdminCredential $cloudCreds `
     -AzCredential $adminCreds `
     -VMLocalCredential $localCreds
-
 ```
 
 **Ändern des SSL-Zertifikatkennworts:**
@@ -140,21 +139,32 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
     -AzCredential $adminCreds `
     -DependencyFilesLocalPath $certPath `
     -DefaultSSLCertificatePassword $certPasswd
+```
 
+**Ändern des Kennworts für das Key Vault-Zertifikat:**
+
+```powershell
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
 ```
 
 ### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider.ps1-Parameter
 
-|Parameter|BESCHREIBUNG|
-|-----|-----|
-|AzCredential|Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto.|
-|CloudAdminCredential|Anmeldeinformationen für das Domänenkonto des Azure Stack Hub-Cloudadministrators.|
-|PrivilegedEndpoint|Privilegierter Endpunkt für den Zugriff auf „Get-AzureStackStampInformation“|
-|DiagnosticsUserPassword|Kennwort des Diagnosebenutzerkontos|
-|VMLocalCredential|Das lokale Administratorkonto auf der MySQLAdapter-VM.|
-|DefaultSSLCertificatePassword|Kennwort für das SSL-Standardzertifikat (*.pfx)|
-|DependencyFilesLocalPath|Lokaler Pfad der Abhängigkeitsdateien|
-|     |     |
+|Parameter|Beschreibung|Kommentar|
+|-----|-----|-----|
+|AzureEnvironment|Die zum Bereitstellen von Azure Stack Hub verwendete Azure-Umgebung des Dienstadministratorkontos. Nur für Azure AD-Bereitstellungen erforderlich. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für Azure Active Directory für China **AzureChinaCloud**.|Optional|
+|AzCredential|Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto.|Obligatorisch.|
+|CloudAdminCredential|Anmeldeinformationen für das Domänenkonto des Azure Stack Hub-Cloudadministrators.|Obligatorisch.|
+|PrivilegedEndpoint|Privilegierter Endpunkt für den Zugriff auf „Get-AzureStackStampInformation“|Obligatorisch.|Optional|
+|DiagnosticsUserPassword|Kennwort des Diagnosebenutzerkontos|Optional|
+|VMLocalCredential|Das lokale Administratorkonto auf der MySQLAdapter-VM.|Optional|
+|DefaultSSLCertificatePassword|Kennwort für das SSL-Standardzertifikat (PFX-Datei)|Optional|
+|DependencyFilesLocalPath|Lokaler Pfad der Abhängigkeitsdateien|Optional|
+|KeyVaultPfxPassword|Das Kennwort, das zum Generieren des Key Vault-Zertifikats für Datenbankadapter verwendet wird.|Optional|
+|     |     |     |
 
 ### <a name="known-issues"></a>Bekannte Probleme
 

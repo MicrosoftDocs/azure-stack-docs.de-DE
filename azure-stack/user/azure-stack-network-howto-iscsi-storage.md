@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 17f768ddfeb2422c2e3f1c4d3947c6b142ac13bc
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.openlocfilehash: 214b1d2cd06f70e9787c36c974ae4d1d18225924
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818724"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965125"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Herstellen einer Verbindung mit dem iSCSI-Speicher mit Azure Stack Hub
 
@@ -24,7 +24,7 @@ Die Vorlage finden Sie im Fork **lucidqdreams** des GitHub-Repositorys [Azure In
 
 In der Abbildung ist ein virtueller Computer dargestellt, der über einen (virtuellen oder physischen) Windows-Computer lokal mit einem eingebundenen iSCSI-Datenträger in Azure Stack Hub gehostet wird, sodass Speicher außerhalb von Azure Stack Hub über das iSCSI-Protokoll innerhalb Ihres in Azure Stack Hub gehosteten virtuellen Computers eingebunden werden kann.
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
+![Das Diagramm zeigt eine VM, die auf einem Azure Stack Hub gehostet wird und auf einen externen, in iSCSI eingebundenen Datenträger zugreift.](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
 
 ### <a name="requirements"></a>Requirements (Anforderungen)
 
@@ -57,7 +57,7 @@ In der Abbildung ist ein virtueller Computer dargestellt, der über einen (virtu
 
 In der Abbildung sind die mithilfe der Vorlage zum Erstellen des iSCSI-Clients bereitgestellten Vorlagen dargestellt, über die Sie eine Verbindung mit dem iSCSI-Ziel herstellen können. Mit dieser Vorlage werden der virtuelle Computer und andere Ressourcen bereitgestellt. Außerdem wird die Datei „prepare-iSCSIClient.ps1“ ausgeführt und der virtuelle Computer neu gestartet.
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
+![In der Abbildung sind die mithilfe der Vorlage zum Erstellen des iSCSI-Clients bereitgestellten Ressourcen dargestellt, um eine Verbindung mit dem iSCSI-Ziel herstellen zu können. Es zeigt einen Dateiserver mit einem internen Subnetz und NIC (Netzwerkkarte), internem PIP (Private Internet Protocol) und NSG (Netzwerksicherheitsgruppe).](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
 
 ### <a name="the-deployment-process"></a>Bereitstellungsprozess
 
@@ -68,11 +68,11 @@ Mit der Ressourcengruppenvorlage wird eine Ausgabe generiert, die als Eingabe f�
 3. Führen Sie `Create-iSCSITarget.ps1` mit den Ausgaben für die IP-Adresse und den Servernamen aus der Vorlage als Ein-/Ausgabeparameter für das Skript auf dem iSCSI-Ziel aus, bei dem es sich um einen virtuellen Computer oder einen physischen Server handeln kann.
 4. Verwenden Sie die externen IP-Adressen des iSCSI-Zielservers als Eingaben, um das Skript `Connect-toiSCSITarget.ps1` auszuführen. 
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/process.svg)
+![Das Diagramm zeigt die ersten drei der vier oben aufgeführten Schritte und umfasst Eingaben und Ausgaben. Führen Sie die folgenden Schritte durch: Bereitstellen der Infrastruktur, Erstellen eines iSCSI-Ziels und Herstellen einer Verbindung mit iSCSI.](./media/azure-stack-network-howto-iscsi-storage/process.svg)
 
 ### <a name="inputs-for-azuredeployjson"></a>Eingaben für „azuredeploy.json“
 
-|**Parameter**|**Standardwert**|**description**|
+|**Parameter**|**default**|**description**|
 |------------------|---------------|------------------------------|
 |WindowsImageSKU         |2019-Datacenter   |Wählen Sie das Windows-VM-Basisimage aus.
 |VMSize                  |Standard_D2_v2    |Geben Sie die VM-Größe ein.
@@ -97,7 +97,7 @@ Mit der Ressourcengruppenvorlage wird eine Ausgabe generiert, die als Eingabe f�
 
 Sie können die Skripts auch auf einem vorhandenen virtuellen Computer ausführen, um eine Verbindung zwischen dem iSCSI-Client und einem iSCSI-Ziel herzustellen. Bei diesem Ablauf gehen Sie so vor, als würden Sie das iSCSI-Ziel selbst erstellen. In der folgenden Abbildung ist die Ausführung der PowerShell-Skripts dargestellt. Die Skripts befinden sich im Skriptverzeichnis.
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
+![Das Diagramm zeigt die drei Skripts, die im Folgenden besprochen werden. In der Reihenfolge der Ausführung sind dies: Prepare-iSCSIClient.ps1, (wird auf dem Client ausgeführt), Create-iSCSITarget.ps1 (wird auf den Zielen ausgeführt) und Connect-toiSCSITarget.ps1 (wird auf dem Client ausgeführt).](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
 
 ### <a name="prepare-iscsiclientps1"></a>Prepare-iSCSIClient.ps1
 
@@ -112,9 +112,9 @@ Das System muss nach der Installation dieser erforderlichen Komponenten zwingend
 
 ### <a name="create-iscsitargetps1"></a>Create-iSCSITarget.ps1
 
-Das Skript `Create-iSCSITarget.ps1 ` muss auf dem System ausgeführt werden, das den Speicher bereitstellt. Sie können mehrere durch Initiatoren eingeschränkte Datenträger und Ziele erstellen. Sie können dieses Skript mehrmals ausführen, um viele virtuelle Datenträger zu erstellen, die Sie an verschiedene Ziele anfügen können. Sie können mehrere Datenträger mit einem Ziel verbinden. 
+Das Skript `Create-iSCSITarget.ps1` soll auf dem Speicherserver ausgeführt werden. Sie können mehrere durch Initiatoren eingeschränkte Datenträger und Ziele erstellen. Sie können dieses Skript mehrmals ausführen, um viele virtuelle Datenträger zu erstellen, die Sie an verschiedene Ziele anfügen können. Sie können mehrere Datenträger mit einem Ziel verbinden. 
 
-|**Input** (Eingabe)|**Standardwert**|**description**|
+|**Eingabe**|**default**|**description**|
 |------------------|---------------|------------------------------|
 |RemoteServer         |FileServer               |Name des Servers, über den die Verbindung mit dem iSCSI-Ziel hergestellt wird
 |RemoteServerIPs      |1.1.1.1                  |IP-Adresse, von der der iSCSI-Datenverkehr stammt
@@ -129,9 +129,9 @@ Das Skript `Create-iSCSITarget.ps1 ` muss auf dem System ausgeführt werden, das
 
 Das Skript `Connect-toiSCSITarget.ps1` wird als abschließendes Skript auf dem iSCSI-Client ausgeführt. Mit diesem Skript wird der Datenträger eingebunden, der auf dem iSCSI-Ziel für den iSCSI-Client bereitgestellt wird.
 
-|**Input** (Eingabe)|**Standardwert**|**description**|
+|**Eingabe**|**default**|**description**|
 |------------------|---------------|------------------------------|
-|TargetiSCSIAddresses   |2\.2.2.2, 2.2.2.3    |IP-Adressen des iSCSI-Ziels
+|TargetiSCSIAddresses   |2.2.2.2, 2.2.2.3    |IP-Adressen des iSCSI-Ziels
 |LocalIPAddresses       |10.10.1.4            |Interne IP-Adresse, von der der iSCSI-Datenverkehr stammt
 |LoadBalancePolicy      |C:\iSCSIVirtualDisks   |IP-Adresse, von der der iSCSI-Datenverkehr stammt
 |ChapUsername           |username               |Benutzername für die Chap-Authentifizierung

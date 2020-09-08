@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 2ebbc1d7a2d6a159c4d35303c833875452c20c01
-ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
+ms.openlocfilehash: 076ea0efb7307ce9a87b04c19608a5b3c723d3f4
+ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85764607"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89274074"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Übersicht: Azure Stack Hub-Dienste, -Pläne, -Angebote und Abonnements
 
@@ -74,6 +74,9 @@ Pläne sind Gruppen von einem oder mehreren Diensten. Als Azure Stack Hub-Bedien
 ### <a name="base-plan"></a>Basisplan
 
 Beim Erstellen eines Angebots kann der Dienstadministrator einen Basisplan einbinden. Diese Basispläne sind standardmäßig enthalten, wenn ein Benutzer dieses Angebot abonniert. Wenn Benutzer ein Angebot abonnieren, haben sie Zugriff auf alle Ressourcenanbieter, die in diesen Basisplänen angegeben sind (mit den entsprechenden Kontingenten).
+
+> [!NOTE]
+> Wenn ein Angebot mehrere Basispläne umfasst, darf die kombinierte Speicherkapazität der Pläne das Speicherkontingent nicht überschreiten.
 
 ### <a name="add-on-plans"></a>Add-On-Pläne
 

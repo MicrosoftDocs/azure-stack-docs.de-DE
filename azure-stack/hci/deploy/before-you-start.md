@@ -4,13 +4,13 @@ description: Hier finden Sie Informationen zum Vorbereiten der Bereitstellung vo
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 08/03/2020
-ms.openlocfilehash: fc12f638970e82c293a9143c398892a88049f6cd
-ms.sourcegitcommit: 952d26ad08fcc28ad3ad83e27644e61497623a44
+ms.date: 09/01/2020
+ms.openlocfilehash: 33e1e5b6c113f954a819cf6488f22a18f64d93c5
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87889193"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364812"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Vor dem Bereitstellen von Azure Stack HCI
 
@@ -136,7 +136,7 @@ Möglicherweise müssen weitere Ports geöffnet werden, die in dieser Liste nich
 ### <a name="storage-requirements"></a>Speicheranforderungen
 
 - Azure Stack HCI arbeitet mit direkt verbundenen SATA-, SAS- oder NVME-Laufwerken oder Laufwerken für persistenten Speicher, die physisch an nur jeweils einen Server angeschlossen sind.
-- Jeder Server im Cluster sollte dasselbe Modell, dieselbe Größe und dieselbe Anzahl von Laufwerken aufweisen. Auf allen Datenträgern sollten dieselbe Sektorgrößen verwendet werden. Laufwerke können intern im Server installiert sein oder sich in einem externen Gehäuse befinden, das nur mit einem Server verbunden ist.
+- Jeder Server im Cluster sollte über dieselben Laufwerkstypen und dieselbe Anzahl von Laufwerken des jeweiligen Typs verfügen. Es wird auch empfohlen (aber nicht vorgeschrieben), dass die Laufwerke dieselbe Größe und dasselbe Modell besitzen. Laufwerke können intern im Server installiert sein oder sich in einem externen Gehäuse befinden, das nur mit einem Server verbunden ist.
 - Jeder Server im Cluster muss über dedizierte Volumes für Protokolle verfügen, und der Protokollspeicher muss mindestens so schnell sein wie der Datenspeicher. Stretchingcluster erfordern mindestens zwei Volumes: eins für replizierte Daten und eins für Protokolldaten.
 - SES (SCSI Enclosure Services) ist für die Zuordnung und Identifikation von Slots erforderlich. Jedes externe Gehäuse muss einen eindeutigen Bezeichner (eindeutige ID) besitzen. **NICHT UNTERSTÜTZT**: RAID-Controllerkarten oder SAN-Speicher (Fibre Channel, iSCSI, FCoE), mit mehreren Servern verbundene, gemeinsam genutzte SAS-Gehäuse und jegliche Art von Multipfad-E/A (Multi-Path IO, MPIO), bei dem über mehrere Pfade auf Laufwerke zugegriffen werden kann. Hostbusadapterkarten müssen einen einfachen Pass-Through-Modus implementieren.
 - Weitere Informationen dazu finden Sie im Thema [Auswählen von Laufwerken](../concepts/choose-drives.md) oder unter [Hardwareanforderungen für „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements).

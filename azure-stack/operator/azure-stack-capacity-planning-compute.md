@@ -4,15 +4,15 @@ description: Hier erfahren Sie mehr über die Computekapazitätsplanung für Azu
 author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: d87014dfe5d09a6c41e5108b8ae10b26e23b62d8
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: bd1c6674bd125546526c1588f98f5b0d17a57fef
+ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920184"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89410989"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub-Computekapazität
 
@@ -27,7 +27,7 @@ Die Azure Stack Hub-Platzierungsengine verteilt Mandanten-VMs auf die verfügbar
 
 Bei der Platzierung virtueller Computer werden von Azure Stack Hub zwei Aspekte berücksichtigt. Erstens: Steht auf dem Host genügend Arbeitsspeicher für den VM-Typ zur Verfügung? Zweitens: Gehören die VMs zu einer [Verfügbarkeitsgruppe](/azure/virtual-machines/windows/manage-availability), oder handelt es sich bei Ihnen um [VM-Skalierungsgruppen](/azure/virtual-machine-scale-sets/overview)?
 
-Zur Erreichung von Hochverfügbarkeit für ein Produktionssystem mit mehreren virtuellen Computern (VMs) in Azure Stack Hub werden die VMs in einer Verfügbarkeitsgruppe platziert, um sie auf mehrere Fehlerdomänen zu verteilen. Die Definition einer Fehlerdomäne in einer Verfügbarkeitsgruppe ist ein einzelner Knoten in der Skalierungseinheit. Azure Stack Hub unterstützt die Verwendung einer Verfügbarkeitsgruppe mit maximal drei Fehlerdomänen, um Konsistenz mit Azure zu erzielen. In einer Verfügbarkeitsgruppe angeordnete VMs werden physisch voneinander isoliert, indem sie so gleichmäßig wie möglich auf mehrere Fehlerdomänen (Azure Stack Hub-Hosts) verteilt werden. Bei einem Hardwarefehler werden VMs aus der fehlerhaften Fehlerdomäne in anderen Fehlerdomänen neu gestartet. Sie werden nach Möglichkeit getrennt von den anderen VMs in separaten Fehlerdomänen in derselben Verfügbarkeitsgruppe gespeichert. Nachdem der Host wieder in den Onlinezustand versetzt wurde, wird für die VMs ein neuer Ausgleichsvorgang durchgeführt, um die Hochverfügbarkeit sicherzustellen.  
+Zur Erreichung von Hochverfügbarkeit für eine Produktionsworkload mit mehreren virtuellen Computern (VMs) in Azure Stack Hub werden die VMs in einer Verfügbarkeitsgruppe platziert, um sie auf mehrere Fehlerdomänen zu verteilen. Die Definition einer Fehlerdomäne in einer Verfügbarkeitsgruppe ist ein einzelner Knoten in der Skalierungseinheit. Azure Stack Hub unterstützt die Verwendung einer Verfügbarkeitsgruppe mit maximal drei Fehlerdomänen, um Konsistenz mit Azure zu erzielen. In einer Verfügbarkeitsgruppe angeordnete VMs werden physisch voneinander isoliert, indem sie so gleichmäßig wie möglich auf mehrere Fehlerdomänen (Azure Stack Hub-Knoten) verteilt werden. Bei einem Hardwarefehler werden VMs aus der fehlerhaften Fehlerdomäne in anderen Fehlerdomänen neu gestartet. Sie werden nach Möglichkeit getrennt von den anderen VMs in separaten Fehlerdomänen in derselben Verfügbarkeitsgruppe gespeichert. Nachdem der Host wieder in den Onlinezustand versetzt wurde, wird für die VMs ein neuer Ausgleichsvorgang durchgeführt, um die Hochverfügbarkeit sicherzustellen.  
 
 Für VM-Skalierungsgruppen werden Verfügbarkeitsgruppen auf dem Back-End verwendet, und es wird sichergestellt, dass jede Instanz der VM-Skalierungsgruppe in einer anderen Fehlerdomäne platziert wird. Dies bedeutet, dass hierfür separate Azure Stack Hub-Infrastrukturknoten verwendet werden. Bei einem Azure Stack Hub-System mit vier Knoten kann es beispielsweise zu einer Situation kommen, in der für eine VM-Skalierungsgruppe mit drei Instanzen bei der Erstellung ein Fehler auftritt, weil bei einer Kapazität von vier Knoten nicht drei VM-Skalierungsgruppeninstanzen auf drei separaten Azure Stack Hub-Knoten platziert werden können. Außerdem können Azure Stack Hub-Knoten vor der Durchführung der Platzierung auf verschiedenen Ebenen gefüllt werden.
 
@@ -44,14 +44,6 @@ Falls das VM-Skalierungslimit erreicht wird, werden die folgenden Fehlercodes al
 ## <a name="consideration-for-batch-deployment-of-vms"></a>Überlegungen zur Batchbereitstellung virtueller Computer
 
 In Releases bis einschließlich 2002 konnten mit zwei bis fünf virtuellen Computern pro Batch und einer fünfminütigen Pause zwischen Batches bis zu 700 virtuelle Computer zuverlässig bereitgestellt werden. Mit der Azure Stack Hub-Version 2005 können virtuelle Computer zuverlässig in Batches mit bis zu 40 virtuellen Computern und einer fünfminütigen Pause zwischen Batchbereitstellungen bereitgestellt werden.
-
-## <a name="considerations-for-deallocation"></a>Überlegungen zur Aufhebung der Zuweisung
-
-Wenn sich eine VM im Status _Zuweisung aufgehoben_ befindet, werden keine Speicherressourcen verwendet. Dadurch können andere VMs im System platziert werden.
-
-Wenn die nicht zugewiesene VM dann noch mal gestartet wird, erfolgt die Speicherauslastung oder -belegung wie beim Platzieren einer neuen VM im System, und der verfügbare Speicherplatz wird verbraucht.
-
-Wenn kein Speicherplatz verfügbar ist, wird die VM nicht gestartet.
 
 ## <a name="azure-stack-hub-memory"></a>Azure Stack Hub-Arbeitsspeicher
 
@@ -90,6 +82,61 @@ Resilienzreserve = H + R * ((N-1) * H) + V * (N-2)
 <sup>2</sup> Betriebssystemreserve für Mehraufwand = 15 % (0,15) des Knotenspeichers. Der Wert der Betriebssystemreserve ist eine Schätzung und variiert je nach der physischen Speicherkapazität des Servers und dem allgemeinen Betriebssystemmehraufwand.
 
 Der Wert V (größter virtueller Computer in der Skalierungseinheit) basiert dynamisch auf der VM-Speichergröße des größten Mandanten. Der größte Wert für den virtuellen Computer kann beispielsweise 7 GB oder 112 GB oder jede andere unterstützte VM-Speichergröße in der Azure Stack Hub-Lösung sein. Wenn die größte VM im Azure Stack Hub-Fabric geändert wird, führt dies zu einer Erhöhung der Resilienzreserve und auch zu einer Erhöhung des Arbeitsspeichers der VM selbst.
+
+## <a name="considerations-for-deallocation"></a>Überlegungen zur Aufhebung der Zuweisung
+
+Wenn sich eine VM im Status _Zuweisung aufgehoben_ befindet, werden keine Speicherressourcen verwendet. Dadurch können andere VMs im System platziert werden.
+
+Wenn die nicht zugewiesene VM dann noch mal gestartet wird, erfolgt die Speicherauslastung oder -belegung wie beim Platzieren einer neuen VM im System, und der verfügbare Speicherplatz wird verbraucht. Wenn kein Speicherplatz verfügbar ist, wird die VM nicht gestartet.
+
+Die derzeit bereitgestellten großen VMs zeigen, dass der zugeordnete Speicher 112 GB beträgt, aber der Speicherbedarf dieser VMs liegt bei etwa 2-3 GB.
+    
+| Name | Zugewiesener Arbeitsspeicher (GB) | Arbeitsspeicherbedarf (GB) | Computername |  
+| ---- | -------------------- | ------------------ | ------------ |                                        
+| ca7ec2ea-40fd-4d41-9d9b-b11e7838d508 |                 112  |     2.2392578125  |  LISSA01P-NODE01 |
+| 10cd7b0f-68f4-40ee-9d98-b9637438ebf4  |                112  |     2.2392578125  |   LISSA01P-NODE01 |
+| 2e403868-ff81-4abb-b087-d9625ca01d84   |               112   |    2.2392578125  |   LISSA01P-NODE04 |
+
+Es gibt drei Möglichkeiten, Arbeitsspeicher für die VM-Platzierung mit der Formel **Resilienzreserve = H + R * ((N-1) * H) + V * (N-2)** freizugeben:
+* Reduzieren der Größe des größten virtuellen Computers
+* Erhöhen des Arbeitsspeichers eines Knotens
+* Hinzufügen eines Knotens
+
+### <a name="reduce-the-size-of-the-largest-vm"></a>Verringern der Größe des größten virtuellen Computers 
+
+Die Verringerung der Größe der größten VM auf die nächstkleinere VM in der Skalierungseinheit (24 GB) verringert die Größe der Resilienzreserve.
+
+![Verringern der VM-Größe](media/azure-stack-capacity-planning/decrease-vm-size.png)        
+        
+ Resilienzreserve = 384 + 172,8 + 48 = 604,8 GB
+        
+| Gesamter Speicher | GB für Infrastruktur | GB für Mandant | Resilienzreserve | Reservierter Gesamtarbeitsspeicher          | Zur Platzierung verfügbare gesamte GB |
+|--------------|--------------------|---------------------|--------------------|--------------------------------|----------------------------------|
+| 1\.536 GB      | 258 GB             | 329,25 GB           | 604,8 GB           | 258 + 329,25 + 604,8 = 1168 GB | **~344 GB**                         |
+     
+### <a name="add-a-node"></a>Hinzufügen eines Knotens
+
+[Durch Hinzufügen eines Azure Stack Hub-Knotens](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node) wird Arbeitsspeicher freigegeben, indem der Arbeitsspeicher gleichmäßig auf die beiden Knoten verteilt wird.
+
+![Hinzufügen eines Knotens](media/azure-stack-capacity-planning/add-a-node.png)
+
+Resilienzreserve = 384 + (0,15) ((5)*384) + 112 * (3) = 1008 GB
+    
+| Gesamter Speicher | GB für Infrastruktur | GB für Mandant | Resilienzreserve | Reservierter Gesamtarbeitsspeicher          | Zur Platzierung verfügbare gesamte GB |
+|--------------|--------------------|---------------------|--------------------|--------------------------------|----------------------------------|
+| 1\.536 GB      | 258 GB             | 329,25 GB           | 604,8 GB           | 258 + 329,25 + 604,8 = 1168 GB | **~ 344 GB**                         |
+
+### <a name="increase-memory-on-each-node-to-512-gb"></a>Erhöhen des Arbeitsspeichers auf jedem Knoten auf 512 GB
+
+[Durch die Vergrößerung des Arbeitsspeichers jedes Knotens](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-storage-physical-memory-capacity) wird der gesamte verfügbare Speicher erhöht.
+
+![Erhöhen der Größe des Knotens](media/azure-stack-capacity-planning/increase-node-size.png)
+
+Resilienzreserve = 512 + 230,4 + 224 = 966,4 GB
+    
+| Gesamter Speicher    | GB für Infrastruktur | GB für Mandant | Resilienzreserve | Reservierter Gesamtarbeitsspeicher | Zur Platzierung verfügbare gesamte GB |
+|-----------------|----------|-----------|--------------------|-----------------------|----------------------------------|
+| 2048 (4*512) GB | 258 GB   | 505,75 GB | 966,4 GB           | 1730,15 GB            | **~ 318 GB**                         |
 
 ## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
 

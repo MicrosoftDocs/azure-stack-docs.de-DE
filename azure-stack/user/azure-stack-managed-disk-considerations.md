@@ -3,16 +3,16 @@ title: 'Verwaltete Azure Stack Hub-Datenträger: Unterschiede und Überlegungen'
 description: Dieser Artikel beschreibt die Unterschiede und zu berücksichtigende Überlegungen bei der Verwendung von verwalteten Datenträgern und verwalteten Images in Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 0bb8ebeb46c0290a6e5d66f4aa8e9928f660598d
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: ededa6951727d20ec07a96229b41750b31bdc18c
+ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86490149"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89041450"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Verwaltete Azure Stack Hub-Datenträger: Unterschiede und Überlegungen
 
@@ -20,8 +20,7 @@ Dieser Artikel beschreibt die Unterschiede zwischen [*verwalteten Datenträgern*
 
 Verwaltete Datenträger vereinfachen die Datenträgerverwaltung für IaaS-VMs durch Verwaltung der [Speicherkonten](../operator/azure-stack-manage-storage-accounts.md), die den VM-Datenträgern zugeordnet sind.
 
-> [!NOTE]  
-> Verwaltete Datenträger stehen in Azure Stack Hub ab Update 1808 zur Verfügung. Ab Update 1811 ist das Feature standardmäßig aktiviert, wenn VMs über das Azure Stack Hub-Portal erstellt werden.
+Verwaltete Datenträger sind standardmäßig aktiviert, wenn virtuelle Computer über das Azure Stack Hub-Portal erstellt werden.
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>Spickzettel: Unterschiede zwischen Managed Disks
 

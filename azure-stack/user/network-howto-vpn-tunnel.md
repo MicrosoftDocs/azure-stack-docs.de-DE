@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 4ea38352ca26c94c02f588a786122e51494fadc2
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: c7c7c007de2745b33be9d5ca81eb16364c3b60f5
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920847"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965312"
 ---
 # <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Einrichten eines Multi-Site-to-Site-VPN-Tunnels in Azure Stack Hub
 
@@ -22,11 +22,11 @@ Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](h
 
 ## <a name="scenarios"></a>Szenarien
 
-![](./media/azure-stack-network-howto-vpn-tunnel/scenarios.png)
+![Es werden fünf VPN-Szenarien dargestellt: zwischen zwei Ressourcengruppen innerhalb eines einzelnen Abonnements, zwischen zwei Gruppen in jeweils einem eigenen Abonnement, zwischen zwei Gruppen in separaten Stack-Instanzen, zwischen einer Gruppe und lokalen Ressourcen und zwischen mehreren VPN-Tunneln.](./media/azure-stack-network-howto-vpn-tunnel/scenarios.png)
 
 ## <a name="create-multiple-vpn-tunnels"></a>Erstellen mehrerer VPN-Tunnel
 
-![](./media/azure-stack-network-howto-vpn-tunnel/image1.png)
+![Das Diagramm zeigt zwei Ressourcengruppen, jede in ihrer eigenen Abonnement- und Stack-Instanz, die über VPN verbunden sind. Und eine dieser beiden Gruppen ist über VPN mit lokalen Ressourcen verbunden.](./media/azure-stack-network-howto-vpn-tunnel/image1.png)
 
 -  Stellen Sie eine Anwendung mit drei Ebenen bereit: Webebene (WebTier), Anwendungsebene (AppTier) und Datenbankebene (DBTier).
 
@@ -42,28 +42,28 @@ Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](h
 
 Hierbei handelt es sich um einen Vorgang mit mehreren Schritten. Für diese Lösung verwenden Sie das Azure Stack Hub-Portal. Sie können jedoch PowerShell, die Azure-Befehlszeilenschnittstelle oder andere Infrastructure-as-Code-Toolketten verwenden, um die Ausgaben zu erfassen und dann als Eingaben zu verwenden.
 
-![alt text](./media/azure-stack-network-howto-vpn-tunnel/image2.png)
+![Das Diagramm zeigt fünf Schritte zur Bereitstellung von VPN-Tunneln zwischen zwei Infrastrukturen an. In den ersten beiden Schritten werden aus einer Vorlage zwei Infrastrukturen erstellt. In den nächsten beiden Schritten werden zwei VPN-Tunnel aus einer Vorlage erstellt, und im letzten Schritt werden die Tunnel miteinander verbunden.](./media/azure-stack-network-howto-vpn-tunnel/image2.png)
 
 ## <a name="walkthrough"></a>Exemplarische Vorgehensweise
 
 ### <a name="deploy-web-tier-to-azure-stack-hub-instances-ppe1"></a>Bereitstellen der Webebene auf der Azure Stack Hub-Instanz PPE1
 
-1.  Öffnen Sie das Azure Stack Hub-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
+1. Öffnen Sie das Azure Stack Hub-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
 
-2.  Wählen Sie **Vorlagenbereitstellung** aus.
+2. Wählen Sie **Vorlagenbereitstellung** aus.
 
-    ![](./media/azure-stack-network-howto-vpn-tunnel/image3.png)
+    ![Das Dialogfeld „Dashboard > Neu“ zeigt verschiedene Optionen an. Die Schaltfläche für die Vorlagenbereitstellung ist hervorgehoben.](./media/azure-stack-network-howto-vpn-tunnel/image3.png)
 
-3.  Kopieren Sie den Inhalt der Datei „azuredeploy.json“ aus dem Repository **azure-intelligent-edge-patterns/rras-vnet-vpntunnel**, und fügen Sie ihn in das Vorlagenfenster ein. Die in der Vorlage enthaltenen Ressourcen werden angezeigt. Wählen Sie **Speichern** aus.
+3. Kopieren Sie den Inhalt der Datei „azuredeploy.json“ aus dem Repository **azure-intelligent-edge-patterns/rras-vnet-vpntunnel**, und fügen Sie ihn in das Vorlagenfenster ein. Die in der Vorlage enthaltenen Ressourcen werden angezeigt. Wählen Sie **Speichern** aus.
 
-    ![](./media/azure-stack-network-howto-vpn-tunnel/image4.png)
+    ![Das Dialogfeld „Dashboard > Neu > Lösungsvorlage bereitstellen > Vorlage bearbeiten“ enthält ein Fenster, in das die Datei „azuredeploy.json“ eingefügt wird.](./media/azure-stack-network-howto-vpn-tunnel/image4.png)
 
-4.  Geben Sie einen Namen für die **Ressourcengruppe** ein, und überprüfen Sie die Parameter.
+4. Geben Sie einen Namen für die **Ressourcengruppe** ein, und überprüfen Sie die Parameter.
 
-    > ![Hinweis]  
+    > [!Note]  
     > Der WebTier-Adressraum ist **10.10.0.0/16**, und Sie können sehen, dass **PPE1** der Speicherort der Ressourcengruppe ist.
 
-    ![](./media/azure-stack-network-howto-vpn-tunnel/image5.png)
+    ![Das Dialogfeld „Dashboard > Neu > Lösungsvorlage bereitstellen > Parameter“ hat ein Textfeld „Ressourcengruppe“ und ein Optionsfeld. Die Schaltfläche „Neu erstellen“ ist ausgewählt, und der Text lautet „WebTier“.](./media/azure-stack-network-howto-vpn-tunnel/image5.png)
 
 ### <a name="deploy-app-tier-to-the-second-azure-stack-hub-instances"></a>Bereitstellen der Anwendungsebene auf der zweiten Azure Stack Hub-Instanz
 
@@ -72,126 +72,126 @@ Sie können wie bei der Bereitstellung von **WebTier** vorgehen. Es werden jedoc
 > [!NOTE]  
 > Der AppTier-Adressraum ist **10.20.0.0/16**, und Sie können sehen, dass **WestUS2** der Speicherort der Ressourcengruppe ist.
 
-![](./media/azure-stack-network-howto-vpn-tunnel/image6.png)
+![Das Dialogfeld „Dashboard > Lösungsvorlage bereitstellen > Parameter“ hat ein Textfeld „Ressourcengruppe“ und ein Optionsfeld. Die Schaltfläche „Neu erstellen“ ist ausgewählt, und der Text lautet „AppTier“. Acht weitere hervorgehobene Textfelder enthalten Vorlagenparameter.](./media/azure-stack-network-howto-vpn-tunnel/image6.png)
 
 ### <a name="review-the-deployments-for-web-tier-and-app-tier-and-capture-outputs"></a>Überprüfen der Bereitstellungen für die Web- und die Anwendungsebene und Erfassen der Ausgaben
 
-1.  Überprüfen Sie, ob die Bereitstellung erfolgreich abgeschlossen wurde. Wählen Sie **Ausgaben** aus.
+1. Überprüfen Sie, ob die Bereitstellung erfolgreich abgeschlossen wurde. Klicken Sie auf **Ausgaben**.
 
-    ![](./media/azure-stack-network-howto-vpn-tunnel/image7.png)
+    ![Die Option „Ausgaben“ wird im Dialogfeld „Dashboard > Microsoft.Template – Übersicht“ hervorgehoben. Die Meldung lautet „Ihre Bereitstellung ist abgeschlossen“, gefolgt von einer Liste der Ressourcen für die Gruppe WebTier, jeweils mit Name, Typ, Status und einem Link zu Details.](./media/azure-stack-network-howto-vpn-tunnel/image7.png)
 
-3.  Kopieren Sie die ersten vier Werte in Ihre Editor-Anwendung.
+1. Kopieren Sie die ersten vier Werte in Ihre Editor-Anwendung.
 
-    ![](./media/azure-stack-network-howto-vpn-tunnel/image8.png)
+    ![Das Dialogfeld lautet „Dashboard > Microsoft.Template – Ausgaben“. Die vier Textfelder, die aus der Bereitstellung auf der Webebene kopiert werden müssen, sind hervorgehoben: LOCALTUNNELENDPOINT, LOCALVNETADDRESSSPACE, LOCALVNETGATEWAY und LOCALTUNNELGATEWAY.](./media/azure-stack-network-howto-vpn-tunnel/image8.png)
 
-5.  Wiederholen Sie diese Schritte für die Bereitstellung für **AppTier**.
+1. Wiederholen Sie diese Schritte für die Bereitstellung für **AppTier**.
 
-![](./media/azure-stack-network-howto-vpn-tunnel/image9.png)
+    ![Die Option „Ausgaben“ wird im Dialogfeld „Dashboard > Microsoft.Template – Übersicht“ hervorgehoben. Die Meldung lautet „Ihre Bereitstellung ist abgeschlossen“, gefolgt von einer Liste der Ressourcen für die Gruppe AppTier, jeweils mit Name, Typ, Status und einem Link zu Details.](./media/azure-stack-network-howto-vpn-tunnel/image9.png)
 
-![](./media/azure-stack-network-howto-vpn-tunnel/image10.png)
+    ![Das Dialogfeld lautet „Dashboard > Microsoft.Template – Ausgaben“. Die vier Textfelder, die aus der Bereitstellung auf der App-Ebene kopiert werden müssen, sind hervorgehoben: LOCALTUNNELENDPOINT, LOCALVNETADDRESSSPACE, LOCALVNETGATEWAY und LOCALTUNNELGATEWAY.](./media/azure-stack-network-howto-vpn-tunnel/image10.png)
 
 ### <a name="create-tunnel-from-web-tier-to-app-tier"></a>Erstellen eines Tunnels von der Webebene zur Anwendungsebene
 
-1.  Öffnen Sie das Azure Stack Hub-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
+1. Öffnen Sie das Azure Stack Hub-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
 
-2.  Wählen Sie **Vorlagenbereitstellung** aus.
+2. Wählen Sie **Vorlagenbereitstellung** aus.
 
-3.  Fügen Sie den Inhalt aus **azuredeploy.tunnel.ike.json** ein.
+3. Fügen Sie den Inhalt aus **azuredeploy.tunnel.ike.json** ein.
 
-4.  Wählen Sie **Parameter bearbeiten** aus.
+4. Wählen Sie **Parameter bearbeiten** aus.
 
-![](./media/azure-stack-network-howto-vpn-tunnel/image11.png)
+![Das Dialogfeld „Dashboard > Neu > Lösungsvorlage bereitstellen > Parameter“ hat ein Textfeld „Ressourcengruppe“ und ein Optionsfeld. Die Schaltfläche „Vorhandene verwenden“ ist ausgewählt, und der Text lautet „WebTier“. Vier weitere hervorgehobene Textfelder enthalten Vorlagenparameter.](./media/azure-stack-network-howto-vpn-tunnel/image11.png)
 
 ### <a name="create-tunnel-from-app-tier-to-web-tier"></a>Erstellen eines Tunnels von der Anwendungsebene zur Webebene
 
-1.  Öffnen Sie das Azure Stack Hub-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
+1. Öffnen Sie das Azure Stack Hub-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
 
-2.  Wählen Sie **Vorlagenbereitstellung** aus.
+2. Wählen Sie **Vorlagenbereitstellung** aus.
 
-3.  Fügen Sie den Inhalt aus **azuredeploy.tunnel.ike.json** ein.
+3. Fügen Sie den Inhalt aus **azuredeploy.tunnel.ike.json** ein.
 
-4.  Wählen Sie **Parameter bearbeiten** aus.
+4. Wählen Sie **Parameter bearbeiten** aus.
 
-![](./media/azure-stack-network-howto-vpn-tunnel/image12.png)
+![Das Dialogfeld „Dashboard > Neu > Lösungsvorlage bereitstellen > Parameter“ hat ein Textfeld „Ressourcengruppe“ und ein Optionsfeld. Die Schaltfläche „Vorhandene verwenden“ ist ausgewählt, und der Text lautet „AppTier“. Vier weitere hervorgehobene Textfelder enthalten Vorlagenparameter.](./media/azure-stack-network-howto-vpn-tunnel/image12.png)
 
 ### <a name="viewing-tunnel-deployment"></a>Anzeigen der Tunnelbereitstellung
 
 Wenn Sie die Ausgabe über die benutzerdefinierte Skripterweiterung anzeigen, können Sie sehen, wie der Tunnel erstellt wird. Außerdem sollte der Status angezeigt werden. Sie sehen, dass auf der einen Seite der Status **Connecting** (Verbindung wird hergestellt) angezeigt und auf die Bereitstellung der anderen Seite gewartet wird. Für die andere Seite wird nach erfolgter Bereitstellung der Status **Connected** (Verbunden) angezeigt.
 
-![](./media/azure-stack-network-howto-vpn-tunnel/image13.png)
+![Das Dialogfeld lautet „Dashboard > Ressourcengruppen > WebTier > WebTier-RRAS – Erweiterungen“. Es sind zwei Erweiterungen aufgeführt: CustomScriptExtension, die hervorgehoben ist, und InstallRRAS. Beide zeigen den Status „Bereitstellung erfolgreich“ an.](./media/azure-stack-network-howto-vpn-tunnel/image13.png)
 
-![](./media/azure-stack-network-howto-vpn-tunnel/image14.png)
+![Das Dialogfeld lautet „Dashboard > Ressourcengruppen > WebTier > WebTier-RRAS – Erweiterungen > CustomScriptExtension“. Der DETAILED STATUS-Wert ist „Bereitstellung erfolgreich“.](./media/azure-stack-network-howto-vpn-tunnel/image14.png)
 
-![](./media/azure-stack-network-howto-vpn-tunnel/image15.png)
+![Die Ausgaben der benutzerdefinierten Skripterweiterungen für AppTier und WebTier werden in nebeneinanderliegenden Notepad-Fenstern angezeigt. AppTier zeigt einen Tunnelstatus „Verbindung wird hergestellt“ an. WebTier zeigt „Verbunden“ an.](./media/azure-stack-network-howto-vpn-tunnel/image15.png)
 
 ### <a name="troubleshooting-on-the-rras-vm"></a>Beheben von Problemen mit dem virtuellen RRAS-Computer
 
-1.  Ändern Sie die RDP-Regel von **Verweigern** in **Zulassen**.
+1. Ändern Sie die Regel für Remotedesktops (RDP) von **Verweigern** in **Zulassen**.
 
-2.  Stellen Sie über einen Remotedesktopclient (DRP) mit den bei der Bereitstellung festgelegten Anmeldeinformationen eine Verbindung mit dem System her.
+1. Stellen Sie über einen RDP-Client mit den bei der Bereitstellung festgelegten Anmeldeinformationen eine Verbindung mit dem System her.
 
-3.  Öffnen Sie PowerShell über eine Eingabeaufforderung mit erhöhten Rechten, und führen Sie `get-VPNS2SInterface` aus.
+1. Öffnen Sie PowerShell über eine Eingabeaufforderung mit erhöhten Rechten, und führen Sie `get-VpnS2SInterface` aus.
 
-    ![](./media/azure-stack-network-howto-vpn-tunnel/image16.png)
+    ![Das PowerShell-Fenster zeigt die Ausführung des Befehls Get-VpnS2SInterface, der Details der Site-to-Site-Schnittstelle an. ConnectionState ist „Verbunden“.](./media/azure-stack-network-howto-vpn-tunnel/image16.png)
 
-5.  Verwalten Sie das System mithilfe des Cmdlets **RemoteAccess**.
+1. Verwalten Sie das System mithilfe des Cmdlets **RemoteAccess**.
 
-    ![](./media/azure-stack-network-howto-vpn-tunnel/image17.png)
+    ![Auf der App-Ebene läuft ein cmd.exe-Fenster, das die Ausgabe des Befehls ipconfig anzeigt. Zwei Fenster werden als Überlagerungen angezeigt: Ein RDP-Verbindungsfenster, das eine Verbindung mit der Webebene herstellt, und ein Windows-Sicherheitsfenster, das eine Verbindung mit der Webebene herstellt.](./media/azure-stack-network-howto-vpn-tunnel/image17.png)
 
-### <a name="install-rras-on-a-on-premises-vm-db-tier"></a>Installieren von RRAS in der Datenbankebene eines lokalen virtuellen Computers
+### <a name="install-rras-on-an-on-premises-vm-db-tier"></a>Installieren von RRAS in der Datenbankebene eines lokalen virtuellen Computers
 
-1.  Das Ziel ist ein Windows 2016-Image.
+1. Das Ziel ist ein Windows 2016-Image.
 
-2.  Wenn Sie das Skript `Add-Site2SiteIKE.ps1` aus dem Repository kopieren und lokal ausführen, werden mit dem Skript **WindowsFeature** und **RemoteAccess** installiert.
+1. Wenn Sie das Skript `Add-Site2SiteIKE.ps1` aus dem Repository kopieren und lokal ausführen, werden mit dem Skript **WindowsFeature** und **RemoteAccess** installiert.
 
     > [!NOTE]
     > Abhängig von Ihrer Umgebung müssen Sie möglicherweise das System neu starten.
 
     Entsprechende Informationen finden Sie in der Netzwerkkonfiguration des lokalen Computers.
 
-    ![](./media/azure-stack-network-howto-vpn-tunnel/image18.png)
+    ![Es gibt ein cmd.exe-Fenster, das die Ausgabe von ipconfig anzeigt, und ein Fenster für das Netzwerk- und Freigabecenter.](./media/azure-stack-network-howto-vpn-tunnel/image18.png)
 
-3.  Führen Sie das Skript aus, und fügen Sie die in der AppTier-Vorlagenbereitstellung erfassten Parameter für die **Ausgabe** hinzu.
+1. Führen Sie das Skript aus, und fügen Sie die in der AppTier-Vorlagenbereitstellung erfassten Parameter für die **Ausgabe** hinzu.
 
-    ![](./media/azure-stack-network-howto-vpn-tunnel/image19.png)
+    ![Das Skript „Add-Site2SiteIKE.psa“ wird in einem PowerShell-Fenster ausgeführt, und die Ausgabe wird angezeigt.](./media/azure-stack-network-howto-vpn-tunnel/image19.png)
 
-5.  Der Tunnel ist damit konfiguriert und wartet auf die AppTier-Verbindung.
+1. Der Tunnel ist damit konfiguriert und wartet auf die AppTier-Verbindung.
 
 ### <a name="configure-app-tier-to-db-tier"></a>Konfigurieren der Verbindung von der Anwendungsebene zur Datenbankebene
 
-1.  Öffnen Sie das Azure Stack Hub-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
+1. Öffnen Sie das Azure Stack Hub-Benutzerportal, und wählen Sie **Ressource erstellen** aus.
 
-2.  Wählen Sie **Vorlagenbereitstellung** aus.
+2. Wählen Sie **Vorlagenbereitstellung** aus.
 
-3.  Fügen Sie den Inhalt aus **azuredeploy.tunnel.ike.json** ein.
+3. Fügen Sie den Inhalt aus **azuredeploy.tunnel.ike.json** ein.
 
-4.  Wählen Sie **Parameter bearbeiten** aus.
+4. Wählen Sie **Parameter bearbeiten** aus.
 
-    ![](./media/azure-stack-network-howto-vpn-tunnel/image20.png)
+    ![Das Dialogfeld „Dashboard > Neu > Lösungsvorlage bereitstellen > Parameter“ hat ein Textfeld „Ressourcengruppe“ und ein Optionsfeld. Die Schaltfläche „Vorhandene verwenden“ ist ausgewählt, und der Text lautet „AppTier“. Drei weitere hervorgehobene Textfelder enthalten Vorlagenparameter.](./media/azure-stack-network-howto-vpn-tunnel/image20.png)
 
-5.  Vergewissern Sie sich, dass „AppTier“ ausgewählt ist und das interne Remotenetzwerk unter „10.99.0.1“ festgelegt ist.
+5. Vergewissern Sie sich, dass „AppTier“ ausgewählt ist und das interne Remotenetzwerk unter „10.99.0.1“ festgelegt ist.
 
 ### <a name="confirm-tunnel-between-app-tier-and-db-tier"></a>Überprüfen des Tunnels zwischen der Anwendungsebene und der Datenbankebene
 
-1.  Führen Sie eine benutzerdefinierte Skripterweiterung aus, um den Tunnel zu überprüfen, ohne sich bei dem virtuellen Computer anzumelden.
+1. Führen Sie eine benutzerdefinierte Skripterweiterung aus, um den Tunnel zu überprüfen, ohne sich bei dem virtuellen Computer anzumelden.
 
-2.  Wechseln Sie zum virtuellen RRAS-Computer (AppTier).
+2. Wechseln Sie zum virtuellen RRAS-Computer (AppTier).
 
-3.  Wählen Sie **Erweiterungen** aus, und führen Sie die **benutzerdefinierte Skripterweiterung** aus.
+3. Wählen Sie **Erweiterungen** aus, und führen Sie die **benutzerdefinierte Skripterweiterung** aus.
 
-4.  Navigieren Sie im Repository **azure-intelligent-edge-patterns/rras-vnet-vpntunnel** zum Skriptverzeichnis. Wählen Sie **Get-VPNS2SInterfaceStatus.ps1** aus.
+4. Navigieren Sie im Repository **azure-intelligent-edge-patterns/rras-vnet-vpntunnel** zum Skriptverzeichnis. Wählen Sie **Get-VPNS2SInterfaceStatus.ps1** aus.
 
-    ![](./media/azure-stack-network-howto-vpn-tunnel/image21.png)
+    ![Das Dialogfeld lautet „Dashboard > Ressourcengruppen > AppTier > AppTier-RRAS – Erweiterungen > CustomScriptExtension“. Der DETAILED STATUS-Wert ist „Bereitstellung erfolgreich“. Details befinden sich in einer Notepad-Fensterüberlagerung.](./media/azure-stack-network-howto-vpn-tunnel/image21.png)
 
-5.  Wenn Sie RDP aktivieren und sich anmelden, dann PowerShell öffnen und `get-vpns2sinterface` ausführen, können Sie sehen, dass der Tunnel verbunden ist.
+5. Wenn Sie RDP aktivieren und sich anmelden, dann PowerShell öffnen und `get-vpns2sinterface` ausführen, können Sie sehen, dass der Tunnel verbunden ist.
 
     **DBTier**
 
-    ![](./media/azure-stack-network-howto-vpn-tunnel/image22.png)
+    ![Auf DBTier zeigt das PowerShell-Fenster die Ausführung des Befehls Get-VpnS2SInterface, der Details der Site-to-Site-Schnittstelle an. ConnectionState ist „Verbunden“.](./media/azure-stack-network-howto-vpn-tunnel/image22.png)
 
     **AppTier**
 
-    ![](./media/azure-stack-network-howto-vpn-tunnel/image23.png)
+    ![Auf AppTier zeigt das PowerShell-Fenster die Ausführung des Befehls Get-VpnS2SInterface, der Details der Site-to-Site-Schnittstelle an. ConnectionState ist für zwei Ziele „Verbunden“.](./media/azure-stack-network-howto-vpn-tunnel/image23.png)
 
     > [!NOTE]  
     > Sie können die RDP-Verbindung sowohl vom ersten zum zweiten Computer als auch vom zweiten zum ersten Computer testen.
@@ -205,7 +205,7 @@ Bei dieser exemplarischen Vorgehensweise wurde die [IKE-Vorlage](network-howto-v
 
 Der Prozess ist nahezu identisch. Wenn Sie jedoch die Tunnelvorlage in der vorhandenen Infrastruktur bereitstellen, müssen Sie die Ausgaben aus dem anderen System für die ersten drei Eingaben verwenden. Sie müssen den Wert von **LOCALTUNNELGATEWAY** für die Ressourcengruppe kennen, in der die Bereitstellung erfolgt, und nicht für die Ressourcengruppe, mit der eine Verbindung hergestellt werden soll.
 
-![](./media/azure-stack-network-howto-vpn-tunnel/image24.png)
+![Das Dialogfeld „Dashboard > Neu > Lösungsvorlage bereitstellen > Parameter“ hat ein Textfeld „Ressourcengruppe“ und ein Optionsfeld. Die Schaltfläche „Vorhandene verwenden“ ist ausgewählt, und der Text lautet „AppTier“. Vier weitere hervorgehobene Textfelder enthalten Daten aus WebTier-Ausgaben.](./media/azure-stack-network-howto-vpn-tunnel/image24.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

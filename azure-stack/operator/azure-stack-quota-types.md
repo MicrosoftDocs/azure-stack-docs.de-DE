@@ -7,12 +7,12 @@ ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
-ms.openlocfilehash: 9556784a86ecca0d55b7cafa407a667b69efd8fd
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.openlocfilehash: af5aa752d48fd51712695056d771ddf333a34df0
+ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666385"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89274108"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Kontingenttypen in Azure Stack Hub
 
@@ -43,7 +43,7 @@ ms.locfileid: "84666385"
 | Gesamte Anzahl von Speicherkonten |20 |Die maximale Anzahl von Speicherkonten, die ein Abonnement an diesem Speicherort erstellen kann |
 
 > [!NOTE]
-> Wird der Wert für **Maximale Kapazität (GB)** in einem Abonnement überschritten, können Sie in diesem Abonnement keine neue Speicherressource erstellen. Die in diesem Abonnement erstellten nicht verwalteten Datenträger auf virtuellen Computer können zwar weiterhin verwendet werden, dies führt jedoch unter Umständen dazu, dass die genutzte Gesamtkapazität weit über die Kontingentgrenze hinausgeht.<br>Die maximale Kapazität der verwalteten Datenträger ist getrennt vom Gesamtspeicherkontigent. Sie können diesen Wert unter **Computekontingente** festlegen.
+> Wenn die **maximale Kapazität (GB)** eines Abonnements überschritten wird, können Sie in dem Abonnement keine neue Speicherressource erstellen. Sie können zwar immer noch virtuelle Computer mit nicht verwalteten Datenträgern erstellen, sodass Ihre gesamte genutzte Kapazität die Kontingentgrenze überschreiten kann.<br>Die maximale Kapazität der verwalteten Datenträger ist getrennt vom Gesamtspeicherkontigent. Sie können das Gesamtspeicherkontingent in **Computekontingente** festlegen.
 
 ## <a name="network-quota-types"></a>Netzwerkkontingenttypen
 

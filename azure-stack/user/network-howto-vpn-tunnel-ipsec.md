@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 4405ec29584904c24401b0fc6823078702ca1c7e
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: b81c9d759c6083a20e6e5124d74795260cc8d594
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86565936"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965244"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>Erstellen eines VPN-Tunnels mithilfe von IPsec in Azure Stack Hub
 
@@ -22,7 +22,7 @@ Diese Lösung bildet die Grundlage, auf der Sie VPN-Tunnel nicht nur innerhalb d
 
 Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns). Die Vorlage befindet sich im Ordner **rras-gre-vnet-vnet**. 
 
-![alt text](./media/azure-stack-network-howto-vpn-tunnel-ipsec/overview.png)
+![Das Diagramm zeigt eine Implementierung, die einen VPN-Tunnel zwischen zwei virtuellen privaten Netzwerken (VNETs) bereitstellt. In jedem VNET gibt es einen RRAS-Server, sowie ein internes Subnetz und ein Tunnelsubnetz.](./media/azure-stack-network-howto-vpn-tunnel-ipsec/overview.png)
 
 ## <a name="requirements"></a>Requirements (Anforderungen)
 
@@ -50,7 +50,7 @@ Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](h
 
 Diese Vorlage enthält Standardwerte für die VNET-Benennung und die IP-Adressierung.  Hierfür ist ein Kennwort für den Administrator (rrasadmin) erforderlich. Außerdem haben Sie die Möglichkeit, Ihr eigenes Speicherblob mit SAS-Token zu verwenden.  Achten Sie darauf, dass diese Werte innerhalb der zulässigen Bereiche liegen, da bei der Bereitstellung Fehler auftreten können.  Das PowerShell-DSC-Paket wird auf jedem virtuellen RRAS-Computer ausgeführt und installiert das Routing und alle erforderlichen abhängigen Dienste und Funktionen.  Dieses DSC-Paket kann bei Bedarf weiter angepasst werden.  Die benutzerdefinierte Skripterweiterung führt das folgende Skript aus. „Add-Site2SiteIKE.ps1“ konfiguriert den Tunnel für Site-to-Site-VPNs zwischen den beiden RRAS-Servern mit einem gemeinsam verwendeten Schlüssel.  Sie können die ausführliche Ausgabe über die benutzerdefinierte Skripterweiterung anzeigen, um die Ergebnisse der VPN-Tunnelkonfiguration zu prüfen.
 
-![alt text](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.png)
+![Das Diagramm mit dem Titel „S2SVPNTunnel“ zeigt zwei VNETs, die durch einen Site-to-Site-VPN-Tunnel verbunden sind.](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

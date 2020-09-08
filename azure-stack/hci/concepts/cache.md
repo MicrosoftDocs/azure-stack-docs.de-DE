@@ -6,29 +6,28 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 08/11/2020
-ms.openlocfilehash: 39d67ffb49b8fa8ceb343038883602b3e940f8e1
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.date: 09/01/2020
+ms.openlocfilehash: 0c5ce6430ac44601b7e0a172203faabf2732e0a2
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145621"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364744"
 ---
 # <a name="understanding-the-cache-in-azure-stack-hci"></a>Grundlegendes zum Cache in Azure Stack HCI
 
 > Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-[Direkte Speicherplätze](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) verfügt über einen integrierten serverseitigen Cache, um die Speicherleistung zu erhöhen. Es handelt sich um einen großen, persistenten Echtzeitcache für Lese- *und* Schreibvorgänge. Der Cache wird automatisch konfiguriert, wenn „Direkte Speicherplätze“ aktiviert wird. In den meisten Fällen ist keine manuelle Verwaltung erforderlich.
-Die Funktionsweise des Caches hängt davon ab, welche Laufwerkstypen vorhanden sind.
+Azure Stack HCI verfügt über einen integrierten serverseitigen Cache zur Maximierung der Speicherleistung. Es handelt sich um einen großen, persistenten Echtzeitcache für Lese- *und* Schreibvorgänge. Der Cache wird automatisch konfiguriert, wenn Azure Stack HCI bereitgestellt wird. In den meisten Fällen ist keine manuelle Verwaltung erforderlich. Die Funktionsweise des Caches hängt davon ab, welche Laufwerkstypen vorhanden sind.
 
-Im folgenden Video wird ausführlich veranschaulicht, wie die Zwischenspeicherung für „Direkte Speicherplätze“ funktioniert, und es wird auch auf andere Entwurfsaspekte eingegangen.
+Das folgende Video zeigt Details zur Funktionsweise der Zwischenspeicherung für direkte Speicherplätze, der zugrunde liegenden Technologie zur Speichervirtualisierung hinter Azure Stack HCI, sowie zu anderen Entwurfsaspekten.
 
 <strong>Entwurfsaspekte für „Direkte Speicherplätze“</strong><br>(20 Minuten)<br>
 <iframe src="https://channel9.msdn.com/Blogs/windowsserver/Design-Considerations-for-Storage-Spaces-Direct/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="drive-types-and-deployment-options"></a>Laufwerkstypen und Bereitstellungsoptionen
 
-Für „Direkte Speicherplätze“ können derzeit vier Arten von Laufwerken verwendet werden:
+Azure Stack HCI arbeitet derzeit mit vier Arten von Laufwerken:
 
 | Art des Laufwerks | BESCHREIBUNG |
 |----------------------|--------------------------|
@@ -53,7 +52,7 @@ Bei Hybridbereitstellungen soll eine Balance zwischen Leistung und Kapazität er
 
 ## <a name="cache-drives-are-selected-automatically"></a>Cachelaufwerke werden automatisch ausgewählt
 
-Bei Bereitstellungen mit mehreren Laufwerkstypen werden von „Direkte Speicherplätze“ automatisch alle „schnellsten“ Laufwerke für die Zwischenspeicherung genutzt. Alle weiteren Datenträger werden zur Bereitstellung der Kapazität verwendet.
+Bei Bereitstellungen mit mehreren Laufwerkstypen werden von Azure Stack HCI automatisch alle „schnellsten“ Laufwerke für die Zwischenspeicherung genutzt. Alle weiteren Datenträger werden zur Bereitstellung der Kapazität verwendet.
 
 Welche Laufwerke am schnellsten sind, wird anhand der folgenden Hierarchie ermittelt.
 
@@ -89,9 +88,9 @@ Dies führt dazu, dass Merkmale von Schreibvorgängen, z. B. die Schreiblatenz,
 
 Beim Zwischenspeichern für Festplattenlaufwerke (HDDs) werden *sowohl Lese- als auch Schreibvorgänge* zwischengespeichert, um in beiden Fällen Latenzwerte wie bei Flashspeicher zu erzielen (häufig ca. um den Faktor 10 verbessert). Im Lesecache werden Daten gespeichert, die vor kurzer Zeit und häufig gelesen werden, um den Zugriff zu beschleunigen und zufälligen Datenverkehr für die HDDs möglichst gering zu halten. (Da es aufgrund von Suchvorgängen und Rotationsbewegungen zu Verzögerungen kommt, ist die Latenz und verlorene Zeit durch zufällige Zugriffe auf eine HDD nicht zu vernachlässigen.) Schreibvorgänge werden zwischengespeichert, um Datenverkehrsspitzen aufzufangen und, wie zuvor, das Schreiben und erneute Schreiben zusammenzufügen und so den Gesamtdatenverkehr für die Kapazitätslaufwerke zu verringern.
 
-Für „Direkte Speicherplätze“ wird ein Algorithmus implementiert, mit dem die Zufälligkeit von Schreibvorgängen beseitigt wird, bevor deren Bereitstellung aufgehoben wird. So soll ein E/A-Muster für das Laufwerk emuliert werden, das auch dann noch sequenziell erscheint, wenn die tatsächliche Eingabe/Ausgabe von der Workload (z. B. virtuelle Computer) zufälliger Art ist. Auf diese Weise werden die IOPS-Rate und der Durchsatz für die HDDs erhöht.
+Von Azure Stack HCI wird ein Algorithmus implementiert, mit dem die Zufälligkeit von Schreibvorgängen vor dem De-Staging beseitigt wird. Für Datenträger wird ein E/A-Muster emuliert, dass sequenziell erscheint, obwohl der eigentliche E/A-Ablauf der Workload (z. B. virtuelle Computer) zufälliger Art ist. Auf diese Weise werden die IOPS-Rate und der Durchsatz für die HDDs erhöht.
 
-### <a name="caching-in-deployments-with-drives-of-all-three-types"></a>Zwischenspeicherung bei Bereitstellungen mit allen drei Laufwerkstypen
+### <a name="caching-in-deployments-with-nvme-ssd-and-hdd"></a>Zwischenspeichern in Bereitstellungen mit NVMe, SSDs und HDDs
 
 Wenn Laufwerke aller drei Typen vorhanden sind, übernehmen die NVMe-Laufwerke die Zwischenspeicherung sowohl für die SSDs als auch für die HDDs. Das Verhalten ist hierbei wie oben beschrieben: für die SSDs werden nur Schreibvorgänge zwischengespeichert, und für die HDDs sowohl Lese- als auch Schreibvorgänge. Die Last der Zwischenspeicherung für die HDDs ist gleichmäßig auf die Cachelaufwerke verteilt.
 
@@ -114,7 +113,7 @@ Der Cache wird auf Laufwerksebene implementiert: Einzelne Cachelaufwerke innerha
 
 Da sich der Cache unterhalb der restlichen Elemente des per Software definierten Speicherstapels von Windows befindet, verfügt er über keinerlei Informationen zu vorhandenen Konzepten wie Speicherplätzen oder Fehlertoleranz (und dies ist auch nicht erforderlich). Sie können sich dies wie die Erstellung von „Hybridlaufwerken“ (teilweise Flash, teilweise Datenträger) vorstellen, die dann für Windows bereitgestellt werden. Wie bei einem richtigen Hybridlaufwerk auch, ist die Echtzeitverschiebung von heißen und kalten Daten zwischen den schnelleren und langsameren Teilen der physischen Medien von außen nahezu unsichtbar.
 
-Wenn sichergestellt ist, dass die Resilienz in Direkte Speicherplätze mindestens auf Serverebene angeordnet ist (Datenkopien also immer auf unterschiedliche Server geschrieben werden und maximal eine Kopie pro Server vorliegt), profitieren die Daten im Cache von der gleichen Resilienz wie für Daten außerhalb des Cache.
+Da die Resilienz bei Azure Stack HCI mindestens auf der Serverebene angeordnet ist (Datenkopien werden immer auf andere Server geschrieben, und es wird maximal eine Kopie pro Server erstellt), profitieren Daten im Cache von der gleichen Resilienz wie Daten außerhalb des Caches.
 
 ![Serverseitige Cachearchitektur](media/cache/Cache-Server-Side-Architecture.png)
 
@@ -147,9 +146,9 @@ Sie können das Cachelaufwerk dann genau wie alle anderen Laufwerke austauschen.
 
 Der softwaredefinierte Speicherstapel von Windows enthält noch mehrere andere Caches. Beispiele hierfür sind der Speicherplätze-Zurückschreibcache und der Cache für In-Memory-Lesevorgänge des freigegebenen Clustervolumes (Cluster Shared Volume, CSV).
 
-Für „Direkte Speicherplätze“ sollte das Standardverhalten des Speicherplätze-Zurückschreibcaches nicht geändert werden. Beispielsweise sollten Parameter wie **-WriteCacheSize** im Cmdlet **New-Volume** nicht verwendet werden.
+Für Azure Stack HCI sollte das Standardverhalten des Speicherplätze-Zurückschreibcaches nicht geändert werden. Beispielsweise sollten Parameter wie **-WriteCacheSize** im Cmdlet **New-Volume** nicht verwendet werden.
 
-Ob Sie den CSV-Cache nutzen, ist allein Ihre Entscheidung. Er ist in Direkte Speicherplätze standardmäßig deaktiviert, steht aber in keinerlei Konflikt mit dem neuen Cache, der in diesem Thema beschrieben wird. In bestimmten Szenarien können hiermit wertvolle Leistungssteigerungen erzielt werden. Weitere Informationen finden Sie unter [Aktivieren des CSV-Caches](/windows-server/failover-clustering/failover-cluster-csvs#enable-the-csv-cache-for-read-intensive-workloads-optional).
+Ob Sie den CSV-Cache nutzen, ist allein Ihre Entscheidung. Unter Windows Server 2019 ist er standardmäßig deaktiviert, aber es kommt mit dem neuen Cache, der in diesem Thema beschrieben wird, nicht zu einem Konflikt. In bestimmten Szenarien können hiermit wertvolle Leistungssteigerungen erzielt werden. Weitere Informationen finden Sie unter [Aktivieren des CSV-Caches](/windows-server/failover-clustering/failover-cluster-csvs#enable-the-csv-cache-for-read-intensive-workloads-optional).
 
 ## <a name="manual-configuration"></a>Manuelle Konfiguration
 
@@ -161,7 +160,7 @@ Wenn Sie nach dem Setup Änderungen am Cachegerätemodell vornehmen müssen, kö
 
 Bei Bereitstellungen, bei denen alle Laufwerke den gleichen Typ haben, z. B. Bereitstellungen nur mit NVMe- oder SSD-Komponenten, wird kein Cache konfiguriert, da Windows für Laufwerke des gleichen Typs nicht automatisch zwischen Merkmalen wie der Schreibbelastbarkeit unterscheiden kann.
 
-Wenn Sie Laufwerke mit höherer Belastbarkeit als Cache für Laufwerke des gleichen Typs mit geringerer Belastbarkeit verwenden möchten, können Sie angeben, welches Laufwerksmodell mit dem Parameter **-CacheDeviceModel** des **Enable-ClusterS2D**-Cmdlets verwendet werden soll. Nachdem „Direkte Speicherplätze“ aktiviert wurde, werden alle Laufwerke dieses Modells für die Zwischenspeicherung genutzt.
+Wenn Sie Laufwerke mit höherer Belastbarkeit als Cache für Laufwerke des gleichen Typs mit geringerer Belastbarkeit verwenden möchten, können Sie angeben, welches Laufwerksmodell mit dem Parameter **-CacheDeviceModel** des **Enable-ClusterS2D**-Cmdlets verwendet werden soll. Alle Laufwerke dieses Modells werden für die Zwischenspeicherung verwendet.
 
    >[!TIP]
    > Achten Sie darauf, dass Sie die Modellzeichenfolge exakt so angeben, wie sie in der Ausgabe von **Get-PhysicalDisk** enthalten ist.
@@ -201,7 +200,7 @@ Bei der manuellen Konfiguration haben Sie die folgenden Bereitstellungsoptionen:
 
 Es ist möglich, das Standardverhalten des Caches außer Kraft zu setzen. Beispielsweise können Sie auch bei einer reinen Flash-Bereitstellung festlegen, dass Lesevorgänge zwischengespeichert werden sollen. Wir raten Ihnen von einer Änderung des Verhaltens ab, sofern Sie nicht sicher sind, dass die Standardeinstellung für Ihre Workload nicht geeignet ist.
 
-Verwenden Sie für die Außerkraftsetzung des Verhaltens das Cmdlet **Set-ClusterStorageSpacesDirect** und die zugehörigen Parameter **-CacheModeSSD** und **-CacheModeHDD**. Mit dem Parameter **CacheModeSSD** wird das Cacheverhalten bei der Zwischenspeicherung für Solid State Drives festgelegt. Mit dem Parameter **CacheModeHDD** wird das Cacheverhalten bei der Zwischenspeicherung für Festplattenlaufwerke festgelegt. Dies kann zu einem beliebigen Zeitpunkt nach dem Aktivieren von „Direkte Speicherplätze“ erfolgen.
+Verwenden Sie für die Außerkraftsetzung des Verhaltens das Cmdlet **Set-ClusterStorageSpacesDirect** und die zugehörigen Parameter **-CacheModeSSD** und **-CacheModeHDD**. Mit dem Parameter **CacheModeSSD** wird das Cacheverhalten bei der Zwischenspeicherung für Solid State Drives festgelegt. Mit dem Parameter **CacheModeHDD** wird das Cacheverhalten bei der Zwischenspeicherung für Festplattenlaufwerke festgelegt.
 
 Sie können **Get-ClusterStorageSpacesDirect** verwenden, um zu überprüfen, ob das Verhalten festgelegt wurde.
 

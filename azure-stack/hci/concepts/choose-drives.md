@@ -1,26 +1,28 @@
 ---
 title: Auswählen von Laufwerken für Azure Stack HCI
-description: Es wird beschrieben, wie Sie Laufwerke für „Direkte Speicherplätze“ in Azure Stack HCI auswählen.
+description: Auswählen von Laufwerken für Azure Stack HCI
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/22/2020
-ms.openlocfilehash: ca2903e6d7680b38f21482076bf46e49097d444f
-ms.sourcegitcommit: cfc453689a5a2f2491ce00ab77a7c5bfddfe01d8
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/01/2020
+ms.openlocfilehash: c53ef48ab191a831a981c0a0c91b59efa766c948
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997757"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364710"
 ---
-# <a name="choosing-drives-for-azure-stack-hci"></a>Auswählen von Laufwerken für Azure Stack HCI
+# <a name="choose-drives-for-azure-stack-hci"></a>Auswählen von Laufwerken für Azure Stack HCI
 
 > Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-Dieses Thema enthält eine Anleitung zur Auswahl von Laufwerken für [Direkte Speicherplätze](/windows-server/storage/storage-spaces/storage-spaces-direct-overview), um Ihre Leistungs- und Kapazitätsanforderungen für Azure Stack HCI zu erfüllen.
+Dieses Thema enthält eine Anleitung zur Auswahl von Laufwerken, um Ihre Leistungs- und Kapazitätsanforderungen für Azure Stack HCI zu erfüllen.
 
 ## <a name="drive-types"></a>Laufwerkstypen
 
-Für „Direkte Speicherplätze“ können derzeit vier Arten von Laufwerken verwendet werden:
+Azure Stack HCI arbeitet derzeit mit vier Arten von Laufwerken:
 
 | Art des Laufwerks | BESCHREIBUNG |
 |----------------------|--------------------------|
@@ -31,15 +33,15 @@ Für „Direkte Speicherplätze“ können derzeit vier Arten von Laufwerken ver
 
 ## <a name="built-in-cache"></a>Integrierter Cache
 
-„Direkte Speicherplätze“ verfügt über einen integrierten serverseitigen Cache. Es handelt sich um einen großen, persistenten Echtzeitcache für Lese- und Schreibvorgänge. Bei Bereitstellungen mit mehreren Arten von Laufwerken wird er automatisch so konfiguriert, dass alle „schnellsten“ Laufwerke verwendet werden. Alle weiteren Datenträger werden zur Bereitstellung der Kapazität verwendet.
+Azure Stack HCI verfügt über einen integrierten serverseitigen Cache. Es handelt sich um einen großen, persistenten Echtzeitcache für Lese- und Schreibvorgänge. Bei Bereitstellungen mit mehreren Arten von Laufwerken wird er automatisch so konfiguriert, dass alle „schnellsten“ Laufwerke verwendet werden. Alle weiteren Datenträger werden zur Bereitstellung der Kapazität verwendet.
 
-Weitere Informationen finden Sie unter [Grundlegendes zum Cache in „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/understand-the-cache).
+Weitere Informationen finden Sie unter [Grundlegendes zum Cache in Azure Stack HCI](cache.md).
 
 ## <a name="option-1--maximizing-performance"></a>Option 1: Maximieren der Leistung
 
 Wir empfehlen Ihnen die Nutzung von reinen Flash-Bereitstellungen, um eine vorhersagbare und einheitliche Latenz unterhalb des Millisekundenbereichs für zufällige Lese- und Schreibvorgänge aller Daten oder einen sehr hohen IOPS-Wert (bei uns [über 13 Millionen](https://techcommunity.microsoft.com/t5/storage-at-microsoft/the-new-hci-industry-record-13-7-million-iops-with-windows/ba-p/428314)!) bzw. E/A-Durchsatz (bei uns Lesevorgänge mit mehr als 500 GB/s!) zu erzielen.
 
-Hierfür gibt es derzeit drei Möglichkeiten:
+Dazu gibt es verschiedene Möglichkeiten.
 
 ![Optionen bei Nur-Flash-Bereitstellungen](media/choose-drives/All-Flash-Deployment-Possibilities.png)
 
@@ -96,8 +98,9 @@ Wir empfehlen Ihnen, die Gesamtspeicherkapazität pro Server auf ca. 400 TB (Te
 
 Weitere Informationen finden Sie auch unter:
 
-- [Grundlegendes zum Cache in Azure Stack HCI](cache.md)
-- [Hardwareanforderungen für „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements)
-- [Planen von Volumes in Azure Stack HCI](plan-volumes.md)
+- [Grundlegendes zum Cache](cache.md)
+- [Ermitteln der Hardwareanforderungen](../deploy/before-you-start.md#determine-hardware-requirements)
+- [Aspekte symmetrischer Laufwerke](drive-symmetry-considerations.md)
+- [Planen von Volumes](plan-volumes.md)
 - [Fehlertoleranz und Speichereffizienz](fault-tolerance.md)
 - [Grundlagen und Bereitstellung des persistenten Speichers](/windows-server/storage/storage-spaces/deploy-pmem)

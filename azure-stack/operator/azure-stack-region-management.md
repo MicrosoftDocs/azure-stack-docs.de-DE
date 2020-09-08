@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Übersicht über die Regionsverwaltung in Azure Stack Hub
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: e04f6a6baca7b834a248bc40835d05f0773fd5b4
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: e40d79dcac58035172d4e292461fd0950ee77979
+ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777847"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89041637"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Regionsverwaltung in Azure Stack Hub
 
@@ -23,7 +23,7 @@ Eine integrierte (als *Azure Stack Hub-Cloud* bezeichnete) Systembereitstellung 
 
 ## <a name="information-available-through-the-region-management-tile"></a>Informationen, die über die Kachel „Regionsverwaltung“ verfügbar sind
 
-Azure Stack Hub bietet einige Funktionen der Regionsverwaltung, die auf der Kachel **Regionsverwaltung** verfügbar sind. Diese Kachel steht Azure Stack Hub-Operatoren im Administratorportal im Standarddashboard zur Verfügung. Auf dieser Kachel können Sie Ihre Azure Stack Hub-Region und die zugehörigen regionsspezifischen Komponenten überwachen und aktualisieren.
+Azure Stack Hub bietet einige Funktionen der Regionsverwaltung, die auf der Kachel **Regionsverwaltung** verfügbar sind. Diese Kachel steht Azure Stack Hub-Operatoren im Administratorportal im Standarddashboard zur Verfügung. Auf diesem Bildschirm können Sie Ihre Azure Stack Hub-Region und ihre regionsspezifischen Komponenten überwachen und aktualisieren.
 
 ![Die Kachel „Regionsverwaltung“ im Azure Stack Hub-Administratorportal](media/azure-stack-region-management/image1.png)
 

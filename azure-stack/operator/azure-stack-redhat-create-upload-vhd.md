@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Erfahren Sie, wie Sie eine virtuelle Azure-Festplatte (Virtual Hard Disk, VHD) erstellen und hochladen, die ein Red Hat-Linux-Betriebssystem enthält.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 3c1fdb568b1d0ceb91cad85bc054b614efcf0b26
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 8756b1fce06582411e321ab5015d6f14da43c6d1
+ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488143"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89089591"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Vorbereiten eines auf Red Hat basierenden virtuellen Computers für Azure Stack Hub
 
@@ -145,7 +145,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
         waagent -version
         ```
 
-    [Nach Release 1910] Befolgen Sie diese Anweisungen, um einen kompatiblen WALinuxAgent herunterzuladen:
+    Befolgen Sie nach Release 1910 diese Anweisungen, um einen kompatiblen WALinuxAgent herunterzuladen:
     
     1. Das WALinuxAgent-Paket `WALinuxAgent-<version>` wurde in das Red Hat Extras-Repository übertragen. Aktivieren Sie das Extras-Repository, indem Sie den folgenden Befehl ausführen:
 
@@ -159,7 +159,6 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
         sudo yum install WALinuxAgent
         sudo systemctl enable waagent.service
         ```
-    
 
 1. Erstellen Sie auf dem Betriebssystem-Datenträger keinen Auslagerungsbereich.
 
@@ -354,10 +353,10 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
 
         1. Installieren Sie den Azure Linux-Agent, indem Sie den folgenden Befehl ausführen:
 
-            ```bash
-            sudo yum install WALinuxAgent
-            sudo systemctl enable waagent.service
-            ```
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
 
 1. Erstellen Sie auf dem Betriebssystem-Datenträger keinen Auslagerungsbereich.
 
@@ -558,11 +557,11 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits einen virtuellen RH
     ```
 
     1. Installieren Sie den Azure Linux-Agent, indem Sie den folgenden Befehl ausführen:
-        
-        ```bash
-        sudo yum install WALinuxAgent
-        sudo systemctl enable waagent.service
-        ```
+
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent.service
+    ```
         
 1. Erstellen Sie auf dem Betriebssystem-Datenträger keinen Auslagerungsbereich.
 

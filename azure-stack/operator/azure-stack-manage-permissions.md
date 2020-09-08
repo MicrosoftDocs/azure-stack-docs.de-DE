@@ -7,12 +7,12 @@ ms.date: 12/23/2019
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: c54e086ad8edefcb8e7a799c5153af6b7ce5b194
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 0960e2519fbeb476aa55fbb8a27a58a59ccb99c9
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488534"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965074"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>Festlegen von Zugriffsberechtigungen mithilfe der rollenbasierten Zugriffssteuerung
 
@@ -28,7 +28,7 @@ Ein Benutzer in Azure Stack Hub kann ein Leser, ein Besitzer oder ein Mitwirkend
 ## <a name="set-access-permissions-for-a-user"></a>Festlegen von Zugriffsberechtigungen für Benutzer
 
 1. Melden Sie sich mit einem Konto an, das Besitzerberechtigungen für die Ressource hat, die Sie verwalten möchten.
-2. Klicken Sie auf dem Blatt für die Ressource auf das Symbol **Zugriff**![](media/azure-stack-manage-permissions/image1.png).
+2. Klicken Sie auf dem Blatt für die Ressource auf das Symbol **Zugriff**. ![Das Zugriffssymbol ist eine Kontur des Kopfes und der Schultern von zwei Personen.](media/azure-stack-manage-permissions/image1.png).
 3. Klicken Sie auf dem Blatt **Benutzer** auf **Rollen**.
 4. Klicken Sie auf dem Blatt **Rollen** auf **Hinzufügen**, um Berechtigungen für den Benutzer hinzuzufügen.
 
@@ -38,7 +38,7 @@ Ein Benutzer in Azure Stack Hub kann ein Leser, ein Besitzer oder ein Mitwirkend
 > Gilt nur für Active Directory-Verbunddienste (AD FS).
 
 1. Melden Sie sich mit einem Konto an, das Besitzerberechtigungen für die Ressource hat, die Sie verwalten möchten.
-2. Klicken Sie auf dem Blatt für die Ressource auf das Symbol **Zugriff**![](media/azure-stack-manage-permissions/image1.png).
+2. Klicken Sie auf dem Blatt für die Ressource auf das Symbol **Zugriff**. ![Das Zugriffssymbol ist eine Kontur des Kopfes und der Schultern von zwei Personen.](media/azure-stack-manage-permissions/image1.png).
 3. Klicken Sie auf dem Blatt **Benutzer** auf **Rollen**.
 4. Klicken Sie auf dem Blatt **Rollen** auf **Hinzufügen**, um Berechtigungen für die universelle Active Directory-Gruppe hinzuzufügen.
 

@@ -3,16 +3,16 @@ title: 'Azure Stack Hub: Versionshinweise'
 description: Versionshinweise für integrierte Azure Stack Hub-Systeme, einschließlich Updates und Fehlerbehebungen.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: fd1e1fa5c6315932728764d65eb042c1d2e44e20
-ms.sourcegitcommit: 977c47a5587a747dbd67aa110381759ba39044b7
+ms.openlocfilehash: 14d41d920d9a91744c5cfa05d2d252a68146b4d1
+ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88512460"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89410938"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -107,7 +107,7 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 - Es wurde ein Problem beim horizontalen Herunter- und Hochskalieren für die unterstützende Infrastrukturrolle behoben, das einen kaskadierenden Effekt auf die Reparatur von Skalierungseinheitenknoten hat.
 - Es wurde ein Problem behoben, bei dem die Erweiterung „.VHD“ (anstelle von „.vhd“) nicht zulässig war, wenn Operatoren im Azure Stack Hub-Administratorportal unter **Alle Diensten > Compute > VM-Images > Hinzufügen** eigene Images hinzufügten.
 - Es wurde ein Problem behoben, bei dem ein vorheriger VM-Neustart nach einem anderen VM-Aktualisierungsvorgang (Hinzufügen von Datenträgern, Tags usw.) einen nachfolgenden unerwarteten Neustart verursachte.
-- Es wurde ein Problem behoben, bei dem das Portal beim Erstellen einer doppelten DNS-Zone nicht mehr reagierte. Nun sollte ein entsprechender Fehler angezeigt werden.
+- Es wurde ein Problem behoben, bei dem die Erstellung einer doppelten DNS-Zone dazu führte, dass das Portal nicht mehr reagierte. Nun sollte ein entsprechender Fehler angezeigt werden.
 - Es wurde ein Problem behoben, bei dem von **Get-AzureStackLogs** nicht die erforderlichen Protokolle zum Beheben von Netzwerkproblemen gesammelt wurden. 
 - Es wurde ein Problem behoben, bei dem im Portal weniger Netzwerkschnittstellenkarten angefügt werden konnten, als tatsächlich zulässig sind. 
 - Die Codeintegritätsrichtlinie wurde korrigiert, damit für bestimmte interne Software keine Verstoßereignisse ausgegeben werden. Dadurch werden irrelevante Daten in den über den Syslog-Client ausgegebenen Ereignissen zu Verstößen gegen die Codeintegrität reduziert.
@@ -115,6 +115,7 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 - Es wurde ein Problem behoben, bei dem die Verwendung eines Linux-NTP-Servers fälschlicherweise zu Warnungen im Verwaltungsportal führt.  
 - Es wurde ein Problem behoben, bei dem ein Failover der Backup Controller-Dienstinstanz zur Deaktivierung automatischer Sicherungen führte.
 - Es wurde ein Problem behoben, bei dem die interne Geheimnisrotation fehlschlägt, wenn Infrastrukturdienste keine Internetverbindung haben.
+- Es wurde ein Problem behoben, bei dem Benutzer Abonnementberechtigungen nicht über die Azure Stack Hub-Portale anzeigen konnten.
 
 ## <a name="security-updates"></a>Sicherheitsupdates
 

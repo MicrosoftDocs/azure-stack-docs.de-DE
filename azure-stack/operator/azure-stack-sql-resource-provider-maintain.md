@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 7021bf8bcc9a6a81ba625e2c9e88a6f5133b81be
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 6fc476b1f373c8f21481b979d1eefcdbe356766b
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487939"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364829"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Wartungsvorgänge von SQL-Ressourcenanbietern
 
@@ -44,6 +44,7 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
 - Das [während der Bereitstellung angegebene](azure-stack-pki-certs.md) externe SSL-Zertifikat
 - Das während der Bereitstellung angegebene Kennwort des lokalen Administratorkontos der Ressourcenanbieter-VM
 - Das Kennwort des Diagnosebenutzers (dbadapterdiag) für den Ressourcenanbieter
+- (version >= 1.1.47.0) Während der Bereitstellung generiertes Key Vault-Zertifikat.
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>PowerShell-Beispiele für die Rotation von Geheimnissen
 
@@ -57,7 +58,8 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
     -DiagnosticsUserPassword $passwd `
     -DependencyFilesLocalPath $certPath `
     -DefaultSSLCertificatePassword $certPasswd  `
-    -VMLocalCredential $localCreds
+    -VMLocalCredential $localCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
 ```
 
 **Ändern des Kennworts für den Diagnosebenutzer**
@@ -91,22 +93,34 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
     -DefaultSSLCertificatePassword $certPasswd
 ```
 
+**Ändern des Kennworts für das Key Vault-Zertifikat**
+
+```powershell
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
+```
+
 ### <a name="secretrotationsqlproviderps1-parameters"></a>Parameter für „SecretRotationSQLProvider.ps1“
 
-|Parameter|BESCHREIBUNG|
-|-----|-----|
-|AzCredential|Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto.|
-|CloudAdminCredential|Anmeldeinformationen für das Domänenkonto des Azure Stack Hub-Cloudadministrators.|
-|PrivilegedEndpoint|Privilegierter Endpunkt für den Zugriff auf „Get-AzureStackStampInformation“|
-|DiagnosticsUserPassword|Kennwort des Diagnosebenutzerkontos|
-|VMLocalCredential|Lokales Administratorkonto des virtuellen Computers „MySQLAdapter“|
-|DefaultSSLCertificatePassword|Kennwort für das SSL-Standardzertifikat (PFX-Datei)|
-|DependencyFilesLocalPath|Lokaler Pfad der Abhängigkeitsdateien|
-|     |     |
+|Parameter|Beschreibung|Kommentar|
+|-----|-----|-----|
+|AzureEnvironment|Die zum Bereitstellen von Azure Stack Hub verwendete Azure-Umgebung des Dienstadministratorkontos. Nur für Azure AD-Bereitstellungen erforderlich. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für Azure Active Directory für China **AzureChinaCloud**.|Optional|
+|AzCredential|Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto.|Obligatorisch.|
+|CloudAdminCredential|Anmeldeinformationen für das Domänenkonto des Azure Stack Hub-Cloudadministrators.|Obligatorisch.|
+|PrivilegedEndpoint|Privilegierter Endpunkt für den Zugriff auf „Get-AzureStackStampInformation“|Obligatorisch.|
+|DiagnosticsUserPassword|Kennwort des Diagnosebenutzerkontos|Optional|
+|VMLocalCredential|Lokales Administratorkonto des virtuellen Computers „MySQLAdapter“|Optional|
+|DefaultSSLCertificatePassword|Kennwort für das SSL-Standardzertifikat (PFX-Datei)|Optional|
+|DependencyFilesLocalPath|Lokaler Pfad der Abhängigkeitsdateien|Optional|
+|KeyVaultPfxPassword|Das Kennwort, das zum Generieren des Key Vault-Zertifikats für Datenbankadapter verwendet wird.|Optional|
+|     |     |     |
 
 ### <a name="known-issues"></a>Bekannte Probleme
 
-**Problem:**<br>
+**Problem**:<br>
 Protokolle für Geheimnisrotation. Die Protokolle für die Geheimnisrotation werden nicht automatisch erfasst, wenn beim Ausführen des benutzerdefinierten Skripts für die Geheimnisrotation ein Fehler auftritt.
 
 **Problemumgehung**:<br>

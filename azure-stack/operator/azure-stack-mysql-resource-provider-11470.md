@@ -7,12 +7,12 @@ ms.date: 11/26/2019
 ms.author: justinha
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: cf116e392cc75119eabe8fbea9ccb37f72f4b1a0
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 5bc03134a859182909e62c60159049d639eb8ffe
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375144"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364676"
 ---
 # <a name="mysql-resource-provider-11470-release-notes"></a>Versionshinweise zum MySQL-Ressourcenanbieter 1.1.47.0
 
@@ -39,7 +39,7 @@ Es wird empfohlen, nach dem Upgrade von Azure Stack Hub auf das Release 1910 de
 
 ## <a name="known-issues"></a>Bekannte Probleme
 
-Keine.
+Wenn eine [Zertifikatrotation](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation) für integrierte Azure Stack Hub-Systeme erfolgt, ist das KeyVaultPfxPassword-Argument obligatorisch, auch wenn nicht beabsichtigt ist, das Kennwort für das Key Vault-Zertifikat zu aktualisieren.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 7fa7ad106e58c08d6841f7961bb79be5fa49cc72
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 290a984efc0d87306de30701f1f10dd9a2292fc1
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920711"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965091"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Sichern Ihres virtuellen Computers in Azure Stack Hub mit Commvault
 
@@ -22,7 +22,7 @@ In diesem Artikel wird beschrieben, wie Sie Commvault Live Sync konfigurieren, u
 
 In der folgenden Abbildung ist die allgemeine Lösung bei der Verwendung von Commvault zum Sichern Ihrer virtuellen Computer dargestellt.
 
-![](./media/azure-stack-network-howto-backup-commvault/bcdr-commvault-overall-arc.png)
+![Das Diagramm zeigt, wie Commvault verwendet werden kann, um Daten von einem Azure-Stack zu einem anderen Stack oder zu Azure Cloud zu replizieren.](./media/azure-stack-network-howto-backup-commvault/bcdr-commvault-overall-arc.png)
 
 In diesem Artikel werden die folgenden Themen behandelt:
 
@@ -38,7 +38,7 @@ Sie können auch kompatible Partner-VM-Images herunterladen und bereitstellen, u
 
 Die Topologie dieses Ansatzes ist in der folgenden Abbildung dargestellt:
 
-![](./media/azure-stack-network-howto-backup-commvault/backup-vm-commvault-diagram.svg)
+![Das Diagramm zeigt einen Datenpfad von einem COMMVAULT VSA-Proxy auf Azure Stack Hub 1 zu Azure Stack Hub 2, der über einen virtuellen Wiederherstellungscomputer verfügt, der bei Bedarf zur Sicherung von Hub 1 online geschaltet werden kann.](./media/azure-stack-network-howto-backup-commvault/backup-vm-commvault-diagram.svg)
 
 ## <a name="create-the-commvault-vm-from-the-commvault-marketplace-item"></a>Erstellen des virtuellen Commvault-Computers aus dem Commvault-Marketplace-Element
 
@@ -71,11 +71,11 @@ Die Topologie dieses Ansatzes ist in der folgenden Abbildung dargestellt:
     
     i. Klicken Sie auf **OK**.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-02.png)
+    ![Das Dialogfeld „Dashboard > Neu > Virtuellen Computer erstellen > Größe auswählen“ zeigt eine Liste der möglichen Größen für den virtuellen Computer an.](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-02.png)
 
 4. Wählen Sie die Größe des virtuellen Commvault-Computers aus. Die VM-Größe für die Sicherung sollte mindestens 10 GB RAM und 100 GB Speicher betragen.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-03.png).
+    ![Das Dialogfeld „Dashboard > Neu > Virtuellen Computer erstellen > Einstellungen“ zeigt die Einstellungen, die zum Erstellen des virtuellen Computers verwendet werden sollen.](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-03.png).
 
 5. Wählen Sie die Einstellungen für den virtuellen Commvault-Computer aus.
 
@@ -129,7 +129,7 @@ Sie müssen wissen, ob Azure AD oder ADFS als Identity Manager festgelegt ist. 
 
 3. Öffnen Sie nach der Installation von Commvault auf dem virtuellen Commvault-Computer die CommCell Console. Wählen Sie unter „Start“ die Option **Commvault** > **Commvault CommCell Console** aus.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commcell-console.png)
+    ![Die Commcell-Konsole verfügt auf der linken Seite über einen Navigationsbereich mit der Bezeichnung „Commcell-Browser“. Der rechte Bereich zeigt die Registerkartenseite „Getting Started“ (Erste Schritte) an.](./media/azure-stack-network-howto-backup-commvault/commcell-console.png)
 
 4. Konfigurieren Sie die Sicherungsrepositorys so, dass externer Speicher von Azure Stack Hub in der Commvault CommCell Console verwendet wird. Wählen Sie im CommCell-Browser die Optionen „Storage Resources“ (Speicherressourcen) > „Storage Pools“ (Speicherpools) aus. Klicken Sie mit der rechten Maustaste, und wählen Sie **Add Storage Pool** (Speicherpool hinzufügen) aus. Wählen Sie **Cloud** aus.
 
@@ -137,7 +137,7 @@ Sie müssen wissen, ob Azure AD oder ADFS als Identity Manager festgelegt ist. 
 
 6. Wählen Sie **Create** > **Cloud Storage** (Erstellen > Cloudspeicher) aus.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commcell-storage-add-storage-device.png)
+    ![Das Dialogfeld „StorageDevice#“ zeigt die Registerkartenseite „General“ (Allgemein) mit verschiedenen Listen- und Textfeldern zur Angabe des zu erstellenden Speichergeräts an.](./media/azure-stack-network-howto-backup-commvault/commcell-storage-add-storage-device.png)
 
 7. Wählen Sie Ihren Cloud-Dienstanbieter aus. In diesem Verfahren wählen Sie eine zweite Azure Stack Hub-Instanz an einem anderen Speicherort aus. Wählen Sie „Microsoft Azure Storage“ aus.
 
@@ -157,7 +157,7 @@ Sie müssen wissen, ob Azure AD oder ADFS als Identity Manager festgelegt ist. 
 
 10. Erstellen Sie einen Microsoft Azure Stack Hub-Client, indem Sie die Anweisungen unter [Creating a Microsoft Azure Hub Stack Client](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm) (Erstellen eines Microsoft Azure Stack Hub-Clients) befolgen.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commcell-ceate-client.png)
+    ![Das Dialogfeld „Create Azure Stack Client“ (Azure Stack-Client erstellen) enthält Listen- und Textfelder zur Angabe der Merkmale des Clients.](./media/azure-stack-network-howto-backup-commvault/commcell-ceate-client.png)
 
 11. Wählen Sie die zu schützenden virtuellen Computer oder Ressourcengruppen aus, und fügen Sie eine Sicherungsrichtlinie hinzu.
 
@@ -173,21 +173,21 @@ Für die Konfiguration haben Sie zwei Möglichkeiten. Sie können die Änderunge
 
 2. Die entsprechenden Schritte zum Konfigurieren von Commvault Live Sync finden Sie unter [Live Sync Replication for Microsoft Azure Stack Hub](https://documentation.commvault.com/commvault/v11_sp13/article?p=94386.htm) (Live Sync-Replikation für Microsoft Azure Stack Hub).
 
-    ![](./media/azure-stack-network-howto-backup-commvault/live-sync-1.png)
+    ![Die Commcell-Konsole zeigt die Registerkartenseite „vm-kr-cvlt > Client Computers > ASIC Azure Stack > Virtual Server > Azure Stack > defaultBackupSet“ (vm-kr-cvlt > Clientcomputer > ASIC Azure Stack > Virtueller Server > Azure Stack > defaultBackupSet). Ein Kontextmenü für den Off-Stack-Schutz auf der Seite verfügt über die Option „Live Sync > Configuration“ (Live Sync > Konfiguration).](./media/azure-stack-network-howto-backup-commvault/live-sync-1.png)
  
 3. Bei der Konfiguration von Live Sync müssen Sie die Details zur Azure Stack Hub-Zielinstanz und zum Agent des virtuellen Servers angeben.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/live-sync-2.png)
+    ![Der Schritt für das Ziel des Assistenten „Live Sync Options for Subclient Off Stack Protection“ (Live Sync-Optionen für Off-Stack-Schutz des Subclients) verfügt über Listenfelder zur Angabe des Virtualisierungsclients und des Proxyclients.](./media/azure-stack-network-howto-backup-commvault/live-sync-2.png)
 
 4. Setzen Sie die Konfiguration fort, und fügen Sie das Zielspeicherkonto, in dem die Replikatdatenträger gehostet werden, die Ressourcengruppen, in denen die virtuellen Replikatcomputer gespeichert werden, und den Namen, der an die virtuellen Replikatcomputer angefügt werden soll, hinzu.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/live-sync-3.png)
+    ![Im Schritt für virtuelle Computer des Assistenten „Live Sync Options for Subclient Off Stack Protection“ (Live Sync-Optionen für Off-Stack-Schutz des Subclients) können Sie virtuelle Computer hinzufügen und entfernen.](./media/azure-stack-network-howto-backup-commvault/live-sync-3.png)
 
 5. Sie können außerdem die VM-Größe ändern und die Netzwerkeinstellungen konfigurieren, indem Sie neben den einzelnen virtuellen Computern **Konfigurieren** auswählen.
 
 6. Legen Sie die Häufigkeit der Replikation auf der Azure Stack Hub-Zielinstanz fest.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/live-sync-5.png)
+    ![Der Schritt für die Auftragsoptionen des Assistenten „Live Sync Options for Subclient Off Stack Protection“ (Live Sync-Optionen für Off-Stack-Schutz des Subclients) dient zum Festlegen eines Sicherungszeitplans.](./media/azure-stack-network-howto-backup-commvault/live-sync-5.png)
 
 7. Überprüfen Sie die Einstellungen, und speichern Sie die Konfiguration. Nun wird die Wiederherstellungsumgebung erstellt und die Replikation im ausgewählten Intervall gestartet.
 
@@ -196,15 +196,15 @@ Für die Konfiguration haben Sie zwei Möglichkeiten. Sie können die Änderunge
 
 In Commvault Live Sync können Sie ein Failover für Computer zwischen verschiedenen Azure Stack Hub-Instanzen sowie ein Failback ausführen, um Vorgänge auf der ursprünglichen Azure Stack Hub-Instanz fortzusetzen. Der Workflow wird automatisiert und protokolliert.
 
-![](./media/azure-stack-network-howto-backup-commvault/back-up-live-sync-panel.png)
+![Die Seite „Replication Monitor“ (Replikationsmonitor) der Verwaltungskonsole zeigt keine Daten an, die für verschiedene Unterbereiche des RPO-Bereichs „Replication“ (Replikation) verfügbar sind. Im Bereich für den Replikationsmonitor werden zwei virtuelle Computer aufgelistet. Für jeden von ihnen gibt es eine Reihe von Replikationsinformationen.](./media/azure-stack-network-howto-backup-commvault/back-up-live-sync-panel.png)
 
 Wählen Sie die virtuellen Computer aus, für die ein Failover auf der Azure Stack Hub-Instanz für die Wiederherstellung ausgeführt werden soll, und legen Sie fest, ob ein geplantes oder ungeplantes Failover ausgeführt werden soll. Ein geplantes Failover ist angebracht, wenn Zeit bleibt, um die Produktionsumgebung ordnungsgemäß herunterzufahren, bevor der Betrieb am Wiederherstellungsstandort wieder aufgenommen wird. Bei einem geplanten Failover werden die virtuellen Produktionscomputer heruntergefahren, endgültige Änderungen am Wiederherstellungsstandort repliziert sowie die virtuellen Computer für die Wiederherstellung mit den neuesten Daten online geschaltet und die bei der Konfiguration von Live Sync angegebene VM-Größe und Netzwerkkonfiguration angewandt. Bei einem ungeplanten Failover wird versucht, die virtuellen Produktionscomputer herunterzufahren. Wenn die Produktionsumgebung nicht verfügbar ist, wird der Vorgang jedoch fortgesetzt, um lediglich die virtuellen Computer für die Wiederherstellung mit dem zuletzt empfangenen auf den virtuellen Computer angewandten Replikationsdataset sowie der zuvor ausgewählten Größe und Netzwerkkonfiguration online zu schalten. In den folgenden Abbildungen wird ein ungeplantes Failover gezeigt, bei dem die virtuellen Computer für die Wiederherstellung mithilfe von Commvault Live Sync online geschaltet wurden.
 
-![](./media/azure-stack-network-howto-backup-commvault/unplanned-failover.png)
+![Die Zusammenfassung des Auftrags zeigt Informationen über das Notfallwiederherstellungsereignis, einschließlich „Typ“, „Priorität“, „Startzeit“ und „Endzeit“.](./media/azure-stack-network-howto-backup-commvault/unplanned-failover.png)
 
-![](./media/azure-stack-network-howto-backup-commvault/fail-over-2.png)
+![Eine Liste mit dem Titel „Events“ (Ereignisse) zeigt ein einzelnes Ereignis, das als „DR Orchestration job has completed“ (DR-Orchestrierungsauftrag abgeschlossen) beschrieben wird. Es gibt weitere Informationen zu diesem Ereignis.](./media/azure-stack-network-howto-backup-commvault/fail-over-2.png)
 
-![](./media/azure-stack-network-howto-backup-commvault/fail-over-3.png)
+![Eine Liste mit dem Titel „Phase Details“ (Phasendetails) zeigt sechs Ereignisse für vier Computer an. Für jedes Ereignis gibt es einen Phasennamen, einen Status, eine Startzeit und eine Endzeit. Die Phasennamen lauten „Power Off“ (Ausschalten), „Power On“ (Einschalten), „Disable Synch“ (Synchronisierung deaktivieren) und „Post Operation“ (Postvorgang).](./media/azure-stack-network-howto-backup-commvault/fail-over-3.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

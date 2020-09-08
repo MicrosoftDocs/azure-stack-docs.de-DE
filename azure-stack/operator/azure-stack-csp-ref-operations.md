@@ -3,16 +3,16 @@ title: Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack
 description: Hier erfahren Sie, wie Sie in Azure Stack Hub Mandanten registrieren und die Mandantennutzung nachverfolgen.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 09/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: ac318c1352963a7ee0fb873adaae4b30fa58949b
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: 66a21943e19cef13aa7a3986b6a058f69cc85793
+ms.sourcegitcommit: 0714ce748e20065b52f8283d5dbba7ab068978d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857516"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89285497"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack Hub
 
@@ -49,7 +49,7 @@ Weitere Informationen zu Azure Stack Hub und API-Profilen finden Sie unter [Verw
 
 ### <a name="powershell"></a>PowerShell
 
-Verwenden Sie das Cmdlet **New-AzureRmResource**, um einen Mandanten hinzuzufügen. [Stellen Sie eine Verbindung mit Azure Stack Hub her](azure-stack-powershell-configure-admin.md), und verwenden Sie dann in einer Eingabeaufforderung mit erhöhten Rechten das folgende Cmdlet:
+Verwenden Sie das Cmdlet **New-AzureRmResource**, um einen Mandanten hinzuzufügen. [Stellen Sie eine Verbindung mit Azure her](/powershell/azure/get-started-azureps), und führen Sie dann in einer Eingabeaufforderung mit erhöhten Rechten den folgenden Befehl aus:
 
 ```powershell  
 New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01

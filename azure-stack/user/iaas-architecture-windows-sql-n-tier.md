@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: f719ec7404e19d5e32f87e6fb9bfd5e41146abb0
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 310d9a198c7fb6c9212ff15ff9b838a74bd342d1
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920065"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965295"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>n-schichtige Windows-Anwendung in Azure Stack Hub mit SQL Server
 
@@ -22,7 +22,7 @@ Diese Referenzarchitektur zeigt, wie Sie für eine [n-schichtige](/azure/archite
 
 Diese Architektur besteht aus den folgenden Komponenten.
 
-![](./media/iaas-architecture-windows-sql-n-tier/image1.png)
+![Das Diagramm zeigt ein virtuelles Netzwerk mit sechs Subnetzen: Anwendungsgateway, Verwaltung, Webebene, Geschäftsebene, Datenebene und Active Directory. Das Subnetz der Datenebene verwendet „Cloudzeuge“. Es gibt drei Lastenausgleichsmodule.](./media/iaas-architecture-windows-sql-n-tier/image1.png)
 
 ## <a name="general"></a>Allgemein
 
@@ -139,7 +139,7 @@ Fügen Sie zum Schutz der Jumpbox eine NSG-Regel hinzu, die ausschließlich RDP-
 
 ### <a name="scale-sets"></a>Skalierungsgruppen
 
-Erwägen Sie für die Internet- und Unternehmensschichten die Verwendung von [Skalierungsgruppen für virtuelle Computer](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview), anstatt separate VMs bereitzustellen. Eine VM-Skalierungsgruppe ermöglicht die Bereitstellung und Verwaltung einer Gruppe identischer VMs. Erwägen Sie die Verwendung von Skalierungsgruppen, wenn Sie VMs schnell aufskalieren müssen.
+Erwägen Sie für die Internet- und Unternehmensschichten die Verwendung von [Skalierungsgruppen für virtuelle Computer](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview), anstatt separate VMs bereitzustellen. Eine VM-Skalierungsgruppe ermöglicht die Bereitstellung und Verwaltung einer Gruppe identischer VMs. Erwägen Sie die Verwendung von Skalierungsgruppen, wenn Sie VMs schnell horizontal skalieren müssen.
 
 Es gibt zwei grundlegende Methoden für das Konfigurieren von virtuellen Computern in einer Skalierungsgruppe:
 

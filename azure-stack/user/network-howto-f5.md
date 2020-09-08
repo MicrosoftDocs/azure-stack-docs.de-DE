@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 29f23f30fd154da33e4a39ab306a4edd9d921b9b
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 8deb2905f0d151fb1a2ce196efd2ba8eb5748c85
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920201"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965210"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Bereitstellen von F5 in zwei Azure Stack Hub-Instanzen
 
@@ -46,21 +46,21 @@ Nehmen Sie die Bereitstellung in Azure Stack Hub-Instanz A und B vor.
 
 4. Wählen Sie **F5 BIG-IP VE – ALL (BYOL, 2 Boot Locations)** aus.
 
-    ![](./media/network-howto-f5/image1.png)
+    ![Das Dialogfeld „Dashboard > Neu > Marketplace > Alles > F5 BIG-IP VE – ALL (BYOL, 2 Boot Locations)“ zeigt „f5“ im Suchfeld an. Das einzige Suchergebnis lautet „F5 BIG-IP VE – ALL (BYOL, 2 Boot Locations)“.](./media/network-howto-f5/image1.png)
 
 5. Wählen Sie unten auf der nächsten Seite **Erstellen** aus.
 
-    ![](./media/network-howto-f5/image2.png)
+    ![Das Dialogfeld „F5 BIG-IP VE – ALL (BYOL, 2 Boot Locations)“ enthält Informationen über BIG-IP VE und die Module, die Sie gemäß Ihrer Lizenz bereitstellen können. Es gibt eine Schaltfläche „Erstellen“.](./media/network-howto-f5/image2.png)
 
 6. Erstellen Sie eine neue Ressourcengruppe namens **F5-GSLB**.
 
 7. Verwenden Sie die folgenden Werte als Beispiel, um die Bereitstellung abzuschließen:
 
-    ![](./media/network-howto-f5/image3.png)
+    ![Die Seite „Eingaben“ des Dialogfelds „Microsoft.Template“ zeigt 15 Textfelder, z. B. VIRTUALMACHINENNAME und ADMINUSERNAME, die Werte für eine Beispielbereitstellung enthalten.](./media/network-howto-f5/image3.png)
 
 8. Überprüfen Sie, ob die Bereitstellung erfolgreich abgeschlossen wurde.
 
-    ![](./media/network-howto-f5/image4.png)
+    ![Die Übersichtsseite des Dialogfelds „Microsoft.Template“ meldet „Ihre Bereitstellung wurde abgeschlossen“ und enthält Details zur Bereitstellung.](./media/network-howto-f5/image4.png)
 
     > [!NOTE]  
     > Jede BIG-IP-Bereitstellung dauert etwa 20 Minuten.
@@ -71,7 +71,7 @@ Führen Sie die folgenden Schritte für Azure Stack Hub A und B aus.
 
 1. Melden Sie sich auf Azure Stack Hub-Instanz A beim Azure Stack Hub-Benutzerportal an, um die Ressourcen zu überprüfen, die bei der BIG-IP-Vorlagenbereitstellung erstellt wurden.
 
-    ![](./media/network-howto-f5/image18.png)
+    ![Auf der Übersichtsseite des Dialogfelds „F5-GSLB“ werden die bereitgestellten Ressourcen und die zugehörigen Informationen aufgelistet.](./media/network-howto-f5/image18.png)
 
 2. Folgen Sie den Anweisungen in der F5-Dokumentation zu den [BIG-IP-Konfigurationselementen](https://clouddocs.f5.com/training/community/dns/html/class1/class1.html). 
 
@@ -93,9 +93,9 @@ Führen Sie die folgenden Schritte für Azure Stack Hub A und B aus.
     > [!NOTE]  
     > Die lokale IP-Adresse der BIG-IP-Appliance finden Sie in der Ressourcengruppe **F5-GSLB**. Die Netzwerkschnittstelle ist „f5stack1-ext“, und Sie möchten eine Verbindung mit der öffentlichen oder privaten IP-Adresse (je nach Zugriff) herstellen.
 
-    ![](./media/network-howto-f5/image5.png)
+    ![„DNS >> GSLB: Rechenzentren: Im Dialogfeld für die Liste der Rechenzentren werden Rechenzentren und deren Status aufgelistet. Es gibt Schaltflächen zum Aktivieren, Deaktivieren und Löschen, die auf ausgewählte Rechenzentren angewendet werden können.](./media/network-howto-f5/image5.png)
           
-    ![](./media/network-howto-f5/image6.png)
+    ![„DNS >> GSLB: Server: Im Dialogfeld „Serverliste“ werden Server und ihr Status aufgelistet. Es gibt Schaltflächen zum Aktivieren, Deaktivieren, Löschen und Wiederherstellen der Verbindung, die auf ausgewählte Server angewendet werden können.](./media/network-howto-f5/image6.png)
 
 1. Wählen Sie die neue Ressourcengruppe **F5-GSLB** und dann die VM **f5stack1** aus, und wählen Sie unter **Settings** (Einstellungen) die Option **Networking** (Netzwerk) aus.
 
@@ -109,7 +109,7 @@ Nach der Installation müssen Sie Ihre Azure Stack Hub-Netzwerksicherheitsgruppe
 
 3. Die Regel „GTM_DNS“ ist so konfiguriert, dass eingehender Datenverkehr über Port 53 (DNS-Datenverkehr) zugelassen wird, und der BIG-IP-Konfliktlöser wird einmal gestartet. Listener werden erstellt.
 
-    ![](./media/network-howto-f5/image7.png)
+    ![Die Seite „fStack1-ext“ des Dialogfelds „Netzwerkschnittstelle“ zeigt Informationen zur Schnittstelle „fstack1-ext“ und zu deren Netzwerksicherheitsgruppe, „fstack1-ext-nsg“. Es gibt Registerkarten zur Auswahl der Anzeige der Regeln für eingehende Ports oder der Regeln für ausgehende Ports.](./media/network-howto-f5/image7.png)
 
 4. Stellen Sie eine einfache Webanwendungsworkload in Ihrer Azure Stack Hub-Umgebung bereit, um einen Lastenausgleich hinter der BIG-IP-Instanz vorzunehmen. Ein Beispiel für die Verwendung des NGNIX-Servers finden Sie im Artikel zur [Bereitstellung von NGINX und NGINX Plus unter Docker](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/).
 
@@ -118,11 +118,11 @@ Nach der Installation müssen Sie Ihre Azure Stack Hub-Netzwerksicherheitsgruppe
 
 5. Nachdem NGNIX in einem Docker-Container auf einer Ubuntu-VM in jeder Azure Stack Hub-Instanz bereitgestellt wurde, überprüfen Sie, ob Sie die Standardwebseite auf den Servern erreichen können.
 
-    ![](./media/network-howto-f5/image8.png)
+    ![Die Seite „Willkommen bei nginx!“ zeigt an, dass der nginx-Webserver erfolgreich installiert wurde und dass eine weitere Konfiguration erforderlich ist. Es gibt zwei Links, die zu unterstützenden Informationen führen.](./media/network-howto-f5/image8.png)
 
 6. Melden Sie sich bei der Verwaltungsschnittstelle der BIG-IP-Appliance an. Verwenden Sie in diesem Beispiel die öffentliche IP-Adresse **f5-stack1-ext**.
 
-    ![](./media/network-howto-f5/image9.png)
+    ![Der Anmeldebildschirm für das BIG-IP-Konfigurationsprogramm erfordert Benutzername und Kennwort.](./media/network-howto-f5/image9.png)
 
 7. Veröffentlichen Sie den Zugriff auf NGINX über BIG-IP.
     
@@ -132,11 +132,11 @@ Nach der Installation müssen Sie Ihre Azure Stack Hub-Netzwerksicherheitsgruppe
 
 9. Wählen Sie Ihre NGINX-Netzwerkschnittstelle aus.
 
-    ![](./media/network-howto-f5/image10.png)
+    ![Die Übersichtsseite des Dialogfensters „Dashboard > Ressourcengruppen > NGINX > ubuntu2673“ zeigt Informationen zur Netzwerkschnittstelle „ubuntu2673“ an.](./media/network-howto-f5/image10.png)
 
 10. Wechseln Sie in der BIG-IP-Konsole zu **Local traffic > Pools > Pool List** (Lokaler Datenverkehr > Pools > Poolliste), und wählen Sie **+** aus. Konfigurieren Sie den Pool mit den Werten in der Tabelle. Übernehmen Sie bei allen anderen Feldern die Standardwerte.
 
-    ![](./media/network-howto-f5/image11.png)
+    ![Der linke Bereich bietet die Möglichkeit, zur Erstellung eines neuen Pools zu navigieren. Der rechte Bereich trägt den Titel „Local Traffic >> Pools“ (Lokaler Datenverkehr >> Pools): Pool List >> New Pool“ (Poolliste >> Neuer Pool), und bietet die Möglichkeit, die Informationen zum neuen Pool anzugeben. Es gibt eine Schaltfläche „Finished“ (Abgeschlossen).](./media/network-howto-f5/image11.png)
     
     | Schlüssel | Wert |
     | --- | --- |
@@ -148,17 +148,17 @@ Nach der Installation müssen Sie Ihre Azure Stack Hub-Netzwerksicherheitsgruppe
 
 11. Wählen Sie **Finished** (Fertig) aus. Wenn Sie die Einstellungen richtig konfiguriert haben, wird der Poolstatus grün angezeigt.
 
-    ![](./media/network-howto-f5/image12.png)
+    ![Der rechte Bereich trägt den Titel „Local Traffic >> Pools“ (Lokaler Datenverkehr >> Pools): Pool List“ (Poolliste), und der neu erstellte Pool ist der einzige Eintrag in der Liste.](./media/network-howto-f5/image12.png)
 
     Jetzt müssen Sie den virtuellen Server konfigurieren. Dazu müssen Sie zunächst die private IP-Adresse Ihrer F5 BIG-IP-Instanz ermitteln.
 
 12. Wechseln Sie in der BIG-IP-Konsole zu **Network > Self IPs** (Netzwerk > Eigene IPs), und notieren Sie die IP-Adresse.
 
-    ![](./media/network-howto-f5/image13.png)
+    ![Der linke Bereich bietet die Möglichkeit zum Anzeigen von „Self IPs“ (Eigene IPs) zu navigieren. Der rechte Bereich ist mit „Network >> Self IPs“ (Netzwerk >> Eigene IPs) betitelt. Zwei Eigene-IPs werden aufgelistet und die erste, „self_2nic“, ist hervorgehoben.](./media/network-howto-f5/image13.png)
 
 13. Erstellen Sie einen virtuellen Server, indem Sie zu **Local Traffic** > **Virtual Servers** > **Virtual Server List** (Lokaler Datenverkehr > Virtuelle Server > Liste virtueller Server) navigieren und **+** auswählen. Konfigurieren Sie den Pool mit den Werten in der Tabelle. Übernehmen Sie bei allen anderen Feldern die Standardwerte.
 
-    | Key | Wert |
+    | Schlüssel | Wert |
     | --- | --- |
     |Name | NGINX |
     |Destination Address (Zieladresse) | \<Self IP address of the BIG-IP> |
@@ -166,21 +166,21 @@ Nach der Installation müssen Sie Ihre Azure Stack Hub-Netzwerksicherheitsgruppe
     |SSL Profile (Client) (SSL-Profil (Client)) | clientssl |
     |Source Address Translation (Quelladressenübersetzung) | Auto Map (Automatische Zuordnung) |
         
-    ![](./media/network-howto-f5/image14.png)
+    ![Der linke Bereich wird verwendet, um im rechten Bereich zu „Local Traffic >> Virtual Servers: Virtual Server List >> NGINX“ (Lokaler Datenverkehr >> Virtuelle Server: Liste der virtuellen Server >> NGINX) zu navigieren, wo die erforderlichen Informationen eingegeben werden.](./media/network-howto-f5/image14.png)
 
-    ![](./media/network-howto-f5/image15.png)
+    ![Diese Seite bietet die Möglichkeit, zusätzliche Informationen einzugeben. Es gibt die Schaltflächen zum Aktualisieren und Löschen.](./media/network-howto-f5/image15.png)
 
 14. Damit haben Sie die BIG-IP-Konfiguration für die NGINX-Anwendung abgeschlossen. Um sicherzustellen, dass sie einwandfrei funktioniert, navigieren Sie zur Website, und überprüfen Sie die F5-Statistik.
 
 15. Öffnen Sie in einem Browser `https://<F5-public-VIP-IP>`, und vergewissern Sie sich, dass Ihre NGINX-Standardseite angezeigt wird.
 
-    ![](./media/network-howto-f5/image16.png)
+    ![Die Seite „Willkommen bei nginx!“ zeigt an, dass der nginx-Webserver erfolgreich installiert ist und dass eine weitere Konfiguration erforderlich ist. Es gibt zwei Links, die zu unterstützenden Informationen führen.](./media/network-howto-f5/image16.png)
 
 16. Zeigen Sie dann die Statistik Ihres virtuellen Servers an, um den Datenverkehrsfluss zu überprüfen, indem Sie zu **Statistics > Module Statistics > Local Traffic** (Statistik > Modulstatistiken > Lokaler Datenverkehr) navigieren.
 
 17. Wählen Sie unter **Statistics Type** (Statistiktyp) die Option **Virtual Servers** (Virtuelle Server) aus.
 
-    ![](./media/network-howto-f5/image17.png)
+    ![Der linke Bereich hat den rechten Bereich zu „Statistics >> Module Statistics: Local Traffic >> Virtual Servers“ (Statistik >> Modulstatistik: Lokaler Datenverkehr >> Virtuelle Server) navigiert, und die Liste zeigt den virtuellen NGINX-Server und andere an. NGINX ist hervorgehoben.](./media/network-howto-f5/image17.png)
 
 
 ## <a name="for-more-information"></a>Weitere Informationen finden Sie unter

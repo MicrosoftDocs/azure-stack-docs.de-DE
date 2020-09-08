@@ -4,13 +4,13 @@ description: Hier erfahren Sie, wie Sie Betriebssystem- und Firmwareupdates übe
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: bf57a83c11737b1443762212f775c75eb17d6cfc
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.date: 08/31/2020
+ms.openlocfilehash: 94908514e85df153f69cbeea81a11d4468dfc7fe
+ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86868004"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89274057"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Aktualisieren von Azure Stack HCI-Clustern
 
@@ -21,6 +21,8 @@ Beim Aktualisieren von Azure Stack HCI-Clustern besteht das Ziel darin, die Verf
 ## <a name="update-a-cluster-using-windows-admin-center"></a>Aktualisieren eines Clusters über Windows Admin Center
 
 Windows Admin Center bietet eine einfache Benutzeroberfläche, über die Sie problemlos einen Cluster aktualisieren und Betriebssystem- und Lösungsupdates anwenden können. Wenn Sie ein integriertes System bei einem Microsoft-Hardwarepartner erworben haben, können Sie ganz einfach die neuesten Treiber-, Firmware- und anderweitigen Updates direkt vom Windows Admin Center abrufen, indem Sie die entsprechenden Updateerweiterung des Partners installieren. Wenn Ihre Hardware nicht als integriertes System erworben wurde, müssen Firmware- und Treiberupdates möglicherweise separat ausgeführt werden. Folgen Sie dazu den Empfehlungen des Hardwareherstellers.
+
+Windows Admin Center prüft, ob der Cluster richtig konfiguriert ist, um clusterfähiges Aktualisieren auszuführen, und fragt bei Bedarf, ob das Windows Admin Center die CAU für Sie konfigurieren soll, einschließlich der Installation der CAU-Clusterrolle und der Aktivierung der erforderlichen Firewallregeln.
 
 1. Wenn Sie eine Verbindung mit einem Cluster herstellen, informiert das Windows Admin Center-Dashboard Sie, falls für einen Ihrer Server ein Update zu installieren ist, und stellt einen Link bereit, über den Sie das Update direkt ausführen können. Alternativ dazu können Sie im Menü **Tools** auf der linken Seite die Option **Updates** auswählen.
 1. Um die clusterfähige Aktualisierung in Windows Admin Center zu verwenden, müssen Sie den Credential Security Service Provider (CredSSP) aktivieren und explizite Anmeldeinformationen angeben. Wenn Sie gefragt werden, ob der CredSSP aktiviert werden soll, klicken Sie auf **Ja**.
