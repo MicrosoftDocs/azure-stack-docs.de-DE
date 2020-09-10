@@ -9,12 +9,12 @@ metadata:
   author: mattbriggs
   ms.author: mabrigg
   ms.date: 03/19/2020
-  ms.openlocfilehash: b78dc0d3acf20f66ddd4779efc0ac785cb5ab7d6
-  ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+  ms.openlocfilehash: 889a3841ca8fd4bf54d38f04b83270ab3086d1ab
+  ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 07/21/2020
-  ms.locfileid: "86567738"
+  ms.lasthandoff: 09/10/2020
+  ms.locfileid: "89621281"
 landingContent:
 - title: Informationen zu Azure Stack Hub
   linkLists:
@@ -58,14 +58,18 @@ landingContent:
       url: azure-stack-dev-start-vscode-azure.md
 - title: Infrastructure-as-a-Service (IaaS) in Azure Stack Hub
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 'Schnellstart: Erstellen eines virtuellen Computers'
+      url: azure-stack-quick-linux-portal.md
   - linkListType: how-to-guide
     links:
+    - text: Migrieren virtueller Computer
+      url: vm-move-overview.md
     - text: Bereitstellen eines virtuellen Computer in IaaS mit einer Vorlage
       url: azure-stack-create-vm-template.md
     - text: Konfigurieren eines virtuellen Netzwerks
       url: deploy-foundational-patterns.md
-    - text: 'Schnellstart: Erstellen eines virtuellen Computers'
-      url: azure-stack-quick-linux-portal.md
     - text: Hosten von in Ihrem Code geschriebenen Apps
       url: azure-stack-dev-start-deploy-app.md
 - title: Platform-as-a-Service (PaaS) in Azure Stack Hub
