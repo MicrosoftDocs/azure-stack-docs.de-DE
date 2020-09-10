@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 84a6f69eebb461d25cd9569f61d3dee22ec79a49
-ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
+ms.openlocfilehash: e4385f7b1ac22f36f069e9ac4d5b35011e290982
+ms.sourcegitcommit: 593a6c9cff741af24aac28a3328605fe071129ea
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85376815"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89510937"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>Problembehandlung bei Site-to-Site-VPN-Verbindungen
 
@@ -21,6 +21,9 @@ In diesem Artikel werden die Schritte zur Problembehandlung beschrieben, die Sie
 Besuchen Sie das [Azure Stack Hub-MSDN-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack), falls Sie Ihr Azure Stack Hub-Problem mit diesem Artikel nicht beheben konnten.
 
 Sie können auch eine Azure-Supportanfrage senden. Weitere Informationen finden Sie unter [Supportquellen](../operator/azure-stack-manage-basics.md#where-to-get-support).
+
+> [!NOTE]
+> Zwischen zwei Azure Stack Hub-Bereitstellungen kann nur eine Site-to-Site-VPN-Verbindung hergestellt werden. Der Grund: Wegen einer Einschränkung ist für die Plattform nur eine einzelne VPN-Verbindung mit der gleichen IP-Adresse zulässig. Da Azure Stack Hub das mehrinstanzenfähige Gateway nutzt, das eine öffentliche IP-Adresse für alle VPN-Gateways im Azure Stack Hub-System verwendet, kann zwischen zwei Azure Stack Hub-Systemen nur eine VPN-Verbindung hergestellt werden. Diese Einschränkung gilt auch für das Herstellen mehrerer Site-to-Site-VPN-Verbindungen mit einem beliebigen VPN-Gateway, das eine einzige IP-Adresse nutzt. Azure Stack Hub lässt nicht zu, dass mehrere Ressourcen des lokalen Netzwerkgateways mit der gleichen IP-Adresse erstellt werden.
 
 ## <a name="initial-troubleshooting-steps"></a>Erste Schritte bei der Problembehandlung
 

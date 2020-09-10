@@ -7,12 +7,12 @@ ms.date: 08/18/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: db8a05c8a3f8d4c219cb37de018df46c60f39348
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 672071c93d5f227ae6ec9bfccedc043e6838ac61
+ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764544"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621315"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack Hub-Marketplace-Elements
 
@@ -45,7 +45,7 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
    ![Screenshot: Struktur der Bereitstellungsvorlagen](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
-4. Ersetzen Sie die folgenden markierten Werte (mit Zahlen) in der Vorlage „Manifest.json“ durch den Wert, den Sie beim [Hochladen des benutzerdefinierten Images ](azure-stack-add-vm-image.md) angegeben haben.
+4. Ersetzen Sie die folgenden markierten Werte (mit Zahlen) in der Vorlage „Manifest.json“ durch den Wert, den Sie beim [Hochladen des benutzerdefinierten Images ](azure-stack-add-vm-image.md#add-a-platform-image) angegeben haben.
 
    > [!NOTE]  
    > Führen Sie in der Azure Resource Manager-Vorlage niemals eine Hartcodierung von Geheimnissen wie Produktschlüsseln, Kennwörtern oder anderen kundenbezogenen Informationen durch. JSON-Vorlagendateien sind nach der Veröffentlichung im Katalog ohne Authentifizierung zugänglich. Speichern Sie alle Geheimnisse in [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter), und rufen Sie sie in der Vorlage auf.

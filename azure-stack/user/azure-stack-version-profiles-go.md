@@ -3,16 +3,16 @@ title: Verwenden von API-Versionsprofilen mit GO in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie API-Versionsprofile mit GO in Azure Stack Hub verwenden.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: e40c51d44f93fae4e7293113ab7f06bad03677e3
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 3b8df9de2975c7ba0e6eefdb10a2731cd5d47ca6
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836188"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448672"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Go in Azure Stack Hub
 

@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 0bc19bf584f482d2ec67758368afa11c91ae456e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 231e4ac3b0bc8e0d43c608ff252f7d4c274e84a8
+ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81243874"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89428548"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Integrieren einer externen Überwachungslösung mit Azure Stack Hub
 
@@ -68,6 +68,9 @@ Zusammen mit den Cloudbase-Partnerlösungen wurde ein Plug-In für die Nagios-Ü
 Das Plug-In ist in Python geschrieben und nutzt die REST-API des Integritätsressourcenanbieters. Es bietet grundlegende Funktionen zum Abrufen und Schließen von Warnungen in Azure Stack Hub. Ähnlich wie beim System Center Management Pack können Sie damit mehrere Azure Stack Hub-Bereitstellungen hinzufügen und Benachrichtigungen versenden.
 
 Für Version 1.2 des Azure Stack Hub-Nagios-Plug-Ins wird die Active Directory-Authentifizierungsbibliothek von Microsoft genutzt und die Authentifizierung per Dienstprinzipal mit einem Geheimnis oder Zertifikat unterstützt. Außerdem wurde die Konfiguration vereinfacht, indem eine einfache Konfigurationsdatei mit neuen Parametern verwendet wird. Es werden ab sofort Azure Stack Hub-Bereitstellungen unter Verwendung von Azure AD und AD FS als Identitätssystem unterstützt.
+
+> [!IMPORTANT]
+> AD FS unterstützt nur interaktive Anmeldesitzungen. Wenn Sie eine nicht-interaktive Anmeldung für ein automatisiertes Szenario benötigen, müssen Sie einen SPN verwenden.
 
 Das Plug-In funktioniert für Nagios 4x und XI. Informationen zum Herunterladen des Plug-Ins finden Sie unter [Überwachen von Azure Stack Hub-Warnungen](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). Die Downloadwebsite enthält auch Installations- und Konfigurationsdetails.
 
@@ -238,4 +241,4 @@ Informationen zur integrierten Integritätsüberwachung finden Sie unter [Überw
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Integrieren von Azure Stack-Sicherheitsfunktionen in Datencenter-Sicherheitslösungen](azure-stack-integrate-security.md)
+[Sicherheitsintegration](azure-stack-integrate-security.md)

@@ -3,16 +3,16 @@ title: Hinzufügen von Mandanten für Nutzung und Abrechnung zu Azure Stack Hub
 description: Finden Sie heraus, wie Sie einen Mandanten für die Nutzung und Abrechnung zu Azure Stack Hub hinzufügen.
 author: sethmanheim
 ms.topic: article
-ms.date: 5/28/2020
+ms.date: 9/02/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 5/28/2020
-ms.openlocfilehash: 08185a25c608c735aa99ca7f7d2b060c8b67042b
-ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
+ms.openlocfilehash: e0d426ac19645cbbc318f66b827946534539d125
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84158383"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448570"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Hinzufügen eines Mandanten für Nutzung und Abrechnung zu Azure Stack Hub
 
@@ -74,7 +74,7 @@ Im folgenden Abschnitt werden die Parameter für das Cmdlet **New-AzureRmResourc
 |registrationSubscriptionID | Das Azure-Abonnement, das für die anfängliche Registrierung von Azure Stack Hub verwendet wurde.|
 | customerSubscriptionID | Das Azure-Abonnement (nicht Azure Stack Hub), das zu dem Kunden gehört, der registriert werden soll. Muss im CSP-Angebot erstellt werden. In der Praxis über das Partner Center. Wenn ein Kunde über mehrere Azure Active Directory-Mandanten verfügt, muss dieses Abonnement in dem Mandanten erstellt werden, der zum Anmelden bei Azure Stack Hub verwendet wird. Bei der Kundenabonnement-ID wird zwischen Groß-/Kleinschreibung unterschieden. |
 | resourceGroup | Die Ressourcengruppe in Azure, in dem Ihre Registrierung gespeichert ist. |
-| registrationName | Der Name der Registrierung Ihrer Azure Stack Hub-Instanz. Dies ist ein in Azure gespeichertes Objekt. 
+| registrationName | Der Name der Registrierung Ihrer Azure Stack Hub-Instanz. Dies ist ein in Azure gespeichertes Objekt.
 
 > [!NOTE]  
 > Mandanten müssen bei jeder Azure Stack Hub-Instanz registriert werden, die sie verwenden. Wenn Sie über zwei Azure Stack Hub-Bereitstellungen verfügen und ein Mandant beide verwendet, müssen Sie die anfänglichen Registrierungen jeder Bereitstellung beim Mandantenabonnement aktualisieren.

@@ -3,16 +3,16 @@ title: Verwenden von API-Versionsprofilen mit Ruby in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie API-Versionsprofile mit Ruby in Azure Stack Hub verwenden.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 09/03/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: b59adea78b5325a449bd52b211edc5e04ea5e566
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 6813bf18656e034688255bcdb46b9b943359ce9c
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836239"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448621"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Ruby in Azure Stack Hub
 
@@ -38,7 +38,7 @@ Ein API-Profil ist eine Kombination aus Ressourcenanbietern und Dienstversionen.
   - Installieren Sie das Development Kit, wenn Sie während der Ruby-Installation dazu aufgefordert werden.
   - Installieren Sie als Nächstes den Bundler, indem Sie den folgenden Befehl verwenden: 
 
-       ```Ruby
+       ```ruby
        Gem install bundler
        ```
 
@@ -50,7 +50,7 @@ Ein API-Profil ist eine Kombination aus Ressourcenanbietern und Dienstversionen.
 
 Sie können die Azure-RubyGem-Pakete direkt installieren.
 
-```Ruby  
+```ruby  
 gem install azure_mgmt_compute
 gem install azure_mgmt_storage
 gem install azure_mgmt_resources
@@ -59,7 +59,7 @@ gem install azure_mgmt_network
 
 Oder verwenden Sie sie in Ihrer Gemfile-Datei.
 
-```Ruby
+```ruby
 gem 'azure_mgmt_storage'
 gem 'azure_mgmt_compute'
 gem 'azure_mgmt_resources'
@@ -74,7 +74,7 @@ Das Gem **azure_sdk** ist ein Rollup aller unterstützten Gems im Ruby SDK. Die
 
 Sie können das Rollup-Gem „azure_sdk“ mit dem folgenden Befehl installieren:  
 
-```Ruby  
+```ruby  
 gem install 'azure_sdk'
 ```
 
@@ -120,7 +120,7 @@ Sie können die Metadateninformationen vom Resource Manager-Endpunkt abrufen. De
 
 Verwenden Sie das folgende Format, um die Umgebungsvariablen in der Windows-Eingabeaufforderung festzulegen:
 
-```shell
+```console
 set AZURE_TENANT_ID=<YOUR_TENANT_ID>
 ```
 
@@ -146,7 +146,7 @@ Weitere Informationen zu Azure Stack Hub und API-Profilen finden Sie in der [Zus
 
 Verwenden Sie den folgenden Code, um einen Profilclient zu instanziieren. Dieser Parameter ist nur für Azure Stack Hub oder andere private Clouds erforderlich. Für Azure sind diese Einstellungen standardmäßig global vorhanden.
 
-```Ruby  
+```ruby  
 active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
 
 provider = MsRestAzure::ApplicationTokenProvider.new(
@@ -169,7 +169,7 @@ client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(option
 
 Der Profilclient kann verwendet werden, um auf einzelne Ressourcenanbieter zuzugreifen, z. B. Compute, Storage und Networking:
 
-```Ruby  
+```ruby  
 # To access the operations associated with Compute
 profile_client.compute.virtual_machines.get 'RESOURCE_GROUP_NAME', 'VIRTUAL_MACHINE_NAME'
 
@@ -185,7 +185,7 @@ purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::
 
 Definieren Sie die Endpunkte mit `get_active_directory_settings()`, um den Dienstprinzipal für die Azure Stack Hub-Umgebung zu authentifizieren. Bei dieser Methode wird die Umgebungsvariable **ARM_Endpoint** genutzt, die Sie zuvor festgelegt haben:
 
-```Ruby  
+```ruby  
 # Get Authentication endpoints using Arm Metadata Endpoints
 def get_active_directory_settings(armEndpoint)
   settings = MsRestAzure::ActiveDirectoryServiceSettings.new
@@ -220,13 +220,13 @@ Vergewissern Sie sich, dass Sie Ruby installiert haben, um das Beispiel auszufü
 
 1. Klonen Sie das Repository:
 
-   ```bash
+   ```console
    git clone https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups.git
    ```
 
 2. Installieren Sie die Abhängigkeiten per Bundle:
 
-   ```Bash
+   ```console
    cd Hybrid-Resource-Manager-Ruby-Resources-And-Groups
    bundle install
    ```
@@ -258,7 +258,7 @@ Vergewissern Sie sich, dass Sie Ruby installiert haben, um das Beispiel auszufü
 
 5. Fügen Sie die folgende Codezeile hinzu, wenn Sie Azure Stack Hub oder andere private Clouds nutzen, um auf die richtigen Active Directory-Endpunkte abzuzielen:
 
-   ```Ruby  
+   ```ruby  
    active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
    ```
 
@@ -300,7 +300,7 @@ Vergewissern Sie sich, dass Sie Ruby installiert haben, um das Beispiel auszufü
 
 9. Führen Sie das Beispiel aus.
 
-   ```Ruby
+   ```ruby
    bundle exec ruby example.rb
    ```
 

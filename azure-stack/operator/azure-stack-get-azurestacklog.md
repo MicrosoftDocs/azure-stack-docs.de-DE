@@ -8,12 +8,12 @@ ms.date: 09/02/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 29f46fceab5e87bc7dff59a4e4c80a48fa8f34fc
-ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
+ms.openlocfilehash: a07904e1dde804398b55d61e7b1faa0b105aba22
+ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89410955"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621268"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Senden von Azure Stack Hub-Diagnoseprotokollen mithilfe des privilegierten Endpunkts (PEP)
 
@@ -89,7 +89,7 @@ if ($session) {
   Protokollsammlung für IoT Hub: 
 
   ```powershell
-  Get-AzureStackLog -FilterByResourceProvider IotHub
+  Get-AzureStackLog -FilterByResourceProvider iothubServiceHealth
   ```
  
   Protokollsammlung für Event Hubs:

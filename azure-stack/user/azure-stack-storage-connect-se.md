@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ff36107a50a534dbb14b77747839bf1aabd0ebbb
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: d504f92db4a703252fb7ea623555624de27adc57
+ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920371"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89428616"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Herstellen einer Verbindung zwischen dem Storage-Explorer und einem Azure Stack Hub-Abonnement oder -Speicherkonto
 
@@ -91,6 +91,7 @@ Gehen Sie wie folgt vor, um den Storage-Explorer mit einem Azure Stack Hub-Abon
 
 > [!NOTE]  
 > Der Bereich für die AD FS-Anmeldung (Active Directory-Verbunddienste) unterstützt Storage-Explorer 1.2.0 oder neuere Versionen mit Azure Stack Hub 1804 oder einem neueren Update.
+
 Gehen Sie wie folgt vor, um den Storage-Explorer mit einem Azure Stack Hub-Abonnement zu verbinden, das zu einem AD FS-Konto gehört.
 
 1. Wählen Sie **Konten verwalten**. Im Explorer werden die Microsoft-Abonnements aufgeführt, an denen Sie sich angemeldet haben.

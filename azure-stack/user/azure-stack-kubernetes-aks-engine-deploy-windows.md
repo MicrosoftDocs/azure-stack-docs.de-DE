@@ -3,16 +3,16 @@ title: Bereitstellen der AKS-Engine unter Windows in Azure Stack Hub
 description: Erfahren Sie, wie Sie einen Windows-Computer in Ihrer Azure Stack Hub-Instanz zum Hosten der AKS-Engine verwenden, um einen Kubernetes-Cluster bereitzustellen und zu verwalten.
 author: mattbriggs
 ms.topic: article
-ms.date: 07/24/2020
+ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 59181b426ace2ce5f0ce5f9441a7f225dfcfd4d9
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: 2c8f5c38c9cd6e5f8632e3abac75f51c2b71d481
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920728"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89473230"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Installieren der AKS-Engine unter Windows in Azure Stack Hub
 
@@ -40,7 +40,7 @@ Sie können die Client-VM installieren, um Ihren Kubernetes-Cluster in einer mit
 5. Führen Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten aus, und beziehen Sie die Versionsnummer ein:
 
     ```PowerShell  
-        choco install aks-engine --version 0.51.0 -y
+        choco install aks-engine --version 0.55.0 -y
     ```
 
 > [!NOTE]  
@@ -65,7 +65,7 @@ Sie können die Client-VM installieren, um Ihren Kubernetes-Cluster in einer Azu
 7.  Führen Sie den folgenden Befehl in einer Eingabeaufforderung mit erhöhten Rechten aus. Beziehen Sie die richtige Versionsnummer ein:
 
     ```PowerShell  
-        choco install aks-engine --version 0.51.0 -y
+        choco install aks-engine --version 0.55.0 -y
     ```
 
 ## <a name="verify-the-installation"></a>Überprüfen der Installation

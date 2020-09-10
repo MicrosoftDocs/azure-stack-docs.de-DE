@@ -147,6 +147,16 @@
                   href: vm-update-management.md
                 - name: Überlegungen zu SQL Server-VMs
                   href: azure-stack-sql-server-vm-considerations.md
+                - name: Migrieren virtueller Computer
+                  items:
+                    - name: Übersicht über das Migrieren virtueller Computer
+                      href: vm-move-overview.md
+                    - name: Virtueller Computer aus Azure
+                      href: vm-move-from-azure.md
+                    - name: Lokaler spezialisierter virtueller Computer
+                      href: vm-move-specialized.md
+                    - name: Lokaler generalisierter virtueller Computer
+                      href: vm-move-generalized.md
             - name: Storage
               items:
                 - name: Übersicht

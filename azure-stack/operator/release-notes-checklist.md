@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.author: sethm
 ms.reviewer: TBD
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 188f403b89e0e77b75f88a5e50440fd72cc61fdb
-ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
+ms.openlocfilehash: f3904d481aa9dd27dafecdf592a45d95799aa2e8
+ms.sourcegitcommit: 593a6c9cff741af24aac28a3328605fe071129ea
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88074263"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89510954"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack Hub-Checkliste für Updateaktivitäten
 
@@ -24,7 +24,7 @@ Nutzen Sie diese Checkliste, um ein Azure Stack Hub-Update vorzubereiten. Dieser
 |------------------------------|-----------------------------------------------------------|
 | Überprüfen bekannter Probleme     | [Liste mit bekannten Problemen](known-issues.md)                |
 | Überprüfen von Sicherheitsupdates | [Liste mit Sicherheitsupdates](release-notes-security-updates.md)      |
-| Überprüfen von Add-On-Ressourcenanbieterupdates | [App Service](azure-stack-app-service-update.md)<br>[Event Hubs](resource-provider-apply-updates.md)<br> [MySQL](azure-stack-sql-resource-provider-update.md)<br>[SQL](azure-stack-mysql-resource-provider-update.md)<br>  |
+| Überprüfen von Add-On-Ressourcenanbieterupdates | [App Service](azure-stack-app-service-update.md)<br>[Event Hubs](resource-provider-apply-updates.md)<br> [MySQL](azure-stack-mysql-resource-provider-update.md)<br>[SQL](azure-stack-sql-resource-provider-update.md)<br>  |
 | Anwenden des aktuellen OEM-Pakets | Wenden Sie sich an ihren OEM, um sicherzustellen, dass Ihr System die Mindestanforderungen für OEM-Pakete für die Azure Stack Hub-Version des Updates für Ihr System erfüllt. Stellen Sie sicher, dass Ihr OEM-Paket mit der Azure Stack Hub-Version, auf die Sie aktualisieren, kompatibel ist. Wenn das OEM-Paket nicht mit der Azure Stack Hub-Version, auf die Sie aktualisieren, kompatibel ist, müssen Sie vor dem Ausführen eines Azure Stack Hub-Updates ein Update des OEM-Pakets durchführen. Anweisungen finden Sie unter „Anwenden von OEM-Updates (Originalgerätehersteller) auf Azure Stack Hub“. |
 | Optional: Konfigurieren der automatischen Protokollsammlung | Es empfiehlt sich, die automatische Protokollsammlung für Ihre Azure Stack Hub-Umgebung zu konfigurieren, um die Sammlung von Systemprotokollen zu optimieren, falls Sie einmal ein Supportticket erstellen müssen. Eine Konfigurationsanleitung für die automatische Protokollsammlung finden Sie unter [Konfigurieren der automatischen Azure Stack Hub-Diagnoseprotokollsammlung](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002). |
 | Anwenden aktueller Hotfixes | Wenden Sie die neuesten Hotfixes an, die für die derzeit installierte Version gelten. Eine Liste der neuesten Hotfixes finden Sie im Abschnitt mit den [Versionshinweisen zum jeweiligen Hotfix](release-notes.md). |
