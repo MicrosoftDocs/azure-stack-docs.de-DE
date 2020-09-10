@@ -114,6 +114,8 @@
       href: concepts/fault-tolerance.md
     - name: Quorum für Cluster und Speicherpool
       href: concepts/quorum.md
+    - name: Netzwerkcontroller
+      href: concepts/network-controller.md
     - name: Sicherheitshinweise
       href: concepts/security.md
 - name: Verweis
