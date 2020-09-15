@@ -1,20 +1,20 @@
 ---
-title: Grundlegendes zum Cache in Azure Stack HCI
+title: Grundlegendes zum Speicherpoolcache in Azure Stack HCI
 description: Es wird beschrieben, wie das Zwischenspeichern von Lese- und Schreibvorgängen in „Direkte Speicherplätze“ und Azure Stack HCI funktioniert.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/01/2020
-ms.openlocfilehash: 0c5ce6430ac44601b7e0a172203faabf2732e0a2
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.date: 09/04/2020
+ms.openlocfilehash: 573cbe36fefecdc37394270fbeec6540d4369991
+ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364744"
+ms.lasthandoff: 09/05/2020
+ms.locfileid: "89493868"
 ---
-# <a name="understanding-the-cache-in-azure-stack-hci"></a>Grundlegendes zum Cache in Azure Stack HCI
+# <a name="understanding-the-storage-pool-cache-in-azure-stack-hci"></a>Grundlegendes zum Speicherpoolcache in Azure Stack HCI
 
 > Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
@@ -148,7 +148,7 @@ Der softwaredefinierte Speicherstapel von Windows enthält noch mehrere andere C
 
 Für Azure Stack HCI sollte das Standardverhalten des Speicherplätze-Zurückschreibcaches nicht geändert werden. Beispielsweise sollten Parameter wie **-WriteCacheSize** im Cmdlet **New-Volume** nicht verwendet werden.
 
-Ob Sie den CSV-Cache nutzen, ist allein Ihre Entscheidung. Unter Windows Server 2019 ist er standardmäßig deaktiviert, aber es kommt mit dem neuen Cache, der in diesem Thema beschrieben wird, nicht zu einem Konflikt. In bestimmten Szenarien können hiermit wertvolle Leistungssteigerungen erzielt werden. Weitere Informationen finden Sie unter [Aktivieren des CSV-Caches](/windows-server/failover-clustering/failover-cluster-csvs#enable-the-csv-cache-for-read-intensive-workloads-optional).
+Ob Sie den CSV-Cache nutzen, ist allein Ihre Entscheidung. Er ist in Azure Stack HCI standardmäßig aktiviert, aber es kommt zu keinem Konflikt mit dem Cache, der in diesem Thema beschrieben wird. In bestimmten Szenarien können hiermit wertvolle Leistungssteigerungen erzielt werden. Weitere Informationen finden Sie unter [Verwenden des CSV-In-Memory-Lesecaches mit Azure Stack HCI](../manage/use-csv-cache.md).
 
 ## <a name="manual-configuration"></a>Manuelle Konfiguration
 

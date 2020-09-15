@@ -7,12 +7,12 @@ ms.date: 8/28/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 8/28/2020
-ms.openlocfilehash: 3b7734f5baccdad399f88bd36a076574f0c9c91a
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.openlocfilehash: 8aa2c3cad35af9d6c887217ea977a92eae7428cf
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089608"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448451"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>Herunterladen von Azure Stack Hub-Tools aus GitHub
 
@@ -20,7 +20,7 @@ ms.locfileid: "89089608"
 
 ## <a name="get-tools-for-azure-stack-hub-azurerm-module"></a>Abrufen von Tools für das Azure Stack Hub-AzureRM-Modul
 
-Um diese Tools zu erhalten, klonen Sie das GitHub-Repository aus dem Branch `master`, oder laden Sie den Ordner **AzureStack-Tools** herunter, indem Sie das folgende Skript ausführen:
+Um diese Tools zu erhalten, klonen Sie das GitHub-Repository aus dem Branch `master`, oder laden Sie den Ordner **AzureStack-Tools** herunter, indem Sie an einer PowerShell-Eingabeaufforderung mit erhöhten Rechten das folgende Skript ausführen:
 
 ```powershell
 # Change directory to the root directory.

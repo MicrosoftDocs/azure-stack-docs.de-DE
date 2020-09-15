@@ -8,12 +8,12 @@ ms.date: 08/11/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 22ba6cd5ae2552541c1eeb67ce38699ca012e640
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.openlocfilehash: 7cf6420069dbc8589722aab38658206a482632e0
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145470"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89472958"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub-Wartungsrichtlinie
 
@@ -25,7 +25,7 @@ Microsoft veröffentlicht sowohl vollständige Updatepakete als auch Hotfixpaket
 
 Vollständige Updatepakete werden an einem sicheren Azure-Endpunkt gehostet. Sie können sie manuell mithilfe des [Downloadtools für Azure Stack Hub-Updates](https://aka.ms/azurestackupdatedownload) herunterladen. Wenn Ihre Skalierungseinheit verbunden ist, wird das Update automatisch im Administratorportal als **Update verfügbar** angezeigt. Weitere Informationen zu jedem Release erhalten Sie, wenn Sie im Abschnitt [Updatepaketrelease-Intervall](#update-package-release-cadence) dieses Artikels auf das jeweilige Release klicken.
 
-Hotfixupdatepakete werden in demselben sicheren Azure-Endpunkt gehostet. Sie können sie mithilfe der eingebetteten Links in jedem der jeweiligen Hotfix-KB-Artikel herunterladen, z. B. [Azure Stack Hub-Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Ähnlich wie bei den vollständigen, monatlichen Updatepaketen können Azure Stack Hub-Operators die XML-, BIN- und EXE-Dateien herunterladen und mithilfe des Verfahrens unter [Anwenden von Updates in Azure Stack Hub](azure-stack-apply-updates.md) importieren. Azure Stack Hub-Operators mit verbundenen Skalierungseinheiten werden die Hotfixes automatisch im Administratorportal mit der Meldung **Update verfügbar** angezeigt.
+Hotfixupdatepakete werden in demselben sicheren Azure-Endpunkt gehostet. Sie können sie mithilfe der eingebetteten Links in jedem der jeweiligen Hotfix-KB-Artikel herunterladen, z. B. [Azure Stack Hub-Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Ähnlich wie bei den vollständigen, monatlichen Updatepaketen können Azure Stack Hub-Betreiber die XML- und ZIP-Dateien herunterladen und mithilfe des Verfahrens unter [Anwenden von Updates in Azure Stack Hub](azure-stack-apply-updates.md) importieren. Azure Stack Hub-Operators mit verbundenen Skalierungseinheiten werden die Hotfixes automatisch im Administratorportal mit der Meldung **Update verfügbar** angezeigt.
 
 Wenn Ihre Skalierungseinheit nicht verbunden ist und Sie bei jedem Hotfixrelease benachrichtigt werden möchten, abonnieren Sie den [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)- oder [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)-Feed, der in jedem Release vermerkt ist.
 

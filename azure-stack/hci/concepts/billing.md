@@ -4,13 +4,15 @@ description: So funktionieren Abrechnung und Zahlung für die Azure Stack HCI.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 32c3a0305775c9825e27fe3e8a99911b297a129c
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/01/2020
+ms.openlocfilehash: 22758f9a6b905e2c948a47c5870a05edcb63acdf
+ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86868095"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89428480"
 ---
 # <a name="azure-stack-hci-billing-and-payment"></a>Abrechnung und Zahlung für die Azure Stack HCI
 
@@ -43,7 +45,7 @@ Verwenden Sie das Cmdlet **`Sync-AzureStackHCI`** , um Kerndaten manuell in Azur
 - Wenn ich eine Azure-Zahlungsverpflichtung eingegangen bin, kann ich diese auf die Azure Stack HCI anrechnen? **Ja**
 - Wenn ich über Azure-Guthaben verfüge (z. B. für Schüler/Studenten oder als Preis erhalten), kann ich dieses für die Azure Stack HCI verwenden? **Ja**
 - Wenn meine Organisation einen Enterprise Agreement-Rabatt ausgehandelt hat, gilt dieser auch für die Azure Stack HCI? **Ja**
-- Funktionieren die Kostenverwaltungstools im Azure-Portal für die Azure Stack HCI? **Ja**
+- Funktionieren die Kostenverwaltungstools im Azure-Portal für Azure Stack HCI? **Ja**
 - Können Drittanbieter- oder benutzerdefinierte Tools, die mit den Azure-Abrechnungs-APIs erstellt wurden, für die Azure Stack HCI verwendet werden? **Ja**
 
 ## <a name="next-steps"></a>Nächste Schritte

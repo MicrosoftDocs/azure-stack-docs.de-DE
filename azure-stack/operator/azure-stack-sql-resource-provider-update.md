@@ -8,12 +8,12 @@ ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: dcc3a0f66d0e1ced8ae534e6eee99f4ef7f01250
-ms.sourcegitcommit: eb9ec6bab69543c63d6e51b37387cc80ecb7be87
+ms.openlocfilehash: 1c6a7e39131dc9d422a68161b3022ac1acc28f7e
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612298"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89472873"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aktualisieren des SQL-Ressourcenanbieters
 
@@ -21,6 +21,12 @@ ms.locfileid: "88612298"
 > Überprüfen Sie vor der Aktualisierung des Ressourcenanbieters die Anmerkungen zu dieser Version auf Informationen zu neuen Funktionen, Fehlerbehebungen und bekannten Problemen, die sich auf die Bereitstellung auswirken können. Die Versionshinweise geben auch die minimale Azure Stack Hub-Version an, die für den Ressourcenanbieter erforderlich ist.
 
 Unter Umständen wird ein neuer SQL-Ressourcenanbieter veröffentlicht, wenn Azure Stack Hub auf einen neuen Build aktualisiert wird. Auch wenn der vorhandene Ressourcenanbieter weiterhin funktioniert, ist es ratsam, so schnell wie möglich das Update auf den aktuellen Build durchzuführen.
+
+ |Unterstützte Azure Stack Hub-Version|SQL RP Version|
+  |-----|-----|
+  |2005, 2002, 1910|[SQL RP Version 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
+  |1908|[SQL RP Version 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
+  |     |     |
 
 Ab der Version 1.1.33.0 des SQL-Ressourcenanbieters sind Updates kumulativ und müssen nicht mehr in der Reihenfolge installiert werden, in der sie veröffentlicht wurden (vorausgesetzt, Sie verfügen mindestens über die Version 1.1.24.0). Wenn Sie also beispielsweise die Version 1.1.24.0 des SQL-Ressourcenanbieters verwenden, können Sie auf die Version 1.1.33.0 oder höher upgraden, ohne zuvor die Version 1.1.30.0 installieren zu müssen. In der Versionsliste unter [Bereitstellen des Ressourcenanbieters – Voraussetzungen](./azure-stack-sql-resource-provider-deploy.md#prerequisites) finden Sie die verfügbaren Ressourcenanbieterversionen und die jeweilige Azure Stack Hub-Version, unter der sie unterstützt werden.
 
@@ -68,7 +74,7 @@ Wenn Sie auf die Version 1.1.33.0 oder auf frühere Versionen des SQL-Ressource
 # Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.6.0
+Install-Module -Name AzureStack -RequiredVersion 1.8.2
 ```
 
 > [!NOTE]

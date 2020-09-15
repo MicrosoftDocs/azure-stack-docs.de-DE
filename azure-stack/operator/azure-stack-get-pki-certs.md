@@ -7,12 +7,12 @@ ms.date: 09/10/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 6bcdc7aacfadb37d348eaa33449065b9fb345446
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.openlocfilehash: e72d00d7a0a5f1a9299d3d279e3b7ee8dd779b30
+ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818350"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89428565"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Generieren von Zertifikatsignieranforderungen für Azure Stack Hub
 
@@ -138,7 +138,7 @@ Gehen Sie wie folgt vor, um Zertifikatsignieranforderungen für die Erneuerung v
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. Deklarieren Sie **stampEndpoint** im Format „regionname.domain.com“ des Azure Stack Hub-Systems. Beispiel (wenn die Adresse des Azure Stack Hub-Mandantenportals https://portal.east.azurestack.contoso.com): lautet):
+2. Deklarieren Sie **stampEndpoint** im Format „regionname.domain.com“ des Azure Stack Hub-Systems. Beispiel (wenn die Adresse des Azure Stack Hub-Mandantenportals <code> https://</code><code>portal.east.azurestack.contoso.com</code> lautet):
 
     ```powershell  
     $stampEndpoint = 'east.azurestack.contoso.com'

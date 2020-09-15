@@ -3,16 +3,16 @@ title: Azure Stack Hub – Bekannte Probleme
 description: Enthält Informationen zu bekannten Problemen in Releases von Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/04/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: 664d89ecfde65906bbda33d71d9adc24284a33ba
-ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
+ms.openlocfilehash: d7a9112955891a59e29bfe997888d3e444784494
+ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89410972"
+ms.lasthandoff: 09/05/2020
+ms.locfileid: "89493817"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -117,7 +117,7 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Auf dem Blatt mit der VM-Übersicht wird nicht der richtige Computername angezeigt.
 
 - Geltungsbereich: Dieses Problem betrifft alle Releases.
-- Ursache: Wenn die Details eines virtuellen Computers auf dem Übersichtsblatt angezeigt werden, wird der Computername als **(nicht verfügbar)** angezeigt. Dies ist für VMs, die aus speziellen Datenträgern bzw. Datenträgermomentaufnahmen erstellt werden, so beabsichtigt.
+- Ursache: Wenn die Details eines virtuellen Computers auf dem Übersichtsblatt angezeigt werden, wird der Computername als **(nicht verfügbar)** angezeigt. Dies gilt dediziert für VMs, die anhand spezieller Datenträger bzw. Momentaufnahmen von Datenträgern erstellt werden, und wird auch für Marketplace-Images angezeigt.
 - Abhilfe: Zeigen Sie das Blatt **Eigenschaften** unter **Einstellungen** an.
 
 ### <a name="virtual-machine-scale-set"></a>VM-Skalierungsgruppe
@@ -264,6 +264,7 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
   - [Angeben von benutzerdefinierten IPsec/IKE-Richtlinien](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
 ## <a name="compute"></a>Compute
+
 ### <a name="cannot-create-a-vmss-with-standard_ds2_v2-vm-size-on-portal"></a>VMSS kann nicht mit der VM-Größe „Standard_DS2_v2“ im Portal erstellt werden.
 
 - Geltungsbereich: Dieses Problem gilt für Release 2002.
@@ -273,7 +274,7 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Auf dem Blatt mit der VM-Übersicht wird nicht der richtige Computername angezeigt.
 
 - Geltungsbereich: Dieses Problem betrifft alle Releases.
-- Ursache: Wenn die Details eines virtuellen Computers auf dem Übersichtsblatt angezeigt werden, wird der Computername als **(nicht verfügbar)** angezeigt. Dies ist für VMs, die aus speziellen Datenträgern bzw. Datenträgermomentaufnahmen erstellt werden, so beabsichtigt.
+- Ursache: Wenn die Details eines virtuellen Computers auf dem Übersichtsblatt angezeigt werden, wird der Computername als **(nicht verfügbar)** angezeigt. Dies gilt dediziert für VMs, die anhand spezieller Datenträger bzw. Momentaufnahmen von Datenträgern erstellt werden, und wird auch für Marketplace-Images angezeigt.
 - Abhilfe: Zeigen Sie das Blatt **Eigenschaften** unter **Einstellungen** an.
 
 ### <a name="nvv4-vm-size-on-portal"></a>NVv4-VM-Größe im Portal

@@ -3,16 +3,16 @@ title: Problembehandlung bei der AKS-Engine in Azure Stack Hub
 description: In diesem Artikel werden Schritte zur Problembehandlung für die AKS-Engine in Azure Stack Hub beschrieben.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 09/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 4/17/2020
-ms.openlocfilehash: 794320af0595138e335c0b1cd3dad61a777251ff
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.lastreviewed: 09/08/2020
+ms.openlocfilehash: e9e1e09d40be623dfb973503295274790a86dfb8
+ms.sourcegitcommit: 2407498dc34158a49959d9f87f84d6a1cde0cca6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818761"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89560962"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Problembehandlung bei der AKS-Engine in Azure Stack Hub
 
@@ -70,16 +70,16 @@ Weitere Informationen finden Sie im Artikel [Troubleshooting](https://github.com
 
 ## <a name="collect-aks-engine-logs"></a>Sammeln von AKS-Engine-Protokollen
 
-Sie können auf Überprüfungsinformationen zugreifen, die von der AKS-Engine erstellt wurden. Die AKS-Engine meldet Status und Fehler, während die Anwendung ausgeführt wird. Sie können die Ausgabe entweder an eine Textdatei übergeben oder direkt von der Befehlszeilenkonsole kopieren. Eine Liste der von der AKS-Engine ausgelösten Fehlercodes finden Sie unter [Überprüfen der Fehlercodes für die benutzerdefinierte Skripterweiterung](#review-custom-script-extension-error-codes).
+Sie können Informationen überprüfen, die von der AKS-Engine erstellt wurden. Die AKS-Engine meldet Status und Fehler im Verlauf der Ausführung der Anwendung. Sie können die Ausgabe entweder an eine Textdatei übergeben oder direkt von der Befehlszeilenkonsole kopieren. Eine Liste der von der AKS-Engine ausgelösten Fehlercodes finden Sie unter [Überprüfen der Fehlercodes für die benutzerdefinierte Skripterweiterung](#review-custom-script-extension-error-codes).
 
 1.  Erfassen Sie Standardausgabe und Fehler aus Informationen, die im AKS-Engine-Befehlszeilentool angezeigt werden.
 
-2. Rufen Sie Protokolle aus einer lokalen Datei ab. Sie können das Ausgabeverzeichnis mit dem Parameter **--output-directory** festlegen.
+2. Rufen Sie Protokolle aus einer lokalen Datei ab. Sie können das Ausgabeverzeichnis mit dem Befehl `get-logs` und dem Flag **--output-directory** festlegen.
 
     So legen Sie den lokalen Pfad für die Protokolle fest:
 
     ```bash  
-    aks-engine --output-directory <path to the directory>
+    aks-engine get-logs --output-directory <path to the directory>
     ```
 
 ## <a name="collect-kubernetes-logs"></a>Sammeln von Kubernetes-Protokollen
@@ -102,8 +102,8 @@ Ohne dieses Skript müssten Sie eine Verbindung mit jedem Knoten im Cluster hers
 Anforderungen:
 
  - Eine Linux-VM, Git Bash oder Bash in Windows.
- - [Azure CLI](azure-stack-version-profiles-azurecli2.md) muss auf dem Computer installiert sein, auf dem das Skript ausgeführt wird.
- - Eine bei einer Azure CLI-Sitzung mit Azure Stack Hub angemeldete Dienstprinzipalidentität. Da das Skript für seine Aufgaben ARM-Ressourcen ermitteln und erstellen kann, müssen die Azure CLI und eine Dienstprinzipalidentität verwendet werden.
+ - Die [Azure CLI](azure-stack-version-profiles-azurecli2.md) muss auf dem Computer installiert sein, auf dem das Skript ausgeführt wird.
+ - Eine bei einer Azure CLI-Sitzung mit Azure Stack Hub angemeldete Dienstprinzipalidentität. Da das Skript für seine Aufgaben Azure Stack Resource Manager-Ressourcen ermitteln und erstellen kann, müssen die Azure CLI und eine Dienstprinzipalidentität verwendet werden.
  - Benutzerkonto (Abonnement), in dem der Kubernetes-Cluster bereits in der Umgebung ausgewählt ist. 
 1. Laden Sie die neueste Version der Skript-tar-Datei auf Ihre Client-VM herunter, einen Computer mit Zugriff auf Ihren Kubernetes-Cluster oder derselbe Computer, den Sie zum Bereitstellen Ihres Clusters mit der AKS-Engine verwendet haben.
 

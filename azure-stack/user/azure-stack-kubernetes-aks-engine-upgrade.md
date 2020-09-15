@@ -3,16 +3,16 @@ title: Aktualisieren eines Kubernetes-Clusters in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie einen Kubernetes-Cluster in Azure Stack Hub aktualisieren.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 4dd690fe5dc88c3edce02a09d594f9728297b4c9
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: 7cfde51b5cfbdaf6d6ad752951ad4df3e4f95823
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920694"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89473043"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Aktualisieren eines Kubernetes-Clusters in Azure Stack Hub
 
@@ -50,11 +50,10 @@ In den folgenden Anweisungen werden die minimalen Schritte zum Ausführen des Up
 1. Sie müssen zunächst die Versionen bestimmen, die Sie für das Upgrade als Ziel festlegen können. Diese Version hängt von der Version ab, die Sie zurzeit verwenden, und verwenden Sie dann diesen Versionswert, um das Upgrade durchzuführen. Im aktuellen Update werden die Kubernetes-Versionen 1.14.7 und 1.15.10 unterstützt. Die verfügbaren Upgrades finden Sie in dieser Tabelle:
 
 | Aktuelle Version | Upgrade verfügbar |
-| --- | --- |
-|1.14.7 | 1.15.10 |
-|1.14.8 | 1.15.10 |
-|1.15.4 | 1.15.10 |
-|1.15.5 | 1.15.10 |
+| ------------------------- | ----------------------- |
+| 1.15.10 | 1.15.12 |
+| 1.15.12, 1.16.8, 1.16.9 | 1.16.14 |
+| 1.16.8, 1.16.9, 1.16.14 | 1.17.11 |
 
 Eine vollständige Zuordnung von AKS-Engine, AKS-Basisimage und Kubernetes-Versionen finden Sie unter [Unterstützte AKS-Engine-Versionen](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions).
 

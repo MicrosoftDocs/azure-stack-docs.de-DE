@@ -3,16 +3,16 @@ title: Verwenden von API-Versionsprofilen mit Python in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie API-Versionsprofile mit Python in Azure Stack Hub verwenden.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 09/03/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 42a00b997031850a61077ec59a92d5df5b6776ef
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 88c2ecd1448a210daddd1d7da34ffea03c67a6b1
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82835899"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448638"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Python in Azure Stack Hub
 
@@ -37,7 +37,7 @@ Das Python SDK unterstützt die folgenden API-Profile:
 
 ## <a name="install-the-azure-python-sdk"></a>Installieren des Azure Python SDK
 
-1. Installieren Sie Git über die [offizielle Website](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. [Git installieren](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 2. Eine Anleitung zum Installieren des Python SDK finden Sie unter [Azure für Python-Entwickler](/python/azure/python-sdk-azure-install?view=azure-python).
 3. Erstellen Sie ein Abonnement, wenn keins verfügbar ist, und speichern Sie die Abonnement-ID zur späteren Verwendung. Anweisungen zum Erstellen eines Abonnements finden Sie unter [Erstellen von Abonnements für Angebote in Azure Stack Hub](../operator/azure-stack-subscribe-plan-provision-vm.md).
 4. Erstellen Sie einen Dienstprinzipal, und speichern Sie die ID und das Geheimnis. Eine Anleitung zum Erstellen eines Dienstprinzipals für Azure Stack Hub finden Sie unter [Bereitstellen des Anwendungszugriffs auf Azure Stack Hub](../operator/azure-stack-create-service-principals.md).

@@ -3,16 +3,16 @@ title: 'Azure Stack Hub: Versionshinweise'
 description: Versionshinweise für integrierte Azure Stack Hub-Systeme, einschließlich Updates und Fehlerbehebungen.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/04/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 14d41d920d9a91744c5cfa05d2d252a68146b4d1
-ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
+ms.openlocfilehash: 73cf9222b445164063c3dccfb1beb400913cea3e
+ms.sourcegitcommit: 50e2a81b255847fbd6288c70d60e7a080da372e9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89410938"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89557478"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -156,7 +156,7 @@ Ab Release 2005 werden bei der Aktualisierung auf eine neue Hauptversion (z. B
 
 Wenn nach der Installation des Updates 2005 Hotfixes für 2005 veröffentlicht werden, sollten Sie sie installieren:
 
-- Es ist kein Azure Stack Hub-Hotfix für 2005 verfügbar.
+- [Azure Stack Hub-Hotfix 1.2005.12.66](https://support.microsoft.com/help/4580968)
 ::: moniker-end
 
 ::: moniker range="azs-2002"

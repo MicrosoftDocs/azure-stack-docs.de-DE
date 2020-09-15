@@ -3,16 +3,16 @@ title: Hinzufügen von Knoten einer Skalierungseinheit in Azure Stack Hub
 description: Erfahren Sie, wie Sie Knoten einer Skalierungseinheit in Azure Stack Hub zu Skalierungseinheiten hinzufügen.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/03/2020
+ms.date: 09/09/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 08/03/2020
-ms.openlocfilehash: cc9023e6f7653d13d11a0a63cb65c59840f64ab7
-ms.sourcegitcommit: 952d26ad08fcc28ad3ad83e27644e61497623a44
+ms.openlocfilehash: bf1cbd3dc999a90fb53ef30b48dc6f06e82f4d5a
+ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87889244"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621298"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Hinzufügen zusätzlicher Knoten einer Skalierungseinheit in Azure Stack Hub
 
@@ -27,14 +27,14 @@ Das folgende Flussdiagramm zeigt den allgemeinen Prozess des Hinzufügens eines 
 
 Das Hinzufügen eines neuen Knotens kann mehrere Stunden oder Tage dauern. Es gibt keine Auswirkungen auf Workloads, die auf dem System ausgeführt werden, während ein zusätzlicher Skalierungseinheitknoten hinzugefügt wird.
 
-> [!Note]  
+> [!NOTE]  
 > Führen Sie keinen der folgenden Vorgänge durch, während bereits ein Vorgang zum Hinzufügen eines Knotens zu einer Skalierungseinheit ausgeführt wird:
 >
 >  - Aktualisieren von Azure Stack Hub
 >  - Rotieren von Zertifikaten
 >  - Beenden von Azure Stack Hub
 >  - Reparieren von Skalierungseinheitknoten
-
+>  - Einen weiteren Knoten hinzufügen (der vorherige Fehler bei der Aktion zum Hinzufügen eines Knotens wird auch als in Bearbeitung angesehen)
 
 ## <a name="add-scale-unit-nodes"></a>Hinzufügen von Skalierungseinheitknoten
 

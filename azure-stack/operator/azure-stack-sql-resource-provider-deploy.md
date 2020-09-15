@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 0c91d214ba35a3bda98da05e2e7359c45707d760
-ms.sourcegitcommit: 09fbc4e8fc53828647d515bfb556dfe42df28c19
+ms.openlocfilehash: 5b38c407b6e4aba60b0c810ffad4db531627820f
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86419095"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89472975"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Bereitstellen des SQL Server-Ressourcenanbieters in Azure Stack Hub
 
@@ -30,18 +30,13 @@ Damit Sie den Azure Stack Hub-SQL-Ressourcenanbieter bereitstellen können, müs
 
 - Fügen Sie dem Azure Stack Hub-Marketplace die erforderliche Windows Server Core-VM hinzu, indem Sie das Image **Windows Server 2016 Datacenter – Server Core** herunterladen.
 
-- Laden Sie die Binärdatei des SQL-Ressourcenanbieters herunter, und führen Sie dann den Self-Extractor aus, um den Inhalt in ein temporäres Verzeichnis zu extrahieren. Der Ressourcenanbieter verfügt über einen entsprechenden Minimalbuild für Azure Stack Hub.
+- Laden Sie die unterstützte Version des SQL-Ressourcenanbieters in binärer Form gemäß der Versionszuordnungstabelle unten herunter. Führen Sie das selbstextrahierende Programm aus, um die heruntergeladenen Inhalte in ein temporäres Verzeichnis zu extrahieren. 
 
-  |Azure Stack Hub-Mindestversion|SQL RP Version|
+  |Unterstützte Azure Stack Hub-Version|SQL RP Version|
   |-----|-----|
-  |Version 1910 (1.1910.0.58)|[SQL RP Version 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
-  |Version 1808 (1.1808.0.97)|[SQL RP Version 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
-  |Version 1808 (1.1808.0.97)|[SQL RP Version 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|  
-  |Version 1804 (1.0.180513.1)|[SQL RP Version 1.1.24.0](https://aka.ms/azurestacksqlrp11240)  
+  |2005, 2002, 1910|[SQL RP Version 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
+  |1908|[SQL RP Version 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
   |     |     |
-
-> [!IMPORTANT]
-> Vor dem Bereitstellen der Version 1.1.47.0 des SQL-Ressourcenanbieters muss ein Upgrade des Azure Stack Hub-Systems auf Version 1910 oder höher ausgeführt werden. Version 1.1.47.0 des SQL-Ressourcenanbieters funktioniert unter früheren nicht unterstützten Azure Stack Hub-Versionen nicht.
 
 - Stellen Sie sicher, dass die Voraussetzungen der Datencenterintegration erfüllt sind:
 
@@ -62,8 +57,8 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
 
 2. Kopieren Sie dann die heruntergeladenen Pakete auf ein USB-Gerät.
