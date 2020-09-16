@@ -84,6 +84,8 @@
       items:
         - name: Registrieren von Windows Admin Center bei Azure
           href: manage/register-windows-admin-center.md
+        - name: Verwenden des Azure-Portals
+          href: manage/azure-portal.md
         - name: Überwachung mit Azure Monitor
           href: manage/azure-monitor.md
         - name: Von Azure Site Recovery
