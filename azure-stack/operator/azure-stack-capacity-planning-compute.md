@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: bd1c6674bd125546526c1588f98f5b0d17a57fef
-ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
+ms.openlocfilehash: 4577da446c11f1053372cdf3d6458cd7c90937be
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89410989"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742500"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub-Computekapazität
 
@@ -148,7 +148,7 @@ Resilienzreserve = 512 + 230,4 + 224 = 966,4 GB
 
 **A:** Führen Sie in **PowerShell-** den Befehl `test-azurestack -include AzsVmPlacement -debug` aus, wodurch eine Ausgabe wie die folgende generiert wird:
 
-    ```console
+```console
     Starting Test-AzureStack
     Launching AzsVmPlacement
      
@@ -162,7 +162,7 @@ Resilienzreserve = 512 + 230,4 + 224 = 966,4 GB
     LNV2-Node04     10       10          28            49               256             101              
     
     PASS : Azure Stack Scale Unit VM Placement Summary
-    ```
+```
 
 **F:** Meine Kapazität schwankt, obwohl sich die Anzahl bereitgestellter VMs in meiner Azure Stack Hub-Instanz nicht geändert hat. Warum?
 

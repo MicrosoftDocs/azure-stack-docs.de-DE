@@ -1,18 +1,18 @@
 ---
 title: Erneutes Bereitstellen des ASDK
 description: Erfahren Sie, wie Sie das Azure Stack Development Kit (ASDK) erneut bereitstellen.
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7e4c6668253e79a2fc04a6c4b0cf37c9025ccd3c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 55a35a509b4fe3fadbe9a58e705cc53cfd18a027
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695970"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572169"
 ---
 # <a name="redeploy-the-asdk"></a>Erneutes Bereitstellen des ASDK
 In diesem Artikel erfahren Sie, wie Sie das Azure Stack Development Kit (ASDK) in einer produktionsfremden Umgebung erneut bereitstellen. Da für das ASDK keine Upgrades unterstützt werden, müssen Sie es vollständig neu bereitstellen, um zu einer neueren Version zu wechseln. Sie können das ASDK auch dann erneut bereitstellen, wenn Sie von Grund auf neu beginnen möchten.
@@ -43,6 +43,7 @@ Verwenden Sie das Cmdlet **Remove-AzsRegistration**, um die Registrierungsressou
    Remove-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
+      -RegistrationName $RegistrationName
 
    # Remove the Azure Stack resource group
    Remove-AzureRmResourceGroup -Name azurestack -Force

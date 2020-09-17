@@ -1,18 +1,18 @@
 ---
 title: Anforderungen und Überlegungen zu ASDK
 description: In diesem Artikel werden die Hardware-, Software- und Umgebungsanforderungen für Azure Stack Development Kit (ASDK) erläutert.
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 05/13/2019
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: d9681a9245c856378a779a25ab3de2c051d97b0b
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: f74ffc103c53fa8cb1c317f42455c4063e1b0baa
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489843"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572101"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Anforderungen und Überlegungen zu ASDK
 
@@ -20,18 +20,16 @@ Stellen Sie vor der Bereitstellung des Azure Stack Development Kit (ASDK) sicher
 
 ## <a name="hardware"></a>Hardware
 
-| Komponente | Minimum | Empfohlen |
-| --- | --- | --- |
-| Laufwerke: Betriebssystem |1 Betriebssystem-Datenträger mit mindestens 200 GB verfügbarem Speicherplatz für die Systempartition (SSD oder HDD). |1 Betriebssystem-Datenträger mit mindestens 200 GB verfügbarem Speicherplatz für die Systempartition (SSD oder HDD). |
-| Laufwerke: Allgemeine Development Kit-Daten<sup>*</sup>  |4 Datenträger. Jeder Datenträger stellt eine Kapazität von mindestens 240GB bereit (SSD oder HDD). Alle verfügbaren Datenträger werden verwendet. |4 Datenträger. Jeder Datenträger stellt eine Kapazität von mindestens 400GB bereit (SSD oder HDD). Alle verfügbaren Datenträger werden verwendet. |
-| Compute: CPU |Dual-Socket: 16 physische Kerne (gesamt). |Dual-Socket: 20 physische Kerne (gesamt). |
-| Compute: Arbeitsspeicher |192 GB RAM. |256 GB RAM. |
-| Compute: BIOS |Hyper-V aktiviert (mit SLAT-Unterstützung). |Hyper-V aktiviert (mit SLAT-Unterstützung). |
-| Netzwerk: NIC |Windows Server 2012 R2-Zertifizierung. Keine speziellen Features erforderlich. | Windows Server 2012 R2-Zertifizierung. Keine speziellen Features erforderlich. |
-| HW-Logo-Zertifizierung |[Certified for Windows Server 2012 R2 (Zertifiziert für Windows Server 2012 R2)](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm). 
-|[Certified for Windows Server 2016 (Zertifiziert für Windows Server 2016)](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm). 
-|
-
+| Komponente                                             | Minimum                                                                                                 | Empfohlen                                                                                             |
+|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Laufwerke: Betriebssystem                         | 1 Betriebssystem-Datenträger mit mindestens 200 GB verfügbarem Speicherplatz für die Systempartition (SSD oder HDD).             | 1 Betriebssystem-Datenträger mit mindestens 200 GB verfügbarem Speicherplatz für die Systempartition (SSD oder HDD).                           |
+| Laufwerke: Allgemeine Development Kit-Daten<sup>*</sup> | 4 Datenträger. Jeder Datenträger stellt eine Kapazität von mindestens 240GB bereit (SSD oder HDD). Alle verfügbaren Datenträger werden verwendet. | 4 Datenträger. Jeder Datenträger stellt eine Kapazität von mindestens 400GB bereit (SSD oder HDD). Alle verfügbaren Datenträger werden verwendet. |
+| Compute: CPU                                          | Dual-Socket: 16 physische Kerne (gesamt).                                                                 | Dual-Socket: 20 physische Kerne (gesamt).                                                                 |
+| Compute: Arbeitsspeicher                                       | 192 GB RAM.                                                                                             | 256 GB RAM.                                                                                             |
+| Compute: BIOS                                         | Hyper-V aktiviert (mit SLAT-Unterstützung).                                                                    | Hyper-V aktiviert (mit SLAT-Unterstützung).                                                                    |
+| Netzwerk: NIC                                          | Windows Server 2012 R2-Zertifizierung. Keine speziellen Features erforderlich.                                 | Windows Server 2012 R2-Zertifizierung. Keine speziellen Features erforderlich.                                 |
+| HW-Logo-Zertifizierung                                 | [Certified for Windows Server 2012 R2 (Zertifiziert für Windows Server 2012 R2)](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm). | [Certified for Windows Server 2016 (Zertifiziert für Windows Server 2016)](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm).    |
+  
 <sup>*</sup> Sie benötigen mehr als diese empfohlene Kapazität, wenn Sie viele [Marketplace-Elemente](../operator/azure-stack-create-and-publish-marketplace-item.md) aus Azure hinzufügen möchten.
 
 ### <a name="hardware-notes"></a>Hinweise zur Hardware

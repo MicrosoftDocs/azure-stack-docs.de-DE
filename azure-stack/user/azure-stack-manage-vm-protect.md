@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 4fd1ebca5ab4f4a7eeec2c3d758ccb4aaead3d36
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 5634cd783a010f5aa45de88ba923dfe6a8378c4c
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567364"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742718"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Schutz von in Azure Stack Hub bereitgestellten VMsProtect VMs deployed on Azure Stack Hub
 
@@ -95,13 +95,13 @@ Wichtige Überlegungen zu Ihrer Azure Stack Hub-Bereitstellung:
 
 |     | Empfehlung | Kommentare |
 |-------------------------------------------------------------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Sicherung bzw. Wiederherstellung von VMs in einem bereits im Rechenzentrum bereitgestellten externen Sicherungsziel | Empfohlen | Nutzen Sie die vorhandene Sicherungsinfrastruktur und Ressourcen Ihres Betriebs. Passen Sie die Größe der Sicherungsinfrastruktur an, damit diese für den Schutz weiterer VM-Instanzen bereit ist. Stellen Sie sicher, dass sich die Sicherungsinfrastruktur nicht in der Nähe Ihrer Quelle befindet. Sie können VMs in der Azure Stack Hub-Quellinstanz, in einer sekundären Azure Stack Hub-Instanz oder in Azure wiederherstellen. |
-| Sicherung bzw. Wiederherstellung von VMs in einem für Azure Stack Hub dedizierten Sicherungsziel | Empfohlen | Sie können eine neue Sicherungsinfrastruktur erwerben oder eine dedizierte Sicherungsinfrastruktur für Azure Stack Hub bereitstellen. Stellen Sie sicher, dass sich die Sicherungsinfrastruktur nicht in der Nähe Ihrer Quelle befindet. Sie können VMs in der Azure Stack Hub-Quellinstanz, in einer sekundären Azure Stack Hub-Instanz oder in Azure wiederherstellen. |
-| Direkte Sicherung bzw. Wiederherstellung von VMs in einer globalen Azure-Umgebung oder bei einem vertrauenswürdige Dienstanbieter | Empfohlen | Solange Sie Ihre Datenschutz- und behördlichen Anforderungen erfüllen können, können Sie Ihre Sicherungen in einer globalen Azure-Umgebung oder bei einem vertrauenswürdigen Dienstanbieter speichern. Im Idealfall führt der Dienstanbieter auch Azure Stack Hub aus. In diesem Fall profitieren Sie bei der Wiederherstellung von einer konsistenten Erfahrung hinsichtlich des Betriebs. |
-| Replikation und Durchführung eines Failovers für VMs in einer separaten Azure Stack Hub-Instanz | Empfohlen | Bei einem Failover müssen Sie über eine zweite vollständig funktionsfähige Azure Stack Hub-Cloud verfügen, um längere App-Ausfallzeiten zu vermeiden. |
-| Direkte Replikation und Durchführung eines Failovers für VMs in Azure oder bei einem vertrauenswürdige Dienstanbieter | Empfohlen | Solange Sie Ihre Datenschutz- und behördlichen Anforderungen erfüllen können, können Sie Ihre Daten in einer globalen Azure-Umgebung oder bei einem vertrauenswürdigen Dienstanbieter replizieren. Im Idealfall führt der Dienstanbieter auch Azure Stack Hub aus. In diesem Fall profitieren Sie nach einem Failover von einer konsistenten Erfahrung hinsichtlich des Betriebs. |
-| Stellen Sie ein Sicherungsziel in der gleichen Azure Stack Hub-Instanz bereit, die auch als Host für die Anwendungen fungiert, die durch das gleiche Sicherungsziel geschützt werden. | Eigenständiges Ziel: Nicht empfohlen </br> Ziel mit externer Replikation von Sicherungsdaten: Empfohlen | Wenn Sie eine Sicherungsappliance in Azure Stack Hub bereitstellen, um die Betriebswiederherstellung zu optimieren, müssen Sie sicherstellen, dass alle Daten kontinuierlich an einen externen Sicherungsspeicherort kopiert werden. |
-| Bereitstellen einer physischen Sicherungsappliance im selben Rack, auf dem die Azure Stack Hub-Lösung installiert ist | Nicht unterstützt | Zurzeit können Sie keine anderen Geräte mit Top-of-Rack-Switches verbinden, die nicht Teil der ursprünglichen Lösung sind. |
+|**Sicherung bzw. Wiederherstellung von VMs in einem bereits im Rechenzentrum bereitgestellten externen Sicherungsziel**| Empfohlen | Nutzen Sie die vorhandene Sicherungsinfrastruktur und Ressourcen Ihres Betriebs. Passen Sie die Größe der Sicherungsinfrastruktur an, damit diese für den Schutz weiterer VM-Instanzen bereit ist. Stellen Sie sicher, dass sich die Sicherungsinfrastruktur nicht in der Nähe Ihrer Quelle befindet. Sie können VMs in der Azure Stack Hub-Quellinstanz, in einer sekundären Azure Stack Hub-Instanz oder in Azure wiederherstellen. |
+|**Sicherung bzw. Wiederherstellung von VMs in einem für Azure Stack Hub dedizierten Sicherungsziel**| Empfohlen | Sie können eine neue Sicherungsinfrastruktur erwerben oder eine dedizierte Sicherungsinfrastruktur für Azure Stack Hub bereitstellen. Stellen Sie sicher, dass sich die Sicherungsinfrastruktur nicht in der Nähe Ihrer Quelle befindet. Sie können VMs in der Azure Stack Hub-Quellinstanz, in einer sekundären Azure Stack Hub-Instanz oder in Azure wiederherstellen. |
+|**Direkte Sicherung bzw. Wiederherstellung von VMs in einer globalen Azure-Umgebung oder bei einem vertrauenswürdige Dienstanbieter**| Empfohlen | Solange Sie Ihre Datenschutz- und behördlichen Anforderungen erfüllen können, können Sie Ihre Sicherungen in einer globalen Azure-Umgebung oder bei einem vertrauenswürdigen Dienstanbieter speichern. Im Idealfall führt der Dienstanbieter auch Azure Stack Hub aus. In diesem Fall profitieren Sie bei der Wiederherstellung von einer konsistenten Erfahrung hinsichtlich des Betriebs. |
+|**Replikation und Durchführung eines Failovers für VMs in einer separaten Azure Stack Hub-Instanz**| Empfohlen | Bei einem Failover müssen Sie über eine zweite vollständig funktionsfähige Azure Stack Hub-Cloud verfügen, um längere App-Ausfallzeiten zu vermeiden. |
+|**Direkte Replikation und Durchführung eines Failovers für VMs in Azure oder bei einem vertrauenswürdige Dienstanbieter**| Empfohlen | Solange Sie Ihre Datenschutz- und behördlichen Anforderungen erfüllen können, können Sie Ihre Daten in einer globalen Azure-Umgebung oder bei einem vertrauenswürdigen Dienstanbieter replizieren. Im Idealfall führt der Dienstanbieter auch Azure Stack Hub aus. In diesem Fall profitieren Sie nach einem Failover von einer konsistenten Erfahrung hinsichtlich des Betriebs. |
+|**Stellen Sie ein Sicherungsziel in der gleichen Azure Stack Hub-Instanz bereit, die auch als Host für die Anwendungen fungiert, die durch das gleiche Sicherungsziel geschützt werden.**| Eigenständiges Ziel: Nicht empfohlen </br> Ziel mit externer Replikation von Sicherungsdaten: Empfohlen | Wenn Sie eine Sicherungsappliance in Azure Stack Hub bereitstellen, um die Betriebswiederherstellung zu optimieren, müssen Sie sicherstellen, dass alle Daten kontinuierlich an einen externen Sicherungsspeicherort kopiert werden. |
+|**Bereitstellen einer physischen Sicherungsappliance im selben Rack, auf dem die Azure Stack Hub-Lösung installiert ist**| Nicht unterstützt | Zurzeit können Sie keine anderen Geräte mit Top-of-Rack-Switches verbinden, die nicht Teil der ursprünglichen Lösung sind. |
 
 ## <a name="next-steps"></a>Nächste Schritte
 
