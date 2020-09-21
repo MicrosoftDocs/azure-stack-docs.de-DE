@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/01/2020
-ms.openlocfilehash: c53ef48ab191a831a981c0a0c91b59efa766c948
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: a1283982ba04acd8de0b54c02fbc0bb88da9ebc6
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364710"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742295"
 ---
 # <a name="choose-drives-for-azure-stack-hci"></a>Auswählen von Laufwerken für Azure Stack HCI
 
@@ -43,7 +43,7 @@ Wir empfehlen Ihnen die Nutzung von reinen Flash-Bereitstellungen, um eine vorhe
 
 Dazu gibt es verschiedene Möglichkeiten.
 
-![Optionen bei Nur-Flash-Bereitstellungen](media/choose-drives/All-Flash-Deployment-Possibilities.png)
+![Das Diagramm zeigt Bereitstellungsoptionen, einschließlich aller N V M e für Kapazität, N V M e für Cache mit S S D für Kapazität und aller S S D für Kapazität.](media/choose-drives/All-Flash-Deployment-Possibilities.png)
 
 1. **Nur NVMe:** Die Verwendung einer reinen NVMe-Bereitstellung ermöglicht eine unvergleichlich hohe Leistung und eine geringe Latenz mit bestmöglicher Vorhersagbarkeit. Wenn Sie für Ihre gesamten Laufwerke das gleiche Modell nutzen, ist kein Cache vorhanden. Sie können auch NVMe-Modelle mit längerer und kürzerer Lebensdauer mischen und festlegen, dass Erstere die Schreibvorgänge für Letztere zwischenspeichern ([Einrichtung erforderlich](/windows-server/storage/storage-spaces/understand-the-cache#manual-configuration)).
 
@@ -58,7 +58,7 @@ Dazu gibt es verschiedene Möglichkeiten.
 
 Für Umgebungen mit einer Vielzahl von Anwendungen und Workloads, für die teilweise strenge Leistungsanforderungen gelten und teilweise beträchtliche Speicherkapazität benötigt wird, sollten Sie einen Hybridansatz wählen, bei dem entweder mit NVMe-Laufwerken oder SSDs die Zwischenspeicherung für größere HDDs durchgeführt wird.
 
-![Optionen bei Hybridbereitstellungen](media/choose-drives/Hybrid-Deployment-Possibilities.png)
+![Das Diagramm zeigt Bereitstellungsmöglichkeiten, einschließlich N V M e für Cache mit H D D für Kapazität, S S D für Cache mit H D D für Kapazität, und N V M E für Cache mit gemischten S S D und H D D für Kapazität.](media/choose-drives/Hybrid-Deployment-Possibilities.png)
 
 1. **NVMe und HDDs:** Mit den NVMe-Laufwerken werden Lese- und Schreibvorgänge beschleunigt, indem beide zwischengespeichert werden. Die Zwischenspeicherung von Lesevorgängen ermöglicht den HDDs die Konzentration auf Schreibvorgänge. Mit der Zwischenspeicherung von Schreibvorgängen werden Bursts absorbiert, und Schreibvorgänge können zusammengefasst werden, bis bei Bedarf das De-Staging durchgeführt wird. Dies erfolgt auf künstlich serialisierte Weise, um den IOPS- und E/A-Durchsatz für HDDs zu maximieren. So können NVMe-ähnliche Schreibeigenschaften und – für häufig oder kürzlich gelesene Daten – auch NVMe-ähnliche Leseeigenschaften erzielt werden.
 

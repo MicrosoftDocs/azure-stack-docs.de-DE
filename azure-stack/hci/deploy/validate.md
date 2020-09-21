@@ -1,16 +1,16 @@
 ---
 title: Überprüfen eines Azure Stack HCI-Clusters
-description: In diesem Artikel wird erläutert, warum die Validierung von Clustern so wichtig ist und wann diese für einen vorhandenen Azure Stack HCI-Cluster ausgeführt werden sollte. Der Artikel enthält Validierungsszenarien zur Problembehandlung eines aktualisierten Serverclusters.
+description: Grundlegendes zur Wichtigkeit der Validierung von Clustern und dem Zeitpunkt, wann diese für einen vorhandenen Azure Stack HCI-Cluster ausgeführt werden sollte. Erkunden Sie Szenarien zur Problembehandlung eines aktualisierten Serverclusters.
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 8ef7364a15241fcfdf7dcd8af984227a30ac28f5
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.openlocfilehash: 8a096af308901669def134e0dd281490c5ed0294
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947587"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572084"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>Überprüfen eines Azure Stack HCI-Clusters
 

@@ -1,17 +1,17 @@
 ---
-title: Verwalten von Azure Stack HCI-Clustern mit Windows Admin Center
+title: Verwalten von Azure Stack HCI-Clustern – Windows Admin Center
 description: Hier erfahren Sie, wie Sie mithilfe von Windows Admin Center Ihre Cluster in Azure Stack HCI verwalten.
 ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
 ms.date: 07/21/2020
-ms.openlocfilehash: ef528e23c9b6de9df0a6f5ea399e3337960dabf2
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.openlocfilehash: d1b8556908da268bbd99c7aa9341128c9dc5be36
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947553"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573784"
 ---
 # <a name="manage-azure-stack-hci-clusters-using-windows-admin-center"></a>Verwalten von Azure Stack HCI-Clustern mit Windows Admin Center
 
@@ -42,8 +42,8 @@ Wählen Sie zum Anzeigen dieser Informationen unter **Alle Verbindungen** den Cl
 
 Es gibt zwei Einstellungen im Zusammenhang mit „Direkte Speicherplätze“, die Sie ändern und die auf Ihren Cluster angewendet werden können.
 
-1. Klicken Sie in Windows Admin Center beim oberen Dropdownpfeil auf **Cluster-Manager**.
-1. Klicken Sie unter **Tools** am unteren Rand auf **Einstellungen**.
+1. Wählen Sie in der oberen Dropdownliste in Windows Admin Center die Option **Cluster-Manager** aus.
+1. Wählen Sie unter **Tools** am unteren Rand **Einstellungen** aus.
 1. Wählen Sie zum Konfigurieren des Speichercache die Option **Direkte Speicherplätze** aus, und konfigurieren Sie dann die folgenden Einstellungen:
 
    - Wählen Sie unter **Persistent cache** (Persistenter Cache) entweder **Aktiviert** oder **Deaktiviert** aus.
@@ -62,8 +62,8 @@ Es gibt zwei Einstellungen im Zusammenhang mit „Direkte Speicherplätze“, di
 
 Es gibt fünf allgemeine Einstellungen, die auf Ihren Cluster angewendet werden können. Hier können Sie Zugriffspunkte, das Verhalten beim Herunterfahren von Knoten, die Verschlüsselung von Datenverkehr, den VM-Lastenausgleich und den Clusterzeugen festlegen und verwalten.
 
-1. Klicken Sie in Windows Admin Center beim oberen Dropdownpfeil auf **Cluster-Manager**.
-1. Klicken Sie unter **Tools** auf **Einstellungen**.
+1. Wählen Sie in der oberen Dropdownliste in Windows Admin Center die Option **Cluster-Manager** aus.
+1. Wählen Sie unter **Extras** die Option **Einstellungen** aus.
 1. Wählen Sie zum Ändern des Clusternamens **Zugriffspunkt** aus, und geben Sie den neuen Namen ein.
 
     :::image type="content" source="media/manage-cluster/cluster-settings-access.png" alt-text="Szenario mit einem aktiv-aktiven Stretchingcluster" lightbox="media/manage-cluster/cluster-settings-access.png":::
@@ -103,8 +103,8 @@ Es gibt fünf allgemeine Einstellungen, die auf Ihren Cluster angewendet werden 
 
 Es gibt fünf Hyper-V-Hosteinstellungen, die auf Ihren Cluster angewendet werden können.
 
-1. Klicken Sie in Windows Admin Center beim oberen Dropdownpfeil auf **Cluster-Manager**.
-1. Klicken Sie unter **Tools** auf **Einstellungen**.
+1. Wählen Sie in der oberen Dropdownliste in Windows Admin Center die Option **Cluster-Manager** aus.
+1. Wählen Sie unter **Extras** die Option **Einstellungen** aus.
 1. Wählen Sie **Allgemein** aus, und verwenden Sie dann die folgenden Einstellungen:
 
    - **Virtual Hard Disks Path** (Pfad der virtuellen Festplatten): Geben Sie den Standardordner zum Speichern von VHD-Dateien an.

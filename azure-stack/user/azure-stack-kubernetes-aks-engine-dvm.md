@@ -1,5 +1,5 @@
 ---
-title: Verschieben Ihres Marketplace-Elementclusters in die AKS-Engine in Azure Stack Hub
+title: Verschieben eines Marketplace-Elementclusters in die AKS-Engine in Azure Stack Hub
 description: Erfahren Sie, wie Sie Ihren Marketplace-Elementcluster in Azure Stack Hub in die AKS-Engine verschieben.
 author: mattbriggs
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 73bfbe52447f726e7ab316661556a44fe94713b8
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: f80be3811f24a8ee2677543d2229f99f335d9eb3
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473189"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573937"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack-hub"></a>Verschieben Ihres Marketplace-Elementclusters in die AKS-Engine in Azure Stack Hub
 

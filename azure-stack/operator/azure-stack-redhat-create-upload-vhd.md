@@ -8,12 +8,12 @@ ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 8756b1fce06582411e321ab5015d6f14da43c6d1
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.openlocfilehash: 3ddc8a44d59a373f5dfe340860a5dcf195668cac
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089591"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742578"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Vorbereiten eines auf Red Hat basierenden virtuellen Computers für Azure Stack Hub
 
@@ -351,7 +351,7 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits eine ISO-Datei von 
         subscription-manager repos --enable=rhel-7-server-extras-rpms
         ```
 
-        1. Installieren Sie den Azure Linux-Agent, indem Sie den folgenden Befehl ausführen:
+    1. Installieren Sie den Azure Linux-Agent, indem die den folgenden Befehle ausführen:
 
         ```bash
         sudo yum install WALinuxAgent
@@ -552,17 +552,17 @@ In diesem Abschnitt wird davon ausgegangen, dass Sie bereits einen virtuellen RH
     
     1. Das WALinuxAgent-Paket `WALinuxAgent-<version>` wurde in das Red Hat Extras-Repository übertragen. Aktivieren Sie das Extras-Repository, indem Sie den folgenden Befehl ausführen:
 
-    ```bash
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-    ```
+        ```bash
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+        ```
 
     1. Installieren Sie den Azure Linux-Agent, indem Sie den folgenden Befehl ausführen:
-
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
-        
+    
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
+Git        
 1. Erstellen Sie auf dem Betriebssystem-Datenträger keinen Auslagerungsbereich.
 
     Der Azure Linux-Agent kann den Auslagerungsbereich automatisch mit dem lokalen Ressourcendatenträger konfigurieren, der nach der Bereitstellung des virtuellen Computers in Azure an den virtuellen Computer angefügt wird. Beachten Sie, dass der lokale Ressourcendatenträger ein temporärer Datenträger ist und geleert werden kann, wenn die Bereitstellung der VM aufgehoben wird. Passen Sie nach dem Installieren des Azure Linux-Agents im vorherigen Schritt die folgenden Parameter in `/etc/waagent.conf` entsprechend an:

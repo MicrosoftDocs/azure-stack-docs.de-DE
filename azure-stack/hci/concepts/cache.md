@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/04/2020
-ms.openlocfilehash: 573cbe36fefecdc37394270fbeec6540d4369991
-ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
+ms.openlocfilehash: 9a15b953ffe2229d7f92bea998392b8570f481de
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2020
-ms.locfileid: "89493868"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742523"
 ---
 # <a name="understanding-the-storage-pool-cache-in-azure-stack-hci"></a>Grundlegendes zum Speicherpoolcache in Azure Stack HCI
 
@@ -42,13 +42,13 @@ Es gibt verschiedene Möglichkeiten, diese Speichergeräte zu kombinieren. Wir v
 
 Bei Nur-Flash-Bereitstellungen wird die Speicherleistung maximiert, und es sind keine rotierenden Festplattenlaufwerke (HDD) vorhanden.
 
-![Optionen bei Nur-Flash-Bereitstellungen](media/cache/All-Flash-Deployment-Possibilities.png)
+![Das Diagramm zeigt Nur-Flash-Bereitstellungen, einschließlich N V M e für Kapazität, N V M e für Cache mit S S D für Kapazität und S S D für Kapazität.](media/cache/All-Flash-Deployment-Possibilities.png)
 
 ### <a name="hybrid-deployment-possibilities"></a>Optionen bei Hybridbereitstellungen
 
 Bei Hybridbereitstellungen soll eine Balance zwischen Leistung und Kapazität erzielt oder die Kapazität maximiert werden, und es werden rotierende Festplattenlaufwerke (HDD) verwendet.
 
-![Optionen bei Hybridbereitstellungen](media/cache/Hybrid-Deployment-Possibilities.png)
+![Das Diagramm zeigt Hybridbereitstellungen, einschließlich N V M e für Cache mit H D D für Kapazität, S S D für Cache mit H D D für Kapazität, und N V M E für Cache mit H D D plus S S D für Kapazität.](media/cache/Hybrid-Deployment-Possibilities.png)
 
 ## <a name="cache-drives-are-selected-automatically"></a>Cachelaufwerke werden automatisch ausgewählt
 
@@ -56,7 +56,7 @@ Bei Bereitstellungen mit mehreren Laufwerkstypen werden von Azure Stack HCI auto
 
 Welche Laufwerke am schnellsten sind, wird anhand der folgenden Hierarchie ermittelt.
 
-![Laufwerkstyphierarchie](media/cache/Drive-Type-Hierarchy.png)
+![Das Diagramm zeigt Datenträgertypen, die von schneller zu langsamer in der Reihenfolge N V M e, S S D und nicht beschrifteter Datenträger, der H D D darstellt, angeordnet sind.](media/cache/Drive-Type-Hierarchy.png)
 
 Wenn Sie beispielsweise über NVMe-Laufwerke und SSDs verfügen, wird auf den NVMe-Laufwerken die Zwischenspeicherung für die SSDs durchgeführt.
 
@@ -74,7 +74,7 @@ Wenn alle Laufwerke denselben Typ haben, wird nicht automatisch ein Cache konfig
 
 Das Verhalten des Caches wird automatisch anhand des Typs von Laufwerken ermittelt, für die die Zwischenspeicherung durchgeführt wird. Bei der Zwischenspeicherung für SSD-Datenträger (z. B. NVMe-Zwischenspeicherung für SSDs) werden nur Schreibvorgänge zwischengespeichert. Bei der Zwischenspeicherung für Festplattenlaufwerke (z. B. auf SSDs für HDDs) werden sowohl Lese- als auch Schreibvorgänge zwischengespeichert.
 
-![Cacheverhalten für Lese-/Schreibvorgänge](media/cache/Cache-Read-Write-Behavior.png)
+![Ein Diagramm, in dem Zwischenspeichern für Nur-Flash verglichen wird, wobei Schreibvorgänge zwischengespeichert werden, Lesevorgänge aber nicht, mit Hybrid, wobei sowohl Lese- als auch Schreibvorgänge zwischengespeichert werden.](media/cache/Cache-Read-Write-Behavior.png)
 
 ### <a name="write-only-caching-for-all-flash-deployments"></a>Lesegeschützte Zwischenspeicherung für reine Flash-Bereitstellungen
 
@@ -115,7 +115,7 @@ Da sich der Cache unterhalb der restlichen Elemente des per Software definierten
 
 Da die Resilienz bei Azure Stack HCI mindestens auf der Serverebene angeordnet ist (Datenkopien werden immer auf andere Server geschrieben, und es wird maximal eine Kopie pro Server erstellt), profitieren Daten im Cache von der gleichen Resilienz wie Daten außerhalb des Caches.
 
-![Serverseitige Cachearchitektur](media/cache/Cache-Server-Side-Architecture.png)
+![Ein Diagramm, das drei Server darstellt, die durch eine Drei-Wege-Spiegelung in einer Speicherplatzebene verknüpft sind, die auf eine Cacheebene mit N V M e-Laufwerken zugreift, die auf nicht bezeichnete Kapazitätslaufwerke zugreifen.](media/cache/Cache-Server-Side-Architecture.png)
 
 Bei Verwendung der Drei-Wege-Spiegelung werden drei Kopien aller Daten auf unterschiedliche Server geschrieben, auf denen sie dann im Cache angeordnet werden. Unabhängig davon, ob dafür später das De-Staging durchgeführt wird, sind immer drei Kopien vorhanden.
 
@@ -123,7 +123,7 @@ Bei Verwendung der Drei-Wege-Spiegelung werden drei Kopien aller Daten auf unter
 
 Die Bindung zwischen Cache- und Kapazitätslaufwerken kann ein beliebiges Verhältnis von 1:1 bis 1:12 oder höher aufweisen. Dieses Verhältnis wird jeweils dynamisch angepasst, wenn Laufwerke hinzugefügt oder entfernt werden, z. B. beim zentralen Hochskalieren oder nach Ausfällen. Dies bedeutet, dass Sie Cache- oder Kapazitätslaufwerke jederzeit einzeln hinzufügen können.
 
-![Dynamische Bindung](media/cache/Dynamic-Binding.gif)
+![Ein animiertes Diagramm, das zwei N V M e-Cachelaufwerke zeigt, die zuerst vier, dann sechs und schließlich acht Kapazitätslaufwerken dynamisch zugeordnet werden.](media/cache/Dynamic-Binding.gif)
 
 Wir empfehlen Ihnen, aus Symmetriegründen als Anzahl von Kapazitätslaufwerken ein Vielfaches der Anzahl von Cachelaufwerken zu wählen. Wenn Sie beispielsweise über vier Cachelaufwerke verfügen, ist die Leistung bei Verwendung von acht Kapazitätslaufwerken ausgeglichener (Verhältnis 1:2) als bei Verwendung von sieben oder neun Laufwerken.
 
@@ -135,7 +135,7 @@ Für kurze Zeit werden die Kapazitätslaufwerke, die an das ausgefallene Cachela
 
 Dieses Szenario ist der Grund, warum mindestens zwei Cachelaufwerke pro Server benötigt werden, um die Leistung aufrechtzuerhalten.
 
-![Vorgehensweise bei Ausfällen](media/cache/Handling-Failure.gif)
+![Ein animiertes Diagramm, das zwei S S D-Cachelaufwerke zeigt, die sechs Kapazitätslaufwerken zugeordnet sind, bis ein Cachelaufwerk ausfällt, was bewirkt, dass alle sechs Laufwerke dem verbleibenden Cachelaufwerk zugeordnet werden.](media/cache/Handling-Failure.gif)
 
 Sie können das Cachelaufwerk dann genau wie alle anderen Laufwerke austauschen.
 
@@ -194,7 +194,7 @@ Sie können überprüfen, ob die gewünschten Laufwerke für die Zwischenspeiche
 
 Bei der manuellen Konfiguration haben Sie die folgenden Bereitstellungsoptionen:
 
-![Ungewöhnliche Bereitstellungsoptionen](media/cache/Exotic-Deployment-Possibilities.png)
+![Das Diagramm zeigt Bereitstellungsmöglichkeiten, einschließlich N V M e für Cache als auch für Kapazität, S S D für Cache und Kapazität und S S D für Cache sowie gemischte S S D und H D D für Kapazität.](media/cache/Exotic-Deployment-Possibilities.png)
 
 ### <a name="set-cache-behavior"></a>Festlegen des Cacheverhaltens
 

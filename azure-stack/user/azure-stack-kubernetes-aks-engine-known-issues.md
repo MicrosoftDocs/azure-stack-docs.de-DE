@@ -3,20 +3,27 @@ title: Bekannte Probleme mit der AKS-Engine auf Azure Stack Hub
 description: Informationen zu bekannten Probleme bei Verwendung der AKS-Engine auf Azure Stack Hub
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/11/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 106aafd33441c2961cf933606cc8f48cbe4fc60d
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.lastreviewed: 09/11/2020
+ms.openlocfilehash: 685cf02aed8e6e485d596531c37653f496a4bc5f
+ms.sourcegitcommit: a845ae0d3794b5d845b2ae712baa7e38f3011a7b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473211"
+ms.lasthandoff: 09/12/2020
+ms.locfileid: "90045277"
 ---
 # <a name="known-issues-with-the-aks-engine-on-azure-stack-hub"></a>Bekannte Probleme mit der AKS-Engine auf Azure Stack Hub
 
 In diesem Thema werden bekannte Probleme der AKS-Engine auf Azure Stack Hub behandelt.
+
+## <a name="disk-detach-operation-fails-in-aks-engine-0550"></a>Fehler beim Trennen des Datenträgers in der AKS-Engine 0.55.0
+
+- **Geltungsbereich**: Azure Stack Hub (Update 2005), AKS-Engine 0.55.0
+- **Beschreibung**: Wenn Sie versuchen, eine Bereitstellung zu löschen, die Persistenzvolumes enthält, löst der Löschvorgang eine Reihe von Fehlern beim Anfügen/Trennen aus. Der Grund hierfür ist ein Fehler im Cloudanbieter der AKS-Engine v0.55.0. Der Cloudanbieter ruft den Azure Resource Manager unter Verwendung einer Version der API auf, die neuer ist als die, die aktuell von Azure Resource Manager in Azure Stack Hub unterstützt (Update 2005) wird.
+- **Abhilfe**: Die Details und Korrekturschritte finden Sie im [GitHub-Repository der AKS-Engine (Issue 3817)](https://github.com/Azure/aks-engine/issues/3817#issuecomment-691329443). Führen Sie ein Upgrade durch, sobald ein neuer Build der AKS-Engine und das entsprechende Image verfügbar sind.
+- **Häufigkeit**: Beim Löschen einer Bereitstellung, die Persistenzvolumes enthält.
 
 ## <a name="upgrade-issues-in-aks-engine-0510"></a>Upgradeprobleme in AKS Engine 0.51.0
 

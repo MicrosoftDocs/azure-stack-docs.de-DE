@@ -1,18 +1,18 @@
 ---
 title: Automatisieren von VM-Aktualisierung und -Verwaltung in Azure Stack Hub
-description: Erfahren Sie, wie Sie Azure Monitor für VMs, Updateverwaltung, Änderungsnachverfolgung und Bestandslösungen in Azure Automation verwenden, um in Azure Stack Hub bereitgestellte Windows- und Linux-VMs zu verwalten.
+description: Verwenden von Azure Monitor für VMs, Updateverwaltung, Änderungsnachverfolgung und Bestandslösungen in Azure Automation, um in Azure Stack Hub bereitgestellte Windows- und Linux-VMs zu verwalten.
 author: mattbriggs
 ms.topic: article
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 4cec3da680072323d979aac7bbd6dfbbf7f37b22
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: f0d1ecb2f5ad2313894cb15998f43f2bfd257c77
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965193"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572441"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatisieren von VM-Aktualisierung und -Verwaltung in Azure Stack Hub
 Verwenden Sie die folgenden Features der Azure Automation-Lösung, um Windows- und Linux-VMs zu verwalten, die mit Azure Stack Hub bereitgestellt werden:

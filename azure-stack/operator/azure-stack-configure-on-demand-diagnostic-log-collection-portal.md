@@ -1,18 +1,18 @@
 ---
 title: Sofortiges Senden von Azure Stack Hub-Diagnoseprotokollen
 description: Hier wird beschrieben, wie Sie in Azure Stack Hub mithilfe des Administratorportals oder eines PowerShell-Skripts Diagnoseprotokolle bedarfsgesteuert sammeln.
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 08/24/2020
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: shisab
 ms.lastreviewed: 08/24/2020
-ms.openlocfilehash: abcf70b6d714f9a759aeaa9a7f591a60e195594f
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 3d4725a832aa1ba88c0ecc5e2b435696cba3bbcd
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764646"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573155"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>Sofortiges Senden von Azure Stack Hub-Diagnoseprotokollen
 
@@ -47,7 +47,7 @@ Sie können Protokolle in einer lokalen SMB-Freigabe speichern, wenn Azure Stack
 Zur Behandlung eines Problems fordert der Microsoft-Support einen Azure Stack Hub-Operator möglicherweise auf, bei Bedarf Diagnoseprotokolle für ein bestimmtes Zeitfenster aus der vorangegangenen Woche zu erfassen. In diesem Fall stellt der Microsoft-Support dem Operator eine SAS-URL zum Hochladen der Sammlung zur Verfügung. 
 Führen Sie die folgenden Schritte aus, um die bedarfsgesteuerte Protokollsammlung mithilfe der SAS-URL vom Microsoft-Support zu konfigurieren:
 
-1. Öffnen Sie **Hilfe und Support – Übersicht**, und klicken Sie auf **Protokolle jetzt sammeln**. 
+1. Öffnen Sie **Hilfe und Support > Protokollsammlung > Protokolle jetzt sammeln**. 
 1. Wählen Sie ein beliebiges gleitendes Fenster von 1–4 Stunden in den letzten sieben Tagen aus. 
 1. Wählen Sie die lokale Zeitzone aus.
 1. Geben Sie die vom Microsoft-Support bereitgestellte SAS-URL ein.

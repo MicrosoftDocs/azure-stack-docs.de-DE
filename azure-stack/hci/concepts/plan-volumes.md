@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: c40d1ca54bfe71088b18413371b90bd26f8b7386
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 49124c0112d2ecba8c621520cfb1b6c293418401
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250451"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742537"
 ---
 # <a name="plan-volumes-in-azure-stack-hci"></a>Planen von Volumes in Azure Stack HCI
 
@@ -25,11 +25,11 @@ In Volumes ordnen Sie die Dateien an, die von Ihren Workloads benötigt werden, 
    >[!NOTE]
    > In der gesamten Dokumentation für „Direkte Speicherplätze“ verwenden wir den Begriff „Volume“, um sowohl auf das Volume als auch auf den zugrunde liegenden virtuellen Datenträger zu verweisen – einschließlich der Funktionalität, die von anderen integrierten Windows-Features, z. B. freigegebenen Clustervolumes (Cluster Shared Volumes, CSV) und ReFS, bereitgestellt wird. Eine genaue Kenntnis dieser Unterschiede auf Implementierungsebene ist nicht erforderlich, um „Direkte Speicherplätze“ erfolgreich planen und bereitstellen zu können.
 
-![what-are-volumes](media/plan-volumes/what-are-volumes.png)
+![Das Diagramm zeigt drei als Volumes beschriftete Ordner, die jeweils einem virtuellen Datenträger zugeordnet sind, der als Volumes bezeichnet ist, und alle sind einem gemeinsamen Speicherpool von Datenträgern zugeordnet.](media/plan-volumes/what-are-volumes.png)
 
 Auf alle Volumes kann von allen Servern des Clusters gleichzeitig zugegriffen werden. Nach der Erstellung werden sie auf allen Servern unter **C:\ClusterStorage\\** angezeigt.
 
-![csv-folder-screenshot](media/plan-volumes/csv-folder-screenshot.png)
+![Bildschirmaufnahme, die ein Datei-Explorer-Fenster mit dem Titel „ClusterStorage“ zeigt, das Volumes mit den Namen „Volume1“, „Volume2“ und „Volume3“ enthält.](media/plan-volumes/csv-folder-screenshot.png)
 
 ## <a name="choosing-how-many-volumes-to-create"></a>Auswählen der Anzahl zu erstellender Volumes
 
@@ -59,17 +59,17 @@ Bei zwei Servern im Cluster können Sie die Zwei-Wege-Spiegelung oder die gescha
 
 Bei der Zwei-Wege-Spiegelung werden zwei Kopien aller Daten beibehalten (eine Kopie auf dem Laufwerk jedes Servers). Die Speichereffizienz beträgt hierbei 50 %. Zum Schreiben von 1 TB an Daten benötigen Sie mindestens 2 TB an physischer Speicherkapazität im Speicherpool. Bei der Zwei-Wege-Spiegelung kann jeweils problemlos ein Hardwarefehler toleriert werden (ein Server oder Laufwerk).
 
-![Zwei-Wege-Spiegelung](media/plan-volumes/two-way-mirror.png)
+![Ein Diagramm, das Volumes mit der Bezeichnung „Daten“ und „Kopie“ zeigt, die durch kreisförmige Pfeile verbunden sind; außerdem sind beide Volumes einer Bank von Datenträgern auf Servern zugeordnet.](media/plan-volumes/two-way-mirror.png)
 
 Die geschachtelte Resilienz sorgt für Datenresilienz zwischen Servern mit Zwei-Wege-Spiegelung und fügt dann Resilienz auf einem Server mit Zwei-Wege-Spiegelung oder Parität mit Beschleunigung per Spiegelung hinzu. Die Schachtelung ermöglicht auch dann Datenresilienz, wenn ein Server neu gestartet wird oder nicht verfügbar ist. Hierbei beträgt die Speichereffizienz für die geschachtelte Zwei-Wege-Spiegelung 25 % und ca. 35 - 40 % für die geschachtelte Parität mit Beschleunigung per Spiegelung. Bei der geschachtelten Resilienz können jeweils zwei Hardwarefehler toleriert werden (zwei Laufwerke oder ein Server und ein Laufwerk auf dem verbleibenden Server). Aufgrund dieser zusätzlichen Datenresilienz empfiehlt sich die Verwendung der geschachtelten Resilienz in Produktionsbereitstellungen mit Clustern aus zwei Servern. Weitere Informationen finden Sie unter [Geschachtelte Resilienz](/windows-server/storage/storage-spaces/nested-resiliency).
 
-![Geschachtelte Parität mit Beschleunigung per Spiegelung](media/plan-volumes/nested-mirror-accelerated-parity.png)
+![Ein Diagramm, das eine geschachtelte Spiegelung mit beschleunigter Parität mit einer bidirektionalen Spiegelung zwischen Servern zeigt, die einer bidirektionalen Spiegelung innerhalb jedes Servers zugeordnet ist, entsprechend einer Paritätsebene innerhalb der einzelnen Server.](media/plan-volumes/nested-mirror-accelerated-parity.png)
 
 ### <a name="with-three-servers"></a>Mit drei Servern
 
 Bei drei Servern sollten Sie die Drei-Wege-Spiegelung verwenden, um eine bessere Fehlertoleranz und Leistung zu erzielen. Bei der Drei-Wege-Spiegelung werden drei Kopien aller Daten beibehalten (eine Kopie auf dem Laufwerk jedes Servers). Die Speichereffizienz beträgt hierbei 33,3 %. Zum Schreiben von 1 TB an Daten benötigen Sie mindestens 3 TB an physischer Speicherkapazität im Speicherpool. Bei der Drei-Wege-Spiegelung können [mindestens zwei gleichzeitige Hardwareprobleme (Laufwerk oder Server)](/windows-server/storage/storage-spaces/storage-spaces-fault-tolerance#examples) problemlos toleriert werden. Wenn zwei Knoten ausfallen, geht das Quorum für den Speicherpool verloren, weil zwei Drittel der Datenträger nicht verfügbar sind und der Zugriff auf die virtuellen Datenträger nicht möglich ist. Die virtuellen Datenträger bleiben aber online, wenn ein Knoten ausfällt und ein oder mehrere Datenträger auf einem anderen Knoten ausfallen. Wenn Sie beispielsweise einen Server neu starten und plötzlich ein anderes Laufwerk bzw. ein Server ausfällt, bleiben alle Daten geschützt und sind ohne Unterbrechung zugänglich.
 
-![Drei-Wege-Spiegelung](media/plan-volumes/three-way-mirror.png)
+![Ein Diagramm, das ein Volume mit der Bezeichnung „Daten“ und zwei mit der Bezeichnung „Kopie“ zeigt, die durch kreisförmige Pfeile mit jedem Volume verbunden sind, das einem Server zugeordnet ist, der physische Datenträger enthält.](media/plan-volumes/three-way-mirror.png)
 
 ### <a name="with-four-or-more-servers"></a>Mit vier oder mehr Servern
 
@@ -77,7 +77,7 @@ Bei vier oder mehr Servern können Sie für jedes Volume auswählen, ob die Drei
 
 Die duale Parität bietet die gleiche Fehlertoleranz wie die Drei-Wege-Spiegelung, aber eine höhere Speichereffizienz. Bei vier Servern beträgt die Speichereffizienz 50,0 %. Zum Schreiben von 2 TB an Daten benötigen Sie 4 TB an physischer Speicherkapazität im Speicherpool. Bei sieben Servern erhöht sich die Speichereffizienz auf 66,7 %, und dieser Wert kann mit weiteren Servern auf bis zu 80,0 % gesteigert werden. Der Nachteil ist, dass es zu Leistungseinbußen kommen kann, weil die Paritätscodierung rechenintensiver ist.
 
-![Duale Parität](media/plan-volumes/dual-parity.png)
+![Ein Diagramm, das zwei Volumes mit der Bezeichnung „Daten“ und zwei mit der Bezeichnung „Parität“ zeigt, die durch kreisförmige Pfeile mit jedem Volume verbunden sind, das einem Server zugeordnet ist, der physische Datenträger enthält.](media/plan-volumes/dual-parity.png)
 
 Welcher Resilienztyp verwendet werden sollte, hängt von den Anforderungen Ihrer Workload ab. In der Tabelle unten ist zusammengefasst, welche Workloads für einen Resilienztyp jeweils gut geeignet sind. Außerdem sind die Leistung und die Speichereffizienz für jeden Resilienztyp angegeben.
 
@@ -131,7 +131,7 @@ Die Größe ist etwas anderes als der *Speicherbedarf* des Volumes. Der Speicher
 
 Der Speicherpool muss ausreichend groß sein, um den Speicherbedarf Ihrer Volumes abdecken zu können.
 
-![size-versus-footprint](media/plan-volumes/size-versus-footprint.png)
+![Ein Diagramm, das ein 2-TB-Volume im Vergleich zu einem 6-TB-Speicherbedarf im Speicherpool mit einem angegebenen Multiplikator von Drei zeigt.](media/plan-volumes/size-versus-footprint.png)
 
 ### <a name="reserve-capacity"></a>Reservekapazität
 
@@ -139,7 +139,7 @@ Wenn ein Teil der Kapazität im Speicherpool nicht belegt wird, ist für Volumes
 
 Wir empfehlen Ihnen, pro Server ein Kapazitätslaufwerk zu reservieren (bis zu vier Laufwerke). Sie können bei Bedarf auch mehr Laufwerke reservieren. Mit dieser Empfehlung zur Mindestkonfiguration wird aber sichergestellt, dass die sofortige, direkte, parallele Reparatur nach dem Ausfall eines Laufwerks erfolgreich durchgeführt werden kann.
 
-![Reserve](media/plan-volumes/reserve.png)
+![Ein Diagramm, das ein Volume zeigt, das mehreren Datenträgern in einem Speicherpool zugeordnet ist, sowie nicht zugeordnete Datenträger, die als „Reserve“ gekennzeichnet sind.](media/plan-volumes/reserve.png)
 
 Wenn Sie beispielsweise zwei Server und Kapazitätslaufwerke mit 1 TB verwenden, sollten Sie zwei Terabyte (2 x 1 = 2 TB) des Pools als Reserve bereitstellen. Bei drei Servern und Kapazitätslaufwerken mit 1 TB sind drei Terabyte (3 x 1 = 3 TB) als Reserve ratsam. Bei vier oder mehr Servern und Kapazitätslaufwerken mit 1 TB sind vier Terabyte (4 x 1 = 4 TB) als Reserve zu empfehlen.
 
@@ -176,7 +176,7 @@ Es müssen nicht unbedingt alle Volumes die gleiche Größe haben, aber der Einf
 
 Die vier Volumes füllen genau die physische Speicherkapazität aus, die in unserem Pool verfügbar ist. Perfekt!
 
-![Beispiel](media/plan-volumes/example.png)
+![Ein Diagramm, das zwei 12-TB-Drei-Wege-Spiegelvolumes zeigt, von denen jedes 36 TB Speichervolumes und zwei 12-TB-Doppelparitäts-Volumes zugeordnet ist, die jeweils 24 TB zugeordnet sind, und alle belegen zusammen 120 TB in einem Speicherpool.](media/plan-volumes/example.png)
 
    >[!TIP]
    > Sie müssen nicht alle Volumes sofort erstellen. Es ist später jederzeit möglich, Volumes zu erweitern oder neue Volumes zu erstellen.

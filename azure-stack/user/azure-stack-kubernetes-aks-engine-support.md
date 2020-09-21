@@ -3,16 +3,16 @@ title: Supportrichtlinien für die AKS-Engine in Azure Stack Hub
 description: Dieses Thema enthält die Supportrichtlinien für die AKS-Engine in Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 1b61cd32988ed314445105936155806f58dc46ba
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.lastreviewed: 09/0102020
+ms.openlocfilehash: 389dd7110bfc5b8b42d1594c947ad522f4fbab98
+ms.sourcegitcommit: f19aaf989d758f0712e1ef3cbc4abf90a1110554
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472775"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90026216"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Supportrichtlinien für die AKS-Engine in Azure Stack Hub
 
@@ -25,6 +25,10 @@ IaaS-Cloudkomponenten (Infrastructure-as-a-Service), z. B. Compute- oder Netzwe
 Wenn ein Cluster erstellt wird, definiert der Kunde die Master- und Workerknoten von Kubernetes, die von der AKS-Engine erstellt werden. Auf diesen Knoten werden Kundenworkloads ausgeführt. Kunden sind die Besitzer der Master- und Workerknoten und können sie anzeigen oder ändern. Sorglos geänderte Knoten können zu Daten- und Workloadverlusten führen und dazu, dass der Cluster nicht mehr funktioniert. Außerdem überschreiben AKS-Engine-Vorgänge, wie z. B. Upgrade oder Skalierung, alle außerhalb des zulässigen Bereichs liegenden Änderungen. Wenn der Cluster also beispielsweise über statische Pods verfügt, werden diese bei einem Upgradevorgang der AKS-Engine nicht beibehalten.
 
 Da Clusterknoten von Kunden privaten Code ausführen und vertrauliche Daten speichern, kann der Microsoft-Support nur eingeschränkt darauf zugreifen. Der Microsoft-Support kann sich ohne ausdrückliche Genehmigung oder Hilfe des Kunden nicht bei diesen Knoten anmelden, Befehle ausführen oder Protokolle anzeigen.
+
+## <a name="version-support"></a>Versionsunterstützung
+
+Der Support für die AKS-Engine-Version folgt demselben Muster, das auch von der restlichen Azure Stack Hub-Supportrichtlinie festgelegt wird, was heißt, dass der Support einer Version der AKS-Engine in Azure Stack Hub auf der n-2-Formel basiert. Wenn die neueste Version der AKS-Engine beispielsweise v0.55.0 ist, wird folgende Gruppe von Versionen unterstützt: 0.48.0, 0.51.0, 0.55.0. Außerdem ist es wichtig, die Azure Stack Hub-Updateversion und die entsprechende Zuordnung zur von der AKS-Engine unterstützten Version einzuhalten. Dies wird in den [Versionshinweisen zur AKS-Engine ](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping) verwaltet.
 
 ## <a name="aks-engine-supported-areas"></a>Von der AKS-Engine unterstützte Bereiche
 

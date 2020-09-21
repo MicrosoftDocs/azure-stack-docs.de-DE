@@ -1,5 +1,5 @@
 ---
-title: Verwenden des privilegierten Endpunkts (PEP) zum Erfassen von Diagnoseprotokollen
+title: Erfassen von Diagnoseprotokollen über den privilegierten Endpunkt (PEP)
 description: Hier erfahren Sie, wie Sie in Azure Stack Hub mithilfe des Administratorportals oder eines PowerShell-Skripts Diagnoseprotokolle bedarfsgesteuert sammeln.
 author: justinha
 ms.custom: conteperfq4
@@ -8,12 +8,12 @@ ms.date: 09/02/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: a07904e1dde804398b55d61e7b1faa0b105aba22
-ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
+ms.openlocfilehash: 6eb6f55ab9836cfd78b2fdb72dff220837f1865a
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89621268"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572815"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Senden von Azure Stack Hub-Diagnoseprotokollen mithilfe des privilegierten Endpunkts (PEP)
 
@@ -137,12 +137,10 @@ if ($session) {
   9. Klicken Sie auf **Erstellen**.
   10. Sie erhalten eine Shared Access Signature. Kopieren Sie den URL-Teil, und übergeben Sie ihn an den Parameter `-OutputSasUri`.
 
-### <a name="parameter-considerations"></a>Überlegungen zu Parametern 
+### <a name="parameter-considerations"></a>Überlegungen zu Parametern
 
 * Die Parameter **OutputSharePath** und **OutputShareCredential** werden verwendet, um Protokolle an einem benutzerdefinierten Speicherort zu speichern.
-
 * Die Parameter **FromDate** und **ToDate** können zum Sammeln von Protokollen für einen bestimmten Zeitraum verwendet werden. Ohne Angabe dieser Parameter werden standardmäßig Protokolle für die letzten vier Stunden gesammelt.
-
 * Verwenden Sie den Parameter **FilterByNode**, um Protokolle nach Computername zu filtern. Beispiel:
 
     ```powershell
@@ -159,28 +157,175 @@ if ($session) {
 * Die Protokollsammlung für Dumpdateien ist standardmäßig deaktiviert. Sie können sie mithilfe des Switch-Parameters **IncludeDumpFile** aktivieren.
 * Derzeit können Sie den **FilterByRole**-Parameter verwenden, um die Protokollsammlung nach den folgenden Rollen zu filtern:
 
-  |   |   |   |    |     |
-  | - | - | - | -  |  -  |
-  |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
-  |ACSBlob               |CacheService                   |IBC                            |OEM                       |WAS            |
-  |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
-  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE                       |         |
-  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
-  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
-  |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
-  |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
-  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB                       |         |
-  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
-  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP                       |         |
-  |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage                   |         |
-  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
-  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |
-  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |SupportBridgeController   |         |
-  |AzureBridge           |FRP                            |MonRP                          |SupportRing               |         |
-  |AzureMonitor          |Gateway                        |NC                             |SupportRingServices       |         |
-  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |SupportBridgeRP           |         |
-  |BRP                   |HintingServiceV2               |NRP                            |UsageBridge               |         |
-  |   |   |   |    |     | 
+:::row:::
+   :::column span="":::
+
+      ACS
+
+      ACSBlob
+
+      ACSDownloadService
+
+      ACSFabric
+
+      ACSFrontEnd
+
+      ACSMetrics
+
+      ACSMigrationService
+
+      ACSMonitoringService
+
+      ACSSettingsService
+
+      ACSTableMaster
+
+      ACSTableServer
+
+      ACSWac
+
+      ADFS
+
+      ApplicationController
+
+      ASAppGateway
+
+      AzureBridge
+
+      AzureMonitor
+
+      BareMetal
+
+      BRP
+
+      CA
+
+      CacheService
+
+      Compute
+
+      CPI
+
+      CRP
+
+      DeploymentMachine
+
+      DiskRP
+
+      Domain
+
+   :::column-end:::
+   :::column span="":::
+
+      ECE
+
+      EventAdminRP
+
+      EventRP
+
+      ExternalDNS
+
+      FabricRing
+
+      FabricRingServices
+
+      FirstTierAggregationService
+
+      FRP
+
+      Gateway
+
+      HealthMonitoring
+
+      HintingServiceV2
+
+      HRP
+
+      IBC
+
+      InfraServiceController
+
+      KeyVaultAdminResourceProvider
+
+      KeyVaultControlPlane
+
+      KeyVaultDataPlane
+
+      KeyVaultInternalControlPlane
+
+      KeyVaultInternalDataPlane
+
+      KeyVaultNamingService
+
+      MDM
+
+      MetricsAdminRP
+
+      MetricsRP
+
+      MetricsServer
+
+      MetricsStoreService
+
+      MonAdminRP
+
+      MonRP
+
+   :::column-end:::
+   :::column span="":::
+
+      NC
+
+      NonPrivilegedAppGateway
+
+      NRP
+
+      OboService
+
+      OEM
+
+      OnboardRP
+
+      PXE
+
+      QueryServiceCoordinator
+
+      QueryServiceWorker
+
+      SeedRing
+
+      SeedRingServices
+
+      SLB
+
+      SQL
+
+      SRP
+
+      Storage
+
+      StorageController
+
+      URP
+
+      SupportBridgeController
+
+      SupportRing
+
+      SupportRingServices
+
+      SupportBridgeRP
+
+      UsageBridge
+
+      VirtualMachines
+
+      WAS
+
+      WASPUBLIC
+   
+   :::column-end:::
+:::row-end:::
 
 ### <a name="additional-considerations-on-diagnostic-logs"></a>Weitere Aspekte zu Diagnoseprotokollen
 

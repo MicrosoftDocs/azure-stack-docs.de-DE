@@ -1,22 +1,24 @@
 ---
 title: Bereitstellen des Azure Stack HCI-Betriebssystems
-description: In diesem Artikel werden unterschiedliche Möglichkeiten zur Bereitstellung des Azure Stack HCI-Betriebssystems und anschließend die Verwendung von Windows Admin Center zum Herstellen einer Verbindung mit Ihren Servern beschrieben. Es wird auch auf eine entsprechende Anleitung zum Erstellen eines Serverclusters verwiesen, und der Artikel enthält optionale Schritte zum Abrufen der aktuellen Windows-Updates und Firmware für Ihre Server.
+description: Hier erfahren Sie, wie Sie das Azure Stack HCI-Betriebssystem bereitstellen und anschließend Windows Admin Center zum Herstellen einer Verbindung mit Ihren Servern verwenden. Lesen Sie, wie Sie einen Servercluster erstellen und wie Sie die neuesten Windows-Updates und aktuelle Firmware für Ihre Server erhalten.
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: tutorial
-ms.date: 07/21/2020
-ms.openlocfilehash: bfdd1a85afa9da48e785beab45991fe5ccdeca6e
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/09/2020
+ms.openlocfilehash: ec39d00d1cf9fef1e41977009c17d51de3ba95ba
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86867061"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572015"
 ---
 # <a name="deploy-the-azure-stack-hci-operating-system"></a>Bereitstellen des Azure Stack HCI-Betriebssystems
 
 > Gilt für: Azure Stack HCI, Version 20H2
 
-Nachdem Sie die Schritte unter [Vor dem Bereitstellen von Azure Stack HCI](before-you-start.md#install-windows-admin-center) ausgeführt haben, ist der erste Schritt für die Bereitstellung von Azure Stack HCI die Installation des Azure Stack HCI-Betriebssystems auf jedem Server, der Teil des Clusters sein soll. In diesem Artikel werden verschiedene Möglichkeiten zum Bereitstellen des Betriebssystems und zum Verwenden von Windows Admin Center für die Verbindungsherstellung mit den Servern beschrieben.
+Nachdem Sie die Schritte unter [Vor dem Bereitstellen von Azure Stack HCI](before-you-start.md#install-windows-admin-center) ausgeführt haben, ist der erste Schritt für die Bereitstellung von Azure Stack HCI das [Herunterladen von Azure Stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/) und das Installieren des Betriebssystems auf jedem Server, der Teil des Clusters sein soll. In diesem Artikel werden verschiedene Möglichkeiten zum Bereitstellen des Betriebssystems und zum Verwenden von Windows Admin Center für die Verbindungsherstellung mit den Servern beschrieben.
 
 Nachdem Sie das Betriebssystem bereitgestellt haben, können Sie die zugehörige Anleitung zur Erstellung eines Clusters verwenden und die neuesten Windows-Updates und Firmwareupdates für Ihre Server herunterladen. Dies ist unter [Erstellen eines Azure Stack HCI-Clusters](create-cluster.md) beschrieben.
 

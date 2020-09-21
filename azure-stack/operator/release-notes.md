@@ -3,16 +3,16 @@ title: 'Azure Stack Hub: Versionshinweise'
 description: Versionshinweise für integrierte Azure Stack Hub-Systeme, einschließlich Updates und Fehlerbehebungen.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/04/2020
+ms.date: 09/15/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 73cf9222b445164063c3dccfb1beb400913cea3e
-ms.sourcegitcommit: 50e2a81b255847fbd6288c70d60e7a080da372e9
+ms.openlocfilehash: e90564a9dceefda2b9712b3dedf69974512bdcd1
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89557478"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571897"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -76,7 +76,8 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 - Dieses Release bietet auf VMs, die vor Release 1910 erstellt wurden, eine bessere Konsistenz des Fabrics mit Azure. Beim Release 1910 kündigte Microsoft an, dass alle neu erstellten VMs das WireServer-Protokoll verwenden. Dies ermöglicht es Kunden, den gleichen WALA-Agent und Windows-Gast-Agent wie Azure zu verwenden, und vereinfacht die Verwendung von Azure-Images in Azure Stack Hub. Mit diesem Release werden alle VMs, die vor Release 1910 erstellt wurden, automatisch zum WireServer-Protokoll migriert. Dies führt auch zu einer höheren Zuverlässigkeit bei der VM-Erstellung und der Bereitstellung von VM-Erweiterungen sowie einer stabileren Uptime.
 - Azure Stack Hub-Speicher unterstützt jetzt Version 2019-02-02 der Azure Storage-Dienste-APIs. Bei Azure-Clientbibliotheken ist diese Version mit der neuen REST-API-Version kompatibel. Weitere Informationen finden Sie unter [Azure Stack Hub-Speicherentwicklungstools](../user/azure-stack-storage-dev.md#azure-client-libraries).
 - Azure Stack Hub unterstützt jetzt die neue Version von [CreateUiDefinition (Version 2)](/azure/azure-resource-manager/managed-applications/create-uidefinition-overview).
-- Neuer Leitfaden für VM-Batchbereitstellungen. Weitere Informationen finden Sie [hier](../operator/azure-stack-capacity-planning-compute.md).
+- Neuer Leitfaden für VM-Batchbereitstellungen. Weitere Informationen finden Sie [in diesem Artikel](../operator/azure-stack-capacity-planning-compute.md).
+- Der Azure Stack Hub Marketplace CoreOS Container Linux-Element [nähert sich dem Ende seiner Lebensdauer](https://azure.microsoft.com/updates/flatcar-in-azure/). Weitere Informationen finden Sie unter [Migrieren von CoreOS Container Linux](https://docs.flatcar-linux.org/os/migrate-from-container-linux/).
 
 ### <a name="improvements"></a>Verbesserungen
 
@@ -120,18 +121,6 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 ## <a name="security-updates"></a>Sicherheitsupdates
 
 Informationen zu Sicherheitsupdates in diesem Update von Azure Stack Hub finden Sie unter [Azure Stack Hub-Sicherheitsupdates](release-notes-security-updates.md).
-
-## <a name="update-planning"></a>Updateplanung
-
-Stellen Sie vor dem Anwenden des Updates sicher, dass Sie die folgenden Informationen überprüfen:
-
-- [Bekannte Probleme](known-issues.md)
-- [Sicherheitsupdates](release-notes-security-updates.md)
-- [Azure Stack-Checkliste für Updateaktivitäten](release-notes-checklist.md)
-
-## <a name="download-the-update"></a>Herunterladen des Updates
-
-Sie können das Paket mit dem Azure Stack Hub-Update 2005 auf der [Azure Stack Hub-Downloadseite](https://aka.ms/azurestackupdatedownload) herunterladen.
 
 ## <a name="hotfixes"></a>Hotfixes
 

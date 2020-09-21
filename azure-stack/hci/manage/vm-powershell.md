@@ -1,17 +1,17 @@
 ---
-title: Verwalten von VMs in Azure Stack HCI mithilfe von Windows PowerShell
+title: Verwalten von VMs mithilfe von Windows PowerShell – Azure Stack HCI
 description: Hier erfahren Sie, wie Sie mithilfe von Windows PowerShell VMs in Azure Stack HCI verwalten.
 author: v-dasis
 ms.topic: how-to
 ms.date: 07/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: bbb77e9d96daa3f7f6eefd88812a11656e2acc5d
-ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
+ms.openlocfilehash: 8d5f654ed5af1fe66c9a28bbfd6bebb09672fa88
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87397429"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573512"
 ---
 # <a name="manage-vms-on-azure-stack-hci-using-windows-powershell"></a>Verwalten von VMs in Azure Stack HCI mithilfe von Windows PowerShell
 

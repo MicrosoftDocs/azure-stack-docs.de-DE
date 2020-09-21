@@ -1,18 +1,18 @@
 ---
 title: Verwenden einer App-Identität für den Ressourcenzugriff
-description: Hier erfahren Sie, wie Sie App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen verwenden. Eine App-Identität kann mit der rollenbasierten Zugriffssteuerung für die Anmeldung bei und für den Zugriff auf Ressourcen verwendet werden.
+description: Erfahren Sie, wie Sie mithilfe einer App-Identität auf Azure Stack Hub-Ressourcen zugreifen, die zusammen mit der rollenbasierten Zugriffssteuerung für die Anmeldung bei und den Zugriff auf Ressourcen verwendet werden kann.
 author: BryanLa
 ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 4b1a3e41be03eec55c84731ac220521376fc16d2
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 5842ac27969a136ceaace4647ed5791bc3260b1c
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489214"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573138"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Verwenden einer App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen
 

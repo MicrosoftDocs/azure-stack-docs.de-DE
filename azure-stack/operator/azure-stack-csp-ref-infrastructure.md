@@ -1,5 +1,5 @@
 ---
-title: Nutzungsberichtsinfrastruktur für Cloudlösungsanbieter für Azure Stack Hub
+title: Nutzungsberichtsinfrastruktur für Cloudlösungsanbieter – Azure Stack Hub
 description: Enthält Informationen zur Infrastruktur für die Erstellung von Nutzungsberichten, die zum Nachverfolgen der Nutzung für Mandanten eines Cloudlösungsanbieters (CSP) verwendet wird.
 author: sethmanheim
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: f3d5ba6cfe8f8006de7dd11c03194ebf29ca698c
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.openlocfilehash: 51e747b5670a3e7eb58316069567e83e9ed9fc82
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089676"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573049"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Nutzungsberichtsinfrastruktur für Cloudlösungsanbieter
 

@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 334c32fa9522831f74d924b16797dea85cbe30d5
-ms.sourcegitcommit: 9c3339e0e3c3a953d64feff9ae08d94300c351ff
+ms.openlocfilehash: dab71944ecc46fdaa92f7ca65d3ba5c848b24762
+ms.sourcegitcommit: dbc6739584aa407b26e4ad4921d967b7b608de38
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85449870"
+ms.lasthandoff: 09/12/2020
+ms.locfileid: "90038827"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrieren von Azure Stack Hub in Azure
 
@@ -99,12 +99,7 @@ Bei der Ausführung des Registrierungsskripts müssen Sie einen eindeutigen Regi
 > [!NOTE]
 > Azure Stack Hub-Registrierungen, die das kapazitätsbasierte Abrechnungsmodell verwenden, müssen den eindeutigen Namen ändern, wenn sie sich nach Ablauf dieser jährlichen Abonnements erneut registrieren, es sei denn, Sie [löschen die abgelaufene Registrierung](#renew-or-change-registration) und führen die Registrierung bei Azure erneut aus.
 
-Um die Cloud-ID für Ihre Azure Stack Hub-Bereitstellung zu bestimmen, öffnen Sie PowerShell als Administrator auf einem Computer, der auf den privilegierten Endpunkt zugreifen kann, führen Sie die folgenden Befehle aus, und erfassen Sie anschließend den Wert für **CloudID**:
-
-```powershell
-Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
-Run: Get-AzureStackStampInformation
-```
+Informationen zum Ermitteln der Cloud-ID für Ihre Azure Stack Hub-Bereitstellung finden Sie unter [Ermitteln Ihrer Cloud-ID](azure-stack-find-cloud-id.md).
 
 ::: zone pivot="state-connected"
 ## <a name="register-with-pay-as-you-use-billing"></a>Registrieren für die nutzungsbasierte Abrechnung

@@ -1,20 +1,20 @@
 ---
-title: Verbinden von zwei Azure Stack Hub-Instanzen per VNET-Peering
-description: Es wird beschrieben, wie Sie zwei Azure Stack Hub-Instanzen per VNET-Peering verbinden.
+title: Verbinden zweier virtueller Netzwerke in derselben Azure Stack-Umgebung
+description: Erfahren Sie, wie Sie zwei virtuelle Netzwerke in derselben Azure Stack Hub-Umgebung verbinden, indem Sie Fortinet FortiGate verwenden.
 author: mattbriggs
 ms.topic: how-to
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 5d8dcba27b1aaed79489b27a2dd6224f6211ac18
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: 4aeca3ba7630d05921578de7023359c042d74ffb
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965108"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574107"
 ---
-# <a name="connect-two-vnets-through-peering"></a>Verbinden von zwei VNETs per Peering
+# <a name="vnet-peering-with-fortigate"></a>VNET-Peering mit FortiGate
 
 In diesem Artikel wird beschrieben, wie Sie eine Verbindung zwischen zwei virtuellen Netzwerken in derselben Umgebung herstellen. Im Rahmen der Verbindungseinrichtung werden Sie auch mit der Funktionsweise von VPN-Gateways in Azure Stack Hub vertraut gemacht. Verbinden Sie zwei VNETs in derselben Azure Stack Hub-Umgebung, indem Sie Fortinet FortiGate verwenden. Bei diesem Verfahren werden zwei VNETs mit einer FortiGate NVA (virtuelles Netzwerkgerät, Network Virtual Appliance) in jedem VNET bereitgestellt – jeweils in einer separaten Ressourcengruppe. Darüber hinaus werden die Änderungen beschrieben, die für die Einrichtung eines IPSec-VPN zwischen den beiden VNETs vorgenommen werden müssen. Wiederholen Sie die Schritte in diesem Artikel für jede VNET-Bereitstellung.
 
@@ -79,7 +79,7 @@ In der folgenden Tabelle sind als Referenz die Parameter zusammengefasst, die in
 
 2.  Wählen Sie **Ressource erstellen** aus, und suchen Sie nach `FortiGate`.
 
-    !Die Suchergebnisliste zeigt „FortiGate NGFW – Single VM Deployment“ an.](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
+    ![Die Suchergebnisliste zeigt „FortiGate NGFW – Single VM Deployment“.](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
 
 3.  Wählen Sie **FortiGate NGFW** und dann die Option **Erstellen** aus.
 

@@ -1,5 +1,5 @@
 ---
-title: Verwalten der Nutzung und Abrechnung für Azure Stack Hub als Cloud Solution Provider
+title: Verwalten der Nutzung und Abrechnung von Azure Stack Hub als Cloud Solution Provider
 description: Erfahren Sie, wie Sie Azure Stack Hub als Cloud Solution Provider (CSP) registrieren und Kunden für die Abrechnung hinzufügen.
 author: sethmanheim
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 400ae8a487d18b37efdfc52c087019183702a638
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: 03206007c60d438149baad267117e447bd5b0a14
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857567"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573478"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Verwalten der Nutzung und Abrechnung für Azure Stack Hub als Cloud Solution Provider
 

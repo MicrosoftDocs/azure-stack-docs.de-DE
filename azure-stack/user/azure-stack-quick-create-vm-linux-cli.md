@@ -1,17 +1,17 @@
 ---
-title: Erstellen eines virtuellen Linux-Computers mithilfe der Azure CLI in Azure Stack Hub
+title: Erstellen eines virtuellen Linux-Computers in Azure Stack Hub mit der Azure CLI
 description: Erstellen Sie einen virtuellen Linux-Computer mithilfe der Azure CLI in Azure Stack Hub.
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 9cb3a448d708a70d70705cd8ea6230f17816726a
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: b7b016d377267c9032a79c1e0f04bd1ac65e4185
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111671"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571535"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack-hub"></a>Schnellstart: Erstellen eines virtuellen Linux-Servers mithilfe der Azure CLI in Azure Stack Hub
 

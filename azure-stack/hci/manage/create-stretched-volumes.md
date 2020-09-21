@@ -5,12 +5,12 @@ author: v-dasis
 ms.author: v-dasis
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.openlocfilehash: 9d6ba44da5da188f60f031bddab2e49190dbfee3
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 8c885f7a344ff9d34228bad76c79e65f1f345f25
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250706"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573682"
 ---
 # <a name="create-stretched-cluster-volumes-and-set-up-replication"></a>Erstellen von Volumes für Stretchingcluster und Einrichten der Replikation
 
@@ -22,7 +22,7 @@ Als Beispiel werden in diesem Artikel Volumes auf vier Servern in zwei Standorte
 
 ## <a name="stretched-volumes-and-replication-using-windows-admin-center"></a>Stretchingvolumes und Replikation in Windows Admin Center
 
-OK, fangen wir an:
+So erstellen Sie ein Volume und richten die Replikation ein
 
 1. Wählen Sie in Windows Admin Center unter **Extras** die Option **Volumes** aus.
 1. Wählen Sie im rechten Bereich die Registerkarte **Inventory** (Inventar) und dann **Create** (Erstellen) aus.

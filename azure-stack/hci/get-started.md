@@ -6,19 +6,19 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 08/12/2020
-ms.openlocfilehash: 4dff1265bd542cebe1268ea54248a7c869bd3df1
-ms.sourcegitcommit: a3e042c782a38ecf3baf7a64b1d492a655972f9a
+ms.date: 09/09/2020
+ms.openlocfilehash: 67ba53d7daf5bb335283f328579439f192d0020b
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88198779"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742414"
 ---
 # <a name="get-started-with-azure-stack-hci-and-windows-admin-center"></a>Erste Schritte mit Azure Stack HCI und Windows Admin Center
 
 > Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-Dieses Thema enthält eine Anleitung zum Herstellen einer Verbindung mit einem Azure Stack HCI-Cluster sowie zum Überwachen der Cluster- und Speicherleistung. Falls Sie noch keinen Cluster eingerichtet haben, finden Sie unter [Was ist der Bereitstellungsprozess für Azure Stack HCI?](deploy/deployment-overview.md) entsprechende Anweisungen.
+Dieses Thema enthält eine Anleitung zum Herstellen einer Verbindung mit einem Azure Stack HCI-Cluster sowie zum Überwachen der Cluster- und Speicherleistung. Falls Sie noch keinen Cluster eingerichtet haben, [laden Sie Azure Stack HCI herunter](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/), und lesen Sie die Anweisungen unter [Was ist der Bereitstellungsprozess für Azure Stack HCI?](deploy/deployment-overview.md).
 
 ## <a name="install-windows-admin-center"></a>Installieren von Windows Admin Center
 

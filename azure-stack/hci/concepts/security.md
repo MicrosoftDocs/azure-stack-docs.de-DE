@@ -4,13 +4,13 @@ description: Dieses Thema bietet Hilfestellung zu den Sicherheitsaspekten des Az
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 90a7904a9f102688364b2776d81eee5d7d6e559a
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.date: 09/10/2020
+ms.openlocfilehash: 6a8a0c3068061c599ac18e160ebd32c7b5cc8eda
+ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86946975"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90010814"
 ---
 # <a name="azure-stack-hci-security-considerations"></a>Azure Stack HCI: Sicherheitsaspekte
 
@@ -53,18 +53,8 @@ In diesem Abschnitt wird der Schutz von Diensten und virtuellen Computern (VMs) 
 In diesem Abschnitt wird erläutert, wie Sie Windows Admin Center verwenden, um Daten und Workloads im Betriebssystem zu schützen:
 
 - **BitLocker für Speicherplätze** schützt ruhende Daten. Sie können BitLocker verwenden, um den Inhalt von Speicherplatz-Datenvolumes im Betriebssystem zu verschlüsseln. Die Verwendung von BitLocker zum Schützen von Daten kann Organisationen dabei helfen, die Einhaltung von behördlichen, regionalen und branchenspezifischen Standards wie z. B. FIPS 140-2 oder HIPAA sicherzustellen.
-
-    So greifen Sie im Windows Admin Center auf BitLocker zu:
-
-    1. Stellen Sie eine Verbindung mit einem Cluster direkter Speicherplätze her, und wählen Sie dann im Bereich **Extras** **Volumes** aus.
-    1. Wählen Sie auf der Seite **Volumes** **Inventar** aus, und schalten Sie dann unter **Optionale Features** den Schalter **Verschlüsselung (BitLocker)** auf Ein.
-    
-        :::image type="content" source="./media/security/bitlocker-toggle-switch.png" alt-text="Der Umschalter zur Aktivierung von BitLocker":::
-    
-    1. Wählen Sie im Popupmenü **Verschlüsselung (BitLocker)** **Start** aus, und geben Sie dann auf der Seite **Turn on Encryption** (Verschlüsselung aktivieren) Ihre Anmeldeinformationen ein, um den Workflow abzuschließen.
-
-   >[!NOTE]
-   > Wenn die Popupmeldung **Install BitLocker feature first** (Installieren Sie zunächst das BitLocker-Feature) angezeigt wird, befolgen Sie die Anweisungen zum Installieren des Features auf jedem Server im Cluster, und starten Sie Ihre Server dann erneut.
+ 
+    Weitere Informationen zur Verwendung von BitLocker in Windows Admin Center finden Sie unter [Aktivieren der Volumeverschlüsselung, Deduplizierung und Komprimierung](../manage/volume-encryption-deduplication.md).
 
 - Die **SMB**-Verschlüsselung für Windows-Netzwerke schützt Daten bei der Übertragung. *Server Message Block (SMB)* ist ein Protokoll, das der Freigabe von Netzwerkdateien dient und es Anwendungen auf einem Computer ermöglicht, Dateien zu lesen und in Dateien zu schreiben sowie Dienste von Serverprogrammen in einem Computernetzwerk anzufordern.
 

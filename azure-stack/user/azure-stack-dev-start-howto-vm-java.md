@@ -1,5 +1,5 @@
 ---
-title: Bereitstellen einer Java-Webanwendungsressource auf einem virtuellen Computer in Azure Stack Hub
+title: Bereitstellen von Java WAR auf einem virtuellen Computer in Azure Stack Hub
 description: Hier wird beschrieben, wie Sie eine Java-Webanwendungsressource auf einem virtuellen Computer in Azure Stack Hub bereitstellen.
 author: mattbriggs
 ms.topic: how-to
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/05/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: bc1a7bd86b63a5399468f117395dfd4e29f83c2c
-ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
+ms.openlocfilehash: d3d7bd6cd90eb60ffae910115df475fd3186aa5a
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86033295"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573835"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Bereitstellen einer Java-Web-App auf einer VM in Azure Stack Hub
 

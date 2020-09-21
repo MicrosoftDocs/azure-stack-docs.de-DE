@@ -1,5 +1,5 @@
 ---
-title: Verwalten des Zugriffs auf Ressourcen mit der rollenbasierten Zugriffssteuerung in Azure Stack Hub
+title: Verwalten des Ressourcenzugriffs mit der rollenbasierten Zugriffssteuerung in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie als Dienstadministrator oder Mandant in Azure Stack Hub Berechtigungen für die rollenbasierte Zugriffssteuerung (RBAC) verwalten.
 author: bryanla
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 09/13/2019
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 2f633e44b4646659a888df85e51450147104710e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1002f45b51f4a70ddbadb8230df6e98f591fcbb6
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703977"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573750"
 ---
 # <a name="manage-access-to-resources-in-azure-stack-hub-with-role-based-access-control"></a>Verwalten des Zugriffs auf Ressourcen mit der rollenbasierten Zugriffssteuerung in Azure Stack Hub
 
@@ -41,14 +41,14 @@ Azure Stack Hub verfügt über die folgende Ressourcenhierarchie:
 * Jede Ressourcengruppe gehört einem Abonnement.
 * Jede Ressource gehört einer Ressourcengruppe.
 
-Der Zugriff, den Sie auf übergeordneter Ebene gewähren, wird auf untergeordneter Ebene geerbt. Beispiel:
+Der Zugriff, den Sie auf übergeordneter Ebene gewähren, wird auf untergeordneter Ebene geerbt. Zum Beispiel:
 
 * Sie weisen die Rolle **Leser** einer Azure AD-Gruppe im Abonnementbereich zu. Die Mitglieder dieser Gruppe können alle Ressourcengruppen und Ressourcen im Abonnement anzeigen.
 * Sie weisen die Rolle **Mitwirkender** einer App im Ressourcengruppenbereich zu. Damit kann die App Ressourcen aller Typen in dieser Ressourcengruppe verwalten, aber keine anderen Ressourcengruppen des Abonnements.
 
 ### <a name="assigning-roles"></a>Zuweisen von Rollen
 
-Sie können einem Benutzer mehrere Rollen zuweisen, und jede Rolle kann einem anderen Bereich zugeordnet werden. Beispiel:
+Sie können einem Benutzer mehrere Rollen zuweisen, und jede Rolle kann einem anderen Bereich zugeordnet werden. Zum Beispiel:
 
 * Sie weisen TestUser-A die Rolle **Leser** für Subscription-1 zu.
 * Sie weisen TestUser-A die Rolle **Besitzer** für TestVM-1 zu.
@@ -62,7 +62,7 @@ In den folgenden Schritte wird beschrieben, wie Berechtigungen für einen Benutz
 1. Melden Sie sich mit einem Konto an, das Besitzerberechtigungen für die Ressource hat, die Sie verwalten möchten.
 2. Wählen Sie im linken Navigationsbereich die Option **Ressourcengruppen** aus.
 3. Wählen Sie den Namen der Ressourcengruppe, der Sie Berechtigungen erteilen möchten.
-4. Wählen Sie im Navigationsbereich der Ressourcengruppe **Zugriffssteuerung (IAM)** .<BR> Die Ansicht **Rollenzuweisungen** enthält die Elemente, die über Zugriff auf die Ressourcengruppe verfügen. Sie können die Ergebnisse filtern und gruppieren.
+4. Wählen Sie im Navigationsbereich der Ressourcengruppe **Zugriffssteuerung (IAM)**.<BR> Die Ansicht **Rollenzuweisungen** enthält die Elemente, die über Zugriff auf die Ressourcengruppe verfügen. Sie können die Ergebnisse filtern und gruppieren.
 5. Wählen Sie auf der Menüleiste **Zugriffssteuerung** die Option **Hinzufügen** aus.
 6. Gehen Sie im Bereich **Berechtigungen hinzufügen** wie folgt vor:
 

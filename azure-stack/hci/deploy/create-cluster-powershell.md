@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e92aa28deadbf334e3cd545e5cd9bc6b0e12e6c4
-ms.sourcegitcommit: 673d9b7cf723bc8ef6c04aee5017f539a815da51
+ms.openlocfilehash: c51a6296caac3c173650ee57af8e1d23b2473f26
+ms.sourcegitcommit: 877fe2207b569500aeefa6594eed990f15609776
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88110467"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90082493"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell
 
@@ -430,7 +430,7 @@ Bei Stretchingclustern führt das Cmdlet `Enable-ClusterStorageSpacesDirect` au�
 - Bestimmen, welche Knoten sich an welchen Standorten befinden
 - Bestimmen, welcher Speicher für die einzelnen Knoten zur Verfügung steht
 - Überprüfen, ob die Funktion Speicherreplikation auf jedem Knoten installiert ist
-- Erstellt einen Speicherpool für jeden Standort und identifiziert ihn mit dem gleichen des Standorts
+- Erstellt einen Speicherpool für jeden Standort und identifiziert ihn mit dem Namen des Standorts
 - Erstellt Daten- und Protokollvolumes in jedem Speicherpool, eins pro Standort
 
 Mit dem folgenden Befehl wird Direkte Speicherplätze aktiviert. Sie können außerdem einen Anzeigenamen für einen Speicherpool angeben, wie hier gezeigt:

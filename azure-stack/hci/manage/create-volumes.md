@@ -4,13 +4,13 @@ description: Hier wird beschrieben, wie Sie Volumes in Azure Stack HCI mithilfe
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: 61f3515bcec6e0819b175db149d27f15a347f132
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.date: 09/10/2020
+ms.openlocfilehash: aa0da05ba1cac74cf558a28627962e61c1418a73
+ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866572"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90010848"
 ---
 # <a name="create-volumes-in-azure-stack-hci"></a>Erstellen von Volumes in Azure Stack HCI
 
@@ -74,19 +74,7 @@ Sehen Sie sich ein kurzes Video zum Öffnen eines Volumes und Hinzufügen von Da
 
 Die Deduplizierung und Komprimierung wird pro Volume verwaltet. Bei der Deduplizierung und Komprimierung wird ein Nachbearbeitungsmodell verwendet. Dies bedeutet, dass Einsparungen für Sie erst nach der Ausführung erkennbar sind. Bei der Ausführung werden alle Dateien verarbeitet – auch die Dateien, die bereits vorhanden waren.
 
-1. Stellen Sie in Windows Admin Center eine Verbindung mit einem „Direkte Speicherplätze“-Cluster her, und wählen Sie im Bereich **Tools** die Option **Volumes** aus.
-2. Wählen Sie auf der Seite **Volumes** die Registerkarte **Bestand** aus.
-3. Wählen Sie in der Liste mit den Volumes den Namen des Volumes aus, das Sie verwalten möchten.
-4. Klicken Sie auf der Seite mit den Volumedetails auf den Switch **Deduplizierung und Komprimierung**.
-5. Wählen Sie im Bereich **Enable deduplication** (Deduplizierung aktivieren) den Deduplizierungsmodus aus.
-
-    Anstatt komplizierte Einstellungen vornehmen zu müssen, können Sie mit Windows Admin Center zwischen fertigen Profilen für unterschiedliche Workloads wählen. Verwenden Sie die Standardeinstellung, falls Sie unsicher sind.
-
-6. Wählen Sie **Aktivieren** aus.
-
-Sehen Sie sich ein kurzes Video dazu an, wie Sie die Deduplizierung und Komprimierung aktivieren.
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/PRibTacyKko]
+Weitere Informationen finden Sie unter [Aktivieren der Volumeverschlüsselung, Deduplizierung und Komprimierung](volume-encryption-deduplication.md).
 
 ## <a name="create-volumes-using-windows-powershell"></a>Erstellen von Volumes mit Windows PowerShell
 

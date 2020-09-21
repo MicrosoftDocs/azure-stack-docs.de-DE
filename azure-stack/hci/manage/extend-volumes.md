@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 07/21/2020
-ms.openlocfilehash: bb4a72e28bd6126d12dbdb1f97d0579fb98bca8e
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: c6f874fb7bd8641933722631d9faac0dc513b5e3
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866590"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742293"
 ---
 # <a name="extending-volumes-in-azure-stack-hci"></a>Erweitern von Volumes in Azure Stack HCI
 
@@ -47,7 +47,7 @@ Vergewissern Sie sich vor dem Ändern der Größe eines Volumes, dass im Speiche
 
 In „Direkte Speicherplätze“ besteht jedes Volume aus mehreren gestapelten Objekten: dem freigegebenen Clustervolume (Cluster Shared Volume, CSV), der Partition, dem (virtuellen) Datenträger und mindestens einer Speicherebene (sofern zutreffend). Wenn Sie die Größe eines Volumes ändern möchten, muss die Größe von mehreren dieser Objekte geändert werden.
 
-![volumes-in-smapi](media/extend-volumes/volumes-in-smapi.png)
+![Das Diagramm zeigt die Ebenen eines Volumes, einschließlich Clustershardvolume, Volume, Partition, Datenträger, virtueller Datenträger und Speicherebenen.](media/extend-volumes/volumes-in-smapi.png)
 
 Führen Sie **Get-** mit dem entsprechenden Substantiv in PowerShell aus, um sich mit den einzelnen Objekten vertraut zu machen.
 
@@ -89,7 +89,7 @@ Get-VirtualDisk <FriendlyName> | Resize-VirtualDisk -Size <Size>
 
 Wenn Sie die Größe des virtuellen Datenträgers (**VirtualDisk**) ändern, wird automatisch auch die Größe des Datenträgers (**Disk**) geändert.
 
-![Resize-VirtualDisk](media/extend-volumes/Resize-VirtualDisk.gif)
+![Das animierte Diagramm zeigt den virtuellen Datenträger eines Volumes, der größer wird, während als Folge davon die unmittelbar darüberliegende Datenträgerebene automatisch größer wird.](media/extend-volumes/Resize-VirtualDisk.gif)
 
 #### <a name="with-storage-tiers"></a>Mit Speicherebenen
 
@@ -112,7 +112,7 @@ Get-StorageTier <FriendlyName> | Resize-StorageTier -Size <Size>
 
 Wenn Sie die Größe einer Speicherebene (**StorageTier**) ändern, wird automatisch auch die Größe des virtuellen Datenträgers (**VirtualDisk**) und des Datenträgers (**Disk**) geändert.
 
-![Resize-StorageTier](media/extend-volumes/Resize-StorageTier.gif)
+![Das animierte Diagramm zeigt zuerst eine, dann eine weitere Speicherebene, die größer werden, während die virtuelle Datenträgerebene und die darüberliegende Datenträgerebene ebenfalls größer werden.](media/extend-volumes/Resize-StorageTier.gif)
 
 ### <a name="step-2--resize-the-partition"></a>Schritt 2: Ändern der Größe der Partition
 
@@ -133,7 +133,7 @@ $Partition | Resize-Partition -Size ($Partition | Get-PartitionSupportedSize).Si
 
 Wenn Sie die Größe der **Partition** ändern, wird automatisch auch die Größe des Volumes (**Volume**) und des freigegebenen Clustervolumes (**ClusterSharedVolume**) geändert.
 
-![Resize-Partition](media/extend-volumes/Resize-Partition.gif)
+![Das animierte Diagramm zeigt die virtuelle Datenträgerebene am unteren Rand des Volumes, die mit jeder der darüberliegenden Ebenen, die ebenfalls größer werden, anwächst.](media/extend-volumes/Resize-Partition.gif)
 
 Das ist alles!
 

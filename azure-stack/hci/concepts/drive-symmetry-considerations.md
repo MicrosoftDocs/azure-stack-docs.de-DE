@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/01/2020
-ms.openlocfilehash: d4d10d7a2470f474130b3a14758b608b7ac2ad34
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: 545a0b90ad938a172a184748780974ba7403f19f
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89365069"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742399"
 ---
 # <a name="drive-symmetry-considerations-for-azure-stack-hci"></a>Überlegungen zur Laufwerkssymmetrie für Azure Stack HCI
 
@@ -90,7 +90,7 @@ Die Verwendung von Cachelaufwerken unterschiedlicher Größe verbessert die Cach
 
 Hier sind einige unterstützte und nicht unterstützte Konfigurationen aufgeführt:
 
-### <a name="supported-supported-different-models-between-servers"></a>![Unterstützt](media/drive-symmetry-considerations/supported.png) Unterstützt: Verschiedene Modelle zwischen Servern
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationssupportedpng-borderfalse-supported-different-models-between-servers"></a>:::image type="icon" source="media/drive-symmetry-considerations/supported.png" border="false"::: Unterstützt: verschiedene Modelle zwischen Servern
 
 Die ersten beiden Server verwenden das NVMe-Modell „X“, aber der dritte Server verwendet das NVMe-Modell „Z“, das sehr ähnlich ist.
 
@@ -101,7 +101,7 @@ Die ersten beiden Server verwenden das NVMe-Modell „X“, aber der dritte Serv
 
 Dies wird unterstützt.
 
-### <a name="supported-supported-different-models-within-server"></a>![Unterstützt](media/drive-symmetry-considerations/supported.png) Unterstützt: Verschiedene Modelle innerhalb des Servers
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationssupportedpng-borderfalse-supported-different-models-within-server"></a>:::image type="icon" source="media/drive-symmetry-considerations/supported.png" border="false":::Unterstützt: verschiedene Modelle innerhalb des Servers
 
 Jeder Server verwendet eine andere Kombination aus den HDD-Modellen „Y“ und „Z“, die sehr ähnlich sind. Jeder Server verfügt über insgesamt 10 Festplattenlaufwerke.
 
@@ -113,7 +113,7 @@ Jeder Server verwendet eine andere Kombination aus den HDD-Modellen „Y“ und 
 
 Dies wird unterstützt.
 
-### <a name="supported-supported-different-sizes-across-servers"></a>![Unterstützt](media/drive-symmetry-considerations/supported.png) Unterstützt: Verschiedene serverübergreifende Größen
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationssupportedpng-borderfalse-supported-different-sizes-across-servers"></a>:::image type="icon" source="media/drive-symmetry-considerations/supported.png" border="false"::: Unterstützt: verschiedene serverübergreifende Größen
 
 Die ersten beiden Server verwenden ein 4 TB-Festplattenlaufwerk, aber der dritte Server verwendet ein sehr ähnliches 6 TB-Festplattenlaufwerk.
 
@@ -124,7 +124,7 @@ Die ersten beiden Server verwenden ein 4 TB-Festplattenlaufwerk, aber der dritt
 
 Dies wird unterstützt, obwohl es zu isolierten Kapazitäten führt.
 
-### <a name="supported-supported-different-sizes-within-server"></a>![Unterstützt](media/drive-symmetry-considerations/supported.png) Unterstützt: Verschiedene Größen innerhalb des Servers
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationssupportedpng-borderfalse-supported-different-sizes-within-server"></a>:::image type="icon" source="media/drive-symmetry-considerations/supported.png" border="false"::: Unterstützt: verschiedene Größen innerhalb des Servers
 
 Jeder Server verwendet eine andere Kombination aus 1,2 TB und sehr ähnlichen 1,6 TB SSDs. Jeder Server verfügt über insgesamt 4 SSDs.
 
@@ -136,7 +136,7 @@ Jeder Server verwendet eine andere Kombination aus 1,2 TB und sehr ähnlichen 1
 
 Dies wird unterstützt.
 
-### <a name="unsupported-not-supported-different-types-of-drives-across-servers"></a>![nicht unterstützt](media/drive-symmetry-considerations/unsupported.png) Nicht unterstützt: Verschiedene Laufwerkstypen auf verschiedenen Servern
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationsunsupportedpng-borderfalse-not-supported-different-types-of-drives-across-servers"></a>:::image type="icon" source="media/drive-symmetry-considerations/unsupported.png" border="false"::: Nicht unterstützt: verschiedene Laufwerkstypen auf verschiedenen Servern
 
 Server 1 verfügt über NVMe, aber die anderen nicht.
 
@@ -148,7 +148,7 @@ Server 1 verfügt über NVMe, aber die anderen nicht.
 
 Dies wird nicht unterstützt. Die Laufwerkstypen sollten in jedem Server gleich sein.
 
-### <a name="unsupported-not-supported-different-number-of-each-type-across-servers"></a>![nicht unterstützt](media/drive-symmetry-considerations/unsupported.png) Nicht unterstützt: Verschiedene Anzahl der einzelnen Typen auf verschiedenen Servern
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationsunsupportedpng-borderfalse-not-supported-different-number-of-each-type-across-servers"></a>:::image type="icon" source="media/drive-symmetry-considerations/unsupported.png" border="false"::: Nicht unterstützt: verschiedene Anzahl der einzelnen Typen auf verschiedenen Servern
 
 Server 3 hat mehr Laufwerke als die anderen.
 
@@ -159,7 +159,7 @@ Server 3 hat mehr Laufwerke als die anderen.
 
 Dies wird nicht unterstützt. Die Anzahl der Laufwerke der einzelnen Typen sollten in jedem Server gleich sein.
 
-### <a name="unsupported-not-supported-only-hdd-drives"></a>![nicht unterstützt](media/drive-symmetry-considerations/unsupported.png) Nicht unterstützt: Nur HDD-Laufwerke
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationsunsupportedpng-borderfalse-not-supported-only-hdd-drives"></a>:::image type="icon" source="media/drive-symmetry-considerations/unsupported.png" border="false"::: Nicht unterstützt: nur HDD-Laufwerke
 
 An alle Server sind nur HDD-Laufwerke angeschlossen.
 

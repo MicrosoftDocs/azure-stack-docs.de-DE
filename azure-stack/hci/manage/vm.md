@@ -1,17 +1,17 @@
 ---
-title: Verwalten von VMs in Azure Stack HCI mithilfe von Windows Admin Center
+title: Verwalten von VMs mit Windows Admin Center – Azure Stack HCI
 description: Hier erfahren Sie, wie Sie virtuelle Computer (Virtual Machines, VMs) in einem Cluster in Azure Stack HCI mit Windows Admin Center erstellen und verwalten.
 author: v-dasis
 ms.topic: how-to
 ms.date: 07/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: cecf03b01a4c621226d7439bc307eb9317918fa7
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: 42c8062fb18b011365a0b245f713f5cd378885aa
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866443"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573665"
 ---
 # <a name="manage-vms-on-azure-stack-hci-using-windows-admin-center"></a>Verwalten von VMs in Azure Stack HCI mithilfe von Windows Admin Center
 
@@ -156,31 +156,6 @@ Es gibt eine Vielzahl von Einstellungen, die Sie für eine VM ändern können.
     - Wählen Sie unter **Sicherheitsrichtlinie** die Option **Enable Shielding** (Schutz aktivieren) aus, um auf weitere Schutzoptionen für die VM zuzugreifen.
 
         :::image type="content" source="media/manage-vm/vm-settings-security.png" alt-text="Ändern von VM-Sicherheitseinstellungen" lightbox="media/manage-vm/vm-settings-security.png":::
-
-## <a name="create-a-new-vm"></a>Erstellen eines neuen virtuellen Computers
-
-Mit Windows Admin Center können Sie problemlos einen neuen virtuellen Computer erstellen.
-
-:::image type="content" source="media/manage-vm/new-vm.png" alt-text="Bildschirm „Neue VM“":::
-
-1. Wählen Sie auf der Startseite von Windows Admin Center unter **Alle Verbindungen**, den Server oder Cluster aus, auf dem Sie den neuen virtuellen Computer erstellen möchten.
-1. Führen Sie unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
-1. Wählen Sie unter **Virtuelle Computer** die Registerkarte **Inventar** aus, und wählen Sie anschließend **Neu** aus.
-1. Geben Sie im Feld **Neuer virtueller Computer** einen Namen für Ihre VM ein.
-1. Wählen Sie **Generation 2 (empfohlen)** aus.
-1. Wählen Sie in der Dropdownliste einen vorab zugewiesenen Dateipfad aus, oder klicken Sie auf **Durchsuchen**, um den Ordner auszuwählen, in dem die VM-Konfigurationsdatei und die VHD-Dateien gespeichert werden sollen. Sie können zu einer beliebigen SMB-Freigabe im Netzwerk navigieren, indem Sie als Pfad *\\server\share* eingeben.
-
-1. Wählen Sie unter **Virtuelle Prozessoren** die Anzahl der virtuellen Prozessoren aus und geben Sie an, ob die geschachtelte Virtualisierung aktiviert werden soll.
-1. Wählen Sie unter **Arbeitsspeicher** die Menge des Arbeitsspeichers beim Start aus (4 GB wird als Minimum empfohlen), sowie einen Minimum- und Maximalbereich von dynamischem Arbeitsspeicher, welcher der VM zugeordnet werden soll.
-1. Wählen Sie in der Dropdownliste unter **Netzwerk** einen Netzwerkadapter aus.
-1. Klicken Sie unter **Speicher** auf **Hinzufügen**, und wählen Sie aus, ob eine neue virtuelle Festplatte erstellt oder eine vorhandene virtuelle Festplatte verwendet werden soll. Wenn Sie eine vorhandene virtuelle Festplatte verwenden, klicken Sie auf **Durchsuchen**, und wählen Sie den entsprechenden Dateipfad aus.
-1. Führen Sie unter **Betriebssystem** einen der folgenden Schritte aus:
-   - Wählen Sie **Betriebssystem zu einem späteren Zeitpunkt installieren** aus, wenn Sie später ein Betriebssystem für die VM installieren möchten.
-   - Wählen Sie **Install an operating system from an image file (*.iso)** (Betriebssystem von Imagedatei (*.iso) installieren) aus, klicken Sie auf **Durchsuchen**, und wählen Sie dann die gewünschte ISO-Imagedatei aus.
-   - Wählen Sie **Betriebssystem von einem netzwerkbasierten Installationsserver installieren** aus, wenn Sie später ein Betriebssystem auf diese Weise auf der VM installieren möchten. Sie müssen zuvor einen Netzwerkadapter ausgewählt haben, andernfalls schlägt der Vorgang fehl.
-1. Wenn Sie fertig sind, klicken Sie auf **Erstellen**, um die VM zu erstellen.
-1. Zeigen Sie zum Starten der VM in der Liste **Virtuelle Computer** mit dem Mauszeiger auf die neue VM, aktivieren Sie links das entsprechende Kontrollkästchen, und wählen Sie **Starten** aus.
-1. Vergewissern Sie sich unter **Status**, ob der VM-Status **Wird ausgeführt** ist.
 
 ## <a name="move-a-vm-to-another-server-in-the-cluster"></a>Verschieben einer VM auf einen anderen Server im Cluster
 

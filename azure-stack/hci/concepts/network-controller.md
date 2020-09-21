@@ -4,13 +4,13 @@ description: In diesem Thema geht es um die Planung der Bereitstellung des Netzw
 author: AnirbanPaul
 ms.author: anpaul
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: 58ae46591e2119bbfc9269440f36e9c37fd0e7b9
-ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
+ms.date: 09/10/2020
+ms.openlocfilehash: 785665c9edc3af3230b4813e6da6bceddc43bd0a
+ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89643937"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90010831"
 ---
 # <a name="plan-to-deploy-the-network-controller"></a>Planen der Bereitstellung des Netzwerkcontrollers
 
@@ -21,7 +21,7 @@ Die Planung der Bereitstellung des Netzwerkcontrollers über Windows Admin Cente
    >[!NOTE]
    > Es wird empfohlen, den Netzwerkcontroller auf eigenen dedizierten VMs bereitzustellen.
 
-## <a name="network-controller-requirements-for-azure-stack-hci"></a>Anforderungen an den Netzwerkcontroller für Azure Stack HCI
+## <a name="network-controller-requirements"></a>Anforderungen an Netzwerkcontroller
 Zum Bereitstellen des Netzwerkcontrollers ist Folgendes erforderlich:
 - Eine VHD für das Betriebssystem Azure Stack HCI zum Erstellen der Netzwerkcontroller-VMs
 - Ein Domänenname und Anmeldeinformationen für den Beitritt der Netzwerkcontroller-VMs zu einer Domäne

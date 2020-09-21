@@ -7,12 +7,12 @@ ms.date: 8/17/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 8/17/2020
-ms.openlocfilehash: e803641b9d63a8b1136f720ce51eb5f7ca79c6e7
-ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
+ms.openlocfilehash: c05f35a9ef5ad059bdf50d721acd2811fa908370
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88564750"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573733"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Verwenden von Docker zum Ausführen von PowerShell für Azure Stack Hub
 
@@ -123,7 +123,7 @@ In diesen Anweisungen führen Sie ein Linux-basiertes Containerimage aus, das di
     docker run -it mcr.microsoft.com/azurestack/powershell
     ```
 
-    Sie können Ubuntu, Debian oder CentOS ausführen. Die folgenden Docker-Dateien befinden sich im GitHub-Repository [azurestack-powershell](https://github.com/Azure/azurestack-powershell). Aktuelle Änderungen an den Docker-Dateien finden Sie im GitHub-Repository. Jedes Betriebssystem ist mit einem Tag versehen. Ersetzen Sie das Tag (den Abschnitt nach dem Doppelpunkt) durch das entsprechende Tag.
+    Sie können Ubuntu, Debian oder CentOS ausführen. Die folgenden Docker-Dateien befinden sich im GitHub-Repository [azurestack-powershell](https://github.com/Azure/azurestack-powershell). Aktuelle Änderungen an den Docker-Dateien finden Sie im GitHub-Repository. Jedes Betriebssystem ist mit einem Tag versehen. Ersetzen Sie das Tag, also den Abschnitt hinter dem Doppelpunkt, durch das Tag für das gewünschte Betriebssystem.
 
     | Linux | Docker-Image |
     | --- | --- |

@@ -3,16 +3,16 @@ title: Planen der Netzwerkintegration für Azure Stack Hub
 description: Erfahren Sie, wie Sie die Integration von Rechenzentrumsnetzwerken in integrierte Azure Stack Hub-Systeme planen.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 09/09/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 75e5aa169a0ea04050a96b3f4db41d4ebfade994
-ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
+ms.openlocfilehash: 915c0ec4a661bbc039a7dc4d40f72ed83d135915
+ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89041569"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90010865"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planen der Netzwerkintegration für Azure Stack
 
@@ -26,6 +26,13 @@ Dieser Artikel enthält Informationen zur Netzwerkinfrastruktur von Azure Stack,
 Die Azure Stack-Lösung benötigt eine zuverlässige und hoch verfügbare physische Infrastruktur, um ihren Betrieb und ihre Dienste zu unterstützen. Zum Integrieren von Azure Stack in das Netzwerk werden Uplinks von den Top-of-Rack-Switches (ToR) zum nächsten Switch oder Router benötigt, der in dieser Dokumentation als „Grenze“ (Border) bezeichnet wird. Die ToR-Einheiten können per Uplink mit einer Grenze bzw. einem Grenzpaar verbunden werden. Die ToR-Einheit wird mit unserem Automatisierungstool vorkonfiguriert. Zwischen ToR und Grenze wird mindestens eine Verbindung erwartet, wenn BGP-Routing und mindestens zwei Verbindungen (eine pro ToR) zwischen ToR und Grenze verwendet werden und das statische Routing genutzt wird. Für jede Routingoption sind maximal vier Verbindungen möglich. Diese Verbindungen sind auf SFP+- oder SFP28-Medien und Mindestgeschwindigkeiten von 1 GB beschränkt. Angaben zur Verfügbarkeit erhalten Sie bei Ihrem OEM-Hardwarehersteller (Original Equipment Manufacturer). In der folgenden Abbildung ist der empfohlene Entwurf dargestellt:
 
 ![Empfohlener Entwurf des Azure Stack-Netzwerks](media/azure-stack-network/physical-network.svg)
+
+## <a name="bandwidth-allocation"></a>Bandbreitenzuordnung
+
+Azure Stack Hub wird mithilfe der Windows Server 2019-Failovercluster und Spaces Direct-Technologien erstellt. Ein Teil der physischen Netzwerkkonfiguration von Azure Stack Hub verwendet die Trennung von Datenverkehr und Bandbreitengarantien, um sicherzustellen, dass die Spaces Direct-Speicherkommunikation die für die Lösung erforderliche Leistung und Skalierbarkeit erfüllen kann. Die Netzwerkkonfiguration verwendet Datenverkehrsklassen, um die RDMA-basierte Spaces Direct-Kommunikation von derjenigen der Netzwerkauslastung durch die Azure Stack Hub-Infrastruktur und/oder den Mandanten voneinander zu trennen.
+
+> [!NOTE]
+> Das nächste Update von Azure Stack Hub umfasst eine zusätzliche Datenverkehrsklasse. In Vorbereitung auf diese Änderung empfiehlt Microsoft, dass Sie sich an ihren OEM wenden, um die erforderlichen Änderungen an den ToR-Netzwerkswitches (Top-of-Rack) vorzunehmen. Diese ToR-Änderung kann entweder vor oder nach der Aktualisierung auf das nächste Release durchgeführt werden.
 
 ## <a name="logical-networks"></a>Logische Netzwerke
 
@@ -43,7 +50,7 @@ Die folgende Tabelle zeigt die logischen Netzwerke und die zugehörigen IPv4-Sub
 | | | |
 
 > [!NOTE]
-> Wenn das System auf Version 1910 aktualisiert wird, wird der Operator durch eine Warnung im Portal daran erinnert, das neue PEP-Cmdlet **Set-AzsPrivateNetwork** auszuführen, um einen neuen privaten IP-Adressbereich der Größe „/20“ hinzuzufügen. Anweisungen zum Ausführen des Cmdlets finden Sie in den [Versionshinweisen zu 1910](release-notes.md). Weitere Informationen und Anleitungen zum Auswählen des privaten IP-Adressraums der Größe „/20“ finden Sie im Abschnitt [Privates Netzwerk](#private-network) dieses Artikels.
+> Wenn das System auf Version 1910 aktualisiert wird, wird der Operator durch eine Warnung im Portal daran erinnert, das neue PEP-Cmdlet **Set-AzsPrivateNetwork** auszuführen, um einen neuen privaten IP-Adressbereich der Größe „/20“ hinzuzufügen. Anweisungen zum Ausführen des Cmdlets finden Sie in den [Versionshinweisen zu 1910](release-notes.md?view=azs-1910&preserve-view=true). Weitere Informationen und Anleitungen zum Auswählen des privaten IP-Adressraums der Größe „/20“ finden Sie im Abschnitt [Privates Netzwerk](#private-network) dieses Artikels.
 
 ## <a name="network-infrastructure"></a>Netzwerkinfrastruktur
 
@@ -65,7 +72,7 @@ Dieses Netzwerk der Größe „/20“ (4.096 IP-Adressen) ist für die Azure S
 - **Internes VIP-Netzwerk (Virtuelle IP-Adresse):** Ein Netzwerk des Typs „/25“, das ausschließlich internen VIPs für den softwaregestützten Lastenausgleich vorbehalten ist.
 - **Containernetzwerk:** Ein dediziertes Netzwerk der Größe „/23“ (512 IP-Adressen) für internen Datenverkehr zwischen Containern mit Infrastrukturdiensten.
 
-Ab dem Release 1910 **benötigt** das Azure Stack Hub-System einen zusätzlichen privaten internen IP-Adressraum der Größe „/20“. Dieses Netzwerk ist für das Azure Stack-Region privat. (Das Routing geht also nicht über die Grenzswitchgeräte des Azure Stack-Systems hinaus.) Außerdem kann es für mehrere Azure Stack-Systeme innerhalb Ihres Rechenzentrums wiederverwendet werden. Das Netzwerk ist zwar ein privates Netzwerk für Azure Stack, es darf sich aber nicht mit anderen Netzwerken im Rechenzentrum überschneiden. Der private IP-Adressbereich „/20“ ist in mehrere Netzwerke unterteilt, die die Ausführung der Azure Stack Hub-Infrastruktur in Containern ermöglichen (wie zuvor in den [Versionshinweisen für 1905](release-notes.md?view=azs-1905) erwähnt). Darüber hinaus ermöglicht dieser neue private IP-Adressbereich auch kontinuierliche Maßnahmen zur Verringerung des erforderlichen routingfähigen IP-Adressraums vor der Bereitstellung. Die Ausführung der Azure Stack Hub-Infrastruktur in Containern dient zur Optimierung der Auslastung sowie zur Verbesserung der Leistung. Darüber hinaus wird der private IP-Adressbereich „/20“ auch verwendet, um kontinuierliche Maßnahmen zur Verringerung des erforderlichen routingfähigen IP-Adressraums vor der Bereitstellung zu ermöglichen. Als Leitfaden für den privaten IP-Adressraum empfehlen wir [RFC 1918](https://tools.ietf.org/html/rfc1918).
+Ab dem Release 1910 **benötigt** das Azure Stack Hub-System einen zusätzlichen privaten internen IP-Adressraum der Größe „/20“. Dieses Netzwerk ist für das Azure Stack-Region privat. (Das Routing geht also nicht über die Grenzswitchgeräte des Azure Stack-Systems hinaus.) Außerdem kann es für mehrere Azure Stack-Systeme innerhalb Ihres Rechenzentrums wiederverwendet werden. Das Netzwerk ist zwar ein privates Netzwerk für Azure Stack, es darf sich aber nicht mit anderen Netzwerken im Rechenzentrum überschneiden. Der private IP-Adressbereich „/20“ ist in mehrere Netzwerke unterteilt, die die Ausführung der Azure Stack Hub-Infrastruktur in Containern ermöglichen. Darüber hinaus ermöglicht dieser neue private IP-Adressbereich auch kontinuierliche Maßnahmen zur Verringerung des erforderlichen routingfähigen IP-Adressraums vor der Bereitstellung. Die Ausführung der Azure Stack Hub-Infrastruktur in Containern dient zur Optimierung der Auslastung sowie zur Verbesserung der Leistung. Darüber hinaus wird der private IP-Adressbereich „/20“ auch verwendet, um kontinuierliche Maßnahmen zur Verringerung des erforderlichen routingfähigen IP-Adressraums vor der Bereitstellung zu ermöglichen. Als Leitfaden für den privaten IP-Adressraum empfehlen wir [RFC 1918](https://tools.ietf.org/html/rfc1918).
 
 Für Systeme, die vor 1910 bereitgestellt wurden, ist dieses Subnetz der Größe „/20“ ein zusätzliches Netzwerk, das nach dem Aktualisieren auf 1910 in Systemen eingerichtet werden muss. Das zusätzliche Netzwerk muss über das PEP-Cmdlet **Set-AzsPrivateNetwork** für das System bereitgestellt werden.
 
@@ -75,6 +82,7 @@ Für Systeme, die vor 1910 bereitgestellt wurden, ist dieses Subnetz der Größe
 **Problembehandlungsschritte**: Gehen Sie zur Problembehandlung wie unter [Zugreifen auf den privilegierten Endpunkt](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) beschrieben vor. Bereiten Sie einen [privaten internen IP-Adressbereich](azure-stack-network.md#logical-networks) der Größe „/20“ vor, und führen Sie in der PEP-Sitzung das folgende Cmdlet (erst verfügbar ab 1910) unter Verwendung des folgenden Beispiels aus: `Set-AzsPrivateNetwork -UserSubnet 10.87.0.0/20`. Wenn der Vorgang erfolgreich ausgeführt wurde, erhalten Sie eine Meldung mit dem Hinweis, dass der interne Azs-Netzwerkbereich der Konfiguration hinzugefügt wurde (**Azs Internal Network range added to the config**). Nach erfolgreichem Abschluss wird die Warnung im Administratorportal geschlossen. Das Azure Stack Hub-System kann nun auf die nächste Version aktualisiert werden.
 
 ### <a name="azure-stack-infrastructure-network"></a>Azure Stack-Infrastrukturnetzwerk
+
 Dieses Netzwerk des Typs „/24“ ist internen Azure Stack-Komponenten zugeordnet, damit diese untereinander kommunizieren und Daten austauschen können. Dieses Subnetz kann extern von der Azure Stack-Lösung zu Ihrem Rechenzentrum geroutet werden. Von der Verwendung öffentlicher oder über das Internet routingfähiger IP-Adressen in diesem Subnetz wird abgeraten. Dieses Netzwerk wird für das Border-Gerät angekündigt, die meisten der zugehörigen IP-Adressen werden jedoch durch Zugriffssteuerungslisten (ACLs) geschützt. Die für den Zugriff zulässigen IP--Adressen befinden sich in einem kleinen Bereich, der einem Netzwerk des Typs „/27“ und Hostdiensten wie z. B. dem [privilegierten Endpunkt (PEP)](azure-stack-privileged-endpoint.md) und [Azure Stack Backup](azure-stack-backup-reference.md) entspricht.
 
 ### <a name="public-vip-network"></a>Öffentliches VIP-Netzwerk

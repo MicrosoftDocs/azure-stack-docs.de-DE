@@ -3,20 +3,20 @@ title: Versionshinweise für die AKS-Engine (Azure Kubernetes Service) in Azure 
 description: Es werden die Schritte beschrieben, die Sie beim Anwenden des Updates auf die AKS-Engine in Azure Stack Hub ausführen müssen.
 author: mattbriggs
 ms.topic: article
-ms.date: 9/2/2020
+ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 60e75b899ac66fae88e2e2e3f780c25ad0aac804
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: 5207fa80a97581847d309a460a31039695183e1c
+ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473247"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90717936"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Versionshinweise für die AKS-Engine in Azure Stack Hub
 ::: moniker range=">=azs-2002"
-*Gilt für Version 0.55.0 der ASK-Engine.*
+*Gilt für Version v0.55.4 der AKS-Engine.*
 
 In diesem Artikel wird der Inhalt des Updates für die AKS-Engine (Azure Kubernetes Service) in Azure Stack Hub beschrieben. Das Update umfasst Verbesserungen und Fehlerbehebungen für das aktuelle Release der AKS-Engine für die Azure Stack Hub-Plattform. Beachten Sie, dass der Zweck dieses Artikels nicht darin besteht, die Releaseinformationen für die AKS-Engine der globalen Azure-Umgebung zu dokumentieren.
 
@@ -68,9 +68,9 @@ Neue Versionen hierfür sind unter diesem Update verfügbar:
 
 -   Der Azure Stack Hub-Operator muss ein neues AKS-Ubuntu-Basisimage in den Stempel-Marketplace herunterladen:
 
-    -   Name: AKS Base Ubuntu 16.04: LTS Image Distro, August 2020 (2020.08.24)
+    -   Name: AKS Base Ubuntu 16.04-LTS Image Distro, August 2020 (2020.09.14)
 
-    -   Version: 2020.08.24
+    -   Version: 2020.09.14
 
     -   Befolgen Sie die Anweisungen im Artikel [Hinzufügen von Voraussetzungen für die Azure Kubernetes Services-Engine (AKS) zum Azure Stack Hub-Marketplace](../operator/azure-stack-aks-engine.md).
 
@@ -82,9 +82,9 @@ Neue Versionen hierfür sind unter diesem Update verfügbar:
 | ----------------------------- | ------------------------ |
 | 1910 | 0.43.0, 0.43.1 |
 | 2002 | 0.48.0, 0.51.0 |
-| 2005 | 0.48.0, 0.51.0, 0.55.0 |
+| 2005 | 0.48.0, 0.51.0, 0.55.0, 0.55.4 |
 
-## <a name="kubernetes-version-upgrade-path-in-aks-engine-0550"></a>Upgradepfad für Kubernetes-Version in AKS-Engine 0.55.0
+## <a name="kubernetes-version-upgrade-path-in-aks-engine-v0554"></a>Upgradepfad für Kubernetes-Version in AKS-Engine v0.55.4
 
 Sie finden die aktuelle Version und die Upgradeversion jeweils in der folgenden Tabelle für Azure Stack Hub. Verwenden Sie nicht den Befehl „get-versions“ der AKS-Engine, da er auch die in der globalen Azure-Umgebung unterstützten Versionen umfasst. Die folgende Tabelle mit den Versionen und Upgrades gilt für den AKS-Engine-Cluster in Azure Stack Hub.
 
@@ -105,7 +105,7 @@ Geben Sie in der JSON-Datei des API-Modells die Release- und Versionswerte im Ab
 
 - Fügt Unterstützung für K8s v1.17.11 in Azure Stack hinzu [#3702](https://github.com/Azure/aks-engine/pull/3702)
 - Fügt Unterstützung für K8s v1.16.14 in Azure Stack hinzu [#3704](https://github.com/Azure/aks-engine/pull/3704)
-- Linux-VHD-Update auf 2020.08.24 [#3750](https://github.com/Azure/aks-engine/pull/3750)
+- Linux-VHD-Update auf 2020.09.14 [#3750](https://github.com/Azure/aks-engine/pull/3750)
 - Windows-VHD-Update auf August [#3730](https://github.com/Azure/aks-engine/pull/3730)
 - Kubernetes-Metrikserver auf v0.3.7 aktualisiert [#3669](https://github.com/Azure/aks-engine/pull/3669)
 - Docker-Version aktualisiert, um das Protokollrotationsproblem zu beheben [#3693](https://github.com/Azure/aks-engine/pull/3693)
@@ -131,10 +131,11 @@ Dies sind alle Versionshinweise, die für Azure und Azure Stack Hub gemeinsam ge
 - https://github.com/Azure/aks-engine/releases/tag/v0.53.1
 - https://github.com/Azure/aks-engine/releases/tag/v0.54.1
 - https://github.com/Azure/aks-engine/releases/tag/v0.55.0
+- https://github.com/Azure/aks-engine/releases/tag/v0.55.4
 
 ::: moniker-end
 ::: moniker range="<=azs-1910"
-*Gilt für Version 0.48.0 oder ältere Versionen der ASK-Engine.*
+*Gilt für Version 0.48.0 oder niedriger der AKS-Engine.*
 
 In diesem Artikel wird der Inhalt des Updates für die AKS-Engine (Azure Kubernetes Service) in Azure Stack Hub beschrieben. Das Update umfasst Verbesserungen und Fehlerbehebungen für das aktuelle Release der AKS-Engine für die Azure Stack Hub-Plattform. Beachten Sie, dass der Zweck dieses Artikels nicht darin besteht, die Releaseinformationen für die AKS-Engine der globalen Azure-Umgebung zu dokumentieren.
 

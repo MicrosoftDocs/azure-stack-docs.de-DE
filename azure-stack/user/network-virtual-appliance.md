@@ -3,22 +3,22 @@ title: Behandeln von Problemen mit virtuellen Netzwerkgeräten in Azure Stack Hu
 description: Beheben Sie Probleme mit der VM- oder VPN-Konnektivität bei der Verwendung eines virtuellen Netzwerkgeräts (Network Virtual Appliance, NVA) in Microsoft Azure Stack Hub.
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/12/2020
+ms.date: 09/08/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 04c381bfefa40cc04f59e4b5f6641c2a227d14b8
-ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
+ms.openlocfilehash: 293e445343acfe13a0be2cabab6cb1577c3941a2
+ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85376798"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90010882"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>Behandeln von Problemen mit virtuellen Netzwerkgeräten
 
 Unter Umständen treten Verbindungsprobleme bei virtuellen Computern oder VPNs auf, die ein virtuelles Netzwerkgerät (Network Virtual Appliance, NVA) in Azure Stack Hub verwenden.
 
-In diesem Artikel werden die Schritte erläutert, mit denen Sie grundlegende Anforderungen an die Azure Stack Hub-Plattform für NVA-Konfigurationen überprüfen können.
+Dieser Artikel hilft bei der Überprüfung der grundlegenden Anforderungen an die Azure Stack Hub-Plattform für NVA-Konfigurationen.
 
 Der Anbieter eines NVA bietet technischen Support für das virtuelle Netzwerkgerät und seine Integration in die Azure Stack Hub-Plattform.
 
@@ -39,8 +39,8 @@ Wird Ihr NVA-Problem mit Azure Stack Hub in diesem Artikel nicht behandelt, erst
 ## <a name="basic-troubleshooting-steps"></a>Grundlegende Schritte zur Problembehandlung
 
 1. Überprüfen der grundlegenden Konfiguration
-1. Überprüfen der NVA-Leistung
-1. Erweiterte Behandlung von Netzwerkproblemen
+2. Überprüfen der NVA-Leistung
+3. Erweiterte Behandlung von Netzwerkproblemen
 
 ## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>Überprüfen der Mindestanforderungen für die Konfiguration von NVAs in Azure
 
@@ -58,8 +58,8 @@ Für jedes NVA müssen grundlegende Konfigurationsanforderungen erfüllt werden,
 #### <a name="use-the-azure-stack-hub-portal"></a>Verwenden des Azure Stack Hub-Portals
 
 1. Suchen Sie die NVA-Ressource im Azure Stack Hub-Portal, und wählen Sie **Netzwerke** und dann die Netzwerkschnittstelle aus.
-1. Wählen Sie auf der Seite **Netzwerkschnittstelle** die Option **IP-Konfiguration** aus.
-1. Stellen Sie sicher, dass IP-Weiterleitung aktiviert ist.
+2. Wählen Sie auf der Seite **Netzwerkschnittstelle** die Option **IP-Konfiguration** aus.
+3. Stellen Sie sicher, dass IP-Weiterleitung aktiviert ist.
 
 #### <a name="use-powershell"></a>Verwenden von PowerShell
 
@@ -69,8 +69,9 @@ Für jedes NVA müssen grundlegende Konfigurationsanforderungen erfüllt werden,
    Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
    ```
 
-1. Überprüfen Sie die Eigenschaft **EnableIPForwarding**.
-1. Wenn die IP-Weiterleitung nicht aktiviert ist, führen Sie die folgenden Befehle aus, um diese zu aktivieren:
+2. Überprüfen Sie die Eigenschaft **EnableIPForwarding**.
+
+3. Wenn die IP-Weiterleitung nicht aktiviert ist, führen Sie die folgenden Befehle aus, um diese zu aktivieren:
 
    ```powershell
    $nic2 = Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
@@ -84,7 +85,7 @@ Für jedes NVA müssen grundlegende Konfigurationsanforderungen erfüllt werden,
 ### <a name="check-whether-traffic-can-be-routed-to-the-nva"></a>Überprüfen, ob der Datenverkehr an das NVA weitergeleitet werden kann
 
 1. Suchen Sie einen virtuellen Computer, der zum Umleiten des Datenverkehrs an das virtuelle Netzwerkgerät konfiguriert ist.
-1. Um zu überprüfen, ob es sich beim NVA um den nächsten Hop handelt, führen Sie **Tracert \<Private IP of NVA\>** für Windows bzw. **Traceroute \<Private IP of NVA\>** aus.
+1. Um zu überprüfen, ob es sich beim NVA um den nächsten Hop handelt, führen Sie `Tracert <Private IP of NVA>`für Windows oder `Traceroute <Private IP of NVA>` aus.
 1. Wenn das NVA nicht als nächster Hop aufgeführt ist, überprüfen und aktualisieren Sie die Azure Stack Hub-Routingtabellen.
 
 Einige Betriebssysteme auf Gastebene verfügen möglicherweise über Firewallrichtlinien zum Blockieren von ICMP-Datenverkehr. Aktualisieren Sie diese Firewallregeln, damit die vorangehenden Befehle funktionieren.
@@ -92,7 +93,7 @@ Einige Betriebssysteme auf Gastebene verfügen möglicherweise über Firewallric
 ### <a name="check-whether-traffic-can-reach-the-nva"></a>Überprüfen, ob der Datenverkehr das NVA erreichen kann
 
 1. Suchen Sie einen virtuellen Computer, der mit dem NVA verbunden sein sollte.
-1. Überprüfen Sie, ob Netzwerksicherheitsgruppen (NSGs) Datenverkehr blockieren. Führen Sie unter Windows **ping** (ICMP) bzw. **Test-NetConnection \<Private IP of NVA\>** (TCP) aus. Führen Sie unter Linux **Tcpping \<Private IP of NVA\>** aus.
+1. Überprüfen Sie, ob Netzwerksicherheitsgruppen (NSGs) Datenverkehr blockieren. Führen Sie unter Windows `ping` (ICMP) oder `Test-NetConnection <Private IP of NVA>` (TCP) aus. Führen Sie unter Linux `Tcpping <Private IP of NVA>` aus.
 1. Wenn Ihre NSGs Datenverkehr blockieren, ändern Sie sie so, dass Datenverkehr zugelassen wird.
 
 ### <a name="check-whether-the-nva-and-vms-are-listening-for-expected-traffic"></a>Überprüfen, ob das NVA und die VMs auf erwarteten Datenverkehr lauschen
@@ -133,7 +134,7 @@ Wenn das VM-Netzwerk Spitzen oder Zeiträume mit hoher Auslastung aufweist, erh�
 
 ### <a name="capture-a-network-trace"></a>Erfassen einer Netzwerkablaufverfolgung
 
-Erfassen Sie während der Ausführung von [**PsPing**](/sysinternals/downloads/psping) oder **Nmap** eine gleichzeitige Netzwerkablaufverfolgung auf der Quell- und Ziel-VM und dem NVA. Beenden Sie dann die Ablaufverfolgung.
+Erfassen Sie während der Ausführung von [`PsPing`](/sysinternals/downloads/psping) oder `Nmap` eine gleichzeitige Netzwerkablaufverfolgung auf der Quell- und Ziel-VM und dem NVA. Beenden Sie dann die Ablaufverfolgung.
 
 1. Um eine gleichzeitige Netzwerkablaufverfolgung zu erfassen, führen Sie den folgenden Befehl aus:
 
@@ -149,9 +150,9 @@ Erfassen Sie während der Ausführung von [**PsPing**](/sysinternals/downloads/p
    sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
    ```
 
-2. Verwenden Sie **PsPing** oder **Nmap** von der Quell-VM zur Ziel-VM. Beispiele: **PsPing 10.0.0.4:80** bzw. **Nmap -p 80 10.0.0.4**
+2. Verwenden Sie `PsPing` oder `Nmap` von der Quell-VM zur Ziel-VM. Bespiele sind `PsPing 10.0.0.4:80` oder `Nmap -p 80 10.0.0.4`.
 
-3. Öffnen Sie die Netzwerkablaufverfolgung auf der Ziel-VM, indem Sie **tcpdump** oder eine Paketanalyse Ihrer Wahl verwenden. Wenden Sie einen Anzeigefilter für die IP-Adresse der Quell-VM an, über die Sie **PsPing** oder **Nmap** ausgeführt haben. Ein Windows-Beispiel für **netmon** lautet **IPv4.address==10.0.0.4**. Linux-Beispiele sind **tcpdump -nn -r vmtrace.cap src** und **dst host 10.0.0.4**.
+3. Öffnen Sie die Netzwerkablaufverfolgung auf der Ziel-VM, indem Sie **tcpdump** oder eine Paketanalyse Ihrer Wahl verwenden. Wenden Sie einen Anzeigefilter für die IP-Adresse der Quell-VM an, über die Sie `PsPing` oder `Nmap` ausgeführt haben. Ein Windows-Beispiel für **netmon** lautet `IPv4.address==10.0.0.4`. Linux-Beispiele sind `tcpdump -nn -r vmtrace.cap src` und `dst host 10.0.0.4`.
 
 ### <a name="analyze-traces"></a>Analysieren von Ablaufverfolgungen
 
