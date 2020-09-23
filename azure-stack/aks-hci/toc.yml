@@ -1,0 +1,65 @@
+- name: Dokumentation zu Azure Kubernetes Service in Azure Stack HCI
+  href: index.yml
+- name: Übersicht
+  items:
+    - name: Azure Kubernetes Service in Azure Stack HCI
+      href: overview.md
+- name: Schnellstarts
+  expanded: true
+  items:
+    - name: Einrichten von Azure Kubernetes Service in Azure Stack HCI
+      items:
+        - name: Verwenden von Windows Admin Center
+          href: setup.md
+        - name: PowerShell
+          href: setup-powershell.md
+    - name: Erstellen eines Kubernetes-Clusters
+      items:
+        - name: Verwenden von Windows Admin Center
+          href: create-kubernetes-cluster.md
+        - name: PowerShell
+          href: create-kubernetes-cluster-powershell.md
+- name: Tutorials
+  items:
+    - name: Verwenden von Windows Server-Containern
+      href: deploy-windows-application.md
+    - name: Verwenden von Linux-Containern
+      href: deploy-linux-application.md
+- name: Konzepte
+  items:
+    - name: 'Azure Kubernetes in Azure Stack HCI: Konzepte'
+      href: kubernetes-concepts.md
+    - name: Systemanforderungen
+      href: system-requirements.md
+- name: Anleitungen
+  items:
+    - name: Herstellen einer Verbindung mit Azure Arc für Kubernetes
+      href: connect-to-arc.md
+    - name: Anpassen von Apps für Kubernetes-Cluster mit gemischten Betriebssystemen
+      href: adapt-apps-mixed-os-clusters.md
+    - name: Verwenden von beständigem Speicher in einem Windows-Container und Vorbereiten auf gMSA
+      href: persistent-storage-windows-nodes.md
+    - name: Problembehandlung
+      href: troubleshoot.md
+- name: Verwandte Themen
+  items:
+    - name: Azure Stack HCI
+      href: ../hci/index.yml
+    - name: Windows Admin Center
+      href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
+    - name: Azure Hybrid Cloud
+      href: /hybrid
+    - name: Windows Server
+      href: /windows-server/
+- name: Ressourcen
+  items:
+    - name: Versionshinweise
+      href: 'https://aka.ms/aks-hci-relnotes/'
+    - name: Bekannte Probleme
+      href: known-issues.md
+    - name: Azure-Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 'AKS in Azure Stack HCI: Roadmap'
+      href: 'https://aka.ms/aks-hci-roadmap/'
+    - name: Melden von Fehlern
+      href: 'https://aka.ms/aks-hci-issues/'
