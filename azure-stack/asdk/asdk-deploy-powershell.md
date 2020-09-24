@@ -3,16 +3,16 @@ title: Bereitstellen des ASDK über die Befehlszeile mithilfe von PowerShell
 description: In diesem Artikel erfahren Sie, wie Sie das ASDK mithilfe von PowerShell über die Befehlszeile bereitstellen.
 author: justinha
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 09/23/2020
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: d6c7e29f83700eb2eb897bcd4b8bfdd65c7dfb4c
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.lastreviewed: 09/23/2020
+ms.openlocfilehash: c9931654b6c217d0c9f06bf51b37460046c47c2c
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847145"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106924"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>Bereitstellen des ASDK über die Befehlszeile mithilfe von PowerShell
 
@@ -26,8 +26,6 @@ Vergewissern Sie sich vor der ASDK-Bereitstellung, dass Hardware-, Betriebssyste
 
 **[Machen Sie sich mit Anforderungen und Überlegungen der ASDK-Bereitstellung vertraut](asdk-deploy-considerations.md)** .
 
-> [!TIP]
-> Mit dem [Tool zur Überprüfung von Bereitstellungsanforderungen für Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) können Sie sich nach der Installation des Betriebssystems auf dem Development Kit-Hostcomputer vergewissern, dass die Hardware die Anforderungen erfüllt.
 
 ## <a name="download-and-extract-the-deployment-package"></a>Herunterladen und Extrahieren des Bereitstellungspakets
 Nachdem Sie sich vergewissert haben, dass Ihr ASDK-Hostcomputer die Mindestanforderungen für die ASDK-Installation erfüllt, können Sie im nächsten Schritt das ASDK-Bereitstellungspaket herunterladen und extrahieren. Das Bereitstellungspaket enthält die Datei „Cloudbuilder.vhdx“. Hierbei handelt es sich um eine virtuelle Festplatte mit startbarem Betriebssystem und den Azure Stack-Installationsdateien.
