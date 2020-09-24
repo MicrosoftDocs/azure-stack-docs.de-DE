@@ -3,16 +3,16 @@ title: Anforderungen und Überlegungen zu ASDK
 description: In diesem Artikel werden die Hardware-, Software- und Umgebungsanforderungen für Azure Stack Development Kit (ASDK) erläutert.
 author: myoungerman
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 09/23/2020
 ms.author: v-myoung
 ms.reviewer: misainat
-ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: f74ffc103c53fa8cb1c317f42455c4063e1b0baa
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 09/23/2020
+ms.openlocfilehash: b16247c53ea0677573573c827f68e56081a9de5e
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572101"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106961"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Anforderungen und Überlegungen zu ASDK
 
@@ -79,9 +79,6 @@ Beispiel für eine Zwei-Wege-Spiegelungskonfiguration:
 | --- | --- |
 | **Betriebssystemversion** |Windows Server 2016 oder höher. Die Version des Betriebssystems ist vor dem Starten der Bereitstellung nicht wichtig, da der Hostcomputer auf der virtuellen Festplatte gestartet wird, die in der Azure Stack-Installation enthalten ist. Das Betriebssystem und alle erforderlichen Patches sind bereits in das Image integriert. Verwenden Sie keine Schlüssel zum Aktivieren von Windows Server-Instanzen, die im ASDK verwendet werden. |
 
-> [!TIP]
-> Nach der Installation des Betriebssystems können Sie mit der [Bereitstellungsprüfung für Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) sicherstellen, dass Ihre Hardware alle Anforderungen erfüllt.
-
 ## <a name="account-requirements"></a>Kontoanforderungen
 In der Regel stellen Sie das ASDK bereit, wenn eine Internetverbindung besteht und Sie eine Verbindung mit Microsoft Azure herstellen können. In diesem Fall müssen Sie ein Azure Active Directory-Konto (Azure AD) zum Bereitstellen des ASDK konfigurieren.
 
@@ -108,7 +105,7 @@ Zum Bereitstellen von Azure Stack über ein Azure AD-Konto müssen Sie vor dem A
 Nach der Bereitstellung ist die globale Azure AD-Administratorberechtigung nicht erforderlich. Einige Vorgänge erfordern jedoch möglicherweise die Anmeldeinformationen für den globalen Administrator. Beispiele für solche Vorgänge sind ein Ressourcenanbieter-Installationsskript oder ein neues Feature, dem eine Berechtigung erteilt werden muss. Sie können entweder die globalen Administratorrechte des Kontos vorübergehend wiederherstellen oder ein separates globales Administratorkonto verwenden, das Besitzer des *Standardanbieterabonnements* ist.
 
 ## <a name="network"></a>Netzwerk
-### <a name="switch"></a>Schalter
+### <a name="switch"></a>Switch
 Ein verfügbarer Port auf einem Switch für den ASDK-Computer.  
 
 Der ASDK-Computer unterstützt das Herstellen einer Verbindung mit einem Switchzugriffsport oder Trunkport. Auf dem Switch sind keine speziellen Funktionen erforderlich. Wenn Sie einen Trunkport verwenden oder eine VLAN-ID benötigen, müssen Sie die VLAN-ID als Bereitstellungsparameter angeben.
