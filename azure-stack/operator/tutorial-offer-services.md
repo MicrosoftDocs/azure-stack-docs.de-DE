@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: e0c152f3c541b3bc2dad042ae88f162b539cec60
-ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
+ms.openlocfilehash: f2716bfbdab58c90401e3c6b10908c35f774feed
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88564801"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107179"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Erstellen eines Dienstangebots für Benutzer in Azure Stack Hub
 
@@ -80,23 +80,23 @@ Bei der Angebotserstellung erstellen Sie sowohl ein Angebot als auch einen Plan.
 
     Wählen Sie dann **+ Ressource erstellen** > **Angebote + Pläne** > **Angebot** aus.
 
-    ![Neues Angebot im Azure Stack Hub-Verwaltungsportal](media/tutorial-offer-services/1-create-resource-offer.png)
+    ![Screenshot, der das Erstellen eines neuen Angebots im Azure Stack Hub-Verwaltungsportal zeigt.](media/tutorial-offer-services/1-create-resource-offer.png)
 
 1. Geben Sie auf der Registerkarte **Grundlagen** in **Neues Angebot** einen **Anzeigenamen** sowie einen **Ressourcennamen** ein, und wählen Sie eine vorhandene **Ressourcengruppe** aus, oder erstellen Sie eine neue. Der Anzeigename ist der verständliche Anzeigename des Angebots. Der Ressourcenname ist nur für den Cloudbetreiber sichtbar und wird von Administratoren verwendet, um mit dem Angebot als Azure Resource Manager-Ressource zu arbeiten.
 
-   ![Anzeigename im Azure Stack Hub-Verwaltungsportal](media/tutorial-offer-services/2-create-new-offer.png)
+   ![Screenshot, der zeigt, wo Sie grundlegende Informationen im Azure Stack Hub-Verwaltungsportal hinzufügen können.](media/tutorial-offer-services/2-create-new-offer.png)
 
 1. Wählen Sie die Registerkarte **Basispläne** und dann die Option **Neuen Plan erstellen** aus, um einen neuen Plan zu erstellen. Der Plan wird dem Angebot auch als Basisplan hinzugefügt.
 
-   ![Hinzufügen eines Plans im Azure Stack Hub-Verwaltungsportal](media/tutorial-offer-services/3-create-new-offer-base-plans.png)
+   ![Screenshot, der das Hinzufügen eines Plans im Azure Stack Hub-Verwaltungsportal zeigt.](media/tutorial-offer-services/3-create-new-offer-base-plans.png)
 
 1. Geben Sie auf der Registerkarte **Grundlagen** in **Neuer Plan** einen **Anzeigenamen** und einen **Ressourcennamen** ein. Der Anzeigename ist der verständliche Name des Plans, der Benutzern angezeigt wird. Der Ressourcenname ist nur für den Cloudbetreiber sichtbar und wird von Cloudbetreibern verwendet, um mit dem Plan als Azure Resource Manager-Ressource zu arbeiten. Die **Ressourcengruppe** wird auf jene festgelegt, die für das Angebot angegeben ist.
 
-   ![Anzeigename des Plans im Azure Stack Hub-Verwaltungsportal](media/tutorial-offer-services/4-create-new-plan-basics.png)
+   ![Screenshot, der den Anzeigenamen des Plans im Azure Stack Hub-Verwaltungsportal zeigt.](media/tutorial-offer-services/4-create-new-plan-basics.png)
 
 1. Wählen Sie die Registerkarte **Dienste** aus, damit eine Liste der Dienste angezeigt wird, die von den installierten Ressourcenanbietern zur Verfügung gestellt werden. Wählen Sie **Microsoft.Compute**, **Microsoft.Network** und **Microsoft.Storage** aus.
 
-   ![Plandienste im Azure Stack Hub-Verwaltungsportal](media/tutorial-offer-services/5-create-new-plan-services.png)
+   ![Screenshot, der Plandienste im Azure Stack Hub-Verwaltungsportal zeigt.](media/tutorial-offer-services/5-create-new-plan-services.png)
 
 1. Wählen Sie die Registerkarte **Kontingente** aus, damit die Liste der Dienste angezeigt wird, die Sie für diesen Plan aktiviert haben. Wählen Sie **Neu erstellen** aus, um ein benutzerdefiniertes Kontingent für **Microsoft.Compute** anzugeben. Für das Kontingent muss ein **Name** angegeben werden. Sie können den Wert für die einzelnen Kontingente übernehmen oder ändern. Wenn Sie fertig sind, wählen Sie **OK** aus, und wiederholen Sie diese Schritte für die verbleibenden Dienste.
 

@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 52fa5bcb02632f2c04dffa389c6a859a409cf52a
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 1e7e87073518ab5a040cc96ec1af5b7db5f808d9
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764833"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107247"
 ---
 # <a name="interactive-feature-verification-testing"></a>Testen der interaktiven Featureüberprüfung  
 
@@ -48,7 +48,7 @@ Falls Sie über keinen vorhandenen Testdurchlauf verfügen, führen Sie die [Sch
     > [!Note]  
     > Die Version des Tests erhöht sich, wenn Verbesserungen am Testbegleitmaterial vorgenommen werden. Sofern von Microsoft nicht anders angegeben, sollte immer die höchste Version verwendet werden.
 
-    ![Datenträgeridentifizierungstest: interaktive Tests in Azure Stack Hub](media/azure-stack-vaas-interactive-feature-verification/image4.png)
+    ![Screenshot, der „Datenträgeridentifizierungstest: interaktive Tests“ in Azure Stack Hub zeigt.](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
 2. Wählen Sie **Bearbeiten** aus, um den Namen und das Kennwort des Domänenadministratorbenutzers anzugeben.
 
