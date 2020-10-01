@@ -7,12 +7,12 @@ ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/09/2020
-ms.openlocfilehash: 9b851b59093a85f7ddd5f9df47359784f41fe24e
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 34a93a65d45861c7c7ff1727347cc95465968151
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742150"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572516"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Was ist der Bereitstellungsprozess für Azure Stack HCI?
 
@@ -44,7 +44,7 @@ Falls sich Ihre Azure Stack HCI-Bereitstellung über mehrere Standorte erstrecke
 
 ### <a name="2-deploy-azure-stack-hci"></a>2. Bereitstellen von Azure Stack HCI
 
-[Laden Sie Azure Stack HCI herunter](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/), und stellen Sie das Azure Stack HCI-[Betriebssystem](operating-system.md) auf allen Servern bereit, die in den Cluster einbezogen werden sollen.
+[Laden Sie Azure Stack HCI herunter](https://azure.microsoft.com/products/azure-stack/hci/hci-download/), und stellen Sie das Azure Stack HCI-[Betriebssystem](operating-system.md) auf allen Servern bereit, die in den Cluster einbezogen werden sollen.
 
 ### <a name="3-create-the-cluster"></a>3. Erstellen des Clusters
 

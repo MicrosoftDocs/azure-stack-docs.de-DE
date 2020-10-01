@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.openlocfilehash: 94908514e85df153f69cbeea81a11d4468dfc7fe
-ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
+ms.openlocfilehash: 06a5a1ccf59b5d5c34ef1d2e36feeb1000b49776
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89274057"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572635"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Aktualisieren von Azure Stack HCI-Clustern
 
@@ -87,9 +87,8 @@ Das Feature des clusterfähigen Aktualisierens kann die gesamte Clusteraktualisi
   
 -   **Remoteaktualisierungsmodus**: Für diesen Modus ist ein Remoteverwaltungscomputer (in der Regel ein Windows 10-PC), der über eine Netzwerkverbindung mit dem Failovercluster verfügt, aber kein Mitglied des Failoverclusters ist, mit den Failoverclustertools konfiguriert. Auf dem Remoteverwaltungscomputer, der auch als Updatekoordinator bezeichnet wird, verwendet der Administrator ein standardmäßiges oder benutzerdefiniertes Profil für die Updateausführung, um bei Bedarf eine Updateausführung auszulösen. Der Remoteaktualisierungsmodus ist nützlich für die Überwachung des Echtzeitfortschritts während der Updateausführung sowie für Cluster in Server Core-Installationen.  
 
-
    > [!NOTE]
-   > Ab dem Windows 10-Update vom Oktober 2018 ist RSAT als Gruppe von „Features on Demand“ direkt in Windows 10 eingeschlossen. Wechseln Sie einfach zu **Einstellungen > Apps > Apps und Features > Optionale Features > Feature hinzufügen > RSAT: Failoverclustertools**, und wählen Sie **Installieren** aus. Um den Installationsfortschritt anzuzeigen, klicken Sie auf die Schaltfläche „Zurück“, und überprüfen Sie den Status auf der Seite „Optionale Features verwalten“. Das installierte Feature wird über Upgrades von Windows 10-Versionen hinweg beibehalten. Um die Remoteserver-Verwaltungstools für Windows 10 vor dem Update vom Oktober 2018 zu installieren [laden Sie ein RSAT-Paket herunter](https://www.microsoft.com/en-us/download/details.aspx?id=45520).
+   > Ab dem Windows 10-Update vom Oktober 2018 ist RSAT als Gruppe von „Features on Demand“ direkt in Windows 10 eingeschlossen. Wechseln Sie einfach zu **Einstellungen > Apps > Apps und Features > Optionale Features > Feature hinzufügen > RSAT: Failoverclustertools**, und wählen Sie **Installieren** aus. Um den Installationsfortschritt anzuzeigen, klicken Sie auf die Schaltfläche „Zurück“, und überprüfen Sie den Status auf der Seite „Optionale Features verwalten“. Das installierte Feature wird über Upgrades von Windows 10-Versionen hinweg beibehalten. Um die Remoteserver-Verwaltungstools für Windows 10 vor dem Update vom Oktober 2018 zu installieren [laden Sie ein RSAT-Paket herunter](https://www.microsoft.com/download/details.aspx?id=45520).
 
 ### <a name="add-cau-cluster-role-to-the-cluster"></a>Hinzufügen einer Rolle für das clusterfähige Aktualisieren zum Cluster
 
@@ -105,7 +104,7 @@ Wenn die Rolle noch nicht im Cluster konfiguriert, wird die folgende Fehlermeldu
 
 ```Get-CauClusterRole : The current cluster is not configured with a Cluster-Aware Updating clustered role.```
 
-Um die Clusterrolle für das clusterfähige Aktualisieren für den Selbstaktualisierungsmodus über PowerShell hinzuzufügen, verwenden Sie das Cmdlet **`Add-CauClusterRole`** , und geben Sie geeignete [Parameter](/powershell/module/clusterawareupdating/add-cauclusterrole?view=win10-ps#parameters) an, wie im folgenden Beispiel gezeigt:
+Um die Clusterrolle für das clusterfähige Aktualisieren für den Selbstaktualisierungsmodus über PowerShell hinzuzufügen, verwenden Sie das Cmdlet **`Add-CauClusterRole`** , und geben Sie geeignete [Parameter](/powershell/module/clusterawareupdating/add-cauclusterrole#parameters) an, wie im folgenden Beispiel gezeigt:
 
 ```PowerShell
 Add-CauClusterRole -ClusterName Cluster1 -MaxFailedNodes 0 -RequireAllNodesOnline -EnableFirewallRules -VirtualComputerObjectName Cluster1-CAU -Force -CauPluginName Microsoft.WindowsUpdatePlugin -MaxRetriesPerNode 3 -CauPluginArguments @{ 'IncludeRecommendedUpdates' = 'False' } -StartDate "3/2/2020 3:00:00 AM" -DaysOfWeek 4 -WeeksOfMonth @(3) -verbose

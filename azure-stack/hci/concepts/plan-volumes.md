@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 49124c0112d2ecba8c621520cfb1b6c293418401
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 8125ff0432b16f254f8660e8c5f755f7f4916b12
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742537"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572771"
 ---
 # <a name="plan-volumes-in-azure-stack-hci"></a>Planen von Volumes in Azure Stack HCI
 
@@ -39,7 +39,7 @@ Wir empfehlen, die Gesamtzahl von Volumes auf 64 pro Cluster zu begrenzen.
 
 ## <a name="choosing-the-filesystem"></a>Auswählen des Dateisystems
 
-Wir empfehlen Ihnen die Verwendung des neuen [resilienten Dateisystems (Resilient File System, ReFS)](/en-us/windows-server/storage/refs/refs-overview) für „Direkte Speicherplätze“. ReFS ist ein Dateisystem, das speziell für die Virtualisierung entwickelt wurde. Es bietet viele Vorteile, z. B. erhebliche Leistungsverbesserungen und integrierter Schutz vor Datenbeschädigung. Nahezu alle wichtigen NTFS-Features werden unterstützt, z. B. die Datendeduplizierung unter Windows Server-Version 1709 und höher. Ausführliche Informationen finden Sie in der [Tabelle mit dem Featurevergleich](/windows-server/storage/refs/refs-overview#feature-comparison) für ReFS.
+Wir empfehlen Ihnen die Verwendung des neuen [resilienten Dateisystems (Resilient File System, ReFS)](/windows-server/storage/refs/refs-overview) für „Direkte Speicherplätze“. ReFS ist ein Dateisystem, das speziell für die Virtualisierung entwickelt wurde. Es bietet viele Vorteile, z. B. erhebliche Leistungsverbesserungen und integrierter Schutz vor Datenbeschädigung. Nahezu alle wichtigen NTFS-Features werden unterstützt, z. B. die Datendeduplizierung unter Windows Server-Version 1709 und höher. Ausführliche Informationen finden Sie in der [Tabelle mit dem Featurevergleich](/windows-server/storage/refs/refs-overview#feature-comparison) für ReFS.
 
 Falls Sie für Ihre Workload ein Feature benötigen, das von ReFS noch nicht unterstützt wird, können Sie stattdessen NTFS verwenden.
 

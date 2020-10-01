@@ -7,12 +7,12 @@ ms.date: 9/8/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: bcd4d3e2255a839efe3ef4075d81042e241d00f3
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: c8c68a64f7a05e03c70e138cb4d8c95da7417ec9
+ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609913"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91519416"
 ---
 # <a name="move-a-vm-from-azure-to-azure-stack-hub"></a>Verschieben einer VM aus Azure in Azure Stack Hub
 
@@ -48,7 +48,7 @@ Befolgen Sie die Anweisungen unter [Herunterladen einer Windows-VHD von Azure](/
 
 - Bevor Sie Ihre Linux-VM herunterladen, befolgen Sie die Anweisungen im Abschnitt „Vorbereiten der VM“ des Artikels [Erstellen eines virtuellen Linux-Computers auf der Grundlage eines benutzerdefinierten Datenträgers mithilfe der Azure-Befehlszeilenschnittstelle](/azure/virtual-machines/linux/upload-vhd#prepare-the-vm).
 - Führen Sie die Schritte im Artikel [Herunterladen einer Linux-VHD von Azure](/azure//virtual-machines/windows/download-vhd) aus, um die VHD vorzubereiten und herunterzuladen.
-- Stellen Sie für eine spezialisierte VHD sicher, dass Sie die „attach“-Semantik mithilfe von `-CreateOption Attach`verwenden. Ein Beispiel finden Sie im Artikel [Erstellen eines virtuellen Computers mit einem vorhandenen verwalteten Betriebssystemdatenträger mit PowerShell (Windows)](/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks).
+- Stellen Sie für eine spezialisierte VHD sicher, dass Sie die „attach“-Semantik mithilfe von `-CreateOption Attach`verwenden. Ein Beispiel finden Sie im Artikel [Erstellen eines virtuellen Computers mit einem vorhandenen verwalteten Betriebssystemdatenträger mit PowerShell (Windows)](/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks).
 
 #### <a name="linux---generalized"></a>[Linux: Generalisiert](#tab/lin-gen)
 
