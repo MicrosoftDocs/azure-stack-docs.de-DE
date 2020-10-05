@@ -98,32 +98,38 @@
           href: manage/use-azure-network-adapter.md
 - name: Konzepte
   items:
-    - name: Stretchingcluster
-      href: concepts/stretched-clusters.md
-    - name: Abrechnung
-      href: concepts/billing.md
-    - name: Updates und Upgrades
-      href: concepts/updates.md
-    - name: Wählen von Laufwerken
-      href: concepts/choose-drives.md
-    - name: Aspekte symmetrischer Laufwerke
-      href: concepts/drive-symmetry-considerations.md
-    - name: Planen von Volumes
-      href: concepts/plan-volumes.md
-    - name: Softwaredefiniertes Netzwerk
-      href: concepts/software-defined-networking.md
-    - name: Grundlegendes zum Speicherpoolcache
-      href: concepts/cache.md
-    - name: Fehlertoleranz und Speichereffizienz
-      href: concepts/fault-tolerance.md
-    - name: Quorum für Cluster und Speicherpool
-      href: concepts/quorum.md
-    - name: Planen einer SDN-Infrastruktur
-      href: concepts/plan-software-defined-networking-infrastructure.md
-    - name: Netzwerkcontroller
-      href: concepts/network-controller.md
-    - name: Sicherheitshinweise
-      href: concepts/security.md
+    - name: Speicher und Cluster
+      items:
+        - name: Wählen von Laufwerken
+          href: concepts/choose-drives.md
+        - name: Aspekte symmetrischer Laufwerke
+          href: concepts/drive-symmetry-considerations.md
+        - name: Planen von Volumes
+          href: concepts/plan-volumes.md
+        - name: Grundlegendes zum Speicherpoolcache
+          href: concepts/cache.md
+        - name: Fehlertoleranz und Speichereffizienz
+          href: concepts/fault-tolerance.md
+        - name: Stretchingcluster
+          href: concepts/stretched-clusters.md
+        - name: Quorum für Cluster und Speicherpool
+          href: concepts/quorum.md
+    - name: Netzwerk
+      items:
+        - name: Softwaredefiniertes Netzwerk
+          href: concepts/software-defined-networking.md
+        - name: Planen einer SDN-Infrastruktur
+          href: concepts/plan-software-defined-networking-infrastructure.md
+        - name: Netzwerkcontroller planen
+          href: concepts/network-controller.md
+    - name: Wartung und Sicherheit
+      items:
+        - name: Abrechnung
+          href: concepts/billing.md
+        - name: Updates und Upgrades
+          href: concepts/updates.md
+        - name: Sicherheitshinweise
+          href: concepts/security.md
 - name: Verweis
   items:
     - name: Hyper-V-PowerShell-Befehle
