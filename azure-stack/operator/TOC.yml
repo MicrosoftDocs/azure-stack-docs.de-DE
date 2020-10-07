@@ -469,14 +469,6 @@
               items:
                 - name: Übersicht
                   href: azure-stack-diagnostic-log-collection-overview.md
-                - name: Proaktives Senden von Protokollen
-                  href: azure-stack-configure-automatic-diagnostic-log-collection.md
-                - name: Sofortiges Senden von Protokollen
-                  items:
-                    - name: Verwenden des Administratorportals
-                      href: azure-stack-configure-on-demand-diagnostic-log-collection-portal.md
-                    - name: Verwenden von PowerShell
-                      href: azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md
                 - name: Get-AzureStackLog (PEP)
                   href: azure-stack-get-azurestacklog.md
         - name: Überprüfung für Azure Stack Hub
