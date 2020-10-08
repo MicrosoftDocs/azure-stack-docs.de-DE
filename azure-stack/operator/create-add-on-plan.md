@@ -8,12 +8,12 @@ ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 2fd22acfe6f47d3a12502d5528e1f3fd96294460
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 29ae7acf1954dfafad1583bf037603f8ccac7514
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696480"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106799"
 ---
 # <a name="create-add-on-plans-in-azure-stack-hub"></a>Erstellen von Add-On-Plänen in Azure Stack Hub
 
@@ -35,19 +35,19 @@ Add-On-Pläne werden [auf die gleiche Weise erstellt](azure-stack-create-plan.md
 2. Führen Sie die gleichen Schritte wie beim [Erstellen eines neuen Basisplans](azure-stack-create-plan.md) aus, um einen neuen Plan mit Diensten zu erstellen, die zuvor noch nicht angeboten wurden.
 3. Klicken Sie im Administratorportal auf **Angebote**, und wählen Sie anschließend das Angebot aus, das mit einem Add-On-Plan aktualisiert werden soll.
 
-   ![Auswählen der Option zum Aktualisieren mit dem Add-On-Plan im Azure Stack-Administratorportal](media/create-add-on-plan/add-on1.png)
+   ![Der Screenshot zeigt, wie ein Angebot zur Aktualisierung mit Add-On-Plan im Azure Stack-Administratorportal ausgewählt wird.](media/create-add-on-plan/add-on1.png)
 
 4. Wählen Sie am Ende der Angebotseigenschaften die Option **Add-On-Pläne** aus. Wählen Sie **Hinzufügen**.
 
-    ![Auswählen von Add-On-Plänen im Azure Stack-Administratorportal](media/create-add-on-plan/add-on2.png)
+    ![Der Screenshot zeigt, wie Add-On-Pläne im Azure Stack-Administratorportal ausgewählt werden.](media/create-add-on-plan/add-on2.png)
 
 5. Wählen Sie den hinzuzufügenden Plan aus. Der Plan in diesem Beispiel heißt **20-storageaccounts**. Wenn Sie den Plan ausgewählt haben, klicken Sie auf **Auswählen**, um den Plan zum Angebot hinzuzufügen. Sie sollten eine Benachrichtigung erhalten haben, dass der Plan dem Angebot erfolgreich hinzugefügt wurde.
 
-    ![Auswählen des Add-On-Plans im Azure Stack-Administratorportal, der hinzugefügt werden soll](media/create-add-on-plan/add-on3.png)
+    ![Der Screenshot zeigt, wie Sie den hinzuzufügenden Add-On-Plan im Azure Stack-Administratorportal auswählen.](media/create-add-on-plan/add-on3.png)
 
 6. Sehen Sie sich die Liste mit den Add-On-Plänen an, die im Angebot enthalten sind, um sicherzustellen, dass der neue Add-On-Plan aufgeführt ist.
 
-    ![[Überprüfen der Liste der Add-On-Pläne im Azure Stack-Administratorportal]\(media/create-add-on-plan/add-on4.png „Erstellen eines Add-On-Plans“)](media/create-add-on-plan/add-on4lg.png#lightbox)
+    ![Der Screenshot zeigt eine Liste von Add-On-Plänen, die im Azure Stack-Administratorportal zu überprüfen sind.](media/create-add-on-plan/add-on4.png "Add-On-Plan erstellen")](media/create-add-on-plan/add-on4lg.png#lightbox)
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"

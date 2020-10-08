@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 1c80f8d0d83ab734be98d8e26d4c3abe803ae514
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: f2b51ad2bff721c2a8be6490902cf3bb07559fb2
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488704"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106812"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Verwalten der Speicherkapazität für Azure Stack Hub
 
@@ -222,7 +222,7 @@ Durch die Migration werden alle Containerblobs in der neuen Freigabe konsolidier
    Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
    ```
 
-   ![Beispiel: Migrationsstatus](media/azure-stack-manage-storage-shares/migration-status1.png)
+   ![Der Screenshot zeigt den Migrationsstatus.](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6. Sie können die Ausführung eines Migrationsauftrags abbrechen. Abgebrochene Migrationsaufträge werden asynchron verarbeitet. Der Abbruch kann anhand von „$jobId“ nachverfolgt werden:
 
@@ -234,7 +234,7 @@ Durch die Migration werden alle Containerblobs in der neuen Freigabe konsolidier
 
 7. Sie können den Befehl aus Schritt 6 noch mal ausführen, bis der Migrationsstatus *Angebrochen* lautet:  
 
-    ![Beispiel: Status „Abgebrochen“](media/azure-stack-manage-storage-shares/cancelled.png)
+    ![Der Screenshot zeigt ein Beispiel für einen abgebrochenen Migrationsstatus.](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>Verschieben von VM-Datenträgern
 *Diese Option gilt nur für in Azure Stack Hub integrierte Systeme.*

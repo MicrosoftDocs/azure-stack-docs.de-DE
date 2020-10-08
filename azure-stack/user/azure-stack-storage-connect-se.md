@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 440e48470a11de10ad9cae4d32a1449781cb2c84
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 773d80909c167f328e6e3eb0868cb99c7d52ffd7
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573852"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107134"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Herstellen einer Verbindung zwischen dem Storage-Explorer und einem Azure Stack Hub-Abonnement oder -Speicherkonto
 
@@ -97,7 +97,7 @@ Gehen Sie wie folgt vor, um den Storage-Explorer mit einem Azure Stack Hub-Abon
 1. Wählen Sie **Konten verwalten**. Im Explorer werden die Microsoft-Abonnements aufgeführt, an denen Sie sich angemeldet haben.
 2. Wählen Sie zum Herstellen einer Verbindung mit dem Azure Stack Hub-Abonnement die Option **Konto hinzufügen** aus.
 
-    ![Hinzufügen eines Kontos: Storage-Explorer](media/azure-stack-storage-connect-se/add-an-account.png)
+    ![Der Screenshot zeigt, wie ein Konto in Storage-Explorer hinzugefügt wird.](media/azure-stack-storage-connect-se/add-an-account.png)
 
 3. Wählen Sie **Weiter** aus. Wählen Sie im Dialogfeld „Verbindung mit Azure-Speicher herstellen“ unter **Azure-Umgebung** die Option **Use Custom Environment** (Benutzerdefinierte Umgebung verwenden), und klicken Sie anschließend auf **Weiter**.
 

@@ -6,17 +6,17 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 08/12/2020
-ms.openlocfilehash: aeed44bdc36036272e223cbc1cb740396ce1413e
-ms.sourcegitcommit: 750d8682261ac1a3c47fbeb331ac0b4e6f76a03e
+ms.date: 09/24/2020
+ms.openlocfilehash: 621662110b2e842a432183dfb7415f3c8365907b
+ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89219300"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91230494"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Herstellen einer Verbindung von Azure Stack HCI mit Azure
 
-> Gilt für Azure Stack HCI v20H2; Windows Server 2019
+> Gilt für: Azure Stack HCI, v20H2
 
 Azure Stack HCI wird als Azure-Dienst bereitgestellt und muss gemäß den Bestimmungen für Azure-Onlinedienste innerhalb von 30 Tagen nach der Installation registriert werden. In diesem Thema wird erläutert, wie Sie Ihren Azure Stack HCI-Cluster für Überwachung, Support, Abrechnung und Hybriddienste bei [Azure Arc](https://azure.microsoft.com/services/azure-arc/) registrieren. Bei der Registrierung wird eine Azure Resource Manager-Ressource erstellt, um jeden der lokalen Azure Stack HCI-Cluster zu repräsentieren, wodurch die Azure-Verwaltungsebene effektiv auf Azure Stack HCI ausgedehnt wird. Die Informationen werden regelmäßig zwischen der Azure-Ressource und dem lokalen Cluster synchronisiert. 
 

@@ -8,24 +8,24 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: ce3f6e0542678fe2d399e101a90a916cf412599f
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: b30126bcfbbe57cd36a54ce1f5fc487014fe7a03
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487718"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572873"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Erstellen hochverfügbarer SQL-Datenbanken mit Azure Stack Hub
 
 Als Azure Stack Hub-Operator können Sie virtuelle Servercomputer zum Hosten von SQL Server-Datenbanken konfigurieren. Wenn ein SQL-Hostserver erstellt und über Azure Stack Hub verwaltet wird, können Benutzer, die SQL-Dienste abonniert haben, ganz einfach SQL-Datenbanken erstellen.
 
-Dieser Artikel zeigt, wie Sie eine Azure Stack Hub-Schnellstartvorlage verwenden, um eine [SQL Server-Always On-Verfügbarkeitsgruppe](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) zu erstellen, diese als Azure Stack Hub-SQL-Hostserver hinzufügen und dann eine hochverfügbare SQL-Datenbank erstellen.
+Dieser Artikel zeigt, wie Sie eine Azure Stack Hub-Schnellstartvorlage verwenden, um eine [SQL Server-Always On-Verfügbarkeitsgruppe](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) zu erstellen, diese als Azure Stack Hub-SQL-Hostserver hinzufügen und dann eine hochverfügbare SQL-Datenbank erstellen.
 
 Sie lernen Folgendes:
 
 > [!div class="checklist"]
 > * Erstellen einer SQL Server-Always On-Verfügbarkeitsgruppe über eine Vorlage
-> * Erstellen eines Azure Stack Hub-SQL-Hostservers
+> * Konfigurieren der SQL Server-Always On-Verfügbarkeitsgruppe als Azure Stack Hub-SQL-Hostserver
 > * Erstellen einer hochverfügbaren SQL-Datenbank
 
 Mithilfe von verfügbaren Azure Stack-Marketplace-Elementen wird eine SQL Server-AlwaysOn-Verfügbarkeitsgruppe mit zwei virtuellen Computern erstellt.
@@ -124,7 +124,7 @@ Auf sekundären SQL Server-Instanzen:
 
 ### <a name="configure-contained-database-authentication"></a>Konfigurieren der Authentifizierung der eigenständigen Datenbank
 
-Stellen Sie vor dem Hinzufügen einer eigenständigen Datenbank zu einer Verfügbarkeitsgruppe sicher, dass die Serveroption für die Authentifizierung der eigenständigen Datenbank für jede Serverinstanz auf 1 festgelegt ist, die ein Verfügbarkeitsreplikat für die Verfügbarkeitsgruppe hostet. Weitere Informationen finden Sie unter [Contained Database Authentication (Serverkonfigurationsoption)](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Stellen Sie vor dem Hinzufügen einer eigenständigen Datenbank zu einer Verfügbarkeitsgruppe sicher, dass die Serveroption für die Authentifizierung der eigenständigen Datenbank für jede Serverinstanz auf 1 festgelegt ist, die ein Verfügbarkeitsreplikat für die Verfügbarkeitsgruppe hostet. Weitere Informationen finden Sie unter [Contained Database Authentication (Serverkonfigurationsoption)](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option).
 
 Verwenden Sie diese Befehle, um die Serveroption „contained database authentication“ zur Authentifizierung der eigenständigen Datenbank für jede SQL Server-Instanz in der Verfügbarkeitsgruppe festzulegen:
 
@@ -137,9 +137,9 @@ Verwenden Sie diese Befehle, um die Serveroption „contained database authentic
 
 ![Festlegen von „contained database authentication“](./media/azure-stack-tutorial-sqlrp/sql3.png)
 
-## <a name="create-an-azure-stack-hub-sql-hosting-server"></a>Erstellen eines Azure Stack Hub-SQL-Hostservers
+## <a name="configure-an-azure-stack-hub-sql-hosting-server"></a>Konfigurieren eines Azure Stack Hub-SQL-Hostservers
 
-Nachdem die SQL Server-Always On-Verfügbarkeitsgruppe erstellt und ordnungsgemäß konfiguriert wurde, muss ein Azure Stack Hub-Betreiber einen Azure Stack Hub-SQL-Hostserver erstellen. Der SQL-Hostserver stellt Benutzern die zusätzliche Kapazität zur Verfügung, damit diese Datenbanken erstellen können.
+Nachdem die SQL Server-Always On-Verfügbarkeitsgruppe erstellt und ordnungsgemäß konfiguriert wurde, muss ein Azure Stack Hub-Operator diese als Azure Stack Hub-SQL-Hostserver konfigurieren. 
 
 Verwenden Sie die öffentliche IP-Adresse oder den vollständigen vollqualifizierten Domänennamen für die öffentliche IP-Adresse des Lastenausgleichsmoduls, die bzw. den Sie beim Erstellen der Ressourcengruppe (**SQLPIPsql\<resource group name\>** ) für die SQL AlwaysOn-Verfügbarkeitsgruppe erfasst haben. Darüber hinaus benötigen Sie die Anmeldeinformationen für die SQL Server-Authentifizierung, die für den Zugriff auf die SQL Server-Instanzen in der AlwaysOn-Verfügbarkeitsgruppe verwendet werden.
 

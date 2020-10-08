@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 75138fa2b74666fee4149bf444558c98c250b4c8
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: 81c2db63471e8943c201d1b6979ab0a9b0da6e85
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965159"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815341"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Einrichten eines VPN-Gateways für Azure Stack Hub per FortiGate NVA
 
@@ -64,8 +64,6 @@ In der folgenden Tabelle sind als Referenz die Parameter zusammengefasst, die in
 ## <a name="deploy-the-fortigate-ngfw-marketplace-items"></a>Bereitstellen der FortiGate NGFW-Marketplace-Elemente
 
 1. Öffnen Sie das Azure Stack Hub-Benutzerportal.
-
-    ![Der Startbildschirm wird mit der Auswahl „+ Ressource erstellen“ im linken Bereich angezeigt.](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
 1. Wählen Sie **Ressource erstellen** aus, und suchen Sie nach `FortiGate`.
 

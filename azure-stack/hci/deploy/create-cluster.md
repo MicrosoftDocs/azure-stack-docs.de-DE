@@ -3,15 +3,15 @@ title: Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows Admin Cente
 description: Hier erfahren Sie, wie Sie mithilfe von Windows Admin Center einen Servercluster für Azure Stack HCI erstellen.
 author: v-dasis
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 75c4da1ab4e03bae4f9beb2a5d1c170933c6b985
-ms.sourcegitcommit: 673d9b7cf723bc8ef6c04aee5017f539a815da51
+ms.openlocfilehash: b7c6c76353ff29f01eca458ca563517807ca0cd3
+ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88110524"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91019531"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows Admin Center
 
@@ -66,7 +66,7 @@ OK, fangen wir an:
 
 1. Klicken Sie auf **Erstellen**, wenn Sie fertig sind. Jetzt wird der Clustererstellungs-Assistent angezeigt, wie unten dargestellt.
 
-    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="Clustererstellungs-Assistent: Erste Schritte" lightbox="media/cluster/create-cluster-wizard.png":::
+    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="Clustererstellungs-Assistent: HCI-Option" lightbox="media/cluster/create-cluster-wizard.png":::
 
 ## <a name="step-1-get-started"></a>Schritt 1: Erste Schritte
 
@@ -96,7 +96,10 @@ In Schritt 1 des Assistenten werden Sie durch die Überprüfung der Voraussetzu
 
 ## <a name="step-2-networking"></a>Schritt 2: Netzwerk
 
-In Schritt 2 des Assistenten konfigurieren Sie verschiedene Netzwerkelemente für Ihren Cluster. Lassen Sie uns beginnen:
+Schritt 2 des Assistenten führt Sie durch die Konfiguration von virtuellen Switches und anderen Netzwerkelementen für Ihren Cluster.
+
+> [!NOTE]
+> Wenn beim Konfigurieren des Netzwerks oder virtuellen Switches Fehler angezeigt werden, klicken Sie erneut auf **Apply and test** (Übernehmen und testen).
 
 1. Wählen Sie **Weiter: Netzwerk** aus.
 1. Warten Sie unter **Verify the network adapters** (Überprüfen der Netzwerkadapter), bis grüne Kontrollkästchen neben den einzelnen Adaptern angezeigt werden, und wählen Sie dann **Weiter** aus.
@@ -105,9 +108,9 @@ In Schritt 2 des Assistenten konfigurieren Sie verschiedene Netzwerkelemente f�
 
     Für Verwaltungsadapter gibt es zwei Konfigurationsoptionen:
 
-    - Verwendung eines einzelnen physischen Adapters für die Verwaltung. Sowohl DHCP als auch die Zuweisung statischer IP-Adressen werden unterstützt.
+    - **Ein physischer Netzwerkadapter für die Verwaltung**. Für diese Option werden sowohl DHCP als auch die Zuweisung statischer IP-Adressen unterstützt.
 
-    - Verwendung und Kombination von zwei physischen Adaptern. Wenn zwei Adapter kombiniert werden, wird nur die Zuweisung statischer IP-Adressen unterstützt. Wenn die ausgewählten Adapter die DHCP-Adressierung verwenden (für einen oder beide Adapter), wird die DHCP-IP-Adresse vor der Erstellung des virtuellen Switches in statische IP-Adressen konvertiert.
+    - **Zwei physische Netzwerkadapter zur gemeinsamen Verwaltung**. Wenn zwei Adapter kombiniert werden, wird nur die Zuweisung statischer IP-Adressen unterstützt. Wenn die ausgewählten Adapter die DHCP-Adressierung verwenden (für einen oder beide Adapter), wird die DHCP-IP-Adresse vor der Erstellung des virtuellen Switches in statische IP-Adressen konvertiert.
 
     Bei der Verwendung kombinierter Adapter haben Sie eine einzelne Verbindung mit mehreren Switches, verwenden aber nur eine einzelne IP-Adresse. Damit wird Lastenausgleich verfügbar, und es wird sofortige Fehlertoleranz erreicht, statt die Aktualisierung von DNS-Einträgen abwarten zu müssen.
 
@@ -129,10 +132,13 @@ In Schritt 2 des Assistenten konfigurieren Sie verschiedene Netzwerkelemente f�
 
 1. Wählen Sie unter **Virtueller Switch** fallweise eine der folgenden Optionen aus. Je nach Anzahl von Adaptern werden möglicherweise nicht alle Optionen angezeigt:
 
-    - Erstellen eines virtuellen Switches für die gemeinsame Verwendung durch Hyper-V und Speicher
-    - Erstellen eines virtuellen Switches nur für die Verwendung durch Hyper-V
-    - Erstellen zweier virtueller Switches, einer für Hyper-V, der andere für Speicher
-    - Keinen virtuellen Switch erstellen
+    - **Überspringen der Erstellung virtueller Switches**
+    - **Erstellen eines gemeinsamen virtuellen Switches für Compute und Speicher**
+    - **Erstellen eines virtuellen Switches für Compute**
+    - **Erstellen zweier virtueller Switches**
+
+    > [!NOTE]
+    > Wenn Sie den Netzwerkcontroller für das softwaredefinierte Netzwerk bereitstellen möchten (in **Schritt 5: SDN** des Assistenten), benötigen Sie einen virtuellen Switch. Wenn Sie sich hier also gegen die Erstellung eines virtuellen Switches entscheiden und keinen virtuellen Switch außerhalb des Assistenten erstellen, wird der Assistent den Netzwerkcontroller nicht bereitstellen.
 
     In der folgenden Tabelle sind die Konfigurationen für virtuelle Switches aufgeführt, die für verschiedene Netzwerkadapterkonfigurationen unterstützt werden und aktiviert sind:
 
@@ -143,9 +149,6 @@ In Schritt 2 des Assistenten konfigurieren Sie verschiedene Netzwerkelemente f�
     | Zwei Switches | Nicht unterstützt | enabled | enabled |
 
 1. Ändern Sie nach Bedarf den Namen eines Switches und weitere Konfigurationseinstellungen, und klicken Sie dann auf **Apply and test** (Übernehmen und testen). In der Spalte **Status** sollte für jeden Server **Passed** (Bestanden) angezeigt werden, nachdem die virtuellen Switches erstellt wurden.
-
-> [!NOTE]
-> Wenn beim Konfigurieren des Netzwerks oder virtuellen Switches Fehler angezeigt werden, klicken Sie erneut auf **Apply and test** (Übernehmen und testen). Bei den Netzwerkkonnektivitätsprüfungen können zeitweise Fehler auftreten. Dies kann beim ersten Versuch zu Serverpingfehlern des Assistenten führen.
 
 ## <a name="step-3-clustering"></a>Schritt 3: Clustering
 
@@ -170,7 +173,6 @@ In Schritt 3 des Assistenten wird überprüft, ob bisher alles ordnungsgemäß 
 
 In Schritt 4 des Assistenten werden Sie durch das Einrichten von Direkte Speicherplätze für Ihren Cluster geführt.
 
-
 1. Klicken Sie auf **Weiter: Speicher**.
 1. Klicken Sie unter **Verify drives** (Laufwerke überprüfen) auf das Symbol **>** neben jedem Server, um zu überprüfen, ob die Datenträger funktionieren und verbunden sind, und klicken Sie dann auf **Weiter**.
 1. Klicken Sie unter **Clean drives** (Laufwerke bereinigen) auf **Clean drives**, um die Laufwerke von Daten zu leeren. Wenn Sie fertig sind, klicken Sie auf **Weiter**.
@@ -185,7 +187,42 @@ Nach der Erstellung des Clusters kann es etwas dauern, bis der Clustername in Ih
 
 Wenn das Auflösen des Clusters nach einiger Zeit nicht erfolgreich ist, können Sie in den meisten Fällen einen Servernamen im Cluster anstelle des Clusternamens angeben.
 
-## <a name="after-you-run-the-wizard"></a>Nach der Ausführung des Assistenten
+## <a name="step-5-sdn-optional"></a>Schritt 5: SDN (optional)
+
+Schritt 5 des Assistenten führt Sie durch die Einrichtung des Netzwerkcontrollers auf Ihrem Cluster für softwaredefinierte Netzwerke (SDN). Nachdem der Netzwerkcontroller eingerichtet wurde, kann er zur Konfiguration anderer Komponenten des softwaredefinierten Netzwerks (SDN) wie Softwarelastenausgleich und RAS-Gateway verwendet werden.
+
+> [!NOTE]
+> Dieser Schritt des Assistenten ist optional.
+
+:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Clustererstellungs-Assistent: HCI-Option" lightbox="media/cluster/create-cluster-network-controller.png":::
+
+1. Klicken Sie auf **Weiter: SDN**.
+1. Geben Sie unter **Host** einen Namen für den Netzwerkcontroller ein.
+1. Geben Sie einen Pfad zur Azure Stack HCI-VHD-Datei an. Verwenden Sie **Durchsuchen**, um sie schneller zu finden.
+1. Geben Sie die Anzahl der virtuellen Computer an, die für Netzwerkcontroller dediziert werden sollen. Für Hochverfügbarkeit werden drei bis fünf virtuelle Computer empfohlen.
+1. Geben Sie unter **Netzwerk** die VLAN-ID ein.
+1. Wählen Sie für **VM-Netzwerkadressierung** entweder **DHCP** oder **Statisch** aus.
+1. Wenn Sie **DHCP** ausgewählt haben, geben Sie den Namen und die IP-Adresse für die virtuellen Computer des Netzwerkcontrollers ein.
+1. Gehen Sie wie folgt vor, wenn Sie **Statisch** ausgewählt haben:
+    1. Geben Sie ein Subnetzpräfix an.
+    1. Geben Sie das Standardgateway an.
+    1. Geben Sie mindestens einen DNS-Server an. Klicken Sie auf **Hinzufügen**, um weitere DNS-Server hinzuzufügen.
+1. Geben Sie unter **Anmeldeinformationen** den Benutzernamen und das Kennwort ein, mit denen die virtuellen Computer des Netzwerkcontrollers mit der Clusterdomäne verbunden werden.
+1. Geben Sie das lokale Administratorkennwort für diese VMs ein.
+1. Geben Sie unter **Erweitert** den Pfad zu den virtuellen Computern ein.
+1. Geben Sie Werte für den **Anfang des MAC-Adresspools** und das **Ende des MAC-Adresspools** ein.
+1. Klicken Sie abschließend auf **Weiter**.
+1. Warten Sie, bis der Assistent seinen Auftrag abgeschlossen hat. Bleiben Sie auf dieser Seite, bis alle Fortschrittsaufgaben abgeschlossen sind. Klicken Sie auf **Fertig stellen**.
+ 
+Wenn bei der Bereitstellung des Netzwerkcontrollers ein Fehler auftritt, gehen Sie wie folgt vor, bevor Sie es erneut versuchen:
+
+- Beenden und löschen Sie alle Netzwerkcontroller-VMs, die der Assistent erstellt hat.  
+
+- Bereinigen Sie alle VHD-Bereitstellungspunkte, die der Assistent erstellt hat.  
+
+- Stellen Sie sicher, dass Sie über mindestens 50-100 GB freien Speicherplatz auf Ihren Hyper-V-Hosts verfügen.  
+
+## <a name="after-you-complete-the-wizard"></a>Nach Abschluss des Assistenten
 
 Nachdem der Assistent abgeschlossen wurde, gibt es noch einige wichtige Aufgaben, die Sie ausführen müssen.
 
@@ -208,4 +245,5 @@ OK, und das sind die anderen Aufgaben, die Sie ausführen müssen:
 - Registrieren Sie Ihren Cluster bei Azure. Mehr dazu finden Sie unter [Verwalten der Azure-Registrierung](../manage/manage-azure-registration.md).
 - Führen Sie eine abschließende Überprüfung des Clusters durch. Mehr dazu finden Sie unter [Überprüfen eines Azure Stack HCI-Clusters](validate.md).
 - Stellen Sie Ihre virtuellen Computer bereit. Mehr dazu finden Sie unter [Verwalten von VMs in Azure Stack HCI mithilfe von Windows Admin Center](../manage/vm.md).
-- Alternativ können Sie einen Cluster auch mithilfe von PowerShell erstellen. Mehr dazu finden Sie unter [Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell](create-cluster-powershell.md).
+- Sie können einen Cluster auch mithilfe von PowerShell bereitstellen. Mehr dazu finden Sie unter [Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell](create-cluster-powershell.md).
+- Sie können Netzwerkcontroller auch mithilfe von PowerShell bereitstellen. Weitere Informationen finden Sie unter [Bereitstellen eines Netzwerkcontrollers mit PowerShell](network-controller-powershell.md).

@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 93712c3eedb3045d99b9c2ed46a066b8505771dd
-ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
+ms.openlocfilehash: a5ccf4ecd9ab6f70f54af22c343f28eb692f9c54
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724879"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592901"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Zertifikatanforderungen für Azure Stack Hub-PKI (Public Key-Infrastruktur)
 
@@ -23,7 +23,7 @@ Azure Stack Hub verfügt über ein öffentliches Infrastrukturnetz mit extern zu
 - Optionale Zertifikate, die beim Bereitstellen von Ressourcenanbietern (RPs) erforderlich sind, die Mehrwert schaffen.
 
 > [!NOTE]
-> Azure Stack Hub verwendet standardmäßig auch Zertifikate, die von einer internen, in Active Directory integrierten Zertifizierungsstelle (Certificate Authority, CA) für die Authentifizierung zwischen den Knoten ausgestellt werden. Um das Zertifikat zu überprüfen, vertrauen alle Azure Stack Hub-Infrastrukturcomputer dem Stammzertifikat der internen Zertifizierungsstelle, indem sie dieses Zertifikat dem lokalen Zertifikatspeicher hinzufügen. In Azure Stack Hub werden keine Zertifikate angeheftet oder auf eine Whitelist gesetzt. Der SAN der einzelnen Serverzertifikate wird anhand des FQDN des Ziels überprüft. Außerdem werden die gesamte Vertrauenskette sowie das Ablaufdatum des Zertifikats (standardmäßige TLS-Server-Authentifizierung ohne Anheften von Zertifikaten) überprüft.
+> Azure Stack Hub verwendet standardmäßig auch Zertifikate, die von einer internen, in Active Directory integrierten Zertifizierungsstelle (Certificate Authority, CA) für die Authentifizierung zwischen den Knoten ausgestellt werden. Um das Zertifikat zu überprüfen, vertrauen alle Azure Stack Hub-Infrastrukturcomputer dem Stammzertifikat der internen Zertifizierungsstelle, indem sie dieses Zertifikat dem lokalen Zertifikatspeicher hinzufügen. In Azure Stack Hub werden keine Zertifikate angeheftet oder gefiltert. Der SAN der einzelnen Serverzertifikate wird anhand des FQDN des Ziels überprüft. Außerdem werden die gesamte Vertrauenskette sowie das Ablaufdatum des Zertifikats (standardmäßige TLS-Server-Authentifizierung ohne Anheften von Zertifikaten) überprüft.
 
 ## <a name="certificate-requirements"></a>Zertifikatanforderungen
 In der folgenden Liste werden die allgemeinen Anforderungen an Zertifikatausstellung, Sicherheit und Formatierung beschrieben:

@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: c762f4c8c75fbfd6755c25877c52fbb68c88f7ca
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 12de836d74382f26efd49ec8873aaa99a919ecd5
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631117"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107089"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>Erstellen von Plänen in Azure Stack Hub
 
@@ -25,37 +25,37 @@ ms.locfileid: "84631117"
 
 2. Klicken Sie zum Erstellen von Plänen und Angeboten, die Benutzer abonnieren können, auf **+ Ressource erstellen** > **Angebote + Pläne** > **Plan**.
   
-   ![Auswählen eines Plans im Azure Stack Hub-Administratorportal](media/azure-stack-create-plan/select-plan.png)
+   ![Screenshot, der das Auswählen eines Plans im Azure Stack Hub-Administratorportal zeigt.](media/azure-stack-create-plan/select-plan.png)
 
 3. Auf den Registerkarten der Benutzeroberfläche können Sie den Namen des Plan angeben, Dienste hinzufügen und Kontingente für die einzelnen ausgewählten Dienste definieren. Ganz wichtig: Sie können vor der tatsächlichen Erstellung des Angebots noch einmal die Angebotsdetails überprüfen.
 
    Geben Sie im Fenster **Neuer Plan** auf der Registerkarte **Grundlagen** Werte für **Anzeigename** und **Ressourcenname** ein. Der Anzeigename ist der Name des Plans, der Bedienern angezeigt wird. Im Administratorportal sind Plandetails nur für Bediener sichtbar.
 
-   ![Angeben der Details für einen neuen Plan in Azure Stack Hub](media/azure-stack-create-plan/plan-name.png)
+   ![Der Screenshot zeigt, wie die Details für den neuen Plan in Azure Stack Hub festgelegt werden.](media/azure-stack-create-plan/plan-name.png)
 
 4. Erstellen Sie eine neue **Ressourcengruppe**, oder wählen Sie eine vorhandene aus, die als Container für den Plan dient.
 
-   ![Angeben der Ressourcengruppe für einen neuen Plan in Azure Stack Hub](media/azure-stack-create-plan/resource-group.png)
+   ![Der Screenshot zeigt, wie die Ressourcengruppe für den neuen Plan in Azure Stack Hub festgelegt wird.](media/azure-stack-create-plan/resource-group.png)
 
 5. Wählen Sie die Registerkarte **Dienste**, oder klicken Sie auf die Schaltfläche **Weiter: Dienste >** , und aktivieren Sie anschließend jeweils das Kontrollkästchen für **Microsoft.Compute**, **Microsoft.Network** und **Microsoft.Storage**.
   
-   ![Auswählen der Dienste für einen neuen Plan in Azure Stack Hub](media/azure-stack-create-plan/services.png)
+   ![Der Screenshot zeigt, wie Dienste für einen neuen Plan in Azure Stack Hub ausgewählt werden.](media/azure-stack-create-plan/services.png)
 
 6. Wählen Sie die Registerkarte **Kontingente**, oder klicken Sie auf die Schaltfläche **Weiter: Kontingente >** . Wählen Sie neben **Microsoft.Storage** entweder das Standardkontingent aus dem Dropdownfeld aus, oder wählen Sie **Neu erstellen** aus, um ein angepasstes Kontingent zu erstellen.
   
-   ![Angeben der Kontingente für einen neuen Plan in Azure Stack Hub](media/azure-stack-create-plan/quotas.png)
+   ![Der Screenshot zeigt, wie Kontingente für einen neuen Plan in Azure Stack Hub angegeben werden.](media/azure-stack-create-plan/quotas.png)
 
 7. Falls Sie ein neues Kontingent erstellen möchten, geben Sie unter **Name** einen Namen für das Kontingent ein, und geben Sie anschließend die Kontingentwerte an. Wählen Sie **OK** aus, um das Kontingent zu erstellen.
 
-   ![Erstellen eines neuen Kontingents für einen neuen Plan in Azure Stack Hub](media/azure-stack-create-plan/new-quota.png)
+   ![Der Screenshot zeigt, wie neue Kontingente für einen neuen Plan in Azure Stack Hub erstellt werden.](media/azure-stack-create-plan/new-quota.png)
 
 8. Wiederholen Sie die Schritte 6 und 7, um Kontingente für **Microsoft.Network** und **Microsoft.Compute** zu erstellen und zuzuweisen. Wenn alle drei Dienste mit Kontingenten versehen wurden, sehen sie wie im folgenden Beispiel aus.
 
-   ![Finalisieren der Kontingentzuweisungen für einen neuen Plan in Azure Stack Hub](media/azure-stack-create-plan/all-quotas-assigned.png)
+   ![Der Screenshot zeigt, wie Kontingentzuweisungen für einen neuen Plan in Azure Stack Hub abgeschlossen werden.](media/azure-stack-create-plan/all-quotas-assigned.png)
 
 9. Wählen Sie **Überprüfen + erstellen** aus, um den Plan zu überprüfen. Überprüfen Sie alle Werte und Kontingente, um sich zu vergewissern, dass alle richtig sind. Auf der Oberfläche können Sie die Kontingente in den gewählten Plänen erweitern, um die Details jedes einzelnen Kontingents in einem Plan anzuzeigen. Sie können auch zurückkehren, um erforderliche Änderungen vorzunehmen.
 
-   ![Erstellen des Plans in Azure Stack Hub](media/azure-stack-create-plan/create.png)
+   ![Der Screenshot zeigt, wie der Plan in Azure Stack Hub erstellt wird.](media/azure-stack-create-plan/create.png)
 
 10. Wenn Sie bereit sind, wählen Sie **Erstellen** aus, um den Plan zu erstellen.
 

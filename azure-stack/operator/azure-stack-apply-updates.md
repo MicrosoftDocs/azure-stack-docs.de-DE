@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: sranthar
-ms.openlocfilehash: e46bc4258883e01b80b78a96bf95cfe8012934d9
-ms.sourcegitcommit: 16ff77f7157e5b04a8cd401b095f7b71f51d5a11
+ms.openlocfilehash: d0222de6db809fcbb73d31ac1ef4298e18895643
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86949541"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106567"
 ---
 # <a name="install-azure-stack-hub-updates"></a>Installieren von Azure Stack Hub-Updates
 
@@ -48,7 +48,7 @@ Die aktuelle Version von Azure Stack Hub können Sie auf dem Blatt **Update** an
 
 4. Wählen Sie **Jetzt aktualisieren** aus.
 
-    ![Details zur Azure Stack Hub-Updateausführung](./media/azure-stack-update-apply/image2.png)
+    ![Der Screenshot zeigt, wie Sie ein Update in Azure Stack Hub starten.](./media/azure-stack-update-apply/image2.png)
 
 5. Sie können den allgemeinen Status anzeigen, während im Updateprozess die verschiedenen Subsysteme in Azure Stack Hub durchlaufen werden. Beispiele für Subsysteme sind physische Hosts, Service Fabric, virtuelle Computer der Infrastruktur und Dienste, die sowohl das Verwaltungs- als auch das Benutzerportal umfassen. Während des gesamten Updateprozesses meldet der Updateressourcenanbieter zusätzliche Details zu dem Update, z. B. die Anzahl der erfolgreich ausgeführten Schritte sowie die Anzahl der laufenden Schritte.
 

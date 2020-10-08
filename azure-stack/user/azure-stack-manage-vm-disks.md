@@ -7,12 +7,12 @@ ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: ecca2f76e15d23d904db018d82c86269504195f7
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 7da3f2b488444e0868099cfe34e6ebfff56926ea
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250910"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107161"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Erstellen von VM-Datenträgerspeicher in Azure Stack Hub
 
@@ -65,15 +65,15 @@ Platzieren Sie jeden nicht verwalteten Datenträger, den Sie hinzufügen, in ein
    ![Beispiel: VM-Dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2. Wählen Sie einen virtuellen Computer aus, der zuvor erstellt wurde.
-   ![Beispiel: Auswählen eines virtuellen Computers auf dem Dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
+   ![Screenshot, der einen ausgewählten virtuellen Computer zeigt.](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
 3. Wählen Sie für die VM die Option **Datenträger** und dann **Datenträger hinzufügen** aus.
-   ![Beispiel: Anfügen eines neuen Datenträgers an den virtuellen Computer](media/azure-stack-manage-vm-disks/Attach-disks.png)
+   ![Der Screenshot zeigt, wie ein neuer Datenträger an die VM angefügt wird.](media/azure-stack-manage-vm-disks/Attach-disks.png)
 
 4. Datenträger:
    * Geben Sie die **LUN** ein. Die LUN muss eine gültige Zahl sein.
    * Wählen Sie **Datenträger erstellen**.
-   ![Beispiel: Anfügen eines neuen Datenträgers an den virtuellen Computer](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
+   ![Der Screenshot zeigt, wie ein neuer Datenträger erstellt wird.](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
 
 5. Führen Sie auf dem Blatt **Verwalteten Datenträger erstellen** die folgenden Schritte aus:
    * Geben Sie unter **Name** den Namen des Datenträgers ein.
@@ -114,7 +114,7 @@ Weitere Informationen zum Arbeiten mit Speicherkonten in Azure Stack Hub finden
 2. Wählen Sie den **Container** aus, in dem der Datenträger für Daten platziert werden soll. Auf dem Blatt **Container** können Sie bei Bedarf auch einen neuen Container erstellen. Anschließend können Sie den Speicherort für den neuen Datenträger auf den eigenen Container festlegen. Wenn Sie für jeden Datenträger einen separaten Container verwenden, verteilen Sie die Platzierung des Datenträgers für Daten, was zur Verbesserung der Leistung beitragen kann.
 3. Wählen Sie zum Speichern der Auswahl die Option **Auswählen**.
 
-    ![Beispiel: Auswählen eines Containers](media/azure-stack-manage-vm-disks/select-container.png)
+    ![Der Screenshot zeigt, wie ein Container ausgewählt wird.](media/azure-stack-manage-vm-disks/select-container.png)
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>Hinzufügen eines vorhandenen Datenträgers zu einem virtuellen Computer
 
@@ -127,7 +127,7 @@ Weitere Informationen zum Arbeiten mit Speicherkonten in Azure Stack Hub finden
     ![Beispiel: Hochladen einer VHD-Datei](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
 2. Nach dem Hochladen der VHD-Datei können Sie die virtuelle Festplatte an einen virtuellen Computer anfügen. Wählen Sie im Menü auf der linken Seite die Option **Virtuelle Computer**.  
- ![Beispiel: Auswählen eines virtuellen Computers auf dem Dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+ ![Der Screenshot zeigt die ausgewählten virtuellen Computer.](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 3. Wählen Sie die VM aus der Liste aus.
 

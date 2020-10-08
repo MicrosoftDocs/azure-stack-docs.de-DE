@@ -3,21 +3,24 @@ title: Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell
 description: Hier erfahren Sie, wie Sie den Netzwerkcontroller mithilfe von Windows PowerShell bereitstellen.
 author: v-dasis
 ms.topic: how-to
-ms.date: 08/17/2020
+ms.date: 09/22/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 6405b774cf27e8c48b9200d401174eaa5e292584
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.openlocfilehash: b9f86e715835ac52bbc34782e4f9eb41ca8b4851
+ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818316"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91019570"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell
 
 > Gilt für die Azure Stack HCI (Version 20H2) und für Windows Server 2019
 
 In diesem Thema erfahren Sie, wie Sie den Netzwerkcontroller mithilfe von Windows PowerShell auf mindestens einem virtuellen Computer (virtual machine, VM) bereitstellen, der in einem Azure Stack HCI-Cluster ausgeführt wird. Der Netzwerkcontroller ist eine Komponente des softwaredefinierten Netzwerks (SDN).
+
+>[!NOTE]
+>Sie können den Netzwerkcontroller auch mithilfe des Assistenten zum Erstellen von Clustern in Windows Admin Center bereitstellen. Weitere Informationen finden Sie unter [Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows Admin Center](create-cluster.md).
 
 ## <a name="using-windows-powershell"></a>Verwenden von Windows PowerShell
 
@@ -72,7 +75,7 @@ New-NetworkControllerNodeObject -Name <string> -Server "ServerName" -FaultDomain
 
 In der folgenden Tabelle werden die einzelnen Parameter des Befehls `New-NetworkControllerNodeObject` beschrieben:
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |-------------|---------------|
 |Name|Der Parameter **Name** gibt den Anzeigenamen des Servers an, den Sie dem Cluster hinzufügen möchten.|
 |Server|Der Parameter **Server** gibt den Hostnamen, den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) oder die IP-Adresse des Servers an, den Sie dem Cluster hinzufügen möchten. Bei Computern, die einer Domäne angehören, ist der FQDN erforderlich.|

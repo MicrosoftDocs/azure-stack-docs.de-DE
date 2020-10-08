@@ -6,19 +6,39 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/08/2020
-ms.openlocfilehash: 9913b1976152f78078d78d0e807bff3348c3276f
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.date: 09/17/2020
+ms.openlocfilehash: 57aa49c075afad4f6ccb37802293424d8e0e309f
+ms.sourcegitcommit: c45f92186edf62b95b38d1020e0851dd54bc6536
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573461"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90765389"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Versionshinweise für die Public Preview von Azure Stack HCI
 
 > Gilt für: Azure Stack HCI, Version 20H2
 
 In diesem Artikel werden die Inhalte der Updatepakete für die Public Preview von Azure Stack HCI beschrieben.
+
+## <a name="september-17-2020-preview-update-kb4577629"></a>17. September 2020 Preview-Update (KB4577629)
+
+Dieses Update enthält Verbesserungen und Fehlerbehebungen für das neueste Release von Azure Stack HCI.
+
+### <a name="improvements-and-fixes"></a>Verbesserungen und Fehlerbehebungen
+Dieses Nicht-Sicherheitsupdate umfasst Qualitätsverbesserungen. Zu den wichtigsten Änderungen gehören:
+- Es wurde ein Problem behandelt, bei dem der Datenverkehr des Softwarelastenausgleichs, der den Multiplexer durchläuft, möglicherweise auf einen anderen Host umgeleitet wird, was zu einem Verbindungsfehler der Anwendung führen kann.
+
+### <a name="known-issues-in-this-update"></a>Bekannte Probleme in diesem Update
+Microsoft sind aktuell keine Probleme mit diesem Update bekannt.
+
+### <a name="how-to-get-this-update"></a>Beziehen dieses Updates
+Das Sicherheitsupdate vom 17. September 2020 (KB4577629) für [Azure Stack HCI (Vorschauversion)](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) wird über Windows Update bereitgestellt. Informationen zur Installation in Ihrem Azure Stack HCI-Cluster finden Sie unter [Aktualisieren von Azure Stack HCI-Clustern](manage/update-cluster.md).
+
+### <a name="file-information"></a>Dateiinformationen
+Eine Liste der im Rahmen dieses Updates (Betriebssystembuild 17784.1259) bereitgestellten Dateien erhalten Sie durch Herunterladen der [Dateiinformationen für das kumulative Update 4577629](https://download.microsoft.com/download/9/1/a/91addcbb-2b36-408c-ab88-736de42edb98/4577629.csv).
+
+   > [!NOTE]
+   > Einige Dateien sind in der Dateiversionsspalte der CSV-Datei fälschlicherweise mit „Not applicable“ (Nicht zutreffend) gekennzeichnet. Dies kann bei der Überprüfung des Builds durch ein Drittanbietertool zu falsch positiven oder falsch negativen Ergebnissen führen.
 
 ## <a name="september-8-2020-security-update-kb4577470"></a>8\. September 2020, Sicherheitsupdate (KB4577470)
 

@@ -7,12 +7,12 @@ ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: b05ee7a85738137594588e2831f9a3c0ee12aea2
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 85c1814264b11b40c815ea1089c92113b0b035b1
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920830"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106732"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Bereitstellen von Kubernetes in Azure Stack Hub mithilfe der Active Directory-Verbunddienste
 
@@ -59,13 +59,13 @@ Falls Sie als Identitätslösung AD FS verwenden, müssen Sie mit Ihrem Azure St
 
 1. Wählen Sie **+ Ressource erstellen** > **Compute** > **Kubernetes-Cluster** aus. Klicken Sie auf **Erstellen**.
 
-    ![Bereitstellen einer Lösungsvorlage](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
+    ![Der Screenshot zeigt die Seite, auf der Sie einen Kubernetes-Cluster erstellen.](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
 ### <a name="1-basics"></a>1. Grundlagen
 
 1. Wählen Sie unter „Kubernetes-Cluster erstellen“ die Option **Grundlagen**.
 
-    ![Bereitstellen einer Lösungsvorlage](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+    ![Der Screenshot zeigt, wo Sie grundlegende Informationen zu Ihrem Kubernetes-Cluster hinzufügen.](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
 1. Wählen Sie die ID für Ihr **Abonnement** aus.
 
@@ -77,7 +77,7 @@ Falls Sie als Identitätslösung AD FS verwenden, müssen Sie mit Ihrem Azure St
 
 1. Wählen Sie unter „Kubernetes Cluster erstellen“ die Option **Kubernetes Cluster Settings** (Einstellungen für Kubernetes-Cluster).
 
-    ![Bereitstellen einer Lösungsvorlage](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-adfs.png)
+    ![Der Screenshot zeigt den Schritt, in dem Sie die Clustereinstellungen von Kubernetes konfigurieren.](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-adfs.png)
 
 1. Geben Sie unter **Linux VM Admin Username** (Benutzername des Linux-VM-Administrators) einen Namen ein. Hierbei handelt es sich um den Benutzernamen für die virtuellen Linux-Computer, die Teil des Kubernetes-Clusters und des DVM (Deployment Virtual Machine, virtueller Computer für die Bereitstellung) sind.
 

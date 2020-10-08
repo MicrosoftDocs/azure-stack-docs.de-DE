@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/03/2020
-ms.openlocfilehash: b780dad569f1f2bdb2488505ecb2e12b0aaf2b3f
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.date: 09/23/2020
+ms.openlocfilehash: 64303a9d923bc001a67259cf48d4e55cb8429087
+ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742185"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91134711"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Vor dem Bereitstellen von Azure Stack HCI
 
@@ -48,7 +48,6 @@ Ein Azure Stack HCI-Cluster erfordert eine Netzwerkverbindung mit hoher und zuve
 - Vergewissern Sie sich, dass mindestens ein Netzwerkadapter verfügbar und für die Clusterverwaltung dediziert ist.
 - Vergewissern Sie sich, dass physische Switches in Ihrem Netzwerk so konfiguriert sind, dass sie Datenverkehr für beliebige VLANs zulassen, die Sie verwenden möchten.
 
-
 Zwischen den Serverknoten finden unterschiedliche Arten von Kommunikation statt:
 
 - Clusterkommunikation (Knotenbeitritte, Clusterupdates, Registrierungsupdates)
@@ -62,6 +61,16 @@ Beim Feature „Direkte Speicherplätze“ muss zusätzlicher Datenverkehr einge
 - Integrität – Überwachen und Verwalten von Objekten (Knoten, Laufwerke, Netzwerkkarten, Clusterdienst)
 
 Bei Stretchingclustern tritt zwischen den Standorten zusätzlicher Datenverkehr durch Speicherreplikate auf. Datenverkehr für die Speicherbusebene und das freigegebene Clustervolume tritt nicht zwischen Standorten, sondern nur zwischen Serverknoten innerhalb der einzelnen Standorte auf.
+
+### <a name="software-defined-networking-requirements"></a>Softwaredefinierte Netzwerkanforderungen
+
+Wenn Sie einen Azure Stack HCI-Cluster mithilfe von Windows Admin Center erstellen, haben Sie die Möglichkeit, Netzwerkcontroller bereitzustellen, um softwaredefinierte Netzwerke zu aktivieren. Wenn Sie beabsichtigen, softwaredefinierte Netzwerke für Azure Stack HCI zu verwenden:
+
+- Stellen Sie sicher, dass die Hostserver über mindestens 50-100 GB freien Speicherplatz verfügen, um die Netzwerkcontroller-VMs zu erstellen.
+
+- Sie müssen eine virtuelle Festplatte (VHD) des Azure Stack HCI-Betriebssystems auf den ersten Knoten im Cluster kopieren, um die Netzwerkcontroller-VMs zu erstellen. Sie können die VHD mithilfe von [Sysprep](/windows-hardware/manufacture/desktop/sysprep-process-overview) oder durch Ausführen des Skripts [Convert-WindowsImage](https://gallery.technet.microsoft.com/scriptcenter/Convert-WindowsImageps1-0fe23a8f) vorbereiten, um eine .ISO-Datei in eine VHD zu konvertieren.
+
+Weitere Informationen zum Vorbereiten der Verwendung von softwaredefinierten Netzwerken in Azure Stack HCI finden Sie unter [Planen einer softwaredefinierten Netzwerkinfrastruktur](../concepts/plan-software-defined-networking-infrastructure.md) und [Planen der Bereitstellung von Netzwerkcontrollern](../concepts/network-controller.md).
 
 ### <a name="domain-requirements"></a>Domänenanforderungen
 

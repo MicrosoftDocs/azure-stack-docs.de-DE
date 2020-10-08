@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 5b38c407b6e4aba60b0c810ffad4db531627820f
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: adc2288d8886c5b952f26da4798fccd731738733
+ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472975"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90946405"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Bereitstellen des SQL Server-Ressourcenanbieters in Azure Stack Hub
 
@@ -92,7 +92,10 @@ Führen Sie nach der Installation aller erforderlichen Komponenten das Skript **
  > [!IMPORTANT]
  > Überprüfen Sie vor der Bereitstellung des Ressourcenanbieters die Anmerkungen zu dieser Version auf Informationen zu neuen Funktionen, Fehlerbehebungen und bekannten Problemen, die sich auf die Bereitstellung auswirken können.
 
-Öffnen Sie ein **neues** PowerShell-Fenster mit erhöhten Rechten (nicht PowerShell ISE), und wechseln Sie zu dem Verzeichnis, in das Sie die Binärdateien des SQL-Ressourcenanbieters extrahiert haben, um den SQL-Ressourcenanbieter bereitzustellen. Die Verwendung eines neuen PowerShell-Fensters wird empfohlen, um mögliche Probleme durch bereits geladene PowerShell-Module zu vermeiden.
+Öffnen Sie ein **neues** PowerShell-Fenster mit erhöhten Rechten (nicht PowerShell ISE), und wechseln Sie zu dem Verzeichnis, in das Sie die Binärdateien des SQL-Ressourcenanbieters extrahiert haben, um den SQL-Ressourcenanbieter bereitzustellen. 
+
+> [!IMPORTANT]
+> Die Verwendung eines neuen PowerShell-Fensters wird empfohlen, um mögliche Probleme durch bereits geladene PowerShell-Module zu vermeiden. Oder Sie können mithilfe von „clear-azurermcontext“ den Cache leeren, bevor Sie das Updateskript ausführen.
 
 Führen Sie das Skript „DeploySqlProvider.ps1“ aus, das die folgenden Aufgaben ausführt:
 
@@ -191,15 +194,10 @@ Wenn das Skript zur Installation des Ressourcenanbieters abgeschlossen ist, aktu
 
 ## <a name="verify-the-deployment-using-the-azure-stack-hub-portal"></a>Überprüfen der Bereitstellung über das Azure Stack Hub-Portal
 
-Mit den folgenden Schritten können Sie überprüfen, ob der SQL-Ressourcenanbieter erfolgreich bereitgestellt wurde.
-
 1. Melden Sie sich als Dienstadministrator beim Verwaltungsportal an.
 2. Wählen Sie **Ressourcengruppen** aus.
 3. Wählen Sie die Ressourcengruppe **system.\<location\>.sqladapter** aus.
 4. Auf der Zusammenfassungsseite der Ressourcengruppenübersicht sollten keine fehlerhaften Bereitstellungen angezeigt werden.
-
-    ![Überprüfen der Bereitstellung des SQL-Ressourcenanbieters im Azure Stack Hub-Administratorportal](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-
 5. Wählen Sie abschließend im Administratorportal die Option **Virtuelle Computer** aus, um zu überprüfen, ob der virtuelle Computer des SQL-Ressourcenanbieters erfolgreich erstellt wurde und ausgeführt wird.
 
 ## <a name="next-steps"></a>Nächste Schritte

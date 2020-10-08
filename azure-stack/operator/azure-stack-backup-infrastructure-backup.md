@@ -1,18 +1,18 @@
 ---
 title: Wiederherstellen von Azure Stack Hub-Daten mit dem Infrastructure Backup-Dienst
 description: Erfahren Sie, wie Sie Konfigurations- und Dienstdaten mithilfe des Infrastructure Backup-Diensts in Azure Stack Hub sichern und wiederherstellen können.
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: a6017b6bdf1a7075ae01726ddfd1513adaa4ed63
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: c73e95677bb1666fb315ad73e1dd6d62f73c68b7
+ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573070"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367239"
 ---
 # <a name="recover-data-in-azure-stack-hub-with-the-infrastructure-backup-service"></a>Datenwiederherstellung in Azure Stack Hub mit dem Infrastructure Backup-Dienst
 
@@ -40,7 +40,7 @@ Der Dienst umfasst die folgenden Features:
 ## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>Überprüfen der Anforderungen für den Dienst zur Infrastruktursicherung
 
 - **Speicherort**  
-  Sie benötigen eine Dateifreigabe, die von Azure Stack Hub aus zugänglich ist und sieben Sicherungen enthalten kann. Jede Sicherung ist etwa 10 GB groß. Ihre Freigabe sollte Sicherungen mit einer Größe von 140 GB speichern können. Weitere Informationen zur Auswahl eines Speicherorts für den Infrastructure Backup-Dienst finden Sie unter [Anforderungen für den Sicherungscontroller](azure-stack-backup-reference.md#backup-controller-requirements).
+  Sie benötigen eine Dateifreigabe, die von Azure Stack Hub aus zugänglich ist und 14 Sicherungen enthalten kann. Jede Sicherung ist etwa 10 GB groß. Ihre Dateifreigabe muss Sicherungen mit einer Größe von 140 GB speichern können. Weitere Informationen zur Auswahl eines Speicherorts für den Infrastructure Backup-Dienst finden Sie unter [Anforderungen für den Sicherungscontroller](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Anmeldeinformationen**  
   Sie benötigen ein Domänenbenutzerkonto und Anmeldeinformationen. Beispielsweise können Sie Ihre Administratoranmeldeinformationen für Azure Stack Hub verwenden.
 - **Verschlüsselungszertifikat**  

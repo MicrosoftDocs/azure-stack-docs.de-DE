@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ab90c0e9ef0f873fbed44932e9ffc418077fee4a
-ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
+ms.openlocfilehash: 7f57336cdb15be2f55fdcd3756f5f3714f51b1af
+ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87939576"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90836504"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Wiederherstellen nach schwerwiegendem Datenverlust
 
@@ -24,7 +24,7 @@ Das folgende Szenario betrifft die Wiederherstellung Ihrer gesamten Installation
 
 | Szenario                                                           | Datenverlust                            | Überlegungen                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
-| Wiederherstellen nach schwerwiegendem Datenverlust aufgrund eines Notfalls oder Produktfehlers. | Alle Infrastruktur-, Benutzer- und App-Daten. | Benutzer-App und -daten werden getrennt von Infrastrukturdaten gesichert. |
+| Wiederherstellen nach schwerwiegendem Datenverlust aufgrund eines Notfalls oder Produktfehlers. | Alle Infrastruktur-, Benutzer- und App-Daten. | Kann auf verschiedenen OEMs wiederherstellen.<br/> Kann auf verschiedenen Hardwaregenerationen wiederherstellen.<br/> Kann auf eine andere Anzahl von Skalierungseinheitsknoten wiederherstellen.<br/> Benutzer-App und -daten werden getrennt von Infrastrukturdaten gesichert. |
 
 ## <a name="workflows"></a>Workflows
 

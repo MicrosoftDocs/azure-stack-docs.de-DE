@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: 327b63e2b21ea545fd6e0d175d531862ceeac0d6
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 52dee37571715f6093609609b4f31a45739df1f7
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696922"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572907"
 ---
 # <a name="create-highly-available-mysql-databases"></a>Erstellen von hoch verfügbaren MySQL-Datenbanken
 
@@ -28,7 +28,7 @@ Sie lernen Folgendes:
 
 > [!div class="checklist"]
 > * Erstellen eines MySQL Server-Clusters aus Marketplace-Elementen
-> * Erstellen eines Azure Stack Hub-MySQL-Hostservers
+> * Konfigurieren des MySQL Server-Clusters als Azure Stack Hub-MySQL-Hostserver
 > * Erstellen einer hochverfügbaren MySQL-Datenbank
 
 Mithilfe von verfügbaren Elementen aus dem Azure Stack-Marketplace wird ein MySQL Server-Cluster mit drei virtuellen Computern erstellt.
@@ -154,9 +154,9 @@ Bevor der MySQL-Cluster als Azure Stack Hub-MySQL Server-Host hinzugefügt werde
 
     Sie müssen diesen Benutzernamen und das Kennwort sowie die öffentliche IP-Adresse oder den vollqualifizierten Domänennamen der öffentlichen IP-Adresse für den Cluster einem Azure Stack Hub-Betreiber mitteilen, damit dieser mit diesem MySQL-Cluster einen MySQL-Hostserver erstellen kann.
 
-## <a name="create-an-azure-stack-hub-mysql-hosting-server"></a>Erstellen eines Azure Stack Hub-MySQL-Hostservers
+## <a name="configure-an-azure-stack-hub-mysql-hosting-server"></a>Konfigurieren eines Azure Stack Hub-MySQL-Hostservers
 
-Nachdem der MySQL Server-Cluster erstellt und ordnungsgemäß konfiguriert wurde, muss ein Azure Stack Hub-Betreiber einen Azure Stack Hub-MySQL-Hostserver erstellen, um Benutzern die zusätzliche Kapazität zur Verfügung zu stellen, damit diese Datenbanken erstellen können.
+Nachdem der MySQL Server-Cluster erstellt und ordnungsgemäß konfiguriert wurde, muss ein Azure Stack Hub-Operator diesen als Azure Stack Hub-MySQL-Hostserver hinzufügen.
 
 Verwenden Sie die öffentliche IP-Adresse oder den vollständigen vollqualifizierten Domänennamen für die öffentliche IP-Adresse der primären MySQL-Cluster-VM, die bzw. der zuvor beim Erstellen der Ressourcengruppe (**mysqlip**) für den MySQL-Cluster erfasst wurde. Darüber hinaus muss der Betreiber die Anmeldeinformationen für die MySQL Server-Authentifizierung kennen, die Sie für den Remotezugriff auf die MySQL-Clusterdatenbank erstellt haben.
 

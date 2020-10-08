@@ -3,16 +3,16 @@ title: Verwalten von Updates
 description: Hier erfahren Sie, wie Sie Updates in Azure Stack Hub verwalten.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/25/2020
 ms.author: sethm
 ms.lastreviewed: 07/16/2020
 ms.reviewer: niy
-ms.openlocfilehash: b5aa356cfdb77cac5609b7e835add0d32a8e26cf
-ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
+ms.openlocfilehash: e769999ce24e1571b93c94a707c62df757460705
+ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88073855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367222"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Verwalten von Updates in Azure Stack Hub
 
@@ -43,7 +43,7 @@ Es gibt drei Arten von Updatepaketen für integrierte Systeme:
 
 Die drei Updatetypen werden im folgenden Rhythmus veröffentlicht:
 
-- **Azure Stack Hub-Softwareupdates**. Microsoft gibt in der Regel jeden Monat Softwareupdatepakete heraus.
+- **Azure Stack Hub-Softwareupdates**. Microsoft veröffentlicht mehrere Komplett- und Express-Softwareupdatepakete im Jahr.
 
 - **Azure Stack Hub-Hotfixes**. Hotfixes sind zeitkritische Releases, die jederzeit veröffentlicht werden können. Bei einem Upgrade von einer Hauptversion auf eine andere Hauptversion (etwa von 1.2002.x auf 1.2005.x) werden die aktuellen Hotfixes (sofern verfügbar) in der neuen Hauptversion automatisch installiert.
 

@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 27ba6098755d93ef1de902a9a4e052f1ff6b53d5
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 2f276149e3998e5483ae4289ae6793d4b3ea86df
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487871"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592869"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Sicherheitskontrollen der Azure Stack Hub-Infrastruktur
 
@@ -54,7 +54,7 @@ Die Azure Stack Hub-Infrastruktur verwendet für alle internen Zertifikate RSA-S
 
 ## <a name="windows-defender-application-control"></a>Windows Defender-Anwendungssteuerung
 
-Azure Stack Hub nutzt die neuesten Sicherheitsfeatures von Windows Server. Eines davon ist Windows Defender Application Control (WDAC, früherer Name „Codeintegrität“). Dieses Tool bietet Whitelists ausführbarer Dateien und stellt sicher, dass innerhalb der Azure Stack Hub-Infrastruktur nur autorisierter Code ausgeführt wird.
+Azure Stack Hub nutzt die neuesten Sicherheitsfeatures von Windows Server. Eins dieser Features ist Windows Defender Application Control (WDAC, früherer Name „Codeintegrität“). Dieses Feature ermöglicht das Filtern von ausführbaren Dateien und stellt sicher, dass innerhalb der Azure Stack Hub-Infrastruktur nur autorisierter Code ausgeführt wird.
 
 Autorisierter Code wurde von Microsoft oder dem OEM-Partner signiert. Der signierte autorisierte Code befindet sich in der Liste der zulässigen Software, die in einer von Microsoft definierten Richtlinie angegeben wird. Anders gesagt kann nur Software ausgeführt werden, die zur Ausführung in der Azure Stack Hub-Infrastruktur genehmigt wurde. Jeder Versuch, nicht autorisierten Code auszuführen, wird blockiert, und eine Warnung wird generiert. Azure Stack Hub erzwingt Codeintegrität für den Benutzermodus (User Mode Code Integrity, UMCI) und Hypervisor-Codeintegrität (HVCI).
 

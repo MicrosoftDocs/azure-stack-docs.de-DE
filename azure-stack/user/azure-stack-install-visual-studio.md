@@ -7,12 +7,12 @@ ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2020
-ms.openlocfilehash: c9d8ad6293735db1a65d6f24e7a53a869535af6d
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: 686a2b1a976df23e91cd38df61267b95008f993a
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744928"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107102"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>Installieren von Visual Studio und Herstellen einer Verbindung mit Azure Stack Hub
 
@@ -42,7 +42,7 @@ Sie können Visual Studio zum Schreiben und Bereitstellen von [Azure Resource Ma
 
 3. Wählen Sie **Konten verwalten**  aus, und melden Sie sich dann im neuen Bereich mit Ihren Azure Active Directory-Anmeldeinformationen (Azure AD) an.  
 
-    ![Screenshot von Cloud-Explorer nach dem Anmelden und dem Herstellen einer Verbindung mit Azure Stack Hub](./media/azure-stack-install-visual-studio/image2.png)
+    ![Der Screenshot zeigt Cloud-Explorer nach der Anmeldung und der Herstellung der Verbindung mit Azure Stack Hub.](./media/azure-stack-install-visual-studio/image2.png)
 
 Nach der Anmeldung können Sie [Vorlagen bereitstellen](azure-stack-deploy-template-visual-studio.md) oder die verfügbaren Ressourcentypen und Ressourcengruppen durchsuchen, um Ihre eigenen Vorlagen zu erstellen.  
 
@@ -62,7 +62,7 @@ Nach der Anmeldung können Sie [Vorlagen bereitstellen](azure-stack-deploy-templ
 
     Visual Studio ruft Azure Resource Manager auf und ermittelt die Endpunkte, einschließlich des Authentifizierungsendpunkts für Active Directory-Verbunddienste (AD FS).
 
-    ![Screenshot von Cloud-Explorer nach dem Anmelden und dem Herstellen einer Verbindung mit Azure Stack Hub](./media/azure-stack-install-visual-studio/image6.png)
+    ![Der Screenshot zeigt die Endpunkte für Azure Directory-Verbunddienste (AD FS).](./media/azure-stack-install-visual-studio/image6.png)
 
 6. Wählen Sie im Menü **Ansicht** die Option **Cloud-Explorer** aus.
 

@@ -1,18 +1,18 @@
 ---
 title: Veröffentlichen von Azure Stack Hub-Diensten in Ihrem Rechenzentrum
 description: Hier erfahren Sie, wie Sie Azure Stack Hub-Dienste in Ihrem Rechenzentrum veröffentlichen.
-author: IngridAtMicrosoft
+author: myoung
 ms.topic: article
-ms.date: 09/22/2020
-ms.author: justinha
+ms.date: 09/24/2020
+ms.author: v-myoung
 ms.reviewer: wamota
-ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: b1b3a267185d9486bdf023f1af7c8e2348e49351
-ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
+ms.lastreviewed: 09/24/2020
+ms.openlocfilehash: ed9f2a8eeeeb2cfdfcc4e96c1672d7da8fff64b2
+ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91019621"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495744"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Veröffentlichen von Azure Stack Hub-Diensten in Ihrem Rechenzentrum
 
@@ -93,7 +93,7 @@ Das Abfangen von SSL-Datenverkehr wird [nicht unterstützt](azure-stack-firewall
 |LDAP GC|Active Directory-Gesamtstruktur, bereitgestellt für die Graph-Integration|TCP|3268|Öffentliche VIP - /27|
 |LDAP GC SSL|Active Directory-Gesamtstruktur, bereitgestellt für die Graph-Integration|TCP|3269|Öffentliche VIP - /27|
 |AD FS|AD FS-Metadatenendpunkt, bereitgestellt für die AD FS-Integration|TCP|443|Öffentliche VIP - /27|
-| Erfassen von Diagnoseprotokollen | https://azsdiagprdlocalwestus02.blob.core.windows.net<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com | HTTPS | 443 | Öffentliche VIP - /27 |
+| Erfassung von Diagnoseprotokollen |https://*.blob.core.windows.net<br>https://azsdiagprdlocalwestus02.blob.core.windows.net<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com | HTTPS | 443 | Öffentliche VIP - /27 |
 |     |     |     |     |     |
 
 Für ausgehende URLs wird mithilfe von Azure Traffic Manager ein Lastausgleich vorgenommen, um bestmögliche Konnektivität basierend auf dem geografischen Standort zu bieten. Durch URLs mit Lastenausgleich kann Microsoft Back-End-Endpunkte ohne Auswirkungen auf Kunden aktualisieren und ändern. Microsoft gibt die Liste der IP-Adressen für die URLs mit Lastenausgleich nicht frei. Verwenden Sie ein Gerät, das ein Filtern nach URL und nicht nach IP-Adresse unterstützt.

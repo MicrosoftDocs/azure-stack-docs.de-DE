@@ -9,12 +9,12 @@ ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: d92c8c8514020d3b33e236232aa07b95ade9f798
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: f7eb790506c5dbbb7d49fc469dd61d394fb1f0fc
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848199"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106839"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>Installieren von Event Hubs in Azure Stack Hub
 
@@ -62,12 +62,12 @@ Für ein getrenntes oder teilweise verbundenes Szenario laden Sie die Pakete auf
    [![Heruntergeladene Pakete in Marketplace-Verwaltung](media/event-hubs-rp-install/2-marketplace-management-downloaded.png)](media/event-hubs-rp-install/2-marketplace-management-downloaded.png#lightbox)
  
 3. Auf der Seite für Event Hubs- Installationspakete wird oben ein blaues Banner angezeigt. Wählen Sie das Banner aus, um die Installation von Event Hubs zu starten.
-   [![Marketplace-Verwaltung, Event Hubs: Installation starten](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
+   [![Der Screenshot zeigt, wie die Installation in Event Hubs der Marketplace-Verwaltung gestartet wird.](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
 
 ### <a name="install-prerequisites"></a>Installieren der erforderlichen Komponenten
 
 1. Als nächstes gelangen Sie zur Installationsseite. Wählen Sie **Voraussetzungen installieren** aus, um den Installationsvorgang zu starten.
-   ![Marketplace-Verwaltung, Event Hubs: Voraussetzungen](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
+   ![Der Screenshot zeigt, wie die Voraussetzungen in Event Hubs der Marketplace-Verwaltung installiert werden.](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
  
 2. Warten Sie, bis die Installation der Voraussetzungen erfolgreich abgeschlossen ist. Ein grünes Häkchen sollte neben **Voraussetzungen installieren** angezeigt werden, bevor Sie zum nächsten Schritt wechseln.
 

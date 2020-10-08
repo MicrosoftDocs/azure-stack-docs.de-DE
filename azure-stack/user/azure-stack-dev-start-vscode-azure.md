@@ -3,16 +3,16 @@ title: Herstellen einer Verbindung mit Azure Stack Hub über die Azure-Kontoerwe
 description: Stellen Sie als Entwickler eine Verbindung mit Azure Stack Hub her, indem Sie die Azure-Kontoerweiterung in Visual Studio Code verwenden.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: a3cd09d7138029ba578648e1599916fd71b42292
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 09/21/2020
+ms.openlocfilehash: bedb015cb799619933510745e5bc3292a722cf14
+ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920609"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91019604"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Herstellen einer Verbindung mit Azure Stack Hub über die Azure-Kontoerweiterung in Visual Studio Code
 
@@ -81,7 +81,8 @@ VS Code ist ein einfacher Editor zum Erstellen und Debuggen von Web- und Cloudan
         | `tenant-ID` | Der Wert Ihrer [Mandanten-ID](../operator/azure-stack-identity-overview.md) für Azure Stack Hub. |
         | `activeDirectoryEndpointUrl` | Dies ist die URL aus der loginEndpoint-Eigenschaft. |
         | `activeDirectoryResourceId` | Dies ist die URL aus der audiences-Eigenschaft.
-        | `resourceManagerEndpointUrl` | Dies ist die Stamm-URL für die Azure Resource Manager-Instanz für Azure Stack Hub. | 
+        | `resourceManagerEndpointUrl` | Dies ist die Stamm-URL für die Azure Resource Manager-Instanz für Azure Stack Hub. |
+        | `validateAuthority` | Sie können diesen Parameter weglassen, wenn Sie Azure AD als Identity Manager verwenden. Fügen Sie den Parameter mit dem Wert `false` hinzu, wenn Sie AD FS verwenden. |
 
     - JSON-Codeausschnitt:
 
@@ -91,6 +92,7 @@ VS Code ist ein einfacher Editor zum Erstellen und Debuggen von Web- und Cloudan
           "activeDirectoryEndpointUrl": "Login endpoint",
           "activeDirectoryResourceId": "This is the URL from the audiences property.",
           "resourceManagerEndpointUrl": "Aure Resource Management Endpoint",
+          "validateAuthority" : false, 
       },
       "azure.cloud": "AzurePPE"
       ```
@@ -109,7 +111,7 @@ VS Code ist ein einfacher Editor zum Erstellen und Debuggen von Web- und Cloudan
 | Azure: Anmelden an der Azure-Cloud | Melden Sie sich an Ihrem Azure-Abonnement in einer der Sovereign Clouds an. |
 | Azure: Abmelde- | Melden Sie sich von Ihrem Azure-Abonnement ab. |
 | Azure: Auswählen von Abonnements | Wählen Sie die Gruppe mit den Abonnements aus, die Sie verwenden möchten. Die Erweiterung zeigt nur Ressourcen in den gefilterten Abonnements an. |
-| Azure: Erstellen eines Kontos | Falls Sie nicht über ein Azure-Konto verfügen, können Sie sich noch heute [registrieren](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account) und 200 USD Guthaben erhalten. |
+| Azure: Erstellen eines Kontos | Falls Sie nicht über ein Azure-Konto verfügen, können Sie sich noch heute [](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account)registrieren\$ und 200 USD Guthaben erhalten. |
 | Azure: Öffnen von Bash in Cloud Shell | Öffnen Sie ein neues Terminal zur Ausführung von Bash in Cloud Shell. |
 | Azure: Öffnen von PowerShell in Cloud Shell | Öffnen Sie ein neues Terminal zur Ausführung von PowerShell in Cloud Shell. |
 | Azure: Hochladen in Cloud Shell | Laden Sie eine Datei in Ihr Cloud Shell-Speicherkonto hoch. |

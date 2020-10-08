@@ -3,16 +3,16 @@ title: Versionshinweise für die AKS-Engine (Azure Kubernetes Service) in Azure 
 description: Es werden die Schritte beschrieben, die Sie beim Anwenden des Updates auf die AKS-Engine in Azure Stack Hub ausführen müssen.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 09/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 5207fa80a97581847d309a460a31039695183e1c
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.lastreviewed: 09/28/2020
+ms.openlocfilehash: 03824b30d3d5d5c8982b1295a5999c299d14cf08
+ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717936"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495761"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Versionshinweise für die AKS-Engine in Azure Stack Hub
 ::: moniker range=">=azs-2002"
@@ -103,6 +103,7 @@ Geben Sie in der JSON-Datei des API-Modells die Release- und Versionswerte im Ab
 
 ## <a name="whats-new"></a>Neues
 
+- Aktualisieren der Azure Stack-Linux-VHD auf 2020.09.14 #[3828](https://github.com/Azure/aks-engine/pull/3828)
 - Fügt Unterstützung für K8s v1.17.11 in Azure Stack hinzu [#3702](https://github.com/Azure/aks-engine/pull/3702)
 - Fügt Unterstützung für K8s v1.16.14 in Azure Stack hinzu [#3704](https://github.com/Azure/aks-engine/pull/3704)
 - Linux-VHD-Update auf 2020.09.14 [#3750](https://github.com/Azure/aks-engine/pull/3750)

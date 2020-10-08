@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: d071b9457388d4f282fad0f0532ce71dc9304f13
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: ba942571d804ec221ee9c25d1b78ddfa1e3a52de
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573189"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106622"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>Aktivieren der Sicherung für Azure Stack Hub über das Administratorportal
 
@@ -77,7 +77,7 @@ Administratoren und Benutzer sind für die Sicherung und Wiederherstellung von I
 ## <a name="start-backup"></a>Sicherung starten
 Zum Starten einer Sicherung klicken Sie auf **Jetzt sichern**, um eine bedarfsgesteuerte Sicherung zu starten. Eine bedarfsgesteuerte Sicherung ändert die Zeit für die nächste geplante Sicherung nicht. Nachdem die Aufgabe abgeschlossen ist, können Sie die Einstellungen in der **Zusammenfassung** bestätigen:
 
-![Azure Stack Hub – bedarfsgesteuerte Sicherung](media/azure-stack-backup/scheduled-backup.png)
+![Der Screenshot zeigt, wie Sie eine On-Demand-Sicherung starten.](media/azure-stack-backup/scheduled-backup.png)
 
 Sie können auch das PowerShell-Cmdlet **Start-AzsBackup** auf Ihrem Azure Stack Hub-Verwaltungscomputer ausführen. Weitere Informationen finden Sie unter [Sichern von Azure Stack Hub](azure-stack-backup-back-up-azure-stack.md).
 

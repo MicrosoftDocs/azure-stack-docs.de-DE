@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 001514995d13c63ecf697769e0fc71e2155b7382
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 3a14c50413ddd431f6a8db8815d0147ef9d173e7
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574158"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107223"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Sichern Ihrer Speicherkonten in Azure Stack Hub
 
@@ -22,7 +22,7 @@ Dieser Artikel befasst sich mit dem Schutz und der Wiederherstellung von Speiche
 
 In diesem Abschnitt werden die allgemeine Struktur und die Hauptkomponenten der Lösung beschrieben.
 
-![Speichersicherung in Azure Stack Hub](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
+![Diagramm, das die allgemeine Struktur der Azure Stack Hub-Speichersicherung zeigt.](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
 
 ### <a name="application-layer"></a>Anwendungsschicht
 
@@ -60,7 +60,7 @@ Nach dem Einrichten des Windows-Servers müssen Sie [PowerShell für Azure Stack
 
 1. Rufen Sie den Blobendpunkt für das Quell- und das Zielspeicherkonto ab.
 
-    ![Speichersicherung in Azure Stack Hub](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
+    ![Der Screenshot zeigt den primären Blobendpunkt für das Quell- und das Zielspeicherkonto.](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
 
 2. Erstellen Sie SAS-Token für das Quell- und das Zielspeicherkonto, und zeichnen Sie sie auf.
 

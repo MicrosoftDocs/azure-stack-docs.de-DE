@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Hier finden Sie Informationen zu Wartungsvorgängen für den SQL-Ressourcenanbieter in Azure Stack Hub.
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 6fc476b1f373c8f21481b979d1eefcdbe356766b
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: 0de06d7bf13919be95b3d97aa1113221f4378625
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364829"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572822"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Wartungsvorgänge von SQL-Ressourcenanbietern
 
@@ -130,7 +130,7 @@ Verwenden Sie das Cmdlet Get-AzsDBAdapterLogs, um alle Ressourcenanbieterprotoko
 
 Verwenden Sie eine der folgenden Methoden, um das Betriebssystem des virtuellen Computers zu aktualisieren:
 
-- Installieren des aktuellen Ressourcenanbieterpakets über ein gepatchtes Windows Server 2016-Core-Image
+- Installieren des neuesten Ressourcenanbieterpakets über ein VM-Image, das über aktuelle Patches verfügt
 - Installieren eines Windows Update-Pakets während der Installation oder des Updates des Ressourcenanbieters
 
 ## <a name="update-the-vm-windows-defender-definitions"></a>Aktualisieren der Windows Defender-Definitionen für die VM

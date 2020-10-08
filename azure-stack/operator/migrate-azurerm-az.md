@@ -4,15 +4,15 @@ description: Hier lernen Sie die Schritte und Tools kennen, mit denen Sie Skript
 author: mattbriggs
 ms.author: mabrigg
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 10/05/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: 9b41f2f25e2c9c727d397dedd3f95e9683080e25
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: ea3ec5389aa00d0b606d86e483a8ca5a2607aa1a
+ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764748"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729235"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Migrieren von AzureRM zu Azure PowerShell Az in Azure Stack Hub
 
@@ -23,7 +23,7 @@ Die vollständige Liste mit grundlegenden Änderungen zwischen AzureRM und Az fi
 
 ## <a name="check-for-installed-versions-of-azurerm"></a>Durchführen einer Überprüfung auf installierte Versionen von AzureRM
 
-Das Az-Modul kann parallel zum AzureRM-Modul installiert werden, aber diese Vorgehensweise wird nicht empfohlen. Überprüfen Sie, welche Versionen von AzureRM auf Ihrem System installiert sind, bevor Sie Migrationsschritte ausführen. So können Sie sicherstellen, dass für Skripts bereits das aktuelle Release verwendet wird, und Sie können ermitteln, ob Sie Befehlsaliase ohne Deinstallation von AzureRM aktivieren können.
+Überprüfen Sie, welche Versionen von AzureRM auf Ihrem System installiert sind, bevor Sie Migrationsschritte ausführen. So können Sie sicherstellen, dass für Skripts bereits das aktuelle Release verwendet wird, und Sie können ermitteln, ob Sie Befehlsaliase ohne Deinstallation von AzureRM aktivieren können.
 
 Führen Sie den folgenden Befehl aus, um zu überprüfen, welche Versionen von AzureRM bei Ihnen installiert sind:
 
@@ -43,7 +43,7 @@ Gehen Sie zum Installieren des Az-Moduls von Azure PowerShell wie folgt vor:
 
 * __EMPFOHLEN__: [Deinstallieren Sie das AzureRM-Modul.](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)
   Achten Sie darauf, _alle_ installierten Versionen von AzureRM zu entfernen, nicht nur die neueste Version.
-* [Installieren Sie das Az-Modul.](/powershell/azure/install-az-ps)
+* [Installieren des Az-Moduls](/powershell/azure/install-az-ps)
 
 ## <a name="enable-azurerm-compatibility-aliases"></a>Aktivieren von AzureRM-Kompatibilitätsaliasen 
 

@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.lastreviewed: 5/5/2020
 ms.reviewer: jiaha
 ms.custom: contperfq4
-ms.openlocfilehash: 86809f68e488f077b0a8125d92db325b40dc5452
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: a60de3bf059522b980d7a3e74295736118334773
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487818"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106442"
 ---
 # <a name="azure-stack-hub-storage-infrastructure-overview"></a>Azure Stack Hub-Speicherinfrastruktur: Übersicht
 
@@ -50,12 +50,12 @@ Die Laufwerke können entweder zu einer Bereitstellung vom Typ „Nur Flash“ o
 
 Bei Nur-Flash-Bereitstellungen wird die Speicherleistung maximiert, und es sind keine rotierenden HDDs vorhanden.
 
-![Azure Stack Hub-Speicherinfrastruktur](media/azure-stack-storage-infrastructure-overview/image1.png)
+![Diagramm, das eine Nur-Flash-Bereitstellungsgruppierung zeigt.](media/azure-stack-storage-infrastructure-overview/image1.png)
 
 
 Bei Hybridbereitstellungen soll eine Balance zwischen Leistung und Kapazität erzielt oder die Kapazität maximiert werden, und es werden rotierende HDDs verwendet.
 
-![Azure Stack Hub-Speicherinfrastruktur](media/azure-stack-storage-infrastructure-overview/image2.png)
+![Diagramm, das eine Hybridbereitstellungsgruppierung zeigt.](media/azure-stack-storage-infrastructure-overview/image2.png)
 
 ### <a name="caching-behavior"></a>Verhalten beim Zwischenspeichern
 
@@ -65,7 +65,7 @@ Lesevorgänge werden nicht zwischengespeichert. Lesevorgänge wirken sich nicht 
 
 Beim Zwischenspeichern für HDDs (z. B. SSD-Zwischenspeicherung für HDDs) werden Lese- und Schreibvorgänge zwischengespeichert, um in beiden Fällen Latenzwerte wie bei Flashspeicher zu erzielen (häufig ca. um den Faktor 10 verbessert).
 
-![Azure Stack Hub-Speicherinfrastruktur](media/azure-stack-storage-infrastructure-overview/image3.svg)
+![Diagramm, das das Verhalten beim Zwischenspeichern des Azure Stack Hub-Speichers zeigt.](media/azure-stack-storage-infrastructure-overview/image3.svg)
 
 Informationen zu den verfügbaren Speicherkonfigurationen und eine ausführliche Spezifikation erhalten Sie beim Azure Stack Hub-OEM-Partner (https://azure.microsoft.com/overview/azure-stack/partners/).
 
@@ -76,7 +76,7 @@ Informationen zu den verfügbaren Speicherkonfigurationen und eine ausführliche
 
 Der *Speicherdienst* partitioniert den verfügbaren Speicher in separate Volumes, die zum Speichern von System- und Mandantendaten zugeordnet werden. Für Volumes werden die Laufwerke im Speicherpool kombiniert, um die Fehlertoleranz, Skalierbarkeit und Leistungsvorteile von „Direkte Speicherplätze“ zu bieten.
 
-![Azure Stack Hub-Speicherinfrastruktur](media/azure-stack-storage-infrastructure-overview/image4.svg)
+![Diagramm, das die Partitionen des Azure Stack Hub-Speicherdiensts zeigt.](media/azure-stack-storage-infrastructure-overview/image4.svg)
 
 ### <a name="volume-types"></a>Volumetypen
 
@@ -111,7 +111,7 @@ Für die Azure Stack Hub-Bereitstellung wird die Drei-Wege-Spiegelung verwendet,
 
 Drei Kopien von Mandantendaten werden auf unterschiedliche Server geschrieben, wo sie im Cache gespeichert werden:
 
-![Azure Stack Hub-Speicherinfrastruktur](media/azure-stack-storage-infrastructure-overview/image5.png)
+![Diagramm, das zeigt, wie drei Kopien der Mandantendaten auf unterschiedliche Server geschrieben werden.](media/azure-stack-storage-infrastructure-overview/image5.png)
 
 ## <a name="next-step"></a>Nächster Schritt
 

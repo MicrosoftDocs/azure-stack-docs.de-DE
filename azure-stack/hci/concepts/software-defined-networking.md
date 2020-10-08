@@ -1,20 +1,20 @@
 ---
 title: Software-Defined Networking (SDN) in Azure Stack HCI
-description: Eine Übersicht über SDN-Themen im Zusammenhang mit Features in Azure Stack HCI.
+description: Software-Defined Networking (SDN) ermöglicht die zentrale Konfiguration und Verwaltung von Netzwerken und Netzwerkdiensten wie Switching, Routing und Lastenausgleich in Ihrem Rechenzentrum.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 08/18/2020
-ms.openlocfilehash: 5a2820de2c681ad5a49d0e4ee3e4973736e1169b
-ms.sourcegitcommit: fb89c3d837e2673b28784fd997099c825deb32f0
+ms.date: 09/29/2020
+ms.openlocfilehash: e14d0475c941f568f08a027de9e71eb25f00a999
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88591795"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572652"
 ---
-# <a name="sdn-in-azure-stack-hci"></a>SDN in Azure Stack HCI
+# <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Software-Defined Networking (SDN) in Azure Stack HCI
 
 > Gilt für Azure Stack HCI, Version 20H2; Windows Server 2019
 
@@ -35,7 +35,7 @@ Die Bereitstellung des Netzwerkcontrollers ermöglicht Folgendes:
 - Anfügen virtueller Geräte an Ihre virtuellen Netzwerke
 - Konfigurieren von QoS-Richtlinien (Quality of Service) für virtuelle Computer, die an virtuelle Netzwerke oder herkömmliche VLAN-basierte Netzwerke angefügt wurden
 
-Wir empfehlen die [Bereitstellung des Netzwerkcontrollers mithilfe von PowerShell](../deploy/network-controller-powershell.md), nachdem Sie einen Azure Stack HCI-Cluster erstellt haben.
+Es wird empfohlen, [den Netzwerkcontroller während der Clustererstellung bereitzustellen](../deploy/create-cluster.md#step-5-sdn-optional). Alternativ dazu können Sie [den Netzwerkcontroller über PowerShell bereitstellen](../deploy/network-controller-powershell.md), nachdem Sie einen Azure Stack HCI-Cluster erstellt haben.
 
 ## <a name="software-load-balancing"></a>Softwarelastenausgleich
 
@@ -55,5 +55,6 @@ Von Gateways wird das [Border Gateway Protocol](/windows-server/remote/remote-ac
 
 Verwandte Informationen finden Sie außerdem unter:
 
+- [Planen einer softwaredefinierten Netzwerkinfrastruktur](plan-software-defined-networking-infrastructure.md)
 - [SDN in Windows Server: Übersicht](/windows-server/networking/sdn/software-defined-networking)
 - [Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts](/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)

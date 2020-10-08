@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 6fdb1a5ff99b125b513bd4afc39570ee73c1c5b6
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 31635f6ecfefc0c513fddec5ec00da1006b44f44
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920405"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106992"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Bereitstellen hochverfügbarer virtueller Netzwerkgeräte in Azure Stack Hub
 
@@ -40,7 +40,7 @@ In diesem Artikel werden Grundkenntnisse zu Azure Stack Hub-Netzwerken vorausges
 
 Ein NVA kann in vielen Architekturen in einem Umkreisnetzwerk bereitgestellt werden. Die folgende Abbildung veranschaulicht beispielsweise die Verwendung eines einzelnen NVA für eingehenden Datenverkehr.
 
-![Screenshot einer automatisch generierten Beschreibung eines Posts in sozialen Medien](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
+![Der Screenshot zeigt die Verwendung einer einzelnen NVA für eingehenden Datenverkehr.](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
 
 In dieser Architektur stellt das NVA eine sichere Netzwerkgrenze dar, indem der gesamte eingehende und ausgehende Netzwerkdatenverkehr überprüft und nur der Datenverkehr weitergeleitet wird, der die Netzwerksicherheitsregeln erfüllt. Aufgrund der Tatsache, dass der gesamte Netzwerkdatenverkehr über das NVA erfolgen muss, stellt das NVA einen Single Point of Failure im Netzwerk dar. Tritt beim NVA ein Fehler auf, steht kein anderer Pfad für den Netzwerkdatenverkehr bereit und keines der Back-End-Subnetze ist verfügbar.
 

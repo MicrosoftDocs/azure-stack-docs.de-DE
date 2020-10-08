@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 760f8680c20acdbd219cc4dd9e97e799a37598ea
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 82ad67557ae0fb84e072aa760b6fd8cc1f016e03
+ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473111"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90946482"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Bereitstellen des MySQL-Ressourcenanbieters in Azure Stack Hub
 
@@ -95,7 +95,10 @@ Nach der Installation aller erforderlichen Komponenten können Sie das Skript **
  > [!IMPORTANT]
  > Überprüfen Sie vor der Bereitstellung des Ressourcenanbieters die Anmerkungen zu dieser Version auf Informationen zu neuen Funktionen, Fehlerbehebungen und bekannten Problemen, die sich auf die Bereitstellung auswirken können.
 
-Öffnen Sie ein neues PowerShell-Fenster mit erhöhten Rechten (nicht PowerShell ISE), und wechseln Sie zu dem Verzeichnis, in das Sie die Binärdateien des MySQL-Ressourcenanbieters extrahiert haben, um den MySQL-Ressourcenanbieter bereitzustellen. Die Verwendung eines neuen PowerShell-Fensters wird empfohlen, um mögliche Probleme durch bereits geladene PowerShell-Module zu vermeiden.
+Öffnen Sie ein neues PowerShell-Fenster mit erhöhten Rechten (nicht PowerShell ISE), und wechseln Sie zu dem Verzeichnis, in das Sie die Binärdateien des MySQL-Ressourcenanbieters extrahiert haben, um den MySQL-Ressourcenanbieter bereitzustellen. 
+
+> [!IMPORTANT]
+> Die Verwendung eines neuen PowerShell-Fensters wird empfohlen, um mögliche Probleme durch bereits geladene PowerShell-Module zu vermeiden. Oder Sie können mithilfe von „clear-azurermcontext“ den Cache leeren, bevor Sie das Updateskript ausführen.
 
 Führen Sie das Skript **DeployMySqlProvider.ps1** aus, das die folgenden Aufgaben ausführt:
 

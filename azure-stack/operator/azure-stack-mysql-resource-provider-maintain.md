@@ -3,16 +3,16 @@ title: Wartungsvorgänge für MySQL-Ressourcenanbieter – Azure Stack Hub
 description: Erfahren Sie, wie Sie den MySQL-Ressourcenanbieterdienst in Azure Stack Hub verwalten können.
 author: bryanla
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: d372015038fa11df75e22ac83b3beec08fe25d98
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: ff9c1054f505625e51426fca70bbb2ae7d9115a5
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572662"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572941"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack Hub
 
@@ -24,7 +24,7 @@ Da der Ressourcenanbieter auf einer *Benutzer*-VM ausgeführt wird, müssen Sie 
 
 Aktualisieren Sie die Anbieter-VM mit einer der folgenden Methoden:
 
-- Installieren des aktuellen Ressourcenanbieterpakets über ein gepatchtes Windows Server 2016-Core-Image
+- Installieren des neuesten Ressourcenanbieterpakets über ein VM-Image, das über aktuelle Patches verfügt
 - Installieren eines Windows Update-Pakets während der Installation oder des Updates des Ressourcenanbieters.
 
 ## <a name="update-the-vm-windows-defender-definitions"></a>Aktualisieren der Windows Defender-Definitionen für die VM

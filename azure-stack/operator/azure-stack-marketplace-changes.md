@@ -3,16 +3,16 @@ title: Neuerungen im Azure Stack Hub-Marketplace
 description: Hier finden Sie Informationen zu den Neuerungen im Azure Stack Hub-Marketplace, u. a. zu neuen, veralteten und aktualisierten Marketplace-Elementen.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 09/23/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: f16d432d67244bf4152f49d103014e94abcfe777
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 1647c49115cb9f27c1485e59d1b85eb9a9bc1146
+ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572723"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91134762"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Änderungen im Azure Stack Hub-Marketplace
 
@@ -70,6 +70,7 @@ Der Artikel [Azure Stack Hub-Marketplace-Elemente](azure-stack-marketplace-azure
 
 ## <a name="updated-marketplace-items"></a>Aktualisierte Marketplace-Elemente
 
+- 21.09.2020: Centos Application Connection Gateway – Version 7.2.0
 - 09.09.2020: FortiGate NGFW – Single VM Deployment (BYOL) – Version 1.0.2
 - 04.09.2020: 6.10 (CentOS-basiert): Version 6.10.2020042900
 - 04.09.2020: 7.4 (CentOS-basiert): Version 7.4.20200220

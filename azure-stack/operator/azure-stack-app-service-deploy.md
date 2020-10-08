@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 441200d89d64705e0632c8f09a76afa65d52e194
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: d8b5be96bf3e150308faf01c161d20e180beeb69
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489894"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106989"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>Bereitstellen von App Service in Azure Stack Hub
 
@@ -49,7 +49,7 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
 
 2. Wählen Sie **App Service bereitstellen oder Upgrade auf die neueste Version durchführen** aus.
 
-    ![App Service-Installationsprogramm][1]
+    ![Der Screenshot zeigt den Hauptbildschirm des Azure App Service-Installationsprogramms.][1]
 
 3. Lesen und akzeptieren Sie die Microsoft-Software-Lizenzbedingungen, und wählen Sie dann **Weiter** aus.
 
@@ -59,7 +59,7 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
 
    Wenn Sie beispielsweise das Domänensuffix „mycloud.com“ verwenden, muss der Azure Resource Manager-Endpunkt des Azure Stack Hub-Mandanten in „management.&lt;region&gt;.mycloud.com“ geändert werden. Überprüfen Sie diese Einstellungen, und wählen Sie anschließend **Weiter** aus.
 
-   ![App Service-Installationsprogramm][2]
+   ![Der Screenshot zeigt den Bildschirm zur Angabe der ARM-Endpunkte für den App Service.][2]
 
 6. Auf der nächsten Seite des App Service-Installationsprogramms stellen Sie eine Verbindung mit Ihrer Azure Stack Hub-Instanz her:
 
@@ -77,7 +77,7 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
 
     1. Wählen Sie in **Azure Stack Hub-Standorte** den Standort aus, der der Region entspricht, in der die Bereitstellung erfolgen soll. Wählen Sie beispielsweise **Lokal**, wenn Sie die Bereitstellung für das ASDK durchführen.
 
-    ![App Service-Installationsprogramm][3]
+    ![Der Screenshot zeigt, wo Sie die Azure Stack Hub-Abonnementinformationen im App Service-Installationsprogramm angeben.][3]
 
 7. Nun können Sie die Bereitstellung in einem vorhandenen virtuellen Netzwerk durchführen, das Sie [mit diesen Schritten](azure-stack-app-service-before-you-get-started.md#virtual-network) erstellt haben, oder per App Service-Installationsprogramm ein neues virtuelles Netzwerk mit Subnetzen erstellen lassen. Führen Sie die folgenden Schritte aus, um ein VNET zu erstellen:
 
@@ -90,14 +90,14 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
      - Wählen Sie die richtigen **Subnetzwerte** für die einzelnen erforderlichen Rollensubnetze aus.
      - Wählen Sie **Weiter** aus.
 
-   ![App Service-Installationsprogramm][4]
+   ![Der Screenshot zeigt den Bildschirm, auf dem Sie Ihr virtuelles Netzwerk im App Service-Installationsprogramm konfigurieren.][4]
 
 8. Geben Sie die Informationen für die Dateifreigabe ein, und wählen Sie dann **Weiter** aus. Die Adresse der Dateifreigabe muss den vollqualifizierten Domänennamen (FQDN) oder die IP-Adresse Ihres Dateiservers enthalten. Beispiel: \\„\appservicefileserver.local.cloudapp.azurestack.external\websites“ oder \\„\10.0.0.1\websites“.  Wenn Sie einen Dateiserver verwenden, der in eine Domäne eingebunden ist, müssen Sie den vollständigen Benutzernamen mit der Domäne eingeben. Beispiel: myfileserverdomain\FileShareOwner.
 
    >[!NOTE]
    >Das Installationsprogramm versucht, die Konnektivität mit der Dateifreigabe zu testen, bevor der Vorgang fortgesetzt wird. Wenn Sie die Bereitstellung aber in einem vorhandenen virtuellen Netzwerk durchführen, können bei diesem Konnektivitätstest ggf. Fehler auftreten. Es wird eine Warnung mit der Frage angezeigt, ob Sie den Vorgang fortsetzen möchten. Wenn die Dateifreigabeinformationen richtig sind, können Sie mit der Bereitstellung fortfahren.
 
-   ![App Service-Installationsprogramm][7]
+   ![Der Screenshot zeigt die Konfiguration der Dateifreigabe im App Service-Installationsprogramm.][7]
 
 9. Gehen Sie auf der nächsten Seite des App Service-Installationsprogramms folgendermaßen vor:
 
@@ -111,7 +111,7 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
 
    e. Wählen Sie **Weiter** aus.
 
-   ![App Service-Installationsprogramm][9]
+   ![Der Screenshot zeigt, wo die Informationen der Identitäts-App im App Service-Installationsprogramm eingegeben werden.][9]
 
 10. Wählen Sie für jede der drei Zertifikatsdateien die Option **Durchsuchen** aus, und navigieren Sie zu der entsprechenden Zertifikatsdatei. Sie müssen das Kennwort für jedes Zertifikat angeben. Dabei handelt es sich um die Zertifikate, die Sie in [Voraussetzungen für die Bereitstellung von App Service in Azure Stack Hub](azure-stack-app-service-before-you-get-started.md) erstellt haben. Wählen Sie **Weiter** aus, nachdem Sie alle Informationen eingegeben haben.
 
@@ -123,11 +123,11 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
 
     Wenn Sie beim Erstellen der Zertifikate ein anderes Domänensuffix verwendet haben, verwenden die Zertifikatsdateinamen nicht *local.AzureStack.external*. Verwenden Sie stattdessen Ihre benutzerdefinierten Domäneninformationen.
 
-    ![App Service-Installationsprogramm][10]
+    ![Der Screenshot zeigt, wo die Zertifikatsspeicherorte und Kennwörter im App Service-Installationsprogramm eingegeben werden.][10]
 
 11. Geben Sie die SQL Server-Informationen für die Serverinstanz ein, auf der die Datenbank des App Service-Ressourcenanbieters gehostet werden soll, und wählen Sie dann **Weiter** aus. Das Installationsprogramm überprüft die SQL-Verbindungseigenschaften.<br><br>Das App Service-Installationsprogramm versucht zunächst, die Konnektivität mit SQL Server zu testen. Wenn Sie die Bereitstellung in einem vorhandenen virtuellen Netzwerk durchführen, ist dieser Konnektivitätstest ggf. nicht erfolgreich. Es wird eine Warnung mit der Frage angezeigt, ob Sie den Vorgang fortsetzen möchten. Wenn die SQL Server-Informationen korrekt sind, können Sie mit der Bereitstellung fortfahren.
 
-    ![App Service-Installationsprogramm][11]
+    ![Der Screenshot zeigt, wo die SQL-Konfigurationsinformationen im App Service-Installationsprogramm eingegeben werden.][11]
 
 12. Überprüfen Sie die Optionen für Rolleninstanz und SKU. Als Standardwerte werden die Mindestzahl der Instanzen und die Mindest-SKU für jede Rolle in einer Produktionsbereitstellung verwendet.  Für eine ASDK-Bereitstellung können Sie die Instanzen auf niedrigere SKUs abskalieren, um die Kern- und Arbeitsspeicherbelegung zu reduzieren, aber es treten Leistungseinbußen auf. Eine Übersicht über die vCPU- und Arbeitsspeichervoraussetzungen wird angezeigt, um Sie bei der Bereitstellung zu unterstützen. Nachdem Sie Ihre Auswahl getroffen haben, wählen Sie **Weiter** aus.
 
@@ -142,7 +142,7 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
     | FrontEnd | 1 | Standard_A4_v2 (4 Kerne, 8.192 MB) | Leitet Anforderungen an App Service-Apps weiter. |
     | Freigegebener Worker | 1 | Standard_A4_v2 (4 Kerne, 8.192 MB) | Hostet Web- oder API-Apps und Azure Functions-Apps. Sie können ggf. weitere Instanzen hinzufügen. Als Operator können Sie Ihr Angebot definieren und eine SKU-Ebene auswählen. Die Ebenen müssen mindestens eine vCPU aufweisen. |
 
-    ![App Service-Installationsprogramm][13]
+    ![Der Screenshot zeigt, wo Sie die Workerrollen im App Service-Installationsprogramm konfigurieren.][13]
 
     > [!NOTE]
     > **Windows Server 2016 Core ist kein unterstütztes Plattformimage für die Verwendung mit Azure App Service in Azure Stack Hub.  Verwenden Sie Evaluierungsimages nicht für Produktionsbereitstellungen.**
@@ -157,7 +157,7 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
 
      c. Wählen Sie **Weiter** aus.
 
-    ![App Service-Installationsprogramm][15]
+    ![Der Screenshot zeigt, wo die Anmeldeinformationen für die Workerrollen im App Service-Installationsprogramm konfiguriert werden.][15]
 
 15. Gehen Sie auf der Zusammenfassungsseite des App Service-Installationsprogramms folgendermaßen vor:
 
@@ -167,7 +167,7 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
 
     c. Wählen Sie zum Starten der Bereitstellung die Option **Weiter** aus.
 
-    ![App Service-Installationsprogramm][16]
+    ![Der Screenshot zeigt die zusammengefassten Informationen zur Stack-Bereitstellung im App Service-Installationsprogramm.][16]
 
 16. Gehen Sie auf der nächsten Seite des App Service-Installationsprogramms folgendermaßen vor:
 
@@ -175,7 +175,7 @@ Führen Sie zum Bereitstellen eines App Service-Ressourcenanbieters die folgende
 
     b. Wählen Sie nach erfolgreichem Abschluss des Installationsprogramms die Option **Beenden** aus.
 
-    ![App Service-Installationsprogramm][17]
+    ![Der Screenshot zeigt den Fortschritt der Bereitstellung im App Service-Installationsprogramm.][17]
 
 ## <a name="post-deployment-steps"></a>Schritte nach der Bereitstellung
 

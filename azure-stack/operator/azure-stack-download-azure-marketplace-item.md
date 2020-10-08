@@ -8,12 +8,12 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 2c502a80d5253b90200d3829a6167b419d711bd2
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 685a448fd8fdc06edc0ffa92890ce9eaea2c39e6
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764527"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107039"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Herunterladen von Marketplace-Elementen in Azure Stack Hub
 
@@ -52,7 +52,7 @@ Ihre Azure Stack Hub-Bereitstellung muss über eine Internetverbindung verfügen
 
 4. Jede Position zeigt auch die derzeit verfügbare Version. Wenn mehrere Versionen eines Marketplace-Elements verfügbar sind, ist in der Spalte **Version** **Mehrere** angegeben. Sie können auf die einzelnen Elemente klicken, um eine Beschreibung und zusätzliche Informationen anzuzeigen, u. a. die Downloadgröße:
 
-   ![Hinzufügen aus Azure](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png)
+   ![Der Screenshot zeigt die verfügbaren Versionen eines Marketplace-Elements.](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png)
 
 5. Wenn die Version eines Elements als **Mehrere** angegeben ist, können Sie das Element auswählen und in der daraufhin angezeigten Dropdownliste eine bestimmte Version auswählen. Beachten Sie, dass Microsoft nun Attribute hinzufügen kann, die für Administratoren das Herunterladen von Marketplace-Produkten blockieren, die mit ihrer Azure Stack-Instanz inkompatibel sind (aufgrund verschiedener Eigenschaften, z. B. Azure Stack-Version oder Abrechnungsmodell). Diese Attribute können nur von Microsoft hinzugefügt werden:
 
@@ -137,10 +137,10 @@ Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Mel
 
    Dadurch wird eine Tabelle angezeigt, in der alle Azure Stack-Registrierungen aufgelistet sind, die im ausgewählten Abonnement verfügbar sind. Wählen Sie die Registrierung aus, die der Azure Stack-Umgebung entspricht, für die Sie die Marketplace-Elemente herunterladen, und wählen Sie **OK** aus.
 
-     ![Auswählen der Azure Stack-Registrierungen](media/azure-stack-download-azure-marketplace-item/select-registration.png)
+     ![Der Screenshot zeigt eine Liste aller Azure Stack-Registrierungen, die im ausgewählten Abonnement verfügbar sind.](media/azure-stack-download-azure-marketplace-item/select-registration.png)
 
    Nun sollte eine zweite Tabelle mit allen Marketplace-Elementen angezeigt werden, die für den Download verfügbar sind. Wählen Sie das Element aus, das Sie herunterladen möchten, und notieren Sie sich die **Version**. Sie können **STRG** gedrückt halten, um mehrere Images auszuwählen.
-     ![Auswählen der Azure Stack-Registrierungen](media/azure-stack-download-azure-marketplace-item/select-products.png)
+     ![Der Screenshot zeigt eine weitere Liste aller Azure Stack-Registrierungen, die im ausgewählten Abonnement verfügbar sind.](media/azure-stack-download-azure-marketplace-item/select-products.png)
   
    Die Liste mit den Images kann mithilfe der Option **Kriterien hinzufügen** gefiltert werden.
    ![Auswählen der Azure Stack-Registrierungen](media/azure-stack-download-azure-marketplace-item/select-products-with-filter.png)

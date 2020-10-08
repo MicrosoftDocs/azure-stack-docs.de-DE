@@ -2,18 +2,18 @@
 title: Problembehandlung in Azure Stack Hub
 titleSuffix: Azure Stack
 description: Erfahren Sie, wie Sie Probleme in Azure Stack Hub beheben, z. B. mit VMs, Speicher und App Service.
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 07/21/2020
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: prchint
 ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: 8072a868106de26be3cbb2b2918d97696647df77
-ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
+ms.openlocfilehash: 403335a81a5ac02f2e32432f54df584baf7c2a02
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89041620"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778150"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Behandeln von Problemen in Azure Stack Hub
 
@@ -30,7 +30,7 @@ Diese Abschnitte enthalten Links zu Dokumentationen, in denen Sie Antworten auf 
 
 ### <a name="updates-and-diagnostics"></a>Updates und Diagnose
 
-* [Verwenden von Diagnosetools in Azure Stack Hub](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)
+* [Verwenden von Diagnosetools in Azure Stack Hub](./azure-stack-diagnostic-log-collection-overview.md)
 * [Überprüfen des Azure Stack Hub-Systemstatus](azure-stack-diagnostic-test.md)
 * [Veröffentlichungsintervall für Updatepakete](azure-stack-servicing-policy.md#update-package-release-cadence)
 * [Überprüfen und Behandeln von Problemen mit dem Knotenstatus](azure-stack-node-actions.md)
@@ -199,11 +199,11 @@ Wenn beim Skript „Create-AADIdentityApp.ps1“, das für App Service benötigt
 
 Der Azure Stack Hub-Patch und -Updatevorgang ermöglicht den Betreibern das konsistente und optimierte Anwenden von Updatepaketen. Probleme bei Patch- und Updatevorgängen sind zwar selten, können jedoch auftreten. Die folgenden Schritte werden empfohlen, wenn während des Patch- und Updatevorgangs ein Problem auftritt:
 
-0. **Voraussetzungen:** Stellen Sie sicher, dass Sie die [Checkliste für Updateaktivitäten](release-notes-checklist.md) befolgt und die [proaktive Protokollsammlung konfiguriert](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002) haben.
+0. **Voraussetzungen:** Stellen Sie sicher, dass Sie die [Checkliste für Updateaktivitäten](release-notes-checklist.md) befolgt und die [proaktive Protokollsammlung konfiguriert](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively) haben.
 
 1. Führen Sie die Behebungsschritte in der Fehlerwarnung aus, die beim Fehlschlagen des Updates erstellt wurde.
 
-2. Wenn Sie das Problem nicht beheben konnten, erstellen Sie ein [Azure Stack Hub-Supportticket](./azure-stack-help-and-support-overview.md?view=azs-2002). Stellen Sie sicher, dass für die Zeitspanne, in der das Problem aufgetreten ist, [Protokolle gesammelt](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) wurden.
+2. Wenn Sie das Problem nicht beheben konnten, erstellen Sie ein [Azure Stack Hub-Supportticket](./azure-stack-help-and-support-overview.md?view=azs-2002). Stellen Sie sicher, dass für die Zeitspanne, in der das Problem aufgetreten ist, [Protokolle gesammelt](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now) wurden.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Häufige Probleme bei Azure Stack Hub-Patches und -Updates
 

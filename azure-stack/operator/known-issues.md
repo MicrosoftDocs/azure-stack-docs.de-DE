@@ -3,16 +3,16 @@ title: Azure Stack Hub – Bekannte Probleme
 description: Enthält Informationen zu bekannten Problemen in Releases von Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/04/2020
+ms.date: 09/18/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: d7a9112955891a59e29bfe997888d3e444784494
-ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
+ms.openlocfilehash: d86149b041abd3737ed03696e2c041bbd24f0392
+ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2020
-ms.locfileid: "89493817"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90836487"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -94,6 +94,12 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Häufigkeit: Allgemein
 
 ## <a name="compute"></a>Compute
+
+### <a name="issues-deploying-virtual-machine-scale-set-with-standard_ds2_v2-size-using-the-portal"></a>Probleme bei der Bereitstellung von VM-Skalierungsgruppen mit der Größe „Standard_DS2_v2“ über das Portal
+
+- Geltungsbereich: Dieses Problem gilt für Release 2005.
+- Ursache: Ein Problem im Portal führt dazu, dass bei der Erstellung einer Skalierungsgruppe mit der Größe „Standard_DS2_v2“ ein Fehler auftritt.
+- Abhilfe: Verwenden Sie PowerShell oder die CLI zur Bereitstellung der VM-Größe dieser VM-Skalierungsgruppe.
 
 ### <a name="issues-using-vm-extensions-in-ubuntu-server-2004"></a>Probleme bei Verwendung von VM-Erweiterungen in Ubuntu Server 20.04
 
@@ -265,11 +271,11 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 
 ## <a name="compute"></a>Compute
 
-### <a name="cannot-create-a-vmss-with-standard_ds2_v2-vm-size-on-portal"></a>VMSS kann nicht mit der VM-Größe „Standard_DS2_v2“ im Portal erstellt werden.
+### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>Es ist nicht möglich, eine VM-Skalierungsgruppe mit der VM-Größe „Standard_DS2_v2“ im Portal zu erstellen.
 
 - Geltungsbereich: Dieses Problem gilt für Release 2002.
-- Ursache: Es gibt einen Portalfehler, der die VMSS-Erstellung mit der VM-Größe „Standard_DS2_v2“ verhindert. Beim Erstellen wird ein Fehler ausgegeben: "{"code":"DeploymentFailed","message":"Mindestens ein Ressourcenbereitstellungsvorgang ist fehlgeschlagen. Listen Sie die Bereitstellungsvorgänge auf, um Details anzuzeigen. Weitere Informationen zur Verwendung finden Sie unter https://aka.ms/arm-debug.","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\": \" NetworkProfileValidationError\" ,\r\n \" message\": \" Die VM-Größe „Standard_DS2_v2“ ist nicht in der Liste der zulässigen VM-Größen für beschleunigten Netzwerkbetrieb, die auf der VM bei Index 0 für die VM-Skalierungs Gruppe „/subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss“ aktiviert werden soll. Zulässige Größen: .\"\r\n }\r\n}"}]}"
-- Abhilfe: Erstellen Sie eine VMSS mit PowerShell oder einer Resource Manager-Vorlage.
+- Ursache: Es gibt einen Portalfehler, der die Erstellung der VM-Skalierungsgruppe mit der VM-Größe „Standard_DS2_v2“ verhindert. Beim Erstellen wird ein Fehler ausgegeben: "{"code":"DeploymentFailed","message":"Mindestens ein Ressourcenbereitstellungsvorgang ist fehlgeschlagen. Listen Sie die Bereitstellungsvorgänge auf, um Details anzuzeigen. Weitere Informationen zur Verwendung finden Sie unter https://aka.ms/arm-debug.","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\": \" NetworkProfileValidationError\" ,\r\n \" message\": \" Die VM-Größe „Standard_DS2_v2“ ist nicht in der Liste der zulässigen VM-Größen für beschleunigten Netzwerkbetrieb, die auf der VM bei Index 0 für die VM-Skalierungs Gruppe „/subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss“ aktiviert werden soll. Zulässige Größen: .\"\r\n }\r\n}"}]}"
+- Abhilfe: Erstellen Sie eine VM-Skalierungsgruppe mit PowerShell oder einer Resource Manager-Vorlage.
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Auf dem Blatt mit der VM-Übersicht wird nicht der richtige Computername angezeigt.
 

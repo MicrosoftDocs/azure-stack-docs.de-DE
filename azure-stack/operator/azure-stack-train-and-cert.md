@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.author: inhenkel
 ms.lastreviewed: 11/11/2019
 ms.reviewer: efemm
-ms.openlocfilehash: bbf668cf509fcc2ccde4d0a60f20d3f74a935a1e
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: a1fa7c9ee34532857a8968a286c2248947115acd
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487616"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815358"
 ---
 # <a name="azure-stack-hub-training-and-certification"></a>Azure Stack Hub-Training und -Zertifizierung
 
@@ -22,10 +22,6 @@ ms.locfileid: "86487616"
 Möchten Sie mehr über Azure Stack Hub erfahren und Ihre Azure Stack Hub-Kenntnisse demonstrieren? Sehen Sie sich die folgenden Möglichkeiten für Schulungen und Zertifizierungen an.
 
 ## <a name="training"></a>Training
-
-- Offizielle, bedarfsgesteuerte Microsoft-Kurse:
-   - [ODX20537: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack Hub (180 Day)](https://www.microsoft.com/learning/course.aspx?cid=ODX20537) (Konfigurieren und Betreiben einer Hybrid Cloud mit Microsoft Azure Stack Hub [180 Tage])
-   - [OD20537: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack Hub (90 Day)](https://www.microsoft.com/learning/course.aspx?cid=OD20537) (Konfigurieren und Betreiben einer Hybrid Cloud mit Microsoft Azure Stack Hub [90 Tage])
 
 - Microsoft IT-Schulungskurs:
    - [Course 20537A: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack Hub](https://aka.ms/azsmoc) (Konfigurieren und Betreiben einer Hybrid Cloud mit Microsoft Azure Stack Hub)

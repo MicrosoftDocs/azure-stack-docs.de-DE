@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Hier erhalten Sie Informationen zur Azure Stack Hub-Wartungsrichtlinie und erfahren, wie Sie den unterstützten Zustand eines integrierten Systems aufrechterhalten.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 09/25/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 7cf6420069dbc8589722aab38658206a482632e0
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 9ae3d2a145b04c9f1e3fa6b926eb657a4af83ebf
+ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472958"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367256"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub-Wartungsrichtlinie
 
@@ -39,7 +39,9 @@ Es gibt zwei Arten von Updatepaketen für integrierte Systeme:
 
 ## <a name="update-package-release-cadence"></a>Updatepaketrelease-Intervall
 
-Microsoft veröffentlicht Softwareupdatepakete in der Regel monatlich. Allerdings ist es möglich, dass in einem Monat mehrere oder keine Updatereleases veröffentlicht werden. OEM-Hardwareanbieter veröffentlichen ihre Updates nach Bedarf.
+Microsoft veröffentlicht in der Regel mehrmals im Jahr Softwareupdatepakete.
+
+OEM-Hardwareanbieter veröffentlichen ihre Updates nach Bedarf. Wenden Sie sich an Ihren OEM, um die neuesten Updates Ihrer Hardware zu erhalten.
 
 Die Dokumentation zur Planung und Verwaltung von Updates sowie zur Ermittlung Ihrer aktuellen Version finden Sie unter [Übersicht zum Verwalten von Updates in Azure Stack](azure-stack-updates.md).
 

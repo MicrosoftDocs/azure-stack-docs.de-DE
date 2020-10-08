@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/05/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: d3d7bd6cd90eb60ffae910115df475fd3186aa5a
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: a7efe4a1329ba96ab9365c9c17022fc647b868a5
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573835"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107207"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Bereitstellen einer Java-Web-App auf einer VM in Azure Stack Hub
 
@@ -177,7 +177,7 @@ Sie können einen virtuellen Computer erstellen, um Ihre Java-Web-App in Azure S
 
 1. Öffnen Sie einen Browser in demselben Netzwerk wie Ihre Azure Stack Hub-Instanz, und öffnen Sie dann Ihren Server: *yourmachine.local.cloudapp.azurestack.external:8080*.
 
-    ![Apache Tomcat auf einer Azure Stack Hub-VM](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
+    ![Der Screenshot zeigt die Apache Tomcat-Seite.](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
 
     Die Apache Tomcat-Seite auf Ihrem Server wird geladen. Als Nächstes konfigurieren Sie den Server so, dass Sie auf „Server Status“, „Manager“ und „Host Manager“ zugreifen können.
 

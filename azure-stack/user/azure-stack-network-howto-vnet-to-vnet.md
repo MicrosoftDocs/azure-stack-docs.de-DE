@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 4aeca3ba7630d05921578de7023359c042d74ffb
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 9d9bf332c71bbafd78a235cf0257283738e5a304
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574107"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815511"
 ---
 # <a name="vnet-peering-with-fortigate"></a>VNET-Peering mit FortiGate
 
@@ -74,8 +74,6 @@ In der folgenden Tabelle sind als Referenz die Parameter zusammengefasst, die in
 ## <a name="deploy-the-fortigate-ngfw"></a>Bereitstellen der FortiGate NGFW
 
 1.  Öffnen Sie das Azure Stack Hub-Benutzerportal.
-
-    ![Der Startbildschirm mit der Schaltfläche „+ Ressource erstellen“ wird angezeigt.](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
 2.  Wählen Sie **Ressource erstellen** aus, und suchen Sie nach `FortiGate`.
 
