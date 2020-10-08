@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 09/22/2020
-ms.openlocfilehash: b4f79281987b425b907126081e74ce32bf9ee14d
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 4c91dad12e4d6680ca0887da2e6ca314cdbd64ee
+ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949323"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91519385"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Systemanforderungen für Azure Kubernetes Service in Azure Stack HCI
 
@@ -71,7 +71,7 @@ Azure Kubernetes Service in Azure Stack HCI erfordert eine Netzwerkverbindung mi
 Beim Erstellen eines Azure Kubernetes-Clusters in Azure Stack HCI öffnen wir automatisch die folgenden Firewallports auf jedem Server im Cluster. 
 
 
-| Firewallport               | Beschreibung         | 
+| Firewallport               | BESCHREIBUNG         | 
 | ---------------------------- | ------------ | 
 | 45000           | wssdagent GPRC – Serverport           |
 | 45001             | wssdagent GPRC – Authentifizierungsport  | 
@@ -81,9 +81,9 @@ Beim Erstellen eines Azure Kubernetes-Clusters in Azure Stack HCI öffnen wir au
 
 Firewall-URL-Ausnahmen sind für den Windows Admin Center-Computer und alle Knoten im Azure Stack HCI-Cluster erforderlich. 
 
-| URL        | Port | Dienst | Notizen |
+| URL        | Port | Dienst | Hinweise |
 | ---------- | ---- | --- | ---- |
-https://get.helm.sh/  | 443 | Download Agent, WAC | Wird zum Herunterladen der Helm-Binärdateien verwendet 
+https://helm.sh/blog/get-helm-sh/  | 443 | Download Agent, WAC | Wird zum Herunterladen der Helm-Binärdateien verwendet 
 https://storage.googleapis.com/  | 443 | Cloud-Init | Kubernetes-Binärdateien werden heruntergeladen 
 https://azurecliprod.blob.core.windows.net/ | 443 | Cloud-Init | Binärdateien und Container werden heruntergeladen 
 https://aka.ms/installazurecliwindows | 443 | WAC | Azure CLI wird heruntergeladen 

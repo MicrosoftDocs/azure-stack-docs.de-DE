@@ -1,18 +1,18 @@
 ---
 title: Arbeitsstation mit Azure Stack Hub-Operatorzugriff
 description: Hier erfahren Sie, wie Sie eine Arbeitsstation mit Azure Stack Hub-Operatorzugriff herunterladen und konfigurieren.
-author: asganesh
+author: ashika789
 ms.topic: article
-ms.date: 09/22/2020
+ms.date: 09/24/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: b4da01ee67e08f21fbcdcc4f3a9370ee18acdbf8
-ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
+ms.lastreviewed: 09/24/2020
+ms.openlocfilehash: ee292a3461b591a042c0847bd11bb63285a4faf4
+ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91134728"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91230613"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Arbeitsstation mit Azure Stack Hub-Operatorzugriff 
 
@@ -24,7 +24,7 @@ Die OAW-VM sollte erstellt werden, wenn ein Operator eine neue Aufgabe ausführt
 
 In den folgenden Tabellen sind häufige Szenarien für die OAW aufgeführt, aber diese sind nicht ausschließlich. Es wird empfohlen, Remotedesktop zum Herstellen einer Verbindung mit der OAW zu verwenden. 
 
-|Szenario                                                                                                                          |Beschreibung                 |
+|Szenario                                                                                                                          |BESCHREIBUNG                 |
 |----------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
 |[Zugreifen auf das Verwaltungsportal](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals)                     |Ausführen von Verwaltungsvorgängen                                                                           |
 |[Zugreifen auf PEP](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)                                     |Protokollsammlung und -upload:<br>-[Erstellen einer SMB-Freigabe](#transfer-files-between-the-hlh-and-oaw) auf dem HLH für die Dateiübertragung von Azure Stack Hub<br>\- Verwenden von Azure Storage-Explorer zum Hochladen von Protokollen, die auf der SMB-Freigabe gespeichert wurden |
@@ -191,7 +191,7 @@ New-OAW
 
 In der folgenden Tabelle finden Sie eine Beschreibung der einzelnen Parameter.
 
-| Parameter   | Erforderlich/Optional  | Beschreibung       |
+| Parameter   | Erforderlich/Optional  | BESCHREIBUNG       |
 |-------------|--------------------|-------------------|
 | LocalAdministratorPassword | Erforderlich | Das Kennwort für das lokale Administratorkonto „AdminUser“ der VM. |
 | IPAddress                  | Erforderlich | Die statische IPv4-Adresse zum Konfigurieren von TCP/IP auf der VM.                                                |
