@@ -3,16 +3,16 @@ title: Erstellen eines virtuellen Windows-Computers mit dem Azure Stack Hub-Port
 description: Hier erfahren Sie, wie Sie einen virtuellen Windows Server 2016-Computer (VM) mit dem Azure Stack Hub-Portal erstellen.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 08/24/2020
+ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: bbf0ad658100457c9d7b6b47e9f89b2af48e0e1f
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.lastreviewed: 10/06/2020
+ms.openlocfilehash: 77c7e3484186a0bea1f6220330338128aad72fad
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88819166"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815417"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Schnellstart: Erstellen eines virtuellen Windows Server-Computers mit dem Azure Stack Hub-Portal
 
@@ -31,7 +31,7 @@ Melden Sie sich beim Azure Stack Hub-Portal an. Die Adresse des Azure Stack Hub-
 
 ## <a name="create-a-vm"></a>Erstellen einer VM
 
-1. Wählen Sie **Ressource erstellen** > **Compute** aus. Suchen Sie nach ` Windows Server 2016 Datacenter – Pay as you use`.
+1. Wählen Sie **Ressource erstellen** > **Compute** aus. Suchen Sie nach ` Windows Server 2016 Datacenter - Pay as you use`.
     Wird der Eintrag **Windows Server 2016 Datacenter – nutzungsbasierte Bezahlung** nicht angezeigt, wenden Sie sich an Ihren Azure Stack Hub-Cloudbetreiber, und bitten Sie ihn, das Image zum Azure Stack Hub-Marketplace hinzuzufügen. Eine entsprechende Anleitung findet Ihr Cloudbetreiber unter [Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack Hub-Marketplace-Elements](../operator/azure-stack-create-and-publish-marketplace-item.md).
 
     ![Windows Server 2016 Datacenter – nutzungsbasierte Bezahlung](./media/azure-stack-quick-windows-portal/image1.png)
