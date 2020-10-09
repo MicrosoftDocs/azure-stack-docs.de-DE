@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 89324bbfe2c1f28e268a22a9b31c880daaddecd6
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 21c511521837eff83d31784db3cf59bcfe25cb2f
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949315"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592831"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Bekannte Probleme für Azure Kubernetes Service in Azure Stack HCI Public Preview
 In diesem Artikel werden bekannte Probleme mit der öffentlichen Vorschauversion von Azure Kubernetes Service in Azure Stack HCI beschrieben.
@@ -41,8 +41,8 @@ Bei großen Clustern kann der Befehl „Get-AksHciLogs“ eine Ausnahme auslöse
 Dies liegt daran, dass der PowerShell-Befehl zum Komprimieren einer Datei, `Compress-Archive`, eine Begrenzung der Ausgabedateigröße von 2 GB aufweist. Dieses Problem wird in einer künftigen Version behoben.
 
 ## <a name="azure-kubernetes-service-powershell-deployment-doesnt-check-for-available-memory-before-creating-a-new-target-cluster"></a>Die PowerShell-Bereitstellung von Azure Kubernetes Service überprüft nicht den verfügbaren Arbeitsspeicher, bevor ein neuer Zielcluster erstellt wird.
-Die Aks-Hci-PowerShell-Befehle überprüfen vor dem Erstellen von Kubernetes-Knoten nicht den verfügbaren Arbeitsspeicher auf dem Hostserver. Dies kann dazu führen, dass der Speicher ausgelastet ist und virtuelle Computer nicht starten. Dieser Fehler wird derzeit nicht angemessen behandelt, und die Bereitstellung bleibt ohne eindeutige Fehlermeldung hängen.
-Wenn Sie eine Bereitstellung haben, die scheinbar hängt, öffnen Sie `Eventviewer`, und prüfen Sie auf Hyper-V-bezogene Fehlermeldungen, die auf nicht genügend Speicher zum Starten der VM hinweisen.
+Die Aks-Hci-PowerShell-Befehle überprüfen vor dem Erstellen von Kubernetes-Knoten nicht den verfügbaren Arbeitsspeicher auf dem Hostserver. Dies kann dazu führen, dass der Speicher ausgelastet ist und virtuelle Computer nicht starten. Dieser Fehler wird derzeit nicht angemessen behandelt, und die Bereitstellung reagiert nicht mehr, ohne dass eine eindeutige Fehlermeldung angezeigt wird.
+Wenn Ihre Bereitstellung nicht mehr reagiert, öffnen Sie `Eventviewer`, und suchen Sie nach Hyper-V-bezogenen Fehlermeldungen, die auf unzureichenden Arbeitsspeicher zum Starten der VM hinweisen.
 Dieses Problem wird in einem zukünftigen Release behoben.
 
 ## <a name="azure-kubernetes-service-deployment-fails-on-an-azure-stack-hci-configured-with-static-ips-vlans-sdn-or-proxies"></a>Bei der Bereitstellung von Azure Kubernetes Service tritt ein Fehler bei einer Azure Stack HCI auf, die mit statischen IP-Adressen, VLANs, softwaredefiniertem Netzwerk (SDN) oder Proxys konfiguriert ist.
@@ -67,3 +67,12 @@ Dieses Problem wird in einer künftigen Version behoben.
 ## <a name="cannot-deploy-azure-kubernetes-service-to-an-environment-that-has-separate-storage-and-compute-clusters"></a>Azure Kubernetes Service kann nicht in einer Umgebung mit separaten Speicher- und Computeclustern bereitgestellt werden.
 Windows Admin Center stellt Azure Kubernetes Service nicht in einer Umgebung mit separaten Speicher- und Computeclustern bereit, da es erwartet, dass die Compute- und Speicherressourcen vom selben Cluster bereitgestellt werden. In den meisten Fällen findet es keine CSV-Dateien, die vom Computecluster verfügbar gemacht werden, und weigert sich, die Bereitstellung fortzusetzen.
 Dieses Problem wird in einer künftigen Version behoben.
+
+## <a name="windows-admin-center-only-supports-azure-kubernetes-service-for-azure-stack-hci-in-desktop-mode"></a>Windows Admin Center unterstützt Azure Kubernetes Service für Azure Stack HCI nur im Desktopmodus
+In der Vorschauversion wird die gesamte Azure Kubernetes Service-Funktionalität für Azure Stack HCI nur im Windows Admin Center-Desktopmodus unterstützt. Das Windows Admin Center-Gateway muss auf einem Windows 10-PC installiert sein. Informationen zu den Installationsoptionen für Windows Admin Center finden Sie in der [Windows Admin Center-Dokumentation](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/installation-options). Weitere Szenarien werden in einer zukünftigen Version unterstützt.
+
+## <a name="azure-kubernetes-service-host-setup-fails-in-windows-admin-center-if-reboots-are-required"></a>Fehler beim Azure Kubernetes Service-Hostsetup in Windows Admin Center, wenn Neustarts erforderlich sind
+Im Azure Kubernetes Service-Assistenten für das Hostsetup tritt ein Fehler auf, wenn einer oder mehrere der von Ihnen verwendeten Server neu gestartet oder Rollen wie PowerShell oder Hyper-V darauf installiert werden müssen. Die aktuelle Problemumgehung besteht darin, den Assistenten zu beenden und den Vorgang auf demselben System erneut zu versuchen, nachdem die Server wieder online sind. Dieses Problem wird in einer künftigen Version behoben.
+
+## <a name="azure-registration-step-in-azure-kubernetes-service-host-setup-asks-to-try-again"></a>Aufforderung zum erneuten Versuchen im Azure-Registrierungsschritt des Azure Kubernetes Service-Hostsetups
+Wenn Sie Windows Admin Center zum Einrichten des Azure Kubernetes Service-Hosts verwenden, werden Sie nach der Eingabe der erforderlichen Informationen auf der Azure-Registrierungsseite möglicherweise aufgefordert, es erneut zu versuchen. Möglicherweise müssen Sie sich im Windows Admin Center-Gateway erneut bei Azure anmelden, um mit diesem Schritt fortzufahren. Dieses Problem wird in einer künftigen Version behoben.
