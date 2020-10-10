@@ -7,12 +7,12 @@ ms.date: 09/21/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/21/2020
-ms.openlocfilehash: bedb015cb799619933510745e5bc3292a722cf14
-ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
+ms.openlocfilehash: 66a4a8f846002cc126d4861e1acc52b672e78dc5
+ms.sourcegitcommit: 68c00d9ee7c5a9e7da6d41e2f753c0f93d26238e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91019604"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91211158"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Herstellen einer Verbindung mit Azure Stack Hub über die Azure-Kontoerweiterung in Visual Studio Code
 
@@ -82,7 +82,7 @@ VS Code ist ein einfacher Editor zum Erstellen und Debuggen von Web- und Cloudan
         | `activeDirectoryEndpointUrl` | Dies ist die URL aus der loginEndpoint-Eigenschaft. |
         | `activeDirectoryResourceId` | Dies ist die URL aus der audiences-Eigenschaft.
         | `resourceManagerEndpointUrl` | Dies ist die Stamm-URL für die Azure Resource Manager-Instanz für Azure Stack Hub. |
-        | `validateAuthority` | Sie können diesen Parameter weglassen, wenn Sie Azure AD als Identity Manager verwenden. Fügen Sie den Parameter mit dem Wert `false` hinzu, wenn Sie AD FS verwenden. |
+        | `validateAuthority` | Sie können diesen Parameter weglassen, wenn Sie Azure AD als Identity Manager verwenden. Fügen Sie den Parameter mit dem Wert `false` hinzu, wenn Sie AD FS verwenden. |
 
     - JSON-Codeausschnitt:
 

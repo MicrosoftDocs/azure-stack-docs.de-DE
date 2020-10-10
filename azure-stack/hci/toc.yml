@@ -118,12 +118,20 @@
           href: concepts/quorum.md
     - name: Netzwerk
       items:
-        - name: Softwaredefiniertes Netzwerk
+        - name: Software-Defined Networking (SDN)
           href: concepts/software-defined-networking.md
         - name: Planen einer SDN-Infrastruktur
           href: concepts/plan-software-defined-networking-infrastructure.md
+        - name: Netzwerkcontroller – Übersicht
+          href: concepts/network-controller-overview.md
         - name: Netzwerkcontroller planen
           href: concepts/network-controller.md
+        - name: Übersicht über Software Load Balancer
+          href: concepts/software-load-balancer.md
+        - name: Übersicht über RAS-Gateways
+          href: concepts/gateway-overview.md
+        - name: Übersicht über Routenreflektoren
+          href: concepts/route-reflector-overview.md
     - name: Wartung und Sicherheit
       items:
         - name: Abrechnung

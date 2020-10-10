@@ -7,13 +7,13 @@ metadata:
   ms.topic: landing-page
   author: khdownie
   ms.author: v-kedow
-  ms.date: 07/21/2020
-  ms.openlocfilehash: 439e41651800ddb6ee478bfad083890193aef5da
-  ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
+  ms.date: 10/5/2020
+  ms.openlocfilehash: f66164d37b0e5fa1fab243f73b81df3b732205bc
+  ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 07/22/2020
-  ms.locfileid: "86891967"
+  ms.lasthandoff: 10/08/2020
+  ms.locfileid: "91853141"
 landingContent:
 - title: Informationen zu Azure Stack HCI
   linkLists:
@@ -29,17 +29,17 @@ landingContent:
   linkLists:
   - linkListType: deploy
     links:
-    - text: Vorbereitung
+    - text: Voraussetzungen
       url: deploy/before-you-start.md
     - text: Bereitstellen des Azure Stack HCI-Betriebssystems
       url: deploy/operating-system.md
-    - text: Cluster erstellen
+    - text: Erstellen eines Clusters
       url: deploy/create-cluster.md
     - text: Einrichten eines Clusterzeugen
       url: deploy/witness.md
     - text: Registrieren bei Azure
       url: deploy/register-with-azure.md
-    - text: Überprüfen eines Azure Stack HCI-Clusters
+    - text: Überprüfen eines Clusters
       url: deploy/validate.md
 - title: Verwalten von Speicher
   linkLists:
@@ -49,22 +49,18 @@ landingContent:
       url: manage/create-volumes.md
     - text: Erstellen von Stretchingvolumes
       url: manage/create-stretched-volumes.md
+    - text: Schützen von Volumes
+      url: manage/volume-encryption-deduplication.md
     - text: Erweitern von Volumes
       url: manage/extend-volumes.md
     - text: Löschen von Volumes
       url: manage/delete-volumes.md
     - text: Ersetzen von Laufwerken
       url: manage/replace-drives.md
-- title: Verwalten von VMs
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Verwalten virtueller Computer mit Windows Admin Center
-      url: manage/vm.md
-    - text: Verwalten von VMs mit PowerShell
-      url: manage/vm-powershell.md
-    - text: Einrichten von VM-Affinitätsregeln
-      url: deploy/before-you-start.md
+    - text: Verwenden des CSV-Cache
+      url: manage/use-csv-cache.md
+    - text: Verwalten von SMB Multichannel
+      url: manage/manage-smb-multichannel.md
 - title: Verwalten des Clusters
   linkLists:
   - linkListType: how-to-guide
@@ -75,10 +71,22 @@ landingContent:
       url: manage/cluster-powershell.md
     - text: Hinzufügen oder Entfernen von Servern
       url: manage/add-cluster.md
+    - text: Überwachen des Clusters
+      url: manage/monitor-cluster.md
     - text: Aktualisieren des Clusters
       url: manage/update-cluster.md
     - text: Ändern der Sprachen
       url: manage/vm-powershell.md
+- title: Verwalten von VMs
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Verwalten virtueller Computer mit Windows Admin Center
+      url: manage/vm.md
+    - text: Verwalten von VMs mit PowerShell
+      url: manage/vm-powershell.md
+    - text: Einrichten von VM-Affinitätsregeln
+      url: deploy/before-you-start.md
 - title: Azure Stack HCI-Konzepte
   linkLists:
   - linkListType: concept
@@ -91,16 +99,24 @@ landingContent:
       url: concepts/updates.md
     - text: Wählen von Laufwerken
       url: concepts/choose-drives.md
+    - text: Aspekte symmetrischer Laufwerke
+      url: concepts/drive-symmetry-considerations.md
     - text: Planen von Volumes
       url: concepts/plan-volumes.md
     - text: Fehlertoleranz und Speichereffizienz
       url: concepts/fault-tolerance.md
     - text: Sicherheitshinweise
       url: concepts/security.md
+    - text: Speicherpoolcache
+      url: concepts/cache.md
+    - text: Quorum für Cluster und Speicherpool
+      url: concepts/quorum.md
 - title: Herstellen einer Verbindung mit Azure
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Verwalten der Azure-Registrierung
+      url: manage/manage-azure-registration.md
     - text: Registrieren von Windows Admin Center bei Azure
       url: manage/register-windows-admin-center.md
     - text: Von Azure Site Recovery
@@ -111,3 +127,21 @@ landingContent:
       url: manage/use-azure-network-adapter.md
     - text: Verwenden von Azure Backup
       url: manage/use-azure-backup.md
+- title: Softwaredefiniertes Netzwerk
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Übersicht zu Software-Defined Networking (SDN)
+      url: concepts/software-defined-networking.md
+    - text: Planen einer SDN-Infrastruktur
+      url: concepts/plan-software-defined-networking-infrastructure.md
+    - text: Netzwerkcontroller – Übersicht
+      url: concepts/network-controller-overview.md
+    - text: Netzwerkcontroller planen
+      url: concepts/network-controller.md
+    - text: Übersicht über Software Load Balancer
+      url: concepts/software-load-balancer.md
+    - text: Übersicht über RAS-Gateways
+      url: concepts/gateway-overview.md
+    - text: Übersicht über Routenreflektoren
+      url: concepts/route-reflector-overview.md

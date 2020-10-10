@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: b7c6c76353ff29f01eca458ca563517807ca0cd3
-ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
+ms.openlocfilehash: 992b06b652dbac306570e0f58e274cec7735d14a
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91019531"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572686"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows Admin Center
 
@@ -187,12 +187,9 @@ Nach der Erstellung des Clusters kann es etwas dauern, bis der Clustername in Ih
 
 Wenn das Auflösen des Clusters nach einiger Zeit nicht erfolgreich ist, können Sie in den meisten Fällen einen Servernamen im Cluster anstelle des Clusternamens angeben.
 
-## <a name="step-5-sdn-optional"></a>Schritt 5: SDN (optional)
+## <a name="step-5-sdn-optional"></a>Schritt 5: SDN (optional)
 
-Schritt 5 des Assistenten führt Sie durch die Einrichtung des Netzwerkcontrollers auf Ihrem Cluster für softwaredefinierte Netzwerke (SDN). Nachdem der Netzwerkcontroller eingerichtet wurde, kann er zur Konfiguration anderer Komponenten des softwaredefinierten Netzwerks (SDN) wie Softwarelastenausgleich und RAS-Gateway verwendet werden.
-
-> [!NOTE]
-> Dieser Schritt des Assistenten ist optional.
+In diesem optionalen Schritt richten Sie die Netzwerkcontrollerkomponente von [Software Defined Networking (SDN)](../concepts/software-defined-networking.md) ein. Nachdem der Netzwerkcontroller eingerichtet wurde, kann er zur Konfiguration anderer Komponenten von SDN wie Software Load Balancer und RAS Gateway verwendet werden.
 
 :::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Clustererstellungs-Assistent: HCI-Option" lightbox="media/cluster/create-cluster-network-controller.png":::
 
@@ -213,7 +210,7 @@ Schritt 5 des Assistenten führt Sie durch die Einrichtung des Netzwerkcontrolle
 1. Geben Sie Werte für den **Anfang des MAC-Adresspools** und das **Ende des MAC-Adresspools** ein.
 1. Klicken Sie abschließend auf **Weiter**.
 1. Warten Sie, bis der Assistent seinen Auftrag abgeschlossen hat. Bleiben Sie auf dieser Seite, bis alle Fortschrittsaufgaben abgeschlossen sind. Klicken Sie auf **Fertig stellen**.
- 
+
 Wenn bei der Bereitstellung des Netzwerkcontrollers ein Fehler auftritt, gehen Sie wie folgt vor, bevor Sie es erneut versuchen:
 
 - Beenden und löschen Sie alle Netzwerkcontroller-VMs, die der Assistent erstellt hat.  

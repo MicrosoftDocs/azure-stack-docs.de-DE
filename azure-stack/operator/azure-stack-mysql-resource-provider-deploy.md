@@ -3,20 +3,20 @@ title: Bereitstellen des MySQL-Ressourcenanbieters in Azure Stack Hub
 description: Erfahren Sie, wie Sie den MySQL-Ressourcenanbieteradapter und MySQL-Datenbanken als Dienst in Azure Stack Hub bereitstellen.
 author: bryanla
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 9/22/2020
 ms.author: bryanla
-ms.reviewer: xiaofmao
-ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 82ad67557ae0fb84e072aa760b6fd8cc1f016e03
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.reviewer: caoyang
+ms.lastreviewed: 9/22/2020
+ms.openlocfilehash: e2f3c523dfcbd9c1ceec53bdf5fd55300752fd1f
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946482"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572924"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Bereitstellen des MySQL-Ressourcenanbieters in Azure Stack Hub
 
-Verwenden Sie den MySQL-Server-Ressourcenanbieter, um MySQL-Datenbanken als Azure Stack Hub-Dienst verfügbar zu machen. Der MySQL Server-Ressourcenanbieter wird als Dienst auf einem virtuellen Windows Server 2016 Server Core-Computer ausgeführt.
+Verwenden Sie den MySQL-Server-Ressourcenanbieter, um MySQL-Datenbanken als Azure Stack Hub-Dienst verfügbar zu machen. Der MySQL-Ressourcenanbieter wird als Dienst auf einer Windows Server 2016 Server Core-VM (für Adapterversionen <= 1.1.47.0) oder als spezielles Ressourcenanbieter-Add-On für Windows Server (für Adapterversionen >= 1.1.93.0) ausgeführt.
 
 > [!IMPORTANT]
 > Auf Servern, die SQL oder MySQL hosten, kann nur der Ressourcenanbieter Elemente erstellen. Die auf einem Hostserver erstellten Elemente, die nicht vom Ressourcenanbieter erstellt wurden, könnten zu einem Zustand ohne Entsprechung führen.
@@ -27,15 +27,18 @@ Es gibt mehrere Voraussetzungen, die erfüllt werden müssen, bevor Sie den Azur
 
 * Falls Sie dies noch nicht getan haben, [registrieren Sie Azure Stack Hub](./azure-stack-registration.md) bei Azure, damit Sie Azure Marketplace-Elemente herunterladen können.
 
-* Fügen Sie dem Azure Stack Hub-Marketplace die erforderliche Windows Server Core-VM hinzu, indem Sie das Image **Windows Server 2016 Datacenter – Server Core** herunterladen.
+* Fügen Sie die erforderliche Windows Server-VM zum Azure Stack Hub-Marketplace hinzu.
+  * Laden Sie für MySQL-Ressourcenanbieterversionen <= 1.1.47.0 das Image **Windows Server 2016 Datacenter – Server Core** herunter.
+  * Laden Sie für MySQL-Ressourcenanbieterversionen >= 1.1.93.0 das Image **Microsoft AzureStack Add-On RP Windows Server INTERNAL ONLY** herunter. Diese Windows Server-Version wurde speziell für die Azure Stack-Add-On-RP-Infrastruktur konzipiert und wird im Mandanten-Marketplace nicht angezeigt.
 
 * Laden Sie die unterstützte Version des MySQL-Ressourcenanbieters in binärer Form gemäß der Versionszuordnungstabelle unten herunter. Führen Sie das selbstextrahierende Programm aus, um die heruntergeladenen Inhalte in ein temporäres Verzeichnis zu extrahieren. 
 
-  |Unterstützte Azure Stack Hub-Version|MySQL RP Version|
-  |-----|-----|
-  |2005, 2002, 1910|[MySQL RP-Version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
-  |1908|[MySQL RP-Version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|
-  |     |     |
+  |Unterstützte Azure Stack Hub-Version|MySQL RP Version|Windows Server-Instanz, auf der der RP-Dienst ausgeführt wird
+  |-----|-----|-----|
+  |2005|[MySQL-RP-Version 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack Add-on RP Windows Server INTERNAL ONLY
+  |2005, 2002, 1910|[MySQL RP-Version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter – Server Core|
+  |1908|[MySQL RP-Version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter – Server Core|
+  |     |     |     |
 
 >[!NOTE]
 >Zum Bereitstellen des MySQL-Anbieters in einem System ohne Internetzugriff kopieren Sie die Datei [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) in einen lokalen Pfad. Geben Sie den Pfadnamen mit dem Parameter **DependencyFilesLocalPath** an.
@@ -60,15 +63,26 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
+```
+
+2. Je nachdem, welche Version des Ressourcenanbieters Sie bereitstellen, führen Sie das entsprechende Skript aus.
+
+```powershell
+# for resource provider version >= 1.1.93.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
+```powershell
+# for resource provider version <= 1.1.47.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+```
 
-2. Kopieren Sie dann die heruntergeladenen Pakete auf ein USB-Gerät.
+3. Kopieren Sie dann die heruntergeladenen Pakete auf ein USB-Gerät.
 
-3. Melden Sie sich bei der getrennten Arbeitsstation an, und kopieren Sie die Pakete vom USB-Gerät an einen Speicherort auf der Arbeitsstation.
+4. Melden Sie sich bei der getrennten Arbeitsstation an, und kopieren Sie die Pakete vom USB-Gerät an einen Speicherort auf der Arbeitsstation.
 
-4. Registrieren Sie diesen Speicherort als lokales Repository.
+5. Registrieren Sie diesen Speicherort als lokales Repository.
 
 ```powershell
 # requires -Version 5
@@ -95,7 +109,7 @@ Nach der Installation aller erforderlichen Komponenten können Sie das Skript **
  > [!IMPORTANT]
  > Überprüfen Sie vor der Bereitstellung des Ressourcenanbieters die Anmerkungen zu dieser Version auf Informationen zu neuen Funktionen, Fehlerbehebungen und bekannten Problemen, die sich auf die Bereitstellung auswirken können.
 
-Öffnen Sie ein neues PowerShell-Fenster mit erhöhten Rechten (nicht PowerShell ISE), und wechseln Sie zu dem Verzeichnis, in das Sie die Binärdateien des MySQL-Ressourcenanbieters extrahiert haben, um den MySQL-Ressourcenanbieter bereitzustellen. 
+Um den MySQL-Ressourcenanbieter bereitzustellen, öffnen Sie ein **neues** PowerShell-Fenster mit erhöhten Rechten (nicht PowerShell ISE), und wechseln Sie zu dem Verzeichnis, in das Sie die Binärdateien des MySQL-Ressourcenanbieters extrahiert haben. 
 
 > [!IMPORTANT]
 > Die Verwendung eines neuen PowerShell-Fensters wird empfohlen, um mögliche Probleme durch bereits geladene PowerShell-Module zu vermeiden. Oder Sie können mithilfe von „clear-azurermcontext“ den Cache leeren, bevor Sie das Updateskript ausführen.
@@ -105,7 +119,7 @@ Führen Sie das Skript **DeployMySqlProvider.ps1** aus, das die folgenden Aufgab
 * Lädt die Zertifikate und andere Artefakte in ein Azure Stack Hub-Speicherkonto hoch.
 * Veröffentlicht Katalogpakete, damit Sie MySQL-Datenbank-Instanzen über den Katalog bereitstellen können.
 * Veröffentlicht ein Katalogpaket für die Bereitstellung von Hostservern.
-* Implementiert eine VM unter Verwendung des heruntergeladenen Windows Server 2016 Core-Images und installiert dann den MySQL-Ressourcenanbieter.
+* Stellt VM unter Verwendung des heruntergeladenen Images – „Windows Server 2016 Core“ oder „Microsoft AzureStack Add-on RP Windows Server“ – eine bereit und installiert dann den MySQL-Ressourcenanbieter.
 * Registriert einen lokalen DNS-Eintrag, der dem virtuellen Computer mit dem Ressourcenanbieter zugeordnet wird.
 * Registriert Ihren Ressourcenanbieter beim lokalen Azure Resource Manager für das Operatorkonto.
 
@@ -133,7 +147,7 @@ Sie können diese Parameter in der Befehlszeile angeben. Wenn Sie keine Paramete
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>Bereitstellen des MySQL-Ressourcenanbieters mithilfe eines benutzerdefinierten Skripts
 
-Wenn Sie 1.1.33.0 oder frühere Versionen des MySQL-Ressourcenanbieters bereitstellen, müssen Sie bestimmte Versionen von „AzureRm.BootStrapper“ und Azure Stack Hub-Modulen in PowerShell installieren. Wenn Sie die Version 1.1.47.0 des MySQL-Ressourcenanbieters bereitstellen, lädt das Bereitstellungsskript die erforderlichen PowerShell-Module automatisch herunter und installiert sie im Pfad „C:\Programme\SqlMySqlPsh“.
+Wenn Sie 1.1.33.0 oder frühere Versionen des MySQL-Ressourcenanbieters bereitstellen, müssen Sie bestimmte Versionen von „AzureRm.BootStrapper“ und Azure Stack Hub-Modulen in PowerShell installieren. Wenn Sie Version 1.1.47.0 oder höher des MySQL-Ressourcenanbieters bereitstellen, lädt das Bereitstellungsskript die erforderlichen PowerShell-Module automatisch herunter und installiert sie im Pfad „C:\Programme\SqlMySqlPsh“.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -177,7 +191,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 
-# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh,
+# For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh,
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
 $rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
 $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
