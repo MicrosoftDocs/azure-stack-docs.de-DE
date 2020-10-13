@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 231e4ac3b0bc8e0d43c608ff252f7d4c274e84a8
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.openlocfilehash: 1a8e4618f81f157ff05117505bf5b76922bd4c35
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428548"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815137"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Integrieren einer externen Überwachungslösung mit Azure Stack Hub
 
@@ -119,9 +119,9 @@ Weitere Informationen zum Erstellen eines SPN finden Sie unter [Verwenden einer 
 
 | Parameter | BESCHREIBUNG | Authentifizierung |
 | --- | --- | --- |
-| **External_domain_fqdn ** | Externer vollqualifizierter Domänenname |    |
-| **region: ** | Name der Region |    |
-| **tenant_id: ** | Mandanten-ID\* |    |
+| **External_domain_fqdn** | Externer vollqualifizierter Domänenname |    |
+| **region:** | Name der Region |    |
+| **tenant_id:** | Mandanten-ID\* |    |
 | client_id: | Client-ID | SPN mit Geheimnis |
 | client_secret: | Clientkennwort | SPN mit Geheimnis |
 | client_cert\*\*: | Pfad zum Zertifikat | SPN mit Zertifikat |

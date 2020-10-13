@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/23/2020
-ms.openlocfilehash: 64303a9d923bc001a67259cf48d4e55cb8429087
-ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
+ms.date: 10/01/2020
+ms.openlocfilehash: 8a4c8557fe708535bfdde383ef30dd78395b1c01
+ms.sourcegitcommit: 09572e1442c96a5a1c52fac8ee6b0395e42ab77d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91134711"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91625871"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Vor dem Bereitstellen von Azure Stack HCI
 
@@ -24,6 +24,8 @@ In dieser Schrittanleitung erfahren Sie Folgendes:
 - Sicherstellen, dass die maximal unterstützten Hardwarespezifikationen nicht überschritten werden
 - Erfassen der erforderlichen Informationen für eine erfolgreiche Bereitstellung
 - Installieren von Windows Admin Center auf einem Verwaltungscomputer oder Server
+
+Informationen zu den Anforderungen an Azure Kubernetes Service in Azure Stack HCI finden Sie unter [Was Sie für die ersten Schritte benötigen](../../aks-hci/overview.md#what-you-need-to-get-started).
 
 ## <a name="determine-hardware-requirements"></a>Ermitteln der Hardwareanforderungen
 
@@ -105,8 +107,8 @@ Bei Verbindungen zwischen Standorten mit Stretchingclustern gelten weiterhin die
 
 - Mindestens eine RDMA- oder Ethernet/TCP-Verbindung mit 1 Gbit/s zwischen den Standorten für die synchrone Replikation. Eine RDMA-Verbindung mit 25 Gbit/s wird bevorzugt.
 - Ein Netzwerk zwischen den Standorten, das genügend Bandbreite für die Workloads von E/A-Schreibvorgängen sowie eine Roundtriplatenz von durchschnittlich 5 ms oder weniger für die synchrone Replikation bietet. Für die asynchrone Replikation gelten keine Empfehlungen in Bezug auf die Latenz.
-- Wenn Sie eine einzelne Verbindung zwischen Ihren Standorten verwenden, legen Sie über PowerShell SMB-Bandbreitenlimits für Speicherreplikate fest. Weitere Informationen finden Sie unter [Set-SmbBandwidthLimit](/powershell/module/smbshare/set-smbbandwidthlimit?view=win10-ps).
-- Wenn Sie mehrere Verbindungen zwischen Standorten verwenden, trennen Sie den Datenverkehr zwischen den Verbindungen. Leiten Sie beispielsweise über PowerShell den Datenverkehr für Speicherreplikate über ein anderes Netzwerk als den Datenverkehr für die Hyper-V-Livemigration. Weitere Informationen finden Sie unter [Set-SRNetworkConstraint](/powershell/module/storagereplica/set-srnetworkconstraint?view=win10-ps).
+- Wenn Sie eine einzelne Verbindung zwischen Ihren Standorten verwenden, legen Sie über PowerShell SMB-Bandbreitenlimits für Speicherreplikate fest. Weitere Informationen finden Sie unter [Set-SmbBandwidthLimit](/powershell/module/smbshare/set-smbbandwidthlimit).
+- Wenn Sie mehrere Verbindungen zwischen Standorten verwenden, trennen Sie den Datenverkehr zwischen den Verbindungen. Leiten Sie beispielsweise über PowerShell den Datenverkehr für Speicherreplikate über ein anderes Netzwerk als den Datenverkehr für die Hyper-V-Livemigration. Weitere Informationen finden Sie unter [Set-SRNetworkConstraint](/powershell/module/storagereplica/set-srnetworkconstraint).
 
 ### <a name="network-port-requirements"></a>Anforderungen an Netzwerkports
 
@@ -143,6 +145,57 @@ Wenn Sie zum Erstellen des Clusters den Assistenten für die Clustererstellung i
 - ICMPv4 und ICMPv6 (bei Verwendung von Test-SRTopology)
 
 Möglicherweise müssen weitere Ports geöffnet werden, die in dieser Liste nicht aufgeführt sind. Dies sind die Ports für die grundlegende Azure Stack HCI-Funktionalität.
+
+### <a name="network-switch-requirements"></a>Anforderungen an Netzwerkswitches
+
+In diesem Abschnitt werden die Anforderungen für physische Switches definiert, die mit Azure Stack HCI verwendet werden. Die Anforderungen umfassen die Branchenspezifikationen, die Organisationsstandards und die Protokolle, die für alle Azure Stack HCI-Bereitstellungen obligatorisch sind. Sofern nicht anders angegeben, wird die aktuelle aktive (nicht abgelöste) Version des Standards benötigt.
+
+Diese Anforderungen tragen dazu bei, eine zuverlässige Kommunikation zwischen Knoten in Azure Stack HCI-Clusterbereitstellungen zu gewährleisten. Eine zuverlässige Kommunikation zwischen Knoten ist unverzichtbar. Um das erforderliche Maß an Zuverlässigkeit für Azure Stack HCI zu erreichen, müssen Switches folgende Anforderungen erfüllen:
+
+- Erfüllung der relevanten Branchenspezifikationen, Standards und Protokolle
+- Transparenz hinsichtlich der unterstützten Spezifikationen, Standards und Protokolle des Switchs
+- Bereitstellung von Informationen zu den aktiven Funktionen
+
+Erkundigen Sie sich beim Hersteller des Switchs, ob Ihr Switch Folgendes unterstützt:
+
+#### <a name="standard-ieee-8021q"></a>Standard: IEEE 802.1Q
+
+Ethernet-Switches müssen der IEEE 802.1Q-Spezifikation entsprechen, die zum Definieren von VLANs dient. VLANs sind für verschiedene Aspekte von Azure Stack HCI erforderlich und werden in allen Szenarien benötigt.
+
+#### <a name="standard-ieee-8021qbb"></a>Standard: IEEE 802.1Qbb
+
+Ethernet-Switches müssen der IEEE 802.1Qbb-Spezifikation entsprechen, die zum Definieren der Prioritätsflusssteuerung (Priority Flow Control, PFC) dient. PFC ist bei Verwendung von Data Center Bridging (DCB) erforderlich. Da DCB sowohl in RoCE- als auch in iWARP RDMA-Szenarien verwendet werden kann, ist 802.1Qbb in allen Szenarien erforderlich. Es werden mindestens drei CoS-Prioritäten (Class of Service, Dienstklasse) benötigt, ohne die Switchfunktionen oder die Portgeschwindigkeit herabzustufen.
+
+#### <a name="standard-ieee-8021qaz"></a>Standard: IEEE 802.1Qaz
+
+Ethernet-Switches müssen der IEEE 802.1Qaz-Spezifikation entsprechen, die zum Definieren der erweiterten Übertragungsauswahl (Enhanced Transmission Selection, ETS) dient. ETS ist bei Verwendung von DCB erforderlich. Da DCB sowohl in RoCE- als auch in iWARP RDMA-Szenarien verwendet werden kann, ist 802.1Qaz in allen Szenarien erforderlich. Es werden mindestens drei CoS-Prioritäten benötigt, ohne die Switchfunktionen oder die Portgeschwindigkeit herabzustufen.
+
+#### <a name="standard-ieee-8021ab"></a>Standard: IEEE 802.1AB
+
+Ethernet-Switches müssen der IEEE 802.1AB-Spezifikation entsprechen, die zum Definieren des Verbindungsschichterkennungsprotokolls (Link Layer Discovery Protocol, LLDP) dient. LLDP wird von Windows benötigt, um die Switchkonfiguration zu ermitteln. Die Konfiguration der LLDP-TLVs (Type-Length-Values) muss dynamisch aktiviert werden. Diese Switches dürfen keine zusätzliche Konfiguration erfordern.
+
+Wenn also beispielsweise der Untertyp 3 von 802.1 aktiviert wird, müssen automatisch alle VLANs angekündigt werden, die an Switchports verfügbar sind.
+
+#### <a name="tlv-requirements"></a>TLV-Anforderungen
+
+Mit LLDP können Organisationen eigene benutzerdefinierte TLVs definieren und codieren. Diese werden als organisationsspezifische TLVs bezeichnet. Alle organisationsspezifischen TLVs beginnen mit dem LLDP-TLV-Typwert 127. Der folgenden Tabelle können Sie entnehmen, welche organisationsspezifischen benutzerdefinierten TLV-Untertypen (TLV-Typ 127) erforderlich und welche optional sind:
+
+|Bedingung|Organization|TLV-Untertyp|
+|-|-|-|
+|Erforderlich|IEEE 802.1|VLAN-Name (Untertyp = 3)|
+|Erforderlich|IEEE 802.3|Maximale Framegröße (Untertyp = 4)|
+|Optional|IEEE 802.1|Port-VLAN-ID (Untertyp = 1)|
+|Optional|IEEE 802.1|Port- und Protokoll-VLAN-ID (Untertyp = 2)|
+|Optional|IEEE 802.1|Link-Aggregation (Untertyp = 7)|
+|Optional|IEEE 802.1|Überlastungsbenachrichtigung (Untertyp = 8)|
+|Optional|IEEE 802.1|ETS-Konfiguration (Untertyp = 9)|
+|Optional|IEEE 802.1|ETS-Empfehlung (Untertyp = A)|
+|Optional|IEEE 802.1|PFC-Konfiguration (Untertyp = B)|
+|Optional|IEEE 802.1|EVB (Untertyp = D)|
+|Optional|IEEE 802.3|Link-Aggregation (Untertyp = 3)|
+
+> [!NOTE]
+> Einige der aufgeführten optionalen Features werden künftig möglicherweise erforderlich.
 
 ### <a name="storage-requirements"></a>Speicheranforderungen
 

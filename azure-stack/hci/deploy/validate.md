@@ -4,23 +4,25 @@ description: Grundlegendes zur Wichtigkeit der Validierung von Clustern und dem 
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
-ms.date: 07/21/2020
-ms.openlocfilehash: 8a096af308901669def134e0dd281490c5ed0294
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.date: 10/2/2020
+ms.openlocfilehash: 682e9063f6f04f5298e7cab4053af179e1c90cd7
+ms.sourcegitcommit: 6ed6db8e393aace41586a0fba925dc297159d45e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572084"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91663940"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>Überprüfen eines Azure Stack HCI-Clusters
 
 >Gilt für: Azure Stack HCI, Version v20H2; Windows Server 2019
 
 In diesem Artikel wird erläutert, warum die Validierung von Clustern so wichtig ist und wann diese für einen vorhandenen Azure Stack HCI-Cluster ausgeführt werden sollte. Die Clustervalidierung wird für die folgenden primären Szenarien empfohlen:
-- Führen Sie nach der Bereitstellung eines Serverclusters das Validate-DCB-Tool aus, um die Netzwerkfunktionen zu testen. Führen Sie dann die Clustervalidierung in Windows Admin Center aus.
+- Führen Sie nach der Bereitstellung eines Serverclusters das Validate-DCB-Tool aus, um das Netzwerk zu testen.
 - Führen Sie je nach Szenario nach dem Aktualisieren eines Serverclusters beide Validierungen aus, um mögliche Probleme im Cluster zu beheben.
 - Überprüfen Sie nach dem Einrichten der Replikation mit Speicherreplikaten, ob die Replikation normal fortgesetzt wird. Überprüfen Sie dazu bestimmte Ereignisse, und führen Sie einige Befehle aus.
-Weitere Informationen zum Bereitstellen eines Azure Stack HCI-Clusters finden Sie unter [Bereitstellen von „Direkte Speicherplätze“](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct).
+- Führen Sie nach der Erstellung eines Serverclusters das Validate-DCB-Tool aus, bevor Sie ihn in der Produktionsumgebung platzieren.
+
+    Weitere Informationen zum Bereitstellen eines Azure Stack HCI-Clusters finden Sie in der [Bereitstellungsübersicht](deployment-overview.md).
 
 ## <a name="what-is-cluster-validation"></a>Was ist die Clustervalidierung?
 Die Clustervalidierung dient dazu, Hardware- oder Konfigurationsprobleme zu erfassen, bevor ein Cluster in der Produktion eingesetzt wird. Mit der Clustervalidierung können Sie sicherstellen, dass die Azure Stack HCI-Lösung, die Sie bereitstellen möchten, wirklich zuverlässig ist. Sie können die Clustervalidierung auch als Diagnosetool für konfigurierte Failovercluster verwenden.
@@ -84,14 +86,14 @@ So installieren Sie das Validate-DCB-Tool und führen es aus:
    1. Geben Sie unter **Adapter Name** (Name des Adapters) den Namen jedes physischen Netzwerkadapters, unter **Host vNIC Name** (Name des virtuellen Hostnetzwerkadapters) den Namen jedes virtuellen Netzwerkadapters und unter **VLAN** die für jeden Adapter verwendete VLAN-ID ein.
    1. Erweitern Sie das Dropdown-Listenfeld **RDMA Type** (RDMA-Typ), und wählen Sie das entsprechende Protokoll aus: **RoCE** oder **iWARP**. Legen Sie auch die **Jumbo Frames** auf den für Ihr Netzwerk geeigneten Wert fest, und klicken Sie dann auf **Next** (Weiter).
 
-    :::image type="content" source="../media/validate/adapters.png" alt-text="Die Seite „Adapters“ im Assistenten für die Validate-DCB-Konfiguration" lightbox="../media/validate/adapters.png":::
+    :::image type="content" source="../media/validate/adapters.png" alt-text="Die Seite „Clusters and Nodes“ (Cluster und Knoten) im Assistenten für die Validate-DCB-Konfiguration" lightbox="../media/validate/adapters.png":::
 
     > [!NOTE]
     > - Weitere Informationen dazu, wie SR-IOV die Netzwerkleistung verbessert, finden Sie unter [Übersicht über die Single Root I/O Virtualization (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-).
 
 1. Ändern Sie auf der Seite „Data Center Bridging“ die Werte so, dass sie den Einstellungen Ihrer Organisation für **Priority** (Priorität), **Policy Name** (Richtlinienname) und **Bandwidth Reservation** (Bandbreitenreservierung) entsprechen, und klicken Sie dann auf **Next** (Weiter).
 
-    :::image type="content" source="../media/validate/data-center-bridging.png" alt-text="Die Seite „Data Center Bridging“ im Assistenten für die Validate-DCB-Konfiguration" lightbox="../media/validate/data-center-bridging.png":::
+    :::image type="content" source="../media/validate/data-center-bridging.png" alt-text="Die Seite „Clusters and Nodes“ (Cluster und Knoten) im Assistenten für die Validate-DCB-Konfiguration" lightbox="../media/validate/data-center-bridging.png":::
 
     > [!NOTE]
     > Die Auswahl von RDMA über RoCE auf der vorherigen Seite des Assistenten erfordert DCB für die Netzwerkzuverlässigkeit in allen Netzwerkadaptern und Switchports.
@@ -100,7 +102,7 @@ So installieren Sie das Validate-DCB-Tool und führen es aus:
 
    - Sie können Ihre Konfigurationsdatei optional bereitstellen, indem Sie den Abschnitt **Deploy Configuration to Nodes** (Konfiguration auf Knoten bereitstellen) auf der Seite ausfüllen. Hier können Sie ein Azure Automation-Konto angeben, um die Konfiguration bereitzustellen und dann zu validieren. Informationen zu den ersten Schritten mit Azure Automation finden Sie unter [Erstellen eines Azure Automation-Kontos](/azure/automation/automation-quickstart-create-account).
 
-    :::image type="content" source="../media/validate/save-and-deploy.png" alt-text="Die Seite „Save and Deploy“ (Speichern und bereitstellen) im Assistenten für die Validate-DCB-Konfiguration":::
+    :::image type="content" source="../media/validate/save-and-deploy.png" alt-text="Die Seite „Clusters and Nodes“ (Cluster und Knoten) im Assistenten für die Validate-DCB-Konfiguration":::
 
 ### <a name="review-results-and-fix-errors"></a>Überprüfen der Ergebnisse und Beheben von Fehlern
 Das Validate-DCB-Tools zeigt die Ergebnisse in zwei Einheiten an:
@@ -109,24 +111,24 @@ Das Validate-DCB-Tools zeigt die Ergebnisse in zwei Einheiten an:
 
 Dieses Beispiel zeigt mit dem FailedCount-Wert 0 erfolgreiche Überprüfungsergebnisse eines einzelnen Servers für alle Voraussetzungen und Modal Unit-Tests an.
 
-:::image type="content" source="../media/validate/global-unit-and-modal-unit-results.png" alt-text="Global Unit- und Modal Unit-Testergebnisse des Validate-DCB-Tools":::
+:::image type="content" source="../media/validate/global-unit-and-modal-unit-results.png" alt-text="Die Seite „Clusters and Nodes“ (Cluster und Knoten) im Assistenten für die Validate-DCB-Konfiguration":::
 
 Die folgenden Schritte zeigen, wie Sie einen Jumbo-Paketfehler in vNIC SMB02 identifizieren und beheben:
 1. Die Überprüfungsergebnisse des Validate-DCB-Tools zeigen den FailedCount-Wert 1.
 
-    :::image type="content" source="../media/validate/failed-count-error-1.png" alt-text="Überprüfungsergebnisse des Validate-DCB-Tools mit FailedCount-Wert 1":::
+    :::image type="content" source="../media/validate/failed-count-error-1.png" alt-text="Die Seite „Clusters and Nodes“ (Cluster und Knoten) im Assistenten für die Validate-DCB-Konfiguration":::
 
 1. Wenn Sie in den Ergebnissen nach oben scrollen, sehen Sie einen Fehler in roter Schrift, der darauf hinweist, dass das Jumbo-Paket für den vNIC SMB02 auf dem Host S046036 die Standardgröße 1514 aufweist, aber auf 9014 festgelegt sein sollte.
 
-    :::image type="content" source="../media/validate/jumbo-packet-setting-error.png" alt-text="Überprüfungsergebnis des Validate-DCB-Tools, das einen Fehler bei der Einstellung der Jumbo-Paketgröße zeigt":::
+    :::image type="content" source="../media/validate/jumbo-packet-setting-error.png" alt-text="Die Seite „Clusters and Nodes“ (Cluster und Knoten) im Assistenten für die Validate-DCB-Konfiguration":::
 
 1. Eine Überprüfung der Werte auf der Registerkarte **Advanced** (Erweitert) der Eigenschaften des vNIC SMB02 auf dem Host S046036 zeigt, dass das Jumbo-Paket auf den Standardwert **Disabled** (Deaktiviert) festgelegt ist.
 
-    :::image type="content" source="../media/validate/hyper-v-advanced-properties-jumbo-packet-setting.png" alt-text="Jumbo-Paketeinstellung in den erweiterte Hyper-V-Eigenschaften des Serverhosts":::
+    :::image type="content" source="../media/validate/hyper-v-advanced-properties-jumbo-packet-setting.png" alt-text="Die Seite „Clusters and Nodes“ (Cluster und Knoten) im Assistenten für die Validate-DCB-Konfiguration":::
 
 1. Um diesen Fehler zu beheben, müssen Sie das Jumbo-Paketfeature aktivieren und die Größe in 9014 Bytes ändern. Eine erneute Ausführung der Überprüfung auf dem Host S046036 bestätigt diese Änderung durch Rückgabe des FailedCount-Werts 0.
 
-    :::image type="content" source="../media/validate/jumbo-packet-error-fix-confirmation.png" alt-text="Ergebnisse der Validate-DCB-Überprüfung zur Bestätigung, dass die Jumbo-Paketeinstellung des Serverhosts korrigiert wurde":::
+    :::image type="content" source="../media/validate/jumbo-packet-error-fix-confirmation.png" alt-text="Die Seite „Clusters and Nodes“ (Cluster und Knoten) im Assistenten für die Validate-DCB-Konfiguration":::
 
 Weitere Informationen zum Beheben von Fehlern, die vom Validate-DCB-Tool identifiziert wurden, finden Sie im folgenden Video.
 
@@ -143,7 +145,7 @@ Führen Sie die folgenden Schritte aus, um die Server in einem vorhandenen Clust
 1. Wählen Sie auf der Seite **Bestand** die Server im Cluster aus, erweitern Sie dann das Untermenü **Mehr**, und klicken Sie auf **Cluster überprüfen**.
 1. Klicken Sie im Popupfenster **Cluster überprüfen** auf **Ja**.
 
-    :::image type="content" source="../media/validate/validate-cluster-pop-up.png" alt-text="Popupfenster „Cluster überprüfen“":::
+    :::image type="content" source="../media/validate/validate-cluster-pop-up.png" alt-text="Die Seite „Clusters and Nodes“ (Cluster und Knoten) im Assistenten für die Validate-DCB-Konfiguration":::
 
 1. Klicken Sie im Popupfenster **Credential Security Service Provider (CredSSP)** auf **Ja**.
 1. Geben Sie Ihre Anmeldeinformationen ein, um **CredSSP** zu aktivieren, und klicken Sie dann auf **Weiter**.<br> Die Clustervalidierung wird im Hintergrund ausgeführt, und Sie erhalten eine Benachrichtigung, wenn sie abgeschlossen ist. Danach können Sie den Validierungsbericht überprüfen, wie im nächsten Abschnitt beschrieben.

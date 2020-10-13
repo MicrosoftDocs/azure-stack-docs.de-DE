@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 6a63ae93488a13b2b3c8f872aadf882a9ccd1a13
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 5dc8599a62c4b9e10d603bf2f02f18bf5024e203
+ms.sourcegitcommit: edb60c948b445537e9411d6261c6c78359b71d0b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106862"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91810659"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Aktualisieren von Azure App Service in Azure Stack Hub
 
@@ -141,7 +141,7 @@ Um App Service in einer nicht verbundenen Umgebung zu aktualisieren, müssen Sie
 
 2. Klicken Sie auf **Erweitert** > **Vollständige Offline-Installation oder -Aktualisierung**.
 
-    ![Der Screenshot zeigt, wie eine Offlineinstallation oder ein Upgrade im App Service-Installationsprogramm durchgeführt wird.][12]
+    ![Screenshot: Durchführen einer Offlineinstallation oder eines Offlineupgrades im App Service-Installationsprogramm][12]
 
 3. Navigieren Sie zum Speicherort des zuvor erstellten Offlineupgradepakets, und klicken Sie dann auf **Weiter**.
 

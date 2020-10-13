@@ -7,12 +7,12 @@ ms.date: 09/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/28/2020
-ms.openlocfilehash: 03824b30d3d5d5c8982b1295a5999c299d14cf08
-ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
+ms.openlocfilehash: b4c5a2f6af605cc390a990df874bceae691006d3
+ms.sourcegitcommit: edb60c948b445537e9411d6261c6c78359b71d0b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91495761"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91810642"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Versionshinweise für die AKS-Engine in Azure Stack Hub
 ::: moniker range=">=azs-2002"
@@ -68,7 +68,7 @@ Neue Versionen hierfür sind unter diesem Update verfügbar:
 
 -   Der Azure Stack Hub-Operator muss ein neues AKS-Ubuntu-Basisimage in den Stempel-Marketplace herunterladen:
 
-    -   Name: AKS Base Ubuntu 16.04-LTS Image Distro, August 2020 (2020.09.14)
+    -   Name: AKS Base Ubuntu 16.04-LTS Image Distro, September 2020 (2020.09.14)
 
     -   Version: 2020.09.14
 

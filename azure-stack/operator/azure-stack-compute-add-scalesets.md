@@ -3,16 +3,16 @@ title: Bereitstellen von VM-Skalierungsgruppen in Azure Stack Hub
 description: Erfahren Sie, wie Cloudoperator dem Azure Stack Hub-Marketplace VM-Skalierungsgruppen hinzufügen können.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 10/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 3714b69e2a65baeb0a5b0ba9a029a5b3144bee1a
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.openlocfilehash: a69f29a168853a2cb2bc1c757f90185e0b56636e
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089693"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91814993"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>Bereitstellen von VM-Skalierungsgruppen in Azure Stack Hub
 
@@ -35,16 +35,17 @@ In Azure Stack Hub unterstützen VM-Skalierungsgruppen keine automatische Skalie
 ## <a name="use-the-azure-stack-hub-portal"></a>Verwenden des Azure Stack Hub-Portals
 
 1. Melden Sie sich beim Azure Stack Hub-Portal an. Navigieren Sie dann zu **Alle Dienste** und **VM-Skalierungsgruppen**, und wählen Sie unter **COMPUTE** die Option **VM-Skalierungsgruppen** aus.
-   ![Auswählen von VM-Skalierungsgruppen](media/azure-stack-compute-add-scalesets/all-services.png)
+   [![Auswählen von VM-Skalierungsgruppen](media/azure-stack-compute-add-scalesets/all-services-small.png)](media/azure-stack-compute-add-scalesets/all-services.png#lightbox)
 
-2. Wählen Sie ***VM-Skalierungsgruppen erstellen*** aus.
-   ![Erstellen einer VM-Skalierungsgruppe](media/azure-stack-compute-add-scalesets/create-scale-set.png)
+2. Wählen Sie **Hinzufügen**.
 
-3. Geben Sie Werte in die leeren Felder ein, und wählen Sie aus den Dropdownlisten das **Betriebssystem-Datenträgerimage**,das **Abonnement**, und die **Instanzgröße** aus. Wählen Sie **Ja** für **Verwaltete Datenträger verwenden** aus. Klicken Sie dann auf **Erstellen**.
-    ![Konfigurieren und Erstellen von VM-Skalierungsgruppen](media/azure-stack-compute-add-scalesets/create.png)
+   ![Erstellen einer Skalierungsgruppe für virtuelle Computer](media/azure-stack-compute-add-scalesets/create-scale-set.png)
+
+3. Geben Sie Werte in die leeren Felder ein, und wählen Sie aus den Dropdownlisten das **Betriebssystem-Datenträgerimage**,das **Abonnement**, und die **Instanzgröße** aus. Wählen Sie **Ja** für **Verwaltete Datenträger verwenden** aus. Wählen Sie anschließend **Erstellen**.
+    [![Konfigurieren und Erstellen von VM-Skalierungsgruppen](media/azure-stack-compute-add-scalesets/create-small.png)](media/azure-stack-compute-add-scalesets/create.png#lightbox)
 
 4. Klicken Sie zum Anzeigen Ihrer neuen VM-Skalierungsgruppe auf **Alle Ressourcen**, suchen Sie nach dem Namen der VM-Skalierungsgruppe, und klicken Sie in den Suchergebnissen auf ihren Namen.
-   ![Anzeigen der VM-Skalierungsgruppe](media/azure-stack-compute-add-scalesets/search.png)
+   [![Anzeigen der VM-Skalierungsgruppe](media/azure-stack-compute-add-scalesets/search-small.png)](media/azure-stack-compute-add-scalesets/search.png#lightbox)
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>Aktualisieren von Images in einer VM-Skalierungsgruppe
 
@@ -79,7 +80,7 @@ Sie können die Größe einer VM-Skalierungsgruppe ändern, um sie zu vergröße
 
 2. Verwenden Sie den Schieberegler, um die neue Ebene der Skalierung für diese VM-Skalierungsgruppe festzulegen, und klicken Sie dann auf **Speichern**.
 
-     ![Skalieren der VM-Skalierungsgruppe](media/azure-stack-compute-add-scalesets/scale.png)
+     [![Skalieren der VM-Skalierungsgruppe](media/azure-stack-compute-add-scalesets/scale-small.png)](media/azure-stack-compute-add-scalesets/scale.png#lightbox)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
