@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: c8f336f48fd5ef584d826c27fef52b2560fe17fe
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 4c0e9fd823b7b932ec11c61e24ce650df1cf9cc9
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609914"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91936118"
 ---
 Vor dem Hochladen der VHD müssen Sie prüfen, ob die VHD die Anforderungen erfüllt. VHDs, die die Anforderungen nicht erfüllen, können nicht in Azure Stack Hub geladen werden.
 
@@ -21,7 +21,7 @@ Vor dem Hochladen der VHD müssen Sie prüfen, ob die VHD die Anforderungen erf�
     Get-Command -Module hyper-v
     ```
 
-    Wenn Ihnen die Hyper-V-Befehle nicht zur Verfügung stehen, finden Sie weitere Informationen unter [Arbeiten mit Hyper-V und Windows PowerShell](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/try-hyper-v-powershell). 
+    Wenn Ihnen die Hyper-V-Befehle nicht zur Verfügung stehen, finden Sie weitere Informationen unter [Arbeiten mit Hyper-V und Windows PowerShell](/virtualization/hyper-v-on-windows/quick-start/try-hyper-v-powershell). 
 
 2. Ermitteln Sie den Pfad zu Ihrer VHD auf Ihrem Computer. Führen Sie das folgende Cmdlet aus:
 

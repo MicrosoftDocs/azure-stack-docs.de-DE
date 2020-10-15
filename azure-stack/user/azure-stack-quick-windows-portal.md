@@ -7,12 +7,12 @@ ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/06/2020
-ms.openlocfilehash: 77c7e3484186a0bea1f6220330338128aad72fad
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 68a28c28c02565c996c3bbc6742554cc78090846
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815417"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853232"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Schnellstart: Erstellen eines virtuellen Windows Server-Computers mit dem Azure Stack Hub-Portal
 
@@ -58,7 +58,7 @@ Melden Sie sich beim Azure Stack Hub-Portal an. Die Adresse des Azure Stack Hub-
 
 1. Wählen Sie zum Überprüfen des neuen virtuellen Computers **Virtuelle Computer** aus. Suchen Sie nach dem Namen des virtuellen Computers, und wählen Sie ihn dann in den Suchergebnissen aus.
 
-![Erstellen eines virtuellen Computers: Suchen nach dem virtuellen Computer](./media/azure-stack-quick-windows-portal/image7.png)
+:::image type="content" source="./media/azure-stack-quick-windows-portal/image7-inline.png" alt-text="Erstellen eines virtuellen Computers: Suchen nach dem virtuellen Computer" lightbox="./media/azure-stack-quick-windows-portal/image7.png":::
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

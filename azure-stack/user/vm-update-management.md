@@ -3,16 +3,16 @@ title: Automatisieren von VM-Aktualisierung und -Verwaltung in Azure Stack Hub
 description: Verwenden von Azure Monitor für VMs, Updateverwaltung, Änderungsnachverfolgung und Bestandslösungen in Azure Automation, um in Azure Stack Hub bereitgestellte Windows- und Linux-VMs zu verwalten.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 10/08/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: f0d1ecb2f5ad2313894cb15998f43f2bfd257c77
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/08/2020
+ms.openlocfilehash: b9a37df9404de01bd9b094ae259c8c62637cb369
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572441"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853260"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatisieren von VM-Aktualisierung und -Verwaltung in Azure Stack Hub
 Verwenden Sie die folgenden Features der Azure Automation-Lösung, um Windows- und Linux-VMs zu verwalten, die mit Azure Stack Hub bereitgestellt werden:
@@ -83,7 +83,7 @@ Führen Sie die folgenden Schritte aus, um die Updateverwaltung für Azure Stack
 
 2. Navigieren Sie im Azure Stack Hub-Benutzerportal zum Blatt „Erweiterungen“ der VMs, für die Sie diese Lösungen aktivieren möchten, klicken Sie auf **+ Hinzufügen**, wählen Sie die Erweiterung **Azure Update- und Konfigurationsverwaltung** aus, und klicken Sie dann auf **Erstellen**:
 
-   [![Das Dialogfeld „Azure Update- und Konfigurationsverwaltung“ enthält erläuternde Informationen, eine Schaltfläche „Erstellen“ (hervorgehoben) zum Hinzufügen der Erweiterung und einen Link zu weiteren Informationen.](media//vm-update-management/3-sm.PNG "Blatt „VM-Erweiterung“")](media//vm-update-management/3-lg.PNG)
+    ![Das Dialogfeld „Azure Update- und Konfigurationsverwaltung“ enthält erläuternde Informationen, eine Schaltfläche „Erstellen“ (hervorgehoben) zum Hinzufügen der Erweiterung und einen Link zu weiteren Informationen.](media//vm-update-management/3-sm.PNG "Blatt „VM-Erweiterung“")
 
 3. Geben Sie die zuvor erstellte WorkspaceID und den Primärschlüssel ein, um den Agent mit dem LogAnalytics-Arbeitsbereich zu verknüpfen. Klicken Sie dann auf **OK**, um die Erweiterung bereitzustellen.
 

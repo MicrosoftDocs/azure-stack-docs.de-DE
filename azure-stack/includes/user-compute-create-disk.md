@@ -6,16 +6,16 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: 305d085447e4b77108d55e6c7fe0afde3cd2e32c
-ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
+ms.openlocfilehash: 97f578d81458e371640574d8db287e261b37daab
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91519414"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91936208"
 ---
 1. Melden Sie sich beim Azure Stack Hub-Benutzerportal an.
 
-    Wenn Sie ein Cloudbetreiber sind, der einen Plattformdatenträger erstellt, befolgen Sie die Anweisungen unter [Hinzufügen eines Plattformimages](/azure-stack/operator/azure-stack-add-vm-image#add-a-platform-image), um die VHD über das Administratorportal oder mit den Administratorendpunkten hinzuzufügen.
+    Wenn Sie ein Cloudbetreiber sind, der einen Plattformdatenträger erstellt, befolgen Sie die Anweisungen unter [Hinzufügen eines Plattformimages](../operator/azure-stack-add-vm-image.md#add-a-platform-image), um die VHD über das Administratorportal oder mit den Administratorendpunkten hinzuzufügen.
 
 2. Wählen Sie im Benutzerportal **Alle Dienste** > **Datenträger** > **Hinzufügen** aus.
 

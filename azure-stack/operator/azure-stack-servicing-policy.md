@@ -8,12 +8,12 @@ ms.date: 09/25/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 9ae3d2a145b04c9f1e3fa6b926eb657a4af83ebf
-ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
+ms.openlocfilehash: ac110a3ee90cd0b1439e34a418bf7473b8487502
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367256"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899787"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub-Wartungsrichtlinie
 
@@ -47,9 +47,9 @@ Die Dokumentation zur Planung und Verwaltung von Updates sowie zur Ermittlung Ih
 
 Informationen zu einem bestimmten Update und darüber, wie sie es herunterladen, finden Sie in den Versionshinweisen zu diesem Update:
 
-- [Azure Stack Hub 2005-Update](/azure-stack/operator/release-notes?view=azs-2005)
-- [Azure Stack Hub 2002-Update](/azure-stack/operator/release-notes?view=azs-2002)
-- [Azure Stack Hub 1910-Update](/azure-stack/operator/release-notes?view=azs-1910)
+- [Azure Stack Hub 2005-Update](./release-notes.md?view=azs-2005)
+- [Azure Stack Hub 2002-Update](./release-notes.md?view=azs-2002)
+- [Azure Stack Hub 1910-Update](./release-notes.md?view=azs-1910)
 
 ## <a name="hotfixes"></a>Hotfixes
 
@@ -61,9 +61,9 @@ Hotfixes werden wie die regulären Pakete mit vollständigen Updates für Azure 
 
 Informationen zu den derzeit verfügbaren Hotfixes finden Sie in den Versionshinweisen für das jeweilige Update:
 
-- [Azure Stack Hub 2005-Hotfix](/azure-stack/operator/release-notes?view=azs-2005#hotfixes)
-- [Azure Stack Hub 2002-Hotfix](/azure-stack/operator/release-notes?view=azs-2002#hotfixes-1)
-- [Azure Stack Hub 1910-Hotfix](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-2)
+- [Azure Stack Hub 2005-Hotfix](./release-notes.md?view=azs-2005#hotfixes)
+- [Azure Stack Hub 2002-Hotfix](./release-notes.md?view=azs-2002#hotfixes-1)
+- [Azure Stack Hub 1910-Hotfix](./release-notes.md?view=azs-1910#hotfixes-2)
 
 ## <a name="keep-your-system-under-support"></a>Halten Sie den Support für Ihr System aufrecht
 

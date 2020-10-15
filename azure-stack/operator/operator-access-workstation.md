@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: ee292a3461b591a042c0847bd11bb63285a4faf4
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: 46946f72fe22345ee60c620ba2cf0283e056ae99
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230613"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899821"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Arbeitsstation mit Azure Stack Hub-Operatorzugriff 
 
@@ -26,14 +26,14 @@ In den folgenden Tabellen sind häufige Szenarien für die OAW aufgeführt, aber
 
 |Szenario                                                                                                                          |BESCHREIBUNG                 |
 |----------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
-|[Zugreifen auf das Verwaltungsportal](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals)                     |Ausführen von Verwaltungsvorgängen                                                                           |
-|[Zugreifen auf PEP](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)                                     |Protokollsammlung und -upload:<br>-[Erstellen einer SMB-Freigabe](#transfer-files-between-the-hlh-and-oaw) auf dem HLH für die Dateiübertragung von Azure Stack Hub<br>\- Verwenden von Azure Storage-Explorer zum Hochladen von Protokollen, die auf der SMB-Freigabe gespeichert wurden |
-|[Registrieren von Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-registration#renew-or-change-registration) |Zur Neuregistrierung rufen Sie den Namen und die Ressourcengruppe der vorherigen Registrierung über das Verwaltungsportal ab.                               |
-|[Marketplace-Syndikation](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item)            |[Erstellen einer SMB-Freigabe](#transfer-files-between-the-hlh-and-oaw) auf dem HLH zum Speichern des heruntergeladenen Images oder der heruntergeladenen Erweiterung                                                        |
+|[Zugreifen auf das Verwaltungsportal](./azure-stack-manage-portals.md)                     |Ausführen von Verwaltungsvorgängen                                                                           |
+|[Zugreifen auf PEP](./azure-stack-privileged-endpoint.md)                                     |Protokollsammlung und -upload:<br>-[Erstellen einer SMB-Freigabe](#transfer-files-between-the-hlh-and-oaw) auf dem HLH für die Dateiübertragung von Azure Stack Hub<br>\- Verwenden von Azure Storage-Explorer zum Hochladen von Protokollen, die auf der SMB-Freigabe gespeichert wurden |
+|[Registrieren von Azure Stack Hub](./azure-stack-registration.md#renew-or-change-registration) |Zur Neuregistrierung rufen Sie den Namen und die Ressourcengruppe der vorherigen Registrierung über das Verwaltungsportal ab.                               |
+|[Marketplace-Syndikation](./azure-stack-download-azure-marketplace-item.md)            |[Erstellen einer SMB-Freigabe](#transfer-files-between-the-hlh-and-oaw) auf dem HLH zum Speichern des heruntergeladenen Images oder der heruntergeladenen Erweiterung                                                        |
 
 ## <a name="download-files"></a>Herunterladen von Dateien
 
-Die Dateien zum Erstellen der OAW-VM können Sie [**hier**](https://aka.ms/OAWDownload) herunterladen. Lesen Sie vor dem Download die [Microsoft-Datenschutzbestimmungen](https://privacy.microsoft.com/privacystatement) und [rechtlichen Bedingungen](https://docs.microsoft.com/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms).
+Die Dateien zum Erstellen der OAW-VM können Sie [**hier**](https://aka.ms/OAWDownload) herunterladen. Lesen Sie vor dem Download die [Microsoft-Datenschutzbestimmungen](https://privacy.microsoft.com/privacystatement) und [rechtlichen Bedingungen](/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms).
 
 Da die Lösung zustandslos ist, gibt es keine Updates für die OAW-VM. Für jeden Meilenstein wird eine neue Version der VM-Imagedatei veröffentlicht. Verwenden Sie zum Erstellen einer neuen OAW-VM die aktuelle Version. Die Imagedatei basiert auf der aktuellen Version von Windows Server 2019. Nach der Installation können Sie mit Windows Update Updates anwenden (einschließlich kritischer Updates). 
 
@@ -80,11 +80,11 @@ In der folgenden Tabelle ist die vorinstallierte Software auf der OAW-VM aufgef�
 | Softwarename           | Standort                                                                                       |
 |--------------------------|------------------------------------------------------------------------------------------------|
 | [Microsoft Edge for Business](https://www.microsoft.com/edge/business/)                                            | \[Systemlaufwerk\]\Programme (x86)\Microsoft\Edge\Application                                                                                        |
-| [Az-Module](https://docs.microsoft.com/azure-stack/operator/powershell-install-az-module)                         | \[Systemlaufwerk\]\Programme\WindowsPowerShell\Modules                                         |  
+| [Az-Module](./powershell-install-az-module.md)                         | \[Systemlaufwerk\]\Programme\WindowsPowerShell\Modules                                         |  
 | [PowerShell 7](https://devblogs.microsoft.com/powershell/announcing-PowerShell-7-0/)| \[Systemlaufwerk\]\Programme\PowerShell\7                                                                       |
-| [Azure-Befehlszeilenschnittstelle (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | \[Systemlaufwerk\]\Programme (x86)\Microsoft SDKs\Azure\CLI2 |
+| [Azure-Befehlszeilenschnittstelle (CLI)](/cli/azure/?view=azure-cli-latest) | \[Systemlaufwerk\]\Programme (x86)\Microsoft SDKs\Azure\CLI2 |
 | [Microsoft Azure Storage-Explorer](https://azure.microsoft.com/features/storage-explorer/)   | \[Systemlaufwerk\]\Programme (x86)\Microsoft Azure Storage-Explorer                                                                       |
-| [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)                             | \[Systemlaufwerk\]\VMSoftware\azcopy_windows_amd64_10.3.4                                         |
+| [AzCopy](/azure/storage/common/storage-use-azcopy-v10)                             | \[Systemlaufwerk\]\VMSoftware\azcopy_windows_amd64_10.3.4                                         |
 | [AzureStack-Tools](https://github.com/Azure/AzureStack-Tools/tree/az)                  | \[Systemlaufwerk\]\VMSoftware\AzureStack-Tools                                                    |
 
 ## <a name="check-hlh-version"></a>Überprüfen der HLH-Version
@@ -227,9 +227,9 @@ SkipNetworkConfiguration     | Optional | Überspringt die Netzwerkkonfiguration
 
 ## <a name="transfer-files-between-the-hlh-and-oaw"></a>Übertragen von Dateien zwischen dem HLH und der OAW
 
-Wenn Sie Dateien zwischen dem HLH und der OAW übertragen müssen, erstellen Sie mit dem Cmdlet [New-SmbShare](https://docs.microsoft.com/powershell/module/smbshare/new-smbshare?view=win10-ps) eine SMB-Freigabe. „New-SmbShare“ macht einen Dateisystemordner für Remoteclients als SMB-Freigabe (Server Message Block) verfügbar. Beispiel:
+Wenn Sie Dateien zwischen dem HLH und der OAW übertragen müssen, erstellen Sie mit dem Cmdlet [New-SmbShare](/powershell/module/smbshare/new-smbshare?view=win10-ps) eine SMB-Freigabe. „New-SmbShare“ macht einen Dateisystemordner für Remoteclients als SMB-Freigabe (Server Message Block) verfügbar. Beispiel:
 
-Verwenden Sie das Cmdlet [Remove-SmbShare](https://docs.microsoft.com/powershell/module/smbshare/remove-smbshare?view=win10-ps), um eine mit diesem Cmdlet erstellte Freigabe zu löschen. Beispiel:
+Verwenden Sie das Cmdlet [Remove-SmbShare](/powershell/module/smbshare/remove-smbshare?view=win10-ps), um eine mit diesem Cmdlet erstellte Freigabe zu löschen. Beispiel:
 
 ## <a name="remove-the-oaw-vm"></a>Entfernen der OAW-VM
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: b9f86e715835ac52bbc34782e4f9eb41ca8b4851
-ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
+ms.openlocfilehash: e217c8b3e2a67dafa121fe752b66af9f24f888a1
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91019570"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899549"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell
 
@@ -40,7 +40,7 @@ Führen Sie die hier beschriebenen Schritte aus, um die Serverrolle „Netzwerkc
 Für dieses Verfahren müssen Sie der Gruppe **Administratoren** oder einer entsprechenden Gruppe angehören.  
 
 >[!NOTE]
->Falls Sie den Netzwerkcontroller nicht mithilfe von Windows PowerShell, sondern lieber mithilfe des Server-Managers installieren möchten, lesen Sie [Installieren der Serverrolle „Netzwerkcontroller“ mithilfe des Server-Managers](https://technet.microsoft.com/library/mt403348.aspx).
+>Falls Sie den Netzwerkcontroller nicht mithilfe von Windows PowerShell, sondern lieber mithilfe des Server-Managers installieren möchten, lesen Sie [Installieren der Serverrolle „Netzwerkcontroller“ mithilfe des Server-Managers](/windows-server/networking/sdn/technologies/network-controller/install-the-network-controller-server-role-using-server-manager).
 
 Geben Sie zum Installieren des Netzwerkcontrollers folgende Befehle ein:
 
@@ -218,4 +218,4 @@ Install-NetworkController -Node @($a,$b,$c) -ClientAuthentication Kerberos -Clie
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Bei Netzwerkcontrollerbereitstellungen ohne Kerberos müssen Zertifikate bereitgestellt werden. Weitere Informationen finden Sie in den [Schritten nach der Netzwerkcontrollerbereitstellung](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-controller/post-deploy-steps-nc).
+Bei Netzwerkcontrollerbereitstellungen ohne Kerberos müssen Zertifikate bereitgestellt werden. Weitere Informationen finden Sie in den [Schritten nach der Netzwerkcontrollerbereitstellung](/windows-server/networking/sdn/technologies/network-controller/post-deploy-steps-nc).

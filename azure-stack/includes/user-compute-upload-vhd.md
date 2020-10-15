@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: 8b8f26eefd70e54629a1505a01e1306cab2eda1d
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 28fe06ca182b2df8104c2d8b23ce9f5c27448064
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609906"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91936027"
 ---
 Sie können Ihre VHD im Portal hochladen oder mithilfe des Containers, den Sie im Portal erstellt haben. Verwenden Sie dazu AzCopy.
 
@@ -33,7 +33,7 @@ Sie können Ihre VHD im Portal hochladen oder mithilfe des Containers, den Sie i
 
 Verwenden Sie Azure Storage-Explorer oder AzCopy, um die Wahrscheinlichkeit zu verringern, dass Ihre VHD beim Hochladen beschädigt wird, und das Hochladen zu beschleunigen. In den folgenden Schritten wird AzCopy auf einem Computer mit Windows 10 ausgeführt. AzCopy ist ein Befehlszeilenhilfsprogramm, das Sie verwenden können, um Blobs oder Dateien in oder aus einem Speicherkonto zu kopieren.
 
-1. Wenn Sie AzCopy nicht installiert haben, installieren Sie das Tool. Anweisungen zum Herunterladen und zum Einstieg finden Sie im Artikel [Erste Schritte mit AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10). Notieren Sie sich, wo Sie die Binärdatei speichern. Sie können [AzCopy Ihrem Pfad hinzufügen](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/), um es an der PowerShell-Befehlszeile zu verwenden.
+1. Wenn Sie AzCopy nicht installiert haben, installieren Sie das Tool. Anweisungen zum Herunterladen und zum Einstieg finden Sie im Artikel [Erste Schritte mit AzCopy](/azure/storage/common/storage-use-azcopy-v10). Notieren Sie sich, wo Sie die Binärdatei speichern. Sie können [AzCopy Ihrem Pfad hinzufügen](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/), um es an der PowerShell-Befehlszeile zu verwenden.
 
 2. Öffnen Sie PowerShell, um AzCopy auf der Shell zu verwenden.
 
@@ -47,4 +47,4 @@ Verwenden Sie Azure Storage-Explorer oder AzCopy, um die Wahrscheinlichkeit zu v
 > [!NOTE]  
 > Laden Sie Ihre VHD mit einer Syntax hoch, die dem Hochladen einer einzelnen Datei in ein virtuelles Verzeichnis ähnelt. Fügen Sie `--blob-type=PageBlob` hinzu, um sicherzustellen, dass die VHD als **Seitenblob** hochgeladen wird, anstatt standardmäßig als **Block**.
 
-Weitere Informationen zum Einsatz von AzCopy und anderen Speichertools finden Sie unter [Verwenden der Datenübertragungstools im Azure Stack Hub-Speicher](/azure-stack/user/azure-stack-storage-transfer).
+Weitere Informationen zum Einsatz von AzCopy und anderen Speichertools finden Sie unter [Verwenden der Datenübertragungstools im Azure Stack Hub-Speicher](../user/azure-stack-storage-transfer.md).

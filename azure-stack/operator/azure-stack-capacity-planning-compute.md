@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 4577da446c11f1053372cdf3d6458cd7c90937be
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 67e1961a0f1f739e550cc55d100900190892bb5e
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742500"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899753"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub-Computekapazität
 
@@ -116,7 +116,7 @@ Die Verringerung der Größe der größten VM auf die nächstkleinere VM in der 
      
 ### <a name="add-a-node"></a>Hinzufügen eines Knotens
 
-[Durch Hinzufügen eines Azure Stack Hub-Knotens](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node) wird Arbeitsspeicher freigegeben, indem der Arbeitsspeicher gleichmäßig auf die beiden Knoten verteilt wird.
+[Durch Hinzufügen eines Azure Stack Hub-Knotens](./azure-stack-add-scale-node.md) wird Arbeitsspeicher freigegeben, indem der Arbeitsspeicher gleichmäßig auf die beiden Knoten verteilt wird.
 
 ![Hinzufügen eines Knotens](media/azure-stack-capacity-planning/add-a-node.png)
 
@@ -128,7 +128,7 @@ Resilienzreserve = 384 + (0,15) ((5)*384) + 112 * (3) = 1008 GB
 
 ### <a name="increase-memory-on-each-node-to-512-gb"></a>Erhöhen des Arbeitsspeichers auf jedem Knoten auf 512 GB
 
-[Durch die Vergrößerung des Arbeitsspeichers jedes Knotens](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-storage-physical-memory-capacity) wird der gesamte verfügbare Speicher erhöht.
+[Durch die Vergrößerung des Arbeitsspeichers jedes Knotens](./azure-stack-manage-storage-physical-memory-capacity.md) wird der gesamte verfügbare Speicher erhöht.
 
 ![Erhöhen der Größe des Knotens](media/azure-stack-capacity-planning/increase-node-size.png)
 

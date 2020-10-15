@@ -7,19 +7,19 @@ ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 810aa253eb4872a58ea2e52070bb42eaaa1f6aaa
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.openlocfilehash: 4cbb253b88f86f18c69c7528b6beabb58d277d14
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717987"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899447"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Hinzufügen von Voraussetzungen für die Azure Kubernetes Services-Engine (AKS) zum Azure Stack Hub-Marketplace
 
 Sie können die AKS-Engine (Azure Kubernetes Services) für Ihre Benutzer einrichten. Fügen Sie Ihrem Azure Stack Hub die Elemente hinzu, die in diesem Artikel beschrieben werden. Ihre Benutzer können dann einen Kubernetes-Cluster in einem einzelnen, koordinierten Vorgang bereitstellen. In diesem Artikel werden die Schritte erläutert, die Sie ausführen müssen, um die AKS-Engine Ihren Benutzern sowohl in verbundenen als auch in nicht verbundenen Umgebungen zur Verfügung zu stellen. Die AKS-Engine benötigt eine Dienstprinzipalidentität sowie im Marketplace eine benutzerdefinierte Skripterweiterung und das AKS-Basisimage. Die AKS-Engine erfordert die Ausführung von [Azure Stack Hub 1910](release-notes.md?view=azs-1910&preserve-view=true) oder höher.
 
 > [!NOTE]  
-> Die Zuordnung von Azure Stack Hub zur AKS-Engine-Versionsnummer finden Sie in den [Anmerkungen zur Version der AKS-Engine](/azure-stack/user/kubernetes-aks-engine-release-notes#aks-engine-and-azure-stack-version-mapping).
+> Die Zuordnung von Azure Stack Hub zur AKS-Engine-Versionsnummer finden Sie in den [Anmerkungen zur Version der AKS-Engine](../user/kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping).
 
 ## <a name="check-your-users-service-offering"></a>Überprüfen des Dienstangebots für Ihre Benutzer
 
