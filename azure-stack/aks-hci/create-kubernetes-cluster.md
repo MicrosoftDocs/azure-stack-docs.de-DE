@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: ddaac062a147440b4ce290ad988629c417a5932a
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 7ef2f0e0532ee342e8821b362b16433f755bc072
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949376"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623267"
 ---
 # <a name="quickstart-create-a-kubernetes-cluster-on-azure-stack-hci-using-windows-admin-center"></a>Schnellstart: Erstellen eines Kubernetes-Clusters in Azure Stack HCI mithilfe des Windows Admin Centers.
 
@@ -31,7 +31,7 @@ Lassen Sie uns anfangen:
 
     ![Veranschaulicht die Seite „Grundlagen“ des Kubernetes-Cluster-Assistenten.](.\media\create-kubernetes-cluster\basics.png)
 
-5. Sie können zusätzliche Knotenpools konfigurieren, um Ihre Workloads auf der Seite **Knotenpools** auszuführen. Während der öffentlichen Vorschauphase können Sie bis zu einen Windows-Knotenpool und einen Linux-Knotenpool (zusätzlich zum Systemknotenpool) hinzufügen. Wählen Sie **Weiter**, wenn Sie fertig sind.
+5. Sie können zusätzliche Knotenpools konfigurieren, um Ihre Workloads auf der Seite **Knotenpools** auszuführen. Während der öffentlichen Vorschauphase können Sie bis zu einen Windows-Knotenpool und einen Linux-Knotenpool (zusätzlich zum Systemknotenpool) hinzufügen. Wenn Sie die Azure Arc-Integration später in diesem Assistenten aktivieren möchten, benötigen Sie mindestens einen Linux-Knotenpool, der nicht der primäre Knotenpool ist. Wählen Sie **Weiter**, wenn Sie fertig sind.
 6. Geben Sie Ihre Netzwerkkonfiguration auf der Seite **Netzwerk** an. Wenn Sie „Erweitert“ auswählen, können Sie den Adressbereich anpassen, der beim Erstellen eines virtuellen Netzwerks für Knoten im Cluster verwendet wird. Wenn Sie „Grundlegend“ auswählen, werden virtuelle Netzwerke für Knoten im Cluster mit einem Standardadressbereich erstellt. Die Netzwerkeinstellungen (Load Balancer, Netzwerkrichtlinie und HTTP-Anwendungsrouting) können in der öffentlichen Vorschauversion nicht geändert werden. Wählen Sie nach Abschluss der Einstellungen **Weiter** aus.
 
     ![Veranschaulicht die Seite „Netzwerk“ des Kubernetes-Cluster-Assistenten.](.\media\create-kubernetes-cluster\networking.png)
