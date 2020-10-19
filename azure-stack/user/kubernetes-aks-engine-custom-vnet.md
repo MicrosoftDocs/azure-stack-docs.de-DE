@@ -7,12 +7,12 @@ ms.date: 9/2/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 976f7b84df4084776f8b7f94d8903efdb1c06d6c
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 588adfc39dc6ff3eec26e67283a7f51a28655fd2
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574005"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853209"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Clusters in einem benutzerdefinierten virtuellen Netzwerk in Azure Stack Hub 
 
@@ -46,6 +46,13 @@ Erstellen Sie in Ihrem virtuellen Netzwerk ein neues Subnetz. Sie benötigen die
     ![CIDR-Block des virtuellen Netzwerks](media/kubernetes-aks-engine-custom-vnet/virtual-network-cidr-block.png)
     
 6. Notieren Sie sich auf dem Subnetzblatt den Adressbereich und den CIDR-Block des virtuellen Netzwerks (beispielsweise `10.1.0.0 - 10.1.0.255 (256 addresses)` und `10.1.0.0/24`).
+
+## <a name="considerations-for-selecting-an-address-space"></a>Überlegungen zur Auswahl eines Adressraums
+
+Wenn Sie ein benutzerdefiniertes virtuelles Netzwerk erstellen, geben Sie den IP-Adressraum Ihres Netzwerks und einen IP-Adressraum für jedes Subnetz an. Berücksichtigen Sie die folgenden Faktoren, wenn Sie die Adressräume und -bereiche auswählen, die in Ihrem Kubernetes-Cluster verwendet werden sollen:
+-  Überlappende Adressräume können zu Konflikten von IP-Adressen oder Kommunikationsfehlern führen. Wählen Sie einen eindeutigen Adressraum für das neue virtuelle Netzwerk aus, um das Risiko der Überlappung von IP-Adressen zu verringern.
+-  Adressräume in den Bereichen `10.` und `172.` werden häufig für private Netzwerke verwendet und könnten bereits von Ihrer vorhandenen Rechenzentrumsinfrastruktur verwendet werden. Wenn Ihre Kubernetes-Anwendungen Ressourcen in Ihrem Rechenzentrum verwenden, verringern Sie das Risiko von Konflikten, indem Sie für Ihr benutzerdefiniertes virtuelles Netzwerk einen Adressraum auswählen, der sich vom Adressraum Ihres Rechenzentrums unterscheidet.
+-  Sie sollten ein dediziertes Subnetz für den Kubernetes-Cluster verwenden.
 
 ## <a name="get-the-ip-address-block"></a>Ermitteln des IP-Adressblocks
 

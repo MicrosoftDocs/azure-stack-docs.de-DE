@@ -3,16 +3,16 @@ title: Problembehandlung bei der AKS-Engine in Azure Stack Hub
 description: In diesem Artikel werden Schritte zur Problembehandlung für die AKS-Engine in Azure Stack Hub beschrieben.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/02/2020
+ms.date: 10/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/02/2020
-ms.openlocfilehash: d9e862386e76c9bf44638a58432b58b409e9c2df
-ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
+ms.lastreviewed: 10/07/2020
+ms.openlocfilehash: ae82bb1c07ec8f466eb29fe8c610af09e01e233a
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729218"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853175"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Problembehandlung bei der AKS-Engine in Azure Stack Hub
 
@@ -88,14 +88,27 @@ Zusätzlich zu den Protokollen der AKS-Engine generieren die Kubernetes-Komponen
 
 Mit diesem Skript wird der Prozess des Sammelns der folgenden Protokolle automatisiert: 
 
- - Microsoft Azure Linux Agent-Protokolle (waagent)
- - Protokolle der benutzerdefinierten Skripterweiterung
- - Ausführen von Kube-System-Containermetadaten
- - Ausführen von Kube-System-Containerprotokollen
- - Kubelet-Dienststatus und -Journal
- - Etcd-Dienststatus und -Journal
- - DVM-Protokolle des Katalogelements
- - Kube-System-Momentaufnahme
+- Protokolldateien im Verzeichnis `/var/log/azure/`
+- Protokolldateien im Verzeichnis `/var/log/kubeaudit` (Kube-Überwachungsprotokolle)
+- Protokolldatei `/var/log/waagent.log` (waagent)
+- Protokolldatei `/var/log/azure/deploy-script-dvm.log` (bei Bereitstellung mithilfe des Kubernetes Cluster-Marketplace-Elements von Azure Stack Hub)
+- Statische Manifeste in Verzeichnis `/etc/kubernetes/manifests`
+- Statische Add-ons im Verzeichnis ` /etc/kubernetes/addons`
+- Kube-System-Container, -Metadaten und -Protokolle
+- Kubelet-Status und -Journal
+- Etcd-Status und -Journal
+- Docker-Status und -Journal
+- Kube-System-Momentaufnahme
+- Azure CNI-Konfigurationsdateien
+
+Einige zusätzliche Protokolle werden für Windows-Knoten abgerufen:
+
+- Protokolldatei `c:\Azure\CustomDataSetupScript.log`
+- Kube-Proxy-Status und -Journal
+- Containerd-Status und -Journal
+- Azure VNET-Protokoll und Azure VNET-Telemetrieprotokoll
+- ETW-Ereignisse für Docker
+- ETW-Ereignisse für Hyper-V
 
 Ohne dieses Skript müssten Sie eine Verbindung mit jedem Knoten im Cluster herstellen und die Protokolle manuell herunterladen. Außerdem kann das Skript optional die gesammelten Protokolle in ein Speicherkonto hochladen, das Sie verwenden können, um die Protokolle für andere freizugeben.
 

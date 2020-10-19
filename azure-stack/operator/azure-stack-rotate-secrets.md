@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 463fc8fbee16aa7eddc78cee7c3868f1526fad21
-ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
+ms.openlocfilehash: aca163df1026193933ffb9d09dbdf4a854638a75
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91134745"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899804"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Rotieren von Geheimnissen in Azure Stack Hub
 
@@ -106,7 +106,7 @@ Für die Rotation interner und externer Geheimnisse:
 
 Zum Rotieren externer Geheimnisse müssen Sie diese zusätzlichen Voraussetzungen erfüllen:
 
-1. Führen Sie **[Test-AzureStack](azure-stack-diagnostic-test.md)** aus, und vergewissern Sie sich, dass alle Testausgaben fehlerfrei sind, bevor Sie Geheimnisse rotieren.
+1. Führen Sie das **[`Test-AzureStack`](azure-stack-diagnostic-test.md)** -PowerShell-Cmdlet mithilfe des `-group SecretRotationReadiness`-Parameters aus, um zu bestätigen, dass alle Testausgaben fehlerfrei sind, bevor Sie Geheimnisse rotieren.
 2. Bereiten Sie eine neue Gruppe externer Ersatzzertifikate vor:
     - Die neue Gruppe muss den Zertifikatspezifikationen aus den [Azure Stack Hub-PKI-Zertifikatanforderungen](azure-stack-pki-certs.md) entsprechen. 
     - Sie können eine Zertifikatsignieranforderung (Certificate Signing Request, CSR), die an Ihre Zertifizierungsstelle gesendet werden soll, mit den unter [Generieren von Zertifikatsignieranforderungen](azure-stack-get-pki-certs.md) beschriebenen Schritten generieren und sie mit den in [Vorbereiten von PKI-Zertifikaten](azure-stack-prepare-pki-certs.md) beschriebenen Schritten für die Verwendung in Ihrer Azure Stack Hub-Umgebung vorbereiten. 
@@ -200,7 +200,7 @@ Führen Sie die folgenden Schritte aus, um externe Geheimnisse zu rotieren:
 
     - Erstellt eine PowerShell-Sitzung mit dem [privilegierten Endpunkt](azure-stack-privileged-endpoint.md) unter Verwendung des Kontos **CloudAdmin** und speichert die Sitzung als Variable. Diese Variable wird im nächsten Schritt als Parameter verwendet. 
 
-    - Führt [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1) aus und übergibt dabei die PEP-Sitzungsvariable als `-Session`-Parameter.
+    - Führt [Invoke-Command](/powershell/module/microsoft.powershell.core/Invoke-Command) aus und übergibt dabei die PEP-Sitzungsvariable als `-Session`-Parameter.
 
     - Führt `Start-SecretRotation` in der PEP-Sitzung mit den folgenden Parametern aus:
         - `-PfxFilesPath`: Der Netzwerkpfad zu Ihrem zuvor erstellten Verzeichnis „Certificates“.  
@@ -224,7 +224,7 @@ Eine interne Geheimnisrotation ist nur dann erforderlich, wenn Sie den Verdacht 
 
 Ziehen Sie das PowerShell-Skript in Schritt 2 von [Rotieren externer Geheimnisse](#rotate-external-secrets) zurate. Das Skript enthält ein Beispiel, das Sie für die interne Geheimnisrotation anpassen können, indem Sie einige Änderungen vornehmen, um die folgenden Schritte auszuführen:
 
-1. Fügen Sie im Abschnitt „Geheimnisrotation ausführen“ z. B. den Parameter `-Internal` zum Cmdlet [Start-SecretRotation](/azure-stack/reference/pep-2002/start-secretrotation) hinzu:
+1. Fügen Sie im Abschnitt „Geheimnisrotation ausführen“ z. B. den Parameter `-Internal` zum Cmdlet [Start-SecretRotation](../reference/pep-2002/start-secretrotation.md) hinzu:
 
     ```powershell
     # Run Secret Rotation
@@ -268,7 +268,7 @@ Der Baseboard-Verwaltungscontroller überwacht den physischen Zustand Ihrer Serv
 
 2. Öffnen Sie in Azure Stack Hub-Sitzungen einen privilegierten Endpunkt. Anweisungen finden Sie unter [Verwenden des privilegierten Endpunkts in Azure Stack Hub](azure-stack-privileged-endpoint.md). 
 
-3. Nachdem die PowerShell-Eingabeaufforderung sich je nach Umgebung in `[IP address or ERCS VM name]: PS>` oder in `[azs-ercs01]: PS>` geändert hat, führen Sie `Set-BmcCredential` aus, indem Sie `Invoke-Command` ausführen. Wenn Sie den optionalen Parameter `-BypassBMCUpdate` mit `Set-BMCCredential` verwenden, werden die Anmeldeinformationen im BMC nicht aktualisiert. Nur der interne Azure Stack Hub-Datenspeicher wird aktualisiert. Übergeben Sie die Sitzungsvariable des privilegierten Endpunkts als Parameter. 
+3. Führen Sie nach dem Öffnen einer Sitzung mit einem privilegierten Endpunkt eines der unten aufgeführten PowerShell-Skripts aus, die Invoke-Command zum Ausführen von Set-BmcCredential verwenden. Wenn Sie den optionalen Parameter -BypassBMCUpdate mit Set-BMCCredential verwenden, werden die Anmeldeinformationen im BMC nicht aktualisiert. Nur der interne Azure Stack Hub-Datenspeicher wird aktualisiert. Übergeben Sie die Sitzungsvariable des privilegierten Endpunkts als Parameter.
 
     Im folgenden finden Sie ein PowerShell-Beispielskript, mit dem Benutzername und Kennwort angefordert werden: 
 
@@ -310,7 +310,7 @@ Der Baseboard-Verwaltungscontroller überwacht den physischen Zustand Ihrer Serv
 
 ## <a name="reference-start-secretrotation-cmdlet"></a>Referenz: Cmdlet „Start-SecretRotation“
 
-Das Cmdlet [Start-SecretRotation](/azure-stack/reference/pep-2002/start-secretrotation) rotiert die Infrastrukturgeheimnisse eines Azure Stack Hub-Systems. Dieses Cmdlet kann nur für den privilegierten Azure Stack Hub-Endpunkt ausgeführt werden, indem ein `Invoke-Command`-Skriptblock verwendet wird, der die PEP-Sitzung im `-Session`-Parameter übergibt. Standardmäßig werden nur die Zertifikate aller externen Netzwerkinfrastruktur-Endpunkte rotiert.
+Das Cmdlet [Start-SecretRotation](../reference/pep-2002/start-secretrotation.md) rotiert die Infrastrukturgeheimnisse eines Azure Stack Hub-Systems. Dieses Cmdlet kann nur für den privilegierten Azure Stack Hub-Endpunkt ausgeführt werden, indem ein `Invoke-Command`-Skriptblock verwendet wird, der die PEP-Sitzung im `-Session`-Parameter übergibt. Standardmäßig werden nur die Zertifikate aller externen Netzwerkinfrastruktur-Endpunkte rotiert.
 
 | Parameter | type | Erforderlich | Position | Standard | BESCHREIBUNG |
 |--|--|--|--|--|--|

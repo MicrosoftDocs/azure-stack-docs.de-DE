@@ -8,12 +8,12 @@ ms.date: 09/02/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 6eb6f55ab9836cfd78b2fdb72dff220837f1865a
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 95e12f2f90cd7e33fb3a2cc3a5f016f35ac0e54f
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572815"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623216"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Senden von Azure Stack Hub-Diagnoseprotokollen mithilfe des privilegierten Endpunkts (PEP)
 

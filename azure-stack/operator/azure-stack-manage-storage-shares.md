@@ -3,16 +3,16 @@ title: Verwalten der Speicherkapazität in Azure Stack Hub
 description: Erfahren Sie, wie Sie die Speicherkapazität und -verfügbarkeit in Azure Stack Hub überwachen und verwalten können.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 1/22/2020
+ms.date: 10/09/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: f2b51ad2bff721c2a8be6490902cf3bb07559fb2
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 21a8d4f5238af436474cb33a41e6e35fbab3afb7
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106812"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899736"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Verwalten der Speicherkapazität für Azure Stack Hub
 
@@ -20,18 +20,22 @@ Dieser Artikel hilft Azure Stack Hub-Cloudoperatoren bei der Überwachung und Ve
 
 Cloudbetreibern steht nur eine begrenzte Menge an Speicherplatz zur Verfügung. Die Speicherplatzmenge hängt von der implementierten Lösung ab. Die Lösung wird entweder von Ihrem OEM-Anbieter (bei Verwendung einer Lösung mit mehreren Knoten) oder von der Hardware bereitgestellt, auf der Sie das Azure Stack Development Kit (ASDK) installieren.
 
-Da Azure Stack Hub die Erweiterung der Speicherkapazität nicht unterstützt, ist es wichtig, den verfügbaren Speicherplatz zu [überwachen](#monitor-shares), um einen effizienten Betrieb zu gewährleisten.
+Azure Stack Hub unterstützt nur die Erweiterung der Speicherkapazität durch Hinzufügen zusätzlicher Skalierungseinheitenknoten. Weitere Informationen finden Sie unter [Hinzufügen zusätzlicher Knoten einer Skalierungseinheit in Azure Stack Hub](azure-stack-add-scale-node.md). Durch das Hinzufügen physischer Datenträger zu den Knoten wird die Speicherkapazität nicht erweitert.
 
-Sollte die freie Kapazität eines Volumes knapp werden, sollten Sie den [verfügbaren Speicherplatz verwalten](#manage-available-space), um eine Erschöpfung der Kapazität von Freigaben zu verhindern.
+Es ist wichtig, den verfügbaren Speicher zu [überwachen](#monitor-shares), um sicherzustellen, dass effiziente Vorgänge beibehalten werden. Sollte die freie Kapazität eines Volumes knapp werden, sollten Sie den [verfügbaren Speicherplatz verwalten](#manage-available-space), um eine Erschöpfung der Kapazität von Freigaben zu verhindern.
 
 Zu den Optionen für die Kapazitätsverwaltung gehören folgende:
+
+
 - Freigeben von Kapazität
 - Migrieren von Speicherobjekten
 
 Wenn eine Objektspeichervolume vollständig belegt ist, funktioniert der Speicherdienst für dieses Volume nicht mehr. Wenden Sie sich an den Support von Microsoft, um Unterstützung bei der Wiederherstellung des Betriebs für das Volume zu erhalten.
 
 ## <a name="understand-volumes-and-shares-containers-and-disks"></a>Grundlegendes zu Volumes und Freigaben, Containern und Datenträgern
+
 ### <a name="volumes-and-shares"></a>Volumes und Freigaben
+
 Der *Speicherdienst* partitioniert den verfügbaren Speicher in separate, gleiche Volumes, die zum Speichern von Mandantendaten zugewiesen werden. Weitere Informationen zu Volumes in Azure Stack Hub finden Sie unter [Verwalten der Speicherinfrastruktur für Azure Stack Hub](azure-stack-manage-storage-infrastructure.md).
 
 Objektspeichervolumes enthalten Mandantendaten. Zu Mandantendaten zählen Seitenblobs, Blockblobs, Anfügeblobs, Tabellen, Warteschlangen, Datenbanken sowie dazugehörige Metadatenspeicher. Die Anzahl von Objektspeichervolumes entspricht der Anzahl von Knoten in der Azure Stack Hub-Bereitstellung:
@@ -48,6 +52,7 @@ Wenn der freie Speicherplatz eines Objektspeichervolumes knapp wird und Aktionen
 Informationen zur Verwendung von Blobspeicher in Azure Stack Hub durch Mandantenbenutzer finden Sie unter [Azure Stack Hub-Speicherdienste](../user/azure-stack-storage-overview.md).
 
 ### <a name="containers"></a>Container
+
 Mandantenbenutzer erstellen Container, die dann zum Speichern von Blobdaten verwendet werden. Obwohl Benutzer entscheiden, in welchem Container Blobs platziert werden sollen, bestimmt der Speicherdienst mithilfe eines Algorithmus, auf welchem Volume der Container platziert wird. Der Algorithmus wählt in der Regel das Volume mit dem meisten verfügbaren Speicherplatz.  
 
 Nachdem ein Blob in einem Container platziert wurde, kann dieses Blob weiter wachsen und mehr Speicherplatz benötigen. Wenn Sie weitere Blobs hinzufügen und vorhandene Blobs größer werden, verringert sich der verfügbare Speicherplatz des Volumes, das den entsprechenden Container enthält. 
@@ -57,6 +62,7 @@ Container sind nicht auf ein einzelnes Volume beschränkt. Wenn die kombinierten
 Bei einer Belegung von 80 Prozent (und anschließend 90 Prozent) des verfügbaren Speicherplatzes eines Volumes gibt das System [Warnungen](#storage-space-alerts) im Azure Stack Hub-Administratorportal aus. Cloudbetreiber sollten die verfügbare Speicherkapazität prüfen und eine Neuverteilung der Inhalte planen. Der Speicherdienst funktioniert nicht mehr, wenn ein Datenträger zu 100 % belegt ist. Dann werden keine weiteren Benachrichtigungen ausgegeben.
 
 ### <a name="disks"></a>Datenträger
+
 In Azure Stack Hub können verwaltete und nicht verwaltete Datenträger auf VMs sowohl als Betriebssystemdatenträger als auch als Datenträger für Daten verwendet werden.
 
 **Verwaltete Datenträger** vereinfachen die Datenträgerverwaltung für Azure-IaaS-VMs durch die Verwaltung der Speicherkonten, die den VM-Datenträgern zugeordnet sind. Sie müssen nur die Größe des von Ihnen benötigten Datenträgers angeben. Azure Stack Hub erstellt und verwaltet den Datenträger dann für Sie. Weitere Informationen finden Sie in der [Übersicht über verwaltete Datenträger](/azure/virtual-machines/windows/managed-disks-overview).
@@ -77,9 +83,11 @@ Bei angefügten Containern sind die Optionen für die Speicherplatzfreigabe eing
 
 ::: moniker range="<azs-2002"
 ## <a name="monitor-shares"></a>Überwachen von Freigaben
+
 Überwachen Sie Freigaben mithilfe von Azure PowerShell oder über das Administratorportal, um informiert zu sein, wenn nur noch wenig Speicherplatz zur Verfügung steht. Bei Verwendung des Portals erhalten Sie Benachrichtigungen zu Freigaben, bei denen der Speicherplatz knapp wird.
 
 ### <a name="use-powershell"></a>Verwenden von PowerShell
+
 Als Cloudbetreiber können Sie die Speicherkapazität einer Freigabe mithilfe des PowerShell-Cmdlets `Get-AzsStorageShare` überwachen. Das Cmdlet gibt für jede der Freigaben den gesamten, zugeordneten und freien Speicherplatz (in Bytes) zurück.
 
 ![Beispiel: Zurückgeben von freiem Speicherplatz für Freigaben](media/azure-stack-manage-storage-shares/free-space.png)
@@ -88,6 +96,7 @@ Als Cloudbetreiber können Sie die Speicherkapazität einer Freigabe mithilfe de
 - **Verwendete Kapazität:** Dies ist die Menge von Daten (in Bytes), die von allen Erweiterungen für die Dateien genutzt wird, in denen die Mandantendaten und die dazugehörigen Metadaten gespeichert sind.
 
 ### <a name="use-the-administrator-portal"></a>Verwenden des Administratorportals
+
 Als Cloudbetreiber können Sie die Speicherkapazität für alle Freigaben im Administratorportal abrufen.
 
 1. Melden Sie sich beim Administratorportal `https://adminportal.local.azurestack.external` an.
@@ -102,9 +111,11 @@ Als Cloudbetreiber können Sie die Speicherkapazität für alle Freigaben im Adm
 ::: moniker range=">=azs-2002"
 
 ## <a name="monitor-volumes"></a>Überwachen von Volumes
+
 Überwachen Sie Volumes mithilfe von PowerShell oder über das Administratorportal, um informiert zu sein, wenn nur noch wenig Speicherplatz zur Verfügung steht. Bei Verwendung des Portals erhalten Sie Warnungen zu Volumes, bei denen der Speicherplatz knapp wird.
 
 ### <a name="use-powershell"></a>Verwenden von PowerShell
+
 Als Cloudoperator können Sie die Speicherkapazität eines Volumes mithilfe des PowerShell-Cmdlets `Get-AzsVolume` überwachen. Das Cmdlet gibt für jedes Volume den gesamten und freien Speicherplatz in Gigabyte (GB) zurück.
 
 ![Beispiel: Zurückgeben von freiem Speicherplatz für Volumes](media/azure-stack-manage-storage-shares/listvolumespowershell.png)
@@ -113,6 +124,7 @@ Als Cloudoperator können Sie die Speicherkapazität eines Volumes mithilfe des 
 - **Verbleibende Kapazität:** Der freie Speicherplatz in GB zum Speichern der Mandantendaten und der zugehörigen Metadaten
 
 ### <a name="use-the-administrator-portal"></a>Verwenden des Administratorportals
+
 Als Cloudoperator können Sie die Speicherkapazität für alle Volumes im Administratorportal anzeigen.
 
 1. Melden Sie sich beim Azure Stack Hub-Administratorportal (`https://adminportal.local.azurestack.external`) an.
@@ -126,6 +138,7 @@ Als Cloudoperator können Sie die Speicherkapazität für alle Volumes im Admini
 ::: moniker-end
 
 ### <a name="storage-space-alerts"></a>Speicherplatzbenachrichtigungen
+
 Bei Verwendung des Administratorportals erhalten Sie Benachrichtigungen zu Volumes, bei denen der Speicherplatz knapp wird.
 
 > [!IMPORTANT]
@@ -144,6 +157,7 @@ Bei Verwendung des Administratorportals erhalten Sie Benachrichtigungen zu Volum
   ![Beispiel: Anzeigen von Warnungsdetails im Azure Stack Hub-Administratorportal](media/azure-stack-manage-storage-shares/alert-details.png)
 
 ## <a name="manage-available-space"></a>Verwalten des verfügbaren Speicherplatzes
+
 Wenn Speicherplatz auf einem Volume freigegeben werden muss, beginnen Sie mit den am wenigsten invasiven Methoden. Versuchen Sie also beispielsweise zunächst, Speicherplatz freizugeben, bevor Sie sich dafür entscheiden, einen verwalteten Datenträger zu migrieren.  
 
 ### <a name="reclaim-capacity"></a>Freigeben von Kapazität
@@ -155,6 +169,7 @@ Weitere Informationen finden Sie unter [Verwalten von Speicherkonten in Azure St
 ::: moniker range="<azs-1910"
 
 ### <a name="migrate-a-container-between-volumes"></a>Migrieren eines Containers zwischen Volumes
+
 *Diese Option gilt nur für in Azure Stack Hub integrierte Systeme.*
 
 Aufgrund der Verwendungsmuster von Mandanten benötigen einige Mandantenfreigaben mehr Speicherplatz als andere. Dies kann dazu führen, dass bei einigen Freigaben der Speicherplatz knapp wird, während andere Freigaben noch kaum genutzt werden.
@@ -173,6 +188,7 @@ Durch die Migration werden alle Containerblobs in der neuen Freigabe konsolidier
 > Bei der Migration von Blobs für einen Container handelt es sich um einen Offlinevorgang, der die Verwendung von PowerShell erfordert. Bis zum Abschluss der Migration sind alle Blobs für den Container, den Sie migrieren, offline und können nicht verwendet werden. Außerdem sollten Sie es vermeiden, ein Upgrade für Azure Stack Hub durchzuführen, bis alle Migrationsvorgänge abgeschlossen sind.
 
 #### <a name="migrate-containers-by-using-powershell"></a>Migrieren von Containern mithilfe von PowerShell
+
 1. Vergewissern Sie sich, dass [Azure PowerShell installiert und konfiguriert](/powershell/azure/) ist. Weitere Informationen finden Sie unter [Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell](https://go.microsoft.com/fwlink/?LinkId=394767).
 2. Überprüfen Sie den Container, um zu ermitteln, welche Daten sich auf der Freigabe befinden, die Sie migrieren möchten. Verwenden Sie das Cmdlet `Get-AzsStorageContainer`, um die Container zu ermitteln, die sich auf einem Volume am besten für die Migration eignen:
 
@@ -237,6 +253,7 @@ Durch die Migration werden alle Containerblobs in der neuen Freigabe konsolidier
     ![Der Screenshot zeigt ein Beispiel für einen abgebrochenen Migrationsstatus.](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>Verschieben von VM-Datenträgern
+
 *Diese Option gilt nur für in Azure Stack Hub integrierte Systeme.*
 
 Die extremste Methode zum Verwalten von Speicherplatz ist das Verschieben von VM-Datenträgern. Bei der Verschiebung eines angefügten Containers (Container mit einem VM-Datenträger) handelt es sich um einen komplexen Vorgang. Lassen Sie sich daher vom Microsoft-Support dabei unterstützen.
@@ -245,6 +262,7 @@ Die extremste Methode zum Verwalten von Speicherplatz ist das Verschieben von VM
 ::: moniker range=">=azs-1910"
 
 ### <a name="migrate-a-managed-disk-between-volumes"></a>Migrieren eines verwalteten Datenträgers zwischen Volumes
+
 *Diese Option gilt nur für in Azure Stack Hub integrierte Systeme.*
 
 Aufgrund der Verwendungsmuster von Mandanten benötigen einige Mandantenvolumes mehr Speicherplatz als andere. Dies kann dazu führen, dass bei einigen Volumes der Speicherplatz knapp wird, während andere Volumes noch kaum genutzt werden.
@@ -255,6 +273,7 @@ Sie können Speicherplatz auf einem intensiv genutzten Volume freigeben, indem S
 > Bei der Migration von verwalteten Datenträgern handelt es sich um einen Offlinevorgang, der die Verwendung von PowerShell erfordert. Vor dem Starten des Migrationsauftrags müssen Sie die Kandidatendatenträger für die Migration von ihrer Besitzer-VM trennen. (Nach Abschluss der Migration können Sie sie wieder anfügen.) Bis zum Abschluss der Migration müssen alle verwalteten Datenträger, die Sie migrieren, offline bleiben und können nicht verwendet werden. Andernfalls wird der Migrationsauftrag abgebrochen, und alle nicht migrierten Datenträger befinden sich weiterhin auf den ursprünglichen Volumes. Außerdem sollten Sie es vermeiden, für Azure Stack Hub ein Upgrade durchzuführen, bis alle Migrationsvorgänge abgeschlossen sind.
 
 #### <a name="to-migrate-managed-disks-using-powershell"></a>So migrieren Sie verwaltete Datenträger mithilfe von PowerShell
+
 1. Vergewissern Sie sich, dass Azure PowerShell installiert und konfiguriert ist. Anweisungen zum Konfigurieren der PowerShell-Umgebung finden Sie unter [Installieren von PowerShell für Azure Stack Hub](azure-stack-powershell-install.md). Weitere Informationen zur Anmeldung bei Azure Stack Hub finden Sie unter [Konfigurieren der Betreiberumgebung und Anmelden bei Azure Stack Hub](azure-stack-powershell-configure-admin.md).
 2. Überprüfen Sie die verwalteten Datenträger, um nachzuvollziehen, welche Datenträger sich auf dem zu migrierenden Volume befinden. Verwenden Sie das Cmdlet `Get-AzsDisk`, um die Kandidatendatenträger zu ermitteln, die sich auf einem Volume am besten für die Migration eignen:
 
@@ -317,6 +336,7 @@ Sie können Speicherplatz auf einem intensiv genutzten Volume freigeben, indem S
    ![Beispiel: Status „Abgebrochen“](media/azure-stack-manage-storage-shares/diskmigrationstop.png)
 
 ### <a name="distribute-unmanaged-disks"></a>Verteilen nicht verwalteter Datenträger
+
 *Diese Option gilt nur für in Azure Stack Hub integrierte Systeme.*
 
 Die extremste Methode zum Verwalten von Speicherplatz ist das Verschieben von nicht verwalteten Datenträgern. Wenn der Mandant einem Container eine Anzahl nicht verwalteter Datenträger hinzufügt, kann die insgesamt genutzte Kapazität des Containers die verfügbare Kapazität des Volumes mit dem Container übersteigen, bevor der Container in den Modus *Überlauf* wechselt. Um zu vermeiden, dass ein einzelner Container den Speicherplatz eines Volumes ausschöpft, kann der Mandant die vorhandenen nicht verwalteten Datenträger eines Containers auf verschiedene Container verteilen. Bei der Verteilung eines angefügten Containers (Container mit einem VM-Datenträger) handelt es sich um einen komplexen Vorgang. Lassen Sie sich daher vom Microsoft-Support dabei unterstützen.
@@ -324,4 +344,5 @@ Die extremste Methode zum Verwalten von Speicherplatz ist das Verschieben von ni
 ::: moniker-end
 
 ## <a name="next-steps"></a>Nächste Schritte
+
 Weitere Informationen zum Anbieten von VMs für Benutzer finden Sie unter [Verwalten der Speicherkapazität für Azure Stack Hub](./tutorial-offer-services.md?view=azs-2002).

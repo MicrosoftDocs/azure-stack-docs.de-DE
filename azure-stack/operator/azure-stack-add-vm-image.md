@@ -3,16 +3,16 @@ title: Hinzufügen eines benutzerdefinierten VM-Images zu Azure Stack Hub
 description: Es wird beschrieben, wie Sie Azure Stack Hub ein benutzerdefiniertes VM-Image hinzufügen oder es entfernen.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 9/8/2020
+ms.date: 10/12/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 26e93e019c0be7b5ef9d5f29b509407011083acd
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 496d706b6ed930087207b24047d3409f29a53e53
+ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89598495"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92060122"
 ---
 # <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>Hinzufügen eines benutzerdefinierten VM-Images zu Azure Stack Hub und dessen Entfernen
 
@@ -20,7 +20,7 @@ Als Bediener in Azure Stack Hub können Sie Ihr benutzerdefiniertes VM-Image zum
 
 ## <a name="add-an-image"></a>Hinzufügen eines Image
 
-Anweisungen zum Hinzufügen generalisierter und spezialisierter Images finden Sie im Abschnitt **Compute** des Benutzerhandbuchs. Sie sollten ein generalisiertes Image erstellen, ehe Sie Ihren Benutzern ein Image anbieten. Weitere Informationen finden Sie unter [Verschieben einer VM in Azure Stack Hub: Übersicht](/azure-stack/user/vm-move-overview). Wenn Sie für Ihre Mandanten verfügbare Images erstellen, verwenden Sie nicht die Endpunkte des Benutzerportals oder Mandantenverzeichnisses, sondern das Azure Stack Hub-Verwaltungsportal oder die Administratorendpunkte.
+Anweisungen zum Hinzufügen generalisierter und spezialisierter Images finden Sie im Abschnitt **Compute** des Benutzerhandbuchs. Sie sollten ein generalisiertes Image erstellen, ehe Sie Ihren Benutzern ein Image anbieten. Weitere Informationen finden Sie unter [Verschieben einer VM in Azure Stack Hub: Übersicht](../user/vm-move-overview.md). Wenn Sie für Ihre Mandanten verfügbare Images erstellen, verwenden Sie nicht die Endpunkte des Benutzerportals oder Mandantenverzeichnisses, sondern das Azure Stack Hub-Verwaltungsportal oder die Administratorendpunkte.
 
 Sie haben zwei Möglichkeiten, einem Benutzer ein Image zur Verfügung zu stellen:
 
@@ -30,26 +30,31 @@ Sie haben zwei Möglichkeiten, einem Benutzer ein Image zur Verfügung zu stelle
 - **Anbieten eines Images über Azure Stack Hub Marketplace**  
     Sobald Sie Ihr Image über das Azure Stack Hub-Verwaltungsportal hinzugefügt haben, können Sie ein Marketplace-Angebot erstellen. Anweisungen finden Sie unter [Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack Hub Marketplace-Elements](azure-stack-create-and-publish-marketplace-item.md).
 
-
 ## <a name="add-a-platform-image"></a>Hinzufügen eines Plattformimages
 
-Um Azure Stack Hub ein Plattformimage hinzuzufügen, müssen Sie das Azure Stack Hub-Verwaltungsportal oder den Azure Stack Hub-Endpunkt mit PowerShell verwenden. Sie müssen eine generalisierte VHD erstellt haben. Anweisungen finden Sie unter [Verschieben einer VM in Azure Stack Hub: Übersicht](/azure-stack/user/vm-move-overview).
+Um Azure Stack Hub ein Plattformimage hinzuzufügen, müssen Sie das Azure Stack Hub-Verwaltungsportal oder den Azure Stack Hub-Endpunkt mit PowerShell verwenden. Sie müssen zuerst eine generalisierte virtuelle Festplatte erstellen. Weitere Informationen finden Sie unter [Verschieben einer VM in Azure Stack Hub: Übersicht](../user/vm-move-overview.md).
 
 ### <a name="portal"></a>[Portal](#tab/image-add-portal)
 
 Fügen Sie das VM-Image als Azure Stack Hub-Bediener über das Portal hinzu.
 
-1. Melden Sie sich an Azure Stack Hub als Bediener an. Wählen Sie im Menü **Alle Dienste** > **Compute** > **Images** > **Hinzufügen** aus.
+1. Melden Sie sich an Azure Stack Hub als Bediener an. Wählen Sie im linken Navigationsbereich **Dashboard** aus.
 
-   ![Hinzufügen eines VM-Images](./media/azure-stack-add-vm-image/tca4.png)
+2. Wählen Sie in der Liste **Ressourcenanbieter** die Option **Compute** aus.
 
-2. Geben Sie unter **Image erstellen** den **Herausgeber**, das **Angebot**, die **SKU**, die **Version** und den URI des Betriebssystem-Datenträgerblobs ein. Klicken Sie anschließend auf **Erstellen**, um mit der Erstellung des VM-Images zu beginnen.
+   [![Auswählen von „Compute“](./media/azure-stack-add-vm-image/dash-small.png)](./media/azure-stack-add-vm-image/dash.png#lightbox)
 
-   ![Benutzeroberfläche für das Querladen des benutzerdefinierten Images](./media/azure-stack-add-vm-image/tca5.png)
+3. Wählen Sie **VM-Images** und dann **Hinzufügen** aus.
+
+   [![Hinzufügen eines VM-Images](./media/azure-stack-add-vm-image/tca4-small.png)](./media/azure-stack-add-vm-image/tca4.png#lightbox)
+
+4. Geben Sie unter **Image erstellen** den **Herausgeber**, das **Angebot**, die **SKU**, die **Version** und den URI des Betriebssystem-Datenträgerblobs ein. Klicken Sie anschließend auf **Erstellen**, um mit der Erstellung des VM-Images zu beginnen.
+
+   [![Benutzeroberfläche für das Querladen des benutzerdefinierten Images](./media/azure-stack-add-vm-image/tca5-small.png)](./media/azure-stack-add-vm-image/tca5.png#lightbox)
 
    Nach Erstellung des Images ändert sich der VM-Imagestatus in **Erfolgreich**.
 
-3. Wenn Sie ein Image hinzufügen, ist es nur für Azure Resource Manger-basierte Vorlagen und PowerShell-Bereitstellungen verfügbar. Wenn Sie ein Image für Ihre Benutzer als Marketplace-Element bereitstellen möchten, können Sie es mit den Schritten im Artikel [Erstellen und Veröffentlichen eines Marketplace-Elements](azure-stack-create-and-publish-marketplace-item.md) veröffentlichen. Notieren Sie sich unbedingt die Werte für **Herausgeber**, **Angebot**, **SKU** und **Version**. Sie benötigen diese, wenn Sie die Resource Manager-Vorlage und „Manifest.json“ in Ihrer benutzerdefinierten AZPKG-Datei bearbeiten.
+5. Wenn Sie ein Image hinzufügen, ist es nur für Azure Resource Manger-basierte Vorlagen und PowerShell-Bereitstellungen verfügbar. Wenn Sie ein Image für Ihre Benutzer als Marketplace-Element bereitstellen möchten, können Sie es mit den Schritten im Artikel [Erstellen und Veröffentlichen eines Marketplace-Elements](azure-stack-create-and-publish-marketplace-item.md) veröffentlichen. Notieren Sie sich unbedingt die Werte für **Herausgeber**, **Angebot**, **SKU** und **Version**. Sie benötigen diese, wenn Sie die Resource Manager-Vorlage und „Manifest.json“ in Ihrer benutzerdefinierten AZPKG-Datei bearbeiten.
 
 ### <a name="powershell"></a>[PowerShell](#tab/image-add-ps)
 
@@ -145,7 +150,9 @@ Um das VM-Image als Azure Stack Hub-Bediener unter Verwendung von PowerShell zu 
      Die von Benutzern bei der Bereitstellung des VM-Images verwendete Version des VM-Images. Diese Version wird im Format **\#.\#.\#** angegeben. Dieses Feld darf kein Leerzeichen und kein anderes Sonderzeichen enthalten.  
 
      Weitere Informationen zum Cmdlet **Remove-AzsPlatformImage** finden Sie in der [Dokumentation zum Azure Stack Hub-Bedienermodul](/powershell/azure/azure-stack/overview) für Microsoft PowerShell.
+
 ---
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack Hub-Marketplace-Elements](azure-stack-create-and-publish-marketplace-item.md)

@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 68acf1fa04762d8288e621c5087d501c464912fd
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: b90b7c61e5eeed1265bf258b6ba3ce7b042b6897
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573954"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853192"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub
 
@@ -226,6 +226,22 @@ Fahren Sie mit der Bereitstellung eines Clusters fort:
     ```bash
     kubectl delete deployment -l app=redis
     ```
+
+## <a name="rotate-your-service-principle-secret"></a>Drehen Ihres Dienstprinzipalgeheimnisses
+
+Nach der Bereitstellung des Kubernetes-Clusters mit der AKS-Engine wird der Dienstprinzipalname (Service Principal Name, SPN) verwendet, um Interaktionen mit dem Azure Resource Manager auf Ihrer Azure Stack Hub-Instanz zu verwalten. Zu einem bestimmten Zeitpunkt kann das Geheimnis für diesen Dienstprinzipal ablaufen. Wenn Ihr Geheimnis abgelaufen ist, können Sie die Anmeldeinformationen wie folgt aktualisieren:
+
+- Aktualisieren Sie jeden Knoten mit dem neuen Dienstprinzipalgeheimnis.
+- Alternativ können Sie die Anmeldeinformationen des API-Modells aktualisieren und das Upgrade ausführen.
+
+### <a name="update-each-node-manually"></a>Manuelles Aktualisieren jedes Knotens
+
+1. Fordern Sie ein neues Geheimnis für Ihren Dienstprinzipal von Ihrem Cloudoperator an. Anweisungen für Azure Stack Hub finden Sie unter [Verwenden einer App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen](/azure-stack/operator/azure-stack-create-service-principals).
+2. Verwenden Sie die neuen Anmeldeinformationen Ihres Cloudoperators, um `/etc/kubernetes/azure.json` auf den einzelnen Knoten zu aktualisieren. Nachdem Sie das Update vorgenommen haben, starten Sie **kubelet** und **kube-controller-Manager** erneut.
+
+### <a name="update-the-cluster-with-aks-engine-update"></a>Aktualisieren des Clusters mit AKS-Engine-Update
+
+Alternativ können Sie die Anmeldeinformationen in `apimodel.json` ersetzen und das Upgrade mit dem aktualisierten JSON-Code auf derselben oder einer neueren Kubernetes-Version ausführen. Anweisungen zum Aktualisieren des Modells finden Sie unter [Aktualisieren eines Kubernetes-Clusters in Azure Stack Hub](azure-stack-kubernetes-aks-engine-upgrade.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

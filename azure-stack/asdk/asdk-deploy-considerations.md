@@ -7,12 +7,12 @@ ms.date: 09/23/2020
 ms.author: v-myoung
 ms.reviewer: misainat
 ms.lastreviewed: 09/23/2020
-ms.openlocfilehash: b16247c53ea0677573573c827f68e56081a9de5e
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: dbd0398b7f6582c12288c2ae72137c4a673ddfcc
+ms.sourcegitcommit: 950dbc793b3498173923d0bc9fe56662a349abf1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106961"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92082087"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Anforderungen und Überlegungen zu ASDK
 
@@ -108,7 +108,7 @@ Nach der Bereitstellung ist die globale Azure AD-Administratorberechtigung nicht
 ### <a name="switch"></a>Switch
 Ein verfügbarer Port auf einem Switch für den ASDK-Computer.  
 
-Der ASDK-Computer unterstützt das Herstellen einer Verbindung mit einem Switchzugriffsport oder Trunkport. Auf dem Switch sind keine speziellen Funktionen erforderlich. Wenn Sie einen Trunkport verwenden oder eine VLAN-ID benötigen, müssen Sie die VLAN-ID als Bereitstellungsparameter angeben.
+Der ASDK-Computer unterstützt das Herstellen einer Verbindung mit einem Switchzugriffsport oder Trunkport. Auf dem Switch sind keine speziellen Funktionen erforderlich.
 
 ### <a name="subnet"></a>Subnet
 Verbinden Sie den ASDK-Computer nicht mit den folgenden Subnetzen:
@@ -129,7 +129,7 @@ Es wird nur IPv4 unterstützt. Sie können keine IPv6-Netzwerke erstellen.
 Stellen Sie sicher, dass in dem Netzwerk, mit dem die Netzwerkkarte eine Verbindung herstellt, ein DHCP-Server verfügbar ist. Wenn DHCP nicht verfügbar ist, müssen Sie ein weiteres statisches IPv4-Netzwerk neben dem vom Host verwendeten vorbereiten. Sie müssen diese IP-Adresse und das Gateway als Bereitstellungsparameter angeben.
 
 ### <a name="internet-access"></a>Zugriff auf das Internet
-Azure Stack benötigt entweder direkten Internetzugriff oder Zugriff über einen transparenten Proxy. Azure Stack unterstützt nicht die Konfiguration eines Webproxys, um Zugriff auf das Internet zu aktivieren. Sowohl die Host-IP und als auch die neue IP, die „AzS-BGPNAT01“ zugewiesen ist (über DHCP oder als statische IP-Adresse) müssen auf das Internet zugreifen können. Port 80 und 443 werden unter den Domänen „graph.windows.net“ und „login.microsoftonline.com“ verwendet.
+Azure Stack benötigt entweder direkten Internetzugriff oder Zugriff über einen transparenten Proxy. Azure Stack unterstützt nicht die Konfiguration eines Webproxys, um Zugriff auf das Internet zu aktivieren. Port 80 und 443 werden unter den Domänen „graph.windows.net“ und „login.microsoftonline.com“ verwendet.
 
 
 ## <a name="next-steps"></a>Nächste Schritte

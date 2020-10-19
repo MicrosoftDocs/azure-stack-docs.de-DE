@@ -3,20 +3,20 @@ title: Einführung in Azure Stack Hub-VMs
 description: Enthält Informationen zu Azure Stack Hub-VMs.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: 9dda1268962952e4828b292a472ba342f1fadd23
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: 01ee528229e52a66174c3b4d1dbba49eea6a5318
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813733"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623131"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Einführung in Azure Stack Hub-VMs
 
-Azure Stack Hub verfügt über virtuelle Computer (VMs) als Option für bedarfsgesteuerte und skalierbare Computingressourcen. Sie können virtuelle Computer verwenden, wenn Sie mehr Kontrolle über Ihre Computingumgebung benötigen. Lesen Sie vor dem Erstellen Ihres ersten virtuellen Computers die Informationen in diesem Artikel.
+Azure Stack Hub verfügt über virtuelle Computer (VMs) als Option für bedarfsgesteuerte und skalierbare Computingressourcen. Sie können virtuelle Computer verwenden, wenn Sie mehr Kontrolle über Ihre Computingumgebung benötigen. Lesen Sie die Informationen in diesem Artikel zum Erstellen Ihres ersten virtuellen Computers.
 
 Ein virtueller Azure Stack Hub-Computer bietet die Flexibilität der Virtualisierung, ohne dass Sie Cluster oder einzelne Computer verwalten müssen. Der virtuelle Computer muss allerdings weiterhin gewartet werden, z. B. durch das Konfigurieren, Patchen/Aktualisieren und Verwalten der darauf ausgeführten Software.
 
@@ -41,7 +41,7 @@ Beim Einrichten einer Anwendungsinfrastruktur in Azure Stack Hub müssen immer D
 - Die Konfiguration des virtuellen Computers nach dem Start
 - Die zugehörigen Ressourcen, die der virtuelle Computer benötigt
 
-### <a name="naming"></a>Benennung
+### <a name="names"></a>Namen
 
 Einer VM wird ein Name zugewiesen, und im Betriebssystem wird dafür ein Computername konfiguriert. Der Name eines virtuellen Computers kann bis zu 15 Zeichen lang sein.
 
@@ -107,10 +107,10 @@ Es gibt mehrere Methoden zum Erstellen einer VM. Welche Möglichkeit Sie auswäh
 
 Sie können virtuelle Computer über ein browserbasiertes Portal, über Befehlszeilentools mit Skriptunterstützung oder direkt über APIs verwalten. Zu den typischen Verwaltungsaufgaben zählen unter anderem:
 
-- Abrufen von Informationen zu einem virtuellen Computer
-- Herstellen einer Verbindung mit einem virtuellen Computer
-- Verwalten der Verfügbarkeit
-- Erstellen von Sicherungskopien
+- Abrufen von Informationen zu einem virtuellen Computer.
+- Herstellen einer Verbindung mit einem virtuellen Computer.
+- Verwalten der Verfügbarkeit.
+- Erstellen von Sicherungskopien.
 
 ### <a name="get-information-about-your-vm"></a>Abrufen von Informationen zu Ihrem virtuellen Computer
 

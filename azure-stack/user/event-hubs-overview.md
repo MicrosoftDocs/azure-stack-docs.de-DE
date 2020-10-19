@@ -1,6 +1,6 @@
 ---
-title: Event Hubs in Azure Stack Hub – Übersicht
-description: Erfahren Sie mehr über den Event Hubs-Ressourcenanbieter in Azure Stack Hub.
+title: Übersicht zu Event Hubs in Azure Stack Hub
+description: Erfahren Sie mehr über Event Hubs in Azure Stack Hub. Lernen Sie, Hybridlösungen zu erstellen. Vergleichen Sie die Features von Azure Event Hubs und Event Hubs in Azure Stack Hub.
 author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: b2e03617b8409e321edb3b2d924f5f0762ad9b9f
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 117fd4cd1d688b9ace109f6c2038cd3ffe0d9e6f
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566412"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623148"
 ---
-# <a name="event-hubs-on-azure-stack-hub-overview"></a>Event Hubs in Azure Stack Hub – Übersicht
+# <a name="overview-of-event-hubs-on-azure-stack-hub"></a>Übersicht zu Event Hubs in Azure Stack Hub
 
 [!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
@@ -42,7 +42,7 @@ Erstellen Sie Hybridlösungen, die Edgedaten in Ihrer Azure Stack Hub-Instanz lo
 
 Die Event Hubs-Editionen (in Azure Stack Hub und in Azure) bieten ein hohes Maß an Featureparität (Funktionsparität). Diese Parität bedeutet, dass SDKs, Beispiele, PowerShell, CLI und Portale eine ähnliche Funktionalität bieten, mit wenigen Unterschieden. In der folgenden Tabelle sind die grundsätzlichen Unterschiede zusammengestellt, die es in der Verfügbarkeit von Features zwischen den Editionen gibt.  
 
-| Funktion | Event Hubs in Azure Stack Hub | Azure Event Hubs |
+| Komponente | Event Hubs in Azure Stack Hub | Azure Event Hubs |
 |-|-|-|-|
 | Operator-/Administratorfunktionalität | ✔ | ✘ |
 | Kafka-Unterstützung | ✔ | ✔ |
@@ -59,7 +59,7 @@ Vorgänge zur Azure-Ressourcenverwaltung können auch über Azure Resource Manag
 
 Die [Azure Event Hubs-Dokumentation](/azure/event-hubs/) gilt für beide Editionen von Event Hubs: Event Hubs in Azure Stack Hub und Azure Event Hubs. Diese Dokumentation enthält Themen zur Verwendung von Event Hubs und Aktivitäten. Dazu gehören:
 
-- Details zu [Event Hubs-Konzepten](/azure/event-hubs/event-hubs-features)
+- Details zu [Event Hubs Konzepten](/azure/event-hubs/event-hubs-features)
 - [Erstellen eines Event Hubs-Clusters und -Namespace](event-hubs-quickstart-cluster-portal.md)
 - Erstellen eines [Event Hubs](/azure/event-hubs/event-hubs-create#create-an-event-hub)
 - Streamen [mit dem Kafka-Protokoll](/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs)

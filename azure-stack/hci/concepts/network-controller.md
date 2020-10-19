@@ -1,60 +1,66 @@
 ---
-title: Planen der Bereitstellung des Netzwerkcontrollers
-description: In diesem Thema geht es um die Planung der Bereitstellung des Netzwerkcontrollers über Windows Admin Center in einer Gruppe von virtuellen Computern (VMs) mit dem Betriebssystem Azure Stack HCI.
+title: Planen der Bereitstellung von Netzwerkcontroller
+description: In diesem Thema geht es um die Planung der Bereitstellung von Netzwerkcontroller über Windows Admin Center in einer Gruppe von virtuellen Computern (VMs) mit dem Betriebssystem Azure Stack HCI.
 author: AnirbanPaul
 ms.author: anpaul
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 785665c9edc3af3230b4813e6da6bceddc43bd0a
-ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
+ms.date: 10/7/2020
+ms.openlocfilehash: ec9ddb62dc876fbd4b99ebc2c8e2a3af4a54e8a7
+ms.sourcegitcommit: 9a91dbdaa556725f51bcf3d8e79a4ed2dd5a209f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90010831"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91847671"
 ---
-# <a name="plan-to-deploy-the-network-controller"></a>Planen der Bereitstellung des Netzwerkcontrollers
+# <a name="plan-to-deploy-network-controller"></a>Planen der Bereitstellung von Netzwerkcontroller
 
->Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019 
+>Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-Die Planung der Bereitstellung des Netzwerkcontrollers über Windows Admin Center erfordert eine Gruppe virtueller Computer (VMs) mit dem Betriebssystem Azure Stack HCI. Der Netzwerkcontroller ist eine hochverfügbare und skalierbare Serverrolle, die mindestens drei VMs erfordert, um in Ihrem Netzwerk Hochverfügbarkeit zu gewährleisten.
+Die Planung der Bereitstellung von Netzwerkcontroller über Windows Admin Center erfordert eine Gruppe virtueller Computer (VMs) mit dem Betriebssystem Azure Stack HCI. Netzwerkcontroller ist eine hochverfügbare und skalierbare Serverrolle, die mindestens drei VMs erfordert, um in Ihrem Netzwerk Hochverfügbarkeit zu gewährleisten.
 
    >[!NOTE]
-   > Es wird empfohlen, den Netzwerkcontroller auf eigenen dedizierten VMs bereitzustellen.
+   > Sie sollten Netzwerkcontroller auf eigenen dedizierten VMs bereitzustellen.
 
 ## <a name="network-controller-requirements"></a>Anforderungen an Netzwerkcontroller
-Zum Bereitstellen des Netzwerkcontrollers ist Folgendes erforderlich:
-- Eine VHD für das Betriebssystem Azure Stack HCI zum Erstellen der Netzwerkcontroller-VMs
-- Ein Domänenname und Anmeldeinformationen für den Beitritt der Netzwerkcontroller-VMs zu einer Domäne
-- Eine Konfiguration des physischen Netzwerks, die einer der beiden Topologieoptionen in diesem Abschnitt entspricht
+Zum Bereitstellen von Netzwerkcontroller ist Folgendes erforderlich:
+- Eine virtuelle Festplatte (Virtual Hard Disk, VHD) für das Betriebssystem Azure Stack HCI zum Erstellen der Netzwerkcontroller-VMs.
+- Ein Domänenname und Anmeldeinformationen für das Einbinden von Netzwerkcontroller-VMs in eine Domäne.
+- Mindestens ein virtueller Switch, den Sie mithilfe des Clustererstellungs-Assistenten im Windows Admin Center konfigurieren.
+- Eine Konfiguration des physischen Netzwerks, die einer der Topologieoptionen in diesem Abschnitt entspricht.
 
-    Windows Admin Center erstellt die Konfiguration in den Hyper-V-Hosts. Das Verwaltungsnetzwerk muss sich jedoch gemäß einer der beiden folgenden Optionen mit den physischen Adaptern des Hosts verbinden:
+    Windows Admin Center erstellt die Konfiguration in den Hyper-V-Hosts. Das Verwaltungsnetzwerk muss jedoch gemäß einer der drei folgenden Optionen eine Verbindung mit den physischen Adaptern des Hosts herstellen:
 
-    **Option 1**: Ein einzelner physischer Switch verbindet das Verwaltungsnetzwerk mit einem physischen Verwaltungsadapter auf dem Host und einem Trunk für die physischen Adapter, die der virtuelle Switch verwendet:
+    **Option 1**: Das Verwaltungsnetzwerk ist physisch von den Netzwerken der Workloads getrennt. Bei dieser Option wird ein einzelner virtueller Switch sowohl für Compute als auch für Speicher verwendet:
 
     :::image type="content" source="./media/network-controller/topology-option-1.png" alt-text="Option 1 zum Erstellen eines physischen Netzwerks für den Netzwerkcontroller." lightbox="./media/network-controller/topology-option-1.png":::
 
-    **Option 2**: Wenn das Verwaltungsnetzwerk physisch von den Netzwerken der Workloads getrennt ist, sind zwei virtuelle Switches erforderlich:
+    **Option 2**: Das Verwaltungsnetzwerk ist physisch von den Netzwerken der Workloads getrennt. Bei dieser Option wird ein einzelner virtueller Switch nur für Compute verwendet:
 
-    :::image type="content" source="./media/network-controller/topology-option-2.png" alt-text="Option 2 zum Erstellen eines physischen Netzwerks für den Netzwerkcontroller." lightbox="./media/network-controller/topology-option-1.png":::
+    :::image type="content" source="./media/network-controller/topology-option-2.png" alt-text="Option 1 zum Erstellen eines physischen Netzwerks für den Netzwerkcontroller." lightbox="./media/network-controller/topology-option-2.png":::
 
-- Verwaltungsnetzwerk-Informationen, die der Netzwerkcontroller zur Kommunikation mit Windows Admin Center und den Hyper-V-Hosts verwendet.
+    **Option 3**: Das Verwaltungsnetzwerk ist physisch von den Netzwerken der Workloads getrennt. Bei dieser Option werden zwei virtuelle Switches verwendet, einer für Compute, der andere für Speicher:
+
+    :::image type="content" source="./media/network-controller/topology-option-3.png" alt-text="Option 1 zum Erstellen eines physischen Netzwerks für den Netzwerkcontroller." lightbox="./media/network-controller/topology-option-3.png":::
+
+- Sie können die physischen Verwaltungsadapter auch für die Verwendung desselben Verwaltungsswitches kombinieren. In diesem Fall sollten Sie dennoch eine der Optionen in diesem Abschnitt verwenden.
+- Verwaltungsnetzwerk-Informationen, die Netzwerkcontroller zur Kommunikation mit Windows Admin Center und den Hyper-V-Hosts verwendet.
 - Entweder DHCP-basierte oder statische netzwerkbasierte Adressierung der Netzwerkcontroller-VMs.
-- Der REST FQDN (Representational State Transfer, vollqualifizierter Domänenname) für den Netzwerkcontroller, der von den Verwaltungsclients für die Kommunikation mit dem Netzwerkcontroller verwendet wird.
+- Der REST FQDN (Representational State Transfer, vollqualifizierter Domänenname) für Netzwerkcontroller, der von den Verwaltungsclients für die Kommunikation mit dem Netzwerkcontroller verwendet wird.
 
    >[!NOTE]
-   > Windows Admin Center unterstützt derzeit keine Netzwerkcontroller-Authentifizierung, weder für die Kommunikation mit REST-Clients noch für die Kommunikation zwischen den Netzwerkcontroller-VMs. Sie können die Kerberos-basierte Authentifizierung verwenden, die Sie mit PowerShell bereitstellen und verwalten können.
+   > Windows Admin Center unterstützt derzeit keine Netzwerkcontroller-Authentifizierung, weder für die Kommunikation mit REST-Clients noch für die Kommunikation zwischen Netzwerkcontroller-VMs. Sie können die Kerberos-basierte Authentifizierung verwenden, die Sie mit PowerShell bereitstellen und verwalten können.
 
 ## <a name="configuration-requirements"></a>Konfigurationsanforderungen
-Sie können die Clusterknoten des Netzwerkcontrollers entweder im selben Subnetz oder in verschiedenen Subnetzen bereitstellen. Wenn Sie vorhaben, die Clusterknoten des Netzwerkcontrollers in verschiedenen Subnetzen bereitzustellen, müssen Sie während des Bereitstellungsprozesses den REST-DNS-Namen des Netzwerkcontrollers angeben.
+Sie können die Netzwerkcontroller-Clusterknoten entweder im selben Subnetz oder in verschiedenen Subnetzen bereitstellen. Wenn Sie vorhaben, die Netzwerkcontroller-Clusterknoten in verschiedenen Subnetzen bereitzustellen, müssen Sie während des Bereitstellungsprozesses den REST-DNS-Namen des Netzwerkcontrollers angeben.
 
 Weitere Informationen finden Sie unter [Konfigurieren der dynamischen DNS-Registrierung für den Netzwerkcontroller](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
 
-
 ## <a name="next-steps"></a>Nächste Schritte
-Jetzt sind Sie bereit, den Netzwerkcontroller auf VMs mit dem Betriebssystem Azure Stack HCI bereitzustellen.
+Jetzt sind Sie bereit, Netzwerkcontroller auf VMs mit dem Betriebssystem bereitzustellen.
 
 Weitere Informationen finden Sie unter:
 - [Erstellen eines Azure Stack HCI-Clusters](../deploy/create-cluster.md)
+- [Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell](../deploy/network-controller-powershell.md)
 
 ## <a name="see-also"></a>Weitere Informationen
 - [Netzwerkcontroller](/windows-server/networking/sdn/technologies/network-controller/network-controller)

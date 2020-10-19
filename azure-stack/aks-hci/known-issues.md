@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 21c511521837eff83d31784db3cf59bcfe25cb2f
-ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
+ms.openlocfilehash: f5451a9d30f87c2f4b985e4ae82541b12de52461
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91592831"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899702"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Bekannte Probleme für Azure Kubernetes Service in Azure Stack HCI Public Preview
 In diesem Artikel werden bekannte Probleme mit der öffentlichen Vorschauversion von Azure Kubernetes Service in Azure Stack HCI beschrieben.
@@ -69,10 +69,16 @@ Windows Admin Center stellt Azure Kubernetes Service nicht in einer Umgebung mit
 Dieses Problem wird in einer künftigen Version behoben.
 
 ## <a name="windows-admin-center-only-supports-azure-kubernetes-service-for-azure-stack-hci-in-desktop-mode"></a>Windows Admin Center unterstützt Azure Kubernetes Service für Azure Stack HCI nur im Desktopmodus
-In der Vorschauversion wird die gesamte Azure Kubernetes Service-Funktionalität für Azure Stack HCI nur im Windows Admin Center-Desktopmodus unterstützt. Das Windows Admin Center-Gateway muss auf einem Windows 10-PC installiert sein. Informationen zu den Installationsoptionen für Windows Admin Center finden Sie in der [Windows Admin Center-Dokumentation](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/installation-options). Weitere Szenarien werden in einer zukünftigen Version unterstützt.
+In der Vorschauversion wird die gesamte Azure Kubernetes Service-Funktionalität für Azure Stack HCI nur im Windows Admin Center-Desktopmodus unterstützt. Das Windows Admin Center-Gateway muss auf einem Windows 10-PC installiert sein. Informationen zu den Installationsoptionen für Windows Admin Center finden Sie in der [Windows Admin Center-Dokumentation](/windows-server/manage/windows-admin-center/plan/installation-options). Weitere Szenarien werden in einer zukünftigen Version unterstützt.
 
 ## <a name="azure-kubernetes-service-host-setup-fails-in-windows-admin-center-if-reboots-are-required"></a>Fehler beim Azure Kubernetes Service-Hostsetup in Windows Admin Center, wenn Neustarts erforderlich sind
 Im Azure Kubernetes Service-Assistenten für das Hostsetup tritt ein Fehler auf, wenn einer oder mehrere der von Ihnen verwendeten Server neu gestartet oder Rollen wie PowerShell oder Hyper-V darauf installiert werden müssen. Die aktuelle Problemumgehung besteht darin, den Assistenten zu beenden und den Vorgang auf demselben System erneut zu versuchen, nachdem die Server wieder online sind. Dieses Problem wird in einer künftigen Version behoben.
 
 ## <a name="azure-registration-step-in-azure-kubernetes-service-host-setup-asks-to-try-again"></a>Aufforderung zum erneuten Versuchen im Azure-Registrierungsschritt des Azure Kubernetes Service-Hostsetups
 Wenn Sie Windows Admin Center zum Einrichten des Azure Kubernetes Service-Hosts verwenden, werden Sie nach der Eingabe der erforderlichen Informationen auf der Azure-Registrierungsseite möglicherweise aufgefordert, es erneut zu versuchen. Möglicherweise müssen Sie sich im Windows Admin Center-Gateway erneut bei Azure anmelden, um mit diesem Schritt fortzufahren. Dieses Problem wird in einer künftigen Version behoben.
+
+## <a name="windows-admin-center-doesnt-have-an-arc-offboarding-experience"></a>Windows Admin Center verfügt nicht über Funktionen für das Offboarding von Arc
+Windows Admin Center verfügt zurzeit nicht über einen Prozess zum Offboarding eines Clusters aus Azure Arc. Navigieren Sie zum Löschen von Arc-Agents in einem Cluster, der zerstört wurde, zur Ressourcengruppe des Clusters im Azure-Portal, und löschen Sie den Arc-Inhalt manuell. Zum Löschen von Arc-Agents in einem Cluster, der weiterhin ausgeführt wird, sollten Benutzer den folgenden Befehl ausführen:
+```PowerShell
+az connectedk8s delete
+```
