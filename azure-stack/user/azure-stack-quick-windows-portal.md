@@ -7,12 +7,12 @@ ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/06/2020
-ms.openlocfilehash: 68a28c28c02565c996c3bbc6742554cc78090846
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: efd182e35f8229ee171ec0e03c71829c17f7c32e
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91853232"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92353944"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Schnellstart: Erstellen eines virtuellen Windows Server-Computers mit dem Azure Stack Hub-Portal
 
@@ -34,31 +34,31 @@ Melden Sie sich beim Azure Stack Hub-Portal an. Die Adresse des Azure Stack Hub-
 1. Wählen Sie **Ressource erstellen** > **Compute** aus. Suchen Sie nach ` Windows Server 2016 Datacenter - Pay as you use`.
     Wird der Eintrag **Windows Server 2016 Datacenter – nutzungsbasierte Bezahlung** nicht angezeigt, wenden Sie sich an Ihren Azure Stack Hub-Cloudbetreiber, und bitten Sie ihn, das Image zum Azure Stack Hub-Marketplace hinzuzufügen. Eine entsprechende Anleitung findet Ihr Cloudbetreiber unter [Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack Hub-Marketplace-Elements](../operator/azure-stack-create-and-publish-marketplace-item.md).
 
-    ![Windows Server 2016 Datacenter – nutzungsbasierte Bezahlung](./media/azure-stack-quick-windows-portal/image1.png)
+    ![Windows Server 2016 Datacenter – nutzungsbasierte Bezahlung](./media/azure-stack-quick-windows-portal/image1a.png)
 
 1. Klicken Sie auf **Erstellen**.
 
-    ![Erstellen einer Ressource](./media/azure-stack-quick-windows-portal/image2.png)
+    ![Erstellen einer Ressource](./media/azure-stack-quick-windows-portal/image2a.png)
 
 1. Geben Sie unter **Grundlagen** Werte für **Name**, **Datenträgertyp**, **Benutzername** und **Kennwort** ein. Wählen Sie ein **Abonnement**aus. Erstellen Sie eine **Ressourcengruppe**, oder wählen Sie eine vorhandene aus, und wählen Sie einen **Speicherort** und anschließend **OK** aus.
 
-    ![Erstellen eines virtuellen Computers: Grundlagen](./media/azure-stack-quick-windows-portal/image3.png)
+    ![Erstellen eines virtuellen Computers: Grundlagen](./media/azure-stack-quick-windows-portal/image3a.png)
 
 1. Wählen Sie **D1_v2** unter **Größe** und dann **Auswählen** aus.
 
-    ![Erstellen eines virtuellen Computers: Größe](./media/azure-stack-quick-windows-portal/image4.png)
+    ![Erstellen eines virtuellen Computers: Größe](./media/azure-stack-quick-windows-portal/image4a.png)
 
 1. Nehmen Sie auf der Seite **Einstellungen** sämtliche gewünschten Änderungen an den Standardwerten vor. Sie müssen die gewünschten öffentlichen Eingangsports über das zugehörige Dropdownmenü konfigurieren. Wählen Sie **OK**, wenn Sie fertig sind.
 
-    ![Erstellen eines virtuellen Computers: Einstellungen](./media/azure-stack-quick-windows-portal/image5.png)
+    ![Erstellen eines virtuellen Computers: Einstellungen](./media/azure-stack-quick-windows-portal/image5a.png)
 
 1. Wählen Sie zum Erstellen des virtuellen Computers unter **Zusammenfassung** die Option **OK** aus.
 
-    ![Erstellen eines virtuellen Computers: Zusammenfassung](./media/azure-stack-quick-windows-portal/image6.png)
+    ![Erstellen eines virtuellen Computers: Zusammenfassung](./media/azure-stack-quick-windows-portal/image6a.png)
 
 1. Wählen Sie zum Überprüfen des neuen virtuellen Computers **Virtuelle Computer** aus. Suchen Sie nach dem Namen des virtuellen Computers, und wählen Sie ihn dann in den Suchergebnissen aus.
 
-:::image type="content" source="./media/azure-stack-quick-windows-portal/image7-inline.png" alt-text="Erstellen eines virtuellen Computers: Suchen nach dem virtuellen Computer" lightbox="./media/azure-stack-quick-windows-portal/image7.png":::
+![Erstellen eines virtuellen Computers: Suchen nach dem virtuellen Computer](./media/azure-stack-quick-windows-portal/image7a.png)
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

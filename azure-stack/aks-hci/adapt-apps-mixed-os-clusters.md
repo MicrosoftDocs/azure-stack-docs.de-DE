@@ -3,15 +3,15 @@ title: Anpassen von Anwendungen zur Verwendung in Kubernetes-Clustern mit gemisc
 description: Hier erfahren Sie, wie Sie Knotenselektoren oder Taints und Toleranzen für Azure Kubernetes Service verwenden, um sicherzustellen, dass Anwendungen in Kubernetes-Clustern mit gemischten Betriebssystemen, die auf Azure Stack HCI ausgeführt werden, auf dem richtigen Workerknotenbetriebssystem geplant werden.
 author: abha
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: e70ac456929b5c8402e49c969ca8b9c87a703311
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 04b103fee921cf8bdab82a4004c6c80afd54d687
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949321"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253944"
 ---
 # <a name="adapt-apps-for-mixed-os-kubernetes-clusters-using-node-selectors-or-taints-and-tolerations"></a>Anpassen von Apps für Kubernetes-Cluster mit gemischten Betriebssystemen unter Verwendung von Knotenselektoren oder Taints und Toleranzen
 
@@ -41,7 +41,7 @@ Weitere Informationen zu „nodeSelectors“ finden Sie unter [Knotenselektoren]
 Windows-Betriebssystemknoten in Azure Kubernetes Service in Azure Stack HCI können mit dem folgenden Schlüssel-Wert-Paar verfälscht werden. Benutzer sollten kein anderes verwenden.
 
 ```yaml
-node.kubernetes.io/os=Windowss:NoSchedule
+node.kubernetes.io/os=Windows:NoSchedule
 ```
 Führen Sie `kubectl get` aus, und identifizieren Sie die Windows-Workerknoten, die Sie verfälschen möchten.
 

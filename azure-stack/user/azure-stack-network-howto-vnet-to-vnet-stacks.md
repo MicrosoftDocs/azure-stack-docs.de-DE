@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 4a952fe100f29cf8f5478afb73507b2e8bc79ca9
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: d9d76b848ed30521fb5a7ba983ef930e19b93866
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574124"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92355103"
 ---
 # <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Einrichten einer VNET-zu-VNET-Verbindung in Azure Stack Hub per Fortinet FortiGate NVA
 
@@ -81,8 +81,6 @@ In der folgenden Tabelle sind als Referenz die Parameter zusammengefasst, die in
 Wiederholen Sie diese Schritte für beide Azure Stack Hub-Umgebungen. 
 
 1. Öffnen Sie das Azure Stack Hub-Benutzerportal. Stellen Sie sicher, dass Sie Anmeldeinformationen verwenden, die mindestens über Rechte vom Typ „Mitwirkender“ für ein Abonnement verfügen.
-
-    ![Der Screenshot zeigt das Portal.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image5.png)
 
 1. Wählen Sie **Ressource erstellen** aus, und suchen Sie nach `FortiGate`.
 
@@ -170,19 +168,19 @@ Führen Sie die unten angegebenen Schritte jeweils für die forti1-NVA und die f
 
 1. Navigieren Sie zur Seite mit der Übersicht für die fortiX-VM, um die zugewiesene öffentliche IP-Adresse abzurufen:
 
-    ![Die Übersichtsseite für „forti1“ zeigt die Ressourcengruppe, den Status usw. an.](./media/azure-stack-network-howto-vnet-to-vnet/image13.png)
+    ![Die Übersichtsseite für „forti1“ zeigt die Ressourcengruppe, den Status usw. an.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image13.png)
 
 1. Kopieren Sie die zugewiesene IP-Adresse, öffnen Sie einen Browser, und fügen Sie die Adresse in die Adressleiste ein. In Ihrem Browser wird ggf. eine Warnung mit dem Hinweis angezeigt, dass das Sicherheitszertifikat nicht vertrauenswürdig ist. Setzen Sie den Vorgang trotzdem fort.
 
 1. Geben Sie den Benutzernamen für den FortiGate-Administrator, den Sie bei der Bereitstellung angegeben haben, und das zugehörige Kennwort ein.
 
-    ![Der Screenshot zeigt den Anmeldebildschirm, der eine Anmeldeschaltfläche und Textfelder für Benutzername und Kennwort enthält.](./media/azure-stack-network-howto-vnet-to-vnet/image14.png)
+    ![Der Screenshot zeigt den Anmeldebildschirm, der eine Anmeldeschaltfläche und Textfelder für Benutzername und Kennwort enthält.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image14.png)
 
 1. Wählen Sie **System** > **Firmware** aus.
 
 1. Wählen Sie das Feld aus, in dem die aktuelle Firmware angezeigt wird, z. B. `FortiOS v6.2.0 build0866`.
 
-    ![Der Screenshot für die Firmware „FortiOS v6.2.0 build0866“ enthält einen Link zu den Versionshinweisen und zwei Schaltflächen: „Backup config and upgrade“ (Konfiguration sichern und aktualisieren) und „Upgrade“ (Aktualisieren).](./media/azure-stack-network-howto-vnet-to-vnet/image15.png)
+    ![Der Screenshot für die Firmware „FortiOS v6.2.0 build0866“ enthält einen Link zu den Versionshinweisen und zwei Schaltflächen: „Backup config and upgrade“ (Konfiguration sichern und aktualisieren) und „Upgrade“ (Aktualisieren).](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image15.png)
 
 1. Wählen Sie **Backup config and upgrade** (Konfiguration sichern und aktualisieren) und dann „Continue“ (Weiter) aus, wenn die entsprechende Aufforderung angezeigt wird.
 
@@ -194,7 +192,7 @@ Führen Sie die unten angegebenen Schritte jeweils für die forti1-NVA und die f
 
 1. Wählen Sie die Option **This site is behind NAT** (Website befindet sich hinter NAT) aus.
 
-    ![Der Screenshot des Assistenten für die VPN-Erstellung zeigt, dass er sich im ersten Schritt, dem VPN-Setup, befindet. Die folgenden Werte sind ausgewählt: „Site to Site“ für den Vorlagentyp, „FortiGate“ für den Remotegerätetyp und „This site is behind NAT“ (Website befindet sich hinter NAT) für die NAT-Konfiguration.](./media/azure-stack-network-howto-vnet-to-vnet/image16.png)
+    ![Der Screenshot des Assistenten für die VPN-Erstellung zeigt, dass er sich im ersten Schritt, dem VPN-Setup, befindet. Die folgenden Werte sind ausgewählt: „Site to Site“ für den Vorlagentyp, „FortiGate“ für den Remotegerätetyp und „This site is behind NAT“ (Website befindet sich hinter NAT) für die NAT-Konfiguration.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image16.png)
 
 1. Wählen Sie **Weiter** aus.
 
@@ -207,7 +205,7 @@ Führen Sie die unten angegebenen Schritte jeweils für die forti1-NVA und die f
     > [!NOTE]  
     > Sie benötigen diesen Schlüssel zum Einrichten der Verbindung mit dem lokalen VPN-Gerät. Es muss eine *genaue* Übereinstimmung sein.
 
-    ![Der Screenshot des Assistenten für die VPN-Erstellung zeigt, dass er sich im zweiten Schritt (der Authentifizierung) befindet, und die ausgewählten Werte sind hervorgehoben.](./media/azure-stack-network-howto-vnet-to-vnet/image17.png)
+    ![Der Screenshot des Assistenten für die VPN-Erstellung zeigt, dass er sich im zweiten Schritt (der Authentifizierung) befindet, und die ausgewählten Werte sind hervorgehoben.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image17.png)
 
 1. Wählen Sie **Weiter** aus.
 
@@ -225,13 +223,13 @@ Führen Sie die unten angegebenen Schritte jeweils für die forti1-NVA und die f
 
     Verwenden Sie Ihren IP-Adressbereich, falls er sich von diesem IP-Adressbereich unterscheidet.
 
-    ![Der Screenshot des Assistenten für die VPN-Erstellung zeigt, dass er sich im dritten Schritt, Richtlinie und Routing, befindet und die ausgewählten und eingegebenen Werte anzeigt.](./media/azure-stack-network-howto-vnet-to-vnet/image18.png)
+    ![Der Screenshot des Assistenten für die VPN-Erstellung zeigt, dass er sich im dritten Schritt, Richtlinie und Routing, befindet und die ausgewählten und eingegebenen Werte anzeigt.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image18.png)
 
 1. Klicken Sie auf **Erstellen**
 
 1. Wählen Sie **Netzwerk** > **Schnittstellen** aus.  
 
-    ![Die Schnittstellenliste zeigt zwei Schnittstellen: „port1“, der konfiguriert wurde, und „port2“, der nicht konfiguriert wurde. Es gibt Schaltflächen zum Erstellen, Bearbeiten und Löschen von Schnittstellen.](./media/azure-stack-network-howto-vnet-to-vnet/image19.png)
+    ![Die Schnittstellenliste zeigt zwei Schnittstellen: „port1“, der konfiguriert wurde, und „port2“, der nicht konfiguriert wurde. Es gibt Schaltflächen zum Erstellen, Bearbeiten und Löschen von Schnittstellen.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image19.png)
 
 1. Doppelklicken Sie auf **port2**.
 
@@ -248,11 +246,11 @@ Gehen Sie wie folgt vor, nachdem die obigen Vorgänge für **beide** NVAs abgesc
 
 1.  Wählen Sie auf der FortiGate-Webkonsole „forti2“ **Monitor** > **IPsec Monitor** (Monitor > IPsec-Monitor) aus. 
 
-    ![Der Monitor für die VPN-Verbindung „conn1“ ist aufgelistet. Er wird ebenso wie der entsprechende Phase 2-Selektor als „Ausgefallen“ angezeigt.](./media/azure-stack-network-howto-vnet-to-vnet/image20.png)
+    ![Der Monitor für die VPN-Verbindung „conn1“ ist aufgelistet. Er wird ebenso wie der entsprechende Phase 2-Selektor als „Ausgefallen“ angezeigt.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image20.png)
 
 2.  Markieren Sie `conn1`, und wählen Sie **Bring Up** > **All Phase 2 Selectors** (Aufrufen > Alle Phase 2-Selektoren) aus.
 
-    ![Der Monitor und der Phase 2-Selektor werden beide als „Aktiv“ angezeigt.](./media/azure-stack-network-howto-vnet-to-vnet/image21.png)
+    ![Der Monitor und der Phase 2-Selektor werden beide als „Aktiv“ angezeigt.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image21.png)
 
 
 ## <a name="test-and-validate-connectivity"></a>Testen und Überprüfen der Konnektivität

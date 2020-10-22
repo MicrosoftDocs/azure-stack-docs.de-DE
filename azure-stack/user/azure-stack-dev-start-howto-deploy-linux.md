@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 90467f57cdae2b12038c8f237fcbe5e41fb1c039
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 2a3eb313122f5f8798129592f35656bdad443f02
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574056"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92353838"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack Hub
 
@@ -46,7 +46,7 @@ Führen Sie zum Bereitstellen des virtuellen Computers die Anweisungen in den fo
 1. Erstellen Sie einen öffentlichen SSH-Schlüssel (Secure Shell) für Ihren Server. Weitere Informationen finden Sie unter [Verwenden eines öffentlichen SSH-Schlüssels](azure-stack-dev-start-howto-ssh-public-key.md).
 1. Wählen Sie im Azure Stack Hub-Portal **Ressource erstellen** > **Compute** > **Ubuntu Server 16.04 LTS** aus.
 
-    ![Bereitstellen einer Web-App auf einer Azure Stack Hub-VM](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
+    ![Bereitstellen einer Web-App auf einer Azure Stack Hub-VM](media/azure-stack-dev-start-howto-deploy-linux/001-portal-computea.png)
 
 4. Gehen Sie im Bereich **Erstellen eines virtuellen Computers** für **1. Grundeinstellungen konfigurieren** folgendermaßen vor:
 

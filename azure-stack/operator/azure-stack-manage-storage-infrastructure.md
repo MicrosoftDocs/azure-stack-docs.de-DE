@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Erfahren Sie, wie Sie die Speicherinfrastruktur für Azure Stack Hub verwalten können. Machen Sie sich mit der Überwachung von Volumes und Laufwerken vertraut. Sehen Sie sich Tipps zur Problembehandlung beim Hinzufügen von Laufwerken zu Pools an.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 5/4/2020
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.lastreviewed: 5/4/2020
 ms.reviewer: jiaha
-ms.openlocfilehash: a267c0bf5429bdd97b5a722f45f2fd188b63efb2
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 7141d52e100ce465a20637da2a40cbb75b417939
+ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623199"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92179451"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Verwalten der Speicherinfrastruktur für Azure Stack Hub
 In diesem Artikel werden die Integrität und der Betriebszustand von Ressourcen der Azure Stack Hub-Speicherinfrastruktur beschrieben. Diese Ressourcen umfassen Speicherdatenträger und Volumes. Die Informationen in diesem Thema sind sehr hilfreich bei der Behandlung verschiedener Probleme, etwa wenn ein Laufwerk nicht einem Pool hinzugefügt werden kann.
@@ -93,7 +93,7 @@ In den folgenden Abschnitten werden die Integritätszustände beschrieben, in de
 | OK | Das Volume ist fehlerfrei. |
 | Aktiv | Das Laufwerk führt einige interne Housekeepingvorgänge durch. Nach Abschluss der Aktion sollte das Laufwerk in den Integritätszustand „OK“ zurückkehren. |
 
-### <a name="drive-health-state-healthy"></a>Integritätszustand des Laufwerks: Healthy
+### <a name="drive-health-state-warning"></a>Integritätszustand des Laufwerks: Warnung
 
 Ein Laufwerk im Zustand „Warnung“ kann Daten erfolgreich lesen und schreiben, aber es liegt ein Problem vor.
 

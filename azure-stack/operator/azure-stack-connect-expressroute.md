@@ -3,16 +3,16 @@ title: Herstellen einer Verbindung zwischen Azure Stack Hub und Azure mithilfe v
 description: Erfahren Sie, wie Sie mithilfe von ExpressRoute eine Verbindung zwischen virtuellen Netzwerken in Azure Stack Hub und virtuellen Netzwerken in Azure herstellen.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 10/20/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 04efed21fad37888c6c0be0a92d9da35af1e1b56
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: f736f95105b12bdb51fe452c2749e6331c390065
+ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250400"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297925"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Herstellen einer Verbindung von Azure Stack Hub mit Azure mithilfe von Azure ExpressRoute
 
@@ -596,8 +596,6 @@ Wenn Sie wissen möchten, wie viel Datenverkehr über Ihre Verbindung übertrage
 1. Navigieren Sie zur Ressourcengruppe für Ihr VPN Gateway, und wählen Sie den Objekttyp **Verbindung** aus.
 1. Wählen Sie in der Liste die Verbindung **ConnectToAzure** aus.
 1. Unter **Verbindungen** > **Übersicht** werden Statistiken für **Eingehende Daten** und **Ausgehende Daten** angezeigt. Dort sollten Werte angezeigt werden, die nicht Null sind.
-
-   ![Eingehende Daten und ausgehende Daten](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
