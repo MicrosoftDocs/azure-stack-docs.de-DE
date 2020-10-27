@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: jeguan
-ms.openlocfilehash: 35d527b56a2429676d343ba8098fc6821835fb00
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: b9287add391d2a3132b3ef0baadf5668b1ea057e
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949374"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253977"
 ---
 # <a name="quickstart-create-kubernetes-clusters-on-azure-stack-hci-using-windows-powershell"></a>Schnellstart: Erstellen von Kubernetes-Clustern in Azure Stack HCI mithilfe von Windows PowerShell
 
@@ -130,11 +130,24 @@ Wenn Sie Windows-Knoten verwenden möchten, ist die mindestens erforderliche Ver
 
 ## <a name="step-4-access-your-clusters-using-kubectl"></a>Schritt 4: Zugreifen auf Ihre Cluster mithilfe von kubectl
 
-Um mithilfe von kubectl auf Ihren Azure Kubernetes Service-Host oder Kubernetes-Cluster zuzugreifen, führen Sie den folgenden Befehl aus. Dieser verwendet die kubeconfig-Datei des angegebenen Clusters als standardmäßige kubeconfig-Datei für kubectl.
+Führen Sie den folgenden Befehl aus, um mithilfe von kubectl auf Ihre Kubernetes-Cluster zuzugreifen. Dieser verwendet die kubeconfig-Datei des angegebenen Clusters als standardmäßige kubeconfig-Datei für kubectl.
 
 ```powershell
-Set-AksHciKubeConfig -clusterName
+Get-AksHciCredential -clusterName
+                     [-outputLocation]
 ```
+
+### <a name="required-parameters"></a>Erforderliche Parameter
+
+`clusterName`
+
+Der Name des Clusters.
+
+### <a name="optional-parameters"></a>Optionale Parameter
+
+`outputLocation`
+
+Der Speicherort, an den kubeconfig heruntergeladen werden soll. Der Standardwert ist `%USERPROFILE%\.kube`.
 
 ## <a name="delete-a-kubernetes-cluster"></a>Löschen eines Kubernetes-Clusters
 
@@ -146,7 +159,7 @@ Remove-AksHciCluster -clusterName
 
 ## <a name="get-logs"></a>Abrufen von Protokollen
 
-Um von allen Ihren Pods Protokolle zu erhalten, führen Sie den folgenden Befehl aus. Dieser Befehl erstellt einen komprimierten Ordner (ZIP) namens `akshcilogs` im Pfad `C:\wssd\akshcilogs`.
+Führen Sie den folgenden Befehl aus, um die Protokolle Ihrer gesamten Pods zu erhalten. Dieser Befehl erstellt einen komprimierten Ordner (ZIP) namens `akshcilogs` im Pfad `C:\wssd\akshcilogs`.
 
 ```powershell
 Get-AksHciLogs
