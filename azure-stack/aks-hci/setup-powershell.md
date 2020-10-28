@@ -5,24 +5,34 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 09/23/2020
 ms.author: jeguan
-ms.openlocfilehash: b4b128c5d51d7f916e0936102224283dd77a971d
-ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
+ms.openlocfilehash: 089488e246bdb7c12bbd0808ef2e92a4c83b0fce
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91134660"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253959"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>Schnellstart: Einrichten eines Azure Kubernetes Service-Hosts für Azure Stack HCI mit PowerShell
 
 > Gilt für: Azure Stack HCI
 
-In dieser Schnellstartanleitung wird beschrieben, wie Sie einen Azure Kubernetes Service-Host für Azure Stack HCI mit PowerShell einrichten. Falls Sie Windows Admin Center verwenden möchten, helfen Ihnen die Informationen unter [Schnellstart: Einrichten von Azure Kubernetes Service für Azure Stack HCI mit Windows Admin Center](setup.md) weiter.
+In dieser Schnellstartanleitung wird beschrieben, wie Sie einen Azure Kubernetes Service-Host für Azure Stack HCI mit PowerShell einrichten. Falls Sie stattdessen Windows Admin Center verwenden möchten, finden Sie weitere Informationen unter [Schnellstart: Einrichten eines Azure Kubernetes Service-Hosts für Azure Stack HCI mit PowerShell](setup.md).
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-Stellen Sie zunächst sicher, dass Sie über einen Azure Stack HCI-Cluster mit zwei bis vier Knoten oder eine Azure Stack HCI-Instanz mit nur einem Knoten verfügen. **Wir empfehlen Ihnen, einen Azure Stack HCI-Cluster mit zwei bis vier Knoten zu verwenden.** Falls Sie anders vorgehen möchten, hilft Ihnen [diese Anleitung](./system-requirements.md) weiter.
+Stellen Sie zunächst sicher, dass Sie über einen Azure Stack HCI-Cluster mit zwei bis vier Knoten oder eine Azure Stack HCI-Instanz mit nur einem Knoten verfügen. **Wir empfehlen Ihnen, einen Azure Stack HCI-Cluster mit zwei bis vier Knoten zu verwenden.** Folgen Sie andernfalls der Anleitung auf der Seite [Registrierung für Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).
 
-Darüber hinaus sollten Sie sicherstellen, dass Sie das PowerShell-Modul „AksHci“ installiert haben. Das Downloadpaket, das Sie [hier](https://aka.ms/AKS-HCI-Evaluate) herunterladen können, enthält das Modul als ZIP-Datei. Vergewissern Sie sich, dass Sie die ZIP-Datei am richtigen Ort (`%systemdrive%\program files\windowspowershell\modules`) extrahieren, und führen Sie anschließend den folgenden Befehl in einem PowerShell-Fenster mit Administratorrechten aus.
+## <a name="step-1-download-and-install-the-akshci-powershell-module"></a>Schritt 1: Herunterladen des PowerShell-Moduls „AksHci“
+
+Laden Sie `AKS-HCI-Public=Preview-Oct-2020` von der [Registrierungsseite für Azure Kubernetes Service in Azure Stack HCI](https://aka.ms/AKS-HCI-Evaluate) herunter. Die ZIP-Datei `AksHci.Powershell.zip` enthält das PowerShell-Modul.
+
+Wenn Sie den Azure Kubernetes Service bereits mit PowerShell oder dem Windows Admin Center in Azure Stack HCI installiert haben, führen Sie den folgenden Befehl aus, bevor Sie fortfahren.
+
+   ```powershell
+   Uninstall-AksHci
+   ```
+
+**Schließen Sie alle PowerShell-Fenster.** Löschen Sie alle vorhandenen Verzeichnisse für AksHci, AksHci.Day2 und MSK8sDownloadAgent, die sich unter dem Pfad `%systemdrive%\program files\windowspowershell\modules` befinden. Anschließend können Sie den Inhalt der neuen ZIP-Datei extrahieren. Stellen Sie sicher, dass Sie die ZIP-Datei am richtigen Speicherort (`%systemdrive%\program files\windowspowershell\modules`) extrahieren.
 
    ```powershell
    Import-Module AksHci
@@ -30,9 +40,9 @@ Darüber hinaus sollten Sie sicherstellen, dass Sie das PowerShell-Modul „AksH
 
 Schließen Sie nach dem Ausführen des obigen Befehls alle PowerShell-Fenster, und öffnen Sie erneut eine Sitzung mit Administratorrechten, um die Befehle in den folgenden Schritten auszuführen.
 
-## <a name="step-1-prepare-your-machines-for-deployment"></a>Schritt 1: Vorbereiten Ihrer Computer für die Bereitstellung
+## <a name="step-2-prepare-your-machines-for-deployment"></a>Schritt 2: Vorbereiten Ihrer Computer für die Bereitstellung
 
-Als Erstes überprüfen wir auf allen physischen Knoten, ob alle Anforderungen für die Installation von Azure Kubernetes Service unter Azure Stack HCI erfüllt sind.
+Überprüfen Sie auf allen physischen Knoten, ob alle Anforderungen für die Installation von Azure Kubernetes Service unter Azure Stack HCI erfüllt sind.
 
 Öffnen Sie PowerShell als Administrator, und führen Sie den folgenden Befehl aus.
 
@@ -42,9 +52,9 @@ Als Erstes überprüfen wir auf allen physischen Knoten, ob alle Anforderungen f
 
 Nach Abschluss der Überprüfungen wird die Meldung „Fertig“ in grüner Schrift angezeigt.
 
-## <a name="step-2-configure-your-deployment"></a>Schritt 2: Konfigurieren Ihrer Bereitstellung
+## <a name="step-3-configure-your-deployment"></a>Schritt 3: Konfigurieren Ihrer Bereitstellung
 
-Legen Sie die Konfigurationseinstellungen für den Azure Kubernetes Service-Host fest. **Für einen Azure Stack HCI-Cluster mit zwei bis vier Knoten müssen Sie `MultiNode` in den Parametern `-deploymentType`, `wssdImageDir` und `cloudConfigLocation` angeben.** Bei einem Azure Stack HCI-Cluster mit nur einem Knoten sind alle Parameter optional und auf die Standardwerte festgelegt. Zur Erzielung einer optimalen Leistung **empfehlen wir Ihnen aber, die Bereitstellung eines Azure Stack HCI-Clusters mit zwei bis vier Knoten zu verwenden**.
+Legen Sie die Konfigurationseinstellungen für den Azure Kubernetes Service-Host fest. **Für einen Azure Stack HCI-Cluster mit zwei bis vier Knoten müssen Sie `MultiNode` in den Parametern `-deploymentType`, `wssdImageDir` und `cloudConfigLocation` angeben.** Bei einem Azure Stack HCI-Cluster mit nur einem Knoten sind alle Parameter optional und auf die Standardwerte festgelegt. Zur Erzielung einer optimalen Leistung **empfehlen wir Ihnen aber, die Bereitstellung eines Azure Stack HCI-Clusters mit zwei bis vier Knoten zu verwenden** .
 
 Konfigurieren Sie Ihre Bereitstellung mit dem folgenden Befehl.
 
@@ -61,6 +71,8 @@ Konfigurieren Sie Ihre Bereitstellung mit dem folgenden Befehl.
                     [-vipPoolEndIp]
                     [-macPoolStart]
                     [-macPoolEnd]
+                    [-vlanID]
+                    [-cloudServiceCidr]
                     [-wssdDir]
                     [-akshciVersion]
                     [-vnetType]
@@ -82,11 +94,11 @@ Der Bereitstellungstyp Zulässige Werte: „SingleNode“, „MultiNode“. Die 
 
 `-wssdImageDir`
 
-Der Pfad zu dem Verzeichnis, in dem von Azure Kubernetes Service unter Azure Stack HCI die VHD-Images gespeichert werden. Für Bereitstellungen mit einem Knoten lautet er standardmäßig `%systemdrive%\wssdimagestore`. *Bei Bereitstellungen mit mehreren Knoten muss dieser Parameter angegeben werden*. Es muss ein Pfad zu einem freigegebenen Speicher, z. B.  `C:\ClusterStorage\Volume2\ImageStore`, oder zu einer SMB-Freigabe, z. B.  `\\FileShare\ImageStore`, angegeben werden.
+Der Pfad zu dem Verzeichnis, in dem von Azure Kubernetes Service unter Azure Stack HCI die VHD-Images gespeichert werden. Für Bereitstellungen mit einem Knoten lautet er standardmäßig `%systemdrive%\wssdimagestore`. *Bei Bereitstellungen mit mehreren Knoten muss dieser Parameter angegeben werden* . Es muss ein Pfad zu einem freigegebenen Speicher, z. B.  `C:\ClusterStorage\Volume2\ImageStore`, oder zu einer SMB-Freigabe, z. B.  `\\FileShare\ImageStore`, angegeben werden.
 
 `-cloudConfigLocation`
 
-Der Speicherort, an dem vom Cloud-Agent die Konfiguration gespeichert wird. Für Bereitstellungen mit einem Knoten lautet er standardmäßig `%systemdrive%\wssdimagestore`. Der Speicherort kann dem obigen Pfad  `-wssdImageDir` entsprechen. Bei *Bereitstellungen mit mehreren Knoten muss dieser Parameter angegeben werden*.
+Der Speicherort, an dem vom Cloud-Agent die Konfiguration gespeichert wird. Für Bereitstellungen mit einem Knoten lautet er standardmäßig `%systemdrive%\wssdimagestore`. Der Speicherort kann dem obigen Pfad  `-wssdImageDir` entsprechen. Bei *Bereitstellungen mit mehreren Knoten muss dieser Parameter angegeben werden* .
 
 `-nodeConfigLocation`
 
@@ -123,6 +135,14 @@ Wird zum Angeben des Starts für die MAC-Adresse des MAC-Pools verwendet, den Si
 `-macPoolEnd`
 
 Wird zum Angeben des Endes für die MAC-Adresse des MAC-Pools verwendet, den Sie für die Azure Kubernetes Service-Host-VM verwenden möchten. Bei der Syntax für die MAC-Adresse ist es erforderlich, dass das unwichtigste Bit des ersten Bytes immer „0“ ist, und das erste Byte sollte immer eine gerade Zahl sein (d. h. 00, 02, 04, 06...). Das erste Byte der Adresse, die als `-macPoolEnd` übergeben wird, sollte dem ersten Byte der Adresse entsprechen, die als `-macPoolStart` übergeben wird. Standardwert ist „none“.
+
+`-vlandID`
+
+Dies kann verwendet werden, um eine Netzwerk-VLAN-ID anzugeben. Azure Kubernetes Service-Host und VM-Netzwerkadapter des Kubernetes-Clusters werden mit der angegebenen VLAN-ID gekennzeichnet. Standardwert ist „none“.
+
+`cloudServiceCidr`
+
+Dies kann verwendet werden, um statische IP/Netzwerkpräfix anzugeben, die dem MOC-CloudAgent-Dienst zugewiesen werden soll. Dieser Wert sollte im CIDR-Format angegeben werden. (Beispiel: 192.168.1.2/16) Standardwert ist „none“.
 
 `-wssdDir`
 
@@ -172,7 +192,7 @@ Führen Sie den folgenden Befehl aus, um Azure Kubernetes Service in der Azure S
 Set-AksHciConfig
 ```
 
-## <a name="step-3-start-a-new-deployment"></a>Schritt 3: Starten einer neuen Bereitstellung
+## <a name="step-4-start-a-new-deployment"></a>Schritt 4: Starten einer neuen Bereitstellung
 
 Nachdem Sie Ihre Bereitstellung konfiguriert haben, müssen Sie sie starten. Azure Kubernetes Service wird für die Azure Stack HCI-Agents/-Dienste und auf dem Azure Kubernetes Service-Host installiert.
 
@@ -182,21 +202,34 @@ Führen Sie den folgenden Befehl aus, um die Bereitstellung zu starten.
 Install-AksHci
 ```
 
-### <a name="check-your-deployed-clusters"></a>Überprüfen Ihrer bereitgestellten Cluster
+### <a name="verify-your-deployed-azure-kubernetes-service-host"></a>Überprüfen des bereitgestellten Azure Kubernetes Service-Hosts
 
-Führen Sie den folgenden Befehl aus, um eine Liste mit Ihren bereitgestellten Azure Kubernetes Service-Hosts zu erhalten. Mit diesem Befehl können Sie Kubernetes-Cluster auch nach deren Bereitstellung abrufen.
+Führen Sie den folgenden Befehl aus, um sicherzustellen, dass der Azure Kubernetes Service-Host bereitgestellt wurde. Mit diesem Befehl können Sie Kubernetes-Cluster auch nach deren Bereitstellung abrufen.
 
 ```powershell
 Get-AksHciCluster
 ```
 
-## <a name="step-4-access-your-clusters-using-kubectl"></a>Schritt 4: Zugreifen auf Ihre Cluster mit kubectl
+## <a name="step-5-access-your-clusters-using-kubectl"></a>Schritt 5: Zugreifen auf Ihre Cluster mit kubectl
 
 Führen Sie den folgenden Befehl aus, um mit kubectl auf Ihren Azure Kubernetes Service-Host oder Kubernetes-Cluster zuzugreifen. Hierbei wird die kubeconfig-Datei des angegebenen Clusters als kubeconfig-Standarddatei für kubectl verwendet.
 
 ```powershell
-Set-AksHciKubeConfig -clusterName
+Get-AksHciCredential -clusterName
+                     [-outputLocation]
 ```
+
+### <a name="required-parameters"></a>Erforderliche Parameter
+
+`clusterName`
+
+Der Name des Clusters.
+
+### <a name="optional-parameters"></a>Optionale Parameter
+
+`outputLocation`
+
+Der Speicherort, an den kubeconfig heruntergeladen werden soll. Der Standardwert ist `%USERPROFILE%\.kube`.
 
 ## <a name="get-logs"></a>Abrufen von Protokollen
 

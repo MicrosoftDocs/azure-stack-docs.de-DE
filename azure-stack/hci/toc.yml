@@ -74,6 +74,8 @@
           href: manage/monitor-cluster.md
         - name: Hinzufügen oder Entfernen von Servern
           href: manage/add-cluster.md
+        - name: Offlineschalten eines Servers zur Wartung
+          href: manage/maintain-servers.md
         - name: Verwalten der Azure-Registrierung
           href: manage/manage-azure-registration.md
         - name: Ändern der Sprachen
@@ -144,6 +146,10 @@
           href: concepts/security.md
 - name: Verweis
   items:
+    - name: Azure CLI-Befehle für die Azure-Registrierung
+      href: 'https://docs.microsoft.com/cli/azure/ext/stack-hci/stack-hci'
+    - name: PowerShell-Befehle für die Azure-Registrierung
+      href: 'https://docs.microsoft.com/powershell/module/az.stackhci'
     - name: Hyper-V-PowerShell-Befehle
       href: /powershell/module/hyper-v
     - name: Storage PowerShell-Befehle
