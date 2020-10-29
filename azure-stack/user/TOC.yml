@@ -250,6 +250,8 @@
                       href: azure-stack-kubernetes-aks-engine-scale.md
                     - name: Durchführen eines Clusterupgrades
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
+                    - name: Aktivieren der Volumenprojektion für Dienstkontotoken
+                      href: kubernetes-aks-engine-service-account.md
                     - name: Problembehandlung für die AKS-Engine
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Verwenden von Azure Monitor für Container
