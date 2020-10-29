@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/24/2020
-ms.openlocfilehash: 621662110b2e842a432183dfb7415f3c8365907b
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: 8e5f1a07425224c8e343d4193cee2d721ae1f0b6
+ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230494"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297886"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Herstellen einer Verbindung von Azure Stack HCI mit Azure
 
@@ -71,7 +71,7 @@ Verwenden Sie das folgende Verfahren, um einen Azure Stack HCI-Cluster mit Azure
    > [!NOTE]
    > 1. Möglicherweise wird eine Aufforderung wie „Soll PowerShellGet jetzt den NuGet-Anbieter installieren und importieren?“ angezeigt, die Sie mit Ja (J) beantworten sollten.
    > 2. Außerdem werden Sie möglicherweise gefragt „Möchten Sie die Module aus ‚PSGallery‘ installieren?“, was Sie ebenfalls mit Ja (J) beantworten sollten.
-   > 3. Schließlich könnten Sie annehmen, dass beim Installieren des gesamten **Az**-Moduls das Untermodul **StackHCI** enthalten ist, und langfristig betrachtet wird das auch der Fall sein. Der Standardkonvention von Azure PowerShell folgend, sind Untermodule in der Vorschauphase jedoch nicht automatisch enthalten; Sie müssen sie vielmehr explizit angeben. Daher müssen Sie zurzeit **Az.StackHCI** explizit anfordern, wie oben dargestellt.
+   > 3. Schließlich könnten Sie annehmen, dass beim Installieren des gesamten **Az** -Moduls das Untermodul **StackHCI** enthalten ist, dies trifft allerdings nicht zu. Nach der Standardkonvention von Azure PowerShell sind Untermodule in der Vorschauphase nicht automatisch enthalten. Sie müssen **Az.StackHCI** daher wie oben gezeigt explizit anfordern.
 
 4. Führen Sie die eigentliche Registrierung durch:
 

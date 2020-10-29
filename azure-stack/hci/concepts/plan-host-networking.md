@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 8f18cd223faca91bc490b659e0a25fce1add3fea
-ms.sourcegitcommit: 4b1a4ec0ac0283faea9438e6617fcb3cfc6fee6d
+ms.openlocfilehash: 46f98ba8f5d2f33e0b5d9d85ee9c2469a098c17d
+ms.sourcegitcommit: d835e211fe65dc54a0d49dfb21ca2465ced42aa4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041225"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92200483"
 ---
 # <a name="plan-host-networking-for-azure-stack-hci"></a>Planen von Hostnetzwerken für Azure Stack HCI
 
@@ -35,7 +35,6 @@ SMB-Datenverkehr kann über die folgenden Protokolle übertragen werden:
 
 - Transmission Control Protocol (TCP) – wird zwischen Standorten verwendet
 - Remotezugriff auf den direkten Speicher (Remote Direct Memory Access, RDMA)
-- QUIC – Zukunft
 
 ## <a name="traffic-bandwidth-allocation"></a>Bandbreitenzuordnung für Datenverkehr
 
@@ -50,7 +49,7 @@ In der folgenden Tabelle sind die Bandbreitenzuordnungen für verschiedene Daten
 - Der Heartbeat-Datenverkehr (HR) erhält 1 % der restlichen 50 %-Zuordnung.
 - *= sollte Komprimierung anstelle von RDMA verwenden, wenn die Bandbreitenzuordnung für LM-Datenverkehr < 5 Gbit/s beträgt
 
-|NIC-Geschwindigkeit|Kombinierte NIC-Geschwindigkeit|SMB 50 % Reservierung|SBL/CSV %|SBL/CSV Bandbreite|LM %|LM Bandbreite|SR % |SR Bandbreite|HB %|HB Bandbreite|
+|NIC-Geschwindigkeit|Kombinierte Bandbreite|SMB 50 % Reservierung|SBL/CSV %|SBL/CSV Bandbreite|LM %|LM Bandbreite|SR % |SR Bandbreite|HB %|HB Bandbreite|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |10|20|10|70%|7|14 %*|1,4*|14 %|1.4|2 %|0.2|
 |25|50|25|70%|17,5|15 %*|3,75*|14 %|3,5|1%|0,25|
@@ -87,8 +86,8 @@ Die Anforderungen für RDMA für Azure Stack HCI lauten:
 
 In diesem Abschnitt werden spezifische Netzwerkanforderungen für Verbindungen zwischen Serverknoten an einem Standort beschrieben. Knotenverbindungen mit oder ohne Switches können verwendet werden und werden unterstützt:
 
-- **Mit Switches**: Serverknoten sind in der Regel über Ethernet-Netzwerke miteinander verbunden, die Netzwerkswitches verwenden. Die Switches müssen ordnungsgemäß konfiguriert sein, um die Bandbreite und den Netzwerktyp richtig zu verarbeiten. Wenn Sie das RDMA-Feature (Remote Direct Memory Access, Remotezugriff auf den direkten Speicher) verwenden, das das RoCE-Protokoll implementiert, ist die richtige Konfiguration von Netzwerkgerät und Switch von besonderer Bedeutung.
-- **Ohne Switches**: Serverknoten können auch über direkte Ethernet-Verbindungen ohne Switch miteinander verbunden werden. In diesem Fall muss jeder Serverknoten über eine direkte Verbindung mit jedem anderen Clusterknoten am selben Standort verfügen.
+- **Mit Switches** : Serverknoten sind in der Regel über Ethernet-Netzwerke miteinander verbunden, die Netzwerkswitches verwenden. Die Switches müssen ordnungsgemäß konfiguriert sein, um die Bandbreite und den Netzwerktyp richtig zu verarbeiten. Wenn Sie das RDMA-Feature (Remote Direct Memory Access, Remotezugriff auf den direkten Speicher) verwenden, das das RoCE-Protokoll implementiert, ist die richtige Konfiguration von Netzwerkgerät und Switch von besonderer Bedeutung.
+- **Ohne Switches** : Serverknoten können auch über direkte Ethernet-Verbindungen ohne Switch miteinander verbunden werden. In diesem Fall muss jeder Serverknoten über eine direkte Verbindung mit jedem anderen Clusterknoten am selben Standort verfügen.
 
 ### <a name="interconnects-for-2-3-node-clusters"></a>Verbindungen für Cluster mit zwei bis drei Knoten
 

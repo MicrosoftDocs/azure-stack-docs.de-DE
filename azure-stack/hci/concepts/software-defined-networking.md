@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/29/2020
-ms.openlocfilehash: e14d0475c941f568f08a027de9e71eb25f00a999
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/16/2020
+ms.openlocfilehash: 3aaee084c30dd8d6b3f6514d18951fd604bd75aa
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572652"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157664"
 ---
 # <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Software-Defined Networking (SDN) in Azure Stack HCI
 
@@ -23,6 +23,9 @@ Software-Defined Networking (SDN) ermöglicht die zentrale Konfiguration und Ver
 VNET-Elemente wie der [virtuelle Hyper-V-Switch](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch), [Hyper-V-Netzwerkvirtualisierung](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyper-v-network-virtualization), [Softwarelastenausgleich](/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn) und [RAS-Gateway](/windows-server/networking/sdn/technologies/network-function-virtualization/ras-gateway-for-sdn) wurden als integrale Elemente Ihrer SDN-Infrastruktur konzipiert. Sie können auch Ihre vorhandenen SDN-kompatiblen Geräte verwenden, um eine tiefere Integration zwischen Ihren Workloads zu erreichen, die in virtuellen Netzwerken und im physischen Netzwerk ausgeführt werden.
 
 Azure Stack HCI bietet drei SDN-Hauptkomponenten, und Sie können wählen, welche Sie bereitstellen möchten: Netzwerkcontroller, Softwarelastenausgleich und Gateway.
+
+   > [!NOTE]
+   > SDN wird für Stretched Cluster (an mehreren Standorten) nicht unterstützt.
 
 ## <a name="network-controller"></a>Netzwerkcontroller
 

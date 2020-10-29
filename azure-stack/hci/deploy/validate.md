@@ -4,13 +4,13 @@ description: Grundlegendes zur Wichtigkeit der Validierung von Clustern und dem 
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
-ms.date: 10/2/2020
-ms.openlocfilehash: 682e9063f6f04f5298e7cab4053af179e1c90cd7
-ms.sourcegitcommit: 6ed6db8e393aace41586a0fba925dc297159d45e
+ms.date: 10/16/2020
+ms.openlocfilehash: fe49df76ccb2a90849587acd5d4df7a41e329efb
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91663940"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157698"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>Überprüfen eines Azure Stack HCI-Clusters
 
@@ -31,26 +31,26 @@ Die Clustervalidierung dient dazu, Hardware- oder Konfigurationsprobleme zu erfa
 In diesem Abschnitt werden Szenarien beschrieben, in denen eine Validierung ebenfalls erforderlich oder nützlich ist.
 
 - **Validierung vor der Konfiguration des Clusters:**
-  - **Eine Gruppe von Servern, die als Failovercluster eingesetzt werden sollen**: Dies ist das einfachste Validierungsszenario. Die Hardwarekomponenten (Systeme, Netzwerke und Speicher) sind verbunden, aber die Systeme funktionieren noch nicht als Cluster. Die Ausführung von Tests in dieser Situation wirkt sich nicht auf die Verfügbarkeit aus.
+  - **Eine Gruppe von Servern, die als Failovercluster eingesetzt werden sollen** : Dies ist das einfachste Validierungsszenario. Die Hardwarekomponenten (Systeme, Netzwerke und Speicher) sind verbunden, aber die Systeme funktionieren noch nicht als Cluster. Die Ausführung von Tests in dieser Situation wirkt sich nicht auf die Verfügbarkeit aus.
  
-  - **Server-VMs**: Bei virtualisierten Servern in einem Cluster führen Sie die Clustervalidierung auf dieselbe Weise aus wie für einen neuen Cluster. Dieses Feature sollte immer ausgeführt werden, unabhängig davon, welche der folgenden Konfigurationen Sie verwenden:
+  - **Server-VMs** : Bei virtualisierten Servern in einem Cluster führen Sie die Clustervalidierung auf dieselbe Weise aus wie für einen neuen Cluster. Dieses Feature sollte immer ausgeführt werden, unabhängig davon, welche der folgenden Konfigurationen Sie verwenden:
     - Ein Hostcluster, bei dem das Failover zwischen zwei physischen Computern erfolgt.
     - Ein Gastcluster, bei dem das Failover zwischen Gastbetriebssystemen auf demselben physischen Computer erfolgt.
  
 - **Validierung nach der Konfiguration und während der Verwendung des Clusters:**
 
-  - **Vor dem Hinzufügen eines Servers zum Cluster**: Wenn Sie einen Server zu einem Cluster hinzufügen, wird dringend empfohlen, den Cluster zu validieren. Geben Sie beim Ausführen der Clustervalidierung sowohl die vorhandenen Clustermitglieder als auch den neuen Server an.
+  - **Vor dem Hinzufügen eines Servers zum Cluster** : Wenn Sie einen Server zu einem Cluster hinzufügen, wird dringend empfohlen, den Cluster zu validieren. Geben Sie beim Ausführen der Clustervalidierung sowohl die vorhandenen Clustermitglieder als auch den neuen Server an.
   
-  - **Beim Hinzufügen von Laufwerken**: Wenn Sie dem Cluster zusätzliche Laufwerke hinzufügen – dieser Vorgang unterscheidet sich vom Ersetzen fehlerhafter Laufwerke oder Erstellen von virtuellen Datenträgern oder Volumes, die auf den vorhandenen Laufwerken basieren –, führen Sie die Clustervalidierung aus, um zu bestätigen, dass der neue Speicher ordnungsgemäß funktioniert.
+  - **Beim Hinzufügen von Laufwerken** : Wenn Sie dem Cluster zusätzliche Laufwerke hinzufügen – dieser Vorgang unterscheidet sich vom Ersetzen fehlerhafter Laufwerke oder Erstellen von virtuellen Datenträgern oder Volumes, die auf den vorhandenen Laufwerken basieren –, führen Sie die Clustervalidierung aus, um zu bestätigen, dass der neue Speicher ordnungsgemäß funktioniert.
 
-  - **Beim Durchführen von Änderungen, die sich auf Firmware oder Treiber auswirken**: Wenn Sie ein Upgrade des Clusters ausführen oder Änderungen vornehmen, die sich auf die Firmware oder die Treiber auswirken, müssen Sie die Clustervalidierung ausführen, um zu bestätigen, dass die neue Kombination aus Hardware, Firmware, Treibern und Software die Failoverclusterfunktionalität unterstützt.
+  - **Beim Durchführen von Änderungen, die sich auf Firmware oder Treiber auswirken** : Wenn Sie ein Upgrade des Clusters ausführen oder Änderungen vornehmen, die sich auf die Firmware oder die Treiber auswirken, müssen Sie die Clustervalidierung ausführen, um zu bestätigen, dass die neue Kombination aus Hardware, Firmware, Treibern und Software die Failoverclusterfunktionalität unterstützt.
 
-  - **Nach dem Wiederherstellen eines Systems aus einer Sicherung**: Nachdem Sie ein System aus einer Sicherung wiederhergestellt haben, führen Sie die Clustervalidierung aus, um zu bestätigen, dass das System als Teil des Clusters ordnungsgemäß funktioniert.
+  - **Nach dem Wiederherstellen eines Systems aus einer Sicherung** : Nachdem Sie ein System aus einer Sicherung wiederhergestellt haben, führen Sie die Clustervalidierung aus, um zu bestätigen, dass das System als Teil des Clusters ordnungsgemäß funktioniert.
 
 ## <a name="validate-networking"></a>Validieren der Netzwerkfunktionen
 Das Validate-DCB-Tool von Microsoft ist für die Validierung der DCB-Konfiguration (Data Center Bridging) im Cluster konzipiert. Zu diesem Zweck verwendet das Tool eine erwartete Konfiguration als Eingabe und testet dann jeden Server im Cluster. In diesem Abschnitt wird beschrieben, wie Sie das Validate-DCB-Tool installieren und ausführen, die Ergebnisse überprüfen und vom Tool identifizierte Netzwerkfehler beheben.
 
-Im Netzwerk erfordert der Remotezugriff auf den direkten Speicher (Remote Direct Memory Access, RDMA) über konvergentes Ethernet (RDMA over Converged Ethernet, RoCE) DCB-Technologien, um das Netzwerkfabric verlustfrei zu machen. Für iWARP ist DCB zwar nicht erforderlich, wird aber dennoch empfohlen. Die Konfiguration von DCB kann jedoch sehr komplex sein und erfordert eine exakte Konfiguration in folgenden Komponenten:
+Im Netzwerk erfordert der Remotezugriff auf den direkten Speicher (Remote Direct Memory Access, RDMA) über konvergentes Ethernet (RDMA over Converged Ethernet, RoCE) DCB-Technologien, um das Netzwerkfabric verlustfrei zu machen. Bei iWARP ist DCB optional. Die Konfiguration von DCB kann jedoch sehr komplex sein und erfordert eine exakte Konfiguration in folgenden Komponenten:
 - Jeder Server im Cluster
 - Jeder Netzwerkport, den der RDMA-Datenverkehr im Fabric durchläuft
 
@@ -71,7 +71,7 @@ So installieren Sie das Validate-DCB-Tool und führen es aus:
     ```
 
 1. Akzeptieren Sie die Anforderung zur Verwendung des NuGet-Anbieters, und greifen Sie auf das Repository zu, um das Tool zu installieren.
-1. Nachdem PowerShell zum Herunterladen des Tools eine Verbindung mit dem Microsoft-Netzwerk hergestellt hat, geben Sie `Validate-DCB` ein und drücken die **EINGABETASTE**, um den Tool-Assistenten zu starten.
+1. Nachdem PowerShell zum Herunterladen des Tools eine Verbindung mit dem Microsoft-Netzwerk hergestellt hat, geben Sie `Validate-DCB` ein und drücken die **EINGABETASTE** , um den Tool-Assistenten zu starten.
 
     > [!NOTE]
     > Wenn Sie das Validate-DCB-Toolskript nicht ausführen können, müssen Sie möglicherweise die Ausführungsrichtlinien von PowerShell anpassen. Verwenden Sie das Get-ExecutionPolicy-Cmdlet, um die aktuellen Richtlinieneinstellungen für die Skriptausführung anzuzeigen. Weitere Informationen zum Einrichten von Ausführungsrichtlinien in PowerShell finden Sie unter [Informationen zu Ausführungsrichtlinien](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7).
@@ -84,7 +84,7 @@ So installieren Sie das Validate-DCB-Tool und führen es aus:
 1. Gehen Sie auf der Seite „Adapters“ folgendermaßen vor:
    1. Aktivieren Sie das Kontrollkästchen **vSwitch attached** (Angefügter virtueller Switch), und geben Sie den Namen des virtuellen Switchs ein.
    1. Geben Sie unter **Adapter Name** (Name des Adapters) den Namen jedes physischen Netzwerkadapters, unter **Host vNIC Name** (Name des virtuellen Hostnetzwerkadapters) den Namen jedes virtuellen Netzwerkadapters und unter **VLAN** die für jeden Adapter verwendete VLAN-ID ein.
-   1. Erweitern Sie das Dropdown-Listenfeld **RDMA Type** (RDMA-Typ), und wählen Sie das entsprechende Protokoll aus: **RoCE** oder **iWARP**. Legen Sie auch die **Jumbo Frames** auf den für Ihr Netzwerk geeigneten Wert fest, und klicken Sie dann auf **Next** (Weiter).
+   1. Erweitern Sie das Dropdown-Listenfeld **RDMA Type** (RDMA-Typ), und wählen Sie das entsprechende Protokoll aus: **RoCE** oder **iWARP** . Legen Sie auch die **Jumbo Frames** auf den für Ihr Netzwerk geeigneten Wert fest, und klicken Sie dann auf **Next** (Weiter).
 
     :::image type="content" source="../media/validate/adapters.png" alt-text="Die Seite „Clusters and Nodes“ (Cluster und Knoten) im Assistenten für die Validate-DCB-Konfiguration" lightbox="../media/validate/adapters.png":::
 
@@ -98,7 +98,7 @@ So installieren Sie das Validate-DCB-Tool und führen es aus:
     > [!NOTE]
     > Die Auswahl von RDMA über RoCE auf der vorherigen Seite des Assistenten erfordert DCB für die Netzwerkzuverlässigkeit in allen Netzwerkadaptern und Switchports.
 
-1. Speichern Sie die Konfigurationsdatei auf der Seite „Save and Deploy“ (Speichern und bereitstellen) im Feld **Configuration File Path** (Pfad zur Konfigurationsdatei) mit der Erweiterung „.ps1“ in einem Speicherort, von dem aus Sie die Datei bei Bedarf später erneut verwenden können. Klicken Sie dann auf **Export**, um das Validate-DCB-Tool zu starten.
+1. Speichern Sie die Konfigurationsdatei auf der Seite „Save and Deploy“ (Speichern und bereitstellen) im Feld **Configuration File Path** (Pfad zur Konfigurationsdatei) mit der Erweiterung „.ps1“ in einem Speicherort, von dem aus Sie die Datei bei Bedarf später erneut verwenden können. Klicken Sie dann auf **Export** , um das Validate-DCB-Tool zu starten.
 
    - Sie können Ihre Konfigurationsdatei optional bereitstellen, indem Sie den Abschnitt **Deploy Configuration to Nodes** (Konfiguration auf Knoten bereitstellen) auf der Seite ausfüllen. Hier können Sie ein Azure Automation-Konto angeben, um die Konfiguration bereitzustellen und dann zu validieren. Informationen zu den ersten Schritten mit Azure Automation finden Sie unter [Erstellen eines Azure Automation-Kontos](/azure/automation/automation-quickstart-create-account).
 
@@ -137,18 +137,18 @@ Weitere Informationen zum Beheben von Fehlern, die vom Validate-DCB-Tool identif
 ## <a name="validate-the-cluster"></a>Überprüfen des Clusters
 Führen Sie die folgenden Schritte aus, um die Server in einem vorhandenen Cluster in Windows Admin Center zu validieren.
 
-1. Wählen Sie in Windows Admin Center unter **Alle Verbindungen** den Azure Stack HCI-Cluster aus, den Sie validieren möchten, und klicken Sie dann auf **Verbinden**.
+1. Wählen Sie in Windows Admin Center unter **Alle Verbindungen** den Azure Stack HCI-Cluster aus, den Sie validieren möchten, und klicken Sie dann auf **Verbinden** .
 
     Das **Cluster-Manager-Dashboard** zeigt Übersichtsinformationen zum Cluster an.
 
 1. Wählen Sie auf dem **Cluster-Manager-Dashboard** unter **Tools** die Option **Server** aus.
-1. Wählen Sie auf der Seite **Bestand** die Server im Cluster aus, erweitern Sie dann das Untermenü **Mehr**, und klicken Sie auf **Cluster überprüfen**.
-1. Klicken Sie im Popupfenster **Cluster überprüfen** auf **Ja**.
+1. Wählen Sie auf der Seite **Bestand** die Server im Cluster aus, erweitern Sie dann das Untermenü **Mehr** , und klicken Sie auf **Cluster überprüfen** .
+1. Klicken Sie im Popupfenster **Cluster überprüfen** auf **Ja** .
 
     :::image type="content" source="../media/validate/validate-cluster-pop-up.png" alt-text="Die Seite „Clusters and Nodes“ (Cluster und Knoten) im Assistenten für die Validate-DCB-Konfiguration":::
 
-1. Klicken Sie im Popupfenster **Credential Security Service Provider (CredSSP)** auf **Ja**.
-1. Geben Sie Ihre Anmeldeinformationen ein, um **CredSSP** zu aktivieren, und klicken Sie dann auf **Weiter**.<br> Die Clustervalidierung wird im Hintergrund ausgeführt, und Sie erhalten eine Benachrichtigung, wenn sie abgeschlossen ist. Danach können Sie den Validierungsbericht überprüfen, wie im nächsten Abschnitt beschrieben.
+1. Klicken Sie im Popupfenster **Credential Security Service Provider (CredSSP)** auf **Ja** .
+1. Geben Sie Ihre Anmeldeinformationen ein, um **CredSSP** zu aktivieren, und klicken Sie dann auf **Weiter** .<br> Die Clustervalidierung wird im Hintergrund ausgeführt, und Sie erhalten eine Benachrichtigung, wenn sie abgeschlossen ist. Danach können Sie den Validierungsbericht überprüfen, wie im nächsten Abschnitt beschrieben.
 
 > [!NOTE]
 > Nachdem Ihre Clusterserver validiert wurden, müssen Sie CredSSP aus Sicherheitsgründen deaktivieren.
@@ -156,8 +156,8 @@ Führen Sie die folgenden Schritte aus, um die Server in einem vorhandenen Clust
 ### <a name="disable-credssp"></a>Deaktivieren von CredSSP
 Nachdem Ihr Servercluster erfolgreich validiert wurde, müssen Sie das CredSSP-Protokoll (Credential Security Support Provider) aus Sicherheitsgründen auf jedem Server deaktivieren. Weitere Informationen finden Sie unter [CVE-2018-0886](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-0886).
 
-1. Wählen Sie in Windows Admin Center unter **Alle Verbindungen** den ersten Server im Cluster aus, und klicken Sie auf **Verbinden**.
-1. Wählen Sie auf der Seite **Übersicht** die Option **CredSSP deaktivieren** aus, und klicken Sie dann im Popupfenster **CredSSP deaktivieren** auf **Ja**.
+1. Wählen Sie in Windows Admin Center unter **Alle Verbindungen** den ersten Server im Cluster aus, und klicken Sie auf **Verbinden** .
+1. Wählen Sie auf der Seite **Übersicht** die Option **CredSSP deaktivieren** aus, und klicken Sie dann im Popupfenster **CredSSP deaktivieren** auf **Ja** .
 
     Schritt 2 entfernt das rote Banner **CredSSP AKTIVIERT** oben auf der Seite **Übersicht** des Servers und deaktiviert CredSSP auf den anderen Servern.
 
@@ -165,11 +165,11 @@ Nachdem Ihr Servercluster erfolgreich validiert wurde, müssen Sie das CredSSP-P
 Jetzt können Sie den Validierungsbericht für Ihren Cluster anzeigen.
 
 Es gibt verschiedene Möglichkeiten, auf die Validierungsberichte zuzugreifen:
-- Erweitern Sie auf der Seite **Bestand** das Untermenü **Mehr**, und wählen Sie **Validierungsberichte anzeigen** aus.
+- Erweitern Sie auf der Seite **Bestand** das Untermenü **Mehr** , und wählen Sie **Validierungsberichte anzeigen** aus.
 
 
 - Wählen Sie in **Windows Admin Center** oben rechts das Glockensymbol **Benachrichtigungen** aus, um den Bereich **Benachrichtigungen** anzuzeigen.
-Wählen Sie den Hinweis **Erfolgreich validierte Cluster** aus, und klicken Sie dann auf **Zum Validierungsbericht für Failovercluster wechseln**.
+Wählen Sie den Hinweis **Erfolgreich validierte Cluster** aus, und klicken Sie dann auf **Zum Validierungsbericht für Failovercluster wechseln** .
 
 > [!NOTE]
 > Der Validierungsprozess für den Servercluster kann einige Zeit in Anspruch nehmen. Wechseln Sie während der Ausführung des Prozesses nicht zu einem anderen Tool in Windows Admin Center. Im Bereich **Benachrichtigungen** zeigt eine Statusleiste unter dem Hinweis **Cluster validieren** an, wenn der Prozess beendet ist.

@@ -6,19 +6,19 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/04/2020
-ms.openlocfilehash: 84d5292c3f812402027b310954a021752276a799
-ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
+ms.date: 10/16/2020
+ms.openlocfilehash: 47bfa8c656a2581c9dc125b1bd99379b9012e448
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2020
-ms.locfileid: "89493800"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157630"
 ---
 # <a name="use-the-csv-in-memory-read-cache-with-azure-stack-hci"></a>Verwenden des CSV-In-Memory-Lesecaches mit Azure Stack HCI
 
 > Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-In diesem Thema wird beschrieben, wie Sie den Arbeitsspeicher des Systems einsetzen, um die Leistung von Azure Stack HCI zu steigern.
+In diesem Thema wird beschrieben, wie Sie den Arbeitsspeicher des Systems einsetzen, um die Leistung von Azure Stack HCI durch das Zwischenspeichern häufiger Lesevorgänge zu steigern. Schreibvorgänge können nicht im Arbeitsspeicher zwischengespeichert werden.
 
 Azure Stack HCI ist mit dem CSV-In-Memory-Lesecache (Cluster Shared Volume, Freigegebenes Clustervolume) kompatibel. Der Einsatz des Arbeitsspeichers des Systems zum Zwischenspeichern von Lesevorgängen kann die Leistung von Anwendungen wie Hyper-V verbessern, die ungepufferte E/A-Vorgänge für den Zugriff auf VHD- oder VHDX-Dateien verwenden. (Nicht gepufferte E/A-Vorgänge sind Vorgänge, die nicht vom Windows-Cache-Manager zwischengespeichert werden.)
 
@@ -44,6 +44,8 @@ Der CSV-In-Memory-Lesecache ist in Azure Stack HCI, Windows Server 2019 und Win
 | Azure Stack HCI     | 1 GiB                  |
 | Windows Server 2019 | 1 GiB                  |
 | Windows Server 2016 | 0 (deaktiviert)           |
+
+Um den Cache mithilfe des Windows Admin Centers zu konfigurieren, wählen Sie ganz unten im Menü **Extras** auf der linken Seite **Einstellungen** aus. Wechseln Sie dann zu **Speicher > In-Memory-Cache** . Sie aktivieren bzw. deaktivieren den Cache über ein Kontrollkästchen. Außerdem können Sie den maximalen Arbeitsspeicher pro Server angeben, der dem Cache zugeordnet werden soll. Klicken Sie unbedingt nach Abschluss Ihrer Änderungen unten auf der Seite auf **Speichern** .
 
 Um mit PowerShell festzustellen, wie viel Arbeitsspeicher zugeteilt ist, führen Sie Folgendes aus:
 

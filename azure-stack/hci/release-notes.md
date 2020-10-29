@@ -6,19 +6,60 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/13/2020
-ms.openlocfilehash: 2432a7fb28ba65f08b0540113ec5d3f90f742509
-ms.sourcegitcommit: 64060ff02d2450c6cf91cb21cdefdcf6b720a75f
+ms.date: 10/20/2020
+ms.openlocfilehash: 6d480f1229fb0c38cb3241c4a9de5bc53eadf87c
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92009835"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92254011"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Versionshinweise für die Public Preview von Azure Stack HCI
 
 > Gilt für: Azure Stack HCI, Version 20H2
 
 In diesem Artikel werden die Inhalte der Updatepakete für die Public Preview von Azure Stack HCI beschrieben.
+
+## <a name="october-20-2020-preview-update-kb4580388"></a>Update der Vorschauversion vom 20. Oktober 2020 (KB4580388)
+
+Dieses Update enthält Verbesserungen und Fehlerbehebungen für das neueste Release von Azure Stack HCI.
+
+### <a name="improvements-and-fixes"></a>Verbesserungen und Fehlerbehebungen
+Dieses Nicht-Sicherheitsupdate umfasst Qualitätsverbesserungen. Zu den wichtigsten Änderungen gehören:
+
+- Mit diesem Update können Azure Stack HCI-Kunden mit gültigen Lizenzen für Windows Server 2019 Datacenter Edition diese verwenden, um in Azure Stack HCI gehostete virtuelle Computer (VMs) ganz einfach zu aktivieren, ohne die Product Keys für die einzelnen virtuellen Computer verwalten zu müssen.
+
+### <a name="known-issues-in-this-update"></a>Bekannte Probleme in diesem Update
+
+Microsoft ist ein Problem bei diesem Update bekannt.
+
+#### <a name="symptom"></a>Symptom
+Wenn Sie die Livemigration zum Verschieben einer VM zwischen Windows Server und Azure Stack HCI-Betriebssystemen verwenden, wird möglicherweise der folgende Fehler angezeigt: „Ein Migrationsvorgang für den virtuellen Computer <vmname> wurde blockiert, da die VM-Migration zwischen unterschiedlichen Windows-Editionen nicht unterstützt wird (ID des virtuellen Computers).“
+
+Dies kann auch zu einem Fehler bei einer clusterfähigen Aktualisierung (Cluster Aware Update, CAU) führen, wenn einer der virtuellen Computer während der clusterfähigen Aktualisierung eine Livemigration ausführen soll.
+
+#### <a name="workaround"></a>Problemumgehung
+
+Verwenden Sie anstelle der Livemigration die Schnellmigration. Wenn Sie CAU verwenden, ändern Sie das Standardverhalten zeitweilig, damit beim CAU die Schnellmigration verwendet wird.
+
+Beispiel:
+
+```powershell
+Get-ClusterResourceType "Virtual Machine" | Set-ClusterParameter MoveTypeThreshold 3001
+```
+
+Es wird empfohlen, nach einem erfolgreichen Abschluss des CAU wieder den vorherigen `MoveTypeThreshold`-Wert festzulegen.
+
+Weitere Informationen finden Sie unter [Configuring How VMs Are Moved when a Node is Drained](https://techcommunity.microsoft.com/t5/failover-clustering/configuring-how-vms-are-moved-when-a-node-is-drained/ba-p/371848) (Konfigurieren der Verschiebung von VMs nach dem Entfernen eines Knotens).
+
+### <a name="how-to-get-this-update"></a>Beziehen dieses Updates
+Das Sicherheitsupdate vom 20. Oktober 2020 (KB4580388) für [Azure Stack HCI (Vorschauversion)](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) wird über Windows Update bereitgestellt. Informationen zur Installation in Ihrem Azure Stack HCI-Cluster finden Sie unter [Aktualisieren von Azure Stack HCI-Clustern](manage/update-cluster.md).
+
+### <a name="file-information"></a>Dateiinformationen
+Eine Liste der im Rahmen dieses Updates (Betriebssystembuild 17784.1321) bereitgestellten Dateien erhalten Sie durch Herunterladen der [Dateiinformationen für das kumulative Update 4580388](https://download.microsoft.com/download/2/f/b/2fb766d3-c4c8-4279-8718-8efbd0b6f211/4580388.csv).
+
+   > [!NOTE]
+   > Einige Dateien sind in der Dateiversionsspalte der CSV-Datei fälschlicherweise mit „Not applicable“ (Nicht zutreffend) gekennzeichnet. Dies kann bei der Überprüfung des Builds durch ein Drittanbietertool zu falsch positiven oder falsch negativen Ergebnissen führen.
 
 ## <a name="october-13-2020-security-update-kb4580363"></a>13. Oktober 2020 Sicherheitsupdate (KB4580363)
 

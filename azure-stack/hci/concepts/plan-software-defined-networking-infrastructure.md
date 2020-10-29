@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
-ms.date: 09/11/2020
-ms.openlocfilehash: 986aba8f7591239abfa5502dc2c335177df2eed1
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.date: 10/16/2020
+ms.openlocfilehash: 6df469fcc6997b1f56a552bc141692c7a8a49808
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899532"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157681"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Planen einer softwaredefinierten Netzwerkinfrastruktur
 
@@ -20,15 +20,18 @@ ms.locfileid: "91899532"
 
 Erfahren Sie mehr über die Bereitstellungsplanung für eine softwaredefinierte Netzwerkinfrastruktur (SDN), einschließlich der Hardware- und Softwarevoraussetzungen. Dieses Thema enthält Planungsanforderungen für die physische und logische Netzwerkkonfiguration, für Routing, Gateways, Netzwerkhardware usw. Es umfasst außerdem Aspekte der Erweiterung einer SDN-Infrastruktur und der Verwendung einer stufenweisen Bereitstellung.
 
+   > [!NOTE]
+   > SDN wird für Stretched Cluster (an mehreren Standorten) nicht unterstützt.
+
 ## <a name="prerequisites"></a>Voraussetzungen
 Es gibt verschiedene Hardware- und Softwarevoraussetzungen für eine SDN-Infrastruktur, einschließlich:
-- **Sicherheitsgruppen und dynamische DNS-Registrierung**. Sie müssen Ihr Rechenzentrum für die Bereitstellung des Netzwerkcontrollers vorbereiten, wofür eine Reihe von virtuellen Computern (Virtual Machines, VMS) erforderlich ist. Bevor Sie den Netzwerkcontroller bereitstellen können, müssen Sie Sicherheitsgruppen und die dynamische DNS-Registrierung konfigurieren.
+- **Sicherheitsgruppen und dynamische DNS-Registrierung** . Sie müssen Ihr Rechenzentrum für die Bereitstellung des Netzwerkcontrollers vorbereiten, wofür eine Reihe von virtuellen Computern (Virtual Machines, VMS) erforderlich ist. Bevor Sie den Netzwerkcontroller bereitstellen können, müssen Sie Sicherheitsgruppen und die dynamische DNS-Registrierung konfigurieren.
 
     Weitere Informationen zur Bereitstellung von Netzwerkcontrollern für Ihr Rechenzentrum finden Sie unter [Anforderungen für die Bereitstellung von Netzwerkcontrollern](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller).
 
-- **Physisches Netzwerk**. Sie benötigen Zugriff auf ihre physischen Netzwerkgeräte, um virtuelle lokale Netzwerke (Virtual Local Area Networks, VLANs), Routing und das Border Gateway Protocol (BGP) zu konfigurieren. Dieses Thema bietet Anweisungen für die manuelle Switchkonfiguration sowie Optionen zur Verwendung von entweder BGP-Peering auf Layer-3-Switches/-Routern oder einer RRAS-VM (Routing and Remote Access Server).
+- **Physisches Netzwerk** . Sie benötigen Zugriff auf ihre physischen Netzwerkgeräte, um virtuelle lokale Netzwerke (Virtual Local Area Networks, VLANs), Routing und das Border Gateway Protocol (BGP) zu konfigurieren. Dieses Thema bietet Anweisungen für die manuelle Switchkonfiguration sowie Optionen zur Verwendung von entweder BGP-Peering auf Layer-3-Switches/-Routern oder einer RRAS-VM (Routing and Remote Access Server).
 
-- **Physischer Compute-Hosts**. Diese Hosts führen Hyper-V aus und sind erforderlich, um eine SDN-Infrastruktur und Mandanten-VMs zu hosten. Für optimale Leistung erfordern diese Hosts spezifische Netzwerkhardware, wie im Abschnitt [Netzwerkhardware](#network-hardware) beschrieben.
+- **Physischer Compute-Hosts** . Diese Hosts führen Hyper-V aus und sind erforderlich, um eine SDN-Infrastruktur und Mandanten-VMs zu hosten. Für optimale Leistung erfordern diese Hosts spezifische Netzwerkhardware, wie im Abschnitt [Netzwerkhardware](#network-hardware) beschrieben.
 
 ## <a name="physical-and-logical-network-configuration"></a>Physische und logische Netzwerkkonfiguration
 Jeder physische Computehost erfordert eine Netzwerkverbindung über mindestens einen Netzwerkadapter, der mit einem physischen Switchport verbunden ist. Ein Layer-2-[VLAN](https://en.wikipedia.org/wiki/Virtual_LAN) unterstützt Netzwerke, die in mehrere logische Netzwerksegmente aufgeteilt sind.

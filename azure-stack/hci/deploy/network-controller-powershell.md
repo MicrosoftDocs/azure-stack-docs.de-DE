@@ -3,24 +3,26 @@ title: Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell
 description: Hier erfahren Sie, wie Sie den Netzwerkcontroller mithilfe von Windows PowerShell bereitstellen.
 author: v-dasis
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/16/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e217c8b3e2a67dafa121fe752b66af9f24f888a1
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: e53206ae6ae5039d00cbe4bf82b6fb5b773a5270
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899549"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157647"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell
 
 > Gilt für die Azure Stack HCI (Version 20H2) und für Windows Server 2019
 
-In diesem Thema erfahren Sie, wie Sie den Netzwerkcontroller mithilfe von Windows PowerShell auf mindestens einem virtuellen Computer (virtual machine, VM) bereitstellen, der in einem Azure Stack HCI-Cluster ausgeführt wird. Der Netzwerkcontroller ist eine Komponente des softwaredefinierten Netzwerks (SDN).
+In diesem Thema erfahren Sie, wie Sie das Netzwerkcontrollerfeature mithilfe von Windows PowerShell auf mindestens einem virtuellen Computer (Virtual Machine, VM) bereitstellen, der in einem Azure Stack HCI-Cluster ausgeführt wird. Der Netzwerkcontroller ist eine Komponente des softwaredefinierten Netzwerks (SDN).
 
->[!NOTE]
->Sie können den Netzwerkcontroller auch mithilfe des Assistenten zum Erstellen von Clustern in Windows Admin Center bereitstellen. Weitere Informationen finden Sie unter [Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows Admin Center](create-cluster.md).
+Sie können den Netzwerkcontroller auch mithilfe des Assistenten zum Erstellen von Clustern in Windows Admin Center bereitstellen. Weitere Informationen finden Sie unter [Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows Admin Center](create-cluster.md).
+
+> [!NOTE]
+> SDN wird für Stretched Cluster nicht unterstützt und ist für diese nicht verfügbar.
 
 ## <a name="using-windows-powershell"></a>Verwenden von Windows PowerShell
 
@@ -95,7 +97,7 @@ In der folgenden Tabelle werden die einzelnen Parameter des Befehls `Install-Net
   
 |Parameter|BESCHREIBUNG|
 |-------------|---------------|
-|ClusterAuthentication|Der Parameter **ClusterAuthentication** gibt den Authentifizierungstyp an, der zum Schutz der Kommunikation zwischen Knoten sowie für die Verschlüsselung von Datenverkehr zwischen den Netzwerkcontrollerdiensten verwendet wird. Unterstützte Werte sind **Kerberos**, **X509** und **Keine**. Bei der Kerberos-Authentifizierung werden Domänenkonten verwendet. Sie kann daher nur genutzt werden, wenn die Netzwerkcontrollerknoten einer Domäne angehören. Bei Verwendung der X509-basierten Authentifizierung muss ein Zertifikat im NetworkControllerNode-Objekt bereitgestellt werden. Darüber hinaus muss das Zertifikat vor dem Ausführen dieses Befehls manuell bereitgestellt werden.|
+|ClusterAuthentication|Der Parameter **ClusterAuthentication** gibt den Authentifizierungstyp an, der zum Schutz der Kommunikation zwischen Knoten sowie für die Verschlüsselung von Datenverkehr zwischen den Netzwerkcontrollerdiensten verwendet wird. Unterstützte Werte sind **Kerberos** , **X509** und **Keine** . Bei der Kerberos-Authentifizierung werden Domänenkonten verwendet. Sie kann daher nur genutzt werden, wenn die Netzwerkcontrollerknoten einer Domäne angehören. Bei Verwendung der X509-basierten Authentifizierung muss ein Zertifikat im NetworkControllerNode-Objekt bereitgestellt werden. Darüber hinaus muss das Zertifikat vor dem Ausführen dieses Befehls manuell bereitgestellt werden.|
 |ManagementSecurityGroup|Der Parameter **ManagementSecurityGroup** gibt den Namen der Sicherheitsgruppe mit Benutzern an, die berechtigt sind, die Verwaltungs-Cmdlets über einen Remotecomputer auszuführen. Dies ist nur relevant, wenn die Clusterauthentifizierung auf „Kerberos“ festgelegt ist. Geben Sie keine Sicherheitsgruppe auf dem lokalen Computer, sondern eine Domänensicherheitsgruppe an.|
 |Node|Der Parameter **Node** gibt die Liste der Netzwerkcontrollerknoten an, die Sie mithilfe des Befehls **New-NetworkControllerNodeObject** erstellt haben.|
 |DiagnosticLogLocation|Der Parameter **DiagnosticLogLocation** gibt den Freigabespeicherort an, an den die Diagnoseprotokolle in regelmäßigen Abständen hochgeladen werden. Wenn Sie für diesen Parameter keinen Wert angeben, werden die Protokolle lokal auf dem jeweiligen Knoten gespeichert. Protokolle werden lokal im Ordner „%systemdrive%\Windows\tracing\SDNDiagnostics“ gespeichert. Clusterprotokolle werden lokal im Ordner „%systemdrive%\ProgramData\Microsoft\Service Fabric\log\Traces“ gespeichert.|
@@ -120,7 +122,7 @@ In der folgenden Tabelle werden die einzelnen Parameter des Befehls `Install-Net
 
 |Parameter|BESCHREIBUNG|
 |-------------|---------------|
-|ClientAuthentication|Der Parameter **ClientAuthentication** gibt den Authentifizierungstyp an, der zum Schutz der Kommunikation zwischen REST und Netzwerkcontroller verwendet wird. Unterstützte Werte sind **Kerberos**, **X509** und **Keine**. Bei der Kerberos-Authentifizierung werden Domänenkonten verwendet. Sie kann daher nur genutzt werden, wenn die Netzwerkcontrollerknoten einer Domäne angehören. Bei Verwendung der X509-basierten Authentifizierung muss ein Zertifikat im NetworkControllerNode-Objekt bereitgestellt werden. Darüber hinaus muss das Zertifikat vor dem Ausführen dieses Befehls manuell bereitgestellt werden.|
+|ClientAuthentication|Der Parameter **ClientAuthentication** gibt den Authentifizierungstyp an, der zum Schutz der Kommunikation zwischen REST und Netzwerkcontroller verwendet wird. Unterstützte Werte sind **Kerberos** , **X509** und **Keine** . Bei der Kerberos-Authentifizierung werden Domänenkonten verwendet. Sie kann daher nur genutzt werden, wenn die Netzwerkcontrollerknoten einer Domäne angehören. Bei Verwendung der X509-basierten Authentifizierung muss ein Zertifikat im NetworkControllerNode-Objekt bereitgestellt werden. Darüber hinaus muss das Zertifikat vor dem Ausführen dieses Befehls manuell bereitgestellt werden.|
 |Node|Der Parameter **Node** gibt die Liste der Netzwerkcontrollerknoten an, die Sie mithilfe des Befehls **New-NetworkControllerNodeObject** erstellt haben.|
 |ClientCertificateThumbprint|Dieser Parameter ist nur erforderlich, wenn für Netzwerkcontrollerclients die zertifikatbasierte Authentifizierung verwendet wird. Der Parameter **ClientCertificateThumbprint** gibt den Fingerabdruck des Zertifikats an, das für Clients auf der Northbound-Ebene registriert ist.|
 |ServerCertificate|Der Parameter **ServerCertificate** gibt das Zertifikat an, das vom Netzwerkcontroller verwendet wird, um gegenüber Clients die eigene Identität nachzuweisen. Das Serverzertifikat muss den Zweck der Serverauthentifizierung in Erweiterungen für die erweiterte Schlüsselverwendung enthalten und für den Netzwerkcontroller von einer Zertifizierungsstelle ausgegeben werden, die von Clients als vertrauenswürdig eingestuft wird.|
@@ -199,7 +201,7 @@ Die folgende Tabelle enthält die Syntax für PowerShell-Befehle, die Sie für d
 |Aktivieren eines Knotens des Netzwerkcontrollerclusters|Enable-NetworkControllerNode|`Enable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
 |Entfernen eines Netzwerkcontrollerknotens aus einem Cluster|Remove-NetworkControllerNode|`Remove-NetworkControllerNode [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-Force] [-Name <String> ] [-PassThru] [-UseSsl]`
 
-Weitere Informationen finden Sie in der Windows PowerShell-Referenzdokumentation für den Netzwerkcontroller unter [NetworkController](/powershell/module/networkcontroller/?view=win10-ps).
+Weitere Informationen finden Sie in der Windows PowerShell-Referenzdokumentation für den Netzwerkcontroller unter [NetworkController](/powershell/module/networkcontroller).
 
 ## <a name="sample-network-controller-configuration-script"></a>Beispielkonfigurationsskript für den Netzwerkcontroller
 

@@ -3,15 +3,15 @@ title: Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows Admin Cente
 description: Hier erfahren Sie, wie Sie mithilfe von Windows Admin Center einen Servercluster für Azure Stack HCI erstellen.
 author: v-dasis
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 10/17/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 992b06b652dbac306570e0f58e274cec7735d14a
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 927a57097eff9890dc8c546be9914e70dad5ec3c
+ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572686"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92179525"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows Admin Center
 
@@ -46,14 +46,14 @@ Dies sind die wichtigsten Schritte im Clustererstellungs-Assistenten:
 
 1. **Get Started** (Erste Schritte): Stellt sicher, dass jeder Server die Voraussetzungen erfüllt und die Funktionen besitzt, die für den Beitritt zum Cluster erforderlich sind.
 1. **Networking** (Netzwerk): Weist Netzwerkadapter zu, konfiguriert diese und erstellt die virtuellen Switches für jeden Server.
-1. **Clustering**: Überprüft, ob der Cluster ordnungsgemäß eingerichtet ist. Richtet bei Stretchingclustern außerdem die zwei Standorte ein.
+1. **Clustering** : Überprüft, ob der Cluster ordnungsgemäß eingerichtet ist. Richtet bei Stretchingclustern außerdem die zwei Standorte ein.
 1. **Storage** (Speicher): Konfiguriert Direkte Speicherplätze.
 
 Nach dem Abschluss des Assistenten richten Sie den Clusterzeugen ein, registrieren sich bei Azure und erstellen Volumes (wodurch auch die Replikation zwischen Standorten eingerichtet wird, wenn Sie einen Stretchingcluster erstellen).
 
 OK, fangen wir an:
 
-1. Klicken Sie in Windows Admin Center unter **Alle Verbindungen** auf **Hinzufügen**.
+1. Klicken Sie in Windows Admin Center unter **Alle Verbindungen** auf **Hinzufügen** .
 1. Wählen Sie im Bereich **Ressourcen hinzufügen** unter **Windows Server-Cluster** **Neuen erstellen** aus.
 1. Wählen Sie unter **Clustertyp auswählen** die Option **Azure Stack HCI** aus.
 
@@ -64,7 +64,7 @@ OK, fangen wir an:
     - **Alle Server an einem Standort**
     - **Server an zwei Standorten** (für Stretchingcluster)
 
-1. Klicken Sie auf **Erstellen**, wenn Sie fertig sind. Jetzt wird der Clustererstellungs-Assistent angezeigt, wie unten dargestellt.
+1. Klicken Sie auf **Erstellen** , wenn Sie fertig sind. Jetzt wird der Clustererstellungs-Assistent angezeigt, wie unten dargestellt.
 
     :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="Clustererstellungs-Assistent: HCI-Option" lightbox="media/cluster/create-cluster-wizard.png":::
 
@@ -72,12 +72,12 @@ OK, fangen wir an:
 
 In Schritt 1 des Assistenten werden Sie durch die Überprüfung der Voraussetzungen, das Hinzufügen der Serverknoten, das Installieren der erforderlichen Features und bei Bedarf den Neustart der einzelnen Server geführt.
 
-1. Überprüfen Sie die im Assistenten aufgeführten Voraussetzungen, um sicherzustellen, dass jeder Serverknoten clusterfähig ist. Klicken Sie abschließend auf **Weiter**.
-1. Geben Sie auf der Seite **Add servers to the cluster** (Hinzufügen von Servern zum Cluster) den Benutzernamen und das Kennwort Ihres Kontos ein, und klicken Sie dann auf **Weiter**. Bei dem Konto muss es sich um ein Mitglied der lokalen Gruppe „Administratoren“ auf jedem Server handeln.
-1. Geben Sie den Namen des ersten hinzuzufügenden Servers ein, und klicken Sie dann auf **Hinzufügen**.
-1. Wiederholen Sie Schritt 3 für jeden Server, der Teil des Clusters sein soll. Klicken Sie abschließend auf **Weiter**.
-1. Geben Sie bei Bedarf auf der Seite **Join the servers to a domain** (Hinzufügen der Server zu einer Domäne) die Domäne und ein Konto an, um die Server zur Domäne hinzuzufügen. Geben Sie den Servern optional aussagekräftigere Namen, und klicken Sie auf **Weiter**.
-1. Klicken Sie auf **Install Features** (Features installieren). Klicken Sie abschließend auf **Weiter**.
+1. Überprüfen Sie die im Assistenten aufgeführten Voraussetzungen, um sicherzustellen, dass jeder Serverknoten clusterfähig ist. Klicken Sie abschließend auf **Weiter** .
+1. Geben Sie auf der Seite **Add servers to the cluster** (Hinzufügen von Servern zum Cluster) den Benutzernamen und das Kennwort Ihres Kontos ein, und klicken Sie dann auf **Weiter** . Bei dem Konto muss es sich um ein Mitglied der lokalen Gruppe „Administratoren“ auf jedem Server handeln.
+1. Geben Sie den Namen des ersten hinzuzufügenden Servers ein, und klicken Sie dann auf **Hinzufügen** .
+1. Wiederholen Sie Schritt 3 für jeden Server, der Teil des Clusters sein soll. Klicken Sie abschließend auf **Weiter** .
+1. Geben Sie bei Bedarf auf der Seite **Join the servers to a domain** (Hinzufügen der Server zu einer Domäne) die Domäne und ein Konto an, um die Server zur Domäne hinzuzufügen. Geben Sie den Servern optional aussagekräftigere Namen, und klicken Sie auf **Weiter** .
+1. Klicken Sie auf **Install Features** (Features installieren). Klicken Sie abschließend auf **Weiter** .
 
     Der Assistent installiert die folgenden erforderlichen Features:
 
@@ -90,9 +90,9 @@ In Schritt 1 des Assistenten werden Sie durch die Überprüfung der Voraussetzu
     - RSAT-AD-PowerShell-Modul
     - Speicherreplikation (wird nur für Stretchingcluster installiert)
 
-1. Klicken Sie unter **Updates installieren** gegebenenfalls auf **Updates installieren**. Klicken Sie auf **Weiter**, wenn Sie fertig sind.
-1. Klicken Sie unter **Lösungsupdates** gegebenenfalls auf **Erweiterung installieren**. Klicken Sie auf **Weiter**, wenn Sie fertig sind.
-1. Klicken Sie bei Bedarf auf **Server neu starten**. Überzeugen Sie sich, dass jeder Server erfolgreich gestartet wurde.
+1. Klicken Sie unter **Updates installieren** gegebenenfalls auf **Updates installieren** . Klicken Sie auf **Weiter** , wenn Sie fertig sind.
+1. Klicken Sie unter **Lösungsupdates** gegebenenfalls auf **Erweiterung installieren** . Klicken Sie auf **Weiter** , wenn Sie fertig sind.
+1. Klicken Sie bei Bedarf auf **Server neu starten** . Überzeugen Sie sich, dass jeder Server erfolgreich gestartet wurde.
 
 ## <a name="step-2-networking"></a>Schritt 2: Netzwerk
 
@@ -108,27 +108,27 @@ Schritt 2 des Assistenten führt Sie durch die Konfiguration von virtuellen Swit
 
     Für Verwaltungsadapter gibt es zwei Konfigurationsoptionen:
 
-    - **Ein physischer Netzwerkadapter für die Verwaltung**. Für diese Option werden sowohl DHCP als auch die Zuweisung statischer IP-Adressen unterstützt.
+    - **Ein physischer Netzwerkadapter für die Verwaltung** . Für diese Option werden sowohl DHCP als auch die Zuweisung statischer IP-Adressen unterstützt.
 
-    - **Zwei physische Netzwerkadapter zur gemeinsamen Verwaltung**. Wenn zwei Adapter kombiniert werden, wird nur die Zuweisung statischer IP-Adressen unterstützt. Wenn die ausgewählten Adapter die DHCP-Adressierung verwenden (für einen oder beide Adapter), wird die DHCP-IP-Adresse vor der Erstellung des virtuellen Switches in statische IP-Adressen konvertiert.
+    - **Zwei physische Netzwerkadapter zur gemeinsamen Verwaltung** . Wenn zwei Adapter kombiniert werden, wird nur die Zuweisung statischer IP-Adressen unterstützt. Wenn die ausgewählten Adapter die DHCP-Adressierung verwenden (für einen oder beide Adapter), wird die DHCP-IP-Adresse vor der Erstellung des virtuellen Switches in statische IP-Adressen konvertiert.
 
     Bei der Verwendung kombinierter Adapter haben Sie eine einzelne Verbindung mit mehreren Switches, verwenden aber nur eine einzelne IP-Adresse. Damit wird Lastenausgleich verfügbar, und es wird sofortige Fehlertoleranz erreicht, statt die Aktualisierung von DNS-Einträgen abwarten zu müssen.
 
     Führen Sie nun für jeden Server die folgenden Schritte aus:
 
-    - Aktivieren Sie das Kontrollkästchen **Beschreibung**. Beachten Sie, dass alle Adapter ausgewählt sind und der Assistent Ihnen möglicherweise eine Empfehlung vorschlägt.
+    - Aktivieren Sie das Kontrollkästchen **Beschreibung** . Beachten Sie, dass alle Adapter ausgewählt sind und der Assistent Ihnen möglicherweise eine Empfehlung vorschlägt.
     - Deaktivieren Sie die Kontrollkästchen der Adapter, die Sie nicht für die Clusterverwaltung verwenden möchten.
 
     > [!NOTE]
     > Sie können 1 GBit-Adapter als Verwaltungsadapter verwenden, wir empfehlen aber, Adapter mit 10 GBit oder mehr für die Abwicklung des Speicher- und Workloadverkehrs (der VMs) zu verwenden.
 
 1. Wenn die Änderungen vorgenommen wurden, klicken Sie auf **Apply and test** (Übernehmen und testen).
-1. Vergewissern Sie sich unter **Netzwerke definieren**, dass jeder Netzwerkadapter für jeden Server über eine eindeutige statische IP-Adresse, eine Subnetzmaske und eine VLAN-ID verfügt. Zeigen Sie mit der Maus auf jedes Tabellenelement, und geben Sie bei Bedarf Werte ein bzw. ändern Sie diese. Wenn Sie den Vorgang abgeschlossen haben, klicken Sie auf **Apply and test** (Übernehmen und testen).
+1. Vergewissern Sie sich unter **Netzwerke definieren** , dass jeder Netzwerkadapter für jeden Server über eine eindeutige statische IP-Adresse, eine Subnetzmaske und eine VLAN-ID verfügt. Zeigen Sie mit der Maus auf jedes Tabellenelement, und geben Sie bei Bedarf Werte ein bzw. ändern Sie diese. Wenn Sie den Vorgang abgeschlossen haben, klicken Sie auf **Apply and test** (Übernehmen und testen).
 
     > [!NOTE]
     > Um die VLAN-ID-Konfiguration für den Cluster zu unterstützen, müssen alle Netzwerkkarten auf allen Servern die VLANID-Eigenschaft unterstützen.
 
-1. Warten Sie, bis in der Spalte **Status** für jeden Server **Passed** (Bestanden) angezeigt wird, und klicken Sie dann auf **Weiter**. In diesem Schritt wird die Netzwerkverbindung zwischen allen Adaptern mit dem gleichen Subnetz und der gleichen VLAN-ID überprüft. Die angegebenen IP-Adressen werden vom physischen Adapter auf die virtuellen Adapter übertragen, sobald die Erstellung der virtuellen Switches im nächsten Schritt abgeschlossen ist. Der Vorgang kann mehrere Minuten in Anspruch nehmen, abhängig von der Anzahl der konfigurierten Adapter.
+1. Warten Sie, bis in der Spalte **Status** für jeden Server **Passed** (Bestanden) angezeigt wird, und klicken Sie dann auf **Weiter** . In diesem Schritt wird die Netzwerkverbindung zwischen allen Adaptern mit dem gleichen Subnetz und der gleichen VLAN-ID überprüft. Die angegebenen IP-Adressen werden vom physischen Adapter auf die virtuellen Adapter übertragen, sobald die Erstellung der virtuellen Switches im nächsten Schritt abgeschlossen ist. Der Vorgang kann mehrere Minuten in Anspruch nehmen, abhängig von der Anzahl der konfigurierten Adapter.
 
 1. Wählen Sie unter **Virtueller Switch** fallweise eine der folgenden Optionen aus. Je nach Anzahl von Adaptern werden möglicherweise nicht alle Optionen angezeigt:
 
@@ -154,7 +154,7 @@ Schritt 2 des Assistenten führt Sie durch die Konfiguration von virtuellen Swit
 
 In Schritt 3 des Assistenten wird überprüft, ob bisher alles ordnungsgemäß eingerichtet wurde, und im Fall von Stretchingcluster-Bereitstellungen werden automatisch zwei Standorte eingerichtet. Anschließend wird der Cluster erstellt. Sie können die Standorte auch vorab in Active Directory einrichten.
 
-1. Klicken Sie auf **Weiter: Clustering**.
+1. Klicken Sie auf **Weiter: Clustering** .
 1. Klicken Sie unter **Validate the cluster** (Cluster überprüfen) auf **Validate** (Überprüfen). Die Überprüfung kann einige Minuten dauern.
 
     Wenn das **Credential Security Service Provider (CredSSP)** -Popup angezeigt wird, wählen Sie **Ja** aus, um CredSSP vorübergehend zu aktivieren, damit der Assistent fortgesetzt werden kann. Nachdem der Cluster erstellt wurde und der Assistent abgeschlossen ist, deaktivieren Sie CredSSP, um die Sicherheit zu erhöhen. Falls Sie Probleme mit CredSSP haben, finden Sie unter [Problembehandlung für CredSSP](../manage/troubleshoot-credssp.md) weitere Informationen.
@@ -173,13 +173,13 @@ In Schritt 3 des Assistenten wird überprüft, ob bisher alles ordnungsgemäß 
 
 In Schritt 4 des Assistenten werden Sie durch das Einrichten von Direkte Speicherplätze für Ihren Cluster geführt.
 
-1. Klicken Sie auf **Weiter: Speicher**.
-1. Klicken Sie unter **Verify drives** (Laufwerke überprüfen) auf das Symbol **>** neben jedem Server, um zu überprüfen, ob die Datenträger funktionieren und verbunden sind, und klicken Sie dann auf **Weiter**.
-1. Klicken Sie unter **Clean drives** (Laufwerke bereinigen) auf **Clean drives**, um die Laufwerke von Daten zu leeren. Wenn Sie fertig sind, klicken Sie auf **Weiter**.
-1. Klicken Sie unter **Validate storage** (Speicher überprüfen) auf **Weiter**.
-1. Überprüfen Sie die Validierungsergebnisse. Wenn alles in Ordnung ist, klicken Sie auf **Weiter**.
-1. Klicken Sie unter **Enable Storage Spaces Direct** (Direkte Speicherplätze aktivieren) auf **Aktivieren**.
-1. Laden Sie den Bericht herunter, und überprüfen Sie ihn. Wenn alles in Ordnung ist, klicken Sie auf **Fertigstellen**.
+1. Klicken Sie auf **Weiter: Speicher** .
+1. Klicken Sie unter **Verify drives** (Laufwerke überprüfen) auf das Symbol **>** neben jedem Server, um zu überprüfen, ob die Datenträger funktionieren und verbunden sind, und klicken Sie dann auf **Weiter** .
+1. Klicken Sie unter **Clean drives** (Laufwerke bereinigen) auf **Clean drives** , um die Laufwerke von Daten zu leeren. Wenn Sie fertig sind, klicken Sie auf **Weiter** .
+1. Klicken Sie unter **Validate storage** (Speicher überprüfen) auf **Weiter** .
+1. Überprüfen Sie die Validierungsergebnisse. Wenn alles in Ordnung ist, klicken Sie auf **Weiter** .
+1. Klicken Sie unter **Enable Storage Spaces Direct** (Direkte Speicherplätze aktivieren) auf **Aktivieren** .
+1. Laden Sie den Bericht herunter, und überprüfen Sie ihn. Wenn alles in Ordnung ist, klicken Sie auf **Fertigstellen** .
 
 Herzlichen Glückwunsch, Sie haben jetzt einen Cluster.
 
@@ -191,11 +191,14 @@ Wenn das Auflösen des Clusters nach einiger Zeit nicht erfolgreich ist, können
 
 In diesem optionalen Schritt richten Sie die Netzwerkcontrollerkomponente von [Software Defined Networking (SDN)](../concepts/software-defined-networking.md) ein. Nachdem der Netzwerkcontroller eingerichtet wurde, kann er zur Konfiguration anderer Komponenten von SDN wie Software Load Balancer und RAS Gateway verwendet werden.
 
+> [!NOTE]
+> SDN wird für Stretched Cluster nicht unterstützt und ist für diese nicht verfügbar.
+
 :::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Clustererstellungs-Assistent: HCI-Option" lightbox="media/cluster/create-cluster-network-controller.png":::
 
-1. Klicken Sie auf **Weiter: SDN**.
+1. Klicken Sie auf **Weiter: SDN** .
 1. Geben Sie unter **Host** einen Namen für den Netzwerkcontroller ein.
-1. Geben Sie einen Pfad zur Azure Stack HCI-VHD-Datei an. Verwenden Sie **Durchsuchen**, um sie schneller zu finden.
+1. Geben Sie einen Pfad zur Azure Stack HCI-VHD-Datei an. Verwenden Sie **Durchsuchen** , um sie schneller zu finden.
 1. Geben Sie die Anzahl der virtuellen Computer an, die für Netzwerkcontroller dediziert werden sollen. Für Hochverfügbarkeit werden drei bis fünf virtuelle Computer empfohlen.
 1. Geben Sie unter **Netzwerk** die VLAN-ID ein.
 1. Wählen Sie für **VM-Netzwerkadressierung** entweder **DHCP** oder **Statisch** aus.
@@ -203,13 +206,13 @@ In diesem optionalen Schritt richten Sie die Netzwerkcontrollerkomponente von [S
 1. Gehen Sie wie folgt vor, wenn Sie **Statisch** ausgewählt haben:
     1. Geben Sie ein Subnetzpräfix an.
     1. Geben Sie das Standardgateway an.
-    1. Geben Sie mindestens einen DNS-Server an. Klicken Sie auf **Hinzufügen**, um weitere DNS-Server hinzuzufügen.
+    1. Geben Sie mindestens einen DNS-Server an. Klicken Sie auf **Hinzufügen** , um weitere DNS-Server hinzuzufügen.
 1. Geben Sie unter **Anmeldeinformationen** den Benutzernamen und das Kennwort ein, mit denen die virtuellen Computer des Netzwerkcontrollers mit der Clusterdomäne verbunden werden.
 1. Geben Sie das lokale Administratorkennwort für diese VMs ein.
 1. Geben Sie unter **Erweitert** den Pfad zu den virtuellen Computern ein.
 1. Geben Sie Werte für den **Anfang des MAC-Adresspools** und das **Ende des MAC-Adresspools** ein.
-1. Klicken Sie abschließend auf **Weiter**.
-1. Warten Sie, bis der Assistent seinen Auftrag abgeschlossen hat. Bleiben Sie auf dieser Seite, bis alle Fortschrittsaufgaben abgeschlossen sind. Klicken Sie auf **Fertig stellen**.
+1. Klicken Sie abschließend auf **Weiter** .
+1. Warten Sie, bis der Assistent seinen Auftrag abgeschlossen hat. Bleiben Sie auf dieser Seite, bis alle Fortschrittsaufgaben abgeschlossen sind. Klicken Sie auf **Fertig stellen** .
 
 Wenn bei der Bereitstellung des Netzwerkcontrollers ein Fehler auftritt, gehen Sie wie folgt vor, bevor Sie es erneut versuchen:
 
