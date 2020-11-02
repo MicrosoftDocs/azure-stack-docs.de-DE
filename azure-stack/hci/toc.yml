@@ -16,22 +16,22 @@
   items:
     - name: Übersicht über die Bereitstellung
       href: deploy/deployment-overview.md
-    - name: Voraussetzungen
-      href: deploy/before-you-start.md
     - name: Bereitstellen des Azure Stack HCI-Betriebssystems
       href: deploy/operating-system.md
     - name: Erstellen Sie den Cluster.
       href: deploy/create-cluster.md
-    - name: Erstellen des Clusters mit PowerShell
-      href: deploy/create-cluster-powershell.md
     - name: Einrichten eines Clusterzeugen
       href: deploy/witness.md
     - name: Registrieren bei Azure
       href: deploy/register-with-azure.md
     - name: Überprüfen des Clusters
       href: deploy/validate.md
-    - name: Bereitstellen des Netzwerkcontrollers
-      href: deploy/network-controller-powershell.md
+    - name: Bereitstellen mit PowerShell
+      items:
+        - name: Erstellen eines Clusters mit PowerShell
+          href: deploy/create-cluster-powershell.md
+        - name: Bereitstellen eines Netzwerkcontrollers mit PowerShell
+          href: deploy/network-controller-powershell.md
 - name: Verwalten
   items:
     - name: Verwalten von VMs
@@ -104,6 +104,8 @@
   items:
     - name: Speicher und Cluster
       items:
+        - name: Systemanforderungen
+          href: concepts/system-requirements.md
         - name: Wählen von Laufwerken
           href: concepts/choose-drives.md
         - name: Aspekte symmetrischer Laufwerke

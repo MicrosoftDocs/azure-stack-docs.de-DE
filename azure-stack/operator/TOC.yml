@@ -351,6 +351,32 @@
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
             - name: Remove (Entfernen)
               href: event-hubs-rp-remove.md
+        - name: IoT Hub in Azure Stack Hub
+          items:
+            - name: Übersicht
+              href: iot-hub-rp-overview.md
+            - name: Voraussetzungen
+              href: iot-hub-rp-prerequisites.md
+            - name: Installieren
+              href: iot-hub-rp-install.md
+            - name: Lebenszyklusverwaltung
+              items:
+                - name: Anwenden von Updates
+                  href: resource-provider-apply-updates.md
+                - name: Sichern und Wiederherstellen
+                  href: azure-stack-backup-infrastructure-backup.md
+                - name: Erfassen von Protokollen
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: Integrität und Warnungen
+                  href: azure-stack-monitor-health.md
+                - name: Verwalten
+                  href: iot-hub-rp-manage.md
+                - name: Rotieren von Geheimnissen
+                  href: iot-hub-rp-rotate-secrets.md
+                - name: Ankündigungen von Dienstupdates
+                  href: 'https://azure.microsoft.com/updates/?query=IoT%20Hub'
+            - name: Remove (Entfernen)
+              href: iot-hub-rp-remove.md
         - name: MySQL in Azure Stack Hub
           items:
             - name: Übersicht
