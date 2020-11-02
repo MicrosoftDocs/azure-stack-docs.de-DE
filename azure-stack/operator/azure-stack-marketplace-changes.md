@@ -3,16 +3,16 @@ title: Neuerungen im Azure Stack Hub-Marketplace
 description: Hier finden Sie Informationen zu den Neuerungen im Azure Stack Hub-Marketplace, u. a. zu neuen, veralteten und aktualisierten Marketplace-Elementen.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 10/23/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 1647c49115cb9f27c1485e59d1b85eb9a9bc1146
-ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
+ms.openlocfilehash: 37a90fc31a3ee89406eeea64fcd9549ef7ca98f4
+ms.sourcegitcommit: 74b3e14abfa33c8136eccdd4677868eb622c843e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91134762"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92523523"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Änderungen im Azure Stack Hub-Marketplace
 
@@ -70,6 +70,68 @@ Der Artikel [Azure Stack Hub-Marketplace-Elemente](azure-stack-marketplace-azure
 
 ## <a name="updated-marketplace-items"></a>Aktualisierte Marketplace-Elemente
 
+- 22.10.2020: Azure Monitor, Update- und Konfigurationsverwaltung, Version 1.13.27
+- 22.10.2020: Windows Server 2008 R2 SP1 (nutzungsbasierte Bezahlung), Version 7601.24560.2009040118
+- 22.10.2020: Windows Server 2008 R2 SP1 (Bring Your Own License), Version 7601.24560.2009040118
+- 22.10.2020: [smalldisk] Windows Server 2008 R2 SP1 (nutzungsbasierte Bezahlung), Version 7601.24560.2009040118
+- 22.10.2020: [smalldisk] Windows Server 2008 R2 SP1 (Bring Your Own License): Version 7601.24560.2009040118
+- 22.10.2020: [smalldisk] Windows Server 2012 Datacenter (nutzungsbasierte Bezahlung), Version 9200.23149.2009040500
+- 22.10.2020: [smalldisk] Windows Server 2012 Datacenter (Bring Your Own License) – Version 9200.23149.2009040500
+- 22.10.2020: Windows Server 2012 Datacenter (nutzungsbasierte Bezahlung), Version 9200.23149.2009040500
+- 22.10.2020: Windows Server 2012 Datacenter (Bring Your Own License) – Version 9200.23149.2009040500
+- 22.10.2020: Windows Server 2012 R2 Datacenter (Vorausbezahlung) – Version 9600.19817.2009040500
+- 22.10.2020: Windows Server 2012 R2 Datacenter (Bring your Own License) – Version 9600.19817.2009040500
+- 22.10.2020: [smalldisk] Windows Server 2012 R2 Datacenter (Vorausbezahlung) – Version 9600.19817.2009040500
+- 22.10.2020: [smalldisk] Windows Server 2012 R2 Datacenter (Bring Your Own License) – Version 9600.19817.2009040500
+- 22.10.2020: [smalldisk] Windows Server 2016 Datacenter (Vorausbezahlung) – Version 14393.3930.2009041537
+- 22.10.2020: [smalldisk] Windows Server 2016 Datacenter (Bring Your Own License) – Version 14393.3930.2009041537
+- 22.10.2020: [smalldisk] Windows Server 2016 Datacenter – Server Core (Vorausbezahlung) – Version 14393.3930.2009041537
+- 22.10.2020: [smalldisk] Windows Server 2016 Datacenter Server Core (Bring Your Own License) – Version 14393.3930.2009041537
+- 22.10.2020: Windows Server 2016 Datacenter (Vorausbezahlung) – Version 14393.3930.2009041537
+- 22.10.2020: Windows Server 2016 Datacenter (Bring Your Own License) – Version 14393.3930.2009041537
+- 22.10.2020: Windows Server 2016 Datacenter – Server Core (Vorausbezahlung) – Version 14393.3930.2009041537
+- 22.10.2020: Windows Server 2016 Datacenter Server Core (Bring Your Own License) – Version 14393.3930.2009041537
+- 22.10.2020: Windows Server 2019 Datacenter (Vorausbezahlung) – Version 17763.1457.2009030514
+- 22.10.2020: Windows Server 2019 Datacenter (Bring Your Own License) – Version 17763.1457.2009030514
+- 22.10.2020: [smalldisk] Windows Server 2019 Datacenter – Server Core (Vorausbezahlung) – Version 17763.1457.2009030514
+- 22.10.2020: [smalldisk] Windows Server 2019 Datacenter Server Core (Bring Your Own License) – Version 17763.1457.2009030514
+- 22.10.2020: [smalldisk] Windows Server, Version 1809 mit Containern (Vorausbezahlung) – Version 17763.1457.2009030514
+- 22.10.2020: [smalldisk] Windows Server 2019, Version 1809 mit Containern (Bring Your Own License) – Version 17763.1457.2009030514
+- 22.10.2020: [smalldisk] Windows Server 2019 Datacenter (Vorausbezahlung) – Version 17763.1457.2009030514
+- 22.10.2020: [smalldisk] Windows Server 2019 Datacenter (Bring Your Own License) – Version 17763.1457.2009030514
+- 22.10.2020: [smalldisk] Windows Server 2019 Datacenter – Server Core mit Containern (Vorausbezahlung) – Version 17763.1457.2009030514
+- 22.10.2020: [smalldisk] Windows Server 2019 Datacenter Server Core mit Containern (Bring Your Own License) – Version 17763.1457.2009030514
+- 22.10.2020: Windows Server 2019 Datacenter mit Containern (Vorausbezahlung) – Version 17763.1457.2009030514
+- 22.10.2020: Windows Server 2019 Datacenter mit Containern (Bring Your Own License) – Version 17763.1457.2009030514
+- 22.10.2020: Windows Server 2019 Datacenter – Server Core mit Containern (Vorausbezahlung) – Version 17763.1457.2009030514
+- 22.10.2020: Windows Server 2019 Datacenter Server Core mit Containern (Bring Your Own License) – Version 17763.1457.2009030514
+- 22.10.2020: Windows Server 2019 Datacenter – Server Core (Vorausbezahlung) – Version 17763.1457.2009030514
+- 22.10.2020: Windows Server 2019 Datacenter Server Core (Bring Your Own License) – Version 17763.1457.2009030514
+- 22.10.2020: [smalldisk] Windows Server 2019 Datacenter mit Containern (Vorausbezahlung) – Version 17763.1457.2009030514
+- 22.10.2020: [smalldisk] Windows Server 2019 Datacenter mit Containern (Bring Your Own License) – Version 17763.1457.2009030514
+- 22.10.2020: [smalldisk] Windows Server, Version 1903 mit Containern (Vorausbezahlung) – Version 18362.1082.2009070708
+- 22.10.2020: [smalldisk] Windows Server 2019, Version 1903 mit Containern (Bring Your Own License) – Version 18362.1082.2009070708
+- 22.10.2020: [smalldisk] Windows Server, Version 1909 mit Containern (Vorausbezahlung) – Version 18363.1082.2009070706
+- 22.10.2020: [smalldisk] Windows Server 2019, Version 1909 mit Containern (Bring Your Own License) – Version 18363.1082.2009070706
+- 22.10.2020: [smalldisk] Windows Server, Version 2004 mit Containern (Vorausbezahlung) – Version 19041.508.2009070256
+- 22.10.2020: [smalldisk] Windows Server 2019, Version 2004 mit Containern (Bring Your Own License) – Version 19041.508.2009070256
+- 22.10.2020: Windows 10 Enterprise 2016 LTSB (Bring Your Own License) – Version 14393.3930.2009041537
+- 22.10.2020: Windows 10 Enterprise 2016 LTSB (Bring Your Own License) – Version 14393.3930.2009041537
+- 22.10.2020: Windows 10 Enterprise, Version 1809 (Bring Your Own License) – Version 17763.1457.2009030514
+- 22.10.2020: Windows 10 Pro, Version 1809 (Bring Your Own License) – Version 17763.1457.2009030514
+- 22.10.2020: Windows 10 Enterprise 2019 LTSC (Bring Your Own License) – Version 17763.1457.2009030514
+- 22.10.2020: Windows 10 Enterprise N 2019 LTSC (Bring Your Own License) – Version 17763.1457.2009030514
+- 22.10.2020: Windows 10 Enterprise N, Version 1809 (Bring Your Own License) – Version 17763.1457.2009030514
+- 22.10.2020: Windows 10 Pro, Version 1809 (Bring Your Own License) – Version 17763.1457.2009030514
+- 22.10.2020: Windows 10 Enterprise N, Version 1903 (Bring Your Own License) – Version 18362.1082.2009070708
+- 22.10.2020: Windows 10 Pro, Version 1903 (Bring Your Own License) – Version 18362.1082.2009070708
+- 22.10.2020: Windows 10 Pro, Version 1903 (Bring Your Own License) – Version 18362.1082.2009070708
+- 22.10.2020: Windows 10 Enterprise, Version 1903 (Bring Your Own License) – Version 18362.1082.2009070708
+- 22.10.2020: Windows 10 Enterprise N, Version 1909 (Bring Your Own License) – Version 18363.1082.2009070706
+- 22.10.2020: Windows 10 Pro, Version 1909 (Bring Your Own License) – Version 18363.1082.2009070706
+- 22.10.2020: Windows 10 Enterprise, Version 1909 (Bring Your Own License) – Version 18363.1082.2009070706
+- 22.10.2020: Windows 10 Pro, Version 1909 (Bring Your Own License) – Version 18363.1082.2009070706
+- 22.10.2020: Windows 10 Enterprise, Version 2004 (Bring Your Own License) – Version 19041.508.2009070256
 - 21.09.2020: Centos Application Connection Gateway – Version 7.2.0
 - 09.09.2020: FortiGate NGFW – Single VM Deployment (BYOL) – Version 1.0.2
 - 04.09.2020: 6.10 (CentOS-basiert): Version 6.10.2020042900
@@ -104,7 +166,6 @@ Der Artikel [Azure Stack Hub-Marketplace-Elemente](azure-stack-marketplace-azure
 - 03.09.2020: Windows 10 Pro, Version 1809 (Bring Your Own License) – Version 17763.1397.2008070242
 - 03.09.2020: Windows 10 Pro, Version 1809 (Bring Your Own License) – Version 17763.1397.2008070242
 - 03.09.2020: Windows 10 Enterprise 2019 LTSC (Bring Your Own License) – Version 17763.1397.2008070242
-- 03.09.2020: Windows 10 Enterprise (mehrere Sitzungen), Version 1809 (Bring Your Own License) – Version 17763.1397.2008070242
 - 03.09.2020: Windows 10 Enterprise N, Version 1809 (Bring Your Own License) – Version 17763.1397.2008070242
 - 03.09.2020: Windows 10 Enterprise N 2019 LTSC (Bring Your Own License) – Version 17763.1397.2008070242
 - 03.09.2020: Windows Server 2019 Datacenter – Server Core (Vorausbezahlung) – Version 17763.1397.2008070242
@@ -125,7 +186,6 @@ Der Artikel [Azure Stack Hub-Marketplace-Elemente](azure-stack-marketplace-azure
 - 03.09.2020: Windows Server 2019 Datacenter Server Core mit Containern (Bring Your Own License) – Version 17763.1397.2008070242
 - 03.09.2020: [smalldisk] Windows Server 2019 Datacenter mit Containern (Vorausbezahlung) – Version 17763.1397.2008070242
 - 03.09.2020: [smalldisk] Windows Server 2019 Datacenter mit Containern (Bring Your Own License) – Version 17763.1397.2008070242
-- 03.09.2020: Windows 10 Enterprise (mehrere Sitzungen), Version 1903 (Bring Your Own License) – Version 18362.1016.2008062123
 - 03.09.2020: Windows 10 Enterprise N, Version 1903 (Bring Your Own License) – Version 18362.1016.2008062123
 - 03.09.2020: Windows 10 Enterprise, Version 1903 (Bring Your Own License) – Version 18362.1016.2008062123
 - 03.09.2020: Windows 10 Pro, Version 1903 (Bring Your Own License) – Version 18362.1016.2008062123
@@ -134,12 +194,10 @@ Der Artikel [Azure Stack Hub-Marketplace-Elemente](azure-stack-marketplace-azure
 - 03.09.2020: [smalldisk] Windows Server 2019, Version 1903 mit Containern (Bring Your Own License) – Version 18362.1016.2008062123
 - 03.09.2020: Windows 10 Enterprise N, Version 1909 (Bring Your Own License) – Version 18363.1016.2008070242
 - 03.09.2020: Windows 10 Enterprise, Version 1909 (Bring Your Own License) – Version 18363.1016.2008070242
-- 03.09.2020: Windows 10 Enterprise (mehrere Sitzungen), Version 1909 (Bring Your Own License) – Version 18363.1016.2008070242
 - 03.09.2020: Windows 10 Pro, Version 1909 (Bring Your Own License) – Version 18363.1016.2008070242
 - 03.09.2020: Windows 10 Pro, Version 1909 (Bring Your Own License) – Version 18363.1016.2008070242
 - 03.09.2020: [smalldisk] Windows Server, Version 1909 mit Containern (Vorausbezahlung) – Version 18363.1016.2008070242
 - 03.09.2020: [smalldisk] Windows Server 2019, Version 1909 mit Containern (Bring Your Own License) – Version 18363.1016.2008070242
-- 03.09.2020: Windows 10 Enterprise (mehrere Sitzungen), Version 2004 (Bring Your Own License) – Version 19041.450.2008080726
 - 03.09.2020: Windows 10 Enterprise, Version 2004 (Bring Your Own License) – Version 19041.450.2008080726
 - 03.09.2020: [smalldisk] Windows Server, Version 2004 mit Containern (Vorausbezahlung) – Version 19041.450.2008080726
 - 03.09.2020: [smalldisk] Windows Server 2019, Version 2004 mit Containern (Bring Your Own License) – Version 19041.450.2008080726

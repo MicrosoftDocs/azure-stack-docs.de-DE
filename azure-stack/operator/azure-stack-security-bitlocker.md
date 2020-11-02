@@ -8,16 +8,16 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 08/06/2020
-ms.openlocfilehash: 2aa24a852e5388a36b1103c2a61f5aa70930d84d
-ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
+ms.openlocfilehash: 8d188c77ab04044db94e13cdbf36fdb0e7cbe839
+ms.sourcegitcommit: 6a51687a98c417a004cd4295ad06ae813e1978cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87939529"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638817"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Verschlüsselung für ruhende Daten in Azure Stack Hub
 
-Azure Stack Hub schützt Benutzer- und Infrastrukturdaten auf der Ebene des Speichersubsystems unter Verwendung von Verschlüsselung ruhender Daten. Das Speichersubsystem von Azure Stack Hub wird mithilfe von BitLocker mit 128-Bit-AES-Verschlüsselung verschlüsselt. BitLocker-Schlüssel werden in einem internen, geheimen Speicher dauerhaft gespeichert.
+Azure Stack Hub schützt Benutzer- und Infrastrukturdaten auf der Ebene des Speichersubsystems unter Verwendung von Verschlüsselung ruhender Daten. Das Speichersubsystem von Azure Stack Hub wird standardmäßig mithilfe von BitLocker mit 128-Bit-AES-Verschlüsselung verschlüsselt. BitLocker-Schlüssel werden in einem internen, geheimen Speicher dauerhaft gespeichert. Zum Zeitpunkt der Bereitstellung ist es auch möglich, BitLocker für die Verwendung der 256-Bit-AES-Verschlüsselung zu konfigurieren.
 
 Verschlüsselung für ruhende Daten ist eine häufige Anforderung vieler der wichtigsten Konformitätsstandards (z. B. PCI-DSS, FedRAMP, HIPAA). Azure Stack Hub ermöglicht Ihnen, diese Anforderungen ohne zusätzlichen Aufwand oder zusätzliche Konfigurationen zu erfüllen. Weitere Informationen dazu, wie Azure Stack Hub Sie dabei unterstützt, Konformitätsstandards zu erfüllen, finden Sie im [Microsoft Service Trust Portal](https://aka.ms/AzureStackCompliance).
 
@@ -38,9 +38,9 @@ Für das Abrufen der BitLocker-Wiederherstellungsschlüssel benötigen Sie Zugri
 Get-AzsRecoveryKeys -raw
 ```
 
-Parameter für das Cmdlet *Get-AzsRecoveryKeys*:
+Parameter für das Cmdlet *Get-AzsRecoveryKeys* :
 
-| Parameter | BESCHREIBUNG | type | Erforderlich |
+| Parameter | Beschreibung | type | Erforderlich |
 |---------|---------|---------|---------|
 |*raw* | Gibt die Datenzuordnung zwischen Wiederherstellungsschlüssel, Computername und Kennwort-ID(s) jedes verschlüsselten Volumes zurück.  | Schalter | Nein, aber empfohlen |
 

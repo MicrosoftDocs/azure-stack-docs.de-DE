@@ -7,16 +7,16 @@ ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: cfa531c42ebcc191461d4a801d0c17ce9526b912
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 16ffbd474886d477f37b7e2d39695e896984eb30
+ms.sourcegitcommit: 74b3e14abfa33c8136eccdd4677868eb622c843e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473145"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92523540"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Skalieren eines Kubernetes-Cluster in Azure Stack Hub
 
-Mit dem **scale**-Befehl können Sie den Cluster mit der AKS-Engine skalieren. Der **scale**-Befehl verwendet Ihre Clusterkonfigurationsdatei (`apimodel.json`) im Ausgabeverzeichnis als Eingabe für eine neue Azure Resource Manager-Bereitstellung neu. Die Engine führt den Skalierungsvorgang für den angegebenen Agentpool aus. Wenn der Skalierungsvorgang abgeschlossen ist, aktualisiert die Engine die Clusterdefinition in der gleichen `apimodel.json`-Datei, um die aktualisierte, aktuelle Clusterkonfiguration mit der neuen Knotenanzahl widerzuspiegeln.
+Mit dem **scale** -Befehl können Sie den Cluster mit der AKS-Engine skalieren. Der **scale** -Befehl verwendet Ihre Clusterkonfigurationsdatei (`apimodel.json`) im Ausgabeverzeichnis als Eingabe für eine neue Azure Resource Manager-Bereitstellung neu. Die Engine führt den Skalierungsvorgang für den angegebenen Agentpool aus. Wenn der Skalierungsvorgang abgeschlossen ist, aktualisiert die Engine die Clusterdefinition in der gleichen `apimodel.json`-Datei, um die aktualisierte, aktuelle Clusterkonfiguration mit der neuen Knotenanzahl widerzuspiegeln.
 
 ## <a name="scale-a-cluster"></a>Skalieren eines Clusters
 
@@ -35,11 +35,11 @@ Die folgenden Parameter werden vom scale-Befehl verwendet, um Ihre Clusterdefini
 | client-id |  | Die Client-ID des Dienstprinzipals, der beim Erstellen des Clusters mit der AKS-Engine verwendet wird. | 
 | client-secret |  | Das Dienstprinzipalgeheimnis, das beim Erstellen des Clusters verwendet wird. | 
 | api-model | kube-rg/apimodel.json | Der Pfad zu ihrer Clusterdefinitionsdatei (apimodel.json). Er könnte so lauten: _output/\<dnsPrefix>/apimodel.json | 
-| -new-node-count | 9 | Gewünschte Knotenanzahl. | 
-| -master-FQDN |  | Master-FQDN. Beim horizontalen Herunterskalieren erforderlich. |
+| new-node-count | 9 | Gewünschte Knotenanzahl. | 
+| apiserver |  | Master-FQDN. Beim horizontalen Herunterskalieren erforderlich. |
 | identity-system | adfs | Optional. Geben Sie Ihre Identitätsverwaltungslösung an, wenn Sie Active Directory-Verbunddienste (AD FS) nutzen. |
 
-Beim Skalieren eines Clusters in Azure Stack Hub müssen Sie den Parameter **--azure-env** angeben. Weitere Informationen zu Parametern und deren Werten, die im **scale**-Befehl für die AKS-Engine verwendet werden, finden Sie unter [Scale – parameters](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters) (Scale – Parameter).
+Beim Skalieren eines Clusters in Azure Stack Hub müssen Sie den Parameter **--azure-env** angeben. Weitere Informationen zu Parametern und deren Werten, die im **scale** -Befehl für die AKS-Engine verwendet werden, finden Sie unter [Scale – parameters](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters) (Scale – Parameter).
 
 ### <a name="command-to-scale-your-cluster"></a>Befehl zum Skalieren des Clusters
 
@@ -55,7 +55,7 @@ aks-engine scale \
     --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
     --api-model <path to your apomodel.json file>
     --new-node-count <desired node count> \
-    --master-FQDN <master FQDN> \
+    --apiserver <master FQDN> \
     --identity-system adfs # required if using AD FS
 ```
 

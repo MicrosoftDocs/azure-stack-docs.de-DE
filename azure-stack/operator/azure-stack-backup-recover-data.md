@@ -3,16 +3,16 @@ title: Wiederherstellung nach schwerwiegendem Datenverlust in Azure Stack Hub
 description: Erfahren Sie, wie Sie Ihre Infrastrukturdaten in Azure Stack Hub nach einem schwerwiegenden Datenverlust wiederherstellen können.
 author: justinha
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 10/23/2020
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7f57336cdb15be2f55fdcd3756f5f3714f51b1af
-ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
+ms.lastreviewed: 10/23/2020
+ms.openlocfilehash: 35d55eec6c1311c39014f94f94fb04d39c7acb3b
+ms.sourcegitcommit: 25f6211aa16308d50315872f647d840f402fa62e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90836504"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496416"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Wiederherstellen nach schwerwiegendem Datenverlust
 
@@ -60,6 +60,10 @@ Azure Stack Hub unterstützt die Bereitstellung im sogenannten Cloudwiederherste
  - RBAC-Richtlinienzuweisungen und Rollenzuweisungen
 
 Während der Bereitstellung werden keine der IaaS-Ressourcen (Infrastructure-as-a-Service) oder PaaS-Ressourcen (Platform-as-a-Service) wiederhergestellt. Diese Verluste beinhalten IaaS-VMs, Speicherkonten, Blobs, Tabellen, Netzwerkkonfiguration usw. Die Cloudwiederherstellung soll sicherstellen, dass die Bediener und Benutzer sich nach Abschluss der Bereitstellung wieder im Portal anmelden können. Benutzer, die sich wieder anmelden, können keine ihrer Ressourcen anzeigen. Für die Benutzer werden Abonnements sowie die vom Administrator definierten ursprünglichen Pläne, Angebote und Richtlinien wiederhergestellt. Die erneute Anmeldung der Benutzer im System unterliegt den gleichen Einschränkungen, die für die ursprüngliche Lösung vor dem Notfall galten. Nach Abschluss der Cloudwiederherstellung kann der Bediener Erweiterungs- und Drittanbieter-RPs sowie zugehörige Werte wiederherstellen.
+
+## <a name="validate-backups"></a>Überprüfen von Sicherungen 
+
+Sie können ASDK zum Testen einer Sicherung verwenden, um zu bestätigen, dass die Daten gültig und verwendbar sind. Weitere Informationen finden Sie unter [Verwenden des ASDK zum Überprüfen der Azure Stack-Sicherung](../asdk/asdk-validate-backup.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
