@@ -340,7 +340,7 @@
                 - name: Sichern und Wiederherstellen
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: Erfassen von Protokollen
-                  href: azure-stack-diagnostic-log-collection-overview.md
+                  href: diagnostic-log-collection.md
                 - name: Integrität und Warnungen
                   href: azure-stack-monitor-health.md
                 - name: Verwalten
@@ -492,11 +492,9 @@
             - name: Ermitteln Ihrer Cloud-ID
               href: azure-stack-find-cloud-id.md
             - name: Erfassung von Diagnoseprotokollen
-              items:
-                - name: Übersicht
-                  href: azure-stack-diagnostic-log-collection-overview.md
-                - name: Get-AzureStackLog (PEP)
-                  href: azure-stack-get-azurestacklog.md
+              href: diagnostic-log-collection.md
+            - name: Get-AzureStackLog (PEP)
+              href: azure-stack-get-azurestacklog.md
         - name: Überprüfung für Azure Stack Hub
           href: azure-stack-diagnostic-test.md
         - name: Problembehandlung
