@@ -30,7 +30,7 @@
               href: ../operator/azure-stack-app-service-capacity-planning.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Capacity Planner-Tool
               href: azure-stack-capacity-planner.md
-        - name: Customer Journey
+        - name: Übersicht über die Integration
           href: customer-journey.md
         - name: Verbindungsmodelle
           href: ../operator/azure-stack-connection-models.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -106,6 +106,8 @@
           items:
             - name: Überprüfen der Azure-Registrierung
               href: ../operator/azure-stack-validate-registration.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Registrieren
+              href: operator/registration-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 'Ressourcenanbieter, die Mehrwert schaffen'
               items:
                 - name: App Service
@@ -185,7 +187,7 @@
         - name: Verwalten
           items:
             - name: Verwaltungsgrundlagen
-              href: ../operator/azure-stack-manage-basics.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-manage-basics-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Konfigurieren der Erfassung von Telemetriedaten
               href: ../operator/azure-stack-telemetry.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Regionsverwaltung
@@ -229,7 +231,7 @@
                 - name: Überwachen des Updatestatus
                   href: ../operator/azure-stack-update-monitor.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Überwachen von Integrität und Warnungen
-              href: ../operator/azure-stack-monitor-health.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-monitor-health-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Verwalten von Netzwerkressourcen
               href: ../operator/azure-stack-viewing-public-ip-address-consumption.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Ändern des Benutzerabonnementbesitzers
@@ -249,7 +251,7 @@
             - name: Austauschen von Hardware
               Items:
                 - name: Knotenaktionen
-                  href: ../operator/azure-stack-node-actions.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: operator/azure-stack-node-actions-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Sicherheit und Compliance
           items:
             - name: Konfigurieren der Sicherheit
@@ -258,6 +260,8 @@
               href: ../operator/azure-stack-security-bitlocker.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Rotieren von Geheimnissen
               href: ../operator/azure-stack-rotate-secrets.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Aktualisieren der iDRAC-Anmeldeinformationen
+              href: operator/integrated-dell-remote-access-controller-credentials.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Aktualisieren des Virenschutzes
               href: ../operator/azure-stack-security-av.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Protokollsammlung und Datenverarbeitung
@@ -267,7 +271,7 @@
             - name: Marketplace-Übersicht
               href: ../operator/azure-stack-marketplace.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Herunterladen von Marketplace-Elementen
-              href: ../operator/azure-stack-download-azure-marketplace-item.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-download-azure-marketplace-item-tca.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Hinzufügen eines benutzerdefinierten VM-Image
               href: ../operator/azure-stack-add-vm-image.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Erstellen und Veröffentlichen eines Marketplace-Elements
@@ -277,7 +281,7 @@
             - name: Anbieten einer VM-Skalierungsgruppe
               href: ../operator/azure-stack-compute-add-scalesets.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 'Windows Server im Marketplace: häufig gestellte Fragen'
-              href: ../operator/azure-stack-windows-server-faq.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-windows-server-faq-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Anbieten virtueller Linux-Computer
               href: ../operator/azure-stack-linux.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Hinzufügen eines virtuellen Red Hat-Computers
@@ -286,6 +290,16 @@
               href: ../operator/azure-stack-aks-engine.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Anbieten des Kubernetes-Marketplace-Elements
               href: ../operator/azure-stack-solution-template-kubernetes-cluster-add.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Anbieten einer Containerregistrierung
+              items:
+                - name: Hinzufügen einer Containerregistrierung
+                  href: operator/container-registry-template-install-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Aktualisieren der Containerregistrierung
+                  href: operator/container-registry-template-update-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Rotieren von Containerregistrierungsgeheimnissen
+                  href: operator/container-registry-template-rotate-secrets-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Anbieten eines Commvault-Marketplace-Elements
+              href: operator/azure-stack-commvault-offer-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Anbieten von Diensten
           items:
             - name: 'Übersicht über Dienste, Pläne, Angebote und Abonnements'
@@ -355,11 +369,11 @@
                     - name: Anwenden von Updates
                       href: ../operator/resource-provider-apply-updates.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Sichern und Wiederherstellen
-                      href: ../operator/azure-stack-backup-infrastructure-backup.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: operator/azure-stack-backup-infrastructure-backup-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Erfassen von Protokollen
                       href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Integrität und Warnungen
-                      href: ../operator/azure-stack-monitor-health.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: operator/azure-stack-monitor-health-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Verwalten
                       href: ../operator/event-hubs-rp-manage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Rotieren von Geheimnissen
@@ -408,18 +422,28 @@
                   href: ../operator/azure-stack-sql-resource-provider-remove.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Versionshinweise zum SQL-Ressourcenanbieter 1.1.47.0
                   href: ../operator/azure-stack-sql-resource-provider-11470.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Nutzung und Abrechnung
+          items:
+            - name: Übersicht
+              href: operator/billing-model-overview-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Referenz zu Nutzung und Abrechnung
+              items:
+                - name: Referenz zur Analyse der Nutzung und API-Abrechnung
+                  href: operator/analyze-usage-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Lokale Verbrauchseinheiten
+                  href: operator/billing-local-meters-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Sichern
           items:
             - name: Übersicht
-              href: ../operator/azure-stack-backup-infrastructure-backup.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-backup-infrastructure-backup-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Konfigurieren der Sicherung über das Portal
-              href: ../operator/azure-stack-backup-enable-backup-console.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-backup-enable-backup-console-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Konfigurieren der Sicherung mithilfe von PowerShell
-              href: ../operator/azure-stack-backup-enable-backup-powershell.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-backup-enable-backup-powershell-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Sichern
-              href: ../operator/azure-stack-backup-back-up-azure-stack.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-backup-back-up-azure-stack-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Best Practices für die Sicherung
-              href: ../operator/azure-stack-backup-best-practices.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-backup-best-practices-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Support
           items:
             - name: Hilfe- und Supportportal
@@ -438,6 +462,8 @@
               href: ../operator/azure-stack-diagnostic-test.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Problembehandlung
               href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Referenz zu Supportlinks
+              href: operator/aks-refer-table-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
     - name: Verweis
       items:
         - name: Azure Stack PowerShell
@@ -506,7 +532,7 @@
                     - name: Verwenden des Azure Stack-Richtlinienmoduls
                       href: ../user/azure-stack-policy-module.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Verwenden der Azure CLI mit MDC
-                  href: ../user/azure-stack-version-profiles-azurecli2.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: azure-stack-version-profiles-azurecli-2-tzl.md
                 - name: Verwenden von Visual Studio Code
                   href: ../user/azure-stack-dev-start-vscode-azure.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Verwenden von Visual Studio
@@ -578,7 +604,7 @@
                     - name: Überlegungen zu verwalteten Datenträgern
                       href: ../user/azure-stack-managed-disk-considerations.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Schützen von virtuellen Computern
-                      href: ../user/azure-stack-manage-vm-protect.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: azure-stack-manage-vm-protect-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: VM-Update und -Verwaltung
                       href: ../user/vm-update-management.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Überlegungen zu SQL Server-VMs
@@ -664,6 +690,8 @@
                           href: ../user/azure-stack-kubernetes-aks-engine-set-up.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                         - name: Erstellen eines Linux-Clients
                           href: ../user/azure-stack-kubernetes-aks-engine-deploy-linux.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Erstellen eines Windows-Clients
+                          href: azure-stack-kubernetes-aks-engine-deploy-windows-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                         - name: Bereitstellen eines Clusters
                           href: ../user/azure-stack-kubernetes-aks-engine-deploy-cluster.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                         - name: Skalieren eines Clusters
@@ -760,6 +788,8 @@
       items:
         - name: Azure Stack PowerShell
           href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
+        - name: Referenz zu Links vom Typ „aka.ms“ in Warnungen
+          href: operator/aks-refer-table-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: REST-API-Browser
           href: /rest/api/
         - name: Azure CLI
