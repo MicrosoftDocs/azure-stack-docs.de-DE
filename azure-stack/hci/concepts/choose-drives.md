@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/01/2020
-ms.openlocfilehash: a1283982ba04acd8de0b54c02fbc0bb88da9ebc6
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: e5069745a1ada76f37a9dea78eeeafa18a481cff
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742295"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064649"
 ---
 # <a name="choose-drives-for-azure-stack-hci"></a>Auswählen von Laufwerken für Azure Stack HCI
 
@@ -27,7 +27,7 @@ Azure Stack HCI arbeitet derzeit mit vier Arten von Laufwerken:
 | Art des Laufwerks | BESCHREIBUNG |
 |----------------------|--------------------------|
 |![PMem](media/choose-drives/pmem-100px.png)|**PMem** bezieht sich auf persistenten Speicher. Dabei handelt es sich um eine neue Art von Hochleistungsspeicher mit geringen Wartezeiten.|
-|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe**-Laufwerke (Non-Volatile Memory Express) sind Solid State Drives, die direkt auf dem PCIe-Bus angeordnet sind. Häufig verwendete Formfaktoren sind 2,5" U.2, PCIe Add-In-Card (AIC) und M.2. NVMe ermöglicht einen höheren IOPS- und E/A-Durchsatz mit geringerer Wartezeit als alle anderen Laufwerkstypen, die derzeit unterstützt werden. Eine Ausnahme davon bildet PMem.|
+|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** -Laufwerke (Non-Volatile Memory Express) sind Solid State Drives, die direkt auf dem PCIe-Bus angeordnet sind. Häufig verwendete Formfaktoren sind 2,5" U.2, PCIe Add-In-Card (AIC) und M.2. NVMe ermöglicht einen höheren IOPS- und E/A-Durchsatz mit geringerer Wartezeit als alle anderen Laufwerkstypen, die derzeit unterstützt werden. Eine Ausnahme davon bildet PMem.|
 |![SSD](media/choose-drives/SSD-100-px.png)|**SSD** steht für „Solid State Drives“, die über herkömmliche SATA- oder SAS-Verbindungen verbunden sind.|
 |![Festplattenlaufwerk](media/choose-drives/HDD-100-px.png)|**HDD** steht für rotierende, magnetische Festplattenlaufwerke (Hard Disk Drives) mit hoher Speicherkapazität.|
 
@@ -99,7 +99,7 @@ Wir empfehlen Ihnen, die Gesamtspeicherkapazität pro Server auf ca. 400 TB (Te
 Weitere Informationen finden Sie auch unter:
 
 - [Grundlegendes zum Cache](cache.md)
-- [Ermitteln der Hardwareanforderungen](../deploy/before-you-start.md#determine-hardware-requirements)
+- [Systemanforderungen](system-requirements.md)
 - [Aspekte symmetrischer Laufwerke](drive-symmetry-considerations.md)
 - [Planen von Volumes](plan-volumes.md)
 - [Fehlertoleranz und Speichereffizienz](fault-tolerance.md)

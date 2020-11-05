@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 5842ac27969a136ceaace4647ed5791bc3260b1c
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: cc73e0cd735c12a15d45efec080c7861d9ea9f00
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573138"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363995"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Verwenden einer App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen
 
@@ -24,7 +25,7 @@ Beispiel: Sie verfügen über eine App für die Konfigurationsverwaltung, die Az
 
 Eine App muss genau wie ein Benutzer während der Authentifizierung Anmeldeinformationen bereitstellen. Diese Authentifizierung besteht aus zwei Elementen:
 
-- Einer **Anwendungs-ID**, manchmal auch als „Client-ID“ bezeichnet. Dabei handelt es sich um eine GUID, mit der die Registrierung der App in Ihrem Active Directory-Mandanten eindeutig identifiziert wird.
+- Einer **Anwendungs-ID** , manchmal auch als „Client-ID“ bezeichnet. Dabei handelt es sich um eine GUID, mit der die Registrierung der App in Ihrem Active Directory-Mandanten eindeutig identifiziert wird.
 - Ein der Anwendungs-ID zugeordnetes **Geheimnis**. Sie können entweder eine Clientgeheimnis-Zeichenfolge (ähnlich wie ein Kennwort) generieren, oder Sie geben eine X.509 Zertifikat an (das seinen öffentlichen Schlüssel verwendet).
 
 Das Ausführen einer App unter ihrer eigenen Identität wird aus folgenden Gründen der Ausführung unter der Identität des Benutzers vorgezogen:
@@ -42,6 +43,7 @@ Am Anfang dieses Artikels wird der Prozess zum Erstellen und Verwalten eines Die
 
 Anschließend erfahren Sie, wie Sie den Dienstprinzipal einer Rolle zuweisen und so seinen Zugriff auf Ressourcen einschränken.
 
+::: zone pivot="state-connected"
 ## <a name="manage-an-azure-ad-app-identity"></a>Verwalten einer Azure AD-App-Identität
 
 Wenn Sie Azure Stack Hub mit Azure AD als Identitätsverwaltungsdienst bereitgestellt haben, erstellen Sie Dienstprinzipale auf die gleiche Weise wie für Azure. In diesem Abschnitt erfahren Sie, wie die Schritte über das Azure-Portal ausgeführt werden. Vergewissern Sie sich vorher, ob Sie über die [erforderlichen Azure AD-Berechtigungen](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) verfügen.
@@ -58,13 +60,14 @@ In diesem Abschnitt registrieren Sie Ihre App über das Azure-Portal, wodurch da
 6. Wählen Sie nach dem Festlegen der Werte **Registrieren** aus. Die App-Registrierung wird erstellt, und die Seite **Übersicht** wird angezeigt.
 7. Kopieren Sie die **Anwendungs-ID** zur Verwendung in Ihrem App-Code. Dieser Wert wird auch als „Client-ID“ bezeichnet.
 8. Um einen geheimen Clientschlüssel zu generieren, wählen Sie die Seite **Zertifikate und Geheimnisse** aus. Wählen Sie **Neuer geheimer Clientschlüssel**.
-9. Geben Sie eine **Beschreibung** für das Geheimnis und eine **Ablauf**dauer an.
+9. Geben Sie eine **Beschreibung** für das Geheimnis und eine **Ablauf** dauer an.
 10. Wählen Sie anschließend **Hinzufügen** aus.
 11. Der Wert des Geheimnisses wird angezeigt. Kopieren und speichern Sie diesen Wert an einem anderen Speicherort, da Sie ihn später nicht mehr abrufen können. Sie geben das Geheimnis mit der Anwendungs-ID in Ihrer Client-App für die Anmeldung an.
 
     ![Gespeicherter Schlüssel in geheimen Clientschlüsseln](./media/azure-stack-create-service-principal/create-service-principal-in-azure-stack-secret.png)
 
 Fahren Sie nun mit [Zuweisen einer Rolle](#assign-a-role) fort, um zu erfahren, wie Sie rollenbasierte Zugriffssteuerung für die Identität der App einrichten.
+::: zone-end
 
 ## <a name="manage-an-ad-fs-app-identity"></a>Verwalten einer AD FS-App-Identität
 
@@ -254,7 +257,7 @@ Lassen Sie Ihre PowerShell-Konsolensitzung geöffnet, da Sie sie mit dem `Applic
 
 ### <a name="update-a-client-secret"></a>Aktualisieren eines geheimen Clientschlüssels
 
-Aktualisieren Sie die Anmeldeinformationen mit einem geheimen Clientschlüssel mithilfe der PowerShell unter Verwendung des Parameters **ResetClientSecret**, der dem geheimen Clientschlüssel sofort ändert. Ersetzen Sie die folgenden Platzhalter durch Ihre eigenen Werte:
+Aktualisieren Sie die Anmeldeinformationen mit einem geheimen Clientschlüssel mithilfe der PowerShell unter Verwendung des Parameters **ResetClientSecret** , der dem geheimen Clientschlüssel sofort ändert. Ersetzen Sie die folgenden Platzhalter durch Ihre eigenen Werte:
 
 | Platzhalter | BESCHREIBUNG | Beispiel |
 | ----------- | ----------- | ------- |

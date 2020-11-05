@@ -7,12 +7,12 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: d7951500afe21ec0800328230d6b5f1653934c40
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 4c79d8a9c9aa5877dd2dfb264257f2a7cfaaa46f
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819195"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363978"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>Verwenden des Administratorportals in Azure Stack Hub
 
@@ -25,11 +25,13 @@ Rufen Sie zum Zugreifen auf das Administratorportal die Portal-URL auf, und meld
 | Environment | URL des Administratorportals |   
 | -- | -- | 
 | ASDK| `https://adminportal.local.azurestack.external`  |
-| Integrierte Systeme | https://adminportal.&lt;*Region*&gt;.&lt;*FQDN*&gt; | 
+| Integrierte Systeme | https://adminportal.&lt; *Region*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
 > [!TIP]
 > Bei einer ASDK-Umgebung müssen Sie zunächst sicherstellen, dass Sie über die Remotedesktopverbindung oder ein virtuelles privates Netzwerk (VPN) eine [Verbindung mit dem Development Kit-Host herstellen](../asdk/asdk-connect.md) können.
+
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
 
  ![Azure Stack Hub-Administratorportal](media/azure-stack-manage-portals/admin-portal.png)
 
@@ -65,9 +67,9 @@ Das Administratorportal und das Benutzerportal basieren auf separaten Instanzen 
 
 ### <a name="customize-the-dashboard"></a>Anpassen des Dashboards
 
-Das Dashboard enthält eine Reihe von Standardkacheln. Wählen Sie **Dashboard bearbeiten** aus, um das Standarddashboard anzupassen, oder wählen Sie **Neues Dashboard** aus, um ein benutzerdefiniertes Dashboard hinzuzufügen. Sie können einem Dashboard auch Kacheln hinzufügen. Wählen Sie beispielsweise **+Ressource erstellen** aus, klicken Sie mit der rechten Maustaste auf **Angebote und Pläne**, und wählen Sie dann **An Dashboard anheften** aus.
+Das Dashboard enthält eine Reihe von Standardkacheln. Wählen Sie **Dashboard bearbeiten** aus, um das Standarddashboard anzupassen, oder wählen Sie **Neues Dashboard** aus, um ein benutzerdefiniertes Dashboard hinzuzufügen. Sie können einem Dashboard auch Kacheln hinzufügen. Wählen Sie beispielsweise **+Ressource erstellen** aus, klicken Sie mit der rechten Maustaste auf **Angebote und Pläne** , und wählen Sie dann **An Dashboard anheften** aus.
 
-Es kann sein, dass im Portal manchmal ein leeres Dashboard angezeigt wird. Klicken Sie zum Wiederherstellen des Dashboards auf **Dashboard bearbeiten**, klicken Sie dann mit der rechten Maustaste, und wählen Sie **Auf Standardzustand zurücksetzen** aus.
+Es kann sein, dass im Portal manchmal ein leeres Dashboard angezeigt wird. Klicken Sie zum Wiederherstellen des Dashboards auf **Dashboard bearbeiten** , klicken Sie dann mit der rechten Maustaste, und wählen Sie **Auf Standardzustand zurücksetzen** aus.
 
 ### <a name="quick-access-to-online-documentation"></a>Schneller Zugriff auf Onlinedokumentation
 

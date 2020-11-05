@@ -7,12 +7,12 @@ ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: d3a16f92cb441a92a045721e477b3b10933d174d
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.openlocfilehash: 29255d706edcb052711b2ed42e65fd3dc0b6412b
+ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717958"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93291233"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Installieren der AKS-Engine unter Windows in Azure Stack Hub
 
@@ -88,8 +88,8 @@ Wenn Sie die Client-VM für die AKS-Engine auf dem ASDK auf einem außerhalb des
 
 Wenn Sie ein ASDK verwenden und Ihr Azure Resource Manager-Endpunkt ein selbstsigniertes Zertifikat verwendet, müssen Sie dieses Zertifikat explizit dem vertrauenswürdigen Zertifikatspeicher des Computers hinzufügen. Sie finden das ASDK-Stammzertifikat auf jedem virtuellen Computer, den Sie im ASDK bereitstellen.
 
-1. Exportieren Sie das Zertifizierungsstellen-Stammzertifikat. Anweisungen finden Sie unter [Exportieren des Azure Stack Hub-Zertifizierungsstellen-Stammzertifikats](./azure-stack-version-profiles-azurecli2.md#export-the-azure-stack-hub-ca-root-certificate).
-2. Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack Hub als vertrauenswürdig ein. Anweisungen finden Sie unter [Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack Hub als vertrauenswürdig](./azure-stack-version-profiles-azurecli2.md#trust-the-azure-stack-hub-ca-root-certificate).
+1. Exportieren Sie das Zertifizierungsstellen-Stammzertifikat. Anweisungen finden Sie unter [Exportieren des Azure Stack Hub-Zertifizierungsstellen-Stammzertifikats](../asdk/asdk-cli.md#export-the-azure-stack-hub-ca-root-certificate).
+2. Stufen Sie das Zertifizierungsstellen-Stammzertifikat für Azure Stack Hub als vertrauenswürdig ein. Anweisungen finden Sie unter [Einstufen des Zertifizierungsstellen-Stammzertifikats für Azure Stack Hub als vertrauenswürdig](../asdk/asdk-cli.md#trust-the-certificate).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
