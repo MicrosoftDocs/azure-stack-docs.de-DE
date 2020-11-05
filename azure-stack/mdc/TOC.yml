@@ -152,7 +152,7 @@
               href: ../operator/azure-stack-azsreadiness-cmdlet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Anzeigen des Bereitschaftsberichts
               href: ../operator/azure-stack-validation-report.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-        - name: Rechenzentrumsintegration
+        - name: Konfiguration des Rechenzentrums
           items:
             - name: Konfigurieren der DNS-Weiterleitung
               href: ../operator/azure-stack-configure-dns.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
