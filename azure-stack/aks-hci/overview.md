@@ -5,12 +5,12 @@ ms.topic: overview
 author: jasongerend
 ms.author: jgerend
 ms.date: 09/22/2020
-ms.openlocfilehash: fad630d143fee31c4b63b4008c02bef697475155
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: ef2cc07ca9c228b9d427d11f8065e2d943e1626b
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949386"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064615"
 ---
 # <a name="what-is-azure-kubernetes-service-on-azure-stack-hci"></a>Was ist Azure Kubernetes Service in Azure Stack HCI?
 
@@ -53,8 +53,8 @@ Azure Kubernetes Service vereinfacht den Vorgang des Einrichtens von Kubernetes 
 
 Nachdem Sie Azure Kubernetes Service in Ihrem Azure Stack HCI-Cluster eingerichtet und einen Kubernetes-Cluster erstellt haben, bieten wir Ihnen mehrere Möglichkeiten zum Verwalten und Überwachen Ihrer Kubernetes-Infrastruktur:
 
-- **Lokal mithilfe von beliebten Tools wie Kubectl und Kubernetes-Dashboard**: Verwenden einer webbasierte Open Source-Schnittstelle zum Bereitstellen von Anwendungen in einem Kubernetes-Cluster, zum Verwalten von Clusterressourcen, für die Problembehandlung und zum Anzeigen ausgeführter Anwendungen.
-- **Im Azure-Portal unter Verwendung von Azure Arc**: Verwenden eines Azure-Diensts, um Azure Kubernetes Service und Kubernetes-Cluster zu verwalten, die in Ihrer Cloud- und lokalen Umgebungen bereitgestellt sind. Sie können Azure Arc verwenden, um Kubernetes-Cluster sowie Knoten zu einem Kubernetes-Cluster hinzuzufügen und zu entfernen, Netzwerkeinstellungen zu ändern und Add-Ons zu installieren.
+- **Lokal mithilfe von beliebten Tools wie Kubectl und Kubernetes-Dashboard** : Verwenden einer webbasierte Open Source-Schnittstelle zum Bereitstellen von Anwendungen in einem Kubernetes-Cluster, zum Verwalten von Clusterressourcen, für die Problembehandlung und zum Anzeigen ausgeführter Anwendungen.
+- **Im Azure-Portal unter Verwendung von Azure Arc** : Verwenden eines Azure-Diensts, um Azure Kubernetes Service und Kubernetes-Cluster zu verwalten, die in Ihrer Cloud- und lokalen Umgebungen bereitgestellt sind. Sie können Azure Arc verwenden, um Kubernetes-Cluster sowie Knoten zu einem Kubernetes-Cluster hinzuzufügen und zu entfernen, Netzwerkeinstellungen zu ändern und Add-Ons zu installieren.
 <br>Azure Arc ermöglicht Ihnen außerdem die Verwaltung Ihrer Kubernetes-Cluster mit anderen Azure-Diensten, einschließlich:
 
   - Azure Monitor
@@ -71,8 +71,8 @@ Azure Kubernetes Service erstellt die Linux- und Windows-VMs, sodass Sie die Lin
 
 Azure Kubernetes Service umfasst eine Reihe von Funktionen zum Schutz ihrer Containerinfrastruktur:
 
-- **Die Hypervisor-basierte Isolation für Workerknoten**: Jeder Kubernetes-Cluster wird auf seinem eigenen dedizierten und isolierten Satz von virtuellen Computern ausgeführt, sodass Mandanten dieselbe physische Infrastruktur gemeinsam nutzen können.
-- **Von Microsoft verwalteten Linux- und Windows-Images für Workerknoten**: Auf Workerknoten werden von Microsoft erstellte Images von virtuellen Linux- und Windows-Computern ausgeführt, um bewährte Sicherheitsmethoden einzuhalten. Außerdem aktualisiert Microsoft diese Images monatlich mit den neuesten Sicherheitsupdates.
+- **Die Hypervisor-basierte Isolation für Workerknoten** : Jeder Kubernetes-Cluster wird auf seinem eigenen dedizierten und isolierten Satz von virtuellen Computern ausgeführt, sodass Mandanten dieselbe physische Infrastruktur gemeinsam nutzen können.
+- **Von Microsoft verwalteten Linux- und Windows-Images für Workerknoten** : Auf Workerknoten werden von Microsoft erstellte Images von virtuellen Linux- und Windows-Computern ausgeführt, um bewährte Sicherheitsmethoden einzuhalten. Außerdem aktualisiert Microsoft diese Images monatlich mit den neuesten Sicherheitsupdates.
 
 Sicherheit ist ein fortlaufender Investitionsbereich für die Vorschauversion von Azure Kubernetes Service in Azure Stack HCI – bleiben Sie also dran.
 
@@ -121,7 +121,7 @@ Für den Cluster, der Azure Stack HCI, Version 20H2 oder höher, ausführt, gel
 - Mindestens 30 GB verfügbarer Arbeitsspeicher für die Ausführung von Azure Kubernetes Service-VMs
 - Alle Server im Cluster müssen die Region und Sprachauswahl „EN-US“ für diese Vorschauversion verwenden.
 
-Allgemeine Azure Stack HCI-Anforderungen finden Sie unter [Vor dem Bereitstellen von Azure Stack HCI](../hci/deploy/before-you-start.md).
+Allgemeine Azure Stack HCI-Systemanforderungen finden Sie unter [Systemanforderungen für Azure Stack HCI](../hci/concepts/system-requirements.md).
 
 ### <a name="the-network-configuration-for-azure-stack-hci"></a>Die Netzwerkkonfiguration für Azure Stack HCI
 

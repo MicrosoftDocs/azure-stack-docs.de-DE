@@ -6,28 +6,59 @@ ms.author: v-johcob
 ms.topic: tutorial
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/24/2020
-ms.openlocfilehash: cf34506f5fbeec1c6e0531eda231219ae2949b59
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/28/2020
+ms.openlocfilehash: ba063e4ebff85830ac50c25c2514bda443dce323
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572601"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064734"
 ---
 # <a name="deploy-the-azure-stack-hci-operating-system"></a>Bereitstellen des Azure Stack HCI-Betriebssystems
 
 > Gilt für: Azure Stack HCI, Version 20H2
 
-Nachdem Sie die Schritte unter [Vor dem Bereitstellen von Azure Stack HCI](before-you-start.md#install-windows-admin-center) ausgeführt haben, ist der erste Schritt für die Bereitstellung von Azure Stack HCI das [Herunterladen von Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) und das Installieren des Betriebssystems auf jedem Server, der Teil des Clusters sein soll. In diesem Artikel werden verschiedene Möglichkeiten zum Bereitstellen des Betriebssystems und zum Verwenden von Windows Admin Center für die Verbindungsherstellung mit den Servern beschrieben.
+Der erste Schritt für die Bereitstellung von Azure Stack HCI ist das [Herunterladen von Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) und das Installieren des Betriebssystems auf jedem Server, der Teil des Clusters sein soll. In diesem Artikel werden verschiedene Möglichkeiten zum Bereitstellen des Betriebssystems und zum Verwenden von Windows Admin Center für die Verbindungsherstellung mit den Servern beschrieben.
 
-Nachdem Sie das Betriebssystem bereitgestellt haben, können Sie die zugehörige Anleitung zur Erstellung eines Clusters verwenden und die neuesten Windows-Updates und Firmwareupdates für Ihre Server herunterladen. Dies ist unter [Erstellen eines Azure Stack HCI-Clusters](create-cluster.md) beschrieben.
+> [!NOTE]
+> Wenn Sie Azure Stack HCI-Lösungshardware für integrierte Systeme über den [Azure Stack HCI-Katalog](https://azure.microsoft.com/en-us/products/azure-stack/hci/catalog/) von Ihrem bevorzugten Hardwarepartner erworben haben, sollte das Azure Stack HCI-Betriebssystem vorinstalliert sein. In diesem Fall können Sie diesen Schritt überspringen und mit [Erstellen eines Azure Stack HCI-Clusters](create-cluster.md) fortfahren.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- Einrichtung von Windows Admin Center auf einem System, für das Zugriff auf die Server besteht, die Sie in das Cluster einbeziehen möchten. Dies ist unter [Vor dem Bereitstellen von Azure Stack HCI](before-you-start.md#install-windows-admin-center) beschrieben.
-- Eine Azure Stack HCI-Lösung, die über von Microsoft überprüfte Hardware von Ihrem bevorzugten Hardwareanbieter, das Azure Stack HCI-Betriebssystem und Azure-Dienste verfügt. Dies ist auf der [Seite mit den Azure Stack HCI-Lösungen](https://azure.microsoft.com/products/azure-stack/hci/) beschrieben.
+Vor dem Bereitstellen des Azure Stack HCI-Betriebssystems müssen Sie folgende Schritte ausführen:
 
-## <a name="deployment-preparation"></a>Vorbereitung der Bereitstellung
+- Ermitteln, ob Ihre Hardware die Systemanforderungen für Azure Stack HCI erfüllt
+- Erfassen der erforderlichen Informationen für eine erfolgreiche Bereitstellung
+- Installieren von Windows Admin Center auf einem Verwaltungscomputer oder Server
+
+Informationen zu den Anforderungen an Azure Kubernetes Service in Azure Stack HCI finden Sie unter [Was Sie für die ersten Schritte benötigen](../../aks-hci/overview.md#what-you-need-to-get-started).
+
+### <a name="determine-hardware-requirements"></a>Ermitteln der Hardwareanforderungen
+
+Microsoft empfiehlt den Erwerb einer validierten Azure Stack HCI-Hardware-/Softwarelösung von unseren Partnern. Diese Lösungen wurden anhand unserer Referenzarchitektur entworfen, zusammengestellt und validiert und garantieren Kompatibilität und Zuverlässigkeit, sodass Sie sofort loslegen können. Überprüfen Sie, ob die von Ihnen verwendeten Systeme, Komponenten, Geräte und Treiber gemäß Windows Server Catalog für Windows Server 2019 zertifiziert sind. Auf der Website [Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci) finden Sie validierte Lösungen.
+
+Sie benötigen mindestens zwei Server, eine zuverlässige Netzwerkverbindung mit hoher Bandbreite und geringer Wartezeit zwischen Servern sowie SATA-, SAS- oder NVMe-Laufwerke bzw. Laufwerke für persistenten Speicher, die physisch an nur jeweils einen Server angeschlossen sind.
+
+Die Hardwareanforderungen können jedoch je nach Größe und Konfiguration der bereitzustellenden Cluster variieren. Um eine erfolgreiche Bereitstellung sicherzustellen, überprüfen Sie die [Systemanforderungen](../concepts/system-requirements.md) von Azure Stack HCI.
+
+### <a name="gather-information"></a>Sammeln von Informationen
+
+Sammeln Sie zur Vorbereitung der Bereitstellung die folgenden Informationen zu Ihrer Umgebung:
+
+- **Servernamen** : Machen Sie sich mit den Benennungsrichtlinien Ihrer Organisation für Computer, Dateien, Pfade und andere Ressourcen vertraut. Sie werden mehrere Server bereitstellen müssen, von denen jeder einen eindeutigen Namen erhalten muss.
+- **Domänenname** : Machen Sie sich mit den Benennungsrichtlinien Ihrer Organisation für die Domänenbenennung und den Domänenbeitritt vertraut. Sie werden die Server in Ihre Domäne einbinden und müssen den Domänennamen angeben.
+- **Statische IP-Adressen** : Azure Stack HCI erfordert statische IP-Adressen für den Speicher- und Workloaddatenverkehr (VM) und unterstützt keine dynamische Zuweisung von IP-Adressen durch DHCP für dieses Hochgeschwindigkeitsnetzwerk. Sie können DHCP für den Verwaltungsnetzwerkadapter verwenden. Falls Sie jedoch zwei Adapter in einer Teamkonfiguration einsetzen, müssen Sie wieder statische IP-Adressen verwenden. Fragen Sie Ihren Netzwerkadministrator nach den IP-Adressen, die Sie für die einzelnen Server im Cluster verwenden sollten.
+- **RDMA-Netzwerkfunktionen** : Es gibt zwei Arten von RDMA-Protokollen: iWARP und RoCE. Informieren Sie sich darüber, welches Protokoll Ihre Netzwerkadapter verwenden. Wenn es sich um RoCE handelt, beachten Sie auch die Version (v1 oder v2). Im Fall von RoCE müssen Sie auch das Modell Ihres Top-of-Rack-Switchs beachten.
+- **VLAN-ID** : Informieren Sie sich über die VLAN-ID, die für die Netzwerkserver auf den Servern verwendet werden soll (sofern vorhanden). Diese Informationen sollten Sie von Ihrem Netzwerkadministrator erhalten.
+- **Standortnamen:** Bei Stretchingclustern werden zwei Standorte für die Notfallwiederherstellung verwendet. Standorte können mithilfe von [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) oder automatisch vom Clustererstellungs-Assistenten eingerichtet werden. Wenden Sie sich im Zusammenhang mit der Einrichtung von Standorten an Ihren Domänenadministrator.
+
+### <a name="install-windows-admin-center"></a>Installieren von Windows Admin Center
+
+Windows Admin Center ist eine lokal bereitgestellte, browserbasierte App zum Verwalten von Azure Stack HCI. Die einfachste Möglichkeit zum [Installieren von Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install) ist die Verwendung eines lokalen Verwaltungscomputers (Desktopmodus). Die Installation auf einem Server (Dienstmodus) ist jedoch ebenfalls möglich.
+
+Bei der Installation von Windows Admin Center auf einem Server muss für Aufgaben, die CredSSP erfordern (etwa Clustererstellung sowie Installation von Updates und Erweiterungen), ein Konto verwendet werden, das der Gatewayadministratorgruppe auf dem Windows Admin Center-Server angehört. Weitere Informationen finden Sie in den ersten beiden Abschnitten des Artikels [Konfigurieren der Benutzerzugriffssteuerung und von Berechtigungen](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions).
+
+## <a name="prepare-hardware-for-deployment"></a>Vorbereiten der Hardware für die Bereitstellung
 
 Nachdem Sie die Serverhardware für Ihre Azure Stack HCI-Lösung erworben haben, muss sie im Rack angeordnet und verkabelt werden. Führen Sie die folgenden Schritte aus, um die Serverhardware für die Bereitstellung des Betriebssystems vorzubereiten.
 
@@ -45,7 +76,7 @@ Sie können das Azure Stack HCI-Betriebssystem genauso bereitstellen, wie Sie di
 - Netzwerkbereitstellung
 - Manuelle Bereitstellung, indem entweder eine Tastatur und ein Monitor direkt an die Serverhardware in Ihrem Rechenzentrum angeschlossen werden, oder indem ein KVM-Hardwaregerät mit der Serverhardware verbunden wird
 
-### <a name="server-manufacturer-preinstallation"></a>Vorinstallation des Serverherstellers
+### <a name="server-manufacturer-pre-installation"></a>Vorinstallation des Serverherstellers
 
 Für die unternehmensweite Bereitstellung des Azure Stack HCI-Betriebssystems empfehlen wir Ihnen die Verwendung von Azure Stack HCI-Lösungshardware für integrierte Systeme von Ihrem bevorzugten Hardwarepartner. Auf der Lösungshardware ist das Betriebssystem bei der Lieferung bereits vorinstalliert, und sie unterstützt die Verwendung von Windows Admin Center, um Treiber und Firmware des Hardwareherstellers bereitstellen und aktualisieren zu können.
 
@@ -60,7 +91,7 @@ Das Windows System Image Manager-Tool ist über das Windows Assessment and Deplo
 
 ### <a name="system-center-virtual-machine-manager-vmm-deployment"></a>Bereitstellung von System Center Virtual Machine Manager (VMM)
 
-System Center Virtual Machine Manager (VMM) ist Teil der System Center-Suite. Sie können VMM verwenden, um das Azure Stack HCI-Betriebssystem auf Bare-Metal-Hardware bereitzustellen und die Server in Clustern anzuordnen. Weitere Informationen zu VMM finden Sie unter [Systemanforderungen für System Center Virtual Machine Manager](/system-center/vmm/system-requirements).
+Sie können System Center Virtual Machine Manager verwenden, um das Azure Stack HCI-Betriebssystem auf Bare-Metal-Hardware bereitzustellen und die Server in Clustern anzuordnen. Weitere Informationen zu VMM finden Sie unter [Systemanforderungen für System Center Virtual Machine Manager](/system-center/vmm/system-requirements).
 
 Weitere Informationen zur Verwendung von VMM für eine Bare-Metal-Bereitstellung des Betriebssystems finden Sie unter [Bereitstellen eines Hyper-V-Hosts oder -Clusters basierend auf Bare-Metal-Computern](/system-center/vmm/hyper-v-bare-metal).
 
@@ -78,37 +109,37 @@ Führen Sie die manuelle Installation des Azure Stack HCI-Betriebssystems wie fo
 
     :::image type="content" source="../media/operating-system/azure-stack-hci-install-language.png" alt-text="Seite mit Sprachoptionen im Assistenten für die Azure Stack HCI-Installation":::
 
-1. Sehen Sie sich auf der Seite mit den Hinweisen und Lizenzbedingungen die Bedingungen an, aktivieren Sie das Kontrollkästchen **Ich stimme den Lizenzbedingungen zu**, und wählen Sie anschließend **Weiter** aus.
+1. Sehen Sie sich auf der Seite mit den Hinweisen und Lizenzbedingungen die Bedingungen an, aktivieren Sie das Kontrollkästchen **Ich stimme den Lizenzbedingungen zu** , und wählen Sie anschließend **Weiter** aus.
 1. Wählen Sie auf der Seite „Welche Installationsart soll gewählt werden?“ die Option **Custom: Install the newer version of Azure Stack HCI only (advanced)** (Benutzerdefiniert: Nur die neuere Version von Azure Stack HCI installieren (erweitert)) aus.
 
     > [!NOTE]
     > Upgradeinstallationen werden bei diesem Release des Betriebssystems nicht unterstützt.
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-install-which-type.png" alt-text="Seite mit Sprachoptionen im Assistenten für die Azure Stack HCI-Installation":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-install-which-type.png" alt-text="Seite für die Auswahl der Installationsart im Assistenten für die Azure Stack HCI-Installation":::
 
 1. Übernehmen bzw. aktualisieren Sie auf der Seite „Where do you want to install Azure Stack HCI?“ (Wo soll Azure Stack HCI installiert werden?) den Laufwerkspeicherort, an dem Sie das Betriebssystem installieren möchten, und wählen Sie dann **Weiter** aus.
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-install-where.png" alt-text="Seite mit Sprachoptionen im Assistenten für die Azure Stack HCI-Installation":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-install-where.png" alt-text="Seite für den Laufwerkspeicherort im Assistenten für die Azure Stack HCI-Installation":::
 
 1. Die Seite „Installing Azure Stack HCI“ (Azure Stack HCI wird installiert) wird angezeigt, um den Status des Prozesses anzugeben.
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-installing.png" alt-text="Seite mit Sprachoptionen im Assistenten für die Azure Stack HCI-Installation":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-installing.png" alt-text="Statusseite im Assistenten für die Azure Stack HCI-Installation":::
 
     > [!NOTE]
     > Während des Installationsvorgangs wird das Betriebssystem zweimal neu gestartet, um den Prozess abzuschließen, und es werden Hinweise zum Start der Dienste angezeigt, bevor eine Administratoreingabeaufforderung geöffnet wird.
 
 1. Wählen Sie in der Administratoreingabeaufforderung **OK** aus, um das Kennwort des Benutzers zu ändern, bevor Sie sich beim Betriebssystem anmelden. Drücken Sie anschließend die EINGABETASTE.
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-change-admin-password.png" alt-text="Seite mit Sprachoptionen im Assistenten für die Azure Stack HCI-Installation":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-change-admin-password.png" alt-text="Aufforderung zum Ändern des Kennworts":::
 
 1. Geben Sie an der Eingabeaufforderung „Enter new credential for Administrator“ (Neue Anmeldeinformationen für Administrator eingeben) ein neues Kennwort ein, und geben Sie es zur Bestätigung dann erneut ein. Drücken Sie anschließend die EINGABETASTE.
 1. Drücken Sie in der Bestätigungsanzeige „Ihr Kennwort wurde geändert“ die EINGABETASTE.
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-admin-password-changed.png" alt-text="Seite mit Sprachoptionen im Assistenten für die Azure Stack HCI-Installation":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-admin-password-changed.png" alt-text="Bestätigung der Kennwortänderung":::
 
 Sie können das Serverkonfigurationstool (Sconfig) jetzt nutzen, um wichtige Aufgaben durchzuführen. Melden Sie sich zur Verwendung von Sconfig bei dem Server an, auf dem das Azure Stack HCI-Betriebssystem ausgeführt wird. Hierfür können Sie lokal eine Tastatur und einen Monitor verwenden, oder Sie können einen Controller für die Remoteverwaltung (monitorlos oder BMC) oder eine Remotedesktopverbindung nutzen. Das Tool „Sconfig“ wird automatisch geöffnet, wenn Sie sich beim Server anmelden.
 
-:::image type="content" source="../media/operating-system/azure-stack-hci-sconfig-screen.png" alt-text="Seite mit Sprachoptionen im Assistenten für die Azure Stack HCI-Installation" lightbox="../media/operating-system/azure-stack-hci-sconfig-screen.png":::
+:::image type="content" source="../media/operating-system/azure-stack-hci-sconfig-screen.png" alt-text="Benutzeroberfläche des Serverkonfigurationstools" lightbox="../media/operating-system/azure-stack-hci-sconfig-screen.png":::
 
 Auf der Hauptseite des Tools „Sconfig“ können Sie die folgenden ersten Konfigurationsaufgaben durchführen:
 - Konfigurieren des Netzwerks bzw. Sicherstellen, dass das Netzwerk per DHCP (Dynamic Host Configuration Protocol) automatisch konfiguriert wurde

@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/09/2020
-ms.openlocfilehash: 34a93a65d45861c7c7ff1727347cc95465968151
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/28/2020
+ms.openlocfilehash: 61cd03f7c4b381a434b5f99175b57b99169cb058
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572516"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064462"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Was ist der Bereitstellungsprozess für Azure Stack HCI?
 
@@ -38,41 +38,39 @@ Falls sich Ihre Azure Stack HCI-Bereitstellung über mehrere Standorte erstrecke
 
 ## <a name="deploy"></a>Bereitstellen
 
-### <a name="1-before-you-begin"></a>1. Voraussetzungen
+Ermitteln Sie vor der Bereitstellung des Betriebssystems, ob Ihre Hardware die [Systemanforderungen](../concepts/system-requirements.md) für Azure Stack HCI erfüllt. [Installieren Sie anschließend Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install), um Ihren Azure Stack HCI-Cluster zu verwalten.
 
-[Ermitteln Sie zunächst, ob Ihre Hardware die grundlegenden Anforderungen erfüllt, und sammeln Sie die erforderlichen Informationen](before-you-start.md) für die Bereitstellung von Azure Stack HCI. [Installieren Sie anschließend Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install), um Ihren Azure Stack HCI-Cluster zu verwalten.
+### <a name="1-deploy-azure-stack-hci"></a>1. Bereitstellen von Azure Stack HCI
 
-### <a name="2-deploy-azure-stack-hci"></a>2. Bereitstellen von Azure Stack HCI
+[Laden Sie Azure Stack HCI herunter](https://azure.microsoft.com/products/azure-stack/hci/hci-download/), und stellen Sie das Azure Stack HCI-[Betriebssystem](operating-system.md) auf allen Servern bereit, die in den Cluster einbezogen werden sollen. Wenn Sie Azure Stack HCI-Lösungshardware für integrierte Systeme über den [Azure Stack HCI-Katalog](https://azure.microsoft.com/en-us/products/azure-stack/hci/catalog/) von Ihrem bevorzugten Hardwarepartner erworben haben, sollte das Azure Stack HCI-Betriebssystem vorinstalliert sein. In diesem Fall können Sie diesen Schritt überspringen und mit Schritt 2 fortfahren.
 
-[Laden Sie Azure Stack HCI herunter](https://azure.microsoft.com/products/azure-stack/hci/hci-download/), und stellen Sie das Azure Stack HCI-[Betriebssystem](operating-system.md) auf allen Servern bereit, die in den Cluster einbezogen werden sollen.
-
-### <a name="3-create-the-cluster"></a>3. Erstellen des Clusters
+### <a name="2-create-the-cluster"></a>2. Erstellen Sie den Cluster.
 
 Erstellen Sie einen Failovercluster, indem Sie [Windows Admin Center](create-cluster.md) oder [PowerShell](create-cluster-powershell.md) verwenden. Zur Erzielung von nativer Notfallwiederherstellung und Geschäftskontinuität können Sie einen [gestreckten Cluster](../concepts/stretched-clusters.md) bereitstellen, der über zwei geografisch getrennte Standorte reicht.
 
-### <a name="4-set-up-a-cluster-witness"></a>4. Einrichten eines Clusterzeugen
+### <a name="3-set-up-a-cluster-witness"></a>3. Einrichten eines Clusterzeugen
 
 Das [Einrichten einer Zeugenressource](witness.md) ist für alle Cluster obligatorisch. Für Cluster mit zwei Knoten wird ein Zeuge benötigt, damit beim Versetzen eines Servers in den Offlinezustand nicht auch der andere Knoten nicht mehr verfügbar ist. Cluster mit drei oder mehr Knoten müssen einen Zeugen aufweisen, um eine Situation zu überstehen, in der zwei Server ausfallen oder in den Offlinezustand versetzt werden. 
 
-### <a name="5-register-with-azure"></a>5. Registrieren bei Azure
+### <a name="4-register-with-azure"></a>4. Registrieren bei Azure
 
 Für Azure Stack HCI ist eine Verbindung mit Azure erforderlich. Informationen zum Herstellen einer Verbindung zwischen Ihrem Cluster und Azure finden Sie im Artikel zur [Registrierung von Azure Stack HCI bei Azure](register-with-azure.md). Nach der Registrierung wird der Cluster im Hintergrund automatisch verbunden.
 
-### <a name="6-validate-the-cluster"></a>6. Überprüfen des Clusters
+### <a name="5-validate-the-cluster"></a>5. Überprüfen des Clusters
 
 Nachdem Sie den Cluster erstellt und registriert haben, sollten Sie die [Clustervalidierungstests ausführen](validate.md). Hierdurch können Sie Probleme mit der Hardware oder Konfiguration ermitteln, bevor der Cluster in der Produktion eingesetzt wird.
 
-### <a name="7-deploy-storage"></a>7. Bereitstellen von Speicher
+### <a name="6-deploy-storage"></a>6. Bereitstellen von Speicher
 
 [Erstellen Sie Volumes](../manage/create-volumes.md) in einem Cluster mit nur einem Standort, oder [erstellen Sie Volumes, und richten Sie die Replikation in einem gestreckten Cluster ein](../manage/create-stretched-volumes.md).
 
-### <a name="8-deploy-workloads"></a>8. Bereitstellen von Workloads
+### <a name="7-deploy-workloads"></a>7. Bereitstellen von Workloads
 
 Sie können nun [virtuelle Computer erstellen](../manage/vm.md) und Workloads in Azure Stack HCI bereitstellen, indem Sie Windows Admin Center verwenden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Informieren Sie sich darüber, welche Schritte Sie vor der Bereitstellung von Azure Stack HCI ausführen müssen.
+Informieren Sie sich über die Bereitstellung des Azure Stack HCI-Betriebssystems.
 
 > [!div class="nextstepaction"]
-> [Voraussetzungen](before-you-start.md)
+> [Bereitstellen des Azure Stack HCI-Betriebssystems](operating-system.md)
