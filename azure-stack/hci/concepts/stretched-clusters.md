@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ecf7974cec80888b149454c0a2ff90eb48c2e9e3
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: 611f76491f6edd5cb8700a13e79c0769c02c4fad
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86868077"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064751"
 ---
 # <a name="stretched-clusters-overview"></a>Stretchingcluster: Übersicht
 
@@ -44,7 +44,7 @@ Im folgenden Diagramm sind sowohl Standort 1 als auch Standort 2 als aktive St
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Weitere Informationen zu Hardware- und sonstigen Anforderungen für Stretchingcluster. Lesen Sie [Vorbereitung](../deploy/before-you-start.md).
+- Weitere Informationen zu Hardware- und sonstigen Anforderungen für Stretchingcluster. Weitere Informationen finden Sie unter [Systemanforderungen](system-requirements.md).
 - Erfahren Sie, wie ein Stretchingcluster mithilfe von Windows Admin Center bereitgestellt wird. Mehr dazu finden Sie unter [Erstellen eines Clusters mithilfe von Windows Admin Center](../deploy/create-cluster.md).
 - Erfahren Sie, wie Sie einen Stretchingcluster mithilfe von PowerShell bereitstellen. Mehr dazu finden Sie unter [Erstellen eines Clusters mithilfe von PowerShell](../deploy/create-cluster-powershell.md).
 - Erfahren Sie, wie Volumes erstellt werden und Replikation für Stretchingcluster eingerichtet wird. Mehr dazu finden Sie unter [Erstellen von Volumes und Einrichten von Replikation für Stretchingcluster](../manage/create-stretched-volumes.md).

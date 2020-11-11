@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
-ms.date: 10/16/2020
-ms.openlocfilehash: 6df469fcc6997b1f56a552bc141692c7a8a49808
-ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
+ms.date: 10/28/2020
+ms.openlocfilehash: d75e22814afcb9610bdd1f9af3824d3e12e3199b
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157681"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064564"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Planen einer softwaredefinierten Netzwerkinfrastruktur
 
@@ -25,13 +25,13 @@ Erfahren Sie mehr über die Bereitstellungsplanung für eine softwaredefinierte 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 Es gibt verschiedene Hardware- und Softwarevoraussetzungen für eine SDN-Infrastruktur, einschließlich:
-- **Sicherheitsgruppen und dynamische DNS-Registrierung** . Sie müssen Ihr Rechenzentrum für die Bereitstellung des Netzwerkcontrollers vorbereiten, wofür eine Reihe von virtuellen Computern (Virtual Machines, VMS) erforderlich ist. Bevor Sie den Netzwerkcontroller bereitstellen können, müssen Sie Sicherheitsgruppen und die dynamische DNS-Registrierung konfigurieren.
+- **Sicherheitsgruppen und dynamische DNS-Registrierung**. Sie müssen Ihr Rechenzentrum für die Bereitstellung des Netzwerkcontrollers vorbereiten, wofür eine Reihe von virtuellen Computern (Virtual Machines, VMS) erforderlich ist. Bevor Sie den Netzwerkcontroller bereitstellen können, müssen Sie Sicherheitsgruppen und die dynamische DNS-Registrierung konfigurieren.
 
     Weitere Informationen zur Bereitstellung von Netzwerkcontrollern für Ihr Rechenzentrum finden Sie unter [Anforderungen für die Bereitstellung von Netzwerkcontrollern](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller).
 
-- **Physisches Netzwerk** . Sie benötigen Zugriff auf ihre physischen Netzwerkgeräte, um virtuelle lokale Netzwerke (Virtual Local Area Networks, VLANs), Routing und das Border Gateway Protocol (BGP) zu konfigurieren. Dieses Thema bietet Anweisungen für die manuelle Switchkonfiguration sowie Optionen zur Verwendung von entweder BGP-Peering auf Layer-3-Switches/-Routern oder einer RRAS-VM (Routing and Remote Access Server).
+- **Physisches Netzwerk**. Sie benötigen Zugriff auf ihre physischen Netzwerkgeräte, um virtuelle lokale Netzwerke (Virtual Local Area Networks, VLANs), Routing und das Border Gateway Protocol (BGP) zu konfigurieren. Dieses Thema bietet Anweisungen für die manuelle Switchkonfiguration sowie Optionen zur Verwendung von entweder BGP-Peering auf Layer-3-Switches/-Routern oder einer RRAS-VM (Routing and Remote Access Server).
 
-- **Physischer Compute-Hosts** . Diese Hosts führen Hyper-V aus und sind erforderlich, um eine SDN-Infrastruktur und Mandanten-VMs zu hosten. Für optimale Leistung erfordern diese Hosts spezifische Netzwerkhardware, wie im Abschnitt [Netzwerkhardware](#network-hardware) beschrieben.
+- **Physischer Compute-Hosts**. Diese Hosts führen Hyper-V aus und sind erforderlich, um eine SDN-Infrastruktur und Mandanten-VMs zu hosten. Für optimale Leistung erfordern diese Hosts spezifische Netzwerkhardware, wie im Abschnitt [SDN-Hardwareanforderungen](system-requirements.md#sdn-hardware-requirements) beschrieben.
 
 ## <a name="physical-and-logical-network-configuration"></a>Physische und logische Netzwerkkonfiguration
 Jeder physische Computehost erfordert eine Netzwerkverbindung über mindestens einen Netzwerkadapter, der mit einem physischen Switchport verbunden ist. Ein Layer-2-[VLAN](https://en.wikipedia.org/wiki/Virtual_LAN) unterstützt Netzwerke, die in mehrere logische Netzwerksegmente aufgeteilt sind.
@@ -108,50 +108,10 @@ Für Computer, die für die Verbindung mit mehreren Netzwerken konfiguriert sind
 - Verwenden Sie für SLB/MUX-VMs das Verwaltungsnetzwerk als Standardgateway.
 - Verwenden Sie für die Gateway-VMs das Netzwerk des HNV-Anbieters als Standardgateway. Dies sollte auf der Front-End-NIC der Gateway-VMs festgelegt werden.
 
-## <a name="network-hardware"></a>Netzwerkhardware
-In diesem Abschnitt werden Anforderungen an die Netzwerkhardwarebereitstellung für NICs und physische Switches bereitgestellt.
+## <a name="switches-and-routers"></a>Switches und Router
+Zur Unterstützung der Konfiguration Ihres physischen Switchs oder Routers steht ein Satz von Beispielkonfigurationsdateien für eine Vielzahl unterschiedlicher Switchmodelle und -hersteller im [Microsoft SDN-GitHub-Repository](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples) zur Verfügung. Eine Readme-Datei sowie getestete CLI-Befehle (Command-Line Interface, Befehlszeilenschnittstelle) für bestimmte Switches werden bereitgestellt.
 
-### <a name="network-interface-cards-nics"></a>Netzwerkschnittstellenkarten (NICs)
-Die NICs, die Sie in Ihren Hyper-V-Hosts und Speicherhosts verwenden, erfordern bestimmte Funktionen, um die bestmögliche Leistung erzielen zu können.
-
-Direkter Remotezugriff auf den Arbeitsspeicher (Remote Direct Memory Access, RDMA) ist eine Methode zur Umgehung des Kernels, mit der große Datenmengen ohne Verwendung der Host-CPU übertragen werden können, wodurch die CPU zur Durchführung anderer Aufgaben freigegeben wird. Switch Embedded Teaming (SET) ist eine alternative NIC-Teaminglösung, die Sie in Umgebungen verwenden können, die Hyper-V und den SDN-Stapel enthalten. SET integriert einige NIC-Teamingfunktionen in den virtuellen Hyper-V-Switch.
-
-Weitere Informationen finden Sie unter [Direkter Remotezugriff auf den Arbeitsspeicher (Remote Direct Memory Access, RDMA) und SET (Switch Embedded Teaming)](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
-
-Um den Mehraufwand für den Datenverkehr des virtuellen Mandantennetzwerks zu berücksichtigen, der durch VXLAN- oder NVGRE-Kapselungsheader verursacht wird, muss die maximale Übertragungseinheit (MTU) des Layer-2-Fabric-Netzwerks (Switches und Hosts) auf einen Wert größer als oder gleich 1674 Bytes, \(einschließlich Layer-2-Ethernet-Headern\) festgelegt sein.
-
-NICs, die das neue, erweiterte Adapterschlüsselwort *EncapOverhead* unterstützen, legen die MTU automatisch über den Netzwerkcontroller-Host-Agent fest. NICs, die das neue Schlüsselwort *EncapOverhead* nicht unterstützen, müssen die MTU-Größe auf jedem physischen Host mit dem Schlüsselwort *JumboPacket* \(oder einem entsprechenden Schlüsselwort\) festlegen.
-
-### <a name="switches"></a>Switches
-Bei der Auswahl eines physischen Switches und Routers für Ihre Umgebung sollten Sie sicherstellen, dass er die folgenden Funktionen unterstützt:
-- Switchport-MTU-Einstellungen \(erforderlich\)
-- MTU festgelegt auf >= 1674 Bytes, \(einschließlich L2-Ethernet-Header\)
-- L3-Protokolle \(erforderlich\)
-- ECMP-Routing (Equal-Cost Multi Path)
-- Auf BGP \(IETF RFC 4271\)\- basierendes ECMP
-
-Implementierungen sollten die MUST-Anweisungen in den folgenden IETF-Standards unterstützen:
-- RFC 2545: [BGP-4-Multiprotokollerweiterungen für das domänenübergreifende IPv6-Routing](https://tools.ietf.org/html/rfc2545)
-- RFC 4760: [Multiprotokollerweiterungen für BGP-4](https://tools.ietf.org/html/rfc4760)
-- RFC 4893: [BGP-Unterstützung für 4-Oktett-ASN-Räume](https://tools.ietf.org/html/rfc4893)
-- RFC 4456: [BGP-Routenreflektion: Eine Alternative zum Full Mesh Internal BGP (IBGP)](https://tools.ietf.org/html/rfc4456)
-- RFC 4724: [Ordnungsgemäßer Neustartmechanismus für BGP](https://tools.ietf.org/html/rfc4724)
-
-Die folgenden Markierungsprotokolle sind erforderlich:
-- VLAN – Isolation verschiedener Arten von Datenverkehr
-- 802.1q-Trunk
-
-Die folgenden Elemente bieten Verknüpfungskontrolle:
-- Quality of Service \(QoS\) \(PFC nur erforderlich bei Verwendung von ROCE\)
-- Enhanced Traffic Selection \(802.1Qaz\)
-- Priority-Based Flow Control (PFC) \(802.1p/Q und 802.1Qbb\)
-
-Die folgenden Elemente bieten Verfügbarkeit und Redundanz:
-- Switchverfügbarkeit (erforderlich)
-- Ein hochverfügbarer Router ist erforderlich, um Gatewayfunktionen auszuführen. Diesen können Sie bereitstellen, indem Sie einen Mehrfach-Chassis-Switch/Router verwenden oder Technologien wie das Virtual Router Redundancy Protocol (VRRP).
-
-### <a name="switch-configuration-examples"></a>Switchkonfigurationsbeispiele
-Zur Unterstützung der Konfiguration Ihres physischen Switchs oder Routers steht ein Satz von Beispielkonfigurationsdateien für eine Vielzahl unterschiedlicher Switchmodelle und -hersteller im [Microsoft SDN-GitHub-Repository](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples) zur Verfügung. Eine ausführliche Infodatei sowie getestete CLI-Befehle (Command-Line Interface, Befehlszeilenschnittstelle ) für bestimmte Switches werden bereitgestellt.
+Ausführliche Anforderungen für Switches und Router finden Sie unter [SDN-Hardwareanforderungen](system-requirements.md#sdn-hardware-requirements).
 
 ## <a name="compute"></a>Compute
 Auf allen Hyper-V-Hosts muss das geeignete Betriebssystem installiert sowie für Hyper-V aktiviert sein, und sie müssen einen externen virtuellen Hyper-V-Switch mit mindestens einem physischer Adapter verwenden, der mit dem logischen Verwaltungsnetzwerk verbunden ist. Der Host muss über eine der vNIC des Verwaltungshosts zugewiesene Verwaltungs-IP-Adresse erreichbar sein.

@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 19e2bf9ef9d11f1975881fd064b86004422190de
-ms.sourcegitcommit: 6a51687a98c417a004cd4295ad06ae813e1978cc
+ms.openlocfilehash: 9009064b2664d09a677ad1b2e21b2a3e5b17b57f
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638834"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363927"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Verwenden des privilegierten Endpunkts in Azure Stack Hub
 
@@ -30,9 +30,11 @@ Der PEP protokolliert jede Aktion, die Sie in der PowerShell-Sitzung ausführen 
 > [!NOTE]
 > Im Azure Stack Development Kit (ASDK) können Sie einige der im PEP verfügbaren Befehle direkt über eine PowerShell-Sitzung auf dem Development Kit-Host ausführen. Es empfiehlt sich allerdings, einige Vorgänge (beispielsweise die Protokollsammlung) unter Verwendung des PEPs zu testen, da dies die einzige verfügbare Methode ist, mit der bestimmte Vorgänge in einer Umgebung mit integrierten Systemen ausgeführt werden können.
 
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
+
 ## <a name="access-the-privileged-endpoint"></a>Zugreifen auf den privilegierten Endpunkt
 
-Der Zugriff auf den PEP erfolgt über eine PowerShell-Remotesitzung auf dem virtuellen Computer (VM), auf dem der PEP gehostet wird. Im ASDK hat diese VM den Namen **AzS-ERCS01** . Wenn Sie ein integriertes System verwenden, gibt es drei Instanzen des PEPs. Aus Resilienzgründen werden diese jeweils auf einer VM („ *Präfix* -ERCS01“, „ *Präfix* -ERCS02“ und „ *Präfix* -ERCS03“) auf unterschiedlichen Hosts ausgeführt.
+Der Zugriff auf den PEP erfolgt über eine PowerShell-Remotesitzung auf dem virtuellen Computer (VM), auf dem der PEP gehostet wird. Im ASDK hat diese VM den Namen **AzS-ERCS01**. Wenn Sie ein integriertes System verwenden, gibt es drei Instanzen des PEPs. Aus Resilienzgründen werden diese jeweils auf einer VM („ *Präfix* -ERCS01“, „ *Präfix* -ERCS02“ und „ *Präfix* -ERCS03“) auf unterschiedlichen Hosts ausgeführt.
 
 Bevor Sie dieses Verfahren für das integrierte System beginnen, sollten Sie sich vergewissern, dass Sie anhand der IP-Adresse oder per DNS auf den PEP zugreifen können. Nach der erstmaligen Bereitstellung von Azure Stack Hub können Sie nur über die IP-Adresse auf den PEP zugreifen, da die DNS-Integration noch nicht eingerichtet wurde. Ihr OEM-Hardwarehersteller stellt eine JSON-Datei namens **AzureStackStampDeploymentInfo** bereit, die die IP-Adressen des PEPs enthält.
 
@@ -80,7 +82,7 @@ Sie müssen die aktuelle Kultureinstellung auf `en-US` festlegen, wenn Sie den p
     
    - Wenn Sie zur Eingabe von Anmeldeinformationen aufgefordert werden, geben Sie Folgendes ein:
    
-       - **Benutzername** : Geben Sie das Cloudadministratorkonto im Format **&lt;*Azure Stack Hub-Domäne*&gt;\cloudadmin** an. (Für ASDK lautet der Benutzername **Azurestack\cloudadmin** .)
+       - **Benutzername** : Geben Sie das Cloudadministratorkonto im Format **&lt;*Azure Stack Hub-Domäne*&gt;\cloudadmin** an. (Für ASDK lautet der Benutzername **Azurestack\cloudadmin**.)
   
         - **Kennwort** : Geben Sie das gleiche Kennwort ein, das während der Installation für das AzureStackAdmin-Domänenadministratorkonto bereitgestellt wurde.
 
@@ -160,7 +162,7 @@ Wenn Sie die PEP-Sitzung in Ihren lokalen Computer importieren möchten, führen
 
      Wenn Sie zur Eingabe von Anmeldeinformationen aufgefordert werden, geben Sie Folgendes ein:
 
-     - **Benutzername** : Geben Sie das Cloudadministratorkonto im Format **&lt;*Azure Stack Hub-Domäne*&gt;\cloudadmin** an. (Für ASDK lautet der Benutzername **Azurestack\cloudadmin** .)
+     - **Benutzername** : Geben Sie das Cloudadministratorkonto im Format **&lt;*Azure Stack Hub-Domäne*&gt;\cloudadmin** an. (Für ASDK lautet der Benutzername **Azurestack\cloudadmin**.)
      - **Kennwort** : Geben Sie das gleiche Kennwort ein, das während der Installation für das AzureStackAdmin-Domänenadministratorkonto bereitgestellt wurde.
 
 3. Importieren Sie die PEP-Sitzung in Ihren lokalen Computer:
@@ -199,12 +201,12 @@ Nachdem die Aufzeichnungsprotokolldateien erfolgreich in die Dateifreigabe über
 
 ## <a name="unlocking-the-privileged-endpoint-for-support-scenarios"></a>Entsperren des privilegierten Endpunkts für Supportszenarien
 
- Während eines Supportszenarios muss der Microsoft-Supporttechniker möglicherweise die Rechte der PowerShell-Sitzung des privilegierten Endpunkts für den Zugriff auf die Interna der Azure Stack Hub-Infrastruktur erhöhen. Dieser Prozess wird gelegentlich informell als „Scheibe einschlagen“ (break the glass) oder „PEP entsperren“ (unlock the PEP) bezeichnet. Der Rechteerhöhungsprozess für die PEP-Sitzung ist ein zweistufiger Authentifizierungsprozess, der zwei Personen und zwei Organisationen umfasst. Das Verfahren zum Entsperren wird vom Azure Stack Hub-Operator initiiert, der jederzeit die Kontrolle über seine Umgebung behält. Der Operator greift auf den PEP zu und führt dieses Cmdlet aus:
+ Während eines Supportszenarios muss der Microsoft-Supporttechniker möglicherweise die Rechte der PowerShell-Sitzung des privilegierten Endpunkts für den Zugriff auf die Interna der Azure Stack Hub-Infrastruktur erhöhen. Dieser Prozess wird gelegentlich informell als „Scheibe einschlagen“ (break the glass) oder „PEP entsperren“ (unlock the PEP) bezeichnet. Der Rechteerhöhungsprozess für die PEP-Sitzung ist ein zweistufiger Authentifizierungsprozess, der zwei Personen und zwei Organisationen umfasst. Das Verfahren zum Entsperren wird vom Azure Stack Hub-Operator initiiert, der jederzeit die Kontrolle über seine Umgebung behält. Der Operator greift auf den PEP zu und führt das folgende Cmdlet aus:
  
  ```powershell  
       Get-SupportSessionToken
   ```
- Das Cmdlet gibt das Anforderungstoken der Supportsitzung zurück, wobei es sich um eine sehr lange alphanumerische Zeichenfolge handelt. Der Operator übergibt dann das Anforderungstoken über ein Medium seiner Wahl (z. B. Chat, E-Mail usw.) an den Microsoft-Supporttechniker. Der Microsoft-Supporttechniker verwendet das Anforderungstoken, um, falls gültig, ein Autorisierungstoken für die Supportsitzung zu generieren, das er dann an den Azure Stack Hub-Operator zurücksendet. In derselben PowerShell-Sitzung des PEP übergibt der Operator dann das Autorisierungstoken als Eingabe an dieses Cmdlet:
+ Das Cmdlet gibt das Anforderungstoken der Supportsitzung zurück, wobei es sich um eine sehr lange alphanumerische Zeichenfolge handelt. Der Operator gibt das Anforderungstoken dann über ein Medium seiner Wahl (z. B. Chat oder E-Mail) an den Microsoft-Supporttechniker weiter. Der Microsoft-Supporttechniker verwendet das Anforderungstoken, um, falls gültig, ein Autorisierungstoken für die Supportsitzung zu generieren, das er dann zurück an den Azure Stack Hub-Operator sendet. In derselben PowerShell-Sitzung des PEP übergibt der Operator dann das Autorisierungstoken als Eingabe an dieses Cmdlet:
 
  ```powershell  
       unlock-supportsession

@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: a5ccf4ecd9ab6f70f54af22c343f28eb692f9c54
-ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
+ms.openlocfilehash: ee0ef7119dfb2255cd97e343f8e7339ab715ed7d
+ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91592901"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93049601"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Zertifikatanforderungen für Azure Stack Hub-PKI (Public Key-Infrastruktur)
 
@@ -105,12 +105,13 @@ In der folgenden Tabelle sind die Endpunkte und Zertifikate beschrieben, die fü
 
 |Bereich (pro Region)|Zertifikat|Erforderlicher Zertifikatantragsteller und alternative Antragstellernamen|Namespace der Unterdomäne|
 |-----|-----|-----|-----|
-|SQL, MySQL|SQL und MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>(SSL-Platzhalterzertifikat)|dbadapter. *&lt;region>.&lt;fqdn>*|
 |App Service|Webdatenverkehr: SSL-Standardzertifikat|&#42;.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice. *&lt;Region>.&lt;FQDN>*<br>(SSL-Platzhalterzertifikat für mehrere Domänen<sup>1</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL-Zertifikat<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL-Zertifikat<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL-Zertifikat<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|Event Hubs|Event Hubs|&#42;.eventhub. *&lt;region>.&lt;fqdn>* (SAN)| eventhub. *&lt;region>.&lt;fqdn>* |
+|Event Hubs|SSL|&#42;.eventhub. *&lt;region>.&lt;fqdn>* | eventhub. *&lt;region>.&lt;fqdn>* |
+|IoT Hub|SSL|&#42;.mgmtiothub. *&lt;region>.&lt;fqdn>* | mgmtiothub. *&lt;region>.&lt;fqdn>* |
+|SQL, MySQL|SQL und MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>(SSL-Platzhalterzertifikat)|dbadapter. *&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> Erfordert ein Zertifikat mit Platzhaltern für mehrere alternative Antragstellernamen. Mehrere Platzhalter für alternative Antragstellernamen auf einem einzigen Zertifikat werden ggf. nicht von allen öffentlichen Zertifizierungsstellen unterstützt.
 

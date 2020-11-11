@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 09/22/2020
-ms.openlocfilehash: 4c91dad12e4d6680ca0887da2e6ca314cdbd64ee
-ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
+ms.openlocfilehash: 62b1b2983b2e41b5c6d991b4d53338a67bc5aeab
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91519385"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064666"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Systemanforderungen für Azure Kubernetes Service in Azure Stack HCI
 
@@ -40,7 +40,7 @@ Damit Azure Kubernetes Service in Azure Stack HCI in einer Active Directory-Umge
 
  - Obwohl Sie Azure Kubernetes Service technisch gesehen auf einem Azure Stack HCI-Server mit einem einzelnen Knoten ausführen können, wird von dieser Vorgehensweise abgeraten.
 
- - Andere Computeanforderungen für Azure Kubernetes Service in Azure Stack HCI entsprechen den Anforderungen von Azure Stack HCI. Weitere Informationen zu den Serveranforderungen von Azure Stack HCI finden Sie unter [Anforderungen an Azure Stack HCI](../hci/deploy/before-you-start.md).  
+ - Andere Computeanforderungen für Azure Kubernetes Service in Azure Stack HCI entsprechen den Anforderungen von Azure Stack HCI. Ausführliche Informationen zu den Azure Stack HCI-Serveranforderungen finden Sie unter [Azure Stack HCI-Systemanforderungen](../hci/concepts/system-requirements.md#server-requirements).
 
  - Diese Vorschauversion erfordert, dass Sie das Azure Stack HCI-Betriebssystem auf jedem Server im Cluster unter Verwendung der EN-US-Region und der Sprachauswahl installieren. Eine Änderung nach der Installation ist zu diesem Zeitpunkt nicht ausreichend.
 
@@ -81,7 +81,7 @@ Beim Erstellen eines Azure Kubernetes-Clusters in Azure Stack HCI öffnen wir au
 
 Firewall-URL-Ausnahmen sind für den Windows Admin Center-Computer und alle Knoten im Azure Stack HCI-Cluster erforderlich. 
 
-| URL        | Port | Dienst | Hinweise |
+| URL        | Port | Dienst | Notizen |
 | ---------- | ---- | --- | ---- |
 https://helm.sh/blog/get-helm-sh/  | 443 | Download Agent, WAC | Wird zum Herunterladen der Helm-Binärdateien verwendet 
 https://storage.googleapis.com/  | 443 | Cloud-Init | Kubernetes-Binärdateien werden heruntergeladen 

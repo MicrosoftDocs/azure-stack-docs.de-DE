@@ -7,12 +7,12 @@ ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: aa2773519250a901be421f1177d2f940b1670644
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 6eb455dbcf30b1d77818b13d1fc7db6b6b11c6f9
+ms.sourcegitcommit: 62fc0592fdec706ade2b14e685448256ad0b4fe9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623284"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93239562"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>Überwachen von Azure Stack Hub-Hardwarekomponenten
 
@@ -26,7 +26,7 @@ Das Integritäts- und Überwachungssystem von Azure Stack Hub überwacht den Sta
 - Startlaufwerke
 
 > [!NOTE]
-> Informieren Sie sich vor dem Aktivieren dieses Features unbedingt bei Ihrem Hardwarepartner, ob die Komponenten bereit sind. Von Ihrem Hardwarepartner erhalten Sie auch ausführliche Informationen zu den Schritten, die zum Aktivieren dieses Features im Baseboard-Verwaltungscontroller (Baseboard Management Controller, BMC) ausgeführt werden müssen.
+> Informieren Sie sich vor dem Aktivieren dieses Features unbedingt bei Ihrem Hardwarepartner, ob die Komponenten bereit sind. Von Ihrem Hardwarepartner erhalten Sie auch ausführliche Informationen zu den Schritten, die zum Aktivieren dieses Features im Baseboard-Verwaltungscontroller (Baseboard Management Controller, BMC) ausgeführt werden müssen. Die Benutzerverschlüsselung des BMC muss ab dem Build 2005 auf AES festgelegt werden. 
 
 ## <a name="snmp-listener-scenario"></a>SNMP-Listenerszenario
 

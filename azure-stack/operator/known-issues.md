@@ -3,16 +3,16 @@ title: Azure Stack Hub – Bekannte Probleme
 description: Enthält Informationen zu bekannten Problemen in Releases von Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 11/02/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: b52944255569197e9390db879f690f9e5d5a21d5
-ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
+ms.openlocfilehash: 50b80df35ceed77242e7deb45c54664fb5a9563f
+ms.sourcegitcommit: 62fc0592fdec706ade2b14e685448256ad0b4fe9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91495778"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93239596"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -37,6 +37,13 @@ Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die
 ## <a name="update"></a>Aktualisieren
 
 Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub finden Sie unter [Problembehandlung von Azure Stack Hub-Updates](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates).
+
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>Fehler bei der Installation des Pakets „Microsoft.AzureStack.Compute.Installer“ auf der Zertifizierungsstellen-VM durch das Update
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Während des Updates richtet ein Prozess eine Sperre für neue Inhalte ein, die auf die Zertifizierungsstellen-VM kopiert werden müssen. Die Sperre wird aufgehoben, wenn das Update fehlschlägt.
+- Abhilfe: Fahren Sie mit dem Update fort.
+- Häufigkeit: Selten
 
 ## <a name="portal"></a>Portal
 
@@ -170,6 +177,13 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 Nach dem Anwenden von Update 2002 wird im Administratorportal ggf. fälschlicherweise die Warnung „Ungültige Zeitquelle“ angezeigt. Sie können diese Warnung (False Positive) ignorieren. Der Fehler wird mit einem der nächsten Releases behoben. 
 
 Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub finden Sie unter [Problembehandlung von Azure Stack Hub-Updates](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates).
+
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>Fehler bei der Installation des Pakets „Microsoft.AzureStack.Compute.Installer“ auf der Zertifizierungsstellen-VM durch das Update
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Während des Updates richtet ein Prozess eine Sperre für neue Inhalte ein, die auf die Zertifizierungsstellen-VM kopiert werden müssen. Die Sperre wird aufgehoben, wenn das Update fehlschlägt.
+- Abhilfe: Fahren Sie mit dem Update fort.
+- Häufigkeit: Selten
 
 ## <a name="portal"></a>Portal
 
@@ -367,6 +381,13 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 
 Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub finden Sie unter [Problembehandlung von Azure Stack Hub-Updates](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates).
 
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>Fehler bei der Installation des Pakets „Microsoft.AzureStack.Compute.Installer“ auf der Zertifizierungsstellen-VM durch das Update
+
+- Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
+- Ursache: Während des Updates richtet ein Prozess eine Sperre für neue Inhalte ein, die auf die Zertifizierungsstellen-VM kopiert werden müssen. Die Sperre wird aufgehoben, wenn das Update fehlschlägt.
+- Abhilfe: Fahren Sie mit dem Update fort.
+- Häufigkeit: Selten
+
 ## <a name="portal"></a>Portal
 
 ### <a name="administrative-subscriptions"></a>Verwaltungsabonnements
@@ -456,8 +477,8 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 ### <a name="access-control-iam"></a>Zugriffssteuerung (IAM)
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Die IAM-Erweiterung ist veraltet. Das Ibiza-Portal ist im Lieferumfang von Azure Stack Hub enthalten und führt ein neues Verhalten ein, das einen Fehler der RBAC-Erweiterung verursacht, wenn Benutzer das Blatt **Zugriffssteuerung (IAM)** für ein Abonnement öffnen, das nicht in der Auswahl für globale Abonnements ausgewählt ist (**Verzeichnis + Abonnement** im Benutzerportal). Auf dem Blatt wird **Laden** in einer Schleife angezeigt, und Benutzer können dem Abonnement keine neuen Rollen hinzufügen. Auf dem Blatt **Hinzufügen** wird ebenfalls **Laden** in einer Schleife angezeigt.
-- Abhilfe: Stellen Sie sicher, dass das Abonnement im Menü **Verzeichnis + Abonnement** aktiviert ist. Sie können wie folgt auf das Menü zugreifen: Über den oberen Portalbereich (in der Nähe der Schaltfläche **Benachrichtigungen**) oder über die Verknüpfung auf dem Blatt **Alle Ressourcen**, die **Wird kein Abonnement angezeigt? Verzeichnis- und Abonnementeinstellungen öffnen** lautet. Das Abonnement muss in diesem Menü ausgewählt werden.
+- Ursache: Die IAM-Erweiterung ist veraltet. Das Ibiza-Portal ist im Lieferumfang von Azure Stack Hub enthalten und führt ein neues Verhalten ein, das einen Fehler der RBAC-Erweiterung verursacht, wenn Benutzer das Blatt **Zugriffssteuerung (IAM)** für ein Abonnement öffnen, das nicht in der Auswahl für globale Abonnements ausgewählt ist ( **Verzeichnis + Abonnement** im Benutzerportal). Auf dem Blatt wird **Laden** in einer Schleife angezeigt, und Benutzer können dem Abonnement keine neuen Rollen hinzufügen. Auf dem Blatt **Hinzufügen** wird ebenfalls **Laden** in einer Schleife angezeigt.
+- Abhilfe: Stellen Sie sicher, dass das Abonnement im Menü **Verzeichnis + Abonnement** aktiviert ist. Sie können wie folgt auf das Menü zugreifen: Über den oberen Portalbereich (in der Nähe der Schaltfläche **Benachrichtigungen** ) oder über die Verknüpfung auf dem Blatt **Alle Ressourcen** , die **Wird kein Abonnement angezeigt? Verzeichnis- und Abonnementeinstellungen öffnen** lautet. Das Abonnement muss in diesem Menü ausgewählt werden.
 
 ### <a name="sql-resource-provider"></a>SQL-Ressourcenanbieter
 
@@ -482,7 +503,7 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 ### <a name="network-security-groups"></a>Netzwerksicherheitsgruppen
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen. 
-- Ursache: Eine explizite **DenyAllOutbound**-Regel kann nicht in einer Netzwerksicherheitsgruppe (NSG) erstellt werden, da dadurch die gesamte interne Kommunikation mit der Infrastruktur, die für die VM-Bereitstellung erforderlich ist, verhindert wird.
+- Ursache: Eine explizite **DenyAllOutbound** -Regel kann nicht in einer Netzwerksicherheitsgruppe (NSG) erstellt werden, da dadurch die gesamte interne Kommunikation mit der Infrastruktur, die für die VM-Bereitstellung erforderlich ist, verhindert wird.
 - Häufigkeit: Allgemein
 
 ### <a name="service-endpoints"></a>Dienstendpunkte

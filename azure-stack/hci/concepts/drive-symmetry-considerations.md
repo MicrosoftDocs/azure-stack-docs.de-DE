@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/01/2020
-ms.openlocfilehash: 545a0b90ad938a172a184748780974ba7403f19f
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.date: 10/29/2020
+ms.openlocfilehash: 6cf983d6cf64b0b41bb9710bdf720dd1777c9ad6
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742399"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064802"
 ---
 # <a name="drive-symmetry-considerations-for-azure-stack-hci"></a>Überlegungen zur Laufwerkssymmetrie für Azure Stack HCI
 
@@ -25,6 +25,8 @@ Wir sind uns bewusst, dass dies in der Praxis nicht immer praktikabel ist, denn 
 In diesem Thema werden die Einschränkungen erläutert und Beispiele für unterstützte und nicht unterstützte Konfigurationen bereitgestellt.
 
 ## <a name="constraints"></a>Einschränkungen
+
+In diesem Abschnitt werden Einschränkungen hinsichtlich der Typen, Modelle, Größen und Anzahl von Laufwerken erläutert.
 
 ### <a name="type"></a>type
 
@@ -69,7 +71,7 @@ Wie dargestellt, sind Server 1 (10 TB) und Server 2 (10 TB) voll. Server 3 ha
 
 ### <a name="optimal-placement"></a>Optimale Platzierung
 
-Umgekehrt ist es bei vier Servern mit einer Kapazität von 10 TB, 10 TB, 10 TB und 15 TB und einer Drei-Wege-Spiegelungsresilienz *möglich*, Kopien gültig so zu platzieren, dass die gesamte verfügbare Kapazität wie dargestellt genutzt wird. Wann immer dies möglich ist, wird die direkte Speicherplatzzuweisung die optimale Platzierung finden und nutzen, sodass keine isolierte Kapazität übrig bleibt.
+Umgekehrt ist es bei vier Servern mit einer Kapazität von 10 TB, 10 TB, 10 TB und 15 TB und einer Drei-Wege-Spiegelungsresilienz *möglich* , Kopien gültig so zu platzieren, dass die gesamte verfügbare Kapazität wie dargestellt genutzt wird. Wann immer dies möglich ist, wird die direkte Speicherplatzzuweisung die optimale Platzierung finden und nutzen, sodass keine isolierte Kapazität übrig bleibt.
 
 ![Drei-Wege-Spiegelung, vier Server, keine isolierte Kapazität](media/drive-symmetry-considerations/Size-Asymmetry-4N-No-Stranded.png)
 
@@ -184,5 +186,5 @@ Um es noch einmal zusammenzufassen: Jeder Server im Cluster sollte über dieselb
 
 Verwandte Informationen finden Sie außerdem unter:
 
-- [Vor dem Bereitstellen von Azure Stack HCI](../deploy/before-you-start.md)
+- [Systemanforderungen](system-requirements.md)
 - [Auswählen von Laufwerken](choose-drives.md)

@@ -3,16 +3,16 @@ title: 'Azure Stack Hub: Versionshinweise'
 description: Versionshinweise für integrierte Azure Stack Hub-Systeme, einschließlich Updates und Fehlerbehebungen.
 author: sethmanheim
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 11/03/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 5fa0debb10152d94095d6ba79100e74c2116633e
-ms.sourcegitcommit: 61e616745cd20940eaeee6dfe90333ebe621e0ea
+ms.openlocfilehash: 07ad819985268ad88f86c3c2bf7b7b18e75d491f
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92763133"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363876"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -49,11 +49,11 @@ Sie können das Azure Stack Hub-Updatepaket mit dem [Downloadprogramm für das 
 ::: moniker range="azs-2005"
 ## <a name="2005-build-reference"></a>2005 – Buildreferenz
 
-Die Buildnummer des Azure Stack Hub-Updates 2005 lautet **1.2005.6.53** .
+Die Buildnummer des Azure Stack Hub-Updates 2005 lautet **1.2005.6.53**.
 
 ### <a name="update-type"></a>Updatetyp
 
-Der Buildtyp des Azure Stack Hub-Updates 2005 lautet **Vollständig** .
+Der Buildtyp des Azure Stack Hub-Updates 2005 lautet **Vollständig**.
 
 Das Paket des Updates 2005 ist größer als vorherige Updates. Dies führt zu längeren Downloadzeiten. Das Update bleibt lange im Zustand **Wird vorbereitet** , und es ist damit zur rechnen, dass dieser Prozess länger dauert als bei vorherigen Updates. Das Update 2005 hatte bei unseren internen Tests die folgenden erwarteten Laufzeiten: 4 Knoten: 13 – 20 Stunden, 8 Knoten: 16 – 26 Stunden, 12 Knoten: 19 – 32 Stunden, 16 Knoten: 22 – 38 Stunden Die genauen Laufzeiten des Updates hängen in der Regel von der Kapazität ab, die auf Ihrem System durch Mandantenworkloads beansprucht wird, sowie von der Netzwerkkonnektivität Ihres Systems (falls eine Verbindung mit dem Internet besteht) und den Spezifikationen Ihrer Systemhardware. Laufzeiten, die kürzer oder länger als erwartet sind, sind nicht ungewöhnlich und erfordern kein Eingreifen durch den Azure Stack Hub-Operator, sofern das Update nicht fehlschlägt. Diese geschätzte Laufzeit ist spezifisch für das Update 2005 und nicht auf andere Azure Stack Hub-Updates übertragbar.
 
@@ -94,8 +94,9 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 
 ### <a name="changes"></a>Änderungen
 
-- Die Aktionen zum Beenden, Herunterfahren und Neustarten einer Infrastrukturrolleninstanz wurden aus dem Verwaltungsportal entfernt. Die entsprechenden APIs wurden auch im Fabric-Ressourcenanbieter entfernt. Die folgenden PowerShell-Cmdlets im RM-Administratormodul und AZ-Vorschaumodul für Azure Stack Hub funktionieren nicht mehr: **Stop-AzsInfrastructureRoleInstance** , **Disable-InfrastructureRoleInstance** und **Restart-InfrastructureRoleInstance** . Diese Cmdlets werden aus dem nächsten Release des AZ-Administratormoduls für Azure Stack Hub entfernt.
+- Die Aktionen zum Beenden, Herunterfahren und Neustarten einer Infrastrukturrolleninstanz wurden aus dem Verwaltungsportal entfernt. Die entsprechenden APIs wurden auch im Fabric-Ressourcenanbieter entfernt. Die folgenden PowerShell-Cmdlets im RM-Administratormodul und AZ-Vorschaumodul für Azure Stack Hub funktionieren nicht mehr: **Stop-AzsInfrastructureRoleInstance** , **Disable-InfrastructureRoleInstance** und **Restart-InfrastructureRoleInstance**. Diese Cmdlets werden aus dem nächsten Release des AZ-Administratormoduls für Azure Stack Hub entfernt.
 - Azure Stack Hub 2005 unterstützt jetzt nur [App Service in Azure Stack Hub 2020 (Version 87.x)](app-service-release-notes-2020-Q2.md).
+- Die für die Hardwareüberwachung erforderliche Benutzerverschlüsselungseinstellung wurde von DES in AES geändert, um die Sicherheit zu erhöhen. Wenden Sie sich an Ihren Hardwarepartner, um zu erfahren, wie Sie die Einstellung im Baseboard-Verwaltungscontroller (Baseboard Management Controller, BMC) ändern. Nachdem die Änderung im BMC erfolgt ist, fordert dieser möglicherweise, dass Sie den Befehl **Set-BmcCredential** noch mal mit dem privilegierten Endpunkt ausführen. Weitere Informationen finden Sie unter [Rotieren von Geheimnissen in Azure Stack Hub](azure-stack-rotate-secrets.md).
 
 ### <a name="fixes"></a>Fehlerbehebungen
 
@@ -142,20 +143,20 @@ Ab Release 2005 werden bei der Aktualisierung auf eine neue Hauptversion (z. B
 
 Wenn nach der Installation des Updates 2005 Hotfixes für 2005 veröffentlicht werden, sollten Sie sie installieren:
 
-- [Azure Stack Hub-Hotfix 1.2005.19.80](https://support.microsoft.com/help/4591132)
+- [Azure Stack Hub-Hotfix 1.2005.20.82](https://support.microsoft.com/help/4592228)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
 ## <a name="2002-build-reference"></a>2002 – Buildreferenz
 
-Die Buildnummer des Azure Stack Hub-Updates 2002 lautet **1.2002.0.35** .
+Die Buildnummer des Azure Stack Hub-Updates 2002 lautet **1.2002.0.35**.
 
 > [!IMPORTANT]  
 > Mit dem Azure Stack Hub 2002-Update erweitert Microsoft vorübergehend die [Azure Stack Hub-Supportrichtlinienanweisungen](azure-stack-servicing-policy.md).  Wir arbeiten weltweit mit Kunden zusammen, die auf COVID-19 reagieren. In diesem Zusammenhang müssen die Kunden ggf. wichtige Entscheidungen für ihre Azure Stack Hub-Systeme und deren Aktualisierung und Verwaltung treffen und daher sicherstellen, dass die Geschäftsabläufe in ihrem Rechenzentrum weiterhin normal erfolgen. Zur Unterstützung der Kunden bietet Microsoft eine temporäre Erweiterung zur Änderung der Supportrichtlinien an, die die drei letzten Updateversionen umfasst.  In diesem Rahmen werden das neu veröffentlichte Update 2002 sowie die drei letzten Updateversionen (z. B. 1910, 1908 und 1907) unterstützt.
 
 ### <a name="update-type"></a>Updatetyp
 
-Der Buildtyp des Azure Stack Hub 2002-Updates lautet **Vollständig** .
+Der Buildtyp des Azure Stack Hub 2002-Updates lautet **Vollständig**.
 
 Das Paket des Updates 2002 ist größer als bei vorherigen Updates. Dies führt zu längeren Downloadzeiten. Das Update bleibt lange im Zustand **Wird vorbereitet** , und es ist damit zur rechnen, dass dieser Prozess länger dauert als bei vorherigen Updates. Das Update 2002 hatte bei unseren internen Tests die folgenden erwarteten Laufzeiten: 4 Knoten: 15 - 42 Stunden, 8 Knoten: 20 - 50 Stunden, 12 Knoten: 20 - 60 Stunden, 16 Knoten: 25 - 70 Stunden. Die genauen Laufzeiten des Updates hängen in der Regel von der Kapazität ab, die auf Ihrem System durch Mandantenworkloads beansprucht wird, sowie von der Netzwerkkonnektivität Ihres Systems (falls eine Verbindung mit dem Internet besteht) und den Spezifikationen Ihrer Systemhardware. Laufzeiten, die kürzer oder länger als erwartet sind, sind nicht ungewöhnlich und erfordern kein Eingreifen durch den Azure Stack Hub-Operator, sofern das Update nicht fehlschlägt. Diese geschätzte Laufzeit ist spezifisch für das Update 2002 und nicht auf andere Azure Stack Hub-Updates übertragbar.
 
@@ -277,13 +278,13 @@ Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfix
 ::: moniker range="azs-1910"
 ## <a name="1910-build-reference"></a>1910 – Buildreferenz
 
-Die Buildnummer des Azure Stack Hub-Updates 1910 lautet **1.1910.0.58** .
+Die Buildnummer des Azure Stack Hub-Updates 1910 lautet **1.1910.0.58**.
 
 ### <a name="update-type"></a>Updatetyp
 
 Ab Release 1908 wurde das zugrunde liegende Betriebssystem, unter dem Azure Stack Hub ausgeführt wird, auf Windows Server 2019 aktualisiert. Dieses Update ermöglicht wichtige grundlegende Verbesserungen und die Option, Azure Stack Hub um weitere Funktionen zu erweitern.
 
-Beim Azure Stack Hub-Update 1910 handelt es sich um einen Build vom Typ **Express** .
+Beim Azure Stack Hub-Update 1910 handelt es sich um einen Build vom Typ **Express**.
 
 Das Paket des Updates 1910 ist größer als bei vorherigen Updates. Der Download dauert dadurch länger. Das Update bleibt lange im Zustand **Wird vorbereitet** , und es ist damit zu rechnen, dass dieser Prozess länger dauert als bei vorherigen Updates. Das Update 1910 dauert etwa zehn Stunden – unabhängig von der Anzahl physischer Knoten in Ihrer Azure Stack Hub-Umgebung. Die genauen Laufzeiten des Updates hängen in der Regel von der Kapazität ab, die auf Ihrem System durch Mandantenworkloads beansprucht wird, sowie von der Netzwerkkonnektivität Ihres Systems (falls eine Verbindung mit dem Internet besteht) und den Spezifikationen Ihrer Systemhardware. Laufzeiten, die länger als der erwartete Wert dauern, sind nicht ungewöhnlich und erfordern kein Eingreifen durch den Azure Stack Hub-Betreiber, es sei denn, das Update schlägt fehl. Diese geschätzte Laufzeit ist spezifisch für das Update 1910 und nicht auf andere Azure Stack Hub-Updates übertragbar.
 

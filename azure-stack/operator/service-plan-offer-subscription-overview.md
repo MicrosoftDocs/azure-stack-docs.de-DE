@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 076ea0efb7307ce9a87b04c19608a5b3c723d3f4
-ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
+ms.openlocfilehash: 00a44e66563bbb038928c55f1f643f2ca0ffbd37
+ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89274074"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93327476"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Übersicht: Azure Stack Hub-Dienste, -Pläne, -Angebote und Abonnements
 
@@ -63,7 +63,7 @@ Zur Vereinfachung der Cloudkapazitätsverwaltung können Sie vorkonfigurierte *K
 Sie können Kontingente nach Region einrichten. Beispielsweise kann für einen Plan mit Computediensten in Region A ein Kontingent von zwei virtuellen Computern gelten.
 
 >[!NOTE]
->Im Azure Stack Development Kit (ASDK) ist nur eine Region verfügbar (mit dem Namen *local*).
+>Im Azure Stack Development Kit (ASDK) ist nur eine Region verfügbar (mit dem Namen *local* ).
 
 Weitere Informationen zu Kontingenttypen in Azure Stack Hub finden Sie [hier](azure-stack-quota-types.md).
 
@@ -90,11 +90,11 @@ Beim [Erstellen eines Angebots](azure-stack-create-offer.md) müssen Sie mindest
 
 Berücksichtigen Sie beim Planen Ihrer Angebote Folgendes:
 
-**Testangebote**: Testangebote sind praktisch, um neue Benutzer zu gewinnen, die dann ein Upgrade für zusätzliche Dienste durchführen können. Erstellen Sie für ein Testangebot einen kleinen [Basisplan](service-plan-offer-subscription-overview.md#base-plan) mit einem optionalen größeren Add-On-Plan. Alternativ können Sie ein Testangebot erstellen, das aus einem kleinen Basisplan und einem separaten Angebot mit einem größeren Plan mit nutzungsbasierter Bezahlung besteht.
+**Testangebote** : Testangebote sind praktisch, um neue Benutzer zu gewinnen, die dann ein Upgrade für zusätzliche Dienste durchführen können. Erstellen Sie für ein Testangebot einen kleinen [Basisplan](service-plan-offer-subscription-overview.md#base-plan) mit einem optionalen größeren Add-On-Plan. Alternativ können Sie ein Testangebot erstellen, das aus einem kleinen Basisplan und einem separaten Angebot mit einem größeren Plan mit nutzungsbasierter Bezahlung besteht.
 
-**Kapazitätsplanung**: Möglicherweise haben Sie Bedenken, dass Benutzer große Mengen an Ressourcen abrufen und das System für alle Benutzer lahmlegen. Sie können [Ihre Pläne mit Kontingenten konfigurieren](service-plan-offer-subscription-overview.md#plans), um eine Obergrenze für die Nutzung festzulegen und so die Leistung zu verbessern.
+**Kapazitätsplanung** : Möglicherweise haben Sie Bedenken, dass Benutzer große Mengen an Ressourcen abrufen und das System für alle Benutzer lahmlegen. Sie können [Ihre Pläne mit Kontingenten konfigurieren](service-plan-offer-subscription-overview.md#plans), um eine Obergrenze für die Nutzung festzulegen und so die Leistung zu verbessern.
 
-**Delegierte Anbieter**: Bieten Sie anderen die Möglichkeit, Angebote in Ihrer Umgebung zu erstellen. Wenn Sie z.B. ein Dienstanbieter sind, können Sie diese Möglichkeit an Ihre Wiederverkäufer [delegieren](azure-stack-delegated-provider.md). Oder Unternehmen nutzen diese Möglichkeit, um solche Optionen an bestimmte Abteilungen oder Niederlassungen zu delegieren.
+**Delegierte Anbieter** : Bieten Sie anderen die Möglichkeit, Angebote in Ihrer Umgebung zu erstellen. Wenn Sie z.B. ein Dienstanbieter sind, können Sie diese Möglichkeit an Ihre Wiederverkäufer [delegieren](azure-stack-delegated-provider.md). Oder Unternehmen nutzen diese Möglichkeit, um solche Optionen an bestimmte Abteilungen oder Niederlassungen zu delegieren.
 
 ## <a name="subscriptions"></a>Abonnements
 
@@ -105,6 +105,8 @@ Benutzer erstellen neue Abonnements und erhalten Zugriff auf vorhandene Abonneme
 Als Azure Stack Hub-Operator können Sie Informationen zu Mandantenabonnements anzeigen. Sie können jedoch nicht auf die Inhalte dieser Abonnements zugreifen, es sei denn, Sie werden von einem Mandantenadministrator dieses Abonnements explizit über die RBAC hinzugefügt. Dadurch können Mandanten eine Trennung der Befugnisse und Zuständigkeiten zwischen Bereichen für Azure Stack Hub-Operatoren und -Mandanten erzwingen. 
 
 Es gibt eine Ausnahme für diesen Fall: Der Abonnementbesitzer kann dem Operator keinen Zugriff auf das Abonnement erteilen. In dieser Situation muss der Administrator den Besitz des Abonnements übernehmen, wie unter [Ändern des Abrechnungsbesitzers für ein Azure Stack Hub-Benutzerabonnement](azure-stack-change-subscription-owner.md) erläutert.
+
+Wenn die Verbindung Ihrer Azure Stack Hub-Instanz getrennt wird und Sie über zwei verschiedene Domänen verfügen, bei denen Benutzer in Domäne 1 Abonnements erstellen, die von Benutzern in Domäne 2 genutzt werden, werden einige Abonnements möglicherweise im Verwaltungsportal, aber nicht im Benutzerportal angezeigt. Weisen Sie die Benutzer in Domäne 1 an, die richtige rollenbasierte Zugriffssteuerung für die Abonnements in Domäne 2 festzulegen, um dies zu beheben.
 
 ### <a name="default-provider-subscription"></a>Standardabonnement des Anbieters
 

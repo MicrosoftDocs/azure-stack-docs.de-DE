@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: c51a6296caac3c173650ee57af8e1d23b2473f26
-ms.sourcegitcommit: 877fe2207b569500aeefa6594eed990f15609776
+ms.openlocfilehash: 4bd669e04f2b4b4e1ef173a3a44e52d8c6067a60
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90082493"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064513"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell
 
@@ -36,7 +36,7 @@ Wenn Sie Azure Stack HCI testen möchten, aber nur wenig oder keine Ersatzhardw
 
 Stellen Sie Folgendes sicher, bevor Sie beginnen:
 
-- Lesen Sie die Hardware- und sonstigen Anforderungen in [Vor dem Bereitstellen von Azure Stack HCI](before-you-start.md).
+- Lesen Sie die [Azure Stack HCI-Systemanforderungen](../concepts/system-requirements.md).
 - Sie haben das Azure Stack HCI-Betriebssystem auf jedem Server im Cluster installiert. Mehr dazu finden Sie unter [Bereitstellen des Azure Stack HCI-Betriebssystems](operating-system.md).
 - Auf jedem Server ist ein Konto vorhanden, das Mitglied der lokalen Administratorgruppe ist.
 - Sie verfügen über Berechtigungen zum Erstellen von Objekten in Active Directory.
@@ -401,7 +401,7 @@ Sie können auch einen global *bevorzugten* Standort definieren, was bedeutet, d
 
 Die Angabe eines bevorzugten Standorts für Stretchingcluster bietet die folgenden Vorteile:
 
-- **Kaltstart**: Bei einem Kaltstart werden die virtuellen Computer am bevorzugten Standort platziert
+- **Kaltstart** : Bei einem Kaltstart werden die virtuellen Computer am bevorzugten Standort platziert
 
 - **Quorumabstimmung**
   - Mithilfe eines dynamischen Quorums wird die Gewichtung des passiven (replizierten) Standorts zuerst verringert, um sicherzustellen, dass der bevorzugte Standort überlebt, wenn alle anderen Umstände gleich sind. Darüber hinaus werden Serverknoten nach Ereignissen wie einem asymmetrischen Ausfall der Netzwerkkonnektivität bei der Neugruppierung am passiven Standort zuerst reduziert.

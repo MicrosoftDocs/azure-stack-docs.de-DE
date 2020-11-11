@@ -3,7 +3,7 @@ title: User Journey vom Einkauf bis nach der Bereitstellung von Azure Stack Hub 
 description: Erfahren Sie, was Sie bei einer erfolgreichen lokalen Bereitstellung eines Modular Data Center (MDC) erwarten können – von der Planung bis zu den Aktionen nach der Bereitstellung.
 services: azure-stack
 documentationcenter: ''
-author: asganesh
+author: ashika789
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 11/04/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: f170ab6025effe394c891aa4fb3ad7111bac7133
-ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
+ms.lastreviewed: 11/04/2020
+ms.openlocfilehash: 12631a118600e67611294c87636cd2fa62bfaaea
+ms.sourcegitcommit: ecd98662194d2cdb15c22f8b1f99812fc5f4c15a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92898617"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93344778"
 ---
-# <a name="mdc-integration-overview"></a>MDC-Integration: Übersicht
+# <a name="modular-data-center-integration-overview"></a>Übersicht über die Modular Data Center-Integration
 
 Dieser Artikel beschreibt den End-to-End-Prozess für die MDC-Integration – von der Anschaffung bis zu den Schritten nach der Bereitstellung. Die Integration ist ein gemeinschaftliches Projekt zwischen dem Kunden und Microsoft. In den folgenden Abschnitten werden die einzelnen Phasen der Projektzeitachse und die genauen Schritte der Projektbeteiligten behandelt.
 
@@ -37,10 +37,23 @@ In der folgenden Tabelle ist dargestellt, was während der verschiedenen Phasen 
 |Kunde   |Meldet den Kauf   |- Füllt Netzwerkdetails im Bereitstellungsarbeitsblatt aus<br>- Sammelt Zertifikate<br>- Registriert Azure AD-Konten<br>- Führt alle bereitgestellten Validierungstools aus    |Sicherstellen, dass der Standort alle Anforderungen an Netzwerk, Stromversorgung und Kühlkomponenten erfüllt    |- Vorbereitung mit Konfigurationsartefakten für die Bereitstellung<br>- Verfügbarer Netzwerktechniker vom Kunden   |     |
 
 
-## <a name="order-process"></a>Bestellvorgang
+## <a name="order-process"></a>Bestellprozess
 
 Ihre Organisation gibt in Zusammenarbeit mit Microsoft eine Bestellung für eine festgelegte Anzahl von Systemen auf. Nachdem Sie die Bestellung aufgegeben haben, liefert Microsoft das MDC an Ihren Standort in den USA. Microsoft sorgt dafür, dass alle Anforderungen an eine sichere Lieferkette erfüllt sind. 
 
+## <a name="hardware-delivery"></a>Hardwarelieferung
+
+Microsoft arbeitet mit Ihnen zusammen, um sicherzustellen, dass alle erforderlichen Hardwareanforderungen innerhalb der festgelegten Zeit am Standort in den USA eintreffen.  
+
+Es ist **äußerst wichtig** , dass alle erforderlichen Daten gesperrt und verfügbar sind, *bevor der Microsoft-Techniker für die Bereitstellung der Lösung vor Ort eintrifft*.
+
+- Im Bereitstellungsarbeitsblatt wurden alle Daten ausgefüllt. 
+- Alle Zertifikate müssen überprüft und einsatzbereit sein.
+- Der Regionsname muss festgelegt werden.
+- Alle Parameter für die Netzwerkintegration wurden abgeschlossen.
+
+>[!Tip]
+>Wenn eine dieser Informationen geändert wurde, stellen Sie in Zusammenarbeit mit Ihrer internen Organisation sicher, dass diese Informationen vor der Ankunft des Bereitstellungstechnikers vor Ort aktualisiert werden. Dadurch werden Verzögerungen bei der Bereitstellung vermieden.
 
 ## <a name="pre-deployment"></a>Vor der Bereitstellung
 
@@ -57,24 +70,6 @@ Sie wählen Folgendes aus:
 - **Zertifikatanforderungen.** Es ist sehr wichtig, dass [alle erforderlichen Zertifikate](../operator/azure-stack-pki-certs.md) zur Verfügung stehen, bevor ein Vor-Ort-Techniker in Ihrem Datencenter zur Bereitstellung eintrifft.
 
 Nachdem alle erforderlichen Informationen im Bereitstellungsarbeitsblatt erfasst wurden, überprüft Microsoft, ob alle Validierungstools ausgeführt wurden, und unterstützt Sie bei allen weiteren Fragen. 
-
-## <a name="site-preparation"></a>Vorbereiten des Standorts
-
-Weitere Informationen zu Anforderungen für die Standortvorbereitung finden Sie im Schnellstarthandbuch.
-
-## <a name="hardware-delivery"></a>Hardwarelieferung
-
-Microsoft arbeitet mit Ihnen zusammen, um sicherzustellen, dass alle erforderlichen Hardwareanforderungen innerhalb der festgelegten Zeit am Standort in den USA eintreffen.  
-
-Es ist **äußerst wichtig** , dass alle erforderlichen Daten gesperrt und verfügbar sind, *bevor der Microsoft-Techniker für die Bereitstellung der Lösung vor Ort eintrifft* .
-
-- Im Bereitstellungsarbeitsblatt wurden alle Daten ausgefüllt. 
-- Alle Zertifikate müssen überprüft und einsatzbereit sein.
-- Der Regionsname muss festgelegt werden.
-- Alle Parameter für die Netzwerkintegration wurden abgeschlossen.
-
->[!Tip]
->Wenn eine dieser Informationen geändert wurde, stellen Sie in Zusammenarbeit mit Ihrer internen Organisation sicher, dass diese Informationen vor der Ankunft des Bereitstellungstechnikers vor Ort aktualisiert werden. Dadurch werden Verzögerungen bei der Bereitstellung vermieden.
 
 ## <a name="onsite-deployment"></a>Lokale Bereitstellung
 
@@ -108,5 +103,5 @@ Aktionen, die vom Microsoft-Bereitstellungstechniker durchgeführt werden müsse
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erfahren Sie mehr über die [Schritte zum Installieren und Konfigurieren eines Modular Data Center](deployment-overview.md).
+[Übersicht über die MDC-Bereitstellung](deployment-overview.md)
 

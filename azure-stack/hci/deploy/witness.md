@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 075198e9045ac2d735f2113164e7fc4e24b7934f
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 2d2db45af0df86ebe6ea210df9b4a86da22c3303
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899515"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064479"
 ---
 # <a name="set-up-a-cluster-witness"></a>Einrichten eines Clusterzeugen
 
@@ -21,7 +21,7 @@ Das Einrichten einer Zeugenressource ist für alle Cluster obligatorisch und sol
 
 Sie können entweder eine SMB-Dateifreigabe als Zeugen oder einen Azure-Cloudzeugen verwenden. Ein Azure-Cloudzeuge wird empfohlen, vorausgesetzt, alle Serverknoten im Cluster verfügen über eine zuverlässige Internetverbindung. Weitere Informationen finden Sie unter [Deploy a cloud witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness) (Bereitstellen eines Cloudzeugen für einen Failovercluster).
 
-Bei Dateifreigabezeugen bestehen Anforderungen an den Dateiserver. Weitere Informationen finden Sie unter [Vor dem Bereitstellen von Azure Stack HCI](before-you-start.md).
+Bei Dateifreigabezeugen bestehen Anforderungen an den Dateiserver. Weitere Informationen finden Sie unter [Systemanforderungen](../concepts/system-requirements.md).
 
 ## <a name="set-up-a-witness-using-windows-admin-center"></a>Einrichten eines Zeugen mithilfe von Windows Admin Center
 
@@ -30,17 +30,17 @@ Bei Dateifreigabezeugen bestehen Anforderungen an den Dateiserver. Weitere Infor
 1. Wählen Sie unter **Extras** die Option **Einstellungen** aus.
 1. Wählen Sie im rechten Bereich **Zeuge** aus.
 1. Wählen Sie als **Zeugentyp** einen der folgenden Werte aus:
-      - **Cloudzeuge**: Geben Sie den Namen Ihres Azure-Speicherkontos, den Zugriffsschlüssel und die Endpunkt-URL ein, wie weiter unten beschrieben.
-      - **Dateifreigabezeuge**: Geben Sie den Pfad der Dateifreigabe ein (//server/share).
+      - **Cloudzeuge** : Geben Sie den Namen Ihres Azure-Speicherkontos, den Zugriffsschlüssel und die Endpunkt-URL ein, wie weiter unten beschrieben.
+      - **Dateifreigabezeuge** : Geben Sie den Pfad der Dateifreigabe ein (//server/share).
 
 > [!NOTE]
-> Die dritte Option, **Datenträgerzeuge**, eignet sich nicht für die Verwendung in Stretchingclustern.
+> Die dritte Option, **Datenträgerzeuge** , eignet sich nicht für die Verwendung in Stretchingclustern.
 
 ## <a name="create-an-azure-storage-account-to-use-as-a-cloud-witness"></a>Erstellen eines Azure-Speicherkontos für die Verwendung als Cloudzeuge
 
 In diesem Abschnitt erfahren Sie, wie Sie ein Speicherkonto erstellen und Endpunkt-URLs und Zugriffsschlüssel für dieses Konto anzeigen und kopieren.
 
-Zum Konfigurieren des Cloudzeugen müssen Sie über ein gültiges Azure-Speicherkonto zum Speichern der (für die Vermittlung verwendeten) Blobdatei verfügen. Der Cloudzeuge erstellt einen bekannten Container (**msft-cloud-witness**) unter dem Microsoft-Speicherkonto. Der Cloudzeuge schreibt eine einzelne Blobdatei und verwendet dabei die eindeutige ID des entsprechenden Clusters als Dateiname der Blobdatei im Container **msft-cloud-witness**. Ein Cloudzeuge kann also mit dem gleichen Microsoft Azure-Speicherkonto für mehrere verschiedene Cluster konfiguriert werden.
+Zum Konfigurieren des Cloudzeugen müssen Sie über ein gültiges Azure-Speicherkonto zum Speichern der (für die Vermittlung verwendeten) Blobdatei verfügen. Der Cloudzeuge erstellt einen bekannten Container ( **msft-cloud-witness** ) unter dem Microsoft-Speicherkonto. Der Cloudzeuge schreibt eine einzelne Blobdatei und verwendet dabei die eindeutige ID des entsprechenden Clusters als Dateiname der Blobdatei im Container **msft-cloud-witness**. Ein Cloudzeuge kann also mit dem gleichen Microsoft Azure-Speicherkonto für mehrere verschiedene Cluster konfiguriert werden.
 
 Wenn Sie das gleiche Azure-Speicherkonto verwenden, um einen Cloudzeugen für mehrere verschiedene Cluster zu konfigurieren, wird automatisch ein einzelner Container namens **msft-cloud-witness** erstellt. Dieser Container enthält jeweils eine einzelne Blobdatei pro Cluster.
 
@@ -67,7 +67,7 @@ Wenn Sie ein Microsoft Azure-Speicherkonto erstellen, werden ihm zwei automatis
 
 #### <a name="to-view-and-copy-storage-access-keys"></a>Anzeigen und Kopieren von Speicherzugriffsschlüsseln
 
-Navigieren Sie im Azure-Portal zu Ihrem Speicherkonto, und klicken Sie auf **Alle Einstellungen** und anschließend auf **Zugriffsschlüssel**, um Ihre Kontozugriffsschlüssel anzuzeigen, zu kopieren und erneut zu generieren. Das Blatt Zugriffsschlüssel enthält auch vorkonfigurierte Verbindungszeichenfolgen, in denen Ihre primären und sekundären Schlüssel verwendet werden, die Sie zur Nutzung in der Anwendung kopieren können.
+Navigieren Sie im Azure-Portal zu Ihrem Speicherkonto, und klicken Sie auf **Alle Einstellungen** und anschließend auf **Zugriffsschlüssel** , um Ihre Kontozugriffsschlüssel anzuzeigen, zu kopieren und erneut zu generieren. Das Blatt Zugriffsschlüssel enthält auch vorkonfigurierte Verbindungszeichenfolgen, in denen Ihre primären und sekundären Schlüssel verwendet werden, die Sie zur Nutzung in der Anwendung kopieren können.
 
 :::image type="content" source="media/witness/cloud-witness-1.png" alt-text="Cloudzeuge: Zugriffsschlüssel" lightbox="media/witness/cloud-witness-1.png":::
 
@@ -82,9 +82,9 @@ Von einem Cloudzeugen wird immer **Blob** als Speichertyp verwendet. Von Azure w
 
 #### <a name="to-view-and-copy-endpoint-url-links"></a>Anzeigen und Kopieren von Endpunkt-URL-Links
 
-Navigieren Sie im Azure-Portal zu Ihrem Speicherkonto, und klicken Sie auf **Alle Einstellungen** und anschließend auf **Eigenschaften**, um Ihre Endpunkt-URLs anzuzeigen und zu kopieren.  
+Navigieren Sie im Azure-Portal zu Ihrem Speicherkonto, und klicken Sie auf **Alle Einstellungen** und anschließend auf **Eigenschaften** , um Ihre Endpunkt-URLs anzuzeigen und zu kopieren.  
 
-:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="Cloudzeuge: Zugriffsschlüssel" lightbox="media/witness/cloud-witness-2.png":::  
+:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="Cloudzeuge: Endpunkt-URL" lightbox="media/witness/cloud-witness-2.png":::  
 
 ## <a name="set-up-a-witness-using-windows-powershell"></a>Einrichten eines Zeugen mithilfe von Windows PowerShell
 
