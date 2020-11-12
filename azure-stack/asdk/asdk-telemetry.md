@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 455ad320466d1306b1bded888ff8ff0c0fbb52c7
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 34995d8e1d5525e242a0b0919e7b3927c37507ca
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489962"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415146"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack-Telemetriedaten
 
@@ -82,8 +82,8 @@ Die Telemetrieebenen sind kumulativ und in vier Ebenen (0–3) unterteilt:
   - Prozessor- und Arbeitsspeicherattribute wie Anzahl von Kernen und Arbeitsspeichergröße
   - Speicherattribute wie Laufwerkanzahl, Art und Größe
 - **Telemetriefunktion** einschließlich hochgeladener Ereignisse (in Prozent), gelöschter Ereignisse und Zeitpunkt des letzten Uploads
-- **Qualitätsbezogene Informationen**, die Microsoft einen grundlegenden Einblick in die Leistung von Azure Stack geben. Ein Beispiel wäre etwa die Anzahl kritischer Warnungen für eine bestimmte Hardwarekonfiguration.
-- **Kompatibilitätsdaten**, die Aufschluss darüber geben, welche Ressourcenanbieter in einem System und auf einer VM installiert sind und die Identifizierung möglicher Kompatibilitätsprobleme ermöglichen.
+- **Qualitätsbezogene Informationen** , die Microsoft einen grundlegenden Einblick in die Leistung von Azure Stack geben. Ein Beispiel wäre etwa die Anzahl kritischer Warnungen für eine bestimmte Hardwarekonfiguration.
+- **Kompatibilitätsdaten** , die Aufschluss darüber geben, welche Ressourcenanbieter in einem System und auf einer VM installiert sind und die Identifizierung möglicher Kompatibilitätsprobleme ermöglichen.
 
 **2 (Erweitert):** Zusätzliche Informationen, etwa zur Verwendung und Leistung des Betriebssystems und anderer Azure Stack-Dienste, erweiterte Zuverlässigkeitsdaten sowie Daten der Ebenen „Standard“ und „Sicherheit“.
 
@@ -92,7 +92,7 @@ Die Telemetrieebenen sind kumulativ und in vier Ebenen (0–3) unterteilt:
 > [!NOTE]
 > Standardmäßig wird die erweiterte Telemetrieebene (2) verwendet.
 
-Wenn Sie die Windows- und die Azure Stack-Telemetrie deaktivieren, wird die SQL-Telemetrie deaktiviert. Weitere Informationen zu den Auswirkungen der Windows Server-Telemetrieeinstellungen finden Sie im [Whitepaper zur Windows-Telemetrie](https://aka.ms/winservtelemetry).
+Wenn Sie die Windows- und die Azure Stack-Telemetrie deaktivieren, wird die SQL-Telemetrie deaktiviert. Weitere Informationen zu den Auswirkungen der Windows Server-Telemetrieeinstellungen finden Sie im [Whitepaper zur Windows-Telemetrie](/windows/privacy/configure-windows-diagnostic-data-in-your-organization).
 
 > [!IMPORTANT]
 > Diese Telemetrieebenen gelten nur für Microsoft Azure Stack-Komponenten. Microsoft-fremde Softwarekomponenten und Dienste, die auf dem Hardwarelebenszyklushost von Azure Stack-Hardwarepartnern ausgeführt werden, kommunizieren möglicherweise außerhalb dieser Telemetrieebenen mit den dazugehörigen Clouddiensten. Wenden Sie sich an den Anbieter Ihrer Azure Stack-Hardwarelösung, um sich über dessen Telemetrierichtlinie sowie über Ihre Verwendungsoptionen zu informieren.

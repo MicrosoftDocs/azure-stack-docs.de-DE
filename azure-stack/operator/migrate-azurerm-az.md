@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: ea3ec5389aa00d0b606d86e483a8ca5a2607aa1a
-ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
+ms.openlocfilehash: bfb385e29a89ad8d47ace3b15776bd368e0cf521
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729235"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546170"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Migrieren von AzureRM zu Azure PowerShell Az in Azure Stack Hub
 
@@ -33,7 +33,7 @@ Get-InstalledModule -Name AzureRM -AllVersions
 
 ## <a name="check-current-scripts-work-with-azurerm"></a>Vergewissern, dass die aktuellen Skripts mit AzureRM funktionieren
 
-Das ist der wichtigste Schritt überhaupt. Führen Sie Ihre vorhandenen Skripts aus, und vergewissern Sie sich, dass diese mit der _aktuellen_ Version von AzureRM (__2.5.0__) funktionieren. Sollten Ihre Skripts nicht funktionieren, lesen Sie das [AzureRM-Migrationshandbuch](/powershell/azure/azurerm/migration-guide.6.0.0).
+Das ist der wichtigste Schritt überhaupt. Führen Sie Ihre vorhandenen Skripts aus, und vergewissern Sie sich, dass diese mit der _aktuellen_ Version von AzureRM ( __2.5.0__ ) funktionieren. Sollten Ihre Skripts nicht funktionieren, lesen Sie das [AzureRM-Migrationshandbuch](/powershell/azure/azurerm/migration-guide.6.0.0).
 
 ## <a name="install-the-azure-powershell-az-module"></a>Installieren des Az-Moduls von Azure PowerShell
 
@@ -41,7 +41,7 @@ Der erste Schritt besteht darin, das Az-Modul auf Ihrer Plattform zu installiere
 
 Gehen Sie zum Installieren des Az-Moduls von Azure PowerShell wie folgt vor:
 
-* __EMPFOHLEN__: [Deinstallieren Sie das AzureRM-Modul.](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)
+* __EMPFOHLEN__ : [Deinstallieren Sie das AzureRM-Modul.](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)
   Achten Sie darauf, _alle_ installierten Versionen von AzureRM zu entfernen, nicht nur die neueste Version.
 * [Installieren des Az-Moduls](/powershell/azure/install-az-ps)
 
@@ -208,7 +208,7 @@ RequiredModules = @(@{ModuleName="AzureRM.Profile"; ModuleVersion="5.8.2"})
 Änderung erforderlich in:
 
 ```powershell
-RequiredModules = @(@{ModuleName="Az.Profile"; ModuleVersion="1.0.0"})
+RequiredModules = @(@{ModuleName="Az.Accounts"; ModuleVersion="1.0.0"})
 ```
 
 ### <a name="removed-modules"></a>Entfernte Module
@@ -244,7 +244,7 @@ In diesem Abschnitt werden bestimmte wichtige Änderungen für einzelne Module u
   - Set-AzureRmApiManagementHostnames
   - Update-AzureRmApiManagementDeployment
   - Import-AzureRmApiManagementHostnameCertificate
-  - Verwenden Sie stattdessen das Cmdlet **Set-AzApiManagement**, um diese Eigenschaften festzulegen.
+  - Verwenden Sie stattdessen das Cmdlet **Set-AzApiManagement** , um diese Eigenschaften festzulegen.
 - Die folgenden Eigenschaften wurden entfernt:
   - Die Eigenschaften `PortalHostnameConfiguration`, `ProxyHostnameConfiguration`, `ManagementHostnameConfiguration` und `ScmHostnameConfiguration` vom Typ `PsApiManagementHostnameConfiguration` wurden aus `PsApiManagementContext` entfernt. Verwenden Sie stattdessen `PortalCustomHostnameConfiguration`, `ProxyCustomHostnameConfiguration`, `ManagementCustomHostnameConfiguration` und `ScmCustomHostnameConfiguration` vom Typ `PsApiManagementCustomHostNameConfiguration`.
   - Die `StaticIPs`-Eigenschaft wurde aus PsApiManagementContext entfernt. Die Eigenschaft wurde in `PublicIPAddresses` und `PrivateIPAddresses` unterteilt.

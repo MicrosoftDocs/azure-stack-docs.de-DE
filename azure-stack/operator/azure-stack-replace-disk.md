@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: ec161fd296785f42049b7b2917142f08b47ac910
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 172512b35e4f13a7ad86011162fe7ca9ebb825e5
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367845"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545379"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack-hub"></a>Ersetzen eines physischen Datenträgers in Azure Stack Hub
 
@@ -48,7 +48,7 @@ Nachdem Sie den Datenträger ersetzt haben, ermittelt Azure Stack Hub automatisc
 
 Nachdem Sie den Datenträger ausgetauscht haben, können Sie den Integritätsstatus des virtuellen Datenträgers und den Verlauf des Reparaturauftrags mit Azure Stack Hub PowerShell überwachen.
 
-1. Überprüfen Sie, ob Sie Azure Stack Hub PowerShell installiert haben. Weitere Informationen finden Sie unter [Installieren von PowerShell für Azure Stack Hub](azure-stack-powershell-install.md).
+1. Überprüfen Sie, ob Sie Azure Stack Hub PowerShell installiert haben. Weitere Informationen finden Sie unter [Installieren von PowerShell für Azure Stack Hub](powershell-install-az-module.md).
 2. Stellen Sie als Operator eine Verbindung mit Azure Stack Hub über PowerShell her. Weitere Informationen finden Sie unter [Herstellen einer Verbindung mit Azure Stack Hub über PowerShell als Operator](azure-stack-powershell-configure-admin.md).
 3. Führen Sie die folgenden Cmdlets aus, um die Integrität des virtuellen Datenträgers und den Reparaturstatus zu überprüfen:
 

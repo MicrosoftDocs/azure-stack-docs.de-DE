@@ -7,12 +7,12 @@ ms.date: 10/01/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 7d4fc17759365434f6179229674b0bb21137f58b
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 6d677d4b192cef17d44896ba5ef41387b1c95765
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623335"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546870"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>Problembehandlung bei Site-to-Site-VPN-Verbindungen
 
@@ -55,7 +55,7 @@ Die Azure Stack Hub-Standardparameter für IPsec/IKEV2 haben sich [seit Build 1
   - **Azure PowerShell:** Verwenden Sie den folgenden PowerShell-Befehl:
 
       ```powershell
-      Get-AzureRMVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+      Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
       ```
 
 ## <a name="status-connected--traffic-not-flowing"></a>Status „Verbunden“ – Datenverkehr wird nicht übertragen.

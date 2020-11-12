@@ -3,16 +3,16 @@ title: Herstellen einer Verbindung mit Azure Stack Hub über PowerShell
 description: Enthält Informationen zum Herstellen einer Verbindung mit Azure Stack Hub über PowerShell.
 author: mattbriggs
 ms.topic: article
-ms.date: 8/4/2020
+ms.date: 10/19/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 8/4/2020
-ms.openlocfilehash: 3001d06deb81e275f3b62127cb555d3afceaff3c
-ms.sourcegitcommit: c75e2cfd96f37a3497958eb87446888477f85bc9
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: d99212c63e33060fbbb8eb483dd32e7c01d54ba1
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810795"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545141"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Herstellen einer Verbindung mit Azure Stack Hub über PowerShell
 
@@ -22,7 +22,7 @@ Sie können Azure Stack Hub für die Verwendung von PowerShell zum Verwalten von
 
 Führen Sie die folgenden erforderlichen Schritte entweder über das [Azure Stack Development Kit (ASDK)](../asdk/asdk-connect.md#connect-with-rdp) oder auf einem Windows-basierten externen Client aus, sofern [eine VPN-Verbindung mit dem ASDK](../asdk/asdk-connect.md#connect-with-vpn) besteht.
 
-- Installieren Sie [mit Azure Stack Hub kompatible Azure PowerShell-Module](azure-stack-powershell-install.md).  
+- Installieren Sie [mit Azure Stack Hub kompatible Azure PowerShell-Module](powershell-install-az-module.md).  
 - Laden Sie die [Tools herunter, die für die Arbeit mit Azure Stack Hub benötigt werden](azure-stack-powershell-download.md).  
 
 ## <a name="connect-with-azure-ad"></a>Herstellen einer Verbindung mit Azure AD
@@ -33,7 +33,7 @@ Sie können die Azure Stack Hub-Operatorumgebung mit PowerShell konfigurieren, i
 
 ```powershell  
     # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+    Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
@@ -53,7 +53,7 @@ Stellen Sie mit Azure Active Directory-Verbunddiensten (Azure AD FS) die Verbind
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+    Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 

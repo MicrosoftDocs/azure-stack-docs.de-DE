@@ -7,17 +7,17 @@ ms.date: 10/08/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/08/2020
-ms.openlocfilehash: b9a37df9404de01bd9b094ae259c8c62637cb369
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: 7b3c69b26ef1fee21e652c70f0ca9a9ddc156460
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91853260"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383665"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatisieren von VM-Aktualisierung und -Verwaltung in Azure Stack Hub
 Verwenden Sie die folgenden Features der Azure Automation-Lösung, um Windows- und Linux-VMs zu verwalten, die mit Azure Stack Hub bereitgestellt werden:
 
-- **[Updateverwaltung](/azure/automation/automation-update-management)** : Mit der Updateverwaltungslösung können Sie den Status der verfügbaren Updates auf allen Agent-Computern schnell auswerten und den Prozess der Installation der erforderlichen Updates für virtuelle Windows- und Linux-Computer verwalten.
+- **[Updateverwaltung](/azure/automation/update-management/overview)** : Mit der Updateverwaltungslösung können Sie den Status der verfügbaren Updates auf allen Agent-Computern schnell auswerten und den Prozess der Installation der erforderlichen Updates für virtuelle Windows- und Linux-Computer verwalten.
 
 - **[Änderungsnachverfolgung](/azure/automation/automation-change-tracking)** : Änderungen an installierter Software, an Windows-Diensten, an der Windows-Registrierung und an Windows-Dateien sowie an Linux-Daemons auf den überwachten Servern werden zur Verarbeitung an den Azure Monitor-Dienst in der Cloud gesendet. Auf die empfangenen Daten wird Logik angewendet, und der Clouddienst zeichnet die Daten auf. Mithilfe der Informationen auf dem Dashboard zur Änderungsnachverfolgung können Sie ganz leicht die Änderungen erkennen, die an Ihrer Serverinfrastruktur vorgenommen wurden.
 
@@ -37,17 +37,17 @@ Um die Azure Automation-Features Azure Monitor für VMs, Bestands- und Änderung
 > [!TIP]
 > Wenn Sie diese Features bereits für virtuelle Azure-Computer aktiviert haben, können Sie die bereits vorhandenen Anmeldeinformationen für den LogAnalytics-Arbeitsbereich verwenden. Wenn Sie bereits über eine LogAnalytics-WorkspaceID und einen Primärschlüssel verfügen, die bzw. den Sie verwenden möchten, fahren Sie [mit dem nächsten Abschnitt fort](./vm-update-management.md#in-the-azure-stack-hub-administrator-portal). Andernfalls fahren Sie mit diesem Abschnitt fort, um einen neuen LogAnalytics-Arbeitsbereich und ein Automation-Konto zu erstellen.
 
-Der erste Schritt zur Aktivierung dieser Lösungen besteht darin, [einen LogAnalytics-Arbeitsbereich](/azure/log-analytics/log-analytics-quick-create-workspace) in Ihrem Azure-Abonnement zu erstellen. Ein Log Analytics-Arbeitsbereich ist eine eigene Azure Monitor-Umgebung mit eigenem Datenrepository, eigenen Datenquellen und eigenen Lösungen. Nachdem Sie einen Arbeitsbereich erstellt haben, notieren Sie sich die WorkspaceID und den Schlüssel. Um diese Informationen anzuzeigen, wechseln Sie zum Blatt „Arbeitsbereich“, klicken Sie auf **Erweiterte Einstellungen**, und überprüfen Sie dann die Werte für die **Arbeitsbereich-ID** und den **Primärschlüssel**. 
+Der erste Schritt zur Aktivierung dieser Lösungen besteht darin, [einen LogAnalytics-Arbeitsbereich](/azure/log-analytics/log-analytics-quick-create-workspace) in Ihrem Azure-Abonnement zu erstellen. Ein Log Analytics-Arbeitsbereich ist eine eigene Azure Monitor-Umgebung mit eigenem Datenrepository, eigenen Datenquellen und eigenen Lösungen. Nachdem Sie einen Arbeitsbereich erstellt haben, notieren Sie sich die WorkspaceID und den Schlüssel. Um diese Informationen anzuzeigen, wechseln Sie zum Blatt „Arbeitsbereich“, klicken Sie auf **Erweiterte Einstellungen** , und überprüfen Sie dann die Werte für die **Arbeitsbereich-ID** und den **Primärschlüssel**. 
 
 Im nächsten Schritt müssen Sie ein [Automation-Konto erstellen](/azure/automation/automation-create-standalone-account). Ein Automation-Konto ist ein Container für Ihre Azure Automation-Ressourcen. Es bietet eine Möglichkeit, Ihre Umgebungen zu trennen oder Ihre Automation-Workflows und -Ressourcen besser zu organisieren. Nachdem das Automation-Konto erstellt wurde, müssen Sie das Bestands- und Änderungsnachverfolgungs- sowie das Updateverwaltungsfeature aktivieren. Gehen Sie folgendermaßen vor, um die einzelnen Funktionen zu aktivieren:
 
 1. Navigieren Sie im Azure-Portal zu dem Automation-Konto, das Sie verwenden möchten.
 
-2. Wählen Sie die zu aktivierende Lösung aus (**Bestand**, **Änderungsnachverfolgung** oder **Updateverwaltung**).
+2. Wählen Sie die zu aktivierende Lösung aus ( **Bestand** , **Änderungsnachverfolgung** oder **Updateverwaltung** ).
 
-3. Verwenden Sie die Dropdownliste **Arbeitsbereich auswählen**, um den zu verwendenden Log Analytics-Arbeitsbereich auszuwählen.
+3. Verwenden Sie die Dropdownliste **Arbeitsbereich auswählen** , um den zu verwendenden Log Analytics-Arbeitsbereich auszuwählen.
 
-4. Überprüfen Sie, ob alle übrigen Informationen richtig sind, und klicken Sie dann auf **Aktivieren**, um die Lösung zu aktivieren.
+4. Überprüfen Sie, ob alle übrigen Informationen richtig sind, und klicken Sie dann auf **Aktivieren** , um die Lösung zu aktivieren.
 
 5. Wiederholen Sie die Schritte 2 bis 4, um alle drei Lösungen zu aktivieren. 
 
@@ -81,15 +81,15 @@ Führen Sie die folgenden Schritte aus, um die Updateverwaltung für Azure Stack
 
 1. Melden Sie sich beim Azure Stack Hub-Benutzerportal an.
 
-2. Navigieren Sie im Azure Stack Hub-Benutzerportal zum Blatt „Erweiterungen“ der VMs, für die Sie diese Lösungen aktivieren möchten, klicken Sie auf **+ Hinzufügen**, wählen Sie die Erweiterung **Azure Update- und Konfigurationsverwaltung** aus, und klicken Sie dann auf **Erstellen**:
+2. Navigieren Sie im Azure Stack Hub-Benutzerportal zum Blatt „Erweiterungen“ der VMs, für die Sie diese Lösungen aktivieren möchten, klicken Sie auf **+ Hinzufügen** , wählen Sie die Erweiterung **Azure Update- und Konfigurationsverwaltung** aus, und klicken Sie dann auf **Erstellen** :
 
     ![Das Dialogfeld „Azure Update- und Konfigurationsverwaltung“ enthält erläuternde Informationen, eine Schaltfläche „Erstellen“ (hervorgehoben) zum Hinzufügen der Erweiterung und einen Link zu weiteren Informationen.](media//vm-update-management/3-sm.PNG "Blatt „VM-Erweiterung“")
 
-3. Geben Sie die zuvor erstellte WorkspaceID und den Primärschlüssel ein, um den Agent mit dem LogAnalytics-Arbeitsbereich zu verknüpfen. Klicken Sie dann auf **OK**, um die Erweiterung bereitzustellen.
+3. Geben Sie die zuvor erstellte WorkspaceID und den Primärschlüssel ein, um den Agent mit dem LogAnalytics-Arbeitsbereich zu verknüpfen. Klicken Sie dann auf **OK** , um die Erweiterung bereitzustellen.
 
    [![Das Dialogfeld „Erweiterung installieren“ enthält Textfelder für die Azure WorkspaceID und den WorkspaceKey.](media//vm-update-management/4-sm.PNG "Bereitstellen von WorkspaceID und Schlüssel")](media//vm-update-management/4-lg.PNG) 
 
-4. Wie in der [Dokumentation zur Updateverwaltung](/azure/automation/automation-update-management) beschrieben, müssen Sie die Updateverwaltungslösung für jeden virtuellen Computer aktivieren, den Sie verwalten möchten. Um die Lösung für alle virtuellen Computer zu aktivieren, die den Arbeitsbereich verwenden, wählen Sie **Updateverwaltung** aus, klicken Sie auf **Computer verwalten**, und wählen Sie dann die Option **Auf allen verfügbaren und zukünftigen Computern aktivieren** aus.
+4. Wie in der [Dokumentation zur Updateverwaltung](/azure/automation/update-management/overview) beschrieben, müssen Sie die Updateverwaltungslösung für jeden virtuellen Computer aktivieren, den Sie verwalten möchten. Um die Lösung für alle virtuellen Computer zu aktivieren, die den Arbeitsbereich verwenden, wählen Sie **Updateverwaltung** aus, klicken Sie auf **Computer verwalten** , und wählen Sie dann die Option **Auf allen verfügbaren und zukünftigen Computern aktivieren** aus.
 
    [![Das Dialogfeld „Computer verwalten – Updateverwaltung“ zeigt die Computer an, auf denen die Updateverwaltung nicht aktiviert ist. Es werden drei Aktivierungsoptionen bereitgestellt, und „Auf allen verfügbaren und zukünftigen Computern aktivieren“ ist ausgewählt und hervorgehoben. Es gibt eine Schaltfläche „Aktivieren“.](media//vm-update-management/5-sm.PNG "Aktivieren der Updateverwaltungslösung auf allen Computern")](media//vm-update-management/5-lg.PNG) 
 

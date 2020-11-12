@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 9a04f99df8093f0f37d68137dfbe9ff18664d385
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: c5e6ac0a2a500cf43cf94cbc40b2a95c58784d28
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489741"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544716"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>App Service on Azure Stack Hub 2020 Q2: Versionshinweise
 
@@ -45,7 +45,7 @@ Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack auf 2020 Q2 beg
   > [!Important]
   > Cloudoperatoren sind für die Verwaltung und den Betrieb des Dateiservers und von SQL Server verantwortlich.  Der Ressourcenanbieter verwaltet diese Ressourcen nicht.  Der Cloudoperator ist für das Sichern der App Service-Datenbanken und der Mandanten-Inhaltsdateifreigabe verantwortlich.
 
-- Syndizieren Sie die **benutzerdefinierte Skripterweiterung** (Version **1.9.3**) über den Marketplace.
+- Syndizieren Sie die **benutzerdefinierte Skripterweiterung** (Version **1.9.3** ) über den Marketplace.
 
 
 
@@ -59,7 +59,7 @@ Update Q2 für Azure App Service in Azure Stack enthält folgende Verbesserunge
 
 - Updates für den Kerndienst zur Verbesserung der Zuverlässigkeit und der Fehlermeldungen, die eine einfachere Diagnose von häufigen Problemen ermöglichen.
 
-- **Updates für folgende Anwendungsframeworks und Tools**:
+- **Updates für folgende Anwendungsframeworks und Tools** :
   - ASP.NET Framework 4.7.2
   - ASP.NET Core 3.1.3
   - ASP.NET Core-Modul v2 13.1.19331.0
@@ -76,13 +76,13 @@ Update Q2 für Azure App Service in Azure Stack enthält folgende Verbesserunge
     - 6.12.0
     - 6.13.4
   
-- **Updates des zugrunde liegenden Betriebssystems aller Rollen**:
+- **Updates des zugrunde liegenden Betriebssystems aller Rollen** :
   - [April 2020: Kumulatives Update für Windows Server 2016 für x64-basierte Systeme (KB4550929)](https://support.microsoft.com/help/4550929)
   - [April 2020: Wartungsstapelaktualisierung für Windows Server 2016 für x64-basierte Systeme (KB4550994)](https://support.microsoft.com/help/4550994)
 
 - **Kumulative Updates für Windows Server werden jetzt im Rahmen der Bereitstellung und Aktualisierung auf Controllerrollen angewendet.**
 
-- **Update der Standard-SKUs für virtuelle Computer und Skalierungsgruppen für neue Bereitstellungen**: Um die Konsistenz mit unserem öffentlichen Clouddienst aufrechtzuerhalten, verwenden neue Bereitstellungen von Azure App Service in Azure Stack Hub die folgenden SKUs für die zugrunde liegenden Computer und Skalierungsgruppen, die für den Betrieb des Ressourcenanbieters verwendet werden.
+- **Update der Standard-SKUs für virtuelle Computer und Skalierungsgruppen für neue Bereitstellungen** : Um die Konsistenz mit unserem öffentlichen Clouddienst aufrechtzuerhalten, verwenden neue Bereitstellungen von Azure App Service in Azure Stack Hub die folgenden SKUs für die zugrunde liegenden Computer und Skalierungsgruppen, die für den Betrieb des Ressourcenanbieters verwendet werden.
   
   | Role | Mindest-SKU |
   | --- | --- |
@@ -131,8 +131,9 @@ Kunden müssen das folgende Skript für den SQL-Server ausführen, der appservic
 
 Dieses Skript muss unter den folgenden Bedingungen ausgeführt werden.
 
-1. Es muss von einem Benutzer mit der Berechtigung „Systemadministrator“ ausgeführt werden, z. B. dem SQL-Konto „SA“.
-1. Wenn Sie SQL Always On verwenden, stellen Sie sicher, dass das Skript von der SQL-Instanz ausgeführt wird, die alle App Service-Anmeldungen im folgenden Format enthält:
+- Es muss von einem Benutzer mit der Berechtigung „Systemadministrator“ ausgeführt werden, z. B. dem SQL-Konto „SA“.
+- Wenn Sie SQL Always On verwenden, stellen Sie sicher, dass das Skript von der SQL-Instanz ausgeführt wird, die alle App Service-Anmeldungen im folgenden Format enthält:
+
     - appservice_hosting_FileServer
     - appservice_hosting_HostingAdmin
     - appservice_hosting_LoadBalancer

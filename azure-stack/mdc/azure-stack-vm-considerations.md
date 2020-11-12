@@ -15,12 +15,12 @@ ms.date: 12/20/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: dfc1070a39efb0b470b087b9c554868e3e9d3f1e
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: a480f5fcafd6d40dbcb76dcad4c38c64ad9f6ff8
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183492"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383444"
 ---
 # <a name="azure-stack-vm-features"></a>Features von Azure Stack-VMs
 
@@ -31,7 +31,7 @@ ms.locfileid: "92183492"
 | Funktion | Azure (global) | Azure Stack |
 | --- | --- | --- |
 | VM-Images | Azure Marketplace enthält Images, die Sie zum Erstellen eines virtuellen Computers verwenden können. Auf der Seite [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) können Sie die Liste mit den Images anzeigen, die im Azure Marketplace verfügbar sind. | Im Azure Stack-Marketplace sind standardmäßig keine Images verfügbar. Der Azure Stack-Cloudadministrator muss Images veröffentlichen oder auf den Azure Stack-Marketplace herunterladen, bevor sie von Benutzern verwendet werden können. |
-| Größen virtueller Computer | Azure unterstützt eine Vielzahl von Größen für VMs. Informationen zu den verfügbaren Größen und Optionen finden Sie in den Themen [Größen für virtuelle Windows-Computer in Azure](/azure/virtual-machines/virtual-machines-windows-sizes) und [Größen für virtuelle Linux-Computer in Azure](/azure/virtual-machines/linux/sizes). | Azure Stack unterstützt eine Teilmenge der VM-Größen, die in Azure verfügbar sind. Die Liste mit den unterstützten Größen finden Sie in diesem Artikel im Abschnitt [VM-Größen](#vm-sizes). |
+| Größen virtueller Computer | Azure unterstützt eine Vielzahl von Größen für VMs. Informationen zu den verfügbaren Größen und Optionen finden Sie in den Themen [Größen für virtuelle Windows-Computer in Azure](/azure/virtual-machines/sizes) und [Größen für virtuelle Linux-Computer in Azure](/azure/virtual-machines/linux/sizes). | Azure Stack unterstützt eine Teilmenge der VM-Größen, die in Azure verfügbar sind. Die Liste mit den unterstützten Größen finden Sie in diesem Artikel im Abschnitt [VM-Größen](#vm-sizes). |
 | Kontingente für virtuelle Computer | [Kontingentgrenzen](/azure/azure-subscription-service-limits#service-specific-limits) werden von Microsoft festgelegt. | Der Azure Stack-Cloudadministrator muss Kontingente zuweisen, bevor Benutzern VMs angeboten werden. |
 | VM-Erweiterungen |Azure unterstützt viele verschiedene VM-Erweiterungen. Weitere Informationen zu den verfügbaren Erweiterungen finden Sie im Artikel zu den [Erweiterungen und Features für VMs](/azure/virtual-machines/windows/extensions-features).| Azure Stack unterstützt eine Teilmenge der Erweiterungen, die in Azure verfügbar sind, und jede Erweiterung hat eine bestimmte Version. Der Azure Stack-Cloudadministrator kann jeweils wählen, welche Erweiterungen für seine Benutzer verfügbar gemacht werden sollen. Die Liste mit den unterstützten Erweiterungen finden Sie in diesem Artikel im Abschnitt [VM-Erweiterungen](#vm-extensions). |
 | Netzwerk für virtuelle Computer | Öffentliche IP-Adressen, die einer Mandanten-VM zugewiesen sind, sind über das Internet zugänglich.<br><br><br>Azure-VMs verfügen über einen festen DNS-Namen. | Öffentliche IP-Adressen, die einer Mandanten-VM zugewiesen sind, sind nur in der Azure Stack Development Kit-Umgebung zugänglich. Ein Benutzer muss per [RDP](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) oder [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) Zugriff auf das Azure Stack Development Kit haben, um eine Verbindung mit einer VM herstellen zu können, die in Azure Stack erstellt wird.<br><br>VMs, die in einer bestimmten Azure Stack-Instanz erstellt werden, verfügen über einen DNS-Namen basierend auf dem Wert, der vom Cloudadministrator konfiguriert wird. |

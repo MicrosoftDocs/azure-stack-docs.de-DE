@@ -3,16 +3,16 @@ title: Ressourcennutzungs-API für Azure Stack Hub-Anbieter
 description: Referenz für die Ressourcennutzungs-API, die Azure Stack Hub-Nutzungsinformationen abruft
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 0e167bdfeb0685b8b4612e887b904d010ffd666b
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: b327d7e194de672787c3a7e120857d6c2775a1a1
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250774"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544937"
 ---
 # <a name="provider-resource-usage-api"></a>Ressourcennutzungs-API für Anbieter
 
@@ -26,7 +26,7 @@ Der Begriff *Anbieter* bezieht sich auf den Dienstadministrator und alle delegie
 
 Die Anforderung ruft detaillierte Nutzungsinformationen für das angeforderte Abonnement und den angeforderten Zeitraum ab. Es gibt keinen Anforderungstext.
 
-Die Nutzungs-API ist eine Anbieter-API. Aus diesem Grund muss dem Aufrufer im Abonnement des Anbieters die Rolle des **Besitzers**, **Mitwirkenden** oder **Lesers** zugewiesen sein.
+Die Nutzungs-API ist eine Anbieter-API. Aus diesem Grund muss dem Aufrufer im Abonnement des Anbieters die Rolle des **Besitzers** , **Mitwirkenden** oder **Lesers** zugewiesen sein.
 
 | Methode | Anforderungs-URI |
 | --- | --- |
@@ -98,7 +98,7 @@ meterID1",
 
 Zum Generieren der Nutzungsdaten benötigen Sie Ressourcen, die ausgeführt werden und das System aktiv verwenden, beispielsweise einen aktiven virtuellen Computer oder ein Speicherkonto mit Daten. Wenn Sie nicht sicher sind, ob Sie über Ressourcen verfügen, die im Azure Stack Hub-Marketplace ausgeführt werden, stellen Sie eine VM bereit. Stellen Sie dann mithilfe des Überwachungsblatt für diese VM sicher, dass die VM ausgeführt wird. Verwenden Sie die folgenden PowerShell-Cmdlets, um die Nutzungsdaten anzuzeigen:
 
-1. [Installieren Sie PowerShell für Azure Stack Hub](azure-stack-powershell-install.md).
+1. [Installieren Sie PowerShell für Azure Stack Hub](powershell-install-az-module.md).
 2. Konfigurieren Sie die PowerShell-Umgebung des [Azure Stack Hub-Benutzers](../user/azure-stack-powershell-configure-user.md) oder des [Azure Stack Hub-Betreibers](azure-stack-powershell-configure-admin.md).
 3. Rufen Sie zum Abrufen der Nutzungsdaten das PowerShell-Cmdlet [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) ab:
 
@@ -108,7 +108,7 @@ Zum Generieren der Nutzungsdaten benötigen Sie Ressourcen, die ausgeführt werd
 
 ### <a name="rest-api"></a>REST-API
 
-Sie können Nutzungsinformationen für gelöschte Abonnements sammeln, indem Sie den **Microsoft.Commerce.Admin**-Dienst aufrufen.
+Sie können Nutzungsinformationen für gelöschte Abonnements sammeln, indem Sie den **Microsoft.Commerce.Admin** -Dienst aufrufen.
 
 #### <a name="return-all-tenant-usage-for-deleted-for-active-users"></a>Zurückgeben der gesamte Mandantennutzung für gelöschte Abonnements für aktive Benutzer
 

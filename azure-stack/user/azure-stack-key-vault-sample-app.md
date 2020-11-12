@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 2941adf109f9e8c142523f607bce969427127ec3
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: 1d12e1bf449a923e97d871d3971b97dbe19c2849
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813787"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546224"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Zugriff auf Azure Stack Hub-Key Vault-Geheimnisse durch Apps zulassen
 
@@ -21,7 +21,7 @@ In den Schritten in diesem Artikel wird beschrieben, wie Sie die Beispiel-App **
 
 Sie können die folgenden erforderlichen Komponenten über das [Azure Stack Development Kit](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) oder einen Windows-basierten externen Client installieren, sofern [eine VPN-Verbindung besteht](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn):
 
-* Installieren Sie [mit Azure Stack Hub kompatible Azure PowerShell-Module](../operator/azure-stack-powershell-install.md).
+* Installieren Sie [mit Azure Stack Hub kompatible Azure PowerShell-Module](../operator/powershell-install-az-module.md).
 * Laden Sie die [Tools herunter, die für die Arbeit mit Azure Stack Hub benötigt werden](../operator/azure-stack-powershell-download.md).
 
 ## <a name="create-a-key-vault-and-register-an-app"></a>Erstellen eines Schlüsseltresors und Registrieren einer App
@@ -62,7 +62,7 @@ $tenantARM = "https://management.local.azurestack.external"
 $aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
 
 # Configure the Azure Stack Hub operator's PowerShell environment.
-Add-AzureRMEnvironment `
+Add-AzEnvironment `
   -Name "AzureStackUser" `
   -ArmEndpoint $tenantARM
 
@@ -71,7 +71,7 @@ $TenantID = Get-AzsDirectoryTenantId `
   -EnvironmentName AzureStackUser
 
 # Sign in to the user portal.
-Add-AzureRmAccount `
+Add-AzAccount `
   -EnvironmentName "AzureStackUser" `
   -TenantId $TenantID `
 
@@ -85,7 +85,7 @@ $identifierUri = [string]::Format("http://localhost:8080/{0}",[Guid]::NewGuid().
 $homePage = "https://contoso.com"
 
 Write-Host "Creating a new AAD Application"
-$ADApp = New-AzureRmADApplication `
+$ADApp = New-AzADApplication `
   -DisplayName $applicationName `
   -HomePage $homePage `
   -IdentifierUris $identifierUri `
@@ -94,23 +94,23 @@ $ADApp = New-AzureRmADApplication `
   -Password $applicationPassword
 
 Write-Host "Creating a new AAD service principal"
-$servicePrincipal = New-AzureRmADServicePrincipal `
+$servicePrincipal = New-AzADServicePrincipal `
   -ApplicationId $ADApp.ApplicationId
 
 # Create a new resource group and a key vault in that resource group.
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $resourceGroupName `
   -Location $location
 
 Write-Host "Creating vault $vaultName"
-$vault = New-AzureRmKeyVault -VaultName $vaultName `
+$vault = New-AzKeyVault -VaultName $vaultName `
   -ResourceGroupName $resourceGroupName `
   -Sku standard `
   -Location $location
 
 # Specify full privileges to the vault for the application.
 Write-Host "Setting access policy"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName `
+Set-AzKeyVaultAccessPolicy -VaultName $vaultName `
   -ObjectId $servicePrincipal.Id `
   -PermissionsToKeys all `
   -PermissionsToSecrets all
@@ -126,13 +126,13 @@ Die folgende Abbildung zeigt die Ausgabe des Skripts, das zum Erstellen des Schl
 
 ![Schlüsseltresor mit Zugriffsschlüsseln](media/azure-stack-key-vault-sample-app/settingsoutput.png)
 
-Notieren Sie die vom Skript zurückgegeben Werte für **VaultUrl**, **AuthClientId** und **AuthClientSecret**. Diese Werte verwenden Sie zum Ausführen der Anwendung **HelloKeyVault**.
+Notieren Sie die vom Skript zurückgegeben Werte für **VaultUrl** , **AuthClientId** und **AuthClientSecret**. Diese Werte verwenden Sie zum Ausführen der Anwendung **HelloKeyVault**.
 
 ## <a name="download-and-configure-the-sample-application"></a>Herunterladen und Konfigurieren der Beispielanwendung
 
 Laden Sie den Beispielschlüsseltresor von der Seite mit den [Azure Key Vault-Clientbeispielen](https://www.microsoft.com/download/details.aspx?id=45343) herunter. Extrahieren Sie den Inhalt der ZIP-Datei auf Ihrer Entwicklungsarbeitsstation. Der Ordner „samples“ enthält zwei Apps, von denen in diesem Artikel **HelloKeyVault** verwendet wird.
 
-So laden Sie das **HelloKeyVault**-Beispiel:
+So laden Sie das **HelloKeyVault** -Beispiel:
 
 1. Navigieren Sie zum Ordner **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault**.
 2. Öffnen Sie die App **HelloKeyVault** in Visual Studio.
@@ -142,7 +142,7 @@ So laden Sie das **HelloKeyVault**-Beispiel:
 In Visual Studio:
 
 1. Öffnen Sie die Datei „HelloKeyVault\App.config“, und suchen Sie nach dem Element `<appSettings>`.
-2. Aktualisieren Sie die Schlüssel **VaultUrl**, **AuthClientId** und **AuthCertThumbprint** mit den beim Erstellen des Schlüsseltresors zurückgegebenen Werten. Standardmäßig enthält die Datei „App.config“ einen Platzhalter für `AuthCertThumbprint`. Ersetzen Sie diesen Platzhalter durch `AuthClientSecret`.
+2. Aktualisieren Sie die Schlüssel **VaultUrl** , **AuthClientId** und **AuthCertThumbprint** mit den beim Erstellen des Schlüsseltresors zurückgegebenen Werten. Standardmäßig enthält die Datei „App.config“ einen Platzhalter für `AuthCertThumbprint`. Ersetzen Sie diesen Platzhalter durch `AuthClientSecret`.
 
    ```xml
    <appSettings>
@@ -163,7 +163,7 @@ Beim Ausführen von **HelloKeyVault** meldet sich die App bei Azure AD an und nu
 Sie können das Beispiel **HelloKeyVault** für folgende Zwecke verwenden:
 
 * Führen Sie grundlegende Vorgänge wie das Erstellen, Verschlüsseln, Umschließen und Löschen der Schlüssel und Geheimnisse durch.
-* Übergeben Sie Parameter (z.B. `encrypt` und `decrypt`) an **HelloKeyVault**, und wenden Sie die angegebenen Änderungen auf einen Schlüsseltresor an.
+* Übergeben Sie Parameter (z.B. `encrypt` und `decrypt`) an **HelloKeyVault** , und wenden Sie die angegebenen Änderungen auf einen Schlüsseltresor an.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

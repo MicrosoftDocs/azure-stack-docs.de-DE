@@ -7,12 +7,12 @@ ms.date: 09/21/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/21/2020
-ms.openlocfilehash: 66a4a8f846002cc126d4861e1acc52b672e78dc5
-ms.sourcegitcommit: 68c00d9ee7c5a9e7da6d41e2f753c0f93d26238e
+ms.openlocfilehash: fc07b78253a19d8a7f459aecacd699338a129ea7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91211158"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546700"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Herstellen einer Verbindung mit Azure Stack Hub über die Azure-Kontoerweiterung in Visual Studio Code
 
@@ -34,7 +34,7 @@ VS Code ist ein einfacher Editor zum Erstellen und Debuggen von Web- und Cloudan
 
 1. Führen Sie das **Identity** -Skript aus den Azure Stack Hub-Tools in GitHub aus.
 
-    - Bevor Sie das Skript ausführen, müssen Sie PowerShell installiert und für Ihre Umgebung konfiguriert haben. Weitere Anleitungen finden Sie unter [Installieren von PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md).
+    - Bevor Sie das Skript ausführen, müssen Sie PowerShell installiert und für Ihre Umgebung konfiguriert haben. Weitere Anleitungen finden Sie unter [Installieren von PowerShell für Azure Stack Hub](../operator/powershell-install-az-module.md).
 
     - Anleitungen zum **Identity** -Skript sowie das Skript selbst finden Sie unter [AzureStack-Tools/Identity](https://aka.ms/aa6z611).
 

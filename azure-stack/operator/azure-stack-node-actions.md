@@ -7,12 +7,12 @@ ms.date: 04/30/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e82e551930196c3c0c2e958957172e26bf9861cb
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: ddfc8ad0ab6eccd10488f70873c7cefc0cf6668e
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488333"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545192"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Aktionen für Knoten einer Skalierungseinheit in Azure Stack Hub
 
@@ -27,7 +27,7 @@ Im Administratorportal können Sie den Status einer Skalierungseinheit und ihrer
 
 So zeigen Sie den Status einer Skalierungseinheit an
 
-1. Klicken Sie auf die Kachel **Regionsverwaltung**, und wählen Sie die Region aus.
+1. Klicken Sie auf die Kachel **Regionsverwaltung** , und wählen Sie die Region aus.
 2. Wählen Sie auf der linken Seite unter **Infrastrukturressourcen** die Option **Skalierungseinheiten** aus.
 3. Wählen Sie in den Ergebnissen die Skalierungseinheit aus.
 4. Wählen Sie links unter **Allgemein** den Eintrag **Knoten** aus.
@@ -62,11 +62,11 @@ Dies kann der Fall sein, wenn der Cache der Fabric-Ressourcenanbieterrolle nach 
 
 Stellen Sie vor dem Anwenden der folgenden Schritte sicher, dass aktuell kein Vorgang ausgeführt wird. Aktualisieren Sie den Endpunkt entsprechend Ihrer Umgebung.
 
-1. Öffnen Sie PowerShell, und fügen Sie Ihre Azure Stack Hub-Umgebung hinzu. Hierfür muss [Azure Stack Hub PowerShell](./azure-stack-powershell-install.md) auf dem Computer installiert sein.
+1. Öffnen Sie PowerShell, und fügen Sie Ihre Azure Stack Hub-Umgebung hinzu. Hierfür muss [Azure Stack Hub PowerShell](./powershell-install-az-module.md) auf dem Computer installiert sein.
 
    ```powershell
-   Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
-   Add-AzureRmAccount -Environment AzureStack
+   Add-AzEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+   Add-AzAccount -Environment AzureStack
    ```
 
 2. Führen Sie den folgenden Befehl aus, um die Fabric-Ressourcenanbieterrolle neu zu starten.
@@ -95,7 +95,7 @@ Beim Anzeigen von Informationen zu einem Knoten einer Skalierungseinheit können
 
 Der Betriebszustand des Knotens bestimmt, welche Optionen verfügbar sind.
 
-Sie müssen Azure Stack Hub-PowerShell-Module installieren. Diese Cmdlets befinden sich im **Azs.Fabric.Admin**-Modul. Informationen zum Installieren von PowerShell bzw. zum Überprüfen Ihrer PowerShell-Installation für Azure Stack Hub finden Sie unter [Installieren von PowerShell für Azure Stack Hub](azure-stack-powershell-install.md).
+Sie müssen Azure Stack Hub-PowerShell-Module installieren. Diese Cmdlets befinden sich im **Azs.Fabric.Admin** -Modul. Informationen zum Installieren von PowerShell bzw. zum Überprüfen Ihrer PowerShell-Installation für Azure Stack Hub finden Sie unter [Installieren von PowerShell für Azure Stack Hub](powershell-install-az-module.md).
 
 ## <a name="stop"></a>Beenden
 
@@ -204,6 +204,6 @@ Sollte beim Herunterfahren ein Fehler auftreten, führen Sie vor dem Herunterfah
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Installieren von Azure Stack PowerShell](./azure-stack-powershell-install.md)
+- [Installieren von Azure Stack PowerShell](./powershell-install-az-module.md)
 - [Weitere Informationen zum Azure Stack Hub Fabric-Operatormodul](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
 - [Überwachen des Vorgangs zum Hinzufügen eines Knotens](./azure-stack-add-scale-node.md#monitor-add-node-operations)

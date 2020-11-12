@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 189f0b9472ed8f29b4cd3ee287d6c6630c850503
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 2691e5aaf222f782f1b70735e8d4992d4e7d29b5
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573869"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546717"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>Schnellstart: Erstellen eines virtuellen Windows Server-Computers mit PowerShell in Azure Stack Hub
 
@@ -30,7 +30,7 @@ Sie können einen virtuellen Windows Server 2016-Computer mit Azure Stack Hub Po
 
 * Stellen Sie sicher, dass Ihr Azure Stack Hub-Betreiber das Image **Windows Server 2016** dem Azure Stack Hub-Marketplace hinzugefügt hat.
 
-* Azure Stack Hub erfordert eine spezifische Version von Azure PowerShell, um die Ressourcen zu erstellen und zu verwalten. Wenn Sie PowerShell nicht für Azure Stack Hub konfiguriert haben, führen Sie die Schritte zum [Installieren](../operator/azure-stack-powershell-install.md) von PowerShell aus.
+* Azure Stack Hub erfordert eine spezifische Version von Azure PowerShell, um die Ressourcen zu erstellen und zu verwalten. Wenn Sie PowerShell nicht für Azure Stack Hub konfiguriert haben, führen Sie die Schritte zum [Installieren](../operator/powershell-install-az-module.md) von PowerShell aus.
 
 * Bei der Einrichtung von Azure Stack Hub PowerShell müssen Sie eine Verbindung mit Ihrer Azure Stack Hub-Umgebung herstellen. Anleitungen dazu finden Sie unter [Herstellen einer Verbindung mit Azure Stack Hub über PowerShell als Benutzer](azure-stack-powershell-configure-user.md).
 
@@ -46,7 +46,7 @@ Eine Ressourcengruppe ist ein logischer Container, in dem Azure Stack Hub-Ressou
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
 
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $ResourceGroupName `
   -Location $location
 ```
@@ -61,13 +61,13 @@ $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
 
 # Create a new storage account
-$StorageAccount = New-AzureRMStorageAccount `
+$StorageAccount = New-AzStorageAccount `
   -Location $location `
   -ResourceGroupName $ResourceGroupName `
   -Type $SkuName `
   -Name $StorageAccountName
 
-Set-AzureRmCurrentStorageAccount `
+Set-AzCurrentStorageAccount `
   -StorageAccountName $storageAccountName `
   -ResourceGroupName $resourceGroupName
 
@@ -79,12 +79,12 @@ Erstellen Sie ein virtuelles Netzwerk, ein Subnetz und eine öffentliche IP-Adre
 
 ```powershell
 # Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name mySubnet `
   -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
+$vnet = New-AzVirtualNetwork `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -Name MyVnet `
@@ -92,7 +92,7 @@ $vnet = New-AzureRmVirtualNetwork `
   -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress `
+$pip = New-AzPublicIpAddress `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -AllocationMethod Static `
@@ -106,7 +106,7 @@ Die Netzwerksicherheitsgruppe schützt die VM mithilfe von Eingangs- und Ausgang
 
 ```powershell
 # Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
   -Name myNetworkSecurityGroupRuleRDP `
   -Protocol Tcp `
   -Direction Inbound `
@@ -118,7 +118,7 @@ $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 
 # Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
+$nsgRuleWeb = New-AzNetworkSecurityRuleConfig `
   -Name myNetworkSecurityGroupRuleWWW `
   -Protocol Tcp `
   -Direction Inbound `
@@ -130,7 +130,7 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
+$nsg = New-AzNetworkSecurityGroup `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -Name myNetworkSecurityGroup `
@@ -143,7 +143,7 @@ Mit der Netzwerkkarte wird die VM mit einem Subnetz, einer Netzwerksicherheitsgr
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
+$nic = New-AzNetworkInterface `
   -Name myNic `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
@@ -165,17 +165,17 @@ $Credential=New-Object PSCredential($UserName,$Password)
 # Create the VM configuration object
 $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_A1"
-$VirtualMachine = New-AzureRmVMConfig `
+$VirtualMachine = New-AzVMConfig `
   -VMName $VmName `
   -VMSize $VmSize
 
-$VirtualMachine = Set-AzureRmVMOperatingSystem `
+$VirtualMachine = Set-AzVMOperatingSystem `
   -VM $VirtualMachine `
   -Windows `
   -ComputerName "MainComputer" `
   -Credential $Credential -ProvisionVMAgent
 
-$VirtualMachine = Set-AzureRmVMSourceImage `
+$VirtualMachine = Set-AzVMSourceImage `
   -VM $VirtualMachine `
   -PublisherName "MicrosoftWindowsServer" `
   -Offer "WindowsServer" `
@@ -183,16 +183,16 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Version "latest"
 
 # Sets the operating system disk properties on a VM.
-$VirtualMachine = Set-AzureRmVMOSDisk `
+$VirtualMachine = Set-AzVMOSDisk `
   -VM $VirtualMachine `
   -CreateOption FromImage | `
-  Set-AzureRmVMBootDiagnostics -ResourceGroupName $ResourceGroupName `
+  Set-AzVMBootDiagnostics -ResourceGroupName $ResourceGroupName `
   -StorageAccountName $StorageAccountName -Enable |`
-  Add-AzureRmVMNetworkInterface -Id $nic.Id
+  Add-AzVMNetworkInterface -Id $nic.Id
 
 
 # Create the VM.
-New-AzureRmVM `
+New-AzVM `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -VM $VirtualMachine
@@ -203,11 +203,11 @@ New-AzureRmVM `
 Um eine Remoteverbindung mit der VM herzustellen, die Sie im vorherigen Schritt erstellt haben, benötigen Sie ihre öffentliche IP-Adresse. Führen Sie den folgenden Befehl aus, um die öffentliche IP-Adresse der VM abzurufen:
 
 ```powershell
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-Erstellen Sie mit dem folgenden Befehl eine Remotedesktopsitzung mit der VM. Ersetzen Sie die IP-Adresse durch die öffentliche IP-Adresse (*publicIPAddress*) Ihres virtuellen Computers. Geben Sie bei entsprechender Aufforderung den Benutzernamen, den Sie beim Erstellen der VM verwendet haben, und das zugehörige Kennwort ein.
+Erstellen Sie mit dem folgenden Befehl eine Remotedesktopsitzung mit der VM. Ersetzen Sie die IP-Adresse durch die öffentliche IP-Adresse ( *publicIPAddress* ) Ihres virtuellen Computers. Geben Sie bei entsprechender Aufforderung den Benutzernamen, den Sie beim Erstellen der VM verwendet haben, und das zugehörige Kennwort ein.
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -223,7 +223,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Anzeigen der IIS-Willkommensseite
 
-Nachdem Sie IIS installiert und Port 80 auf Ihrem virtuellen Computer geöffnet haben, können Sie die IIS-Standardwillkommensseite in einem beliebigen Browser anzeigen. Verwenden Sie die öffentliche IP-Adresse (*publicIpAddress*), die Sie sich im vorherigen Abschnitt notiert haben, um die Standardseite zu besuchen.
+Nachdem Sie IIS installiert und Port 80 auf Ihrem virtuellen Computer geöffnet haben, können Sie die IIS-Standardwillkommensseite in einem beliebigen Browser anzeigen. Verwenden Sie die öffentliche IP-Adresse ( *publicIpAddress* ), die Sie sich im vorherigen Abschnitt notiert haben, um die Standardseite zu besuchen.
 
 ![IIS-Standardwebsite](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
@@ -232,7 +232,7 @@ Nachdem Sie IIS installiert und Port 80 auf Ihrem virtuellen Computer geöffnet
 Entfernen Sie die Ressourcengruppe, die die VM und die zugehörigen Ressourcen enthält, mithilfe des folgenden Befehls, wenn Sie sie nicht mehr benötigen:
 
 ```powershell
-Remove-AzureRmResourceGroup `
+Remove-AzResourceGroup `
   -Name $ResourceGroupName
 ```
 

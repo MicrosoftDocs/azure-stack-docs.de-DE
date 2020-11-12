@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 3b8df9de2975c7ba0e6eefdb10a2731cd5d47ca6
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 3d263759763d1c845365fd5d8d89e7006cedbddc
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448672"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546496"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Go in Azure Stack Hub
 
@@ -48,7 +48,7 @@ Weitere Informationen zum Azure Go SDK finden Sie unter den folgenden Links:
 
 ### <a name="go-autorest-dependencies"></a>Go-AutoRest-Abhängigkeiten
 
-Das Go SDK ist zum Senden von REST-Anforderungen an Azure Resource Manager-Endpunkte von den **Azure-Go-AutoRest-Modulen** abhängig. Sie müssen die **Azure-Go-AutoRest**-Modulabhängigkeiten von [Azure-Go-AutoRest auf GitHub](https://github.com/Azure/go-autorest) herunterladen. Die Bash-Befehle zur Installation finden Sie im Abschnitt **Install** (Installation).
+Das Go SDK ist zum Senden von REST-Anforderungen an Azure Resource Manager-Endpunkte von den **Azure-Go-AutoRest-Modulen** abhängig. Sie müssen die **Azure-Go-AutoRest** -Modulabhängigkeiten von [Azure-Go-AutoRest auf GitHub](https://github.com/Azure/go-autorest) herunterladen. Die Bash-Befehle zur Installation finden Sie im Abschnitt **Install** (Installation).
 
 ## <a name="how-to-use-go-sdk-profiles-on-azure-stack-hub"></a>Verwenden von Go SDK-Profilen in Azure Stack Hub
 
@@ -58,8 +58,8 @@ So führen Sie ein Beispiel für Go-Code in Azure Stack Hub aus
 2. Rufen Sie die Metadateninformationen vom Resource Manager-Endpunkt ab. Der Endpunkt gibt eine JSON-Datei mit den zum Ausführen des Go-Codes erforderlichen Informationen zurück.
 
    > [!NOTE]  
-   > Der **ResourceManagerUrl**-Wert im Azure Stack Development Kit (ASDK) lautet `https://management.local.azurestack.external/`.  
-   > Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet `https://management.<region>.<fqdn>/`.  
+   > Der **ResourceManagerUrl** -Wert im Azure Stack Development Kit (ASDK) lautet `https://management.local.azurestack.external/`.  
+   > Der **ResourceManagerUrl** -Wert in integrierten Systemen lautet `https://management.<region>.<fqdn>/`.  
    > Zum Abrufen der erforderlichen Metadaten verwenden Sie Folgendes: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
   
    JSON-Beispieldatei:
@@ -98,7 +98,7 @@ So führen Sie ein Beispiel für Go-Code in Azure Stack Hub aus
       vnetClient.Authorizer = autorest.NewBearerAuthorizer(token)
    ```
 
-   Legen Sie `<baseURI>` auf den in Schritt 2 verwendeten **ResourceManagerUrl**-Wert fest. Legen Sie `<subscriptionID>` auf den in Schritt 3 gespeicherten **SubscriptionID**-Wert fest.
+   Legen Sie `<baseURI>` auf den in Schritt 2 verwendeten **ResourceManagerUrl** -Wert fest. Legen Sie `<subscriptionID>` auf den in Schritt 3 gespeicherten **SubscriptionID** -Wert fest.
 
    Informationen zum Erstellen des Tokens finden Sie im nächsten Abschnitt.  
 
@@ -119,20 +119,20 @@ Ein vollständiges Beispiel zum Erstellen eines virtuellen Netzwerks in Azure St
 
 ## <a name="authentication"></a>Authentifizierung
 
-Installieren Sie die **Go-AutoRest**-Module, um mithilfe des Go SDK die **Authorizer**-Eigenschaft aus Azure Active Directory abzurufen. Diese Module sollten bei der Installation des Go SDK bereits installiert worden sein. Falls nicht, können Sie das [Authentifizierungspaket von GitHub](https://github.com/Azure/go-autorest/tree/master/autorest/adal) installieren.
+Installieren Sie die **Go-AutoRest** -Module, um mithilfe des Go SDK die **Authorizer** -Eigenschaft aus Azure Active Directory abzurufen. Diese Module sollten bei der Installation des Go SDK bereits installiert worden sein. Falls nicht, können Sie das [Authentifizierungspaket von GitHub](https://github.com/Azure/go-autorest/tree/master/autorest/adal) installieren.
 
 Als Authorizer-Wert muss der Autorisierer für den Ressourcenclient festgelegt werden. Es gibt verschiedene Methoden zum Abrufen von Autorisierertoken in Azure Stack Hub mithilfe von Clientanmeldeinformationen:
 
 1. Wenn ein Dienstprinzipal mit der Rolle „Besitzer“ im Abonnement verfügbar ist, überspringen Sie diesen Schritt. Andernfalls finden Sie Anleitungen zum Erstellen eines Dienstprinzipals, der einen geheimen Clientschlüssel verwendet, und Hilfe dazu, wie Sie ihm die Rolle „Besitzer“ mit Ihrem Abonnement als Gültigkeitsbereich zuweisen, unter [Verwenden einer App-Identität für den Ressourcenzugriff](../operator/azure-stack-create-service-principals.md). Stellen Sie sicher, dass Sie die Anwendungs-ID und das Geheimnis des Dienstprinzipals speichern.
 
-2. Importieren Sie das **adal**-Paket aus **Go-AutoRest** in Ihren Code.
+2. Importieren Sie das **adal** -Paket aus **Go-AutoRest** in Ihren Code.
 
    ```go
    package main
    import "github.com/Azure/go-autorest/autorest/adal"
    ```
 
-3. Erstellen Sie ein **oauthConfig**-Element mithilfe der NewOAuthConfig-Methode aus dem **adal**-Modul.
+3. Erstellen Sie ein **oauthConfig** -Element mithilfe der NewOAuthConfig-Methode aus dem **adal** -Modul.
 
    ```go
    package main
@@ -147,7 +147,7 @@ Als Authorizer-Wert muss der Autorisierer für den Ressourcenclient festgelegt w
 
    Legen Sie `<activeDirectoryEndpoint>` auf den Wert der `loginEndpoint`-Eigenschaft aus den `ResourceManagerUrl`-Metadaten fest, die Sie weiter oben in diesem Dokument abgerufen haben. Legen Sie den Wert `<tenantID>` auf Ihre Azure Stack Hub-Mandanten-ID fest.
 
-4. Erstellen Sie abschließend mithilfe der `NewServicePrincipalToken`-Methode aus dem **adal**-Modul ein Dienstprinzipaltoken:
+4. Erstellen Sie abschließend mithilfe der `NewServicePrincipalToken`-Methode aus dem **adal** -Modul ein Dienstprinzipaltoken:
 
    ```go
    package main
@@ -165,7 +165,7 @@ Als Authorizer-Wert muss der Autorisierer für den Ressourcenclient festgelegt w
        return token, err
    ```
 
-    Legen Sie `<activeDirectoryResourceID>` auf einen der Werte in der Liste „audience“ der **ResourceManagerUrl**-Metadaten fest, die Sie weiter oben in diesem Artikel abgerufen haben.
+    Legen Sie `<activeDirectoryResourceID>` auf einen der Werte in der Liste „audience“ der **ResourceManagerUrl** -Metadaten fest, die Sie weiter oben in diesem Artikel abgerufen haben.
     Legen Sie `<clientID>` auf die Anwendungs-ID des Dienstprinzipals fest, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde.
     Legen Sie `<clientSecret>` auf das Anwendungsgeheimnis des Dienstprinzipals fest, das beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde.
 
@@ -206,7 +206,7 @@ Dies ist ein Beispiel für Go-Code zum Erstellen eines virtuellen Netzwerks in A
    )
    ```
 
-3. Nachdem Sie nun die Umgebungsvariablen definiert haben, fügen Sie eine Methode hinzu, um mithilfe des **adal**-Pakets ein Authentifizierungstoken zu erstellen. Weitere Informationen zur Authentifizierung finden Sie im vorherigen Abschnitt.
+3. Nachdem Sie nun die Umgebungsvariablen definiert haben, fügen Sie eine Methode hinzu, um mithilfe des **adal** -Pakets ein Authentifizierungstoken zu erstellen. Weitere Informationen zur Authentifizierung finden Sie im vorherigen Abschnitt.
 
    ```go
    //CreateToken creates a service principal token
@@ -299,5 +299,5 @@ Unter anderem sind bei Verwendung des Go SDK folgende Codebeispiele für Azure S
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Installieren von PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md)
+- [Installieren von PowerShell für Azure Stack Hub](../operator/powershell-install-az-module.md)
 - [Konfigurieren der PowerShell-Umgebung des Azure Stack Hub-Benutzers](azure-stack-powershell-configure-user.md)

@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 5e46d9ee2f23aa58ec3be3735c29f1dfb104c9ee
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 9308e8b017201119a7179c78dbeb99006f4ebfff
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571880"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547091"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Sichern Ihres virtuellen Computers in Azure Stack Hub mit Commvault
 
@@ -51,7 +51,7 @@ Die Topologie dieses Ansatzes ist in der folgenden Abbildung dargestellt:
 
     ![Erstellen eines virtuellen Computers](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-01.png)
 
-3. Konfigurieren Sie die Grundeinstellungen unter **Virtuellen Computer erstellen, 1 Grundlagen**:
+3. Konfigurieren Sie die Grundeinstellungen unter **Virtuellen Computer erstellen, 1 Grundlagen** :
 
     a. Geben Sie einen **Namen** ein.
 
@@ -124,7 +124,7 @@ Sie müssen wissen, ob Azure AD oder ADFS als Identity Manager festgelegt ist. 
 
 2. Installieren Sie Azure Stack Hub PowerShell und Azure Stack Hub-Tools auf dem virtuellen Commvault-Computer.
 
-    a. Anweisungen zum Installieren von Azure Stack Hub PowerShell finden Sie unter [Installieren von PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
+    a. Anweisungen zum Installieren von Azure Stack Hub PowerShell finden Sie unter [Installieren von PowerShell für Azure Stack Hub](../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
     b. Anweisungen zum Installieren von Azure Stack Hub-Tools finden Sie unter [Herunterladen von Azure Stack Hub-Tools von GitHub](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908).
 
 3. Öffnen Sie nach der Installation von Commvault auf dem virtuellen Commvault-Computer die CommCell Console. Wählen Sie unter „Start“ die Option **Commvault** > **Commvault CommCell Console** aus.
@@ -145,13 +145,13 @@ Sie müssen wissen, ob Azure AD oder ADFS als Identity Manager festgelegt ist. 
 
 9. Geben Sie Ihre Zugriffsinformationen für das Speicherkonto ein. Anweisungen zum Einrichten eines Azure Storage-Kontos finden Sie hier. Zugriffsinformationen:
 
-    -  **Diensthost**: Der Name der URL stammt aus den Eigenschaften des Blobcontainers in der Ressource. Die Beispiel-URL lautete https:\//backuptest.blob.westus.stackpoc.com/mybackups and I used, blob.westus.stackpoc.com auf dem Diensthost.
+    -  **Diensthost** : Der Name der URL stammt aus den Eigenschaften des Blobcontainers in der Ressource. Die Beispiel-URL lautete https:\//backuptest.blob.westus.stackpoc.com/mybackups and I used, blob.westus.stackpoc.com auf dem Diensthost.
     
     -   **Kontoname:** Verwenden Sie den Namen des Speicherkontos. Diesen finden Sie auf dem Blatt „Zugriffsschlüssel“ in der Speicherressource.
     
-    -   **Zugriffsschlüssel**: Den Zugriffsschlüssel finden Sie auf dem Blatt „Zugriffsschlüssel“ in der Speicherressource.
+    -   **Zugriffsschlüssel** : Den Zugriffsschlüssel finden Sie auf dem Blatt „Zugriffsschlüssel“ in der Speicherressource.
     
-    -   **Container**: Der Name des Containers, in diesem Fall „mybackups“.
+    -   **Container** : Der Name des Containers, in diesem Fall „mybackups“.
     
     -   **Speicherklasse:** Behalten Sie die Standardspeicherklasse des Benutzercontainers bei.
 

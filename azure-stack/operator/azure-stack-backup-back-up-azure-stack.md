@@ -7,16 +7,16 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2019
-ms.openlocfilehash: 10a7c60a18faa5528fb9c1917c62994b43bee51a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2090471cee6fa36a32b9e2147de7941cd4abed54
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701036"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544274"
 ---
 # <a name="back-up-azure-stack-hub"></a>Sichern von Azure Stack Hub
 
-Dieser Artikel zeigt Ihnen, wie Sie eine bedarfsgesteuerte Sicherung in Azure Stack Hub durchführen. Anweisungen zum Konfigurieren der PowerShell-Umgebung finden Sie unter [Installieren von PowerShell für Azure Stack Hub](azure-stack-powershell-install.md). Informationen zur Anmeldung bei Azure Stack Hub finden Sie unter [Verwenden des Administratorportals in Azure Stack Hub](azure-stack-manage-portals.md).
+Dieser Artikel zeigt Ihnen, wie Sie eine bedarfsgesteuerte Sicherung in Azure Stack Hub durchführen. Anweisungen zum Konfigurieren der PowerShell-Umgebung finden Sie unter [Installieren von PowerShell für Azure Stack Hub](powershell-install-az-module.md). Informationen zur Anmeldung bei Azure Stack Hub finden Sie unter [Verwenden des Administratorportals in Azure Stack Hub](azure-stack-manage-portals.md).
 
 ## <a name="start-azure-stack-hub-backup"></a>Starten der Azure Stack Hub-Sicherung
 

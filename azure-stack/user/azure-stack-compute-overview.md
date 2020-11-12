@@ -7,12 +7,12 @@ ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: 01ee528229e52a66174c3b4d1dbba49eea6a5318
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: ff462a8fbdb2de67e58f15248aaffa79f0abb695
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623131"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545759"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Einführung in Azure Stack Hub-VMs
 
@@ -22,11 +22,11 @@ Ein virtueller Azure Stack Hub-Computer bietet die Flexibilität der Virtualisie
 
 Sie können Azure Stack Hub-VMs auf mehrere Arten verwenden. Beispiel:
 
-- **Entwickeln und Testen**: Mit virtuellen Azure Stack Hub-Computern können Sie einen Computer mit speziellen Konfigurationen erstellen, die zum Programmieren und Testen einer Anwendung erforderlich sind.
+- **Entwickeln und Testen** : Mit virtuellen Azure Stack Hub-Computern können Sie einen Computer mit speziellen Konfigurationen erstellen, die zum Programmieren und Testen einer Anwendung erforderlich sind.
 
-- **Anwendungen in der Cloud**: Da die Nutzung Ihrer Anwendung Schwankungen unterliegen kann, ist es unter Umständen wirtschaftlich sinnvoll, sie auf einem virtuellen Computer in Azure Stack Hub auszuführen. Sie bezahlen für zusätzliche virtuelle Computer, wenn Sie sie benötigen, und fahren sie andernfalls einfach herunter.
+- **Anwendungen in der Cloud** : Da die Nutzung Ihrer Anwendung Schwankungen unterliegen kann, ist es unter Umständen wirtschaftlich sinnvoll, sie auf einem virtuellen Computer in Azure Stack Hub auszuführen. Sie bezahlen für zusätzliche virtuelle Computer, wenn Sie sie benötigen, und fahren sie andernfalls einfach herunter.
 
-- **Erweitertes Datencenter**: VMs in einem virtuellen Azure Stack Hub-Netzwerk können mit dem Netzwerk Ihrer Organisation oder mit Azure verbunden werden.
+- **Erweitertes Datencenter** : VMs in einem virtuellen Azure Stack Hub-Netzwerk können mit dem Netzwerk Ihrer Organisation oder mit Azure verbunden werden.
 
 Die virtuellen Computer, die von Ihrer Anwendung genutzt werden, können zur Erfüllung Ihrer Anforderungen hoch- oder aufskaliert werden.
 
@@ -64,7 +64,7 @@ In der folgenden Tabelle ist angegeben, wie Sie die Informationen zu einem Image
 |Methode|BESCHREIBUNG|
 |---------|---------|
 |Azure Stack Hub-Portal|Die Werte werden automatisch angegeben, wenn Sie ein zu verwendendes Image auswählen.|
-|Azure Stack Hub PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
+|Azure Stack Hub PowerShell|`Get-AzVMImagePublisher -Location "location"`<br>`Get-AzVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
 |REST-APIs     |[List image publishers](/rest/api/compute/platformimages/platformimages-list-publishers) (Imageherausgeber auflisten)<br>[List image offers](/rest/api/compute/platformimages/platformimages-list-publisher-offers) (Imageangebote auflisten)<br>[List image SKUs](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) (Image-SKUs auflisten)|
 
 Sie können ein eigenes Image hochladen und verwenden. In diesem Fall werden Herausgebername, Angebot und SKU nicht verwendet.
@@ -73,11 +73,11 @@ Sie können ein eigenes Image hochladen und verwenden. In diesem Fall werden Her
 
 Mit VM-Erweiterungen können Sie den Funktionsumfang Ihres virtuellen Computers mittels Konfiguration nach der Bereitstellung sowie mittels automatisierter Aufgaben erweitern. Mit Erweiterungen können Sie folgende allgemeine Aufgaben umsetzen:
 
-- **Ausführen benutzerdefinierter Skripts**: Die Erweiterung für benutzerdefinierte Skripts unterstützt Sie beim Konfigurieren von Workloads auf dem virtuellen Computer, indem beim Bereitstellen des virtuellen Computers Ihr Skript ausgeführt wird.
+- **Ausführen benutzerdefinierter Skripts** : Die Erweiterung für benutzerdefinierte Skripts unterstützt Sie beim Konfigurieren von Workloads auf dem virtuellen Computer, indem beim Bereitstellen des virtuellen Computers Ihr Skript ausgeführt wird.
 
-- **Bereitstellen und Verwalten von Konfigurationen**: Die PowerShell-Erweiterung zum Konfigurieren des gewünschten Zustands (Desired State Configuration, DSC) unterstützt Sie beim Einrichten der Konfiguration des gewünschten Zustands auf einem virtuellen Computer, um Konfigurationen und Umgebungen zu verwalten.
+- **Bereitstellen und Verwalten von Konfigurationen** : Die PowerShell-Erweiterung zum Konfigurieren des gewünschten Zustands (Desired State Configuration, DSC) unterstützt Sie beim Einrichten der Konfiguration des gewünschten Zustands auf einem virtuellen Computer, um Konfigurationen und Umgebungen zu verwalten.
 
-- **Sammeln von Diagnosedaten**: Die Azure-Diagnoseerweiterung unterstützt Sie dabei, den virtuellen Computer für die Sammlung von Diagnosedaten zu konfigurieren, die zum Überwachen der Integrität Ihrer Anwendung verwendet werden können.
+- **Sammeln von Diagnosedaten** : Die Azure-Diagnoseerweiterung unterstützt Sie dabei, den virtuellen Computer für die Sammlung von Diagnosedaten zu konfigurieren, die zum Überwachen der Integrität Ihrer Anwendung verwendet werden können.
 
 ### <a name="related-resources"></a>Zugehörige Ressourcen
 
@@ -118,7 +118,7 @@ Die folgende Tabelle zeigt einige der Methoden, mit denen Sie Informationen zu e
 
 |Methode|BESCHREIBUNG|
 |---------|---------|
-|Azure Stack Hub-Portal|Klicken Sie im Hub-Menü auf **Virtual Machines**, und wählen Sie dann in der Liste den gewünschten virtuellen Computer aus. Auf der Seite des virtuellen Computers finden Sie Übersichtsinformationen, Einstellungswerte und Überwachungsmetriken.|
+|Azure Stack Hub-Portal|Klicken Sie im Hub-Menü auf **Virtual Machines** , und wählen Sie dann in der Liste den gewünschten virtuellen Computer aus. Auf der Seite des virtuellen Computers finden Sie Übersichtsinformationen, Einstellungswerte und Überwachungsmetriken.|
 |Azure PowerShell|Die Verwaltung von virtuellen Computern erfolgt in Azure und Azure Stack Hub auf die gleiche Weise. Weitere Informationen zum Verwenden von PowerShell finden Sie in dem Azure-Thema [Erstellen und Verwalten von virtuellen Windows-Computern mit dem Azure PowerShell-Modul](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes).|
 |Client-SDKs|Die Verwendung von C# zur Verwaltung von virtuellen Computern erfolgt in Azure und Azure Stack Hub auf die gleiche Weise. Weitere Informationen finden Sie unter [Erstellen und Verwalten von virtuellen Windows-Computern in Azure mithilfe von C#](/azure/virtual-machines/windows/csharp).|
 

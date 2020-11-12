@@ -7,12 +7,12 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 01f02fcf624db0a8ce47084ec5aa331e0831014b
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: bc6ce6c36e3aca05015e6acbef3de0d5fd841eb6
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489282"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543917"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>Aktivieren der Sicherung für Azure Stack Hub mit PowerShell
 
@@ -28,7 +28,7 @@ Sie können auf die PowerShell-Cmdlets zugreifen, um über den Endpunkt der Bedi
 
 ## <a name="prepare-powershell-environment"></a>Vorbereiten der PowerShell-Umgebung
 
-Anweisungen zum Konfigurieren der PowerShell-Umgebung finden Sie unter [Installieren von PowerShell für Azure Stack Hub](azure-stack-powershell-install.md). Weitere Informationen zur Anmeldung bei Azure Stack Hub finden Sie unter [Konfigurieren der Betreiberumgebung und Anmelden bei Azure Stack Hub](azure-stack-powershell-configure-admin.md).
+Anweisungen zum Konfigurieren der PowerShell-Umgebung finden Sie unter [Installieren von PowerShell für Azure Stack Hub](powershell-install-az-module.md). Weitere Informationen zur Anmeldung bei Azure Stack Hub finden Sie unter [Konfigurieren der Betreiberumgebung und Anmelden bei Azure Stack Hub](azure-stack-powershell-configure-admin.md).
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Angeben der Sicherungsfreigabe, der Anmeldeinformationen und des Verschlüsselungsschlüssels zum Aktivieren der Sicherung
 
@@ -134,7 +134,7 @@ Das Ergebnis sollte der folgenden Beispielausgabe ähneln:
 Das PowerShell-Cmdlet zum Konfigurieren der Infrastruktursicherung ist „Set-AzsBackupConfiguration“. In früheren Versionen war dies das Cmdlet „Set-AzsBackupShare“. Dieses Cmdlet erfordert die Bereitstellung eines Zertifikats. Wenn die Infrastruktursicherung mit einem Verschlüsselungsschlüssel konfiguriert ist, können Sie weder den Verschlüsselungsschlüssel aktualisieren noch die Eigenschaft anzeigen. Sie müssen die Version 1.6 der Administrator-PowerShell verwenden.
 
 Wenn die Infrastruktursicherung vor der Aktualisierung auf 1901 konfiguriert wurde, können Sie die Version 1.6 der Administrator-PowerShell verwenden, um den Verschlüsselungsschlüssel festzulegen und anzuzeigen. Version 1.6 lässt nicht zu, dass Sie vom Verschlüsselungsschlüssel auf eine Zertifikatdatei aktualisieren.
-Weitere Informationen zum Installieren der richtigen Version des Moduls finden Sie unter [Installieren von Azure Stack Hub PowerShell](azure-stack-powershell-install.md).
+Weitere Informationen zum Installieren der richtigen Version des Moduls finden Sie unter [Installieren von Azure Stack Hub PowerShell](powershell-install-az-module.md).
 
 
 ## <a name="next-steps"></a>Nächste Schritte

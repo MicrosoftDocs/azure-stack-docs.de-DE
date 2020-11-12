@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 03dcd58562aaa0bc65bbc545e19c9e3a24c52a4b
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 0497cf3b457276df9fc6c4938e7a1c1370eaa4a3
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920490"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383648"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Zugreifen auf das Kubernetes-Dashboard in Azure Stack Hub 
 
@@ -29,7 +29,7 @@ Kubernetes enthält ein Webdashboard, das Sie für einfache Verwaltungsvorgänge
 
 * SSH-Client
 
-    Sie benötigen einen SSH-Client, um eine sichere Verbindung mit Ihrem Masterknoten im Cluster herzustellen. Bei Verwendung von Windows können Sie [PuTTY](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) nutzen. Sie benötigen den privaten Schlüssel, der beim Bereitstellen Ihres Kubernetes-Clusters verwendet wurde.
+    Sie benötigen einen SSH-Client, um eine sichere Verbindung mit Ihrem Masterknoten im Cluster herzustellen. Bei Verwendung von Windows können Sie [PuTTY](https://www.ssh.com/ssh/putty/download) nutzen. Sie benötigen den privaten Schlüssel, der beim Bereitstellen Ihres Kubernetes-Clusters verwendet wurde.
 
 * FTP (PSCP)
 
@@ -50,9 +50,9 @@ Sie können die URL für das Dashboard vom Masterknoten in Ihrem Cluster abrufen
     - Melden Sie sich beim Azure Stack Hub-Portal `https://portal.local.azurestack.external/` an.
     - Wählen Sie **Alle Dienste** > **Alle Ressourcen**. Suchen Sie in Ihrer Clusterressourcengruppe nach dem Master. Der Master hat den Namen `k8s-master-<sequence-of-numbers>`. 
 
-2. Öffnen Sie den Masterknoten im Portal. Kopieren Sie die **öffentliche IP-Adresse**. Klicken Sie auf **Verbinden**, um Ihren Benutzernamen im Feld **Mit lokalem VM-Konto anmelden** abzurufen. Dies ist der Benutzername, den Sie beim Erstellen Ihres Clusters festgelegt haben. Verwenden Sie die öffentliche IP-Adresse und nicht die private IP-Adresse, die auf dem Blatt „Verbinden“ angegeben ist.
+2. Öffnen Sie den Masterknoten im Portal. Kopieren Sie die **öffentliche IP-Adresse**. Klicken Sie auf **Verbinden** , um Ihren Benutzernamen im Feld **Mit lokalem VM-Konto anmelden** abzurufen. Dies ist der Benutzername, den Sie beim Erstellen Ihres Clusters festgelegt haben. Verwenden Sie die öffentliche IP-Adresse und nicht die private IP-Adresse, die auf dem Blatt „Verbinden“ angegeben ist.
 
-3.  Öffnen Sie einen SSH-Client, um eine Verbindung mit dem Master herzustellen. Wenn Sie unter Windows arbeiten, können Sie [Putty](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) zum Herstellen der Verbindung verwenden. Sie verwenden die öffentliche IP-Adresse für den Masterknoten und den Benutzernamen und fügen den privaten Schlüssel hinzu, den Sie beim Erstellen des Clusters verwendet haben.
+3.  Öffnen Sie einen SSH-Client, um eine Verbindung mit dem Master herzustellen. Wenn Sie unter Windows arbeiten, können Sie [Putty](https://www.ssh.com/ssh/putty/download) zum Herstellen der Verbindung verwenden. Sie verwenden die öffentliche IP-Adresse für den Masterknoten und den Benutzernamen und fügen den privaten Schlüssel hinzu, den Sie beim Erstellen des Clusters verwendet haben.
 
 4.  Geben Sie nach der Verbindungsherstellung mit dem Terminal `kubectl` ein, um den Kubernetes-Befehlszeilenclient zu öffnen.
 

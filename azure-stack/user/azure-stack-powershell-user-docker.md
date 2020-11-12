@@ -3,16 +3,16 @@ title: Verwenden von Docker zum Ausführen von PowerShell in Azure Stack Hub
 description: Verwenden von Docker zum Ausführen von PowerShell in Azure Stack Hub
 author: mattbriggs
 ms.topic: how-to
-ms.date: 8/17/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 8/17/2020
-ms.openlocfilehash: c05f35a9ef5ad059bdf50d721acd2811fa908370
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 54e0c53c666ae6d936ed34baea43f708f4a262da
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573733"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546785"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Verwenden von Docker zum Ausführen von PowerShell für Azure Stack Hub
 
@@ -39,72 +39,6 @@ Sie benötigen einen Dienstprinzipal in Ihrem Azure AD-Mandanten (Azure Active D
 2. Notieren Sie sich die Anwendungs-ID, das Geheimnis, Ihre Mandanten-ID und Ihre Objekt-ID zur späteren Verwendung.
 
 ## <a name="run-powershell-in-docker"></a>Ausführen von PowerShell in Docker
-
-### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/rm)
-
-In diesen Anweisungen führen Sie ein Windows-basiertes Containerimage aus und installieren die PowerShell und die erforderlichen Module für Azure Stack Hub.
-
-1. Sie müssen Docker mit Windows-Containern ausführen, für die Windows 10 erforderlich ist. Wechseln Sie zu Windows-Containern, wenn Sie Docker ausführen. Für die Images, die das Az-Modul unterstützen, ist Docker 17.05 oder höher erforderlich.
-
-1. Führen Sie Docker von einem Computer aus, der sich in derselben Domäne wie Azure Stack Hub befindet. Wenn Sie das Azure Stack Development Kit (ASDK) verwenden, müssen Sie [das VPN auf Ihrem Remotecomputer](azure-stack-connect-azure-stack.md#connect-to-azure-stack-hub-with-vpn) installieren.
-
-### <a name="install-azure-stack-hub-azurerm-module-on-a-windows-container"></a>Installieren des AzureRM-Moduls von Azure Stack Hub in einem Windows-Container
-
-Die Dockerfile öffnet das Microsoft-Image *microsoft/windowsservercore*, in dem Windows PowerShell 5.1 installiert ist. Die Datei lädt dann NuGet und die Azure Stack Hub PowerShell-Module und lädt anschließend die Tools aus „Azure Stack Hub-Tools“ herunter.
-
-1. Führen Sie den [Download des Repositorys „azure-stack-powershell“](https://github.com/Azure-Samples/azure-stack-hub-powershell-in-docker.git) als ZIP-Datei durch, oder klonen Sie das Repository.
-
-2. Öffnen Sie den Repositoryordner von Ihrem Terminal aus.
-
-3. Öffnen Sie in Ihrem Repository eine Befehlszeilenschnittstelle, und geben Sie dann den folgenden Befehl ein:
-
-    ```bash  
-    docker build --tag azure-stack-powershell .
-    ```
-
-4. Starten Sie einen interaktiven Container, indem Sie Folgendes eingeben, nachdem das Image erstellt wurde:
-
-    ```bash  
-    docker run -it azure-stack-powershell powershell
-    ```
-
-    Notieren Sie sich den Containernamen. Sie können den gleichen Container verwenden, anstatt jedes Mal einen neuen Container zu erstellen. Führen Sie hierzu den folgenden Docker-Befehl aus:
-
-    ```bash  
-        docker exec -it "Container name" powershell
-    ```
-
-5. Die Shell ist bereit für Ihre Cmdlets bereit.
-
-    ```bash
-    Windows PowerShell
-    Copyright (C) 2016 Microsoft Corporation. All rights reserved.
-
-    PS C:\>
-    ```
-
-6. Stellen Sie über den Dienstprinzipal eine Verbindung mit Ihrer Azure Stack Hub-Instanz her. Sie verwenden nun eine PowerShell-Eingabeaufforderung in Docker. 
-
-    ```powershell
-    $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
-    $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
-    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint <Your Azure Resource Manager endoint>
-    Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId <TenantID> -ServicePrincipal -Credential $pscredential
-    ```
-
-   PowerShell gibt Ihr Kontoobjekt zurück:
-
-    ```powershell  
-    Account    SubscriptionName    TenantId    Environment
-    -------    ----------------    --------    -----------
-    <AccountID>    <SubName>       <TenantID>  AzureCloud
-    ```
-
-7. Testen Sie Ihre Konnektivität, indem Sie eine Ressourcengruppe in Azure Stack Hub erstellen.
-
-    ```powershell  
-    New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
-    ```
 
 ### <a name="az-modules"></a>[Az-Module](#tab/az)
 
@@ -161,6 +95,72 @@ In diesen Anweisungen führen Sie ein Linux-basiertes Containerimage aus, das di
 
     ```powershell  
     ./Test-AzureStack.ps1 <Object ID>
+    ```
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/rm)
+
+In diesen Anweisungen führen Sie ein Windows-basiertes Containerimage aus und installieren die PowerShell und die erforderlichen Module für Azure Stack Hub.
+
+1. Sie müssen Docker mit Windows-Containern ausführen, für die Windows 10 erforderlich ist. Wechseln Sie zu Windows-Containern, wenn Sie Docker ausführen. Für die Images, die das Az-Modul unterstützen, ist Docker 17.05 oder höher erforderlich.
+
+1. Führen Sie Docker von einem Computer aus, der sich in derselben Domäne wie Azure Stack Hub befindet. Wenn Sie das Azure Stack Development Kit (ASDK) verwenden, müssen Sie [das VPN auf Ihrem Remotecomputer](azure-stack-connect-azure-stack.md#connect-to-azure-stack-hub-with-vpn) installieren.
+
+### <a name="install-azure-stack-hub-azurerm-module-on-a-windows-container"></a>Installieren des AzureRM-Moduls von Azure Stack Hub in einem Windows-Container
+
+Die Dockerfile öffnet das Microsoft-Image *microsoft/windowsservercore* , in dem Windows PowerShell 5.1 installiert ist. Die Datei lädt dann NuGet und die Azure Stack Hub PowerShell-Module und lädt anschließend die Tools aus „Azure Stack Hub-Tools“ herunter.
+
+1. Führen Sie den [Download des Repositorys „azure-stack-powershell“](https://github.com/Azure-Samples/azure-stack-hub-powershell-in-docker.git) als ZIP-Datei durch, oder klonen Sie das Repository.
+
+2. Öffnen Sie den Repositoryordner von Ihrem Terminal aus.
+
+3. Öffnen Sie in Ihrem Repository eine Befehlszeilenschnittstelle, und geben Sie dann den folgenden Befehl ein:
+
+    ```bash  
+    docker build --tag azure-stack-powershell .
+    ```
+
+4. Starten Sie einen interaktiven Container, indem Sie Folgendes eingeben, nachdem das Image erstellt wurde:
+
+    ```bash  
+    docker run -it azure-stack-powershell powershell
+    ```
+
+    Notieren Sie sich den Containernamen. Sie können den gleichen Container verwenden, anstatt jedes Mal einen neuen Container zu erstellen. Führen Sie hierzu den folgenden Docker-Befehl aus:
+
+    ```bash  
+        docker exec -it "Container name" powershell
+    ```
+
+5. Die Shell ist bereit für Ihre Cmdlets bereit.
+
+    ```bash
+    Windows PowerShell
+    Copyright (C) 2016 Microsoft Corporation. All rights reserved.
+
+    PS C:\>
+    ```
+
+6. Stellen Sie über den Dienstprinzipal eine Verbindung mit Ihrer Azure Stack Hub-Instanz her. Sie verwenden nun eine PowerShell-Eingabeaufforderung in Docker. 
+
+    ```powershell
+    $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
+    $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint <Your Azure Resource Manager endoint>
+    Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId <TenantID> -ServicePrincipal -Credential $pscredential
+    ```
+
+   PowerShell gibt Ihr Kontoobjekt zurück:
+
+    ```powershell  
+    Account    SubscriptionName    TenantId    Environment
+    -------    ----------------    --------    -----------
+    <AccountID>    <SubName>       <TenantID>  AzureCloud
+    ```
+
+7. Testen Sie Ihre Konnektivität, indem Sie eine Ressourcengruppe in Azure Stack Hub erstellen.
+
+    ```powershell  
+    New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
     ```
 
 ---

@@ -3,17 +3,17 @@ title: Aktualisieren von Azure App Service in Azure Stack Hub
 description: Erfahren Sie, wie Sie Azure App Service in Azure Stack Hub aktualisieren.
 author: BryanLa
 ms.topic: article
-ms.date: 05/05/2019
+ms.date: 10/28/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/13/2019
+ms.lastreviewed: 10/28/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 5dc8599a62c4b9e10d603bf2f02f18bf5024e203
-ms.sourcegitcommit: edb60c948b445537e9411d6261c6c78359b71d0b
+ms.openlocfilehash: ffb53d2fd70c90f10c2f3856ec6471257982fb58
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91810659"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544778"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Aktualisieren von Azure App Service in Azure Stack Hub
 
@@ -41,7 +41,7 @@ Während dieses Vorgangs führt das Upgrade Folgendes aus:
 
 Gehen Sie folgendermaßen vor, um ein Upgrade der Bereitstellung von Azure App Service in Azure Stack Hub durchzuführen:
 
-1. Laden Sie das [Azure App Service-Installationsprogramm](https://aka.ms/appsvcupdateQ2installer) herunter.
+1. Laden Sie das [Azure App Service-Installationsprogramm](https://aka.ms/appsvcupdateQ3installer) herunter.
 
 2. Führen Sie „appservice.exe“ als Administrator aus.
 
@@ -65,18 +65,18 @@ Gehen Sie folgendermaßen vor, um ein Upgrade der Bereitstellung von Azure App S
             - Wenn Sie Active Directory-Verbunddienste (AD FS) verwenden, geben Sie Ihr Administratorkonto an. Beispiel: cloudadmin@azurestack.local. Geben Sie Ihr Kennwort ein, und wählen Sie dann **Verbinden** aus.
         - **Dienstprinzipal**
             - Der Dienstprinzipal, den Sie verwenden, **muss** über Rechte als **Besitzer** für das **Standardanbieterabonnement** verfügen.
-            - Geben Sie die **Dienstprinzipal-ID**, die **Zertifikatsdatei** und das **Kennwort** ein, und wählen Sie **Verbinden** aus.
+            - Geben Sie die **Dienstprinzipal-ID** , die **Zertifikatsdatei** und das **Kennwort** ein, und wählen Sie **Verbinden** aus.
 
     1. Wählen Sie in **Azure Stack Hub-Abonnements** das **Standardanbieterabonnement** aus.    Azure App Service auf Azure Stack Hub **muss** im **Standardanbieterabonnement** bereitgestellt werden.
 
-    1. Wählen Sie in **Azure Stack Hub-Standorte** den Standort aus, der der Region entspricht, in der die Bereitstellung erfolgen soll. Wählen Sie beispielsweise **Lokal**, wenn Sie die Bereitstellung für das ASDK durchführen.
+    1. Wählen Sie in **Azure Stack Hub-Standorte** den Standort aus, der der Region entspricht, in der die Bereitstellung erfolgen soll. Wählen Sie beispielsweise **Lokal** , wenn Sie die Bereitstellung für das ASDK durchführen.
 
     1. Wenn eine vorhandene Azure App Service-Bereitstellung erkannt wird, werden Ressourcengruppe und Speicherkonto aufgefüllt und sind nicht verfügbar.
 
       ![Der Screenshot zeigt, wo Sie die Azure Stack Hub-Abonnementinformationen im App Service-Installationsprogramm angeben.][3]
 
 8. Auf der Zusammenfassungsseite:
-   1. Überprüfen Sie Ihre Auswahl. Um Änderungen vorzunehmen, verwenden Sie die Schaltfläche **Zurück**, um auf die vorherigen Seiten zu gelangen.
+   1. Überprüfen Sie Ihre Auswahl. Um Änderungen vorzunehmen, verwenden Sie die Schaltfläche **Zurück** , um auf die vorherigen Seiten zu gelangen.
    2. Wenn die Konfigurationen richtig sind, aktivieren Sie das Kontrollkästchen.
    3. Um das Upgrade zu starten, klicken Sie auf **Weiter**.
 
@@ -96,7 +96,7 @@ In diesem Artikel erfahren Sie, wie Sie ein Upgrade des [Azure App Service-Resso
 * Sie wird mit Active Directory Federation Services (AD FS) geschützt.
 
 > [!IMPORTANT]
-> Vor der Durchführung des Upgrades müssen Sie die [Bereitstellung von Azure App Service in Azure Stack Hub in einer getrennten Umgebung](./azure-stack-app-service-deploy.md?pivots=state-disconnected&view=azs-2002) abschließen. 
+> Vor der Durchführung des Upgrades müssen Sie die [Bereitstellung von Azure App Service in Azure Stack Hub in einer getrennten Umgebung](./azure-stack-app-service-deploy.md?pivots=state-disconnected) abschließen. 
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Ausführen des Installationsprogramms für den App Service-Ressourcenanbieter
 
@@ -120,13 +120,13 @@ Um App Service in einer nicht verbundenen Umgebung zu aktualisieren, müssen Sie
 
 1. Führen Sie „appservice.exe“ als Administrator aus.
 
-    ![Der Screenshot zeigt, wie ein Upgrade in einer Umgebung ohne Verbindung gestartet wird.][11]
+    ![Azure App Service-Installationsprogramm][6]
 
 2. Klicken Sie auf **Erweitert** > **Offlinepaket erstellen**.
 
-    ![Der Screenshot zeigt, wie ein Offlinepaket im App Service-Installationsprogramm erstellt wird.][12]
+    ![Azure App Service-Installationsprogramm – erweitert][7]
 
-3. Das Azure App Service-Installationsprogramm erstellt ein Offlineupgradepaket und zeigt den Pfad zu diesem an.  Klicken Sie auf **Ordner öffnen**, um den Ordner im Datei-Explorer zu öffnen.
+3. Das Azure App Service-Installationsprogramm erstellt ein Offlineupgradepaket und zeigt den Pfad zu diesem an.  Klicken Sie auf **Ordner öffnen** , um den Ordner im Datei-Explorer zu öffnen.
 
 4. Kopieren Sie das Installationsprogramm („AppService.exe“) und das Offlineinstallationspaket auf einen Computer, der eine Verbindung mit Azure Stack Hub herstellen kann.
 
@@ -137,11 +137,11 @@ Um App Service in einer nicht verbundenen Umgebung zu aktualisieren, müssen Sie
 
 1. Führen Sie „appservice.exe“ als Administrator aus.
 
-    ![Der Screenshot zeigt, wie ein Upgrade gestartet wird.][11]
+    ![Azure App Service-Installationsprogramm][6]
 
 2. Klicken Sie auf **Erweitert** > **Vollständige Offline-Installation oder -Aktualisierung**.
 
-    ![Screenshot: Durchführen einer Offlineinstallation oder eines Offlineupgrades im App Service-Installationsprogramm][12]
+    ![Azure App Service-Installationsprogramm – erweitert][7]
 
 3. Navigieren Sie zum Speicherort des zuvor erstellten Offlineupgradepakets, und klicken Sie dann auf **Weiter**.
 
@@ -151,7 +151,7 @@ Um App Service in einer nicht verbundenen Umgebung zu aktualisieren, müssen Sie
 
 6. Stellen Sie sicher, dass die Informationen zum Azure Resource Manager-Endpunkt für Azure Stack Hub und zu den Active Directory-Mandanten richtig sind. Wenn Sie während der Bereitstellung mit dem Azure Stack Development Kit die Standardeinstellungen verwendet haben, können Sie hier die Standardwerte übernehmen. Wenn Sie die Optionen bei der Bereitstellung von Azure Stack Hub jedoch angepasst haben, müssen Sie die Werte in diesem Fenster bearbeiten. Wenn Sie beispielsweise das Domänensuffix *mycloud.com* verwenden, muss der Azure Resource Manager-Endpunkt für Azure Stack Hub zu *management.region.mycloud.com* geändert werden. Nachdem Sie Ihre Informationen bestätigt haben, klicken Sie auf **Weiter**.
 
-    ![Der Screenshot zeigt, wo die ARM-Endpunkte im Installationsprogramm konfiguriert werden müssen.][13]
+    ![Azure Stack Hub-Cloudinformationen][2]
 
 7. Auf der nächsten Seite:
 
@@ -161,27 +161,27 @@ Um App Service in einer nicht verbundenen Umgebung zu aktualisieren, müssen Sie
             - Wenn Sie Active Directory-Verbunddienste (AD FS) verwenden, geben Sie Ihr Administratorkonto an. Beispiel: cloudadmin@azurestack.local. Geben Sie Ihr Kennwort ein, und wählen Sie dann **Verbinden** aus.
         - **Dienstprinzipal**
             - Der Dienstprinzipal, den Sie verwenden, **muss** über Rechte als **Besitzer** für das **Standardanbieterabonnement** verfügen.
-            - Geben Sie die **Dienstprinzipal-ID**, die **Zertifikatsdatei** und das **Kennwort** ein, und wählen Sie **Verbinden** aus.
+            - Geben Sie die **Dienstprinzipal-ID** , die **Zertifikatsdatei** und das **Kennwort** ein, und wählen Sie **Verbinden** aus.
 
    1. Wählen Sie in **Azure Stack Hub-Abonnements** das **Standardanbieterabonnement** aus.  Azure App Service auf Azure Stack Hub **muss** im **Standardanbieterabonnement** bereitgestellt werden.
 
-   1. Wählen Sie in **Azure Stack Hub-Standorte** den Standort aus, der der Region entspricht, in der die Bereitstellung erfolgen soll. Wählen Sie beispielsweise **Lokal**, wenn Sie die Bereitstellung für das ASDK durchführen.
+   1. Wählen Sie in **Azure Stack Hub-Standorte** den Standort aus, der der Region entspricht, in der die Bereitstellung erfolgen soll. Wählen Sie beispielsweise **Lokal** , wenn Sie die Bereitstellung für das ASDK durchführen.
    
    1. Wenn eine vorhandene App Service-Bereitstellung erkannt wird, werden Ressourcengruppe und Speicherkonto aufgefüllt und ausgegraut.
 
-      ![Der Screenshot zeigt, wo die Azure Stack Hub-Abonnements im Installationsprogramm konfiguriert werden müssen.][14]
+      ![Azure App Service-Installation erkannt][3]
 8. Auf der Zusammenfassungsseite:
-   1. Überprüfen Sie Ihre Auswahl. Um Änderungen vorzunehmen, verwenden Sie die Schaltfläche **Zurück**, um auf die vorherigen Seiten zu gelangen.
+   1. Überprüfen Sie Ihre Auswahl. Um Änderungen vorzunehmen, verwenden Sie die Schaltfläche **Zurück** , um auf die vorherigen Seiten zu gelangen.
    2. Wenn die Konfigurationen richtig sind, aktivieren Sie das Kontrollkästchen.
    3. Um das Upgrade zu starten, klicken Sie auf **Weiter**.
 
-       ![Der Screenshot zeigt die Zusammenfassung der im Installationsprogramm gesammelten Informationen.][15]
+       ![Azure App Service-Upgradezusammenfassung][4]
 
 9. Upgradestatusseite:
     1. Verfolgen Sie den Upgradestatus. Die Dauer des Upgrades von App Service in Azure Stack Hub variiert abhängig von der Anzahl der bereitgestellten Rolleninstanzen.
     2. Klicken Sie nach erfolgreichem Abschluss des Upgrades auf **Beenden**.
 
-        ![Der Screenshot zeigt das erfolgreich abgeschlossene Upgrade.][16]
+        ![Azure App Service-Upgradestatus][5]
 ::: zone-end
 
 ## <a name="next-steps"></a>Nächste Schritte
@@ -192,15 +192,12 @@ Vorbereiten auf weitere Verwaltungsvorgänge für Azure App Service in Azure Sta
 * [Hinzufügen zusätzlicher Kapazität](azure-stack-app-service-add-worker-roles.md)
 
 <!--Image references-->
-[1]: ./media/azure-stack-app-service-update/app-service-exe.png
-[2]: ./media/azure-stack-app-service-update/app-service-azure-resource-manager-endpoints.png
-[3]: ./media/azure-stack-app-service-update/app-service-installation-detected.png
-[4]: ./media/azure-stack-app-service-update/app-service-upgrade-summary.png
-[5]: ./media/azure-stack-app-service-update/app-service-upgrade-complete.png
+[1]: ./media/azure-stack-app-service-update/app-service-installer.png
+[2]: ./media/azure-stack-app-service-update/app-service-azure-stack-arm-endpoints.png
+[3]: ./media/azure-stack-app-service-update/app-service-azure-stack-subscription-information.png
+[4]: ./media/azure-stack-app-service-update/app-service-azure-stack-deployment-summary.png
+[5]: ./media/azure-stack-app-service-update/app-service-upgrade-summary-complete.png
 
-[11]: ./media/azure-stack-app-service-update-offline/app-service-exe.png
-[12]: ./media/azure-stack-app-service-update-offline/app-service-exe-advanced.png
-[13]: ./media/azure-stack-app-service-update-offline/app-service-azure-resource-manager-endpoints.png
-[14]: ./media/azure-stack-app-service-update-offline/app-service-installation-detected.png
-[15]: ./media/azure-stack-app-service-update-offline/app-service-upgrade-summary.png
-[16]: ./media/azure-stack-app-service-update-offline/app-service-upgrade-complete.png
+[6]: ./media/azure-stack-app-service-update/app-service-installer-exe.png
+[7]: ./media/azure-stack-app-service-update/app-service-exe-advanced-create-package.png
+[8]: ./media/azure-stack-app-service-update/app-service-exe-advanced-complete-offline.png

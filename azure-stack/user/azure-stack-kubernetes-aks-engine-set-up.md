@@ -3,16 +3,16 @@ title: Einrichten der Voraussetzungen für die AKS-Engine in Azure Stack Hub
 description: Richten Sie die Anforderungen für die Ausführung der ASK-Engine in Ihrer Azure Stack Hub-Instanz ein.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/08/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/08/2020
-ms.openlocfilehash: 6b3443b64dae560451d4d04d653e097d055fa5c1
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: c703d9cd9c20e48dec6172e3e0e3c12fcc3a7e2a
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573801"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543526"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Einrichten der Voraussetzungen für die AKS-Engine in Azure Stack Hub
 
@@ -46,8 +46,8 @@ Sie können die folgenden Elemente festlegen.
 | Privater öffentlicher Schlüssel | Zur Verwendung einer offenen SSH-Verbindung zwischen Ihrem Entwicklungscomputer und der Server-VM auf Ihrer Azure Stack Hub-Instanz, auf der Ihre Web-App gehostet wird, müssen Sie ein öffentlich-privates SSH-Schlüsselpaar (Secure Shell) erstellen. | Erforderlich | Anweisungen zum Generieren eines Schlüssels finden Sie unter [SSH Key Generation](./azure-stack-dev-start-howto-ssh-public-key.md) (SSH-Schlüsselgenerierung).|
 
 
-> [!NOTE]  
-> Sie können die Voraussetzungen für die AKS-Engine auch mit [Azure CLI für Azure Stack Hub](./azure-stack-version-profiles-azurecli2.md) oder [PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md) schaffen.
+> [!Note]  
+> Sie können die Voraussetzungen für die AKS-Engine auch mit [Azure CLI für Azure Stack Hub](./azure-stack-version-profiles-azurecli2.md) oder [PowerShell für Azure Stack Hub](../operator/powershell-install-az-module.md) schaffen.
 
 ## <a name="matching-engine-to-base-image-version"></a>Abstimmen der Engine auf die Basisimageversion
 

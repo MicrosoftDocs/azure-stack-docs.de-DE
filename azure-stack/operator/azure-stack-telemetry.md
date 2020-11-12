@@ -8,12 +8,12 @@ ms.date: 1/16/2020
 ms.author: inhenkel
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: afaf8f4716443631ae0d2bbe1b82cd84b9d0e424
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 66bd65158222cad224ea1673de666bd4c464dab4
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487735"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415129"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Konfigurieren der Azure Stack Hub-Telemetrie
 
@@ -79,8 +79,8 @@ Sicherheitsdaten sowie grundlegende Integritäts- und Qualitätsdaten. Grundlege
   - Speicherattribute wie Laufwerkanzahl, Laufwerktyp und Laufwerkgröße
 
 - *Telemetriefunktion* einschließlich hochgeladener Ereignisse (in Prozent), gelöschter Ereignisse und Zeitpunkt des letzten Datenuploads
-- *Qualitätsbezogene Informationen*, die Microsoft einen grundlegenden Einblick in die Leistung von Azure Stack Hub geben. Ein Beispiel wäre etwa die Anzahl kritischer Warnungen für eine bestimmte Hardwarekonfiguration.
-- *Kompatibilitätsdaten*, die Aufschluss darüber geben, welche Ressourcenanbieter in einem System und auf einem virtuellen Computer installiert sind. Dadurch lassen sich mögliche Kompatibilitätsprobleme erkennen.
+- *Qualitätsbezogene Informationen* , die Microsoft einen grundlegenden Einblick in die Leistung von Azure Stack Hub geben. Ein Beispiel wäre etwa die Anzahl kritischer Warnungen für eine bestimmte Hardwarekonfiguration.
+- *Kompatibilitätsdaten* , die Aufschluss darüber geben, welche Ressourcenanbieter in einem System und auf einem virtuellen Computer installiert sind. Dadurch lassen sich mögliche Kompatibilitätsprobleme erkennen.
 
 **2 (Erweitert)**</br>
 Zusätzliche Informationen, etwa zur Verwendung und Leistung des Betriebssystems und der Azure Stack Hub-Dienste, sowie erweiterte Zuverlässigkeitsdaten und Daten der Ebenen **Sicherheit** und **Standard**.
@@ -89,12 +89,12 @@ Zusätzliche Informationen, etwa zur Verwendung und Leistung des Betriebssystems
 > Dies ist die Standardeinstellung für Telemetriedaten.
 
 **3 (Vollständig)**</br>
-Alle Daten, die zum Identifizieren und Beheben von Problemen benötigt werden oder dabei hilfreich sind, sowie Daten der Ebenen **Sicherheit**, **Standard**, und **Erweitert**.
+Alle Daten, die zum Identifizieren und Beheben von Problemen benötigt werden oder dabei hilfreich sind, sowie Daten der Ebenen **Sicherheit** , **Standard** , und **Erweitert**.
 
 > [!IMPORTANT]
 > Diese Telemetrieebenen gelten nur für Microsoft Azure Stack Hub-Komponenten. Microsoft-fremde Softwarekomponenten und Dienste, die auf dem Hardwarelebenszyklushost von Azure Stack Hub-Hardwarepartnern ausgeführt werden, kommunizieren möglicherweise außerhalb dieser Telemetrieebenen mit den dazugehörigen Clouddiensten. Wenden Sie sich an den Anbieter Ihrer Azure Stack Hub-Hardwarelösung, um sich über dessen Telemetrierichtlinie sowie über Ihre Verwendungsoptionen zu informieren.
 
-Wenn Sie die Windows- und die Azure Stack Hub-Telemetrie deaktivieren, wird auch die SQL-Telemetrie deaktiviert. Weitere Informationen zu den Auswirkungen der Windows Server-Telemetrieeinstellungen finden Sie im [Whitepaper zur Windows-Telemetrie](https://aka.ms/winservtelemetry).
+Wenn Sie die Windows- und die Azure Stack Hub-Telemetrie deaktivieren, wird auch die SQL-Telemetrie deaktiviert. Weitere Informationen zu den Auswirkungen der Windows Server-Telemetrieeinstellungen finden Sie im [Whitepaper zur Windows-Telemetrie](/windows/privacy/configure-windows-diagnostic-data-in-your-organization).
 
 ### <a name="asdk-set-the-telemetry-level-in-the-windows-registry"></a>ASDK: Festlegen der Telemetrieebene in der Windows-Registrierung
 

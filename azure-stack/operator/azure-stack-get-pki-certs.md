@@ -3,16 +3,16 @@ title: Generieren von Zertifikatsignieranforderungen für Azure Stack Hub
 description: Es wird beschrieben, wie Sie Zertifikatsignieranforderungen für Azure Stack Hub-PKI-Zertifikate in integrierten Azure Stack Hub-Systemen generieren.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
-ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: e72d00d7a0a5f1a9299d3d279e3b7ee8dd779b30
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 1b7737f387ea1ea3afc913116642605fa54818a6
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428565"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543714"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Generieren von Zertifikatsignieranforderungen für Azure Stack Hub
 
@@ -22,7 +22,7 @@ Mit dem Azure Stack Hub Readiness Checker-Tool (AzsReadinessChecker) können Sie
 
 - **Standardzertifikatanforderungen** gemäß [Generieren der Zertifikatsignieranforderung für neue Bereitstellungen](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments).
 - **Erneuerungszertifikatanforderungen** gemäß [Generieren der Zertifikatsignieranforderung für die Zertifikaterneuerung](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-certificate-renewal).
-- **Platform-as-a-Service**: Sie können PaaS-Namen (Platform-as-a-Service ) für Zertifikate anfordern, wie unter [Azure Stack Hub-PKI-Zertifikatanforderungen: Optionale PaaS-Zertifikate](azure-stack-pki-certs.md#optional-paas-certificates) angegeben.
+- **Platform-as-a-Service** : Sie können PaaS-Namen (Platform-as-a-Service ) für Zertifikate anfordern, wie unter [Azure Stack Hub-PKI-Zertifikatanforderungen: Optionale PaaS-Zertifikate](azure-stack-pki-certs.md#optional-paas-certificates) angegeben.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -126,7 +126,7 @@ Gehen Sie wie folgt vor, um Zertifikatsignieranforderungen für neue Azure Stack
     Certreq.exe output: CertReq: Request Created
     ```
 
-9.  Übermitteln Sie die generierte **REQ**-Datei an Ihre (interne oder öffentliche) Zertifizierungsstelle. Das Ausgabeverzeichnis von **New-AzsCertificateSigningRequest** enthält die Zertifikatsignieranforderungen, die für die Übermittlung an eine Zertifizierungsstelle erforderlich sind. Das Verzeichnis enthält zu Ihrer Referenz auch ein Unterverzeichnis, das die bei der Generierung von Zertifikatanforderungen verwendeten INF-Dateien enthält. Vergewissern Sie sich, dass Ihre Zertifizierungsstelle Zertifikate mit Ihrer generierten Anforderung erstellt, die die [Azure Stack Hub-PKI-Voraussetzungen](azure-stack-pki-certs.md) erfüllen.
+9.  Übermitteln Sie die generierte **REQ** -Datei an Ihre (interne oder öffentliche) Zertifizierungsstelle. Das Ausgabeverzeichnis von **New-AzsCertificateSigningRequest** enthält die Zertifikatsignieranforderungen, die für die Übermittlung an eine Zertifizierungsstelle erforderlich sind. Das Verzeichnis enthält zu Ihrer Referenz auch ein Unterverzeichnis, das die bei der Generierung von Zertifikatanforderungen verwendeten INF-Dateien enthält. Vergewissern Sie sich, dass Ihre Zertifizierungsstelle Zertifikate mit Ihrer generierten Anforderung erstellt, die die [Azure Stack Hub-PKI-Voraussetzungen](azure-stack-pki-certs.md) erfüllen.
 
 ## <a name="generate-certificate-signing-requests-for-certificate-renewal"></a>Generieren von Zertifikatsignieranforderungen für die Zertifikaterneuerung
 
@@ -135,7 +135,7 @@ Gehen Sie wie folgt vor, um Zertifikatsignieranforderungen für die Erneuerung v
 1. Führen Sie an einer PowerShell-Eingabeaufforderung (5.1 oder höher) das folgende Cmdlet aus, um AzsReadinessChecker zu installieren:
 
     ```powershell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker
+        Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 2. Deklarieren Sie **stampEndpoint** im Format „regionname.domain.com“ des Azure Stack Hub-Systems. Beispiel (wenn die Adresse des Azure Stack Hub-Mandantenportals <code> https://</code><code>portal.east.azurestack.contoso.com</code> lautet):
@@ -192,7 +192,7 @@ Gehen Sie wie folgt vor, um Zertifikatsignieranforderungen für die Erneuerung v
     Certreq.exe output: CertReq: Request Created
     ```
 
-7.  Übermitteln Sie die generierte **REQ**-Datei an Ihre (interne oder öffentliche) Zertifizierungsstelle. Das Ausgabeverzeichnis von **New-AzsCertificateSigningRequest** enthält die Zertifikatsignieranforderungen, die für die Übermittlung an eine Zertifizierungsstelle erforderlich sind. Das Verzeichnis enthält zu Ihrer Referenz auch ein Unterverzeichnis, das die bei der Generierung von Zertifikatanforderungen verwendeten INF-Dateien enthält. Vergewissern Sie sich, dass Ihre Zertifizierungsstelle Zertifikate mit Ihrer generierten Anforderung erstellt, die die [Azure Stack Hub-PKI-Voraussetzungen](azure-stack-pki-certs.md) erfüllen.
+7.  Übermitteln Sie die generierte **REQ** -Datei an Ihre (interne oder öffentliche) Zertifizierungsstelle. Das Ausgabeverzeichnis von **New-AzsCertificateSigningRequest** enthält die Zertifikatsignieranforderungen, die für die Übermittlung an eine Zertifizierungsstelle erforderlich sind. Das Verzeichnis enthält zu Ihrer Referenz auch ein Unterverzeichnis, das die bei der Generierung von Zertifikatanforderungen verwendeten INF-Dateien enthält. Vergewissern Sie sich, dass Ihre Zertifizierungsstelle Zertifikate mit Ihrer generierten Anforderung erstellt, die die [Azure Stack Hub-PKI-Voraussetzungen](azure-stack-pki-certs.md) erfüllen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

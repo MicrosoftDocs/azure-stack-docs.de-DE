@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: a99339b2a8708bac8c20b5f2fb507e42fc7588de
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 2e4882717b4dc708298df7b4ee9a8dc0ef2c1b9c
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488653"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415316"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Verwalten von Azure Stack Hub-Speicherkonten
 
@@ -37,12 +37,12 @@ Wenn Sie an einem bestimmten Speicherkonto interessiert sind, können Sie nur **
 **So filtern Sie Konten:**
 
 1. Klicken Sie oben im Bereich auf **Filter**.
-2. Im Filterbereich können Sie Werte für **Kontoname**, **Abonnement-ID** oder **Status** angeben, um die angezeigte Speicherkontoliste einzugrenzen. Nutzen Sie die Optionen je nach Bedarf.
+2. Im Filterbereich können Sie Werte für **Kontoname** , **Abonnement-ID** oder **Status** angeben, um die angezeigte Speicherkontoliste einzugrenzen. Nutzen Sie die Optionen je nach Bedarf.
 3. Der Filter wird automatisch auf die Liste angewendet, während Sie tippen.
 
     ![Filtern von Azure Stack Hub-Speicherkonten](media/azure-stack-manage-storage-accounts/image5.png)
 
-4. Klicken Sie zum Zurücksetzen des Filters auf **Filter**, deaktivieren Sie die getroffene Auswahl, und aktualisieren Sie die Liste.
+4. Klicken Sie zum Zurücksetzen des Filters auf **Filter** , deaktivieren Sie die getroffene Auswahl, und aktualisieren Sie die Liste.
 
 Mit dem Suchfeld (oben im Bereich mit der Speicherkontenliste) können Sie den ausgewählten Text in der Liste mit den Konten hervorheben. Sie können diese Funktion nutzen, wenn der vollständige Name oder die ID nicht ohne Weiteres verfügbar ist.
 
@@ -65,7 +65,7 @@ In Azure Stack Hub gibt es hierfür eine einfache Möglichkeit:
 3. Überprüfen Sie den *Status* des Kontos. Dieser müsste **Gelöscht** lauten.
 4. Klicken Sie auf das Konto, um den Bereich mit den Kontodetails zu öffnen.
 5. Klicken Sie oben in diesem Bereich auf die Schaltfläche **Wiederherstellen**.
-6. Klicken Sie auf **Ja**, um zu bestätigen.
+6. Klicken Sie auf **Ja** , um zu bestätigen.
 
    ![Bestätigungsfenster für die Wiederherstellung eines Speicherkontos](media/azure-stack-manage-storage-accounts/image8.png)
 
@@ -91,8 +91,8 @@ Die Einstellung für den Aufbewahrungszeitraum ermöglicht einem Cloudbetreiber 
 
 1. Melden Sie sich beim Administratorportal `https://adminportal.local.azurestack.external` an.
 2. Wählen Sie **Alle Dienste** > **Regionsverwaltung** unter **Verwaltung** aus.
-3. Wählen Sie **Ressourcenanbieter** > **Speicher** > **Einstellungen** aus. Der Pfad lautet: „Startseite“ > „*Region* – Ressourcenanbieter“ > „Speicher“.
-4. Klicken Sie auf **Konfiguration**, und bearbeiten Sie dann den Wert für den Aufbewahrungszeitraum.
+3. Wählen Sie **Ressourcenanbieter** > **Speicher** > **Einstellungen** aus. Der Pfad lautet: „Startseite“ > „ *Region*  – Ressourcenanbieter“ > „Speicher“.
+4. Klicken Sie auf **Konfiguration** , und bearbeiten Sie dann den Wert für den Aufbewahrungszeitraum.
 
    Legen Sie die Anzahl von Tagen fest, und speichern Sie sie.
 
@@ -124,7 +124,7 @@ Sie können auch PowerShell verwenden, um den Aufbewahrungszeitraum explizit au�
 
 1. Vergewissern Sie sich, dass Azure PowerShell installiert und konfiguriert ist. Ist dies nicht der Fall, gehen Sie folgendermaßen vor: 
    * Anweisungen zur Installation und zur Zuordnung der aktuellen Azure PowerShell-Version an Ihr Azure-Abonnement finden Sie unter [Installieren und Konfigurieren von Azure PowerShell](/powershell/azure/).
-   Weitere Informationen zu Azure Resource Manager-Cmdlets finden Sie unter [Verwenden von Azure PowerShell mit dem Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767).
+   Weitere Informationen zu Azure Resource Manager-Cmdlets finden Sie unter [Verwenden von Azure PowerShell mit dem Azure Resource Manager](/azure/azure-resource-manager/management/manage-resources-powershell).
 2. Führen Sie die folgenden Cmdlets aus:
 
 > [!NOTE]  

@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: b90b7c61e5eeed1265bf258b6ba3ce7b042b6897
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: 213e7a0d3a0ad8e395729749e68466a3a4dbab42
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91853192"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415265"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub
 
@@ -236,7 +236,7 @@ Nach der Bereitstellung des Kubernetes-Clusters mit der AKS-Engine wird der Dien
 
 ### <a name="update-each-node-manually"></a>Manuelles Aktualisieren jedes Knotens
 
-1. Fordern Sie ein neues Geheimnis für Ihren Dienstprinzipal von Ihrem Cloudoperator an. Anweisungen für Azure Stack Hub finden Sie unter [Verwenden einer App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen](/azure-stack/operator/azure-stack-create-service-principals).
+1. Fordern Sie ein neues Geheimnis für Ihren Dienstprinzipal von Ihrem Cloudoperator an. Anweisungen für Azure Stack Hub finden Sie unter [Verwenden einer App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen](../operator/azure-stack-create-service-principals.md).
 2. Verwenden Sie die neuen Anmeldeinformationen Ihres Cloudoperators, um `/etc/kubernetes/azure.json` auf den einzelnen Knoten zu aktualisieren. Nachdem Sie das Update vorgenommen haben, starten Sie **kubelet** und **kube-controller-Manager** erneut.
 
 ### <a name="update-the-cluster-with-aks-engine-update"></a>Aktualisieren des Clusters mit AKS-Engine-Update

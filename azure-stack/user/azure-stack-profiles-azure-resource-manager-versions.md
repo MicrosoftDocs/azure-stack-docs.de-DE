@@ -8,12 +8,12 @@ ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 16e34ffaeb32e4652c83a3ee668235e79190b74d
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.openlocfilehash: 56c35d1107f0c31c00c33f23dd1d8ba639fb9f46
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089659"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546768"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Von Profilen in Azure Stack Hub unterstützte API-Versionen von Ressourcenanbietern
 
@@ -193,5 +193,5 @@ Mit dem Speicherressourcenanbieter (Storage Resource Provider, SRP) können Sie 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Installieren von PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md)
+- [Installieren von PowerShell für Azure Stack Hub](../operator/powershell-install-az-module.md)
 - [Konfigurieren der Azure Stack Hub-PowerShell-Umgebung](azure-stack-powershell-configure-user.md)  

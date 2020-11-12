@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 6ff4822e3093dd636bdd5b83fb3150eb9036d9ec
-ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
+ms.openlocfilehash: 55f62550521e6b57d08852eb6d3f0c14da735fec
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967776"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546802"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Konfigurieren von VPN-Gatewayeinstellungen für Azure Stack Hub
 
@@ -28,7 +28,7 @@ Jedes virtuelle Azure Stack Hub-Netzwerk unterstützt ein einzelnes Gateway für
 Achten Sie beim Erstellen eines Gateways für virtuelle Netzwerke darauf, dass der Gatewaytyp für Ihre Konfiguration richtig ist. Ein VPN-Gateway erfordert das `-GatewayType Vpn`-Flag. Beispiel:
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
 ```
@@ -49,7 +49,7 @@ Die folgende Tabelle zeigt die VPN-Gateway-SKUs, die für Azure Stack Hub angebo
 
 Azure Stack Hub unterstützt keinen SKU-Wechsel zwischen den unterstützten Legacy-SKUs.
 
-Analog dazu bietet Azure Stack Hub keine Unterstützung für den Wechsel von einer unterstützten Legacy-SKU (**Basic**, **Standard** und **HighPerformance**) zu einer neueren, von Azure unterstützten SKU (**VpnGw1**, **VpnGw2** und **VpnGw3**).
+Analog dazu bietet Azure Stack Hub keine Unterstützung für den Wechsel von einer unterstützten Legacy-SKU ( **Basic** , **Standard** und **HighPerformance** ) zu einer neueren, von Azure unterstützten SKU ( **VpnGw1** , **VpnGw2** und **VpnGw3** ).
 
 ### <a name="configure-the-gateway-sku"></a>Konfigurieren der Gateway-SKU
 
@@ -62,7 +62,7 @@ Wenn Sie das Azure Stack Hub-Portal verwenden, um ein Resource Manager-Gateway f
 Im folgenden PowerShell-Beispiel wird der Parameter `-GatewaySku` als **Standard** angegeben:
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
 -GatewayType Vpn -VpnType RouteBased
 ```
@@ -74,7 +74,7 @@ Im Resource Manager-Bereitstellungsmodell ist für jede Konfiguration ein bestim
 Im folgenden PowerShell-Beispiel wird eine Site-to-Site-Verbindung (S2S) erstellt, die den Verbindungstyp „IPsec“ erfordert:
 
 ```powershell
-New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
 -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 ```
@@ -88,17 +88,17 @@ Wenn Sie das Gateway des virtuellen Netzwerks für eine VPN-Gatewaykonfiguration
 >
 > Darüber hinaus bietet Azure Stack Hub aktuell keine Unterstützung für die Verwendung von richtlinienbasierten Datenverkehrsselektoren für routenbasierte Gateways, da benutzerdefinierte IPSec/IKE-Richtlinienkonfigurationen nicht unterstützt werden.
 
-* **PolicyBased**: Bei richtlinienbasierten VPNs werden Pakete verschlüsselt und durch IPsec-Tunnel geleitet. Grundlage hierfür sind die IPsec-Richtlinien, die jeweils durch die Kombination aus Adresspräfixen zwischen Ihrem lokalen Netzwerk und dem Azure Stack Hub-VNET konfiguriert werden. Die Richtlinie (auch Datenverkehrsselektor genannt) ist in der Regel eine Zugriffsliste in der VPN-Gerätekonfiguration.
+* **PolicyBased** : Bei richtlinienbasierten VPNs werden Pakete verschlüsselt und durch IPsec-Tunnel geleitet. Grundlage hierfür sind die IPsec-Richtlinien, die jeweils durch die Kombination aus Adresspräfixen zwischen Ihrem lokalen Netzwerk und dem Azure Stack Hub-VNET konfiguriert werden. Die Richtlinie (auch Datenverkehrsselektor genannt) ist in der Regel eine Zugriffsliste in der VPN-Gerätekonfiguration.
 
   >[!NOTE]
   >**PolicyBased** wird in Azure, aber nicht in Azure Stack Hub unterstützt.
 
-* **RouteBased**: Bei routenbasierten VPNs werden Pakete auf der Grundlage von Routen, die in der IP-Weiterleitungstabelle oder -Routingtabelle konfiguriert sind, an die entsprechenden Tunnelschnittstellen weitergeleitet. An den Tunnelschnittstellen werden die Pakete dann ver- bzw. entschlüsselt. Die Richtlinie (bzw. der Datenverkehrsselektor) für **routenbasierte** VPNs wird im Any-to-Any-Format (bzw. unter Verwendung von Platzhaltern) konfiguriert. Sie können standardmäßig nicht geändert werden. Der Wert für einen **RouteBased**-VPN-Typ lautet **RouteBased**.
+* **RouteBased** : Bei routenbasierten VPNs werden Pakete auf der Grundlage von Routen, die in der IP-Weiterleitungstabelle oder -Routingtabelle konfiguriert sind, an die entsprechenden Tunnelschnittstellen weitergeleitet. An den Tunnelschnittstellen werden die Pakete dann ver- bzw. entschlüsselt. Die Richtlinie (bzw. der Datenverkehrsselektor) für **routenbasierte** VPNs wird im Any-to-Any-Format (bzw. unter Verwendung von Platzhaltern) konfiguriert. Sie können standardmäßig nicht geändert werden. Der Wert für einen **RouteBased** -VPN-Typ lautet **RouteBased**.
 
-Das folgende PowerShell-Beispiel gibt `-VpnType` als **RouteBased**an. Achten Sie beim Erstellen eines Gateways darauf, dass `-VpnType` für Ihre Konfiguration richtig ist.
+Das folgende PowerShell-Beispiel gibt `-VpnType` als **RouteBased** an. Achten Sie beim Erstellen eines Gateways darauf, dass `-VpnType` für Ihre Konfiguration richtig ist.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
 ```
@@ -128,7 +128,7 @@ Stellen Sie außerdem sicher, dass Ihr Gatewaysubnetz über genügend IP-Adresse
 Im folgenden Resource Manager-PowerShell-Beispiel wird ein Gatewaysubnetz mit dem Namen **GatewaySubnet** gezeigt. Sie erkennen, das mit der CIDR-Notation die Größe /27 angegeben wird. Dies ist für eine ausreichende Zahl von IP-Adressen für die meisten Konfigurationen, die derzeit üblich sind, groß genug.
 
 ```powershell
-Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
 > [!IMPORTANT]
@@ -143,7 +143,7 @@ Sie geben dem Gateway des lokalen Netzwerks einen Namen, stellen die öffentlich
 In diesem PowerShell-Beispiel wird ein neues Gateway des lokalen Netzwerks erstellt:
 
 ```powershell
-New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
+New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
@@ -156,7 +156,7 @@ Wenn Sie eine VPN-Verbindung in Azure Stack Hub einrichten, müssen Sie die Verb
 Im Gegensatz zu Azure, das mehrere Angebote als Initiator und Antwortdienst unterstützt, bietet Azure Stack Hub standardmäßig nur Unterstützung für ein Angebot. Wenn Sie verschiedene IPSec/IKE-Einstellungen mit Ihrem VPN-Gerät verwenden müssen, stehen Ihnen weitere Einstellungen zur Verfügung, um Ihre Verbindung manuell zu konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren einer IPsec/IKE-Richtlinie für Site-to-Site-VPN-Verbindungen](azure-stack-vpn-s2s.md).
 
 > [!IMPORTANT] 
-> Bei Verwendung des S2S-Tunnels werden Pakete mit zusätzlichen Headern weiter verschlüsselt, wodurch sich das Paket insgesamt vergrößert. In diesen Szenarien müssen Sie TCP **MSS** mit **1350** verknüpfen. Wenn Ihre VPN-Geräte MSS-Clamping nicht unterstützen, können Sie stattdessen auch den **MTU**-Wert der Tunnelschnittstelle auf **1400** Bytes festlegen. Weitere Informationen finden Sie unter [Optimieren der TCP-/IP-Leistung von virtuellen Netzwerken](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
+> Bei Verwendung des S2S-Tunnels werden Pakete mit zusätzlichen Headern weiter verschlüsselt, wodurch sich das Paket insgesamt vergrößert. In diesen Szenarien müssen Sie TCP **MSS** mit **1350** verknüpfen. Wenn Ihre VPN-Geräte MSS-Clamping nicht unterstützen, können Sie stattdessen auch den **MTU** -Wert der Tunnelschnittstelle auf **1400** Bytes festlegen. Weitere Informationen finden Sie unter [Optimieren der TCP-/IP-Leistung von virtuellen Netzwerken](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
 >
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Parameter der IKE-Phase 1 (Hauptmodus)

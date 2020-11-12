@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: bryanla
 ms.reviewer: jerskine
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: a8809c9f3a041d6bb4812c58d614693ce2d5431a
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 0b032929496646de763336a630f22782bd03091c
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173997"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545680"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Überprüfen der AD FS-Integration für Azure Stack Hub
 
@@ -37,10 +37,10 @@ Laden Sie die neueste Version des Azure Stack Hub Readiness Checker (AzsReadines
 
 Die folgenden Voraussetzungen müssen erfüllt werden:
 
-**Auf dem Computer, auf dem das Tool ausgeführt wird, muss Folgendes installiert sein**:
+**Auf dem Computer, auf dem das Tool ausgeführt wird, muss Folgendes installiert sein** :
 
 * Windows 10 oder Windows Server 2016 mit Domänenkonnektivität
-* PowerShell 5.1 oder höher Um Ihre Version zu überprüfen, führen Sie den folgenden PowerShell-Befehl aus, und überprüfen Sie dann die *Hauptversion* und die *Nebenversionen*:  
+* PowerShell 5.1 oder höher Um Ihre Version zu überprüfen, führen Sie den folgenden PowerShell-Befehl aus, und überprüfen Sie dann die *Hauptversion* und die *Nebenversionen* :  
     ```powershell
     $PSVersionTable.PSVersion
     ```
@@ -58,7 +58,7 @@ Sie benötigen mindestens eine der folgenden Formen von Metadaten:
 1. Öffnen Sie auf einem Computer, der die Voraussetzungen erfüllt, eine administrative PowerShell-Eingabeaufforderung, und führen Sie den folgenden Befehl zum Installieren von AzsReadinessChecker aus:
 
     ```powershell
-    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 1. Führen Sie an der PowerShell-Eingabeaufforderung den folgenden Befehl aus, um die Validierung zu starten. Geben Sie den Wert **-CustomADFSFederationMetadataEndpointUri** als URI für die Verbundmetadaten an.
@@ -102,7 +102,7 @@ Standardmäßig werden beide Dateien in `C:\Users\<username>\AppData\Local\Temp\
 
 Verwendung:
 
-* `-OutputPath`: Der *path*-Parameter am Ende der Befehlsausführung zum Angeben eines anderen Berichtsspeicherorts.
+* `-OutputPath`: Der *path* -Parameter am Ende der Befehlsausführung zum Angeben eines anderen Berichtsspeicherorts.
 * `-CleanReport`: Der Parameter am Ende der Befehlszeilenausführung zum Löschen der Datei „AzsReadinessCheckerReport.json“ mit früheren Berichtsinformationen. Weitere Informationen finden Sie unter [Azure Stack Hub-Überprüfungsbericht](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Fehler bei der Überprüfung

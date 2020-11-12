@@ -3,16 +3,16 @@ title: Konfigurieren der Mehrinstanzenfähigkeit in Azure Stack Hub
 description: Erfahren Sie, wie Sie mehrere Azure Active Directory-Mandanten in Azure Stack Hub aktivieren und deaktivieren.
 author: BryanLa
 ms.topic: how-to
-ms.date: 06/18/2020
+ms.date: 10/16/2020
 ms.author: bryanla
 ms.reviewer: bryanr
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 6d6e6f3c28a4386a099727f132d28f97cf4dacbe
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 923c430291c742069a29806449b45d4fc9cdef07
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93291206"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544223"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Konfigurieren der Mehrinstanzenfähigkeit in Azure Stack Hub
 
@@ -31,8 +31,8 @@ Als Cloud Solution Provider (CSP) haben Sie zusätzliche Möglichkeiten, einen [
 Damit Sie die Mehrinstanzenfähigkeit in Azure Stack Hub konfigurieren können, müssen einige Voraussetzungen erfüllt sein:
   
  - Mary und Sie müssen Verwaltungsschritte sowohl in dem Verzeichnis, in dem Azure Stack Hub installiert ist (Contoso), als auch im Gastverzeichnis (Fabrikam) koordinieren.
- - Stellen Sie sicher, dass Sie PowerShell für Azure Stack Hub [installiert](azure-stack-powershell-install.md) und [konfiguriert](azure-stack-powershell-configure-admin.md) haben.
- - [Laden Sie die Azure Stack Hub-Tools herunter](azure-stack-powershell-download.md), und importieren Sie die Identity-Module:
+ - Stellen Sie sicher, dass Sie PowerShell für Azure Stack Hub [installiert](powershell-install-az-module.md) und [konfiguriert](azure-stack-powershell-configure-admin.md) haben.
+ - [Laden Sie die Azure Stack Hub-Tools herunter](azure-stack-powershell-download.md), und importieren Sie die Module „Connect“ und „Identity“:
 
     ```powershell
     Import-Module .\Identity\AzureStack.Identity.psm1

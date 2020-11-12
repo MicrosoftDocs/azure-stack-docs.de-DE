@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: c0cf805773100e2f265c2e088a6f6cd442553ec2
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: db1a7919987803682ff0a9df84565fa7aef47620
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778275"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415299"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack Hub: Hilfe und Support
 
@@ -32,11 +32,11 @@ Oben im Bereich **Hilfe und Support** sind die Dinge angegeben, über die Sie si
 
 ![Self-Service-Unterstützung in Azure Stack Hub](media/azure-stack-help-and-support/get-support-tiles.png)
 
-- **Dokumentation**: Die [Dokumentation für Azure Stack Hub-Operator](index.yml) enthält Konzepte, Gewusst wie-Themen und Tutorials, in denen beschrieben wird, wie Sie Azure Stack Hub-Dienste anbieten. Zu diesen Diensten gehören virtuelle Computer, SQL-Datenbanken, Web-Apps und mehr.
+- **Dokumentation** : Die [Dokumentation für Azure Stack Hub-Operator](index.yml) enthält Konzepte, Gewusst wie-Themen und Tutorials, in denen beschrieben wird, wie Sie Azure Stack Hub-Dienste anbieten. Zu diesen Diensten gehören virtuelle Computer, SQL-Datenbanken, Web-Apps und mehr.
 
-- **Informationen zur Abrechnung**: Sehen Sie sich die Tipps zu [Nutzung und Abrechnung](azure-stack-billing-and-chargeback.md) an.
+- **Informationen zur Abrechnung** : Sehen Sie sich die Tipps zu [Nutzung und Abrechnung](azure-stack-billing-and-chargeback.md) an.
 
-- **Supportoptionen**: Azure Stack Hub-Operatoren können unter verschiedenen [Azure-Supportoptionen](https://aka.ms/azstacksupport) wählen, die die Anforderungen jedes Unternehmens erfüllen.
+- **Supportoptionen** : Azure Stack Hub-Operatoren können unter verschiedenen [Azure-Supportoptionen](./azure-stack-manage-basics.md) wählen, die die Anforderungen jedes Unternehmens erfüllen.
 
 ### <a name="get-expert-help"></a>Inanspruchnehmen von Expertenhilfe
 
@@ -78,8 +78,8 @@ Sie können Diagnoseprotokolle auf zwei Arten an Microsoft senden:
 
 Ab Version 1907 gibt es zwei neue Möglichkeiten, Protokolle in **Hilfe und Support** zu sammeln:
 
-- **Automatische Sammlung**: Wenn diese Option aktiviert ist, wird die Protokollsammlung durch bestimmte Integritätswarnungen ausgelöst.
-- **Protokolle jetzt sammeln**: Sie können ein gleitendes Fenster von 1 bis 4 Stunden in den letzten sieben Tagen auswählen.
+- **Automatische Sammlung** : Wenn diese Option aktiviert ist, wird die Protokollsammlung durch bestimmte Integritätswarnungen ausgelöst.
+- **Protokolle jetzt sammeln** : Sie können ein gleitendes Fenster von 1 bis 4 Stunden in den letzten sieben Tagen auswählen.
 
 ![Optionen für die Sammlung von Diagnoseprotokollen](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
@@ -87,7 +87,7 @@ Integrierte Systeme können die Diagnoseprotokolle mit dem Microsoft-Support tei
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>Hilfe und Support für frühere Releases von Azure Stack Hub (vor 1905)
 
-Vorherige Azure Stack Hub-Releases verfügen ebenfalls über einen Link zu **Hilfe und Support**, der zur [Dokumentation für Azure Stack Hub-Operatoren](https://aka.ms/adminportaldocs) führt.
+Vorherige Azure Stack Hub-Releases verfügen ebenfalls über einen Link zu **Hilfe und Support** , der zur [Dokumentation für Azure Stack Hub-Operatoren](./index.yml) führt.
 
 ![Tutorials zum Support](media/azure-stack-help-and-support/get-support-previous.png)
 

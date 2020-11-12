@@ -8,12 +8,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviwer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: 3f4ed6bd83414d158ef80996cadf024653956d38
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.openlocfilehash: 797dad8de86ba80b8605ff16d356a879211c5a0f
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145385"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546292"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub-Speicher: Unterschiede und Überlegungen
 
@@ -105,7 +105,7 @@ Bei der PowerShell-Version für das Speichermodul müssen Sie auf die Version ac
 | Modul | Unterstützte Version | Verwendung |
 |---|---|---|
 | Azure.Storage | [4.5.0](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0) | Verwaltet Blobs, Warteschlangen und Tabellen in Azure Stack Hub-Speicherkonten. |
-| AzureRM.Storage | [5.0.4](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.4) | Erstellt und verwaltet Speicherkonten in Azure Stack Hub. |
+| Az.Storage | [5.0.4](https://www.powershellgallery.com/packages/Az.Storage/5.0.4) | Erstellt und verwaltet Speicherkonten in Azure Stack Hub. |
 
 Weitere Informationen zu von Azure Stack Hub unterstützten Speicherclientbibliotheken finden Sie unter: [Erste Schritte mit den Azure Stack Hub-Speicherentwicklungstools](azure-stack-storage-dev.md).
 

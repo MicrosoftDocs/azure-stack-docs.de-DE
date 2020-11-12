@@ -3,16 +3,16 @@ title: Ermöglichen der Verwaltung Ihres Azure Stack Hub-Abonnements durch Ihren
 description: Es wird beschrieben, wie Sie die Verwaltung Ihres Azure Stack Hub-Abonnements durch Ihren Cloudlösungsanbieter (Cloud Solution Provider, CSP) ermöglichen.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
-ms.openlocfilehash: fd0caa7e841b960f4bdab6d5712fd3563710ef20
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: d54b73595b3f8f79cfa606a1fb41ad945f40157d
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87251046"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414111"
 ---
 # <a name="let-your-cloud-solution-provider-manage-your-azure-stack-hub-subscription"></a>Ermöglichen der Verwaltung Ihres Azure Stack Hub-Abonnements durch Ihren Cloudlösungsanbieter
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/16/2020
 ms.author: justinha
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: bacaccd664996af7dafa7fd6b7b3518b7dcaa851
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: b277eb9dcb1ac66af870db68c919e711aadc1ac7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488551"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543509"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Grundlagen zur Verwaltung von Azure Stack Hub
 
@@ -114,7 +114,7 @@ Wenn ein Benutzer in einer ASDK-Umgebung eine Verbindung mit dem ASDK-Host nicht
 
 Ihre Benutzer sollten wissen, wie sie [auf das Benutzerportal zugreifen](../user/azure-stack-use-portal.md) oder eine Verbindung über PowerShell herstellen. In der Umgebung eines integrierten Systems variiert die Adresse des Benutzerportals je nach Bereitstellung. Sie müssen für Ihre Benutzer die richtige URL bereitstellen.
 
-Bei der Verwendung von PowerShell müssen Benutzer möglicherweise Ressourcenanbieter registrieren, bevor sie Dienste verwenden können. Ein Ressourcenanbieter verwaltet einen Dienst. Der Netzwerkressourcenanbieter verwaltet beispielsweise Ressourcen wie virtuelle Netzwerke, Netzwerkschnittstellen und Lastenausgleichsmodule. Diese Anbieter müssen PowerShell [installieren](azure-stack-powershell-install.md), zusätzliche Module [herunterladen](azure-stack-powershell-download.md) und PowerShell (sowie die Registrierung von Ressourcenanbietern) [konfigurieren](../user/azure-stack-powershell-configure-user.md).
+Bei der Verwendung von PowerShell müssen Benutzer möglicherweise Ressourcenanbieter registrieren, bevor sie Dienste verwenden können. Ein Ressourcenanbieter verwaltet einen Dienst. Der Netzwerkressourcenanbieter verwaltet beispielsweise Ressourcen wie virtuelle Netzwerke, Netzwerkschnittstellen und Lastenausgleichsmodule. Diese Anbieter müssen PowerShell [installieren](powershell-install-az-module.md), zusätzliche Module [herunterladen](azure-stack-powershell-download.md) und PowerShell (sowie die Registrierung von Ressourcenanbietern) [konfigurieren](../user/azure-stack-powershell-configure-user.md).
 
 **Abonnieren von Angeboten**
 
@@ -129,7 +129,7 @@ Bevor ein Benutzer Dienste verwenden kann, muss er [ein Angebot abonnieren](azur
 
 Für ein integriertes System besteht ein koordinierter Eskalations- und Lösungsprozess zwischen Microsoft und seinen OEM-Hardwarepartnern (Original Equipment Manufacturer).
 
-Wenn es zu einem Problem mit einem Clouddienst kommt, wird Support über den Microsoft-Support angeboten. Klicken Sie oben rechts im Administratorportal auf das Symbol „Hilfe und Support“ (Fragezeichen), um eine Supportanfrage zu öffnen. Wählen Sie dann**Hilfe und Support** und anschließend im Abschnitt **Support** die Option **Neue Supportanfrage** aus.
+Wenn es zu einem Problem mit einem Clouddienst kommt, wird Support über den Microsoft-Support angeboten. Klicken Sie oben rechts im Administratorportal auf das Symbol „Hilfe und Support“ (Fragezeichen), um eine Supportanfrage zu öffnen. Wählen Sie dann **Hilfe und Support** und anschließend im Abschnitt **Support** die Option **Neue Supportanfrage** aus.
 
 Wenden Sie sich zuerst an Ihren OEM-Hardwareanbieter, falls ein Problem in den folgenden Bereichen besteht: Bereitstellung, Patches und Updates, Hardware (einschließlich der vor Ort austauschbaren Teile (Field Replaceable Units)) und Software mit Hardware-Branding, z. B. auf dem Hardware-Lebenszyklushost ausgeführte Software.
 
@@ -137,7 +137,7 @@ Wenden Sie sich bei allen anderen Problemen an den Microsoft-Support.
 
 ### <a name="azure-stack-development-kit-asdk"></a>Azure Stack Development Kit (ASDK)
 
-Fragen rund um den Support für das ASDK können Sie in den [Microsoft-Foren](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) stellen. Zum Aufrufen der Foren wählen Sie oben rechts im Administratorportal das Symbol „Hilfe und Support“ (Fragezeichen) aus. Anschließend können Sie **Hilfe und Support** und dann im Abschnitt **Support** die Option **MSDN-Foren** auswählen. Diese Foren werden regelmäßig überprüft. Da das ASDK eine Evaluierungsumgebung ist, wird über Microsoft CSS kein offizieller Support angeboten.
+Fragen rund um den Support für das ASDK können Sie in den [Microsoft-Foren](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) stellen. Zum Aufrufen der Foren wählen Sie oben rechts im Administratorportal das Symbol „Hilfe und Support“ (Fragezeichen) aus. Anschließend können Sie **Hilfe und Support** und dann im Abschnitt **Support** die Option **MSDN-Foren** auswählen. Diese Foren werden regelmäßig überprüft. Da das ASDK eine Evaluierungsumgebung ist, wird über Microsoft-Support kein offizieller Support angeboten.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
