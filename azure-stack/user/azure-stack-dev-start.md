@@ -3,16 +3,16 @@ title: Einrichten einer Entwicklungsumgebung in Azure Stack Hub
 description: Hier finden Sie Informationen zu den ersten Schritten bei der Entwicklung von Anwendungen für Azure Stack Hub.
 author: mattbriggs
 ms.topic: overview
-ms.date: 7/23/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: f54c8a442b9df31ff112f1e385b15c441c7c0ffd
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: aaf6e48a728659ee6e756cee674edb423362db67
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920677"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546122"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack-hub"></a>Einrichten einer Entwicklungsumgebung in Azure Stack Hub 
 
@@ -76,7 +76,7 @@ Wenn Sie einen Windows 10-Computer verwenden, können Sie mit PowerShell 5.0 u
 
 ### <a name="set-up-your-tools"></a>Einrichten der Tools 
 
-1. Richten Sie PowerShell ein. Weitere Informationen finden Sie unter [Installieren von Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md). 
+1. Richten Sie PowerShell ein. Weitere Informationen finden Sie unter [Installieren von Azure Stack Hub PowerShell](../operator/powershell-install-az-module.md). 
 
 2. Laden Sie Azure Stack Hub-Tools herunter. Anweisungen dazu finden Sie unter [Herunterladen von Azure Stack Hub-Tools von GitHub](../operator/azure-stack-powershell-download.md). 
 

@@ -1,19 +1,19 @@
 ---
-title: Übersicht über das Modular Data Center |
+title: Übersicht über Modular Data Center |
 description: Das Modular Data Center ist ein portables, schnell bereitstellbares Rechenzentrum, das für die Unterstützung umfangreicher Einsätze an temporären und festen Gefechtsständen geeignet ist.
 author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 01/13/2020
+ms.date: 11/06/2020
 ms.reviewer: prchint
-ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: d2803f1968be7a4a3e64f65f3d86a2dbb41aaf1c
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.lastreviewed: 11/06/2020
+ms.openlocfilehash: eaa84fb673863935dc4778f34a6fce592590a7a8
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183539"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383403"
 ---
 # <a name="modular-data-center-overview"></a>Übersicht über das Modular Data Center 
 
@@ -27,7 +27,7 @@ Azure Stack bietet vier Kernprinzipien, die mit den Funktionen von Azure für mo
 
 ### <a name="develop-and-deliver-apps-with-a-common-devops-model-including-api-symmetry-with-azure"></a>Entwickeln und Bereitstellen von Apps mit einem gemeinsamen DevOps-Modell einschließlich API-Symmetrie mit Azure
 
-Die Konsistenz zwischen Azure und Azure Stack bedeutet, dass Lösungen für Einsatzkräfte einmal entwickelt, für eine Vielzahl von Anwendungsfällen bereitgestellt und mit gemeinsam verwendeten Tools wie Azure Key Vault für die Schlüsselverwaltung und Azure Monitor für die Ressourcenüberwachung und -verwaltung gesichert und verwaltet werden. Azure Stack ist mit lokalen Daten, Apps und Tools für DevOps und sicheren Betrieb, z. B. die Schlüsselverwaltung, interoperabel.
+Die Konsistenz zwischen Azure und Azure Stack bedeutet, dass Lösungen einmal entwickelt, für eine Vielzahl von Anwendungsfällen bereitgestellt und mit gemeinsam verwendeten Tools wie Azure Key Vault für die Schlüsselverwaltung und Azure Monitor für die Ressourcenüberwachung und -verwaltung gesichert und verwaltet werden. Azure Stack ist mit lokalen Daten, Apps und Tools für DevOps und sicheren Betrieb, z. B. die Schlüsselverwaltung, interoperabel.
 
 ### <a name="deliver-azure-services-on-premises"></a>Lokales Bereitstellen von Azure-Diensten
 
@@ -35,7 +35,7 @@ Azure Stack kann in Umgebungen mit beeinträchtigten (umkämpften, überlasteten
 
 ### <a name="use-integrated-hardware-and-software-delivery-experience"></a>Verwenden der integrierten Hardware- und Softwarebereitstellung
 
-Der modulare Edge erfordert eine Reihe von Funktionen, die nicht nur grundlegende Compute- und Speicherdienste, sondern auch erweiterte Funktionen für maschinelles Lernen, KI und Analysen bereitstellen. Die Möglichkeit, vom modularen Edge aus eine Verbindung mit Ihrer sicheren Cloud herzustellen, wenn die Situation dies zulässt, oder umgekehrt in widrigen Umständen unabhängig von einer solchen Verbindung agieren zu können, ist wichtig, um Einsatzkräften den Zugriff auf Daten zu ermöglichen, die sie für die Entscheidungsfindung benötigen.
+Der modulare Edge erfordert eine Reihe von Funktionen, die nicht nur grundlegende Compute- und Speicherdienste, sondern auch erweiterte Funktionen für maschinelles Lernen, KI und Analysen bereitstellen. Die Möglichkeit, vom modularen Edge aus eine Verbindung mit Ihrer sicheren Cloud herzustellen, wenn die Situation dies zulässt, oder umgekehrt in widrigen Umständen unabhängig von einer solchen Verbindung agieren zu können, ist wichtig, um den Zugriff auf Daten zu ermöglichen, die für die Entscheidungsfindung benötigt werden.
 
 ### <a name="keep-your-datacenter-secure-and-available-with-hybrid-cloud-security-operations"></a>Sicherheit und Verfügbarkeit des Rechenzentrums dank Hybrid Cloud-Sicherheitsvorgängen
 
