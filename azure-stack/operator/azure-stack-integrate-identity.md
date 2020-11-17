@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 8e6ec9fcb6428b9f8dad7c4f78acde54291b30f1
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 3087e7b4f84aa710a89a2f122e91bcfd643eed8d
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488619"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544189"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum
 
@@ -87,13 +87,23 @@ Verwenden Sie für diesen Vorgang einen Computer in Ihrem Rechenzentrumsnetzwerk
 
    ```powershell  
    $creds = Get-Credential
-   Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+   $pep = New-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-2. Da Sie nun eine Verbindung mit dem privilegierten Endpunkt hergestellt haben, führen Sie folgenden Befehl aus. 
+2. Nachdem Sie nun eine Sitzung mit dem privilegierten Endpunkt haben, führen Sie folgenden Befehl aus. 
 
    ```powershell  
-   Register-DirectoryService -CustomADGlobalCatalog contoso.com
+    $i = @(
+           [pscustomobject]@{ 
+                     CustomADGlobalCatalog="fabrikam.com"
+                     CustomADAdminCredential= get-credential
+                     SkipRootDomainValidation = $false 
+                     ValidateParameters = $true
+                   }) 
+
+    Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -customCatalog $using:i} 
+
+
    ```
 
    Wenn Sie dazu aufgefordert werden, geben Sie die Anmeldeinformationen für das Benutzerkonto ein, das Sie für die Graph-Dienst verwenden möchten (z.B. „graphservice“). Die Eingabe für das Cmdlet Register-DirectoryService muss der Gesamtstrukturname / die Stammdomäne in der Gesamtstruktur sein statt einer anderen Domäne in der Gesamtstruktur.
@@ -105,8 +115,8 @@ Verwenden Sie für diesen Vorgang einen Computer in Ihrem Rechenzentrumsnetzwerk
 
    |Parameter|BESCHREIBUNG|
    |---------|---------|
-   |`-SkipRootDomainValidation`|Gibt an, dass anstelle der empfohlenen Stammdomäne eine untergeordnete Domäne verwendet werden muss.|
-   |`-Force`|Alle Überprüfungen werden umgangen.|
+   |`SkipRootDomainValidation`|Gibt an, dass anstelle der empfohlenen Stammdomäne eine untergeordnete Domäne verwendet werden muss.|
+   |`ValidateParameters`|Alle Überprüfungen werden umgangen.|
 
 #### <a name="graph-protocols-and-ports"></a>Graph-Protokolle und -Ports
 

@@ -2,18 +2,18 @@
 title: Beheben allgemeiner Probleme mit PKI-Zertifikaten
 titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie mithilfe von Azure Stack Hub Readiness Checker allgemeine Probleme mit Azure Stack Hub-PKI-Zertifikaten beheben.
-author: IngridAtMicrosoft
+author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
-ms.author: inhenkel
+ms.date: 11/10/2020
+ms.author: bryanla
 ms.reviewer: unknown
-ms.lastreviewed: 11/19/2019
-ms.openlocfilehash: c7f17c603a6b54474db4036953f0fbd755d496cf
-ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 81215c7b3fb25f0e9b9877dae401b776517cf143
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724845"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545343"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Beheben allgemeiner Probleme mit Azure Stack Hub-PKI-Zertifikaten
 
@@ -105,7 +105,7 @@ Auf dem Computer, auf dem das Tool ausgeführt wird, müssen folgende erforderli
    $PSVersionTable.PSVersion
    ```
 
-- Konfigurieren Sie [PowerShell für Azure Stack Hub](azure-stack-powershell-install.md).
+- Konfigurieren Sie [PowerShell für Azure Stack Hub](powershell-install-az-module.md).
 - Laden Sie die aktuelle Version des Tools [Azure Stack Hub Readiness Checker](https://aka.ms/AzsReadinessChecker) herunter.
 
 ### <a name="import-and-export-an-existing-pfx-file"></a>Importieren und Exportieren einer vorhandenen PFX-Datei
@@ -113,13 +113,13 @@ Auf dem Computer, auf dem das Tool ausgeführt wird, müssen folgende erforderli
 1. Öffnen Sie auf einem Computer, der die Voraussetzungen erfüllt, eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie den folgenden Befehl zum Installieren von „Azure Stack Hub Readiness Checker“ aus:
 
    ```powershell
-   Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+   Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
    ```
 
-2. Führen Sie an der PowerShell-Eingabeaufforderung das folgende Cmdlet aus, um das PFX-Kennwort festzulegen. Ersetzen Sie `PFXpassword` durch das tatsächliche Kennwort:
+2. Führen Sie an der PowerShell-Eingabeaufforderung das folgende Cmdlet aus, um das PFX-Kennwort festzulegen. Geben Sie bei Aufforderung das Kennwort ein:
 
    ```powershell
-   $password = Read-Host -Prompt PFXpassword -AsSecureString
+   $password = Read-Host -Prompt "Enter password" -AsSecureString
    ```
 
 3. Führen Sie an der PowerShell-Eingabeaufforderung den folgenden Befehl aus, um eine neue PFX-Datei zu exportieren:

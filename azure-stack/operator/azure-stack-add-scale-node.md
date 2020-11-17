@@ -3,22 +3,22 @@ title: Hinzufügen von Knoten einer Skalierungseinheit in Azure Stack Hub
 description: Erfahren Sie, wie Sie Knoten einer Skalierungseinheit in Azure Stack Hub zu Skalierungseinheiten hinzufügen.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/09/2020
+ms.date: 11/05/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 08/03/2020
-ms.openlocfilehash: bf1cbd3dc999a90fb53ef30b48dc6f06e82f4d5a
-ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
+ms.lastreviewed: 11/05/2020
+ms.openlocfilehash: 86672961ee2a02f858cfce73a895154c6eb1bcbe
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89621298"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544036"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Hinzufügen zusätzlicher Knoten einer Skalierungseinheit in Azure Stack Hub
 
-Azure Stack Hub-Operatoren können die Gesamtkapazität einer bestehenden Skalierungseinheit durch Hinzufügen eines zusätzlichen physischen Computers erhöhen. Der physische Computer wird auch als Knoten einer Skalierungseinheit bezeichnet. Jeder neue Knoten einer Skalierungseinheit, den Sie hinzufügen, muss in CPU-Typ, Speicher sowie Datenträgernummer und -größe mit den Knoten übereinstimmen, die bereits in der Skalierungseinheit vorhanden sind.
+Sie können die Gesamtkapazität einer vorhandenen Skalierungseinheit durch Hinzufügen eines zusätzlichen physischen Computers erhöhen. Der physische Computer wird auch als Knoten einer Skalierungseinheit bezeichnet. Jeder neue Knoten einer Skalierungseinheit, den Sie hinzufügen, muss in CPU-Typ, Speicher sowie Datenträgernummer und -größe mit den Knoten übereinstimmen, die bereits in der Skalierungseinheit vorhanden sind.
 
-Um einen Knoten einer Skalierungseinheit hinzuzufügen, verwenden Sie Azure Stack Hub und führen Tools Ihres Originalgeräteherstellers (OEM) aus. Die OEM-Tools werden auf dem Hardwarelebenszyklushost (HLH) ausgeführt, um sicherzustellen, dass der neue physische Computer die gleiche Firmwareebene wie die vorhandenen Knoten aufweist.
+Um einen Knoten einer Skalierungseinheit hinzuzufügen, melden Sie sich bei Azure Stack Hub an, und führen Sie Tools Ihres Originalgeräteherstellers (OEM) aus. Die OEM-Tools werden auf dem Hardwarelebenszyklushost (HLH) ausgeführt, um sicherzustellen, dass der neue physische Computer die gleiche Firmwareebene wie die vorhandenen Knoten aufweist.
 
 Das folgende Flussdiagramm zeigt den allgemeinen Prozess des Hinzufügens eines Knotens zu einer Skalierungseinheit:
 
@@ -60,6 +60,21 @@ Zum Hinzufügen neuer Knoten können Sie das Administratorportal oder PowerShell
    ![Hinzufügen von Knotendetails](media/azure-stack-add-scale-node/select-node2.png)
  
 
+### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
+
+Fügen Sie mithilfe des Cmdlets **Add-AzsScaleUnitNode** einen Knoten hinzu.  
+
+Ersetzen Sie vor der Verwendung der folgenden PowerShell-Beispielskripts die Werte *name_of_new_node*, *name_of_scale_unit_cluster* und *BMCIP_address_of_new_node* durch Werte aus Ihrer Azure Stack Hub-Umgebung.
+
+  > [!Note]  
+  > Bei der Benennung eines Knotens müssen Sie den Namen auf weniger als 15 Zeichen beschränken. Außerdem können Sie keinen Namen verwenden, der ein Leerzeichen oder eines der folgenden Zeichen enthält: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
+
+**Hinzufügen eines Knotens:**
+  ```powershell
+  ## Add a single Node 
+    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
+  ```  
+
 ### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/AzureRM)
 
 Fügen Sie mithilfe des Cmdlets **New-AzsScaleUnitNodeObject** einen Knoten hinzu.  
@@ -75,21 +90,6 @@ Bevor Sie eines der folgenden PowerShell-Beispielskripts verwenden, ersetzen Sie
   $NewNode=New-AzsScaleUnitNodeObject -computername "<name_of_new_node>" -BMCIPv4Address "<BMCIP_address_of_new_node>" 
  
   Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
-  ```  
-
-### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
-
-Fügen Sie mithilfe des Cmdlets **Add-AzsScaleUnitNode** einen Knoten hinzu.  
-
-Ersetzen Sie vor der Verwendung der folgenden PowerShell-Beispielskripts die Werte *name_of_new_node*, *name_of_scale_unit_cluster* und *BMCIP_address_of_new_node* durch Werte aus Ihrer Azure Stack Hub-Umgebung.
-
-  > [!Note]  
-  > Bei der Benennung eines Knotens müssen Sie den Namen auf weniger als 15 Zeichen beschränken. Außerdem können Sie keinen Namen verwenden, der ein Leerzeichen oder eines der folgenden Zeichen enthält: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
-
-**Hinzufügen eines Knotens:**
-  ```powershell
-  ## Add a single Node 
-    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```  
 
 ---

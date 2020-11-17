@@ -6,19 +6,68 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/20/2020
-ms.openlocfilehash: 6d480f1229fb0c38cb3241c4a9de5bc53eadf87c
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.date: 11/10/2020
+ms.openlocfilehash: eaa9417abd41828495d3cd685ecc1f56c42c92e1
+ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92254011"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441173"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Versionshinweise für die Public Preview von Azure Stack HCI
 
 > Gilt für: Azure Stack HCI, Version 20H2
 
 In diesem Artikel werden die Inhalte der Updatepakete für die Public Preview von Azure Stack HCI beschrieben.
+
+## <a name="november-10-2020-security-update-kb4586811"></a>10. November 2020, Sicherheitsupdate (KB4586811)
+
+Dieses Update enthält Verbesserungen und Fehlerbehebungen für das neueste Release von Azure Stack HCI.
+
+### <a name="improvements-and-fixes"></a>Verbesserungen und Fehlerbehebungen
+Dieses Update enthält verschiedene Sicherheitsverbesserungen für interne Betriebssystemfunktionen. Für dieses Release wurden keine weiteren Probleme dokumentiert.
+
+Weitere Informationen zu den beseitigten Sicherheitsrisiken finden Sie im [Leitfaden für Sicherheitsupdates](https://portal.msrc.microsoft.com/security-guidance).
+
+### <a name="known-issues-in-this-update"></a>Bekannte Probleme in diesem Update
+Microsoft sind aktuell keine Probleme mit diesem Update bekannt.
+
+### <a name="how-to-get-this-update"></a>Beziehen dieses Updates
+Das Sicherheitsupdate vom 10. November 2020 (KB4586811) für [Azure Stack HCI (Vorschauversion)](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) wird über Windows Update bereitgestellt. Informationen zur Installation in Ihrem Azure Stack HCI-Cluster finden Sie unter [Aktualisieren von Azure Stack HCI-Clustern](manage/update-cluster.md).
+
+### <a name="file-information"></a>Dateiinformationen
+Eine Liste der im Rahmen dieses Updates (Betriebssystembuild 17784.1345) bereitgestellten Dateien erhalten Sie durch Herunterladen der [Dateiinformationen für das kumulative Update 4586811](https://download.microsoft.com/download/8/f/2/8f2ce4bb-e113-4abc-b3ff-f0f4c4c71403/4586811.csv).
+
+   > [!NOTE]
+   > Einige Dateien sind in der Dateiversionsspalte der CSV-Datei fälschlicherweise mit „Not applicable“ (Nicht zutreffend) gekennzeichnet. Dies kann bei der Überprüfung des Builds durch ein Drittanbietertool zu falsch positiven oder falsch negativen Ergebnissen führen.
+
+## <a name="november-10-2020-servicing-stack-update-kb4590242"></a>10. November 2020, Wartungsstapelaktualisierung (KB4590242)
+
+Dieses Update bietet Qualitätsverbesserungen für das neueste Release von Azure Stack HCI.
+
+### <a name="improvements-and-fixes"></a>Verbesserungen und Fehlerbehebungen
+Dieses Update verbessert die Qualität des Wartungsstapels, der Komponente zum Installieren von Updates. Wartungsstapelaktualisierungen sorgen für einen stabilen und zuverlässigen Wartungsstapel, damit Ihre Geräte Microsoft-Updates empfangen und installieren können.
+
+### <a name="how-to-get-this-update"></a>Beziehen dieses Updates
+Das Sicherheitsupdate von November 2020 (KB4590242) für [Azure Stack HCI (Vorschauversion)](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) wird über Windows Update bereitgestellt. Informationen zur Installation in Ihrem Azure Stack HCI-Cluster finden Sie unter [Aktualisieren von Azure Stack HCI-Clustern](manage/update-cluster.md).
+
+### <a name="restart-information"></a>Informationen zum Neustart
+Sie müssen den Computer nach Anwenden dieses Updates nicht neu starten.
+
+### <a name="removal-information"></a>Informationen zum Entfernen
+Wartungsstapelaktualisierungen nehmen Änderungen an der Installation von Updates vor und können nicht vom Gerät deinstalliert werden.
+
+### <a name="file-information"></a>Dateiinformationen
+Eine Liste der im Rahmen dieses Updates (Betriebssystembuild 17784.1342) bereitgestellten Dateien erhalten Sie durch Herunterladen der [Dateiinformationen für das kumulative Update 4590242](https://download.microsoft.com/download/b/b/4/bb4fb4f5-c0ba-4e55-bada-d72310857982/4590242.csv).
+
+### <a name="references"></a>References
+
+Informationen zu Wartungsstapelaktualisierungen finden Sie in den folgenden Artikeln:
+
+- [Wartungsstapelaktualisierungen](/windows/deployment/update/servicing-stack-updates)
+- [Wartungsstapelaktualisierungen: häufig gestellte Fragen](https://support.microsoft.com/help/4535697)
+
+Erfahren Sie mehr über die [Terminologie](https://support.microsoft.com/help/824684), die Microsoft zum Beschreiben von Softwareupdates verwendet.
 
 ## <a name="october-20-2020-preview-update-kb4580388"></a>Update der Vorschauversion vom 20. Oktober 2020 (KB4580388)
 

@@ -7,12 +7,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 4795b7abbd5c1f0dd9dfc1c3064aefa9371725a2
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 34f165025fe96234f8faded5eefcf5f4ae78bbde
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86490013"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543611"
 ---
 # <a name="register-the-asdk-with-azure"></a>Registrieren des ASDK bei Azure
 
@@ -48,19 +48,19 @@ Führen Sie diese Schritte aus, um das ASDK bei Azure zu registrieren.
     ```powershell  
     # Add the Azure cloud subscription environment name. 
     # Supported environment names are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
-    Add-AzureRmAccount -EnvironmentName "<environment name>"
+    Add-AzAccount -EnvironmentName "<environment name>"
 
     # Register the Azure Stack resource provider in your Azure subscription
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+    Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
 
     # Import the registration module that was downloaded with the GitHub tools
-    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+    Import-Module C:\AzureStack-Tools-az\Registration\RegisterWithAzure.psm1
 
     # If you have multiple subscriptions, run the following command to select the one you want to use:
-    # Get-AzureRmSubscription -SubscriptionID "<subscription ID>" | Select-AzureRmSubscription
+    # Get-AzSubscription -SubscriptionID "<subscription ID>" | Select-AzSubscription
     
     # Register Azure Stack
-    $AzureContext = Get-AzureRmContext
+    $AzureContext = Get-AzContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     $RegistrationName = "<unique-registration-name>"
     Set-AzsRegistration `
@@ -84,11 +84,11 @@ Wenn Sie Azure Stack in einer nicht mit Azure verbundenen Umgebung (ohne Interne
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Abrufen eines Registrierungstokens aus der Azure Stack-Umgebung
 
-Starten Sie auf dem ASDK-Hostcomputer PowerShell als Administrator, und navigieren Sie zum Ordner **Registration** im Verzeichnis **AzureStack-Tools-master**, das beim Herunterladen der Azure Stack-Tools erstellt wurde. Verwenden Sie die folgenden PowerShell-Befehle, um das Modul **RegisterWithAzure.psm1** zu importieren, und verwenden Sie anschließend das Cmdlet **Get-AzsRegistrationToken**, um das Registrierungstoken abzurufen:  
+Starten Sie auf dem ASDK-Hostcomputer PowerShell als Administrator, und navigieren Sie zum Ordner **Registration** im Verzeichnis **AzureStack-Tools-az**, das beim Herunterladen der Azure Stack-Tools erstellt wurde. Verwenden Sie die folgenden PowerShell-Befehle, um das Modul **RegisterWithAzure.psm1** zu importieren, und verwenden Sie anschließend das Cmdlet **Get-AzsRegistrationToken**, um das Registrierungstoken abzurufen:  
 
    ```powershell  
    # Import the registration module that was downloaded with the GitHub tools
-   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+   Import-Module C:\AzureStack-Tools-az\Registration\RegisterWithAzure.psm1
 
    # Create registration token
    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
@@ -111,16 +111,16 @@ Verwenden Sie auf dem Computer mit Internetverbindung die folgenden PowerShell-B
   ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
-  Add-AzureRmAccount -EnvironmentName "<environment name>"
+  Add-AzAccount -EnvironmentName "<environment name>"
 
   # If you have multiple subscriptions, run the following command to select the one you want to use:
-  # Get-AzureRmSubscription -SubscriptionID "<subscription ID>" | Select-AzureRmSubscription
+  # Get-AzSubscription -SubscriptionID "<subscription ID>" | Select-AzSubscription
 
   # Register the Azure Stack resource provider in your Azure subscription
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+  Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
 
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-az\Registration\RegisterWithAzure.psm1
 
   # Register with Azure
   # This example uses the C:\RegistrationToken.txt file.
@@ -135,16 +135,16 @@ Alternativ können Sie mit dem Cmdlet **Get-Content** auf eine Datei verweisen, 
   ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
-  Add-AzureRmAccount -EnvironmentName "<environment name>"
+  Add-AzAccount -EnvironmentName "<environment name>"
 
   # If you have multiple subscriptions, run the following command to select the one you want to use:
-  # Get-AzureRmSubscription -SubscriptionID "<subscription ID>" | Select-AzureRmSubscription
+  # Get-AzSubscription -SubscriptionID "<subscription ID>" | Select-AzSubscription
 
   # Register the Azure Stack resource provider in your Azure subscription
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+  Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
 
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-az\Registration\RegisterWithAzure.psm1
 
   # Register with Azure 
   # This example uses the C:\RegistrationToken.txt file.
@@ -180,7 +180,7 @@ Kehren Sie mit der Datei oder dem Text aus dem Aktivierungsschlüssel, der von *
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-az\Registration\RegisterWithAzure.psm1
   
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   $ActivationKey = "<activation key>"
@@ -193,7 +193,7 @@ Alternativ können Sie mit dem Cmdlet **Get-Content** auf eine Datei verweisen, 
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-az\Registration\RegisterWithAzure.psm1
 
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   # This example uses the C:\ActivationKey.txt file.

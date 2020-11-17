@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 14f86b63e8089069d53e7b849d4bfea55007f34e
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 80200b283ba6ef0266513eefaa1fdcb8faf9faa8
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571693"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546734"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Replizieren von Ressourcen mit dem Replikator für Azure Stack Hub-Abonnements
 
@@ -54,7 +54,7 @@ Ein angepasster Prozessor schreibt vor, wie eine Ressource zu replizieren ist. D
 
 In der Dateistruktur des Replikators ist ein Ordner namens **Standardized_ARM_Templates** vorhanden. Je nach Quellumgebung verwenden die Bereitstellungen eine dieser standardisierten Azure Resource Manager-Vorlagen, oder eine angepasste Azure Resource Manager-Vorlage muss generiert werden. In diesem Fall muss ein angepasster Prozessor einen Azure Resource Manager-Vorlagengenerator aufrufen. Im obigen Beispiel würde der Name eines Azure Resource Manager-Vorlagengenerators **virtualMachines_ARM_Template_Generator.ps1** lauten. Der Azure Resource Manager-Vorlagengenerator erstellt eine angepasste Azure Resource Manager-Vorlage anhand der Informationen in den Metadaten einer Ressource. Wenn die Metadaten der VM-Ressource beispielsweise angeben, dass die VM-Ressource Mitglied einer Verfügbarkeitsgruppe ist, erstellt der Azure Resource Manager-Vorlagengenerator eine Azure Resource Manager-Vorlage mit Code, der die ID der Verfügbarkeitsgruppe angibt, zu der die VM gehört. Auf diese Weise wird die VM bei der Bereitstellung im neuen Abonnement automatisch der Verfügbarkeitsgruppe hinzugefügt. Diese angepassten Azure Resource Manager-Vorlagen werden im Ordner **Custom_ARM_Templates** innerhalb des Ordners **Standardized_ARM_Templates** gespeichert. Das Skript „post_processor.ps1“ bestimmt, ob eine Bereitstellung eine standardisierte oder eine angepasste Azure Resource Manager-Vorlage verwendet und generiert den entsprechenden Bereitstellungscode.
 
-Das Skript **post-process.ps1** bereinigt die Parameterdateien und erstellt die Skripts, mit denen der Benutzer die neuen Ressourcen bereitstellt. Während der Bereinigungsphase ersetzt das Skript alle Verweise auf die D, die Mandanten-ID und den Ort des Quellabonnements durch die entsprechenden Zielwerte. Anschließend gibt es die Parameterdatei in den Ordner **Parameter_Files** aus. Dann wird bestimmt, ob die verarbeitete Ressource eine angepasste Azure Resource Manager-Vorlage verwendet, und der entsprechende Bereitstellungscode wird generiert, wobei das Cmdlet **New-AzureRmResourceGroupDeployment** verwendet wird. Der Bereitstellungscode wird der Datei **DeployResources.ps1** im Ordner **Deployment_Files** hinzugefügt. Schließlich bestimmt das Skript die Ressourcengruppe, zu der die Ressource gehört, und überprüft das Skript **DeployResourceGroups.ps1**, um festzustellen, ob der Bereitstellungscode zum Bereitstellen der Ressourcengruppe bereits vorhanden ist. Ist dies nicht der Fall, fügt es dem betreffenden Skript Code zum Bereitstellen der Ressourcengruppe hinzu. Andernfalls wird kein Vorgang ausgeführt.
+Das Skript **post-process.ps1** bereinigt die Parameterdateien und erstellt die Skripts, mit denen der Benutzer die neuen Ressourcen bereitstellt. Während der Bereinigungsphase ersetzt das Skript alle Verweise auf die D, die Mandanten-ID und den Ort des Quellabonnements durch die entsprechenden Zielwerte. Anschließend gibt es die Parameterdatei in den Ordner **Parameter_Files** aus. Dann wird im Skript ermittelt, ob die verarbeitete Ressource eine angepasste Azure Resource Manager-Vorlage verwendet, und der entsprechende Bereitstellungscode wird generiert, wobei das Cmdlet **New-AzResourceGroupDeployment** verwendet wird. Der Bereitstellungscode wird der Datei **DeployResources.ps1** im Ordner **Deployment_Files** hinzugefügt. Schließlich bestimmt das Skript die Ressourcengruppe, zu der die Ressource gehört, und überprüft das Skript **DeployResourceGroups.ps1**, um festzustellen, ob der Bereitstellungscode zum Bereitstellen der Ressourcengruppe bereits vorhanden ist. Ist dies nicht der Fall, fügt es dem betreffenden Skript Code zum Bereitstellen der Ressourcengruppe hinzu. Andernfalls wird kein Vorgang ausgeführt.
 
 ### <a name="dynamic-api-retrieval"></a>Dynamischer API-Abruf
 
@@ -68,7 +68,7 @@ Möglicherweise ist jedoch die Ressourcenanbieter-API-Version des Zielabonnement
 
 ### <a name="parallel-deployments"></a>Parallele Bereitstellungen
 
-Das Tool erfordert einen Parameter namens **parallel**. Dieser Parameter nimmt einen booleschen Wert an, der angibt, ob die abgerufenen Ressourcen parallel bereitgestellt werden sollen oder nicht. Wenn der Wert auf **true** festgelegt ist, weist jeder Aufruf von **New-AzureRmResourceGroupDeployment** das Flag **-asJob** auf, und Codeblöcke zum Abwarten der Fertigstellung von Parallelaufträgen werden je nach Ressourcentypen zwischen Gruppen von Ressourcenbereitstellungen hinzugefügt. Dadurch wird sichergestellt, dass alle Ressourcen eines Typs bereitgestellt wurden, bevor der nächste Ressourcentyp bereitgestellt wird. Wenn der Wert des Parameters **parallel** auf **false** festgelegt ist, werden sämtliche Ressourcen nacheinander bereitgestellt.
+Das Tool erfordert einen Parameter namens **parallel**. Dieser Parameter nimmt einen booleschen Wert an, der angibt, ob die abgerufenen Ressourcen parallel bereitgestellt werden sollen oder nicht. Wenn der Wert auf **true** festgelegt ist, weist jeder Aufruf von **New-AzResourceGroupDeployment** das Flag **-asJob** auf, und Codeblöcke zum Abwarten der Fertigstellung von Parallelaufträgen werden je nach Ressourcentypen zwischen Gruppen von Ressourcenbereitstellungen hinzugefügt. Dadurch wird sichergestellt, dass alle Ressourcen eines Typs bereitgestellt wurden, bevor der nächste Ressourcentyp bereitgestellt wird. Wenn der Wert des Parameters **parallel** auf **false** festgelegt ist, werden sämtliche Ressourcen nacheinander bereitgestellt.
 
 ## <a name="add-additional-resource-types"></a>Hinzufügen zusätzlicher Ressourcentypen
 

@@ -3,17 +3,17 @@ title: Voraussetzungen für das Bereitstellen von Azure App Service in Azure Sta
 description: Es werden die vorbereitenden Schritte beschrieben, die ausgeführt werden müssen, bevor Sie Azure App Service unter Azure Stack Hub bereitstellen können.
 author: BryanLa
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 10/28/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 04/13/2019
+ms.lastreviewed: 10/28/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: d750c52eb60ecea29e4b850dce23e25705cd1383
-ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
+ms.openlocfilehash: b9281e6d29dc83ba7d26df2135ca70e725bed690
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92297905"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544011"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Voraussetzungen für das Bereitstellen von App Service unter Azure Stack Hub
 
@@ -46,7 +46,7 @@ In diesem Abschnitt werden die Voraussetzungen für Bereitstellungen von integri
 <!-- MultiNode Only --->
 ## <a name="certificates-and-server-configuration-integrated-systems"></a>Zertifikate und Serverkonfiguration (integrierte Systeme)
 
-In diesem Abschnitt werden die Voraussetzungen für integrierte Systembereitstellungen aufgeführt. 
+In diesem Abschnitt werden die Voraussetzungen für integrierte Systembereitstellungen aufgeführt.
 
 ### <a name="certificate-requirements"></a>Zertifikatanforderungen
 
@@ -149,7 +149,7 @@ Eine [Referenzarchitektur-Schnellstartvorlage](https://github.com/Azure/AzureSta
 ##### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Bereitstellen von Gruppen und Konten in einer Arbeitsgruppe
 
 >[!NOTE]
-> Wenn Sie einen Dateiserver konfigurieren, führen Sie die folgenden Befehle an einer **Administratoreingabeaufforderung** aus. <br>***Verwenden Sie nicht PowerShell.***
+> Wenn Sie einen Dateiserver konfigurieren, führen Sie die folgenden Befehle an einer **Administratoreingabeaufforderung** aus. <br>**_Verwenden Sie nicht PowerShell._* _
 
 Wenn Sie die Azure Resource Manager-Vorlage verwenden, wurden die Benutzer bereits erstellt.
 
@@ -206,7 +206,7 @@ icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareOwners:(OI)(CI)(M)
 icacls %WEBSITES_FOLDER% /inheritance:r
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareUsers:(CI)(S,X,RA)
-icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
+icacls %WEBSITES_FOLDER% /grant _S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
 #### <a name="workgroup"></a>Arbeitsgruppe
@@ -377,7 +377,7 @@ Führen Sie die folgenden Schritte aus, um den Dienstprinzipal in Ihrem Azure AD
 
 1. Öffnen Sie eine PowerShell-Instanz als „azurestack\AzureStackAdmin“.
 1. Wechseln Sie zum Speicherort der Skripts, die im [Vorbereitungsschritt](azure-stack-app-service-before-you-get-started.md) heruntergeladen und extrahiert wurden.
-1. [Installieren von PowerShell für Azure Stack Hub](azure-stack-powershell-install.md)
+1. [Installieren von PowerShell für Azure Stack Hub](powershell-install-az-module.md)
 1. Führen Sie das Skript **Create-AADIdentityApp.ps1** aus. Geben Sie bei entsprechender Aufforderung die Azure AD-Mandanten-ID ein, die Sie für Ihre Azure Stack Hub-Bereitstellung verwenden. Geben Sie beispielsweise **myazurestack.onmicrosoft.com** ein.
 1. Geben Sie im Fenster **Anmeldeinformationen** das Administratorkonto und -kennwort Ihres Azure AD-Diensts ein. Klicken Sie auf **OK**.
 1. Geben Sie den Zertifikatdateipfad und das Zertifikatkennwort für das [zuvor erstellte Zertifikat](azure-stack-app-service-before-you-get-started.md) ein. Das für diesen Schritt standardmäßig erstellte Zertifikat lautet **sso.appservice.local.azurestack.external.pfx**.
@@ -409,7 +409,7 @@ Führen Sie die folgenden Schritte aus, um den Dienstprinzipal in Ihrem Azure AD
 
 1. Öffnen Sie eine PowerShell-Instanz als „azurestack\AzureStackAdmin“.
 1. Wechseln Sie zum Speicherort der Skripts, die im [Vorbereitungsschritt](azure-stack-app-service-before-you-get-started.md) heruntergeladen und extrahiert wurden.
-1. [Installieren von PowerShell für Azure Stack Hub](azure-stack-powershell-install.md)
+1. [Installieren von PowerShell für Azure Stack Hub](powershell-install-az-module.md)
 1. Führen Sie das Skript **Create-ADFSIdentityApp.ps1** aus.
 1. Geben Sie im Fenster **Anmeldeinformationen** das Administratorkonto und -kennwort Ihrer AD FS-Cloud ein. Klicken Sie auf **OK**.
 1. Geben Sie den Zertifikatdateipfad und das Zertifikatkennwort für das [zuvor erstellte Zertifikat](azure-stack-app-service-before-you-get-started.md) ein. Das für diesen Schritt standardmäßig erstellte Zertifikat lautet **sso.appservice.local.azurestack.external.pfx**.

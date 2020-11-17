@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.lastreviewed: 12/31/2019
-ms.openlocfilehash: 511ea66e0f70041ffc237463e33fccdbf390360d
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 4aec8b6dde194590d0bc5cb00f42869462fc365e
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183430"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383546"
 ---
 # <a name="modular-data-center-mdc-network-introduction"></a>Einführung in MDC-Netzwerke (Modular Data Center)
 
@@ -109,7 +109,7 @@ Es gibt zwei Netzwerke der Größe /25: eines auf dem ToR-Switch und eines der G
 
 ## <a name="dns-design-overview"></a>DNS-Entwurfsübersicht
 
-Für den Zugriff auf MDC-Endpunkte ( *portal* ,  *adminportal* ,  *management* , *adminmanagement* ) von außerhalb des MDC müssen Sie die MDC-DNS-Dienste in die DNS-Server integrieren, die die in MDC zu verwendenden DNS-Zonen hosten.
+Für den Zugriff auf MDC-Endpunkte (*portal*, *adminportal*, *management*, *adminmanagement*) von außerhalb des MDC müssen Sie die MDC-DNS-Dienste in die DNS-Server integrieren, die die in MDC zu verwendenden DNS-Zonen hosten.
 
 ### <a name="mdc-dns-namespace"></a>MDC-DNS-Namespace
 
@@ -120,15 +120,15 @@ Sie müssen einige wichtige Informationen zum DNS angeben, wenn Sie ein MDC bere
 | Region | Der geografische Standort Ihrer MDC-Bereitstellung. | *east* |
 | Externer Domänenname | Der Name der Zone, die Sie für Ihre MDC-Bereitstellung verwenden möchten. | *cloud.fabrikam.com* |
 | Interner Domänenname | Der Name der internen Zone, die für die Infrastrukturdienste im MDC verwendet wird. Sie ist im Verzeichnisdienst integriert und privat (nicht von außerhalb der MDC-Bereitstellung erreichbar). | *azurestack.local* |
-| DNS-Weiterleitungen | DNS-Server für die Weiterleitung von DNS-Abfragen, DNS-Zonen und -Einträge, die außerhalb des MDC gehostet werden, entweder im Unternehmensintranet oder im öffentlichen Internet. Sie können den Wert für die DNS-Weiterleitung nach der Bereitstellung mit dem Cmdlet  **Set-AzSDnsForwarder** bearbeiten. | |
-| Namenspräfix (optional) | Das Namenspräfix für die Computernamen der Rolleninstanz Ihrer MDC-Infrastruktur. Wenn dieses nicht angegeben wird, lautet der Standardwert *azs* . | *azs* |
+| DNS-Weiterleitungen | DNS-Server für die Weiterleitung von DNS-Abfragen, DNS-Zonen und -Einträge, die außerhalb des MDC gehostet werden, entweder im Unternehmensintranet oder im öffentlichen Internet. Sie können den Wert für die DNS-Weiterleitung nach der Bereitstellung mit dem **Set-AzSDnsForwarder**-Cmdlet bearbeiten. | |
+| Namenspräfix (optional) | Das Namenspräfix für die Computernamen der Rolleninstanz Ihrer MDC-Infrastruktur. Wenn dieses nicht angegeben ist, lautet der Standardwert *azs*. | *azs* |
 
-Der vollqualifizierte Domänenname (fully qualified domain name, FQDN) Ihrer MDC-Bereitstellung und -Endpunkte ist die Kombination aus den Parametern für die Region und den externen Domänennamen. Wenn die Werte aus den Beispielen der vorherigen Tabelle verwendet werden, lautet der vollqualifizierte Domänenname für diese MDC-Bereitstellung *east.cloud.fabrikam.com* .
+Der vollqualifizierte Domänenname (fully qualified domain name, FQDN) Ihrer MDC-Bereitstellung und -Endpunkte ist die Kombination aus den Parametern für die Region und den externen Domänennamen. Wenn die Werte aus den Beispielen der vorherigen Tabelle verwendet werden, lautet der vollqualifizierte Domänenname für diese MDC-Bereitstellung *east.cloud.fabrikam.com*.
 
 Beispiele für einige Endpunkte dieser Bereitstellung würden wie folgende URLs aussehen:
 
-- https://portal.east.cloud.fabrikam.com
-- https://adminportal.east.cloud.fabrikam.com
+- `https://portal.east.cloud.fabrikam.com`
+- `https://adminportal.east.cloud.fabrikam.com`
 
 Folgende Bedingungen müssen erfüllt sein, um diesen DNS-Beispielnamespace für eine MDC-Bereitstellung zu verwenden:
 
@@ -142,9 +142,9 @@ Um DNS-Namen für MDC-Endpunkte und -Instanzen von außerhalb des MDC aufzulöse
 
 #### <a name="dns-name-labels"></a>DNS-Namensbezeichnungen
 
-MDCs unterstützen das Hinzufügen einer DNS-Namensbezeichnung zu einer öffentlichen IP-Adresse, um eine Namensauflösung für öffentliche IP-Adressen zu ermöglichen. Benutzer können DNS-Bezeichnungen als bequeme Möglichkeit nutzen, um im MDC gehostete Apps und Dienste anhand des Namens zu erreichen. Die DNS-Namensbezeichnung verwendet einen etwas anderen Namespace als die Infrastrukturendpunkte. Gemäß dem vorherigen Beispiel-Namespace lautet der Namespace für DNS-Namensbezeichnungen *\*.east.cloudapp.cloud.fabrikam.com* . 
+MDCs unterstützen das Hinzufügen einer DNS-Namensbezeichnung zu einer öffentlichen IP-Adresse, um eine Namensauflösung für öffentliche IP-Adressen zu ermöglichen. Benutzer können DNS-Bezeichnungen als bequeme Möglichkeit nutzen, um im MDC gehostete Apps und Dienste anhand des Namens zu erreichen. Die DNS-Namensbezeichnung verwendet einen etwas anderen Namespace als die Infrastrukturendpunkte. Gemäß dem vorherigen Beispiel-Namespace lautet der Namespace für DNS-Namensbezeichnungen *\*.east.cloudapp.cloud.fabrikam.com*. 
 
-Wenn ein Mandant den Wert  **MyApp** im Feld für die DNS-Namensbezeichnung einer Ressource mit öffentlicher IP-Adresse angibt, wird auf dem externen DNS-Server des MDC ein A-Datensatz für myapp in der Zone  **east.cloudapp.cloud.fabrikam.com** erstellt. Der resultierende vollqualifizierte Domänenname lautet *myapp.east.cloudapp.cloud.fabrikam.com* . 
+Wenn ein Mandant den Wert **MyApp** im Feld für die DNS-Namensbezeichnung einer Ressource mit öffentlicher IP-Adresse angibt, wird auf dem externen DNS-Server des MDC ein A-Datensatz für „myapp“ in der Zone **east.cloudapp.cloud.fabrikam.com** erstellt. Der resultierende vollqualifizierte Domänenname lautet *myapp.east.cloudapp.cloud.fabrikam.com*. 
 
 Wenn Sie diese Funktion und diesen Namespace verwenden möchten, müssen Sie die DNS-Server integrieren. Dies schließt auch die Server ein, die die externe DNS-Zone für das MDC hosten, sowie die DNS-Server, die die zu verwendende übergeordnete Zone hosten. Dies ist ein anderer Namespace als der für die MDC-Dienstendpunkte verwendete Namespace. Daher müssen Sie eine zusätzliche Delegierung oder Regel für bedingte Weiterleitung erstellen.
 
@@ -162,7 +162,7 @@ Das MDC enthält autoritative und rekursive DNS-Server. Die rekursiven Server di
 
 ### <a name="resolving-external-dns-names-from-mdc"></a>Auflösen von externen DNS-Namen vom MDC
 
-Zum Auflösen von DNS-Namen für Endpunkte außerhalb des MDC (z. B. www.bing.com) müssen Sie dem MDC DNS-Server für die Weiterleitung von DNS-Anforderungen bereitstellen, für die das MDC nicht autoritativ ist. DNS-Server, an die das MDC Anforderungen weiterleitet, sind im Bereitstellungsarbeitsblatt erforderlich (im Feld „DNS-Weiterleitung“). Geben Sie für die Fehlertoleranz mindestens zwei Server in diesem Feld an. Ohne diese Werte führt die MDC-Bereitstellung zu einem Fehler. Sie können die Werte für die DNS-Weiterleitung nach der Bereitstellung mit dem Cmdlet  **Set-AzSDnsForwarder** bearbeiten.
+Zum Auflösen von DNS-Namen für Endpunkte außerhalb des MDC (z. B. www.bing.com) müssen Sie dem MDC DNS-Server für die Weiterleitung von DNS-Anforderungen bereitstellen, für die das MDC nicht autoritativ ist. DNS-Server, an die das MDC Anforderungen weiterleitet, sind im Bereitstellungsarbeitsblatt erforderlich (im Feld „DNS-Weiterleitung“). Geben Sie für die Fehlertoleranz mindestens zwei Server in diesem Feld an. Ohne diese Werte führt die MDC-Bereitstellung zu einem Fehler. Sie können die Werte für die DNS-Weiterleitung nach der Bereitstellung mit dem **Set-AzSDnsForwarder**-Cmdlet bearbeiten.
 
 ## <a name="firewall-design-overview"></a>Übersicht über den Firewallentwurf
 
@@ -194,7 +194,7 @@ Zurzeit wird empfohlen, das Abfangen von SSL (z. B. Entschlüsselungsabladung) 
 
 MDCs werden in einer Edgebereitstellung direkt hinter dem Edgerouter oder der Firewall bereitgestellt. In diesen Szenarien darf die Firewall über der Grenze liegen (Szenario 1) und Firewallkonfigurationen der Typen Aktiv/Aktiv und Aktiv/Passiv unterstützen. Sie kann auch als Grenzgerät fungieren (Szenario 2). In diesem Fall werden nur Firewallkonfigurationen vom Typ Aktiv/Aktiv unterstützt. Für Szenario 2 ist ECMP (Equal-Cost Multi Path) mit BGP oder statischem Routing für das Failover erforderlich.
 
-Öffentliche routingfähige IP-Adressen werden für den öffentlichen VIP-Pool aus dem externen Netzwerk zur Bereitstellungszeit angegeben. Aus Sicherheitsgründen wird in einem Edgeszenario davon **abgeraten** , öffentliche routingfähige IP-Adressen in anderen Netzwerken zu verwenden. Dadurch erhalten Benutzer eine vollständig selbstgesteuerte Cloudumgebung – genau wie bei einer öffentlichen Cloud (z.B. Azure).
+Öffentliche routingfähige IP-Adressen werden für den öffentlichen VIP-Pool aus dem externen Netzwerk zur Bereitstellungszeit angegeben. Aus Sicherheitsgründen wird in einem Edgeszenario davon **abgeraten**, öffentliche routingfähige IP-Adressen in anderen Netzwerken zu verwenden. Dadurch erhalten Benutzer eine vollständig selbstgesteuerte Cloudumgebung – genau wie bei einer öffentlichen Cloud (z.B. Azure).
 
  ![MDC-Szenario mit Edgefirewall](media/network-introduction/edge-firewall-scenario-60.png) 
 
@@ -202,7 +202,7 @@ MDCs werden in einer Edgebereitstellung direkt hinter dem Edgerouter oder der Fi
 
 Bei einer Bereitstellung im Intranet oder Umkreisnetzwerk eines Unternehmens wird das MDC in einer Firewall mit mehreren Zonen oder zwischen der Edgefirewall und der internen Firewall des Unternehmensnetzwerks bereitgestellt. Dann wird wie im Folgenden beschrieben der Datenverkehr zwischen dem sicheren Umkreisnetzwerk (oder der DMZ) und unsicheren Zonen verteilt:
 
-- **Sichere Zone** : Dies ist das interne Netzwerk, das interne oder routingfähige Unternehmens-IP-Adressen verwendet. Das sichere Netzwerk kann unterteilt werden. Es kann über die Netzwerkadressenübersetzung der Firewall ausgehenden Zugriff auf das Internet haben. Normalerweise ist der Zugriff über das interne Netzwerk innerhalb Ihres Rechenzentrums möglich. Alle MDC-Netzwerke sollten sich in der sicheren Zone befinden, mit Ausnahme des öffentlichen VIP-Pools im externen Netzwerk.
+- **Sichere Zone**: Dies ist das interne Netzwerk, das interne oder routingfähige Unternehmens-IP-Adressen verwendet. Das sichere Netzwerk kann unterteilt werden. Es kann über die Netzwerkadressenübersetzung der Firewall ausgehenden Zugriff auf das Internet haben. Normalerweise ist der Zugriff über das interne Netzwerk innerhalb Ihres Rechenzentrums möglich. Alle MDC-Netzwerke sollten sich in der sicheren Zone befinden, mit Ausnahme des öffentlichen VIP-Pools im externen Netzwerk.
 - **Umkreiszone:** Das Umkreisnetzwerk wird dort eingesetzt, wo in der Regel externe oder Internet-Apps, wie z. B. Webserver, bereitgestellt werden. Es wird normalerweise durch eine Firewall überwacht, um Angriffe wie DDoS-Angriffe und Eindringversuche (Hacken) zu verhindern, während gleichzeitig angegebener eingehender Datenverkehr aus dem Internet zugelassen wird. In der DMZ-Zone sollte sich nur der öffentliche VIP-Pool des externen Netzwerks des MDC befinden. 
 - **Unsichere Zone:** Dies ist das externe Netzwerk, das Internet. Das Bereitstellen von MDCs in der unsicheren Zone wird **nicht** empfohlen.
 
@@ -235,8 +235,8 @@ Wenn Sie das Gateway des virtuellen Netzwerks für eine VPN-Gatewaykonfiguration
 >[!IMPORTANT]
 > Derzeit unterstützen MDCs nur den routenbasierten VPN-Typ. Wenn Ihr Gerät nur richtlinienbasierte VPNs unterstützt, werden Verbindungen mit diesen Geräten vom MDC nicht unterstützt. Darüber hinaus unterstützen MDCs derzeit nicht die Verwendung von richtlinienbasierten Datenverkehrsselektoren für routenbasierte Gateways, da benutzerdefinierte IPsec-/IKE-Richtlinienkonfigurationen noch nicht unterstützt werden. 
 
-- **PolicyBased** : Richtlinienbasierte VPNs verschlüsseln die Pakete und leiten sie über IPsec-Tunnel gemäß den IPsec-Richtlinien weiter. Die Richtlinien werden mit den Kombinationen aus Adresspräfixen zwischen Ihrem lokalen Netzwerk und dem MDC-VNET konfiguriert. Die Richtlinie (auch Datenverkehrsselektor genannt) ist in der Regel eine Zugriffsliste in der VPN-Gerätekonfiguration. **PolicyBased** wird in Azure, aber nicht in MDCs unterstützt. 
-- **RouteBased** : Routenbasierte VPNs verwenden Routen, die in der IP-Weiterleitungs- oder Routingtabelle konfiguriert sind. Über die Routen werden die Pakete an die entsprechenden Tunnelschnittstellen weitergeleitet. An den Tunnelschnittstellen werden die Pakete dann ver- bzw. entschlüsselt. Die Richtlinie (bzw. der Datenverkehrsselektor) für  **routenbasierte** VPNs wird im Any-to-Any-Format (bzw. mithilfe von Platzhaltern) konfiguriert. Sie können standardmäßig nicht geändert werden. Der Wert für einen **routenbasierten** VPN-Typ ist **RouteBased** .
+- **PolicyBased**: Richtlinienbasierte VPNs verschlüsseln die Pakete und leiten sie über IPsec-Tunnel gemäß den IPsec-Richtlinien weiter. Die Richtlinien werden mit den Kombinationen aus Adresspräfixen zwischen Ihrem lokalen Netzwerk und dem MDC-VNET konfiguriert. Die Richtlinie (auch Datenverkehrsselektor genannt) ist in der Regel eine Zugriffsliste in der VPN-Gerätekonfiguration. **PolicyBased** wird in Azure, aber nicht in MDCs unterstützt. 
+- **RouteBased**: Routenbasierte VPNs verwenden Routen, die in der IP-Weiterleitungs- oder Routingtabelle konfiguriert sind. Über die Routen werden die Pakete an die entsprechenden Tunnelschnittstellen weitergeleitet. An den Tunnelschnittstellen werden die Pakete dann ver- bzw. entschlüsselt. Die Richtlinie (bzw. der Datenverkehrsselektor) für **routenbasierte** VPNs wird im Any-to-Any-Format (bzw. unter Verwendung von Platzhaltern) konfiguriert. Sie können standardmäßig nicht geändert werden. Der Wert für einen **RouteBased**-VPN-Typ lautet **RouteBased**.
 
 ### <a name="configuring-a-vpn-gateway"></a>Konfigurieren eines VPN-Gateways
 

@@ -3,15 +3,15 @@ title: Planen von Hostnetzwerken für Azure Stack HCI
 description: Erfahren Sie, wie Sie Hostnetzwerke für Azure Stack HCI-Cluster planen.
 author: v-dasis
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 11/09/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 46f98ba8f5d2f33e0b5d9d85ee9c2469a098c17d
-ms.sourcegitcommit: d835e211fe65dc54a0d49dfb21ca2465ced42aa4
+ms.openlocfilehash: b6cfbfcff408483d7086c311dff41fdab59c9524
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200483"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414060"
 ---
 # <a name="plan-host-networking-for-azure-stack-hci"></a>Planen von Hostnetzwerken für Azure Stack HCI
 
@@ -19,75 +19,12 @@ ms.locfileid: "92200483"
 
 In diesem Thema werden Überlegungen und Anforderungen erläutert, die bei der Hostnetzwerk-Planung in nicht gestreckten und gestreckten Azure Stack HCI-Clusterumgebungen eine Rolle spielen.
 
-## <a name="traffic-types-supported"></a>Unterstützte Datenverkehrstypen
-
-Azure Stack HCI verwendet den Server Message Block (SMB). SMB in Azure Stack HCI unterstützt die folgenden Datenverkehrstypen:
-
-- SBL (Storage Bus Layer) – wird von „Direkte Speicherplätze“ verwendet; Datenverkehr mit höchster Priorität
-- Freigegebene Clustervolumes (Cluster Shared Volumes, CSV)
-- Livemigration (LM)
-- Speicherreplikat (SR) – wird in Stretched Clusters verwendet
-- Dateifreigaben (File Shares, FS) – herkömmliche Dateifreigaben und Dateiserver mit horizontaler Skalierung (Scale-Out File Server, SOFS)
-- Clustertakt (Heartbeat, HB)
-- Clusterkommunikation (Knotenbeitritte, Clusterupdates, Registrierungsupdates)
-
-SMB-Datenverkehr kann über die folgenden Protokolle übertragen werden:
-
-- Transmission Control Protocol (TCP) – wird zwischen Standorten verwendet
-- Remotezugriff auf den direkten Speicher (Remote Direct Memory Access, RDMA)
-
-## <a name="traffic-bandwidth-allocation"></a>Bandbreitenzuordnung für Datenverkehr
-
-In der folgenden Tabelle sind die Bandbreitenzuordnungen für verschiedene Datenverkehrstypen aufgeführt:
-
-- Alle Einheiten sind Gbit/s.
-- Werte gelten sowohl für gestreckte als auch für nicht gestreckte Cluster.
-- SMB-Datenverkehr erhält 50 % der gesamten Bandbreitenzuordnung.
-- Der SBL/CSV-Datenverkehr erhält 70 % der restlichen 50 %-Zuordnung.
-- Der Livemigration-Datenverkehr (LM) erhält 15 % der restlichen 50 %-Zuordnung.
-- Der Speicherreplikat-Datenverkehr (SR) erhält 14 % der restlichen 50 %-Zuordnung.
-- Der Heartbeat-Datenverkehr (HR) erhält 1 % der restlichen 50 %-Zuordnung.
-- *= sollte Komprimierung anstelle von RDMA verwenden, wenn die Bandbreitenzuordnung für LM-Datenverkehr < 5 Gbit/s beträgt
-
-|NIC-Geschwindigkeit|Kombinierte Bandbreite|SMB 50 % Reservierung|SBL/CSV %|SBL/CSV Bandbreite|LM %|LM Bandbreite|SR % |SR Bandbreite|HB %|HB Bandbreite|
-|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-|10|20|10|70%|7|14 %*|1,4*|14 %|1.4|2 %|0.2|
-|25|50|25|70%|17,5|15 %*|3,75*|14 %|3,5|1%|0,25|
-|40|80| 40|70%|28|15 %|6|14 %|5.6|1%|0.4|
-|50|100|50|70%|35|15 %|7,5|14 %|7|1%|0.5|
-|100|200|100|70%|70|15 %|15|14 %|14|1%|1|
-|200|400|200|70%|140|15 %|30|14 %|28|1%|2|
-
-## <a name="rdma-considerations"></a>Überlegungen zu RDMA
-
-Der direkte Remotespeicherzugriff (Remote Direct Memory Access, RDMA) ist ein direkter Speicherzugriff aus dem Arbeitsspeicher eines Computers auf den eines anderen, ohne das Betriebssystem eines der Computer einzubeziehen. Dies ermöglicht Netzwerkbetrieb mit hohem Durchsatz und geringer Latenz und minimiert gleichzeitig die CPU-Auslastung, was in Clustern besonders nützlich ist.
-
-Der gesamte Host-RDMA-Datenverkehr nutzt SMB Direct. SMB Direct ist über RDMA gesendeter SMB 3.0-Datenverkehr und wird im Multiplexverfahren über Port 445 gesendet. Es müssen mindestens zwei für die prioritätsbasierte Flusssteuerung (Priority-based Flow Control, PFC) geeignete Datenverkehrsklassen (Traffic Classes, TCs) für RDMA-Datenverkehr verwendet werden, um die Kompatibilität mit der Mehrzahl der aktuellen und zukünftigen physischen Switches auf dem Markt beizubehalten.
-
-Das Internet Wide Area RDMA Protocol (iWARP) führt RDMA über TCP aus, während RDMA over Converged Ethernet (RoCE) die Verwendung von TCP vermeidet, aber sowohl NICs als auch physische Switches erfordert, die dies unterstützen. Informationen zu Converged Network-Anforderungen für RDMA über RoCE finden Sie im [RDMA-Bereitstellungshandbuch für Windows Server 2016 und 2019 ](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx).
-
-RDMA ist standardmäßig für den gesamten Ost/West-Datenverkehr zwischen Clusterknoten an einem Standort im gleichen Subnetz aktiviert. RDMA ist deaktiviert und wird für den Nord/Süd-Stretched Cluster-Datenverkehr zwischen Standorten in verschiedenen Subnetzen nicht unterstützt.
-
-Die Anforderungen für RDMA für Azure Stack HCI lauten:
-
-- Für den gesamten Datenverkehr zwischen Subnetzen und Orten (Stretched Clusters) muss Winsock TCP verwendet werden. Alle dazwischen liegenden Netzwerkhops liegen außerhalb der Sicht und Kontrolle von Azure Stack HCI.
-- RDMA zwischen Subnetzen und Standorten (Stretched Clusters) wird nicht unterstützt. Dies könnte aufgrund der Verwendung von Uplinks und mehreren Netzwerkgeräten an mehreren Fehlerpunkten instabil und nicht unterstützbar werden.
-- Für den Speicherreplikat-Datenverkehr für Stretched Clusters werden keine zusätzlichen virtuellen NICs benötigt. Allerdings kann es für die Problembehandlung hilfreich sein, den standort- und subnetzübergreifenden Datenverkehr vom Ost-West-RDMA-Datenverkehr getrennt zu halten. Wenn SMB Direct nicht nativ pro Flow standort- oder subnetzübergreifend deaktiviert werden kann, gehen Sie wie folgt vor:
-    - Mindestens eine zusätzliche vNIC sollte für das Speicherreplikat bereitgestellt werden
-    - Für Speicherreplikat-vNICs muss RDMA mithilfe des PowerShell-Cmdlets [Disable-NetAdapterRDMA](https://docs.microsoft.com/powershell/module/netadapter/disable-netadapterrdma) deaktiviert werden, da RDMA definitionsgemäß standort- und subnetzübergreifend ist
-    - Native RDMA-Adapter benötigen einen vSitch und vNICs zur Unterstützung des Speicherreplikats, um die oben genannten Anforderungen an Standort/Subnetz zu erfüllen
-    - Für die standortinternen RDMA-Bandbreitenanforderungen müssen die Bandbreiten-Prozentsätze pro Datenverkehrstyp wie im Abschnitt **Bandbreitenzuordnung für Datenverkehr** beschrieben bekannt sein. Dadurch wird sichergestellt, dass die entsprechenden Bandbreitenreservierungen und -begrenzungen auf den Ost/West-Datenverkehr (Knoten zu Knoten) angewendet werden können.
-- Für Livemigrations- und Speicherreplikat-Datenverkehr muss die SMB-Bandbreite begrenzt werden, denn andernfalls könnten sie die gesamte Bandbreite auf Kosten von Speicherdatenverkehr mit hoher Priorität beanspruchen. Weitere Informationen finden Sie in den Artikeln zu den PowerShell-Cmdlets [Set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) und [Set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint).
-
-> [!NOTE]
-> Wenn Sie das `Set-SmbBandwidthLimit`-Cmdlet verwenden, müssen Sie Bits in Bytes konvertieren.
-
 ## <a name="node-interconnect-requirements"></a>Anforderungen an Verbindungen zwischen Knoten
 
-In diesem Abschnitt werden spezifische Netzwerkanforderungen für Verbindungen zwischen Serverknoten an einem Standort beschrieben. Knotenverbindungen mit oder ohne Switches können verwendet werden und werden unterstützt:
+In diesem Abschnitt sind bestimmte Netzwerkanforderungen beschrieben, die zwischen Servern an einem Standort erfüllt sein müssen und als Verbindungen bezeichnet werden. Knotenverbindungen mit oder ohne Switches können verwendet werden und werden unterstützt:
 
-- **Mit Switches** : Serverknoten sind in der Regel über Ethernet-Netzwerke miteinander verbunden, die Netzwerkswitches verwenden. Die Switches müssen ordnungsgemäß konfiguriert sein, um die Bandbreite und den Netzwerktyp richtig zu verarbeiten. Wenn Sie das RDMA-Feature (Remote Direct Memory Access, Remotezugriff auf den direkten Speicher) verwenden, das das RoCE-Protokoll implementiert, ist die richtige Konfiguration von Netzwerkgerät und Switch von besonderer Bedeutung.
-- **Ohne Switches** : Serverknoten können auch über direkte Ethernet-Verbindungen ohne Switch miteinander verbunden werden. In diesem Fall muss jeder Serverknoten über eine direkte Verbindung mit jedem anderen Clusterknoten am selben Standort verfügen.
+- **Mit Switches**: Serverknoten sind in der Regel über Ethernet-Netzwerke miteinander verbunden, die Netzwerkswitches verwenden. Die Switches müssen ordnungsgemäß konfiguriert sein, um die Bandbreite und den Netzwerktyp richtig zu verarbeiten. Wenn Sie das RDMA-Feature (Remote Direct Memory Access, Remotezugriff auf den direkten Speicher) verwenden, das das RoCE-Protokoll implementiert, ist die richtige Konfiguration von Netzwerkgerät und Switch von besonderer Bedeutung.
+- **Ohne Switches**: Serverknoten können auch über direkte Ethernet-Verbindungen ohne Switch miteinander verbunden werden. In diesem Fall muss jeder Serverknoten über eine direkte Verbindung mit jedem anderen Clusterknoten am selben Standort verfügen.
 
 ### <a name="interconnects-for-2-3-node-clusters"></a>Verbindungen für Cluster mit zwei bis drei Knoten
 
@@ -113,6 +50,52 @@ Bei Verbindungen zwischen Standorten mit Stretchingclustern gelten weiterhin die
 - Ein Netzwerk zwischen den Standorten, das genügend Bandbreite für die Workloads von E/A-Schreibvorgängen sowie eine Roundtriplatenz von durchschnittlich 5 ms oder weniger für die synchrone Replikation bietet. Für die asynchrone Replikation gelten keine Empfehlungen in Bezug auf die Latenz.
 - Wenn Sie eine einzelne Verbindung zwischen Ihren Standorten verwenden, legen Sie über PowerShell SMB-Bandbreitenlimits für Speicherreplikate fest. Weitere Informationen finden Sie unter [Set-SmbBandwidthLimit](/powershell/module/smbshare/set-smbbandwidthlimit).
 - Wenn Sie mehrere Verbindungen zwischen Standorten verwenden, trennen Sie den Datenverkehr zwischen den Verbindungen. Leiten Sie beispielsweise über PowerShell den Datenverkehr für Speicherreplikate über ein anderes Netzwerk als den Datenverkehr für die Hyper-V-Livemigration. Weitere Informationen finden Sie unter [Set-SRNetworkConstraint](/powershell/module/storagereplica/set-srnetworkconstraint).
+
+## <a name="rdma-considerations"></a>Überlegungen zu RDMA
+
+Der direkte Remotespeicherzugriff (Remote Direct Memory Access, RDMA) ist ein direkter Speicherzugriff aus dem Arbeitsspeicher eines Computers auf den eines anderen, ohne das Betriebssystem eines der Computer einzubeziehen. Dies ermöglicht Netzwerkbetrieb mit hohem Durchsatz und geringer Latenz und minimiert gleichzeitig die CPU-Auslastung, was in Clustern besonders nützlich ist.
+
+Der gesamte Host-RDMA-Datenverkehr nutzt SMB Direct. SMB Direct ist über RDMA gesendeter SMB 3.0-Datenverkehr und wird im Multiplexverfahren über Port 445 gesendet. Es müssen mindestens zwei für die prioritätsbasierte Flusssteuerung (Priority-based Flow Control, PFC) geeignete Datenverkehrsklassen (Traffic Classes, TCs) für RDMA-Datenverkehr verwendet werden, um die Kompatibilität mit der Mehrzahl der aktuellen und zukünftigen physischen Switches auf dem Markt beizubehalten.
+
+Das Internet Wide Area RDMA Protocol (iWARP) führt RDMA über TCP aus, während RDMA over Converged Ethernet (RoCE) die Verwendung von TCP vermeidet, aber sowohl NICs als auch physische Switches erfordert, die dies unterstützen. Informationen zu Converged Network-Anforderungen für RDMA über RoCE finden Sie im [RDMA-Bereitstellungshandbuch für Windows Server 2016 und 2019 ](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx).
+
+RDMA ist standardmäßig für den gesamten Ost/West-Datenverkehr zwischen Clusterknoten an einem Standort im gleichen Subnetz aktiviert. RDMA ist deaktiviert und wird für den Nord/Süd-Stretched Cluster-Datenverkehr zwischen Standorten in verschiedenen Subnetzen nicht unterstützt.
+
+Die Anforderungen für RDMA für Azure Stack HCI lauten:
+
+- Für den gesamten Datenverkehr zwischen Subnetzen und Orten (Stretched Clusters) muss Winsock TCP verwendet werden. Alle dazwischen liegenden Netzwerkhops liegen außerhalb der Sicht und Kontrolle von Azure Stack HCI.
+- RDMA zwischen Subnetzen und Standorten (Stretched Clusters) wird nicht unterstützt. Dies könnte aufgrund der Verwendung von Uplinks und mehreren Netzwerkgeräten an mehreren Fehlerpunkten instabil und nicht unterstützbar werden.
+- Für den Speicherreplikat-Datenverkehr für Stretched Clusters werden keine zusätzlichen virtuellen NICs benötigt. Allerdings kann es für die Problembehandlung hilfreich sein, den standort- und subnetzübergreifenden Datenverkehr vom Ost-West-RDMA-Datenverkehr getrennt zu halten. Wenn SMB Direct nicht nativ pro Flow standort- oder subnetzübergreifend deaktiviert werden kann, gehen Sie wie folgt vor:
+    - Mindestens eine zusätzliche vNIC sollte für das Speicherreplikat bereitgestellt werden
+    - Für Speicherreplikat-vNICs muss RDMA mithilfe des PowerShell-Cmdlets [Disable-NetAdapterRDMA](https://docs.microsoft.com/powershell/module/netadapter/disable-netadapterrdma) deaktiviert werden, da RDMA definitionsgemäß standort- und subnetzübergreifend ist
+    - Native RDMA-Adapter benötigen einen vSitch und vNICs zur Unterstützung des Speicherreplikats, um die oben genannten Anforderungen an Standort/Subnetz zu erfüllen
+    - Für die standortinternen RDMA-Bandbreitenanforderungen müssen die Bandbreiten-Prozentsätze pro Datenverkehrstyp wie im Abschnitt **Bandbreitenzuordnung für Datenverkehr** beschrieben bekannt sein. Dadurch wird sichergestellt, dass die entsprechenden Bandbreitenreservierungen und -begrenzungen auf den Ost/West-Datenverkehr (Knoten zu Knoten) angewendet werden können.
+- Für Livemigrations- und Speicherreplikat-Datenverkehr muss die SMB-Bandbreite begrenzt werden, denn andernfalls könnten sie die gesamte Bandbreite auf Kosten von Speicherdatenverkehr mit hoher Priorität beanspruchen. Weitere Informationen finden Sie in den Artikeln zu den PowerShell-Cmdlets [Set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) und [Set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint).
+
+> [!NOTE]
+> Wenn Sie das `Set-SmbBandwidthLimit`-Cmdlet verwenden, müssen Sie Bits in Bytes konvertieren.
+
+## <a name="traffic-bandwidth-allocation"></a>Bandbreitenzuordnung für Datenverkehr
+
+In der folgenden Tabelle sind die Bandbreitenzuordnungen für verschiedene Datenverkehrstypen aufgeführt:
+
+- Alle Einheiten sind Gbit/s.
+- Werte gelten sowohl für gestreckte als auch für nicht gestreckte Cluster.
+- SMB-Datenverkehr erhält 50 % der gesamten Bandbreitenzuordnung.
+- Der SBL/CSV-Datenverkehr erhält 70 % der restlichen 50 %-Zuordnung.
+- Der Livemigration-Datenverkehr (LM) erhält 15 % der restlichen 50 %-Zuordnung.
+- Der Speicherreplikat-Datenverkehr (SR) erhält 14 % der restlichen 50 %-Zuordnung.
+- Der Heartbeat-Datenverkehr (HR) erhält 1 % der restlichen 50 %-Zuordnung.
+- *= sollte Komprimierung anstelle von RDMA verwenden, wenn die Bandbreitenzuordnung für LM-Datenverkehr < 5 Gbit/s beträgt
+
+|NIC-Geschwindigkeit|Kombinierte Bandbreite|SMB 50 % Reservierung|SBL/CSV %|SBL/CSV Bandbreite|LM %|LM Bandbreite|SR % |SR Bandbreite|HB %|HB Bandbreite|
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+|10|20|10|70%|7|14 %*|1,4*|14 %|1.4|2 %|0.2|
+|25|50|25|70%|17,5|15 %*|3,75*|14 %|3,5|1%|0,25|
+|40|80| 40|70%|28|15 %|6|14 %|5.6|1%|0.4|
+|50|100|50|70%|35|15 %|7,5|14 %|7|1%|0.5|
+|100|200|100|70%|70|15 %|15|14 %|14|1%|1|
+|200|400|200|70%|140|15 %|30|14 %|28|1%|2|
 
 ## <a name="network-port-requirements"></a>Anforderungen an Netzwerkports
 
@@ -200,6 +183,24 @@ Mit LLDP können Organisationen eigene benutzerdefinierte TLVs definieren und co
 
 > [!NOTE]
 > Einige der aufgeführten optionalen Features werden künftig möglicherweise erforderlich.
+
+## <a name="traffic-types-supported"></a>Unterstützte Datenverkehrstypen
+
+Azure Stack HCI verwendet den Server Message Block (SMB). SMB in Azure Stack HCI unterstützt die folgenden Datenverkehrstypen:
+
+- SBL (Storage Bus Layer) – wird von „Direkte Speicherplätze“ verwendet; Datenverkehr mit höchster Priorität
+- Freigegebene Clustervolumes (Cluster Shared Volumes, CSV)
+- Livemigration (LM)
+- Speicherreplikat (SR) – wird in Stretched Clusters verwendet
+- Dateifreigaben (File Shares, FS) – herkömmliche Dateifreigaben und Dateiserver mit horizontaler Skalierung (Scale-Out File Server, SOFS)
+- Clustertakt (Heartbeat, HB)
+- Clusterkommunikation (Knotenbeitritte, Clusterupdates, Registrierungsupdates)
+
+SMB-Datenverkehr kann über die folgenden Protokolle übertragen werden:
+
+- Transmission Control Protocol (TCP) – wird zwischen Standorten verwendet
+- Remotezugriff auf den direkten Speicher (Remote Direct Memory Access, RDMA)
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

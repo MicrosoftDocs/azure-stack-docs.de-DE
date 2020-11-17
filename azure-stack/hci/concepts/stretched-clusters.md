@@ -3,15 +3,15 @@ title: 'Stretchingcluster: Übersicht'
 description: Erfahren Sie mehr über Stretchingcluster
 author: v-dasis
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 11/05/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 611f76491f6edd5cb8700a13e79c0769c02c4fad
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: e9651111e82b3449823ec7d13135154e7f0a447e
+ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064751"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441139"
 ---
 # <a name="stretched-clusters-overview"></a>Stretchingcluster: Übersicht
 
@@ -29,6 +29,9 @@ Es gibt zwei Arten von Stretchingclustern, aktiv-passiv und aktiv-aktiv. Sie kö
 Einfach ausgedrückt ist ein *aktiver* Standort einer, der über Ressourcen und Workloads verfügt, mit denen Clients Verbindungen herstellen können. Ein *passiver* Standort stellt keine Rollen oder Workloads für Clients bereit und wartet für die Notfallwiederherstellung auf ein Failover vom aktiven Standort.
 
 Die Standorte können in zwei verschiedenen Staaten, verschiedenen Ländern, auf verschiedenen Etagen oder in verschiedenen Räumen liegen. Stretchingcluster mit zwei Standorten bieten Notfallwiederherstellung und Geschäftskontinuität, sollte bei einem Standort ein Ausfall oder Fehler auftreten.
+
+Nehmen Sie sich einige Minuten Zeit, um sich das Video zum Verwenden von Stretched Clustern mit Azure Stack HCI anzusehen:
+> [!VIDEO https://www.youtube.com/embed/rYnZL1wMiqU]
 
 ## <a name="active-passive-stretched-cluster"></a>Aktiv-passiver Stretchingcluster
 

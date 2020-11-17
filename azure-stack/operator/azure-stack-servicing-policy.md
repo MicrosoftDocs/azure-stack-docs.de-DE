@@ -8,12 +8,12 @@ ms.date: 09/25/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ac110a3ee90cd0b1439e34a418bf7473b8487502
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: cff03367985558bd5b9b6786455cf626993836db
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899787"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545566"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub-Wartungsrichtlinie
 
@@ -47,9 +47,9 @@ Die Dokumentation zur Planung und Verwaltung von Updates sowie zur Ermittlung Ih
 
 Informationen zu einem bestimmten Update und darüber, wie sie es herunterladen, finden Sie in den Versionshinweisen zu diesem Update:
 
-- [Azure Stack Hub 2005-Update](./release-notes.md?view=azs-2005)
-- [Azure Stack Hub 2002-Update](./release-notes.md?view=azs-2002)
-- [Azure Stack Hub 1910-Update](./release-notes.md?view=azs-1910)
+- [Azure Stack Hub 2008-Update](/azure-stack/operator/release-notes?view=azs-2008)
+- [Azure Stack Hub 2005-Update](/azure-stack/operator/release-notes?view=azs-2005)
+- [Azure Stack Hub 2002-Update](/azure-stack/operator/release-notes?view=azs-2002)
 
 ## <a name="hotfixes"></a>Hotfixes
 
@@ -61,14 +61,10 @@ Hotfixes werden wie die regulären Pakete mit vollständigen Updates für Azure 
 
 Informationen zu den derzeit verfügbaren Hotfixes finden Sie in den Versionshinweisen für das jeweilige Update:
 
-- [Azure Stack Hub 2005-Hotfix](./release-notes.md?view=azs-2005#hotfixes)
-- [Azure Stack Hub 2002-Hotfix](./release-notes.md?view=azs-2002#hotfixes-1)
-- [Azure Stack Hub 1910-Hotfix](./release-notes.md?view=azs-1910#hotfixes-2)
+- [Azure Stack Hub 2005-Hotfix](/azure-stack/operator/release-notes?view=azs-2005#hotfixes)
+- [Azure Stack Hub 2002-Hotfix](/azure-stack/operator/release-notes?view=azs-2002#hotfixes-1)
 
 ## <a name="keep-your-system-under-support"></a>Halten Sie den Support für Ihr System aufrecht
-
-> [!IMPORTANT]  
-> Mit dem [Release 2002](release-notes.md?view=azs-2002) von Azure Stack Hub und zur Unterstützung unserer Kunden auf der ganzen Welt, die auf COVID-19 reagieren und ggf. wichtige Entscheidungen für ihre Azure Stack Hub-Systeme treffen, hat Microsoft seine Supportrichtlinie vorübergehend um drei frühere Updateversionen (N-3) erweitert. Mit dem Release 2005 setzen wir diese Erweiterung für weitere 45 Tage fort (bis zum 25. September 2020). In diesem Rahmen werden das neu veröffentlichte Update 2005 sowie die drei letzten Updateversionen (2002, 1910 und 1908 bzw. N-3) unterstützt. Nach diesen 45 Tagen (nach dem 25. September 2020) kehren wir zu unserer Standardsupportrichtlinie zurück, sodass dann die Versionen 2005, 2002 und 1910 bzw. N-2 unterstützt werden.
 
 Damit die Azure Stack Hub-Instanz auch weiterhin unterstützt wird, muss diese die zuletzt veröffentlichte Updateversion oder eine der beiden vorherigen Updateversionen ausführen.
 

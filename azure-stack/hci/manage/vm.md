@@ -1,19 +1,19 @@
 ---
-title: Verwalten von VMs mit Windows Admin Center – Azure Stack HCI
+title: Verwalten virtueller Computer mit Windows Admin Center
 description: Hier erfahren Sie, wie Sie virtuelle Computer (Virtual Machines, VMs) in einem Cluster in Azure Stack HCI mit Windows Admin Center erstellen und verwalten.
 author: v-dasis
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 11/06/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 42c8062fb18b011365a0b245f713f5cd378885aa
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 73d705bf5b36509b3aed31afb09105f2da91862f
+ms.sourcegitcommit: 08ef9545316798c9a21c2f9bc1da8c15cb648982
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573665"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94360268"
 ---
-# <a name="manage-vms-on-azure-stack-hci-using-windows-admin-center"></a>Verwalten von VMs in Azure Stack HCI mithilfe von Windows Admin Center
+# <a name="manage-vms-with-windows-admin-center"></a>Verwalten virtueller Computer mit Windows Admin Center
 
 > Gilt für die Azure Stack HCI, Version 20H2; Windows Server 2019
 
@@ -21,25 +21,25 @@ Mit Windows Admin Center können Sie virtuelle Computer (Virtual Machines, VMs) 
 
 ## <a name="create-a-new-vm"></a>Erstellen eines neuen virtuellen Computers
 
-Mit Windows Admin Center können Sie problemlos einen neuen virtuellen Computer erstellen.
+Mit Windows Admin Center können Sie problemlos einen neuen virtuellen Computer (VM) erstellen.
 
 :::image type="content" source="media/manage-vm/new-vm.png" alt-text="Bildschirm „Neue VM“" lightbox="media/manage-vm/new-vm.png":::
 
-1. Wählen Sie auf der Startseite von Windows Admin Center unter **Alle Verbindungen**, den Server oder Cluster aus, auf dem Sie den neuen virtuellen Computer erstellen möchten.
-1. Führen Sie unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
-1. Wählen Sie unter **Virtuelle Computer** die Registerkarte **Inventar** aus, und wählen Sie anschließend **Neu** aus.
-1. Geben Sie im Feld **Neuer virtueller Computer** einen Namen für Ihre VM ein.
+1. Wählen Sie auf der Startseite von Windows Admin Center unter **Alle Verbindungen** den Server oder Cluster aus, auf oder in dem Sie die VM erstellen möchten.
+1. Scrollen Sie unter **Tools** nach unten, und wählen Sie **Virtuelle Computer** aus.
+1. Wählen Sie unter **Virtuelle Computer** die Registerkarte **Inventar** aus, und wählen Sie anschließend **Hinzufügen** und **Neu** aus.
+1. Geben Sie in das Feld **Neuer virtueller Computer** einen Namen für Ihre VM ein.
 1. Wählen Sie **Generation 2 (empfohlen)** aus.
-1. Wählen Sie in der Dropdownliste einen vorab zugewiesenen Dateipfad aus, oder klicken Sie auf **Durchsuchen**, um den Ordner auszuwählen, in dem die VM-Konfigurationsdatei und die VHD-Dateien gespeichert werden sollen. Sie können zu einer beliebigen SMB-Freigabe im Netzwerk navigieren, indem Sie als Pfad *\\server\share* eingeben.
+1. Wählen Sie unter **Host** den Server aus, auf dem sich die VM befinden soll.
+1. Wählen Sie unter **Pfad** in der Dropdownliste einen vorab zugewiesenen Dateipfad aus, oder klicken Sie auf **Durchsuchen**, um den Ordner auszuwählen, in dem die VM-Konfigurationsdatei und die VHD-Dateien gespeichert werden sollen. Sie können zu einer beliebigen SMB-Freigabe im Netzwerk navigieren, indem Sie als Pfad *\\server\share* eingeben.
 
-1. Wählen Sie unter **Virtuelle Prozessoren** die Anzahl der virtuellen Prozessoren aus und geben Sie an, ob die geschachtelte Virtualisierung aktiviert werden soll.
+1. Wählen Sie unter **Virtuelle Prozessoren** die Anzahl der virtuellen Prozessoren aus, und geben Sie an, ob geschachtelte Virtualisierung für die VM aktiviert werden soll.
 1. Wählen Sie unter **Arbeitsspeicher** die Menge des Arbeitsspeichers beim Start aus (4 GB wird als Minimum empfohlen), sowie einen Minimum- und Maximalbereich von dynamischem Arbeitsspeicher, welcher der VM zugeordnet werden soll.
 1. Wählen Sie in der Dropdownliste unter **Netzwerk** einen Netzwerkadapter aus.
-1. Klicken Sie unter **Speicher** auf **Hinzufügen**, und wählen Sie aus, ob eine neue virtuelle Festplatte erstellt oder eine vorhandene virtuelle Festplatte verwendet werden soll. Wenn Sie eine vorhandene virtuelle Festplatte verwenden, klicken Sie auf **Durchsuchen**, und wählen Sie den entsprechenden Dateipfad aus.  
+1. Klicken Sie unter **Speicher** auf **Hinzufügen**, und wählen Sie aus, ob eine neue leere virtuelle Festplatte erstellt oder eine vorhandene virtuelle Festplatte verwendet werden soll. Wenn Sie eine vorhandene virtuelle Festplatte verwenden, klicken Sie auf **Durchsuchen**, und wählen Sie den entsprechenden Dateipfad aus.  
 1. Führen Sie unter **Betriebssystem** einen der folgenden Schritte aus:
-   - Wählen Sie **Betriebssystem zu einem späteren Zeitpunkt installieren** aus, wenn Sie später ein Betriebssystem für die VM installieren möchten.
+   - Aktivieren Sie **Betriebssystem zu einem späteren Zeitpunkt installieren**, wenn Sie später ein Betriebssystem für die VM installieren möchten, nachdem die VM erstellt wurde.
    - Wählen Sie **Install an operating system from an image file (*.iso)** (Betriebssystem von Imagedatei (*.iso) installieren) aus, klicken Sie auf **Durchsuchen**, und wählen Sie dann die gewünschte ISO-Imagedatei aus.
-   - Wählen Sie **Betriebssystem von einem netzwerkbasierten Installationsserver installieren** aus, wenn Sie später ein Betriebssystem auf diese Weise auf der VM installieren möchten. Sie müssen zuvor einen Netzwerkadapter ausgewählt haben, andernfalls schlägt der Vorgang fehl.
 1. Wenn Sie fertig sind, klicken Sie auf **Erstellen**, um die VM zu erstellen.
 1. Zeigen Sie zum Starten der VM in der Liste **Virtuelle Computer** mit dem Mauszeiger auf die neue VM, aktivieren Sie links das entsprechende Kontrollkästchen, und wählen Sie **Starten** aus.
 1. Vergewissern Sie sich unter **Status**, ob der VM-Status **Wird ausgeführt** ist.
@@ -61,20 +61,20 @@ Sie können auf einfache Weise alle VMs auf einem Server in Ihrem Cluster anzeig
     - Replizieren Sie eine VM mithilfe von Azure Site Recovery.
     - Bei Vorgängen, die für mehrere VMs gleichzeitig ausgeführt werden können (z. B. „Starten“, „Herunterfahren“, „Speichern“, „Anhalten“, „Löschen“ oder „Zurücksetzen“), können Sie mehrere VMs auswählen und den Vorgang einmal ausführen.
 
-## <a name="view-vm-metrics"></a>Anzeigen von Metriken des virtuellen Computers
+## <a name="view-vm-details"></a>Anzeigen von VM-Details
 
 Sie können ausführliche Informationen und Leistungsdiagramme für eine bestimmte VM auf ihrer dedizierten Seite einsehen.
 
 :::image type="content" source="media/manage-vm/vm-details.png" alt-text="Bildschirm mit detaillierten Informationen für VMs" lightbox="media/manage-vm/vm-details.png":::
 
-1. Führen Sie unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
+1. Scrollen Sie unter **Tools** nach unten, und wählen Sie **Virtuelle Computer** aus.
 1. Klicken Sie rechts auf die Registerkarte **Inventar**, und wählen Sie anschließend die VM aus. Auf der nächsten Seite können Sie folgende Aufgaben ausführen:
 
    - Sie können Liniendiagramme mit Live- und Verlaufsdaten für CPU, Arbeitsspeicher, Netzwerk, IOPS und E/A-Durchsatz (Verlaufsdaten sind nur für hyperkonvergente Cluster verfügbar) anzeigen.
    - Sie können Prüfpunkte anzeigen, erstellen, anwenden, umbenennen und löschen.
    - Sie können Details für die VHD-Dateien (Virtual Hard Disk, virtuelle Festplatte), Netzwerkadapter und den Hostserver anzeigen.
    - Sie können den Zustand der VM anzeigen.
-   - Sie können die VM speichern, einen gespeicherten Zustand löschen oder einen Prüfpunkt erstellen.
+   - Sie können die VM speichern, einen gespeicherten Zustand löschen oder die VM exportieren oder klonen.
    - Sie können die Einstellungen für die VM ändern.
    - Sie können mithilfe von VMConnect über den Hyper-V-Host eine Verbindung mit der VM-Konsole herstellen.
    - Replizieren Sie die VM mithilfe von Azure Site Recovery.
@@ -85,7 +85,7 @@ Sie können Ressourcennutzung und Leistungsmetriken für alle VMs in Ihrem Clust
 
 :::image type="content" source="media/manage-vm/host-metrics.png" alt-text="Bildschirm mit Hostmetriken" lightbox="media/manage-vm/host-metrics.png":::
 
-1. Führen Sie unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
+1. Scrollen Sie unter **Tools** nach unten, und wählen Sie **Virtuelle Computer** aus.
 1. Auf der Registerkarte **Zusammenfassung** rechts findet sich eine holistische Ansicht der Hyper-V-Hostressourcen und -leistung für einen ausgewählten Server oder Cluster. Hierzu zählen folgende Angaben:
     - Anzahl der ausgeführten, beendeten, angehaltenen und gespeicherten VMs
     - Aktuelle Integritätswarnungen oder Ereignisse aus Hyper-V-Ereignisprotokollen für Cluster
@@ -99,7 +99,7 @@ Es gibt eine Vielzahl von Einstellungen, die Sie für eine VM ändern können.
 > [!NOTE]
 > Einige Einstellungen können für eine ausgeführte VM nicht geändert werden, und Sie müssen die VM zuerst beenden.
 
-1. Führen Sie unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
+1. Scrollen Sie unter **Tools** nach unten, und wählen Sie **Virtuelle Computer** aus.
 1. Klicken Sie rechts auf die Registerkarte **Inventar**, wählen Sie die VM aus, und klicken Sie dann auf **Einstellungen**.
 
 1. Wählen Sie zum Ändern der Aktionen zum Starten/Beenden von VMs **Allgemein** aus, und führen Sie folgende Schritte aus:
@@ -117,7 +117,7 @@ Es gibt eine Vielzahl von Einstellungen, die Sie für eine VM ändern können.
 
     :::image type="content" source="media/manage-vm/vm-settings-processor.png" alt-text="Bildschirm zum Ändern von Prozessoreinstellungen für VMs" lightbox="media/manage-vm/vm-settings-processor.png":::
 
-1. Wenn Sie einen neuen virtuellen Datenträger hinzufügen möchten, wählen Sie **Datenträger** aus. Wählen Sie anschließend aus, ob Sie einen leeren virtuellen Datenträger erstellen oder eine vorhandene virtuelle Festplatte oder ISO-Imagedatei verwenden möchten. Klicken Sie auf **Durchsuchen**, und wählen Sie den Pfad zum virtuellen Datenträger oder zur Imagedatei aus.
+1. Um die Größe eines vorhandenen Datenträgers zu ändern, ändern Sie den Wert in **Größe (GB)** . Wenn Sie einen neuen virtuellen Datenträger hinzufügen möchten, wählen Sie **Datenträger** aus. Wählen Sie anschließend aus, ob Sie einen leeren virtuellen Datenträger erstellen oder eine vorhandene virtuelle Festplatte oder ISO-Imagedatei verwenden möchten. Klicken Sie auf **Durchsuchen**, und wählen Sie den Pfad zum virtuellen Datenträger oder zur Imagedatei aus.
 
     :::image type="content" source="media/manage-vm/vm-settings-disk.png" alt-text="Bildschirm zum Ändern von Datenträgereinstellungen für VMs" lightbox="media/manage-vm/vm-settings-disk.png":::
 
@@ -134,15 +134,20 @@ Es gibt eine Vielzahl von Einstellungen, die Sie für eine VM ändern können.
 
     :::image type="content" source="media/manage-vm/vm-settings-boot.png" alt-text="Bildschirm zum Ändern der VM-Startreihenfolge" lightbox="media/manage-vm/vm-settings-boot.png":::
 
-1. Wählen Sie **Prüfpunkte** aus, um VM-Prüfpunkte zu aktivieren, um den Prüfpunkttyp auszuwählen und den Ort des Prüfpunkts auszuwählen.
+1. Wählen Sie **Prüfpunkte** aus, um VM-Prüfpunkte zu aktivieren, wählen Sie den Prüfpunkttyp aus, und geben den Speicherort der Prüfpunktdatei an.
 
     > [!NOTE]
     > Die Prüfpunkteinstellung **Produktion** wird empfohlen. Bei dieser Einstellung wird Sicherungstechnologie im Gastbetriebssystem verwendet, um datenkonsistente Prüfpunkte zu erstellen. Bei der Einstellung **Standard** werden VHD-Momentaufnahmen verwendet, um Prüfpunkte mit dem Anwendungs- und Dienststatus zu erstellen.
 
      :::image type="content" source="media/manage-vm/vm-settings-checkpoint.png" alt-text="Bildschirm zum Ändern von VM-Prüfpunkten" lightbox="media/manage-vm/vm-settings-checkpoint.png":::
 
+1. Wählen Sie **Affinitätsregeln** aus, um eine Affinitätsregel für eine VM zu erstellen. Weitere Informationen zum Erstellen von Affinitätsregeln finden Sie unter [Erstellen von Server- und Standortaffinitätsregeln für VMs](vm-affinity.md).
+
+    :::image type="content" source="media/manage-vm/vm-affinity.png" alt-text="Anzeige für Affinitätsregeln" lightbox="media/manage-vm/vm-affinity.png":::
+
 1. Wählen Sie zum Ändern der VM-Sicherheitseinstellungen **Sicherheit** aus, und führen Sie folgende Schritte aus:
     - Wählen Sie **Sicheren Start aktivieren** aus, um zu verhindern, dass nicht autorisierter Code beim Starten ausgeführt wird (empfohlen). Wählen Sie außerdem im Dropdownfeld eine Microsoft-Vorlage oder eine Open-Source-Vorlage aus.
+    - Wählen Sie für **Vorlage** die zu verwendende Sicherheitsvorlage aus.
 
     - Unter **Verschlüsselungsunterstützung** können Sie Folgendes ausführen:
 
@@ -157,17 +162,43 @@ Es gibt eine Vielzahl von Einstellungen, die Sie für eine VM ändern können.
 
         :::image type="content" source="media/manage-vm/vm-settings-security.png" alt-text="Ändern von VM-Sicherheitseinstellungen" lightbox="media/manage-vm/vm-settings-security.png":::
 
-## <a name="move-a-vm-to-another-server-in-the-cluster"></a>Verschieben einer VM auf einen anderen Server im Cluster
+## <a name="move-a-vm-to-another-server-or-cluster"></a>Verschieben einer VM auf einen anderen Server oder in einen anderen Cluster
 
-Sie können einen virtuellen Computer wie folgt auf einfache Weise auf einen anderen Server im Cluster verschieben:
+Sie können einen virtuellen Computer wie folgt auf einfache Weise auf einen anderen Server oder in einen anderen Cluster verschieben:
 
-:::image type="content" source="media/manage-vm/vm-more-move.png" alt-text="Bildschirm „VM verschieben“" lightbox="media/manage-vm/vm-more-move.png":::
-
-1. Führen Sie unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
-1. Klicken Sie rechts auf die Registerkarte **Inventar**. Wählen Sie einen virtuellen Computer aus der Liste aus, und wählen Sie **Mehr > Verschieben** aus.
+1. Scrollen Sie unter **Tools** nach unten, und wählen Sie **Virtuelle Computer** aus.
+1. Wählen Sie auf der Registerkarte **Inventar** einen virtuellen Computer in der Liste aus, und wählen Sie **Verwalten > Verschieben** aus.
 1. Wählen Sie einen Server in der Liste aus, und klicken Sie auf **Verschieben**.
-1. Wählen Sie unter **Virtuellen Computer verschieben** die Option **Failovercluster** aus, und geben Sie dann den Namen des Clusters und den Clusterknoten ein, in den die VM verschoben werden soll.
-1. Nachdem die VM erfolgreich verschoben wurde, wird in der Liste unter **Hostserver** der aktualisierte Name angezeigt.
+1. Wenn Sie sowohl die VM als auch deren Speicher verschieben möchten, wählen Sie aus, ob die VM in einen anderen Cluster oder auf einen anderen Server im selben Cluster verschoben werden soll.
+
+    :::image type="content" source="media/manage-vm/vm-more-move.png" alt-text="Bildschirm „VM verschieben“" lightbox="media/manage-vm/vm-more-move.png":::
+
+1. Wenn Sie nur den Speicher der VM verschieben möchten, wählen Sie entweder aus, ihn in denselben Pfad zu verschieben, oder wählen Sie unterschiedliche Pfade für Konfiguration, Prüfpunkte oder Smart Paging aus.
+
+    :::image type="content" source="media/manage-vm/vm-move-storage.png" alt-text="Dialogfeld für Verschieben von VM-Speicher" lightbox="media/manage-vm/vm-move-storage.png":::
+
+## <a name="join-a-vm-to-a-domain"></a>Hinzufügen einer VM zu einer Domäne
+
+Sie können eine VM wie folgt problemlos einer Domäne hinzufügen:
+
+:::image type="content" source="media/manage-vm/vm-domain-join.png" alt-text="Dialogfeld für Hinzufügen einer VM zu einer Domäne" lightbox="media/manage-vm/vm-domain-join.png":::
+
+1. Scrollen Sie unter **Tools** nach unten, und wählen Sie **Virtuelle Computer** aus.
+1. Wählen Sie auf der Registerkarte **Inventar** einen virtuellen Computer in der Liste aus, und wählen Sie **Verwalten > Domänenbeitritt** aus.
+1. Geben Sie den Namen der Domäne, zu der die VM hinzugefügt werden soll, zusammen mit dem Domänenbenutzernamen und dem Domänenkennwort ein.
+1. Geben Sie den Benutzernamen und das Kennwort für die VM ein.
+1. Klicken Sie abschließend auf **Beitreten**.
+
+## <a name="clone-a-vm"></a>Klonen einer VM
+
+Sie können eine VM wie folgt problemlos klonen:
+
+1. Scrollen Sie unter **Tools** nach unten, und wählen Sie **Virtuelle Computer** aus.
+1. Klicken Sie rechts auf die Registerkarte **Inventar**. Wählen Sie eine VM in der Liste aus, und wählen Sie **Verwalten > Klonen** aus.
+1. Geben Sie den Namen und den Pfad für die geklonte VM an.
+1. Führen Sie „Sysprep“ auf Ihrer VM aus, wenn Sie dies noch nicht getan haben.
+
+:::image type="content" source="media/manage-vm/vm-clone.png" alt-text="Dialogfeld für Klonen einer VM" lightbox="media/manage-vm/vm-clone.png":::
 
 ## <a name="import-or-export-a-vm"></a>Importieren oder Exportieren einer VM
 
@@ -175,20 +206,27 @@ Sie können eine VM auf einfache Weise importieren oder exportieren. In der folg
 
 :::image type="content" source="media/manage-vm/vm-more-import.png" alt-text="Bildschirm zum Importieren von VMs" lightbox="media/manage-vm/vm-more-import.png":::
 
-1. Führen Sie unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
-1. Klicken Sie rechts auf die Registerkarte **Inventar**. Wählen Sie einen gruppierten virtuellen Computer in der Liste aus, und wählen Sie **Mehr > Importieren** aus.
+1. Scrollen Sie unter **Tools** nach unten, und wählen Sie **Virtuelle Computer** aus.
+1. Wählen Sie auf der Registerkarte **Inventar** die Option **Hinzufügen > Importieren** aus.
 1. Geben Sie den Namen des Ordners ein, der die VM enthält, oder klicken Sie auf **Durchsuchen**, und wählen Sie einen Ordner aus.
 1. Wählen Sie die zu importierende VM aus.
 1. Erstellen Sie ggf. eine eindeutige ID für die VM.
 1. Klicken Sie abschließend auf **Importieren**.
 
-Beim Exportieren einer VM ist der Vorgang sehr ähnlich. Wählen Sie dabei einfach **Mehr > Exportieren** aus.
+Die Vorgehensweise für ein Exportieren einer VM ist ähnlich:
+
+1. Scrollen Sie unter **Tools** nach unten, und wählen Sie **Virtuelle Computer** aus.
+1. Wählen Sie auf der Registerkarte **Inventar** in der Liste die zu exportierende VM aus.
+1. Wählen Sie **Verwalten > Exportieren** aus.
+1. Geben Sie den Pfad des Ordners ein, in den die VM exportiert werden soll.
+
+:::image type="content" source="media/manage-vm/vm-export.png" alt-text="Dialogfeld für Exportieren einer VM" lightbox="media/manage-vm/vm-export.png":::
 
 ## <a name="view-vm-event-logs"></a>Anzeigen von VM-Ereignisprotokollen
 
 Sie können VM-Ereignisprotokolle wie folgt anzeigen:
 
-1. Führen Sie unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
+1. Scrollen Sie unter **Tools** nach unten, und wählen Sie **Virtuelle Computer** aus.
 1. Wählen Sie auf der Registerkarte **Zusammenfassung** rechts die Option **Alle Ereignisse anzeigen** aus.
 1. Wählen Sie eine Ereigniskategorie aus, und erweitern Sie die Ansicht.
 
@@ -196,8 +234,8 @@ Sie können VM-Ereignisprotokolle wie folgt anzeigen:
 
 Anstatt mit Windows Admin Center können Sie Ihre VMs auch über einen Hyper-V-Host mit einer RDP-Verbindung (Remote Desktop Protocol) verwalten.
 
-1. Führen Sie unter **Tools** einen Bildlauf nach unten aus, und wählen Sie **Virtuelle Computer** aus.
-1. Klicken Sie rechts auf die Registerkarte **Inventar**. Wählen Sie einen virtuellen Computer aus der Liste aus, und wählen Sie die Option **Mehr > Verbinden** oder **Mehr > RDP-Datei herunterladen** aus. Bei beiden Optionen wird zum Herstellen einer Verbindung mit der Gast-VM über den Hyper-V-Host das VMConnect-Tool verwendet, und Sie müssen Benutzername und Kennwort des Administrators für den Hyper-V-Host eingeben.
+1. Scrollen Sie unter **Tools** nach unten, und wählen Sie **Virtuelle Computer** aus.
+1. Wählen Sie auf der Registerkarte **Inventar** in der Liste die Option „Virtuellen Computer auswählen“ aus, und wählen Sie die Option **Verbinden > Verbinden** oder **Verbinden > RDP-Datei herunterladen** aus. Bei beiden Optionen wird zum Herstellen einer Verbindung mit der Gast-VM über den Hyper-V-Host das VMConnect-Tool verwendet, und Sie müssen Benutzername und Kennwort des Administrators für den Hyper-V-Host eingeben.
 
     - Mit der Option **Verbinden** wird die VM mithilfe von Remotedesktop in Ihrem Webbrowser verbunden.
 

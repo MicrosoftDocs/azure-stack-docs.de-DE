@@ -7,12 +7,12 @@ ms.date: 09/03/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6813bf18656e034688255bcdb46b9b943359ce9c
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 93ede4373a2799551bc3091a6d9b3cd00cb9d578
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448621"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546479"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Ruby in Azure Stack Hub
 
@@ -70,7 +70,7 @@ Das Azure Resource Manager Ruby SDK befindet sich in der Vorschauphase und es ko
 
 ## <a name="use-the-azure_sdk-gem"></a>Verwendung des Gem „azure_sdk“
 
-Das Gem **azure_sdk** ist ein Rollup aller unterstützten Gems im Ruby SDK. Dieses Gem enthält das Profil  **Latest** , das die aktuelle Version aller Dienste unterstützt. Es enthält die mit Versionsangabe versehenen Profile **V2017_03_09** und **V2019_03_01_Hybrid**, die für Azure Stack Hub erstellt werden.
+Das Gem **azure_sdk** ist ein Rollup aller unterstützten Gems im Ruby SDK. Dieses Gem enthält das Profil **Latest**, das die aktuelle Version aller Dienste unterstützt. Es enthält die mit Versionsangabe versehenen Profile **V2017_03_09** und **V2019_03_01_Hybrid**, die für Azure Stack Hub erstellt werden.
 
 Sie können das Rollup-Gem „azure_sdk“ mit dem folgenden Befehl installieren:  
 
@@ -306,5 +306,5 @@ Vergewissern Sie sich, dass Sie Ruby installiert haben, um das Beispiel auszufü
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Installieren von PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md)
+- [Installieren von PowerShell für Azure Stack Hub](../operator/powershell-install-az-module.md)
 - [Konfigurieren der PowerShell-Umgebung des Azure Stack Hub-Benutzers](azure-stack-powershell-configure-user.md)  

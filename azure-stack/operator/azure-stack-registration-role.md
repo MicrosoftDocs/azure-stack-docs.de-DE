@@ -8,12 +8,12 @@ ms.date: 08/05/2020
 ms.author: bryanla
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: cb2da0dc57069647ecefd8ccc278526f7f35f57d
-ms.sourcegitcommit: b69c8334571094721b26e6bdebd639f4fd294dd0
+ms.openlocfilehash: 9348930a09a57ab25be867616c604e11603a82c0
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839231"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545413"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>Erstellen einer benutzerdefinierten Rolle für die Azure Stack Hub-Registrierung
 
@@ -66,13 +66,13 @@ Um eine benutzerdefinierte Rolle zu erstellen, benötigen Sie die `Microsoft.Aut
 3. Stellen Sie in PowerShell eine Verbindung mit Azure her, damit Sie Azure Resource Manager verwenden können. Authentifizieren Sie sich bei Aufforderung mit einem Konto mit ausreichenden Berechtigungen, z.B. [Besitzer](/azure/role-based-access-control/built-in-roles#owner) oder [Benutzerzugriffsadministrator](/azure/role-based-access-control/built-in-roles#user-access-administrator).
 
     ```azurepowershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
-4. Verwenden Sie **New-AzureRmRoleDefinition** zum Erstellen der benutzerdefinierten Rolle, indem Sie die JSON-Vorlagendatei angeben.
+4. Verwenden Sie **New-AzRoleDefinition** zum Erstellen der benutzerdefinierten Rolle, indem Sie die JSON-Vorlagendatei angeben.
 
     ``` azurepowershell
-    New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\registrationrole.json"
+    New-AzRoleDefinition -InputFile "C:\CustomRoles\registrationrole.json"
     ```
 
 ## <a name="assign-a-user-to-registration-role"></a>Zuweisen eines Benutzers zur Registrierungsrolle

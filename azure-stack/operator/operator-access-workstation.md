@@ -3,16 +3,16 @@ title: Arbeitsstation mit Azure Stack Hub-Operatorzugriff
 description: Hier erfahren Sie, wie Sie eine Arbeitsstation mit Azure Stack Hub-Operatorzugriff herunterladen und konfigurieren.
 author: ashika789
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 11/04/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: cc83edf05e9b63a8d1e09ed6bf960959b9f7f673
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.lastreviewed: 11/04/2020
+ms.openlocfilehash: c2e5e474555a9fb3a04c09fde495e4fe80c4378b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363944"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546972"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Arbeitsstation mit Azure Stack Hub-Operatorzugriff 
 
@@ -128,6 +128,16 @@ New-OAW.ps1 -LocalAdministratorPassword $securePassword `
    -DNS '192.168.0.10'
 ```
 
+So rufen Sie die IP-Adresse der ERCS-VM aus der Datei „AzureStackStampInformation.json“ ab:
+
+```powershell
+$securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString
+New-OAW.ps1 -LocalAdministratorPassword $securePassword `
+   -AzureStackCertificatePath 'F:\certroot.cer' `
+   -DeploymentDataFilePath 'F:\DeploymentData.json' `
+   -AzSStampInfoFilePath 'F:\AzureStackStampInformation.json'
+```
+
 So erstellen Sie die OAW-VM auf dem HLH mit „DeploymentData.json“
 
 ```powershell
@@ -144,6 +154,7 @@ Für New-OAW stehen zwei Parametersätze zur Verfügung. Optionale Parameter wer
 New-OAW 
 -LocalAdministratorPassword <Security.SecureString> `
 [-AzureStackCertificatePath <String>] `
+[-AzSStampInfoFilePath <String>] `
 [-CertificatePassword <Security.SecureString>] `
 [-ERCSVMIP <String[]>] `
 [-DNS <String[]>] `
@@ -172,6 +183,7 @@ New-OAW
 -DefaultGateway <String> `
 -DNS <String[]> `
 [-AzureStackCertificatePath <String>] `
+[-AzSStampInfoFilePath <String>] `
 [-CertificatePassword <Security.SecureString>] `
 [-ERCSVMIP <String[]>] `
 [-ImageFilePath <String>] `
@@ -204,6 +216,7 @@ In der folgenden Tabelle finden Sie eine Beschreibung der einzelnen Parameter.
 | VirtualProcessorCount      | Optional | Die Anzahl virtueller Prozessoren, die der VM zugewiesen werden sollen. Der Standardwert ist **8**.        |
 | VirtualMachineDiffDiskPath | Optional | Der Pfad, an dem temporäre differenzierende Datenträgerdateien gespeichert werden, während die Verwaltungs-VM aktiv ist. Der Standardwert ist das Unterverzeichnis **DiffDisks** unter demselben übergeordneten Ordner dieses Skripts. |
 | AzureStackCertificatePath  | Optional | Der Pfad der Zertifikate, die für den Azure Stack Hub-Zugriff in die VM importiert werden sollen. |
+| AzSStampInfoFilePath       | Optional | Der Pfad der Datei „AzureStackStampInformation.json“, aus der das Skript die IPs der ERCS-VM abrufen kann. |
 | CertificatePassword        | Optional | Das Kennwort oder Zertifikat, das für den Azure Stack Hub-Zugriff auf den virtuellen Computer importiert werden soll. |
 | ERCSVMIP                   | Optional | Die IP-Adresse von Azure Stack Hub-ERCS-VMs, die der Liste vertrauenswürdiger Hosts der VM hinzugefügt werden sollen. Wird nicht angewendet, wenn **-SkipNetworkConfiguration** festgelegt ist. |
 SkipNetworkConfiguration     | Optional | Überspringt die Netzwerkkonfiguration für die VM, sodass sie später vom Benutzer vorgenommen werden kann. |

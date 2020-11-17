@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: b8f8dfe95e50b81c7032e2e2348c2d4e6a6d888d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c9defcc7f569ba30628cb16632b52c00ae7f2bec
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78364767"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543867"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Planungsentscheidungen zu mit Azure verbundenen Bereitstellungen für in Azure Stack Hub integrierte Systeme
 Nachdem Sie entschieden haben, [wie Sie Azure Stack Hub in Ihre Hybrid Cloud-Umgebung integrieren](azure-stack-connection-models.md), können Sie Ihre Entscheidungsfindung für die Azure Stack Hub-Bereitstellung abschließen.
@@ -33,6 +33,11 @@ Bei Verwendung von Azure AD als Identitätsspeicher werden zwei Azure AD-Konten 
 
     - Bereitstellen und Delegieren von Apps und Dienstprinzipalen für alle Azure Stack Hub-Dienste, die mit Azure AD und der Graph-API interagieren müssen.
     - Als Dienstadministratorkonto. Dieses Konto ist der Besitzer des Standardanbieterabonnements (den Sie später jedoch ändern können). Mit diesem Konto können Sie sich beim Azure Stack Hub-Administratorportal anmelden und damit Angebote und Pläne erstellen, Kontingente festlegen und andere administrative Aufgaben in Azure Stack Hub erledigen.
+
+> [!IMPORTANT]
+> - Das globale Administratorkonto ist nicht erforderlich, um Azure Stack Hub auszuführen, und kann nach der Bereitstellung deaktiviert werden.
+> - Schützen Sie das globale Administratorkonto, indem Sie entsprechend den [hier dokumentierten bewährten Methoden](/azure/security/fundamentals/identity-management-best-practices) vorgehen.
+
 
 2. **Abrechnungskonto** (sowohl für mit Azure verbundene als auch nicht verbundene Bereitstellungen erforderlich). Dieses Azure-Konto wird verwendet, um die Abrechnungsbeziehung zwischen Ihrem in Azure Stack Hub integrierten System und dem Azure-Commerce-Back-End herzustellen. Dies ist das Konto, dem Azure Stack Hub-Gebühren in Rechnung gestellt werden. Dieses Konto wird auch zum Anbieten von Elementen im Marketplace und in anderen Hybridszenarien verwendet.
 
@@ -66,4 +71,4 @@ Für die kapazitätsbezogene Abrechnung ist für die Registrierung ein Azure-Abo
 - Um mehr über Microsoft Azure Stack Hub-Pakete und -Preise zu erfahren, [laden Sie die PDF-Datei herunter](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Nächste Schritte
-[Rechenzentrums-Netzwerkintegration](azure-stack-network.md)
+[Datencenternetzwerkintegration](azure-stack-network.md)

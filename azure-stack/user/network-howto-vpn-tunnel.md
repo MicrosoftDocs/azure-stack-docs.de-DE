@@ -7,14 +7,14 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: dc74c40611dd680b8b0d893e06b6935beae7a5f6
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: e401e1897af63ede0a3f7dcdd924dc00df39f941
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573903"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547074"
 ---
-# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Einrichten eines Multi-Site-to-Site-VPN-Tunnels in Azure Stack Hub
+# <a name="how-to-set-up-multiple-site-to-site-vpn-tunnels-in-azure-stack-hub"></a>Einrichten von mehreren Site-to-Site-VPN-Tunneln in Azure Stack Hub
 
 In diesem Artikel wird erläutert, wie Sie die Lösung mit einer Azure Stack Hub-Resource Manager-Vorlage bereitstellen können. Mit der Lösung werden mehrere Ressourcengruppen mit zugeordneten virtuellen Netzwerken und Informationen zum Verbinden dieser Systeme erstellt.
 

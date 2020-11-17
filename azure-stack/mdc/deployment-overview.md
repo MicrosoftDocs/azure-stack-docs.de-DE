@@ -16,31 +16,30 @@ ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: aa5d67405ff471cecf147256d4b2109e94d993ef
-ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
+ms.openlocfilehash: 339927d28c2778a5c2953d8acf90e04931e3c815
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92898586"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383631"
 ---
-# <a name="mdc-deployment-overview"></a>Übersicht über die MDC-Bereitstellung
+# <a name="mdc-requirements-overview"></a>Übersicht über die MDC-Anforderungen
 
-In dieser Bereitstellungsanleitung werden die Schritte zum Installieren und Konfigurieren eines Modular Data Center (MDC) beschrieben. Außerdem wird der automatisierte Prozess zum Einrichten des HLH-Verwaltungsservers (Hardware Lifecycle Host) von Azure Stack Hub für die Bereitstellung beschrieben.
+In dieser Anleitung sind die Anforderungen beschrieben, die zum Installieren und Konfigurieren eines Modular Data Center (MDC) erfüllt sein müssen. 
 
 Dieses Handbuch hat die folgenden Ziele:
 
 - Bereitstellen einer Prüfliste vor der Bereitstellung, um sicherzustellen, dass vor der Installation der Komponenten alle Voraussetzungen erfüllt sind
 - Vorstellen der wichtigsten Komponenten eines MDC
-- Beschreiben der Installation und Konfiguration der Schlüsselkomponenten
 - Überprüfen der Kundenbereitstellung
 
-Voraussetzungen, um den Inhalt dieser Anleitung vollständig verstehen zu können, sind technische Erfahrungen mit Virtualisierung, Servern, Betriebssystemen, Netzwerken und Speicherlösungen. Der Bereitstellungstechniker muss über Kenntnisse von Microsoft Windows Server 2019 mit Hyper-V, Azure Stack Hub, Azure und Microsoft PowerShell verfügen.
+Voraussetzungen, um den Inhalt dieser Anleitung vollständig verstehen zu können, sind technische Erfahrungen mit Virtualisierung, Servern, Betriebssystemen, Netzwerken und Speicherlösungen. 
 
-Der Schwerpunkt dieser Anleitung liegt auf der Bereitstellung der Kernkomponenten von Microsoft Azure Stack Hub sowie der Besonderheiten der MDC-Lösung. In der Anleitung werden keine Betriebsabläufe von Azure Stack Hub erläutert und auch nicht alle in Azure Stack Hub verfügbaren Features behandelt. Weitere Informationen finden Sie in der [Dokumentation für Azure Stack Hub-Operatoren](https://docs.microsoft.com/azure-stack/operator/).
+Der Schwerpunkt dieser Anleitung liegt auf der Bereitstellung der Kernkomponenten von Microsoft Azure Stack Hub sowie der Besonderheiten der MDC-Lösung. In der Anleitung werden keine Betriebsabläufe von Azure Stack Hub erläutert und auch nicht alle in Azure Stack Hub verfügbaren Features behandelt. 
 
 ## <a name="introduction"></a>Einführung
 
-Das MDC ist ein integriertes Angebot für Azure Stack Hub in einem Standardcontainer mit einer Länge von 40 Fuß (12,19 m). Der Container enthält eine Klimasteuerungseinheit sowie ein Beleuchtungs- und ein Warnsystem. Die Kernkomponenten von Azure Stack Hub, z. B. Server und Switches, sind in sechs physische Racks montiert, die logisch in drei unabhängigen Pods gruppiert sind.
+Das MDC ist ein integriertes Angebot für Azure Stack Hub in einem Standardcontainer mit einer Länge von 40 Fuß (12,19 m). Der Container enthält eine Klimasteuerungseinheit sowie ein Beleuchtungs- und ein Warnsystem. Die Azure Stack Hub-Kernkomponenten werden als drei unabhängige Pods installiert: Pod 1, Rack 1 und Rack 2, Pod 2, Rack 1 und Rack 2 sowie Pod 3, Rack 1 und Rack 2.
 
 Jeder Pod besteht aus zwei Racks mit je 42 HE. Ein Pod umfasst die ToR- (Top-of-Rack) und Edgeswitches sowie einen Switch für den Baseboard-Verwaltungscontroller (Baseboard Management Controller, BMC). Außerdem enthält jeder Pod einen Hardwarelebenszyklus-Host (Hardware Lifecycle Host, HLH) und einen Konzentrator für die seriellen Anschlüsse. Die Kernkapazität für Compute und Speicher wird über Azure Stack Hub-Skalierungseinheiten (Scaling Units, SUs) bereitgestellt, die aus acht Servern vom Typ Rugged Edge Appliance (REA) R840 bestehen. Zusätzliche Speicherkapazität wird durch 48 Isilon-Speicherknoten bereitgestellt. Die physische Konfiguration aller Pods ist identisch.
 
@@ -87,6 +86,4 @@ Der MDC-Bereitstellungsprozess umfasst im Allgemeinen die folgenden Schritte:
 1. Validierungsphase – einzeln für jeden der drei Pods:
    1. Überprüfen der Integrität nach der Bereitstellung
    1. Registrieren von Azure Stack Hub bei Microsoft
-   1. Übergabe an den Azure Stack Hub-Operator
-  
-Jedes der obigen Themen wird in dieser Anleitung ausführlich erläutert.
+   1. Übergabe an den Azure Stack Hub-Kunden

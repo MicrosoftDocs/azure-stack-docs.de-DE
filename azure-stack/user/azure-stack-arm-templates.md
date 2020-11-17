@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 41f83e1e7f1432e182473c3b090171d3c426d340
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 9d5bf245a78bfd2ec77578701c4727c40b98f9e6
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111913"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545719"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>Verwenden von Azure Resource Manager-Vorlagen in Azure Stack Hub
 
@@ -66,7 +66,7 @@ Verwenden Sie die PowerShell DSC-Erweiterung, um einen vorhandenen lokalen Konfi
 
 ## <a name="cancel-a-running-template-deployment"></a>Abbrechen der Bereitstellung einer Vorlage
 
-Verwenden Sie zum Abbrechen der Ausführung einer Vorlagenbereitstellung das PowerShell-[Cmdlet](/powershell/scripting/developer/cmdlet/cmdlet-overview)[Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment).
+Verwenden Sie zum Abbrechen der Ausführung einer Vorlagenbereitstellung das PowerShell-[Cmdlet](/powershell/scripting/developer/cmdlet/cmdlet-overview) [Stop-AzResourceGroupDeployment](/powershell/module/Az.resources/stop-Azresourcegroupdeployment).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

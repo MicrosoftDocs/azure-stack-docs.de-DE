@@ -7,20 +7,20 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: 7c8c27374b7ba114dc09297c2f0112d3f0f9579d
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: a5bd582cd93a95f662a8acc2094e6a62a7ecdf50
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112156"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546904"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack-hub"></a>Bereitstellen einer Vorlage mithilfe von PowerShell in Azure Stack Hub
 
 Sie können PowerShell zum Bereitstellen von Azure Resource Manager-Vorlagen (ARM) für Azure Stack Hub verwenden. In diesem Artikel wird das Verwenden von PowerShell zum Bereitstellen einer Vorlage beschrieben.
 
-## <a name="run-azurerm-powershell-cmdlets"></a>Ausführen von AzureRM PowerShell-Cmdlets
+## <a name="run-az-powershell-cmdlets"></a>Ausführen von Az PowerShell-Cmdlets
 
-In diesem Beispiel werden **AzureRM**-PowerShell-Cmdlets und eine auf GitHub gespeicherte Vorlage verwendet. Die Vorlage erstellt einen virtuelle Windows Server 2012 R2 Datacenter-Computer.
+In diesem Beispiel werden **Az** PowerShell-Cmdlets und eine auf GitHub gespeicherte Vorlage verwendet. Die Vorlage erstellt einen virtuelle Windows Server 2012 R2 Datacenter-Computer.
 
 >[!NOTE]
 > Bevor Sie dieses Beispiel ausprobieren, stellen Sie sicher, dass Sie [PowerShell für einen Azure Stack Hub-Benutzer konfiguriert](azure-stack-powershell-configure-user.md) haben.
@@ -36,10 +36,10 @@ In diesem Beispiel werden **AzureRM**-PowerShell-Cmdlets und eine auf GitHub ges
     $myLocation = "yourregion" # local for the ASDK
 
     # Create resource group for template deployment
-    New-AzureRmResourceGroup -Name $RGName -Location $myLocation
+    New-AzResourceGroup -Name $RGName -Location $myLocation
 
     # Deploy simple IaaS template
-    New-AzureRmResourceGroupDeployment `
+    New-AzResourceGroupDeployment `
         -Name myDeployment$myNum `
         -ResourceGroupName $RGName `
         -TemplateUri <path>\AzureStack-QuickStart-Templates\101-vm-windows-create\azuredeploy.json `
@@ -54,7 +54,7 @@ In diesem Beispiel werden **AzureRM**-PowerShell-Cmdlets und eine auf GitHub ges
 
 ## <a name="cancel-a-running-template-deployment"></a>Abbrechen der Bereitstellung einer Vorlage
 
-Verwenden Sie zum Abbrechen der Ausführung einer Vorlagenbereitstellung das PowerShell-Cmdlet `Stop-AzureRmResourceGroupDeployment`.
+Verwenden Sie zum Abbrechen der Ausführung einer Vorlagenbereitstellung das PowerShell-Cmdlet `Stop-AzResourceGroupDeployment`.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

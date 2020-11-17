@@ -3,20 +3,25 @@ title: Installieren des PowerShell AzureRM-Moduls für Azure Stack Hub
 description: Erfahren Sie, wie Sie PowerShell für Azure Stack Hub installieren. Erfahren Sie, wie Sie das PowerShell AzureRM-Modul und erforderliche API-Profile installieren.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 10/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: bbf1a5d296ddbef554a4401e66eab4226ae38dd3
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.lastreviewed: 10/22/2020
+ms.openlocfilehash: d01f2c8864f587ed69c76f0edd0ee9aa950d3b9f
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623165"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544988"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Installieren des PowerShell AzureRM-Moduls für Azure Stack Hub
 
-Azure PowerShell AzureRM bietet eine Reihe von Cmdlets, die das Azure Resource Manager-Modell für die Verwaltung von Azure Stack Hub-Ressourcen verwenden.
+Azure PowerShell Azure Resource Manager (AzureRM) stellt eine Reihe von Cmdlets bereit, die das Azure Resource Manager-Modell für die Verwaltung von Azure Stack Hub-Ressourcen verwenden.
+
+::: moniker range=">=azs-2002"
+> [!IMPORTANT]  
+> Diese Webseite gilt für eine veraltete Version von Azure PowerShell. Alle Versionen des PowerShell-Moduls Azure Resource Manager (AzureRM) sind veraltet, werden aber weiterhin unterstützt. Das Az PowerShell-Modul wird jetzt für die Interaktion mit Azure empfohlen. Informationen zu den ersten Schritten mit dem Az PowerShell-Modul finden Sie unter [Installieren des PowerShell Az-Vorschaumoduls für Azure Stack Hub](powershell-install-az-module.md). Informationen über das Migrieren zum Az PowerShell-Modul finden Sie unter [Migrieren von AzureRM zu Azure PowerShell Az in Azure Stack Hub](migrate-azurerm-az.md).
+::: moniker-end
 
 Darüber hinaus müssen Sie *API-Profile* verwenden, um die kompatiblen Endpunkte für die Azure Stack Hub-Ressourcenanbieter anzugeben.
 
@@ -24,11 +29,11 @@ API-Profile bieten eine Möglichkeit, Versionsunterschiede zwischen Azure und Az
 
 Sie können mit Azure Stack Hub kompatible PowerShell-Module in einem Szenario mit Internetverbindung, mit teilweiser Internetverbindung oder ohne Internetverbindung installieren. Dieser Artikel leitet Sie durch die detaillierten Anweisungen für diese Szenarien.
 
-Sie können die AzureRM-Module für Azure Stack Hub auch in einem Docker-Container ausführen. Anleitungen finden Sie unter [Verwenden von Docker zum Ausführen von PowerShell für Azure Stack Hub](../user/azure-stack-powershell-user-docker.md).
+Sie können die Azure Resource Manager-Module für Azure Stack Hub auch in einem Docker-Container ausführen. Anleitungen finden Sie unter [Verwenden von Docker zum Ausführen von PowerShell für Azure Stack Hub](../user/azure-stack-powershell-user-docker.md).
 
 ## <a name="1-verify-your-prerequisites"></a>1. Überprüfen der Voraussetzungen
 
-Bevor Sie mit Azure Stack Hub und dem PowerShell AzureRM-Modul beginnen, müssen folgende Voraussetzungen erfüllt sein:
+Bevor Sie mit Azure Stack Hub und dem PowerShell Azure Resource Manager-Modul beginnen, müssen folgende Voraussetzungen erfüllt sein:
 
 - **PowerShell-Version 5.1** <br>
 Führen Sie zum Überprüfen Ihrer Version **$PSVersionTable.PSVersion** aus, und vergleichen Sie die **Hauptversion**. Wenn Sie nicht über PowerShell 5.1 verfügen, befolgen Sie die Anweisungen unter [Installieren von Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
@@ -65,9 +70,9 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3. Deinstallieren vorhandener Versionen der Azure Stack Hub-PowerShell-Module
 
-Deinstallieren Sie vor der Installation der erforderlichen Version unbedingt alle zuvor installierten AzureRM-PowerShell-Module von Azure Stack Hub. Deinstallieren Sie die Module mit einer der folgenden zwei Methoden:
+Deinstallieren Sie vor der Installation der erforderlichen Version unbedingt alle zuvor installierten Azure Resource Manager-PowerShell-Module für Azure Stack Hub. Deinstallieren Sie die Module mit einer der folgenden zwei Methoden:
 
-1. Schließen Sie alle aktiven PowerShell-Sitzungen, und führen Sie die folgenden Cmdlets aus, um die vorhandenen AzureRM- und Azure PowerShell-Module zu deinstallieren:
+1. Schließen Sie alle aktiven PowerShell-Sitzungen, und führen Sie die folgenden Cmdlets aus, um die vorhandenen Azure Resource Manager- und Az PowerShell-Module zu deinstallieren:
 
     ```powershell
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
@@ -167,7 +172,7 @@ Die Installation umfasst fünf Schritte:
 ::: moniker range=">=azs-2002"
 Azure Stack Hub 2002 oder höher:
 
-Sie können AzureRM- oder Az-Vorschaumodule verwenden. Informationen zu Az-Modulen finden Sie in den Anweisungen zum [Installieren des PowerShell Az-Vorschaumoduls für Azure Stack Hub](powershell-install-az-module.md).
+Sie können AAzure Resource Manager- oder Az-Vorschaumodule verwenden. Informationen zu Az-Modulen finden Sie in den Anweisungen zum [Installieren des PowerShell Az-Vorschaumoduls für Azure Stack Hub](powershell-install-az-module.md).
 
 ```powershell
 
@@ -227,7 +232,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 3. Manuelles Bootstrapping des NuGet-Anbieters auf Ihrer getrennten Arbeitsstation Anweisungen finden Sie unter [Manuelles Bootstrapping des NuGet-Anbieters auf einem Computer, der nicht mit dem Internet verbunden ist](/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
 
-4. Registrieren Sie diesen Speicherort als Standardrepository, und installieren Sie die Module AzureRM und `AzureStack` aus diesem Repository:
+4. Registrieren Sie diesen Speicherort als Standardrepository, und installieren Sie die Azure Resource Manager- und `AzureStack`-Module aus diesem Repository:
 
    ```powershell
    # requires -Version 5
@@ -273,9 +278,9 @@ In Szenarien, für die ein Proxyserver für den Zugriff auf das Internet erforde
 
 ###  <a name="method-get_serializationsettings-error"></a>Fehler „Method get_SerializationSettings“ 
 
-- Ursache: Das PowerShell Az-Modul und die PowerShell AzureRM-Module sind nicht kompatibel.
+- Ursache: Das PowerShell Az-Modul und die PowerShell Azure Resource Manager-Module sind nicht kompatibel.
 
-    Der folgende Fehler gibt an, dass die AzureRM-Module und Az-Module in der gleichen Sitzung geladen werden: 
+    Der folgende Fehler gibt an, dass die Azure Resource Manager-Module und Az-Module in derselben Sitzung geladen werden: 
 
     ```powershell  
     >  Method 'get_SerializationSettings' in type 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' does 
@@ -284,7 +289,7 @@ In Szenarien, für die ein Proxyserver für den Zugriff auf das Internet erforde
 
 - Abhilfe: Deinstallieren Sie die in Konflikt stehenden Module. 
 
-  Wenn Sie die AzureRM-Module verwenden möchten, deinstallieren Sie die Az-Module. Deinstallieren Sie AzureRM, wenn Sie die Az-Module nutzen möchten. Schließen Sie die PowerShell-Sitzung, und deinstallieren Sie die Az- oder AzureRM-Module. 
+  Wenn Sie die Azure Resource Manager-Module verwenden möchten, deinstallieren Sie die Az-Module. Deinstallieren Sie die Azure Resource Manager-Module, wenn Sie die Az-Module nutzen möchten. Schließen Sie die PowerShell-Sitzung, und deinstallieren Sie entweder die Az- oder die Azure Resource Manager-Module. 
   
   Anweisungen finden Sie unter [Deinstallieren vorhandener Versionen der Azure Stack Hub-PowerShell-Module](#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules).
 

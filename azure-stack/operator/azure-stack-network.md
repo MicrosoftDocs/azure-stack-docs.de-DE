@@ -7,12 +7,12 @@ ms.date: 09/09/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 915c0ec4a661bbc039a7dc4d40f72ed83d135915
-ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
+ms.openlocfilehash: dc9273ba215c819595099aa35e6b3487623f6cd2
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90010865"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545243"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planen der Netzwerkintegration für Azure Stack
 
@@ -27,12 +27,12 @@ Die Azure Stack-Lösung benötigt eine zuverlässige und hoch verfügbare physis
 
 ![Empfohlener Entwurf des Azure Stack-Netzwerks](media/azure-stack-network/physical-network.svg)
 
-## <a name="bandwidth-allocation"></a>Bandbreitenzuordnung
+### <a name="bandwidth-allocation"></a>Bandbreitenzuordnung
 
-Azure Stack Hub wird mithilfe der Windows Server 2019-Failovercluster und Spaces Direct-Technologien erstellt. Ein Teil der physischen Netzwerkkonfiguration von Azure Stack Hub verwendet die Trennung von Datenverkehr und Bandbreitengarantien, um sicherzustellen, dass die Spaces Direct-Speicherkommunikation die für die Lösung erforderliche Leistung und Skalierbarkeit erfüllen kann. Die Netzwerkkonfiguration verwendet Datenverkehrsklassen, um die RDMA-basierte Spaces Direct-Kommunikation von derjenigen der Netzwerkauslastung durch die Azure Stack Hub-Infrastruktur und/oder den Mandanten voneinander zu trennen.
+Azure Stack Hub wird mithilfe der Windows Server 2019-Failovercluster und Spaces Direct-Technologien erstellt. Ein Teil der physischen Netzwerkkonfiguration von Azure Stack Hub erfolgt so, dass die Trennung von Datenverkehr und Bandbreitengarantien genutzt werden, um sicherzustellen, dass die Spaces Direct-Speicherkommunikation die für die Lösung erforderliche Leistung und Skalierbarkeit erfüllen kann. Die Netzwerkkonfiguration verwendet Datenverkehrsklassen, um die RDMA-basierte Spaces Direct-Kommunikation von derjenigen der Netzwerkauslastung durch die Azure Stack Hub-Infrastruktur und/oder den Mandanten voneinander zu trennen. Zum Abgleich mit den aktuellen, für Windows Server 2019 definierten bewährten Methoden wechselt Azure Stack Hub zur Verwendung einer zusätzlichen Datenverkehrsklasse oder Priorität, um die Kommunikation zwischen den Servern weiter zu trennen und dadurch die Failovercluster-Steuerungskommunikation zu unterstützen. Diese neue Datenverkehrsklassen-Definition wird so konfiguriert, dass 2 % der verfügbaren, physischen Bandbreite reserviert wird. Diese Konfiguration von Datenverkehrsklassen und Bandbreitenreservierung wird durch eine Änderung an den Top-of-Rack (ToR)-Switches der Azure Stack Hub-Lösung und am Host oder an den Servern von Azure Stack Hub erreicht. Beachten Sie, dass auf den Grenznetzwerkgeräten der Kunden keine Änderungen erforderlich sind. Diese Änderungen bieten eine bessere Resilienz bei der Failoverclusterkommunikation und sollen Situationen vermeiden, in denen die Netzwerkbandbreite vollständig genutzt wird und dadurch Failovercluster-Steuerungsmeldungen unterbrochen werden. Beachten Sie, dass die Failoverclusterkommunikation eine kritische Komponente der Azure Stack Hub-Infrastruktur ist und bei längeren Unterbrechungen zur Instabilität der Spaces Direct-Speicherdienste oder anderer Dienste führen kann, was sich schließlich auf die Stabilität von Mandanten- oder Endbenutzerworkloads auswirkt.
 
 > [!NOTE]
-> Das nächste Update von Azure Stack Hub umfasst eine zusätzliche Datenverkehrsklasse. In Vorbereitung auf diese Änderung empfiehlt Microsoft, dass Sie sich an ihren OEM wenden, um die erforderlichen Änderungen an den ToR-Netzwerkswitches (Top-of-Rack) vorzunehmen. Diese ToR-Änderung kann entweder vor oder nach der Aktualisierung auf das nächste Release durchgeführt werden.
+> Die beschriebenen Änderungen werden in Release 2008 auf der Hostebene eines Azure Stack Hub-Systems hinzugefügt. Wenden Sie sich an ihren OEM, um die erforderlichen Änderungen an den ToR-Netzwerkswitches vornehmen zu lassen. Diese ToR-Änderung kann entweder vor der Aktualisierung auf Release 2008 oder nach dem Aktualisieren auf 2008 ausgeführt werden. Die Konfigurationsänderung an den ToR-Switches ist erforderlich, um die Failoverclusterkommunikation zu verbessern.
 
 ## <a name="logical-networks"></a>Logische Netzwerke
 

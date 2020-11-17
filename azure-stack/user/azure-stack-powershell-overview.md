@@ -3,16 +3,16 @@ title: PowerShell in Azure Stack Hub
 description: PowerShell in Azure Stack Hub verfügt über eine Reihe von Modulen und Kontexten.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 9731586043f42358bef0e8e37f9de7e23feebbff
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 7103a2a8268ffb4c8cbbc84f35e6e1a6a90992c3
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567041"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546581"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Erste Schritte mit PowerShell in Azure Stack Hub
 
@@ -35,7 +35,7 @@ Ressourcenanbieter stellen sowohl Funktionalität als auch Steuerelemente für d
 
 Im folgenden Blockdiagramm sind die Beziehungen zwischen den Sätzen mit den PowerShell-Modulen dargestellt. Von Ihrem Computer aus können Sie die PowerShell-Module laden und sowohl globale Azure- als auch Azure Stack Hub-Umgebungen verwalten.
 
-![Azure Stack Hub PowerShell](media/azure-stack-powershell-overview/azure-stack-powerShell.svg)
+![Azure Stack Hub PowerShell](media/azure-stack-powershell-overview/azure-stack-powershell.svg)
 
 ### <a name="global-azure"></a>Globale Azure-Umgebung
 
@@ -43,11 +43,11 @@ Azure PowerShell enthält eine Reihe von Cmdlets, für die die aktuelle Version 
 
 ### <a name="azure-stack-hub-resource-manager"></a>Azure Stack Hub: Resource Manager
 
-Azure Stack Hub PowerShell verfügt über eine Reihe von Cmdlets, die vorherige Azure Resource Manager-Versionen verwenden. Diese Cmdlets sind mit den Ressourcenanbietern in Azure Stack Hub kompatibel. Jeder Ressourcenanbieter in Azure Stack Hub verwendet eine ältere Version des Anbieters in der globalen Azure-Umgebung. Zum Koordinieren der von Azure Stack Hub unterstützten Version der einzelnen Anbieter können Sie API-Profile verwenden. Azure Stack Hub PowerShell verwendet PowerShell 5.1 und ist nur unter Windows verfügbar. Weitere Informationen finden Sie unter [Verwalten von API-Versionsprofile in Azure Stack Hub](azure-stack-version-profiles.md).
+Azure Stack Hub PowerShell verfügt über eine Reihe von Cmdlets, die vorherige Azure Resource Manager-Versionen verwenden. Diese Cmdlets sind mit den Ressourcenanbietern in Azure Stack Hub kompatibel. Jeder Ressourcenanbieter in Azure Stack Hub verwendet eine ältere Version des Anbieters in der globalen Azure-Umgebung. Zum Koordinieren der von Azure Stack Hub unterstützten Version der einzelnen Anbieter können Sie API-Profile verwenden. Weitere Informationen finden Sie unter [Verwalten von API-Versionsprofile in Azure Stack Hub](azure-stack-version-profiles.md).
 
 ### <a name="azure-stack-hub-administrator"></a>Azure Stack Hub-Administrator
 
-Azure Stack Hub stellt dem Cloudoperator eine Reihe von Ressourcenanbietern für die Installation und Verwaltung von Azure Stack Hub zur Verfügung. In der globalen Azure-Umgebung wird diese Interaktion vom Benutzer abstrahiert und im Hintergrund als Teil von Azure verarbeitet. Mit Azure Stack Hub können Unternehmen aber eine private Cloud unterstützen. Um diese Aufgaben durchzuführen, interagiert der Operator mit den Azure Stack Hub-Administrator-APIs. Weitere Informationen finden Sie unter [Installieren von PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md).
+Azure Stack Hub stellt dem Cloudoperator eine Reihe von Ressourcenanbietern für die Installation und Verwaltung von Azure Stack Hub zur Verfügung. In der globalen Azure-Umgebung wird diese Interaktion vom Benutzer abstrahiert und im Hintergrund als Teil von Azure verarbeitet. Mit Azure Stack Hub können Unternehmen aber eine private Cloud unterstützen. Um diese Aufgaben durchzuführen, interagiert der Operator mit den Azure Stack Hub-Administrator-APIs. Weitere Informationen finden Sie unter [Installieren von PowerShell für Azure Stack Hub](../operator/powershell-install-az-module.md).
 
 ### <a name="azure-stack-hub-privileged-endpoint"></a>Privilegierter Endpunkt in Azure Stack Hub
 
@@ -61,7 +61,7 @@ Azure Stack Hub stellt Skripts und zusätzliche Cmdlets zur Verfügung, die im G
 
 PowerShell ist eine Möglichkeit, um programmgesteuert mit Azure Resource Manager zu interagieren. Sie können mit einer interaktiven Eingabeaufforderung arbeiten oder – falls Sie Aufgaben automatisieren – Skripts schreiben.
 
-Wenn Sie viel Zeit mit der Arbeit mit Azure Stack Hub PowerShell verbringen, werden Sie immer wieder Module installieren und neu installieren. Wenn Sie gleichzeitig in der globalen Azure-Umgebung arbeiten, kann dies eine ziemliche Herausforderung darstellen, da Sie Ihre Module je nach Ziel immer wieder deinstallieren und neu installieren müssen. 
+Wenn Sie viel Zeit mit der Arbeit mit Azure Stack Hub PowerShell verbringen, werden Sie immer wieder Module installieren und neu installieren. Wenn Sie gleichzeitig in der globalen Azure-Umgebung arbeiten, kann dies eine ziemliche Herausforderung darstellen, da Sie Ihre Module je nach Ziel immer wieder deinstallieren und neu installieren müssen.
 
 Mithilfe von Docker-Containern können Sie die verschiedenen Versionen von PowerShell auf Ihrem lokalen Computer isolieren. Unter [Verwenden von Docker zum Ausführen von PowerShell](azure-stack-powershell-user-docker.md) finden Sie Informationen zur Verwendung von Docker-Containern mit dem Ziel, zwischen den verschiedenen PowerShell-Modulsätzen hin und her zu wechseln.
 
@@ -69,5 +69,5 @@ Mithilfe von Docker-Containern können Sie die verschiedenen Versionen von Power
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Erfahren Sie mehr über [API-Profile für PowerShell](azure-stack-version-profiles.md) in Azure Stack Hub.
-- Installieren Sie [Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md).
+- Installieren Sie [Azure Stack Hub PowerShell](../operator/powershell-install-az-module.md).
 - Erfahren Sie mehr über das Erstellen von [Azure Resource Manager-Vorlagen](azure-stack-develop-templates.md) für cloudübergreifende Konsistenz.

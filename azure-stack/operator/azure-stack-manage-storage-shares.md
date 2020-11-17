@@ -3,16 +3,16 @@ title: Verwalten der Speicherkapazität in Azure Stack Hub
 description: Erfahren Sie, wie Sie die Speicherkapazität und -verfügbarkeit in Azure Stack Hub überwachen und verwalten können.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
-ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 21a8d4f5238af436474cb33a41e6e35fbab3afb7
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: bbced92ca9eb275ed1599ff7422bde1601be11c0
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899736"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545498"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Verwalten der Speicherkapazität für Azure Stack Hub
 
@@ -20,7 +20,7 @@ Dieser Artikel hilft Azure Stack Hub-Cloudoperatoren bei der Überwachung und Ve
 
 Cloudbetreibern steht nur eine begrenzte Menge an Speicherplatz zur Verfügung. Die Speicherplatzmenge hängt von der implementierten Lösung ab. Die Lösung wird entweder von Ihrem OEM-Anbieter (bei Verwendung einer Lösung mit mehreren Knoten) oder von der Hardware bereitgestellt, auf der Sie das Azure Stack Development Kit (ASDK) installieren.
 
-Azure Stack Hub unterstützt nur die Erweiterung der Speicherkapazität durch Hinzufügen zusätzlicher Skalierungseinheitenknoten. Weitere Informationen finden Sie unter [Hinzufügen zusätzlicher Knoten einer Skalierungseinheit in Azure Stack Hub](azure-stack-add-scale-node.md). Durch das Hinzufügen physischer Datenträger zu den Knoten wird die Speicherkapazität nicht erweitert.
+Azure Stack Hub unterstützt nur die Erweiterung der Speicherkapazität durch Hinzufügen zusätzlicher Skalierungseinheitenknoten. Weitere Informationen finden Sie unter [Hinzufügen zusätzlicher Knoten einer Skalierungseinheit in Azure Stack Hub](azure-stack-add-scale-node.md). Durch Hinzufügen physischer Datenträger zu den Knoten wird die Speicherkapazität nicht vergrößert.
 
 Es ist wichtig, den verfügbaren Speicher zu [überwachen](#monitor-shares), um sicherzustellen, dass effiziente Vorgänge beibehalten werden. Sollte die freie Kapazität eines Volumes knapp werden, sollten Sie den [verfügbaren Speicherplatz verwalten](#manage-available-space), um eine Erschöpfung der Kapazität von Freigaben zu verhindern.
 
@@ -189,7 +189,7 @@ Durch die Migration werden alle Containerblobs in der neuen Freigabe konsolidier
 
 #### <a name="migrate-containers-by-using-powershell"></a>Migrieren von Containern mithilfe von PowerShell
 
-1. Vergewissern Sie sich, dass [Azure PowerShell installiert und konfiguriert](/powershell/azure/) ist. Weitere Informationen finden Sie unter [Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell](https://go.microsoft.com/fwlink/?LinkId=394767).
+1. Vergewissern Sie sich, dass [Azure PowerShell installiert und konfiguriert](/powershell/azure/) ist. Weitere Informationen finden Sie unter [Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell](/azure/azure-resource-manager/management/manage-resources-powershell).
 2. Überprüfen Sie den Container, um zu ermitteln, welche Daten sich auf der Freigabe befinden, die Sie migrieren möchten. Verwenden Sie das Cmdlet `Get-AzsStorageContainer`, um die Container zu ermitteln, die sich auf einem Volume am besten für die Migration eignen:
 
    ```powershell  

@@ -7,12 +7,12 @@ ms.date: 08/18/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 672071c93d5f227ae6ec9bfccedc043e6838ac61
-ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
+ms.openlocfilehash: 6887e29cca09b6ff0e774bc5898d00f14684e76b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89621315"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543934"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack Hub-Marketplace-Elements
 
@@ -158,8 +158,8 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
     ```powershell
     $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
-    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+    Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzAccount -EnvironmentName "AzureStackAdmin"
     ```
 
 4. Führen Sie das folgende Skript aus, um die Ressource in Ihren Katalog zu importieren:
@@ -182,7 +182,7 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
    - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
    - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
 
-7. Sie können ein Marketplace-Element mit dem Cmdlet **Remove-AzureRMGalleryItem** entfernen. Beispiel:
+6. Sie können ein Marketplace-Element mit dem Cmdlet **Remove-AzGalleryItem** entfernen. Beispiel:
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose

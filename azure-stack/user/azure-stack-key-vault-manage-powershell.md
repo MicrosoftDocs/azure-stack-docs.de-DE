@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 5ca8221d9a85a6dad874969525006f789e6b7084
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: f1cdb082accdef3590bd737a39add61b1ebbc8bb
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580169"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546309"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>Verwalten von Key Vault in Azure Stack Hub mithilfe von PowerShell
 
@@ -27,7 +27,7 @@ In diesem Artikel wird beschrieben, wie Sie einen Schlüsseltresor in Azure Stac
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Sie müssen ein Angebot abonnieren, das den Azure Key Vault-Dienst umfasst.
-* [Installieren von PowerShell für Azure Stack Hub](../operator/azure-stack-powershell-install.md)
+* [Installieren von PowerShell für Azure Stack Hub](../operator/powershell-install-az-module.md)
 * [Konfigurieren der Azure Stack Hub-PowerShell-Umgebung](azure-stack-powershell-configure-user.md)
 
 ## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>Aktivieren Ihres Mandantenabonnements für Key Vault-Vorgänge
@@ -35,7 +35,7 @@ In diesem Artikel wird beschrieben, wie Sie einen Schlüsseltresor in Azure Stac
 Damit Sie Vorgänge für einen Schlüsseltresor ausgeben können, muss Ihr Mandantenabonnement für Tresorvorgänge aktiviert sein. Um sicherzustellen, dass Schlüsseltresorvorgänge aktiviert sind, führen Sie den folgenden Befehl aus:
 
 ```powershell  
-Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
+Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
 
 Wenn Ihr Abonnement für Tresorvorgänge aktiviert ist, hat **RegistrationState** in der Ausgabe für alle Ressourcentypen eines Schlüsseltresors den Wert **Registered**.
@@ -45,7 +45,7 @@ Wenn Ihr Abonnement für Tresorvorgänge aktiviert ist, hat **RegistrationState*
 Wenn keine Tresorvorgänge aktiviert sind, geben Sie den folgenden Befehl aus, um den Key Vault-Dienst in Ihrem Abonnement zu registrieren:
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
+Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
 
 Wenn die Registrierung erfolgreich war, wird die folgende Ausgabe zurückgegeben:
@@ -59,17 +59,17 @@ Wenn Sie die Schlüsseltresorbefehle aufrufen, wird möglicherweise eine Fehlerm
 Erstellen Sie vor dem Erstellen eines Schlüsseltresors zunächst eine Ressourcengruppe, damit alle schlüsseltresorbezogenen Ressourcen in einer Ressourcengruppe enthalten sind. Verwenden Sie den folgenden Befehl, um eine neue Ressourcengruppe zu erstellen:
 
 ```powershell
-New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
+New-AzResourceGroup -Name "VaultRG" -Location local -verbose -Force
 ```
 
 ![Neue, in PowerShell generierte Ressourcengruppe](media/azure-stack-key-vault-manage-powershell/image3.png)
 
-Erstellen Sie nun mithilfe des Cmdlets **New-AzureRMKeyVault** einen Schlüsseltresor in der zuvor erstellten Ressourcengruppe. Dieser Befehl liest drei erforderliche Parameter: Ressourcengruppenname, Schlüsseltresorname und geografischer Standort.
+Erstellen Sie nun mithilfe des Cmdlets **New-AzKeyVault** einen Schlüsseltresor in der zuvor erstellten Ressourcengruppe. Dieser Befehl liest drei erforderliche Parameter: Ressourcengruppenname, Schlüsseltresorname und geografischer Standort.
 
 Führen Sie den folgenden Befehl aus, um einen Schlüsseltresor zu erstellen:
 
 ```powershell
-New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
+New-AzKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
 ```
 
 ![Neuer, in PowerShell generierter Schlüsseltresor](media/azure-stack-key-vault-manage-powershell/image4.png)
@@ -78,7 +78,7 @@ Die Ausgabe dieses Befehls zeigt die Eigenschaften des von Ihnen erstellten Schl
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Bereitstellung von Active Directory-Verbunddienste (AD FS)
 
-Bei einer AD FS-Bereitstellung wird möglicherweise die Warnung ausgegeben, dass die Zugriffsrichtlinie nicht festgelegt wurde und dass keine Benutzer oder Anwendungen über Zugriffsberechtigungen für die Verwendung dieses Tresors verfügen. Legen Sie zur Behebung dieses Problems mithilfe des Befehls [**Set-AzureRmKeyVaultAccessPolicy**](#authorize-an-app-to-use-a-key-or-secret) eine Zugriffsrichtlinie für den Tresor fest:
+Bei einer AD FS-Bereitstellung wird möglicherweise die Warnung ausgegeben, dass die Zugriffsrichtlinie nicht festgelegt wurde und dass keine Benutzer oder Anwendungen über Zugriffsberechtigungen für die Verwendung dieses Tresors verfügen. Legen Sie zur Behebung dieses Problems mithilfe des Befehls [**Set-AzKeyVaultAccessPolicy**](#authorize-an-app-to-use-a-key-or-secret) eine Zugriffsrichtlinie für den Tresor fest:
 
 ```powershell
 # Obtain the security identifier(SID) of the active directory user
@@ -86,7 +86,7 @@ $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value
 
 # Set the key vault access policy
-Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation
+Set-AzKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation
 ```
 
 ## <a name="manage-keys-and-secrets"></a>Verwalten von Schlüsseln und Geheimnissen
@@ -141,20 +141,20 @@ Nach dem Erstellen von Schlüsseln und Geheimnissen können Sie deren Verwendung
 
 ## <a name="authorize-an-app-to-use-a-key-or-secret"></a>Autorisieren einer App zum Verwenden eines Schlüssels oder Geheimnisses
 
-Verwenden Sie das Cmdlet **Set-AzureRmKeyVaultAccessPolicy**, um den Zugriff einer App auf einen Schlüssel oder auf ein Geheimnis im Schlüsseltresor zu autorisieren.
+Verwenden Sie das Cmdlet **Set-AzKeyVaultAccessPolicy**, um den Zugriff einer App auf einen Schlüssel oder auf ein Geheimnis im Schlüsseltresor zu autorisieren.
 
 Im folgenden Beispiel lautet der Tresorname **ContosoKeyVault**, und die App, die Sie autorisieren möchten, hat die Client-ID **8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed**. Führen Sie den folgenden Befehl aus, um die App zu autorisieren. Mithilfe des Parameters **PermissionsToKeys** können Sie auch Berechtigungen für einen Benutzer, eine App oder eine Sicherheitsgruppe festlegen.
 
-Wenn Sie „Set-AzureRmKeyvaultAccessPolicy“ für eine Azure Stack Hub-Umgebung verwenden, für die ADFS konfiguriert ist, sollte der Parameter „BypassObjectIdValidation“ angegeben werden.
+Wenn Sie „Set-AzKeyvaultAccessPolicy“ für eine Azure Stack Hub-Umgebung verwenden, für die ADFS konfiguriert ist, sollte der Parameter „BypassObjectIdValidation“ angegeben werden.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
+Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
 ```
 
 Wenn Sie dieselbe App zum Lesen von Geheimnissen in Ihrem Tresor autorisieren möchten, führen Sie das folgende Cmdlet aus:
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
+Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte

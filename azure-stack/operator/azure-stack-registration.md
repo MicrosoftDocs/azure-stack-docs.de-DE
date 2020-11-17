@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: Erfahren Sie, wie Sie integrierte Azure Stack Hub-Systeme bei Azure registrieren, um Azure Marketplace-Elemente herunterladen und die Datenberichterstellung einrichten zu können.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 04/06/2020
+ms.date: 10/16/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
-ms.lastreviewed: 03/04/2019
+ms.lastreviewed: 10/16/2020
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 5f2067bed0b6efea8a19e921c2cb4c59caabd505
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.openlocfilehash: b3c5eaebf082ac84ff4ea231f329385c6ad4e108
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93364012"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545430"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrieren von Azure Stack Hub in Azure
 
@@ -81,7 +81,7 @@ Vergewissern Sie sich, dass in der Ausgabe **FullLanguageMode** zurückgegeben w
 
 Verwenden Sie für die Registrierung bei Azure die neueste Version von PowerShell für Azure Stack Hub.
 
-Sollte die aktuelle Version noch nicht installiert sein, lesen Sie [Installieren von PowerShell für Azure Stack Hub](azure-stack-powershell-install.md).
+Sollte die aktuelle Version noch nicht installiert sein, lesen Sie [Installieren von PowerShell für Azure Stack Hub](powershell-install-az-module.md).
 
 ### <a name="download-the-azure-stack-hub-tools"></a>Herunterladen der Azure Stack Hub-Tools
 
@@ -121,32 +121,32 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
 
 1. Zum Registrieren des Azure Stack Hub-Ressourcenanbieters bei Azure starten Sie PowerShell ISE als Administrator, und verwenden Sie die folgenden PowerShell-Cmdlets mit dem auf den entsprechenden Azure-Abonnementtyp festgelegten Parameter **EnvironmentName** (siehe die Parameter unten).
 
-2. Fügen Sie das Azure-Konto hinzu, das für die Registrierung von Azure Stack Hub verwendet wurde. Führen Sie zum Hinzufügen des Kontos das Cmdlet **Add-AzureRmAccount** aus. Sie werden aufgefordert, Ihre Anmeldeinformationen für das Azure-Konto einzugeben. Je nach Konfiguration Ihres Kontos müssen Sie möglicherweise die zweistufige Authentifizierung verwenden.
+2. Fügen Sie das Azure-Konto hinzu, das für die Registrierung von Azure Stack Hub verwendet wurde. Führen Sie zum Hinzufügen des Kontos das Cmdlet **Add-AzAccount** aus. Sie werden aufgefordert, Ihre Anmeldeinformationen für das Azure-Konto einzugeben. Je nach Konfiguration Ihres Kontos müssen Sie möglicherweise die zweistufige Authentifizierung verwenden.
 
    ```powershell
-   Add-AzureRmAccount -EnvironmentName "<environment name>"
+   Add-AzAccount -EnvironmentName "<environment name>"
    ```
 
    | Parameter | BESCHREIBUNG |  
    |-----|-----|
-   | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud** , **AzureUSGovernment** oder für ein Azure-Abonnement für China **AzureChinaCloud**.  |
+   | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für ein Azure-Abonnement für China **AzureChinaCloud**.  |
 
    >[!Note]
-   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie lediglich Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit Add-AzureRmAccount anmelden: `Remove-AzureRmAccount-Scope Process`
+   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie lediglich Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit „Add-AzAccount“ anmelden: `Remove-AzAccount-Scope Process`.
 
 3. Wenn Sie über mehrere Abonnements verfügen, führen Sie den folgenden Befehl aus, um das zu verwendende Abonnement auszuwählen:  
 
    ```powershell  
-   Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   Get-AzSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzSubscription
    ```
 
 4. Führen Sie den folgenden Befehl zum Registrieren des Azure Stack Hub-Ressourcenanbieters in Ihrem Azure-Abonnement aus:
 
    ```powershell  
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Starten Sie PowerShell ISE als Administrator, und navigieren Sie zum Ordner **Registration** im Verzeichnis **AzureStack-Tools-master** , das beim Herunterladen der Azure Stack Hub-Tools erstellt wurde. Importieren Sie das Modul **RegisterWithAzure.psm1** mit PowerShell:
+5. Starten Sie PowerShell ISE als Administrator, und navigieren Sie zum Ordner **Registration** im Verzeichnis **AzureStack-Tools-az**, das beim Herunterladen der Azure Stack Hub-Tools erstellt wurde. Importieren Sie das Modul **RegisterWithAzure.psm1** mit PowerShell:
 
    ```powershell  
    Import-Module .\RegisterWithAzure.psm1
@@ -155,12 +155,12 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
 6. Stellen Sie als Nächstes in der gleichen PowerShell-Sitzung sicher, dass Sie im richtigen Azure PowerShell-Kontext angemeldet sind. Bei diesem Kontext handelt es sich um das Azure-Konto, das zuvor verwendet wurde, um den Azure Stack Hub-Ressourcenanbieter zu registrieren. Führen Sie diesen PowerShell-Befehl aus:
 
    ```powershell  
-   Connect-AzureRmAccount -Environment "<environment name>"
+   Connect-AzAccount -Environment "<environment name>"
    ```
 
    | Parameter | BESCHREIBUNG |  
    |-----|-----|
-   | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud** , **AzureUSGovernment** oder für ein Azure-Abonnement für China **AzureChinaCloud**.  |
+   | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für ein Azure-Abonnement für China **AzureChinaCloud**.  |
 
 7. Führen Sie in der gleichen PowerShell-Sitzung das Cmdlet **Set-AzsRegistration** aus. Führen Sie diesen PowerShell-Befehl aus:  
 
@@ -188,29 +188,29 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
 
 1. Zum Registrieren des Azure Stack Hub-Ressourcenanbieters bei Azure starten Sie PowerShell ISE als Administrator, und verwenden Sie die folgenden PowerShell-Cmdlets mit dem auf den entsprechenden Azure-Abonnementtyp festgelegten Parameter **EnvironmentName** (siehe die Parameter unten).
 
-2. Fügen Sie das Azure-Konto hinzu, das für die Registrierung von Azure Stack Hub verwendet wurde. Führen Sie zum Hinzufügen des Kontos das Cmdlet **Add-AzureRmAccount** aus. Sie werden aufgefordert, Ihre Anmeldeinformationen für das Azure-Konto einzugeben. Je nach Konfiguration Ihres Kontos müssen Sie möglicherweise die zweistufige Authentifizierung verwenden.
+2. Fügen Sie das Azure-Konto hinzu, das für die Registrierung von Azure Stack Hub verwendet wurde. Führen Sie zum Hinzufügen des Kontos das Cmdlet **Add-AzAccount** aus. Sie werden aufgefordert, Ihre Anmeldeinformationen für das Azure-Konto einzugeben. Je nach Konfiguration Ihres Kontos müssen Sie möglicherweise die zweistufige Authentifizierung verwenden.
 
    ```powershell  
-   Connect-AzureRmAccount -Environment "<environment name>"
+   Connect-AzAccount -Environment "<environment name>"
    ```
 
    | Parameter | BESCHREIBUNG |  
    |-----|-----|
-   | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud** , **AzureUSGovernment** oder für ein Azure-Abonnement für China **AzureChinaCloud**.  |
+   | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für ein Azure-Abonnement für China **AzureChinaCloud**.  |
 
 3. Wenn Sie über mehrere Abonnements verfügen, führen Sie den folgenden Befehl aus, um das zu verwendende Abonnement auszuwählen:  
 
    ```powershell  
-   Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   Get-AzSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzSubscription
    ```
 
 4. Führen Sie den folgenden Befehl zum Registrieren des Azure Stack Hub-Ressourcenanbieters in Ihrem Azure-Abonnement aus:
 
    ```powershell  
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Starten Sie PowerShell ISE als Administrator, und navigieren Sie zum Ordner **Registration** im Verzeichnis **AzureStack-Tools-master** , das beim Herunterladen der Azure Stack Hub-Tools erstellt wurde. Importieren Sie das Modul **RegisterWithAzure.psm1** mit PowerShell:
+5. Starten Sie PowerShell ISE als Administrator, und navigieren Sie zum Ordner **Registration** im Verzeichnis **AzureStack-Tools-az**, das beim Herunterladen der Azure Stack Hub-Tools erstellt wurde. Importieren Sie das Modul **RegisterWithAzure.psm1** mit PowerShell:
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -235,7 +235,7 @@ Wenn Sie Azure Stack Hub in einer nicht verbundenen Umgebung (ohne Internetverbi
 
 ### <a name="get-a-registration-token-from-the-azure-stack-hub-environment"></a>Abrufen eines Registrierungstokens aus der Azure Stack Hub-Umgebung
 
-1. Starten Sie PowerShell ISE als Administrator, und navigieren Sie zum Ordner **Registration** im Verzeichnis **AzureStack-Tools-master** , das beim Herunterladen der Azure Stack Hub-Tools erstellt wurde. Importieren Sie das Modul **RegisterWithAzure.psm1** :  
+1. Starten Sie PowerShell ISE als Administrator, und navigieren Sie zum Ordner **Registration** im Verzeichnis **AzureStack-Tools-az**, das beim Herunterladen der Azure Stack Hub-Tools erstellt wurde. Importieren Sie das Modul **RegisterWithAzure.psm1**:  
 
    ```powershell  
    Import-Module .\RegisterWithAzure.psm1
@@ -260,7 +260,7 @@ Führen Sie auf dem Computer, der mit dem Internet verbunden ist, die gleichen S
 
 Sie benötigen Ihr Registrierungstoken und einen eindeutigen Tokennamen.
 
-1. Starten Sie PowerShell ISE als Administrator, und navigieren Sie zum Ordner **Registration** im Verzeichnis **AzureStack-Tools-master** , das beim Herunterladen der Azure Stack Hub-Tools erstellt wurde. Importieren Sie das Modul **RegisterWithAzure.psm1** :  
+1. Starten Sie PowerShell ISE als Administrator, und navigieren Sie zum Ordner **Registration** im Verzeichnis **AzureStack-Tools-az**, das beim Herunterladen der Azure Stack Hub-Tools erstellt wurde. Importieren Sie das Modul **RegisterWithAzure.psm1**:  
 
    ```powershell  
    Import-Module .\RegisterWithAzure.psm1
@@ -278,7 +278,7 @@ Optional können Sie mit dem Cmdlet „Get-Content“ auf eine Datei verweisen, 
 
 Sie benötigen Ihr Registrierungstoken und einen eindeutigen Tokennamen.
 
-1. Starten Sie PowerShell ISE als Administrator, und navigieren Sie zum Ordner **Registration** im Verzeichnis **AzureStack-Tools-master** , das beim Herunterladen der Azure Stack Hub-Tools erstellt wurde. Importieren Sie das Modul **RegisterWithAzure.psm1** :  
+1. Starten Sie PowerShell ISE als Administrator, und navigieren Sie zum Ordner **Registration** im Verzeichnis **AzureStack-Tools-az**, das beim Herunterladen der Azure Stack Hub-Tools erstellt wurde. Importieren Sie das Modul **RegisterWithAzure.psm1**:  
 
     ```powershell  
     Import-Module .\RegisterWithAzure.psm1
@@ -334,16 +334,16 @@ Sie können die Kachel **Regionsverwaltung** verwenden, um zu überprüfen, ob d
 
 2. Wählen Sie im Dashboard **Regionsverwaltung** aus.
 
-3. Wählen Sie **Eigenschaften** aus. Auf diesem Blatt werden der Status und Details Ihrer Umgebung angezeigt. Der Status kann **Registriert** , **Nicht registriert** oder **Abgelaufen** sein.
+3. Wählen Sie **Eigenschaften** aus. Auf diesem Blatt werden der Status und Details Ihrer Umgebung angezeigt. Der Status kann **Registriert**, **Nicht registriert** oder **Abgelaufen** sein.
 
     [![Kachel „Regionsverwaltung“ im Azure Stack Hub-Administratorportal](media/azure-stack-registration/admin1sm.png "Kachel „Regionsverwaltung“")](media/azure-stack-registration/admin1.png#lightbox)
 
     Wenn Sie die Registrierung durchgeführt haben, finden Sie folgende Eigenschaften vor:
     
-    - **Abonnement-ID für die Registrierung** : Die bei Azure Stack Hub registrierte und mit Azure Stack Hub verknüpfte Azure-Abonnement-ID.
-    - **Ressourcengruppe für die Registrierung** : Die Azure-Ressourcengruppe im zugeordneten Abonnement mit den Azure Stack Hub-Ressourcen.
+    - **Abonnement-ID für die Registrierung**: Die bei Azure Stack Hub registrierte und mit Azure Stack Hub verknüpfte Azure-Abonnement-ID.
+    - **Ressourcengruppe für die Registrierung**: Die Azure-Ressourcengruppe im zugeordneten Abonnement mit den Azure Stack Hub-Ressourcen.
 
-4. Sie können das Azure-Portal verwenden, um Azure Stack Hub-Registrierungsressourcen anzuzeigen, und dann überprüfen, ob die Registrierung erfolgreich war. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) mit einem Konto an, das dem Abonnement zugeordnet ist, mit dem Sie die Registrierung von Azure Stack Hub durchgeführt haben. Wählen Sie **Alle Ressourcen** aus, aktivieren Sie das Kontrollkästchen **Ausgeblendete Typen anzeigen** , und wählen Sie den Registrierungsnamen aus.
+4. Sie können das Azure-Portal verwenden, um Azure Stack Hub-Registrierungsressourcen anzuzeigen, und dann überprüfen, ob die Registrierung erfolgreich war. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) mit einem Konto an, das dem Abonnement zugeordnet ist, mit dem Sie die Registrierung von Azure Stack Hub durchgeführt haben. Wählen Sie **Alle Ressourcen** aus, aktivieren Sie das Kontrollkästchen **Ausgeblendete Typen anzeigen**, und wählen Sie den Registrierungsnamen aus.
 
 5. War die Registrierung nicht erfolgreich, müssen Sie die Registrierung wiederholen und dabei die [hier beschriebenen Schritte](#change-the-subscription-you-use) zur Behebung des Problems ausführen.  
 
@@ -355,7 +355,7 @@ Alternativ dazu können Sie mit dem Marketplace-Verwaltungsfeature überprüfen,
 ## <a name="renew-or-change-registration"></a>Erneuern oder Ändern der Registrierung
 
 ::: zone pivot="state-connected"
-In folgenden Fällen müssen Sie Ihre Registrierung aktualisieren oder verlängern:
+In folgenden Fällen müssen Sie Ihre Registrierung aktualisieren:
 
 - Nachdem Sie Ihr kapazitätsbasiertes Jahresabonnement verlängert haben.
 - Wenn Sie Ihr Abrechnungsmodell ändern.
@@ -377,11 +377,11 @@ Wenn Sie das von Ihnen verwendete Abonnement ändern möchten, müssen Sie zuers
 
   ```powershell  
   # select the subscription used during the registration (shown in portal)
-  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
   # unregister using the parameter values from portal
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   # switch to new subscription id
-  Select-AzureRmSubscription -Subscription '<New subscription ID>'
+  Select-AzSubscription -Subscription '<New subscription ID>'
   # register 
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' -ResourceGroupName '<Registration resource group name>'
   ```
@@ -392,7 +392,7 @@ Dieser Abschnitt bietet Anweisungen für den Fall, dass Sie das Abrechnungsmodel
 
   ```powershell  
   # select the subscription used during the registration
-  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
   # rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   ```
@@ -444,7 +444,7 @@ Sie haben nun die Registrierung in einem nicht verbundenen Szenario vollständig
 
 ### <a name="disable-or-enable-usage-reporting"></a>Deaktivieren oder Aktivieren von Nutzungsberichten
 
-Für Azure Stack Hub-Umgebungen, die ein kapazitätsbasiertes Abrechnungsmodell verwenden, deaktivieren Sie Nutzungsberichte mit dem **UsageReportingEnabled** -Parameter im Cmdlet **Set-AzsRegistration** oder im Cmdlet **Get-AzsRegistrationToken**. Azure Stack Hub erstellt standardmäßig Berichte zu Nutzungsmetriken. Betreiber, die ein kapazitätsbasiertes Modell verwenden oder eine nicht verbundene Umgebung unterstützen, müssen Nutzungsberichte deaktivieren.
+Für Azure Stack Hub-Umgebungen, die ein kapazitätsbasiertes Abrechnungsmodell verwenden, deaktivieren Sie Nutzungsberichte mit dem **UsageReportingEnabled**-Parameter im Cmdlet **Set-AzsRegistration** oder im Cmdlet **Get-AzsRegistrationToken**. Azure Stack Hub erstellt standardmäßig Berichte zu Nutzungsmetriken. Betreiber, die ein kapazitätsbasiertes Modell verwenden oder eine nicht verbundene Umgebung unterstützen, müssen Nutzungsberichte deaktivieren.
 
 ::: zone pivot="state-connected"
 Führen Sie die folgenden PowerShell-Cmdlets aus:

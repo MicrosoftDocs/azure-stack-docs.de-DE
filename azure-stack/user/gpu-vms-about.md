@@ -5,30 +5,31 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: reference
-ms.date: 07/07/2020
+ms.date: 10/20/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: bb945f69a972214823f366456967b71a013d98bf
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 9289b1c2ae3119a03898e2d9c361bde4976a16f7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899838"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546921"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Grafikprozessor (GPU)-VM in Azure Stack Hub
 
 *Anwendungsbereich: Integrierte Azure Stack-Systeme*
 
-In diesem Artikel erfahren Sie, welche GPU-Modelle (Graphics Processing Unit, Grafikprozessor) im Azure Stack Hub-System mit mehreren Knoten unterstützt werden. Außerdem finden Sie hier Anweisungen zum Installieren der mit den GPUs verwendeten Treiber. Die GPU-Unterstützung in Azure Stack Hub ermöglicht Lösungen wie künstliche Intelligenz, Training, Rückschluss und Datenvisualisierung. Der AMD Radeon Instinct MI25 kann zur Unterstützung von grafikintensiven Anwendungen wie Autodesk AutoCAD verwendet werden.
+In diesem Artikel ist beschrieben, welche GPU-Modelle (Graphics Processing Unit, Grafikprozessor) in einem Azure Stack Hub-System mit mehreren Knoten unterstützt werden. Außerdem finden Sie hier Anweisungen zum Installieren der mit den GPUs verwendeten Treiber. Die GPU-Unterstützung in Azure Stack Hub ermöglicht Lösungen wie künstliche Intelligenz, Training, Rückschluss und Datenvisualisierung. Der AMD Radeon Instinct MI25 kann zur Unterstützung von grafikintensiven Anwendungen wie Autodesk AutoCAD verwendet werden.
 
 Während des Public Preview-Zeitraums stehen drei GPU-Modelle zur Auswahl: NVIDIA V100, NVIDIA T4 und AMD MI25. Diese physischen GPUs entsprechen den folgenden Azure-VM-Typen der N-Serie:
 - [NCv3](/azure/virtual-machines/ncv3-series)
 - [NVv4 (AMD MI25)](/azure/virtual-machines/nvv4-series)
-- NCas_v4
+- [NCasT4_v3](/azure/virtual-machines/nct4-v3-series)
 
 > [!IMPORTANT]  
 > Die GPU-Unterstützung in Azure Stack Hub ist zurzeit als öffentliche Vorschauversion verfügbar. Wenn Sie am Vorschauprogramm teilnehmen möchten, füllen Sie das Formular unter [aka.ms/azurestackhubgpupreview](https://aka.ms/azurestackhubgpupreview) aus.
-> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar.
+> Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="ncv3"></a>NCv3
 
@@ -48,18 +49,14 @@ Die VMs der NVv4-Serie verfügen über [AMD Radeon Instinct MI25](https://www.a
 | --- | --- | --- | --- | --- | --- | --- | --- |   
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 | 
 
-## <a name="ncas_v4"></a>NCas_v4
-
-Die neue NVIDIA T4-VM-Größe ermöglicht die Ausführung einfacher Machine Learning-, Rückschluss- und Visualisierungsworkloads in Azure Stack Hub. Diese VM-Größe kann zurzeit *nicht* über das Portal bereitgestellt werden. Verwenden Sie stattdessen PowerShell oder die CLI.
-
+## <a name="ncast4_v3"></a>NCasT4_v3
 
 | Size | vCPU | Memory: GiB | GPU | GPU-Arbeitsspeicher: GiB | Max. Anzahl Datenträger | Maximale Anzahl NICs | 
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC4as_v4 |4 |28 | 1 | 16 | 8 | 4 | 
-| Standard_NC8as_v4 |8 |56 | 1 | 16 | 16 | 8 | 
-| Standard_NC16as_v4 |16 |112 | 1 | 16 | 32 | 8 | 
-| Standard_NC64as_v4 |64 |448 | 4 | 64 | 32 | 8 | 
-
+| Standard_NC4as_T4_v3 |4 |28 | 1 | 16 | 8 | 4 | 
+| Standard_NC8as_T4_v3 |8 |56 | 1 | 16 | 16 | 8 | 
+| Standard_NC16as_T4_v3 |16 |112 | 1 | 16 | 32 | 8 | 
+| Standard_NC64as_T4_v3 |64 |448 | 4 | 64 | 32 | 8 |
 
 ## <a name="patch-and-update-fru-behavior-of-vms"></a>Patch- und Update- sowie FRU-Verhalten von VMs 
 
@@ -70,17 +67,25 @@ Vorgänge wie Patchen und Aktualisieren (Patch und Update, PnU) und der Austausc
 | VM-Zustand  | Während des Updates und danach nicht verfügbar ohne einen manuellen Startvorgang. | Während des Updates nicht verfügbar. Nach dem Update durch Ausführen der manuellen Benutzeraktion verfügbar. | Während des Updates nicht verfügbar. Nach dem Update durch Ausführen der manuellen Benutzeraktion verfügbar.| 
 | Manuelle Benutzeraktion | Wenn die VM während des Updates verfügbar gemacht werden muss und GPU-Partitionen verfügbar sind, können Sie die VM über das Portal neu starten, indem Sie auf die Schaltfläche **Neu starten** klicken. Starten Sie die VM nach dem Update mithilfe der Schaltfläche **Neu starten** im Portal neu. | Die VM kann während des Updates nicht verfügbar gemacht werden. Nach dem Update müssen Sie die VM beenden und ihre Zuordnung aufheben, indem Sie auf die Schaltfläche **Beenden** klicken, und sie anschließend mithilfe der Schaltfläche „Starten“ wieder starten. | Die VM kann während des Updates nicht verfügbar gemacht werden. Nach dem Update müssen Sie die VM beenden und ihre Zuordnung aufheben, indem Sie auf die Schaltfläche **Beenden** klicken, und sie anschließend mithilfe der Schaltfläche **Starten** wieder starten.| 
 
-## <a name="guest-driver-installation"></a>Installation des Gasttreibers 
+## <a name="guest-driver-installation"></a>Installation des Gasttreibers
 
 ### <a name="amd-mi25"></a>AMD MI25
+
 Im Artikel [Installieren von AMD-GPU-Treibern für virtuelle Computer der N-Serie unter Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) erfahren Sie, wie Sie den Treiber für AMD Radeon Instinct MI25 auf dem GPU-fähigen virtuellen NVv4-Computer installieren und die Treiberinstallation überprüfen. Diese Erweiterung funktioniert nur im verbundenen Modus.
 
 ### <a name="nvidia"></a>NVIDIA
 
-NVIDIA-Treiber sind erforderlich, um CUDA- oder GRID-Workloads auf der VM ausführen zu können. Stellen Sie sicher, dass Sie über die entsprechenden GRID-Lizenzen und einen eingerichteten Lizenzserver verfügen, bevor Sie die GRID-Treiber mithilfe der Erweiterung auf der VM installieren. Informationen zum Einrichten des Lizenzservers finden Sie [hier](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html). CUDA-Treiber erfordern keinen Lizenzserver.
+NVIDIA-Treiber müssen auf dem virtuellen Computer installiert sein, damit für CUDA- oder GRID-Workloads die GPU verwendet werden kann.
 
-NVIDIA-CUDA- und -GRID-Treiber müssen manuell auf der VM installiert werden. Die Tesla-CUDA-Treiber können von der NVIDIA-[Downloadwebsite](https://www.nvidia.com/Download/index.aspx) heruntergeladen werden. GRID-Treiber können über den NVIDIA Application Hub heruntergeladen werden, sofern Sie über die erforderlichen Lizenzen verfügen.
+#### <a name="use-case-graphicsvisualization"></a>Anwendungsfall: Grafik/Visualisierung
 
-## <a name="next-steps"></a>Nächste Schritte 
+Dieses Szenario erfordert die Verwendung von GRID-Treibern. GRID-Treiber können über den NVIDIA Application Hub heruntergeladen werden, sofern Sie über die erforderlichen Lizenzen verfügen. Die GRID-Treiber erfordern außerdem einen GRID-Lizenzserver mit entsprechenden GRID-Lizenzen, bevor die GRID-Treiber auf der VM verwendet werden können. Informationen zum Einrichten des Lizenzservers finden Sie hier.
 
-[Features von Azure Stack-VMs](azure-stack-vm-considerations.md)
+#### <a name="use-case-computecuda"></a>Anwendungsfall: Compute/CUDA
+
+NVIDIA-CUDA- und -GRID-Treiber müssen manuell auf der VM installiert werden. Die Tesla-CUDA-Treiber können von der NVIDIA-[Downloadwebsite](https://www.nvidia.com/Download/index.aspx) heruntergeladen werden. CUDA-Treiber erfordern keinen Lizenzserver.
+
+## <a name="next-steps"></a>Nächste Schritte
+
+- [Installieren von NVIDIA GPU-Treibern für virtuelle Computer der Serie N mit Linux](/azure/virtual-machines/linux/n-series-driver-setup)
+- [Features von Azure Stack-VMs](azure-stack-vm-considerations.md)

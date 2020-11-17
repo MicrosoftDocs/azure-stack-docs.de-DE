@@ -3,16 +3,16 @@ title: Konfigurationen nach der Bereitstellung für das ASDK
 description: Erfahren Sie etwas über die empfohlenen Konfigurationsänderungen, die nach der Installation des Azure Stack Development Kits (ASDK) vorgenommen werden müssen.
 author: justinha
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 10/16/2020
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 9417d3b691e3394d254ce1d599748233bf78213a
-ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 3eb5a9a4f9f52b6e9de5b33233c571da265b5893
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87865131"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543543"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>Konfigurationen nach der Bereitstellung für das ASDK
 
@@ -28,12 +28,12 @@ PowerShell-Befehle für Azure Stack werden über den PowerShell-Katalog installi
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
-Verwenden Sie API-Versionsprofile, um mit Azure Stack kompatible AzureRM-Module anzugeben.  API-Versionsprofile bieten eine Möglichkeit, Versionsunterschiede zwischen Azure und Azure Stack zu verwalten. Ein API-Versionsprofil ist eine Gruppe von AzureRM-PowerShell-Modulen mit spezifischen API-Versionen. Das über den PowerShell-Katalog verfügbare Modul **AzureRM.BootStrapper** stellt PowerShell-Cmdlets bereit, die für die Arbeit mit API-Versionsprofilen erforderlich sind.
+Verwenden Sie API-Versionsprofile, um mit Azure Stack kompatible Az-Module anzugeben.  API-Versionsprofile bieten eine Möglichkeit, Versionsunterschiede zwischen Azure und Azure Stack zu verwalten. Ein API-Versionsprofil ist eine Gruppe von Az-PowerShell-Modulen mit speziellen API-Versionen. Das über den PowerShell-Katalog verfügbare Modul **Az.BootStrapper** stellt PowerShell-Cmdlets bereit, die für die Arbeit mit API-Versionsprofilen erforderlich sind.
 
 Sie können das aktuelle Azure Stack PowerShell-Modul mit oder ohne Internetverbindung mit dem ASDK-Hostcomputer installieren:
 
 > [!IMPORTANT]
-> Vor der Installation der erforderlichen Version [deinstallieren Sie unbedingt alle vorhandenen Azure PowerShell-Module](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules).
+> Vor der Installation der erforderlichen Version [deinstallieren Sie unbedingt alle vorhandenen Azure PowerShell-Module](../operator/powershell-install-az-module.md#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules).
 
 - **Mit Internetverbindung** auf dem ASDK-Hostcomputer: Führen Sie zum Installieren dieser Module in Ihrer ASDK-Installation das folgende PowerShell-Skript aus:
 
@@ -42,15 +42,15 @@ Sie können das aktuelle Azure Stack PowerShell-Modul mit oder ohne Internetverb
   Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
   Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
 
-  # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
-  Install-Module -Name AzureRM.BootStrapper
+  # Install the Az.BootStrapper module. Select Yes when prompted to install NuGet
+  Install-Module -Name Az.BootStrapper
 
   # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-  Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-  Install-Module -Name AzureStack -RequiredVersion 1.8.2
+  Use-AzProfile -Profile 2019-03-01-hybrid -Force
+  Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
   ```
 
-  War die Installation erfolgreich, werden die AzureRM- und AzureStack-Module in der Ausgabe angezeigt.
+  War die Installation erfolgreich, werden die Module Az und AzureStack in der Ausgabe angezeigt.
 
 - **Ohne Internetverbindung** auf dem ASDK-Hostcomputer: In einem Szenario ohne Internetverbindung müssen Sie zuerst mithilfe der folgenden PowerShell-Befehle die PowerShell-Module auf einen Computer mit Internetverbindung herunterladen:
 
@@ -58,13 +58,13 @@ Sie können das aktuelle Azure Stack PowerShell-Modul mit oder ohne Internetverb
   $Path = "<Path that is used to save the packages>"
 
   Save-Package `
-    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Az -Path $Path -Force -RequiredVersion 2.3.0
   
   Save-Package `
     -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
   ```
 
-  Kopieren Sie danach die heruntergeladenen Pakete auf den ASDK-Computer, registrieren Sie den Speicherort als Standardrepository, und installieren Sie die Module AzureRM und AzureStack aus diesem Repository:
+  Kopieren Sie danach die heruntergeladenen Pakete auf den ASDK-Computer, registrieren Sie den Speicherort als Standardrepository, und installieren Sie die Module Az und AzureStack aus diesem Repository:
 
     ```powershell  
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
@@ -72,30 +72,32 @@ Sie können das aktuelle Azure Stack PowerShell-Modul mit oder ohne Internetverb
 
     Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
 
-    Install-Module AzureRM -Repository $RepoName
+    Install-Module Az -Repository $RepoName
 
     Install-Module AzureStack -Repository $RepoName
     ```
 
 ## <a name="download-the-azure-stack-tools"></a>Herunterladen der Azure Stack-Tools
 
-[AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) ist ein GitHub-Repository, das PowerShell-Module zum Verwalten und Bereitstellen von Ressourcen für Azure Stack hostet. Um diese Tools zu erhalten, klonen Sie das GitHub-Repository, oder laden Sie den Ordner „AzureStack-Tools“ herunter. Führen Sie dazu das folgende Skript aus:
+[AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) ist ein GitHub-Repository, das PowerShell-Module zum Verwalten und Bereitstellen von Ressourcen für Azure Stack hostet. Um diese Tools zu erhalten, klonen Sie das GitHub-Repository, oder laden Sie den Ordner „AzureStack-Tools-az“ herunter. Führen Sie dazu das folgende Skript aus:
 
   ```powershell
-  # Change directory to the root directory.
-  cd \
+# Change directory to the root directory.
+cd \
 
-  # Enforce usage of TLSv1.2 to download the Azure Stack tools archive from GitHub
-  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-  Invoke-WebRequest `
-    -Uri https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-    -OutFile master.zip
+# Download the tools archive.
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
+invoke-webrequest `
+  https://github.com/Azure/AzureStack-Tools/archive/az.zip `
+  -OutFile az.zip
 
-  # Expand the downloaded files.
-  Expand-Archive -Path master.zip -DestinationPath . -Force
+# Expand the downloaded files.
+expand-archive az.zip `
+  -DestinationPath . `
+  -Force
 
-  # Change to the tools directory.
-  cd AzureStack-Tools-master
+# Change to the tools directory.
+cd AzureStack-Tools-az
   ```
 
 ## <a name="validate-the-asdk-installation"></a>Überprüfen der ASDK-Installation
