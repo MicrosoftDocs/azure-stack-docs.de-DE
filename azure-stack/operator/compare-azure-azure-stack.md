@@ -8,12 +8,12 @@ ms.date: 07/10/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 96730a5afb143d8a5198c07bdc5b5df14c6483bd
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: 4b6fe9434d7fbc0f62de4c22241300ad20170af2
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866155"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674494"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>Unterschiede zwischen der globalen Azure-Infrastruktur, Azure Stack Hub und Azure Stack HCI
 
@@ -21,7 +21,7 @@ Azure und die Familie der Azure Stack Hub-Dienste werden von Microsoft in einer 
 
 In diesem Artikel werden die Unterschiede zwischen der globalen Azure-Infrastruktur, Azure Stack Hub und Azure Stack HCI erläutert. Er enthält zudem Empfehlungen zu häufigen Szenarien, damit Sie die bestmögliche Auswahl treffen können, wenn es um die Bereitstellung von cloudbasierten Microsoft-Diensten für Ihre Organisation geht.
 
-![Übersicht über die Azure-Infrastruktur](./media/compare-azure-azure-stack/azure-family.svg)
+![Übersicht über die Azure-Infrastruktur](./media/compare-azure-azure-stack/azure-family-updated.png)
 
 ## <a name="global-azure"></a>Globale Azure-Umgebung
 

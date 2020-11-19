@@ -3,16 +3,16 @@ title: Einrichten eines Multi-Site-to-Site-VPN-Tunnels in Azure Stack Hub
 description: Erfahren Sie, wie Sie einen Multi-Site-to-Site-VPN-Tunnel in Azure Stack Hub einrichten.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 11/13/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: e401e1897af63ede0a3f7dcdd924dc00df39f941
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/13/2020
+ms.openlocfilehash: ba0cf59417dfae96bd9c0ed137843eb69a08cc22
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547074"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674635"
 ---
 # <a name="how-to-set-up-multiple-site-to-site-vpn-tunnels-in-azure-stack-hub"></a>Einrichten von mehreren Site-to-Site-VPN-Tunneln in Azure Stack Hub
 
@@ -22,11 +22,11 @@ Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](h
 
 ## <a name="scenarios"></a>Szenarien
 
-![Es werden fünf VPN-Szenarien dargestellt: zwischen zwei Ressourcengruppen innerhalb eines einzelnen Abonnements, zwischen zwei Gruppen in jeweils einem eigenen Abonnement, zwischen zwei Gruppen in separaten Stack-Instanzen, zwischen einer Gruppe und lokalen Ressourcen und zwischen mehreren VPN-Tunneln.](./media/azure-stack-network-howto-vpn-tunnel/scenarios.png)
+![Es werden fünf VPN-Szenarien dargestellt: zwischen zwei Ressourcengruppen innerhalb eines einzelnen Abonnements, zwischen zwei Gruppen in jeweils einem eigenen Abonnement, zwischen zwei Gruppen in separaten Stack-Instanzen, zwischen einer Gruppe und lokalen Ressourcen und zwischen mehreren VPN-Tunneln.](./media/azure-stack-network-howto-vpn-tunnel/scenarios.svg)
 
 ## <a name="create-multiple-vpn-tunnels"></a>Erstellen mehrerer VPN-Tunnel
 
-![Das Diagramm zeigt zwei Ressourcengruppen, jede in ihrer eigenen Abonnement- und Stack-Instanz, die über VPN verbunden sind. Und eine dieser beiden Gruppen ist über VPN mit lokalen Ressourcen verbunden.](./media/azure-stack-network-howto-vpn-tunnel/image1.png)
+![Das Diagramm zeigt zwei Ressourcengruppen, jede in ihrer eigenen Abonnement- und Stack-Instanz, die über VPN verbunden sind. Und eine dieser beiden Gruppen ist über VPN mit lokalen Ressourcen verbunden.](./media/azure-stack-network-howto-vpn-tunnel/azure-stack-network-vpn-tunnel1.svg)
 
 -  Stellen Sie eine Anwendung mit drei Ebenen bereit: Webebene (WebTier), Anwendungsebene (AppTier) und Datenbankebene (DBTier).
 
@@ -42,7 +42,7 @@ Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](h
 
 Hierbei handelt es sich um einen Vorgang mit mehreren Schritten. Für diese Lösung verwenden Sie das Azure Stack Hub-Portal. Sie können jedoch PowerShell, die Azure-Befehlszeilenschnittstelle oder andere Infrastructure-as-Code-Toolketten verwenden, um die Ausgaben zu erfassen und dann als Eingaben zu verwenden.
 
-![Das Diagramm zeigt fünf Schritte zur Bereitstellung von VPN-Tunneln zwischen zwei Infrastrukturen an. In den ersten beiden Schritten werden aus einer Vorlage zwei Infrastrukturen erstellt. In den nächsten beiden Schritten werden zwei VPN-Tunnel aus einer Vorlage erstellt, und im letzten Schritt werden die Tunnel miteinander verbunden.](./media/azure-stack-network-howto-vpn-tunnel/image2.png)
+![Das Diagramm zeigt fünf Schritte zur Bereitstellung von VPN-Tunneln zwischen zwei Infrastrukturen an. In den ersten beiden Schritten werden aus einer Vorlage zwei Infrastrukturen erstellt. In den nächsten beiden Schritten werden zwei VPN-Tunnel aus einer Vorlage erstellt, und im letzten Schritt werden die Tunnel miteinander verbunden.](./media/azure-stack-network-howto-vpn-tunnel/azure-stack-network-vpn-tunnel2.svg)
 
 ## <a name="walkthrough"></a>Exemplarische Vorgehensweise
 

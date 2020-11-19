@@ -3,16 +3,16 @@ title: Erstellen eines VPN-Tunnels mithilfe von IPsec in Azure Stack Hub
 description: Erfahren Sie, wie Sie einen VPN-Tunnel mithilfe von IPsec in Azure Stack Hub erstellen.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 11/13/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 50594cd976fc502d25f3e54c980fd2cf3702d046
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 11/13/2020
+ms.openlocfilehash: 3ceab07ebb6743e0ece9e6cb3d33ee08588d8992
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574073"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674597"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>Erstellen eines VPN-Tunnels mithilfe von IPsec in Azure Stack Hub
 
@@ -50,7 +50,7 @@ Die Vorlagen finden Sie im GitHub-Repository [Azure Intelligent Edge Patterns](h
 
 Diese Vorlage enthält Standardwerte für die VNET-Benennung und die IP-Adressierung.  Hierfür ist ein Kennwort für den Administrator (rrasadmin) erforderlich. Außerdem haben Sie die Möglichkeit, Ihr eigenes Speicherblob mit SAS-Token zu verwenden.  Achten Sie darauf, dass diese Werte innerhalb der zulässigen Bereiche liegen, da bei der Bereitstellung Fehler auftreten können.  Das PowerShell-DSC-Paket wird auf jedem virtuellen RRAS-Computer ausgeführt und installiert das Routing und alle erforderlichen abhängigen Dienste und Funktionen.  Dieses DSC-Paket kann bei Bedarf weiter angepasst werden.  Die benutzerdefinierte Skripterweiterung führt das folgende Skript aus. „Add-Site2SiteIKE.ps1“ konfiguriert den Tunnel für Site-to-Site-VPNs zwischen den beiden RRAS-Servern mit einem gemeinsam verwendeten Schlüssel.  Sie können die ausführliche Ausgabe über die benutzerdefinierte Skripterweiterung anzeigen, um die Ergebnisse der VPN-Tunnelkonfiguration zu prüfen.
 
-![Das Diagramm mit dem Titel „S2SVPNTunnel“ zeigt zwei VNETs, die durch einen Site-to-Site-VPN-Tunnel verbunden sind.](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.png)
+![Das Diagramm mit dem Titel „S2SVPNTunnel“ zeigt zwei VNETs, die durch einen Site-to-Site-VPN-Tunnel verbunden sind.](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.svg)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
