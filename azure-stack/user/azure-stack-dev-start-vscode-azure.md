@@ -32,11 +32,11 @@ VS Code ist ein einfacher Editor zum Erstellen und Debuggen von Web- und Cloudan
 
 ## <a name="steps-to-connect-to-azure-stack-hub"></a>Schritte zum Herstellen einer Verbindung mit Azure Stack Hub
 
-1. Führen Sie das **Identity** -Skript aus den Azure Stack Hub-Tools in GitHub aus.
+1. Führen Sie das **Identity**-Skript aus den Azure Stack Hub-Tools in GitHub aus.
 
     - Bevor Sie das Skript ausführen, müssen Sie PowerShell installiert und für Ihre Umgebung konfiguriert haben. Weitere Anleitungen finden Sie unter [Installieren von PowerShell für Azure Stack Hub](../operator/powershell-install-az-module.md).
 
-    - Anleitungen zum **Identity** -Skript sowie das Skript selbst finden Sie unter [AzureStack-Tools/Identity](https://aka.ms/aa6z611).
+    - Anleitungen zum **Identity**-Skript sowie das Skript selbst finden Sie unter [AzureStack-Tools/Identity](https://aka.ms/aa6z611).
 
     - Führen Sie in derselben Sitzung Folgendes aus:
 
@@ -70,7 +70,7 @@ VS Code ist ein einfacher Editor zum Erstellen und Debuggen von Web- und Cloudan
 
     Notieren Sie sich den zurückgegebenen JSON-Code. Sie benötigen die Werte für die Eigenschaften `loginEndpoint` und `audiences`.
 
-8. Drücken Sie **STRG+UMSCHALT+P** , und wählen Sie **Preferences: Open User Settings (JSON)** (Einstellungen: Benutzereinstellungen öffnen (JSON)).
+8. Drücken Sie **STRG+UMSCHALT+P**, und wählen Sie **Preferences: Open User Settings (JSON)** (Einstellungen: Benutzereinstellungen öffnen (JSON)).
 
 9. Aktualisieren Sie im Code-Editor den folgenden JSON-Codeausschnitt mit den Werten für Ihre Umgebung, und fügen Sie den Codeausschnitt dann in den Block mit den Einstellungen ein.
 
@@ -111,7 +111,7 @@ VS Code ist ein einfacher Editor zum Erstellen und Debuggen von Web- und Cloudan
 | Azure: Anmelden an der Azure-Cloud | Melden Sie sich an Ihrem Azure-Abonnement in einer der Sovereign Clouds an. |
 | Azure: Abmelde- | Melden Sie sich von Ihrem Azure-Abonnement ab. |
 | Azure: Auswählen von Abonnements | Wählen Sie die Gruppe mit den Abonnements aus, die Sie verwenden möchten. Die Erweiterung zeigt nur Ressourcen in den gefilterten Abonnements an. |
-| Azure: Erstellen eines Kontos | Falls Sie nicht über ein Azure-Konto verfügen, können Sie sich noch heute [](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account)registrieren\$ und 200 USD Guthaben erhalten. |
+| Azure: Erstellen eines Kontos | Falls Sie nicht über ein Azure-Konto verfügen, können Sie sich noch heute [registrieren](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account) und 200 USD Guthaben erhalten. |
 | Azure: Öffnen von Bash in Cloud Shell | Öffnen Sie ein neues Terminal zur Ausführung von Bash in Cloud Shell. |
 | Azure: Öffnen von PowerShell in Cloud Shell | Öffnen Sie ein neues Terminal zur Ausführung von PowerShell in Cloud Shell. |
 | Azure: Hochladen in Cloud Shell | Laden Sie eine Datei in Ihr Cloud Shell-Speicherkonto hoch. |
