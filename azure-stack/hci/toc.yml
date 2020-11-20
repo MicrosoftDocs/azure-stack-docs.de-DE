@@ -74,6 +74,10 @@
           href: manage/update-cluster.md
         - name: Überwachen des Clusters
           href: manage/monitor-cluster.md
+        - name: Verwenden der Rechenzentrumsfirewall
+          href: manage/use-datacenter-firewall.md
+        - name: Verwenden von DISKSPD zum Testen von Workloads
+          href: manage/diskspd-overview.md
         - name: Hinzufügen oder Entfernen von Servern
           href: manage/add-cluster.md
         - name: Offlineschalten eines Servers zur Wartung
@@ -134,6 +138,8 @@
           href: concepts/network-controller-overview.md
         - name: Netzwerkcontroller planen
           href: concepts/network-controller.md
+        - name: Übersicht über die Rechenzentrumsfirewall
+          href: concepts/datacenter-firewall-overview.md
         - name: Übersicht über Software Load Balancer
           href: concepts/software-load-balancer.md
         - name: Übersicht über RAS-Gateways
