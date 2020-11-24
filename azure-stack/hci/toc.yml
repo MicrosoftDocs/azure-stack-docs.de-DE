@@ -160,6 +160,14 @@
       href: 'https://docs.microsoft.com/cli/azure/ext/stack-hci/stack-hci'
     - name: PowerShell-Befehle für die Azure-Registrierung
       href: 'https://docs.microsoft.com/powershell/module/az.stackhci'
+    - name: Go-Paket für die ARM-Azure Stack HCI-Dienst-API
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/azurestackhci/mgmt/2020-10-01/azurestackhci'
+    - name: Klassen und Schnittstellen für den Azure Stack HCI-Java-Dienst
+      href: /java/api/com.microsoft.azure.management.azurestackhci.v2020_10_01
+    - name: Python-Paket für den Azure Stack HCI-Verwaltungsdienst
+      href: /python/api/azure-mgmt-azurestackhci/azure.mgmt.azurestackhci?view=azure-python
+    - name: Azure Stack HCI-JavaScript-Paket
+      href: /javascript/api/overview/azure/azurestack/stackhci?view=azure-node-latest
     - name: Hyper-V-PowerShell-Befehle
       href: /powershell/module/hyper-v
     - name: Storage PowerShell-Befehle
