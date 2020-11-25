@@ -3,16 +3,16 @@ title: Azure Stack Hub – Bekannte Probleme
 description: Enthält Informationen zu bekannten Problemen in Releases von Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: f1f38d309814e40422783cd4903086c736d19978
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: da21b724e914527ef2a4d5065d1d83a30ad3bb85
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545771"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785769"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -20,11 +20,11 @@ In diesem Artikel sind die bekannten Probleme aufgelistet, die es in Azure Stack
 
 Um auf bekannte Probleme für eine andere Version zuzugreifen, verwenden Sie die Dropdown-Auswahlliste oberhalb des Inhaltsverzeichnisses auf der linken Seite.
 
-::: moniker range=">=azs-1910"
+::: moniker range=">=azs-2002"
 > [!IMPORTANT]  
 > Lesen Sie diesen Abschnitt, bevor Sie das Update anwenden.
 ::: moniker-end
-::: moniker range="<azs-1910"
+::: moniker range="<azs-2002"
 > [!IMPORTANT]  
 > Wenn die Version der Azure Stack Hub-Instanz mehr als zwei Updates zurückliegt, wird sie als nicht konform eingestuft. Sie müssen [mindestens auf die niedrigste unterstützte Version aktualisieren, um Support zu erhalten](azure-stack-servicing-policy.md#keep-your-system-under-support). 
 ::: moniker-end
@@ -61,7 +61,8 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 #### <a name="denyalloutbound-rule-cannot-be-created"></a>Die DenyAllOutbound-Regel kann nicht erstellt werden.
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen.
-- Ursache: Bei der VM-Erstellung kann in einer NSG keine explizite Regel vom Typ **DenyAllOutbound** für das Internet erstellt werden, da dadurch die erforderliche Kommunikation für den Abschluss der VM-Bereitstellung verhindert wird.
+- Ursache: Bei der VM-Erstellung kann in einer NSG keine explizite Regel vom Typ **DenyAllOutbound** für das Internet erstellt werden, da dadurch die erforderliche Kommunikation für den Abschluss der VM-Bereitstellung verhindert wird. Außerdem werden die beiden wichtigen IP-Adressen verweigert, die für die Bereitstellung von VMs erforderlich sind: DHCP-IP: 169.254.169.254 und DNS-IP: 168.63.129.16
+
 - Abhilfe: Lassen Sie bei der VM-Erstellung ausgehenden Datenverkehr für das Internet zu, und ändern Sie die NSG nach Abschluss der VM-Erstellung, um den erforderlichen Datenverkehr zu blockieren.
 - Häufigkeit: Allgemein
 
@@ -86,7 +87,7 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Ursache: Beim Aktivieren der **Sitzungsaffinität** in einem Lastenausgleich verwendet der 2-Tupel-Hash die PA-IP-Adresse (physische IP-Adresse) anstelle der privaten IP-Adressen, die den VMs zugewiesen sind. In Szenarien, in denen Datenverkehr, der an den Lastenausgleich weitergeleitet wird, über ein VPN eingeht oder alle virtuellen Clientcomputer (Quell-IPs) sich im gleichen Knoten befinden und die Sitzungsaffinität aktiviert ist, wird der gesamte Datenverkehr an eine Back-End-VM geleitet.
 - Häufigkeit: Allgemein
 
-## <a name="compute"></a>Compute
+<!-- ## Compute -->
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

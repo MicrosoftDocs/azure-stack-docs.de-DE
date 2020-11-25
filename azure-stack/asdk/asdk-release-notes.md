@@ -3,25 +3,25 @@ title: Versionshinweise zum ASDK
 description: Verbesserungen, Fehlerbehebungen und bekannte Probleme im Azure Stack Development Kit (ASDK).
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2020
-ms.openlocfilehash: f4e97cfaba4e3cde832a318647b72d96cbca8965
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 6eb124193f477eb4418909f6b8e79781e948d135
+ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543407"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885749"
 ---
 # <a name="asdk-release-notes"></a>Versionshinweise zum ASDK
 
 Dieser Artikel bietet Informationen zu Änderungen, Fehlerbehebungen und bekannten Problemen im Azure Stack Development Kit (ASDK). Wenn Sie nicht sicher sind, welche Version Sie ausführen, [überprüfen Sie sie im Portal](../operator/azure-stack-updates.md).
 
-Abonnieren Sie den ![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS](https://docs.microsoft.com/api/search/rss?search=ASDK+release+notes&locale=en-us#)-Feed, um in Bezug auf Neuerungen im ASDK auf dem Laufenden zu bleiben.
+Abonnieren Sie den ![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS](https://aka.ms/asdkrss)-Feed, um in Bezug auf Neuerungen im ASDK auf dem Laufenden zu bleiben.
 
 ::: moniker range="azs-2008"
-## <a name="build-120081388"></a>Build 1.2008.13.88
+## <a name="build-12008059"></a>Build 1.2008.0.59
 
 ### <a name="new-features"></a>Neue Funktionen
 

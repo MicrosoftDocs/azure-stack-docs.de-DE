@@ -3,16 +3,16 @@ title: Neuerungen im Azure Stack Hub-Marketplace
 description: Hier finden Sie Informationen zu den Neuerungen im Azure Stack Hub-Marketplace, u. a. zu neuen, veralteten und aktualisierten Marketplace-Elementen.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 11/18/2020
 ms.author: sethm
-ms.reviewer: ihcherie
+ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 50c5bb306585709c9fdd8aeadc126709e4967e72
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: 5c6475a4bf3e330f982627d158f0e6f75f0477bc
+ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414145"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94875075"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Änderungen im Azure Stack Hub-Marketplace
 
@@ -166,6 +166,10 @@ Der Artikel [Azure Stack Hub-Marketplace-Elemente](azure-stack-marketplace-azure
 
 ## <a name="updated-marketplace-items"></a>Aktualisierte Marketplace-Elemente
 
+- 17.11.2020: Azure Monitor, Update- und Konfigurationsverwaltung, Version 1.13.27
+- 17.11.2020: Azure Monitor-Dependency-Agent, Version 9.10.6.11730
+- 17.11.2020: Azure Monitor-Dependency-Agent für Linux-VMs, Version 9.10.6.11730
+- 17.11.2020: Azure Monitor, Update- und Konfigurationsverwaltung, Version 1.0.18053.0
 - 05.11.2020: SQL Server 2017 Standard unter Windows Server 2016 (Bring Your Own License), Version 14.0.20201015
 - 05.11.2020: SQL Server 2017 Standard unter Windows Server 2016 (Vorausbezahlung), Version 14.0.20201015
 - 05.11.2020: SQL Server 2017 Enterprise Windows Server 2016 (Bring Your Own License), Version 14.0.20201015

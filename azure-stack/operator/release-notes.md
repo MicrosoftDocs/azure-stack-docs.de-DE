@@ -3,16 +3,16 @@ title: 'Azure Stack Hub: Versionshinweise'
 description: Versionshinweise für integrierte Azure Stack Hub-Systeme, einschließlich Updates und Fehlerbehebungen.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/18/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 74b1be3736d21d968fa45135034637d4ca3cd5eb
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 945dd42d0ed4b78f5572abbd679eb8fda7b12d96
+ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546054"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885800"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -33,9 +33,10 @@ Um auf Versionshinweise für eine andere Version zuzugreifen, verwenden Sie die 
 
 Stellen Sie vor dem Anwenden des Updates sicher, dass Sie die folgenden Informationen überprüfen:
 
-- [Bekannte Probleme](known-issues.md)
-- [Sicherheitsupdates](release-notes-security-updates.md)
 - [Azure Stack-Checkliste für Updateaktivitäten](release-notes-checklist.md)
+- [Bekannte Probleme](known-issues.md)
+- [Hotfixes](#hotfixes)
+- [Sicherheitsupdates](release-notes-security-updates.md)
 
 Unterstützung bei der Problembehandlung von Updates und dem Updateprozess finden Sie unter [Problembehandlung bei Patch- und Updateproblemen für Azure Stack Hub](azure-stack-troubleshooting.md).
 
@@ -70,11 +71,17 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 - Azure Stack Hub-Blobspeicher ermöglicht es Benutzern jetzt, ein unveränderliches Blob zu verwenden. Durch Festlegen von unveränderlichen Richtlinien für einen Container können Sie unternehmenskritische Datenobjekte in einem WORM-Zustand (Write Once, Read Many) speichern. In diesem Release können unveränderliche Richtlinien nur über die REST-API oder Client-SDKs festgelegt werden. Anfügeblob-Schreibvorgänge sind in diesem Release ebenfalls nicht möglich. Weitere Informationen zu unveränderlichen Blobs finden Sie unter [Speichern unternehmenskritischer Blobdaten mit unveränderlichem Speicher](/azure/storage/blobs/storage-blob-immutable-storage).
 - Azure Stack Hub-Speicher unterstützt jetzt Version 2019-07-07 der Azure Storage-Dienste-APIs. Informationen zu den Azure-Clientbibliotheken, die mit der neuen REST-API-Version kompatibel sind, finden Sie unter [Erste Schritte mit den Azure Stack Hub-Speicherentwicklungstools](../user/azure-stack-storage-dev.md#azure-client-libraries).
 - Azure Stack Hub-Compute unterstützt jetzt Azure Compute-APIs, Version 2020-06-01, mit einer Teilmenge der insgesamt verfügbaren Features.
+- Verwaltete Azure Stack Hub-Datenträger unterstützen jetzt Azure Disk-APIs, Version **2019-03-01**, mit einer Teilmenge der verfügbaren Features.
 - Vorschau von Windows Admin Center, das nun eine Verbindung mit Azure Stack Hub herstellen kann, um detaillierte Einblicke in die Infrastruktur während Supportvorgängen zu erhalten (Notfallzugriff erforderlich).
 - Die Möglichkeit, zum Zeitpunkt der Bereitstellung ein Anmeldebanner zum privilegierten Endpunkt (PEP) hinzuzufügen.
 - Es wurden weitere Banner für **Exklusive Vorgänge** veröffentlicht, die die Sichtbarkeit von Vorgängen verbessern, die derzeit auf dem System ausgeführt werden, und Benutzer daran hindern, irgendeinen anderen exklusiven Vorgang zu initiieren (und spätere Fehler zu verursachen).
 - Auf jeder Produktseite des Marketplace-Elements für Azure Stack Hub wurden zwei neue Banner eingeführt. Gibt es einen Marketplace-Downloadfehler, können Operatoren Fehlerdetails anzeigen und empfohlene Schritte zum Beheben des Problems ausführen.
 - Wir haben ein Bewertungstool für Kunden veröffentlicht, damit sie Feedback geben können. Dadurch wird das Azure Stack Hub-Team in die Lage versetzt, die Benutzerfreundlichkeit zu messen und zu optimieren.
+- Dieses Release von Azure Stack Hub umfasst eine private Vorschau von Azure Kubernetes Service (AKS) und Azure Container Registry (ACR). Der Zweck der privaten Vorschau besteht darin, Feedback zur Qualität, zu den Features und zur Benutzerfreundlichkeit von AKS und ACR in Azure Stack Hub zu erfassen.
+- Dieses Release enthält eine öffentliche Vorschau von Azure CNI und Windows-Containern mit [AKS Engine v0.55.4](../user/kubernetes-aks-engine-release-notes.md). Ein Beispiel dazu, wie Sie diese in Ihrem API-Modell verwenden können, [finden Sie in diesem Beispiel auf GitHub](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-windows.json).
+- [Istio 1.3-Bereitstellung](https://github.com/Azure/aks-engine/tree/master/examples/service-mesh) in Clustern, die von [AKS Engine v0.55.4](../user/kubernetes-aks-engine-release-notes.md) bereitgestellt werden, wird nun unterstützt. Weitere Informationen [finden Sie in den Anweisungen hier](../user/kubernetes-aks-engine-service-account.md).
+- Die Bereitstellung von [privaten Clustern](https://github.com/Azure/aks-engine/blob/master/docs/topics/features.md#private-cluster) mit [AKS Engine v0.55.4](../user/kubernetes-aks-engine-release-notes.md) wird jetzt unterstützt.
+- Dieses Release bietet Unterstützung für die [Beschaffung von Kubernetes-Konfigurationsgeheimnissen](https://github.com/Azure/aks-engine/blob/master/docs/topics/keyvault-secrets.md#use-key-vault-as-the-source-of-cluster-configuration-secrets) aus Azure- und Azure Stack Hub-Key Vault-Instanzen.
 
 ### <a name="improvements"></a>Verbesserungen
 
@@ -84,6 +91,8 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 - Änderungen am Start- und Herunterfahren-Prozess von Infrastrukturrolleninstanzen und deren Abhängigkeiten auf Skalierungseinheitknoten. Dies erhöht die Zuverlässigkeit für Starten und Beenden von Azure Stack Hub.
 - Die **AzSScenarios**-Suite des **Test-AzureStack**-Validierungstools wurde aktualisiert, damit Cloud-Dienstanbieter diese Suite erfolgreich ausführen können, wenn mehrstufige Authentifizierung für alle Kundenkonten erzwungen wird.
 - Verbesserte Warnungszuverlässigkeit durch Hinzufügen von Unterdrückungslogik für 29 kundenbezogene Warnungen während Lebenszyklusvorgängen.
+- Sie können jetzt einen ausführlichen HTML-Bericht der Protokollsammlung anzeigen, der Details zu den Rollen, der Dauer und dem Status der Protokollsammlung enthält. Dieser Bericht soll Benutzern dabei helfen, eine Zusammenfassung der gesammelten Protokolle bereitzustellen. Der Microsoft-Kundendienst kann den Bericht dann schnell auswerten, um die Protokolldaten zu evaluieren und bei der Behebung und Minimierung von Systemproblemen zu helfen.
+- Die Abdeckung zur Fehlererkennung für die Infrastruktur wurde durch Hinzufügen von sieben neuen Monitoren für Benutzerszenarien, z. B. CPU-Auslastung und Arbeitsspeichernutzung, erweitert, wodurch die Zuverlässigkeit der Fehlererkennung erhöht wird.
 
 ### <a name="changes"></a>Änderungen
 
@@ -109,7 +118,7 @@ Informationen zu Sicherheitsupdates in diesem Update von Azure Stack Hub finden 
 
 ## <a name="hotfixes"></a>Hotfixes
 
-Azure Stack Hub veröffentlicht regelmäßig Hotfixes. Ab Release 2005 werden bei der Aktualisierung auf eine neue Hauptversion (z. B. von 1.2002.x auf 1.2005.x) die aktuellen Hotfixes (sofern verfügbar) in der neuen Hauptversion automatisch installiert. Wenn danach ein Hotfix für Ihren Build veröffentlicht wird, sollten Sie ihn installieren.
+Azure Stack Hub veröffentlicht regelmäßig Hotfixes. Ab Release 2005 werden bei der Aktualisierung auf eine neue Hauptversion (z. B. von 1.2005.x auf 1.2008.x) die aktuellen Hotfixes (sofern verfügbar) in der neuen Hauptversion automatisch installiert. Wenn danach ein Hotfix für Ihren Build veröffentlicht wird, sollten Sie ihn installieren.
 
 > [!NOTE]
 > Hotfixreleases für Azure Stack Hub sind kumulativ. Sie müssen also nur den neuesten Hotfix installieren, um alle Korrekturen zu erhalten, die in den vorherigen Hotfixreleases für diese Version enthalten waren.
@@ -118,11 +127,14 @@ Weitere Informationen finden Sie in unserer [Wartungsrichtlinie](azure-stack-ser
 
 Azure Stack Hub-Hotfixes gelten nur für integrierte Azure Stack Hub-Systeme. Versuchen Sie nicht, Hotfixes auf dem ASDK zu installieren.
 
-### <a name="prerequisites-before-applying-the-2008-update"></a>Voraussetzungen: Vor dem Anwenden des Updates 2008
+### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>Hotfixvoraussetzungen: vor dem Anwenden des Updates 2008
 
-Wenn auf eine neue Hauptversion (z. B. von 1.2008.x auf 1.2005.x) aktualisieren, werden die aktuellen Hotfixes (sofern verfügbar) in der neuen Hauptversion automatisch installiert. Wenn danach ein Hotfix für Ihren Build veröffentlicht wird, sollten Sie ihn installieren.
+Das Release 2008 von Azure Stack Hub muss auf das Release 2005 mit den folgenden Hotfixes angewendet werden:
+- [Azure Stack Hub-Hotfix 1.2005.21.84](https://support.microsoft.com/help/4592779)
 
 ### <a name="after-successfully-applying-the-2008-update"></a>Nach erfolgreicher Anwendung des Updates 2008
+
+Wenn auf eine neue Hauptversion (z. B. von 1.2008.x auf 1.2005.x) aktualisieren, werden die aktuellen Hotfixes (sofern verfügbar) in der neuen Hauptversion automatisch installiert. Wenn danach ein Hotfix für Ihren Build veröffentlicht wird, sollten Sie ihn installieren.
 
 Wenn nach der Installation des Updates 2008 Hotfixes für 2008 veröffentlicht werden, sollten Sie sie installieren:
 
@@ -226,7 +238,7 @@ Ab Release 2005 werden bei der Aktualisierung auf eine neue Hauptversion (z. B
 
 Wenn nach der Installation des Updates 2005 Hotfixes für 2005 veröffentlicht werden, sollten Sie sie installieren:
 
-- [Azure Stack Hub-Hotfix 1.2005.20.82](https://support.microsoft.com/help/4592228)
+- [Azure Stack Hub-Hotfix 1.2005.21.84](https://support.microsoft.com/help/4592779)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -355,7 +367,7 @@ Das Release 2002 von Azure Stack Hub muss auf das Release 1910 mit den folgend
 Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub-Hotfix 1.2002.61.163](https://support.microsoft.com/help/4592241)
+- [Azure Stack Hub-Hotfix 1.2002.62.165](https://support.microsoft.com/help/4594758)
 ::: moniker-end
 
 <!------------------------------------------------------------>

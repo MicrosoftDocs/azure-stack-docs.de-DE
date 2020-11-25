@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f51b4720655159cc1b191c28b640daa74f71a6e
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 780c6a2e0f3235e2681ba4cf6cc01ce2f13eb3dc
+ms.sourcegitcommit: 75a2e1a52d7582e26ce8eaf37a470c62f99b4da0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764629"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94580809"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Versionshinweise zu Validation-as-a-Service
 
@@ -31,9 +31,41 @@ Dieser Artikel enthält die Versionshinweise zu Validation-as-a-Service in Azure
 - Behebung von Programmfehlern
   - Die Tests „Test101LinuxEmptyAttachedDiskManagedDisk“ und „Test101WindowsEmptyAttachedDiskManagedDisk“ wurden korrigiert.
 
+## <a name="version-4442"></a>Version 4.4.4.2
+
+11. November 2020
+
+- Der CSE-Validierungsworkflow ist jetzt aktualisiert, sodass ein testweise signiertes OEM-Erweiterungspaket automatisch nach einem vollständigen AzureStack-Update installiert werden kann.
+  - Vor dieser Korrektur konnte VaaS kein testweise signiertes OEM-Erweiterungspaket in einem Stempel nach einem vollständigen AzureStack-Update installieren. VaaS hat das AzureStack-Update angewendet und dann die Ausführung beendet.
+  - Dies wurde behoben, und es sollte der CSE-Validierungsworkflow zu sehen sein, in dem das bereitgestellte AzureStack-Update und das testweise signierte OEM-Erweiterungspaket installiert werden.
+- Erweiterung für OEM-Paketvalidierung wurde zum „OEM-Validierungsworkflow“ hinzugefügt.
+  - Diese Erweiterung wird ausgeführt, bevor irgendwelche Updates im Stempel gestartet werden.
+  - Die Erweiterung überprüft den Inhalt des OEM-Erweiterungspakets und die Elemente der Datei „oemMetadata.xml“.
+  - Gibt es irgendwelche Fehler/Probleme mit dem OEM-Erweiterungspaket, werden diese erkannt, bevor die VaaS-Tests gestartet werden.
+  - Diese Validierungen wurden bisher zum Zeitpunkt der Signierung des Pakets ausgeführt, d. h. nach dem VaaS-Testlauf.  
+- Die VaaS-Anforderungen wurden aktualisiert, sodass neuere Versionen des AzureStack- und AzureRM-PowerShell-Moduls installiert werden.
+  - AzureStack-PS-Modul Version 1.8.2
+  - AzureRM-PS-Modul Version 2.5.0
+- Kleinere Dienstupdates.
+
+## <a name="version-443112"></a>Version 4.4.3.112
+
+23 August 2020
+
+- Dienstupdates
+  - Updates für Dienstbereitstellung
+  - Aktualisierte Dienstauthentifizierungsmethoden
+
+## <a name="version-44368"></a>Version 4.4.3.68
+
+30. Juni 2020
+
+- Dienstupdates
+  - Der Dienst wurde verschoben, sodass er in Service Fabric ausgeführt wird.
+
 ## <a name="version-4421"></a>Version 4.4.2.1
 
-9\. Januar 2020
+9. Januar 2020
 
 - Updates für Testinhalte:
   - OEM-Validierungsworkflow (Version 5.1.52.0 -> 5.1.53.0): Verringern Sie die Anzahl der erforderlichen Parameter aus dem Bereich für den Testzeitplan.
@@ -44,7 +76,7 @@ Dieser Artikel enthält die Versionshinweise zu Validation-as-a-Service in Azure
     - Test101LinuxEmptyAttachedDiskManagedDisk
     - Test101WindowsEmptyAttachedDiskManagedDisk
 
-3\. Dezember 2019
+3. Dezember 2019
 
 - Updates für Testinhalte:
   - Die Onlinedokumentation für den Workflow des monatlichen Azure Stack Hub-Updates und den Workflow der OEM-Paketüberprüfung wurde aktualisiert. Lesen Sie die aktualisierte Dokumentation zum [Überprüfen von OEM-Paketen](azure-stack-vaas-validate-oem-package.md) und die aktualisierte Dokumentation zum [Überprüfen der Softwareupdates](azure-stack-vaas-validate-microsoft-updates.md) von Microsoft.
@@ -56,10 +88,9 @@ Dieser Artikel enthält die Versionshinweise zu Validation-as-a-Service in Azure
     - Test101LinuxEmptyAttachedDiskManagedDisk
     - Test101WindowsEmptyAttachedDiskManagedDisk
 
-
 ## <a name="version-4353"></a>Version 4.3.5.3
 
-7\. November 2019
+7. November 2019
 
 - Updates für Testinhalte:
   - Monatliche Azure Stack Hub-Updateüberprüfung (Version 5.1.46.0 -> 5.1.49.0)
@@ -103,7 +134,7 @@ Dieser Artikel enthält die Versionshinweise zu Validation-as-a-Service in Azure
 
 ## <a name="version-405"></a>Version 4.0.5
 
-7\. Juni 2019
+7. Juni 2019
 
 - Das Cloud-Simulationsmodul im Paketvalidierungsworkflow wurde aktualisiert, um die Dauer der Validierung zu verkürzen:  
     Laufzeit: Reduzierung auf 6 Stunden  
@@ -119,7 +150,7 @@ Dieser Artikel enthält die Versionshinweise zu Validation-as-a-Service in Azure
 
 ## <a name="version-403"></a>Version 4.0.3
 
-7\. Januar 2019
+7. Januar 2019
 
 Wenn Sie den Workflow für die monatliche Updateüberprüfung für Azure Stack Hub ausführen und die Version für Ihr OEM-Updatepaket nicht 1810 oder höher ist, erhalten Sie einen Fehler, sobald Sie zum Schritt für das OEM-Update gelangen. Dieser Fehler wird irrtümlich angezeigt. Wir arbeiten derzeit an der Behebung des Fehlers. Schritte zur Behebung:
 
@@ -136,7 +167,7 @@ Wenn Sie den Workflow für die monatliche Updateüberprüfung für Azure Stack H
 
 ## <a name="version-401"></a>Version 4.0.1
 
-8\. Oktober 2018
+8. Oktober 2018
 
 - Voraussetzungen für VaaS:
 

@@ -1,19 +1,19 @@
 ---
-title: 'App Service in Azure Stack Hub 2002 Q2: Versionshinweise'
-description: Erfahren Sie, was im Release 2002 Q2 für App Service in Azure Stack Hub enthalten ist, welche bekannten Probleme es gibt und wo das Update heruntergeladen werden kann.
+title: 'App Service on Azure Stack Hub 2020 Q2: Versionshinweise'
+description: Erfahren Sie, was im Release 2020 Q2 für App Service in Azure Stack Hub enthalten ist, welche bekannten Probleme es gibt und wo das Update heruntergeladen werden kann.
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 11/17/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: c5e6ac0a2a500cf43cf94cbc40b2a95c58784d28
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 6534a4539fc4e0fd699b21e84490f1d25be1dfe1
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544716"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785854"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>App Service on Azure Stack Hub 2020 Q2: Versionshinweise
 
@@ -45,7 +45,7 @@ Bevor Sie mit dem Upgrade von Azure App Service in Azure Stack auf 2020 Q2 beg
   > [!Important]
   > Cloudoperatoren sind für die Verwaltung und den Betrieb des Dateiservers und von SQL Server verantwortlich.  Der Ressourcenanbieter verwaltet diese Ressourcen nicht.  Der Cloudoperator ist für das Sichern der App Service-Datenbanken und der Mandanten-Inhaltsdateifreigabe verantwortlich.
 
-- Syndizieren Sie die **benutzerdefinierte Skripterweiterung** (Version **1.9.3** ) über den Marketplace.
+- Syndizieren Sie die **benutzerdefinierte Skripterweiterung** (Version **1.9.3**) über den Marketplace.
 
 
 
@@ -59,7 +59,7 @@ Update Q2 für Azure App Service in Azure Stack enthält folgende Verbesserunge
 
 - Updates für den Kerndienst zur Verbesserung der Zuverlässigkeit und der Fehlermeldungen, die eine einfachere Diagnose von häufigen Problemen ermöglichen.
 
-- **Updates für folgende Anwendungsframeworks und Tools** :
+- **Updates für folgende Anwendungsframeworks und Tools**:
   - ASP.NET Framework 4.7.2
   - ASP.NET Core 3.1.3
   - ASP.NET Core-Modul v2 13.1.19331.0
@@ -76,13 +76,13 @@ Update Q2 für Azure App Service in Azure Stack enthält folgende Verbesserunge
     - 6.12.0
     - 6.13.4
   
-- **Updates des zugrunde liegenden Betriebssystems aller Rollen** :
+- **Updates des zugrunde liegenden Betriebssystems aller Rollen**:
   - [April 2020: Kumulatives Update für Windows Server 2016 für x64-basierte Systeme (KB4550929)](https://support.microsoft.com/help/4550929)
   - [April 2020: Wartungsstapelaktualisierung für Windows Server 2016 für x64-basierte Systeme (KB4550994)](https://support.microsoft.com/help/4550994)
 
 - **Kumulative Updates für Windows Server werden jetzt im Rahmen der Bereitstellung und Aktualisierung auf Controllerrollen angewendet.**
 
-- **Update der Standard-SKUs für virtuelle Computer und Skalierungsgruppen für neue Bereitstellungen** : Um die Konsistenz mit unserem öffentlichen Clouddienst aufrechtzuerhalten, verwenden neue Bereitstellungen von Azure App Service in Azure Stack Hub die folgenden SKUs für die zugrunde liegenden Computer und Skalierungsgruppen, die für den Betrieb des Ressourcenanbieters verwendet werden.
+- **Update der Standard-SKUs für virtuelle Computer und Skalierungsgruppen für neue Bereitstellungen**: Um die Konsistenz mit unserem öffentlichen Clouddienst aufrechtzuerhalten, verwenden neue Bereitstellungen von Azure App Service in Azure Stack Hub die folgenden SKUs für die zugrunde liegenden Computer und Skalierungsgruppen, die für den Betrieb des Ressourcenanbieters verwendet werden.
   
   | Role | Mindest-SKU |
   | --- | --- |
@@ -223,6 +223,17 @@ Beim Erstellen einer neuen Anwendung können Mandanten während des App-Erstellu
 - Benutzerdefinierte Domänen werden in getrennten Umgebungen nicht unterstützt.
 
 App Service führt die Überprüfung des Domänenbesitzes für öffentliche DNS-Endpunkte durch. Daher werden benutzerdefinierte Domänen in getrennten Szenarien nicht unterstützt.
+
+- In einigen Fällen können Worker Integritätsprüfungen nicht erfüllen (unzureichender Speicherplatz).
+
+In einigen Fällen, in denen einem Worker eine große Anzahl von Sites zugeordnet ist oder eine Site eine große Anzahl von Anforderungen verarbeitet, generiert der Worker eine große Anzahl von Laufzeitprotokolldateien in „C:\DWAS\LogFiles“.  Dies ist auf einen Fehler in der Bereinigungslogik für diese Protokolldateien zurückzuführen.  
+
+Um dieses Problem zu beheben, stellen Sie eine Remoteverbindung mit dem einzelnen Worker her, und löschen Sie den Inhalt des Ordners.
+
+Dieses Problem wurde in [App Service in Azure Stack Hub 2020 Q3](app-service-release-notes-2020-Q3.md) behoben. Wir empfehlen Kunden, sobald wie möglich ein Upgrade auf das 2020-Q3-Release durchzuführen.
+
+> [!IMPORTANT]
+> Um auf Azure App Service in Azure Stack Hub 2020 Q3 zu aktualisieren, **müssen** Sie auf Azure Stack Hub 2008 upgraden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

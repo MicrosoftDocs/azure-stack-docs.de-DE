@@ -4,16 +4,16 @@ description: Versionshinweise zu Update 8 für App Service in Azure Stack Hub, 
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 11/17/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: f19d64331e7ef64095bc91a04eb817e2f056d3a9
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 4c89f139c2fc0f80a80fc70ab6d5842a7ffffd4f
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489707"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785802"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 8
 
@@ -298,7 +298,26 @@ Führen Sie eine der folgenden Aktionen aus, und wählen Sie im Installationspro
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
 
-Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1907](./release-notes.md?view=azs-2002).
+Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1907](./release-notes.md?view=azs-1907&preserve-view=true).
+
+- Mandanten, die keinen App Service-Plan mithilfe von „Neu“ in der App Service-Planansicht im Mandantenportal erstellen können
+
+Beim Erstellen einer neuen Anwendung können Mandanten während des App-Erstellungsworkflows oder beim Ändern des App Service-Plans für eine aktuelle App oder über das App Service-Plan-Marketplace-Element App Service-Pläne erstellen.
+
+- Benutzerdefinierte Domänen werden in getrennten Umgebungen nicht unterstützt.
+
+App Service führt die Überprüfung des Domänenbesitzes für öffentliche DNS-Endpunkte durch. Daher werden benutzerdefinierte Domänen in getrennten Szenarien nicht unterstützt.
+
+- In einigen Fällen können Worker Integritätsprüfungen nicht erfüllen (unzureichender Speicherplatz).
+
+In einigen Fällen, in denen einem Worker eine große Anzahl von Sites zugeordnet ist oder eine Site eine große Anzahl von Anforderungen verarbeitet, generiert der Worker eine große Anzahl von Laufzeitprotokolldateien in „C:\DWAS\LogFiles“.  Dies ist auf einen Fehler in der Bereinigungslogik für diese Protokolldateien zurückzuführen.  
+
+Um dieses Problem zu beheben, stellen Sie eine Remoteverbindung mit dem einzelnen Worker her, und löschen Sie den Inhalt des Ordners.
+
+Dieses Problem wurde in [App Service in Azure Stack Hub 2020 Q3](app-service-release-notes-2020-Q3.md) behoben. Wir empfehlen Kunden, sobald wie möglich ein Upgrade auf das 2020-Q3-Release durchzuführen.
+
+> [!IMPORTANT]
+> Um auf Azure App Service in Azure Stack Hub 2020 Q3 zu aktualisieren, **müssen** Sie auf Azure Stack Hub 2008 upgraden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

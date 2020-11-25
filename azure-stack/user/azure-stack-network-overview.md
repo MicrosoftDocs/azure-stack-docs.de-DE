@@ -3,16 +3,16 @@ title: Einführung in Azure Stack Hub-Netzwerke
 description: Informationen zu Azure Stack Hub-Netzwerken
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 11/16/2020
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 1e850e766300ff4d1b24328ba47c8458a903732a
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 2cb8ede31a91ba05102c55591a4942f512bce0c8
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111947"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674471"
 ---
 # <a name="introduction-to-azure-stack-hub-networking"></a>Einführung in Azure Stack Hub-Netzwerke
 
@@ -23,7 +23,9 @@ Azure Stack Hub bietet verschiedene Arten von Netzwerkfunktionen, die einzeln od
 - **Internetkonnektivität**  
     Kommunizieren Sie mit und von Azure Stack Hub-Ressourcen über das Internet.
 - **Lokale Konnektivität**  
-    Stellen Sie entweder unter Verwendung eines virtuellen privaten Netzwerks (VPN) über das Internet oder über eine dedizierte Verbindung mit Azure Stack Hub eine Verbindung zwischen einem lokalen Netzwerk und Azure Stack Hub-Ressourcen her.
+    Stellen Sie entweder unter Verwendung eines virtuellen privaten Netzwerks (VPN) über das Internet oder über eine dedizierte Verbindung mit Azure Stack Hub eine Verbindung zwischen einem lokalen Netzwerk und Azure Stack Hub-Ressourcen her. 
+    > [!IMPORTANT]
+    > Sie müssen eine VPN- oder öffentliche IP-Verbindung erstellen, um auf lokale Ressourcen zugreifen zu können.
 - **Lastenausgleich und Datenverkehrsrichtung**  
     Führen Sie einen Lastenausgleich für Datenverkehr durch, der für Server am gleichen Standort bestimmt ist, und leiten Sie Datenverkehr an Server an anderen Standorten weiter.
 - **Security**  

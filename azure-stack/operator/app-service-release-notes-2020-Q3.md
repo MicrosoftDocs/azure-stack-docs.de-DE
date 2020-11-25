@@ -1,19 +1,19 @@
 ---
-title: 'App Service in Azure Stack Hub 2002 Q3: Versionshinweise'
-description: Erfahren Sie, was im Release 2002 Q3 für App Service in Azure Stack Hub enthalten ist, welche bekannten Probleme es gibt und wo das Update heruntergeladen werden kann.
+title: 'App Service in Azure Stack Hub 2020 Q3: Versionshinweise'
+description: Erfahren Sie, was im Release 2020 Q3 für App Service in Azure Stack Hub enthalten ist, welche bekannten Probleme es gibt und wo das Update heruntergeladen werden kann.
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 11/17/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/23/2020
-ms.openlocfilehash: 55c8e18f3bbd36a0fef4cfb745ab9d40651e7533
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: f9d575a91c55379326beaac2d76b3400172c8dd0
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94548710"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785871"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q3-release-notes"></a>App Service in Azure Stack Hub 2020 Q3: Versionshinweise
 
@@ -102,6 +102,8 @@ Update Q3 für Azure App Service in Azure Stack enthält folgende Verbesserunge
 - Functions-Überwachung kann nun Daten von Speicherendpunkten abrufen, wobei TLS 1.2 erzwungen wird.
 
 - Das Warten auf den Verwaltungsserver-Schritt während der Installation wurde aus dem „Cloud bereitstellen“-Schritt verschoben, um die Zuverlässigkeit von Bereitstellung und Upgrade zu verbessern.
+
+- Problem, bei dem Worker die Integritätsprüfung nicht abschließen können, weil die Größe des für Worker verwendeten Ordners für Laufzeitprotokolldateien nach einem Fehler in der Bereinigungslogik die Kontingentgrenze verletzt.  Die Bereinigungslogik wurde in diesem Update korrigiert.
 
 ## <a name="pre-update-steps"></a>Schritte vor dem Update
 

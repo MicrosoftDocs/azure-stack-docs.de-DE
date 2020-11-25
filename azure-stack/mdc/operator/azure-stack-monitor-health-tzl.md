@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 4212aa524baf60b65eaca46e6750c7af78197135
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 4a14700a081e8c85f29a7edc69c471ba9bd3d249
+ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330259"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885783"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Überwachen von Integrität und Warnungen in Azure Stack
 
@@ -53,12 +53,12 @@ Um den Integritätsstatus im Portal anzuzeigen, klicken Sie auf die Region, die 
 Um ausführlichere Informationen anzuzeigen, klicken Sie auf einen Ressourcenanbieter oder eine Infrastrukturrolle.
 
 > [!WARNING]  
-> Wenn Sie auf eine Infrastrukturrolle und dann auf die Rolleninstanz klicken, werden Optionen zum **Starten** , **Neustarten** oder **Herunterfahren** angezeigt. Verwenden Sie diese Aktionen nicht beim Anwenden von Updates auf ein integriertes System. <!-- TZLASDKFIXAlso, do **not** use these options in an Azure Stack Development Kit (ASDK) environment. These options are only designed for an integrated systems environment, where there's more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the ASDK causes system instability.--> Um Unterstützung bei der Problembehandlung zu erhalten, veröffentlichen Sie Ihr Problem im [Azure Stack-Forum](https://aka.ms/azurestackforum).
+> Wenn Sie auf eine Infrastrukturrolle und dann auf die Rolleninstanz klicken, werden Optionen zum **Starten**, **Neustarten** oder **Herunterfahren** angezeigt. Verwenden Sie diese Aktionen nicht beim Anwenden von Updates auf ein integriertes System. <!-- TZLASDKFIXAlso, do **not** use these options in an Azure Stack Development Kit (ASDK) environment. These options are only designed for an integrated systems environment, where there's more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the ASDK causes system instability.--> Um Unterstützung bei der Problembehandlung zu erhalten, veröffentlichen Sie Ihr Problem im [Azure Stack-Forum](https://aka.ms/azurestackforum).
 >
 
 ## <a name="view-alerts"></a>Anzeigen von Warnungen
 
-Die Liste der aktiven Warnungen für jede Azure Stack-Region kann direkt über das Blatt **Regionsverwaltung** abgerufen werden. Die erste Kachel in der Standardkonfiguration ist die Kachel **Warnungen** , in der eine Zusammenfassung der Benachrichtigungen mit den Schweregraden „Kritisch“ und „Warnung“ für die Region angezeigt werden. Sie können die Kachel „Warnungen“ wie alle anderen Kacheln auf diesem Blatt für den Schnellzugriff an das Dashboard anheften.
+Die Liste der aktiven Warnungen für jede Azure Stack-Region kann direkt über das Blatt **Regionsverwaltung** abgerufen werden. Die erste Kachel in der Standardkonfiguration ist die Kachel **Warnungen**, in der eine Zusammenfassung der Benachrichtigungen mit den Schweregraden „Kritisch“ und „Warnung“ für die Region angezeigt werden. Sie können die Kachel „Warnungen“ wie alle anderen Kacheln auf diesem Blatt für den Schnellzugriff an das Dashboard anheften.
 
 ![Kachel „Warnungen“, die eine Warnung im Azure Stack-Administratorportal anzeigt](media/azure-stack-monitor-health/alerts.png)
 
@@ -73,7 +73,7 @@ Auf dem Blatt **Benachrichtigungen** können Benachrichtigungen nach Status („
 
 Die Aktion **API anzeigen** zeigt die zum Generieren der Listenansicht verwendete REST-API an. Anhand dieser Aktion können Sie sich schnell mit der REST-API-Syntax vertraut machen, die Sie zum Abfragen von Warnungen verwenden können. Sie können diese API bei der Automatisierung oder Integration in Ihre vorhandenen Rechenzentrumslösungen für die Überwachung, Berichterstattung und Ticketausstellung verwenden.
 
-Sie können auf eine bestimmte Warnung klicken, um die Warnungsdetails anzuzeigen. In den Warnungsdetails werden alle Felder angezeigt, die der Warnung zugeordnet sind. Zudem ermöglichen sie eine schnelle Navigation zur betroffenen Komponente und Quelle der Warnung. Beispielsweise wird die folgende Warnung angezeigt, wenn eine der Infrastrukturrolleninstanzen offline geschaltet wird oder nicht aufrufbar ist. Sie können die Verweise auf die aka.ms-Links im Abschnitt „Wartung“ der Benachrichtigungsdetails unter [Referenz für aka.ms-Links aus Benachrichtigungen für Azure Stack Hub](aks-refer-table-tzl.md) nachschlagen.
+Sie können auf eine bestimmte Warnung klicken, um die Warnungsdetails anzuzeigen. In den Warnungsdetails werden alle Felder angezeigt, die der Warnung zugeordnet sind. Zudem ermöglichen sie eine schnelle Navigation zur betroffenen Komponente und Quelle der Warnung. Beispielsweise wird die folgende Warnung angezeigt, wenn eine der Infrastrukturrolleninstanzen offline geschaltet wird oder nicht aufrufbar ist. Sie können den [Querverweislink](aks-refer-table-tzl.md) im **Wiederherstellung**-Abschnitt der Warnungsdetails nachschlagen, um den Artikel anzuzeigen.
 
 ![Blatt „Warnungsdetails“ im Azure Stack-Administratorportal](media/azure-stack-monitor-health/alert-detail.png)
 
