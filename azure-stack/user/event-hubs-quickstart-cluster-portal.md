@@ -9,10 +9,10 @@ ms.date: 01/22/2020
 ms.reviewer: bryanla
 ms.lastreviewed: 01/22/2020
 ms.openlocfilehash: 7a2b8504a247048a4f90f7ec70772ff52b5ae9dc
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "91107231"
 ---
 # <a name="quickstart-create-an-event-hubs-cluster-using-the-azure-stack-hub-portal"></a>Schnellstart: Erstellen eines Event Hubs-Clusters über das Azure Stack Hub-Portal
@@ -46,7 +46,7 @@ Ein Event Hubs-Cluster bietet einen Container mit einem eindeutigen Bereich, in 
 1. Melden Sie sich beim Azure Stack Hub-Benutzerportal an.
 2. Wählen Sie im linken Navigationsbereich die Option  **Alle Dienste** aus, geben Sie „Event Hubs-Cluster“ in die Suchleiste ein, und wählen Sie in der Ergebnisliste das Element **Event Hubs-Cluster** aus.
 3. Wählen Sie auf der Seite **Event Hubs-Cluster** im oberen Menü die Option **+ Hinzufügen** aus. Daraufhin wird auf der rechten Seite der Bereich **Event Hubs-Cluster erstellen** geöffnet.
-4. Gehen Sie auf der Registerkarte **Grundeinstellungen** der Seite **Event Hubs-Cluster erstellen** wie folgt vor:  
+4. Gehen Sie auf der Registerkarte **Grundeinstellungen** der Seite  **Event Hubs-Cluster erstellen** wie folgt vor:  
    - **Clustername**: Geben Sie einen Namen ein. Das System überprüft sofort, ob dieser Name verfügbar ist. Falls ja, wird auf der rechten Seite des Felds ein Häkchen angezeigt. 
    - **Abonnement**: Wählen Sie das Abonnement aus, in dem Sie den Cluster erstellen möchten. 
    - **Ressourcengruppe**: Erstellen Sie die Ressourcengruppe, in der Sie den Cluster erstellen möchten, bzw. wählen Sie sie aus. 
@@ -76,7 +76,7 @@ Ein Event Hubs-Cluster bietet einen Container mit einem eindeutigen Bereich, in 
 
 Erstellen Sie als Nächstes einen Namespace in Ihrem neuen Cluster:
 
-1. Wählen Sie auf der Seite **Übersicht** von **Event Hubs-Cluster** im oberen Menü die Option **+ Namespace** aus. 
+1. Wählen Sie auf der Seite **Übersicht** von **Event Hubs-Cluster** im oberen Menü die Option  **+ Namespace** aus. 
 
    [![Event Hubs-Cluster: Auswählen des Clusters](media/event-hubs-quickstart-cluster-portal/2-view-cluster.png)](media/event-hubs-quickstart-cluster-portal/2-view-cluster.png#lightbox)
 

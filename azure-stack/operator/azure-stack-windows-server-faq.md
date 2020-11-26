@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Hier finden Sie eine Liste der häufig gestellten Fragen zum Azure Stack Hub-Marketplace für Windows Server.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 11/19/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 0801f9530bc3f462e1ddfd0fbce15d193ea6343e
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: 3c0022c49d7af3df7da6b3551bf1e51848e5506a
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545720"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517445"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Häufig gestellte Fragen zum Azure Stack Hub Marketplace
 
@@ -44,41 +44,57 @@ Der Azure-Vorteil bei Hybridnutzung (Azure Hybrid Use Benefit, AHUB) wird in Azu
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>Was geschieht, wenn ich die falsche Version für meine Mandanten/Benutzer heruntergeladen habe?
 
-Löschen Sie zuerst die falsche Version über die Marketplace-Verwaltung. Warten Sie, bis der Vorgang abgeschlossen ist (achten Sie auf die Benachrichtigungen über den Abschluss, nicht auf das Blatt **Marketplace-Verwaltung** ). Laden Sie dann die richtige Version herunter.
+Löschen Sie zuerst die falsche Version über die Marketplace-Verwaltung. Warten Sie, bis der Vorgang abgeschlossen ist (achten Sie auf die Benachrichtigungen über den Abschluss, nicht auf das Blatt **Marketplace-Verwaltung**). Laden Sie dann die richtige Version herunter.
 
 Wenn Sie beide Versionen des Images herunterladen, ist nur die neueste Version für Endkunden im Azure Stack Hub-Marketplace sichtbar.
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Was geschieht, wenn mein Benutzer fälschlicherweise das Kontrollkästchen „Ich besitze eine Lizenz“ in den vorherigen Windows-Builds aktiviert hat, obwohl er keine Lizenz besitzt?
 
 Durch Ausführen des folgenden Skripts können Sie das Lizenzmodellattribut ändern, um vom BYOL-Modell zum Modell mit nutzungsbasierter Bezahlung zu wechseln:
+### <a name="az-modules"></a>[Az-Module](#tab/az1)
 
 ```powershell
 $vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "None"
 Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm1)
+ ```powershell
+$vm= Get-AzureRMvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "None"
+Update-AzureRMVM -ResourceGroupName "<your RG>" -VM $vm
+```
+---
 
 Sie können den Lizenztyp Ihrer VM überprüfen, indem Sie den folgenden Befehl ausführen. Wenn das Lizenzmodell **Windows_Server** lautet, wird Ihnen der BYOL-Preis in Rechnung gestellt. Andernfalls werden Ihnen die Windows-Verbrauchseinheiten pro Modell mit nutzungsbasierter Zahlung berechnet.
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
 ```
-
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Was geschieht, wenn wir ein älteres Image besitzen und mein Benutzer vergessen hat, das Kontrollkästchen „Ich besitze eine Lizenz“ zu aktivieren, oder wir unsere eigenen Images verwenden und über Enterprise Agreement-Berechtigung verfügen?
 
 Durch Ausführen der folgenden Befehle können Sie das Lizenzmodellattribut auf das BYOL-Modell umstellen:
+### <a name="az-modules"></a>[Az-Module](#tab/az2)
 
 ```powershell
 $vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "Windows_Server"
 Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm2)
+
+ ```powershell
+$vm= Get-AzureRMvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRMVM -ResourceGroupName "<your RG>" -VM $vm
+```
+---
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Was passiert mit anderen VMs, die Windows Server verwenden, z.B. SQL Server oder Machine Learning Server?
 
-Diese Images wenden den **licenseType** -Parameter an, weshalb das Modell mit nutzungsbasierter Zahlung angewendet wird. Sie können diesen Parameter festlegen (siehe hierzu die Antwort zur vorherigen häufig gestellten Frage). Dies gilt nur für die Windows Server-Software, nicht für sich überlagernde Produkte wie SQL, für das Bring Your Own License erforderlich ist. Die Lizenzierung mit nutzungsbasierter Zahlung gilt nicht für sich überlagernde Softwareprodukte.
+Diese Images wenden den **licenseType**-Parameter an, weshalb das Modell mit nutzungsbasierter Zahlung angewendet wird. Sie können diesen Parameter festlegen (siehe hierzu die Antwort zur vorherigen häufig gestellten Frage). Dies gilt nur für die Windows Server-Software, nicht für sich überlagernde Produkte wie SQL, für das Bring Your Own License erforderlich ist. Die Lizenzierung mit nutzungsbasierter Zahlung gilt nicht für sich überlagernde Softwareprodukte.
 
-Sie können die **licenseType** -Eigenschaft für SQL Server-Images vom Azure Stack Hub-Marketplace nur ändern, wenn die Version **XX.X.20190410** oder höher lautet. Wenn Sie eine ältere Version der SQL Server-Images aus dem Azure Stack Hub-Marketplace ausführen, können Sie das **licenseType** -Attribut nicht ändern, und Sie müssen die Bereitstellung mit den neuesten SQL Server-Images aus dem Azure Stack Hub-Marketplace erneut ausführen.
+Sie können die **licenseType**-Eigenschaft für SQL Server-Images vom Azure Stack Hub-Marketplace nur ändern, wenn die Version **XX.X.20190410** oder höher lautet. Wenn Sie eine ältere Version der SQL Server-Images aus dem Azure Stack Hub-Marketplace ausführen, können Sie das **licenseType**-Attribut nicht ändern, und Sie müssen die Bereitstellung mit den neuesten SQL Server-Images aus dem Azure Stack Hub-Marketplace erneut ausführen.
 
 ### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>Ich besitze ein Enterprise Agreement (EA) und verwende meine Windows Server-EA-Lizenz. Wie stelle ich sicher, dass die Images ordnungsgemäß abgerechnet werden?
 

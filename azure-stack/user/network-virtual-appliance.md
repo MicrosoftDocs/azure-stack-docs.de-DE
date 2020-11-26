@@ -3,16 +3,16 @@ title: Behandeln von Problemen mit virtuellen Netzwerkgeräten in Azure Stack Hu
 description: Beheben Sie Probleme mit der VM- oder VPN-Konnektivität bei der Verwendung eines virtuellen Netzwerkgeräts (Network Virtual Appliance, NVA) in Microsoft Azure Stack Hub.
 author: sethmanheim
 ms.author: sethm
-ms.date: 09/08/2020
+ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
-ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 0facc0cc06ad3ff672531f1eeb7e31eee2f56ee0
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 271587baa3890a7dbb02d7ac935ceb51e2e405b7
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546887"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517147"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>Behandeln von Problemen mit virtuellen Netzwerkgeräten
 
@@ -55,13 +55,13 @@ Für jedes NVA müssen grundlegende Konfigurationsanforderungen erfüllt werden,
 
 ### <a name="check-whether-ip-forwarding-is-enabled-on-the-nva"></a>Überprüfen, ob die IP-Weiterleitung für das NVA aktiviert ist
 
-#### <a name="use-the-azure-stack-hub-portal"></a>Verwenden des Azure Stack Hub-Portals
+### <a name="portal"></a>[Portal](#tab/portal)
 
 1. Suchen Sie die NVA-Ressource im Azure Stack Hub-Portal, und wählen Sie **Netzwerke** und dann die Netzwerkschnittstelle aus.
 2. Wählen Sie auf der Seite **Netzwerkschnittstelle** die Option **IP-Konfiguration** aus.
 3. Stellen Sie sicher, dass IP-Weiterleitung aktiviert ist.
 
-#### <a name="use-powershell"></a>Verwenden von PowerShell
+### <a name="powershell-az"></a>[PowerShell Az](#tab/az)
 
 1. Führen Sie den folgenden Befehl aus. Ersetzen Sie die Werte in spitzen Klammern durch Ihre eigenen Informationen.
 
@@ -81,6 +81,29 @@ Für jedes NVA müssen grundlegende Konfigurationsanforderungen erfüllt werden,
    EnableIPForwarding   : True
    NetworkSecurityGroup : null
    ```
+
+### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/azurerm)
+
+1. Führen Sie den folgenden Befehl aus. Ersetzen Sie die Werte in spitzen Klammern durch Ihre eigenen Informationen.
+
+   ```powershell
+   Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   ```
+
+2. Überprüfen Sie die Eigenschaft **EnableIPForwarding**.
+
+3. Wenn die IP-Weiterleitung nicht aktiviert ist, führen Sie die folgenden Befehle aus, um diese zu aktivieren:
+
+   ```powershell
+   $nic2 = Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   $nic2.EnableIPForwarding = 1
+   Set-AzureRMNetworkInterface -NetworkInterface $nic2
+   Execute: $nic2 #and check for an expected output:
+   EnableIPForwarding   : True
+   NetworkSecurityGroup : null
+   ```
+
+---
 
 ### <a name="check-whether-traffic-can-be-routed-to-the-nva"></a>Überprüfen, ob der Datenverkehr an das NVA weitergeleitet werden kann
 

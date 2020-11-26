@@ -3,16 +3,16 @@ title: Bereitstellen eines gesicherten Service Fabric-Clusters in Azure Stack Hu
 description: Hier erfahren Sie, wie Sie einen gesicherten Service Fabric-Cluster in Azure Stack Hub bereitstellen.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 5/27/2020
+ms.date: 11/20/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 5fd3f9f3d4d13ccf2fa03d656ac76d9cab462103
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: cf8d4d7ea8e1a88bb8d162bb2c5fc5e4bc41d21a
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546275"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518312"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Bereitstellen eines Service Fabric-Clusters in Azure Stack Hub
 
@@ -38,7 +38,7 @@ Folgendes ist für die Bereitstellung des Service Fabric-Clusters erforderlich:
    Hierbei handelt es sich um das Zertifikat, das der Client für die Authentifizierung beim Service Fabric-Cluster verwendet. Dies kann ein selbstsigniertes Zertifikat sein. Informationen zum Erstellen dieses Clientzertifikats finden Sie unter [Szenarien für die Clustersicherheit in Service Fabric](/azure/service-fabric/service-fabric-cluster-security).
 
 1. **Die folgenden Elemente müssen im Azure Stack Hub-Marketplace verfügbar sein:**
-    - **Windows Server 2016** : Die Vorlage verwendet das Windows Server 2016-Image zum Erstellen des Clusters.  
+    - **Windows Server 2016**: Die Vorlage verwendet das Windows Server 2016-Image zum Erstellen des Clusters.  
     - **Benutzerdefinierte Erweiterung:** VM-Erweiterung von Microsoft.  
     - **PowerShell Desired Stage Configuration** (PowerShell-Konfiguration für gewünschte Phase): VM-Erweiterung von Microsoft
 
@@ -54,62 +54,126 @@ Verwenden Sie das folgende Skript, um die Key Vault-Instanz zu erstellen, und f�
 > [!TIP]  
 > Damit das Skript erfolgreich ausgeführt werden kann, ist ein öffentliches Angebot erforderlich, das die Dienste für Compute, Netzwerk, Speicher und Key Vault enthält. 
 
-  ```powershell
-    function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
-        {
-            return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
-        }
-    
-    function Publish-SecretToKeyVault ($PfxFilePath, $Password, $KeyVaultName)
-       {
-            $keyVaultSecretName = "ClusterCertificate"
-            $certContentInBytes = [io.file]::ReadAllBytes($PfxFilePath)
-            $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
-    
-            $jsonObject = ConvertTo-Json -Depth 10 ([pscustomobject]@{
-                data     = $pfxAsBase64EncodedString
-                dataType = 'pfx'
-                password = $Password
-            })
-    
-            $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
-            $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
-            $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
-            $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName -SecretValue $secret
-            
-            $pfxCertObject = Get-ThumbprintFromPfx -PfxFilePath $PfxFilePath -Password $Password
-    
-            Write-Host "KeyVault id: " -ForegroundColor Green
-            (Get-AzKeyVault -VaultName $KeyVaultName).ResourceId
-            
-            Write-Host "Secret Id: " -ForegroundColor Green
-            (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName).id
-    
-            Write-Host "Cluster Certificate Thumbprint: " -ForegroundColor Green
-            $pfxCertObject.Thumbprint
-       }
-    
-    #========================== CHANGE THESE VALUES ===============================
-    $armEndpoint = "https://management.local.azurestack.external"
-    $tenantId = "your_tenant_ID"
-    $location = "local"
-    $clusterCertPfxPath = "Your_path_to_ClusterCert.pfx"
-    $clusterCertPfxPassword = "Your_password_for_ClusterCert.pfx"
-    #==============================================================================
-    
-    Add-AzEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
-    Login-AzAccount -Environment AzureStack -TenantId $tenantId
-    
-    $rgName = "sfvaultrg"
-    Write-Host "Creating Resource Group..." -ForegroundColor Yellow
-    New-AzResourceGroup -Name $rgName -Location $location
-    
-    Write-Host "Creating Key Vault..." -ForegroundColor Yellow
-    $Vault = New-AzKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
-    
-    Write-Host "Publishing certificate to Vault..." -ForegroundColor Yellow
-    Publish-SecretToKeyVault -PfxFilePath $clusterCertPfxPath -Password $clusterCertPfxPassword -KeyVaultName $vault.VaultName
-   ``` 
+### <a name="az-modules"></a>[Az-Module](#tab/az1)
+
+```powershell
+   function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
+      {
+         return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
+      }
+   
+   function Publish-SecretToKeyVault ($PfxFilePath, $Password, $KeyVaultName)
+      {
+         $keyVaultSecretName = "ClusterCertificate"
+         $certContentInBytes = [io.file]::ReadAllBytes($PfxFilePath)
+         $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
+   
+         $jsonObject = ConvertTo-Json -Depth 10 ([pscustomobject]@{
+               data     = $pfxAsBase64EncodedString
+               dataType = 'pfx'
+               password = $Password
+         })
+   
+         $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+         $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+         $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+         $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName -SecretValue $secret
+         
+         $pfxCertObject = Get-ThumbprintFromPfx -PfxFilePath $PfxFilePath -Password $Password
+   
+         Write-Host "KeyVault id: " -ForegroundColor Green
+         (Get-AzKeyVault -VaultName $KeyVaultName).ResourceId
+         
+         Write-Host "Secret Id: " -ForegroundColor Green
+         (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName).id
+   
+         Write-Host "Cluster Certificate Thumbprint: " -ForegroundColor Green
+         $pfxCertObject.Thumbprint
+      }
+   
+   #========================== CHANGE THESE VALUES ===============================
+   $armEndpoint = "https://management.local.azurestack.external"
+   $tenantId = "your_tenant_ID"
+   $location = "local"
+   $clusterCertPfxPath = "Your_path_to_ClusterCert.pfx"
+   $clusterCertPfxPassword = "Your_password_for_ClusterCert.pfx"
+   #==============================================================================
+   
+   Add-AzEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
+   Login-AzAccount -Environment AzureStack -TenantId $tenantId
+   
+   $rgName = "sfvaultrg"
+   Write-Host "Creating Resource Group..." -ForegroundColor Yellow
+   New-AzResourceGroup -Name $rgName -Location $location
+   
+   Write-Host "Creating Key Vault..." -ForegroundColor Yellow
+   $Vault = New-AzKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
+   
+   Write-Host "Publishing certificate to Vault..." -ForegroundColor Yellow
+   Publish-SecretToKeyVault -PfxFilePath $clusterCertPfxPath -Password $clusterCertPfxPassword -KeyVaultName $vault.VaultName
+``` 
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm1)
+
+```powershell
+   function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
+      {
+         return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
+      }
+   
+   function Publish-SecretToKeyVault ($PfxFilePath, $Password, $KeyVaultName)
+      {
+         $keyVaultSecretName = "ClusterCertificate"
+         $certContentInBytes = [io.file]::ReadAllBytes($PfxFilePath)
+         $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
+   
+         $jsonObject = ConvertTo-Json -Depth 10 ([pscustomobject]@{
+               data     = $pfxAsBase64EncodedString
+               dataType = 'pfx'
+               password = $Password
+         })
+   
+         $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+         $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+         $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+         $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName -SecretValue $secret
+         
+         $pfxCertObject = Get-ThumbprintFromPfx -PfxFilePath $PfxFilePath -Password $Password
+   
+         Write-Host "KeyVault id: " -ForegroundColor Green
+         (Get-AzureRMKeyVault -VaultName $KeyVaultName).ResourceId
+         
+         Write-Host "Secret Id: " -ForegroundColor Green
+         (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName).id
+   
+         Write-Host "Cluster Certificate Thumbprint: " -ForegroundColor Green
+         $pfxCertObject.Thumbprint
+      }
+   
+   #========================== CHANGE THESE VALUES ===============================
+   $armEndpoint = "https://management.local.azurestack.external"
+   $tenantId = "your_tenant_ID"
+   $location = "local"
+   $clusterCertPfxPath = "Your_path_to_ClusterCert.pfx"
+   $clusterCertPfxPassword = "Your_password_for_ClusterCert.pfx"
+   #==============================================================================
+   
+   Add-AzureRMEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
+   Login-AzureRMAccount -Environment AzureStack -TenantId $tenantId
+   
+   $rgName = "sfvaultrg"
+   Write-Host "Creating Resource Group..." -ForegroundColor Yellow
+   New-AzureRMResourceGroup -Name $rgName -Location $location
+   
+   Write-Host "Creating Key Vault..." -ForegroundColor Yellow
+   $Vault = New-AzureRMKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
+   
+   Write-Host "Publishing certificate to Vault..." -ForegroundColor Yellow
+   Publish-SecretToKeyVault -PfxFilePath $clusterCertPfxPath -Password $clusterCertPfxPassword -KeyVaultName $vault.VaultName
+``` 
+
+---
+
+ 
 
 
 Weitere Informationen finden Sie unter [Verwalten von Key Vault in Azure Stack Hub mithilfe von PowerShell](azure-stack-key-vault-manage-powershell.md).
@@ -120,7 +184,7 @@ Weitere Informationen finden Sie unter [Verwalten von Key Vault in Azure Stack H
 
    ![Auswählen des Service Fabric-Clusters](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
-2. Füllen Sie auf jeder Seite (etwa *Grundlagen* ) das Bereitstellungsformular aus. Verwenden Sie Standardwerte, wenn Sie bei einem Wert unsicher sind.
+2. Füllen Sie auf jeder Seite (etwa *Grundlagen*) das Bereitstellungsformular aus. Verwenden Sie Standardwerte, wenn Sie bei einem Wert unsicher sind.
 
     Für Bereitstellungen in einer nicht verbundenen Azure Stack Hub-Instanz oder die Bereitstellung einer anderen Version von Service Fabric laden Sie das Service Fabric-Bereitstellungspaket und das entsprechende Runtimepaket herunter und hosten es in einem Azure Stack Hub-Blob. Geben Sie diese Werte in den Feldern für die **Paket-URL der Service Fabric Bereitstellung** und die **Paket-URL der Service Fabric-Runtime** an.
     > [!NOTE]  
@@ -152,7 +216,7 @@ Weitere Informationen finden Sie unter [Verwalten von Key Vault in Azure Stack H
 
    ![Sicherheit](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
-5. Schließen Sie den Assistenten ab, und klicken Sie dann auf **Erstellen** , um den Service Fabric-Cluster bereitzustellen.
+5. Schließen Sie den Assistenten ab, und klicken Sie dann auf **Erstellen**, um den Service Fabric-Cluster bereitzustellen.
 
 
 
@@ -165,7 +229,7 @@ Sie können auf den Service Fabric-Cluster entweder über Service Fabric Explore
 
     a. Öffnen Sie Internet Explorer, und navigieren Sie zu **Internetoptionen** > **Inhalte** > **Zertifikate**.
   
-    b. Klicken Sie unter „Zertifikate“ auf **Importieren** , um den *Zertifikatimport-Assistenten* zu starten, und klicken Sie dann auf **Weiter**. Klicken Sie auf der Seite *Zu importierende Datei* auf **Durchsuchen** , und wählen Sie das **Administratorclientzertifikat** aus, das Sie in der Azure Resource Manager-Vorlage angegeben haben.
+    b. Klicken Sie unter „Zertifikate“ auf **Importieren**, um den *Zertifikatimport-Assistenten* zu starten, und klicken Sie dann auf **Weiter**. Klicken Sie auf der Seite *Zu importierende Datei* auf **Durchsuchen**, und wählen Sie das **Administratorclientzertifikat** aus, das Sie in der Azure Resource Manager-Vorlage angegeben haben.
         
        > [!NOTE]  
        > Dieses Zertifikat ist nicht das Clusterzertifikat, das zuvor Key Vault hinzugefügt wurde.  
@@ -174,7 +238,7 @@ Sie können auf den Service Fabric-Cluster entweder über Service Fabric Explore
 
        ![Privater Informationsaustausch](media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
 
-    d. Wählen Sie auf der Seite *Zertifikatspeicher* die Option **Persönlich** , und schließen Sie dann den Assistenten ab.  
+    d. Wählen Sie auf der Seite *Zertifikatspeicher* die Option **Persönlich**, und schließen Sie dann den Assistenten ab.  
        ![Zertifikatspeicher](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 1. So ermitteln Sie den FQDN des Service Fabric-Clusters  
 
@@ -191,7 +255,7 @@ Sie können auf den Service Fabric-Cluster entweder über Service Fabric Explore
 1. Navigieren Sie im Browser zu `https://*FQDN*:19080`. Ersetzen Sie *FQDN* durch den FQDN Ihres Service Fabric-Clusters aus Schritt 2.   
    Wenn Sie ein selbstsigniertes Zertifikat verwendet haben, erhalten Sie eine Warnung, dass die Verbindung nicht sicher ist. Wählen Sie zum Aufrufen der Website **Weitere Informationen** und dann **Webseite trotzdem laden**. 
 
-1. Für die Authentifizierung bei der Website müssen Sie ein Zertifikat auswählen. Klicken Sie auf **More choices** (Weitere Optionen), wählen Sie das entsprechende Zertifikat aus, und klicken Sie dann auf **OK** , um eine Verbindung mit Service Fabric Explorer herzustellen. 
+1. Für die Authentifizierung bei der Website müssen Sie ein Zertifikat auswählen. Klicken Sie auf **More choices** (Weitere Optionen), wählen Sie das entsprechende Zertifikat aus, und klicken Sie dann auf **OK**, um eine Verbindung mit Service Fabric Explorer herzustellen. 
 
    ![Authenticate](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
@@ -203,7 +267,7 @@ Sie können auf den Service Fabric-Cluster entweder über Service Fabric Explore
 
 1. Konfigurieren Sie nach Abschluss der Installation die Systemumgebungsvariablen, um sicherzustellen, dass über PowerShell auf die Service Fabric-Cmdlets zugegriffen werden kann.  
     
-    a. Wechseln Sie zu **Systemsteuerung** > **System und Sicherheit** > **System** , und klicken Sie dann auf **Erweiterte Systemeinstellungen**.  
+    a. Wechseln Sie zu **Systemsteuerung** > **System und Sicherheit** > **System**, und klicken Sie dann auf **Erweiterte Systemeinstellungen**.  
     
       ![Systemsteuerung](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 

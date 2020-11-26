@@ -3,15 +3,15 @@ title: Erstellen eines virtuellen Linux-Computers mit PowerShell in Azure Stack 
 description: Erstellen Sie mit PowerShell einen virtuellen Linux-Computer in Azure Stack Hub.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 08/24/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: b674a428eb759baed13a522451cf362c44c9f811
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 8b12dafed031c8f69ddb4ef6d9f475487da4b1b2
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546751"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518108"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Schnellstart: Erstellen eines virtuellen Linux-Servers mit PowerShell in Azure Stack Hub
 
@@ -29,7 +29,7 @@ Sie können einen virtuellen Computer (VM) mit Ubuntu Server 16.04 LTS mithilf
   * Wenn Sie PowerShell nicht für Azure Stack Hub konfiguriert haben, lesen Sie die Informationen unter [Installieren von PowerShell für Azure Stack Hub](../operator/powershell-install-az-module.md). 
   * Nach der Einrichtung von Azure Stack Hub PowerShell stellen Sie eine Verbindung mit Ihrer Azure Stack Hub-Umgebung her. Anweisungen dazu finden Sie unter [Herstellen einer Verbindung mit Azure Stack Hub über PowerShell als Benutzer](azure-stack-powershell-configure-user.md).
 
-* Ein öffentlicher SSH-Schlüssel (Secure Shell) mit dem Namen *id_rsa.pub* im SSH-Verzeichnis ( *.ssh* ) Ihres Windows-Benutzerprofils. Ausführliche Informationen zum Erstellen von SSH-Schlüsseln finden Sie unter [Verwenden eines öffentlichen SSH-Schlüssels](azure-stack-dev-start-howto-ssh-public-key.md).
+* Ein öffentlicher SSH-Schlüssel (Secure Shell) mit dem Namen *id_rsa.pub* im SSH-Verzeichnis ( *.ssh*) Ihres Windows-Benutzerprofils. Ausführliche Informationen zum Erstellen von SSH-Schlüsseln finden Sie unter [Verwenden eines öffentlichen SSH-Schlüssels](azure-stack-dev-start-howto-ssh-public-key.md).
 
 ## <a name="create-a-resource-group"></a>Erstellen einer Ressourcengruppe
 
@@ -52,6 +52,8 @@ New-AzResourceGroup `
 
 Erstellen Sie ein Speicherkonto, das zum Speichern der Startdiagnoseausgabe verwendet wird.
 
+### <a name="az-modules"></a>[Az-Module](#tab/az1)
+
 ```powershell  
 # Create variables to store the storage account name and the storage account SKU information
 $StorageAccountName = "mystorageaccount"
@@ -69,10 +71,35 @@ Set-AzCurrentStorageAccount `
   -ResourceGroupName $resourceGroupName
 
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm1)
+
+```powershell  
+# Create variables to store the storage account name and the storage account SKU information
+$StorageAccountName = "mystorageaccount"
+$SkuName = "Standard_LRS"
+
+# Create a new storage account
+$StorageAccount = New-AzureRMStorageAccount `
+  -Location $location `
+  -ResourceGroupName $ResourceGroupName `
+  -Type $SkuName `
+  -Name $StorageAccountName
+
+Set-AzureRMCurrentStorageAccount `
+  -StorageAccountName $storageAccountName `
+  -ResourceGroupName $resourceGroupName
+
+```
+
+---
+
+
 
 ## <a name="create-networking-resources"></a>Erstellen von Netzwerkressourcen
 
 Erstellen Sie ein virtuelles Netzwerk, ein Subnetz und eine öffentliche IP-Adresse. Diese Ressourcen dienen dazu, Netzwerkkonnektivität für die VM bereitzustellen.
+
+### <a name="az-modules"></a>[Az-Module](#tab/az2)
 
 ```powershell
 # Create a subnet configuration
@@ -97,10 +124,40 @@ $pip = New-AzPublicIpAddress `
   -Name "mypublicdns$(Get-Random)"
 
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm2)
+ 
 
+
+```powershell
+# Create a subnet configuration
+$subnetConfig = New-AzureRMVirtualNetworkSubnetConfig `
+  -Name mySubnet `
+  -AddressPrefix 192.168.1.0/24
+
+# Create a virtual network
+$vnet = New-AzureRMVirtualNetwork `
+  -ResourceGroupName $ResourceGroupName `
+  -Location $location `
+  -Name MyVnet `
+  -AddressPrefix 192.168.0.0/16 `
+  -Subnet $subnetConfig
+
+# Create a public IP address and specify a DNS name
+$pip = New-AzureRMPublicIpAddress `
+  -ResourceGroupName $ResourceGroupName `
+  -Location $location `
+  -AllocationMethod Static `
+  -IdleTimeoutInMinutes 4 `
+  -Name "mypublicdns$(Get-Random)"
+
+```
+---
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Erstellen Sie eine Netzwerksicherheitsgruppe und eine Netzwerksicherheitsgruppen-Regel.
 
 Die Netzwerksicherheitsgruppe schützt die VM mithilfe von Eingangs- und Ausgangsregeln für Datenverkehr. Erstellen Sie eine Eingangsregel für Port 3389, um eingehende Remotedesktopverbindungen zuzulassen, und eine Eingangsregel für Port 80, um eingehenden Webdatenverkehr zuzulassen.
+
+### <a name="az-modules"></a>[Az-Module](#tab/az3)
+
 
 ```powershell
 # Create variables to store the network security group and rules names.
@@ -123,10 +180,39 @@ $nsgRuleWeb = New-AzNetworkSecurityRuleConfig -Name $nsgRuleWebName -Protocol Tc
 $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroupName -Location $location `
 -Name $nsgName -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm3)
+
+
+```powershell
+# Create variables to store the network security group and rules names.
+$nsgName = "myNetworkSecurityGroup"
+$nsgRuleSSHName = "myNetworkSecurityGroupRuleSSH"
+$nsgRuleWebName = "myNetworkSecurityGroupRuleWeb"
+
+
+# Create an inbound network security group rule for port 22
+$nsgRuleSSH = New-AzureRMNetworkSecurityRuleConfig -Name $nsgRuleSSHName -Protocol Tcp `
+-Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 22 -Access Allow
+
+# Create an inbound network security group rule for port 80
+$nsgRuleWeb = New-AzureRMNetworkSecurityRuleConfig -Name $nsgRuleWebName -Protocol Tcp `
+-Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 80 -Access Allow
+
+# Create a network security group
+$nsg = New-AzureRMNetworkSecurityGroup -ResourceGroupName $ResourceGroupName -Location $location `
+-Name $nsgName -SecurityRules $nsgRuleSSH,$nsgRuleWeb
+```
+
+---
+
 
 ### <a name="create-a-network-card-for-the-vm"></a>Erstellen einer Netzwerkkarte für die VM
 
 Mit der Netzwerkkarte wird die VM mit einem Subnetz, einer Netzwerksicherheitsgruppe und einer öffentlichen IP-Adresse verbunden.
+
+### <a name="az-modules"></a>[Az-Module](#tab/az4)
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
@@ -138,10 +224,28 @@ $nic = New-AzNetworkInterface `
   -PublicIpAddressId $pip.Id `
   -NetworkSecurityGroupId $nsg.Id
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm4)
+
+```powershell
+# Create a virtual network card and associate it with public IP address and NSG
+$nic = New-AzureRMNetworkInterface `
+  -Name myNic `
+  -ResourceGroupName $ResourceGroupName `
+  -Location $location `
+  -SubnetId $vnet.Subnets[0].Id `
+  -PublicIpAddressId $pip.Id `
+  -NetworkSecurityGroupId $nsg.Id
+```
+
+---
+
+
 
 ## <a name="create-a-vm"></a>Erstellen einer VM
 
 Erstellen Sie eine Konfiguration für den virtuellen Computer. Diese Konfiguration beinhaltet die Einstellungen, die beim Bereitstellen des virtuellen Computers verwendet werden sollen (etwa Benutzeranmeldeinformationen, Größe und VM-Image).
+
+### <a name="az-modules"></a>[Az-Module](#tab/az5)
 
 ```powershell
 # Define a credential object
@@ -191,11 +295,67 @@ New-AzVM `
  -Location $location `
   -VM $VirtualMachine
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm5)
+
+```powershell
+# Define a credential object
+$UserName='demouser'
+$securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ($UserName, $securePassword)
+
+# Create the VM configuration object
+$VmName = "VirtualMachinelatest"
+$VmSize = "Standard_D1"
+$VirtualMachine = New-AzureRMVMConfig `
+  -VMName $VmName `
+  -VMSize $VmSize
+
+$VirtualMachine = Set-AzureRMVMOperatingSystem `
+  -VM $VirtualMachine `
+  -Linux `
+  -ComputerName "MainComputer" `
+  -Credential $cred
+
+$VirtualMachine = Set-AzureRMVMSourceImage `
+  -VM $VirtualMachine `
+  -PublisherName "Canonical" `
+  -Offer "UbuntuServer" `
+  -Skus "16.04-LTS" `
+  -Version "latest"
+
+# Set the operating system disk properties on a VM
+$VirtualMachine = Set-AzureRMVMOSDisk `
+  -VM $VirtualMachine `
+  -CreateOption FromImage | `
+  Set-AzureRMVMBootDiagnostics -ResourceGroupName $ResourceGroupName `
+  -StorageAccountName $StorageAccountName -Enable |`
+  Add-AzureRMVMNetworkInterface -Id $nic.Id
+
+# Configure SSH keys
+$sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
+
+# Add the SSH key to the VM
+Add-AzureRMVMSshPublicKey -VM $VirtualMachine `
+ -KeyData $sshPublicKey `
+ -Path "/home/azureuser/.ssh/authorized_keys"
+
+# Create the VM
+New-AzureRMVM `
+  -ResourceGroupName $ResourceGroupName `
+ -Location $location `
+  -VM $VirtualMachine
+```
+
+---
+
+
 
 ## <a name="vm-quick-create-full-script"></a>VM-Schnellerfassung: Vollständiges Skript
 
 > [!NOTE]
 > Das Skript besteht im Wesentlichen aus dem zusammengeführten obigen Code. Allerdings enthält es anstelle eines SSH-Schlüssels ein Kennwort für die Authentifizierung.
+
+### <a name="az-modules"></a>[Az-Module](#tab/az6)
 
 ```powershell
 ## Create a resource group
@@ -361,13 +521,192 @@ New-AzVM `
   -VM $VirtualMachine
 ```
 
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm6)
+
+```powershell
+## Create a resource group
+
+<#
+A resource group is a logical container where you can deploy and manage Azure Stack Hub resources. From your development kit or the Azure Stack Hub integrated system, run the following code block to create a resource group. Though we've assigned values for all the variables in this article, you can use these values or assign new ones.
+#>
+
+# Edit your variables, if required
+
+# Create variables to store the location and resource group names
+$location = "local"
+$ResourceGroupName = "myResourceGroup"
+
+# Create variables to store the storage account name and the storage account SKU information
+$StorageAccountName = "mystorageaccount"
+$SkuName = "Standard_LRS"
+
+# Create variables to store the network security group and rules names
+$nsgName = "myNetworkSecurityGroup"
+$nsgRuleSSHName = "myNetworkSecurityGroupRuleSSH"
+$nsgRuleWebName = "myNetworkSecurityGroupRuleWeb"
+
+# Create variable for VM password
+$VMPassword = 'Password123!'
+
+# End of variables - no need to edit anything past that point to deploy a single VM
+
+# Create a resource group
+New-AzureRMResourceGroup `
+  -Name $ResourceGroupName `
+  -Location $location
+
+## Create storage resources
+
+# Create a storage account, and then create a storage container for the Ubuntu Server 16.04 LTS image
+
+# Create a new storage account
+$StorageAccount = New-AzureRMStorageAccount `
+  -Location $location `
+  -ResourceGroupName $ResourceGroupName `
+  -Type $SkuName `
+  -Name $StorageAccountName
+
+Set-AzureRMCurrentStorageAccount `
+  -StorageAccountName $storageAccountName `
+  -ResourceGroupName $resourceGroupName
+
+# Create a storage container to store the VM image
+$containerName = 'osdisks'
+$container = New-AzureRMureStorageContainer `
+  -Name $containerName `
+  -Permission Blob
+
+
+## Create networking resources
+
+# Create a virtual network, a subnet, and a public IP address, resources that are used provide network connectivity to the VM
+
+# Create a subnet configuration
+$subnetConfig = New-AzureRMVirtualNetworkSubnetConfig `
+  -Name mySubnet `
+  -AddressPrefix 192.168.1.0/24
+
+# Create a virtual network
+$vnet = New-AzureRMVirtualNetwork `
+  -ResourceGroupName $ResourceGroupName `
+  -Location $location `
+  -Name MyVnet `
+  -AddressPrefix 192.168.0.0/16 `
+  -Subnet $subnetConfig
+
+# Create a public IP address and specify a DNS name
+$pip = New-AzureRMPublicIpAddress `
+  -ResourceGroupName $ResourceGroupName `
+  -Location $location `
+  -AllocationMethod Static `
+  -IdleTimeoutInMinutes 4 `
+  -Name "mypublicdns$(Get-Random)"
+
+
+### Create a network security group and a network security group rule
+
+<#
+The network security group secures the VM by using inbound and outbound rules. Create an inbound rule for port 3389 to allow incoming Remote Desktop connections and an inbound rule for port 80 to allow incoming web traffic.
+#>
+
+# Create an inbound network security group rule for port 22
+$nsgRuleSSH = New-AzureRMNetworkSecurityRuleConfig -Name $nsgRuleSSHName -Protocol Tcp `
+-Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 22 -Access Allow
+
+# Create an inbound network security group rule for port 80
+$nsgRuleWeb = New-AzureRMNetworkSecurityRuleConfig -Name $nsgRuleWebName -Protocol Tcp `
+-Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 80 -Access Allow
+
+# Create a network security group
+$nsg = New-AzureRMNetworkSecurityGroup -ResourceGroupName $ResourceGroupName -Location $location `
+-Name $nsgName -SecurityRules $nsgRuleSSH,$nsgRuleWeb
+
+### Create a network card for the VM
+
+# The network card connects the VM to a subnet, network security group, and public IP address.
+
+# Create a virtual network card and associate it with public IP address and NSG
+$nic = New-AzureRMNetworkInterface `
+  -Name myNic `
+  -ResourceGroupName $ResourceGroupName `
+  -Location $location `
+  -SubnetId $vnet.Subnets[0].Id `
+  -PublicIpAddressId $pip.Id `
+  -NetworkSecurityGroupId $nsg.Id
+
+## Create a VM
+<#
+Create a VM configuration. This configuration includes the settings used when deploying the VM. For example: user credentials, size, and the VM image.
+#>
+
+# Define a credential object
+$UserName='demouser'
+$securePassword = ConvertTo-SecureString $VMPassword -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ($UserName, $securePassword)
+
+# Create the VM configuration object
+$VmName = "VirtualMachinelatest"
+$VmSize = "Standard_D1"
+$VirtualMachine = New-AzureRMVMConfig `
+  -VMName $VmName `
+  -VMSize $VmSize
+
+$VirtualMachine = Set-AzureRMVMOperatingSystem `
+  -VM $VirtualMachine `
+  -Linux `
+  -ComputerName "MainComputer" `
+  -Credential $cred
+
+$VirtualMachine = Set-AzureRMVMSourceImage `
+  -VM $VirtualMachine `
+  -PublisherName "Canonical" `
+  -Offer "UbuntuServer" `
+  -Skus "16.04-LTS" `
+  -Version "latest"
+
+$osDiskName = "OsDisk"
+$osDiskUri = '{0}vhds/{1}-{2}.vhd' -f `
+  $StorageAccount.PrimaryEndpoints.Blob.ToString(),`
+  $vmName.ToLower(), `
+  $osDiskName
+
+# Set the operating system disk properties on a VM
+$VirtualMachine = Set-AzureRMVMOSDisk `
+  -VM $VirtualMachine `
+  -Name $osDiskName `
+  -VhdUri $OsDiskUri `
+  -CreateOption FromImage | `
+  Add-AzureRMVMNetworkInterface -Id $nic.Id
+
+# Create the VM
+New-AzureRMVM `
+  -ResourceGroupName $ResourceGroupName `
+ -Location $location `
+  -VM $VirtualMachine
+```
+
+---
+
 ## <a name="connect-to-the-vm"></a>Herstellen der Verbindung zur VM
 
 Konfigurieren Sie nach der Bereitstellung des virtuellen Computers eine SSH-Verbindung für ihn. Verwenden Sie den Befehl [Get-AzPublicIpAddress](/powershell/module/Az.network/get-Azpublicipaddress), um die öffentliche IP-Adresse des virtuellen Computers abzurufen:
 
+### <a name="az-modules"></a>[Az-Module](#tab/az7)
+
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm7)
+
+```powershell
+Get-AzureRMPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+```
+
+---
+
+
 
 Verwenden Sie auf einem Clientsystem mit SSH-Installation den folgenden Befehl, um die Verbindung mit der VM herzustellen. Unter Windows können Sie [PuTTY](https://www.putty.org/) zum Herstellen der Verbindung verwenden.
 
@@ -401,9 +740,17 @@ Nachdem der NGINX-Webserver installiert und Port 80 auf dem virtuellen Computer
 
 Sie können die nicht mehr benötigten Ressourcen mit dem Befehl [Remove-AzResourceGroup](/powershell/module/Az.resources/remove-Azresourcegroup) bereinigen. Um die Ressourcengruppe und alle dazugehörigen Ressourcen zu löschen, führen Sie den folgenden Befehl aus:
 
+### <a name="az-modules"></a>[Az-Module](#tab/az8)
+
 ```powershell
 Remove-AzResourceGroup -Name myResourceGroup
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm8)
+
+```powershell
+Remove-AzureRMResourceGroup -Name myResourceGroup
+```
+---
 
 ## <a name="next-steps"></a>Nächste Schritte
 

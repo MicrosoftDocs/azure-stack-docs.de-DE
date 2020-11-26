@@ -3,16 +3,16 @@ title: Ändern des Abrechnungsbesitzers für ein Azure Stack Hub-Benutzerabonnem
 description: Erfahren Sie, wie Sie den Abrechnungsbesitzer für ein Azure Stack Hub-Benutzerabonnement ändern.
 author: justinha
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/16/2020
 ms.author: justinha
 ms.reviewer: shnatara
-ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 7b4d47d695287a2e2f544fc9e4c67ceab21527c8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/16/2020
+ms.openlocfilehash: 0a455f7f902e76e61f5a7451e26219abf10b7622
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543900"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96035277"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>Ändern des Abrechnungsbesitzers für ein Azure Stack Hub-Benutzerabonnement
 
@@ -20,7 +20,7 @@ Azure Stack Hub-Operatoren können mithilfe von PowerShell den Abrechnungsbesitz
 
 Einem Abonnement sind zwei Arten von *Besitzern* zugewiesen:
 
-- **Abrechnungsbesitzer** : Der Abrechnungsbesitzer ist standardmäßig das Benutzerkonto, das das Abonnement aus einem Angebot erhält und dann für die Abrechnungsbeziehung dieses Abonnements zuständig ist. Dieses Konto ist gleichzeitig ein Administrator des Abonnements. Für ein Abonnement kann jeweils nur ein einzelnes Benutzerkonto als Abrechnungsbesitzer festgelegt sein. Bei einem Abrechnungsbesitzer handelt es sich häufig um eine Führungskraft der Organisation oder um einen Teamleiter.
+- **Abrechnungsbesitzer**: Der Abrechnungsbesitzer ist standardmäßig das Benutzerkonto, das das Abonnement aus einem Angebot erhält und dann für die Abrechnungsbeziehung dieses Abonnements zuständig ist. Dieses Konto ist gleichzeitig ein Administrator des Abonnements. Für ein Abonnement kann jeweils nur ein einzelnes Benutzerkonto als Abrechnungsbesitzer festgelegt sein. Bei einem Abrechnungsbesitzer handelt es sich häufig um eine Führungskraft der Organisation oder um einen Teamleiter.
 
   Der Abrechnungsbesitzer kann mithilfe des PowerShell-Cmdlets [Set-AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) geändert werden.  
 
@@ -37,10 +37,12 @@ Führen Sie das folgende Skript aus, um den Abrechnungsbesitzer eines Benutzerab
 
 Ersetzen Sie vor der Skriptausführung die folgenden Werte im Skript:
 
-- **$ArmEndpoint** : Der Resource Manager-Endpunkt für Ihre Umgebung
-- **$TenantId** : Ihre Mandanten-ID
-- **$SubscriptionId** : Ihre Abonnement-ID.
-- **$OwnerUpn** : Ein Konto (beispielsweise **Benutzer\@example.com** ), das als neuer Abrechnungsbesitzer hinzufügt wird
+- **$ArmEndpoint**: Der Resource Manager-Endpunkt für Ihre Umgebung
+- **$TenantId**: Ihre Mandanten-ID
+- **$SubscriptionId**: Ihre Abonnement-ID.
+- **$OwnerUpn**: Ein Konto (beispielsweise **Benutzer\@example.com**), das als neuer Abrechnungsbesitzer hinzufügt wird
+
+### <a name="az-modules"></a>[Az-Module](#tab/az)
 
 ```powershell
 # Set up Azure Stack Hub admin environment
@@ -58,7 +60,30 @@ $Subscription.Owner = $OwnerUpn
 Set-AzsUserSubscription -InputObject $subscription
 ```
 
-[!include[Remove Account](../../includes/remove-account.md)]
+[!include[Remove Account](../includes/remove-account-az.md)]
+
+### <a name="az-modules"></a>[Az-Module](#tab/azurerm)
+
+```powershell
+# Set up AzureRMure Stack Hub admin environment
+Add-AzureRMEnvironment -ARMEndpoint $ArmEndpoint -Name AzureRMureStack-admin
+Add-AzureRMAccount -Environment AzureRMureStack-admin -TenantId $TenantId
+
+# Select admin subscription
+$providerSubscriptionId = (Get-AzureRMSubscription -SubscriptionName "Default Provider Subscription").Id
+Write-Output "Setting context to the Default Provider Subscription: $providerSubscriptionId"
+Set-AzureRMContext -Subscription $providerSubscriptionId
+
+# Change user subscription owner
+$subscription = Get-AzureRMsUserSubscription -SubscriptionId $SubscriptionId
+$Subscription.Owner = $OwnerUpn
+Set-AzureRMsUserSubscription -InputObject $subscription
+```
+[!include[Remove Account](../includes/remove-account-azurerm.md)]
+---
+
+
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

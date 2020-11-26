@@ -3,16 +3,16 @@ title: Herstellen einer Verbindung zwischen Azure Stack Hub und Azure über ein 
 description: Herstellen einer Verbindung zwischen virtuellen Netzwerken in Azure Stack Hub und virtuellen Netzwerken in Azure über ein VPN
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 11/20/2020
 ms.author: sethm
 ms.reviewer: TBD
-ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: 2ea7dfcccf2b2f4590e09f60db4530d7ebe6d319
-ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: e158d0d2cc9158ea3f4f0a09a666e765e4bd379d
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133757"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518380"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Herstellen einer Verbindung zwischen Azure Stack Hub und Azure über ein VPN
 
@@ -75,7 +75,6 @@ Erstellen Sie zunächst die Netzwerkressourcen für Azure. Die folgenden Anweisu
 ### <a name="create-the-virtual-network-gateway"></a>Erstellen des Gateways für das lokale Netzwerk
 
 1. Wählen Sie im Azure-Portal die Option **+ Ressource erstellen**.
-
 2. Wechseln Sie zu **Marketplace**, und wählen Sie dann **Netzwerk** aus.
 3. Wählen Sie in der Liste mit den Netzwerkressourcen den Eintrag **Gateway des virtuellen Netzwerks** aus.
 4. Geben Sie im Feld **Name** die Zeichenfolge **Azure-GW** ein.
@@ -116,6 +115,8 @@ Erstellen Sie zunächst die Netzwerkressourcen für Azure. Die folgenden Anweisu
 
 Da sich die Azure Stack Hub-Standardparameter für IPsec-Richtlinien für [Builds ab 1910](azure-stack-vpn-gateway-settings.md#ipsecike-parameters) geändert haben, ist eine benutzerdefinierte IPsec-Richtlinie erforderlich, um Azure und Azure Stack Hub auf den gleichen Stand zu bringen.
 
+### <a name="az-modules"></a>[Az-Module](#tab/az1)
+
 1. Erstellen einer benutzerdefinierten Richtlinie:
 
    ```powershell
@@ -130,6 +131,25 @@ Da sich die Azure Stack Hub-Standardparameter für IPsec-Richtlinien für [Build
    $Connection = Get-AzVirtualNetworkGatewayConnection -Name myTunnel -ResourceGroupName myRG
    Set-AzVirtualNetworkGatewayConnection -IpsecPolicies $IPSecPolicy -VirtualNetworkGatewayConnection $Connection
    ```
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm1)
+
+1. Erstellen einer benutzerdefinierten Richtlinie:
+
+   ```powershell
+   $IPSecPolicy = New-AzureRMIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
+   -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
+   -SADataSizeKilobytes 102400000
+   ```
+
+2. Übernehmen der Richtlinie für die Verbindung:
+
+   ```powershell
+   $Connection = Get-AzureRMVirtualNetworkGatewayConnection -Name myTunnel -ResourceGroupName myRG
+   Set-AzVirtualNetworkGatewayConnection -IpsecPolicies $IPSecPolicy -VirtualNetworkGatewayConnection $Connection
+   ```
+
+---
 
 ## <a name="create-a-vm"></a>Erstellen einer VM
 

@@ -3,16 +3,16 @@ title: Herstellen einer Verbindung mit Azure Stack Hub über PowerShell als Benu
 description: Enthält Informationen zum Herstellen einer Verbindung mit Azure Stack Hub über PowerShell, um die interaktive Eingabeaufforderung zu verwenden oder Skripts zu schreiben.
 author: mattbriggs
 ms.topic: article
-ms.date: 8/4/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 8/4/2020
-ms.openlocfilehash: 717eb2cf7ea9ee15c528059462a6f7553bba53e2
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: bc0eb1beeec831dee64f300aba4d977546a00058
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547040"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518261"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Herstellen einer Verbindung mit Azure Stack Hub über PowerShell als Benutzer
 
@@ -40,6 +40,8 @@ Sie müssen die folgenden Skriptvariablen durch Werte der Azure Stack Hub-Konfig
 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Herstellen einer Verbindung mit Azure Stack Hub über Azure AD
 
+### <a name="az-modules"></a>[Az-Module](#tab/az1)
+
 ```powershell  
     Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
     # Set your tenant name
@@ -51,8 +53,26 @@ Sie müssen die folgenden Skriptvariablen durch Werte der Azure Stack Hub-Konfig
     # can be easily targeted at your Azure Stack Hub instance.
     Add-AzAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm1)
+ 
+```powershell  
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
+    # Set your tenant name
+    $AuthEndpoint = (Get-AzureRMEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
+    $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
+    $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
+
+    # After signing in to your environment, Azure Stack Hub cmdlets
+    # can be easily targeted at your Azure Stack Hub instance.
+    Add-AzureRMAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
+```
+
+---
+
 
 ## <a name="connect-to-azure-stack-hub-with-ad-fs"></a>Herstellen einer Verbindung mit Azure Stack Hub über AD FS
+
+### <a name="az-modules"></a>[Az-Module](#tab/az2)
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance
@@ -61,10 +81,24 @@ Sie müssen die folgenden Skriptvariablen durch Werte der Azure Stack Hub-Konfig
   # Sign in to your environment
   Login-AzAccount -EnvironmentName "AzureStackUser"
   ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm2)
+ 
+  ```powershell  
+  # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance
+  Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
+
+  # Sign in to your environment
+  Login-AzureRMAccount -EnvironmentName "AzureStackUser"
+  ```
+
+---
+
 
 ## <a name="register-resource-providers"></a>Registrieren von Ressourcenanbietern
 
 Ressourcenanbieter werden nicht automatisch für neue Benutzerabonnements registriert, für die über das Portal keine Ressourcen bereitgestellt wurden. Sie können explizit einen Ressourcenanbieter registrieren, indem Sie das folgende Skript ausführen:
+
+### <a name="az-modules"></a>[Az-Module](#tab/az3)
 
 ```powershell  
 foreach($s in (Get-AzSubscription)) {
@@ -73,6 +107,18 @@ foreach($s in (Get-AzSubscription)) {
 Get-AzResourceProvider -ListAvailable | Register-AzResourceProvider
     }
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm3)
+ 
+```powershell  
+foreach($s in (Get-AzureRMSubscription)) {
+        Select-AzureRMSubscription -SubscriptionId $s.SubscriptionId | Out-Null
+        Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
+Get-AzureRMResourceProvider -ListAvailable | Register-AzureRMResourceProvider
+    }
+```
+
+---
+
 
 [!Include [AD FS only supports interactive authentication with user identities](../includes/note-powershell-adfs.md)]
 
@@ -80,9 +126,19 @@ Get-AzResourceProvider -ListAvailable | Register-AzResourceProvider
 
 Wenn alles eingerichtet ist, können Sie die Konnektivität testen, indem Sie PowerShell zum Erstellen von Ressourcen in Azure Stack Hub verwenden. Erstellen Sie testweise eine Ressourcengruppe für eine Anwendung, und fügen Sie eine VM hinzu. Führen Sie den folgenden Befehl aus, um eine Ressourcengruppe mit dem Namen „MyResourceGroup“ zu erstellen:
 
+### <a name="az-modules"></a>[Az-Module](#tab/az4)
 ```powershell  
 New-AzResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm4)
+ 
+```powershell  
+New-AzureRMResourceGroup -Name "MyResourceGroup" -Location "Local"
+```
+
+---
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 09/23/2020
 ms.author: jeguan
 ms.openlocfilehash: 089488e246bdb7c12bbd0808ef2e92a4c83b0fce
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "92253959"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>Schnellstart: Einrichten eines Azure Kubernetes Service-Hosts für Azure Stack HCI mit PowerShell
@@ -54,7 +54,7 @@ Nach Abschluss der Überprüfungen wird die Meldung „Fertig“ in grüner Schr
 
 ## <a name="step-3-configure-your-deployment"></a>Schritt 3: Konfigurieren Ihrer Bereitstellung
 
-Legen Sie die Konfigurationseinstellungen für den Azure Kubernetes Service-Host fest. **Für einen Azure Stack HCI-Cluster mit zwei bis vier Knoten müssen Sie `MultiNode` in den Parametern `-deploymentType`, `wssdImageDir` und `cloudConfigLocation` angeben.** Bei einem Azure Stack HCI-Cluster mit nur einem Knoten sind alle Parameter optional und auf die Standardwerte festgelegt. Zur Erzielung einer optimalen Leistung **empfehlen wir Ihnen aber, die Bereitstellung eines Azure Stack HCI-Clusters mit zwei bis vier Knoten zu verwenden** .
+Legen Sie die Konfigurationseinstellungen für den Azure Kubernetes Service-Host fest. **Für einen Azure Stack HCI-Cluster mit zwei bis vier Knoten müssen Sie `MultiNode` in den Parametern `-deploymentType`, `wssdImageDir` und `cloudConfigLocation` angeben.** Bei einem Azure Stack HCI-Cluster mit nur einem Knoten sind alle Parameter optional und auf die Standardwerte festgelegt. Zur Erzielung einer optimalen Leistung **empfehlen wir Ihnen aber, die Bereitstellung eines Azure Stack HCI-Clusters mit zwei bis vier Knoten zu verwenden**.
 
 Konfigurieren Sie Ihre Bereitstellung mit dem folgenden Befehl.
 
@@ -94,11 +94,11 @@ Der Bereitstellungstyp Zulässige Werte: „SingleNode“, „MultiNode“. Die 
 
 `-wssdImageDir`
 
-Der Pfad zu dem Verzeichnis, in dem von Azure Kubernetes Service unter Azure Stack HCI die VHD-Images gespeichert werden. Für Bereitstellungen mit einem Knoten lautet er standardmäßig `%systemdrive%\wssdimagestore`. *Bei Bereitstellungen mit mehreren Knoten muss dieser Parameter angegeben werden* . Es muss ein Pfad zu einem freigegebenen Speicher, z. B.  `C:\ClusterStorage\Volume2\ImageStore`, oder zu einer SMB-Freigabe, z. B.  `\\FileShare\ImageStore`, angegeben werden.
+Der Pfad zu dem Verzeichnis, in dem von Azure Kubernetes Service unter Azure Stack HCI die VHD-Images gespeichert werden. Für Bereitstellungen mit einem Knoten lautet er standardmäßig `%systemdrive%\wssdimagestore`. *Bei Bereitstellungen mit mehreren Knoten muss dieser Parameter angegeben werden*. Es muss ein Pfad zu einem freigegebenen Speicher, z. B.  `C:\ClusterStorage\Volume2\ImageStore`, oder zu einer SMB-Freigabe, z. B.  `\\FileShare\ImageStore`, angegeben werden.
 
 `-cloudConfigLocation`
 
-Der Speicherort, an dem vom Cloud-Agent die Konfiguration gespeichert wird. Für Bereitstellungen mit einem Knoten lautet er standardmäßig `%systemdrive%\wssdimagestore`. Der Speicherort kann dem obigen Pfad  `-wssdImageDir` entsprechen. Bei *Bereitstellungen mit mehreren Knoten muss dieser Parameter angegeben werden* .
+Der Speicherort, an dem vom Cloud-Agent die Konfiguration gespeichert wird. Für Bereitstellungen mit einem Knoten lautet er standardmäßig `%systemdrive%\wssdimagestore`. Der Speicherort kann dem obigen Pfad  `-wssdImageDir` entsprechen. Bei *Bereitstellungen mit mehreren Knoten muss dieser Parameter angegeben werden*.
 
 `-nodeConfigLocation`
 
