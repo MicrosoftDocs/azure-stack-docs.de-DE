@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/3/2020
-ms.openlocfilehash: 5b54efc32bf62c0abeca97ecdee9bb4414cced9f
-ms.sourcegitcommit: ecd98662194d2cdb15c22f8b1f99812fc5f4c15a
+ms.date: 11/23/2020
+ms.openlocfilehash: d5e544f339d029eab693d48327abc8596d2f61fa
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93344863"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517071"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Übersicht über die Azure Stack HCI-Lösung
 
@@ -69,8 +69,8 @@ Wir arbeiten hart an der Erstellung weiterer Funktionen. Achten Sie also auf wei
 Sie können auch zusätzliche Azure-Hybriddienste abonnieren:
 
 - **Azure Site Recovery** zur Erzielung von Hochverfügbarkeit und Notfallwiederherstellung als Dienst (Disaster-Recovery-as-a-Service, DRaaS)
-- **Azure Monitor** , ein zentraler Hub, in dem Sie die Aktivität Ihrer Apps, Netzwerke und Infrastrukturen überwachen können – mithilfe erweiterter KI-Analysen
-- **Cloudzeuge** , um Azure als einfache Entscheidungshilfe für ein Clusterquorum zu verwenden
+- **Azure Monitor**, ein zentraler Hub, in dem Sie die Aktivität Ihrer Apps, Netzwerke und Infrastrukturen überwachen können – mithilfe erweiterter KI-Analysen
+- **Cloudzeuge**, um Azure als einfache Entscheidungshilfe für ein Clusterquorum zu verwenden
 - **Azure Backup** für den Schutz von Daten durch Speicherung an anderen Standorten und den Schutz vor Ransomware
 - **Azure-Updateverwaltung** für die Bewertung und Bereitstellung von Updates für Windows-VMs, die in Azure und lokal ausgeführt werden
 - **Azure-Netzwerkadapter** zum Verbinden lokaler Ressourcen mit Ihren VMs in Azure über ein Point-to-Site-VPN
@@ -98,6 +98,7 @@ Für den Einstieg benötigen Sie Folgendes:
 - [Ein Azure-Abonnement](https://azure.microsoft.com/).
 - Eine Internetverbindung für jeden Server im Cluster, über die mindestens alle 30 Tage per HTTPS eine Verbindung für ausgehenden Datenverkehr mit dem folgenden Endpunkt hergestellt werden kann: *-azurestackhci-usage.azurewebsites.net
 - Für über mehrere Standorte gestreckte Cluster benötigen Sie mindestens eine 1 GB-Standortverbindung (RDMA-Verbindung mit 25 GB empfohlen) mit einer durchschnittlichen Latenz von 5 ms pro Roundtrip, falls Sie eine synchrone Replikation durchführen möchten, bei der Schreibvorgänge gleichzeitig an beiden Standorten durchgeführt werden.
+- Wenn Sie SDN (Software Defined Networking) verwenden möchten, benötigen Sie eine VHD (virtual hard disk, virtueller Datenträger) für das Azure Stack HCI-Betriebssystem, um Netzwerkcontroller-VMs zu erstellen (mehr dazu finden Sie unter [Planen der Bereitstellung von Netzwerkcontrollern](concepts/network-controller.md))
 
 Weitere Informationen finden Sie unter [Systemanforderungen](concepts/system-requirements.md). Informationen zu den Anforderungen an Azure Kubernetes Service in Azure Stack HCI finden Sie unter [Was Sie für die ersten Schritte benötigen](../aks-hci/overview.md#what-you-need-to-get-started).
 
@@ -206,12 +207,12 @@ Ausführliche Informationen zu neuen Features in Windows Admin Center finden Sie
 
 Cluster, in denen Version 20H2 von Azure Stack HCI ausgeführt wird, verfügen im Vergleich zu Windows Server 2019-basierten Lösungen über die folgenden neuen Features:
 
-- **Neue Funktionen in Windows Admin Center** : Da hyperkonvergente Cluster über eine intuitive Benutzeroberfläche erstellt und aktualisiert werden können, ist die Nutzung von Azure Stack HCI einfacher als jemals zuvor.
-- **Gestreckte Cluster für automatisches Failover** : Das Clustering für mehrere Standorte mit Replikation von Speicherreplikaten und automatischem VM-Failover ermöglicht eine native Notfallwiederherstellung und Geschäftskontinuität für Cluster, in denen das Feature „Direkte Speicherplätze“ genutzt wird.
-- **Affinitäts- und Antiaffinitätsregeln** : Diese Regeln können auf ähnliche Weise wie Verfügbarkeitszonen in Azure verwendet werden, um VMs und Speicher in Clustern mit mehreren Fehlerdomänen, z. B. gestreckten Clustern, zusammen oder getrennt anzuordnen.
-- **Azure-Portal-Integration** : Die Benutzeroberfläche im Azure-Portal für Azure Stack HCI ist dafür ausgelegt, Ihre gesamten Azure Stack HCI-Cluster weltweit anzuzeigen, und neue Features befinden sich gerade in der Entwicklung.
-- **GPU-Beschleunigung für Hochleistungsworkloads** : KI- und ML-Anwendungen können davon profitieren, wenn die Leistung mit GPUs gesteigert wird.
-- **BitLocker-Verschlüsselung** : Sie können jetzt BitLocker zum Verschlüsseln des Inhalts von Datenvolumes unter Azure Stack HCI verwenden, um dafür zu sorgen, dass Behörden und andere Kunden bestimmte Standards erfüllen, z. B. FIPS 140-2 und HIPAA.
+- **Neue Funktionen in Windows Admin Center**: Da hyperkonvergente Cluster über eine intuitive Benutzeroberfläche erstellt und aktualisiert werden können, ist die Nutzung von Azure Stack HCI einfacher als jemals zuvor.
+- **Gestreckte Cluster für automatisches Failover**: Das Clustering für mehrere Standorte mit Replikation von Speicherreplikaten und automatischem VM-Failover ermöglicht eine native Notfallwiederherstellung und Geschäftskontinuität für Cluster, in denen das Feature „Direkte Speicherplätze“ genutzt wird.
+- **Affinitäts- und Antiaffinitätsregeln**: Diese Regeln können auf ähnliche Weise wie Verfügbarkeitszonen in Azure verwendet werden, um VMs und Speicher in Clustern mit mehreren Fehlerdomänen, z. B. gestreckten Clustern, zusammen oder getrennt anzuordnen.
+- **Azure-Portal-Integration**: Die Benutzeroberfläche im Azure-Portal für Azure Stack HCI ist dafür ausgelegt, Ihre gesamten Azure Stack HCI-Cluster weltweit anzuzeigen, und neue Features befinden sich gerade in der Entwicklung.
+- **GPU-Beschleunigung für Hochleistungsworkloads**: KI- und ML-Anwendungen können davon profitieren, wenn die Leistung mit GPUs gesteigert wird.
+- **BitLocker-Verschlüsselung**: Sie können jetzt BitLocker zum Verschlüsseln des Inhalts von Datenvolumes unter Azure Stack HCI verwenden, um dafür zu sorgen, dass Behörden und andere Kunden bestimmte Standards erfüllen, z. B. FIPS 140-2 und HIPAA.
 - **Verbesserte Reparaturgeschwindigkeit für Volumes von „Direkte Speicherplätze“** : Führen Sie die Reparatur von Volumes schnell und nahtlos durch.
 
 Version 20H2 von Windows Admin Center verfügt auch über eine neue Benutzeroberfläche für die Aktualisierung auf Windows Server-basierte Cluster, einschließlich der ursprünglichen Azure Stack HCI-Lösungen. Sie können zwar den neuen Assistenten für die Clustererstellung mit Windows Server verwenden, aber die Erstellung von Windows Server-Clustern mit „Direkte Speicherplätze“ ist hiermit nicht möglich. Für diese Aufgabe benötigen Sie das Azure Stack HCI-Betriebssystem.
