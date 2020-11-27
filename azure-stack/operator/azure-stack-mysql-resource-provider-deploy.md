@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: caoyang
 ms.lastreviewed: 9/22/2020
-ms.openlocfilehash: e2f3c523dfcbd9c1ceec53bdf5fd55300752fd1f
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 22377e80f52b2a8e3a7827ded6400b17cebdce9c
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572924"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812735"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Bereitstellen des MySQL-Ressourcenanbieters in Azure Stack Hub
 
@@ -35,7 +35,7 @@ Es gibt mehrere Voraussetzungen, die erfüllt werden müssen, bevor Sie den Azur
 
   |Unterstützte Azure Stack Hub-Version|MySQL RP Version|Windows Server-Instanz, auf der der RP-Dienst ausgeführt wird
   |-----|-----|-----|
-  |2005|[MySQL-RP-Version 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack Add-on RP Windows Server INTERNAL ONLY
+  |2008, 2005|[MySQL-RP-Version 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack Add-on RP Windows Server INTERNAL ONLY
   |2005, 2002, 1910|[MySQL RP-Version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter – Server Core|
   |1908|[MySQL RP-Version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter – Server Core|
   |     |     |     |
@@ -112,7 +112,7 @@ Nach der Installation aller erforderlichen Komponenten können Sie das Skript **
 Um den MySQL-Ressourcenanbieter bereitzustellen, öffnen Sie ein **neues** PowerShell-Fenster mit erhöhten Rechten (nicht PowerShell ISE), und wechseln Sie zu dem Verzeichnis, in das Sie die Binärdateien des MySQL-Ressourcenanbieters extrahiert haben. 
 
 > [!IMPORTANT]
-> Die Verwendung eines neuen PowerShell-Fensters wird empfohlen, um mögliche Probleme durch bereits geladene PowerShell-Module zu vermeiden. Oder Sie können mithilfe von „clear-azurermcontext“ den Cache leeren, bevor Sie das Updateskript ausführen.
+> Es wird dringend empfohlen, **Clear-AzureRmContext -Scope CurrentUser** und **Clear-AzureRmContext -Scope Process** zu verwenden, um den Cache vor dem Ausführen des Aktualisierungsskripts zu löschen.
 
 Führen Sie das Skript **DeployMySqlProvider.ps1** aus, das die folgenden Aufgaben ausführt:
 

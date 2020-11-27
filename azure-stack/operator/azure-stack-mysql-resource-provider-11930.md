@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.author: caoyang
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: f298e2e9e55d8057a63264fb347069ef07204a16
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: f3e9e177e4d335c667754a308698ed362c6535b2
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91585972"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812742"
 ---
 # <a name="mysql-resource-provider-11930-release-notes"></a>Versionshinweise zum MySQL-Ressourcenanbieter 1.1.93.0
 
@@ -23,7 +23,7 @@ Laden Sie die Binärdatei des MySQL-Ressourcenanbieters herunter, und führen Si
 
 > |Unterstützte Azure Stack Hub-Version|Version des MySQL-Ressourcenanbieters|
 > |-----|-----|
-> |Version 2005|[MySQL-RP-Version 1.1.93.0](https://aka.ms/azshmysqlrp11930)|  
+> |Version 2008, 2005|[MySQL-RP-Version 1.1.93.0](https://aka.ms/azshmysqlrp11930)|  
 > |     |     |
 
 > [!IMPORTANT]

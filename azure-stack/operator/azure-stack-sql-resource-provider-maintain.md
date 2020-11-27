@@ -9,11 +9,11 @@ ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
 ms.openlocfilehash: 0de06d7bf13919be95b3d97aa1113221f4378625
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572822"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96035333"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Wartungsvorgänge von SQL-Ressourcenanbietern
 
@@ -247,10 +247,10 @@ Die Azure-Diagnoseerweiterung wird standardmäßig auf dem virtuellen Computer d
 3. Navigieren Sie in den **Diagnoseeinstellungen** des virtuellen Computers zur Registerkarte **Protokolle**, und wählen Sie **Benutzerdefiniert** aus, um die zu erfassenden Ereignisprotokolle anzupassen.
 ![Navigieren zu den Diagnoseeinstellungen](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
 
-4. Fügen Sie **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** hinzu, um Betriebsereignisprotokolle des SQL-Ressourcenanbieters zu sammeln.
+4. Fügen Sie **Microsoft-AzureStack-DatabaseAdapter/Operational!\** _ hinzu, um Betriebsereignisprotokolle des SQL-Ressourcenanbieters zu sammeln.
 ![Hinzufügen von Ereignisprotokollen](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
 
-5. Wenn Sie die Sammlung von IIS-Protokollen aktivieren möchten, aktivieren Sie die Optionen **IIS-Protokolle** und **Protokolle zu fehlerhaften Anforderungen**.
+5. Wenn Sie die Sammlung von IIS-Protokollen aktivieren möchten, aktivieren Sie die Optionen _ *IIS-Protokolle** und **Protokolle zu fehlerhaften Anforderungen**.
 ![Hinzufügen von IIS-Protokollen](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
 
 6. Wählen Sie abschließend **Speichern** aus, um alle Diagnoseeinstellungen zu speichern.

@@ -3,16 +3,16 @@ title: Hinzufügen von Linux-Images zum Azure Stack Hub-Marketplace
 description: Hier erfahren Sie, wie Sie Linux-Images zum Azure Stack Hub-Marketplace hinzufügen.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 11/18/2020
 ms.author: sethm
-ms.reviewer: ''
-ms.lastreviewed: 11/16/2019
-ms.openlocfilehash: fb0584b79c3e3555ec59cd225db37847b02a41d2
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.reviewer: thoroet
+ms.lastreviewed: 11/18/2020
+ms.openlocfilehash: 5fc9d8ba2cc12ddbb46156e091227ab2f47e0bd4
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544172"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517632"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Hinzufügen von Linux-Images zum Azure Stack Hub-Marketplace
 
@@ -30,7 +30,7 @@ Laden Sie nach Möglichkeit die Images herunter, die über die Marketplace-Verwa
 
 ### <a name="azure-linux-agent"></a>Azure Linux-Agent
 
-Der Azure Linux-Agent (in der Regel **WALinuxAgent** oder **walinuxagent** ) ist erforderlich, es können aber nicht alle Versionen des Agents mit Azure Stack Hub verwendet werden. Versionen zwischen 2.2.21 und 2.2.34 (einschließlich) werden in Azure Stack Hub nicht unterstützt. Um die aktuellen Agent-Versionen über 2.2.35 zu verwenden, installieren Sie den Hotfix 1901 bzw. 1902, oder aktualisieren Sie Azure Stack Hub auf die Version 1903 (oder höher). Beachten Sie, dass [cloud-init](https://cloud-init.io/) erst ab Version 1910 in Azure Stack Hub unterstützt wird.
+Der Azure Linux-Agent (in der Regel **WALinuxAgent** oder **walinuxagent**) ist erforderlich, es können aber nicht alle Versionen des Agents mit Azure Stack Hub verwendet werden. Versionen zwischen 2.2.21 und 2.2.34 (einschließlich) werden in Azure Stack Hub nicht unterstützt. Um die aktuellen Agent-Versionen über 2.2.35 zu verwenden, installieren Sie den Hotfix 1901 bzw. 1902, oder aktualisieren Sie Azure Stack Hub auf die Version 1903 (oder höher). Beachten Sie, dass [cloud-init](https://cloud-init.io/) erst ab Version 1910 in Azure Stack Hub unterstützt wird.
 
 | Azure Stack Hub-Build | Azure Linux-Agent-Build |
 | ------------- | ------------- |
@@ -108,12 +108,23 @@ Derzeit wird die Verwendung von „cloud-init“ für die VM-Bereitstellung nur 
 
 Sie können [diese Anweisungen](../user/azure-stack-quick-create-vm-linux-powershell.md) befolgen, um den virtuellen Linux-Computer mithilfe von PowerShell zu erstellen. Achten Sie jedoch darauf, als Teil des `-CustomData`-Flags auf die Datei „cloud-init.txt“ zu verweisen:
 
+### <a name="az-modules"></a>[Az-Module](#tab/az)
+
 ```powershell
 $VirtualMachine =Set-AzVMOperatingSystem -VM $VirtualMachine `
   -Linux `
   -ComputerName "MainComputer" `
   -Credential $cred -CustomData "#include https://cloudinitstrg.blob.core.windows.net/strg/cloud-init.txt"
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm)
+
+```powershell
+$VirtualMachine =Set-AzureRMVMOperatingSystem -VM $VirtualMachine `
+  -Linux `
+  -ComputerName "MainComputer" `
+  -Credential $cred -CustomData "#include https://cloudinitstrg.blob.core.windows.net/strg/cloud-init.txt"
+```
+---
 
 ## <a name="add-your-image-to-marketplace"></a>Hinzufügen Ihres Images zum Marketplace
 

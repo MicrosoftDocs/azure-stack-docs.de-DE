@@ -8,18 +8,21 @@ ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 86e3a87bf869d6bd9980746742a7ba03d142d5fe
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: b0d750c81299b59fb8bab64c327a642f0d58503a
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545022"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152861"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation
 
+> [!NOTE]
+> Dieser Artikel bezieht sich ausschließlich auf die Vorbereitung externer Zertifikate, die zum Sichern von Endpunkten in externen Infrastrukturen und Diensten verwendet werden. Interne Zertifikate werden während des [Zertifikatrotationsprozesses](azure-stack-rotate-secrets.md) separat verwaltet.
+
 Die [von der Zertifizierungsstelle bezogenen](azure-stack-get-pki-certs.md) Zertifikatdateien müssen mit Eigenschaften importiert und exportiert werden, die die Zertifikatanforderungen von Azure Stack Hub erfüllen.
 
-In diesem Artikel erfahren Sie, wie Sie Zertifikate importieren, verpacken und validieren, um sich auf die Azure Stack Hub-Bereitstellung oder die Geheimnisrotation vorzubereiten. 
+In diesem Artikel erfahren Sie, wie Sie externe Zertifikate importieren, verpacken und validieren, um sich auf die Azure Stack Hub-Bereitstellung oder die Geheimnisrotation vorzubereiten. 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -51,7 +54,7 @@ Führen Sie diese Schritte aus, um Zertifikate mithilfe der PowerShell-Cmdlets v
     ```powershell  
         $pfxPassword = Read-Host -AsSecureString -Prompt "PFX Password"
     ```
-4. Deklarieren Sie den Exportpfad ( **ExportPath** ), an den die resultierenden PFX-Dateien exportiert werden. Beispiel:
+4. Deklarieren Sie den Exportpfad (**ExportPath**), an den die resultierenden PFX-Dateien exportiert werden. Beispiel:
 
     ```powershell  
         $ExportPath = "$env:USERPROFILE\Documents\AzureStack"
@@ -156,7 +159,7 @@ Führen Sie die folgenden manuellen Schritte aus, um die Zertifikate für neue A
 
 Öffnen Sie die MMC-Konsole des Zertifikat-Managers, und stellen Sie eine Verbindung mit dem Zertifikatspeicher des lokalen Computers her.
 
-1. Öffnen Sie die Microsoft Management Console (MMC). Klicken Sie zum Öffnen der Konsole unter Windows 10 mit der rechten Maustaste auf das **Startmenü** , und wählen Sie **Ausführen** aus. Geben Sie dann **mmc** ein, und drücken Sie die EINGABETASTE.
+1. Öffnen Sie die Microsoft Management Console (MMC). Klicken Sie zum Öffnen der Konsole unter Windows 10 mit der rechten Maustaste auf das **Startmenü**, und wählen Sie **Ausführen** aus. Geben Sie dann **mmc** ein, und drücken Sie die EINGABETASTE.
 
 2. Wählen Sie **Datei** > **Snap-In hinzufügen/entfernen** aus. Wählen Sie dann **Zertifikate** > **Hinzufügen** aus.
 
@@ -184,7 +187,7 @@ Führen Sie die folgenden manuellen Schritte aus, um die Zertifikate für neue A
     
      ![Zertifikatexport-Assistent mit ausgewählten Optionen](./media/prepare-pki-certs/azure-stack-save-cert.png)
 
-8. Klicken Sie auf **Kennwort** , und geben Sie ein Kennwort für die Zertifikate an. Erstellen Sie ein Kennwort, das die folgenden Anforderungen an die Kennwortkomplexität erfüllt:
+8. Klicken Sie auf **Kennwort**, und geben Sie ein Kennwort für die Zertifikate an. Erstellen Sie ein Kennwort, das die folgenden Anforderungen an die Kennwortkomplexität erfüllt:
 
     * Mindestlänge von 8 Zeichen.
     * Mindestens drei der folgenden Elemente: Großbuchstaben, Kleinbuchstaben, Zahlen von 0–9, Sonderzeichen, alphabetische Zeichen, die weder Groß- noch Kleinbuchstaben sind.

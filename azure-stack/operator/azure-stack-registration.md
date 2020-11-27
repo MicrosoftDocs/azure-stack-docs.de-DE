@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: Erfahren Sie, wie Sie integrierte Azure Stack Hub-Systeme bei Azure registrieren, um Azure Marketplace-Elemente herunterladen und die Datenberichterstellung einrichten zu können.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 11/19/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
-ms.lastreviewed: 10/16/2020
+ms.lastreviewed: 11/19/2020
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: b3c5eaebf082ac84ff4ea231f329385c6ad4e108
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 88928837377f478249e252021c1d610d99606679
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545430"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517734"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrieren von Azure Stack Hub in Azure
 
@@ -119,6 +119,8 @@ Befolgen Sie diese Schritte zum Registrieren von Azure Stack Hub bei Azure unter
 
 In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen werden. Für diese Umgebungen müssen Sie den Azure Stack Hub-Ressourcenanbieter bei Azure registrieren und dann Ihr Abrechnungsmodell konfigurieren.
 
+### <a name="az-modules"></a>[Az-Module](#tab/az1)
+
 1. Zum Registrieren des Azure Stack Hub-Ressourcenanbieters bei Azure starten Sie PowerShell ISE als Administrator, und verwenden Sie die folgenden PowerShell-Cmdlets mit dem auf den entsprechenden Azure-Abonnementtyp festgelegten Parameter **EnvironmentName** (siehe die Parameter unten).
 
 2. Fügen Sie das Azure-Konto hinzu, das für die Registrierung von Azure Stack Hub verwendet wurde. Führen Sie zum Hinzufügen des Kontos das Cmdlet **Add-AzAccount** aus. Sie werden aufgefordert, Ihre Anmeldeinformationen für das Azure-Konto einzugeben. Je nach Konfiguration Ihres Kontos müssen Sie möglicherweise die zweistufige Authentifizierung verwenden.
@@ -175,6 +177,66 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
    ```
    Weitere Informationen zum Cmdlet „Set-AzsRegistration“ finden Sie in der [Referenz zur Registrierung](#registration-reference).
 
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm1)
+
+1. Zum Registrieren des Azure Stack Hub-Ressourcenanbieters bei Azure starten Sie PowerShell ISE als Administrator, und verwenden Sie die folgenden PowerShell-Cmdlets mit dem auf den entsprechenden Azure-Abonnementtyp festgelegten Parameter **EnvironmentName** (siehe die Parameter unten).
+
+2. Fügen Sie das Azure-Konto hinzu, das für die Registrierung von Azure Stack Hub verwendet wurde. Führen Sie zum Hinzufügen des Kontos das Cmdlet **Add-AzureRMAccount** aus. Sie werden aufgefordert, Ihre Anmeldeinformationen für das Azure-Konto einzugeben. Je nach Konfiguration Ihres Kontos müssen Sie möglicherweise die zweistufige Authentifizierung verwenden.
+
+   ```powershell
+   Add-AzureRMAccount -EnvironmentName "<environment name>"
+   ```
+
+   | Parameter | BESCHREIBUNG |  
+   |-----|-----|
+   | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für ein Azure-Abonnement für China **AzureChinaCloud**.  |
+
+   >[!Note]
+   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie lediglich Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit Add-AzureRMAccount anmelden: `Remove-AzureRMAccount-Scope Process`.
+
+3. Wenn Sie über mehrere Abonnements verfügen, führen Sie den folgenden Befehl aus, um das zu verwendende Abonnement auszuwählen:  
+
+   ```powershell  
+   Get-AzureRMSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRMSubscription
+   ```
+
+4. Führen Sie den folgenden Befehl zum Registrieren des Azure Stack Hub-Ressourcenanbieters in Ihrem Azure-Abonnement aus:
+
+   ```powershell  
+   Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
+
+5. Starten Sie PowerShell ISE als Administrator, und navigieren Sie zum Ordner **Registration** im Verzeichnis **AzureStack-Tools-az**, das beim Herunterladen der Azure Stack Hub-Tools erstellt wurde. Importieren Sie das Modul **RegisterWithAzure.psm1** mit PowerShell:
+
+   ```powershell  
+   Import-Module .\RegisterWithAzure.psm1
+   ```
+
+6. Stellen Sie als Nächstes in der gleichen PowerShell-Sitzung sicher, dass Sie im richtigen Azure PowerShell-Kontext angemeldet sind. Bei diesem Kontext handelt es sich um das Azure-Konto, das zuvor verwendet wurde, um den Azure Stack Hub-Ressourcenanbieter zu registrieren. Führen Sie diesen PowerShell-Befehl aus:
+
+   ```powershell  
+   Connect-AzureRMAccount -Environment "<environment name>"
+   ```
+
+   | Parameter | BESCHREIBUNG |  
+   |-----|-----|
+   | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für ein Azure-Abonnement für China **AzureChinaCloud**.  |
+
+7. Führen Sie in der gleichen PowerShell-Sitzung das Cmdlet **Set-AzsRegistration** aus. Führen Sie diesen PowerShell-Befehl aus:  
+
+   ```powershell  
+   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
+   Set-AzsRegistration `
+      -PrivilegedEndpointCredential $CloudAdminCred `
+      -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
+      -BillingModel PayAsYouUse `
+      -RegistrationName $RegistrationName
+   ```
+   Weitere Informationen zum Cmdlet „Set-AzsRegistration“ finden Sie in der [Referenz zur Registrierung](#registration-reference).
+
+---
+
    Der Vorgang dauert zwischen 10 und 15 Minuten. Wenn der Befehl abgeschlossen ist, sehen Sie die Meldung, dass **Ihre Umgebung nun registriert und mit den angegebenen Parametern aktiviert wurde**.
 
 ## <a name="register-with-capacity-billing"></a>Registrieren für die kapazitätsbasierte Abrechnung
@@ -185,6 +247,8 @@ Befolgen Sie diese Schritte zum Registrieren von Azure Stack Hub bei Azure unter
 > Alle diese Schritte müssen von einem Computer ausgeführt werden, der Zugriff auf den privilegierten Endpunkt (PEP) hat. Details zum PEP finden Sie unter [Verwenden des privilegierten Endpunkts in Azure Stack Hub](azure-stack-privileged-endpoint.md).
 
 In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen werden. Für diese Umgebungen müssen Sie den Azure Stack Hub-Ressourcenanbieter bei Azure registrieren und dann Ihr Abrechnungsmodell konfigurieren.
+
+### <a name="az-modules"></a>[Az-Module](#tab/az2)
 
 1. Zum Registrieren des Azure Stack Hub-Ressourcenanbieters bei Azure starten Sie PowerShell ISE als Administrator, und verwenden Sie die folgenden PowerShell-Cmdlets mit dem auf den entsprechenden Azure-Abonnementtyp festgelegten Parameter **EnvironmentName** (siehe die Parameter unten).
 
@@ -226,6 +290,52 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
    > Sie können Nutzungsberichte mit dem UsageReportingEnabled-Parameter für das Cmdlet **Set-AzsRegistration** deaktivieren, indem Sie den Parameter auf FALSE festlegen. 
    
    Weitere Informationen zum Cmdlet „Set-AzsRegistration“ finden Sie in der [Referenz zur Registrierung](#registration-reference).
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm2)
+
+1. Zum Registrieren des Azure Stack Hub-Ressourcenanbieters bei Azure starten Sie PowerShell ISE als Administrator, und verwenden Sie die folgenden PowerShell-Cmdlets mit dem auf den entsprechenden Azure-Abonnementtyp festgelegten Parameter **EnvironmentName** (siehe die Parameter unten).
+
+2. Fügen Sie das Azure-Konto hinzu, das für die Registrierung von Azure Stack Hub verwendet wurde. Führen Sie zum Hinzufügen des Kontos das Cmdlet **Add-AzureRMAccount** aus. Sie werden aufgefordert, Ihre Anmeldeinformationen für das Azure-Konto einzugeben. Je nach Konfiguration Ihres Kontos müssen Sie möglicherweise die zweistufige Authentifizierung verwenden.
+
+   ```powershell  
+   Connect-AzureRMAccount -Environment "<environment name>"
+   ```
+
+   | Parameter | BESCHREIBUNG |  
+   |-----|-----|
+   | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für ein Azure-Abonnement für China **AzureChinaCloud**.  |
+
+3. Wenn Sie über mehrere Abonnements verfügen, führen Sie den folgenden Befehl aus, um das zu verwendende Abonnement auszuwählen:  
+
+   ```powershell  
+   Get-AzureRMSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRMSubscription
+   ```
+
+4. Führen Sie den folgenden Befehl zum Registrieren des Azure Stack Hub-Ressourcenanbieters in Ihrem Azure-Abonnement aus:
+
+   ```powershell  
+   Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
+
+5. Starten Sie PowerShell ISE als Administrator, und navigieren Sie zum Ordner **Registration** im Verzeichnis **AzureStack-Tools-master**, das beim Herunterladen der Azure Stack Hub-Tools erstellt wurde. Importieren Sie das Modul **RegisterWithAzure.psm1** mit PowerShell:
+
+   ```powershell  
+   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
+   Set-AzsRegistration `
+      -PrivilegedEndpointCredential $CloudAdminCred `
+      -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
+      -AgreementNumber <EA agreement number> `
+      -BillingModel Capacity `
+      -RegistrationName $RegistrationName
+   ```
+   > [!Note]  
+   > Sie können Nutzungsberichte mit dem UsageReportingEnabled-Parameter für das Cmdlet **Set-AzsRegistration** deaktivieren, indem Sie den Parameter auf FALSE festlegen. 
+   
+   Weitere Informationen zum Cmdlet „Set-AzsRegistration“ finden Sie in der [Referenz zur Registrierung](#registration-reference).
+
+---
+
 ::: zone-end
 
 ::: zone pivot="state-disconnected"
@@ -375,27 +485,58 @@ Sie benötigen die folgenden Informationen im [Administratorportal](#verify-azur
 
 Wenn Sie das von Ihnen verwendete Abonnement ändern möchten, müssen Sie zuerst das Cmdlet **Remove-AzsRegistration** ausführen und sich anschließend vergewissern, dass Sie im richtigen Azure PowerShell-Kontext angemeldet sind. Führen Sie dann **Set-AzsRegistration** mit allen geänderten Parametern (einschließlich `<billing model>`) aus. Bei der Ausführung von **Remove-AzsRegistration** müssen Sie bei dem Abonnement angemeldet sein, das bei der Registrierung verwendet wurde, und die Werte der Parameter `RegistrationName` und `ResourceGroupName` wie im [Administratorportal](#verify-azure-stack-hub-registration) angezeigt verwenden:
 
-  ```powershell  
-  # select the subscription used during the registration (shown in portal)
-  Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
-  # unregister using the parameter values from portal
-  Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
-  # switch to new subscription id
-  Select-AzSubscription -Subscription '<New subscription ID>'
-  # register 
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' -ResourceGroupName '<Registration resource group name>'
-  ```
+### <a name="az-modules"></a>[Az-Module](#tab/az3)
+
+```powershell  
+# select the subscription used during the registration (shown in portal)
+Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
+# unregister using the parameter values from portal
+Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
+# switch to new subscription id
+Select-AzSubscription -Subscription '<New subscription ID>'
+# register 
+Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' -ResourceGroupName '<Registration resource group name>'
+```
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm3)
+
+```powershell  
+# select the subscription used during the registration (shown in portal)
+Select-AzureRMSubscription -Subscription '<Registration subscription ID from portal>'
+# unregister using the parameter values from portal
+Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
+# switch to new subscription id
+Select-AzureRMSubscription -Subscription '<New subscription ID>'
+# register 
+Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' -ResourceGroupName '<Registration resource group name>'
+```
+
+---
 
 ### <a name="change-billing-model-how-features-are-offered-or-re-register-your-instance"></a>Ändern des Abrechnungsmodells, des Verfahrens zum Anbieten von Features oder erneutes Registrieren Ihrer Instanz
 
 Dieser Abschnitt bietet Anweisungen für den Fall, dass Sie das Abrechnungsmodell ändern möchten, dass Sie ändern möchten, wie Features angeboten werden, oder dass Sie die Instanz erneut registrieren möchten. In allen diesen Fällen wird die-Registrierungsfunktion aufgerufen, um die neuen Werte festzulegen. Die aktuelle Registrierung muss zuvor nicht entfernt werden. Melden Sie sich mit der Abonnement-ID an, die im [Administratorportal](#verify-azure-stack-hub-registration) angezeigt wird. Führen Sie dann die Registrierung erneut mit einem neuen `BillingModel`-Wert aus,und lassen Sie die im [Administratorportal](#verify-azure-stack-hub-registration) angezeigten Werte für die Parameter `RegistrationName` und `ResourceGroupName` unverändert:
 
-  ```powershell  
-  # select the subscription used during the registration
-  Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
-  # rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
-  ```
+### <a name="az-modules"></a>[Az-Module](#tab/az4)
+
+```powershell  
+# select the subscription used during the registration
+Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
+# rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
+Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
+```
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm4)
+
+```powershell  
+# select the subscription used during the registration
+Select-AzureRMSubscription -Subscription '<Registration subscription ID from portal>'
+# rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
+Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
+```
+
+---
+
 ::: zone-end
 
 ::: zone pivot="state-disconnected"
@@ -500,7 +641,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
     <String>] [<CommonParameters>]
 ```
 
-| Parameter | type | BESCHREIBUNG |
+| Parameter | Typ | BESCHREIBUNG |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | Die Anmeldeinformationen, die für den [Zugriff auf den privilegierten Endpunkt](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) verwendet werden. Der Benutzername hat das Format **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | String | Eine vorkonfigurierte Remote-PowerShell-Konsole, die Ihnen Funktionen wie die Protokollsammlung und andere Aufgaben nach der Bereitstellung zur Verfügung stellt. Weitere Informationen finden Sie im Artikel [Verwenden des privilegierten Endpunkts](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). |
@@ -522,7 +663,7 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Parameter | type | BESCHREIBUNG |
+| Parameter | Typ | BESCHREIBUNG |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | Die Anmeldeinformationen, die für den [Zugriff auf den privilegierten Endpunkt](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) verwendet werden. Der Benutzername hat das Format **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | String |  Eine vorkonfigurierte Remote-PowerShell-Konsole, die Ihnen Funktionen wie die Protokollsammlung und andere Aufgaben nach der Bereitstellung zur Verfügung stellt. Weitere Informationen finden Sie im Artikel [Verwenden des privilegierten Endpunkts](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). |

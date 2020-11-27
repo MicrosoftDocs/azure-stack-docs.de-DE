@@ -3,16 +3,16 @@ title: Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack
 description: Hier erfahren Sie, wie Sie in Azure Stack Hub Mandanten registrieren und die Mandantennutzung nachverfolgen.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/01/2020
+ms.date: 11/17/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: c98893cb686ebb9edb2c6e7257507da4a688c52f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/17/2020
+ms.openlocfilehash: 990ac200fdf36e951dbee9d2fed96f4918a9a8bd
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543798"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517802"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Registrieren von Mandanten für die Nutzungsnachverfolgung in Azure Stack Hub
 
@@ -25,7 +25,7 @@ Dieser Artikel enthält Details zu Registrierungsvorgängen. Sie können diese V
 
 Sie können diesen Vorgang verwenden, wenn Sie Ihrer Registrierung einen neuen Mandanten hinzufügen möchten. Die Mandantennutzung wird unter einem Azure-Abonnement gemeldet, das mit dem Azure AD-Mandanten (Azure Active Directory) verbunden ist.
 
-Sie können den Vorgang auch verwenden, um das einem Mandanten zugeordnete Abonnement zu ändern. Rufen Sie PUT oder das PowerShell-Cmdlet **New-AzResource** auf, um die vorherige Zuordnung zu überschreiben.
+Sie können den Vorgang auch verwenden, um das einem Mandanten zugeordnete Abonnement zu ändern. Rufen Sie PUT oder das PowerShell-Cmdlet **New-AzResource** auf, um die vorherige Zuordnung zu überschreiben. Wenn Sie das AzureRM-Modul von PowerShell verwenden, verwenden Sie das PowerShell-Cmdlet **New-AzureResource**.
 
 Sie können einem Mandanten ein einzelnes Azure-Abonnement zuweisen. Wenn Sie versuchen, einem vorhandenen Mandanten ein zweites Abonnement hinzuzufügen, wird das erste Abonnement überschrieben.
 
@@ -47,7 +47,16 @@ Weitere Informationen zu Azure Stack Hub und API-Profilen finden Sie unter [Verw
 > [!NOTE]  
 > Mandanten müssen bei jeder Azure Stack Hub-Bereitstellung registriert werden, die sie verwenden. Wenn ein Mandant mehrere Azure Stack Hub-Instanzen verwendet, aktualisieren Sie die anfängliche Registrierung jeder Bereitstellung mit dem Mandantenabonnement.
 
+
 ### <a name="powershell"></a>PowerShell
+### <a name="az-modules"></a>[Az-Module](#tab/az1)
+
+Verwenden Sie das Cmdlet **New-AzResource**, um einen Mandanten hinzuzufügen. [Stellen Sie eine Verbindung mit Azure her](/powershell/azure/get-started-azureps), und führen Sie dann in einer Eingabeaufforderung mit erhöhten Rechten den folgenden Befehl aus:
+
+```powershell  
+New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm1)
 
 Verwenden Sie das Cmdlet **New-AzureRmResource**, um einen Mandanten hinzuzufügen. [Stellen Sie eine Verbindung mit Azure her](/powershell/azure/get-started-azureps), und führen Sie dann in einer Eingabeaufforderung mit erhöhten Rechten den folgenden Befehl aus:
 
@@ -55,6 +64,7 @@ Verwenden Sie das Cmdlet **New-AzureRmResource**, um einen Mandanten hinzuzufüg
 New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
 ```
 
+---
 ### <a name="api-call"></a>API-Aufruf
 
 **Operation:** PUT  
@@ -79,12 +89,23 @@ Rufen Sie eine Liste aller Mandanten ab, die einer Registrierung hinzugefügt wu
 
 ### <a name="powershell"></a>PowerShell
 
+### <a name="az-modules"></a>[Az-Module](#tab/az2)
+
 Verwenden Sie das Cmdlet **Get-AzResource**, um alle registrierten Mandanten aufzulisten. [Stellen Sie eine Verbindung mit Azure Stack Hub her](azure-stack-powershell-configure-admin.md), und führen Sie dann in einer Eingabeaufforderung mit erhöhten Rechten das folgende Cmdlet aus:
 
 ```powershell
 Get-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
 ```
 
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm2)
+
+Verwenden Sie das Cmdlet **Get-AzureRMResource**, um alle registrierten Mandanten aufzulisten. [Stellen Sie eine Verbindung mit Azure Stack Hub her](azure-stack-powershell-configure-admin.md), und führen Sie dann in einer Eingabeaufforderung mit erhöhten Rechten das folgende Cmdlet aus:
+
+```powershell
+Get-AzureRMResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
+```
+
+---
 ### <a name="api-call"></a>API-Aufruf
 
 Sie können eine Liste aller Mandantenzuordnungen mithilfe des GET-Vorgangs abrufen.
@@ -128,11 +149,23 @@ Sie können einen Mandanten entfernen, der einer Registrierung hinzugefügt wurd
 
 ### <a name="powershell"></a>PowerShell
 
+### <a name="az-modules"></a>[Az-Module](#tab/az3)
+
 Verwenden Sie das Cmdlet **Remove-AzResource**, um einen Mandanten zu entfernen. [Stellen Sie eine Verbindung mit Azure Stack Hub her](azure-stack-powershell-configure-admin.md), und führen Sie dann in einer Eingabeaufforderung mit erhöhten Rechten das folgende Cmdlet aus:
 
 ```powershell
 Remove-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
 ```
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm3)
+
+Verwenden Sie das Cmdlet **Remove-AzureRMResource**, um einen Mandanten zu entfernen. [Stellen Sie eine Verbindung mit Azure Stack Hub her](azure-stack-powershell-configure-admin.md), und führen Sie dann in einer Eingabeaufforderung mit erhöhten Rechten das folgende Cmdlet aus:
+
+```powershell
+Remove-AzureRMResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+```
+
+---
 
 ### <a name="api-call"></a>API-Aufruf
 

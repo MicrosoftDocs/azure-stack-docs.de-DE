@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.author: caoyang
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: 035e1cc2e78aaebcc0ea653354d00f617d7e95c5
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 5becaf3bca62d4e37bac266649bf3821dc5a652e
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91585970"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812682"
 ---
 # <a name="sql-resource-provider-11930-release-notes"></a>Versionshinweise zum SQL-Ressourcenanbieter 1.1.93.0
 
@@ -23,7 +23,7 @@ Laden Sie die Binärdatei des SQL-Ressourcenanbieters herunter, und führen Sie 
 
 > |Unterstützte Azure Stack Hub-Version|Version des SQL-Ressourcenanbieters|
 > |-----|-----|
-> |Version 2005|[SQL-RP-Version 1.1.93.0](https://aka.ms/azshsqlrp11930)|  
+> |Version 2008, 2005|[SQL-RP-Version 1.1.93.0](https://aka.ms/azshsqlrp11930)|  
 > |     |     |
 
 > [!IMPORTANT]

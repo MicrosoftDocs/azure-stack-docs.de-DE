@@ -4,15 +4,15 @@ description: Informationen zur IPsec/IKE-Richtlinie und Ihrer Konfiguration für
 author: sethmanheim
 ms.custom: contperfq4
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 11/22/2020
 ms.author: sethm
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 071f8285d4a9f989f295b4d87e3203250763760f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: cb835bba8bc35029fa7f0462cb68bb4e961e985c
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546819"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518244"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurieren einer IPsec/IKE-Richtlinie für Standort-zu-Standort-VPN-Verbindungen
 
@@ -162,15 +162,30 @@ Stellen Sie sicher, dass Sie in den PowerShell-Modus wechseln, um die Ressourcen
 
 Öffnen Sie die PowerShell-Konsole, und stellen Sie eine Verbindung mit Ihrem Konto her. Beispiel:
 
+### <a name="az-modules"></a>[Az-Module](#tab/az1)
+
 ```powershell
 Connect-AzAccount
 Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm1)
+
+```powershell
+Connect-AzureRMAccount
+Select-AzureRMSubscription -SubscriptionName $Sub1
+New-AzureRMResourceGroup -Name $RG1 -Location $Location1
+```
+
+---
+
+
 
 #### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Erstellen des virtuellen Netzwerks, VPN-Gateways und Gateways des lokalen Netzwerks
 
 Im folgenden Beispiel wird das virtuelle Netzwerk **TestVNet1** zusammen mit drei Subnetzen und dem VPN-Gateway erstellt. Beim Ersetzen der Werte ist es wichtig, dass Sie Ihrem Gatewaysubnetz den Namen **GatewaySubnet** geben. Wenn Sie einen anderen Namen verwenden, tritt beim Erstellen des Gateways ein Fehler auf.
+
+### <a name="az-modules"></a>[Az-Module](#tab/az2)
 
 ```powershell
 $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -198,6 +213,37 @@ New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 `
 $LNGPrefix61,$LNGPrefix62
 ```
 
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm2)
+
+```powershell
+$fesub1 = New-AzureRMVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
+$besub1 = New-AzureRMVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
+$gwsub1 = New-AzureRMVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+
+New-AzureRMVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
+
+$gw1pip1 = New-AzureRMPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
+
+$vnet1 = Get-AzureRMVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
+
+$subnet1 = Get-AzureRMVirtualNetworkSubnetConfig -Name "GatewaySubnet" `
+-VirtualNetwork $vnet1
+
+$gw1ipconf1 = New-AzureRMVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 `
+-Subnet $subnet1 -PublicIpAddress $gw1pip1
+
+New-AzureRMVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
+-Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn `
+-VpnType RouteBased -GatewaySku VpnGw1
+
+New-AzureRMLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 `
+-Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix `
+$LNGPrefix61,$LNGPrefix62
+```
+---
+
+
+
 ### <a name="step-2---create-a-site-to-site-vpn-connection-with-an-ipsecike-policy"></a>Schritt 2: Erstellen einer Site-to-Site-VPN-Verbindung mit einer IPsec/IKE-Richtlinie
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. Erstellen Sie eine IPsec/IKE-Richtlinie.
@@ -207,9 +253,19 @@ Das Beispielskript erstellt eine IPsec/IKE-Richtlinie mit den folgenden Algorith
 - IKEv2: AES128, SHA1, DHGroup14
 - IPsec: AES256, SHA256, keine, SA-Gültigkeitsdauer 14.400 Sekunden und 102.400.000 KB
 
+### <a name="az-modules"></a>[Az-Module](#tab/az3)
 ```powershell
 $ipsecpolicy6 = New-AzIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup none -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm3)
+
+```powershell
+$ipsecpolicy6 = New-AzureRMIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup none -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
+```
+---
+
+
 
 Wenn Sie GCMAES für IPsec verwenden, müssen für die IPsec-Verschlüsselung und -Integrität derselbe GCMAES-Algorithmus und dieselbe Schlüssellänge verwendet werden.
 
@@ -217,12 +273,25 @@ Wenn Sie GCMAES für IPsec verwenden, müssen für die IPsec-Verschlüsselung un
 
 Erstellen Sie eine Site-to-Site-VPN-Verbindung, und wenden Sie die zuvor erstellte IPsec/IKE-Richtlinie an:
 
+### <a name="az-modules"></a>[Az-Module](#tab/az4)
+
 ```powershell
 $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 $lng6 = Get-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1
 
 New-AzVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -IpsecPolicies $ipsecpolicy6 -SharedKey 'Azs123'
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm4)
+
+```powershell
+$vnet1gw = Get-AzureRMVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+$lng6 = Get-AzureRMLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1
+
+New-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -IpsecPolicies $ipsecpolicy6 -SharedKey 'Azs123'
+```
+---
+
+
 
 > [!IMPORTANT]
 > Nachdem für eine Verbindung eine IPsec/IKE-Richtlinie angegeben wurde, sendet bzw. akzeptiert das Azure-VPN-Gateway den IPsec/IKE-Vorschlag mit angegebenen Kryptografiealgorithmen und Schlüsselstärken nur für die jeweilige Verbindung. Achten Sie darauf, dass Ihr lokales VPN-Gerät für die Verbindung die exakte Richtlinienkombination nutzt bzw. akzeptiert, da der Site-to-Site-VPN-Tunnel andernfalls nicht hergestellt werden kann.
@@ -240,7 +309,9 @@ Im vorherigen Abschnitt wurde gezeigt, wie Sie eine IPsec/IKE-Richtlinie für ei
 
 ### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1. Anzeigen der IPsec/IKE-Richtlinie einer Verbindung
 
-Im folgenden Beispiel wird veranschaulicht, wie Sie die für eine Verbindung konfigurierte IPsec/IKE-Richtlinie abrufen. Die Skripts bauen auf den obigen Übungen auf:
+Im folgenden Beispiel wird veranschaulicht, wie Sie die für eine Verbindung konfigurierte IPsec/IKE-Richtlinie abrufen. Die Skripts bauen auf den obigen Übungen auf.
+
+### <a name="az-modules"></a>[Az-Module](#tab/az5)
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -261,12 +332,39 @@ IkeIntegrity : SHA1
 DhGroup : DHGroup14
 PfsGroup : None
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm5)
+
+```powershell
+$RG1 = "TestPolicyRG1"
+$Connection16 = "VNet1toSite6"
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+$connection6.IpsecPolicies
+```
+
+Mit dem letzten Befehl wird die aktuelle IPsec/IKE-Richtlinie, die für die Verbindung konfiguriert wurde (sofern vorhanden), aufgelistet. Das folgende Beispiel zeigt eine Beispielausgabe für die Verbindung:
+
+```shell
+SALifeTimeSeconds : 14400
+SADataSizeKilobytes : 102400000
+IpsecEncryption : AES256
+IpsecIntegrity : SHA256
+IkeEncryption : AES128
+IkeIntegrity : SHA1
+DhGroup : DHGroup14
+PfsGroup : None
+```
+
+---
+
+
 
 Wurde keine IPsec/IKE-Richtlinie konfiguriert, generiert der Befehl `$connection6.policy` eine leere Rückgabe. Dies bedeutet nicht, dass IPsec/IKE nicht für die Verbindung konfiguriert wurde, sondern dass keine benutzerdefinierte IPsec/IKE-Richtlinie vorhanden ist. Für die eigentliche Verbindung wird die Standardrichtlinie verwendet, die zwischen Ihrem lokalen VPN-Gerät und dem Azure-VPN-Gateway ausgehandelt wurde.
 
 ### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. Hinzufügen oder Aktualisieren einer IPsec/IKE-Richtlinie für eine Verbindung
 
 Die Schritte zum Hinzufügen einer neuen Richtlinie oder Aktualisieren einer vorhandenen Richtlinie für eine Verbindung sind identisch: Erstellen Sie eine neue Richtlinie, und wenden Sie sie anschließend auf die Verbindung an:
+
+### <a name="az-modules"></a>[Az-Module](#tab/az8)
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -279,8 +377,26 @@ $connection6.SharedKey = "AzS123"
 
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm8)
+
+```powershell
+$RG1 = "TestPolicyRG1"
+$Connection16 = "VNet1toSite6"
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+
+$newpolicy6 = New-AzureRMIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
+
+$connection6.SharedKey = "AzS123"
+
+Set-AzureRMVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
+```
+---
+
+
 
 Sie können die Verbindung erneut abrufen, um zu überprüfen, ob die Richtlinie aktualisiert wird:
+
+### <a name="az-modules"></a>[Az-Module](#tab/az6)
 
 ```powershell
 $connection6 = Get-AzVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
@@ -299,10 +415,34 @@ IkeIntegrity : SHA1
 DhGroup : DHGroup14
 PfsGroup : None
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm6)
+
+```powershell
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+$connection6.IpsecPolicies
+```
+
+Die Ausgabe der letzten Zeile sollte wie im folgenden Beispiel aussehen:
+
+```shell
+SALifeTimeSeconds : 14400
+SADataSizeKilobytes : 102400000
+IpsecEncryption : AES256
+IpsecIntegrity : SHA256
+IkeEncryption : AES128
+IkeIntegrity : SHA1
+DhGroup : DHGroup14
+PfsGroup : None
+```
+---
+
+
 
 ### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. Entfernen einer IPsec/IKE-Richtlinie aus einer Verbindung
 
 Nachdem Sie die benutzerdefinierte Richtlinie für eine Verbindung entfernt haben, verwendet das Azure-VPN-Gateway wieder die [IPsec/IKE-Standardvorschläge](azure-stack-vpn-gateway-settings.md#ipsecike-parameters) und beginnt eine neue Aushandlung mit Ihrem lokalen VPN-Gerät.
+
+### <a name="az-modules"></a>[Az-Module](#tab/az7)
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -314,6 +454,21 @@ $connection6.IpsecPolicies.Remove($currentpolicy)
 
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm7)
+
+```powershell
+$RG1 = "TestPolicyRG1"
+$Connection16 = "VNet1toSite6"
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+$connection6.SharedKey = "AzS123"
+$currentpolicy = $connection6.IpsecPolicies[0]
+$connection6.IpsecPolicies.Remove($currentpolicy)
+
+Set-AzureRMVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6
+```
+---
+
+
 
 Mit dem gleichen Skript können Sie prüfen, ob die Richtlinie für die Verbindung entfernt wurde.
 

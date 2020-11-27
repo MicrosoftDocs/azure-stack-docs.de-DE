@@ -3,16 +3,16 @@ title: Problembehandlung bei Site-to-Site-VPN-Verbindungen in Azure Stack Hub
 description: Hier finden Sie Schritte zur Problembehandlung, die Sie nach dem Konfigurieren einer Site-to-Site-VPN-Verbindung zwischen einem lokalen Netzwerk und einem virtuellen Azure Stack Hub-Netzwerk ausführen können.
 author: sethmanheim
 ms.author: sethm
-ms.date: 10/01/2020
+ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
-ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 6d677d4b192cef17d44896ba5ef41387b1c95765
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 88f258f4700cd091f50dc3732fb7167be84d3954
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546870"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518193"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>Problembehandlung bei Site-to-Site-VPN-Verbindungen
 
@@ -46,6 +46,8 @@ Die Azure Stack Hub-Standardparameter für IPsec/IKEV2 haben sich [seit Build 1
 
 ## <a name="status-not-connected---intermittent-disconnects"></a>Status „Nicht verbunden“ – zeitweilige Verbindungsunterbrechungen
 
+### <a name="az-modules"></a>[Az-Module](#tab/az)
+
 - Vergleichen Sie den gemeinsam verwendeten Schlüssel des lokalen VPN-Geräts und des AzSH-VPN des virtuellen Netzwerks, um sicherzustellen, dass die Schlüssel übereinstimmen. Verwenden Sie zum Anzeigen des gemeinsamen Schlüssels für die AzSH-VPN-Verbindung eine der folgenden Methoden:
 
   - **Azure Stack Hub-Mandantenportal:** Gehen Sie zu der von Ihnen erstellen VPN-Gateway-Site-to-Site-Verbindung. Wählen Sie im Abschnitt **Einstellungen** die Option **Gemeinsam verwendeter Schlüssel** aus.
@@ -54,11 +56,27 @@ Die Azure Stack Hub-Standardparameter für IPsec/IKEV2 haben sich [seit Build 1
 
   - **Azure PowerShell:** Verwenden Sie den folgenden PowerShell-Befehl:
 
-      ```powershell
-      Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
-      ```
+```powershell
+Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+```
 
-## <a name="status-connected--traffic-not-flowing"></a>Status „Verbunden“ – Datenverkehr wird nicht übertragen.
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm)
+
+- Vergleichen Sie den gemeinsam verwendeten Schlüssel des lokalen VPN-Geräts und des AzSH-VPN des virtuellen Netzwerks, um sicherzustellen, dass die Schlüssel übereinstimmen. Verwenden Sie zum Anzeigen des gemeinsamen Schlüssels für die AzSH-VPN-Verbindung eine der folgenden Methoden:
+
+  - **Azure Stack Hub-Mandantenportal:** Gehen Sie zu der von Ihnen erstellen VPN-Gateway-Site-to-Site-Verbindung. Wählen Sie im Abschnitt **Einstellungen** die Option **Gemeinsam verwendeter Schlüssel** aus.
+
+      :::image type="content" source="media/site-to-site/vpn-connection.png" alt-text="VPN-Verbindung":::
+
+  - **Azure PowerShell:** Verwenden Sie den folgenden PowerShell-Befehl:
+
+```powershell
+Get-AzurerRMVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+```
+
+---
+
+## <a name="status-connected---traffic-not-flowing"></a>Status „Verbunden“, aber kein Datenverkehrsfluss
 
 - Suchen und entfernen Sie benutzerdefiniertes Routing (UDR) und Netzwerksicherheitsgruppen (NSG) im Gatewaysubnetz, und testen Sie dann das Ergebnis. Wenn das Problem behoben wurde, überprüfen Sie die vom UDR oder den NSG angewendeten Einstellungen.
 

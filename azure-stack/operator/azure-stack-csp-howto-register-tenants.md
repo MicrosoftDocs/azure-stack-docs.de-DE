@@ -3,16 +3,16 @@ title: Hinzufügen von Mandanten für Nutzung und Abrechnung zu Azure Stack Hub
 description: Finden Sie heraus, wie Sie einen Mandanten für die Nutzung und Abrechnung zu Azure Stack Hub hinzufügen.
 author: sethmanheim
 ms.topic: article
-ms.date: 9/02/2020
+ms.date: 11/17/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 5/28/2020
-ms.openlocfilehash: 43ceccf55807367606bae5f3aa8fcdebf6f9aace
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/17/2020
+ms.openlocfilehash: 81cefb08d6fd0d1fc773221d52393c8a3ae6fddf
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543815"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517887"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Hinzufügen eines Mandanten für Nutzung und Abrechnung zu Azure Stack Hub
 
@@ -49,6 +49,8 @@ Standardmäßig haben Sie als CSP keinen Zugriff auf das Azure Stack Hub-Abonnem
 
 Aktualisieren Sie Ihre Registrierung mit dem Abonnement des neuen Kunden. Azure meldet die Nutzung des Kunden mithilfe der Kundenidentität aus dem Partner Center. So wird sichergestellt, dass die Nutzung jedes Kunden unter dem individuellen CSP-Abonnement des Kunden gemeldet wird. Dies erleichtert die Nachverfolgung der Nutzung und die Abrechnung. Um diesen Schritt ausführen zu können, müssen Sie zuerst [Azure Stack Hub registrieren](azure-stack-registration.md).
 
+### <a name="az-modules"></a>[Az-Module](#tab/az)
+
 1. Öffnen Sie Windows PowerShell in einer Eingabeaufforderung mit erhöhten Rechten, und führen Sie Folgendes aus:  
 
    ```powershell
@@ -65,7 +67,7 @@ Aktualisieren Sie Ihre Registrierung mit dem Abonnement des neuen Kunden. Azure 
    New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
-### <a name="new-azresource-powershell-parameters"></a>PowerShell-Parameter für „New-AzResource“
+**PowerShell-Parameter für „New-AzResource“**
 
 Im folgenden Abschnitt werden die Parameter für das Cmdlet **New-AzResource** beschrieben:
 
@@ -75,6 +77,38 @@ Im folgenden Abschnitt werden die Parameter für das Cmdlet **New-AzResource** b
 | customerSubscriptionID | Das Azure-Abonnement (nicht Azure Stack Hub), das zu dem Kunden gehört, der registriert werden soll. Muss im CSP-Angebot erstellt werden. In der Praxis über das Partner Center. Wenn ein Kunde über mehrere Azure Active Directory-Mandanten verfügt, muss dieses Abonnement in dem Mandanten erstellt werden, der zum Anmelden bei Azure Stack Hub verwendet wird. Bei der Kundenabonnement-ID wird zwischen Groß-/Kleinschreibung unterschieden. |
 | resourceGroup | Die Ressourcengruppe in Azure, in dem Ihre Registrierung gespeichert ist. |
 | registrationName | Der Name der Registrierung Ihrer Azure Stack Hub-Instanz. Dies ist ein in Azure gespeichertes Objekt.
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm)
+
+1. Öffnen Sie Windows PowerShell in einer Eingabeaufforderung mit erhöhten Rechten, und führen Sie Folgendes aus:  
+
+   ```powershell
+   Add-AzureRMAccount
+   ```
+
+   >[!NOTE]
+   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie lediglich Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit **Add-AzAccount** anmelden: `Remove-AzAccount-Scope Process`.
+
+2. Geben Sie Ihre Azure-Anmeldeinformationen ein.
+3. Führen Sie in der PowerShell-Sitzung Folgendes aus:
+
+   ```powershell
+   New-AzureRMResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+   ```
+
+**PowerShell-Parameter von New-AzureRMResource**
+
+Im folgenden Abschnitt werden die Parameter für das Cmdlet **New-AzureRMResource** beschrieben:
+
+| Parameter | BESCHREIBUNG |
+| --- | --- |
+|registrationSubscriptionID | Das Azure-Abonnement, das für die anfängliche Registrierung von Azure Stack Hub verwendet wurde.|
+| customerSubscriptionID | Das Azure-Abonnement (nicht Azure Stack Hub), das zu dem Kunden gehört, der registriert werden soll. Muss im CSP-Angebot erstellt werden. In der Praxis über das Partner Center. Wenn ein Kunde über mehrere Azure Active Directory-Mandanten verfügt, muss dieses Abonnement in dem Mandanten erstellt werden, der zum Anmelden bei Azure Stack Hub verwendet wird. Bei der Kundenabonnement-ID wird zwischen Groß-/Kleinschreibung unterschieden. |
+| resourceGroup | Die Ressourcengruppe in Azure, in dem Ihre Registrierung gespeichert ist. |
+| registrationName | Der Name der Registrierung Ihrer Azure Stack Hub-Instanz. Dies ist ein in Azure gespeichertes Objekt.
+
+---
+
 
 > [!NOTE]  
 > Mandanten müssen bei jeder Azure Stack Hub-Instanz registriert werden, die sie verwenden. Wenn Sie über zwei Azure Stack Hub-Bereitstellungen verfügen und ein Mandant beide verwendet, müssen Sie die anfänglichen Registrierungen jeder Bereitstellung beim Mandantenabonnement aktualisieren.

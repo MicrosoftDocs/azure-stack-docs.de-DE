@@ -3,16 +3,16 @@ title: Verwenden des Validierungstools für Vorlagen in Azure Stack Hub
 description: Überprüfen Sie Vorlagen für die Bereitstellung in Azure Stack Hub mit dem Validierungstool für Vorlagen.
 author: sethmanheim
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/22/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 35fe7fbd2a3d7004d70e343ca763ea49563f2597
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 0631058a3eade431769a5651bb37441b835eb3e6
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546564"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518057"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Verwenden des Validierungstools für Vorlagen in Azure Stack Hub
 
@@ -32,6 +32,9 @@ Bevor Sie die Vorlagenvalidierung verwenden, führen Sie das PowerShell-Modul **
 > [!NOTE]
 > Wenn Sie Ihr integriertes System aktualisieren oder neue Dienste oder virtuelle Erweiterungen hinzufügen, sollten Sie dieses Modul erneut ausführen.
 
+
+### <a name="az-modules"></a>[Az-Module](#tab/az1)
+
 1. Stellen Sie sicher, dass Sie mit Azure Stack Hub verbunden sind. Sie können diese Schritte auf dem ASDK-Host (Azure Stack Development Kit) ausführen oder ein [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) verwenden, um eine Verbindung von Ihrer Arbeitsstation aus herzustellen.
 2. Importieren Sie das PowerShell-Modul **Az.CloudCapabilities**:
 
@@ -41,13 +44,32 @@ Bevor Sie die Vorlagenvalidierung verwenden, führen Sie das PowerShell-Modul **
 
 3. Verwenden Sie das Cmdlet **Get-CloudCapabilities**, um Dienstversionen abzurufen und eine JSON-Datei mit Cloudfunktionen zu erstellen. Wenn Sie `-OutputPath` nicht angeben, wird die Datei **AzureCloudCapabilities.Json** im aktuellen Verzeichnis erstellt. Verwenden Sie den tatsächlichen Azure-Speicherort:
 
+```powershell
+Get-AzCloudCapability -Location <your location> -Verbose
+```
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm1)
+
+1. Stellen Sie sicher, dass Sie mit Azure Stack Hub verbunden sind. Sie können diese Schritte auf dem ASDK-Host (Azure Stack Development Kit) ausführen oder ein [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) verwenden, um eine Verbindung von Ihrer Arbeitsstation aus herzustellen.
+2. Importieren Sie das PowerShell-Modul **Az.CloudCapabilities**:
+
     ```powershell
-    Get-AzCloudCapability -Location <your location> -Verbose
+    Import-Module .\CloudCapabilities\Az.CloudCapabilities.psm1
     ```
+
+3. Verwenden Sie das Cmdlet **Get-CloudCapabilities**, um Dienstversionen abzurufen und eine JSON-Datei mit Cloudfunktionen zu erstellen. Wenn Sie `-OutputPath` nicht angeben, wird die Datei **AzureCloudCapabilities.Json** im aktuellen Verzeichnis erstellt. Verwenden Sie den tatsächlichen Azure-Speicherort:
+
+```powershell
+Get-AzureRMCloudCapability -Location <your location> -Verbose
+```
+
+---
 
 ## <a name="validate-templates"></a>Überprüfen von Vorlagen
 
 Mit diesen Schritten überprüfen Sie Vorlagen, indem Sie das PowerShell-Modul **Az.TemplateValidator** verwenden. Sie können Ihre eigenen Vorlagen oder die [Azure Stack Hub-Vorlagen für den Schnellstart](https://github.com/Azure/AzureStack-QuickStart-Templates) verwenden.
+
+### <a name="az-modules"></a>[Az-Module](#tab/az2)
 
 1. Importieren Sie das PowerShell-Modul **Az.TemplateValidator.psm1**:
 
@@ -58,11 +80,30 @@ Mit diesen Schritten überprüfen Sie Vorlagen, indem Sie das PowerShell-Modul *
 
 2. Führen Sie das Validierungssteuerelement für Vorlagen aus:
 
+```powershell
+Test-AzTemplate -TemplatePath <path to template.json or template folder> `
+-CapabilitiesPath <path to cloudcapabilities.json> `
+-Verbose
+```
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm2)
+
+1. Importieren Sie das PowerShell-Modul **Az.TemplateValidator.psm1**:
+
     ```powershell
-    Test-AzTemplate -TemplatePath <path to template.json or template folder> `
-    -CapabilitiesPath <path to cloudcapabilities.json> `
-    -Verbose
+    cd "c:\AzureStack-Tools-az\TemplateValidator"
+    Import-Module .\Az.TemplateValidator.psm1
     ```
+
+2. Führen Sie das Validierungssteuerelement für Vorlagen aus:
+
+```powershell
+Test-AzureRMTemplate -TemplatePath <path to template.json or template folder> `
+-CapabilitiesPath <path to cloudcapabilities.json> `
+-Verbose
+```
+
+---
 
 Warnungen oder Fehler bei der Vorlagenvalidierung werden in der PowerShell-Konsole angezeigt und in einer HTML-Datei im Quellverzeichnis protokolliert. Der folgende Screenshot ist ein Beispiel für einen Validierungsbericht:
 
@@ -84,7 +125,9 @@ Das Validierungs-Cmdlet für Vorlagen unterstützt die folgenden Parameter.
 
 ### <a name="examples"></a>Beispiele
 
-In diesem Beispiel werden alle [Vorlagen aus dem Azure Stack Hub-Schnellstart](https://github.com/Azure/AzureStack-QuickStart-Templates) überprüft, die in den lokalen Speicher heruntergeladen wurden. Im Beispiel werden auch die Größen und Erweiterungen virtueller Computer anhand der ASDK-Funktionen überprüft:
+In diesem Beispiel werden alle [Vorlagen aus dem Azure Stack Hub-Schnellstart](https://github.com/Azure/AzureStack-QuickStart-Templates) überprüft, die in den lokalen Speicher heruntergeladen wurden. Im Beispiel werden auch die Größen und Erweiterungen virtueller Computer anhand der ASDK-Funktionen überprüft.
+
+### <a name="az-modules"></a>[Az-Module](#tab/az3)
 
 ```powershell
 test-AzTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
@@ -93,6 +136,16 @@ test-AzTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -IncludeComputeCapabilities `
 -Report TemplateReport.html
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm3)
+
+```powershell
+test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
+-CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
+-TemplatePattern MyStandardTemplateName.json `
+-IncludeComputeCapabilities `
+-Report TemplateReport.html
+```
+---
 
 ## <a name="next-steps"></a>Nächste Schritte
 

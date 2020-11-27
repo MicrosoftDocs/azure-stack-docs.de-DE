@@ -3,16 +3,16 @@ title: Hinzufügen von Workern und Infrastruktur in App Service unter Azure Stac
 description: Detaillierter Leitfaden zum Aktualisieren von Azure App Service in Azure Stack Hub
 author: bryanla
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 11/15/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: 9f4fac881a4b8e946edd527590dc95ca32aa1c84
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/15/2020
+ms.openlocfilehash: 3265b77fc6a26a4e43b82d0997ec3e883a29f9da
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544733"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518091"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Hinzufügen von Workern und Infrastruktur in App Service unter Azure Stack Hub
 
@@ -29,40 +29,79 @@ Azure App Service in Azure Stack Hub stellt alle Rollen mithilfe von VM-Skalieru
 
 ## <a name="add-additional-workers-with-powershell"></a>Hinzufügen von zusätzlichen Workern mit PowerShell
 
+
+
+### <a name="az-modules"></a>[Az-Module](#tab/az)
+
 1. [Einrichten der Azure Stack Hub-Administratorumgebung in PowerShell](azure-stack-powershell-configure-admin.md)
 
-2. Verwenden Sie dieses Beispiel, um die Skalierungsgruppe aufzuskalieren:
-   ```powershell
-   
+2. Verwenden Sie dieses Beispiel, um die Skalierungsgruppe aufzuskalieren.
+
+    ```powershell
+    
     ##### Scale out the AppService Role instances ######
-   
+    
     # Set context to AzureStack admin.
     Login-AzAccount -EnvironmentName AzureStackAdmin
-                                                 
+                                                    
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"
-
+    
     ## Name of the ScaleSet : e.g. FrontEndsScaleSet, ManagementServersScaleSet, PublishersScaleSet , LargeWorkerTierScaleSet,      MediumWorkerTierScaleSet, SmallWorkerTierScaleSet, SharedWorkerTierScaleSet
     $ScaleSetName = "SharedWorkerTierScaleSet"
-
+    
     ## TotalCapacity is sum of the instances needed at the end of operation. 
     ## e.g. if your VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
     $TotalCapacity = 2  
-
+    
     # Get current scale set
     $vmss = Get-AzVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
-
+    
     # Set and update the capacity
     $vmss.sku.capacity = $TotalCapacity
     Update-AzVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
-   ```    
+    ```    
 
-   > [!NOTE]
-   > Es kann je nach Typ der Rolle und der Anzahl von Instanzen einigen Stunden dauern, bis dieser Schritt abgeschlossen ist.
-   >
-   >
+    > [!NOTE]
+    > Es kann je nach Typ der Rolle und der Anzahl von Instanzen einigen Stunden dauern, bis dieser Schritt abgeschlossen ist.
 
 3. Überwachen Sie über die Option für die App Service-Verwaltung den Status der neuen Rolleninstanzen. Klicken Sie in der Liste auf den jeweiligen Rollentyp, um den Status einer einzelnen Rolleninstanz zu überprüfen.
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm)
+
+1. [Einrichten der Azure Stack Hub-Administratorumgebung in PowerShell](azure-stack-powershell-configure-admin.md)
+
+2. Verwenden Sie dieses Beispiel, um die Skalierungsgruppe aufzuskalieren.
+
+    ```powershell
+    
+    ##### Scale out the AppService Role instances ######
+    
+    # Set context to AzureRMureStack admin.
+    Login-AzureRMAccount -EnvironmentName AzureRMureStackAdmin
+                                                    
+    ## Name of the Resource group where AppService is deployed.
+    $AppServiceResourceGroupName = "AppService.local"
+    
+    ## Name of the ScaleSet : e.g. FrontEndsScaleSet, ManagementServersScaleSet, PublishersScaleSet , LargeWorkerTierScaleSet,      MediumWorkerTierScaleSet, SmallWorkerTierScaleSet, SharedWorkerTierScaleSet
+    $ScaleSetName = "SharedWorkerTierScaleSet"
+    
+    ## TotalCapacity is sum of the instances needed at the end of operation. 
+    ## e.g. if your VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
+    $TotalCapacity = 2  
+    
+    # Get current scale set
+    $vmss = Get-AzureRMVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
+    
+    # Set and update the capacity
+    $vmss.sku.capacity = $TotalCapacity
+    Update-AzureRMVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
+    ```   
+
+    > [!NOTE]
+    > Es kann je nach Typ der Rolle und der Anzahl von Instanzen einigen Stunden dauern, bis dieser Schritt abgeschlossen ist.
+
+3. Überwachen Sie über die Option für die App Service-Verwaltung den Status der neuen Rolleninstanzen. Klicken Sie in der Liste auf den jeweiligen Rollentyp, um den Status einer einzelnen Rolleninstanz zu überprüfen.
+---
 
 ## <a name="add-additional-workers-using-the-administrator-portal"></a>Hinzufügen zusätzlicher Worker über das Administratorportal
 
@@ -78,7 +117,7 @@ Azure App Service in Azure Stack Hub stellt alle Rollen mithilfe von VM-Skalieru
 
     ![ScaleSet-App Service-Rollen im Azure Stack Hub-Administratorportal](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Klicken Sie auf **Skalierung** , wählen Sie die Anzahl der Instanzen aus, auf die skaliert werden soll, und klicken Sie dann auf **Speichern**.
+5. Klicken Sie auf **Skalierung**, wählen Sie die Anzahl der Instanzen aus, auf die skaliert werden soll, und klicken Sie dann auf **Speichern**.
 
     ![Festlegen von Instanzen für die Skalierung in App Service-Rollen im Azure Stack Hub-Administratorportal](media/azure-stack-app-service-add-worker-roles/image03.png)
 

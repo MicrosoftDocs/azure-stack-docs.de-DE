@@ -3,16 +3,16 @@ title: Benutzerhandbuch für das Azure Site Recovery-Failbacktool
 description: Erfahren Sie, wie Sie das Azure Site Recovery-Failbacktool zum Schützen von VMs verwenden.
 author: sethmanheim
 ms.author: sethm
-ms.date: 9/18/2020
+ms.date: 11/19/2020
 ms.topic: how-to
 ms.reviewer: rtiberiu
-ms.lastreviewed: 9/18/2020
-ms.openlocfilehash: 2b57527f3a65e97f5b83ada115faa63ace563ea4
-ms.sourcegitcommit: 0f2852c3302c6723e7afad637f55b80359182ae3
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: 0cb3bccab11d337a8a8804578233edb95ac02dc6
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91366277"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517224"
 ---
 # <a name="azure-site-recovery-failback-tool"></a>Azure Site Recovery-Failbacktool
 
@@ -20,13 +20,16 @@ In einer verbundenen Umgebung können Sie Azure Site Recovery zum Schutz von VMs
 
 Bei einem Ausfall führt der Azure Stack Hub-Operator ein *Failover* aus. Sobald Azure Stack Hub wieder ausgeführt wird, wird ein *Failbackverfahren* durchlaufen. Das Failoververfahren wird in [diesem Site Recovery-Artikel](/azure/site-recovery/azure-stack-site-recovery) beschrieben, das Failbackverfahren erfordert allerdings einige manuelle Schritte:
 
-- Beenden der in Azure ausgeführten VM
-- Herunterladen der VHDs
-- Hochladen der VHDs auf Azure Stack Hub
-- Neuerstellen der VMs
-- Starten der auf Azure Stack Hub ausgeführten VM 
+1. Beenden der in Azure ausgeführten VM
+2. Herunterladen der VHDs
+3. Hochladen der VHDs auf Azure Stack Hub
+4. Neuerstellen der VMs
+5. Starten der auf Azure Stack Hub ausgeführten VM 
 
 Da dieser Prozess fehleranfällig und zeitaufwendig sein kann, haben wir Skripts erstellt, die beim Beschleunigen und Automatisieren helfen.
+
+> [!Note]  
+> Das Azure Site Recovery-Tool erfordert die Az-Module von Azure Stack Hub. Wenn Sie die AzureRM-Module von Azure Stack Hub ausführen, müssen Sie ein Upgrade Ihrer Arbeitsstation ausführen oder das Azure Site Recovery-Failbacktool in einer isolierten Umgebung mit den Az-Modulen verwenden. Weitere Informationen finden Sie unter [Installieren des Az-Moduls von PowerShell für Azure Stack Hub](powershell-install-az-module.md).
 
 ## <a name="failback-procedure"></a>Failbackverfahren
 
@@ -92,7 +95,7 @@ Beachten Sie die folgenden Überlegungen:
 - Sie können den Speicherendpunkt angeben, der die Region und den vollqualifizierten Domänenname umfasst, z. B. `regionname.azurestack.microsoft.com`. Sie können auch den Umgebungsnamen der Azure Stack Hub-Instanz angeben, wie etwa `AzureStackTenant`. Wenn der Umgebungsname verwendet wird, sollte er mithilfe von **Get-AzEnvironment** aufgelistet werden können.
 
 - Sie können **AzCopy** oder **AzStorageBlobCopy** verwenden, um die VHD von Azure nach Azure Stack Hub zu kopieren. **AzCopy** ist schneller, muss die VHD-Dateien aber zunächst in einen lokalen Ordner herunterladen:
-  - Wenn Sie**AzCopy** verwenden, geben Sie die Parameter `-AzCopyPath` und `-VhdLocalFolder` an (den Pfad, in den die VHDs kopiert werden).
+  - Wenn Sie **AzCopy** verwenden, geben Sie die Parameter `-AzCopyPath` und `-VhdLocalFolder` an (den Pfad, in den die VHDs kopiert werden).
   - Wenn im lokalen System nicht genügend Speicherplatz vorhanden ist, können Sie die VHDs auch ohne **AzCopy** direkt kopieren, indem Sie die Parameter `-AzCopyPath` und `-VhdLocalFolder` weglassen. Standardmäßig verwendet dieser Befehl **AzStorageBlobCopy**, um Dateien direkt in das Azure Stack Hub-Speicherkonto zu kopieren.
 
 ## <a name="step-2-generate-resource-manager-templates"></a>Schritt 2: Generieren von Azure Resource Manager-Vorlagen

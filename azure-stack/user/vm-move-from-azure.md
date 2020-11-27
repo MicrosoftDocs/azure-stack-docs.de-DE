@@ -7,12 +7,12 @@ ms.date: 9/8/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: c8c68a64f7a05e03c70e138cb4d8c95da7417ec9
-ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
+ms.openlocfilehash: cefc127efcdac2d1610803ef90b54c50e7280e97
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91519416"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95516935"
 ---
 # <a name="move-a-vm-from-azure-to-azure-stack-hub"></a>Verschieben einer VM aus Azure in Azure Stack Hub
 
@@ -33,7 +33,15 @@ Informieren Sie sich im Abschnitt, der sich speziell auf Ihre Anforderungen bei 
 ::: moniker range="<=azs-1910"
 - Befolgen Sie die Anweisungen unter [Herunterladen einer Windows-VHD von Azure](/azure/virtual-machines/windows/download-vhd), um die VHD ordnungsgemäß zu generalisieren und herunterzuladen, bevor Sie sie in Azure Stack Hub verschieben.
 - Stellen Sie die VM über PowerShell in Azure bereit. Bereiten Sie sie ohne das Flag `-ProvisionVMAgent` vor.
-- Entfernen Sie alle VM-Erweiterungen mithilfe des Cmdlets **Remove-AzureRmVMExtension** vom virtuellen Computer, bevor Sie den virtuellen Computer in Azure generalisieren. Sie können feststellen, welche VM-Erweiterungen installiert sind, indem Sie zu `Windows (C:) > WindowsAzure > Logs > Plugins` navigieren.
+- Entfernen Sie alle VM-Erweiterungen mithilfe des Cmdlets vom virtuellen Computer, bevor Sie den virtuellen Computer in Azure generalisieren. Sie können feststellen, welche VM-Erweiterungen installiert sind, indem Sie zu `Windows (C:) > WindowsAzure > Logs > Plugins` navigieren.
+
+Verwenden des Az-Moduls von PowerShell:
+
+```powershell  
+Remove-AzVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
+```
+
+Verwenden des AzureRM-Moduls von PowerShell:
 
 ```powershell  
 Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"

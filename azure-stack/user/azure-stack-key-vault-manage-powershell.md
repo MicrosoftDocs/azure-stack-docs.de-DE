@@ -3,15 +3,15 @@ title: Verwalten von Key Vault in Azure Stack Hub mithilfe von PowerShell
 description: Hier erfahren Sie, wie Sie Key Vault in Azure Stack Hub mithilfe von PowerShell verwalten.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 11/20/2020
 ms.author: sethm
-ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: f1cdb082accdef3590bd737a39add61b1ebbc8bb
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: 0d7ce96b1619c21c5f442ab4d5a240a9eed16397
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546309"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518346"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>Verwalten von Key Vault in Azure Stack Hub mithilfe von PowerShell
 
@@ -34,9 +34,19 @@ In diesem Artikel wird beschrieben, wie Sie einen Schlüsseltresor in Azure Stac
 
 Damit Sie Vorgänge für einen Schlüsseltresor ausgeben können, muss Ihr Mandantenabonnement für Tresorvorgänge aktiviert sein. Um sicherzustellen, dass Schlüsseltresorvorgänge aktiviert sind, führen Sie den folgenden Befehl aus:
 
+### <a name="az-modules"></a>[Az-Module](#tab/az1)
+
 ```powershell  
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm1)
+ 
+
+ ```powershell  
+Get-AzureRMResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
+```
+---
+
 
 Wenn Ihr Abonnement für Tresorvorgänge aktiviert ist, hat **RegistrationState** in der Ausgabe für alle Ressourcentypen eines Schlüsseltresors den Wert **Registered**.
 
@@ -44,9 +54,20 @@ Wenn Ihr Abonnement für Tresorvorgänge aktiviert ist, hat **RegistrationState*
 
 Wenn keine Tresorvorgänge aktiviert sind, geben Sie den folgenden Befehl aus, um den Key Vault-Dienst in Ihrem Abonnement zu registrieren:
 
+### <a name="az-modules"></a>[Az-Module](#tab/az2)
+
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm2)
+ 
+ ```powershell
+Register-AzureRMResourceProvider -ProviderNamespace Microsoft.KeyVault
+```
+
+---
+
 
 Wenn die Registrierung erfolgreich war, wird die folgende Ausgabe zurückgegeben:
 
@@ -58,19 +79,40 @@ Wenn Sie die Schlüsseltresorbefehle aufrufen, wird möglicherweise eine Fehlerm
 
 Erstellen Sie vor dem Erstellen eines Schlüsseltresors zunächst eine Ressourcengruppe, damit alle schlüsseltresorbezogenen Ressourcen in einer Ressourcengruppe enthalten sind. Verwenden Sie den folgenden Befehl, um eine neue Ressourcengruppe zu erstellen:
 
+### <a name="az-modules"></a>[Az-Module](#tab/az3)
+
 ```powershell
 New-AzResourceGroup -Name "VaultRG" -Location local -verbose -Force
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm3)
+ 
+ ```powershell
+New-AzureRMResourceGroup -Name "VaultRG" -Location local -verbose -Force
+```
+
+---
+
 
 ![Neue, in PowerShell generierte Ressourcengruppe](media/azure-stack-key-vault-manage-powershell/image3.png)
 
-Erstellen Sie nun mithilfe des Cmdlets **New-AzKeyVault** einen Schlüsseltresor in der zuvor erstellten Ressourcengruppe. Dieser Befehl liest drei erforderliche Parameter: Ressourcengruppenname, Schlüsseltresorname und geografischer Standort.
+Erstellen Sie nun mithilfe des folgenden Cmdlets einen Schlüsseltresor in der zuvor erstellten Ressourcengruppe. Dieser Befehl liest drei erforderliche Parameter: Ressourcengruppenname, Schlüsseltresorname und geografischer Standort.
 
 Führen Sie den folgenden Befehl aus, um einen Schlüsseltresor zu erstellen:
+
+### <a name="az-modules"></a>[Az-Module](#tab/az4)
 
 ```powershell
 New-AzKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
 ```
+   
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm4)
+ 
+```powershell
+New-AzureRMKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
+```
+
+---
+
 
 ![Neuer, in PowerShell generierter Schlüsseltresor](media/azure-stack-key-vault-manage-powershell/image4.png)
 
@@ -80,6 +122,8 @@ Die Ausgabe dieses Befehls zeigt die Eigenschaften des von Ihnen erstellten Schl
 
 Bei einer AD FS-Bereitstellung wird möglicherweise die Warnung ausgegeben, dass die Zugriffsrichtlinie nicht festgelegt wurde und dass keine Benutzer oder Anwendungen über Zugriffsberechtigungen für die Verwendung dieses Tresors verfügen. Legen Sie zur Behebung dieses Problems mithilfe des Befehls [**Set-AzKeyVaultAccessPolicy**](#authorize-an-app-to-use-a-key-or-secret) eine Zugriffsrichtlinie für den Tresor fest:
 
+### <a name="az-modules"></a>[Az-Module](#tab/az5)
+
 ```powershell
 # Obtain the security identifier(SID) of the active directory user
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
@@ -88,6 +132,20 @@ $objectSID = $adUser.SID.Value
 # Set the key vault access policy
 Set-AzKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation
 ```
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm5)
+
+```powershell
+# Obtain the security identifier(SID) of the active directory user
+$adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
+$objectSID = $adUser.SID.Value
+
+# Set the key vault access policy
+Set-AzureRMKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation
+```
+
+---
+
 
 ## <a name="manage-keys-and-secrets"></a>Verwalten von Schlüsseln und Geheimnissen
 
@@ -100,6 +158,7 @@ Verwenden Sie das Cmdlet **Add-AzureKeyVaultKey**, um einen softwaregeschützten
 ```powershell
 Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination Software
 ```
+
 
 Mit dem `-Destination`-Parameter wird angegeben, dass es sich um einen softwaregeschützten Schlüssel handelt. Nach erfolgreicher Erstellung des Schlüssels gibt der Befehl die Details des erstellten Schlüssels aus.
 
@@ -141,21 +200,42 @@ Nach dem Erstellen von Schlüsseln und Geheimnissen können Sie deren Verwendung
 
 ## <a name="authorize-an-app-to-use-a-key-or-secret"></a>Autorisieren einer App zum Verwenden eines Schlüssels oder Geheimnisses
 
-Verwenden Sie das Cmdlet **Set-AzKeyVaultAccessPolicy**, um den Zugriff einer App auf einen Schlüssel oder auf ein Geheimnis im Schlüsseltresor zu autorisieren.
+Verwenden Sie das folgende Cmdlet, um den Zugriff einer App auf einen Schlüssel oder auf ein Geheimnis im Schlüsseltresor zu autorisieren.
 
 Im folgenden Beispiel lautet der Tresorname **ContosoKeyVault**, und die App, die Sie autorisieren möchten, hat die Client-ID **8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed**. Führen Sie den folgenden Befehl aus, um die App zu autorisieren. Mithilfe des Parameters **PermissionsToKeys** können Sie auch Berechtigungen für einen Benutzer, eine App oder eine Sicherheitsgruppe festlegen.
 
-Wenn Sie „Set-AzKeyvaultAccessPolicy“ für eine Azure Stack Hub-Umgebung verwenden, für die ADFS konfiguriert ist, sollte der Parameter „BypassObjectIdValidation“ angegeben werden.
+Wenn Sie das Cmdlet für eine Azure Stack Hub-Umgebung verwenden, für die ADFS konfiguriert ist, sollte der Parameter „BypassObjectIdValidation“ angegeben werden.
+
+### <a name="az-modules"></a>[Az-Module](#tab/az6)
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm6)
+
+```powershell
+Set-AzureRMKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
+```
+
+---
+
 
 Wenn Sie dieselbe App zum Lesen von Geheimnissen in Ihrem Tresor autorisieren möchten, führen Sie das folgende Cmdlet aus:
+
+### <a name="az-modules"></a>[Az-Module](#tab/az7)
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
 ```
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm7)
+
+```powershell
+Set-AzureRMKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
+```
+
+---
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

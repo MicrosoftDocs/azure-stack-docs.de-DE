@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 804c70ab3785e3932f2d2df01f43ccbd520d51a5
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 5759c0f43401fd27080b8872810e47af920da984
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572805"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812660"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Bereitstellen des SQL Server-Ressourcenanbieters in Azure Stack Hub
 
@@ -37,7 +37,7 @@ Damit Sie den Azure Stack Hub-SQL-Ressourcenanbieter bereitstellen können, müs
 
   |Unterstützte Azure Stack Hub-Version|SQL RP Version|Windows Server-Instanz, auf der der RP-Dienst ausgeführt wird
   |-----|-----|-----|
-  |2005|[SQL-RP-Version 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack Add-on RP Windows Server INTERNAL ONLY
+  |2008, 2005|[SQL-RP-Version 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack Add-on RP Windows Server INTERNAL ONLY
   |2005, 2002, 1910|[SQL RP Version 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter – Server Core|
   |1908|[SQL RP Version 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter – Server Core|
   |     |     |     |
@@ -110,7 +110,7 @@ Führen Sie nach der Installation aller erforderlichen Komponenten das Skript **
 Öffnen Sie ein **neues** PowerShell-Fenster mit erhöhten Rechten (nicht PowerShell ISE), und wechseln Sie zu dem Verzeichnis, in das Sie die Binärdateien des SQL-Ressourcenanbieters extrahiert haben, um den SQL-Ressourcenanbieter bereitzustellen. 
 
 > [!IMPORTANT]
-> Die Verwendung eines neuen PowerShell-Fensters wird empfohlen, um mögliche Probleme durch bereits geladene PowerShell-Module zu vermeiden. Oder Sie können mithilfe von „clear-azurermcontext“ den Cache leeren, bevor Sie das Updateskript ausführen.
+> Es wird dringend empfohlen, **Clear-AzureRmContext -Scope CurrentUser** und **Clear-AzureRmContext -Scope Process** zu verwenden, um den Cache vor dem Ausführen des Aktualisierungsskripts zu löschen.
 
 Führen Sie das Skript „DeploySqlProvider.ps1“ aus, das die folgenden Aufgaben ausführt:
 

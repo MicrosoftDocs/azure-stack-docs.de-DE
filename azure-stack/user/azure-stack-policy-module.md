@@ -3,15 +3,15 @@ title: Verwenden des Azure Stack Hub-Richtlinienmoduls
 description: Erfahren Sie, wie Sie ein Azure-Abonnement so beschränken, dass es sich wie ein Azure Stack Hub-Abonnement verhält.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/09/2020
+ms.date: 11/22/2020
 ms.author: sethm
-ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: ca96de45f50f48b91dbb2e6e8679df5dedab8d8f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 13d3e006d676e7e24f94741c59cb8837d5200d1d
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547057"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518125"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>Verwalten von Azure-Richtlinien mithilfe des Azure Stack Hub-Richtlinienmoduls
 
@@ -30,7 +30,9 @@ Das Azure Stack Hub-Richtlinienmodul ermöglicht Ihnen die Konfiguration eines A
 
 ## <a name="apply-policy-to-azure-subscription"></a>Übernehmen der Richtlinie für das Azure-Abonnement
 
-Mit den folgenden Befehlen können Sie eine Azure Stack Hub-Standardrichtlinie auf Ihr Azure-Abonnement anwenden. Ersetzen Sie vor der Ausführung dieser Befehle `Azure subscription name` durch den Namen Ihres Azure-Abonnements:
+Mit den folgenden Befehlen können Sie eine Azure Stack Hub-Standardrichtlinie auf Ihr Azure-Abonnement anwenden. Ersetzen Sie vor der Ausführung dieser Befehle `Azure subscription name` durch den Namen Ihres Azure-Abonnements.
+
+### <a name="az-modules"></a>[Az-Module](#tab/az1)
 
 ```powershell
 Add-AzAccount
@@ -39,10 +41,23 @@ $policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-A
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm1)
+
+```powershell
+Add-AzureRMAccount
+$s = Select-AzureRMSubscription -SubscriptionName "Azure subscription name"
+$policy = New-AzureRMPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+$subscriptionID = $s.Subscription.SubscriptionId
+New-AzureRMPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
+```
+
+---
 
 ## <a name="apply-policy-to-a-resource-group"></a>Übernehmen einer Richtlinie für eine Ressourcengruppe
 
 Möglicherweise möchten Sie präzisere Richtlinien anwenden. Beispielsweise könnten andere Ressourcen im selben Abonnement ausgeführt werden. Sie können die Anwendung der Richtlinie auf eine bestimmte Ressourcengruppe beschränken, was es Ihnen ermöglicht, Ihre Apps für Azure Stack Hub mithilfe von Azure-Ressourcen zu testen. Ersetzen Sie vor der Ausführung der folgenden Befehle `Azure subscription name` durch den Namen Ihres Azure-Abonnements:
+
+### <a name="az-modules"></a>[Az-Module](#tab/az2)
 
 ```powershell
 Add-AzAccount
@@ -52,6 +67,18 @@ $policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-A
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
 ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm2)
+ 
+```powershell
+Add-AzureRMAccount
+$rgName = 'myRG01'
+$s = Select-AzureRMSubscription -SubscriptionName "Azure subscription name"
+$policy = New-AzureRMPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+$subscriptionID = $s.Subscription.SubscriptionId
+New-AzureRMPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
+```
+
+---
 
 ## <a name="policy-in-action"></a>Ausgeführte Richtlinien
 

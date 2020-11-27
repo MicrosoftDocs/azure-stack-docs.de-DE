@@ -3,16 +3,16 @@ title: Erstellen und Veröffentlichen eines Marketplace-Elements in Azure Stack 
 description: Erfahren Sie, wie Sie ein Azure Stack Hub-Marketplace-Element erstellen und veröffentlichen.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/18/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 6887e29cca09b6ff0e774bc5898d00f14684e76b
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/16/2020
+ms.openlocfilehash: db85757fd898d0b75ace50c8fe78ecaa31722bc2
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543934"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518040"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Erstellen und Veröffentlichen eines benutzerdefinierten Azure Stack Hub-Marketplace-Elements
 
@@ -104,12 +104,12 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
     In der folgenden Liste werden die vorangehenden nummerierten Werte in der Beispielvorlage erläutert:
 
     - (1): Der Name des Angebots.
-    - (2): Der Name des Herausgebers ohne Leerzeichen
-    - (3): Die Version Ihrer Vorlage ohne Leerzeichen
-    - (4): Der Name, den Kunden sehen
-    - (5): Der Herausgebername, den Kunden sehen
-    - (6): Der offizielle Firmenname des Herausgebers
-    - (7): Der Pfad und der Name für die einzelnen Symbole
+    - (2): Der Name des Herausgebers ohne Leerzeichen.
+    - (3): Die Version Ihrer Vorlage ohne Leerzeichen.
+    - (4): Der Name, den Kunden sehen.
+    - (5): Der Herausgebername, den Kunden sehen.
+    - (6): Der offizielle Firmenname des Herausgebers.
+    - (7): Der Pfad und der Name für die einzelnen Symbole.
 
 5. Für alle Felder, die auf **ms-resource** verweisen, müssen Sie die entsprechenden Werte in der Datei **strings/resources.json** ändern:
 
@@ -150,6 +150,8 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
 
 ## <a name="publish-a-marketplace-item"></a>Veröffentlichen von Marketplace-Elementen
 
+### <a name="az-modules"></a>[Az-Module](#tab/az)
+
 1. Verwenden Sie PowerShell oder Azure Storage-Explorer, um Ihr Marketplace-Element (.azpkg) in Azure Blob Storage hochzuladen. Sie können es in einen lokalen Azure Stack Hub-Speicher oder in Azure Storage hochladen – ein temporärer Speicherort für das Paket. Stellen Sie sicher, dass das Blob öffentlich zugänglich ist.
 
 2. Der erste Schritt beim Importieren des Katalogpakets in Azure Stack Hub ist das Herstellen einer Remoteverbindung (RDP) mit dem virtuellen Clientcomputer, um die soeben von Ihnen erstellte Datei in Ihre Azure Stack Hub-Instanz zu kopieren.
@@ -188,10 +190,53 @@ Führen Sie die folgenden Schritte aus, um ein benutzerdefiniertes Marketplace-E
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
    ```
 
-   > [!NOTE]
-   > Auf der Marketplace-Benutzeroberfläche wird unter Umständen ein Fehler angezeigt, nachdem Sie ein Element entfernt haben. Um das Problem zu beheben, klicken Sie im Portal auf **Einstellungen**. Wählen Sie anschließend unter **Portalanpassung** die Option **Änderungen verwerfen** aus.
-   >
-   >
+> [!Note]  
+> Auf der Marketplace-Benutzeroberfläche wird unter Umständen ein Fehler angezeigt, nachdem Sie ein Element entfernt haben. Um das Problem zu beheben, klicken Sie im Portal auf **Einstellungen**. Wählen Sie anschließend unter **Portalanpassung** die Option **Änderungen verwerfen** aus.
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm)
+
+1. Verwenden Sie PowerShell oder Azure Storage-Explorer, um Ihr Marketplace-Element (.azpkg) in Azure Blob Storage hochzuladen. Sie können es in einen lokalen Azure Stack Hub-Speicher oder in Azure Storage hochladen – ein temporärer Speicherort für das Paket. Stellen Sie sicher, dass das Blob öffentlich zugänglich ist.
+
+2. Der erste Schritt beim Importieren des Katalogpakets in Azure Stack Hub ist das Herstellen einer Remoteverbindung (RDP) mit dem virtuellen Clientcomputer, um die soeben von Ihnen erstellte Datei in Ihre Azure Stack Hub-Instanz zu kopieren.
+
+3. Hinzufügen eines Kontexts:
+
+    ```powershell
+    $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzureRMAccount -EnvironmentName "AzureStackAdmin"
+    ```
+
+4. Führen Sie das folgende Skript aus, um die Ressource in Ihren Katalog zu importieren:
+
+    ```powershell
+    Add-AzsGalleryItem -GalleryItemUri `
+    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg -Verbose
+    ```
+
+5. Vergewissern Sie sich, dass Sie über ein gültiges Speicherkonto verfügen, das zum Speichern des Elements verfügbar ist. Den `GalleryItemURI`-Wert erhalten Sie über das Azure Stack Hub-Administratorportal. Wählen **Speicherkonto -> Blobeigenschaften -> URL** mit der Erweiterung „.azpkg“ aus. Das Speicherkonto ist nur für die temporäre Verwendung zum Veröffentlichen im Marketplace vorgesehen.
+
+   Nachdem Sie Ihr Katalogpaket fertiggestellt und mit **Add-AzsGalleryItem** hochgeladen haben, sollte Ihr benutzerdefinierter virtueller Computer nun sowohl im Marketplace als auch in der Ansicht **Erstellen einer Ressource** angezeigt werden. Beachten Sie, dass das benutzerdefinierte Katalogpaket unter **Marketplace-Verwaltung** nicht angezeigt wird.
+
+   [![Hochgeladenes benutzerdefiniertes Marketplace-Element](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "Hochgeladenes benutzerdefiniertes Marketplace-Element")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
+
+6. Nachdem Ihr Element erfolgreich im Marketplace veröffentlicht wurde, können Sie den Inhalt aus dem Speicherkonto löschen.
+
+   Auf alle Standardartefakte des Katalogs und Ihre benutzerdefinierten Katalogartefakte kann jetzt unter den folgenden URLs ohne Authentifizierung zugegriffen werden:
+
+   - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+   - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+
+6. Sie können ein Marketplace-Element mit dem Cmdlet **Remove-AzGalleryItem** entfernen. Beispiel:
+
+   ```powershell
+   Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
+   ```
+
+> [!Note]  
+> Auf der Marketplace-Benutzeroberfläche wird unter Umständen ein Fehler angezeigt, nachdem Sie ein Element entfernt haben. Um das Problem zu beheben, klicken Sie im Portal auf **Einstellungen**. Wählen Sie anschließend unter **Portalanpassung** die Option **Änderungen verwerfen** aus.
+
+---
 
 ## <a name="reference-marketplace-item-manifestjson"></a>Referenz: Datei „manifest.json“ für Marketplace-Elemente
 

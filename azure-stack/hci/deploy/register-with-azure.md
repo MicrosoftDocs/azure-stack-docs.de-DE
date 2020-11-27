@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/17/2020
-ms.openlocfilehash: 7a98692fb29b1a539bf9f9fd26e0a3e226cb8669
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.date: 11/23/2020
+ms.openlocfilehash: d90788a6f7f267955b1c4837eef74a5980118dea
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94785782"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812612"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Herstellen einer Verbindung von Azure Stack HCI mit Azure
 
@@ -62,10 +62,16 @@ Verwenden Sie das folgende Verfahren, um einen Azure Stack HCI-Cluster mit Azure
    Install-WindowsFeature RSAT-Azure-Stack-HCI
    ```
 
-3. Installieren Sie die erforderlichen Cmdlets:
+3. Installieren Sie die erforderlichen Cmdlets. Wenn Sie Azure Stack HCI aus dem Public Preview-Image bereitstellen, müssen Sie Version 0.3.1 des Az.StackHCI-Moduls von PowerShell verwenden:
 
    ```PowerShell
    Install-Module -Name Az.StackHCI -RequiredVersion 0.3.1
+   ```
+
+   Wenn Sie das [23. November 2020-Vorschauupdate (KB4586852)](../release-notes.md) bereits auf jedem Server in Ihrem Cluster installiert haben und Ihren Cluster gerade jetzt bei Azure registrieren, können Sie problemlos die neueste Version von Az.StackHCI verwenden:
+
+   ```PowerShell
+   Install-Module -Name Az.StackHCI
    ```
 
    > [!NOTE]
