@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/10/2020
-ms.openlocfilehash: eaa9417abd41828495d3cd685ecc1f56c42c92e1
-ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
+ms.date: 11/24/2020
+ms.openlocfilehash: 56cc4c35ecbb92c30883bd1f2018422cdcac0894
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441173"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812722"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Versionshinweise für die Public Preview von Azure Stack HCI
 
@@ -20,12 +20,53 @@ ms.locfileid: "94441173"
 
 In diesem Artikel werden die Inhalte der Updatepakete für die Public Preview von Azure Stack HCI beschrieben.
 
+## <a name="november-23-2020-preview-update-kb4586852"></a>23. November, 2020 Update der Vorschauversion (KB4586852)
+
+Dieses Update enthält Verbesserungen und Fehlerbehebungen für das neueste Release von Azure Stack HCI. 
+
+   > [!IMPORTANT]
+   > Wenn Sie Azure Stack HCI-Cluster konfiguriert und mit dem Public Preview-Image registriert haben, müssen Sie Ihre Azure-Registrierung reparieren, nachdem das KB4586852-Update installiert wurde, um die neuen Funktionen zu verwenden, die das Update bietet. Führen Sie nach der Installation des Updates die folgenden Schritte für jeden Cluster aus:
+   >
+   > 1. Stellen Sie sicher, dass alle Server im Cluster auf KB4586852 aktualisiert wurden. Wenn dies nicht der Fall ist, schlägt die Reparatur fehl und zeigt die Knoten an, die aktualisiert werden müssen.
+   >
+   > 2. Stellen Sie entweder lokal oder mithilfe von `Enter-PSSession <server-name>` eine Verbindung mit einem der Clusterknoten her.
+   >
+   > 3. Laden Sie das Registrierungsmodul „AzStackHCI v0.4.1“ aus dem PowerShell-Katalog herunter. Führen Sie `Install-Module -Name Az.StackHCI` aus, um das aktuellste Modul zu erhalten.
+   >
+   > 4. Führen Sie den folgenden Befehl aus, um Ihre Registrierung zu reparieren. Verwenden Sie die Abonnement-ID, die ursprünglich zum Registrieren des Clusters verwendet wurde. `Get-AzureStackHCI` zeigt den aktuellen ARM-URI an, der die Abonnementinformationen enthält.
+   >
+   >   ```PowerShell
+   >   Register-AzStackHCI -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -RepairRegistration
+   >   ```
+   > 
+
+### <a name="improvements-and-fixes"></a>Verbesserungen und Fehlerbehebungen
+Dieses Nicht-Sicherheitsupdate umfasst Qualitätsverbesserungen. Zu den wichtigsten Änderungen gehören: 
+
+- Mit diesem Update können Azure Stack HCI-Kunden mit gültigen Lizenzen für Windows Server 2019 Datacenter Edition diese verwenden, um in Azure Stack HCI gehostete virtuelle Computer (VMs) ganz einfach zu aktivieren, ohne die Product Keys für die einzelnen virtuellen Computer verwalten zu müssen. Insbesondere können Sie Windows Admin Center oder PowerShell verwenden, um einen nicht verwendeten Aktivierungsschlüssel von Windows Server 2019 Datacenter Edition direkt in den Azure Stack HCI-Host einzugeben, um die automatische VM-Aktivierung (AVMA) zu aktivieren. Virtuelle Computer, auf denen Windows Server 2019 oder niedriger ausgeführt wird, können dann die Aktivierung vom Host erben. Der eingegebene Schlüssel kann ein Mehrfachaktivierungsschlüssel (Multiple Activation Key, MAK) sein, der aus dem Volume Licensing Center stammt, der Schlüssel, der auf dem Aufkleber mit dem Echtheitszertifikat (Certificate of Authenticity, COA) steht, das an einem OEM-Server angebracht ist, oder der Schlüssel einer Einzelhandelskopie von Windows Server 2019 Datacenter Edition in einer Schachtel. In dieser Version werden generische Volumenlizenzschlüssel (GVLK) nicht unterstützt.
+
+- Azure Stack HCI sammelt nun erforderliche Diagnosedaten, wobei es sich um die Daten handelt, die mindestens erforderlich sind, um das Gerät sicher und auf dem neuesten Stand zu halten sowie seine erwartungsgemäße Funktion sicherzustellen. Mit den erforderlichen Diagnosedaten wird eine begrenzte Menge von Daten gesammelt, die für das Verständnis des Geräts und seiner Konfiguration wichtig sind. Diese Daten helfen bei der Identifizierung von Problemen, die bei einer bestimmten Hardware- oder Softwarekonfiguration auftreten können.  
+
+### <a name="known-issues-in-this-update"></a>Bekannte Probleme in diesem Update
+Microsoft sind aktuell keine Probleme mit diesem Update bekannt.
+
+### <a name="how-to-get-this-update"></a>Beziehen dieses Updates 
+Das Sicherheitsupdate vom 23. November 2020 (KB4586852) für [Azure Stack HCI (Vorschauversion)](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) wird über Windows Update bereitgestellt. Informationen zur Installation in Ihrem Azure Stack HCI-Cluster finden Sie unter [Aktualisieren von Azure Stack HCI-Clustern](manage/update-cluster.md).
+
+### <a name="file-information"></a>Dateiinformationen
+Eine Liste der im Rahmen dieses Updates (Betriebssystembuild 17784.1381) bereitgestellten Dateien erhalten Sie durch Herunterladen der  [Dateiinformationen für das kumulative Update 4586852](https://download.microsoft.com/download/5/c/6/5c6f8c37-3e0b-4239-a6d9-9c709e18e869/4586852.csv).
+
+   > [!NOTE]
+   > Einige Dateien sind in der Dateiversionsspalte der CSV-Datei fälschlicherweise mit „Not applicable“ (Nicht zutreffend) gekennzeichnet. Dies kann bei der Überprüfung des Builds durch ein Drittanbietertool zu falsch positiven oder falsch negativen Ergebnissen führen.
+
 ## <a name="november-10-2020-security-update-kb4586811"></a>10. November 2020, Sicherheitsupdate (KB4586811)
 
 Dieses Update enthält Verbesserungen und Fehlerbehebungen für das neueste Release von Azure Stack HCI.
 
 ### <a name="improvements-and-fixes"></a>Verbesserungen und Fehlerbehebungen
-Dieses Update enthält verschiedene Sicherheitsverbesserungen für interne Betriebssystemfunktionen. Für dieses Release wurden keine weiteren Probleme dokumentiert.
+Dieses Update enthält verschiedene Sicherheitsverbesserungen für interne Betriebssystemfunktionen. Es behebt ein Sicherheitsrisiko, indem es verhindert, dass Anwendungen, die unter dem SYSTEM-Konto ausgeführt werden, auf lokale Ports drucken, die auf eine Datei verweisen. Druckaufträge, die fehlschlagen, protokollieren den Fehler 50, „Die Anforderung wird nicht unterstützt“, mit der Ereignis-ID 372 im Ereignisprotokoll „PrintService\Admin“. Um dieses Problem in Zukunft zu beheben, stellen Sie sicher, dass Ihre Anwendungen oder Dienste unter einem bestimmten Benutzer- oder Dienstkonto ausgeführt werden.
+
+Für dieses Release wurden keine weiteren Probleme dokumentiert.
 
 Weitere Informationen zu den beseitigten Sicherheitsrisiken finden Sie im [Leitfaden für Sicherheitsupdates](https://portal.msrc.microsoft.com/security-guidance).
 

@@ -9,89 +9,35 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: aca163df1026193933ffb9d09dbdf4a854638a75
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 69e1aa757f0285cc39d8df16bbd3531af0d3ea51
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899804"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152844"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Rotieren von Geheimnissen in Azure Stack Hub
 
-*Diese Anweisungen gelten nur für integrierte Azure Stack Hub-Systeme ab Version 1803. Versuchen Sie nicht, die Geheimnisrotation mit älteren Versionen (vor 1803) zu verwenden*
-
-Dieser Artikel enthält Anleitungen und PowerShell-Skripts für die Geheimnisrotation, um die sichere Kommunikation mit Azure Stack Hub-Infrastrukturressourcen und -diensten zu gewährleisten. 
+Dieser Artikel enthält Anleitungen zur Durchführung der Geheimnisrotation, um die sichere Kommunikation mit Azure Stack Hub-Infrastrukturressourcen und -diensten zu gewährleisten.
 
 ## <a name="overview"></a>Übersicht
 
 Azure Stack Hub verwendet Geheimnisse, um eine sichere Kommunikation mit Infrastrukturressourcen und -diensten zu gewährleisten. Um die Integrität der Azure Stack Hub-Infrastruktur zu erhalten, müssen Operatoren die Geheimnisse mit einer Häufigkeit rotieren können, die mit den Sicherheitsanforderungen ihrer Organisation in Einklang steht.
 
-### <a name="internal-vs-external-secrets"></a>Interne und externe Geheimnisse
-
-Seit Release 1811 ist die Geheimnisrotation für interne und externe Zertifikate getrennt:
-
-- **Interne Geheimnisse**: Zertifikate, Kennwörter, sicheren Zeichenfolgen und Schlüssel, die von der Azure Stack Hub-Infrastruktur ohne Eingriff durch den Azure Stack Hub-Operator verwendet werden.
-
-- **Externe Geheimnisse**: Infrastrukturdienstzertifikate für extern ausgerichtete Dienste, die vom Azure Stack Hub-Operator bereitgestellt werden. Zu externen Geheimnissen zählen Zertifikate für folgende Dienste:
-
-    - Administratorportal
-    - Öffentliches Portal
-    - Azure Resource Manager (Administrator)
-    - Azure Resource Manager (global)
-    - Key Vault-Administrator
-    - Key Vault
-    - Administratorerweiterungshost
-    - ACS (einschließlich Blob, Table und Queue Storage)
-    - AD FS*
-    - Graph*
-    
-    \* Nur relevant, wenn Active Directory-Verbunddienste (AD FS) als Identitätsanbieter der Umgebung verwendet wird.
-
-> [!Important]
-> Alle anderen sicheren Schlüssel und Zeichenfolgen werden vom Administrator manuell aktualisiert. Dies schließt Kennwörter für Benutzer- und Administratorkonten, [Kennwörter und Berechtigungen für Netzwerkswitches](azure-stack-customer-defined.md) sowie Anmeldeinformationen für den Baseboard-Verwaltungscontroller (BMC) ein, auf die [weiter unten in diesem Artikel](#update-the-bmc-credential) eingegangen wird. 
->
->Außerdem wird in diesem Artikel nicht die Geheimnisrotation für Ressourcenanbieter (RPs) behandelt, die Mehrwert schaffen. Wenn Sie diese Geheimnisse rotieren möchten, lesen Sie stattdessen die folgenden Artikel:
->
-> - [Rotieren von Geheimnissen und Zertifikaten in App Service in Azure Stack Hub](app-service-rotate-certificates.md)
-> - [MySQL-Ressourcenanbieter – Rotieren von Geheimnissen](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)
-> - [SQL-Ressourcenanbieter – Rotieren von Geheimnissen](azure-stack-sql-resource-provider-maintain.md#secrets-rotation)
-
-### <a name="expiration-alerts"></a>Ablaufwarnungen
-
-Für Geheimnisse, die in 30 Tagen ablaufen, werden im Administratorportal folgende Warnungen generiert:
+Für Geheimnisse, die in 30 Tagen ablaufen, werden im Administratorportal folgende Warnungen generiert. Diese Warnungen lassen sich durch das Durchführen einer Geheimnisrotation beheben:
 
 - Pending service account password expiration (Bevorstehender Ablauf eines Dienstkontokennworts)
 - Pending internal certificate expiration (Bevorstehender Ablauf eines internen Zertifikats)
 - Pending external certificate expiration (Bevorstehender Ablauf eines externen Zertifikats)
 
-Durch die Durchführung der in den folgenden Abschnitten beschriebenen Schritte zur Geheimnisrotation werden diese Warnungen behoben.
-
+::: moniker range="<azs-1811"  
 > [!Note]
 > In Azure Stack Hub-Umgebungen mit Versionen vor 1811 treten möglicherweise Warnungen zum bevorstehenden Ablauf von internen Zertifikaten oder Geheimnissen auf. Diese Warnungen sind ungenau und sollten ohne interne Geheimnisrotation ignoriert werden. Falsche Warnungen im Zusammenhang mit dem Ablauf interner Geheimnisse sind ein bekanntes Problem, das in 1811 behoben wurde. Interne Geheimnisse laufen erst ab, wenn die Umgebung für zwei Jahre aktiv war.
-
-### <a name="external-certificates-from-a-new-certificate-authority"></a>Externe Zertifikate von einer neuen Zertifizierungsstelle
-
-Azure Stack Hub unterstützt die Geheimnisrotation mit externen Zertifikaten von einer neuen Zertifizierungsstelle (ZS) in den folgenden Kontexten:
-
-|Installierte Zertifizierungsstelle|ZS, zu der rotiert werden soll|Unterstützt|Unterstützte Azure Stack Hub-Versionen|
-|-----|-----|-----|-----|
-|Von „Selbstsigniert“|Zu „Enterprise“|Unterstützt|1903 und höher|
-|Von „Selbstsigniert“|Zu „Selbstsigniert“|Nicht unterstützt||
-|Von „Selbstsigniert“|Zu „Öffentlich“<sup>*</sup>|Unterstützt|1803 und höher|
-|Von „Enterprise“|Zu „Enterprise“|Unterstützt. Von 1803 – 1903: Wird unterstützt, solange Kunden die GLEICHE Unternehmens-ZS wie bei der Bereitstellung verwenden.|1803 und höher|
-|Von „Enterprise“|Zu „Selbstsigniert“|Nicht unterstützt||
-|Von „Enterprise“|Zu „Öffentlich“<sup>*</sup>|Unterstützt|1803 und höher|
-|Von „Öffentlich“<sup>*</sup>|Zu „Enterprise“|Unterstützt|1903 und höher|
-|Von „Öffentlich“<sup>*</sup>|Zu „Selbstsigniert“|Nicht unterstützt||
-|Von „Öffentlich“<sup>*</sup>|Zu „Öffentlich“<sup>*</sup>|Unterstützt|1803 und höher|
-
-<sup>*</sup>Gibt an, dass die Öffentlichen Zertifizierungsstellen Teil des „Vertrauenswürdiger Stamm“-Programms von Windows sind. Sie finden die vollständige Liste im Artikel [List of Participants - Microsoft Trusted Root Program](/security/trusted-root/participants-list).
+::: moniker-end
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Für die Rotation interner und externer Geheimnisse:
-
-1. Es wird dringend empfohlen, die Azure Stack Hub-Instanz auf die neueste Version zu aktualisieren.
+1. Es wird dringend empfohlen, die Azure Stack Hub-Instanz auf die [neueste Version](release-notes.md) zu aktualisieren.
 
     ::: moniker range="<azs-1811"  
     >[!IMPORTANT]
@@ -104,19 +50,65 @@ Für die Rotation interner und externer Geheimnisse:
 
 3. Operatoren wird auffallen, dass während der Geheimnisrotation Warnungen geöffnet und automatisch wieder geschlossen werden. Dieses Verhalten ist zu erwarten, und die Warnungen können ignoriert werden. Operatoren können die Gültigkeit dieser Warnungen durch Verwenden des Cmdlets [Test-AzureStack PowerShell](azure-stack-diagnostic-test.md) überprüfen. Wenn Operatoren Azure Stack Hub-Systeme mithilfe von System Center Operations Manager (SCOM) überwachen, wird durch Versetzen eines Systems in den Wartungsmodus verhindert, dass diese Warnungen ihre ITSM-Systeme erreichen. Es werden jedoch weiterhin Warnungen ausgegeben, wenn das Azure Stack Hub-System nicht mehr erreichbar ist.
 
-Zum Rotieren externer Geheimnisse müssen Sie diese zusätzlichen Voraussetzungen erfüllen:
+::: moniker range=">=azs-1811"
+## <a name="rotate-external-secrets"></a>Rotieren externer Geheimnisse
+
+> [!Important]
+> Rotation externer Geheimnisse für:
+> - **Geheimnisse ohne Zertifikat wie sichere Schlüssel und Zeichenfolgen** muss vom Administrator manuell durchgeführt werden. Dies schließt Kennwörter für Benutzer- und Administratorkonten sowie [Netzwerkswitchkennwörter](azure-stack-customer-defined.md) ein.
+> - **Geheimnisse von Ressourcenanbietern, die Mehrwert schaffen**, werden in einer separaten Anleitung behandelt:
+>    - [App Service in Azure Stack Hub](app-service-rotate-certificates.md)
+>    - [IoT Hub in Azure Stack Hub](iot-hub-rp-rotate-secrets.md)
+>    - [MySQL in Azure Stack Hub](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)
+>    - [SQL in Azure Stack Hub](azure-stack-sql-resource-provider-maintain.md#secrets-rotation)
+> - **Anmeldeinformationen für Baseboard-Verwaltungscontroller (BMC)** ist ebenfalls ein manueller Prozess, der [später in diesem Artikel behandelt wird](#update-the-bmc-credential). 
+
+In diesem Abschnitt wird die Rotation von Zertifikaten behandelt, die zum Sichern extern verfügbarer Dienste verwendet werden. Diese Zertifikate werden vom Azure Stack Hub-Operator für die folgenden Dienste bereitgestellt:
+
+- Administratorportal
+- Öffentliches Portal
+- Azure Resource Manager (Administrator)
+- Azure Resource Manager (global)
+- Key Vault-Administrator
+- Key Vault
+- Administratorerweiterungshost
+- ACS (einschließlich Blob, Table und Queue Storage)
+- ADFS<sup>*</sup>
+- Graph<sup>*</sup>
+
+<sup>*</sup>Gilt für die Verwendung der Active Directory-Verbunddienste (AD FS).
+
+### <a name="preparation"></a>Vorbereitung
+
+Vor der Rotation externer Geheimnisse:
 
 1. Führen Sie das **[`Test-AzureStack`](azure-stack-diagnostic-test.md)** -PowerShell-Cmdlet mithilfe des `-group SecretRotationReadiness`-Parameters aus, um zu bestätigen, dass alle Testausgaben fehlerfrei sind, bevor Sie Geheimnisse rotieren.
 2. Bereiten Sie eine neue Gruppe externer Ersatzzertifikate vor:
-    - Die neue Gruppe muss den Zertifikatspezifikationen aus den [Azure Stack Hub-PKI-Zertifikatanforderungen](azure-stack-pki-certs.md) entsprechen. 
-    - Sie können eine Zertifikatsignieranforderung (Certificate Signing Request, CSR), die an Ihre Zertifizierungsstelle gesendet werden soll, mit den unter [Generieren von Zertifikatsignieranforderungen](azure-stack-get-pki-certs.md) beschriebenen Schritten generieren und sie mit den in [Vorbereiten von PKI-Zertifikaten](azure-stack-prepare-pki-certs.md) beschriebenen Schritten für die Verwendung in Ihrer Azure Stack Hub-Umgebung vorbereiten. 
-    - Achten Sie darauf, dass Sie die Zertifikate mit den in [Überprüfen von Azure Stack-PKI-Zertifikaten](azure-stack-validate-pki-certs.md) beschriebenen Schritten überprüfen.
-    - Vergewissern Sie sich, dass das Kennwort keine Sonderzeichen wie `*` oder `)` enthält.
-    - Vergewissern Sie sich, dass als PFX-Verschlüsselung **TripleDES-SHA1** verwendet wird. Lesen Sie bei Bedarf die Informationen unter [Beheben allgemeiner Probleme mit Azure Stack Hub-PKI-Zertifikaten](azure-stack-remediate-certs.md#pfx-encryption).
+   - Die neue Gruppe muss den Zertifikatspezifikationen aus den [Azure Stack Hub-PKI-Zertifikatanforderungen](azure-stack-pki-certs.md) entsprechen. 
+   - Generieren Sie eine Zertifikatsignieranforderung (Certificate Signing Request, CSR), die an Ihre Zertifizierungsstelle gesendet werden soll, mit den unter [Generieren von Zertifikatsignieranforderungen](azure-stack-get-pki-certs.md) beschriebenen Schritten, und bereiten Sie sie mit den in [Vorbereiten von PKI-Zertifikaten](azure-stack-prepare-pki-certs.md) beschriebenen Schritten für die Verwendung in Ihrer Azure Stack Hub-Umgebung vor. Azure Stack Hub unterstützt die Geheimnisrotation für externe Zertifikate von einer neuen Zertifizierungsstelle (ZS) in den folgenden Kontexten:
+
+     |Rotieren von der Zertifizierungsstelle|Rotieren zur Zertifizierungsstelle|Unterstützung für Azure Stack Hub-Versionen|
+     |-----|-----|-----|-----|
+     |Selbstsigniert|Enterprise| 1903 und höher|
+     |Selbstsigniert|Selbstsigniert|Nicht unterstützt|
+     |Selbstsigniert|Öffentlich<sup>*</sup>|1803 und höher|
+     |Enterprise|Enterprise|1803 und höher; 1803–1903, wenn DIESELBE Enterprise-Zertifizierungsstelle wie bei der Bereitstellung verwendet wird.|
+     |Enterprise|Selbstsigniert|Nicht unterstützt|
+     |Enterprise|Öffentlich<sup>*</sup>|1803 und höher|
+     |Öffentlich<sup>*</sup>|Enterprise|1903 und höher|
+     |Öffentlich<sup>*</sup>|Selbstsigniert|Nicht unterstützt|
+     |Öffentlich<sup>*</sup>|Öffentlich<sup>*</sup>|1803 und höher|
+
+     <sup>*</sup>Teil des [Windows-Programms für vertrauenswürdige Stämme](/security/trusted-root/participants-list).
+
+   - Achten Sie darauf, dass Sie die Zertifikate mit den in [Überprüfen von Azure Stack-PKI-Zertifikaten](azure-stack-validate-pki-certs.md) beschriebenen Schritten überprüfen.
+   - Vergewissern Sie sich, dass das Kennwort keine Sonderzeichen wie `*` oder `)` enthält.
+   - Vergewissern Sie sich, dass als PFX-Verschlüsselung **TripleDES-SHA1** verwendet wird. Lesen Sie bei Bedarf die Informationen unter [Beheben allgemeiner Probleme mit Azure Stack Hub-PKI-Zertifikaten](azure-stack-remediate-certs.md#pfx-encryption).
+
 3. Speichern Sie eine Sicherung der für die Rotation verwendeten Zertifikate an einem sicheren Sicherungsspeicherort. Sollte die Rotation nicht erfolgreich sein, ersetzen Sie die Zertifikate in der Dateifreigabe durch die Sicherungskopien, und wiederholen Sie dann die Rotation. Bewahren Sie Sicherungskopien am sicheren Sicherungsspeicherort auf.
 4. Erstellen Sie eine Dateifreigabe, auf die Sie über die virtuellen ERCS-Computer zugreifen können. Die Identität **CloudAdmin** muss über Lese- und Schreibzugriff für die Dateifreigabe verfügen.
 5. Öffnen Sie eine PowerShell ISE-Konsole auf einem Computer, auf dem Sie Zugriff auf die Dateifreigabe haben. Navigieren Sie zu Ihrer Dateifreigabe, wo Sie Verzeichnisse für Ihre externen Zertifikate erstellen.
-6. Laden Sie **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** auf eine Netzwerkdateifreigabe herunter, auf die während der Rotation zugegriffen werden kann, und führen Sie das Skript aus. Das Skript erstellt eine Ordnerstruktur entsprechend ***.\Certificates\AAD*** oder ***.\Certificates\ADFS***, abhängig von Ihrem Identitätsanbieter. Ihre Ordnerstruktur muss mit einem **\\Certificates**-Ordner beginnen, gefolgt von NUR einem **\\AAD**- oder **\\ADFS**-Ordner. Alle zusätzlichen Unterverzeichnisse sind in der vorangehenden Struktur enthalten. Zum Beispiel:
+6. Laden Sie **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** auf eine Netzwerkdateifreigabe herunter, auf die während der Rotation zugegriffen werden kann, und führen Sie das Skript aus. Das Skript erstellt eine Ordnerstruktur entsprechend **_.\Certificates\AAD_ *_ oder _* _.\Certificates\ADFS_ *_, abhängig von Ihrem Identitätsanbieter. Ihre Ordnerstruktur muss mit einem _* \\Certificates**-Ordner beginnen, gefolgt von NUR einem **\\AAD**- oder **\\ADFS**-Ordner. Alle zusätzlichen Unterverzeichnisse sind in der vorangehenden Struktur enthalten. Zum Beispiel:
     - Dateifreigabe = **\\\\\<IPAddress>\\\<ShareName>**
     - Stammordner des Zertifikats für Azure AD-Anbieter = **\\Certificates\AAD**
     - Vollständiger Pfad = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
@@ -174,7 +166,7 @@ Zum Rotieren externer Geheimnisse müssen Sie diese zusätzlichen Voraussetzunge
 
     ```
 
-## <a name="rotate-external-secrets"></a>Rotieren externer Geheimnisse
+### <a name="rotation"></a>Drehung
 
 Führen Sie die folgenden Schritte aus, um externe Geheimnisse zu rotieren:
 
@@ -207,7 +199,7 @@ Führen Sie die folgenden Schritte aus, um externe Geheimnisse zu rotieren:
         - `-PathAccessCredential`: Das PSCredential-Objekt mit Anmeldeinformationen für die Freigabe.
         - `-CertificatePassword`: Eine sichere Zeichenfolge des Kennworts, das für alle erstellten PFX-Zertifikatdateien verwendet wird.
 
-2. Die Rotation externer Geheimnisse dauert ca. eine Stunde. Nach erfolgreichem Abschluss wird in Ihrer Konsole `ActionPlanInstanceID ... CurrentStatus: Completed`, gefolgt von `DONE` angezeigt. Entfernen Sie Ihre Zertifikate aus der Freigabe, die Sie im Abschnitt „Voraussetzungen“ erstellt haben, und speichern Sie sie an ihrem sicheren Sicherungsspeicherort.
+2. Die Rotation externer Geheimnisse dauert ca. eine Stunde. Nach erfolgreichem Abschluss wird in Ihrer Konsole eine Meldung `ActionPlanInstanceID ... CurrentStatus: Completed`, gefolgt von `DONE` angezeigt. Entfernen Sie Ihre Zertifikate aus der Freigabe, die Sie im Abschnitt „Vorbereitung“ erstellt haben, und speichern Sie sie an ihrem sicheren Sicherungsspeicherort.
 
     > [!Note]
     > Sollte bei der Geheimnisrotation ein Fehler auftreten, befolgen Sie die Anweisungen in der Fehlermeldung, und führen Sie `Start-SecretRotation` mit dem Parameter `-ReRun` erneut aus.
@@ -217,22 +209,33 @@ Führen Sie die folgenden Schritte aus, um externe Geheimnisse zu rotieren:
     >```  
     >
     >Wenden Sie sich an den Support, falls wiederholt Fehler bei der Geheimnisrotation auftreten.
+::: moniker-end
 
 ## <a name="rotate-internal-secrets"></a>Rotieren interner Geheimnisse
 
-Eine interne Geheimnisrotation ist nur dann erforderlich, wenn Sie den Verdacht haben, dass eines davon kompromittiert wurde, oder wenn Sie eine Ablaufwarnung erhalten haben. In Versionen vor 1811 treten möglicherweise Warnungen für ausstehende interne Zertifikate oder Geheimnisablaufzeiten auf. Diese Warnungen sind ungenau und sollten ignoriert werden. Es handelt sich um ein bekanntes Problem, das in 1811 behoben wurde. Interne Geheimnisse laufen erst ab, wenn die Umgebung für zwei Jahre aktiv war.
+Interne Geheimnisse umfassen Zertifikate, Kennwörter, sichere Zeichenfolgen und Schlüssel, die von der Azure Stack Hub-Infrastruktur ohne Eingriff durch den Azure Stack Hub-Operator verwendet werden. Eine interne Geheimnisrotation ist nur dann erforderlich, wenn Sie den Verdacht haben, dass eines davon kompromittiert wurde, oder wenn Sie eine Ablaufwarnung erhalten haben. Interne Geheimnisse laufen erst ab, wenn die Umgebung für zwei Jahre aktiv war.
+::: moniker range="<azs-1811"  
+In früheren Bereitstellungen als 1811 treten möglicherweise Warnungen für ausstehende interne Zertifikate oder Geheimnisablaufzeiten auf. Diese Warnungen sind ungenau und sollten ignoriert werden. Es handelt sich um ein bekanntes Problem, das in 1811 behoben wurde.
+::: moniker-end
 
-Ziehen Sie das PowerShell-Skript in Schritt 2 von [Rotieren externer Geheimnisse](#rotate-external-secrets) zurate. Das Skript enthält ein Beispiel, das Sie für die interne Geheimnisrotation anpassen können, indem Sie einige Änderungen vornehmen, um die folgenden Schritte auszuführen:
+Führen Sie die folgenden Schritte aus, um interne Geheimnisse zu rotieren:
 
-1. Fügen Sie im Abschnitt „Geheimnisrotation ausführen“ z. B. den Parameter `-Internal` zum Cmdlet [Start-SecretRotation](../reference/pep-2002/start-secretrotation.md) hinzu:
+1. Führen Sie das folgende PowerShell-Skript aus. Beachten Sie bei der Rotation interner Geheimnisse, dass im Abschnitt „Geheimnisrotation ausführen“ nur der Parameter `-Internal` mit Cmdlet [Start-SecretRotation](../reference/pep-2002/start-secretrotation.md) verwendet wird:
 
     ```powershell
+    # Create a PEP Session
+    winrm s winrm/config/client '@{TrustedHosts= "<IP_address_of_ERCS>"}'
+    $PEPCreds = Get-Credential
+    $PEPSession = New-PSSession -ComputerName <IP_address_of_ERCS_Machine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
+
     # Run Secret Rotation
-    ...
+    $CertPassword = ConvertTo-SecureString "<Cert_Password>" -AsPlainText -Force
+    $CertShareCreds = Get-Credential
+    $CertSharePath = "<Network_Path_Of_CertShare>"
     Invoke-Command -Session $PEPSession -ScriptBlock {
         Start-SecretRotation -Internal
     }
-    ...
+    Remove-PSSession -Session $PEPSession
     ```
 
     ::: moniker range="<azs-1811"
@@ -240,7 +243,8 @@ Ziehen Sie das PowerShell-Skript in Schritt 2 von [Rotieren externer Geheimnisse
     > Für Versionen vor 1811 ist das `-Internal`-Flag nicht erforderlich. 
     ::: moniker-end
 
-3. Nach erfolgreichem Abschluss wird in Ihrer Konsole `ActionPlanInstanceID ... CurrentStatus: Completed`, gefolgt von `DONE` angezeigt.
+
+2. Nach erfolgreichem Abschluss wird in Ihrer Konsole eine Meldung `ActionPlanInstanceID ... CurrentStatus: Completed`, gefolgt von `DONE` angezeigt.
 
     > [!Note]
     > Wenn bei der Geheimnisrotation ein Fehler auftritt, befolgen Sie die Anweisungen in der Fehlermeldung, und führen Sie `Start-SecretRotation` mit den Parametern `-Internal` und `-ReRun` erneut aus.  
@@ -312,7 +316,7 @@ Der Baseboard-Verwaltungscontroller überwacht den physischen Zustand Ihrer Serv
 
 Das Cmdlet [Start-SecretRotation](../reference/pep-2002/start-secretrotation.md) rotiert die Infrastrukturgeheimnisse eines Azure Stack Hub-Systems. Dieses Cmdlet kann nur für den privilegierten Azure Stack Hub-Endpunkt ausgeführt werden, indem ein `Invoke-Command`-Skriptblock verwendet wird, der die PEP-Sitzung im `-Session`-Parameter übergibt. Standardmäßig werden nur die Zertifikate aller externen Netzwerkinfrastruktur-Endpunkte rotiert.
 
-| Parameter | type | Erforderlich | Position | Standard | BESCHREIBUNG |
+| Parameter | Typ | Erforderlich | Position | Standard | BESCHREIBUNG |
 |--|--|--|--|--|--|
 | `PfxFilesPath` | String  | False  | benannt  | Keine  | Der Dateifreigabepfad des Verzeichnisses **\Certificates** mit allen externen Netzwerkendpunkt-Zertifikaten. Nur beim Rotieren externer Geheimnisse erforderlich. Das Endverzeichnis muss **\Certificates** sein. |
 | `CertificatePassword` | SecureString | False  | benannt  | Keine  | Das Kennwort für alle Zertifikate in „-PfXFilesPath“. Erforderlich, wenn „PfxFilesPath“ beim Rotieren externer Geheimnisse angegeben wird. |
