@@ -128,8 +128,10 @@
           href: concepts/quorum.md
     - name: Netzwerk
       items:
-        - name: Planen von Hostnetzwerken
-          href: concepts/plan-host-networking.md
+        - name: Anforderungen für physische Netzwerke
+          href: concepts/physical-network-requirements.md
+        - name: Anforderungen für Hostnetzwerke
+          href: concepts/host-network-requirements.md
         - name: Software-Defined Networking (SDN)
           href: concepts/software-defined-networking.md
         - name: Planen einer SDN-Infrastruktur

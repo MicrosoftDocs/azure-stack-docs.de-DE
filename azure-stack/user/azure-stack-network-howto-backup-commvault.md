@@ -51,7 +51,7 @@ Die Topologie dieses Ansatzes ist in der folgenden Abbildung dargestellt:
 
     ![Erstellen eines virtuellen Computers](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-01.png)
 
-3. Konfigurieren Sie die Grundeinstellungen unter **Virtuellen Computer erstellen, 1 Grundlagen** :
+3. Konfigurieren Sie die Grundeinstellungen unter **Virtuellen Computer erstellen, 1 Grundlagen**:
 
     a. Geben Sie einen **Namen** ein.
 
@@ -145,13 +145,13 @@ Sie müssen wissen, ob Azure AD oder ADFS als Identity Manager festgelegt ist. 
 
 9. Geben Sie Ihre Zugriffsinformationen für das Speicherkonto ein. Anweisungen zum Einrichten eines Azure Storage-Kontos finden Sie hier. Zugriffsinformationen:
 
-    -  **Diensthost** : Der Name der URL stammt aus den Eigenschaften des Blobcontainers in der Ressource. Die Beispiel-URL lautete https:\//backuptest.blob.westus.stackpoc.com/mybackups and I used, blob.westus.stackpoc.com auf dem Diensthost.
+    -  **Diensthost**: Der Name der URL stammt aus den Eigenschaften des Blobcontainers in der Ressource. Die Beispiel-URL lautete https:\//backuptest.blob.westus.stackpoc.com/mybackups and I used, blob.westus.stackpoc.com auf dem Diensthost.
     
     -   **Kontoname:** Verwenden Sie den Namen des Speicherkontos. Diesen finden Sie auf dem Blatt „Zugriffsschlüssel“ in der Speicherressource.
     
-    -   **Zugriffsschlüssel** : Den Zugriffsschlüssel finden Sie auf dem Blatt „Zugriffsschlüssel“ in der Speicherressource.
+    -   **Zugriffsschlüssel**: Den Zugriffsschlüssel finden Sie auf dem Blatt „Zugriffsschlüssel“ in der Speicherressource.
     
-    -   **Container** : Der Name des Containers, in diesem Fall „mybackups“.
+    -   **Container**: Der Name des Containers, in diesem Fall „mybackups“.
     
     -   **Speicherklasse:** Behalten Sie die Standardspeicherklasse des Benutzercontainers bei.
 
