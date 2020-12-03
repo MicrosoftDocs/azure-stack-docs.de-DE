@@ -3,16 +3,16 @@ title: Bereitstellen einer C#-Web-App (ASP.NET) auf einem virtuellen Computer in
 description: Stellen Sie eine C#-Web-App (ASP.NET) auf einem virtuellen Computer in Azure Stack Hub bereit.
 author: mattbriggs
 ms.topic: overview
-ms.date: 08/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: c28a5bbb50b4694358eec4375db6c20a00ba9e99
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 1ff00f354f9ab451bbf9557c1d63b01980d78875
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574192"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525410"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Bereitstellen einer C#-Web-App (ASP.NET) auf einem virtuellen Computer in Azure Stack Hub
 
@@ -65,9 +65,9 @@ In diesem Artikel wird eine C# 6.0-App mit ASP.NET Core 2.2 auf einem Windows�
 
     a. Wählen Sie unter **Quelle** die Option **Alle** aus.
 
-    b. Geben Sie unter **Quellportbereich** ein Sternchen ( **\*** ) ein.
+    b. Geben Sie unter **Quellportbereich** ein Sternchen (* *\** _) ein.
 
-    c. Wählen Sie unter **Ziel** die Option **Alle** aus.
+    c. Wählen Sie unter „_*Ziel“ die Option **Alle** aus.
 
     d. Fügen Sie unter **Zielportbereich** den Port hinzu, den Sie öffnen möchten.
 
