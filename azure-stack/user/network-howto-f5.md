@@ -3,16 +3,16 @@ title: Bereitstellen von F5 in zwei Azure Stack Hub-Instanzen
 description: Hier erfahren Sie, wie Sie F5 in zwei Azure Stack Hub-Instanzen bereitstellen.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 3512584e4109d86a9ee6a0d71924d560b9ecba92
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: b00d2a482faf2921e8823c705d8c8e861a763a78
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574209"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525624"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Bereitstellen von F5 in zwei Azure Stack Hub-Instanzen
 

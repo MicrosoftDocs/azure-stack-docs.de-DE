@@ -3,16 +3,16 @@ title: Einrichten eines Multi-Site-to-Site-VPN-Tunnels in Azure Stack Hub
 description: Erfahren Sie, wie Sie einen Multi-Site-to-Site-VPN-Tunnel in Azure Stack Hub einrichten.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/13/2020
-ms.openlocfilehash: ba0cf59417dfae96bd9c0ed137843eb69a08cc22
-ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: c7462bebc919b85db64dae9c4a07fdc1ca276e33
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94674635"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525777"
 ---
 # <a name="how-to-set-up-multiple-site-to-site-vpn-tunnels-in-azure-stack-hub"></a>Einrichten von mehreren Site-to-Site-VPN-Tunneln in Azure Stack Hub
 

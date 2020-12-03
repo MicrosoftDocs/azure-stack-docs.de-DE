@@ -3,16 +3,16 @@ title: Bereitstellen eines virtuellen Linux-Computers in Azure Stack Hub
 description: Stellen Sie einen virtuellen Linux-Computer mit einem Ubuntu-Image bereit, um eine Web-App in Azure Stack Hub zu hosten.
 author: mattbriggs
 ms.topic: overview
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 2a3eb313122f5f8798129592f35656bdad443f02
-ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 3847d321c924d06aaacfadc39feac572404ff113
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92353838"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525386"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Bereitstellen einer Linux-VM zum Hosten einer Web-App in Azure Stack Hub
 

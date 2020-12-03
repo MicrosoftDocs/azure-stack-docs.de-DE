@@ -3,16 +3,16 @@ title: Einrichten einer Entwicklungsumgebung in Azure Stack Hub
 description: Hier finden Sie Informationen zu den ersten Schritten bei der Entwicklung von Anwendungen für Azure Stack Hub.
 author: mattbriggs
 ms.topic: overview
-ms.date: 10/16/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: aaf6e48a728659ee6e756cee674edb423362db67
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: d000d7f892697795377323f4ad181149bda9ca31
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546122"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525913"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack-hub"></a>Einrichten einer Entwicklungsumgebung in Azure Stack Hub 
 

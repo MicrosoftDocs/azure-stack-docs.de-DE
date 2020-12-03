@@ -3,16 +3,16 @@ title: Verwenden von API-Versionsprofilen mit .NET in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie API-Versionsprofile mit .NET SDK in Azure Stack Hub verwenden.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: cd3251e560cc7caa158cc3ea6f3bbd33b662bc3e
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 629c50225bc7544512b0ccb1333e56ef1e7cf07a
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089625"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525811"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit .NET in Azure Stack Hub
 

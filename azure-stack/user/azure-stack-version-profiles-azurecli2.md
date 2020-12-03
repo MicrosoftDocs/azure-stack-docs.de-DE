@@ -3,16 +3,16 @@ title: Verwalten von Azure Stack Hub mit der Azure CLI
 description: Erfahren Sie, wie Sie die plattformübergreifende Befehlszeilenschnittstelle (Command-Line Interface, CLI) verwenden, um Ressourcen in Azure Stack Hub zu verwalten und bereitzustellen.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 35378da825d9b2d9c7446148101f1d205a22b2c4
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 5cd1c1b7dac9e05925488b3543461f3fbd8dd9e5
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93291240"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525879"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Installieren der Azure CLI in Azure Stack Hub
 
@@ -53,7 +53,7 @@ In diesem Abschnitt wird die Einrichtung der CLI Schritt für Schritt beschriebe
     | Wert | Beispiel | BESCHREIBUNG |
     | --- | --- | --- |
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
-    | Resource Manager-Endpunkt | `https://management.local.azurestack.external` | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl** -Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
+    | Resource Manager-Endpunkt | `https://management.local.azurestack.external` | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
     | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
     | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
     | VM-Image-Aliasdokument: Endpunkt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Der URI des Dokuments, in dem die VM-Imagealiase enthalten sind. Weitere Informationen finden Sie unter [Einrichten des Endpunkts der VM-Aliase](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint). |
@@ -79,7 +79,7 @@ In diesem Abschnitt wird die Einrichtung der CLI Schritt für Schritt beschriebe
  
 6. Melden Sie sich bei Ihrer Azure Stack Hub-Umgebung an, indem Sie den Befehl `az login` ausführen. Melden Sie sich entweder als Benutzer oder als [Dienstprinzipal](/azure/active-directory/develop/app-objects-and-service-principals) bei der Azure Stack Hub-Umgebung an. 
 
-   - Anmelden als *Benutzer* : 
+   - Anmelden als *Benutzer*: 
 
      Sie können entweder den Benutzernamen und das Kennwort direkt im Befehl `az login` eingeben oder die Authentifizierung über einen Browser ausführen. Sie müssen das letztgenannte Verfahren wählen, wenn für Ihr Konto mehrstufige Authentifizierung aktiviert ist:
 
@@ -126,7 +126,7 @@ In diesem Abschnitt wird die Einrichtung der CLI Schritt für Schritt beschriebe
     | Wert | Beispiel | BESCHREIBUNG |
     | --- | --- | --- |
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
-    | Resource Manager-Endpunkt | `https://management.local.azurestack.external` | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl** -Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
+    | Resource Manager-Endpunkt | `https://management.local.azurestack.external` | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
     | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
     | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
     | VM-Image-Aliasdokument: Endpunkt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Der URI des Dokuments, in dem die VM-Imagealiase enthalten sind. Weitere Informationen finden Sie unter [Einrichten des Endpunkts der VM-Aliase](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint). |
@@ -152,7 +152,7 @@ In diesem Abschnitt wird die Einrichtung der CLI Schritt für Schritt beschriebe
 
 6. Melden Sie sich bei Ihrer Azure Stack Hub-Umgebung an, indem Sie den Befehl `az login` ausführen. Sie können sich entweder als Benutzer oder als [Dienstprinzipal](/azure/active-directory/develop/app-objects-and-service-principals) bei der Azure Stack Hub-Umgebung anmelden. 
 
-   - Anmelden als *Benutzer* :
+   - Anmelden als *Benutzer*:
 
      Sie können entweder den Benutzernamen und das Kennwort direkt im Befehl `az login` eingeben oder die Authentifizierung über einen Browser ausführen. Sie müssen das letztgenannte Verfahren wählen, wenn für Ihr Konto mehrstufige Authentifizierung aktiviert ist:
 
@@ -211,7 +211,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack Hub h
     | Wert | Beispiel | BESCHREIBUNG |
     | --- | --- | --- |
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
-    | Resource Manager-Endpunkt | `https://management.local.azurestack.external` | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl** -Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
+    | Resource Manager-Endpunkt | `https://management.local.azurestack.external` | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
     | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
     | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
     | VM-Image-Aliasdokument: Endpunkt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Der URI des Dokuments, in dem die VM-Imagealiase enthalten sind. Weitere Informationen finden Sie unter [Einrichten des Endpunkts der VM-Aliase](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint). |
@@ -237,7 +237,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack Hub h
 
 6. Melden Sie sich bei Ihrer Azure Stack Hub-Umgebung an, indem Sie den Befehl `az login` ausführen. Sie können sich entweder als Benutzer oder als [Dienstprinzipal](/azure/active-directory/develop/app-objects-and-service-principals) bei der Azure Stack Hub-Umgebung anmelden. 
 
-   * Anmelden als *Benutzer* :
+   * Anmelden als *Benutzer*:
 
      Sie können entweder den Benutzernamen und das Kennwort direkt im Befehl `az login` eingeben oder die Authentifizierung über einen Browser ausführen. Sie müssen das letztgenannte Verfahren wählen, wenn für Ihr Konto mehrstufige Authentifizierung aktiviert ist:
 
@@ -250,7 +250,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack Hub h
      > [!NOTE]
      > Wenn für Ihr Benutzerkonto die mehrstufige Authentifizierung aktiviert ist, können Sie den Befehl `az login` verwenden, ohne den Parameter `-u` anzugeben. Durch die Ausführung des Befehls erhalten Sie eine URL und einen Code für die Authentifizierung.
    
-   * Anmelden als *Dienstprinzipal* :
+   * Anmelden als *Dienstprinzipal*:
     
      [Erstellen Sie einen Dienstprinzipal über das Azure-Portal](../operator/azure-stack-create-service-principals.md?view=azs-2002) oder die CLI, und weisen Sie ihm eine Rolle zu, bevor Sie sich anmelden. Melden Sie sich anschließend mit dem folgenden Befehl an:
 
@@ -291,7 +291,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack Hub h
     | Wert | Beispiel | BESCHREIBUNG |
     | --- | --- | --- |
     | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
-    | Resource Manager-Endpunkt | `https://management.local.azurestack.external` | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl** -Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
+    | Resource Manager-Endpunkt | `https://management.local.azurestack.external` | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
     | Speicherendpunkt | local.azurestack.external | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
     | Key Vault-Suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
     | VM-Image-Aliasdokument: Endpunkt | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Der URI des Dokuments, in dem die VM-Imagealiase enthalten sind. Weitere Informationen finden Sie unter [Einrichten des Endpunkts der VM-Aliase](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint). |

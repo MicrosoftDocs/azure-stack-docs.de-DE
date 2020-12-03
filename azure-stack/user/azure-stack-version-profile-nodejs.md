@@ -3,16 +3,16 @@ title: Verwenden von API-Versionsprofilen mit Node.js in Azure Stack Hub
 description: Hier erfahren Sie mehr zur Verwendung von API-Versionsprofilen mit Node.js in Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/30/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 93c37e67af83dd7b6d735916cfacc7dab5c0cdbf
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: c6b781b61a8738bd86379d9fb035680189693565
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574090"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525930"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit dem Node.js-SDK (Software Development Kit) in Azure Stack Hub
 

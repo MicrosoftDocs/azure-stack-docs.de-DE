@@ -3,16 +3,16 @@ title: Verwenden von API-Versionsprofilen mit Ruby in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie API-Versionsprofile mit Ruby in Azure Stack Hub verwenden.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 93ede4373a2799551bc3091a6d9b3cd00cb9d578
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 1d4cc0887bac12c535f2ce0fe12a2cb855d5b3a5
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546479"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525590"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Ruby in Azure Stack Hub
 

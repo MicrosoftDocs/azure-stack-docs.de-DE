@@ -3,16 +3,16 @@ title: Bereitstellen einer Go-Web-App auf einem virtuellen Computer in Azure Sta
 description: Bereitstellen einer Go-Web-App auf einer VM in Azure Stack Hub
 author: mattbriggs
 ms.topic: overview
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: bcb38ee1215053d40bf027958ef598f587422053
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: a43dd6ccb766dfb7b67dad09c0fc9bba37d524b4
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574039"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525318"
 ---
 # <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack-hub"></a>Bereitstellen einer Go-Web-App auf einer VM in Azure Stack Hub
 

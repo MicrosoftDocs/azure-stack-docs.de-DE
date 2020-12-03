@@ -3,16 +3,16 @@ title: Verwenden eines öffentlichen SSH-Schlüssels mit Azure Stack Hub
 description: Verwenden eines öffentlichen SSH-Schlüssels
 author: mattbriggs
 ms.topic: overview
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 1b5a83d8fa6626233acc3abbde69494310cbd06e
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 20e8afdae36f7a182f20aff1f4162d36378ca313
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146919"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525454"
 ---
 # <a name="use-an-ssh-public-key"></a>Verwenden eines öffentlichen SSH-Schlüssels
 
@@ -78,7 +78,7 @@ Bevor Sie die Verbindung herstellen, benötigen Sie Folgendes:
     ![PuTTY-Konfigurationsbereich](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-connect.png)
 
 2. Geben Sie im Feld **Hostname (oder IP-Adresse)** den Benutzernamen und die öffentliche IP-Adresse des Computers ein (z. B. **username@192.XXX.XXX.XX** ). 
-3. Vergewissern Sie sich, dass für **Port** die Zahl**22** angegeben und als **Verbindungstyp** die Option **SSH** ausgewählt ist.
+3. Vergewissern Sie sich, dass für **Port** die Zahl **22** angegeben und als **Verbindungstyp** die Option **SSH** ausgewählt ist.
 4. Erweitern Sie in der Struktur **Kategorie** die Punkte **SSH** und **Auth**.
 
     ![PuTTY-Konfigurationsbereich: Privater SSH-Schlüssel](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)

@@ -3,16 +3,16 @@ title: Erweitern des Rechenzentrums in Azure Stack Hub
 description: In diesem Artikel erfahren Sie, wie Sie das Rechenzentrum in Azure Stack Hub erweitern.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 1c5ecd53aab4b6116b044585a1a46497cb46f827
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 0d8425fa11f6de0e909a697527074c779acd27da
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965268"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525794"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Erweitern von Speicher auf Azure Stack Hub
 
@@ -248,7 +248,7 @@ Melden Sie sich zum Einrichten des iSCSI-Initiators zunächst in Ihrem **Azure S
 
 10. Wählen Sie im Fenster „Eigenschaften des iSCSI-Initiators“ die Registerkarte **Erkennung** aus.
 
-11. Sie fügen nun zwei Ziele hinzu. Wählen Sie daher zunächst die Schaltfläche**Portal ermitteln** aus.
+11. Sie fügen nun zwei Ziele hinzu. Wählen Sie daher zunächst die Schaltfläche **Portal ermitteln** aus.
 
 12. Geben Sie die erste IP-Adresse des iSCSI-Zielservers ein, und wählen Sie dann **Erweitert** aus.
 

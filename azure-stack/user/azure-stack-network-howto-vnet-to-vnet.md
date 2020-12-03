@@ -3,16 +3,16 @@ title: Verbinden zweier virtueller Netzwerke in derselben Azure Stack-Umgebung
 description: Erfahren Sie, wie Sie zwei virtuelle Netzwerke in derselben Azure Stack Hub-Umgebung verbinden, indem Sie Fortinet FortiGate verwenden.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 32ecdbc52c678f884eac10c83f1749ba4a96a86f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: b9afd01c79590092269bea8cb4e3ca293fa855fd
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547125"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525641"
 ---
 # <a name="vnet-to-vnet-connectivity-with-fortigate"></a>VNET-zu-VNET-Konnektivität mit Fortigate
 
