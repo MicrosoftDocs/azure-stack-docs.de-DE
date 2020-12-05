@@ -31,7 +31,7 @@
             - name: Capacity Planner-Tool
               href: azure-stack-capacity-planner.md
         - name: Übersicht über die Integration
-          href: customer-journey.md
+          href: integration-overview.md
         - name: Verbindungsmodelle
           href: ../operator/azure-stack-connection-models.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Verbundene Bereitstellung
