@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 10/29/2020
-ms.openlocfilehash: 68ee5d0635d1ed9dbc62bece417f00430bf61de2
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: 2d4aebd0609dff744f4c8f6ae9113fba1b7b0ba9
+ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93065997"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96354155"
 ---
 # <a name="system-requirements-for-azure-stack-hci"></a>Systemanforderungen für Azure Stack HCI
 
@@ -53,7 +53,7 @@ Halten Sie sich an die folgenden Regeln, um optimale Ergebnisse zu erzielen:
 - SES (SCSI Enclosure Services) ist für die Zuordnung und Identifikation von Slots erforderlich. Jedes externe Gehäuse muss einen eindeutigen Bezeichner (eindeutige ID) besitzen. 
 
    > [!IMPORTANT]
-   > **NICHT UNTERSTÜTZT** : RAID-Controllerkarten oder SAN-Speicher (Fibre Channel, iSCSI, FCoE), mit mehreren Servern verbundene, gemeinsam genutzte SAS-Gehäuse und jegliche Art von Multipfad-E/A (Multi-Path IO, MPIO), bei dem über mehrere Pfade auf Laufwerke zugegriffen werden kann. Hostbusadapterkarten müssen einen einfachen Pass-Through-Modus implementieren.
+   > **NICHT UNTERSTÜTZT**: RAID-Controllerkarten oder SAN-Speicher (Fibre Channel, iSCSI, FCoE), mit mehreren Servern verbundene, gemeinsam genutzte SAS-Gehäuse und jegliche Art von Multipfad-E/A (Multi-Path IO, MPIO), bei dem über mehrere Pfade auf Laufwerke zugegriffen werden kann. Hostbusadapterkarten müssen einen einfachen Pass-Through-Modus implementieren.
 
 ## <a name="networking-requirements"></a>Netzwerkanforderungen
 
@@ -76,7 +76,7 @@ Beim Feature „Direkte Speicherplätze“ muss zusätzlicher Datenverkehr einge
 
 Bei Stretchingclustern tritt zwischen den Standorten zusätzlicher Datenverkehr durch Speicherreplikate auf. Datenverkehr für die Speicherbusebene und das freigegebene Clustervolume tritt nicht zwischen Standorten, sondern nur zwischen Serverknoten innerhalb der einzelnen Standorte auf.
 
-Informationen zu Überlegungen zur Planung von Hostnetzwerken und zu den Anforderungen finden Sie unter [Planen von Hostnetzwerken für Azure Stack HCI](plan-host-networking.md).
+Überlegungen und Anforderungen zum Hostnetzwerk finden Sie unter [Anforderungen für Hostnetzwerke](host-network-requirements.md).
 
 ## <a name="software-defined-networking-sdn-requirements"></a>SDN-Anforderungen (Softwaredefiniertes Netzwerk)
 

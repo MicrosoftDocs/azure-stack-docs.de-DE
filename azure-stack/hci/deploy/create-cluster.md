@@ -3,15 +3,15 @@ title: Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows Admin Cente
 description: Hier erfahren Sie, wie Sie mithilfe von Windows Admin Center einen Servercluster für Azure Stack HCI erstellen.
 author: v-dasis
 ms.topic: how-to
-ms.date: 10/17/2020
+ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 508bf39e9cdeb55485bc2a517c412cee7f3dcd80
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: 638ede26b1bc720c5975dc7bdf7e0b7f05d9d600
+ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064768"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96354172"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows Admin Center
 
@@ -46,7 +46,7 @@ Dies sind die wichtigsten Schritte im Clustererstellungs-Assistenten:
 
 1. **Get Started** (Erste Schritte): Stellt sicher, dass jeder Server die Voraussetzungen erfüllt und die Funktionen besitzt, die für den Beitritt zum Cluster erforderlich sind.
 1. **Networking** (Netzwerk): Weist Netzwerkadapter zu, konfiguriert diese und erstellt die virtuellen Switches für jeden Server.
-1. **Clustering** : Überprüft, ob der Cluster ordnungsgemäß eingerichtet ist. Richtet bei Stretchingclustern außerdem die zwei Standorte ein.
+1. **Clustering**: Überprüft, ob der Cluster ordnungsgemäß eingerichtet ist. Richtet bei Stretchingclustern außerdem die zwei Standorte ein.
 1. **Storage** (Speicher): Konfiguriert Direkte Speicherplätze.
 
 Nach dem Abschluss des Assistenten richten Sie den Clusterzeugen ein, registrieren sich bei Azure und erstellen Volumes (wodurch auch die Replikation zwischen Standorten eingerichtet wird, wenn Sie einen Stretchingcluster erstellen).
@@ -64,7 +64,7 @@ OK, fangen wir an:
     - **Alle Server an einem Standort**
     - **Server an zwei Standorten** (für Stretchingcluster)
 
-1. Klicken Sie auf **Erstellen** , wenn Sie fertig sind. Jetzt wird der Clustererstellungs-Assistent angezeigt, wie unten dargestellt.
+1. Klicken Sie auf **Erstellen**, wenn Sie fertig sind. Jetzt wird der Clustererstellungs-Assistent angezeigt, wie unten dargestellt.
 
     :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="Clustererstellungs-Assistent: Erste Schritte" lightbox="media/cluster/create-cluster-wizard.png":::
 
@@ -90,8 +90,8 @@ In Schritt 1 des Assistenten werden Sie durch die Überprüfung der Voraussetzu
     - RSAT-AD-PowerShell-Modul
     - Speicherreplikation (wird nur für Stretchingcluster installiert)
 
-1. Klicken Sie unter **Updates installieren** gegebenenfalls auf **Updates installieren**. Klicken Sie auf **Weiter** , wenn Sie fertig sind.
-1. Klicken Sie unter **Lösungsupdates** gegebenenfalls auf **Erweiterung installieren**. Klicken Sie auf **Weiter** , wenn Sie fertig sind.
+1. Klicken Sie unter **Updates installieren** gegebenenfalls auf **Updates installieren**. Klicken Sie auf **Weiter**, wenn Sie fertig sind.
+1. Klicken Sie unter **Lösungsupdates** gegebenenfalls auf **Erweiterung installieren**. Klicken Sie auf **Weiter**, wenn Sie fertig sind.
 1. Klicken Sie bei Bedarf auf **Server neu starten**. Überzeugen Sie sich, dass jeder Server erfolgreich gestartet wurde.
 
 ## <a name="step-2-networking"></a>Schritt 2: Netzwerk
@@ -123,7 +123,7 @@ Schritt 2 des Assistenten führt Sie durch die Konfiguration von virtuellen Swit
     > Sie können 1 GBit-Adapter als Verwaltungsadapter verwenden, wir empfehlen aber, Adapter mit 10 GBit oder mehr für die Abwicklung des Speicher- und Workloadverkehrs (der VMs) zu verwenden.
 
 1. Wenn die Änderungen vorgenommen wurden, klicken Sie auf **Apply and test** (Übernehmen und testen).
-1. Vergewissern Sie sich unter **Netzwerke definieren** , dass jeder Netzwerkadapter für jeden Server über eine eindeutige statische IP-Adresse, eine Subnetzmaske und eine VLAN-ID verfügt. Zeigen Sie mit der Maus auf jedes Tabellenelement, und geben Sie bei Bedarf Werte ein bzw. ändern Sie diese. Wenn Sie den Vorgang abgeschlossen haben, klicken Sie auf **Apply and test** (Übernehmen und testen).
+1. Vergewissern Sie sich unter **Netzwerke definieren**, dass jeder Netzwerkadapter für jeden Server über eine eindeutige statische IP-Adresse, eine Subnetzmaske und eine VLAN-ID verfügt. Zeigen Sie mit der Maus auf jedes Tabellenelement, und geben Sie bei Bedarf Werte ein bzw. ändern Sie diese. Wenn Sie den Vorgang abgeschlossen haben, klicken Sie auf **Apply and test** (Übernehmen und testen).
 
     > [!NOTE]
     > Um die VLAN-ID-Konfiguration für den Cluster zu unterstützen, müssen alle Netzwerkkarten auf allen Servern die VLANID-Eigenschaft unterstützen.
@@ -175,7 +175,7 @@ In Schritt 4 des Assistenten werden Sie durch das Einrichten von Direkte Speich
 
 1. Klicken Sie auf **Weiter: Speicher**.
 1. Klicken Sie unter **Verify drives** (Laufwerke überprüfen) auf das Symbol **>** neben jedem Server, um zu überprüfen, ob die Datenträger funktionieren und verbunden sind, und klicken Sie dann auf **Weiter**.
-1. Klicken Sie unter **Clean drives** (Laufwerke bereinigen) auf **Clean drives** , um die Laufwerke von Daten zu leeren. Wenn Sie fertig sind, klicken Sie auf **Weiter**.
+1. Klicken Sie unter **Clean drives** (Laufwerke bereinigen) auf **Clean drives**, um die Laufwerke von Daten zu leeren. Wenn Sie fertig sind, klicken Sie auf **Weiter**.
 1. Klicken Sie unter **Validate storage** (Speicher überprüfen) auf **Weiter**.
 1. Überprüfen Sie die Validierungsergebnisse. Wenn alles in Ordnung ist, klicken Sie auf **Weiter**.
 1. Klicken Sie unter **Enable Storage Spaces Direct** (Direkte Speicherplätze aktivieren) auf **Aktivieren**.
@@ -189,7 +189,10 @@ Wenn das Auflösen des Clusters nach einiger Zeit nicht erfolgreich ist, können
 
 ## <a name="step-5-sdn-optional"></a>Schritt 5: SDN (optional)
 
-In diesem optionalen Schritt richten Sie die Netzwerkcontrollerkomponente von [Software Defined Networking (SDN)](../concepts/software-defined-networking.md) ein. Nachdem der Netzwerkcontroller eingerichtet wurde, kann er zur Konfiguration anderer Komponenten von SDN wie Software Load Balancer und RAS Gateway verwendet werden.
+In diesem optionalen Schritt richten Sie die Netzwerkcontrollerkomponente von [Software Defined Networking (SDN)](../concepts/software-defined-networking.md) ein. Nachdem der Netzwerkcontroller eingerichtet wurde, können Sie weitere Komponenten von SDN wie Software Load Balancer (SLB) und RAS Gateway konfigurieren.
+
+> [!NOTE]
+> Der Assistent unterstützt die Konfiguration von SLB und RAS Gateway derzeit nicht. Sie können diese Komponenten mit SDN Express-Skripts konfigurieren. Weitere Informationen hierzu finden Sie im [SDNExpress-GitHub-Repository](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts).
 
 > [!NOTE]
 > SDN wird für Stretched Cluster nicht unterstützt und ist für diese nicht verfügbar.
@@ -197,22 +200,25 @@ In diesem optionalen Schritt richten Sie die Netzwerkcontrollerkomponente von [S
 :::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Assistent zum Erstellen von Clustern – SDN-Netzwerkcontroller" lightbox="media/cluster/create-cluster-network-controller.png":::
 
 1. Klicken Sie auf **Weiter: SDN**.
-1. Geben Sie unter **Host** einen Namen für den Netzwerkcontroller ein.
-1. Geben Sie einen Pfad zur Azure Stack HCI-VHD-Datei an. Verwenden Sie **Durchsuchen** , um sie schneller zu finden.
-1. Geben Sie die Anzahl der virtuellen Computer an, die für Netzwerkcontroller dediziert werden sollen. Für Hochverfügbarkeit werden drei bis fünf virtuelle Computer empfohlen.
-1. Geben Sie unter **Netzwerk** die VLAN-ID ein.
+1. Geben Sie unter **Host** einen Namen für den Netzwerkcontroller ein. Dies ist der DNS-Name, der von Verwaltungsclients (z. B. Windows Admin Center) für die Kommunikation mit dem Netzwerkcontroller verwendet wird.
+1. Geben Sie einen Pfad zur Azure Stack HCI-VHD-Datei an. Verwenden Sie **Durchsuchen**, um sie schneller zu finden.
+1. Geben Sie die Anzahl der virtuellen Computer an, die für Netzwerkcontroller dediziert werden sollen. Für Hochverfügbarkeit werden mindestens drei virtuelle Computer empfohlen.
+1. Geben Sie unter **Netzwerk** die VLAN-ID des Verwaltungsnetzwerks ein. Der Netzwerkcontroller benötigt eine Verbindung mit demselben Verwaltungsnetzwerk wie die Hosts, um mit den Hosts kommunizieren und diese konfigurieren zu können.
 1. Wählen Sie für **VM-Netzwerkadressierung** entweder **DHCP** oder **Statisch** aus.
-1. Wenn Sie **DHCP** ausgewählt haben, geben Sie den Namen und die IP-Adresse für die virtuellen Computer des Netzwerkcontrollers ein.
+1. Wenn Sie **DHCP** ausgewählt haben, geben Sie den Namen für die virtuellen Computer des Netzwerkcontrollers ein.
 1. Gehen Sie wie folgt vor, wenn Sie **Statisch** ausgewählt haben:
+    1. Angeben einer IP-Adresse
     1. Geben Sie ein Subnetzpräfix an.
     1. Geben Sie das Standardgateway an.
-    1. Geben Sie mindestens einen DNS-Server an. Klicken Sie auf **Hinzufügen** , um weitere DNS-Server hinzuzufügen.
+    1. Geben Sie mindestens einen DNS-Server an. Klicken Sie auf **Hinzufügen**, um weitere DNS-Server hinzuzufügen.
 1. Geben Sie unter **Anmeldeinformationen** den Benutzernamen und das Kennwort ein, mit denen die virtuellen Computer des Netzwerkcontrollers mit der Clusterdomäne verbunden werden.
 1. Geben Sie das lokale Administratorkennwort für diese VMs ein.
 1. Geben Sie unter **Erweitert** den Pfad zu den virtuellen Computern ein.
 1. Geben Sie Werte für den **Anfang des MAC-Adresspools** und das **Ende des MAC-Adresspools** ein.
 1. Klicken Sie abschließend auf **Weiter**.
 1. Warten Sie, bis der Assistent seinen Auftrag abgeschlossen hat. Bleiben Sie auf dieser Seite, bis alle Fortschrittsaufgaben abgeschlossen sind. Klicken Sie auf **Fertig stellen**.
+
+1. Konfigurieren Sie nach dem Erstellen von Netzwerkcontroller-VMs dynamische DNS-Updates für den Namen des Netzwerkcontrollerclusters auf dem DNS-Server. Weitere Informationen finden Sie unter [Konfigurieren der dynamischen DNS-Registrierung für den Netzwerkcontroller](https://docs.microsoft.com/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
 
 Wenn bei der Bereitstellung des Netzwerkcontrollers ein Fehler auftritt, gehen Sie wie folgt vor, bevor Sie es erneut versuchen:
 
