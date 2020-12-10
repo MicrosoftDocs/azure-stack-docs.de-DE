@@ -1,0 +1,98 @@
+### YamlMime:Landing
+title: Operator- und Benutzerdokumentation zu Azure Stack Hub Ruggedized
+summary: Hier erfahren Sie, wie Sie Azure Stack Hub Ruggedized betreiben und verwenden. Bei Azure Stack Hub Ruggedized handelt es sich um eine Hybrid Cloud-Plattform, mit der Sie Azure-Dienste von einer vielseitigen, robusten Cloudappliance bereitstellen können.
+metadata:
+  title: 'Dokumentation zu Azure Stack Hub Ruggedized: Tutorials, API-Referenz'
+  description: Microsoft Azure Stack Hub Ruggedized ist eine Hybrid Cloud-Plattform, mit der Sie Azure-Dienste aus Ihrem Rechenzentrum bereitstellen können. In unseren Schnellstarts und Tutorials erfahren Sie, wie Sie die Infrastruktur für integrierte Azure Stack Hub Ruggedized-Systeme verwalten und Dienste anbieten.
+  ms.service: azure-stack
+  ms.topic: landing-page
+  author: justinha
+  ms.author: justinha
+  ms.date: 10/14/2020
+  ms.openlocfilehash: 7e131f116ef28620cda1804782d38c14d5700bad
+  ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+  ms.translationtype: HT
+  ms.contentlocale: de-DE
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96941492"
+landingContent:
+- title: Informationen zu Azure Stack Hub Ruggedized
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Was ist Azure Stack Hub Ruggedized?
+      url: ruggedized-overview.md
+    - text: Modellspezifikationen
+      url: azure-stack-capacity-planning-overview.md
+  - linkListType: whats-new
+    links:
+    - text: Sicherheitsupdates
+      url: ../operator/release-notes-security-updates.md
+    - text: Versionshinweise
+      url: ../operator/release-notes.md
+- title: Erste Schritte mit Azure Stack Hub Ruggedized
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Verwenden des Administratorportals
+      url: ../operator/azure-stack-manage-portals.md
+    - text: Anbieten eines Diensts für Benutzer
+      url: ../operator/tutorial-offer-services.md
+    - text: Testen eines Dienstangebots
+      url: ../operator/tutorial-test-offer.md
+  - linkListType: concept
+    links:
+    - text: Vergleichen von Verbindungsmodellen
+      url: ../operator/azure-stack-connection-models.md
+    - text: Verbundene Bereitstellung
+      url: ../operator/azure-stack-connected-deployment.md
+    - text: Getrennte Bereitstellung
+      url: ../operator/azure-stack-disconnected-deployment.md
+- title: Azure Stack Hub-Tools
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Herunterladen von Azure Stack Hub-Tools aus GitHub
+      url: ../operator/azure-stack-powershell-download.md
+    - text: Installieren von Azure Stack-PowerShell
+      url: ../operator/powershell-install-az-module.md
+    - text: Ausführen von PowerShell mithilfe von Docker
+      url: ../user/azure-stack-powershell-user-docker.md
+    - text: Herstellen einer Verbindung mit Azure Stack PowerShell
+      url: ../operator/azure-stack-powershell-configure-admin.md
+- title: Anbieten von Azure Stack Hub-Diensten
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Erstellen eines Angebots für einen virtuellen Computer
+      url: ../operator/tutorial-offer-services.md
+    - text: Erstellen einer hoch verfügbaren MySQL-Datenbank
+      url: ../operator/azure-stack-tutorial-mysql.md
+    - text: Erstellen von Apps für alle Plattformen
+      url: ../operator/azure-stack-app-service-overview.md
+- title: Verwalten von Manage Azure Stack Hub Ruggedized
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Überwachen von Integrität und Warnungen
+      url: operator/azure-stack-monitor-health-tzl.md
+    - text: Installieren von Updates und Überwachen des Status
+      url: ../operator/azure-stack-apply-updates.md
+    - text: Bewährte Methoden zum Sichern und Wiederherstellen
+      url: operator/azure-stack-backup-best-practices-tzl.md
+- title: Infrastructure-as-a-Service (IaaS) in Azure Stack Hub
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 'Schnellstart: Erstellen eines virtuellen Computers'
+      url: ../user/azure-stack-quick-linux-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Migrieren virtueller Computer
+      url: ../user/vm-move-overview.md
+    - text: Bereitstellen eines virtuellen Computer in IaaS mit einer Vorlage
+      url: ../user/azure-stack-create-vm-template.md
+    - text: Konfigurieren eines virtuellen Netzwerks
+      url: ../user/deploy-foundational-patterns.md
+    - text: Hosten von in Ihrem Code geschriebenen Apps
+      url: ../user/azure-stack-dev-start-deploy-app.md
