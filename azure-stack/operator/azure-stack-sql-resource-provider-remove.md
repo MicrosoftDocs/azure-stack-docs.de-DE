@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2019
-ms.openlocfilehash: 7046eff5aa90504e2f02d7b7d24b1c2a74421270
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b232bf2efb690ddc0a351d762e6866a75ced4a81
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697177"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011364"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Entfernen des SQL-Ressourcenanbieters
 
@@ -41,7 +41,7 @@ Wenn Sie den SQL-Ressourcenanbieter entfernen, werden die vom Operator verwaltet
     * **PrivilegedEndpoint**: Die IP-Adresse oder der DNS-Name des privilegierten Endpunkts.
     * **AzureEnvironment**: Die Azure-Umgebung, die für die Bereitstellung von Azure Stack Hub verwendet wird. Nur für Azure AD-Bereitstellungen erforderlich.
     * **CloudAdminCredential**: Die Anmeldeinformationen für den Cloudadministrator, die für den Zugriff auf den privilegierten Endpunkt erforderlich sind.
-    * **AzCredential**: Die Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto. Verwenden Sie die gleichen Anmeldeinformationen wie bei der Bereitstellung von Azure Stack Hub.
+    * **AzCredential**: Die Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto. Verwenden Sie die gleichen Anmeldeinformationen wie bei der Bereitstellung von Azure Stack Hub. Beim Skript tritt ein Fehler auf, wenn für das Konto, das Sie mit AzCredential verwenden, mehrstufige Authentifizierung (Multi-Factor Authentication, MFA) erforderlich ist.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

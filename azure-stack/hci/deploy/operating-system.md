@@ -6,13 +6,13 @@ ms.author: v-johcob
 ms.topic: tutorial
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/28/2020
-ms.openlocfilehash: ba063e4ebff85830ac50c25c2514bda443dce323
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.date: 12/7/2020
+ms.openlocfilehash: 51a4411e95207d2f7b544fdf507fe8bd8fc98f2e
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064734"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761710"
 ---
 # <a name="deploy-the-azure-stack-hci-operating-system"></a>Bereitstellen des Azure Stack HCI-Betriebssystems
 
@@ -21,7 +21,7 @@ ms.locfileid: "93064734"
 Der erste Schritt für die Bereitstellung von Azure Stack HCI ist das [Herunterladen von Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) und das Installieren des Betriebssystems auf jedem Server, der Teil des Clusters sein soll. In diesem Artikel werden verschiedene Möglichkeiten zum Bereitstellen des Betriebssystems und zum Verwenden von Windows Admin Center für die Verbindungsherstellung mit den Servern beschrieben.
 
 > [!NOTE]
-> Wenn Sie Azure Stack HCI-Lösungshardware für integrierte Systeme über den [Azure Stack HCI-Katalog](https://azure.microsoft.com/en-us/products/azure-stack/hci/catalog/) von Ihrem bevorzugten Hardwarepartner erworben haben, sollte das Azure Stack HCI-Betriebssystem vorinstalliert sein. In diesem Fall können Sie diesen Schritt überspringen und mit [Erstellen eines Azure Stack HCI-Clusters](create-cluster.md) fortfahren.
+> Wenn Sie Azure Stack HCI-Lösungshardware für integrierte Systeme über den [Azure Stack HCI-Katalog](https://aka.ms/azurestackhcicatalog) von Ihrem bevorzugten Hardwarepartner erworben haben, sollte das Azure Stack HCI-Betriebssystem vorinstalliert sein. In diesem Fall können Sie diesen Schritt überspringen und mit [Erstellen eines Azure Stack HCI-Clusters](create-cluster.md) fortfahren.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -45,11 +45,11 @@ Die Hardwareanforderungen können jedoch je nach Größe und Konfiguration der b
 
 Sammeln Sie zur Vorbereitung der Bereitstellung die folgenden Informationen zu Ihrer Umgebung:
 
-- **Servernamen** : Machen Sie sich mit den Benennungsrichtlinien Ihrer Organisation für Computer, Dateien, Pfade und andere Ressourcen vertraut. Sie werden mehrere Server bereitstellen müssen, von denen jeder einen eindeutigen Namen erhalten muss.
-- **Domänenname** : Machen Sie sich mit den Benennungsrichtlinien Ihrer Organisation für die Domänenbenennung und den Domänenbeitritt vertraut. Sie werden die Server in Ihre Domäne einbinden und müssen den Domänennamen angeben.
-- **Statische IP-Adressen** : Azure Stack HCI erfordert statische IP-Adressen für den Speicher- und Workloaddatenverkehr (VM) und unterstützt keine dynamische Zuweisung von IP-Adressen durch DHCP für dieses Hochgeschwindigkeitsnetzwerk. Sie können DHCP für den Verwaltungsnetzwerkadapter verwenden. Falls Sie jedoch zwei Adapter in einer Teamkonfiguration einsetzen, müssen Sie wieder statische IP-Adressen verwenden. Fragen Sie Ihren Netzwerkadministrator nach den IP-Adressen, die Sie für die einzelnen Server im Cluster verwenden sollten.
-- **RDMA-Netzwerkfunktionen** : Es gibt zwei Arten von RDMA-Protokollen: iWARP und RoCE. Informieren Sie sich darüber, welches Protokoll Ihre Netzwerkadapter verwenden. Wenn es sich um RoCE handelt, beachten Sie auch die Version (v1 oder v2). Im Fall von RoCE müssen Sie auch das Modell Ihres Top-of-Rack-Switchs beachten.
-- **VLAN-ID** : Informieren Sie sich über die VLAN-ID, die für die Netzwerkserver auf den Servern verwendet werden soll (sofern vorhanden). Diese Informationen sollten Sie von Ihrem Netzwerkadministrator erhalten.
+- **Servernamen**: Machen Sie sich mit den Benennungsrichtlinien Ihrer Organisation für Computer, Dateien, Pfade und andere Ressourcen vertraut. Sie werden mehrere Server bereitstellen müssen, von denen jeder einen eindeutigen Namen erhalten muss.
+- **Domänenname**: Machen Sie sich mit den Benennungsrichtlinien Ihrer Organisation für die Domänenbenennung und den Domänenbeitritt vertraut. Sie werden die Server in Ihre Domäne einbinden und müssen den Domänennamen angeben.
+- **Statische IP-Adressen**: Azure Stack HCI erfordert statische IP-Adressen für den Speicher- und Workloaddatenverkehr (VM) und unterstützt keine dynamische Zuweisung von IP-Adressen durch DHCP für dieses Hochgeschwindigkeitsnetzwerk. Sie können DHCP für den Verwaltungsnetzwerkadapter verwenden. Falls Sie jedoch zwei Adapter in einer Teamkonfiguration einsetzen, müssen Sie wieder statische IP-Adressen verwenden. Fragen Sie Ihren Netzwerkadministrator nach den IP-Adressen, die Sie für die einzelnen Server im Cluster verwenden sollten.
+- **RDMA-Netzwerkfunktionen**: Es gibt zwei Arten von RDMA-Protokollen: iWARP und RoCE. Informieren Sie sich darüber, welches Protokoll Ihre Netzwerkadapter verwenden. Wenn es sich um RoCE handelt, beachten Sie auch die Version (v1 oder v2). Im Fall von RoCE müssen Sie auch das Modell Ihres Top-of-Rack-Switchs beachten.
+- **VLAN-ID**: Informieren Sie sich über die VLAN-ID, die für die Netzwerkserver auf den Servern verwendet werden soll (sofern vorhanden). Diese Informationen sollten Sie von Ihrem Netzwerkadministrator erhalten.
 - **Standortnamen:** Bei Stretchingclustern werden zwei Standorte für die Notfallwiederherstellung verwendet. Standorte können mithilfe von [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) oder automatisch vom Clustererstellungs-Assistenten eingerichtet werden. Wenden Sie sich im Zusammenhang mit der Einrichtung von Standorten an Ihren Domänenadministrator.
 
 ### <a name="install-windows-admin-center"></a>Installieren von Windows Admin Center
@@ -109,7 +109,7 @@ Führen Sie die manuelle Installation des Azure Stack HCI-Betriebssystems wie fo
 
     :::image type="content" source="../media/operating-system/azure-stack-hci-install-language.png" alt-text="Seite mit Sprachoptionen im Assistenten für die Azure Stack HCI-Installation":::
 
-1. Sehen Sie sich auf der Seite mit den Hinweisen und Lizenzbedingungen die Bedingungen an, aktivieren Sie das Kontrollkästchen **Ich stimme den Lizenzbedingungen zu** , und wählen Sie anschließend **Weiter** aus.
+1. Sehen Sie sich auf der Seite mit den Hinweisen und Lizenzbedingungen die Bedingungen an, aktivieren Sie das Kontrollkästchen **Ich stimme den Lizenzbedingungen zu**, und wählen Sie anschließend **Weiter** aus.
 1. Wählen Sie auf der Seite „Welche Installationsart soll gewählt werden?“ die Option **Custom: Install the newer version of Azure Stack HCI only (advanced)** (Benutzerdefiniert: Nur die neuere Version von Azure Stack HCI installieren (erweitert)) aus.
 
     > [!NOTE]

@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 0de06d7bf13919be95b3d97aa1113221f4378625
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: ec2eebc7aa8195c0560beb8c61f0f98ce1689b07
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96035333"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011347"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Wartungsvorgänge von SQL-Ressourcenanbietern
 
@@ -108,7 +108,7 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
 |Parameter|Beschreibung|Kommentar|
 |-----|-----|-----|
 |AzureEnvironment|Die zum Bereitstellen von Azure Stack Hub verwendete Azure-Umgebung des Dienstadministratorkontos. Nur für Azure AD-Bereitstellungen erforderlich. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für Azure Active Directory für China **AzureChinaCloud**.|Optional|
-|AzCredential|Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto.|Obligatorisch.|
+|AzCredential|Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto. Beim Skript tritt ein Fehler auf, wenn für das Konto, das Sie mit AzCredential verwenden, mehrstufige Authentifizierung (Multi-Factor Authentication, MFA) erforderlich ist.|Obligatorisch.|
 |CloudAdminCredential|Anmeldeinformationen für das Domänenkonto des Azure Stack Hub-Cloudadministrators.|Obligatorisch.|
 |PrivilegedEndpoint|Privilegierter Endpunkt für den Zugriff auf „Get-AzureStackStampInformation“|Obligatorisch.|
 |DiagnosticsUserPassword|Kennwort des Diagnosebenutzerkontos|Optional|
