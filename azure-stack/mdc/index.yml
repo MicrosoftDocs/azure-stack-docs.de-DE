@@ -10,12 +10,12 @@ metadata:
   author: justinha
   ms.author: justinha
   ms.date: 07/23/2020
-  ms.openlocfilehash: 37446262243a4f5247d21e5fce94b473444938e5
-  ms.sourcegitcommit: f51d396e4822961162a0caf7fbed18b5760e137b
+  ms.openlocfilehash: 567ea184c0b7ff1afe36022600ff61130455c2e4
+  ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 11/11/2020
-  ms.locfileid: "94518847"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96935081"
 landingContent:
 - title: Informationen zu Azure Modular Data Center
   linkLists:
@@ -66,7 +66,7 @@ landingContent:
     - text: Herunterladen von Azure Stack Hub-Tools aus GitHub
       url: ../operator/azure-stack-powershell-download.md
     - text: Installieren von Azure Stack-PowerShell
-      url: ../operator/azure-stack-powershell-install.md
+      url: ../operator/powershell-install-az-module.md
     - text: Ausführen von PowerShell mithilfe von Docker
       url: ../user/azure-stack-powershell-user-docker.md
     - text: Herstellen einer Verbindung mit Azure Stack PowerShell
