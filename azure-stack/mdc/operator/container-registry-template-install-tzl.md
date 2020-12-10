@@ -16,12 +16,12 @@ ms.date: 1/10/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: eed164504ce07bcc21ddde002173aaab8992abd1
-ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
+ms.openlocfilehash: 44cf8fe76ec203fb0a6260a92c4e47641d4f40f8
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94674556"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935002"
 ---
 # <a name="add-a-container-registry-to-azure-stack-hub"></a>Hinzufügen einer Containerregistrierung in Azure Stack Hub
 
@@ -39,7 +39,7 @@ Sie benötigen die folgenden Elemente, bevor Sie das Marketplace-Element „Cont
 
 | Element | type | Details |
 | --- | --- | --- |
-| PowerShell-Module für Azure Stack Hub (Azs.Gallery.Admin) | PowerShell-Module | Dies ist nur erforderlich, wenn das Katalogelement „Containerregistrierungsvorlage“ quer geladen wird. Die PowerShell-Module für Azure Stack Hub werden verwendet, um Katalogelemente hinzuzufügen und zu entfernen.<br>[Installieren des PowerShell AzureRM-Moduls für Azure Stack Hub](../../operator/azure-stack-powershell-install.md) |
+| PowerShell-Module für Azure Stack Hub (Azs.Gallery.Admin) | PowerShell-Module | Dies ist nur erforderlich, wenn das Katalogelement „Containerregistrierungsvorlage“ quer geladen wird. Die PowerShell-Module für Azure Stack Hub werden verwendet, um Katalogelemente hinzuzufügen und zu entfernen.<br>[Installieren des PowerShell AzureRM-Moduls für Azure Stack Hub](../../operator/powershell-install-az-module.md) |
 | Containerregistrierungsvorlage | Marketplace-Element | Wenn Sie die Containerregistrierung als Azure Stack Hub-Benutzer bereitstellen möchten, muss das Marketplace-Element der Containerregistrierungsvorlage in Ihrem Abonnement verfügbar sein oder manuell in Ihren Azure Stack Hub-Marketplace hinzugefügt (quer geladen) werden. Beim Querladen befolgen Sie die Anleitung zum Querladen des Pakets in der `readme.md`-Datei im [GitHub-Repository](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/registry-v1.0.1). |
 | Ubuntu 16.04-LTS-Basisimage für AKS, September 2019 (Mindestversion) | Marketplace-Element | Damit Ihre Azure Stack Hub-Benutzer die Containerregistrierung bereitstellen können, müssen Sie dafür sorgen, dass das AKS-Basisimage im Marketplace verfügbar ist. Die Containerregistrierungsvorlage verwendet das Image, wenn eine Ubuntu-VM aus dem Abonnement installiert wird, das die Binärdateien der Docker-Containerregistrierung hostet. |
 | Benutzerdefinierte Linux-Skripterweiterung 2.0 | Marketplace-Element | Damit Ihre Azure Stack Hub-Benutzer die Containerregistrierung bereitstellen können, müssen Sie dafür sorgen, dass die benutzerdefinierte Linux-Skripterweiterung im Marketplace verfügbar ist. Die Bereitstellung der Containerregistrierungsvorlage verwendet die Erweiterung zum Konfigurieren der Registrierung. |

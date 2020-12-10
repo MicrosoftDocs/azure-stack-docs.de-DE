@@ -3,17 +3,17 @@ title: Herunterladen von Marketplace-Elementen aus Azure und Veröffentlichen in
 description: Es wird beschrieben, wie Sie Marketplace-Elemente aus Azure herunterladen und in Azure Stack Hub veröffentlichen.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 12/9/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 11/18/2020
+ms.lastreviewed: 12/9/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 1e6ef20bd1c04e8fd08af73370f2ed001b0be500
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: e66d49fc20a9cfbc70eeeb11a7817bd5bc75d7c0
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517921"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96934963"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Herunterladen von Marketplace-Elementen in Azure Stack Hub
 
@@ -88,14 +88,23 @@ Dieses Szenario besteht aus zwei Teilen:
   - Auf dem Computer mit Internetverbindung muss **mindestens Version 1.2.11 des Azure Stack Hub-PowerShell-Moduls**  installiert sein. [Installieren Sie die Azure Stack Hub-spezifischen PowerShell-Module](powershell-install-az-module.md), falls diese noch nicht vorhanden sind.
 
   - Die [PowerShell-Umgebung für den Azure Stack Hub-Bediener](azure-stack-powershell-configure-admin.md) muss konfiguriert sein, um den Import eines heruntergeladenen Marketplace-Elements zu ermöglichen.
+  - .NET Framework 4.7 oder höher.
 
-- Laden Sie mit dem folgenden Befehl das Modul **Azs.Syndication.Admin** aus dem PowerShell-Katalog herunter:
+Laden Sie mit dem folgenden Befehl das Modul **Azs.Syndication.Admin** aus dem PowerShell-Katalog herunter:
+
+### <a name="az-modules"></a>[Az-Module](#tab/az1)
 
   ```powershell
   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
   ```
-  
-- .NET Framework 4.7 oder höher.
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm1)
+
+  ```powershell
+  Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
+  ```
+
+---
 
 Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Meldung ignorieren, die auf dem Blatt für die Marketplace-Verwaltung angezeigt wird, da sie für den Anwendungsfall mit getrennter Umgebung nicht relevant ist:
 
@@ -106,7 +115,7 @@ Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Mel
 > [!IMPORTANT]
 > Jedes Mal, wenn Sie Marketplace-Elemente in einem nicht verbundenen Szenario herunterladen, müssen Sie das Tool für die Marketplace-Syndikation herunterladen. An diesem Tool werden häufig Änderungen vorgenommen, und es sollte immer die aktuelle Version für jeden Download verwendet werden.
 
-### <a name="az-modules"></a>[Az-Module](#tab/az)
+### <a name="az-modules"></a>[Az-Module](#tab/az2)
 
 1. Öffnen Sie auf einem Computer mit Internetverbindung eine PowerShell-Konsole als Administrator.
 
@@ -174,7 +183,7 @@ Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Mel
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
     ```
 
-### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm)
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm2)
 
 1. Öffnen Sie auf einem Computer mit Internetverbindung eine PowerShell-Konsole als Administrator.
 
@@ -198,7 +207,7 @@ Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Mel
 4. Laden Sie die aktuelle Version des Tools für die Marketplace-Syndikation herunter, sofern Sie dies noch nicht im Schritt „Voraussetzungen“ getan haben:
 
    ```powershell
-   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
+   Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
    ```
 
 5. Führen Sie den folgenden Befehl aus, um die herunterzuladenden Marketplace-Elemente wie VM-Images, Erweiterungen oder Lösungsvorlagen auszuwählen:

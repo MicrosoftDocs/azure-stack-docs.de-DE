@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/23/2020
-ms.openlocfilehash: d5e544f339d029eab693d48327abc8596d2f61fa
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.date: 12/7/2020
+ms.openlocfilehash: c6fe98d9f597f40d0a5cefde151eb36736b81d7a
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517071"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761693"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Übersicht über die Azure Stack HCI-Lösung
 
@@ -94,7 +94,7 @@ Bei Azure Stack HCI handelt es sich um einen erstklassigen integrierten Virtuali
 
 Für den Einstieg benötigen Sie Folgendes:
 
-- Einen Cluster mit zwei oder mehr Servern aus dem [Azure Stack HCI-Katalog](https://azure.microsoft.com/products/azure-stack/hci/catalog/), den Sie über Ihren bevorzugten Microsoft-Hardwarepartner erwerben.
+- Einen Cluster mit zwei oder mehr Servern aus dem [Azure Stack HCI-Katalog](https://aka.ms/azurestackhcicatalog), den Sie über Ihren bevorzugten Microsoft-Hardwarepartner erwerben.
 - [Ein Azure-Abonnement](https://azure.microsoft.com/).
 - Eine Internetverbindung für jeden Server im Cluster, über die mindestens alle 30 Tage per HTTPS eine Verbindung für ausgehenden Datenverkehr mit dem folgenden Endpunkt hergestellt werden kann: *-azurestackhci-usage.azurewebsites.net
 - Für über mehrere Standorte gestreckte Cluster benötigen Sie mindestens eine 1 GB-Standortverbindung (RDMA-Verbindung mit 25 GB empfohlen) mit einer durchschnittlichen Latenz von 5 ms pro Roundtrip, falls Sie eine synchrone Replikation durchführen möchten, bei der Schreibvorgänge gleichzeitig an beiden Standorten durchgeführt werden.
@@ -106,7 +106,7 @@ Weitere Informationen finden Sie unter [Systemanforderungen](concepts/system-req
 
 Sie können überprüfte Azure Stack HCI-Lösungen von Ihrem bevorzugten Microsoft-Partner erwerben, um ohne großen Entwurfs- und Buildaufwand starten zu können. Microsoft-Partner dienen auch als zentrale Ansprechpartner für die Implementierung und für Supportleistungen. Sie können entweder überprüfte Knoten oder ein integriertes System erwerben, auf dem das Azure Stack HCI-Betriebssystem vorinstalliert ist und das über Partnererweiterungen für Treiber- und Firmwareupdates verfügt.
 
-Besuchen Sie die Seite mit den [Azure Stack HCI-Lösungen](https://azure.microsoft.com/overview/azure-stack/hci), oder sehen Sie sich im [Azure Stack HCI-Katalog](https://azure.microsoft.com/products/azure-stack/hci/catalog/) die mehr als 70 Azure Stack HCI-Lösungen an, die bei Microsoft-Partnern derzeit erhältlich sind. Beispiele für Partner sind ASUS, Axellio, Blue Chip, DataON, Dell EMC, Fujitsu, HPE, Hitachi, Huawei, Lenovo, NEC, primeLine Solutions, QCT, SecureGUARD und Supermicro.
+Besuchen Sie die Seite mit den [Azure Stack HCI-Lösungen](https://azure.microsoft.com/overview/azure-stack/hci), oder sehen Sie sich im [Azure Stack HCI-Katalog](https://aka.ms/azurestackhcicatalog) die mehr als 70 Azure Stack HCI-Lösungen an, die bei Microsoft-Partnern derzeit erhältlich sind. Beispiele für Partner sind ASUS, Axellio, Blue Chip, DataON, Dell EMC, Fujitsu, HPE, Hitachi, Huawei, Lenovo, NEC, primeLine Solutions, QCT, SecureGUARD und Supermicro.
 
 ## <a name="software-partners"></a>Softwarepartner
 

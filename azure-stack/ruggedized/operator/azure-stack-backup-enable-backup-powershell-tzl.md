@@ -11,16 +11,16 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 12/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 9f50a6096f0fb7881d37a67df34bdcd6f2487eb9
+ms.lastreviewed: 12/16/2019
+ms.openlocfilehash: f0476f3ee331c014436e9ee2f879afcafb3320d7
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935048"
+ms.locfileid: "96941124"
 ---
 # <a name="configure-backup-for-azure-stack-with-powershell"></a>Konfigurieren der Sicherung für Azure Stack mit PowerShell
 
@@ -30,7 +30,7 @@ Sie können den Infrastructure Backup-Dienst so konfigurieren, dass Infrastruktu
 
 ## <a name="prepare-powershell-environment"></a>Vorbereiten der PowerShell-Umgebung
 
-Anweisungen zum Konfigurieren der PowerShell-Umgebung finden Sie unter [Installieren von PowerShell für Azure Stack](../../operator/powershell-install-az-module.md). Weitere Informationen zur Anmeldung bei Azure Stack finden Sie unter [Konfigurieren der Betreiberumgebung und Anmelden bei Azure Stack](../../operator/azure-stack-powershell-configure-admin.md).
+Anweisungen zum Konfigurieren der PowerShell-Umgebung finden Sie unter [Installieren von PowerShell für Azure Stack](../../operator/azure-stack-powershell-install.md). Weitere Informationen zur Anmeldung bei Azure Stack finden Sie unter [Konfigurieren der Betreiberumgebung und Anmelden bei Azure Stack](../../operator/azure-stack-powershell-configure-admin.md).
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Angeben der Sicherungsfreigabe, der Anmeldeinformationen und des Verschlüsselungsschlüssels zum Aktivieren der Sicherung
 

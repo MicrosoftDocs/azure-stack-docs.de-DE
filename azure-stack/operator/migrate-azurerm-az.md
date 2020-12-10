@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/2/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: a4196228856b776bb3712e26f237a1cb32f20e50
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 8a7d1f270cdb611749e07da310fef484ca8bcd82
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525760"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96934623"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Migrieren von AzureRM zu Azure PowerShell Az in Azure Stack Hub
 
@@ -41,7 +41,7 @@ Der erste Schritt besteht darin, das Az-Modul auf Ihrer Plattform zu installiere
 
 Gehen Sie zum Installieren des Az-Moduls von Azure PowerShell wie folgt vor:
 
-* __EMPFOHLEN__: [Deinstallieren Sie das AzureRM-Modul.](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)
+* **Empfohlen:** [Deinstallieren Sie das AzureRM-Modul.](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)
   Achten Sie darauf, _alle_ installierten Versionen von AzureRM zu entfernen, nicht nur die neueste Version.
 * [Installieren des Az-Moduls](/powershell/azure/install-az-ps)
 

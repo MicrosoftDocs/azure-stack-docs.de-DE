@@ -16,12 +16,12 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 42d28b38c67384745974110f8ed7cbb185b04f0d
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: eb835552b8f7142878d03aa1bb3bb062cd2cf3f6
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330104"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96934981"
 ---
 # <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>Rotieren von Containerregistrierungsgeheimnissen in Azure Stack Hub
 
@@ -29,7 +29,7 @@ Ihre Azure Stack Hub-Benutzer können die Geheimnisse (Zertifikate, Benutzername
 
 ## <a name="prerequisites-for-the-user"></a>Voraussetzungen für den Benutzer
 
- - Der Benutzer muss die Azure Stack Hub-PowerShell-Module installiert haben. Weitere Informationen finden Sie unter [Installieren von PowerShell für Azure Stack](../../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).
+ - Der Benutzer muss die Azure Stack Hub-PowerShell-Module installiert haben. Weitere Informationen finden Sie unter [Installieren von PowerShell für Azure Stack](../../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).
 
  - Rufen Sie die Aktualisierungsgeheimnisse für die Containerregistrierungsvorlage ab. Für den Zugriff auf die Docker-Registrierung können Sie ein neues SSL-Zertifikat oder eine neue Kombination aus Benutzername und Kennwort verwenden.
 
@@ -267,7 +267,7 @@ Befolgen Sie die nachstehenden Anweisungen, um neue Geheimnisse in Key Vault fes
 
     ![Lösungsvorlage bereitstellen](./media/container-registry-template-rotating-secrets-tzl/deploy-solution-template.png)
 
-6.  Überprüfen Sie unter **Parameter** , ob die Parameter denen bei der ursprünglichen Bereitstellung entsprechen. Die Client-ID des Dienstprinzipals und das Dienstprinzipalgeheimnis müssen hinzugefügt werden.
+6.  Überprüfen Sie unter **Parameter**, ob die Parameter denen bei der ursprünglichen Bereitstellung entsprechen. Die Client-ID des Dienstprinzipals und das Dienstprinzipalgeheimnis müssen hinzugefügt werden.
 
     - Wenn Sie nur den Benutzernamen und das Kennwort für den Registrierungsdienst rotieren, müssen Sie lediglich die Dienstprinzipalparameter hinzufügen.
 

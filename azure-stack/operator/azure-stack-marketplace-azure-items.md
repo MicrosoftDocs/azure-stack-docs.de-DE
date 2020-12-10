@@ -3,16 +3,16 @@ title: Für Azure Stack Hub verfügbare Azure Marketplace-Elemente
 description: Erfahren Sie, welche Azure Marketplace-Elemente in Azure Stack Hub verwendet werden können.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/09/2020
+ms.date: 12/9/2020
 ms.author: sethm
 ms.reviewer: gara
-ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: 0d5fe9bfc324cbf3a52cbd3a9a38508344bda5e0
-ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
+ms.lastreviewed: 12/9/2020
+ms.openlocfilehash: ccc190d13d78f3dbbfdca3b05a1868763637f55b
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94875092"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935218"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Für Azure Stack Hub verfügbare Azure Marketplace-Elemente
 
@@ -55,11 +55,11 @@ Microsoft Azure Stack Hub unterstützt die folgenden VMs und Lösungsvorlagen vo
 | Image | Name des Elements | BESCHREIBUNG | Herausgeber |
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Eine für Intel-Architektur optimierte Linux-Referenzdistribution. | Clear Linux-Projekt |
-| ![CoreOS Linux (stabil)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (stabil)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | CoreOS ist eine moderne und minimale Linux-Distribution, die eine einfache Möglichkeit zum Ausführen von Containern, Verwalten von Clustern und nahtlosen Aktualisieren Ihrer Server bietet – alle Komponenten, die eine Computelösung auf Warehouse-Ebene ermöglichen. | CoreOS |
+| ![CoreOS Linux (stabil)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (stabil)](https://coreos.com/os/docs/latest/booting-on-azure.html) | CoreOS ist eine moderne und minimale Linux-Distribution, die eine einfache Möglichkeit zum Ausführen von Containern, Verwalten von Clustern und nahtlosen Aktualisieren Ihrer Server bietet – alle Komponenten, die eine Computelösung auf Warehouse-Ebene ermöglichen. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server ist das weltweit beliebteste Linux für Cloudumgebungen. | Canonical |
 | ![Debian 8 „Jessie“](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 „Jessie“](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux ist eine der am häufigsten verwendeten Linux-Distributionen. | credativ |
 | ![Oracle Linux](media/azure-stack-marketplace-azure-items/oracle.png) | [Oracle Linux](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oracle-linux) | Das Betriebssystem Oracle Linux ist auf eine Open Cloud-Infrastruktur ausgelegt. Es bietet höchste Leistung, Skalierbarkeit und Zuverlässigkeit für SaaS- und PaaS-Workloads von Unternehmen; herkömmliche Unternehmens-Apps werden ebenfalls unterstützt. | Oracle |
-| ![CentOS-basiert 7.6](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-basiert 7.6](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOS76?tab=Overview) | Diese Linux-Distribution basiert auf CentOS und wird von Rogue Wave Software bereitgestellt. | Rogue Wave Software (früher OpenLogic) |
+| ![CentOS-basiert 7.6](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-basiert 7.6](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos?tab=Overview) | Diese Linux-Distribution basiert auf CentOS und wird von Rogue Wave Software bereitgestellt. | Rogue Wave Software (früher OpenLogic) |
 | ![7\.5 LVM (CentOS-basiert)](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.5 LVM (CentOS-basiert)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos-lvm) | Diese Linux-Distribution basiert auf CentOS und wird von Rogue Wave Software bereitgestellt. | Rogue Wave Software (früher OpenLogic) |
 | ![CentOS-basierter HPC](media/azure-stack-marketplace-azure-items/roguewave.png) | [HPC (CentOS-basiert)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos-hpc) | Diese Linux-Distribution basiert auf CentOS und wird von Rogue Wave Software bereitgestellt. | Rogue Wave Software (früher OpenLogic)  |
 | ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-byos) | SUSE Linux Enterprise Server 11 SP4 | SUSE |

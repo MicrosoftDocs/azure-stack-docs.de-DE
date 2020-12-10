@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Lernen Sie die Grundlagen zur Verwaltung von Azure Stack Hub kennen.
 author: justinha
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 06/16/2020
 ms.author: justinha
 ms.reviewer: thoroet
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 9369f29d802350f71ac4a5a462009768dec5c2cb
+ms.lastreviewed: 06/16/2020
+ms.openlocfilehash: afbfbf5c1fe7149b4d12f1cd96af79b1116e4a3a
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934929"
+ms.locfileid: "96941144"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Grundlagen zur Verwaltung von Azure Stack Hub
 
@@ -151,7 +151,7 @@ Die folgenden Artikel enthalten Informationen, in denen die Unterschiede zwische
 
 Ihre Benutzer sollten wissen, wie sie [auf das Benutzerportal zugreifen](../../user/azure-stack-use-portal.md) oder eine Verbindung über PowerShell herstellen. In der Umgebung eines integrierten Systems variiert die Adresse des Benutzerportals je nach Bereitstellung. Sie müssen für Ihre Benutzer die richtige URL bereitstellen.
 
-Bei der Verwendung von PowerShell müssen Benutzer möglicherweise Ressourcenanbieter registrieren, bevor sie Dienste verwenden können. Ein Ressourcenanbieter verwaltet einen Dienst. Der Netzwerkressourcenanbieter verwaltet beispielsweise Ressourcen wie virtuelle Netzwerke, Netzwerkschnittstellen und Lastenausgleichsmodule. Diese Anbieter müssen PowerShell [installieren](../../operator/powershell-install-az-module.md), zusätzliche Module [herunterladen](../../operator/azure-stack-powershell-download.md) und PowerShell (sowie die Registrierung von Ressourcenanbietern) [konfigurieren](../../user/azure-stack-powershell-configure-user.md).
+Bei der Verwendung von PowerShell müssen Benutzer möglicherweise Ressourcenanbieter registrieren, bevor sie Dienste verwenden können. Ein Ressourcenanbieter verwaltet einen Dienst. Der Netzwerkressourcenanbieter verwaltet beispielsweise Ressourcen wie virtuelle Netzwerke, Netzwerkschnittstellen und Lastenausgleichsmodule. Diese Anbieter müssen PowerShell [installieren](../../operator/azure-stack-powershell-install.md), zusätzliche Module [herunterladen](../../operator/azure-stack-powershell-download.md) und PowerShell (sowie die Registrierung von Ressourcenanbietern) [konfigurieren](../../user/azure-stack-powershell-configure-user.md).
 
 ### <a name="subscribe-to-an-offer"></a>Abonnieren von Angeboten
 

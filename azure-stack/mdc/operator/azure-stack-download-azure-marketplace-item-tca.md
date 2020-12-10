@@ -15,12 +15,12 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 9aa49c7913817168ed05f29b40d6ec8cf26e85b8
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 32ba4c16d36622cbe2a9595c58e4ec2e2f46b481
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330195"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935031"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Herunterladen von Marketplace-Elementen in Azure Stack Hub 
 
@@ -28,8 +28,8 @@ Als Cloudbetreiber können Sie Elemente aus dem Marketplace in Azure Stack Hub h
 
 Es gibt zwei Szenarien für das Herunterladen von Marketplace-Produkten:
 
-- **Verbundenes Szenario** : Hierfür muss Ihre Azure Stack Hub-Umgebung mit dem Internet verbunden sein. Elemente werden über das Azure Stack Hub-Administratorportal gesucht und heruntergeladen.
-- **Nicht verbundenes oder partiell verbundenes Szenario** : Für dieses Szenario müssen Sie mit dem Tool für die Marketplace-Syndikation auf das Internet zugreifen, um Marketplace-Elemente herunterzuladen. Anschließend übertragen Sie Ihre Downloads in die nicht verbundene Azure Stack-Installation. Für dieses Szenario wird PowerShell verwendet.
+- **Verbundenes Szenario**: Hierfür muss Ihre Azure Stack Hub-Umgebung mit dem Internet verbunden sein. Elemente werden über das Azure Stack Hub-Administratorportal gesucht und heruntergeladen.
+- **Nicht verbundenes oder partiell verbundenes Szenario**: Für dieses Szenario müssen Sie mit dem Tool für die Marketplace-Syndikation auf das Internet zugreifen, um Marketplace-Elemente herunterzuladen. Anschließend übertragen Sie Ihre Downloads in die nicht verbundene Azure Stack-Installation. Für dieses Szenario wird PowerShell verwendet.
 
 Eine komplette Liste der zum Download verfügbaren Marketplace-Elemente finden Sie unter [Für Azure Stack verfügbare Azure Marketplace-Elemente](../../operator/azure-stack-marketplace-azure-items.md). Eine Liste mit den aktuellen Ergänzungen, Entfernungen und Updates in Azure Stack Marketplace finden Sie unter [Änderungen im Azure Stack-Marketplace](../../operator/azure-stack-marketplace-changes.md).
 
@@ -50,7 +50,7 @@ Ihre Azure Stack Hub-Bereitstellung muss über eine Internetverbindung verfügen
 
 2. Überprüfen Sie den verfügbaren Speicherplatz, bevor Sie Marketplace-Elemente herunterladen. Wenn Sie später Elemente zum Download auswählen, können Sie die Downloadgröße mit der verfügbaren Speicherkapazität vergleichen. Ziehen Sie bei eingeschränkter Kapazität Optionen für die [Verwaltung des verfügbaren Speicherplatzes](../../operator/azure-stack-manage-storage-shares.md#manage-available-space) in Betracht.
 
-   Überprüfen des verfügbaren Speicherplatzes: Wählen Sie unter **Regionsverwaltung** die entsprechende Region aus, und navigieren Sie dann zu **Ressourcenanbieter** > **Speicher** :
+   Überprüfen des verfügbaren Speicherplatzes: Wählen Sie unter **Regionsverwaltung** die entsprechende Region aus, und navigieren Sie dann zu **Ressourcenanbieter** > **Speicher**:
 
    ![Überprüfen des Speicherplatzes im Azure Stack-Administratorportal](media/azure-stack-download-azure-marketplace-item-tzl/storage.png)
 
@@ -68,7 +68,7 @@ Ihre Azure Stack Hub-Bereitstellung muss über eine Internetverbindung verfügen
 
 6. Wählen Sie das gewünschte Element aus, und klicken Sie auf **Weiter**. Die Downloadzeiten variieren und hängen von der Netzwerkkonnektivität ab. Wenn der Download abgeschlossen ist, können Sie das neue Marketplace-Element entweder als Azure Stack-Betreiber oder -Benutzer bereitstellen.
 
-7. Klicken Sie zum Bereitstellen des heruntergeladenen Elements auf **+ Ressource erstellen** , und suchen Sie in den Kategorien nach dem neuen Marketplace-Element. Wählen Sie als Nächstes das Element aus, um den Bereitstellungsprozess zu starten. Der Prozess variiert für verschiedene Marketplace-Elemente.
+7. Klicken Sie zum Bereitstellen des heruntergeladenen Elements auf **+ Ressource erstellen**, und suchen Sie in den Kategorien nach dem neuen Marketplace-Element. Wählen Sie als Nächstes das Element aus, um den Bereitstellungsprozess zu starten. Der Prozess variiert für verschiedene Marketplace-Elemente.
 
 ## <a name="disconnected-or-a-partially-connected-scenario"></a>Nicht verbundenes oder partiell verbundenes Szenario
 
@@ -90,6 +90,33 @@ Sie können [die Offlinesyndikationstools hier herunterladen](https://aka.ms/azs
 
 #### <a name="download-items"></a>Herunterladen von Elementen
 
+
+
+### <a name="az-modules"></a>[Az-Module](#tab/az1)
+
+1. Öffnen Sie PowerShell, und navigieren Sie zum extrahierten Ordner.
+
+2. Führen Sie das PowerShell-Skript **Invoke-AzSMarketplaceDownload.ps1** aus:
+
+    ```powershell
+    .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationSubscriptionId '<subscription ID>' ` 
+       -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' `
+       -TenantName mytenant.onmicrosoft.com -DownloadFolder 'F:\offlineSyndication'
+    ```
+
+    Wenn Sie sich bereits über Azure PowerShell angemeldet haben, können Sie alternativ den Azure-Kontext übergeben:
+
+    ```powershell
+    Add-AzAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
+    .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' -DownloadFolder 'F:\offlineSyndication' -AzureContext $(Get-AzureRMContext)
+    ```
+    Wenn Sie den Azure-Kontext nicht übergeben, werden Sie aufgefordert, sich anzumelden.
+
+3. Ein Fenster wird angezeigt, in dem Sie das Produkt auswählen können, das Sie herunterladen möchten. Wenn Sie beim Klicken die STRG-TASTE gedrückt halten, können Sie mehrere Elemente auswählen.
+
+4. Klicken Sie auf **OK**. Hierdurch werden das Marketplace-Element und seine Abhängigkeiten heruntergeladen, sofern vorhanden.
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm1)
+
 1. Öffnen Sie PowerShell, und navigieren Sie zum extrahierten Ordner.
 
 2. Führen Sie das PowerShell-Skript **Invoke-AzSMarketplaceDownload.ps1** aus:
@@ -106,12 +133,13 @@ Sie können [die Offlinesyndikationstools hier herunterladen](https://aka.ms/azs
     Add-AzureRmAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
     .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' -DownloadFolder 'F:\offlineSyndication' -AzureContext $(Get-AzureRMContext)
     ```
-
     Wenn Sie den Azure-Kontext nicht übergeben, werden Sie aufgefordert, sich anzumelden.
 
 3. Ein Fenster wird angezeigt, in dem Sie das Produkt auswählen können, das Sie herunterladen möchten. Wenn Sie beim Klicken die STRG-TASTE gedrückt halten, können Sie mehrere Elemente auswählen.
 
 4. Klicken Sie auf **OK**. Hierdurch werden das Marketplace-Element und seine Abhängigkeiten heruntergeladen, sofern vorhanden.
+
+---
 
 ### <a name="upload-marketplace-items-to-azure-stack-hub"></a>Hochladen von Marketplace-Elementen in Azure Stack Hub
 
@@ -122,6 +150,30 @@ Sie können [die Offlinesyndikationstools hier herunterladen](https://aka.ms/azs
 - Zugriff auf die Offline-Marketplace-Elemente
 
 #### <a name="upload-items"></a>Hochladen von Elementen
+
+### <a name="az-modules"></a>[Az-Module](#tab/az2)
+
+1. Öffnen Sie PowerShell, und navigieren Sie zum extrahierten Ordner.
+
+2. Führen Sie das PowerShell-Skript **Invoke-AzSMarketplaceUpload.ps1** aus:
+
+    ```powershell
+    .\Invoke-AzsMarketplaceUpload.ps1 -AzureStackCloudName "AzureStack-Admin" -AzureStackAdminARMEndpoint https://adminmanagement.<region>.<fqdn> -TenantName mytenant.onmicrosoft.com -DownloadFolder F:\offlineSyndication
+    ```
+
+    Alternativ können Sie die Azure Stack-Umgebung selbst in Azure PowerShell einrichten, sich beim Resource Manager-Endpunkt des Administrators authentifizieren und den Kontext an das Skript übergeben:
+
+    ```powershell
+    Add-AzEnvironment -Name Redmond-Admin -ARMEndpoint https://adminmanagement.redmond.azurestack.corp.microsoft.com
+
+    Add-AzAccount -Environment Redmond-Admin
+
+    .\Invoke-AzsMarketplaceUpload.ps1 -DownloadFolder F:\Downloads\offlining -AzureContext $(GetAzContext)
+    ```
+
+    Mit dieser Prozedur werden die Marketplace-Elemente in die angegebene Azure Stack Hub-Instanz hochgeladen.
+
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm2)
 
 1. Öffnen Sie PowerShell, und navigieren Sie zum extrahierten Ordner.
 
@@ -142,3 +194,5 @@ Sie können [die Offlinesyndikationstools hier herunterladen](https://aka.ms/azs
     ```
 
     Mit dieser Prozedur werden die Marketplace-Elemente in die angegebene Azure Stack Hub-Instanz hochgeladen.
+
+---

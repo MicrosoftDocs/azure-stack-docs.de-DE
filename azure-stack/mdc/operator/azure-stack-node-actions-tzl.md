@@ -7,12 +7,12 @@ ms.date: 10/26/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: fe5c8901f39c8f6c01c72a1af00c953f792920cf
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.openlocfilehash: f7bc89e42b315fea585a87d93795a0e1b0f574f3
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363910"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96934895"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Aktionen für Knoten einer Skalierungseinheit in Azure Stack Hub
 
@@ -27,7 +27,7 @@ Im Administratorportal können Sie den Status einer Skalierungseinheit und ihrer
 
 So zeigen Sie den Status einer Skalierungseinheit an
 
-1. Klicken Sie auf die Kachel **Regionsverwaltung** , und wählen Sie die Region aus.
+1. Klicken Sie auf die Kachel **Regionsverwaltung**, und wählen Sie die Region aus.
 2. Wählen Sie auf der linken Seite unter **Infrastrukturressourcen** die Option **Skalierungseinheiten** aus.
 3. Wählen Sie in den Ergebnissen die Skalierungseinheit aus.
 4. Wählen Sie links unter **Allgemein** den Eintrag **Knoten** aus.
@@ -66,7 +66,7 @@ Beim Anzeigen von Informationen zu einem Knoten einer Skalierungseinheit können
 
 Der Betriebszustand des Knotens bestimmt, welche Optionen verfügbar sind.
 
-Sie müssen Azure Stack Hub-PowerShell-Module installieren. Diese Cmdlets befinden sich im **Azs.Fabric.Admin** -Modul. Informationen zum Installieren von PowerShell bzw. zum Überprüfen Ihrer PowerShell-Installation für Azure Stack Hub finden Sie unter [Installieren von PowerShell für Azure Stack Hub](../../operator/azure-stack-powershell-install.md).
+Sie müssen Azure Stack Hub-PowerShell-Module installieren. Diese Cmdlets befinden sich im **Azs.Fabric.Admin**-Modul. Informationen zum Installieren von PowerShell bzw. zum Überprüfen Ihrer PowerShell-Installation für Azure Stack Hub finden Sie unter [Installieren von PowerShell für Azure Stack Hub](../../operator/powershell-install-az-module.md).
 
 ## <a name="stop"></a>Beenden
 
