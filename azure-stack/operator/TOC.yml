@@ -340,7 +340,7 @@
                 - name: Anwenden von Updates
                   href: resource-provider-apply-updates.md
                 - name: Sichern und Wiederherstellen
-                  href: azure-stack-backup-infrastructure-backup.md
+                  href: azure-stack-backup-enable-backup-console.md
                 - name: Erfassen von Protokollen
                   href: diagnostic-log-collection.md
                 - name: Integrität und Warnungen
@@ -348,7 +348,7 @@
                 - name: Verwalten
                   href: event-hubs-rp-manage.md
                 - name: Rotieren von Geheimnissen
-                  href: azure-stack-rotate-secrets.md
+                  href: event-hubs-rp-rotate-secrets.md
                 - name: Ankündigungen von Dienstupdates
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
             - name: Remove (Entfernen)
