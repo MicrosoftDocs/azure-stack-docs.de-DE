@@ -6,19 +6,19 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/7/2020
-ms.openlocfilehash: c6fe98d9f597f40d0a5cefde151eb36736b81d7a
-ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
+ms.date: 12/10/2020
+ms.openlocfilehash: 918bc4fdee076cdfe5b158f9b276eff789c9ecf8
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96761693"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011194"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Übersicht über die Azure Stack HCI-Lösung
 
 Azure Stack HCI ist eine HCI-Clusterlösung (Hyperconverged Infrastruktur, hyperkonvergente Infrastruktur), mit der virtualisierte Windows- und Linux-Workloads und ihr Speicher in einer lokalen Hybridumgebung gehostet werden. Mit Azure-Hybriddiensten wird der Cluster um Funktionen erweitert, z. B. cloudbasierte Überwachung, Site Recovery und VM-Sicherungen, und Sie erhalten einen zentralen Überblick über Ihre gesamten Azure Stack HCI-Bereitstellungen im Azure-Portal. Sie können den Cluster mit Ihren vorhandenen Tools verwalten, z. B. Windows Admin Center, System Center und PowerShell.
 
-Version 20H2 von Azure Stack HCI umfasst ein neues Betriebssystem, das sich derzeit in der öffentlichen Vorschauphase (Public Preview) befindet und [hier](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) heruntergeladen werden kann. Diese Version ist für lokale Cluster bestimmt, in denen virtualisierte Workloads ausgeführt werden, und sie verfügt über integrierte Hybrid Cloud-Verbindungen. Azure Stack HCI wird daher als Azure-Dienst bereitgestellt und basierend auf einem Azure-Abonnement abgerechnet. Azure Stack HCI bietet nun auch die Möglichkeit zum Hosten von Azure Kubernetes Service. Ausführliche Informationen finden Sie unter [Was ist Azure Kubernetes Service in Azure Stack HCI?](../aks-hci/overview.md).
+Azure Stack HCI, Version 20h2 ist nun [für den Download verfügbar](https://azure.microsoft.com/products/azure-stack/hci/hci-download/). Diese Version ist für lokale Cluster bestimmt, in denen virtualisierte Workloads ausgeführt werden, und sie verfügt über integrierte Hybrid Cloud-Verbindungen. Azure Stack HCI wird daher als Azure-Dienst bereitgestellt und basierend auf einem Azure-Abonnement abgerechnet. Azure Stack HCI bietet nun auch die Möglichkeit zum Hosten von Azure Kubernetes Service. Ausführliche Informationen finden Sie unter [Was ist Azure Kubernetes Service in Azure Stack HCI?](../aks-hci/overview.md).
 
 Nehmen Sie sich einige Minuten Zeit, um sich das Video zu den allgemeinen Features von Azure Stack HCI anzusehen:
 
@@ -62,7 +62,7 @@ Azure Stack HCI ist hervorragend für Hybridinfrastrukturen geeignet und ermögl
 Nachdem Sie Ihren Azure Stack HCI-Cluster bei Azure registriert haben, können Sie das Azure-Portal anfänglich für folgende Zwecke verwenden:
 
 - **Überwachung:** Zeigen Sie Ihre gesamten Azure Stack HCI-Cluster in einer zentralen globalen Ansicht an, in der Sie sie nach Ressourcengruppe gruppieren und markieren können.
-- **Abrechnung:** Bezahlen Sie für Azure Stack HCI über Ihr Azure-Abonnement. (Beachten Sie, dass während der öffentlichen Vorschauphase (Public Preview) keine Kosten anfallen.)
+- **Abrechnung:** Bezahlen Sie Azure Stack HCI über Ihr Azure-Abonnement.
 
 Wir arbeiten hart an der Erstellung weiterer Funktionen. Achten Sie also auf weitere Updates.
 
@@ -96,7 +96,7 @@ Für den Einstieg benötigen Sie Folgendes:
 
 - Einen Cluster mit zwei oder mehr Servern aus dem [Azure Stack HCI-Katalog](https://aka.ms/azurestackhcicatalog), den Sie über Ihren bevorzugten Microsoft-Hardwarepartner erwerben.
 - [Ein Azure-Abonnement](https://azure.microsoft.com/).
-- Eine Internetverbindung für jeden Server im Cluster, über die mindestens alle 30 Tage per HTTPS eine Verbindung für ausgehenden Datenverkehr mit dem folgenden Endpunkt hergestellt werden kann: *-azurestackhci-usage.azurewebsites.net
+- Eine Internetverbindung für jeden Server im Cluster, die über ausgehenden HTTPS-Datenverkehr mindestens alle 30 Tage eine Verbindung mit bekannten Azure-Endpunkten herstellen kann.
 - Für über mehrere Standorte gestreckte Cluster benötigen Sie mindestens eine 1 GB-Standortverbindung (RDMA-Verbindung mit 25 GB empfohlen) mit einer durchschnittlichen Latenz von 5 ms pro Roundtrip, falls Sie eine synchrone Replikation durchführen möchten, bei der Schreibvorgänge gleichzeitig an beiden Standorten durchgeführt werden.
 - Wenn Sie SDN (Software Defined Networking) verwenden möchten, benötigen Sie eine VHD (virtual hard disk, virtueller Datenträger) für das Azure Stack HCI-Betriebssystem, um Netzwerkcontroller-VMs zu erstellen (mehr dazu finden Sie unter [Planen der Bereitstellung von Netzwerkcontrollern](concepts/network-controller.md))
 
@@ -110,7 +110,7 @@ Besuchen Sie die Seite mit den [Azure Stack HCI-Lösungen](https://azure.microso
 
 ## <a name="software-partners"></a>Softwarepartner
 
-Es gibt eine Vielzahl von Microsoft-Partnern, die an Software zur Erweiterung der Funktionen von Azure Stack HCI arbeiten, während IT-Administratoren gleichzeitig die Nutzung von vertrauten Tools ermöglicht wird. Beispielsweise unterstützt Altaro, ein weltweiter Anbieter von Sicherungslösungen und Microsoft Gold Partner, Azure Stack HCI in seiner Altaro-Lösung zum Sichern von VMs. Dies ermöglicht es Kunden und Anbietern von verwalteten Diensten, virtuelle Computer, die unter Azure Stack HCI ausgeführt werden, bis Ende Juni 2021 kostenlos zu sichern. [Erfahren Sie mehr zu dieser Ankündigung](http://www.altaro.com/news/single/News-Altaro-applies-its-expertise-in-Hyper-V-backup-to-support-Microsoft.php).
+Es gibt eine Vielzahl von Microsoft-Partnern, die an Software zur Erweiterung der Funktionen von Azure Stack HCI arbeiten, während IT-Administratoren gleichzeitig die Nutzung von vertrauten Tools ermöglicht wird. Weitere Informationen finden Sie unter [Hilfsprogrammanwendungen für Azure Stack HCI](concepts/utility-applications.md).
 
 ## <a name="licensing-billing-and-pricing"></a>Lizenzierung, Abrechnung und Preise
 
@@ -133,7 +133,6 @@ Sie können für die Verwaltung dieser Technologie die folgenden Tools verwenden
 - [System Center](https://www.microsoft.com/cloud-platform/system-center)
 - [PowerShell](/powershell/)
 - Andere Verwaltungstools, z. B. [Server-Manager](/windows-server/administration/server-manager/server-manager) und MMC-Snap-Ins
-- Tools, die nicht von Microsoft stammen, z. B. 5Nine Manager
 
 ## <a name="the-azure-stack-family"></a>Azure Stack-Familie
 
@@ -202,13 +201,14 @@ In Windows Admin Center Version 2009 wurden Azure Stack HCI mehrere Funktionen h
 
 - **Azure Kubernetes Service-Hostfunktionen:** Sie können nun eine Vorschauversion von [Azure Kubernetes Service in Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) installieren.
 - **Einbindung von SDN (Software-Defined Networking, softwaredefinierte Netzwerke) in den Clustererstellungs-Assistenten:** Der Clustererstellungs-Assistent enthält jetzt die Option zum Bereitstellen des Netzwerkcontrollerfeatures [Software-Defined Networking (SDN)](concepts/software-defined-networking.md) während der [Clustererstellung](deploy/create-cluster.md#step-5-sdn-optional).
+- **RDMA-Erweiterungen (Remote Direct Memory Access) im Assistenten für die Clustererstellung**: Der Assistent für die Clustererstellung kann nun RDMA für iWarp- und RoCE-Netzwerkadapter konfigurieren, einschließlich DCB (Data Center Bridging).
 
 Ausführliche Informationen zu neuen Features in Windows Admin Center finden Sie im [Windows Admin Center Blog](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog).
 
 Cluster, in denen Version 20H2 von Azure Stack HCI ausgeführt wird, verfügen im Vergleich zu Windows Server 2019-basierten Lösungen über die folgenden neuen Features:
 
 - **Neue Funktionen in Windows Admin Center**: Da hyperkonvergente Cluster über eine intuitive Benutzeroberfläche erstellt und aktualisiert werden können, ist die Nutzung von Azure Stack HCI einfacher als jemals zuvor.
-- **Gestreckte Cluster für automatisches Failover**: Das Clustering für mehrere Standorte mit Replikation von Speicherreplikaten und automatischem VM-Failover ermöglicht eine native Notfallwiederherstellung und Geschäftskontinuität für Cluster, in denen das Feature „Direkte Speicherplätze“ genutzt wird.
+- **Gestreckte Cluster für automatisches Failover**: Das Clustering für mehrere Standorte mit Replikation von Speicherreplikaten und automatischem VM-Failover ermöglicht eine native Notfallwiederherstellung und Geschäftskontinuität.
 - **Affinitäts- und Antiaffinitätsregeln**: Diese Regeln können auf ähnliche Weise wie Verfügbarkeitszonen in Azure verwendet werden, um VMs und Speicher in Clustern mit mehreren Fehlerdomänen, z. B. gestreckten Clustern, zusammen oder getrennt anzuordnen.
 - **Azure-Portal-Integration**: Die Benutzeroberfläche im Azure-Portal für Azure Stack HCI ist dafür ausgelegt, Ihre gesamten Azure Stack HCI-Cluster weltweit anzuzeigen, und neue Features befinden sich gerade in der Entwicklung.
 - **GPU-Beschleunigung für Hochleistungsworkloads**: KI- und ML-Anwendungen können davon profitieren, wenn die Leistung mit GPUs gesteigert wird.

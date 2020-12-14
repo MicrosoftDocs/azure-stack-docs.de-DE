@@ -1,21 +1,24 @@
 ---
-title: 'Tutorial: Bereitstellen einer Windows-Anwendung in AKS in Azure Stack HCI'
-description: In diesem Tutorial stellen Sie mithilfe eines in Azure Container Registry gespeicherten benutzerdefinierten Images eine Windows-Anwendung in Ihrem Cluster bereit.
+title: Bereitstellen einer Windows .NET-Anwendung in AKS auf Azure Stack HCI
+description: Erfahren Sie,wie Sie mithilfe eines in Azure Container Registry gespeicherten benutzerdefinierten Images eine Windows-Anwendung für Ihren Cluster bereitstellen.
 author: abha
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: f6bc0132dd7ce3ee9972b0aaff6d0718cab86843
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 844bafbb497228d2e4527a5e974574dadb95ee7d
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948736"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612317"
 ---
-# <a name="tutorial-deploy-windows-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>Tutorial: Bereitstellen von Windows-Anwendungen in Azure Kubernetes Service in Azure Stack HCI
+# <a name="deploy-windows-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>Bereitstellen von Windows-Anwendungen in Azure Kubernetes Service in Azure Stack HCI
 
-In diesem Tutorial stellen Sie eine ASP.NET-Beispielanwendung in einem Windows Server-Container im Kubernetes-Cluster bereit. Anschließend erfahren Sie, wie Sie Ihre Anwendung testen und skalieren. In diesem Tutorial werden grundlegende Kenntnisse von Kubernetes-Konzepten vorausgesetzt. Weitere Informationen finden Sie unter [Grundlegende Kubernetes-Konzepte für Azure Kubernetes Service in Azure Stack HCI](kubernetes-concepts.md).
+> Gilt für: AKS auf Azure Stack HCI, AKS-Runtime unter Windows Server 2019 Datacenter
+
+In diesem Tutorial stellen Sie eine ASP.NET-Beispielanwendung in einem Windows Server-Container im Kubernetes-Cluster bereit und erfahren, wie Sie Ihre Anwendung testen und skalieren können. Außerdem erfahren Sie, wie Sie einen Windows-Knoten mit einer Active Directory Domäne verknüpfen.
+In diesem Tutorial werden grundlegende Kenntnisse von Kubernetes-Konzepten vorausgesetzt. Weitere Informationen finden Sie unter [Grundlegende Kubernetes-Konzepte für Azure Kubernetes Service in Azure Stack HCI](kubernetes-concepts.md).
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
@@ -134,7 +137,7 @@ Wir haben ein einzelnes Replikat des Anwendungs-Front-Ends erstellt. Um die Anza
 kubectl get pods -n default
 ```
 
-Um die Anzahl von Pods in der *Beispiel*bereitstellung zu ändern, verwenden Sie den Befehl `kubectl scale`. Im folgenden Beispiel wird die Anzahl der Front-End-Pods auf *3* erhöht:
+Um die Anzahl von Pods in der *Beispiel* bereitstellung zu ändern, verwenden Sie den Befehl `kubectl scale`. Im folgenden Beispiel wird die Anzahl der Front-End-Pods auf *3* erhöht:
 
 ```console
 kubectl scale --replicas=3 deployment/sample
@@ -149,4 +152,4 @@ kubectl get pods -n default
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Verwenden von Azure Monitor zum Überwachen Ihres Clusters und Ihrer Anwendung](/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters).
-* [Verwenden von beständigem Speicher und Konfigurieren von gMSA-Unterstützung in einem Windows-Container](persistent-storage-windows-nodes.md).
+* [Verwenden eines permanenten Volumes für einen Kubernetes-Cluster](persistent-volume.md).

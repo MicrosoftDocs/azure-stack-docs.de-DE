@@ -3,17 +3,19 @@ title: 'Tutorial: Bereitstellen einer Linux-Anwendung in AKS in Azure Stack HCI'
 description: In diesem Tutorial stellen Sie mithilfe eines in Azure Container Registry gespeicherten benutzerdefinierten Images eine Linux-Anwendung mit mehreren Containern in Ihrem Cluster bereit.
 author: abha
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 6fd907a44cdaad5f5dfe7ccb3a29f5fc6a0152b6
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e5f7f96956248dc7cc2c92ae678970b40951ece4
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948739"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612300"
 ---
 # <a name="tutorial-deploy-linux-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>Tutorial: Bereitstellen von Linux-Anwendungen in Azure Kubernetes Service in Azure Stack HCI
+
+> Gilt für: AKS auf Azure Stack HCI, AKS-Runtime unter Windows Server 2019 Datacenter
 
 In diesem Tutorial stellen Sie eine Anwendung mit mehreren Containern bereit, die ein Web-Front-End und eine Redis-Datenbankinstanz in Ihrem Azure Kubernetes Service in Azure Stack HCI-Cluster enthält. Anschließend erfahren Sie, wie Sie Ihre Anwendung testen und skalieren. 
 
@@ -27,7 +29,7 @@ Vergewissern Sie sich, dass die folgenden Anforderungen erfüllt sind:
 * Eine kubeconfig-Datei für den Zugriff auf den Cluster.
 * Das Azure Kubernetes Service in Azure Stack HCI PowerShell-Modul ist installiert.
 * Führen Sie die Befehle in diesem Dokument in einem PowerShell-Fenster mit Administratorrechten aus.
-* Stellen Sie sicher, dass die betriebssystemspezifischen Workloads auf dem entsprechenden Containerhost landen. Wenn Sie einen Kubernetes-Cluster mit gemischten Linux- und Windows-Workerknoten haben, können Sie entweder Knotenselektoren oder Taints und Toleranzen verwenden. Weitere Informationen finden Sie unter [Verwenden von Knotenselektoren und Taints und Toleranzen](adapt-apps-mixed-os-clusters.md).
+* Stellen Sie sicher, dass die betriebssystemspezifischen Workloads auf dem entsprechenden Containerhost verarbeitet werden. Wenn Sie einen Kubernetes-Cluster mit gemischten Linux- und Windows-Workerknoten haben, können Sie entweder Knotenselektoren oder Taints und Toleranzen verwenden. Weitere Informationen finden Sie unter [Verwenden von Knotenselektoren und Taints und Toleranzen](adapt-apps-mixed-os-clusters.md).
 
 ## <a name="deploy-the-application"></a>Bereitstellen der Anwendung
 
@@ -179,7 +181,7 @@ azure-vote-back-6bdcb87f89-g2pqg    1/1       Running   0          25m
 azure-vote-front-84c8bf64fc-cdq86   1/1       Running   0          25m
 ```
 
-Um die Anzahl von Pods in der *azure-vote-front*-Bereitstellung zu ändern, verwenden Sie den Befehl `kubectl scale`. Im folgenden Beispiel wird die Anzahl von Front-End-Pods auf *5* erhöht:
+Um die Anzahl von Pods in der *azure-vote-front*-Bereitstellung zu ändern, verwenden Sie den Befehl `kubectl scale`. Im folgenden Beispiel wird die Anzahl der Front-End-Pods auf *5* erhöht:
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front

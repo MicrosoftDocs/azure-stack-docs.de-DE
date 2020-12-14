@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/28/2020
-ms.openlocfilehash: 61cd03f7c4b381a434b5f99175b57b99169cb058
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.date: 12/7/2020
+ms.openlocfilehash: 11c82a35d17a61fee474123a658f91ea90790221
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064462"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778018"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Was ist der Bereitstellungsprozess für Azure Stack HCI?
 
@@ -42,7 +42,7 @@ Ermitteln Sie vor der Bereitstellung des Betriebssystems, ob Ihre Hardware die [
 
 ### <a name="1-deploy-azure-stack-hci"></a>1. Bereitstellen von Azure Stack HCI
 
-[Laden Sie Azure Stack HCI herunter](https://azure.microsoft.com/products/azure-stack/hci/hci-download/), und stellen Sie das Azure Stack HCI-[Betriebssystem](operating-system.md) auf allen Servern bereit, die in den Cluster einbezogen werden sollen. Wenn Sie Azure Stack HCI-Lösungshardware für integrierte Systeme über den [Azure Stack HCI-Katalog](https://azure.microsoft.com/en-us/products/azure-stack/hci/catalog/) von Ihrem bevorzugten Hardwarepartner erworben haben, sollte das Azure Stack HCI-Betriebssystem vorinstalliert sein. In diesem Fall können Sie diesen Schritt überspringen und mit Schritt 2 fortfahren.
+[Laden Sie Azure Stack HCI herunter](https://azure.microsoft.com/products/azure-stack/hci/hci-download/), und stellen Sie das Azure Stack HCI-[Betriebssystem](operating-system.md) auf allen Servern bereit, die in den Cluster einbezogen werden sollen. Wenn Sie Azure Stack HCI-Lösungshardware für integrierte Systeme über den [Azure Stack HCI-Katalog](https://aka.ms/azurestackhcicatalog) von Ihrem bevorzugten Hardwarepartner erworben haben, sollte das Azure Stack HCI-Betriebssystem vorinstalliert sein. In diesem Fall können Sie diesen Schritt überspringen und mit Schritt 2 fortfahren.
 
 ### <a name="2-create-the-cluster"></a>2. Erstellen Sie den Cluster.
 
@@ -66,7 +66,9 @@ Nachdem Sie den Cluster erstellt und registriert haben, sollten Sie die [Cluster
 
 ### <a name="7-deploy-workloads"></a>7. Bereitstellen von Workloads
 
-Sie können nun [virtuelle Computer erstellen](../manage/vm.md) und Workloads in Azure Stack HCI bereitstellen, indem Sie Windows Admin Center verwenden.
+Sie können nun Workloads auf Azure Stack HCI bereitstellen, indem Sie Windows Admin Center verwenden.
+
+Ausführliche Informationen zu den ersten Schritten bei der Bereitstellung einer Azure Kubernetes Service-Workload auf Azure Stack HCI finden Sie in der folgenden Übersicht: [Was ist Azure Kubernetes Service auf Azure Stack HCI?](https://docs.microsoft.com/azure-stack/aks-hci/overview)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
