@@ -116,6 +116,8 @@
       items:
         - name: Systemanforderungen
           href: concepts/system-requirements.md
+        - name: Vergleich mit Windows Server
+          href: concepts/compare-windows-server.md
         - name: Wählen von Laufwerken
           href: concepts/choose-drives.md
         - name: Aspekte symmetrischer Laufwerke
