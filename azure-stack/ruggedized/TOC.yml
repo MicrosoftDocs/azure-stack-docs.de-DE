@@ -510,6 +510,60 @@
               href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Referenz zu Supportlinks
               href: operator/aks-refer-table-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 'Leitfaden: Customer Replaceable Unit in Tactical Cloud Appliance'
+              items:
+                - name: Vorsichtsmaßnahmen bei der Handhabung
+                  href: customer-replaceable-unit/handling-precautions.md
+                - name: Erforderliche Kenntnisse zur Verwendung des Hardwarelebenszyklus-Hosts
+                  href: customer-replaceable-unit/required-knowledge-hardware-lifecycle-host.md
+                - name: Überprüfen des Zugriffs und der Integrität des Hardwarelebenszyklus-Hosts
+                  href: customer-replaceable-unit/verify-hardware-lifecycle-host-access-and-health.md
+                - name: Erforderliche Kenntnisse zur Verwendung von Skalierungseinheitknoten
+                  href: customer-replaceable-unit/required-knowledge-scale-unit-nodes.md
+                - name: Überprüfen des Zugriffs und der Integrität von Skalierungseinheitknoten
+                  href: customer-replaceable-unit/verify-scale-unit-node-access-and-health.md
+                - name: Ausschalten des Hardwarelebenszyklus-Hosts
+                  href: customer-replaceable-unit/power-off-hlh.md
+                - name: Ausschalten von Skalierungseinheitknoten
+                  href: customer-replaceable-unit/power-off-scu.md
+                - name: Ersetzen des DIMM
+                  href: customer-replaceable-unit/replace-dimm.md
+                - name: Ersetzen fehlerhafter externer Speicherdatenträger
+                  href: customer-replaceable-unit/replace-failed-external-storage-disk.md
+                - name: Ersetzen des Lüfters
+                  href: customer-replaceable-unit/replace-cooling-fan.md
+                - name: Ersetzen der Netzwerktochterkarte
+                  href: customer-replaceable-unit/replace-network-daughter-card.md
+                - name: Ersetzen des Netzteils
+                  href: customer-replaceable-unit/replace-power-supply-unit.md
+                - name: Ersetzen des Betriebssystemdatenträgers
+                  href: customer-replaceable-unit/replace-operating-system-disk.md
+                - name: Auspacken des Heizgeräts und Planen der Installation des Heizgeräts
+                  href: customer-replaceable-unit/unpack-heater-and-plan-installation.md
+                - name: Ersetzen des Heizgeräts
+                  href: customer-replaceable-unit/replace-heater.md
+                - name: Einschalten eines Skalierungseinheitknotens
+                  href: customer-replaceable-unit/power-on-scale-unit-node.md
+                - name: Reparieren des Skalierungseinheitknotens
+                  href: customer-replaceable-unit/repair-scale-unit-node.md
+                - name: Überprüfen der Integrität des Hardwarelebenszyklus-Hosts
+                  href: customer-replaceable-unit/verify-hardware-lifecycle-host-health.md
+                - name: Überprüfen des Skalierungseinheitknotens
+                  href: customer-replaceable-unit/verify-scale-unit-node-health.md
+                - name: Überprüfen der Datenträgerintegrität des Skalierungseinheitknotens
+                  href: customer-replaceable-unit/verify-scale-unit-node-disk-health.md
+                - name: Azure Stack Hub-Hardwarediagramm
+                  href: customer-replaceable-unit/azure-stack-hub-hardware-diagram.md
+                - name: Übersicht über den EMC PowerEdge Tactical R640-Server
+                  href: customer-replaceable-unit/emc-poweredge-tactical-r640-server-overview.md
+                - name: 'EMC PowerEdge Tactical: Kennzahlen und Codes'
+                  href: customer-replaceable-unit/emc-poweredge-tactical-indicators-and-codes.md
+                - name: Zugreifen auf die iDRAC-Schnittstelle über eine direkte USB-Verbindung
+                  href: customer-replaceable-unit/access-idrac-over-usb-connection.md
+                - name: Installieren von Firmware über die iDRAC-Schnittstelle
+                  href: customer-replaceable-unit/install-firmware-using-idrac.md
+                - name: Arbeitsstation mit privilegiertem Zugriff und privilegierter Endpunktzugriff
+                  href: customer-replaceable-unit/privileged-access-workstation.md
     - name: Verweis
       items:
         - name: Azure Stack Hub-Operator
