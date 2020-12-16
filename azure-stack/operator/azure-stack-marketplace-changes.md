@@ -3,16 +3,16 @@ title: Neuerungen im Azure Stack Hub-Marketplace
 description: Hier finden Sie Informationen zu den Neuerungen im Azure Stack Hub-Marketplace, u. a. zu neuen, veralteten und aktualisierten Marketplace-Elementen.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: e4b0be90d1e4815957dced211a7a0648458a6777
-ms.sourcegitcommit: 616e65051a94290eb6ff7aa63ee0b33d45fe7ac5
+ms.openlocfilehash: e8db7987b06270b239c04bdb9596094bb7f06d1c
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94970213"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778001"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Änderungen im Azure Stack Hub-Marketplace
 
@@ -166,6 +166,22 @@ Der Artikel [Azure Stack Hub-Marketplace-Elemente](azure-stack-marketplace-azure
 
 ## <a name="updated-marketplace-items"></a>Aktualisierte Marketplace-Elemente
 
+- 07.12.2020: Bitnami Elasticsearch Cluster, Version 1.0.2
+- 07.12.2020: Bitnami Cassandra Cluster, Version 1.0.21
+- 07.12.2020: Bitnami etcd Cluster, Version 1.0.16
+- 07.12.2020: Bitnami Jenkins Cluster, Version 1.0.70
+- 07.12.2020: Bitnami Kafka Cluster, Version 1.0.2
+- 07.12.2020: Bitnami MariaDB Galera Cluster, Version 1.0.13
+- 07.12.2020: Bitnami MariaDB with Replication, Version 1.0.36
+- 07.12.2020: Bitnami Memcached Multiple Instances, Version 1.0.34
+- 07.12.2020: Bitnami Moodle Multi-Tier, Version 1.0.46
+- 07.12.2020: Bitnami NATS Cluster, Version 1.0.19
+- 07.12.2020: Bitnami PostgreSQL with Replication, Version 1.0.37
+- 07.12.2020: Bitnami MySQL with Replication, Version 1.0.37
+- 07.12.2020: Bitnami ZooKeeper Cluster, Version 1.0.18
+- 07.12.2020: Bitnami Redis High Availability, Version 1.0.27
+- 07.12.2020: Bitnami WordPress Multi-Tier, Version 1.0.56
+- 07.12.2020: Bitnami RabbitMQ Cluster, Version 1.0.38
 - 18.11.2020: SQL Server 2019 Standard unter Windows Server 2019 (Bring Your Own License), Version 15.0.20201015
 - 18.11.2020: SQL Server 2019 Standard unter Windows Server 2019 (Vorausbezahlung), Version 15.0.20201015
 - 18.11.2020: Kostenlose SQL Server-Lizenz: SQL 2019 Developer unter Windows Server 2019 (Bring Your Own License), Version 15.0.20201015
