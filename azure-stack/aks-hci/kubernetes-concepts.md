@@ -4,15 +4,18 @@ description: Lernen Sie die grundlegenden Cluster- und Workloadkomponenten von K
 author: daschott
 ms.author: daschott
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: 49ecf74033b2b6c68de1fa5fdfba84136c845397
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.date: 12/02/2020
+ms.openlocfilehash: 9870f2921be561a8fef66f1bfc530b5c18f494b4
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949316"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612640"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-on-azure-stack-hci"></a>Grundlegende Kubernetes-Konzepte für Azure Kubernetes Service in Azure Stack HCI
+
+> Gilt für: AKS auf Azure Stack HCI, AKS-Runtime unter Windows Server 2019 Datacenter
+
 Azure Kubernetes Service in Azure Stack HCI ist eine für Unternehmen konzipierte Kubernetes-Containerplattform, die von Azure Stack HCI unterstützt wird. Es umfasst von Microsoft unterstütztes grundlegendes Kubernetes, Add-Ons, einen speziell erstellten Windows-Containerhost und einen von Microsoft unterstützten Linux-Containerhost mit dem Ziel, über eine **einfache Bereitstellung und Umgebung für die Lebenszyklusverwaltung zu verfügen**.
 
 In diesem Artikel werden die grundlegenden Kubernetes-Infrastrukturkomponenten wie Steuerungsebene, Knoten und Knotenpools vorgestellt. Darüber hinaus werden Workloadressourcen wie Pods, Bereitstellungen und Sets erläutert, und es wird beschrieben, wie Sie Ressourcen in Namespaces gruppieren.

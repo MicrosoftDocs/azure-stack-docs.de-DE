@@ -3,17 +3,19 @@ title: Anpassen von Anwendungen zur Verwendung in Kubernetes-Clustern mit gemisc
 description: Hier erfahren Sie, wie Sie Knotenselektoren oder Taints und Toleranzen für Azure Kubernetes Service verwenden, um sicherzustellen, dass Anwendungen in Kubernetes-Clustern mit gemischten Betriebssystemen, die auf Azure Stack HCI ausgeführt werden, auf dem richtigen Workerknotenbetriebssystem geplant werden.
 author: abha
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 04b103fee921cf8bdab82a4004c6c80afd54d687
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.openlocfilehash: 0d4fd0e62e10e4afc4a76c9cac2deaed97e23549
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92253944"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761557"
 ---
 # <a name="adapt-apps-for-mixed-os-kubernetes-clusters-using-node-selectors-or-taints-and-tolerations"></a>Anpassen von Apps für Kubernetes-Cluster mit gemischten Betriebssystemen unter Verwendung von Knotenselektoren oder Taints und Toleranzen
+
+> Gilt für: AKS auf Azure Stack HCI, AKS-Runtime unter Windows Server 2019 Datacenter
 
 Mit Azure Kubernetes Service in Azure Stack HCI können Sie Kubernetes-Cluster mit Linux- und Windows-Knoten ausführen. Für die Verwendung in diesen Clustern mit gemischten Betriebssystemen müssen Sie jedoch kleine Änderungen an Ihren Apps vornehmen. In dieser Schrittanleitung erfahren Sie, wie Sie sicherstellen können, dass Ihre Anwendung entweder mithilfe von Knotenselektoren oder Taints und Toleranzen auf dem richtigen Hostbetriebssystem geplant wird.
 
@@ -45,7 +47,7 @@ node.kubernetes.io/os=Windows:NoSchedule
 ```
 Führen Sie `kubectl get` aus, und identifizieren Sie die Windows-Workerknoten, die Sie verfälschen möchten.
 
-```PowerShell
+```
 kubectl get nodes --all-namespaces -o=custom-columns=NAME:.metadata.name,OS:.status.nodeInfo.operatingSystem
 ```
 Ausgabe:
@@ -58,7 +60,7 @@ my-aks-hci-cluster-md-md-1-5xlwz         windows
 
 Taint-Windows-Serverworkerknoten, die `kubectl taint node` verwenden.
 
-```PowerShell
+```
 kubectl taint node my-aks-hci-cluster-md-md-1-5h4bl node.kubernetes.io/os=Windows:NoSchedule
 kubectl taint node my-aks-hci-cluster-md-md-1-5xlwz node.kubernetes.io/os=Windows:NoSchedule
 ```

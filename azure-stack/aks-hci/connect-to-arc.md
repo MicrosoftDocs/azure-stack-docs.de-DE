@@ -3,17 +3,19 @@ title: Herstellen einer Verbindung mit Azure Kubernetes Service auf einem Azure 
 description: Herstellen einer Verbindung mit Azure Kubernetes Service auf einem Azure Stack HCI-Cluster mit Azure Arc für Kubernetes
 author: abha
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 24dc2efdc591404db1bbfc30cf9c1bc83e2ed356
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e7a407e587918a6ee9648c51c2c218ab51e7132f
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949314"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612351"
 ---
 # <a name="connect-an-azure-kubernetes-service-on-azure-stack-hci-cluster-to-azure-arc-for-kubernetes"></a>Herstellen einer Verbindung mit Azure Kubernetes Service auf einem Azure Stack HCI-Cluster mit Azure Arc für Kubernetes
+
+> Gilt für: AKS auf Azure Stack HCI, AKS-Runtime unter Windows Server 2019 Datacenter
 
 Wenn eine Azure Kubernetes Service-Instanz auf dem Azure Stack HCI-Cluster an Azure Arc angefügt wird, wird sie im Azure-Portal angezeigt. Er verfügt dann über eine Azure Resource Manager-ID und eine verwaltete Identität. Cluster sind an Azure-Standardabonnements angefügt, befinden sich in einer Ressourcengruppe und können wie jede andere Azure-Ressource Tags erhalten.
 
@@ -31,7 +33,7 @@ Vergewissern Sie sich, dass die folgenden Anforderungen erfüllt sind:
 
 * Sie benötigen eine kubeconfig-Datei, um auf den Cluster und die Rolle des Clusteradministrators auf dem Cluster zuzugreifen, um Arc-fähige Kubernetes-Agents bereitstellen zu können.
 * Das Azure Kubernetes Service in Azure Stack HCI PowerShell-Modul ist installiert.
-* Azure CLI, Version 2.3 und höher, ist zum Installieren der Azure Arc-fähigen Kubernetes CLI-Erweiterungen erforderlich. [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli?view=azure-cli-latest) Sie können auch auf die neueste Version aktualisieren, um sicherzustellen, dass Sie über Azure CLI, Version 2.3 oder höher, verfügen.
+* Azure CLI, Version 2.3 und höher, ist zum Installieren der Azure Arc-fähigen Kubernetes CLI-Erweiterungen erforderlich. [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) Sie können auch auf die neueste Version aktualisieren, um sicherzustellen, dass Sie über Azure CLI, Version 2.3 oder höher, verfügen.
 * Ein Azure-Abonnement, bei dem Ihnen die Rolle „Besitzer“ oder „Mitwirkender“ zugeordnet ist. 
 * Führen Sie die Befehle in diesem Dokument in einem PowerShell-Fenster mit Administratorrechten aus.
 
@@ -143,7 +145,7 @@ Install-AksHciArcOnboarding -clusterName $clusterName -resourcegroup $resourceGr
 ```
 ## <a name="verify-connected-cluster"></a>Überprüfen des verbundenen Clusters
 
-Sie können Ihre Kubernetes-Clusterressource im [Azure-Portal](https://portal.azure.com/) anzeigen. Nachdem Sie das Portal in Ihrem Browser geöffnet haben, navigieren Sie anhand der früher im PowerShell-Befehl `Install-AksHciArcOnboarding` verwendeten Eingaben für Ressourcenname und Ressourcengruppenname zu der Ressourcengruppe und der Azure Arc-fähigen Kubernetes-Ressource.
+Sie können Ihre Kubernetes-Clusterressource im [Azure-Portal](https://portal.azure.com/) anzeigen. Nachdem Sie das Portal in Ihrem Browser geöffnet haben, navigieren Sie zu der Ressourcengruppe und der Azure Arc-fähigen Kubernetes-Ressource, die auf den zuvor im PowerShell-Befehl `Install-AksHciArcOnboarding` verwendeten Eingaben für Ressourcenname und Ressourcengruppenname beruht.
 
 > [!NOTE]
 > Nach dem Onboarding des Clusters dauert es ungefähr 5 bis 10 Minuten, bis die Clustermetadaten (Clusterversion, Agent-Version, Anzahl der Knoten) auf der Übersichtsseite der Kubernetes-Ressource, für die Azure Arc aktiviert ist, im Azure-Portal angezeigt wird.

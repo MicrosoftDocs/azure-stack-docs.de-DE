@@ -3,16 +3,16 @@ title: 'Azure Stack Hub: Versionshinweise'
 description: Versionshinweise für integrierte Azure Stack Hub-Systeme, einschließlich Updates und Fehlerbehebungen.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/30/2020
+ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 3e74f1e77c5c30ec17bf021d95952ce7bb19426b
-ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
+ms.openlocfilehash: aed3b9f5eb59ef440503625d807f8ef7b777f7b1
+ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96443332"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96869036"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -69,8 +69,8 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 <!-- What's new, also net new experiences and features. -->
 - Azure Stack Hub unterstützt jetzt VNET-Peering, mit dem VNETs verbunden werden können, ohne dass ein virtuelles Netzwerkgerät (Network Virtual Appliance, NVA) vorhanden ist. Weitere Informationen finden Sie in der [neuen VNET-Peering-Dokumentation](../user/virtual-network-peering.md).
 - Azure Stack Hub-Blobspeicher ermöglicht es Benutzern jetzt, ein unveränderliches Blob zu verwenden. Durch Festlegen von unveränderlichen Richtlinien für einen Container können Sie unternehmenskritische Datenobjekte in einem WORM-Zustand (Write Once, Read Many) speichern. In diesem Release können unveränderliche Richtlinien nur über die REST-API oder Client-SDKs festgelegt werden. Anfügeblob-Schreibvorgänge sind in diesem Release ebenfalls nicht möglich. Weitere Informationen zu unveränderlichen Blobs finden Sie unter [Speichern unternehmenskritischer Blobdaten mit unveränderlichem Speicher](/azure/storage/blobs/storage-blob-immutable-storage).
-- Azure Stack Hub-Speicher unterstützt jetzt Version 2019-07-07 der Azure Storage-Dienste-APIs. Informationen zu den Azure-Clientbibliotheken, die mit der neuen REST-API-Version kompatibel sind, finden Sie unter [Erste Schritte mit den Azure Stack Hub-Speicherentwicklungstools](../user/azure-stack-storage-dev.md#azure-client-libraries).
-- Azure Stack Hub-Compute unterstützt jetzt Azure Compute-APIs, Version 2020-06-01, mit einer Teilmenge der insgesamt verfügbaren Features.
+- Azure Stack Hub-Speicher unterstützt jetzt Version **2019-07-07** der Azure Storage-Dienste-APIs. Informationen zu den Azure-Clientbibliotheken, die mit der neuen REST-API-Version kompatibel sind, finden Sie unter [Erste Schritte mit den Azure Stack Hub-Speicherentwicklungstools](../user/azure-stack-storage-dev.md#azure-client-libraries). Die verfügbaren Features der Verwaltungs-APIs für Azure Storage-Dienste, Version **2018-02-01**, werden jetzt zum Teil unterstützt.
+- Azure Stack Hub-Compute unterstützt jetzt Azure Compute-APIs, Version **2020-06-01**, mit einer Teilmenge der insgesamt verfügbaren Features.
 - Verwaltete Azure Stack Hub-Datenträger unterstützen jetzt Azure Disk-APIs, Version **2019-03-01**, mit einer Teilmenge der verfügbaren Features.
 - Vorschau von Windows Admin Center, das nun eine Verbindung mit Azure Stack Hub herstellen kann, um detaillierte Einblicke in die Infrastruktur während Supportvorgängen zu erhalten (Notfallzugriff erforderlich).
 - Die Möglichkeit, zum Zeitpunkt der Bereitstellung ein Anmeldebanner zum privilegierten Endpunkt (PEP) hinzuzufügen.
@@ -103,7 +103,7 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 
   Beachten Sie, dass diese Änderungen auf der Hostebene eines Azure Stack Hub-Systems hinzugefügt werden. Wenden Sie sich an ihren OEM, um die erforderlichen Änderungen an den ToR-Netzwerkswitches (Top-of-Rack) vornehmen zu lassen. Diese ToR-Änderung kann entweder vor der Aktualisierung auf Release 2008 oder nach dem Aktualisieren auf 2008 ausgeführt werden. Weitere Informationen finden Sie unter [Planen der Netzwerkintegration für Azure Stack](azure-stack-network.md).
 
-  - Die GPU-fähigen VM-Größen **NCas_v4 (NVIDIA T4)** wurden in diesem Build durch die VM-Größen **NCasT4_v3** ersetzt, damit sie mit Azure konsistent sind. Beachten Sie, dass diese im Portal noch nicht sichtbar sind und nur über Azure Resouce Manager-Vorlagen verwendet werden können.
+- Die GPU-fähigen VM-Größen **NCas_v4 (NVIDIA T4)** wurden in diesem Build durch die VM-Größen **NCasT4_v3** ersetzt, damit sie mit Azure konsistent sind. Beachten Sie, dass diese im Portal noch nicht sichtbar sind und nur über Azure Resouce Manager-Vorlagen verwendet werden können.
 
 ### <a name="fixes"></a>Fehlerbehebungen
 
@@ -139,7 +139,7 @@ Wenn auf eine neue Hauptversion (z. B. von 1.2008.x auf 1.2005.x) aktualisieren
 
 Wenn nach der Installation des Updates 2008 Hotfixes für 2008 veröffentlicht werden, sollten Sie sie installieren:
 
-- [Azure Stack Hub-Hotfix 1.2008.16.94](https://support.microsoft.com/help/4595071)
+- [Azure Stack Hub-Hotfix 1.2008.19.100](https://support.microsoft.com/help/4595073)
 ::: moniker-end
 
 ::: moniker range="azs-2005"

@@ -16,12 +16,12 @@ ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: 339927d28c2778a5c2953d8acf90e04931e3c815
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.openlocfilehash: d0bf712be8924cce59aa441161dfb39c090d1a2d
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383631"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612623"
 ---
 # <a name="mdc-requirements-overview"></a>Übersicht über die MDC-Anforderungen
 
@@ -60,30 +60,33 @@ In der folgenden Tabelle sind einige der in dieser Anleitung verwendeten Begriff
 
 ## <a name="deployment-workflow"></a>Bereitstellungsworkflow
 
-Der MDC-Bereitstellungsprozess umfasst im Allgemeinen die folgenden Schritte:
+Der MDC-Bereitstellungsprozess umfasst die folgenden grundlegenden Phasen:
 
-1. Planungsphase:
-   1. Planen der Leistung des Rechenzentrums
-   1. Planen der Konfiguration des logischen Netzwerks von Azure Stack Hub
-   1. Planen der Netzwerkintegration des Rechenzentrums
-   1. Planen der Integration von Identitäts- und Sicherheitsfunktionen
-   1. Planen der PKI-Zertifikate
-1. Vorbereitungsphase:
-   1. Erfassen des Bestands
-   1. Anschließen der Stromversorgung und Einschalten der Lösung
-   1. Überprüfen der Integrität des HVAC-Systems
-   1. Überprüfen der Integrität des Systems zur Überwachung und Warnung bei Feuer
-   1. Überprüfen der Integrität der physischen Hardware
-1. Ausführungsphase – einzeln für jeden der drei Pods:
-   1. Konfigurieren des Hardwarelebenszyklus-Hosts
-   1. Konfigurieren der Netzwerkswitches
-   1. Integrieren in das Netzwerk des Rechenzentrums
-   1. Konfigurieren der Einstellungen für die physische Hardware
-   1. Konfigurieren des Isilon-Speichers
-   1. Bereitstellen der Infrastruktur für das Azure Stack Hub-Fabric
-   1. Integrieren der Rechenzentrumsidentität
-   1. Installieren von Add-Ons für erweiterte Funktionen
-1. Validierungsphase – einzeln für jeden der drei Pods:
-   1. Überprüfen der Integrität nach der Bereitstellung
-   1. Registrieren von Azure Stack Hub bei Microsoft
-   1. Übergabe an den Azure Stack Hub-Kunden
+### <a name="planning-phase"></a>Planungsphase
+1. Planen der Leistung des Rechenzentrums
+1. Planen der Konfiguration des logischen Netzwerks von Azure Stack Hub
+1. Planen der [Netzwerkintegration des Rechenzentrums](https://docs.microsoft.com/azure-stack/operator/azure-stack-network)
+1. Planen der [Integration von Identitäts- und Sicherheitsfunktionen](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
+1. Planen der [PKI-Zertifikate](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs)
+
+### <a name="preparation-phase"></a>Vorbereitungsphase
+1. Erfassen des Bestands
+1. Anschließen der Stromversorgung und Einschalten der Lösung
+1. Überprüfen der Integrität des HVAC-Systems
+1. Überprüfen der Integrität des Systems zur Überwachung und Warnung bei Feuer
+1. Überprüfen der Integrität der physischen Hardware
+
+### <a name="execution-phase--separately-for-each-of-the-three-pods"></a>Ausführungsphase – einzeln für jeden der drei Pods
+1. Konfigurieren des Hardwarelebenszyklus-Hosts
+1. Konfigurieren der Netzwerkswitches
+1. Integrieren in das Netzwerk des Rechenzentrums
+1. Konfigurieren der Einstellungen für die physische Hardware
+1. Konfigurieren des Isilon-Speichers
+1. Bereitstellen der Infrastruktur für das Azure Stack Hub-Fabric
+1. Integrieren der Rechenzentrumsidentität
+1. Installieren von Add-Ons für erweiterte Funktionen
+
+### <a name="validation-phase--separately-for-each-of-the-three-pods"></a>Validierungsphase – einzeln für jeden der drei Pods
+1. Überprüfen der Integrität nach der Bereitstellung
+1. Registrieren von Azure Stack Hub bei Microsoft
+1. Übergabe an den Azure Stack Hub-Kunden

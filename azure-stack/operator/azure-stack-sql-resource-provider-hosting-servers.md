@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie Hostserver für die Bereitstellung über den SQL-Ressourcenanbieteradapter hinzufügen.
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 0345c3290b717385d8080dc6be771660ea22a2e1
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 12/07/2020
+ms.openlocfilehash: 146ce73bb28b70d44f6eff03a135e6a3a9f22249
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487905"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778205"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Hinzufügen von Hostservern für den SQL-Ressourcenanbieter
 
@@ -66,13 +66,13 @@ Die folgenden Informationen stellen zusätzliche Sicherheitshinweise dar:
 
 * Der gesamte Azure Stack Hub-Speicher wird mit BitLocker verschlüsselt, sodass jede SQL-Instanz in Azure Stack Hub verschlüsselten Blobspeicher verwendet.
 * Der SQL-Ressourcenanbieter bietet vollständige Unterstützung für TLS 1.2. Stellen Sie sicher, dass alle SQL Server-Instanzen, die über den SQL-Ressourcenanbieter verwaltet werden, _nur_ für TLS 1.2 konfiguriert sind und dass der Ressourcenanbieter standardmäßig dieses Protokoll verwendet. TLS 1.2 wird von allen unterstützten SQL Server-Versionen unterstützt. Weitere Informationen finden Sie unter [TLS 1.2-Unterstützung für Microsoft SQL Server](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* Verwenden Sie den SQL Server-Konfigurations-Manager zum Festlegen der Option **ForceEncryption**, um sicherzustellen, dass die gesamte Kommunikation mit dem Computer mit SQL Server immer verschlüsselt wird. Weitere Informationen finden Sie unter [Konfigurieren des Servers zum Erzwingen verschlüsselter Verbindungen](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
+* Verwenden Sie den SQL Server-Konfigurations-Manager zum Festlegen der Option **ForceEncryption**, um sicherzustellen, dass die gesamte Kommunikation mit dem Computer mit SQL Server immer verschlüsselt wird. Weitere Informationen finden Sie unter [Konfigurieren des Servers zum Erzwingen verschlüsselter Verbindungen](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017&preserve-view=true#to-configure-the-server-to-force-encrypted-connections).
 * Stellen Sie sicher, dass alle Client-Apps ebenfalls über eine verschlüsselte Verbindung kommunizieren.
 * Der Ressourcenanbieter ist so konfiguriert, dass er den von der SQL Server-Instanz verwendeten Zertifikaten vertraut.
 
 ## <a name="provide-capacity-by-connecting-to-a-standalone-hosting-sql-server"></a>Bereitstellen von Kapazität durch Herstellen einer Verbindung mit einem eigenständigen SQL-Hostserver
 
-Sie können eigenständige SQL Server-Instanzen (ohne hohe Verfügbarkeit) mit einer beliebigen Edition von SQL Server 2014 oder SQL Server 2016 verwenden. Stellen Sie sicher, dass Sie über die Anmeldeinformationen für ein Konto mit Systemadministratorrechten verfügen.
+Sie können eigenständige SQL Server-Instanzen (ohne hohe Verfügbarkeit) mit einer beliebigen Edition von SQL Server 2014 oder SQL Server 2016 verwenden. Stellen Sie sicher, dass Sie über die Anmeldeinformationen für ein Konto mit Systemadministratorrechten verfügen. 
 
 Führen Sie die folgenden Schritte aus, um einen eigenständigen Hostserver hinzuzufügen, der bereits eingerichtet wurde:
 
@@ -87,6 +87,9 @@ Führen Sie die folgenden Schritte aus, um einen eigenständigen Hostserver hinz
    ![Dashboard des SQL-Adapters im Azure Stack Hub-Administratorportal](./media/azure-stack-sql-rp-deploy/sql-rp-hosting-server.png)
 
 3. Klicken Sie auf **Hinzufügen**, und geben Sie dann auf dem Blatt **SQL-Hostserver hinzufügen** die Verbindungsdetails für Ihre SQL Server-Instanz an.
+
+   > [!IMPORTANT]
+   > Wählen Sie nicht **Ressourcengruppe** `system.<region>.sqladapter` aus, die während der Bereitstellung des SQL-Ressourcenanbieters vom Installationsprogramm erstellt wurde. Sie müssen für den eigenständigen Hostserver eine andere Ressourcengruppe bereitstellen. 
 
    ![Hinzufügen eines SQL-Hostservers im Azure Stack Hub-Administratorportal](./media/azure-stack-sql-rp-deploy/sql-rp-new-hosting-server.png)
 
@@ -107,7 +110,7 @@ Führen Sie die folgenden Schritte aus, um einen eigenständigen Hostserver hinz
 Für das Konfigurieren von SQL-AlwaysOn-Instanzen sind zusätzliche Schritte und drei virtuelle (oder physische) Computer erforderlich. In diesem Artikel wird davon ausgegangen, dass Sie bereits über solide Kenntnisse zu AlwaysOn-Verfügbarkeitsgruppen verfügen. Weitere Informationen finden Sie in den folgenden Artikeln:
 
 * [Einführung in SQL Server Always On-Verfügbarkeitsgruppen auf virtuellen Azure-Computern](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Always On-Verfügbarkeitsgruppen (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Always On-Verfügbarkeitsgruppen (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017&preserve-view=true)
 
 > [!NOTE]
 > Der SQL-Adapterressourcenanbieter unterstützt _ausschließlich_ SQL 2016 SP1 Enterprise oder spätere Instanzen für AlwaysOn-Verfügbarkeitsgruppen. Diese Adapterkonfiguration erfordert neue SQL-Features wie z.B. automatisches Seeding.
@@ -136,7 +139,7 @@ Führen Sie auf den sekundären Knoten den folgenden SQL-Befehl aus:
 
 ### <a name="configure-contained-database-authentication"></a>Konfigurieren der Authentifizierung der eigenständigen Datenbank
 
-Stellen Sie vor dem Hinzufügen einer eigenständigen Datenbank zu einer Verfügbarkeitsgruppe sicher, dass die Serveroption für die Authentifizierung der eigenständigen Datenbank für jede Serverinstanz auf 1 festgelegt ist, die ein Verfügbarkeitsreplikat für die Verfügbarkeitsgruppe hostet. Weitere Informationen finden Sie unter [Serverkonfigurationsoption für die Authentifizierung der eigenständigen Datenbank](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Stellen Sie vor dem Hinzufügen einer eigenständigen Datenbank zu einer Verfügbarkeitsgruppe sicher, dass die Serveroption für die Authentifizierung der eigenständigen Datenbank für jede Serverinstanz auf 1 festgelegt ist, die ein Verfügbarkeitsreplikat für die Verfügbarkeitsgruppe hostet. Weitere Informationen finden Sie unter [Serverkonfigurationsoption für die Authentifizierung der eigenständigen Datenbank](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017&preserve-view=true).
 
 Verwenden Sie diese Befehle, um die Serveroption für die Authentifizierung der eigenständigen Datenbank für jede Instanz festzulegen:
 
@@ -156,6 +159,9 @@ Verwenden Sie diese Befehle, um die Serveroption für die Authentifizierung der 
    Unter **SQL-Hostserver** können Sie den SQL Server-Ressourcenanbieter mit tatsächlichen SQL Server-Instanzen verbinden, die als Back-End des Ressourcenanbieters dienen.
 
 3. Füllen Sie das Formular mit den Verbindungsdetails für Ihre SQL Server-Instanz aus. Stellen Sie sicher, dass Sie die FQDN-Adresse des AlwaysOn-Listeners (und optional die Portnummer und den Instanznamen) verwenden. Geben Sie die Informationen für das Konto an, das Sie mit Systemadministratorrechten konfiguriert haben.
+
+   > [!IMPORTANT]
+   > Wählen Sie nicht **Ressourcengruppe** `system.<region>.sqladapter` aus, die während der Bereitstellung des SQL-Ressourcenanbieters vom Installationsprogramm erstellt wurde. Sie müssen für den eigenständigen Hostserver eine andere Ressourcengruppe bereitstellen. 
 
 4. Aktivieren Sie das Kontrollkästchen „AlwaysOn-Verfügbarkeitsgruppe“, um Instanzen von SQL-AlwaysOn-Verfügbarkeitsgruppen zu unterstützen.
 
@@ -195,4 +201,4 @@ Erstellen Sie Pläne und Angebote, um SQL-Datenbanken für Benutzer zur Verfügu
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Hinzufügen von Datenbanken](azure-stack-sql-resource-provider-databases.md)
+[Datenbanken hinzufügen](azure-stack-sql-resource-provider-databases.md)

@@ -4,34 +4,39 @@ titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie den SQL Server-Ressourcenanbieter in Azure Stack Hub bereitstellen.
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
-ms.lastreviewed: 03/18/2019
+ms.date: 12/07/2020
+ms.lastreviewed: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 5759c0f43401fd27080b8872810e47af920da984
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: e7565634d026d0d9bca5162ed709d76f760685b1
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812660"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778171"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Bereitstellen des SQL Server-Ressourcenanbieters in Azure Stack Hub
 
 Verwenden Sie den SQL Server-Ressourcenanbieter von Azure Stack Hub, um SQL-Datenbanken als Azure Stack Hub-Dienst verfügbar zu machen. Der SQL-Ressourcenanbieter wird als Dienst auf einer Windows Server 2016 Server Core-VM (für Adapterversionen <= 1.1.47.0) oder als spezielles Ressourcenanbieter-Add-On für Windows Server (für Adapterversionen >= 1.1.93.0) ausgeführt.
 
 > [!IMPORTANT]
-> Auf Servern, die SQL oder MySQL hosten, kann nur der Ressourcenanbieter Elemente erstellen. Die auf einem Hostserver erstellten Elemente, die nicht vom Ressourcenanbieter erstellt wurden, könnten zu einem Zustand ohne Entsprechung führen.
+> Auf Servern, die SQL oder MySQL hosten, sollte nur der Ressourcenanbieter Elemente erstellen. Die auf einem Hostserver erstellten Elemente, die nicht vom Ressourcenanbieter erstellt wurden, werden nicht unterstützt und können zu einem Konfliktzustand führen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Damit Sie den Azure Stack Hub-SQL-Ressourcenanbieter bereitstellen können, müssen verschiedene Voraussetzungen erfüllt sein. Führen Sie zum Erfüllen dieser Anforderungen die folgenden Schritte auf einem Computer aus, der auf die privilegierte Endpunkt-VM zugreifen kann:
+Damit Sie den Azure Stack Hub-SQL-Ressourcenanbieter bereitstellen können, müssen verschiedene Voraussetzungen erfüllt sein:
+
+- Sie benötigen einen Computer und ein Konto mit Zugriff auf folgende Komponenten:
+   - Das [Azure Stack Hub-Administratorportal](azure-stack-manage-portals.md).
+   - Den [privilegierten Endpunkt](azure-stack-privileged-endpoint.md).
+   - Den Azure Resource Manager-Administratorendpunkt `https://management.region.<fqdn>`, wobei `<fqdn>` der vollqualifizierte Domänenname ist (oder `https://management.local.azurestack.external` bei Verwendung des ASDK).
+   - Das Internet, wenn Azure Stack Hub so bereitgestellt wurde, dass Azure Active Directory (AD) als Identitätsanbieter verwendet wird.
 
 - Falls Sie dies noch nicht getan haben, [registrieren Sie Azure Stack Hub](azure-stack-registration.md) bei Azure, damit Sie Azure Marketplace-Elemente herunterladen können.
 
 - Fügen Sie die erforderliche Windows Server-VM zum Azure Stack Hub-Marketplace hinzu.
-  * Laden Sie für SQL-Ressourcenanbieterversionen <= 1.1.47.0 das Image **Windows Server 2016 Datacenter – Server Core** herunter.
-  * Laden Sie für SQL-Ressourcenanbieterversionen >= 1.1.93.0 das Image **Microsoft AzureStack Add-On RP Windows Server INTERNAL ONLY** herunter. Diese Windows Server-Version wurde speziell für die Azure Stack-Add-On-RP-Infrastruktur konzipiert und wird im Mandanten-Marketplace nicht angezeigt.
-
+  - Laden Sie für SQL-Ressourcenanbieterversionen <= 1.1.47.0 das Image **Windows Server 2016 Datacenter – Server Core** herunter.
+  - Laden Sie für SQL-Ressourcenanbieterversionen >= 1.1.93.0 das Image **Microsoft AzureStack Add-On RP Windows Server INTERNAL ONLY** herunter. Diese Windows Server-Version wurde speziell für die Azure Stack-Add-On-RP-Infrastruktur konzipiert und wird im Mandanten-Marketplace nicht angezeigt.
 
 - Laden Sie die unterstützte Version des SQL-Ressourcenanbieters in binärer Form gemäß der Versionszuordnungstabelle unten herunter. Führen Sie das selbstextrahierende Programm aus, um die heruntergeladenen Inhalte in ein temporäres Verzeichnis zu extrahieren. 
 
@@ -102,7 +107,7 @@ _Nur bei Installationen in integrierten Systemen_. Sie müssen das SQL-PaaS-PKI-
 
 ## <a name="deploy-the-sql-resource-provider"></a>Bereitstellen des SQL-Ressourcenanbieters
 
-Führen Sie nach der Installation aller erforderlichen Komponenten das Skript **DeploySqlProvider.ps1** auf einem Computer aus, der sowohl auf den Azure Resource Manager-Endpunkt des Azure Stack Hub-Administrators als auch den privilegierten Endpunkt zugreifen kann, um den SQL-Ressourcenanbieter bereitzustellen. Das Skript „DeploySqlProvider.ps1“ wird als Teil der Binärdatei vom SQL-Ressourcenanbieter extrahiert, die Sie für Ihre Azure Stack Hub-Version heruntergeladen haben.
+Wenn alle Voraussetzungen erfüllt sind, führen Sie das Skript **DeploySqlProvider.ps1** auf einem Computer aus, der sowohl auf den Resource Manager-Administratorendpunkt für Azure Stack Hub als auch auf den privilegierten Endpunkt zugreifen kann, um den SQL-Ressourcenanbieter bereitzustellen. Das Skript „DeploySqlProvider.ps1“ wird als Teil der Binärdatei vom SQL-Ressourcenanbieter extrahiert, die Sie für Ihre Azure Stack Hub-Version heruntergeladen haben.
 
  > [!IMPORTANT]
  > Überprüfen Sie vor der Bereitstellung des Ressourcenanbieters die Anmerkungen zu dieser Version auf Informationen zu neuen Funktionen, Fehlerbehebungen und bekannten Problemen, die sich auf die Bereitstellung auswirken können.
@@ -134,7 +139,7 @@ Sie können die folgenden Parameter in der Befehlszeile angeben. Wenn Sie keine 
 | **AzCredential** | Die Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto. Verwenden Sie die gleichen Anmeldeinformationen wie bei der Bereitstellung von Azure Stack Hub. Beim Skript tritt ein Fehler auf, wenn für das Konto, das Sie mit AzCredential verwenden, mehrstufige Authentifizierung (Multi-Factor Authentication, MFA) erforderlich ist.| _Erforderlich_ |
 | **VMLocalCredential** | Die Anmeldeinformationen für das lokale Administratorkonto des virtuellen Computers mit dem SQL-Ressourcenanbieter. | _Erforderlich_ |
 | **PrivilegedEndpoint** | Die IP-Adresse oder der DNS-Name des privilegierten Endpunkts. |  _Erforderlich_ |
-| **AzureEnvironment** | Die zum Bereitstellen von Azure Stack Hub verwendete Azure-Umgebung des Dienstadministratorkontos. Nur für Azure AD-Bereitstellungen erforderlich. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für Azure Active Directory für China **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | Die zum Bereitstellen von Azure Stack Hub verwendete Azure-Umgebung des Dienstadministratorkontos. Nur für Azure AD-Bereitstellungen erforderlich. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für ein chinesisches Azure AD **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Ihre Zertifikatdatei (PFX-Datei) muss nur für integrierte Systeme ebenfalls in diesem Verzeichnis abgelegt werden. Sie können optional ein Windows Update MSU-Paket in dieses Verzeichnis kopieren. | _Optional_ (für integrierte Systeme _erforderlich_) |
 | **DefaultSSLCertificatePassword** | Das Kennwort für das PFX-Zertifikat. | _Erforderlich_ |
 | **MaxRetryCount** | Die Anzahl von Wiederholungsversuchen für jeden Vorgang, wenn ein Fehler auftritt.| 2 |

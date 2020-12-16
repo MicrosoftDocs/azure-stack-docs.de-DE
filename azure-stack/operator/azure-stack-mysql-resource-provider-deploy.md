@@ -3,35 +3,41 @@ title: Bereitstellen des MySQL-Ressourcenanbieters in Azure Stack Hub
 description: Erfahren Sie, wie Sie den MySQL-Ressourcenanbieteradapter und MySQL-Datenbanken als Dienst in Azure Stack Hub bereitstellen.
 author: bryanla
 ms.topic: article
-ms.date: 9/22/2020
+ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: caoyang
-ms.lastreviewed: 9/22/2020
-ms.openlocfilehash: 22377e80f52b2a8e3a7827ded6400b17cebdce9c
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.lastreviewed: 12/07/2020
+ms.openlocfilehash: b6d345ecfecaa3859420087bc7cff051b39fbb36
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812735"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778154"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Bereitstellen des MySQL-Ressourcenanbieters in Azure Stack Hub
 
 Verwenden Sie den MySQL-Server-Ressourcenanbieter, um MySQL-Datenbanken als Azure Stack Hub-Dienst verfügbar zu machen. Der MySQL-Ressourcenanbieter wird als Dienst auf einer Windows Server 2016 Server Core-VM (für Adapterversionen <= 1.1.47.0) oder als spezielles Ressourcenanbieter-Add-On für Windows Server (für Adapterversionen >= 1.1.93.0) ausgeführt.
 
 > [!IMPORTANT]
-> Auf Servern, die SQL oder MySQL hosten, kann nur der Ressourcenanbieter Elemente erstellen. Die auf einem Hostserver erstellten Elemente, die nicht vom Ressourcenanbieter erstellt wurden, könnten zu einem Zustand ohne Entsprechung führen.
+> Auf Servern, die SQL oder MySQL hosten, sollte nur der Ressourcenanbieter Elemente erstellen. Die auf einem Hostserver erstellten Elemente, die nicht vom Ressourcenanbieter erstellt wurden, werden nicht unterstützt und können zu einem Konfliktzustand führen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Es gibt mehrere Voraussetzungen, die erfüllt werden müssen, bevor Sie den Azure Stack Hub-MySQL-Ressourcenanbieter bereitstellen können. Führen Sie zum Erfüllen dieser Anforderungen die Schritte in diesem Artikel auf einem Computer aus, der auf die privilegierte Endpunkt-VM zugreifen kann.
+Es gibt mehrere Voraussetzungen, die erfüllt werden müssen, bevor Sie den Azure Stack Hub-MySQL-Ressourcenanbieter bereitstellen können:
 
-* Falls Sie dies noch nicht getan haben, [registrieren Sie Azure Stack Hub](./azure-stack-registration.md) bei Azure, damit Sie Azure Marketplace-Elemente herunterladen können.
+- Sie benötigen einen Computer und ein Konto mit Zugriff auf folgende Komponenten:
+   - Das [Azure Stack Hub-Administratorportal](azure-stack-manage-portals.md).
+   - Den [privilegierten Endpunkt](azure-stack-privileged-endpoint.md).
+   - Den Azure Resource Manager-Administratorendpunkt `https://management.region.<fqdn>`, wobei `<fqdn>` der vollqualifizierte Domänenname ist (oder `https://management.local.azurestack.external` bei Verwendung des ASDK).
+   - Das Internet, wenn Azure Stack Hub so bereitgestellt wurde, dass Azure Active Directory (AD) als Identitätsanbieter verwendet wird.
 
-* Fügen Sie die erforderliche Windows Server-VM zum Azure Stack Hub-Marketplace hinzu.
-  * Laden Sie für MySQL-Ressourcenanbieterversionen <= 1.1.47.0 das Image **Windows Server 2016 Datacenter – Server Core** herunter.
-  * Laden Sie für MySQL-Ressourcenanbieterversionen >= 1.1.93.0 das Image **Microsoft AzureStack Add-On RP Windows Server INTERNAL ONLY** herunter. Diese Windows Server-Version wurde speziell für die Azure Stack-Add-On-RP-Infrastruktur konzipiert und wird im Mandanten-Marketplace nicht angezeigt.
+- Falls Sie dies noch nicht getan haben, [registrieren Sie Azure Stack Hub](azure-stack-registration.md) bei Azure, damit Sie Azure Marketplace-Elemente herunterladen können.
 
-* Laden Sie die unterstützte Version des MySQL-Ressourcenanbieters in binärer Form gemäß der Versionszuordnungstabelle unten herunter. Führen Sie das selbstextrahierende Programm aus, um die heruntergeladenen Inhalte in ein temporäres Verzeichnis zu extrahieren. 
+- Fügen Sie die erforderliche Windows Server-VM zum Azure Stack Hub-Marketplace hinzu.
+  - Laden Sie für MySQL-Ressourcenanbieterversionen <= 1.1.47.0 das Image **Windows Server 2016 Datacenter – Server Core** herunter.
+  - Laden Sie für MySQL-Ressourcenanbieterversionen >= 1.1.93.0 das Image **Microsoft AzureStack Add-On RP Windows Server INTERNAL ONLY** herunter. Diese Windows Server-Version wurde speziell für die Azure Stack-Add-On-RP-Infrastruktur konzipiert und wird im Mandanten-Marketplace nicht angezeigt.
+
+- Laden Sie die unterstützte Version des MySQL-Ressourcenanbieters in binärer Form gemäß der Versionszuordnungstabelle unten herunter. Führen Sie das selbstextrahierende Programm aus, um die heruntergeladenen Inhalte in ein temporäres Verzeichnis zu extrahieren. 
 
   |Unterstützte Azure Stack Hub-Version|MySQL RP Version|Windows Server-Instanz, auf der der RP-Dienst ausgeführt wird
   |-----|-----|-----|
@@ -44,7 +50,7 @@ Es gibt mehrere Voraussetzungen, die erfüllt werden müssen, bevor Sie den Azur
 >Zum Bereitstellen des MySQL-Anbieters in einem System ohne Internetzugriff kopieren Sie die Datei [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) in einen lokalen Pfad. Geben Sie den Pfadnamen mit dem Parameter **DependencyFilesLocalPath** an.
 
 
-* Stellen Sie sicher, dass die Voraussetzungen der Datencenterintegration erfüllt sind:
+- Stellen Sie sicher, dass die Voraussetzungen der Datencenterintegration erfüllt sind:
 
     |Voraussetzung|Verweis|
     |-----|-----|
@@ -104,7 +110,7 @@ _Nur bei Installationen in integrierten Systemen_. Sie müssen das SQL-PaaS-PKI-
 
 ## <a name="deploy-the-resource-provider"></a>Bereitstellen des Ressourcenanbieters
 
-Nach der Installation aller erforderlichen Komponenten können Sie das Skript **DeployMySqlProvider.ps1** auf einem Computer ausführen, der sowohl auf den Azure Resource Manager-Endpunkt des Azure Stack Hub-Administrators als auch den privilegierten Endpunkt zugreifen kann, um den MySQL-Ressourcenanbieter bereitzustellen. Das Skript „DeployMySqlProvider.ps1“ wird als Teil der Installationsdateien vom MySQL-Ressourcenanbieter extrahiert, die Sie entsprechend Ihrer Azure Stack Hub-Version heruntergeladen haben.
+Wenn alle Voraussetzungen erfüllt sind, können Sie das Skript **DeployMySqlProvider.ps1** auf einem Computer ausführen, der sowohl auf den Resource Manager-Administratorendpunkt für Azure Stack Hub als auch auf den privilegierten Endpunkt zugreifen kann, um den MySQL-Ressourcenanbieter bereitzustellen. Das Skript „DeployMySqlProvider.ps1“ wird als Teil der Installationsdateien vom MySQL-Ressourcenanbieter extrahiert, die Sie entsprechend Ihrer Azure Stack Hub-Version heruntergeladen haben.
 
  > [!IMPORTANT]
  > Überprüfen Sie vor der Bereitstellung des Ressourcenanbieters die Anmerkungen zu dieser Version auf Informationen zu neuen Funktionen, Fehlerbehebungen und bekannten Problemen, die sich auf die Bereitstellung auswirken können.

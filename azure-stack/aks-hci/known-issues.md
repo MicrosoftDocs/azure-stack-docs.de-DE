@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: f5451a9d30f87c2f4b985e4ae82541b12de52461
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 36c2d735f3652f4f195b4b9e1dda30fe8bce858c
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899702"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557003"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Bekannte Probleme für Azure Kubernetes Service in Azure Stack HCI Public Preview
 In diesem Artikel werden bekannte Probleme mit der öffentlichen Vorschauversion von Azure Kubernetes Service in Azure Stack HCI beschrieben.
@@ -82,3 +82,6 @@ Windows Admin Center verfügt zurzeit nicht über einen Prozess zum Offboarding 
 ```PowerShell
 az connectedk8s delete
 ```
+
+## <a name="when-setting-up-an-azure-kubernetes-service-host-using-windows-admin-center-setup-may-fail-if-file-explorer-is-open"></a>Beim Einrichten eines Azure Kubernetes Service-Hosts mithilfe von Windows Admin Centers schlägt das Setup möglicherweise fehl, wenn der Datei-Explorer geöffnet ist.
+Wenn der Datei-Explorer geöffnet ist und sich beim Schritt „Überprüfen + erstellen“ im Verzeichnis **C:\Programme\AksHci** befindet, schlägt die Erstellung möglicherweise mit dem Fehler „Der Prozess konnte nicht auf die Datei ‚C:\Programme\AksHci\wssdcloudagent.exe‘ zugreifen“ fehl. Dies liegt daran, dass sie von einem anderen Prozess verwendet wird. Um diesen Fehler zu vermeiden, schließen Sie den Datei-Explorer, oder navigieren Sie zu einem anderen Verzeichnis, bevor Sie diesen Schritt ausführen. 

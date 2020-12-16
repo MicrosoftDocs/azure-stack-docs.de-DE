@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: da21b724e914527ef2a4d5065d1d83a30ad3bb85
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.openlocfilehash: 161869d04e036e5265ebceb5cab9e193091baa37
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94785769"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935145"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -227,6 +227,12 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Ursache: Wenn der Stempel die Version 1.7 oder eine ältere Version des App Service-Ressourcenanbieters enthält, werden die Blätter für App Service bei der Aktualisierung des Stempels nicht geladen.
 - Abhilfe: Aktualisieren Sie den Ressourcenanbieter auf die Version 2002 Q2.
 
+## <a name="powershell"></a>PowerShell
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
+
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
 <!-- ## App Service -->
@@ -352,7 +358,7 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 ### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>Es ist nicht möglich, eine VM-Skalierungsgruppe mit der VM-Größe „Standard_DS2_v2“ im Portal zu erstellen.
 
 - Geltungsbereich: Dieses Problem gilt für Release 2002.
-- Ursache: Es gibt einen Portalfehler, der die Erstellung der VM-Skalierungsgruppe mit der VM-Größe „Standard_DS2_v2“ verhindert. Beim Erstellen wird ein Fehler ausgegeben: "{"code":"DeploymentFailed","message":"Mindestens ein Ressourcenbereitstellungsvorgang ist fehlgeschlagen. Listen Sie die Bereitstellungsvorgänge auf, um Details anzuzeigen. Weitere Informationen zur Verwendung finden Sie unter https://aka.ms/arm-debug.","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\": \" NetworkProfileValidationError\" ,\r\n \" message\": \" Die VM-Größe „Standard_DS2_v2“ ist nicht in der Liste der zulässigen VM-Größen für beschleunigten Netzwerkbetrieb, die auf der VM bei Index 0 für die VM-Skalierungs Gruppe „/subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss“ aktiviert werden soll. Zulässige Größen: .\"\r\n }\r\n}"}]}"
+- Ursache: Es gibt einen Portalfehler, der die Erstellung der VM-Skalierungsgruppe mit der VM-Größe „Standard_DS2_v2“ verhindert. Beim Erstellen wird ein Fehler ausgegeben: "{"code":"DeploymentFailed","message":"Mindestens ein Ressourcenbereitstellungsvorgang ist fehlgeschlagen. Listen Sie die Bereitstellungsvorgänge auf, um Details anzuzeigen. Weitere Informationen zur Verwendung finden Sie unter https://aka.ms/arm-debug.","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\": \" NetworkProfileValidationError\" ,\r\n \" message\": \" Die VM-Größe "Standard_DS2_v2" ist nicht in der Liste zulässiger VM-Größen zur Aktivierung des beschleunigten Netzwerkbetriebs für die VM bei Index "0" für die VM-Skalierungsgruppe "/subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss" enthalten. Zulässige Größen: .\"\r\n }\r\n}"}]}"
 - Abhilfe: Erstellen Sie eine VM-Skalierungsgruppe mit PowerShell oder einer Resource Manager-Vorlage.
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Auf dem Blatt mit der VM-Übersicht wird nicht der richtige Computername angezeigt.
@@ -431,6 +437,12 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 - Geltungsbereich: Dieses Problem betrifft das Release 2002.
 - Ursache: Wenn der Stempel die Version 1.7 oder eine ältere Version des App Service-Ressourcenanbieters enthält, werden die Blätter für App Service bei der Aktualisierung des Stempels nicht geladen.
 - Abhilfe: Aktualisieren Sie den Ressourcenanbieter auf die Version [2020 Q2](azure-stack-app-service-update.md).
+
+## <a name="powershell"></a>PowerShell
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

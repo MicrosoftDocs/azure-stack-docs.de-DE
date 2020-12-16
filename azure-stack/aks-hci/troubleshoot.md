@@ -3,14 +3,14 @@ title: AKS-Problembehandlung
 description: Dieser Artikel enthält Informationen zur Problembehandlung bei Azure Kubernetes Service (AKS) in Azure Stack HCI.
 author: davannaw-msft
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 4f13aff85c1444197fce5a01c62319026f844fe6
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 53ee79628f63d4925cdf7c725d1c0ec4231b4ef3
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415044"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612453"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Problembehandlung für Azure Kubernetes Service in Azure Stack HCI
 
@@ -79,20 +79,46 @@ GetHelp .\Get-SMEUILogs.ps1 -Examples
 ```
 
 ## <a name="troubleshooting-windows-worker-nodes"></a>Problembehandlung für Windows-Workerknoten 
-Zum Anmelden bei einem Windows-Workerknoten rufen Sie zunächst die IP-Adresse Ihres Knotens ab, indem Sie `kubectl get` ausführen. Notieren Sie den Wert von `EXTERNAL-IP`.
+Zum Anmelden bei einem Windows-Workerknoten über SSH rufen Sie zunächst die IP-Adresse Ihres Knotens ab, indem Sie `kubectl get` ausführen und den Wert `EXTERNAL-IP` ablesen.
 
-```PowerShell
-kubectl get nodes -o wide
-``` 
-Stellen Sie mit `ssh Administrator@ip` eine SSH-Verbindung mit dem Knoten her. Nachdem Sie eine SSH-Verbindung mit dem Knoten hergestellt haben, können Sie `net user administrator *` ausführen, um das Kennwort Ihres Administrators zu aktualisieren. 
+   > [!NOTE]
+   > Sie müssen den richtigen Speicherort an Ihren privaten SSH-Schlüssel übergeben. Im folgenden Beispiel wird der Standardspeicherort „%systemdrive%\akshci\.ssh\akshci_rsa“ verwendet, diesen Speicherort müssen Sie jedoch ändern, wenn Sie einen anderen Pfad angefordert haben, indem Sie den Parameter `-sshPublicKey` für `Set-AksHciConfig` angeben.
+
+So rufen Sie die IP-Adresse des Windows-Workerknotens ab  
+
+```
+kubectl --kubeconfig=yourkubeconfig get nodes -o wide
+```  
+
+Verwenden Sie `ssh Administrator@ip`, um sich über SSH mit einem Windows-Knoten zu verbinden:  
+
+```
+ssh -i $env:SYSTEMDRIVE\AksHci\.ssh\akshci_rsa administrator@<IP Address of the Node>
+```
+  
+Nachdem Sie eine SSH-Verbindung mit dem Knoten hergestellt haben, können Sie `net user administrator *` ausführen, um das Administratorkennwort zu aktualisieren. 
+
 
 ## <a name="troubleshooting-linux-worker-nodes"></a>Problembehandlung für Linux-Workerknoten 
-Zum Anmelden bei einem Linux-Workerknoten rufen Sie zunächst die IP-Adresse Ihres Knotens ab, indem Sie `kubectl get` ausführen. Notieren Sie den Wert von `EXTERNAL-IP`.
+Zum Anmelden bei einem Linux-Workerknoten über SSH rufen Sie zunächst die IP-Adresse Ihres Knotens ab, indem Sie `kubectl get` ausführen und den Wert `EXTERNAL-IP` ablesen.
 
-```PowerShell
-kubectl get nodes -o wide
-``` 
-Stellen Sie mit `ssh clouduser@ip` eine SSH-Verbindung mit dem Knoten her. 
+
+   > [!NOTE]
+   > Sie müssen den richtigen Speicherort an Ihren privaten SSH-Schlüssel übergeben. Im folgenden Beispiel wird der Standardspeicherort „%systemdrive%\akshci\.ssh\akshci_rsa“ verwendet, diesen Speicherort müssen Sie jedoch ändern, wenn Sie einen anderen Pfad angefordert haben, indem Sie den Parameter `-sshPublicKey` für `Set-AksHciConfig` angeben.
+
+So rufen Sie die IP-Adresse des Linux-Workerknotens ab  
+
+```
+kubectl --kubeconfig=yourkubeconfig get nodes -o wide
+```  
+
+Verwenden Sie `ssh clouduser@ip`, um sich über SSH mit dem Linux-Knoten zu verbinden: 
+
+```
+ssh -i $env:SYSTEMDRIVE\AksHci\.ssh\akshci_rsa clouduser@<IP Address of the Node>
+```  
+
+Nachdem Sie eine SSH-Verbindung mit dem Knoten hergestellt haben, können Sie `net user administrator *` ausführen, um das Administratorkennwort zu aktualisieren. 
 
 ## <a name="troubleshooting-azure-arc-kubernetes"></a>Problembehandlung bei Kubernetes in Azure Arc
 Informationen zur Problembehandlung bei einigen allgemeinen Szenarien in Bezug auf Konnektivität, Berechtigungen und Arc-Agents finden Sie unter [Problembehandlung bei Azure Arc-fähigem Kubernetes](/azure/azure-arc/kubernetes/troubleshooting).

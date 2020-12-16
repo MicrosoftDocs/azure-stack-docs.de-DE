@@ -3,16 +3,16 @@ title: Hinzufügen für MySQL-Hostserver in Azure Stack Hub
 description: Erfahren Sie, wie Sie MySQL-Hostserver für die Bereitstellung über den MySQL-Adapterressourcenanbieter hinzufügen.
 author: bryanla
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: bbf96c0716d6bb9fdfca7ce0b52268281e6169c6
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.lastreviewed: 12/07/2020
+ms.openlocfilehash: a5c965591a6eb7d11540bf63c298ffa2321e0014
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414162"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778426"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Hinzufügen für MySQL-Hostserver in Azure Stack Hub
 
@@ -116,6 +116,9 @@ Gehen Sie folgendermaßen vor, um einen Hostserver hinzuzufügen:
    * Es ist keine MySQL-Standardinstanz angegeben, daher müssen Sie die **Größe des Hostservers in GB** eingeben. Geben Sie eine Größe ein, die in etwa der physischen Kapazität des Datenbankservers entspricht.
    * Behalten Sie die Standardeinstellung für **Abonnement** bei.
    * Für **Ressourcengruppe** können Sie eine neue Gruppe erstellen oder eine vorhandene Gruppe verwenden.
+
+   > [!IMPORTANT]
+   > Wählen Sie nicht **Ressourcengruppe** `system.<region>.sqladapter` aus, die während der Bereitstellung des MySQL-Ressourcenanbieters vom Installationsprogramm erstellt wurde. Sie müssen für den Hostserver eine andere Ressourcengruppe bereitstellen.    
 
    > [!NOTE]
    > Wenn die MySQL-Instanz für den Azure Resource Manager-Mandanten und -Administrator zugänglich ist, kann sie vom Ressourcenanbieter gesteuert werden. Die MySQL-Instanz **muss** jedoch ausschließlich dem Ressourcenanbieter zugeordnet sein.

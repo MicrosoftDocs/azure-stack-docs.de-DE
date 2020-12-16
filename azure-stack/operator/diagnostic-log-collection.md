@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 10/30/2020
 ms.author: v-myoung
 ms.reviewer: shisab
-ms.lastreviewed: 10/30/2020
-ms.openlocfilehash: b5f182fcf76fe28855240931e3515d3c9a467ee1
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/08/2020
+ms.openlocfilehash: 6e2b00d80d600a0cdafa21455c9938e9df7af564
+ms.sourcegitcommit: b0a96f98f2871bd6be28d3f2461949e2237ddaf0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543305"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96872643"
 ---
 # <a name="diagnostic-log-collection"></a>Erfassung von Diagnoseprotokollen
 
@@ -38,6 +38,12 @@ Das folgende Flussdiagramm zeigt, welche Option jeweils zum Senden von Diagnosep
 
 Bei der proaktiven Protokollsammlung werden Diagnoseprotokolle automatisch gesammelt und von Azure Stack Hub an Microsoft gesendet, bevor Sie eine Supportanfrage erstellen. Diese Protokolle werden nur gesammelt, wenn eine [Systemintegritätswarnung](#proactive-diagnostic-log-collection-alerts) ausgelöst wird, und der Microsoft-Support greift nur im Kontext einer Supportanfrage auf diese Protokolle zu.
 
+::: moniker range=">= azs-2008"
+
+Ab Version 2008 von Azure Stack Hub verwendet die proaktive Protokollsammlung einen verbesserten Algorithmus, der Protokolle selbst bei Fehlerbedingungen erfasst, die für einen Operator nicht sichtbar sind. Dadurch wird sichergestellt, dass die richtigen Diagnoseinformationen zum richtigen Zeitpunkt gesammelt werden, ohne dass eine Interaktion des Operators erforderlich ist. Der Microsoft-Support kann so in einigen Fällen schneller mit der Problembehandlung beginnen und Probleme beheben. Die Verbesserungen der ursprünglichen Algorithmen beziehen sich hauptsächlich auf Patch- und Aktualisierungsvorgänge. Die Aktivierung von proaktiven Protokollsammlungen wird empfohlen, da weitere Vorgänge optimiert werden und mehr Vorteile entstehen.
+
+::: moniker-end
+
 Die proaktive Protokollsammlung kann jederzeit deaktiviert und erneut aktiviert werden. Gehen Sie zum Einrichten der proaktiven Protokollsammlung wie folgt vor:
 
 1. Melden Sie sich beim Azure Stack Hub-Administratorportal an.
@@ -56,6 +62,38 @@ Die Daten werden ausschließlich für die Problembehandlung im Zusammenhang mit 
 Der Widerruf Ihrer Einwilligung hat keine Auswirkungen auf Daten, die bereits mit Ihrer Zustimmung gesammelt wurden.
 
 Mit der **proaktiven Protokollsammlung** gesammelte Protokolle werden in ein von Microsoft verwaltetes und gesteuertes Azure-Speicherkonto hochgeladen. Auf diese Protokolle kann von Microsoft im Kontext einer Supportanfrage sowie zur Verbesserung der Integrität von Azure Stack Hub zugegriffen werden.
+
+### <a name="proactive-diagnostic-log-collection-alerts"></a>Warnungen für die proaktive Sammlung von Diagnoseprotokollen
+
+Bei aktivierter proaktiver Protokollsammlung werden Protokolle hochgeladen, wenn eines der folgenden Ereignisse ausgelöst wird.
+
+**Fehler bei Update** ist beispielsweise eine Warnung, durch die eine proaktive Sammlung von Diagnoseprotokollen ausgelöst wird. Ist die Funktion aktiviert, werden Diagnoseprotokolle bei einem Updatefehler proaktiv gesammelt, um den Microsoft-Support bei der Behandlung des Problems zu unterstützen. Die Diagnoseprotokolle werden nur erfasst, wenn die Warnung für **Fehler bei Update** ausgelöst wird.
+
+| Warnungstitel | FaultIdType |
+|---|---|
+|Es konnte keine Verbindung mit dem Remotedienst hergestellt werden | UsageBridge.NetworkError|
+|Fehler bei Update | Urp.UpdateFailure |
+|Infrastruktur oder Abhängigkeiten für Speicherressourcenanbieter nicht verfügbar |    StorageResourceProviderDependencyUnavailable |
+|Knoten nicht mit Controller verbunden| ServerHostNotConnectedToController |  
+|Fehler bei Routenveröffentlichung | SlbMuxRoutePublicationFailure |
+|Interner Datenspeicher des Speicherressourcenanbieters nicht verfügbar |    StorageResourceProvider. DataStoreConnectionFail |
+|Speichergerätfehler | Microsoft.Health.FaultType.VirtualDisks.Detached |
+|Health Controller kann nicht auf das Speicherkonto zugreifen | Microsoft.Health.FaultType.StorageError |
+|Konnektivität mit einem physischen Datenträger ist verloren gegangen | Microsoft.Health.FaultType.PhysicalDisk.LostCommunication |
+|Blobdienst wird auf einem Knoten nicht ausgeführt | StorageService.The.blob.service.is.not.running.on.a.node-Critical |
+|Infrastrukturrolle fehlerhaft | Microsoft.Health.FaultType.GenericExceptionFault |
+|Fehler bei Tabellenspeicherdienst | StorageService.Table.service.errors-Critical |
+|Dateifreigabe ist zu mehr als 80 % belegt | Microsoft.Health.FaultType.FileShare.Capacity.Warning.Infra |
+|Skalierungseinheitknoten ist offline. | FRP.Heartbeat.PhysicalNode |
+|Infrastrukturrolleninstanz nicht verfügbar | FRP.Heartbeat.InfraVM |
+|Infrastrukturrolleninstanz nicht verfügbar  | FRP.Heartbeat.NonHaVm |
+|Infrastrukturrolle „Verzeichnisverwaltung“ hat Fehler bei der Zeitsynchronisierung gemeldet | DirectoryServiceTimeSynchronizationError |
+|Pending external certificate expiration (Bevorstehender Ablauf eines externen Zertifikats) | CertificateExpiration.ExternalCert.Warning |
+|Pending external certificate expiration (Bevorstehender Ablauf eines externen Zertifikats) | CertificateExpiration.ExternalCert.Critical |
+|Virtuelle Computer können aufgrund einer niedrigen Arbeitsspeicherkapazität für bestimmte Klassen und Größen nicht bereitgestellt werden | AzureStack.ComputeController.VmCreationFailure.LowMemory |
+|Auf Knoten kann für Platzierung des virtuellen Computers nicht zugegriffen werden. | AzureStack.ComputeController.HostUnresponsive |
+|Fehler bei Sicherung  | AzureStack.BackupController.BackupFailedGeneralFault |
+|Geplante Sicherung wurde aufgrund eines Konflikts mit fehlerhaften Vorgängen übersprungen    | AzureStack.BackupController.BackupSkippedWithFailedOperationFault |
 
 ## <a name="send-logs-now"></a>Sofortiges Senden von Protokollen
 
@@ -87,19 +125,19 @@ Wenn Sie die Methode **Send logs now** (Protokolle jetzt senden) verwenden und P
 
 * Die Parameter **FromDate** und **ToDate** können zum Sammeln von Protokollen für einen bestimmten Zeitraum verwendet werden. Ohne Angabe dieser Parameter werden standardmäßig Protokolle für die letzten vier Stunden gesammelt.
 
-* Verwenden Sie den Parameter **FilterByNode** , um Protokolle nach Computername zu filtern. Beispiel:
+* Verwenden Sie den Parameter **FilterByNode**, um Protokolle nach Computername zu filtern. Beispiel:
 
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByNode azs-xrp01
   ```
 
-* Verwenden Sie den Parameter **FilterByLogType** , um Protokolle nach Typ zu filtern. Sie können nach Datei (File), Freigabe (Share) oder Windows-Ereignis (WindowsEvent) filtern. Beispiel:
+* Verwenden Sie den Parameter **FilterByLogType**, um Protokolle nach Typ zu filtern. Sie können nach Datei (File), Freigabe (Share) oder Windows-Ereignis (WindowsEvent) filtern. Beispiel:
 
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByLogType File
   ```
 
-* Verwenden Sie den Parameter **FilterByResourceProvider** , um Diagnoseprotokolle für Ressourcenanbieter zu senden, die Mehrwert schaffen. Die allgemeine Syntax sieht wie folgt aus:
+* Verwenden Sie den Parameter **FilterByResourceProvider**, um Diagnoseprotokolle für Ressourcenanbieter zu senden, die Mehrwert schaffen. Die allgemeine Syntax sieht wie folgt aus:
  
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByResourceProvider <<value-add RP name>>
@@ -123,7 +161,7 @@ Wenn Sie die Methode **Send logs now** (Protokolle jetzt senden) verwenden und P
   Send-AzureStackDiagnosticLog -FilterByResourceProvide databoxedge
   ```
 
-* Verwenden Sie den Parameter **FilterByRole** , um Diagnoseprotokolle für die Rollen „VirtualMachines“ und „BareMetal“ zu senden:
+* Verwenden Sie den Parameter **FilterByRole**, um Diagnoseprotokolle für die Rollen „VirtualMachines“ und „BareMetal“ zu senden:
 
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByRole VirtualMachines,BareMetal
@@ -181,38 +219,6 @@ Der Verlauf der von Azure Stack Hub gesammelten Protokolle wird auf der Seite **
 - **Typ:** Gibt an, ob es sich um eine manuelle oder um eine proaktive Protokollsammlung handelt.
 
 ![Protokollsammlungen in Hilfe und Support](media/azure-stack-help-and-support/azure-stack-log-collection.png)
-
-## <a name="proactive-diagnostic-log-collection-alerts"></a>Warnungen für die proaktive Sammlung von Diagnoseprotokollen
-
-Bei aktivierter proaktiver Protokollsammlung werden Protokolle hochgeladen, wenn eines der folgenden Ereignisse ausgelöst wird.
-
-**Fehler bei Update** ist beispielsweise eine Warnung, durch die eine proaktive Sammlung von Diagnoseprotokollen ausgelöst wird. Ist die Funktion aktiviert, werden Diagnoseprotokolle bei einem Updatefehler proaktiv gesammelt, um den Microsoft-Support bei der Behandlung des Problems zu unterstützen. Die Diagnoseprotokolle werden nur erfasst, wenn die Warnung für **Fehler bei Update** ausgelöst wird.
-
-| Warnungstitel | FaultIdType |
-|---|---|
-|Es konnte keine Verbindung mit dem Remotedienst hergestellt werden | UsageBridge.NetworkError|
-|Fehler bei Update | Urp.UpdateFailure |
-|Infrastruktur oder Abhängigkeiten für Speicherressourcenanbieter nicht verfügbar |    StorageResourceProviderDependencyUnavailable |
-|Knoten nicht mit Controller verbunden| ServerHostNotConnectedToController |  
-|Fehler bei Routenveröffentlichung | SlbMuxRoutePublicationFailure |
-|Interner Datenspeicher des Speicherressourcenanbieters nicht verfügbar |    StorageResourceProvider. DataStoreConnectionFail |
-|Speichergerätfehler | Microsoft.Health.FaultType.VirtualDisks.Detached |
-|Health Controller kann nicht auf das Speicherkonto zugreifen | Microsoft.Health.FaultType.StorageError |
-|Konnektivität mit einem physischen Datenträger ist verloren gegangen | Microsoft.Health.FaultType.PhysicalDisk.LostCommunication |
-|Blobdienst wird auf einem Knoten nicht ausgeführt | StorageService.The.blob.service.is.not.running.on.a.node-Critical |
-|Infrastrukturrolle fehlerhaft | Microsoft.Health.FaultType.GenericExceptionFault |
-|Fehler bei Tabellenspeicherdienst | StorageService.Table.service.errors-Critical |
-|Dateifreigabe ist zu mehr als 80 % belegt | Microsoft.Health.FaultType.FileShare.Capacity.Warning.Infra |
-|Skalierungseinheitknoten ist offline. | FRP.Heartbeat.PhysicalNode |
-|Infrastrukturrolleninstanz nicht verfügbar | FRP.Heartbeat.InfraVM |
-|Infrastrukturrolleninstanz nicht verfügbar  | FRP.Heartbeat.NonHaVm |
-|Infrastrukturrolle „Verzeichnisverwaltung“ hat Fehler bei der Zeitsynchronisierung gemeldet | DirectoryServiceTimeSynchronizationError |
-|Pending external certificate expiration (Bevorstehender Ablauf eines externen Zertifikats) | CertificateExpiration.ExternalCert.Warning |
-|Pending external certificate expiration (Bevorstehender Ablauf eines externen Zertifikats) | CertificateExpiration.ExternalCert.Critical |
-|Virtuelle Computer können aufgrund einer niedrigen Arbeitsspeicherkapazität für bestimmte Klassen und Größen nicht bereitgestellt werden | AzureStack.ComputeController.VmCreationFailure.LowMemory |
-|Auf Knoten kann für Platzierung des virtuellen Computers nicht zugegriffen werden. | AzureStack.ComputeController.HostUnresponsive |
-|Fehler bei Sicherung  | AzureStack.BackupController.BackupFailedGeneralFault |
-|Geplante Sicherung wurde aufgrund eines Konflikts mit fehlerhaften Vorgängen übersprungen    | AzureStack.BackupController.BackupSkippedWithFailedOperationFault |
 
 ## <a name="see-also"></a>Weitere Informationen
 

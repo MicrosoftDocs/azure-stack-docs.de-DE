@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 6006d8f715a9a680301dfe64f7c02075ab9052ab
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 0eb0c763b8ebd144576ac9ac773d17f191e30dc9
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518278"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778137"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Features von Azure Stack Hub-VMs
 
@@ -70,7 +70,7 @@ Die VM-Größen und entsprechenden Ressourcenmengen sind für Azure Stack Hub un
 
 ## <a name="vm-extensions"></a>VM-Erweiterungen
 
-Azure Stack Hub umfasst einige wenige Erweiterungen. Updates und zusätzliche Erweiterungen sind per Marketplace-Syndikation verfügbar.
+Azure Stack Hub umfasst einige wenige Erweiterungen. Updates und zusätzliche Erweiterungen sind per Marketplace-Syndikation verfügbar. Ein Szenario, bei dem benutzerdefinierte Erweiterungen in Azure Stack Hub importiert werden, wird nicht unterstützt. Zunächst muss das Onboarding einer Erweiterung in Azure durchgeführt werden, um sie in Azure Stack Hub verfügbar zu machen.
 
 Verwenden Sie das folgende PowerShell-Skript, um die Liste mit den VM-Erweiterungen abzurufen, die in Ihrer Azure Stack Hub-Umgebung verfügbar sind.
 

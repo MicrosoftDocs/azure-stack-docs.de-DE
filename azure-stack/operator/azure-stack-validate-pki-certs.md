@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 201acbad11011731a8e7017d14b39be120e460d3
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: d260c8486090dbe94931c2527102c06cf4b98314
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545765"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761650"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Überprüfen von Azure Stack Hub-PKI-Zertifikaten
 
@@ -211,7 +211,7 @@ Gehen Sie wie folgt vor, um die Azure Stack Hub-PKI-Zertifikate für die Bereits
 
 ### <a name="known-issues"></a>Bekannte Probleme
 
-**Symptom** : Tests werden übersprungen.
+**Symptom**: Tests werden übersprungen.
 
 **Ursache:** AzsReadinessChecker überspringt bestimmte Tests, wenn eine Abhängigkeit nicht erfüllt ist:
 
@@ -238,6 +238,12 @@ Gehen Sie wie folgt vor, um die Azure Stack Hub-PKI-Zertifikate für die Bereits
     ```
 
 **Lösung:** Folgen Sie den Toolanweisungen im Detailabschnitt unter den Tests des jeweiligen Zertifikats.
+
+**Symptom**: Die HTTP-CRL-Prüfung schlägt fehl, obwohl ein HTTP-CDP in x509-Erweiterungen geschrieben wurde.
+
+**Ursache:** Zurzeit kann mit AzsReadinessChecker in einigen Sprachen nicht auf einen HTTP-CDP überprüft werden.
+
+**Lösung:** Führen Sie die Validierung mit der Betriebssystemsprache „EN-US“ aus.
 
 ## <a name="certificates"></a>Zertifikate
 

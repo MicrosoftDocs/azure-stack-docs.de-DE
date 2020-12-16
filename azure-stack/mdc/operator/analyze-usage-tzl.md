@@ -15,12 +15,12 @@ ms.date: 10/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: ad354e6acc6f1ab1edc51a5927138b873875bec8
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 9e7bb8b8174423a21c4f08e09cdb10d2a37bf556
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330236"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935065"
 ---
 # <a name="analyze-azure-stack-usage-with-local-usage-meters"></a>Analysieren der Azure Stack-Nutzung mit lokalen Verbrauchseinheiten
 
@@ -32,7 +32,7 @@ Informationen darüber, welche Abonnements welche Ressourcen nutzen, sind in ein
 
 Die Anforderung ruft detaillierte Nutzungsinformationen für das angeforderte Abonnement und den angeforderten Zeitraum ab. Es gibt keinen Anforderungstext.
 
-Die Nutzungs-API ist eine Anbieter-API. Aus diesem Grund muss dem Aufrufer im Abonnement des Anbieters die Rolle des **Besitzers** , **Mitwirkenden** oder **Lesers** zugewiesen sein.
+Die Nutzungs-API ist eine Anbieter-API. Aus diesem Grund muss dem Aufrufer im Abonnement des Anbieters die Rolle des **Besitzers**, **Mitwirkenden** oder **Lesers** zugewiesen sein.
 
 | Methode | Anforderungs-URI |
 | --- | --- |
@@ -102,15 +102,28 @@ meterID1",
 
 ### <a name="powershell"></a>PowerShell
 
-Zum Generieren der Nutzungsdaten benötigen Sie Ressourcen, die ausgeführt werden und das System aktiv verwenden, beispielsweise einen aktiven virtuellen Computer oder ein Speicherkonto mit Daten. Wenn Sie nicht sicher sind, ob Sie über Ressourcen verfügen, die im Azure Stack Marketplace ausgeführt werden, stellen Sie einen virtuellen Computer bereit, und überprüfen Sie das Überwachungsblatt für diesen virtuellen Computer, um sicherzustellen, dass er ausgeführt wird. Verwenden Sie die folgenden PowerShell-Cmdlets, um die Nutzungsdaten anzuzeigen:
+Zum Generieren der Nutzungsdaten benötigen Sie Ressourcen, die ausgeführt werden und das System aktiv verwenden, beispielsweise einen aktiven virtuellen Computer oder ein Speicherkonto mit Daten. Wenn Sie nicht sicher sind, ob Sie über Ressourcen verfügen, die im Azure Stack Marketplace ausgeführt werden, stellen Sie einen virtuellen Computer bereit, und überprüfen Sie das Überwachungsblatt für diesen virtuellen Computer, um sicherzustellen, dass er ausgeführt wird. Verwenden Sie die folgenden PowerShell-Cmdlets, um die Nutzungsdaten anzuzeigen.
 
-1. [Installieren Sie PowerShell für Azure Stack](../../operator/azure-stack-powershell-install.md).
+### <a name="az-modules"></a>[Az-Module](#tab/az1)
+
+1. [Installieren Sie PowerShell für Azure Stack](../../operator/powershell-install-az-module.md).
 2. Konfigurieren Sie die PowerShell-Umgebung des [Azure Stack-Benutzers](../../user/azure-stack-powershell-configure-user.md) oder des [Azure Stack-Betreibers](../../operator/azure-stack-powershell-configure-admin.md).
 3. Rufen Sie zum Abrufen der Nutzungsdaten das PowerShell-Cmdlet [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) ab:
 
    ```powershell
    Get-AzsSubscriberUsage -ReportedStartTime "2017-09-06T00:00:00Z" -ReportedEndTime "2017-09-07T00:00:00Z"
    ```
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm1)
+
+1. [Installieren Sie PowerShell für Azure Stack](../../operator/powershell-install-az-module.md).
+2. Konfigurieren Sie die PowerShell-Umgebung des [Azure Stack-Benutzers](../../user/azure-stack-powershell-configure-user.md) oder des [Azure Stack-Betreibers](../../operator/azure-stack-powershell-configure-admin.md).
+3. Rufen Sie zum Abrufen der Nutzungsdaten das PowerShell-Cmdlet [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) ab:
+
+   ```powershell
+   Get-AzsSubscriberUsage -ReportedStartTime "2017-09-06T00:00:00Z" -ReportedEndTime "2017-09-07T00:00:00Z"
+   ```
+
+---
 
 ### <a name="rest-api"></a>REST-API
 
