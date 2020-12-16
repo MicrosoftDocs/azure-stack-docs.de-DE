@@ -1,17 +1,17 @@
 ---
 title: Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell
-description: Erfahren Sie, wie Sie mithilfe von Windows PowerShell einen hyperkonvergenten Cluster für Azure Stack HCI erstellen.
+description: Erfahren Sie, wie Sie mithilfe von Windows PowerShell einen Cluster für Azure Stack HCI erstellen.
 author: v-dasis
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 4bd669e04f2b4b4e1ef173a3a44e52d8c6067a60
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: fa020531067f74fba2609296672e347d6804cb6b
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064513"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010888"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell
 
@@ -110,12 +110,12 @@ Der nächste Schritt besteht darin, auf jedem Server für den Cluster die erford
 - FS-Datendeduplizierungsmodul
 - Hyper-V
 - RSAT-AD-PowerShell-Modul
-- Speicherreplikation (nur für Stretchingcluster)
+- Speicherreplikat (für Stretched Cluster)
 
 Verwenden Sie für jeden Server den folgenden Befehl:
 
 ```powershell
-Install-WindowsFeature -ComputerName "Server1" -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica" -IncludeAllSubFeature -IncludeManagementTools
+Install-WindowsFeature -ComputerName "Server1" -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-AD-Powershell", "RSAT-Clustering-PowerShell", "Storage-Replica" -IncludeAllSubFeature -IncludeManagementTools
 ```
 
 Um den Befehl auf allen Servern im Cluster zugleich auszuführen, verwenden Sie das folgende Skript, und ändern Sie die Liste der Variablen am Anfang für Ihre Umgebung entsprechend.
@@ -123,7 +123,7 @@ Um den Befehl auf allen Servern im Cluster zugleich auszuführen, verwenden Sie 
 ```powershell
 # Fill in these variables with your values
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica"
+$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-AD-Powershell", "RSAT-Clustering-PowerShell", "Storage-Replica"
 
 # This part runs the Install-WindowsFeature cmdlet on all servers in $ServerList, passing the list of features in $FeatureList.
 Invoke-Command ($ServerList) {
@@ -401,7 +401,7 @@ Sie können auch einen global *bevorzugten* Standort definieren, was bedeutet, d
 
 Die Angabe eines bevorzugten Standorts für Stretchingcluster bietet die folgenden Vorteile:
 
-- **Kaltstart** : Bei einem Kaltstart werden die virtuellen Computer am bevorzugten Standort platziert
+- **Kaltstart**: Bei einem Kaltstart werden die virtuellen Computer am bevorzugten Standort platziert
 
 - **Quorumabstimmung**
   - Mithilfe eines dynamischen Quorums wird die Gewichtung des passiven (replizierten) Standorts zuerst verringert, um sicherzustellen, dass der bevorzugte Standort überlebt, wenn alle anderen Umstände gleich sind. Darüber hinaus werden Serverknoten nach Ereignissen wie einem asymmetrischen Ausfall der Netzwerkkonnektivität bei der Neugruppierung am passiven Standort zuerst reduziert.

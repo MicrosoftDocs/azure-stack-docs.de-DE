@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: ff9c1054f505625e51426fca70bbb2ae7d9115a5
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 681f02fa220331a93a59448cd1c15bc490ee4b24
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572941"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011177"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack Hub
 
@@ -156,7 +156,7 @@ Bei Verwendung der SQL- und MySQL-Ressourcenanbieter mit integrierten Azure Stac
 |Parameter|Beschreibung|Kommentar|
 |-----|-----|-----|
 |AzureEnvironment|Die zum Bereitstellen von Azure Stack Hub verwendete Azure-Umgebung des Dienstadministratorkontos. Nur für Azure AD-Bereitstellungen erforderlich. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für Azure Active Directory für China **AzureChinaCloud**.|Optional|
-|AzCredential|Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto.|Obligatorisch.|
+|AzCredential|Anmeldeinformationen für das Azure Stack Hub-Dienstadministratorkonto. Beim Skript tritt ein Fehler auf, wenn für das Konto, das Sie mit AzCredential verwenden, mehrstufige Authentifizierung (Multi-Factor Authentication, MFA) erforderlich ist.|Obligatorisch.|
 |CloudAdminCredential|Anmeldeinformationen für das Domänenkonto des Azure Stack Hub-Cloudadministrators.|Obligatorisch.|
 |PrivilegedEndpoint|Privilegierter Endpunkt für den Zugriff auf „Get-AzureStackStampInformation“|Obligatorisch.|Optional|
 |DiagnosticsUserPassword|Kennwort des Diagnosebenutzerkontos|Optional|
@@ -240,11 +240,11 @@ Die Azure-Diagnoseerweiterung wird standardmäßig auf dem virtuellen Computer d
    
    ![Navigieren zu den Diagnoseeinstellungen](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. Fügen Sie **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** hinzu, um Betriebsereignisprotokolle des MySQL-Ressourcenanbieters zu sammeln.
+4. Fügen Sie **Microsoft-AzureStack-DatabaseAdapter/Operational!\** _ hinzu, um Betriebsereignisprotokolle des MySQL-Ressourcenanbieters zu sammeln.
 
    ![Hinzufügen von Ereignisprotokollen](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 
-5. Wenn Sie die Sammlung von IIS-Protokollen aktivieren möchten, aktivieren Sie die Optionen **IIS-Protokolle** und **Protokolle zu fehlerhaften Anforderungen**.
+5. Wenn Sie die Sammlung von IIS-Protokollen aktivieren möchten, aktivieren Sie die Optionen _ *IIS-Protokolle** und **Protokolle zu fehlerhaften Anforderungen**.
 
    ![Hinzufügen von IIS-Protokollen](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
 

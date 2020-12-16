@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/01/2020
-ms.openlocfilehash: 22758f9a6b905e2c948a47c5870a05edcb63acdf
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.date: 11/19/2020
+ms.openlocfilehash: 0cdd8a7f6c0c59eddbe1e8dd93158eb7a280e8ab
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428480"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010718"
 ---
 # <a name="azure-stack-hci-billing-and-payment"></a>Abrechnung und Zahlung für die Azure Stack HCI
 
@@ -22,7 +22,7 @@ Die Azure Stack HCI ist ein Azure-Dienst, der genau wie jeder andere Azure-Diens
 
 ## <a name="what-does-azure-stack-hci-charge-for"></a>Welche Gebühren fallen für die Azure Stack HCI an?
 
-Das Azure Stack HCI-Abrechnungsmodell im Stil der Cloud ist für Kunden, die Azure oder einen anderen Clouddienst bereits nutzen, konsistent, vertraut und einfach. Während der öffentlichen Vorschau fallen keine Kosten an. Nach Ende der Vorschau erfolgt die Abrechnung basierend auf einem Pauschalpreis pro physischem Prozessorkern in einem Azure Stack HCI-Cluster. (Bei Verwendung anderer Azure-Dienste fallen weitere Nutzungsgebühren an.)
+Das Azure Stack HCI-Abrechnungsmodell im Stil der Cloud ist für Kunden, die Azure oder einen anderen Clouddienst bereits nutzen, konsistent, vertraut und einfach. Die Abrechnung basiert auf einem Pauschalpreis pro physischem Prozessorkern in einem Azure Stack HCI-Cluster. (Bei Verwendung anderer Azure-Dienste fallen weitere Nutzungsgebühren an.)
 
 Das Preismodell unterscheidet sich von einer nutzungsbasierten oder verbrauchsbasierten Abrechnung, die auf der Anzahl von VMs beruht. Auch wenn die Anzahl virtueller Prozessorkerne (vCPUs) im Laufe des Monats variiert, wirkt sich dies nicht auf den Preis aus, den Sie für die Azure Stack HCI bezahlen: Die Abrechnung basiert weiterhin auf der Anzahl physischer Kerne, die im Cluster vorhanden sind.
 

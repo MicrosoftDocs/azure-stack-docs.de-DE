@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 7452437d7f760a688c2403cb4def735b2daaa105
-ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
+ms.openlocfilehash: c8ea741534954235fc6de9e32d16602e0c369d6f
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96443298"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97051614"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>Anforderungen an das physische Netzwerk für Azure Stack HCI
 
@@ -69,9 +69,9 @@ Ethernet-Switches müssen der IEEE 802.1Qaz-Spezifikation entsprechen, die zum 
 
 ### <a name="standard-ieee-8021ab"></a>Standard: IEEE 802.1AB
 
-Ethernet-Switches müssen der IEEE 802.1AB-Spezifikation entsprechen, die zum Definieren des Verbindungsschichterkennungsprotokolls (Link Layer Discovery Protocol, LLDP) dient. LLDP ist für Azure Stack HCI erforderlich und unterstützt das Teaming zum Ermitteln der Switchkonfiguration.
+Ethernet-Switches müssen der IEEE 802.1AB-Spezifikation entsprechen, die zum Definieren des Verbindungsschichterkennungsprotokolls (Link Layer Discovery Protocol, LLDP) dient. LLDP ist für Azure Stack HCI erforderlich und ermöglicht die Problembehandlung physischer Netzwerkkonfigurationen.
 
-Die Konfiguration der LLDP-TLVs (Type-Length-Values) muss dynamisch aktiviert werden. Diese Switches dürfen abgesehen von der Aktivierung eines bestimmten TLV keine zusätzliche Konfiguration erfordern. Wenn also beispielsweise der Untertyp 3 von 802.1 aktiviert wird, müssen automatisch alle VLANs angekündigt werden, die an Switchports verfügbar sind.
+Die Konfiguration der LLDP-TLVs (Type-Length-Values) muss dynamisch aktiviert werden. Switches dürfen abgesehen von der Aktivierung eines bestimmten TLV keine zusätzliche Konfiguration erfordern. Wenn also beispielsweise der Untertyp 3 von 802.1 aktiviert wird, müssen automatisch alle VLANs angekündigt werden, die an Switchports verfügbar sind.
 
 ### <a name="custom-tlv-requirements"></a>Anforderungen an benutzerdefinierte TLVs
 

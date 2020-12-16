@@ -3,15 +3,15 @@ title: Problembehandlung für CredSSP
 description: Informationen zur Problembehandlung für CredSSP
 author: v-dasis
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 24e9483aa9658809adc9be7fbfa4a2cb13daab84
-ms.sourcegitcommit: 952d26ad08fcc28ad3ad83e27644e61497623a44
+ms.openlocfilehash: f90e03c275c4ca7a28a9d8392351bf55d0adb2c0
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87899927"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010837"
 ---
 # <a name="troubleshoot-credssp"></a>Problembehandlung für CredSSP
 
@@ -32,11 +32,19 @@ Für folgende Aufgaben muss CredSSP beispielsweise aktiviert werden:
 
 Wenn bei der Verwendung von CredSSP Probleme auftreten, können Ihnen die folgenden Tipps zur Problembehandlung möglicherweise weiterhelfen:
 
+- Um den Clustererstellungs-Assistenten zu verwenden, wenn Windows Admin Center auf einem Server und nicht auf einem PC ausgeführt wird, müssen Sie Mitglied der Gruppe „Gatewayadministratoren“ auf dem Windows Admin Center-Server sein. Weitere Informationen finden Sie unter [Benutzerzugriffsoptionen in Windows Admin Center](/windows-server/manage/windows-admin-center/plan/user-access-options).
+
 - Wenn keine Active Directory-Vertrauensstellung eingerichtet wurde oder die Vertrauensstellung fehlerhaft ist, meldet CredSSP beim Ausführen des Clustererstellungs-Assistenten u. U. ein Problem. Dieses Problem tritt auf, wenn arbeitsgruppenbasierte Server zum Erstellen des Clusters werden. Versuchen Sie in diesem Fall, jeden Server im Cluster manuell neu zu starten.
 
 - Wenn Sie Windows Admin Center auf einem Server ausführen (Dienstmodus), muss das Benutzerkonto Mitglied der Gatewayadministratorgruppe sein.
 
+- Es wird empfohlen, Windows Admin Center auf einem Computer auszuführen, der Mitglied derselben Domäne wie die verwalteten Server ist.
+
 - Um CredSSP auf einem Server aktivieren oder deaktivieren zu können, müssen Sie Mitglied der Gatewayadministratorgruppe auf diesem Computer sein. Weitere Informationen finden Sie in den ersten beiden Abschnitten des Artikels [Konfigurieren der Benutzerzugriffssteuerung und von Berechtigungen](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions).
+
+- Wenn Sie den WinRM-Dienst (Windows-Remoteverwaltung) auf den Servern im Cluster neu starten, werden Sie möglicherweise aufgefordert, die WinRM-Verbindung zwischen den einzelnen Clusterservern und dem Windows Admin Center wiederherzustellen.
+
+    Dazu können Sie beispielsweise auf jedem einzelnen Clusterserver im Windows Admin Center im Menü **Tools** die Option **Dienste**, **WinRM**, **Neu starten** und dann in der Eingabeaufforderung **Dienst neu starten** die Option **Ja** auswählen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

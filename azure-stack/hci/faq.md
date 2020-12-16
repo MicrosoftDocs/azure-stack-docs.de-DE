@@ -7,12 +7,12 @@ ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 11/24/2020
-ms.openlocfilehash: 3606c62c562cb7f402aaafae33a55336345b5e62
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: f4c6b9585f41388281c6618fabd21932f6d48c38
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812627"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97051597"
 ---
 # <a name="azure-stack-hci-faq"></a>Häufig gestellte Fragen zur Azure Stack HCI
 Die häufig gestellten Fragen (FAQ) zur Azure Stack HCI enthalten einen Abschnitt zur Azure Stack HCI-Konnektivität und einen Abschnitt mit allgemeinen Fragen.
@@ -68,7 +68,7 @@ Dies hängt davon ab, welche Features Sie verwenden. Die Azure Stack HCI versuch
 
 **Wo werden die synchronisierten Informationen tatsächlich gespeichert?**
 
-Azure Stack HCI synchronisiert mit Azure und speichert Daten in einem sicheren, von Microsoft betriebenen Rechenzentrum. Weitere Informationen finden Sie unter [Data Residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
+Azure Stack HCI synchronisiert mit Azure und speichert Daten in einem sicheren, von Microsoft betriebenen Rechenzentrum. Weitere Informationen finden Sie unter [Azure Stack HCI-Datensammlung](concepts/data-collection.md) und [Data Residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### <a name="disconnected-or-air-gapped"></a>Getrennt oder mit Air Gap
 

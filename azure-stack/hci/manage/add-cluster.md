@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 11/06/2020
-ms.openlocfilehash: 1caa5e6573137ec33680ea3a13e7beeda12de424
-ms.sourcegitcommit: 08ef9545316798c9a21c2f9bc1da8c15cb648982
+ms.date: 12/10/2020
+ms.openlocfilehash: fc52f53a31b8d7cdcb91dd93e0fbe97c94b7e846
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94360189"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010917"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>Hinzufügen oder Entfernen von Servern für einen Azure Stack HCI-Cluster
 
@@ -67,7 +67,11 @@ Achten Sie bei jedem Hinzufügen oder Entfernen von Servern zu bzw. aus einem Cl
 
 Stretched Cluster erfordern dieselbe Anzahl von Serverknoten und dieselbe Anzahl von Laufwerken an jedem Standort. Wird einem Stretched Cluster ein Serverpaar hinzugefügt, werden dessen Laufwerke sofort dem Speicherpool an beiden Standorten des Stretched Clusters hinzugefügt. Haben die Speicherpools an beiden Standorten zum Zeitpunkt des Hinzufügens nicht dieselbe Größe, wird das Hinzufügen abgelehnt. Der Grund dafür ist, dass die Größe der Speicherpools an beiden Standorten identisch sein muss.
 
-Anders als bei Nicht-Stretched Clustern können Sie Server nur über Windows PowerShell zu einem Stretched Cluster hinzufügen oder aus einem Stretched Cluster entfernen. Mit den Cmdlets [Get-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) und [Set-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml) ändern Sie zunächst die Standortinformationen (Fehlerdomäneninformationen), bevor Sie die Server hinzufügen.
+Nehmen Sie sich einige Minuten Zeit, um sich das Video zum Hinzufügen von Serverknoten zu einem Stretched Cluster anzusehen:
+
+> [!VIDEO https://www.youtube.com/embed/AVHPkRmsZ5Y]
+
+Server werden mit Windows PowerShell zu einem Stretched Cluster hinzugefügt oder daraus entfernt. Mit den Cmdlets [Get-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) und [Set-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml) ändern Sie zunächst die Standortinformationen (Fehlerdomäneninformationen), bevor Sie die Server hinzufügen.
 
 Anschließend können Sie das Serverpaar mit dem Cmdlet [Add-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusternode) jedem Standort gleichzeitig hinzufügen, wodurch es ermöglicht wird, auch die Laufwerke jedes neuen Servers gleichzeitig hinzuzufügen.
 
