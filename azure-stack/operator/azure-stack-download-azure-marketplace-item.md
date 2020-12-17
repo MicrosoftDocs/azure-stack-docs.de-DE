@@ -3,17 +3,17 @@ title: Herunterladen von Marketplace-Elementen aus Azure und Veröffentlichen in
 description: Es wird beschrieben, wie Sie Marketplace-Elemente aus Azure herunterladen und in Azure Stack Hub veröffentlichen.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 12/9/2020
+ms.date: 12/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 12/9/2020
+ms.lastreviewed: 12/16/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: e66d49fc20a9cfbc70eeeb11a7817bd5bc75d7c0
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: f0aafd572aa50760a7b326d5ca699e3f1331b3e9
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934963"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620652"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Herunterladen von Marketplace-Elementen in Azure Stack Hub
 
@@ -119,7 +119,7 @@ Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Mel
 
 1. Öffnen Sie auf einem Computer mit Internetverbindung eine PowerShell-Konsole als Administrator.
 
-2. Melden Sie sich mit dem Azure-Konto, das Sie zum Registrieren von Azure Stack Hub verwendet haben, bei der entsprechenden Azure-Cloud und dem entsprechenden Azure AD-Mandanten an. Führen Sie zum Hinzufügen des Kontos in PowerShell`Add-AzureRmAccount` aus:
+2. Melden Sie sich mit dem Azure-Konto, das Sie zum Registrieren von Azure Stack Hub verwendet haben, bei der entsprechenden Azure-Cloud und dem entsprechenden Azure AD-Mandanten an. Führen Sie zum Hinzufügen des Kontos in PowerShell`Login-AzAccount` aus:
 
    ```powershell  
    Login-AzAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'

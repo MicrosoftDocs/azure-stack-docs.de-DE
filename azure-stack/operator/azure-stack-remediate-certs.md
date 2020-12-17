@@ -8,12 +8,12 @@ ms.date: 11/10/2020
 ms.author: bryanla
 ms.reviewer: unknown
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 824463ccf48d6855fd2851e9c6f9116d61b8b818
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: d1d19d79a3a2242ada4e3f7972fa26f61ed600ce
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152810"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343205"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Beheben allgemeiner Probleme mit Azure Stack Hub-PKI-Zertifikaten
 
@@ -57,19 +57,19 @@ In diesem Artikel werden allgemeine Probleme mit Azure Stack Hub-PKI-Zertifikat
 
 **Problem:** Der private Schlüssel fehlt oder enthält nicht das Attribut des lokalen Computers.  
 
-**Lösung:** Exportieren Sie über den Computer, mit dem die CSR generiert wurde, das Zertifikat mithilfe der Schritte unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker) erneut. Diese Schritte umfassen das Exportieren aus dem Zertifikatspeicher des lokalen Computers.
+**Lösung:** Exportieren Sie über den Computer, mit dem die CSR generiert wurde, das Zertifikat mithilfe der Schritte unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md) erneut. Diese Schritte umfassen das Exportieren aus dem Zertifikatspeicher des lokalen Computers.
 
 ## <a name="certificate-chain"></a>Zertifikatkette
 
 **Problem:** Die Vertrauenskette ist nicht vollständig.  
 
-**Lösung:** Zertifikate müssen eine vollständige Vertrauenskette enthalten. Exportieren Sie das Zertifikat wie unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker) beschrieben erneut, und wählen Sie die Option **Wenn möglich, alle Zertifikate im Zertifizierungspfad einbeziehen** aus.
+**Lösung:** Zertifikate müssen eine vollständige Vertrauenskette enthalten. Exportieren Sie das Zertifikat wie unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md) beschrieben erneut, und wählen Sie die Option **Wenn möglich, alle Zertifikate im Zertifizierungspfad einbeziehen** aus.
 
 ## <a name="dns-names"></a>DNS-Namen
 
 **Problem:** **DNSNameList** für das Zertifikat enthält nicht den Namen des Azure Stack Hub-Dienstendpunkts oder einen gültigen Platzhalter. Platzhalterübereinstimmungen gelten nur für den Namespace der ganz links vom DNS-Namen steht. `*.region.domain.com` gilt beispielsweise nur für `portal.region.domain.com`, aber nicht für `*.table.region.domain.com`.
 
-**Lösung:** Führen Sie die Schritte unter „Generieren von Zertifikatsignieranforderungen für Azure Stack Hub“ aus, um die CSR zur Unterstützung von Azure Stack Hub-Endpunkten mit den richtigen DNS-Namen erneut zu generieren. Übermitteln Sie die CSR erneut an eine Zertifizierungsstelle. Führen Sie dann die Schritte unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker) aus, um das Zertifikat über den Computer, mit dem die CSR generiert wurde, zu exportieren.  
+**Lösung:** Führen Sie die Schritte unter „Generieren von Zertifikatsignieranforderungen für Azure Stack Hub“ aus, um die CSR zur Unterstützung von Azure Stack Hub-Endpunkten mit den richtigen DNS-Namen erneut zu generieren. Übermitteln Sie die CSR erneut an eine Zertifizierungsstelle. Führen Sie dann die Schritte unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md) aus, um das Zertifikat über den Computer, mit dem die CSR generiert wurde, zu exportieren.  
 
 ## <a name="key-usage"></a>Schlüsselverwendung
 
@@ -87,13 +87,13 @@ In diesem Artikel werden allgemeine Probleme mit Azure Stack Hub-PKI-Zertifikat
 
 **Problem:** Die Reihenfolge der Vertrauenskette ist falsch.  
 
-**Lösung:** Exportieren Sie das Zertifikat wie unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker) beschrieben erneut, und wählen Sie die Option **Wenn möglich, alle Zertifikate im Zertifizierungspfad einbeziehen** aus. Stellen Sie sicher, dass nur das untergeordnete Zertifikat für den Export ausgewählt ist.
+**Lösung:** Exportieren Sie das Zertifikat wie unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md) beschrieben erneut, und wählen Sie die Option **Wenn möglich, alle Zertifikate im Zertifizierungspfad einbeziehen** aus. Stellen Sie sicher, dass nur das untergeordnete Zertifikat für den Export ausgewählt ist.
 
 ## <a name="other-certificates"></a>Andere Zertifikate
 
 **Problem:** Das PFX-Paket enthält Zertifikate, bei denen es sich nicht um das untergeordnete Zertifikat handelt oder die nicht der Vertrauenskette angehören.  
 
-**Lösung:** Exportieren Sie das Zertifikat wie unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker) beschrieben erneut, und wählen Sie die Option **Wenn möglich, alle Zertifikate im Zertifizierungspfad einbeziehen** aus. Stellen Sie sicher, dass nur das untergeordnete Zertifikat für den Export ausgewählt ist.
+**Lösung:** Exportieren Sie das Zertifikat wie unter [Vorbereiten von Azure Stack Hub-PKI-Zertifikaten für die Bereitstellung oder Rotation](azure-stack-prepare-pki-certs.md) beschrieben erneut, und wählen Sie die Option **Wenn möglich, alle Zertifikate im Zertifizierungspfad einbeziehen** aus. Stellen Sie sicher, dass nur das untergeordnete Zertifikat für den Export ausgewählt ist.
 
 ## <a name="fix-common-packaging-issues"></a>Beheben von häufigen Problemen beim Packen
 

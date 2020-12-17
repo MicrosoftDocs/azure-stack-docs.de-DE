@@ -7,17 +7,15 @@ ms.service: azure-stack
 ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
-ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: ec369d8f01ed9dc5e6e5635af4922ef80736c4c5
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 08/15/2020
+ms.openlocfilehash: 41ce43c3eda27d3ede8e6a90175fb3042fa2bf68
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572152"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343568"
 ---
 # <a name="how-to-do-capacity-planning-for-event-hubs-on-azure-stack-hub"></a>Planen der Kapazität für Event Hubs in Azure Stack Hub
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 Als Operator verwalten Sie Ihre Azure Stack Hub-Kapazität mit [Kontingenten](azure-stack-quota-types.md) für Ressourcen. Sie steuern den Event Hubs-Ressourcenverbrauch, indem Sie Kontingente für die maximale Anzahl von Kernen festlegen, die von Event Hubs-Clustern verwendet werden können. Event Hubs-Cluster werden von Benutzern erstellt, wenn diese eine Event Hubs-Ressource bereitstellen. Es gibt auch verschiedene Ressourcenverbrauchsanforderungen für den Ressourcenanbieter, die in diesem Artikel behandelt werden.
 
@@ -35,8 +33,7 @@ Ihre Benutzer müssen Event Hubs-Cluster mit CUs erstellen, der die geschäftlic
 
 Für alle Event Hubs-Cluster wird ein [D11_V2](../user/azure-stack-vm-sizes.md#mo-dv2)-VM-Typ für deren Knoten verwendet. Ein D11_V2-VM-Typ besteht aus 2 Kernen. Für einen 1 CU Event Hubs-Cluster werden also 5 D11_V2-VMs verwendet, woraus sich 10 verwendete Kerne ergeben. Zur Entscheidung über die Anzahl von Kernen, die für ein Kontingent zu konfigurieren sind, verwenden Sie ein Vielfaches der Gesamtanzahl von Kernen, die für 1 CU verwendet werden. In dieser Berechnung wird die maximale CU-Anzahl berücksichtigt, die Sie Ihren Benutzern zugestehen, wenn sie Event Hubs-Cluster erstellen. Um beispielsweise ein Kontingent zu konfigurieren, das es Benutzern ermöglicht, einen Cluster mit einer Kapazität für 2 CUs zu erstellen, legen Sie Ihr Kontingent auf 20 Kerne fest.
 
-> [!NOTE]
-> **Nur öffentliche Vorschau** Die verfügbare Version von Event Hubs in Azure Stack Hub unterstützt nur das Erstellen von 1 CU-Clustern. Die allgemeine Verfügbarkeit (General Availability, GA) von Event Hubs beinhaltet Unterstützung für verschiedene CU-Konfigurationsoptionen.
+[!INCLUDE [event-hubs-scale](../includes/event-hubs-scale.md)]
 
 ## <a name="resource-provider-resource-consumption"></a>Ressourcenverbrauch des Ressourcenanbieters  
 

@@ -8,12 +8,12 @@ ms.date: 01/17/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 01/17/2020
-ms.openlocfilehash: d57e4a276ea93a8be70eb2bba05bdb8b2a318924
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 8744ddd518094026afdba678d524ca981b138610
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183428"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598656"
 ---
 # <a name="network-deployment"></a>Netzwerkbereitstellung
 
@@ -31,8 +31,8 @@ Zum Schutz der Azure Stack-Lösung haben wir auf den ToR-Switches Zugriffssteuer
 
 In der folgenden Tabelle werden die Verweisbezeichnungen aus den ACLs den Azure Stack-Netzwerken gegenübergestellt.
 
-| BMC Mgmt Internal                            | Der Datenverkehr ist ausschließlich auf internen Datenverkehr beschränkt.                                                                                                                                      |   |   |   |   |   |
-|----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|---|---|---|
+| BMC Mgmt Internal                            | Der Datenverkehr ist ausschließlich auf internen Datenverkehr beschränkt.                                                                                                                                      |
+|----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | BMC Mgmt External                            | Die ACL ermöglicht den Zugriff auf über das Grenzgerät hinaus.                                                                                                                            |   |   |   |   |   |
 | Extended Storage Mgmt                        | Dedizierte Verwaltungsschnittstellen für das erweiterte Speichersystem                                                                                                           |   |   |   |   |   |
 | Switch Mgmt                                  | Dedizierte Verwaltungsschnittstellen für den Switch                                                                                                                                   |   |   |   |   |   |
@@ -289,7 +289,7 @@ Sie können einige Umgebungseinstellungen für Ihre Azure Stack-Switchkonfigurat
 Während der Bereitstellung der Azure Stack-Lösung erstellt der Originalgerätehersteller (Original Equipment Manufacturer, OEM) die Switchkonfiguration sowohl für TOR-Instanzen als auch für BMC. Der OEM verwendet das Azure Stack-Automatisierungstool, um zu überprüfen, ob die erforderlichen Konfigurationen auf diesen Geräten ordnungsgemäß festgelegt sind. Die Konfigurationen basieren auf den Informationen in Ihrem Bereitstellungsarbeitsblatt für Azure Stack. 
 
 >[!NOTE]
->Ändern Sie die Konfiguration **nicht** ohne Zustimmung des OEM oder des Microsoft Azure Stack-Technikteams. Eine Änderung an der Netzwerkgerätekonfiguration kann sich erheblich auf den Betrieb oder die Behebung von Netzwerkproblemen in ihrer Azure Stack-Instanz auswirken. Weitere Informationen zu diesen Funktionen in Ihrem Netzwerkgerät und dazu, wie diese Änderungen vorgenommen werden, erhalten Sie bei Ihrem OEM-Hardwareanbieter oder beim Microsoft-Support. Der OEM hat die Konfigurationsdatei mithilfe des Automatisierungstools auf der Grundlage Ihres Bereitstellungsarbeitsblatts für Azure Stack erstellt. 
+>Ändern Sie die Konfiguration **nicht** ohne Zustimmung des OEM oder des Microsoft Azure Stack-Technikteams. Eine Änderung an der Netzwerkgerätekonfiguration kann sich erheblich auf den Betrieb oder die Behebung von Netzwerkproblemen in ihrer Azure Stack-Instanz auswirken. Weitere Informationen zu diesen Funktionen in Ihrem Netzwerkgerät und dazu, wie diese Änderungen vorgenommen werden, erhalten Sie bei Ihrem OEM-Hardwareanbieter oder beim Microsoft-Support. Der OEM hat die Konfigurationsdatei mithilfe des Automatisierungstools auf der Grundlage Ihres Bereitstellungsarbeitsblatts für Azure Stack erstellt. 
 
 Es gibt jedoch einige Werte, die in der Konfiguration der Netzwerkswitches hinzugefügt, entfernt oder geändert werden können.
 

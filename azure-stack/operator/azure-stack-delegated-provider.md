@@ -3,16 +3,16 @@ title: Delegieren von Angeboten in Azure Stack Hub
 description: Es wird beschrieben, wie Sie Aufgaben delegieren, z. B. das Erstellen von Angeboten und das Durchführen der Registrierung für Benutzer.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 8cbbf5f2694b714ff5fdf71786a91e6e03522f58
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: 806c4c565553fe76cb8347d763aa7ce20e000821
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857581"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97577073"
 ---
 # <a name="delegate-offers-in-azure-stack-hub"></a>Delegieren von Angeboten in Azure Stack Hub
 

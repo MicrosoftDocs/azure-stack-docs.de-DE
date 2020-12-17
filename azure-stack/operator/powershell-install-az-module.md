@@ -3,16 +3,16 @@ title: Installieren des PowerShell Az-Moduls für Azure Stack Hub
 description: Erfahren Sie, wie Sie PowerShell für Azure Stack Hub installieren.
 author: mattbriggs
 ms.topic: article
-ms.date: 12/2/2020
+ms.date: 12/10/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 91ddbc5aeb9c10b49b21db331e6e7c71a8a15764
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.lastreviewed: 12/10/2020
+ms.openlocfilehash: 9a5e00c873e348046c10e5a8e7dd5ccc9ea915f2
+ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935201"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97069834"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>Installieren des PowerShell Az-Moduls für Azure Stack Hub
 
@@ -184,6 +184,12 @@ In Szenarien, für die ein Proxyserver für den Zugriff auf das Internet erforde
 Sie können die auf Azure Resource Manager basierenden Cmdlets und Codebeispiele verwenden. Allerdings sollten Sie den Namen der Module und Cmdlets ändern. Die Modulnamen haben sich geändert, sodass `AzureRM` und Azure zu `Az` werden. Gleiches gilt für die Cmdlets. So wurde beispielsweise das Modul `AzureRM.Compute` in `Az.Compute` umbenannt.` New-AzureRMVM` wurde zu ` New-AzVM`, und `Get-AzureStorageBlob` ist jetzt `Get-AzStorageBlob`.
 
 Eine ausführlichere Erläuterung und Anleitungen zum Verschieben eines AzureRM-Skripts in Az sowie Informationen zu Breaking Changes im Az-Modul von Azure Stack Hub finden Sie unter [Migrieren von AzureRM zum Az-Modul von Azure PowerShell](migrate-azurerm-az.md).
+
+## <a name="known-issues"></a>Bekannte Probleme
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
 
 ## <a name="next-steps"></a>Nächste Schritte
 

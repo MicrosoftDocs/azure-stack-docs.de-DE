@@ -16,12 +16,12 @@ ms.date: 10/14/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: fb9c323c57d608127c8f86e014f008c1d5a09a9e
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: f34a449490ab7b57beacc942584f9616fd6d543c
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941113"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598316"
 ---
 # <a name="customer-journey"></a>Customer Journey
 
@@ -33,8 +33,8 @@ In der folgenden Tabelle ist dargestellt, was während der verschiedenen Phasen 
 
 |   |Bestellvorgang  |Vor der Bereitstellung |Integration, Validierung, Transport |Lokale Bereitstellung  |Nach der Bereitstellung |
 |---|---------------|---------------|-----------------------------------|--------------------|----------------|
-|Microsoft  |- Signal für die Lieferung an einen Standort in den USA<br>– Azure Stack Hub Ruggedized  = 10 Tage |Bereitstellen der erforderlichen Tools und der Dokumentation zum Sammeln der Anforderungen an das Rechenzentrum  |- Validierung der Konfigurationsartefakte und Überprüfung der Validierungsergebnisse<br>- Überprüfung der Hardwarelieferung  |- Rack und Stack<br>- Netzwerkintegration<br>- Azure Stack Hub-Bereitstellung<br>- Übergabe an den Kunden    |Registrierung und Marketplace-Syndikation|
-|Kunde   |Meldet den Kauf   |- Füllt Netzwerkdetails im Bereitstellungsarbeitsblatt aus<br>- Sammelt Zertifikate<br>- Registriert Azure AD-Konten<br>- Führt alle bereitgestellten Validierungstools aus    |Sicherstellen, dass der Standort alle Anforderungen an Netzwerk, Stromversorgung und Kühlkomponenten erfüllt    |- Vorbereitung mit Konfigurationsartefakten für die Bereitstellung<br>- Verfügbarer Netzwerktechniker vom Kunden   |     |
+| **Microsoft** |- Signal für die Lieferung an einen Standort in den USA<br>– Azure Stack Hub Ruggedized  = 10 Tage |Bereitstellen der erforderlichen Tools und der Dokumentation zum Sammeln der Anforderungen an das Rechenzentrum  |- Validierung der Konfigurationsartefakte und Überprüfung der Validierungsergebnisse<br>- Überprüfung der Hardwarelieferung  |- Rack und Stack<br>- Netzwerkintegration<br>- Azure Stack Hub-Bereitstellung<br>- Übergabe an den Kunden    |Registrierung und Marketplace-Syndikation|
+| **Kunde** |Meldet den Kauf    |- Füllt Netzwerkdetails im Bereitstellungsarbeitsblatt aus<br>- Sammelt Zertifikate<br>- Registriert Azure AD-Konten<br>- Führt alle bereitgestellten Validierungstools aus    |Sicherstellen, dass der Standort alle Anforderungen an Netzwerk, Stromversorgung und Kühlkomponenten erfüllt    |- Vorbereitung mit Konfigurationsartefakten für die Bereitstellung<br>- Verfügbarer Netzwerktechniker vom Kunden   |     |
 
 
 ## <a name="order-process"></a>Bestellvorgang

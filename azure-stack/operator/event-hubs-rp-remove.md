@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 2a1525f4b91998479d368714aa3a88df6ecfcef9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b69d5b7a7b621d22745c89c18a3e7f000e54bcbd
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80424596"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343744"
 ---
 # <a name="how-to-remove-event-hubs-on-azure-stack-hub"></a>Entfernen von Event Hubs in Azure Stack Hub
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 > [!WARNING]
 > Wenn Sie Event Hubs deinstallieren, werden der Ressourcenanbieter und alle von Benutzern erstellten Event Hubs-Cluster, -Namespaces und Event Hubs-Ressourcen entfernt (gelöscht). Außerdem werden deren zugehörige Ereignisdaten entfernt.  

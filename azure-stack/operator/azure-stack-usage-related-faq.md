@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 08/25/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 540fce92723c434ec5c8cb5ee7a2be0dd04b3639
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: a4f9744139199f999475f24a3910e1929b0a8b9b
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857486"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97576971"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Häufig gestellte Fragen zur Nutzung von Azure Stack Hub
 

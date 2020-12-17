@@ -3,16 +3,16 @@ title: Löschen einer VM mit Abhängigkeiten in Azure Stack Hub
 description: 'Gewusst wie: Löschen einer VM (virtueller Computer) mit Abhängigkeiten auf Azure Stack Hub'
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/7/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/7/2020
-ms.openlocfilehash: aaedac367ab9bd12a75e09917acfa6b02dc4930e
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: 63a4ed0c6f1d63b21e221713befa84b0d10c1a95
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778188"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620703"
 ---
 # <a name="how-to-delete-a-vm-virtual-machine-with-dependencies-on-azure-stack-hub"></a>Gewusst wie: Löschen einer VM (virtueller Computer) mit Abhängigkeiten auf Azure Stack Hub
 
@@ -52,7 +52,7 @@ Falls Sie die Ressourcengruppe nicht löschen können, befinden sich entweder di
     2. Warten Sie, bis die Ressource vollständig gelöscht ist.
     3. Anschließend können Sie die nächste Abhängigkeit löschen.
 
-### <a name="with-powershell"></a>[Mit PowerShell](#tab/ps-az)
+### <a name="az-modules"></a>[Az-Module](#tab/ps-az)
 
 Falls Sie die Ressourcengruppe nicht löschen können, befinden sich entweder die Abhängigkeiten nicht in der gleichen Ressourcengruppe, oder es gibt andere Ressourcen. Führen Sie diese Schritte aus:
 
@@ -126,7 +126,7 @@ Zum Löschen der VM führen Sie in der gleichen Sitzung die folgenden Cmdlets au
 ```powershell
 $machine | Remove-AzVM -Force
 ```
-### <a name="with-powershell"></a>[Mit PowerShell](#tab/ps-azureRM)
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/ps-azureRM)
 
 Falls Sie die Ressourcengruppe nicht löschen können, befinden sich entweder die Abhängigkeiten nicht in der gleichen Ressourcengruppe, oder es gibt andere Ressourcen. Führen Sie diese Schritte aus:
 
