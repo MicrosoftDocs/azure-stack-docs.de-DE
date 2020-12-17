@@ -158,6 +158,8 @@
       items:
         - name: Abrechnung
           href: concepts/billing.md
+        - name: Konfigurieren von Firewalls
+          href: concepts/configure-firewalls.md
         - name: Updates und Upgrades
           href: concepts/updates.md
         - name: Sicherheitshinweise
