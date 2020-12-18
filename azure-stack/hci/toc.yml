@@ -26,6 +26,8 @@
       href: deploy/create-cluster.md
     - name: Einrichten eines Clusterzeugen
       href: deploy/witness.md
+    - name: Bereitstellen einer SDN-Infrastruktur
+      href: deploy/sdn-express.md
     - name: Migrieren zu neuer Hardware
       href: deploy/migrate-cluster-new-hardware.md
     - name: Migrieren auf derselben Hardware
