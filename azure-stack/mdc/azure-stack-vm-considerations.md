@@ -1,6 +1,6 @@
 ---
-title: Features von Azure Stack-VMs | Microsoft-Dokumentation
-description: Enthält Informationen zu den unterschiedlichen Features und Überlegungen bei der Verwendung von VMs in einem MDC (Modular Data Center).
+title: Features für virtuelle Azure Stack-Computer (VMs) | Microsoft-Dokumentation
+description: Hier erfahren Sie mehr über die verschiedenen Features und Überlegungen bei der Arbeit mit virtuellen Computern (VMs) in einem Modular Data Center (MDC).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 12/20/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: b8a5d2a0f08ac36b4f4ebc20e0dc3c9eea67218a
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 8bd1231c0a3e9ef7dc55349fb05c872666d47585
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935099"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598333"
 ---
-# <a name="azure-stack-vm-features"></a>Features von Azure Stack-VMs
+# <a name="azure-stack-vm-features---modular-data-center-mdc"></a>Features für virtuelle Azure Stack-Computer – Modular Data Center (MDC)
 
 Über virtuelle Azure Stack-Computer (VMs) werden bedarfsgesteuerte, skalierbare Computingressourcen bereitgestellt. Vor dem Bereitstellen von virtuellen Computern sollten Sie sich mit den Unterschieden zwischen den VM-Features von Azure Stack und Microsoft Azure vertraut machen. In diesem Artikel werden diese Unterschiede beschrieben und wichtige Überlegungen zur Planung von VM-Bereitstellungen erörtert. Informationen zu allgemeinen Unterschieden zwischen Azure Stack und Azure finden Sie im Artikel [Key considerations](../user/azure-stack-considerations.md) (Wichtige Aspekte).
 

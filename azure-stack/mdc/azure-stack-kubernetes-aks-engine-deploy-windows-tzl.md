@@ -1,20 +1,20 @@
 ---
-title: Bereitstellen der AKS-Engine unter Windows in Azure Stack Hub
-description: Erfahren Sie, wie Sie einen Windows-Computer in Ihrer Azure Stack Hub-Instanz zum Hosten der AKS-Engine verwenden, um einen Kubernetes-Cluster bereitzustellen und zu verwalten.
+title: Bereitstellen der AKS-Engine in Azure Stack Hub (Windows)
+description: Hier erfahren Sie, wie Sie einen Windows-Computer in Ihrer Azure Stack Hub-Instanz zum Hosten der AKS-Engine verwenden, um einen Kubernetes-Cluster in einem MDC bereitzustellen und zu verwalten.
 author: mattbriggs
 ms.topic: article
 ms.date: 10/26/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: f8e4f4b10f51d5a6f8cc915c50d5899dd2bf4825
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 4479903f2d24cdd53ab6f27bbb20e5c1fa985225
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330097"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598621"
 ---
-# <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Installieren der AKS-Engine unter Windows in Azure Stack Hub
+# <a name="install-the-aks-engine-on-windows-in-azure-stack-hub---modular-data-center-mdc"></a>Installieren der AKS-Engine in Azure Stack Hub unter Windows – Modular Data Center (MDC)
 
 Sie können einen Windows-Computer in Ihrer Azure Stack Hub-Instanz zum Hosten der AKS-Engine verwenden, um einen Kubernetes-Cluster bereitzustellen und zu verwalten. In diesem Artikel bereiten Sie die Client-VM für die Verwaltung Ihrer Cluster für verbundene und nicht verbundene Azure Stack Hub-Instanzen vor, und Sie überprüfen die Installation.
 <!-- TZLASDKFIX2 Line above was previously:

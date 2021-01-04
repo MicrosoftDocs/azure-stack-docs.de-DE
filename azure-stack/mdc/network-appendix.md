@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.lastreviewed: 12/30/2019
-ms.openlocfilehash: 10de658f7e5f8621d44baaa16f2181f58f47811e
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: b18f962ce2348a6a0f90a2ad48c1ea84e01fe921
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183421"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598639"
 ---
 # <a name="mdc-network-appendix"></a>Anhang zu MDC-Netzwerken
 
@@ -53,25 +53,115 @@ Der Anhang enthält Informationen zu Geräteparametern und -identitäten für MD
 
 ### <a name="juniper-mx204"></a>Juniper MX204
 
-|  |  |  |
-|--|--|--|
-| Layout | Systemkapazität | 3 TBit/s |
-|        | Einschubfachausrichtung | Nicht verfügbar |
-|        | Montage | Vorderseite oder Mitte |
-| Physische Spezifikation | Abmessungen (B × H × T) | 44,3 × 22,1 × 62,2 cm (17,45" × 8,71" × 24,5") |
-|                        | Gewicht bei vollständiger Beladung | 59 kg (130 lb) |
-|                        | Gewicht unbeladen | 23,6 kg (52 lbs) |
-| Routing-Engine | Standardspeicher | 2 × 16 MB NOR-Flashspeicher; 64 GB DDR4-RAM; 2 × 50 GB SSD |
-|                | Anzahl von Kernen | 6 Kerne |
-| Redundanz | Komponenten | Stromversorgung, REs, Lüfter |
-| Umwelt | Luftzirkulation | Seite zu Seite |
-|               | Betriebstemperatur | 0 °C bis 46 °C (32 °F bis 115 °F) auf Normalnull |
-|               | Luftfeuchtigkeit im Betrieb | 5 % bis 90 % |
-|               | Betriebshöhe | 3\.048 m (10.000 ft) |
-| Zertifizierungen | NEBS | • GR-1089-Core EMC und elektrische Sicherheit |
-|                | | • Common Bonding Network (CBN) |
-|                | | • National Electrical Code (NEC) |
-|                | | • Physischer Schutz nach GR-63-Core |
+:::row:::
+    :::column:::
+        **Layout**
+    :::column-end:::
+    :::column:::
+        Systemkapazität
+
+        Einschubfachausrichtung
+
+        Montage
+    :::column-end:::
+    :::column span="2":::
+        3 TBit/s
+
+        Nicht verfügbar
+
+        Vorderseite oder Mitte
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Physische Spezifikation**
+    :::column-end:::
+    :::column:::
+        Abmessungen (B × H × T)
+
+        Gewicht bei vollständiger Beladung
+
+        Gewicht unbeladen
+    :::column-end:::
+    :::column span="2":::
+        44,3 × 22,1 × 62,2 cm (17,45" × 8,71" × 24,5")
+
+        59 kg (130 lb)
+
+        23,6 kg (52 lbs)
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Routing-Engine**
+    :::column-end:::
+    :::column:::
+        Standardspeicher
+
+        Anzahl von Kernen
+    :::column-end:::
+    :::column span="2":::
+        2 × 16 MB NOR-Flashspeicher; 64 GB DDR4-RAM; 2 × 50 GB SSD
+
+        6 Kerne
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Redundanz**
+    :::column-end:::
+    :::column:::
+        Komponenten
+    :::column-end:::
+    :::column span="2":::
+        Stromversorgung, REs, Lüfter
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Umwelt**
+    :::column-end:::
+    :::column:::
+        Luftzirkulation
+
+        Betriebstemperatur
+
+        Luftfeuchtigkeit im Betrieb
+
+        Betriebshöhe
+    :::column-end:::
+    :::column span="2":::
+        Seite zu Seite
+
+        0 °C bis 46 °C (32 °F bis 115 °F) auf Normalnull
+
+        5 % bis 90 %
+
+        3\.048 m (10.000 ft)
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Zertifizierungen**
+    :::column-end:::
+    :::column:::
+        NEBS
+    :::column-end:::
+    :::column span="2":::
+        • GR-1089-Core EMC und elektrische Sicherheit
+
+        • Common Bonding Network (CBN)
+
+        • National Electrical Code (NEC)
+
+        • Physischer Schutz nach GR-63-Core
+    :::column-end:::
+:::row-end:::
 
 ### <a name="dell-emc-s4148f-on"></a>Dell EMC S4148F-ON
 

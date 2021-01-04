@@ -2,18 +2,18 @@
 title: Problembehandlung in Azure Stack Hub
 titleSuffix: Azure Stack
 description: Erfahren Sie, wie Sie Probleme in Azure Stack Hub beheben, z. B. mit VMs, Speicher und App Service.
-author: myoungerman
+author: PatAltimore
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 12/10/2020
 ms.author: v-myoung
 ms.reviewer: prchint
-ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: 290f6ba7a8f3c53aafe131dd5c8de5186b88d752
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.lastreviewed: 12/10/2020
+ms.openlocfilehash: 583c0e933e823b1ac0fcf11fd378e81515656099
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899770"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343654"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Behandeln von Problemen in Azure Stack Hub
 
@@ -216,6 +216,16 @@ Der Azure Stack Hub-Patch und -Updatevorgang ermöglicht den Betreibern das kons
 **Ursache:** Wenn Sie versuchen, das Azure Stack Hub-Update zu installieren, kommt es für das Update möglicherweise zu einem Statusfehler, und der Status wird in `PreparationFailed` geändert. Bei Systemen mit Internetverbindung weist dies in der Regel darauf hin, dass das Updatepaket aufgrund einer schlechten Internetverbindung nicht richtig heruntergeladen werden kann. 
 
 **Abhilfe**: Sie können dieses Problem umgehen, indem Sie erneut auf **Jetzt installieren** klicken. Falls das Problem weiterhin besteht, empfehlen wir Ihnen das manuelle Hochladen des Updatepakets gemäß der Anleitung im Abschnitt [Installieren von Updates](azure-stack-apply-updates.md?#install-updates-and-monitor-progress).
+
+**Häufigkeit**: Allgemein
+
+### <a name="warnings-and-errors-reported-while-update-is-in-progress"></a>Warnungen und Fehler, die während des Updates angezeigt werden
+
+**Geltungsbereich**: Dieses Problem gilt für alle unterstützten Versionen.
+
+**Ursache:** Wenn das Azure Stack Hub-Update den Status **Wird ausgeführt** aufweist, werden im Portal möglicherweise Warnungen und Fehler angezeigt. Bei Komponenten, die während des Upgrades auf andere Komponenten warten, kann ein Timeout auftreten, was dann zu einem Fehler führt. Azure Stack Hub verfügt über einen Mechanismus, Tasks zu wiederholen oder zu korrigieren, die aufgrund zeitweiliger Fehler angehalten wurden.
+
+**Abhilfe**: Während das Azure Stack Hub-Update den Status **Wird ausgeführt** aufweist, können im Portal angezeigte Warnungen und Fehler ignoriert werden.
 
 **Häufigkeit**: Allgemein
 

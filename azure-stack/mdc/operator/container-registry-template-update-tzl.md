@@ -1,7 +1,7 @@
 ---
-title: Aktualisieren der Containerregistrierung in Azure Stack Hub | Microsoft-Dokumentation
+title: Aktualisieren der Containerregistrierung in Azure Stack Hub – MDC
 titleSuffix: Azure Stack
-description: Hier erfahren Sie mehr über das Aktualisieren der Containerregistrierung in Azure Stack Hub.
+description: Hier erfahren Sie, wie Sie die Containerregistrierung in Azure Stack Hub für Modular Data Centers (MDC) aktualisieren.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 1d014cfe855bc7e9bb3bdaae6ba7525d3df1e8c7
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: dafd9d485125d7c8da1524b71fddb75af7a4ebba
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330256"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598571"
 ---
-# <a name="update-the-container-registry-in-azure-stack-hub"></a>Aktualisieren der Containerregistrierung in Azure Stack Hub
+# <a name="update-the-container-registry-in-azure-stack-hub---modular-data-center-mdc"></a>Aktualisieren der Containerregistrierung in Azure Stack Hub – Modular Data Center (MDC)
 
 Azure Stack Hub-Benutzer können ihre Containerregistrierungsbereitstellung auf eine aktuelle SKU des AKS-Basisimage mithilfe der untenstehenden Anleitung aktualisieren. Die VM und der Dienst der Containerregistrierungsvorlage sind zustandslos, da der gesamte Zustand und die Containerimages in Blobspeicher gespeichert werden. Eine Aktualisierung ist genauso einfach wie das Bereitstellen der Containerregistrierungsvorlage mit einer aktuellen Version der VHD des AKS-Basisimage mit anschließender DNS-Umleitung zur neuen VM. Die Aktion der Aktualisierung des DNS-Werts für die alte und die neue VM der Containerregistrierungsvorlage führt zu einem kleinen Zeitfenster, während dem die Registrierungskonnektivität zeitweilig unterbrochen ist, während die Werte weitergegeben werden.
 
@@ -39,9 +39,9 @@ Azure Stack Hub-Benutzer können ihre Containerregistrierungsbereitstellung auf 
 
 1.  Überprüfen Sie die SKU des AKS-Basisimage, die für die Bereitstellung der Containerregistrierungsvorlage verwendet wurde, indem Sie sich die Bereitstellungseinträge in der Ressourcengruppe ansehen und auf **Eingaben** klicken.
 
-    ![Eingaben](./media/container-registry-template-updating-tzl/inputs.png)
+    ![Screenshot: Seite „Eingaben“](./media/container-registry-template-updating-tzl/inputs.png)
 
-2.  Überprüfen Sie, ob es neuere SKUs des AKS-Basisimage gibt. Verwenden Sie dazu die **Get-VMImageSku** -Funktion. Dafür ist `Import-Module .\pre-reqs.ps1` aus den Skripten der Containerregistrierungsvorlage erforderlich.
+2.  Überprüfen Sie, ob es neuere SKUs des AKS-Basisimage gibt. Verwenden Sie dazu die **Get-VMImageSku**-Funktion. Dafür ist `Import-Module .\pre-reqs.ps1` aus den Skripten der Containerregistrierungsvorlage erforderlich.
 
     ```powershell  
     PS C:\azurestack-galler-master\registry\Scripts> Get-VMImageSku -Location Shanghai
@@ -62,7 +62,7 @@ Azure Stack Hub-Benutzer können ihre Containerregistrierungsbereitstellung auf 
 | Öffentliche IP-Adresse | Geben Sie den Namen und den Typ der IP-Adresse (dynamisch oder statisch) für diese VM an. |
 | Domänennamenbezeichnung | Geben Sie das DNS-Präfix für Ihre Registrierung an. Der gesamte FQDN sollte mit dem CN-Wert des für die Registrierung erstellten PFX-Zertifikats übereinstimmen. |
 | Replikate | Geben Sie zu Beginn die Anzahl der Containerreplikate an. |
-| Image-SKU | Geben Sie die Image-SKU an, die für die Bereitstellung verwendet werden soll. Die für das AKS-Basisimage verfügbaren SKUs werden vom **Get-VMImageSku** -Cmdlet in PowerShell aufgeführt. |
+| Image-SKU | Geben Sie die Image-SKU an, die für die Bereitstellung verwendet werden soll. Die für das AKS-Basisimage verfügbaren SKUs werden vom **Get-VMImageSku**-Cmdlet in PowerShell aufgeführt. |
 | Client-ID des Dienstprinzipals | Geben Sie die App-ID für den Dienstprinzipal (SPN) wie in der vorherigen Bereitstellung verwendet an. |
 | Service Principal Password/Confirm Password (Kennwort für Dienstprinzipal/Kennwort bestätigen) | Geben Sie das SPN-App-ID-Geheimnis wie in der vorherigen Bereitstellung verwendet an. |
 | Existing extended storage account resource ID (Vorhandene Ressourcen-ID des erweiterten Speicherkontos) | Geben Sie die Ressourcen-ID des Speicherkontos wie in der vorherigen Bereitstellung verwendet an. |
@@ -77,7 +77,7 @@ Azure Stack Hub-Benutzer können ihre Containerregistrierungsbereitstellung auf 
 
     ![Installieren der neuen Containerregistrierungsvorlage](./media/container-registry-template-updating-tzl/new-instance.png)
 
-2.  Geben Sie die aktuelle SKU-Ausgabe aus dem `Get-VMImage`-Skript an, und verwenden Sie einen eindeutigen **dnsname** -Parameter der ursprünglichen Installation für die VM-Konfiguration, und verwenden Sie denselben Dienstprinzipal und dasselbe Geheimnis wie bei der ursprünglichen Installation.
+2.  Geben Sie die aktuelle SKU-Ausgabe aus dem `Get-VMImage`-Skript an, und verwenden Sie einen eindeutigen **dnsname**-Parameter der ursprünglichen Installation für die VM-Konfiguration, und verwenden Sie denselben Dienstprinzipal und dasselbe Geheimnis wie bei der ursprünglichen Installation.
 
     ![Angeben der SKU](./media/container-registry-template-updating-tzl/sku.png)
 

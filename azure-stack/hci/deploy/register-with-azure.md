@@ -1,18 +1,18 @@
 ---
 title: Herstellen einer Verbindung von Azure Stack HCI mit Azure
-description: Registrieren von Azure Stack HCI bei Azure.
+description: Hier erfahren Sie mehr über das Registrieren von Azure Stack HCI-Clustern mit Azure.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: e56718e080638eb6349625f644c837798c001a1d
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 12/16/2020
+ms.openlocfilehash: 95e0ed6b87fb501b31c024c5d2d886b4e1bce8ac
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010854"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620635"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Herstellen einer Verbindung von Azure Stack HCI mit Azure
 
@@ -29,7 +29,7 @@ Sie können sich erst dann bei Azure registrieren, wenn Sie einen Azure Stack HC
 
 ### <a name="internet-access"></a>Zugriff auf das Internet
 
-Azure Stack HCI muss regelmäßig eine Verbindung mit der öffentlichen Azure-Cloud herstellen. Wenn die ausgehende Konnektivität durch die externe Unternehmensfirewall oder einen Proxyserver eingeschränkt ist, müssen diese so konfiguriert werden, dass sie ausgehenden Zugriff auf Port 443 (HTTPS) zu einer begrenzten Anzahl von bekannten Azure-IPs zulassen. 
+Azure Stack HCI muss regelmäßig eine Verbindung mit der öffentlichen Azure-Cloud herstellen. Wenn die ausgehende Konnektivität durch die externe Unternehmensfirewall oder einen Proxyserver eingeschränkt ist, müssen diese so konfiguriert werden, dass sie ausgehenden Zugriff auf Port 443 (HTTPS) zu einer begrenzten Anzahl von bekannten Azure-IPs zulassen. Weitere Informationen zum Vorbereiten der Firewalls finden Sie unter [Konfigurieren von Firewalls für Azure Stack HCI](../concepts/configure-firewalls.md).
 
    > [!NOTE]
    > Beim Registrierungsprozess wird versucht, den PowerShell-Katalog zu kontaktieren, um sicherzustellen, dass Sie über die neueste Version der erforderlichen PowerShell-Module wie Az und AzureAD verfügen. Obwohl der PowerShell-Katalog in Azure gehostet wird, verfügt er derzeit nicht über ein Diensttag. Wenn Sie das Cmdlet oben nicht auf einem Verwaltungscomputer mit ausgehendem Internetzugriff ausführen können, sollten Sie die Module herunterladen und manuell auf einen Clusterknoten übertragen, auf dem Sie dann den Befehl `Register-AzStackHCI` ausführen. Sie haben auch die Möglichkeit, die [Module in einem Szenario ohne Verbindung zu installieren](/powershell/scripting/gallery/how-to/working-with-local-psrepositories?view=powershell-7.1#installing-powershellget-on-a-disconnected-system).
@@ -97,7 +97,7 @@ Sie benötigen außerdem entsprechende Azure Active Directory-Berechtigungen, um
 
 Verwenden Sie das folgende Verfahren, um einen Azure Stack HCI-Cluster mit einem Verwaltungs-PC bei Azure zu registrieren:
 
-1. Installieren Sie die erforderlichen Cmdlets auf Ihrem Verwaltungs-PC. Wenn Sie einen Cluster registrieren, der mit dem Image für die allgemein verfügbare Version von Azure Stack HCI bereitgestellt wurde, führen Sie einfach den folgenden Befehl aus: Wenn Ihr Cluster mit dem Image für die öffentliche Vorschauversion bereitgestellt wurde, stellen Sie sicher, dass Sie das Update vom 23. November 2020 (KB4586852) auf jeden Server im Cluster angewendet haben, bevor Sie versuchen, die Registrierung auszuführen.
+1. Installieren Sie die erforderlichen Cmdlets auf Ihrem Verwaltungs-PC. Wenn Sie einen Cluster registrieren, der mit dem aktuellen Image für die allgemein verfügbare Version der Azure Stack HCI bereitgestellt wurde, führen Sie einfach den folgenden Befehl aus. Wenn Ihr Cluster mit dem Image für die Public Preview bereitgestellt wurde, stellen Sie sicher, dass Sie das Update vom 23. November 2020 (KB4586852) auf jeden Server im Cluster angewendet haben, bevor Sie versuchen, die Registrierung mit Azure auszuführen.
 
    ```PowerShell
    Install-Module -Name Az.StackHCI
@@ -110,7 +110,7 @@ Verwenden Sie das folgende Verfahren, um einen Azure Stack HCI-Cluster mit einem
 2. Führen Sie die Registrierung mit dem Namen eines beliebigen Servers im Cluster aus. Um Ihre Azure-Abonnement-ID abzurufen, besuchen Sie [portal.azure.com](https://portal.azure.com), navigieren Sie zu „Abonnements“, kopieren Sie Ihre ID aus der Liste, und fügen Sie sie ein.
 
    ```PowerShell
-   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName]
+   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName] [-Region]
    ```
 
    Mit dieser Syntax wird der Cluster (dem Server1 angehört) für den aktuellen Benutzer bei der standardmäßigen Azure-Region und -Cloudumgebung registriert. Dabei werden für die Azure-Ressourcen und die Azure-Ressourcengruppe intelligente Standardnamen verwendet, Sie können diesem Befehl jedoch Parameter hinzufügen, um diese Werte bei Bedarf selbst anzugeben.

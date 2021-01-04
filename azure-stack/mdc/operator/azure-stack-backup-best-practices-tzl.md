@@ -1,6 +1,6 @@
 ---
-title: Bewährte Methoden für den Infrastructure Backup-Dienst für Azure Stack | Microsoft-Dokumentation
-description: Wenden Sie bei der Bereitstellung und Verwaltung von Azure Stack eine Reihe bewährter Methoden an, um den Verlust von Daten bei einem schwerwiegenden Fehler zu minimieren.
+title: Bewährte Methoden für den Infrastructure Backup-Dienst für Azure Stack – MDC | Microsoft-Dokumentation
+description: Wenden Sie bei der Bereitstellung und Verwaltung von Azure Stack für ein Modular Data Center (MDC) diese bewährten Methoden an, um den Verlust von Daten bei einem schwerwiegenden Fehler zu minimieren.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: d2775627f9834a6410fcf2888bbb4abca66d958b
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 0bbe41c26861d2a407641e06a2298ec5d3badf0f
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330219"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598554"
 ---
-# <a name="infrastructure-backup-service-best-practices"></a>Bewährte Methoden für den Infrastructure Backup-Dienst
+# <a name="infrastructure-backup-service-best-practices---modular-data-center-mdc"></a>Bewährte Methoden für den Infrastructure Backup-Dienst – Modular Data Center (MDC)
 
 *Anwendungsbereich: Modular Data Center, Azure Stack Hub Ruggedized*
 
@@ -95,9 +95,9 @@ Die folgenden Warnungen werden vom System unterstützt:
 
 Der Infrastructure Backup-Dienst enthält die folgenden Komponenten:
 
-- **Infrastructure Backup Controller** : Infrastructure Backup Controller wird mit jeder Azure Stack-Cloud instanziiert und ist in jeder Azure Stack-Cloud enthalten.
+- **Infrastructure Backup Controller**: Infrastructure Backup Controller wird mit jeder Azure Stack-Cloud instanziiert und ist in jeder Azure Stack-Cloud enthalten.
 
-- **Backup Resource Provider** : Backup Resource Provider (Backup RP) besteht aus der Benutzeroberfläche und APIs, die grundlegende Sicherungsfunktionen für die Azure Stack-Infrastruktur bereitstellen.
+- **Backup Resource Provider**: Backup Resource Provider (Backup RP) besteht aus der Benutzeroberfläche und APIs, die grundlegende Sicherungsfunktionen für die Azure Stack-Infrastruktur bereitstellen.
 
 ### <a name="infrastructure-backup-controller"></a>Infrastructure Backup Controller
 
@@ -119,8 +119,8 @@ In diesem Abschnitt werden wichtige Anforderungen für den Infrastructure Backup
 
 Es handelt sich um folgende Anforderungen:
 
-- **Softwareanforderungen** : Beschreibung der unterstützten Speicherorte und Hilfestellungen in Bezug auf die Größe
-- **Netzwerkanforderungen** : Beschreibung der Netzwerkanforderungen für verschiedene Speicherorte
+- **Softwareanforderungen**: Beschreibung der unterstützten Speicherorte und Hilfestellungen in Bezug auf die Größe
+- **Netzwerkanforderungen**: Beschreibung der Netzwerkanforderungen für verschiedene Speicherorte
 
 ### <a name="software-requirements"></a>Softwareanforderungen
 

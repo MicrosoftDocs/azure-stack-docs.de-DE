@@ -7,16 +7,16 @@ ms.date: 11/05/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/05/2020
-ms.openlocfilehash: 86672961ee2a02f858cfce73a895154c6eb1bcbe
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: fac60db9ad1f3ae8be248b4f61a3c16179763a7e
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544036"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364199"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Hinzufügen zusätzlicher Knoten einer Skalierungseinheit in Azure Stack Hub
 
-Sie können die Gesamtkapazität einer vorhandenen Skalierungseinheit durch Hinzufügen eines zusätzlichen physischen Computers erhöhen. Der physische Computer wird auch als Knoten einer Skalierungseinheit bezeichnet. Jeder neue Knoten einer Skalierungseinheit, den Sie hinzufügen, muss in CPU-Typ, Speicher sowie Datenträgernummer und -größe mit den Knoten übereinstimmen, die bereits in der Skalierungseinheit vorhanden sind.
+Sie können die Gesamtkapazität einer vorhandenen Skalierungseinheit durch Hinzufügen eines zusätzlichen physischen Computers erhöhen. Der physische Computer wird auch als Knoten einer Skalierungseinheit bezeichnet. Jeder neue Knoten einer Skalierungseinheit, den Sie hinzufügen, muss in CPU-Typ, Speicher sowie Datenträgernummer und -größe mit den Knoten übereinstimmen, die bereits in der Skalierungseinheit vorhanden sind. Das Entfernen von Skalierungseinheitknoten zum Herunterskalieren aufgrund von architektonischen Einschränkungen wird von Azure Stack Hub nicht unterstützt. Es ist nur möglich, die Kapazität durch das Hinzufügen von Knoten zu erweitern.
 
 Um einen Knoten einer Skalierungseinheit hinzuzufügen, melden Sie sich bei Azure Stack Hub an, und führen Sie Tools Ihres Originalgeräteherstellers (OEM) aus. Die OEM-Tools werden auf dem Hardwarelebenszyklushost (HLH) ausgeführt, um sicherzustellen, dass der neue physische Computer die gleiche Firmwareebene wie die vorhandenen Knoten aufweist.
 

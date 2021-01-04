@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 3087e7b4f84aa710a89a2f122e91bcfd643eed8d
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 971bac83972664bbefe900f16aa2ab83c12aa3a1
+ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544189"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515043"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum
 
@@ -92,6 +92,8 @@ Verwenden Sie für diesen Vorgang einen Computer in Ihrem Rechenzentrumsnetzwerk
 
 2. Nachdem Sie nun eine Sitzung mit dem privilegierten Endpunkt haben, führen Sie folgenden Befehl aus. 
 
+   **Führen Sie das folgende Skript für Azure Stack Hub Build 2008 und höher aus:** <br>
+
    ```powershell  
     $i = @(
            [pscustomobject]@{ 
@@ -104,6 +106,14 @@ Verwenden Sie für diesen Vorgang einen Computer in Ihrem Rechenzentrumsnetzwerk
     Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -customCatalog $using:i} 
 
 
+   ```
+
+   **Führen Sie das folgende Skript für Versionen vor Azure Stack Hub Build 2008 aus:** <br>
+
+   ```powershell  
+   Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -CustomADGlobalCatalog contoso.com} 
+   
+   
    ```
 
    Wenn Sie dazu aufgefordert werden, geben Sie die Anmeldeinformationen für das Benutzerkonto ein, das Sie für die Graph-Dienst verwenden möchten (z.B. „graphservice“). Die Eingabe für das Cmdlet Register-DirectoryService muss der Gesamtstrukturname / die Stammdomäne in der Gesamtstruktur sein statt einer anderen Domäne in der Gesamtstruktur.

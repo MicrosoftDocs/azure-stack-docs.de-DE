@@ -5,32 +5,30 @@ author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 12/09/2019
+ms.date: 09/02/2020
 ms.reviewer: jfggdl
-ms.lastreviewed: 12/09/2019
+ms.lastreviewed: 09/02/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: f7eb790506c5dbbb7d49fc469dd61d394fb1f0fc
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 975ab63a6af9f895f01d4607f998bca9fc52cebf
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106839"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343817"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>Installieren von Event Hubs in Azure Stack Hub
-
-[!INCLUDE [preview banner](../includes/event-hubs-preview.md)]
 
 In diesem Artikel erfahren Sie, wie Sie den Event Hubs-Ressourcenanbieter herunterladen und installieren, damit er Kunden zum Abonnieren angeboten werden kann.
 
 ## <a name="download-packages"></a>Herunterladen von Paketen
 
-Bevor Sie Event Hubs in Azure Stack Hub installieren können, müssen Sie den Ressourcenanbieter und dessen abhängige Pakete mit dem Marketplace-Verwaltungsfeature herunterladen. Wenn Sie nicht mit der Marketplace-Verwaltung vertraut sind, finden Sie weitere Informationen unter [Herunterladen von Marketplace-Elementen in Azure Stack Hub](azure-stack-download-azure-marketplace-item.md). In diesem Artikel werden Sie durch die Schritte geleitet, mit denen Elemente aus Azure in den Azure Stack Hub-Marketplace heruntergeladen werden. Dieser Artikel gilt sowohl für ein verbundenes als auch für ein nicht verbundenes Szenario. 
+Bevor Sie Event Hubs in Azure Stack Hub installieren können, müssen Sie den Ressourcenanbieter und dessen abhängige Pakete mit dem Marketplace-Verwaltungsfeature herunterladen. Wenn Sie nicht mit der Marketplace-Verwaltung vertraut sind, finden Sie weitere Informationen unter [Herunterladen von Marketplace-Elementen in Azure Stack Hub](azure-stack-download-azure-marketplace-item.md). In diesem Abschnitt werden die Schritte zum Herunterladen von Elementen aus dem Azure Marketplace erläutert. 
 
 > [!NOTE]
 > Der Downloadvorgang kann zwischen 30 Minuten und 2 Stunden dauern, je nach Netzwerklatenz und vorhandenen Paketen in Ihrer Azure Stack Hub-Instanz. 
 
 ::: zone pivot="state-connected"
-Befolgen Sie diese Anweisungen für ein verbundenes Szenario:
+Bei einem verbundenen Szenario laden Sie die Elemente aus dem Azure Marketplace direkt in den Azure Stack Hub-Marketplace herunter:
 
 1. Melden Sie sich beim Azure Stack Hub-Administratorportal an.
 2. Wählen Sie auf der linken Seite die Option **Marketplace-Verwaltung** aus.
@@ -48,7 +46,7 @@ Beachten Sie, dass zusätzliche Softwarepakete zusammen mit Event Hubs herunterg
 ::: zone-end
 
 ::: zone pivot="state-disconnected"
-Für ein getrenntes oder teilweise verbundenes Szenario laden Sie die Pakete auf Ihren lokalen Computer herunter und importieren sie dann in Ihre Azure Stack Hub-Instanz.
+Für ein getrenntes oder teilweise verbundenes Szenario laden Sie die Pakete auf Ihren lokalen Computer herunter, und importieren Sie diese dann in Ihren Azure Stack Hub-Marketplace:
 
 1. Sofern noch nicht geschehen, führen Sie die Schritte unter [Herunterladen von Marketplace-Elementen: nicht verbundenes oder partiell verbundenes Szenario](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) aus. Hier laden Sie das Marketplace-Syndikation-Tool herunter und führen es aus. Mit diesem Tool können Sie die Event Hubs-Pakete herunterladen.
 2. Nachdem das Fenster „Azure Marketplace-Elemente“ des Syndikation-Tools geöffnet wurde, suchen Sie nach „Event Hubs“, und wählen Sie diesen Eintrag aus, um die erforderlichen Pakete auf Ihren lokalen Computer herunterzuladen.
@@ -62,16 +60,16 @@ Für ein getrenntes oder teilweise verbundenes Szenario laden Sie die Pakete auf
    [![Heruntergeladene Pakete in Marketplace-Verwaltung](media/event-hubs-rp-install/2-marketplace-management-downloaded.png)](media/event-hubs-rp-install/2-marketplace-management-downloaded.png#lightbox)
  
 3. Auf der Seite für Event Hubs- Installationspakete wird oben ein blaues Banner angezeigt. Wählen Sie das Banner aus, um die Installation von Event Hubs zu starten.
-   [![Der Screenshot zeigt, wie die Installation in Event Hubs der Marketplace-Verwaltung gestartet wird.](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
+   [![Verwaltung von Event Hubs im Marketplace: Starten der Installation](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
 
 ### <a name="install-prerequisites"></a>Installieren der erforderlichen Komponenten
 
 1. Als nächstes gelangen Sie zur Installationsseite. Wählen Sie **Voraussetzungen installieren** aus, um den Installationsvorgang zu starten.
-   ![Der Screenshot zeigt, wie die Voraussetzungen in Event Hubs der Marketplace-Verwaltung installiert werden.](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
+   ![Verwaltung von Event Hubs im Marketplace: Installationsvoraussetzungen](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
  
 2. Warten Sie, bis die Installation der Voraussetzungen erfolgreich abgeschlossen ist. Ein grünes Häkchen sollte neben **Voraussetzungen installieren** angezeigt werden, bevor Sie zum nächsten Schritt wechseln.
 
-   ![Marketplace-Verwaltung, Event Hubs: Voraussetzungen](media/event-hubs-rp-install/5-marketplace-management-install-prereqs-succeeded.png)
+   ![Verwaltung von Event Hubs im Marketplace: Erfüllen der Installationsvoraussetzungen](media/event-hubs-rp-install/5-marketplace-management-install-prereqs-succeeded.png)
 
 ### <a name="prepare-secrets"></a>Vorbereiten der Geheimnisse 
 
@@ -86,40 +84,18 @@ Für ein getrenntes oder teilweise verbundenes Szenario laden Sie die Pakete auf
 
 ### <a name="install-resource-provider"></a>Installieren des Ressourcenanbieters
 
-1. Wenn das Zertifikat erfolgreich installiert wurde, sollte ein grünes Häkchen neben **Geheimnisse vorbereiten** angezeigt werden. Ist dies der Fall, wechseln Sie zum nächsten Schritt. Wählen Sie nun die Schaltfläche **Installieren**neben **3. Ressourcenanbieter installieren** aus.
-   ![Marketplace-Verwaltung, Event Hubs: Installation starten](media/event-hubs-rp-install/8-marketplace-management-install-start.png)
+1. Wenn das Zertifikat erfolgreich installiert wurde, sollte ein grünes Häkchen neben **Geheimnisse vorbereiten** angezeigt werden. Ist dies der Fall, wechseln Sie zum nächsten Schritt. Wählen Sie nun die Schaltfläche **Installieren** neben **3. Ressourcenanbieter installieren** aus.
+   ![Verwaltung von Event Hubs im Marketplace: Starten der Installation des Ressourcenanbieters](media/event-hubs-rp-install/8-marketplace-management-install-start.png)
  
 2. Als nächstes wird die folgende Seite angezeigt, auf der mitgeteilt wird, dass der Event Hubs-Ressourcenanbieter installiert wird.
-   [![Marketplace-Verwaltung, Event Hubs: Installation wird ausgeführt](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png)](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png#lightbox)
+   [![Verwaltung von Event Hubs im Marketplace: Installation des Ressourcenanbieters](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png)](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png#lightbox)
  
 3. Warten Sie, bis die Benachrichtigung angezeigt wird, dass die Installation abgeschlossen ist. Dieser Vorgang dauert in der Regel eine oder mehrere Stunden, je nach Ihrem Azure Stack Hub-Typ. 
-   [![Marketplace-Verwaltung, Event Hubs: Installation abgeschlossen](media/event-hubs-rp-install/10-marketplace-management-install-complete.png)](media/event-hubs-rp-install/10-marketplace-management-install-complete.png#lightbox)
+   [![Verwaltung von Event Hubs im Marketplace: Abschließen der Installation des Ressourcenanbieters](media/event-hubs-rp-install/10-marketplace-management-install-complete.png)](media/event-hubs-rp-install/10-marketplace-management-install-complete.png#lightbox)
 
 4. Überprüfen Sie, ob die Installation von Event Hubs erfolgreich war. Kehren Sie dazu zur Seite **Marketplace-Verwaltung**, **Ressourcenanbieter** zurück. Für den Status von Event Hubs sollte „Installiert“ angezeigt werden.
    ![Marketplace-Verwaltung, Event Hubs verfügbar](media/event-hubs-rp-install/11-marketplace-management-rps-installed.png)
 
-## <a name="register-event-hubs"></a>Registrieren von Event Hubs
-
-Sie müssen nun den Event Hubs-Ressourcenanbieter registrieren. Die Registrierung ermöglicht es Ihnen, den Dienst über die Event Hubs-Verwaltungsseite zu verwalten.
-
-1. Wählen Sie im Administratorportal oben links die Option **Alle Dienste** aus.
-2. Wählen Sie **Abonnements**. Eine Liste mit Abonnements wird angezeigt. 
-   > [!NOTE]
-   > Achten Sie darauf, dass Sie nicht **Benutzerabonnements** auswählen.
-3. Wählen Sie **Standardanbieterabonnement** auf der Seite **Abonnements** aus.
-4. Wählen Sie **Ressourcenanbieter** links auf der Seite **Standardanbieterabonnement** aus.
-5. Suchen Sie im oben angezeigten Feld **Nach Name filtern** nach der Zeichenfolge „EventHub“.
-6. Sehen Sie sich die **Status**-Spalte der Ressourcenanbieterzeilen „Microsoft.EventHub“ und „Microsoft.EventHub.Admin“ an.
-7. Wird der Status in einer der Zeilen als „Nicht registriert“ angezeigt, wählen Sie den Anbieter aus, und wählen Sie dann **Registrieren** aus. 
-   ![Nicht registrierte Ressourcenanbieter](media/event-hubs-rp-install/12-default-subscription-rps-unregistered.png)
-8. Wählen Sie nach einigen Sekunden **Aktualisieren** aus. Der Ressourcenanbieter sollte nun mit dem Status „Registriert“ angezeigt werden. 
-9. „Microsoft.EventHub“ und „Microsoft.EventHub.Admin“ sollten nun mit dem Status „Registriert“ angezeigt werden.
-   ![Registrierte Ressourcenanbieter](media/event-hubs-rp-install/13-default-subscription-rps-registered.png)
-
-10. Kehren Sie zur Seite **Alle Dienste** zurück.
-11. Suchen Sie nach „Event Hubs“. Nun sollte „Event Hubs“ angezeigt werden. Dies ist Ihr Einstiegspunkt zur Event Hubs-Verwaltungsseite. 
-   ![Dienste verfügbar: Event Hubs](media/event-hubs-rp-install/14-all-service-event-hubs.png)
- 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Bevor Benutzer Event Hubs-Ressourcen bereitstellen können, müssen Sie mindestens einen Plan, ein Angebot und ein Abonnement erstellen. 

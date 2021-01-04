@@ -1,20 +1,20 @@
 ---
-title: Aktionen für Knoten einer Skalierungseinheit in Azure Stack Hub
-description: Hier erhalten Sie Informationen zu Aktionen für Knoten einer Skalierungseinheit (einschließlich „Einschalten“, „Ausschalten“, „Deaktivieren“ und „Fortsetzen“), und Sie erfahren, wie Sie den Knotenstatus in integrierten Azure Stack Hub-Systemen anzeigen.
+title: Aktionen für Skalierungseinheitknoten in Azure Stack Hub für ein MDC
+description: Hier erhalten Sie Informationen zu Aktionen für Skalierungseinheitknoten (einschließlich „Einschalten“, „Ausschalten“, „Deaktivieren“ und „Fortsetzen“), und Sie erfahren, wie Sie den Knotenstatus in integrierten Azure Stack Hub-Systemen anzeigen.
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 10/26/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: f7bc89e42b315fea585a87d93795a0e1b0f574f3
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 6413cec9b2464d5295feab0f3a3983083b9d04ea
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934895"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598520"
 ---
-# <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Aktionen für Knoten einer Skalierungseinheit in Azure Stack Hub
+# <a name="scale-unit-node-actions-in-azure-stack-hub---modular-data-center-mdc"></a>Aktionen für Skalierungseinheitknoten in Azure Stack Hub – Modular Data Center (MDC)
 
 In diesem Artikel wird beschrieben, wie Sie den Status einer Skalierungseinheit anzeigen. Sie können die Knoten der Einheit anzeigen. Sie können Knotenaktionen wie „Einschalten“, „Ausschalten“, „Deaktivieren“, „Fortsetzen“ und „Reparieren“ ausführen. Normalerweise verwenden Sie diese Knotenaktionen für den Austausch von Teilen im Betrieb oder bei der Wiederherstellung eines Knotens.
 

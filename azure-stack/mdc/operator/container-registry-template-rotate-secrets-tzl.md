@@ -1,7 +1,7 @@
 ---
-title: Rotieren von Containerregistrierungsgeheimnissen in Azure Stack Hub | Microsoft-Dokumentation
+title: Rotieren von Containerregistrierungsgeheimnissen in Azure Stack Hub – MDC
 titleSuffix: Azure Stack Hub
-description: Hier erfahren Sie mehr über das Rotieren von Containerregistrierungsgeheimnissen in Azure Stack Hub.
+description: Hier erfahren Sie, wie Sie die Containerregistrierungsgeheimnisse in Azure Stack Hub für ein Modular Data Center rotieren.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: eb835552b8f7142878d03aa1bb3bb062cd2cf3f6
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 932f63ef4b442578baf9f217ae0f25a6fe29290e
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934981"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598214"
 ---
-# <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>Rotieren von Containerregistrierungsgeheimnissen in Azure Stack Hub
+# <a name="rotate-container-registry-secrets-in-azure-stack-hub---modular-data-center-mdc"></a>Rotieren von Containerregistrierungsgeheimnissen in Azure Stack Hub – Modular Data Center (MDC)
 
 Ihre Azure Stack Hub-Benutzer können die Geheimnisse (Zertifikate, Benutzername und Kennwort) für die Bereitstellung einer Containerregistrierungsvorlage rotieren. Sie können ein Skript zum Ausfüllen neuer Geheimniswerte in Microsoft Azure Key Vault ausführen und die vorhandenen Containerregistrierungsvorlagen-Instanzen **erneut bereitstellen**. Das Rotieren von Geheimnissen allein erfordert keine neue Bereitstellung.
 
@@ -257,11 +257,11 @@ Befolgen Sie die nachstehenden Anweisungen, um neue Geheimnisse in Key Vault fes
 
 3. Wählen Sie unter **Bereitstellungen** die Bereitstellungen aus.
 
-    ![Bereitstellungen](./media/container-registry-template-rotating-secrets-tzl/deployments.png)
+    ![Screenshot: Seite „Bereitstellungen“](./media/container-registry-template-rotating-secrets-tzl/deployments.png)
 
 4.  Wenn Sie zum ersten Mal Geheimnisse rotieren, wählen Sie die ursprüngliche Bereitstellung aus. Wenn dies nicht die erste Geheimnisrotation ist, wählen Sie die neueste Bereitstellung aus, und klicken Sie dann auf **Erneut bereitstellen**.
 
-    ![Erneute Bereitstellung](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
+    ![Screenshot: Seite „Übersicht“ mit ausgewählter Aktion „Erneut bereitstellen“](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
 
 5.  Wählen Sie unter **Lösungsvorlage bereitstellen** bei „Ressourcengruppe“ die Option **Vorhandene verwenden** aus, und wählen Sie die Ressourcengruppe aus, die bei der ursprünglichen Bereitstellung der Containerregistrierungsvorlage verwendet wurde. Damit eine erneute Bereitstellung erfolgreich ist, muss sie dieselbe Ressourcengruppe verwenden.
 
@@ -273,7 +273,7 @@ Befolgen Sie die nachstehenden Anweisungen, um neue Geheimnisse in Key Vault fes
 
     - Wenn Sie das Zertifikat rotieren, müssen Sie die neuen Werte für PFXKeyVaultSecretURL und PFXThumbprint eingeben, die beim Festlegen der neuen Geheimnisse ausgegeben wurden.
 
-    ![Parameter](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
+    ![Screenshot: Fenster „Parameter“](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
 
 7.  Wählen Sie **OK** und dann **Erstellen** aus. Die erneute Bereitstellung wird fortgesetzt. Während der erneuten Bereitstellung funktioniert die Registrierungsfunktionalität weiterhin.
 

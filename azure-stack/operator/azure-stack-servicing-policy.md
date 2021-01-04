@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Hier erhalten Sie Informationen zur Azure Stack Hub-Wartungsrichtlinie und erfahren, wie Sie den unterstützten Zustand eines integrierten Systems aufrechterhalten.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/25/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: cff03367985558bd5b9b6786455cf626993836db
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 126504ce42ba4c7567e15a6c19378ef2bf2c628b
+ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545566"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515037"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub-Wartungsrichtlinie
 
@@ -67,6 +67,8 @@ Informationen zu den derzeit verfügbaren Hotfixes finden Sie in den Versionshin
 ## <a name="keep-your-system-under-support"></a>Halten Sie den Support für Ihr System aufrecht
 
 Damit die Azure Stack Hub-Instanz auch weiterhin unterstützt wird, muss diese die zuletzt veröffentlichte Updateversion oder eine der beiden vorherigen Updateversionen ausführen.
+
+Sie müssen auch über einen aktiven Supportvertrag mit dem Hardwarepartner verfügen, der das System hergestellt hat. Ohne Hardwaresupportvertrag kann Microsoft keinen Support bieten.
 
 Hotfixes werden nicht als Updatehauptversionen angesehen. Wenn die Version der Azure Stack Hub-Instanz mehr als zwei Updates zurückliegt, wird sie als nicht konform eingestuft. Sie müssen mindestens auf die niedrigste unterstützte Version aktualisieren, um Support zu erhalten.
 

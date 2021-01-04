@@ -3,16 +3,16 @@ title: Verwenden von Docker zum Ausführen von PowerShell in Azure Stack Hub
 description: Verwenden von Docker zum Ausführen von PowerShell in Azure Stack Hub
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 802a173239534c6826e90a1d4d4c2095c1abcf9a
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: 798b3d9e94f6263b02c291d2f5725768f1a8522a
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525607"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620686"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Verwenden von Docker zum Ausführen von PowerShell für Azure Stack Hub
 
@@ -99,7 +99,7 @@ In diesen Anweisungen führen Sie ein Linux-basiertes Containerimage aus, das di
 
 ### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/rm)
 
-In diesen Anweisungen führen Sie ein Windows-basiertes Containerimage aus und installieren die PowerShell und die erforderlichen Module für Azure Stack Hub.
+In diesen Anweisungen führen Sie ein Windows-basiertes Containerimage aus und installieren die PowerShell und die erforderlichen Module für Azure Stack Hub. Wenn Sie Docker unter Windows ausführen möchten, ist die Ausführung auf einem physischen Computer erforderlich. Die geschachtelte Virtualisierung wird für Hyper-V nicht unterstützt.
 
 1. Sie müssen Docker mit Windows-Containern ausführen, für die Windows 10 erforderlich ist. Wechseln Sie zu Windows-Containern, wenn Sie Docker ausführen. Für die Images, die das Az-Modul unterstützen, ist Docker 17.05 oder höher erforderlich.
 

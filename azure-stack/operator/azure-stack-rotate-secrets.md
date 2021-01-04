@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 69e1aa757f0285cc39d8df16bbd3531af0d3ea51
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: 800e6f2173f409283a04259f29b4835e66ced075
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152844"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343158"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Rotieren von Geheimnissen in Azure Stack Hub
 
@@ -108,7 +108,7 @@ Vor der Rotation externer Geheimnisse:
 3. Speichern Sie eine Sicherung der für die Rotation verwendeten Zertifikate an einem sicheren Sicherungsspeicherort. Sollte die Rotation nicht erfolgreich sein, ersetzen Sie die Zertifikate in der Dateifreigabe durch die Sicherungskopien, und wiederholen Sie dann die Rotation. Bewahren Sie Sicherungskopien am sicheren Sicherungsspeicherort auf.
 4. Erstellen Sie eine Dateifreigabe, auf die Sie über die virtuellen ERCS-Computer zugreifen können. Die Identität **CloudAdmin** muss über Lese- und Schreibzugriff für die Dateifreigabe verfügen.
 5. Öffnen Sie eine PowerShell ISE-Konsole auf einem Computer, auf dem Sie Zugriff auf die Dateifreigabe haben. Navigieren Sie zu Ihrer Dateifreigabe, wo Sie Verzeichnisse für Ihre externen Zertifikate erstellen.
-6. Laden Sie **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** auf eine Netzwerkdateifreigabe herunter, auf die während der Rotation zugegriffen werden kann, und führen Sie das Skript aus. Das Skript erstellt eine Ordnerstruktur entsprechend **_.\Certificates\AAD_ *_ oder _* _.\Certificates\ADFS_ *_, abhängig von Ihrem Identitätsanbieter. Ihre Ordnerstruktur muss mit einem _* \\Certificates**-Ordner beginnen, gefolgt von NUR einem **\\AAD**- oder **\\ADFS**-Ordner. Alle zusätzlichen Unterverzeichnisse sind in der vorangehenden Struktur enthalten. Zum Beispiel:
+6. Laden Sie **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** in Ihre Netzwerkdateifreigabe herunter, und führen Sie das Skript aus. Das Skript erstellt eine Ordnerstruktur entsprechend **_.\Certificates\AAD_ *_ oder _* _.\Certificates\ADFS_ *_, abhängig von Ihrem Identitätsanbieter. Ihre Ordnerstruktur muss mit einem _* \\Certificates**-Ordner beginnen, gefolgt von NUR einem **\\AAD**- oder **\\ADFS**-Ordner. Alle zusätzlichen Unterverzeichnisse sind in der vorangehenden Struktur enthalten. Zum Beispiel:
     - Dateifreigabe = **\\\\\<IPAddress>\\\<ShareName>**
     - Stammordner des Zertifikats für Azure AD-Anbieter = **\\Certificates\AAD**
     - Vollständiger Pfad = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**

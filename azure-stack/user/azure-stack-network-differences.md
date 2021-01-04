@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: f47e3c48bf6a43276f9e4b11c2e3f0f43a224f18
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: f081d0fa91e967ca00b46ac2a9ffaf4b56933e87
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567347"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364114"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack Hub-Netzwerke: Unterschiede und Überlegungen
 
@@ -30,7 +30,7 @@ Dieser Artikel enthält eine Übersicht über die besonderen Überlegungen für 
 |  | DNS-Datensätze pro Zone | 5000 (Standard)<br>Kann auf Anforderung erhöht werden | 5\.000 |
 |  | Namenserver für die Zonendelegierung | Azure bietet vier Namenserver für jede erstellte Benutzerzone (Mandantenzone). | Azure Stack Hub bietet zwei Namenserver für jede erstellte Benutzerzone (Mandantenzone). |
 | Azure Firewall | Netzwerksicherheitsdienst | Azure Firewall ist ein verwalteter, cloudbasierter Netzwerksicherheitsdienst, der Ihre Azure Virtual Network-Ressourcen schützt. | Noch nicht unterstützt. |
-| Virtual Network | Peering in virtuellen Netzwerken | Verbinden von zwei virtuellen Netzwerken in derselben Region über das Azure-Backbonenetzwerk | Noch nicht unterstützt |
+| Virtual Network | Peering in virtuellen Netzwerken | Verbinden von zwei virtuellen Netzwerken in derselben Region über das Azure-Backbonenetzwerk | Unterstützt seit Version 2008: [Peering virtueller Netzwerke](virtual-network-peering.md) |
 |  | IPv6-Adressen | Sie können eine IPv6-Adresse als Teil der [Netzwerkschnittstellenkonfiguration](/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions) zuweisen. | Es wird nur IPv4 unterstützt. |
 |  | DDoS Protection-Plan | Unterstützt | Noch nicht unterstützt. |
 |  | IP-Konfigurationen für Skalierungsgruppe | Unterstützt | Noch nicht unterstützt. |

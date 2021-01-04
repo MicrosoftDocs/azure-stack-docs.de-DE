@@ -1,6 +1,6 @@
 ---
 title: Übersicht über die Kapazitätsplanung für Azure Stack Hub | Microsoft-Dokumentation
-description: Informationen zur Kapazitätsplanung für Azure Stack Hub-Bereitstellungen.
+description: Informationen zur Kapazitätsplanung für Azure Stack Hub-Bereitstellungen. Hier finden Sie die Spezifikationen für die hohen und niedrigen robusten Azure Stack Hub-Modelle.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,12 +16,12 @@ ms.date: 10/14/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 7ccaee0f134f2aa2a56f0fe14bab8fba72a84726
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: b300a787105b39f2d4fa87f61f67e4aee4530440
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941177"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598197"
 ---
 # <a name="overview-of-azure-stack-hub-capacity-planning"></a>Übersicht über die Azure Stack Hub-Kapazitätsplanung
 

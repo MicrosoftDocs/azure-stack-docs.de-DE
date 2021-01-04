@@ -1,6 +1,6 @@
 ---
-title: Schutz von in Azure Stack bereitgestellten VMs | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie einen Wiederherstellungsplan erstellen, um in Azure Stack bereitgestellte VMs vor Datenverlust und ungeplanten Ausfallzeiten zu schützen.
+title: Schützen von in Azure Stack bereitgestellten VMs – MDC | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie einen Wiederherstellungsplan erstellen, um in Azure Stack bereitgestellte VMs für ein Modular Data Center (MDC) vor Datenverlust und ungeplanten Downtimes zu schützen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: cfee01600d9db4017e56b7e53c9f90351b3bb323
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: 4f4de6ee060d63d4a7f7769feba93f918911608d
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414043"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598299"
 ---
-# <a name="protect-vms-deployed-on-azure-stack-hub"></a>Schutz von in Azure Stack Hub bereitgestellten VMsProtect VMs deployed on Azure Stack Hub
+# <a name="protect-vms-deployed-on-azure-stack-hub---modular-data-center-mdc"></a>Schützen von in Azure Stack Hub bereitgestellten VMs – Modular Data Center (MDC)
 
 Verwenden Sie diesen Artikel als Leitfaden für die Entwicklung eines Plans zum Schützen von VMs (virtuellen Computern), die Ihre Benutzer unter Azure Stack Hub bereitstellen.
 

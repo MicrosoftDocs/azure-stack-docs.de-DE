@@ -1,6 +1,6 @@
 ---
-title: Übersicht über die Kapazitätsplanung für Azure Stack Hub | Microsoft-Dokumentation
-description: Informationen zur Kapazitätsplanung für Azure Stack Hub-Bereitstellungen.
+title: 'Übersicht: Kapazitätsplanung für Azure Stack Hub | Microsoft-Dokumentation'
+description: Hier erfahren Sie mehr über die Kapazitätsplanung für Azure Stack Hub-Bereitstellungen einschließlich Compute- und Speicherinformationen.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,14 +16,14 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: a608a64de28104513cb708ef350eb4db672f5f65
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 12862a71146606bfba81ea0de630a93181951c06
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183493"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598588"
 ---
-# <a name="overview-of-azure-stack-hub-capacity-planning"></a>Übersicht über die Azure Stack Hub-Kapazitätsplanung
+# <a name="overview-of-azure-stack-hub-capacity-planning---modular-data-center-mdc"></a>Übersicht über die Azure Stack Hub-Kapazitätsplanung – Modular Data Center (MDC)
 
 Berücksichtigen Sie beim Auswerten einer Azure Stack Hub-Lösung die Entscheidungen in Bezug auf die Hardwarekonfiguration, die eine direkte Auswirkung auf die Gesamtkapazität der Azure Stack Hub-Cloud haben. 
 

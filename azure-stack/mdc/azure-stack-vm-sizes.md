@@ -1,6 +1,6 @@
 ---
-title: In Azure Stack unterstützte VM-Größen | Microsoft-Dokumentation
-description: Referenz zu unterstützten VM-Größen in einem MDC (Modular Data Center)
+title: Unterstützte VM-Größen in Azure Stack für ein MDC | Microsoft-Dokumentation
+description: Dies ist eine Referenz zu den unterstützten VM-Größen in einem Modular Data Center (MDC).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.date: 12/20/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 80132bec125e6e8a9730d8c1fddf12f1163a0fe6
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 79245ddf40d2ab39f4bb8ed7548023b3df6ec556
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183497"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598605"
 ---
-# <a name="vm-sizes-supported-in-azure-stack"></a>In Azure Stack unterstützte VM-Größen
+# <a name="vm-sizes-supported-in-azure-stack---modular-data-center-mdc"></a>Unterstützte VM-Größen in Azure Stack – Modular Data Center (MDC)
 
 In diesem Artikel sind die in Azure Stack verfügbaren VM-Größen aufgeführt. Dieser Artikel kann Ihnen bei der Auswahl eines virtuellen Computers zur Unterstützung Ihrer Azure Stack-Lösung helfen.
 

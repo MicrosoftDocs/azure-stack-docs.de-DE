@@ -3,20 +3,20 @@ title: Fehlercodes für Nutzungs- und Abrechnungsregistrierung in Azure Stack Hu
 description: Hier erfahren Sie mehr über die Fehlercodes für Nutzungs- und Abrechnungsregistrierung in Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 0c143a2a997a044e102eef63018dba5a492a3e11
-ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
+ms.openlocfilehash: b229d4019e6e7ed99826e311fc62da341c1203dd
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89041603"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97576937"
 ---
 # <a name="usage-and-billing-registration-error-codes"></a>Fehlercodes für Nutzungs- und Abrechnungsregistrierung
 
-Wenn Sie CSP (Cloud Solution Provider, Cloudlösungsanbieter) sind, können die folgenden Fehlermeldungen auftreten, wenn Sie einer Registrierung [Mandanten hinzufügen](azure-stack-csp-ref-operations.md#add-tenant-to-registration), um einen Nutzungsbericht für die Azure-Abonnement-ID des Kunden zu erstellen.
+Wenn Sie Cloud Solution Provider (CSP) sind, werden möglicherweise die folgenden Fehlermeldungen angezeigt, wenn Sie einer Registrierung [Mandanten hinzufügen](azure-stack-csp-ref-operations.md#add-tenant-to-registration), um einen Nutzungsbericht für die Azure-Abonnement-ID des Kunden zu erstellen.
 
 ## <a name="list-of-registration-error-codes"></a>Liste der Registrierungsfehlercodes
 

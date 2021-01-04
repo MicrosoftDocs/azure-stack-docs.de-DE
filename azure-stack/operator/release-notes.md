@@ -3,16 +3,16 @@ title: 'Azure Stack Hub: Versionshinweise'
 description: Versionshinweise für integrierte Azure Stack Hub-Systeme, einschließlich Updates und Fehlerbehebungen.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 12/11/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: aed3b9f5eb59ef440503625d807f8ef7b777f7b1
-ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
+ms.openlocfilehash: c94b91d2144248dd154da5b630b99470461dda67
+ms.sourcegitcommit: 56d7da84672261e2490138011bd8dd4eaf81851d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96869036"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97492771"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -131,7 +131,7 @@ Azure Stack Hub-Hotfixes gelten nur für integrierte Azure Stack Hub-Systeme. Ve
 
 Das Release 2008 von Azure Stack Hub muss auf das Release 2005 mit den folgenden Hotfixes angewendet werden:
 
-- [Azure Stack Hub-Hotfix 1.2005.24.90](https://support.microsoft.com/help/4595070)
+- [Azure Stack Hub-Hotfix 1.2005.25.92](https://support.microsoft.com/help/4595074)
 
 ### <a name="after-successfully-applying-the-2008-update"></a>Nach erfolgreicher Anwendung des Updates 2008
 
@@ -139,7 +139,7 @@ Wenn auf eine neue Hauptversion (z. B. von 1.2008.x auf 1.2005.x) aktualisieren
 
 Wenn nach der Installation des Updates 2008 Hotfixes für 2008 veröffentlicht werden, sollten Sie sie installieren:
 
-- [Azure Stack Hub-Hotfix 1.2008.19.100](https://support.microsoft.com/help/4595073)
+- [Azure Stack Hub-Hotfix 1.2008.20.102](https://support.microsoft.com/help/4595075)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -239,7 +239,7 @@ Ab Release 2005 werden bei der Aktualisierung auf eine neue Hauptversion (z. B
 
 Wenn nach der Installation des Updates 2005 Hotfixes für 2005 veröffentlicht werden, sollten Sie sie installieren:
 
-- [Azure Stack Hub-Hotfix 1.2005.24.90](https://support.microsoft.com/help/4595070)
+- [Azure Stack Hub-Hotfix 1.2005.25.92](https://support.microsoft.com/help/4595074)
 ::: moniker-end
 
 ::: moniker range="azs-2002"

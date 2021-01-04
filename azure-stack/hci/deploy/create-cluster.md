@@ -3,15 +3,15 @@ title: Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows Admin Cente
 description: Hier erfahren Sie, wie Sie mithilfe von Windows Admin Center einen Servercluster für Azure Stack HCI erstellen.
 author: v-dasis
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 12/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 011fa558f0e74d0456d9347d63edb6a064dcdcf2
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.openlocfilehash: e33096b2667ad9d620e942b66934f341982e619b
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051648"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364216"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows Admin Center
 
@@ -52,7 +52,14 @@ Dies sind die wichtigsten Schritte im Clustererstellungs-Assistenten:
 
 Nach dem Abschluss des Assistenten richten Sie den Clusterzeugen ein, registrieren sich bei Azure und erstellen Volumes (wodurch auch die Replikation zwischen Standorten eingerichtet wird, wenn Sie einen Stretchingcluster erstellen).
 
-OK, fangen wir an:
+Stellen Sie vor dem Starten des Assistenten sicher, dass die neuesten Windows Admin Center-Erweiterungen installiert sind, insbesondere die Erweiterung für die Clustererstellung. Gehen Sie folgendermaßen vor:
+
+1. Öffnen Sie Windows Admin Center, und klicken Sie oben rechts auf „Einstellungen“ (Zahnradsymbol).
+1. Wählen Sie unter **Einstellungen** die Option **Erweiterungen** aus.
+1. Wählen Sie **Cluster Creation** (Clustererstellung) aus, und klicken Sie dann auf **Installieren**.
+1. Wählen Sie **Cluster Manager** (Cluster-Manager) aus, und klicken Sie dort dann auf **Installieren**.
+
+Jetzt können Sie loslegen:
 
 1. Klicken Sie in Windows Admin Center unter **Alle Verbindungen** auf **Hinzufügen**.
 1. Wählen Sie im Bereich **Ressourcen hinzufügen oder erstellen** unter **Windows Server-Cluster** die Option **Neu erstellen** aus.

@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: 1787218c32feaa0e944946b6b36614432ea529f1
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 12/11/2020
+ms.openlocfilehash: 2d2c122a2fd8a9e0be5d3ffd942f85f310845f2d
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011772"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343175"
 ---
 # <a name="quickstart-create-an-azure-stack-hci-cluster-and-register-it-with-azure"></a>Schnellstart: Erstellen eines Azure Stack HCI-Clusters und Registrieren des Clusters bei Azure
 
@@ -24,7 +24,7 @@ In dieser Schnellstartanleitung erfahren Sie, wie Sie einen Azure Stack HCI-Clus
 
 Vor dem Erstellen eines Clusters gehen Sie wie folgt vor:
 
-* Erwerben Sie über Ihren bevorzugten Microsoft-Hardwarepartner zwei Server aus dem [Azure Stack HCI-Katalog](https://azure.microsoft.com/products/azure-stack/hci/catalog/) mit vorinstalliertem Azure Stack HCI-Betriebssystem. Überprüfen Sie die [Systemanforderungen](../concepts/system-requirements.md), um sicherzustellen, dass die von Ihnen ausgewählte Hardware die Workloads unterstützt, die Sie auf dem Cluster ausführen möchten.
+* Erwerben Sie über Ihren bevorzugten Microsoft-Hardwarepartner zwei Server aus dem [Azure Stack HCI-Katalog](https://hcicatalog.azurewebsites.net) mit vorinstalliertem Azure Stack HCI-Betriebssystem. Überprüfen Sie die [Systemanforderungen](../concepts/system-requirements.md), um sicherzustellen, dass die von Ihnen ausgewählte Hardware die Workloads unterstützt, die Sie auf dem Cluster ausführen möchten. Es wird empfohlen, ein System mit Hochgeschwindigkeitsnetzwerkadaptern zu verwenden, die iWARP für die einfache Konfiguration verwenden.
 * Erstellen Sie ein Benutzerkonto, das auf jedem Server Mitglied der lokalen Gruppe „Administratoren“ ist.
 * [Registrieren Sie sich für ein Azure-Abonnement](https://azure.microsoft.com/), falls Sie noch keins besitzen.
 * [Installieren Sie das Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install) auf einem Verwaltungs-PC, und [registrieren Windows Admin Center bei Azure](../manage/register-windows-admin-center.md). Beachten Sie, dass Ihr Verwaltungscomputer Mitglied der gleichen Active Directory-Domäne, in der Sie den Cluster erstellen, oder einer Domäne mit voller Vertrauensstellung sein muss.
@@ -43,7 +43,7 @@ Führen Sie die folgenden Schritte aus, um einen einfachen Cluster mit zwei Knot
 Der Clustererstellungs-Assistent verfügt über fünf Abschnitte mit jeweils mehreren Schritten.
 
 1. **Erste Schritte.** In diesem Abschnitt überprüfen Sie die Voraussetzungen, fügen Server hinzu, verknüpfen diese mit einer Domäne, installieren erforderliche Features und Updates und starten die Server neu. 
-2. **Netzwerk.** In diesem Abschnitt des Assistenten wird überprüft, ob die richtigen Netzwerkadapter aktiviert sind, und alle nicht verwendeten Netzwerkadapter werden deaktiviert. Sie wählen Verwaltungsadapter aus, richten eine Konfiguration für den virtuellen Switch ein und definieren Ihr Netzwerk, indem Sie IP-Adressen angeben. Zur Vereinfachung wählen Sie RDMA für diesen Cluster nicht aus. 
+2. **Netzwerk.** In diesem Abschnitt des Assistenten wird überprüft, ob die richtigen Netzwerkadapter aktiviert sind, und alle nicht verwendeten Netzwerkadapter werden deaktiviert. Sie wählen Verwaltungsadapter aus, richten eine Konfiguration für den virtuellen Switch ein und definieren Ihr Netzwerk, indem Sie IP-Adressen angeben.
 3. **Clustering.** In diesem Abschnitt wird überprüft, ob die Server über eine konsistente Konfiguration verfügen und für Clustering geeignet sind, und der eigentliche Cluster wird erstellt.
 4. **Speicher**: Als Nächstes werden Sie die Laufwerke bereinigen, den Speicher überprüfen und direkte Speicherplätze aktivieren.
 5. **SDN.** Sie können Abschnitt 5 überspringen, da wir für diesen Cluster kein Software-Defined Networking (SDN) verwenden.

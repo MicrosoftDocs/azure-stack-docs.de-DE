@@ -1,20 +1,20 @@
 ---
-title: Registrieren von Azure Stack Hub in Azure
-description: Hier erfahren Sie, wie Sie Azure Stack Hub bei Azure registrieren, um Azure Marketplace-Elemente herunterladen und die Datenberichterstellung einrichten zu können.
+title: Registrieren von Azure Stack Hub bei Azure (MDC)
+description: Hier erfahren Sie, wie Sie Azure Stack Hub bei Azure registrieren, um Azure Marketplace-Elemente herunterladen und die Datenberichterstellung für ein MDC einrichten zu können.
 author: sethmanheim
 ms.topic: article
 ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 68a89c3f3f2a15a23a21d2a1d6c6052727982941
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 69c33d41149937b286a528c7eef3c6e795cd7642
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934878"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598469"
 ---
-# <a name="register-azure-stack-hub-with-azure"></a>Registrieren von Azure Stack Hub in Azure
+# <a name="register-azure-stack-hub-with-azure---modular-data-center-mdc"></a>Registrieren von Azure Stack Hub bei Azure – Modular Data Center (MDC)
 
 Zum Einrichten der Marketplace-Syndikation und zum Verwenden von PaaS-Diensten müssen Sie die Modular Data Center-Appliance (MDC) oder Azure Stack Hub Ruggedized-Appliance nach Abschluss der Bereitstellung basierend auf Azure Stack Hub registrieren und aktivieren. Mit Marketplace-Syndikation füllt ein Administrator den lokalen Azure Stack Hub-Marketplace mit aus dem Azure Marketplace heruntergeladenen Images.
 

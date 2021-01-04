@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Erfahren Sie, welche Gastbetriebssysteme mit Azure Stack Hub verwendet werden können.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 2275f00f8df77b3822537ca73ec35b342b477617
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 3d535893b75cdaf49b4003fce2382ab092b328fe
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250298"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620584"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Für Azure Stack Hub unterstützte Gastbetriebssysteme
 
@@ -33,7 +33,7 @@ Azure Stack Hub unterstützt die Windows-Gastbetriebssysteme aus der folgenden T
 | Windows 10 *(siehe Hinweis 1)* | 64 Bit, Pro und Enterprise | Verwendung eigener Images (Bring Your Own Image, BYOI) |
 
 > [!NOTE]
-> Wenn Sie Windows 10-Clientbetriebssysteme für Azure Stack Hub bereitstellen möchten, müssen Sie über eine [benutzerspezifische Windows-Lizenzierung](https://www.microsoft.com/licensing/product-licensing/windows10.aspx) verfügen oder den Kauf über einen [QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) (Qualified Multitenant Hoster) abwickeln.
+> Wenn Sie Windows 10-Clientbetriebssysteme für Azure Stack Hub bereitstellen möchten, müssen Sie über eine [benutzerspezifische Windows-Lizenzierung](https://www.microsoft.com/licensing/product-licensing/windows10.aspx) verfügen oder den Kauf über einen [QMTH (Qualified Multitenant Hoster)](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) abwickeln.
 
 Marketplace-Images stehen für eine Lizenzierung mit nutzungsbasierter Abrechnung oder für eine BYOL-Lizenzierung (EA/SPLA) zur Verfügung. Für eine einzige Azure Stack Hub-Instanz können jedoch nicht beide Lizenzierungstypen verwendet werden. Während der Bereitstellung fügt Azure Stack Hub eine geeignete Version des Gast-Agents in das Image ein.
 
