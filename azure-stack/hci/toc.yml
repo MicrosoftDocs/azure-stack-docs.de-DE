@@ -4,6 +4,8 @@
   items:
     - name: Was ist Azure Stack HCI?
       href: overview.md
+    - name: Vergleich mit Windows Server
+      href: concepts/compare-windows-server.md
     - name: Informationen zum Release
       href: release-information.md
     - name: Versionshinweise
@@ -118,8 +120,6 @@
       items:
         - name: Systemanforderungen
           href: concepts/system-requirements.md
-        - name: Vergleich mit Windows Server
-          href: concepts/compare-windows-server.md
         - name: Wählen von Laufwerken
           href: concepts/choose-drives.md
         - name: Aspekte symmetrischer Laufwerke
@@ -228,3 +228,5 @@
       href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'
     - name: Azure Stack HCI-Unterstützung
       href: manage/get-support.md
+    - name: "Azure Stack\_HCI: Archivierte Versionshinweise"
+      href: preview-release-notes.md
