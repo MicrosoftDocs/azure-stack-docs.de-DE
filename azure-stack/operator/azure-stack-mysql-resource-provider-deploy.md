@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: caoyang
 ms.lastreviewed: 12/07/2020
-ms.openlocfilehash: b6d345ecfecaa3859420087bc7cff051b39fbb36
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.openlocfilehash: 0d123679c0394d740876df2fcc78f7347049c61c
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778154"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737832"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Bereitstellen des MySQL-Ressourcenanbieters in Azure Stack Hub
 
@@ -35,13 +35,13 @@ Es gibt mehrere Voraussetzungen, die erfüllt werden müssen, bevor Sie den Azur
 
 - Fügen Sie die erforderliche Windows Server-VM zum Azure Stack Hub-Marketplace hinzu.
   - Laden Sie für MySQL-Ressourcenanbieterversionen <= 1.1.47.0 das Image **Windows Server 2016 Datacenter – Server Core** herunter.
-  - Laden Sie für MySQL-Ressourcenanbieterversionen >= 1.1.93.0 das Image **Microsoft AzureStack Add-On RP Windows Server INTERNAL ONLY** herunter. Diese Windows Server-Version wurde speziell für die Azure Stack-Add-On-RP-Infrastruktur konzipiert und wird im Mandanten-Marketplace nicht angezeigt.
+  - Laden Sie für die MySQL-Ressourcenanbieterversionen >= 1.1.93.0 das Image **Microsoft AzureStack Add-On RP Windows Server** herunter. Diese Windows Server-Version wurde speziell für die Azure Stack-Add-On-RP-Infrastruktur konzipiert und wird im Mandanten-Marketplace nicht angezeigt.
 
 - Laden Sie die unterstützte Version des MySQL-Ressourcenanbieters in binärer Form gemäß der Versionszuordnungstabelle unten herunter. Führen Sie das selbstextrahierende Programm aus, um die heruntergeladenen Inhalte in ein temporäres Verzeichnis zu extrahieren. 
 
   |Unterstützte Azure Stack Hub-Version|MySQL RP Version|Windows Server-Instanz, auf der der RP-Dienst ausgeführt wird
   |-----|-----|-----|
-  |2008, 2005|[MySQL-RP-Version 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack Add-on RP Windows Server INTERNAL ONLY
+  |2008, 2005|[MySQL-Ressourcenanbieterversion 1.1.93.1](https://aka.ms/azshmysqlrp11931)|Microsoft AzureStack Add-on RP Windows Server
   |2005, 2002, 1910|[MySQL RP-Version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter – Server Core|
   |1908|[MySQL RP-Version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter – Server Core|
   |     |     |     |

@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/16/2020
-ms.openlocfilehash: 3aaee084c30dd8d6b3f6514d18951fd604bd75aa
-ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
+ms.date: 12/21/2020
+ms.openlocfilehash: 20d42c6685bb1a2a2c8de36d04434d23a97f81e1
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157664"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737877"
 ---
 # <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Software-Defined Networking (SDN) in Azure Stack HCI
 
@@ -42,7 +42,7 @@ Es wird empfohlen, [den Netzwerkcontroller während der Clustererstellung bereit
 
 ## <a name="software-load-balancing"></a>Softwarelastenausgleich
 
-[Softwarelastenausgleich](/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn) (Software Load Balancing, SLB) kann verwendet werden, um den Datenverkehr des Kundennetzwerks gleichmäßig auf mehrere virtuelle Computer zu verteilen. Dadurch können mehrere Server die gleiche Workload hosten, um Hochverfügbarkeit und Skalierbarkeit zu gewährleisten. Beim SLB wird das [Border Gateway Protocol](/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) verwendet, um dem physischen Netzwerk virtuelle IP-Adressen anzukündigen.
+[Software Load Balancer](software-load-balancer.md) (SLB) kann verwendet werden, um den Datenverkehr des Kundennetzwerks gleichmäßig auf mehrere virtuelle Computer zu verteilen. Dadurch können mehrere Server die gleiche Workload hosten, um Hochverfügbarkeit und Skalierbarkeit zu gewährleisten. Beim SLB wird das [Border Gateway Protocol](/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) verwendet, um dem physischen Netzwerk virtuelle IP-Adressen anzukündigen.
 
 ## <a name="gateway"></a>Gateway
 

@@ -7,12 +7,12 @@ ms.date: 10/09/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 10/09/2020
-ms.openlocfilehash: 121a26506fbbe2993786c2fa7f7bfe58fc85a3f0
-ms.sourcegitcommit: 1e97e42380734ee7b239ee7e995c302d9dc3e2b3
+ms.openlocfilehash: 4dc6ad30d54b61e05f54be4a4f1301472794db60
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952405"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697684"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Bereitstellen von Azure Cognitive Services in Azure Stack Hub
 
@@ -23,9 +23,10 @@ Die Verwendung von Containern ist ein Ansatz zur Softwareverteilung, bei dem ein
 Die Containerunterstützung ist derzeit für einige Dienste von Azure Cognitive Services verfügbar:
 
 - **Speech**
-    - Text-to-Speech (Standard)
-    - Text-to-Speech (Benutzerdefiniert)
-    - Text-to-Speech (Standard)
+    - Sprache-in-Text (Standard)
+    - Sprache-in-Text (Benutzerdefiniert)
+    - Text-zu-Sprache (Standard)
+    - Text-zu-Sprache (Neuronal)
 - **Sprache**
     - Sprachverständnis
     - Textanalyse (Standpunktanalyse)

@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 12/21/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 94de29942f49aa7151de201bfa00d99625a1fee8
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 8dd475ffb12d8aafb37f0c6fe3ec588e6cdf1456
+ms.sourcegitcommit: aef251d6771400b21a314bbfbea4591ab263f8fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941152"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97726185"
 ---
-# <a name="register-azure-stack-hub-with-azure"></a>Registrieren von Azure Stack Hub in Azure
+# <a name="register-azure-stack-hub-with-azure---azure-stack-hub-ruggedized"></a>Registrieren von Azure Stack Hub in Azure: Azure Stack Hub Ruggedized
 
-Zum Einrichten der Marketplace-Syndikation müssen Sie die Modular Data Center-Appliance (MDC) oder Azure Stack Hub Ruggedized-Appliance nach Abschluss der Bereitstellung basierend auf Azure Stack Hub registrieren und aktivieren. Mit Marketplace-Syndikation füllt ein Administrator den lokalen Azure Stack Hub-Marketplace mit aus dem Azure Marketplace heruntergeladenen Images.
+Zum Einrichten der Marketplace-Syndikation und zum Verwenden von PaaS-Diensten müssen Sie die Modular Data Center-Appliance (MDC) oder Azure Stack Hub Ruggedized-Appliance nach Abschluss der Bereitstellung basierend auf Azure Stack Hub registrieren und aktivieren. Mit Marketplace-Syndikation füllt ein Administrator den lokalen Azure Stack Hub-Marketplace mit aus dem Azure Marketplace heruntergeladenen Images.
 
 Eine Registrierung ist sowohl für Systeme erforderlich, die eine Verbindung mit der Azure-Cloud herstellen, als auch für getrennte Systeme.
 
@@ -58,10 +58,8 @@ Vor der Registrierung von Azure Stack Hub in Azure müssen Sie folgende Bedingun
 
 - Sie müssen über eine Abonnement-ID eines Azure-Abonnements verfügen.  
 
-    > [!Note]  
+    > [!NOTE]  
     > Azure-Abonnements sind Azure-Cloudumgebungen zugeordnet (z. B. Azure Commercial oder Azure Government). Dadurch wird festgelegt, mit welcher Cloud Sie für den Zugriff auf Marketplace-Inhalte eine Verbindung herstellen.
-    > 
-    > Das Abonnement, das Sie für die Registrierung verwenden, muss für JEDI-Dienste genehmigt sein. Dadurch wird sichergestellt, dass das Gerät, das Sie registrieren, zur unbegrenzten Nutzung von Ressourcen berechtigt ist, ohne dass die Nutzung an Azure gemeldet wird. Senden Sie für die Genehmigung Ihres Abonnements eine E-Mail mit der zu genehmigenden Abonnement-ID sowie der Azure Stack Hub Ruggedized- oder Modular Data Center-Appliance (MDC), die Sie registrieren möchten, an azshregistration@microsoft.com.
 
 - Sie müssen über den Benutzernamen und das Kennwort für ein Konto verfügen, bei dem es sich um einen Besitzer des Abonnements handelt. 
 - Das Benutzerkonto muss Zugriff auf das Azure-Abonnement haben und berechtigt sein, Identitäts-Apps und Dienstprinzipale in dem Verzeichnis zu erstellen, das diesem Abonnement zugeordnet ist. Es wird empfohlen, Azure Stack Hub unter Verwendung einer Verwaltung mit geringstmöglichen Berechtigungen bei Azure zu registrieren. Weitere Informationen zum Erstellen einer benutzerdefinierten Rollendefinition, die den Zugriff auf Ihr Abonnement für die Registrierung beschränkt, finden Sie unter [Erstellen einer benutzerdefinierten Rolle für die Azure Stack Hub-Registrierung](../../operator/azure-stack-registration-role.md).
@@ -98,9 +96,9 @@ So installieren Sie die neuesten Azure Stack Hub-Tools:
 1. Öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten.
 2. Führen Sie das folgende Cmdlet aus:
 
-    ```powershell  
-        Install-Module -Name Azs.Tools.Admin
-    ```
+   ```powershell  
+   Install-Module -Name Azs.Tools.Admin
+   ```
 
 ### <a name="determine-your-registration-scenario"></a>Bestimmen Ihres Registrierungsszenarios
 
@@ -108,7 +106,7 @@ Ihre Azure Stack Hub-Bereitstellung kann *verbunden* oder *nicht verbunden* sein
 
 - **Verbunden**: „Verbunden“ bedeutet, dass Sie die Azure Stack Hub-Instanz so bereitgestellt haben, dass sie eine Verbindung mit dem Internet und mit Azure herstellen kann. Als Identitätsspeicher können Sie entweder Azure AD oder die Active Directory-Verbunddienste (AD FS) verwenden.
 
-- **Getrennt**: Bei der Bereitstellungsoption ohne Verbindung mit Azure können Sie Azure Stack Hub auch ohne Verbindung mit dem Internet bereitstellen und nutzen.
+- **Getrennt**: Bei der Bereitstellungsoption ohne Verbindung mit Azure können Sie Azure Stack Hub auch ohne Verbindung mit dem Internet bereitstellen und nutzen. Da nicht verbundene Systeme die PaaS-Nutzung nicht an Azure zurückmelden können, müssen sie mit dem **kapazitätsbasierten** Abrechnungsmodell registriert werden, um PaaS-Dienste verwenden zu können.
 
 ### <a name="determine-a-unique-registration-name-to-use"></a>Bestimmen eines eindeutigen zu verwendenden Registrierungsnamens
 
@@ -132,36 +130,33 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
 
 1. Zum Registrieren des Azure Stack Hub-Ressourcenanbieters bei Azure starten Sie die PowerShell ISE als Administrator und verwenden die folgenden PowerShell-Cmdlets mit dem auf den entsprechenden Azure-Abonnementtyp festgelegten Parameter **EnvironmentName** (Parameter siehe unten).
 
-2. Fügen Sie das Azure-Konto hinzu, das für die Registrierung von Azure Stack Hub verwendet wurde. Führen Sie zum Hinzufügen des Kontos das Cmdlet **Add-AzureRmAccount** aus. Sie werden aufgefordert, Ihre Anmeldeinformationen für das Azure-Konto einzugeben. Je nach Konfiguration Ihres Kontos müssen Sie hierfür möglicherweise die zweistufige Authentifizierung verwenden.
+2. Stellen Sie in derselben PowerShell-Sitzung sicher, dass Sie beim richtigen Azure PowerShell-Kontext angemeldet sind. Bei diesem Kontext handelt es sich um das Azure-Konto, das zuvor zum Registrieren des Azure Stack Hub-Ressourcenanbieters verwendet wurde:
 
    ```powershell
-   Add-AzureRmAccount -EnvironmentName "<environment name>"
-   ```
-
-   | Parameter | BESCHREIBUNG |  
-   |-----|-----|
-   | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud** oder **AzureUSGovernment**.  |
-
-   >[!NOTE]
-   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie zu einem anderen Konto wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit **Add-AzureRmAccount** anmelden: **Remove-AzureRmAccount-Scope Process**.
-
-3. Stellen Sie in derselben PowerShell-Sitzung sicher, dass Sie beim richtigen Azure PowerShell-Kontext angemeldet sind. Bei diesem Kontext handelt es sich um das Azure-Konto, das zuvor zum Registrieren des Azure Stack Hub-Ressourcenanbieters verwendet wurde:
-
-   ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
+   Für **AzureUSSec** müssen Sie zunächst die `CustomCloud`-Umgebung initialisieren und dann **Connect-AzureRmAccount** aufrufen:
+
+   ```powershell
+   Initialize-AzureRmEnvironment -Name 'CustomCloud' -CloudManifestFilePath $CloudManifestFilePath
+   Connect-AzureRmAccount -Environment 'CustomCloud'
+   ```
+
    | Parameter | BESCHREIBUNG |  
    |-----|-----|
-   | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud** oder **AzureUSGovernment**.  |
+   | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** und **AzureUSSec**.   |
 
-4. Wenn Sie über mehrere Abonnements verfügen, führen Sie den folgenden Befehl aus, um das zu verwendende Abonnement auszuwählen:
+   > [!NOTE]
+   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie zu einem anderen Konto wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit **Add-AzureRmAccount** anmelden: **Remove-AzureRmAccount-Scope Process**.
 
-   ```powershell  
+3. Wenn Sie über mehrere Abonnements verfügen, führen Sie den folgenden Befehl aus, um das zu verwendende Abonnement auszuwählen:
+
+   ```powershell
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-5. Führen Sie den folgenden Befehl zum Registrieren des Azure Stack Hub-Ressourcenanbieters bei Ihrem Azure-Abonnement aus:
+4. Führen Sie den folgenden Befehl zum Registrieren des Azure Stack Hub-Ressourcenanbieters bei Ihrem Azure-Abonnement aus:
 
    ```powershell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
@@ -171,8 +166,7 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
 
    ![Registrieren des Azure Stack Hub-Ressourcenanbieters](./media/registration-tzl/register-azure-resource-provider-portal.png)
 
-
-6. Führen Sie in derselben PowerShell-Sitzung das Cmdlet **Set-AzsRegistration** aus:
+5. Führen Sie in derselben PowerShell-Sitzung das Cmdlet **Set-AzsRegistration** aus:
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -182,13 +176,14 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
    Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
-      -BillingModel Custom `
+      -BillingModel Ruggedized `
       -RegistrationName $RegistrationName `
       -msAssetTag $msAssetTagName `
       -UsageReportingEnabled: $false
    ```
-   Das MS-Bestandskennzeichen (`msAssetTag`) ist bei der Registrierung eines benutzerdefinierten Abrechnungsmodells obligatorisch und ist auf das Produkt gedruckt.
-    
+
+   Das MS-Bestandskennzeichen (`msAssetTag`) ist bei der Registrierung mit dem Ruggedized-Abrechnungsmodell obligatorisch und auf dem Produkt aufgedruckt.
+
    Der Vorgang dauert zwischen 10 und 15 Minuten. Nach dem Ausführen des Befehls wird die folgende Meldung angezeigt: **Ihre Umgebung ist nun registriert und mit den angegebenen Parametern aktiviert.**
 
 ## <a name="registration-and-activation-for-systems-not-connected-to-the-azure-cloud"></a>Registrierung und Aktivierung für nicht mit der Azure-Cloud verbundene Systeme 
@@ -216,7 +211,7 @@ Rufen Sie ein Registrierungstoken aus der Azure Stack Hub-Umgebung ab. Verwenden
       -PrivilegedEndpointCredential $YourCloudAdminCredential `
       -UsageReportingEnabled:$False `
       -PrivilegedEndpoint $YourPrivilegedEndpoint `
-      -BillingModel Custom -msAssetTag '<MS Asset tag>' `
+      -BillingModel Capacity -AgreementNumber '<EA agreement number>' -msAssetTag '<MS Asset tag>' `
       -TokenOutputFilePath $FilePathForRegistrationToken 
    ```
 
@@ -300,7 +295,7 @@ New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredentia
 
 Sie können die Kachel **Regionsverwaltung** verwenden, um zu überprüfen, ob die Azure Stack Hub-Registrierung erfolgreich war. Diese Kachel steht im Standarddashboard im Administratorportal zur Verfügung. Der Status kann „registriert“ oder „nicht registriert“ lauten. Beim Status „registriert“ wird außerdem die ID des Azure-Abonnements angezeigt, mit dem Sie Ihre Azure Stack Hub-Instanz registriert haben, sowie die Gruppe und der Name der Registrierungsressource.
 
-1. Melden Sie sich beim Azure Stack Hub-Administratorportal (`https://adminportal.local.azurestack.external`) an.
+1. Melden Sie sich beim Azure Stack Hub-Administratorportal an. Die URL variiert je nach Region und dem externen Domänennamen des Betreibers und besitzt das Format `https://adminportal.<region>.<FQDN>`.
 
 2. Wählen Sie im Dashboard **Regionsverwaltung** aus.
 
@@ -321,9 +316,6 @@ Alternativ dazu können Sie mit dem Marketplace-Verwaltungsfeature überprüfen,
 
 > [!NOTE]
 > Nach Abschluss der Registrierung wird die aktive Warnung wegen noch nicht erfolgter Registrierung nicht mehr angezeigt.
-
-> [!NOTE]
-> Die Fehlermeldung **[InvalidRegistrationToken]:BillingModel 'Custom' is not supported by subscription** ([InvalidRegistrationToken]: Das Abrechnungsmodell 'Benutzerdefiniert' wird vom Abonnement nicht unterstützt.) gibt an, dass das Abonnement, das Sie für die Registrierung verwenden, nicht für die Verwendung mit Azure Stack Hub Ruggedized- oder MDC-Appliances genehmigt ist. Wenden Sie sich an azshregistration@microsoft.com, um ein Abonnement zusammen mit dem Typ des Produkts (Azure Stack Hub Ruggedized oder MDC), das Sie registrieren, genehmigen zu lassen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -8,12 +8,12 @@ ms.date: 09/02/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 95e12f2f90cd7e33fb3a2cc3a5f016f35ac0e54f
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 48add21dfcbf5c83a525e1f0ebd6a9e2123f75e4
+ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623216"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97794157"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Senden von Azure Stack Hub-Diagnoseprotokollen mithilfe des privilegierten Endpunkts (PEP)
 
@@ -86,6 +86,18 @@ if ($session) {
   Get-AzureStackLog -FilterByResourceProvider <<value-add RP name>>
   ```
  
+  Protokollsammlung für SQL-Ressourcenanbieter: 
+
+  ```powershell
+  Get-AzureStackLog -FilterByResourceProvider SQLAdapter
+  ```
+
+  Protokollsammlung für MySQL-Ressourcenanbieter: 
+
+  ```powershell
+  Get-AzureStackLog -FilterByResourceProvider MySQLAdapter
+  ```
+
   Protokollsammlung für IoT Hub: 
 
   ```powershell
@@ -341,7 +353,7 @@ if ($session) {
   * ACS-Protokolle werden unter den Rollen **Storage** und **ACS** gesammelt.
 
 > [!NOTE]
-> Größen- und Altersgrenzwerte für die gesammelten Protokolle werden erzwungen, da es sehr wichtig ist, für eine effiziente Nutzung Ihres Speicherplatzes zu sorgen und eine übermäßig hohe Anzahl von Protokollen zu verhindern. Allerdings werden beim Diagnostizieren von Problemen manchmal Protokolle benötigt, die aufgrund dieser Grenzwerte nicht mehr vorhanden sind. Daher empfehlen wir Ihnen**dringend**, Ihre Protokolle alle acht bis zwölf Stunden in einen externen Speicher zu verlagern (Speicherkonto in Azure, zusätzliches lokales Speichergerät oder Ähnliches) und je nach Ihren Anforderungen darin einen bis drei Monate lang aufzubewahren. Außerdem sollten Sie sicherstellen, dass der Speicherort verschlüsselt ist.
+> Größen- und Altersgrenzwerte für die gesammelten Protokolle werden erzwungen, da es sehr wichtig ist, für eine effiziente Nutzung Ihres Speicherplatzes zu sorgen und eine übermäßig hohe Anzahl von Protokollen zu verhindern. Allerdings werden beim Diagnostizieren von Problemen manchmal Protokolle benötigt, die aufgrund dieser Grenzwerte nicht mehr vorhanden sind. Daher empfehlen wir Ihnen **dringend**, Ihre Protokolle alle acht bis zwölf Stunden in einen externen Speicher zu verlagern (Speicherkonto in Azure, zusätzliches lokales Speichergerät oder Ähnliches) und je nach Ihren Anforderungen darin einen bis drei Monate lang aufzubewahren. Außerdem sollten Sie sicherstellen, dass der Speicherort verschlüsselt ist.
 
 ### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
 

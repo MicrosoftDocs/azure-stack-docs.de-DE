@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/11/2020
-ms.openlocfilehash: bd1798ddfcf0897eeaedaeaae0cfb02eac1aaa1e
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.date: 12/22/2020
+ms.openlocfilehash: a4429113088497fd6a7c887a65f524a7495c6b74
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97365159"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737809"
 ---
 # <a name="compare-azure-stack-hci-to-azure-stack-hub-and-windows-server"></a>Vergleichen der Azure Stack HCI mit Azure Stack Hub und Windows Server
 
@@ -41,7 +41,7 @@ Sowohl Windows Server als auch Azure Stack HCI verfügt über eine Benutzeroberf
 
 | Windows Server | Azure Stack HCI |
 | --------------- | --------------- |
-| Windows Server kann lokal oder in der Cloud ausgeführt werden, aber es ist selbst kein vollständiges hyperkonvergentes Angebot.| Verwenden Sie Azure Stack HCI, um VMs lokal auszuführen. Optional können Sie sie über zwei Standorte strecken und Verbindungen zu Azure-Hybriddiensten verwenden. Dies ist eine einfache Möglichkeit, Ihre Rechenzentren und Zweigstellen zu modernisieren und zu schützen, für SQL Server-Datenbanken die branchenweit beste Leistung zu erzielen und virtuelle Desktops lokal auszuführen, um für geringe Latenz und Datenhoheit zu sorgen.|
+| Windows Server kann lokal oder in der Cloud ausgeführt werden, verfügt in Zukunft aber nicht mehr über die aktuellen Hyperkonvergenzfunktionen.| Azure Stack HCI ist die zentrale Microsoft-Plattform für hyperkonvergente Infrastruktur, die für die lokale Ausführung von VMs bestimmt ist. Sie kann sich optional über zwei Standorte erstrecken und über Verbindungen mit Azure-Hybriddiensten verfügen. Dies ist eine einfache Möglichkeit, Ihre Rechenzentren und Zweigstellen zu modernisieren und zu schützen, für SQL Server-Datenbanken die branchenweit beste Leistung zu erzielen und VMs oder virtuelle Desktops lokal auszuführen, um für geringe Latenz und Datenhoheit zu sorgen.|
 | Windows Server ist für alle Windows Server-Rollen – ob virtualisiert oder nicht – quasi das vielseitige „Schweizer Taschenmesser“. | Verwenden Sie Azure Stack HCI zum Virtualisieren von klassischen Unternehmens-Apps wie Exchange, SharePoint und SQL Server sowie für die Virtualisierung von Windows Server-Rollen wie Dateiserver, DNS, DHCP, IIS und AD. Dies umfasst auch den uneingeschränkten Zugriff auf alle Hyper-V-Features, z. B. abgeschirmte VMs.|
 | Viele Windows Server-Bereitstellungen werden auf veralteter Hardware ausgeführt. | Verwenden Sie Azure Stack HCI, um eine softwaredefinierte Infrastruktur anstelle von verwalteten Speicherarrays oder Netzwerkgeräten zu nutzen, ohne dass größere Änderungen an der Architektur vorgenommen werden müssen. Die integrierten Optionen für Hyper-V, „Direkte Speicherplätze“ und softwaredefinierte Netzwerke (SDN) sind direkt zugänglich und können direkt verwaltet werden. Führen Sie Apps auf Windows- oder Linux-VMs aus.|
 

@@ -8,12 +8,12 @@ ms.date: 12/07/2020
 ms.lastreviewed: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: e7565634d026d0d9bca5162ed709d76f760685b1
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.openlocfilehash: 9a88620fa333bd55a99796f4de292555f6cfd159
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778171"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737860"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Bereitstellen des SQL Server-Ressourcenanbieters in Azure Stack Hub
 
@@ -36,13 +36,13 @@ Damit Sie den Azure Stack Hub-SQL-Ressourcenanbieter bereitstellen können, müs
 
 - Fügen Sie die erforderliche Windows Server-VM zum Azure Stack Hub-Marketplace hinzu.
   - Laden Sie für SQL-Ressourcenanbieterversionen <= 1.1.47.0 das Image **Windows Server 2016 Datacenter – Server Core** herunter.
-  - Laden Sie für SQL-Ressourcenanbieterversionen >= 1.1.93.0 das Image **Microsoft AzureStack Add-On RP Windows Server INTERNAL ONLY** herunter. Diese Windows Server-Version wurde speziell für die Azure Stack-Add-On-RP-Infrastruktur konzipiert und wird im Mandanten-Marketplace nicht angezeigt.
+  - Laden Sie für die SQL-Ressourcenanbieterversionen >= 1.1.93.0 das Image **Microsoft AzureStack Add-On RP Windows Server** herunter. Diese Windows Server-Version wurde speziell für die Azure Stack-Add-On-RP-Infrastruktur konzipiert und wird im Mandanten-Marketplace nicht angezeigt.
 
 - Laden Sie die unterstützte Version des SQL-Ressourcenanbieters in binärer Form gemäß der Versionszuordnungstabelle unten herunter. Führen Sie das selbstextrahierende Programm aus, um die heruntergeladenen Inhalte in ein temporäres Verzeichnis zu extrahieren. 
 
   |Unterstützte Azure Stack Hub-Version|SQL RP Version|Windows Server-Instanz, auf der der RP-Dienst ausgeführt wird
   |-----|-----|-----|
-  |2008, 2005|[SQL-RP-Version 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack Add-on RP Windows Server INTERNAL ONLY
+  |2008, 2005|[SQL-Ressourcenanbieterversion 1.1.93.1](https://aka.ms/azshsqlrp11931)|Microsoft AzureStack Add-on RP Windows Server
   |2005, 2002, 1910|[SQL RP Version 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter – Server Core|
   |1908|[SQL RP Version 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter – Server Core|
   |     |     |     |

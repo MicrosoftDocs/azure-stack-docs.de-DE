@@ -7,12 +7,12 @@ ms.date: 10/30/2020
 ms.author: v-myoung
 ms.reviewer: shisab
 ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: 6e2b00d80d600a0cdafa21455c9938e9df7af564
-ms.sourcegitcommit: b0a96f98f2871bd6be28d3f2461949e2237ddaf0
+ms.openlocfilehash: eaa265189769bf1f192ef6fce260a221935736cb
+ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96872643"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97794191"
 ---
 # <a name="diagnostic-log-collection"></a>Erfassung von Diagnoseprotokollen
 
@@ -142,7 +142,17 @@ Wenn Sie die Methode **Send logs now** (Protokolle jetzt senden) verwenden und P
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByResourceProvider <<value-add RP name>>
   ```
- 
+  So senden Sie Diagnoseprotokolle für den SQL-Ressourcenanbieter: 
+
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByResourceProvider SQLAdapter
+  ```
+  So senden Sie Diagnoseprotokolle für den MySQL-Ressourcenanbieter: 
+
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByResourceProvider MySQLAdapter
+  ```
+
   So senden Sie Diagnoseprotokolle für IoT Hub: 
 
   ```powershell

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 2393a088e64ec0a3144fe7d5f4c5c3d2c8e25ab1
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: e21839e5333a03b1a36322f0c632a2b278da9665
+ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813723"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802013"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>Erstellen von VPN-Gateways für Azure Stack Hub
 
@@ -100,11 +100,11 @@ Hochverfügbarkeitsszenarien können nur in der **Hochleistungsgateway**-Verbind
 
 Es gibt drei mehrinstanzenfähige VMs mit Gatewayinfrastruktur in Azure Stack Hub. Zwei dieser virtuellen Computer befinden sich im aktiven Modus, während sich die dritte im redundanten Modus befindet. Aktive virtuelle Computer ermöglichen die Erstellung von VPN-Verbindungen auf sich, und die redundante VM akzeptiert nur VPN-Verbindungen, wenn ein Failover eintritt. Wenn eine aktive Gateway-VM nicht mehr verfügbar ist, führt die VPN-Verbindung nach einem kurzen Zeitraum (ein paar Sekunden) der Verbindungsunterbrechung ein Failover zur redundanten VM durch.
 
-## <a name="estimated-aggregate-throughput-by-sku"></a>Voraussichtlicher aggregierter Durchsatz nach SKU
+## <a name="estimated-aggregate-tunnel-throughput-by-sku"></a>Geschätzter aggregierter Tunneldurchsatz nach SKU
 
-In der folgenden Tabelle sind die Gatewaytypen und der geschätzte zusammengefasste Durchsatz nach Gateway-SKU angegeben:
+In der folgenden Tabelle sind die Gatewaytypen und der geschätzte aggregierte Durchsatz für die einzelnen Tunnel/Gateways nach Gateway-SKU angegeben:
 
-|| VPN Gateway-Durchsatz (1) | Max. IPsec-Tunnel für VPN Gateway (2) |
+|| Tunneldurchsatz (1) | Max. IPsec-Tunnel für VPN Gateway (2) |
 |-------|-------|-------|
 |**Basic-SKU** **(3)** | 100 MBit/s | 20 |
 |**Standard-SKU** | 100 MBit/s | 20 |
@@ -112,7 +112,7 @@ In der folgenden Tabelle sind die Gatewaytypen und der geschätzte zusammengefas
 
 ### <a name="table-notes"></a>Anmerkungen zur Tabelle
 
-**(1)** VPN-Durchsatz ist kein garantierter Durchsatz für standortübergreifende Verbindungen über das Internet. Hierbei wird der maximal mögliche Durchsatz gemessen.  
+**(1)** Der Tunneldurchsatz ist kein garantierter Durchsatz für standortübergreifende Verbindungen über das Internet. Hierbei wird der maximal mögliche Durchsatz gemessen.  
 **(2)** Bei der maximalen Tunnelanzahl handelt es sich um die Summe pro Azure Stack Hub-Bereitstellung für alle Abonnements.  
 **(3)** BGP-Routing wird von der Basic-SKU nicht unterstützt.
 
