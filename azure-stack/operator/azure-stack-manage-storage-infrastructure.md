@@ -2,18 +2,18 @@
 title: Verwalten der Speicherinfrastruktur für Azure Stack Hub
 titleSuffix: Azure Stack
 description: Erfahren Sie, wie Sie die Speicherinfrastruktur für Azure Stack Hub verwalten können. Machen Sie sich mit der Überwachung von Volumes und Laufwerken vertraut. Sehen Sie sich Tipps zur Problembehandlung beim Hinzufügen von Laufwerken zu Pools an.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 10/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.lastreviewed: 5/4/2020
 ms.reviewer: jiaha
-ms.openlocfilehash: 7141d52e100ce465a20637da2a40cbb75b417939
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 122d1b6e2d2103387605c337bd68c31ec03f5d10
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92179451"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870340"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Verwalten der Speicherinfrastruktur für Azure Stack Hub
 In diesem Artikel werden die Integrität und der Betriebszustand von Ressourcen der Azure Stack Hub-Speicherinfrastruktur beschrieben. Diese Ressourcen umfassen Speicherdatenträger und Volumes. Die Informationen in diesem Thema sind sehr hilfreich bei der Behandlung verschiedener Probleme, etwa wenn ein Laufwerk nicht einem Pool hinzugefügt werden kann.

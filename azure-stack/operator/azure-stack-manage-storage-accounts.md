@@ -1,18 +1,18 @@
 ---
 title: Verwalten von Azure Stack Hub-Speicherkonten
 description: Informationen zum Suchen, Verwalten, Wiederherstellen und Freigeben von Azure Stack Hub-Speicherkonten
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 2e4882717b4dc708298df7b4ee9a8dc0ef2c1b9c
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 4a939cafccd91b29a324dd15e01b04be47074df8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415316"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870102"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Verwalten von Azure Stack Hub-Speicherkonten
 
@@ -37,12 +37,12 @@ Wenn Sie an einem bestimmten Speicherkonto interessiert sind, können Sie nur **
 **So filtern Sie Konten:**
 
 1. Klicken Sie oben im Bereich auf **Filter**.
-2. Im Filterbereich können Sie Werte für **Kontoname** , **Abonnement-ID** oder **Status** angeben, um die angezeigte Speicherkontoliste einzugrenzen. Nutzen Sie die Optionen je nach Bedarf.
+2. Im Filterbereich können Sie Werte für **Kontoname**, **Abonnement-ID** oder **Status** angeben, um die angezeigte Speicherkontoliste einzugrenzen. Nutzen Sie die Optionen je nach Bedarf.
 3. Der Filter wird automatisch auf die Liste angewendet, während Sie tippen.
 
     ![Filtern von Azure Stack Hub-Speicherkonten](media/azure-stack-manage-storage-accounts/image5.png)
 
-4. Klicken Sie zum Zurücksetzen des Filters auf **Filter** , deaktivieren Sie die getroffene Auswahl, und aktualisieren Sie die Liste.
+4. Klicken Sie zum Zurücksetzen des Filters auf **Filter**, deaktivieren Sie die getroffene Auswahl, und aktualisieren Sie die Liste.
 
 Mit dem Suchfeld (oben im Bereich mit der Speicherkontenliste) können Sie den ausgewählten Text in der Liste mit den Konten hervorheben. Sie können diese Funktion nutzen, wenn der vollständige Name oder die ID nicht ohne Weiteres verfügbar ist.
 
@@ -65,7 +65,7 @@ In Azure Stack Hub gibt es hierfür eine einfache Möglichkeit:
 3. Überprüfen Sie den *Status* des Kontos. Dieser müsste **Gelöscht** lauten.
 4. Klicken Sie auf das Konto, um den Bereich mit den Kontodetails zu öffnen.
 5. Klicken Sie oben in diesem Bereich auf die Schaltfläche **Wiederherstellen**.
-6. Klicken Sie auf **Ja** , um zu bestätigen.
+6. Klicken Sie auf **Ja**, um zu bestätigen.
 
    ![Bestätigungsfenster für die Wiederherstellung eines Speicherkontos](media/azure-stack-manage-storage-accounts/image8.png)
 
@@ -91,8 +91,8 @@ Die Einstellung für den Aufbewahrungszeitraum ermöglicht einem Cloudbetreiber 
 
 1. Melden Sie sich beim Administratorportal `https://adminportal.local.azurestack.external` an.
 2. Wählen Sie **Alle Dienste** > **Regionsverwaltung** unter **Verwaltung** aus.
-3. Wählen Sie **Ressourcenanbieter** > **Speicher** > **Einstellungen** aus. Der Pfad lautet: „Startseite“ > „ *Region*  – Ressourcenanbieter“ > „Speicher“.
-4. Klicken Sie auf **Konfiguration** , und bearbeiten Sie dann den Wert für den Aufbewahrungszeitraum.
+3. Wählen Sie **Ressourcenanbieter** > **Speicher** > **Einstellungen** aus. Der Pfad lautet: „Startseite“ > „*Region* – Ressourcenanbieter“ > „Speicher“.
+4. Klicken Sie auf **Konfiguration**, und bearbeiten Sie dann den Wert für den Aufbewahrungszeitraum.
 
    Legen Sie die Anzahl von Tagen fest, und speichern Sie sie.
 

@@ -2,19 +2,19 @@
 title: 'Azure Stack Hub-Speicherinfrastruktur: Übersicht'
 titleSuffix: Azure Stack
 description: Erfahren Sie, wie Sie die Speicherinfrastruktur für Azure Stack Hub verwalten können.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.lastreviewed: 5/5/2020
 ms.reviewer: jiaha
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 8633e31ac60dfb091997657b02b633d24d39b29d
-ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
+ms.openlocfilehash: 04a4e2314fb91a2a8a8eaedf0ca5d5849c8bee10
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697602"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869167"
 ---
 # <a name="azure-stack-hub-storage-infrastructure-overview"></a>Azure Stack Hub-Speicherinfrastruktur: Übersicht
 

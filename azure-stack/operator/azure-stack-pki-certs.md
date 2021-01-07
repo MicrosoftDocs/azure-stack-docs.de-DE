@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub-PKI-Zertifikatanforderungen
 description: Informationen zu den Azure Stack Hub-PKI-Zertifikatanforderungen für in Azure Stack Hub integrierte Systeme.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: ee0ef7119dfb2255cd97e343f8e7339ab715ed7d
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: 8304ef3fe981545ac05de64b335c1edabdf32651
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "93049601"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965527"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Zertifikatanforderungen für Azure Stack Hub-PKI (Public Key-Infrastruktur)
 
@@ -38,7 +38,6 @@ In der folgenden Liste werden die allgemeinen Anforderungen an Zertifikatausstel
 ::: moniker-end
 - Die Verwendung selbstsignierter Zertifikate wird nicht unterstützt.
 - Für Bereitstellung und Rotation können Sie entweder ein einziges Zertifikat verwenden, das alle Namespaces in den Feldern „Antragstellername“ und „Alternativer Antragstellername“ des Zertifikats abdeckt, ODER Sie können einzelne Zertifikate für jeden der nachfolgenden Namespaces verwenden, die die Azure Stack Hub-Dienste benötigen, die Sie nutzen möchten. Beide Ansätze erfordern bei Bedarf die Verwendung von Platzhaltern für Endpunkte, z. B. **KeyVault** und **KeyVaultInternal**.
-- Die PFX-Verschlüsselung des Zertifikats sollte mit 3DES erfolgen.
 - Der Zertifikatsignaturalgorithmus sollte nicht SHA-1 sein.
 - Das Zertifikatsformat muss PFX sein, da sowohl der öffentliche als auch der private Schlüssel für die Installation von Azure Stack Hub benötigt werden. Für den privaten Schlüssel muss das Schlüsselattribut des lokalen Computers festgelegt sein.
 - Die PFX-Verschlüsselung muss 3DES sein. (Dies ist beim Exportieren von einem Windows 10-Client oder einem Windows Server 2016-Zertifikatspeicher Standard.)
@@ -109,8 +108,8 @@ In der folgenden Tabelle sind die Endpunkte und Zertifikate beschrieben, die fü
 |App Service|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL-Zertifikat<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL-Zertifikat<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL-Zertifikat<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|Event Hubs|SSL|&#42;.eventhub. *&lt;region>.&lt;fqdn>* | eventhub. *&lt;region>.&lt;fqdn>* |
-|IoT Hub|SSL|&#42;.mgmtiothub. *&lt;region>.&lt;fqdn>* | mgmtiothub. *&lt;region>.&lt;fqdn>* |
+|Event Hubs|SSL|&#42;.eventhub. *&lt;region>.&lt;fqdn>*<br>(SSL-Platzhalterzertifikat)|eventhub. *&lt;region>.&lt;fqdn>* |
+|IoT Hub|SSL|&#42;.mgmtiothub. *&lt;region>.&lt;fqdn>*<br>(SSL-Platzhalterzertifikat)|mgmtiothub. *&lt;region>.&lt;fqdn>* |
 |SQL, MySQL|SQL und MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>(SSL-Platzhalterzertifikat)|dbadapter. *&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> Erfordert ein Zertifikat mit Platzhaltern für mehrere alternative Antragstellernamen. Mehrere Platzhalter für alternative Antragstellernamen auf einem einzigen Zertifikat werden ggf. nicht von allen öffentlichen Zertifizierungsstellen unterstützt.

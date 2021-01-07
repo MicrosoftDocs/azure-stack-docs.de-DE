@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: d654f0489c0ec1987eb42197e4bfdeb0f01291ef
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 3a6312a81632bffbb128049088119b30de79a732
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941194"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867800"
 ---
 # <a name="azure-stack-hub-ruggedized-network-introduction"></a>Einführung in Azure Stack Hub Ruggedized-Netzwerke
 
@@ -107,8 +107,8 @@ Der vollqualifizierte Domänenname (Fully Qualified Domain Name, FQDN) Ihrer Azu
 
 Beispiele für einige Endpunkte dieser Bereitstellung würden wie folgende URLs aussehen:
 
-- https://portal.east.cloud.fabrikam.com
-- https://adminportal.east.cloud.fabrikam.com
+- `https://portal.east.cloud.fabrikam.com`
+- `https://adminportal.east.cloud.fabrikam.com`
 
 Für die Verwendung dieses DNS-Beispielnamespace für eine Azure Stack Hub Ruggedized-Bereitstellung gelten die folgenden Bedingungen:
 

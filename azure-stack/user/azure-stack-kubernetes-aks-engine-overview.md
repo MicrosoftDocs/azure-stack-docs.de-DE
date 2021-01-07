@@ -3,16 +3,16 @@ title: Was ist die AKS-Engine in Azure Stack Hub?
 description: Erfahren Sie, wie Sie mit dem AKS-Engine-Befehlszeilentool einen Kubernetes-Cluster in Azure und Azure Stack Hub bereitstellen und verwalten.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: da77872f4b80d3885a903bbd62497af68e148c01
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: f1853be7d5e0441eab7afd619c4f6722de03a7c1
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473009"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874148"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack-hub"></a>Was ist die AKS-Engine in Azure Stack Hub?
 

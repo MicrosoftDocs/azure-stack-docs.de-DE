@@ -3,16 +3,16 @@ title: Zugreifen auf das Kubernetes-Dashboard in Azure Stack Hub
 description: Erfahren Sie, wie Sie in Azure Stack Hub auf das Kubernetes-Dashboard zugreifen.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 0497cf3b457276df9fc6c4938e7a1c1370eaa4a3
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.openlocfilehash: 1c68908a64fdff7c743563b6148e6636d24e276c
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383648"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873893"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Zugreifen auf das Kubernetes-Dashboard in Azure Stack Hub 
 
@@ -50,7 +50,7 @@ Sie können die URL für das Dashboard vom Masterknoten in Ihrem Cluster abrufen
     - Melden Sie sich beim Azure Stack Hub-Portal `https://portal.local.azurestack.external/` an.
     - Wählen Sie **Alle Dienste** > **Alle Ressourcen**. Suchen Sie in Ihrer Clusterressourcengruppe nach dem Master. Der Master hat den Namen `k8s-master-<sequence-of-numbers>`. 
 
-2. Öffnen Sie den Masterknoten im Portal. Kopieren Sie die **öffentliche IP-Adresse**. Klicken Sie auf **Verbinden** , um Ihren Benutzernamen im Feld **Mit lokalem VM-Konto anmelden** abzurufen. Dies ist der Benutzername, den Sie beim Erstellen Ihres Clusters festgelegt haben. Verwenden Sie die öffentliche IP-Adresse und nicht die private IP-Adresse, die auf dem Blatt „Verbinden“ angegeben ist.
+2. Öffnen Sie den Masterknoten im Portal. Kopieren Sie die **öffentliche IP-Adresse**. Klicken Sie auf **Verbinden**, um Ihren Benutzernamen im Feld **Mit lokalem VM-Konto anmelden** abzurufen. Dies ist der Benutzername, den Sie beim Erstellen Ihres Clusters festgelegt haben. Verwenden Sie die öffentliche IP-Adresse und nicht die private IP-Adresse, die auf dem Blatt „Verbinden“ angegeben ist.
 
 3.  Öffnen Sie einen SSH-Client, um eine Verbindung mit dem Master herzustellen. Wenn Sie unter Windows arbeiten, können Sie [Putty](https://www.ssh.com/ssh/putty/download) zum Herstellen der Verbindung verwenden. Sie verwenden die öffentliche IP-Adresse für den Masterknoten und den Benutzernamen und fügen den privaten Schlüssel hinzu, den Sie beim Erstellen des Clusters verwendet haben.
 

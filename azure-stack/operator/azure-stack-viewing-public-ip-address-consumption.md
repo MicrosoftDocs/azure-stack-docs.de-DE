@@ -2,18 +2,18 @@
 title: Verwalten von Netzwerkressourcen
 titleSuffix: Azure Stack Hub
 description: Informieren Sie sich, wie Sie Netzwerkressourcen einschließlich des MAC-Adresspools und der Nutzung öffentlicher IP-Adressen in einer Region verwalten.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 1/22/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: b96485e74286cbbbd2ff20f2378dc7c452849b52
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: f4fc98a7fae3a58d9467d8c1cafe46fcbef858fc
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487395"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868725"
 ---
 # <a name="manage-network-resources-in-azure-stack-hub"></a>Verwalten von Netzwerkressourcen in Azure Stack Hub
 

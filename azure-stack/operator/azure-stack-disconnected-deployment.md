@@ -1,18 +1,18 @@
 ---
 title: Entscheidungen zu nicht mit Azure verbundenen Bereitstellungen für integrierte Azure Stack Hub-Systeme
 description: Erfahren Sie mehr über die Bereitstellung von in Azure Stack Hub integrierten Systemen ohne Azure-Verbindung und zu den relevanten Planungsentscheidungen.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 9f7ca860de1dd801ae35134683583a4ce8053dde
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 98633108390ee24416c9383ed8171439a4ee1459
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368701"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870850"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Planungsentscheidungen für die Bereitstellung von in Azure Stack Hub integrierte Systeme ohne Azure-Verbindung
 Nachdem Sie entschieden haben, [wie Sie Azure Stack Hub in Ihre Hybrid Cloud-Umgebung integrieren](azure-stack-connection-models.md), können Sie Ihre Entscheidungsfindung für die Azure Stack Hub-Bereitstellung abschließen.

@@ -1,17 +1,17 @@
 ---
 title: Überwachen von Integrität und Warnungen in Azure Stack Hub
 description: Erfahren Sie, wie die Integrität und Warnungen in Azure Stack Hub überwacht werden.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: f2b827510087a40ae011e506b5d1f467153e3fdb
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: de197a87478a666fe20bbd451bda76fc991b5a02
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368089"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869932"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Überwachen von Integrität und Warnungen in Azure Stack Hub
 

@@ -1,18 +1,18 @@
 ---
 title: Herunterladen und Extrahieren des ASDK
 description: Dieser Artikel beschreibt, wie Sie das Azure Stack Development Kit (ASDK) herunterladen und extrahieren.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2019
-ms.openlocfilehash: f582f6061ebc2bbce7a3605ed7795b9ab5562738
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 3f8a0615f18ddf9ba4a98c2af2b947c49cfdd550
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695902"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873264"
 ---
 # <a name="download-and-extract-the-asdk"></a>Herunterladen und Extrahieren des ASDK
 Nachdem Sie sich vergewissert haben, dass Ihr Development Kit-Hostcomputer die Mindestanforderungen für die Installation des ASDK (Azure Stack Development Kit) erfüllt, besteht der nächste Schritt darin, das ASDK-Bereitstellungspaket herunterzuladen und zu extrahieren, um die Datei „CloudBuilder.vhdx“ zu erhalten.

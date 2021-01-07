@@ -3,16 +3,16 @@ title: Herstellen einer Verbindung mit Azure Stack Hub
 description: Enthält Informationen dazu, wie Sie eine Verbindung mit Azure Stack Hub herstellen.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 8661666b4f953d07a96f1a2402782970e32c140b
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 9369f0d11ba8c39ce27134a85c93328ce2389833
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545750"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874250"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Herstellen einer Verbindung mit Azure Stack Hub
 
@@ -26,7 +26,7 @@ Bei einer Remotedesktopverbindung kann ein einzelner gleichzeitiger Benutzer das
 
 1. Öffnen Sie eine Remotedesktopverbindung, und stellen Sie eine Verbindung mit dem Development Kit her. Geben Sie **AzureStack\AzureStackAdmin** als Benutzernamen sowie das Administratorkennwort ein, das Sie bei der Einrichtung von Azure Stack Hub angegeben haben.  
 
-2. Öffnen Sie auf dem Development Kit-Computer den Server-Manager, klicken Sie auf **Lokaler Server** , deaktivieren Sie die Verstärkte Sicherheitskonfiguration für Internet Explorer, und schließen Sie den Server-Manager.
+2. Öffnen Sie auf dem Development Kit-Computer den Server-Manager, klicken Sie auf **Lokaler Server**, deaktivieren Sie die Verstärkte Sicherheitskonfiguration für Internet Explorer, und schließen Sie den Server-Manager.
 
 3. Um das Portal zu öffnen, wechseln Sie zu `https://portal.local.azurestack.external/`, und melden Sie sich mit Ihren Benutzeranmeldeinformationen an.
 
@@ -93,7 +93,7 @@ Stellen Sie eine Verbindung mit der Azure Stack Hub-Instanz her, indem Sie eines
 
   Stufen Sie den Azure Stack Hub-Host bei entsprechender Aufforderung als vertrauenswürdig ein, und installieren Sie das Zertifikat über **AzureStackCertificateAuthority** im Zertifikatspeicher Ihres lokalen Computers. Die Aufforderung wird unter Umständen hinter dem Fenster mit der PowerShell-Sitzung angezeigt. 
 
-* Navigieren Sie auf Ihrem lokalen Computer zu **Netzwerkeinstellungen** > **VPN** , und wählen Sie `azurestack` > **Verbinden**. Geben Sie an der Eingabeaufforderung für die Anmeldung den Benutzernamen (AzureStack\AzureStackAdmin) und das Kennwort ein.
+* Navigieren Sie auf Ihrem lokalen Computer zu **Netzwerkeinstellungen** > **VPN**, und wählen Sie `azurestack` > **Verbinden**. Geben Sie an der Eingabeaufforderung für die Anmeldung den Benutzernamen (AzureStack\AzureStackAdmin) und das Kennwort ein.
 
 ### <a name="test-the-vpn-connectivity"></a>Testen der VPN-Konnektivität
 

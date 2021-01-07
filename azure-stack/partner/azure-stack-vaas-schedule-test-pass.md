@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie einen Test im Azure Stack Hub-Validierungsportal planen.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b4d94d7fca7f2d145a8dc7b19f1f9d7b6a68cd9b
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 3096797a847b4a4e84dc40a6c696061fc0249852
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764816"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874743"
 ---
 # <a name="scheduling-a-test"></a>Planen eines Tests
 
@@ -76,7 +76,7 @@ Schließen Sie die Workflowerstellung ab.
 
     Der Dienst erstellt den Workflow mit den angegebenen Informationen, und die ausgewählten Tests werden geplant.
 
-    Wenn etwas falsch erscheint, verwenden Sie die Schaltflächen**Zurück**, um zu einem früheren Abschnitt zu wechseln.
+    Wenn etwas falsch erscheint, verwenden Sie die Schaltflächen **Zurück**, um zu einem früheren Abschnitt zu wechseln.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
 

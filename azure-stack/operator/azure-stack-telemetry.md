@@ -2,18 +2,18 @@
 title: Konfigurieren der Azure Stack Hub-Telemetrie
 titleSuffix: Azure Stack
 description: Hier erhalten Sie Informationen zur Azure Stack Hub-Telemetrie und erfahren, wie Sie Telemetrieeinstellungen mithilfe von PowerShell konfigurieren.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 1/16/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 66bd65158222cad224ea1673de666bd4c464dab4
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 467573e6e964e7c89bdffaf322ac473524d87892
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415129"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872635"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Konfigurieren der Azure Stack Hub-Telemetrie
 
@@ -79,8 +79,8 @@ Sicherheitsdaten sowie grundlegende Integritäts- und Qualitätsdaten. Grundlege
   - Speicherattribute wie Laufwerkanzahl, Laufwerktyp und Laufwerkgröße
 
 - *Telemetriefunktion* einschließlich hochgeladener Ereignisse (in Prozent), gelöschter Ereignisse und Zeitpunkt des letzten Datenuploads
-- *Qualitätsbezogene Informationen* , die Microsoft einen grundlegenden Einblick in die Leistung von Azure Stack Hub geben. Ein Beispiel wäre etwa die Anzahl kritischer Warnungen für eine bestimmte Hardwarekonfiguration.
-- *Kompatibilitätsdaten* , die Aufschluss darüber geben, welche Ressourcenanbieter in einem System und auf einem virtuellen Computer installiert sind. Dadurch lassen sich mögliche Kompatibilitätsprobleme erkennen.
+- *Qualitätsbezogene Informationen*, die Microsoft einen grundlegenden Einblick in die Leistung von Azure Stack Hub geben. Ein Beispiel wäre etwa die Anzahl kritischer Warnungen für eine bestimmte Hardwarekonfiguration.
+- *Kompatibilitätsdaten*, die Aufschluss darüber geben, welche Ressourcenanbieter in einem System und auf einem virtuellen Computer installiert sind. Dadurch lassen sich mögliche Kompatibilitätsprobleme erkennen.
 
 **2 (Erweitert)**</br>
 Zusätzliche Informationen, etwa zur Verwendung und Leistung des Betriebssystems und der Azure Stack Hub-Dienste, sowie erweiterte Zuverlässigkeitsdaten und Daten der Ebenen **Sicherheit** und **Standard**.
@@ -89,7 +89,7 @@ Zusätzliche Informationen, etwa zur Verwendung und Leistung des Betriebssystems
 > Dies ist die Standardeinstellung für Telemetriedaten.
 
 **3 (Vollständig)**</br>
-Alle Daten, die zum Identifizieren und Beheben von Problemen benötigt werden oder dabei hilfreich sind, sowie Daten der Ebenen **Sicherheit** , **Standard** , und **Erweitert**.
+Alle Daten, die zum Identifizieren und Beheben von Problemen benötigt werden oder dabei hilfreich sind, sowie Daten der Ebenen **Sicherheit**, **Standard**, und **Erweitert**.
 
 > [!IMPORTANT]
 > Diese Telemetrieebenen gelten nur für Microsoft Azure Stack Hub-Komponenten. Microsoft-fremde Softwarekomponenten und Dienste, die auf dem Hardwarelebenszyklushost von Azure Stack Hub-Hardwarepartnern ausgeführt werden, kommunizieren möglicherweise außerhalb dieser Telemetrieebenen mit den dazugehörigen Clouddiensten. Wenden Sie sich an den Anbieter Ihrer Azure Stack Hub-Hardwarelösung, um sich über dessen Telemetrierichtlinie sowie über Ihre Verwendungsoptionen zu informieren.

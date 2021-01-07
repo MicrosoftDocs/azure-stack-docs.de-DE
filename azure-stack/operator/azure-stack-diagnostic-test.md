@@ -1,26 +1,26 @@
 ---
 title: Überprüfen des Systemzustands mit dem Azure Stack Hub-Überprüfungstool
 description: Es wird beschrieben, wie Sie das Azure Stack Hub-Überprüfungstool zum Überprüfen des Systemstatus verwenden.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 4c91954e4a3a19640d519d16363c0d2742077d67
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: cd6eba86f75cffe3014ca954877ee4b39767bbf0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415163"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870833"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Überprüfen des Azure Stack Hub-Systemstatus
 
-Es ist sehr wichtig, dass Sie als Azure Stack Hub-Operator bei Bedarf die Integrität und den Status Ihres Systems ermitteln können. Das Azure Stack Hub-Überprüfungstool ( **Test-AzureStack** ) ist ein PowerShell-Cmdlet, mit dem Sie eine Reihe von Tests auf Ihrem System ausführen können, um vorliegende Fehler zu identifizieren. In der Regel werden Sie aufgefordert, dieses Tool über den [privilegierten Endpunkt (PEP)](azure-stack-privileged-endpoint.md) auszuführen, wenn Sie sich wegen eines Problems an den Microsoft-Support wenden. Wenn die systemweiten Integritäts- und Statusinformationen vorliegen, kann der Microsoft-Support detaillierte Protokolle sammeln und analysieren, sich auf den Bereich konzentrieren, in dem der Fehler aufgetreten ist, und mit Ihnen zusammenarbeiten, um das Problem zu beheben.
+Es ist sehr wichtig, dass Sie als Azure Stack Hub-Operator bei Bedarf die Integrität und den Status Ihres Systems ermitteln können. Das Azure Stack Hub-Überprüfungstool (**Test-AzureStack**) ist ein PowerShell-Cmdlet, mit dem Sie eine Reihe von Tests auf Ihrem System ausführen können, um vorliegende Fehler zu identifizieren. In der Regel werden Sie aufgefordert, dieses Tool über den [privilegierten Endpunkt (PEP)](azure-stack-privileged-endpoint.md) auszuführen, wenn Sie sich wegen eines Problems an den Microsoft-Support wenden. Wenn die systemweiten Integritäts- und Statusinformationen vorliegen, kann der Microsoft-Support detaillierte Protokolle sammeln und analysieren, sich auf den Bereich konzentrieren, in dem der Fehler aufgetreten ist, und mit Ihnen zusammenarbeiten, um das Problem zu beheben.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Ausführen des Überprüfungstools und Zugreifen auf die Ergebnisse
 
-Wie oben bereits erwähnt, wird das Überprüfungstool über den PEP ausgeführt. Jeder Test gibt im PowerShell-Fenster einen **PASS/FAIL** -Status zurück. Hier ist eine Gliederung des Prozesses für End-to-End-Validierungstests angegeben:
+Wie oben bereits erwähnt, wird das Überprüfungstool über den PEP ausgeführt. Jeder Test gibt im PowerShell-Fenster einen **PASS/FAIL**-Status zurück. Hier ist eine Gliederung des Prozesses für End-to-End-Validierungstests angegeben:
 
 1. Richten Sie die Vertrauensstellung ein. Führen Sie auf einem integrierten System in einer Windows PowerShell-Sitzung mit erhöhten Rechten den folgenden Befehl aus, um den PEP als vertrauenswürdigen Host auf der gehärteten virtuellen VM hinzuzufügen, die auf dem Hardwarelebenszyklus-Host oder der Arbeitsstation mit privilegiertem Zugriff ausgeführt wird.
 
@@ -127,7 +127,7 @@ Die folgenden Cloudszenarien werden durch das Überprüfungstool getestet:
 
 - **BackupSharePath** und **BackupShareCredential** werden beim Testen von Einstellungen für die Infrastruktursicherung verwendet, wie im Abschnitt [Beispiele für Anwendungsfälle](azure-stack-diagnostic-test.md#use-case-examples) gezeigt wird.
 
-- **DetailedResults** kann verwendet werden, um Erfolgreich/Fehler/Warnung-Informationen für jeden Test und die Gesamtausführung zu erhalten. Wurde diese Option nicht angegeben, gibt **Test-AzureStack** **$true** zurück, wenn keine Fehler vorliegen, und **$false** , wenn Fehler aufgetreten sind.
+- **DetailedResults** kann verwendet werden, um Erfolgreich/Fehler/Warnung-Informationen für jeden Test und die Gesamtausführung zu erhalten. Wurde diese Option nicht angegeben, gibt **Test-AzureStack** **$true** zurück, wenn keine Fehler vorliegen, und **$false**, wenn Fehler aufgetreten sind.
 - **TimeoutSeconds** kann verwendet werden, um eine bestimmte Zeit für jede abzuschließende Gruppe festzulegen.
 
 - Das Überprüfungstool unterstützt auch gängige PowerShell-Parameter: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable und OutVariable. Weitere Informationen finden Sie unter [about_Commonparameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).  
@@ -163,16 +163,16 @@ Der Benutzername des Cloudadministrators muss im UPN-Format eingegeben werden: s
 
 ### <a name="groups"></a>Gruppen
 
-Um die Bedienerfreundlichkeit zu verbessern, wurde ein Parameter **Gruppe** eingeführt, um mehrere Testkategorien gleichzeitig auszuführen. Derzeit sind drei Gruppen definiert: **Default** , **UpdateReadiness** und **SecretRotationReadiness**.
+Um die Bedienerfreundlichkeit zu verbessern, wurde ein Parameter **Gruppe** eingeführt, um mehrere Testkategorien gleichzeitig auszuführen. Derzeit sind drei Gruppen definiert: **Default**, **UpdateReadiness** und **SecretRotationReadiness**.
 
 - **Standard:** Standardausführung von **Test-AzureStack**. Diese Gruppe wird standardmäßig ausgeführt, wenn keine anderen Gruppen ausgewählt werden.
-- **UpdateReadiness** : Hierbei wird überprüft, ob die Azure Stack Hub-Instanz aktualisiert werden kann. Wird die Gruppe **UpdateReadiness** ausgeführt, werden Warnungen als Fehler in der Konsolenausgabe angezeigt und sollten als Hindernisse für die Aktualisierung angesehen werden. Ab Azure Stack Hub-Version 1910 sind die folgenden Kategorien Teil der Gruppe **UpdateReadiness** :
+- **UpdateReadiness**: Hierbei wird überprüft, ob die Azure Stack Hub-Instanz aktualisiert werden kann. Wird die Gruppe **UpdateReadiness** ausgeführt, werden Warnungen als Fehler in der Konsolenausgabe angezeigt und sollten als Hindernisse für die Aktualisierung angesehen werden. Ab Azure Stack Hub-Version 1910 sind die folgenden Kategorien Teil der Gruppe **UpdateReadiness**:
 
   - **AzsInfraFileValidation**
   - **AzsActionPlanStatus**
   - **AzsStampBMCSummary**
 
-- **SecretRotationReadiness** : Hierbei wird überprüft, ob sich die Azure Stack Hub-Instanz in einem Status befindet, in dem die Geheimnisrotation durchgeführt werden kann. Wird die Gruppe **SecretRotationReadiness** ausgeführt, werden Warnungen als Fehler in der Konsolenausgabe angezeigt und sollten als Hindernisse für die Geheimnisrotation angesehen werden. Die folgenden Kategorien sind Teil der SecretRotationReadiness-Gruppe:
+- **SecretRotationReadiness**: Hierbei wird überprüft, ob sich die Azure Stack Hub-Instanz in einem Status befindet, in dem die Geheimnisrotation durchgeführt werden kann. Wird die Gruppe **SecretRotationReadiness** ausgeführt, werden Warnungen als Fehler in der Konsolenausgabe angezeigt und sollten als Hindernisse für die Geheimnisrotation angesehen werden. Die folgenden Kategorien sind Teil der SecretRotationReadiness-Gruppe:
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**

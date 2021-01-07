@@ -1,18 +1,18 @@
 ---
 title: 'Azure Stack Hub-Rechenzentrumsintegration: Exemplarische Vorgehensweise'
 description: Erfahren Sie, was Sie bei einer erfolgreichen lokalen Bereitstellung von Azure Stack Hub in Ihrem Rechenzentrum erwarten können – von der Planung bis zu den Aktionen nach der Bereitstellung.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: d55176266fc169b344e7bb43389a46657174b88e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 307a24fdf42ce5e007f74a9cf0072b5124d247b2
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368834"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871428"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Azure Stack Hub-Rechenzentrumsintegration: Exemplarische Vorgehensweise
 

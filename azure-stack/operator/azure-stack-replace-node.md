@@ -2,18 +2,18 @@
 title: Austauschen eines Skalierungseinheitenknotens in einem in Azure Stack Hub integrierten System
 titleSuffix: Azure Stack Hub
 description: Erfahren Sie, wie Sie einen physischen Skalierungseinheitenknoten in einem in Azure Stack Hub integrierten System austauschen.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: a96ee2a4ffb2abb3c3e11db23d4fb676ace8c1c0
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 5fd19b0531ea025a781c95f100060038cfe6c4b0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572629"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869439"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Austauschen eines Skalierungseinheitenknotens für ein in Azure Stack Hub integriertes System
 

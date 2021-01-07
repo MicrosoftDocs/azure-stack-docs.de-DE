@@ -1,18 +1,18 @@
 ---
 title: Referenz für den Infrastructure Backup-Dienst
 description: Referenzmaterial für den Infrastructure Backup-Dienst in Azure Stack Hub.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 8fc10bd53bfcf9822f46eb977c02055db1a65cb7
-ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
+ms.openlocfilehash: 7fc20dfa20c0088f81d386d2b371b6a17bf45d5f
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87939292"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871615"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referenz für den Infrastructure Backup-Dienst
 

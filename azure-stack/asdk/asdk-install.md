@@ -1,18 +1,18 @@
 ---
 title: Installieren des ASDK
 description: Erfahren Sie, wie Sie das Azure Stack Development Kit (ASDK) installieren.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: b85279aff5427e0f3dbdc15b979a00a41db43e57
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: fe485a3eebee3e44e19173fdf68440057de7d783
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695851"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873417"
 ---
 # <a name="install-the-asdk"></a>Installieren des ASDK
 Nachdem Sie den [ASDK-Hostcomputer vorbereitet](asdk-prepare-host.md) haben, kann das Azure Stack Development Kit (ASDK) mit den folgenden Schritten in diesem Artikel im Image „CloudBuilder.vhdx“ bereitgestellt werden.
@@ -29,7 +29,7 @@ Die Schritte in diesem Artikel zeigen, wie das ASDK mit einer grafischen Benutze
 
     ![Installieren des ASDK](media/asdk-install/1.PNG) 
 
-3. Wählen Sie im Dropdownfeld **Typ** des Identitätsanbieters**Azure China-Cloud**, **Azure US Government-Cloud**, **AD FS** oder **Azure-Cloud** aus. Geben Sie unter **Lokales Administratorkennwort** im Feld **Kennwort** das lokale Administratorkennwort (das mit dem derzeit konfigurierten lokalen Administratorkennwort übereinstimmen muss) ein, und klicken Sie dann auf **Weiter**.
+3. Wählen Sie im Dropdownfeld **Typ** des Identitätsanbieters **Azure China-Cloud**, **Azure US Government-Cloud**, **AD FS** oder **Azure-Cloud** aus. Geben Sie unter **Lokales Administratorkennwort** im Feld **Kennwort** das lokale Administratorkennwort (das mit dem derzeit konfigurierten lokalen Administratorkennwort übereinstimmen muss) ein, und klicken Sie dann auf **Weiter**.
 
     ![Dropdownliste für den Typ des Identitätsanbieters in ASDK](media/asdk-install/2.PNG) 
   

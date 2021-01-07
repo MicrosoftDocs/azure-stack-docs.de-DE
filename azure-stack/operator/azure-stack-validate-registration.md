@@ -2,22 +2,22 @@
 title: Überprüfen der Azure-Registrierung
 titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie eine Azure-Registrierung mit dem Azure Stack Hub Readiness Checker-Tool überprüfen.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 10/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: jerskine
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 0034bd17e42aba8ddbbf55c86aaffea9c243a600
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: ffe992c4a2db39f5b2e29d80a002f1486099baaa
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545723"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868793"
 ---
 # <a name="validate-azure-registration"></a>Überprüfen der Azure-Registrierung
 
-Verwenden Sie das Tool „Azure Stack Hub Readiness Checker“ ( **AzsReadinessChecker** ), um zu überprüfen, ob Ihr Azure-Abonnement mit Azure Stack Hub verwendet werden kann, bevor Sie mit einer Azure Stack Hub-Bereitstellung beginnen. Bei der Überprüfung der Bereitschaft wird Folgendes geprüft:
+Verwenden Sie das Tool „Azure Stack Hub Readiness Checker“ (**AzsReadinessChecker**), um zu überprüfen, ob Ihr Azure-Abonnement mit Azure Stack Hub verwendet werden kann, bevor Sie mit einer Azure Stack Hub-Bereitstellung beginnen. Bei der Überprüfung der Bereitschaft wird Folgendes geprüft:
 
 - Bei dem Azure-Abonnement, das Sie verwenden, handelt es sich um einen unterstützten Typ. Bei Abonnements muss es sich um einen Cloudlösungsanbieter (Cloud Solution Provider, CSP) oder ein Enterprise Agreement (EA) handeln.
 - Das Konto, mit dem Sie Ihr Abonnement bei Azure registrieren, kann sich bei Azure anmelden und ist der Besitzer eines Abonnements.
@@ -97,7 +97,7 @@ Die Az PowerShell-Module müssen installiert sein. Anleitungen finden Sie unter 
 #### <a name="the-computer-on-which-the-tool-runs"></a>Auf dem Computer, auf dem das Tool ausgeführt wird, muss Folgendes installiert sein:
 
 - Windows 10 oder Windows Server 2016 mit Internetkonnektivität
-- PowerShell 5.1 oder höher Um Ihre Version zu überprüfen, führen Sie das folgende PowerShell-Cmdlet aus, und überprüfen Sie dann die **Hauptversion** und die **Nebenversionen** :  
+- PowerShell 5.1 oder höher Um Ihre Version zu überprüfen, führen Sie das folgende PowerShell-Cmdlet aus, und überprüfen Sie dann die **Hauptversion** und die **Nebenversionen**:  
   ```powershell
   $PSVersionTable.PSVersion
   ```
@@ -108,7 +108,7 @@ Die Az PowerShell-Module müssen installiert sein. Anleitungen finden Sie unter 
 
 - Sie müssen über den Benutzernamen und das Kennwort eines Kontos verfügen, das der Besitzer eines Azure-Abonnements ist, unter dem Sie Azure Stack Hub verwenden.  
 - Ermitteln Sie die Abonnement-ID für das Azure-Abonnement, das Sie verwenden möchten.
-- Legen Sie die Azure-Umgebung ( **AzureEnvironment** ) fest, die Sie verwenden möchten. Unterstützte Werte für den Umgebungsnamensparameter sind je nach Ihrem verwendeten Azure-Abonnement **AzureCloud** , **AzureChinaCloud** oder **AzureUSGovernment**.
+- Legen Sie die Azure-Umgebung (**AzureEnvironment**) fest, die Sie verwenden möchten. Unterstützte Werte für den Umgebungsnamensparameter sind je nach Ihrem verwendeten Azure-Abonnement **AzureCloud**, **AzureChinaCloud** oder **AzureUSGovernment**.
 
 ### <a name="steps-to-validate-the-azure-registration"></a>Schritte zum Überprüfen der Azure-Registrierung
 
@@ -135,7 +135,7 @@ Die Az PowerShell-Module müssen installiert sein. Anleitungen finden Sie unter 
 
 4. Führen Sie an der PowerShell-Eingabeaufforderung Folgendes aus, um die Überprüfung Ihres Abonnements zu starten:
 
-   - Legen Sie den Wert für `AzureEnvironment` als **AzureCloud** , **AzureGermanCloud** oder **AzureChinaCloud** fest.  
+   - Legen Sie den Wert für `AzureEnvironment` als **AzureCloud**, **AzureGermanCloud** oder **AzureChinaCloud** fest.  
    - Geben Sie den Namen Ihres Azure AD-Administrators und Ihres Azure AD-Mandanten an.
       ```powershell
       Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
@@ -185,9 +185,9 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsRegistrationValidation Completed
 ```
 
-**Ursache** : Das Dienstkonto gehört nicht einem Administrator des Azure-Abonnements.
+**Ursache**: Das Dienstkonto gehört nicht einem Administrator des Azure-Abonnements.
 
-**Lösung** : Verwenden Sie ein Konto, das einem Administrator des Azure-Abonnements gehört und bei dem die Abrechnung für die Nutzung über die Azure Stack Hub-Bereitstellung erfolgt.
+**Lösung**: Verwenden Sie ein Konto, das einem Administrator des Azure-Abonnements gehört und bei dem die Abrechnung für die Nutzung über die Azure Stack Hub-Bereitstellung erfolgt.
 
 ### <a name="expired-or-temporary-password"></a>Abgelaufenes oder temporäres Kennwort
 
@@ -207,7 +207,7 @@ Invoke-AzsRegistrationValidation Completed
 
 **Ursache:** Das Konto kann sich nicht anmelden, da das Kennwort entweder abgelaufen oder temporär ist.
 
-**Lösung** : Führen Sie in PowerShell folgenden Befehl aus, und befolgen Sie die Eingabeaufforderungen zum Zurücksetzen des Kennworts.
+**Lösung**: Führen Sie in PowerShell folgenden Befehl aus, und befolgen Sie die Eingabeaufforderungen zum Zurücksetzen des Kennworts.
 
 ```powershell
 Login-AzureRMAccount
@@ -230,7 +230,7 @@ Invoke-AzsRegistrationValidation Completed
 
 **Ursache:** Das Konto kann sich nicht bei der angegebenen Azure AD-Umgebung anmelden. In diesem Beispiel ist **AzureChinaCloud** für **AzureEnvironment** angegeben.  
 
-**Lösung** : Vergewissern Sie sich, dass das Konto für die angegebene Azure-Umgebung gültig ist. Führen Sie in PowerShell folgenden Befehl aus, um zu überprüfen, ob das Konto für eine bestimmte Umgebung gültig ist:
+**Lösung**: Vergewissern Sie sich, dass das Konto für die angegebene Azure-Umgebung gültig ist. Führen Sie in PowerShell folgenden Befehl aus, um zu überprüfen, ob das Konto für eine bestimmte Umgebung gültig ist:
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud

@@ -3,16 +3,16 @@ title: n-schichtige Windows-Anwendung in Azure Stack Hub mit SQL Server
 description: Erfahren Sie, wie Sie eine n-schichtige Windows-Anwendung in Azure Stack Hub mit SQL Server ausführen.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 310d9a198c7fb6c9212ff15ff9b838a74bd342d1
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: 50b08f594b121601b8e049c4c4875cb31143cbaa
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965295"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873672"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>n-schichtige Windows-Anwendung in Azure Stack Hub mit SQL Server
 

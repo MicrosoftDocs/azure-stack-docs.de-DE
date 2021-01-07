@@ -1,18 +1,18 @@
 ---
 title: Ändern von Einstellungen in der Azure Stack Hub-Switchkonfiguration
 description: Erfahren Sie, welche Einstellungen in der Azure Stack Hub-Switchkonfiguration angepasst werden können.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9fcbd0203684afbbae9d11ed00db12402d8040dd
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 0faedfb69b833312dbb334eb6fe5d72fafd2ca80
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836001"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871207"
 ---
 # <a name="change-settings-on-your-azure-stack-hub-switch-configuration"></a>Ändern von Einstellungen in der Azure Stack Hub-Switchkonfiguration
 

@@ -1,18 +1,18 @@
 ---
 title: DNS-Integration in ein Azure Stack Hub-Rechenzentrum
 description: Erfahren Sie, wie Sie das DNS von Azure Stack Hub in das DNS Ihres Rechenzentrums integrieren.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 04/10/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: be6ea1e8dbf8b17e02a4117f5f2d20cb9cfbbcfe
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 2edd6fb4c427f9b20edebbd09f3d28a4ac413ef8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488721"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870374"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>DNS-Integration in ein Azure Stack Hub-Rechenzentrum
 

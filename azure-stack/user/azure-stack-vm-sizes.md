@@ -3,16 +3,16 @@ title: In Azure Stack Hub unterstützte VM-Größen
 description: Referenz zu unterstützten VM-Größen in Azure Stack Hub
 author: mattbriggs
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 03/23/2020
-ms.openlocfilehash: 3eb2a58c3ab915be9cf8cf1139880409830429f7
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 01299f2ddd04e66145d781785097c74e5d129e48
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250757"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873757"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>In Azure Stack Hub unterstützte VM-Größen
 
@@ -31,7 +31,7 @@ Universelle VM-Größen zeichnen sich durch ein ausgewogenes Verhältnis zwische
 > [!NOTE]
 > VM-Größen vom Typ *Basic A* stehen für das [Erstellen von VM-Skalierungsgruppen](../operator/azure-stack-compute-add-scalesets.md) (VMSS) über das Portal nicht mehr zur Verfügung. Verwenden Sie PowerShell oder eine Vorlage, um eine VMSS mit dieser Größe zu erstellen.
 
-|Größe – Größe\Name |vCPU     |Arbeitsspeicher | Max. Größe der temporären Datenträger | Max. Durchsatz des Betriebssystemdatenträgers: (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträgerdurchsatz: (IOPS) | Maximale Anzahl NICs |    
+|Größe – Größe\Name |vCPU     |Arbeitsspeicher | Max. Größe der temporären Datenträger | Max. Durchsatz des Betriebssystem-Datenträgers: (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträgerdurchsatz: (IOPS) | Maximale Anzahl NICs |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1/1x300  |2   |
 |**A1\Basic_A1**  |1    |1,75 GB  | 40 GB   |300  | 300  |2/2x300  |2   |
@@ -40,7 +40,7 @@ Universelle VM-Größen zeichnen sich durch ein ausgewogenes Verhältnis zwische
 |**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16 / 16X300 |2   |
 
 ### <a name="standard-a"></a>Standard A 
-|Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |    
+|Größe     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |    
 |----------------|--|------|----|----|----|-------|---------|
 |**Standard_A0** |1 |0,768 |20  |500 |500 |1 x 500  |2 |
 |**Standard_A1** |1 |1,75  |70  |500 |500 |2 x 500  |2 |
@@ -59,10 +59,10 @@ Universelle VM-Größen zeichnen sich durch ein ausgewogenes Verhältnis zwische
 |**Standard_A1_v2**  |1   |2   |10   |500 |1000  |2/2 x 500   |2 |
 |**Standard_A2_v2**  |2   |4   |20   |500 |2000  |4/4 x 500   |2 |
 |**Standard_A4_v2**  |4   |8   |40   |500 |4000  |8/8 x 500   |4 |
-|**Standard_A8_v2**  |8   |16  |80   |500 |8\.000  |16/16 x 500 |8 |
+|**Standard_A8_v2**  |8   |16  |80   |500 |8.000  |16/16 x 500 |8 |
 |**Standard_A2m_v2** |2   |16  |20   |500 |2000  |4/4 x 500   |2 |
 |**Standard_A4m_v2** |4   |32  |40   |500 |4000  |8/8 x 500   |4 |
-|**Standard_A8m_v2** |8   |64  |80   |500 |8\.000  |16/16 x 500 |8 |
+|**Standard_A8m_v2** |8   |64  |80   |500 |8.000  |16/16 x 500 |8 |
 
 ### <a name="d-series"></a>D-Serie
 |Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
@@ -74,10 +74,10 @@ Universelle VM-Größen zeichnen sich durch ein ausgewogenes Verhältnis zwische
 
 
 ### <a name="ds-series"></a>DS-Serie
-|Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
+|Größe     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |-----------------|----|----|-----|-----|------|-------------|---------|
 |**Standard_DS1** |1   |3,5 |7    |1000 |4000  |4/4x2300   |2 |
-|**Standard_DS2** |2   |7   |14   |1000 |8\.000  |8/8x2300   |2 |
+|**Standard_DS2** |2   |7   |14   |1000 |8.000  |8/8x2300   |2 |
 |**Standard_DS3** |4   |14  |28   |1000 |16000 |16/16x2300 |4 |
 |**Standard_DS4** |8   |28  |56   |1000 |32000 |32/32x2300 |8 |
 
@@ -94,7 +94,7 @@ Universelle VM-Größen zeichnen sich durch ein ausgewogenes Verhältnis zwische
 |Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |--------------------|----|----|----|-----|------|-------------|---------|
 |**Standard_DS1_v2** |1   |3,5 |7   |1000 |4000  |4/4x2300   |2 |
-|**Standard_DS2_v2** |2   |7   |14  |1000 |8\.000  |8/8x2300   |2 |
+|**Standard_DS2_v2** |2   |7   |14  |1000 |8.000  |8/8x2300   |2 |
 |**Standard_DS3_v2** |4   |14  |28  |1000 |16000 |16/16x2300 |4 |
 |**Standard_DS4_v2** |8   |28  |56  |1000 |32000 |32/32x2300 |8 |
 |**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64/64x2300 |8 |
@@ -119,7 +119,7 @@ Universelle VM-Größen zeichnen sich durch ein ausgewogenes Verhältnis zwische
 |Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |------------------|----|----|----|-----|------|-------------|---------|
 |**Standard_F1s**  |1   |2   |4   |1000 |4000  |4/4x2300   |2 |
-|**Standard_F2s**  |2   |4   |8   |1000 |8\.000  |8/8x2300   |2 |
+|**Standard_F2s**  |2   |4   |8   |1000 |8.000  |8/8x2300   |2 |
 |**Standard_F4s**  |4   |8   |16  |1000 |16000 |16/16x2300 |4 |
 |**Standard_F8s**  |8   |16  |32  |1000 |32000 |32/32x2300 |8 |
 |**Standard_F16s** |16  |32  |64  |1000 |64000 |64/64x2300 |8 |
@@ -131,7 +131,7 @@ Universelle VM-Größen zeichnen sich durch ein ausgewogenes Verhältnis zwische
 |Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
 |**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4/4x2300    |2 |
-|**Standard_F4s_v2**  |4   |8   |32   |1000 |8\.000   |8/8x2300    |2 |
+|**Standard_F4s_v2**  |4   |8   |32   |1000 |8.000   |8/8x2300    |2 |
 |**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16/16x2300  |4 |
 |**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32/32x2300  |4 |
 |**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32/32x2300  |8 |
@@ -143,7 +143,7 @@ Universelle VM-Größen zeichnen sich durch ein ausgewogenes Verhältnis zwische
 Arbeitsspeicheroptimierte VM-Größen bieten ein hohes Arbeitsspeicher-zu-CPU-Verhältnis und sind für relationale Datenbankserver, mittelgroße bis große Caches und In-Memory-Analysen konzipiert.
 
 ### <a name="d-series"></a><a name="mo-d"></a>D-Serie
-|Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
+|Größe     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |------------------|---|----|----|--------|------|------------|---------|
 |**Standard_D11**  |2  |14  |100 |500     |6000  |8/8 x 500   |2 |
 |**Standard_D12**  |4  |28  |200 |500     |12000 |16/16 x 500 |4 |
@@ -151,15 +151,15 @@ Arbeitsspeicheroptimierte VM-Größen bieten ein hohes Arbeitsspeicher-zu-CPU-Ve
 |**Standard_D14**  |16 |112 |800 |500     |48000 |64/64 x 500 |8 |
 
 ### <a name="ds-series"></a><a name="mo-ds"></a>DS-Serie
-|Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
+|Größe     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |-------------------|---|----|----|--------|------|-------------|---------|
-|**Standard_DS11**  |2  |14  |28  |1000    |8\.000  |8/8x2300   |2 |
+|**Standard_DS11**  |2  |14  |28  |1000    |8.000  |8/8x2300   |2 |
 |**Standard_DS12**  |4  |28  |56  |1000    |12000 |16/16x2300 |4 |
 |**Standard_DS13**  |8  |56  |112 |1000    |32000 |32/32x2300 |8 |
 |**Standard_DS14**  |16 |112 |224 |1000    |64000 |64/64x2300 |8 |
 
 ### <a name="dv2-series"></a><a name="mo-dv2"></a>Dv2-Serie
-|Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
+|Größe     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |--------------------|----|----|-----|----|-------|-------------|---------|
 |**Standard_D11_v2** |2   |14  |100  |500 |6000   |8/8 x 500    |2 |
 |**Standard_D12_v2** |4   |28  |200  |500 |12000  |16/16 x 500  |4 |
@@ -168,9 +168,9 @@ Arbeitsspeicheroptimierte VM-Größen bieten ein hohes Arbeitsspeicher-zu-CPU-Ve
 
 
 ### <a name="dsv2-series"></a><a name="mo-dsv2"></a>DSv2-Serie
-|Size     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
+|Größe     |vCPU     |Arbeitsspeicher (GiB) | Temporärer Speicher (GiB)  | Max. Durchsatz des Betriebssystem-Datenträgers (IOPS) | Maximaler Durchsatz (temporärer Speicher): (IOPS) | Max. Datenträger/Durchsatz (IOPS) | Maximale Anzahl NICs |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_DS11_v2** |2   |14  |28   |1000 |8\.000   |4/4x2300    |2 |
+|**Standard_DS11_v2** |2   |14  |28   |1000 |8.000   |4/4x2300    |2 |
 |**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |8/8x2300    |4 |
 |**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |16/16x2300  |8 |
 |**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |32/32x2300  |8 |

@@ -3,20 +3,20 @@ title: Skalieren eines Kubernetes-Cluster in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie einen Kubernetes-Cluster in Azure Stack Hub skalieren.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 16ffbd474886d477f37b7e2d39695e896984eb30
-ms.sourcegitcommit: 74b3e14abfa33c8136eccdd4677868eb622c843e
+ms.openlocfilehash: 459ab20333f34f8aa8f067bc8b8c1f8dfd27920a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92523540"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874131"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Skalieren eines Kubernetes-Cluster in Azure Stack Hub
 
-Mit dem **scale** -Befehl können Sie den Cluster mit der AKS-Engine skalieren. Der **scale** -Befehl verwendet Ihre Clusterkonfigurationsdatei (`apimodel.json`) im Ausgabeverzeichnis als Eingabe für eine neue Azure Resource Manager-Bereitstellung neu. Die Engine führt den Skalierungsvorgang für den angegebenen Agentpool aus. Wenn der Skalierungsvorgang abgeschlossen ist, aktualisiert die Engine die Clusterdefinition in der gleichen `apimodel.json`-Datei, um die aktualisierte, aktuelle Clusterkonfiguration mit der neuen Knotenanzahl widerzuspiegeln.
+Mit dem **scale**-Befehl können Sie den Cluster mit der AKS-Engine skalieren. Der **scale**-Befehl verwendet Ihre Clusterkonfigurationsdatei (`apimodel.json`) im Ausgabeverzeichnis als Eingabe für eine neue Azure Resource Manager-Bereitstellung neu. Die Engine führt den Skalierungsvorgang für den angegebenen Agentpool aus. Wenn der Skalierungsvorgang abgeschlossen ist, aktualisiert die Engine die Clusterdefinition in der gleichen `apimodel.json`-Datei, um die aktualisierte, aktuelle Clusterkonfiguration mit der neuen Knotenanzahl widerzuspiegeln.
 
 ## <a name="scale-a-cluster"></a>Skalieren eines Clusters
 
@@ -39,7 +39,7 @@ Die folgenden Parameter werden vom scale-Befehl verwendet, um Ihre Clusterdefini
 | apiserver |  | Master-FQDN. Beim horizontalen Herunterskalieren erforderlich. |
 | identity-system | adfs | Optional. Geben Sie Ihre Identitätsverwaltungslösung an, wenn Sie Active Directory-Verbunddienste (AD FS) nutzen. |
 
-Beim Skalieren eines Clusters in Azure Stack Hub müssen Sie den Parameter **--azure-env** angeben. Weitere Informationen zu Parametern und deren Werten, die im **scale** -Befehl für die AKS-Engine verwendet werden, finden Sie unter [Scale – parameters](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters) (Scale – Parameter).
+Beim Skalieren eines Clusters in Azure Stack Hub müssen Sie den Parameter **--azure-env** angeben. Weitere Informationen zu Parametern und deren Werten, die im **scale**-Befehl für die AKS-Engine verwendet werden, finden Sie unter [Scale – parameters](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters) (Scale – Parameter).
 
 ### <a name="command-to-scale-your-cluster"></a>Befehl zum Skalieren des Clusters
 

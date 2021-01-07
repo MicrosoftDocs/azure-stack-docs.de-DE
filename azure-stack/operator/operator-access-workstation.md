@@ -4,15 +4,15 @@ description: Hier erfahren Sie, wie Sie eine Arbeitsstation mit Azure Stack Hub
 author: ashika789
 ms.topic: article
 ms.date: 11/04/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 11/04/2020
-ms.openlocfilehash: 3c01f6f4e51adb9d91ee1b3098c11814a618ac1c
-ms.sourcegitcommit: ec00358a8780086dda217f93f2ef813a8b24dd3b
+ms.openlocfilehash: bd94503efe97eb30955b0fd9deb7a5c41e263e7b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95006819"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868589"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Arbeitsstation mit Azure Stack Hub-Operatorzugriff 
 
@@ -24,7 +24,7 @@ Die OAW-VM sollte erstellt werden, wenn ein Operator eine neue Aufgabe ausführt
 
 In den folgenden Tabellen sind häufige Szenarien für die OAW aufgeführt, aber diese sind nicht ausschließlich. Es wird empfohlen, Remotedesktop zum Herstellen einer Verbindung mit der OAW zu verwenden. 
 
-|Szenario                                                                                                                          |BESCHREIBUNG                 |
+|Szenario                                                                                                                          |Beschreibung                 |
 |----------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
 |[Zugreifen auf das Verwaltungsportal](./azure-stack-manage-portals.md)                     |Ausführen von Verwaltungsvorgängen                                                                           |
 |[Zugreifen auf PEP](./azure-stack-privileged-endpoint.md)                                     |Protokollsammlung und -upload:<br>-[Erstellen einer SMB-Freigabe](#transfer-files-between-the-hlh-and-oaw) auf dem HLH für die Dateiübertragung von Azure Stack Hub<br>\- Verwenden von Azure Storage-Explorer zum Hochladen von Protokollen, die auf der SMB-Freigabe gespeichert wurden |
@@ -203,7 +203,7 @@ New-OAW
 
 In der folgenden Tabelle finden Sie eine Beschreibung der einzelnen Parameter.
 
-| Parameter   | Erforderlich/Optional  | BESCHREIBUNG       |
+| Parameter   | Erforderlich/Optional  | Beschreibung       |
 |-------------|--------------------|-------------------|
 | LocalAdministratorPassword | Erforderlich | Das Kennwort für das lokale Administratorkonto „AdminUser“ der VM. |
 | IPAddress                  | Erforderlich | Die statische IPv4-Adresse zum Konfigurieren von TCP/IP auf der VM.                                                |

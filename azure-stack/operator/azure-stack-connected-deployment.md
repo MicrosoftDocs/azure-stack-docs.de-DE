@@ -1,18 +1,18 @@
 ---
 title: Entscheidungen zu mit Azure verbundenen Bereitstellungen für integrierte Azure Stack Hub-Systeme
 description: Treffen Sie die Entscheidungen zur Planung der Bereitstellung für mit Azure verbundene Bereitstellungen von in Azure Stack Hub integrierten Systemen einschließlich Abrechnung und Identität.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c9defcc7f569ba30628cb16632b52c00ae7f2bec
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 82317b5212775f37b25ff465a4ea3b4ba085b585
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543867"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871071"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Planungsentscheidungen zu mit Azure verbundenen Bereitstellungen für in Azure Stack Hub integrierte Systeme
 Nachdem Sie entschieden haben, [wie Sie Azure Stack Hub in Ihre Hybrid Cloud-Umgebung integrieren](azure-stack-connection-models.md), können Sie Ihre Entscheidungsfindung für die Azure Stack Hub-Bereitstellung abschließen.

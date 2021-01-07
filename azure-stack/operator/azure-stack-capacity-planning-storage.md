@@ -1,18 +1,18 @@
 ---
 title: Planen der Azure Stack Hub-Speicherkapazität
 description: Informieren Sie sich über die Speicherkapazitätsplanung für Azure Stack Hub-Bereitstellungen.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: d7776f07745a2f76bc447df3f29a54578624aca6
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 69248d5a81cf3d1017f221a57549d75b205f0fc3
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78935035"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871258"
 ---
 # <a name="azure-stack-hub-storage-capacity-planning"></a>Planen der Azure Stack Hub-Speicherkapazität
 
@@ -30,7 +30,7 @@ Für diese Geräte werden zwei Typen unterschieden: Cache und Kapazität. „Dir
 
 Die Azure Stack Hub-Infrastruktur ordnet und verwaltet die gesamte Speicherkapazität direkt. Der Operator muss keine Entscheidungen über Konfiguration, Zuordnung oder Kapazitätserweiterungen treffen. Azure Stack Hub automatisiert diese Entwurfsentscheidungen in Übereinstimmung mit den Lösungsanforderungen entweder während der Erstinstallation und -bereitstellung oder bei der Kapazitätserweiterung. Azure Stack Hub berücksichtigt dabei Details zur Resilienz, zur reservierten Kapazität für Neuerstellungen und andere Details als Teil des Entwurfs.
 
-Operatoren können zwischen einer *Nur-Flash*- und einer *Hybrid*speicherkonfiguration wählen:
+Operatoren können zwischen einer *Nur-Flash*- und einer *Hybrid* speicherkonfiguration wählen:
 
 ![Diagramm der Azure-Speicherkapazitätsplanung](media/azure-stack-capacity-planning/storage.png)
 

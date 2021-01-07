@@ -3,7 +3,7 @@ title: 'Azure Stack: Integritätsüberprüfungen in erweitertem Speicher für Mo
 description: Dieser Artikel enthält Anleitungen zum Durchführen von Integritätsüberprüfungen im erweiterten Speicher für den Modular Data Center-Blobspeicher.
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: PatAltimore
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: karlt
 ms.lastreviewed: 10/01/2020
-ms.openlocfilehash: 9d8e7915cb5c1ca9d0a073c750f67a5688157e74
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: ebb39f3eab90b0f976e5fee2896cbe85d0d023f5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183419"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872397"
 ---
 # <a name="extended-storage-health-checks"></a>Integritätsüberprüfungen im erweiterten Speicher
 
@@ -92,7 +92,7 @@ Führen Sie das folgende Skript aus, um eine allgemeine Übersicht über die Azu
 
 Für dieses Skript müssen folgende Voraussetzungen erfüllt sein:
 - Die Skriptdatei „.\Invoke-ExtendedStorageConfiguration.ps1“ muss im Ordner „C:\OEMSoftware\ExtendedStorage\“ auf dem Hardware Lifecycle Host (HLH) vorhanden sein.
-- Die Variable „$AzScred“ mit den Anmeldeinformationen muss die Anmeldeinformationen für „ *DOMÄNE* \cloudadmin“ enthalten. Ersetzen Sie *DOMÄNE* durch den tatsächlichen Domänennamen, z. B. „CONTOSO“.
+- Die Variable „$AzScred“ mit den Anmeldeinformationen muss die Anmeldeinformationen für „*DOMÄNE*\cloudadmin“ enthalten. Ersetzen Sie *DOMÄNE* durch den tatsächlichen Domänennamen, z. B. „CONTOSO“.
 
 
 ```powershell

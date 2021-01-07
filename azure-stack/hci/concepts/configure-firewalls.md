@@ -4,13 +4,13 @@ description: In diesem Thema erfahren Sie, wie Sie Firewalls für das Azure Stac
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
-ms.date: 12/10/2020
-ms.openlocfilehash: 374041b5472b20781f6c8648287d665925a8f227
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.date: 01/06/2020
+ms.openlocfilehash: 73e58c69295afc1a1bb106ea078e753647daa08d
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97623064"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965493"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Konfigurieren von Firewalls für Azure Stack HCI
 
@@ -46,7 +46,7 @@ Azure verwaltet bekannte IP-Adressen für Azure-Dienste mithilfe von Diensttags.
 | :-----------------------------| :-----------------------  | :---------------------------------------------------------------------------------- |
 | Azure Active Directory        | AzureActiveDirectory      | `https://login.microsoftonline.com`<br> `https://graph.microsoft.com`               |
 | Azure Resource Manager        | AzureResourceManager      | `https://management.azure.com`                        |
-| Azure Stack HCI-Clouddienst | AzureFrontDoor.Frontend   | Die URL hängt von der Region ab, mit der Sie sich registriert haben:<br> USA, Osten: `https://eus-azurestackhci-usage.azurewebsites.net`<br> Europa, Westen: `https://weu-azurestackhci-usage.azurewebsites.net` |
+| Azure Stack HCI-Clouddienst | AzureFrontDoor.Frontend   | `https://azurestackhci.azurefd.net` |
 | Azure Arc                     | AzureArcInfrastructure<br> AzureTrafficManager | Die URL hängt von der Funktionalität ab, die Sie verwenden möchten:<br> Hybrididentitätsdienst: `*.his.arc.azure.com`<br> Gastkonfiguration: `*.guestconfiguration.azure.com`<br> **Hinweis:** Da weitere Funktionen ermöglicht werden sollen, ist mit weiteren URLs zu rechnen. |
 
 ## <a name="update-microsoft-defender-firewall"></a>Aktualisieren von Microsoft Defender Firewall

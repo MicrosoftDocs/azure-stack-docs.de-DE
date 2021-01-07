@@ -1,18 +1,18 @@
 ---
 title: Azure Stack-Telemetriedaten
 description: Erfahren Sie, wie Sie Azure Stack-Telemetrieeinstellungen mithilfe von PowerShell konfigurieren.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 34995d8e1d5525e242a0b0919e7b3927c37507ca
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: a3bedcc62645dd518e694cca1052d6002bed5306
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415146"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872958"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack-Telemetriedaten
 
@@ -82,8 +82,8 @@ Die Telemetrieebenen sind kumulativ und in vier Ebenen (0–3) unterteilt:
   - Prozessor- und Arbeitsspeicherattribute wie Anzahl von Kernen und Arbeitsspeichergröße
   - Speicherattribute wie Laufwerkanzahl, Art und Größe
 - **Telemetriefunktion** einschließlich hochgeladener Ereignisse (in Prozent), gelöschter Ereignisse und Zeitpunkt des letzten Uploads
-- **Qualitätsbezogene Informationen** , die Microsoft einen grundlegenden Einblick in die Leistung von Azure Stack geben. Ein Beispiel wäre etwa die Anzahl kritischer Warnungen für eine bestimmte Hardwarekonfiguration.
-- **Kompatibilitätsdaten** , die Aufschluss darüber geben, welche Ressourcenanbieter in einem System und auf einer VM installiert sind und die Identifizierung möglicher Kompatibilitätsprobleme ermöglichen.
+- **Qualitätsbezogene Informationen**, die Microsoft einen grundlegenden Einblick in die Leistung von Azure Stack geben. Ein Beispiel wäre etwa die Anzahl kritischer Warnungen für eine bestimmte Hardwarekonfiguration.
+- **Kompatibilitätsdaten**, die Aufschluss darüber geben, welche Ressourcenanbieter in einem System und auf einer VM installiert sind und die Identifizierung möglicher Kompatibilitätsprobleme ermöglichen.
 
 **2 (Erweitert):** Zusätzliche Informationen, etwa zur Verwendung und Leistung des Betriebssystems und anderer Azure Stack-Dienste, erweiterte Zuverlässigkeitsdaten sowie Daten der Ebenen „Standard“ und „Sicherheit“.
 
