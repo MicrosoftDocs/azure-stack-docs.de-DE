@@ -42,6 +42,10 @@
       items:
         - name: Erstellen eines Clusters mit PowerShell
           href: deploy/create-cluster-powershell.md
+    - name: Bereitstellen von Workloads
+      items:
+        - name: Bereitstellen von Trusted Enterprise Virtualization
+          href: deploy/deploy-trusted-enterprise-virtualization.md
 - name: Verwalten
   items:
     - name: Verwalten von VMs
