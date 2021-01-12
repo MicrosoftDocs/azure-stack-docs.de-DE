@@ -44,6 +44,8 @@
           href: deploy/create-cluster-powershell.md
     - name: Bereitstellen von Workloads
       items:
+        - name: Dialogfeld „Deploy SQL Server“ (SQL Server bereitstellen)
+          href: deploy/deploy-sql-server-workload.md
         - name: Bereitstellen von Trusted Enterprise Virtualization
           href: deploy/deploy-trusted-enterprise-virtualization.md
 - name: Verwalten
