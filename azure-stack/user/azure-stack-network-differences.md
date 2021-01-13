@@ -2,17 +2,17 @@
 title: Unterschiede bei Azure Stack Hub-Netzwerken
 description: Dieser Artikel beschreibt die Unterschiede und zu berücksichtigende Aspekte bei der Verwendung von Netzwerken in Azure Stack Hub.
 author: mattbriggs
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: f081d0fa91e967ca00b46ac2a9ffaf4b56933e87
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.openlocfilehash: e93197f1906aba53097d5d7123ccc2e85aec0622
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97364114"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918695"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack Hub-Netzwerke: Unterschiede und Überlegungen
 
@@ -53,7 +53,7 @@ Dieser Artikel enthält eine Übersicht über die besonderen Überlegungen für 
 |  | Verfügbarkeitskonfiguration | Aktiv/aktiv | Aktiv/passiv |
 |  | UsePolicyBasedTrafficSelectors | Azure unterstützt die Verwendung richtlinienbasierter Datenverkehrsselektoren mit routenbasierten Gatewayverbindungen. | Noch nicht unterstützt. |
 |  | Überwachung und Warnungen | Azure verwendet Azure Monitor, um die Möglichkeit zum Einrichten von Warnungen für VPN-Ressourcen zu bieten. | Noch nicht unterstützt.|
-| Load Balancer | SKU | Load Balancer Basic und Standard werden unterstützt. | Nur Load Balancer Basic wird unterstützt.<br>Die SKU-Eigenschaft wird nicht unterstützt.<br>Der Load Balancer der SKU „Basic“ (/path/) darf nicht mehr als fünf Front-End-IP-Konfigurationen aufweisen.  |
+| Load Balancer | SKU | Load Balancer Basic und Standard werden unterstützt. | Nur Load Balancer Basic wird unterstützt.<br>Die SKU-Eigenschaft wird nicht unterstützt.<br>Der Load Balancer mit der Basic-SKU unterstützt für die Releases 1807–1906 10 Front-End-IP-Konfigurationen pro Load Balancer und für Release 1907 und höher 200 Front-End-IP-Konfigurationen pro Load Balancer.  |
 |  | Zones | Verfügbarkeitszonen werden unterstützt. | Noch nicht unterstützt |
 |  | Unterstützung eingehender NAT-Regeln für Dienstendpunkte | Azure unterstützt das Festlegen von Dienstendpunkten für eingehende NAT-Regeln. | Da Azure Stack Hub noch keine Dienstendpunkte unterstützt, können diese nicht festgelegt werden. |
 |  | Protocol | Azure unterstützt das Festlegen von GRE oder ESP. | Protokollklassen werden in Azure Stack Hub nicht unterstützt. |

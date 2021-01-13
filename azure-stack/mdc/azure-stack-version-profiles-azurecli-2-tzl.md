@@ -1,6 +1,6 @@
 ---
-title: Verwalten von Azure Stack Hub mit der Azure CLI | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie die plattformübergreifende Befehlszeilenschnittstelle (Command-Line Interface, CLI) verwenden, um Ressourcen in Azure Stack Hub zu verwalten und bereitzustellen.
+title: Verwalten von Azure Stack Hub mit der Azure CLI – MDC | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie die plattformübergreifende Befehlszeilenschnittstelle (Command-Line Interface, CLI) verwenden, um Ressourcen in Azure Stack Hub für Modular Data Center (MDC) zu verwalten und bereitzustellen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: b9d40c83c31903a582d8130dcb249fa2fca0a49e
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 2296d1228819d32f77ccc0dd35e4f2228908e969
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525573"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910260"
 ---
-# <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Verwalten und Bereitstellen von Ressourcen in Azure Stack Hub mit der Azure CLI
+# <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli---modular-data-center-mdc"></a>Verwalten und Bereitstellen von Ressourcen in Azure Stack Hub mit der Azure CLI – Modular Data Center (MDC)
 
 *Anwendungsbereich: Integrierte Azure Stack Hub-Systeme*
 

@@ -1,18 +1,18 @@
 ---
 title: Ausschalten von Skalierungseinheitknoten
 description: Hier erfahren Sie, wie Sie Skalierungseinheitknoten ausschalten.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: fde7496a54f0c2d3b28d98584295a761c683e17c
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 2eb2c85bcdb350173923b3d8b5a3b463ce6a16ff
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392723"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910719"
 ---
 # <a name="powering-off-scale-unit-nodes"></a>Ausschalten von Skalierungseinheitknoten
 
@@ -26,15 +26,15 @@ Wenn der **Energiestatus** nicht **Beendet** lautet, verwenden Sie die folgenden
 
     1.  Wählen Sie im Verwaltungsportal den Knoten aus, der repariert werden muss, und klicken Sie dann auf **Drain** (Entladen).
 
-        ![](media/image-23.png)
+        ![Screenshot: Seite „Verwaltung“ mit ausgewählter Aktion „Drain“ (Entladen) und einem hervorgehobenen Knoten](media/image-23.png)
         
     1.  Wenn Sie dazu aufgefordert werden, geben Sie den Namen des zu entladenden Knotens ein, und klicken Sie auf **Ja**.
 
-        ![](media/image-24.png)
+        ![Screenshot der Seite „Verwaltung – Knoten“](media/image-24.png)
     
     1.  Es wird eine Benachrichtigung angezeigt, die besagt, dass der Entladevorgang läuft.
     
-        ![](media/image-25.png)
+        ![Screenshot der Seite „Verwaltung – Knoten“, auf der die Benachrichtigung über das Entladen angezeigt wird](media/image-25.png)
         
     1.  Melden Sie sich bei der iDRAC-Schnittstelle an, und überprüfen Sie das Diensttag des Knotens im Bereich **System Information** (Systeminformationen).
     
@@ -43,17 +43,17 @@ Wenn der **Energiestatus** nicht **Beendet** lautet, verwenden Sie die folgenden
 
     1.  Wenn der Entladevorgang abgeschlossen ist, wählen Sie noch mal den Knoten aus, stellen Sie sicher, dass der **Energiestatus** **Wartung** lautet, und klicken Sie auf **Herunterfahren**.
 
-        ![](media/image-26.png)
+        ![Screenshot der Seite „Verwaltung – Knoten“, auf der ein Knoten und die Aktion „Herunterfahren“ ausgewählt sind](media/image-26.png)
         
     1.  Wählen Sie bei entsprechender Aufforderung **Ja** aus, um das Herunterfahren zu bestätigen.
     
-        ![](media/image-27.png)
+        ![Screenshot der Seite „Verwaltung – Knoten“, auf der das Dialogfeld „Shutdown node“ (Knoten herunterfahren) angezeigt wird](media/image-27.png)
         
     1.  Es wird eine Benachrichtigung angezeigt, die besagt, dass der Schritt zum Herunterfahren ausgeführt wird.
 
-        ![](media/image-28.png)
+        ![Screenshot der Seite „Verwaltung – Knoten“ mit dem Dialogfeld, das angibt, dass der Knoten heruntergefahren wird](media/image-28.png)
     
     1.  Nach dem Herunterfahren lautet der **Energiestatus** **Beendet**.
     
-        ![](media/image-29.png)
+        ![Screenshot der Seite „Verwaltung – Knoten“, auf der ein Knoten ausgewählt ist und für „Energiestatus“ der Status „Beendet“ hervorgehoben ist](media/image-29.png)
         

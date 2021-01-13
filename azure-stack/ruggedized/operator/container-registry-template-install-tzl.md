@@ -1,7 +1,7 @@
 ---
-title: Hinzufügen einer Containerregistrierung in Azure Stack Hub | Microsoft-Dokumentation
+title: Hinzufügen einer Containerregistrierung – Azure Stack Hub | Microsoft-Dokumentation
 titleSuffix: Azure Stack
-description: Hier erfahren Sie, wie Sie dem Azure Stack Hub-Marketplace eine Containerregistrierung hinzufügen.
+description: Hier erfahren Sie, wie Sie dem Azure Stack Hub-Marketplace (Ruggedized) eine Containerregistrierung hinzufügen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,18 +12,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 5d97f12e6bc933edf7b5b335ebd52a86a1a7f01d
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: a517fc2bef86584c6bdf5aff6f9b7907ac9c0b1e
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941103"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910566"
 ---
-# <a name="add-a-container-registry-to-azure-stack-hub"></a>Hinzufügen einer Containerregistrierung in Azure Stack Hub
+# <a name="add-a-container-registry-to-azure-stack-hub-ruggedized"></a>Hinzufügen einer Containerregistrierung in Azure Stack Hub (Ruggedized)
 
 Sie können Ihrem Azure Stack Hub-Marketplace die Containerregistrierung hinzufügen, damit Ihre Benutzer ihre eigene Containerregistrierung bereitstellen und verwalten können. Diese Lösungsvorlage installiert und konfiguriert die Open-Source-Containerregistrierung von Docker im Abonnement eines Benutzers, das auf dem Ubuntu 16.04-LTS-Basisimage für AKS ausgeführt wird. Die Vorlage unterstützt sowohl verbundene als auch nicht verbundene (mit Air Gap) Bereitstellungen. Außerdem werden sowohl in Azure Stack Hub-Instanzen bereitgestellte Instanzen von Azure Active Directory (AAD) als auch von Active Directory-Verbunddiensten (AD FS) unterstützt.
 
@@ -117,15 +117,15 @@ Für die Installation der Containerregistrierungsvorlage müssen vor der Bereits
 
 2. Klicken Sie auf **Erstellen** > **Compute** > **Containerregistrierungsvorlage**.
 
-    ![Containerregistrierungsvorlage](./media/container-registry-template-install-tzl/image1.png)
+    ![Screenshot der Seite „Dashboard > Neu“, auf der „Compute“ ausgewählt ist und die Auswahl „Containerregistrierungsvorlage“ angezeigt wird](./media/container-registry-template-install-tzl/image1.png)
 
 3. Wählen Sie das Abonnement, die Ressourcengruppe und den Speicherort für die Bereitstellung der Containerregistrierungsvorlage aus.
 
-    ![Containerregistrierungsvorlage](./media/container-registry-template-install-tzl/image2.png)
+    ![Screenshot der Seite „Create Container Registry Template“ (Containerregistrierungsvorlage erstellen) – „Grundeinstellungen“](./media/container-registry-template-install-tzl/image2.png)
 
 4. Vervollständigen Sie die Konfigurationsdetails für die VM. Der Standardwert für die Image-SKU ist **aks-ubuntu-1604-201909**. Die Ausgabe der `Set-ContainerRegistryPrerequisites`-Funktion enthält jedoch eine Liste verfügbarer SKUs, die für die Bereitstellung verwendet werden können. Wenn mehrere SKUs vorhanden sind, wählen Sie für die Bereitstellung die aktuelle SKU aus.
 
-    ![Containerregistrierungsvorlage](./media/container-registry-template-install-tzl/image3.png)
+    ![Screenshot der Seite „Create Container Registry Template“ (Containerregistrierungsvorlage erstellen) – „VM-Konfiguration“](./media/container-registry-template-install-tzl/image3.png)
 
     | Parameter | Details |
     | --- | --- |
@@ -141,7 +141,7 @@ Für die Installation der Containerregistrierungsvorlage müssen vor der Bereits
 
 1. Schließen Sie die Konfiguration für Speicher und Key Vault ab.
 
-    ![Containerregistrierungsvorlage](./media/container-registry-template-install-tzl/image4.png)
+    ![Screenshot der Seite „Create Container Registry Template“ (Containerregistrierungsvorlage erstellen) – „Speicher- und Key Vault-Konfiguration“](./media/container-registry-template-install-tzl/image4.png)
 
     | Parameter | Details |
     | --- | --- |

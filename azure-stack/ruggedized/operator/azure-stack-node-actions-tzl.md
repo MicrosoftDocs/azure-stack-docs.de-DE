@@ -1,5 +1,5 @@
 ---
-title: Aktionen für Knoten einer Skalierungseinheit in Azure Stack Hub
+title: Aktionen für Skalierungseinheitsknoten in Azure Stack Hub Ruggedized
 description: Hier erhalten Sie Informationen zu Aktionen für Knoten einer Skalierungseinheit (einschließlich „Einschalten“, „Ausschalten“, „Deaktivieren“ und „Fortsetzen“), und Sie erfahren, wie Sie den Knotenstatus in integrierten Azure Stack Hub-Systemen anzeigen.
 services: azure-stack
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 12/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2020
-ms.openlocfilehash: 768d51257e1d70979c2ee0f43aad4db8430cf8cf
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 48cb9d6e659f8b6f3507f5c0b4d6b7e60622f025
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941129"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965476"
 ---
-# <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Aktionen für Knoten einer Skalierungseinheit in Azure Stack Hub
+# <a name="scale-unit-node-actions-in-azure-stack-hub---ruggedized"></a>Aktionen für Skalierungseinheitsknoten in Azure Stack Hub Ruggedized
 
 In diesem Artikel wird beschrieben, wie Sie den Status einer Skalierungseinheit anzeigen. Sie können die Knoten der Einheit anzeigen. Sie können Knotenaktionen wie „Einschalten“, „Ausschalten“, „Deaktivieren“, „Fortsetzen“ und „Reparieren“ ausführen. Normalerweise verwenden Sie diese Knotenaktionen für den Austausch von Teilen im Betrieb oder bei der Wiederherstellung eines Knotens.
 
@@ -80,7 +80,7 @@ Sie müssen Azure Stack Hub-PowerShell-Module installieren. Diese Cmdlets befind
 
 Die Aktion **Beenden** schaltet den Knoten aus. Dies entspricht dem Drücken des Netzschalters. Es wird kein Signal zum Herunterfahren an das Betriebssystem gesendet. Probieren Sie bei geplanten Beenden-Vorgängen immer zuerst den Vorgang zum Herunterfahren aus.
 
-Diese Aktion wird normalerweise verwendet, wenn ein Knoten nicht mehr reagiert und keine Anforderungen mehr verarbeitet.
+Diese Aktion wird normalerweise verwendet, wenn ein Knoten nicht mehr auf Anforderungen reagiert.
 
 Um die Beenden-Aktion auszuführen, öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus:
 
@@ -169,4 +169,4 @@ Sollte beim Herunterfahren ein Fehler auftreten, führen Sie vor dem Herunterfah
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Weitere Informationen zum Modul für Azure Stack Hub-Fabric-Operatoren](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
+[Weitere Informationen zum Modul für Azure Stack Hub-Fabric-Operatoren](https://docs.microsoft.com/powershell/module/azs.fabric.admin/)

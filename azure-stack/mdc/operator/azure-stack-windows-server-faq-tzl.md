@@ -1,6 +1,6 @@
 ---
-title: Häufig gestellte Fragen zu Azure Stack für Windows Server | Microsoft-Dokumentation
-description: Liste von häufig gestellten Fragen zum Azure Stack-Marketplace für Windows Server
+title: Häufig gestellte Fragen zu Azure Stack für Windows Server – MDC | Microsoft-Dokumentation
+description: Hier finden Sie eine Liste häufig gestellter Fragen zu Azure Stack Marketplace für Windows Server, wenn die Ausführung über Modular Data Center (MDC) erfolgt.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 3570eeb9edadd359081c429f821a09e3d9954439
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 64ccefb0a6644d2cd613a39d8beaaf1f82ee9fc0
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330108"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910787"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Häufig gestellte Fragen zum Azure Stack-Marketplace für Windows Server
+# <a name="windows-server-in-azure-stack-marketplace-faq---modular-data-center-mdc"></a>Häufig gestellte Fragen zum Azure Stack-Marketplace für Windows Server – Modular Data Center (MDC)
 
 In diesem Artikel werden einige häufig gestellte Fragen zu Windows Server-Images im [Azure Stack Hub-Marketplace](../../operator/azure-stack-marketplace.md) beantwortet.
 
@@ -34,7 +34,7 @@ Azure Stack Hub Ruggedized- und MDC-Benutzer haben Anspruch auf die kostenlose N
 
 Microsoft bietet zwei Versionen von Windows Server-Images über den Azure Stack-Marketplace an. In einer Azure Stack-Umgebung kann immer nur eine Version dieses Images verwendet werden.
 
-- **Nutzungsbasierte Bezahlung** : Diese Images sollten nicht für Azure Stack Hub Ruggedized und MDC verwendet werden.
+- **Nutzungsbasierte Bezahlung**: Diese Images sollten nicht für Azure Stack Hub Ruggedized und MDC verwendet werden.
 
 - **BYOL (Bring-Your-Own-License, Verwendung Ihrer eigenen Lizenz)** : Diese Images können für Azure Stack Hub Ruggedized und MDC verwendet werden.
 
@@ -50,7 +50,7 @@ Falls VM-Skalierungsgruppen auf eine bestimmte Version verweisen, sollten Sie da
 
 **Was, wenn ich die falsche Version für meine Benutzer heruntergeladen habe?**
 
-Löschen Sie zuerst die falsche Version über die Marketplace-Verwaltung. Warten Sie, bis der Vorgang abgeschlossen ist (achten Sie auf die Benachrichtigungen über den Abschluss, nicht auf das Blatt **Marketplace-Verwaltung** ). Laden Sie dann die richtige Version herunter.
+Löschen Sie zuerst die falsche Version über die Marketplace-Verwaltung. Warten Sie, bis der Vorgang abgeschlossen ist (achten Sie auf die Benachrichtigungen über den Abschluss, nicht auf das Blatt **Marketplace-Verwaltung**). Laden Sie dann die richtige Version herunter.
 
 Wenn Sie beide Versionen des Images herunterladen, ist nur die neueste Version für Endkunden im Marketplace-Katalog sichtbar.
 

@@ -1,18 +1,18 @@
 ---
 title: 'EMC PowerEdge Tactical: LED-Anzeigen und Codes'
 description: Hier erfahren Sie mehr über LED-Anzeigen und Codes des EMC PowerEdge Tactical-Servers.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 5b4920fb2ab174867092c44ca51a5193412a9a9a
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 8a820d02ef1832343ba5110a244793c70b73aed3
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97393087"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910277"
 ---
 # <a name="dell-emc-poweredge-tactical-indicators-and-codes"></a>Dell EMC PowerEdge Tactical: LED-Anzeigen und Codes
 
@@ -25,7 +25,7 @@ Die folgende Abbildung zeigt das Etikett mit den Systeminformationen, das sich a
 
 Abbildung 10. LED-Verhalten
 
-![](media/image-75.png)
+![Das Etikett mit Systeminformationen für das LED-Verhalten](media/image-75.png)
 
 ## <a name="idrac-direct-led-indicator-codes"></a>iDRAC Direct-LED-Anzeigecodes
 
@@ -49,16 +49,16 @@ In der folgenden Abbildung werden die Status- und Integritäts-LED-Anzeigen des 
 
 Abbildung 11. Linkes Kontrollfeld
 
-![](media/image-76.png)
+![Abbildung mit den Status- und Integritäts-LED-Anzeigen des linken Bedienfelds](media/image-76.png)
 
 In der folgenden Tabelle werden die Features im linken Bedienfeld beschrieben.
 
 Tabelle 5. Status- und Integritäts-LED-Anzeigen des PowerEdge-Bedienfelds
 
-|    <br>Element       |    <br>LED-Anzeige oder Knopf                       |    <br>Symbol                                |    <br>BESCHREIBUNG                                                                                                  |
+|    <br>Element       |    <br>LED-Anzeige oder Knopf                       |    <br>Symbol                                |    <br>Beschreibung                                                                                                  |
 |-------------------|--------------------------------------------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 |    <br>1          |    <br>Status-LED-Anzeigen                     |    <br>Nicht zutreffend                                 |    <br>Zeigt den Status des Systems an. Weitere Informationen finden Sie unter „PowerEdge-Status-LED-Anzeigen“ auf Seite 61.    |
-|    <br>2 und 3    |    <br>Systemintegritäts- und System-ID-LED-Anzeigen    | ![](media/image-77.png) |    <br>Zeigt die Systemintegrität an.                                                                                 |
+|    <br>2 und 3    |    <br>Systemintegritäts- und System-ID-LED-Anzeigen    | ![Symbol für die Systemintegrität](media/image-77.png) |    <br>Zeigt die Systemintegrität an.                                                                                 |
 
 In der folgenden Tabelle sind die Status-LED-Indikatoren von PowerEdge-Servern aufgelistet.
 
@@ -83,7 +83,7 @@ In der folgenden Abbildung wird die AC-PSU gezeigt.
 
 Abbildung 12: AC-PSU
 
-![](media/image-83.png)
+![Abbildung, in der die AC-PSU angezeigt wird und die LED gekennzeichnet ist](media/image-83.png)
 
 In der folgenden Tabelle sind die LED-Anzeigecodes definiert.
 

@@ -7,12 +7,12 @@ ms.date: 12/08/2020
 ms.author: sethm
 ms.reviewer: danlewi
 ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: fac088f56dc7de04d8f78bfef1ab63c87b83f336
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: a7765eb44017b8d6521930de24794b630ae22344
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941096"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965459"
 ---
 # <a name="azure-stack-hub-ruggedized-2008-oem-release-notes"></a>Azure Stack Hub Ruggedized 2008 OEM-Versionshinweise
 
@@ -35,7 +35,7 @@ In diesem Dokument werden die Inhalte der Azure Stack Hub Ruggedized-Erstanbiete
 
 ### <a name="bios"></a>Bios
 
-| Releaseversion | Firmware version | Änderungen                                                                                                                                                                                                                                                                                                                                                                                                       |   |   |
+| Releaseversion | Firmware version | Änderungen |
 |-----------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
 | 2008            | 2.8.2            | Es wurde das in den BIOS-Versionen 2.6.4 bis 2.8.1 aufgetretene Problem behoben, dass beim Einschalten ein Systemreset erfolgt ist, während auf dem Startbildschirm „Arbeitsspeicher wird konfiguriert“ angezeigt wurde. Das Problem betrifft DDR4- und NVDIMM-N-Arbeitsspeicherkonfigurationen.<br><br>Erweiterung zur Behebung der Sicherheitsrisiken (Common Vulnerabilities and Exposures (CVE, Allgemeine Sicherheitslücken und Schwachstellen)), z. B. CVE-2020-0545, CVE-2020-0548 und CVE-2020-0549. |   |   |
 | 2005            | 2.7.7            |                                                                                                                                                                                                                                                                                                                                                                                                               |   |   |
@@ -43,7 +43,7 @@ In diesem Dokument werden die Inhalte der Azure Stack Hub Ruggedized-Erstanbiete
 
 ### <a name="idrac"></a>iDRAC
 
-| Releaseversion | Firmware version | Änderungen                                                                                                                                                                                                                                                                          |   |   |
+| Releaseversion | Firmware version | Änderungen |
 |-----------------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
 | 2008            | 4.22.0.0         | 167411: Es wurde ein Problem behoben, das während der Aktualisierung der Firmware über die Redfish-API zum Erzwingen des Systemneustarts geführt hat.<br><br>155376: Es wurde ein Problem behoben, das beim Erfassen von SupportAssist-Protokollen zum Neustart von iDRAC geführt hat.<br><br>162778: Das Problem wurde behoben, dass aufgrund der virtuellen Konsole nicht genügend Arbeitsspeicher für iDRAC zur Verfügung stand. |   |   |
 | 2005            | 4.10.10.10       |                                                                                                                                                                                                                                                                                  |   |   |
@@ -53,7 +53,7 @@ In diesem Dokument werden die Inhalte der Azure Stack Hub Ruggedized-Erstanbiete
 
 | Releaseversion    | Firmware version    | Änderungen                                                                                                          |
 |--------------------|---------------------|------------------------------------------------------------------------------------------------------------------|
-|     2008           |     14.27.60.08     | Es wurde ein fatal_assert der Firmware korrigiert, wobei aufgrund des Wartens von init_hca auf die Freigabe der Flowsperre der Timer „IRISC HANG“ angezeigt wurde. |
+|     2008           |     14.27.60.08     | Es wurde ein fatal_assert der Firmware korrigiert, wobei aufgrund des Wartens von init_hca auf die Freigabe der Flowsperre durch den Timer IRISC nicht mehr reagiert hat. |
 |     2005           |     14.26.60.00     |                                                                                                                  |
 
 ### <a name="nic-hlh"></a>NIC-HLH
@@ -86,7 +86,7 @@ In diesem Dokument werden die Inhalte der Azure Stack Hub Ruggedized-Erstanbiete
 
 | Releaseversion | Firmware version | Änderungen                                                                                                                                                                                                |
 |-----------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     2008        |     9.0.6        | Korrigiert das Hängenbleiben von iDRAC während Firmwareupdates.<br> Signalrauschen wird jetzt gefiltert, um falsche Fehlermeldungen zu verhindern.<br> Die Hostspeicherzuordnung wurde geändert, um die potenzielle Deaktivierung vorderer USB-Anschlüsse zu verhindern. |
+|     2008        |     9.0.6        | Behebt mögliche Probleme, bei denen iDRAC während eines Firmwareupdates nicht mehr reagiert.<br> Signalrauschen wird jetzt gefiltert, um falsche Fehlermeldungen zu verhindern.<br> Die Hostspeicherzuordnung wurde geändert, um die potenzielle Deaktivierung vorderer USB-Anschlüsse zu verhindern. |
 |     2005        |     1.0.6        |                                                                                                                                                                                                        |
 
 ### <a name="drive-fw"></a>Laufwerksfirmware

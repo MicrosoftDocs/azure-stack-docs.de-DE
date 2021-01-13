@@ -1,6 +1,6 @@
 ---
-title: Querverweise für Azure Stack Hub-Hilfelinks
-description: Hier finden Sie Referenzlinks aus dem Portal für Azure Stack Hub.
+title: Querverweise für Azure Stack Hub-Hilfelinks – MDC
+description: Hier finden Sie Portalreferenzlinks für Azure Stack Hub, wenn der Betrieb über Modular Data Center (MDC) erfolgt.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
 ms.reviewer: efemmano
-ms.openlocfilehash: dd52df36363e45868e586c0e980950b10b7c6836
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: bfc9c4aeb2e3dfb003d3cd1e1fc9dcc71b0caf82
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330094"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910924"
 ---
-# <a name="alerts-akams-link-reference-for-azure-stack-hub"></a>Referenz für aka.ms-Links aus Benachrichtigungen für Azure Stack Hub
+# <a name="alerts-akams-link-reference-for-azure-stack-hub---modular-data-center-mdc"></a>Referenz für aka.ms-Links aus Benachrichtigungen für Azure Stack Hub – Modular Data Center (MDC)
 
 In diesem Artikel sind Querverweise für Links aufgelistet, die in Benachrichtigungen im Administratorportal enthalten sind. 
 

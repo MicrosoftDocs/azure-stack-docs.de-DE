@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub-Hardwarediagramm
 description: Hier erfahren Sie mehr über die Hardware in der Azure Stack Hub-TCA.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d8055e9c4a4676d5449372ba9544dd4f03dc294e
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: b91e5825200f7a05a403bb90db3825377e042cf9
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392773"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910413"
 ---
 # <a name="azure-stack-hub-hardware-diagram"></a>Azure Stack Hub-Hardwarediagramm
 
@@ -20,9 +20,9 @@ In den folgenden Abbildungen wird der gesamte Stapel mit dem Hardwarelebenszyklu
 
 Abbildung 1. Front
 
-![](media/image-58.png)
+![Abbildung, in der die Vorderseite der kompletten Stack-Hardware dargestellt wird](media/image-58.png)
 
 Abbildung 2. Rear
 
-![](media/image-59.png)
+![Abbildung, in der die Rückseite der kompletten Stack-Hardware dargestellt wird](media/image-59.png)
 

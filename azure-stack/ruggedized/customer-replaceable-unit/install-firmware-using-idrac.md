@@ -1,18 +1,18 @@
 ---
 title: Installieren von Firmware mithilfe von iDRAC
 description: Hier erfahren Sie, wie Sie Firmware mithilfe von iDRAC installieren.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 5b42b0a1f6be6e9fdf8110854e37f602d25b18ad
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 3b6a257d5f5f42c951313c2220559306577de15d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392760"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910243"
 ---
 # <a name="installing-firmware-using-the-idrac-interface"></a>Installieren von Firmware mithilfe der iDRAC-Schnittstelle
 
@@ -26,7 +26,7 @@ Verwenden Sie die folgende Prozedur, um mithilfe der iDRAC-Webschnittstelle die 
 
 1.  Navigieren Sie zu **Maintenance** (Wartung) und dann zu \**System Update** (Systemupdate). Die Seite **Firmware Update** (Firmwareupdate) wird angezeigt.
 
-    ![](media/image-85.png)
+    ![Screenshot mit der Seite „Maintenance“ (Wartung) für den Integrated Dell Remote Access Controller 9 | Enterprise](media/image-85.png)
 
 2.  Klicken Sie auf der Registerkarte **Update** auf **Local** als Speicherort für Dateien.
 

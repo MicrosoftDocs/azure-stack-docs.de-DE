@@ -1,18 +1,18 @@
 ---
 title: Übersicht über den EMC PowerEdge Tactical R640-Server
 description: Hier erfahren Sie mehr über den EMC PowerEdge Tactical R640-Server.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d1f0e141c4ca4966aab9735064287121718dee87
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 13ce0e654a4cc7059ffe3f463190d56aa36fd583
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392768"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910447"
 ---
 # <a name="dell-emc-poweredge-tactical-r640-server-overview"></a>Übersicht über den Dell EMC PowerEdge Tactical R640-Server
 
@@ -24,7 +24,7 @@ Die folgende Abbildung zeigt den PowerEdge Tactical R640-Server (2U-Server).
 
 Abbildung 3. Frontansicht des Gehäuses: PowerEdge Tactical R640-Hardwarelebenszyklushost und -Skalierungseinheit
 
-![](media/image-60.png)
+![Abbildung der Frontansicht des PowerEdge Tactical R640-Servergehäuses](media/image-60.png)
 
 In der folgenden Tabelle werden die Eigenschaften des Frontbedienfelds des PowerEdge Tactical R640-Servers beschrieben.
 
@@ -42,7 +42,7 @@ Die folgende Abbildung zeigt die Komponenten der Gehäuserückseite des PowerEdg
 
 Abbildung 4. Rückansicht des Gehäuses: PowerEdge Tactical R640-Hardwarelebenszyklushost
 
-![](media/image-61.png)
+![Abbildung der Rückansicht des PowerEdge Tactical R640-Servergehäuses](media/image-61.png)
 
 In der folgenden Tabelle werden die Eigenschaften des Bedienfelds auf der Rückseite des PowerEdge Tactical R640-Servers beschrieben.
 
@@ -53,12 +53,12 @@ Tabelle 2: Eigenschaften des Bedienfelds auf der Rückseite des PowerEdge Tacti
 | Festplatten                   | Nicht zutreffend                       | Betriebssystem und Datenspeicher für die Serverknoten „Hardwarelebenszyklushost“ und „Skalierungseinheit“                                                                                                                                                                                                                        |
 | BOSS-Modul                   | Nicht zutreffend                       | Boot Optimized Storage Solution (BOSS), für die Installation des Betriebssystems oder Hypervisors                                                                                                                                                                                 |
 | Stromversorgungseinheiten (2)        | Nicht zutreffend                       | Diese versorgen den Server mit Strom und werden aus Redundanzgründen doppelt bereitgestellt.                                                                                                                                                                                                 |
-| USB 3.0-Anschlüsse                 |  ![](media/image-62.png)   | Die USB-Anschlüsse weisen 9 Pins auf und sind 3.0-kompatibel. Dank dieser Anschlüsse können Sie USB-Geräte mit dem System verbinden.                                                                                                                                                                     |
-| VGA-Anschluss                      |   ![](media/image-63.png)  | Für die Verbindung eines Anzeigegeräts mit dem System.                                                                                                                                                                                                                      |
-| Serieller Anschluss                   |   ![](media/image-64.png)  | Für die Verbindungsherstellung zwischen einem seriellen Gerät und dem System                                                                                                                                                                                                                       |
-| iDRAC9 Enterprise-Anschluss        |   ![](media/image-65.png)  | Für den Remotezugriff auf iDRAC                                                                                                                                                                                                                                       |
+| USB 3.0-Anschlüsse                 |  :::image type="icon" source="media/image-62.png"::: | Die USB-Anschlüsse weisen 9 Pins auf und sind 3.0-kompatibel. Dank dieser Anschlüsse können Sie USB-Geräte mit dem System verbinden.                                                                                                                                                                     |
+| VGA-Anschluss                      |   :::image type="icon" source="media/image-63.png":::  | Für die Verbindung eines Anzeigegeräts mit dem System.                                                                                                                                                                                                                      |
+| Serieller Anschluss                   |   :::image type="icon" source="media/image-64.png":::  | Für die Verbindungsherstellung zwischen einem seriellen Gerät und dem System                                                                                                                                                                                                                       |
+| iDRAC9 Enterprise-Anschluss        |   :::image type="icon" source="media/image-65.png":::  | Für den Remotezugriff auf iDRAC                                                                                                                                                                                                                                       |
 | CMA-Stromversorgungsbuchse                | Nicht zutreffend                       | Über die Cable Management Arm-Stromversorgungsbuchse (CMA) können Sie das Kabel des Statusanzeigekabels mit CMA verbinden.                                                                                                                                                                     |
-| Systemidentifizierungsknopf  |   ![](media/image-66.png) | Der Systemidentifizierungsknopf (ID) befindet sich sowohl auf der Vorder- als auch auf Rückseite des Servers. Wenn Sie auf den Knopf drücken, blinkt die LED-Anzeige für die Systemintegrität/System-ID. Über den System-ID-Knopf können Sie außerdem den iDRAC zurücksetzen und über den Durchlaufmodus (Step-Through Mode) auf das BIOS zugreifen.  |
+| Systemidentifizierungsknopf  |   :::image type="icon" source="media/image-66.png"::: | Der Systemidentifizierungsknopf (ID) befindet sich sowohl auf der Vorder- als auch auf Rückseite des Servers. Wenn Sie auf den Knopf drücken, blinkt die LED-Anzeige für die Systemintegrität/System-ID. Über den System-ID-Knopf können Sie außerdem den iDRAC zurücksetzen und über den Durchlaufmodus (Step-Through Mode) auf das BIOS zugreifen.  |
 
 ## <a name="right-control-panel"></a>Rechtes Bedienfeld
 
@@ -66,18 +66,18 @@ In der folgenden Abbildung wird das rechte Bedienfeld des PowerEdge Tactical R64
 
 Abbildung 5. Rechtes Bedienfeld des PowerEdge Tactical R640-Servers
 
-![](media/image-67.png)
+![Abbildung, die den Netzschalter und die USB-Anschlüsse auf dem Bedienfeld zeigt](media/image-67.png)
 
 In der folgenden Tabelle werden die Bedienelemente und LED-Anzeigen im rechten Bedienfeld beschrieben.
 
 Tabelle 3: Bedienelemente und LED-Anzeigen im rechten Bedienfeld des PowerEdge Tactical R640-Servers
 
-| Element  | LED-Anzeige oder Knopf  | Symbol                      | BESCHREIBUNG                                                                                                                                                                                               |
+| Element  | LED-Anzeige oder Knopf  | Symbol                      | Beschreibung                                                                                                                                                                                               |
 |-------|----------------------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | Netzschalter         |   ![](media/image-68.png)  | Gibt an, ob das System ein- oder ausgeschaltet ist. Drücken Sie den Netzschalter, um das System manuell ein- oder auszuschalten.  **Hinweis:** Drücken Sie den Netzschalter, um ein ACPI-kompatibles Betriebssystem ordnungsgemäß herunterzufahren.  |
-| 2     | USB-Anschluss             | ![](media/image-70.png)    | Der USB-Anschluss weist 4 Pins auf und ist 2.0-kompatibel. Dank dieses Anschlusses können Sie USB-Geräte mit dem System verbinden.                                                                                                         |
+| 1     | Netzschalter         |   :::image type="icon" source="media/image-68.png":::  | Gibt an, ob das System ein- oder ausgeschaltet ist. Drücken Sie den Netzschalter, um das System manuell ein- oder auszuschalten.  **Hinweis:** Drücken Sie den Netzschalter, um ein ACPI-kompatibles Betriebssystem ordnungsgemäß herunterzufahren.  |
+| 2     | USB-Anschluss             | :::image type="icon" source="media/image-70.png":::    | Der USB-Anschluss weist 4 Pins auf und ist 2.0-kompatibel. Dank dieses Anschlusses können Sie USB-Geräte mit dem System verbinden.                                                                                                         |
 | 3     | iDRAC Direct-LED     | Nicht zutreffend                       | Die iDRAC Direct-LED-Anzeige blinkt, wenn der iDRAC Direct-Anschluss aktiv mit einem Gerät verbunden ist.                                                                                        |
-| 4     | iDRAC Direct-Anschluss    |   ![](media/image-65.png) | Der iDRAC Direct-Anschluss ist Micro USB 2.0-kompatibel. Dieser Anschluss ermöglicht den Zugriff auf die iDRAC Direct-Features.                                                                                              |
+| 4     | iDRAC Direct-Anschluss    |   :::image type="icon" source="media/image-65.png"::: | Der iDRAC Direct-Anschluss ist Micro USB 2.0-kompatibel. Dieser Anschluss ermöglicht den Zugriff auf die iDRAC Direct-Features.                                                                                              |
 
 ## <a name="inside-the-poweredge-tactical-r640"></a>Das Innere des PowerEdge Tactical R640-Servers
 
@@ -85,11 +85,11 @@ Die folgende Abbildung zeigt die inneren Komponenten des PowerEdge Tactical R640
 
 Abbildung 6. Das Innere des PowerEdge Tactical R640-Hardwarelebenszyklushosts
 
-![](media/image-71.png)
+![Abbildung mit der Draufsicht der internen R640 HLH-Serverkomponenten](media/image-71.png)
 
 Abbildung 7. Das Innere der PowerEdge Tactical R640-Skalierungseinheit
 
-![](media/image-72.png)
+![Abbildung mit der Draufsicht der internen R640 SU-Serverkomponenten](media/image-72.png)
 
 ## <a name="motherboard"></a>Hauptplatine
 
@@ -97,7 +97,7 @@ In der folgenden Abbildung ist das Layout der Hauptplatine dargestellt.
 
 Abbildung 8. Layout der PowerEdge Tactical R640-Hauptplatine
 
-![](media/image-73.png)
+![Abbildung, in der die R640-Wartungsinformationen und das Layout der Hauptplatine dargestellt sind](media/image-73.png)
 
 ## <a name="memory"></a>Arbeitsspeicher
 
@@ -105,4 +105,4 @@ Die folgende Abbildung zeigt die Arbeitsspeicherinformationen des PowerEdge Tact
 
 Abbildung 9. Arbeitsspeicherinformationen des PowerEdge Tactical R640-Servers
 
-![](media/image-74.png)
+![Abbildung, in der die R640-Arbeitsspeicherinformationen gezeigt werden](media/image-74.png)

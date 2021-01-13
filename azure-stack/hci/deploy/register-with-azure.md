@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 12/28/2020
-ms.openlocfilehash: de2ad8fecc2d79e8c8ff56e3a53a0769698a6fc1
-ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
+ms.openlocfilehash: b2576bed615d6a65a5e0c61e5e3ccbc2c052132b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97801962"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872703"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Herstellen einer Verbindung von Azure Stack HCI mit Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "97801962"
 Azure Stack HCI wird als Azure-Dienst bereitgestellt und muss gemäß den Bestimmungen für Azure-Onlinedienste innerhalb von 30 Tagen nach der Installation registriert werden. In diesem Thema wird erläutert, wie Sie Ihren Azure Stack HCI-Cluster für Überwachung, Support, Abrechnung und Hybriddienste bei [Azure Arc](https://azure.microsoft.com/services/azure-arc/) registrieren. Bei der Registrierung wird eine Azure Resource Manager-Ressource erstellt, um jeden der lokalen Azure Stack HCI-Cluster zu repräsentieren, wodurch die Azure-Verwaltungsebene effektiv auf Azure Stack HCI ausgedehnt wird. Die Informationen werden regelmäßig zwischen der Azure-Ressource und dem oder den lokalen Cluster(n) synchronisiert.
 
    > [!IMPORTANT]
-   > Die Registrierung bei Azure ist erforderlich, und Ihr Cluster wird erst vollständig unterstützt, nachdem Ihre Registrierung aktiviert wurde. Wenn Sie Ihren Cluster nicht innerhalb von 30 Tagen nach der Bereitstellung bei Azure registrieren oder wenn Ihr Cluster registriert wurde, aber dafür seit mehr als 30 Tagen keine Verbindung mit Azure hergestellt wurde, lässt das System die Erstellung oder Hinzufügung von neuen virtuellen Computern (VMs) nicht zu. Falls Sie dann versuchen, VMs zu erstellen, wird die folgende Fehlermeldung angezeigt:
+   > Die Registrierung bei Azure ist erforderlich, und Ihr Cluster wird erst vollständig unterstützt, nachdem Ihre Registrierung aktiviert wurde. Wenn Sie Ihren Cluster nicht direkt nach der Bereitstellung bei Azure registrieren oder wenn Ihr Cluster registriert wurde, aber dafür seit mehr als 30 Tagen keine Verbindung mit Azure hergestellt wurde, lässt das System die Erstellung oder Hinzufügung von neuen virtuellen Computern (VMs) nicht zu. Falls Sie dann versuchen, VMs zu erstellen, wird die folgende Fehlermeldung angezeigt:
    >
    > *Fehler beim Konfigurieren der Rolle „Virtueller Computer“ für „vmname“. Fehler beim Ausführen des Auftrags. Fehler beim Öffnen von „vmname“-Clusterrollen. Der Dienst, auf den zugegriffen wird, ist für eine bestimmte Anzahl von Verbindungen lizenziert. Zurzeit können keine weiteren Verbindungen hergestellt werden, da das Maximum schon erreicht wurde.*
    >

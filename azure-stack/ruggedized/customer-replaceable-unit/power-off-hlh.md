@@ -1,18 +1,18 @@
 ---
 title: Ausschalten des Hardwarelebenszyklushosts
 description: Hier erfahren Sie, wie Sie den Hardwarelebenszyklushost ausschalten.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: bfef2c08d1dcd42d74a97a59f5ad59210228acc5
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 28ac5a9de578d6ff7580ddad86a887f71889f5eb
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97393047"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910685"
 ---
 # <a name="powering-off-the-hardware-lifecycle-host"></a>Ausschalten des Hardwarelebenszyklushosts
 
@@ -24,7 +24,7 @@ Sie können den Hardwarelebenszyklushost (Hardware Lifecycle Host, HLH) ausschal
 
 2.  Klicken Sie auf die Schaltfläche **Start** und dann auf **Herunterfahren**, um den HLH herunterzufahren.
 
-    ![](media/image-22.png)
+    ![Screenshot, in dem die Windows-Schaltfläche angezeigt wird und „Herunterfahren“ ausgewählt ist](media/image-22.png)
 
     Warten Sie einige Minuten, bis der Vorgang zum Herunterfahren abgeschlossen ist.
     

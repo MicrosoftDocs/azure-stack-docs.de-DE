@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 12/02/2020
-ms.openlocfilehash: 2bbd32a8117955a18c525a4a0483d152c5a3ed0c
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 3a4ad6203ba14188ff24629f07775285417c306b
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612470"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918663"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Systemanforderungen für Azure Kubernetes Service in Azure Stack HCI
 
@@ -30,9 +30,9 @@ Damit Azure Kubernetes Service in Azure Stack HCI oder Windows Server 2019 Datac
 
  - Stellen Sie sicher, dass die Benutzerkonten, die Azure Kubernetes Service auf Azure Stack HCI- oder Windows Server 2019 Datacenter-Clustern hinzufügen, aktualisieren und verwalten, über die richtigen Berechtigungen in Active Directory verfügen. Wenn Sie Organisationseinheiten verwenden, um Gruppenrichtlinien für Server und Dienste zu verwalten, benötigen die Benutzerkonten Berechtigungen zum Auflisten, Lesen, Ändern und Löschen aller Objekte in der Organisationseinheit. 
 
- - Es wird empfohlen, für die Server und Dienste, zu denen Sie Ihren Azure Kubernetes Service auf Azure Stack HCI- oder Windows Server 2019 Datacenter-Cluster hinzufügen, eine separate Organisationseinheit zu verwenden. Dadurch können Sie den Zugriff und die Berechtigungen differenzierter steuern.
+ - Es wird empfohlen, für die Server und Dienste, denen Sie Ihren Azure Kubernetes Service auf Azure Stack HCI- oder Windows Server 2019 Datacenter-Clustern hinzufügen, eine gesonderte Organisationseinheit zu verwenden. Durch die Verwendung einer gesonderten Organisationseinheit können Sie den Zugriff und die Berechtigungen differenzierter steuern.
 
- - Wenn Sie GPO-Vorlagen für Container in Active Directory verwenden, stellen Sie sicher, dass die Bereitstellung von AKS-HCI von dieser Richtlinie ausgenommen ist. Die Serverhärtung wird in einer späteren Vorschauversion verfügbar sein.
+ - Wenn Sie GPO-Vorlagen für Container in Active Directory verwenden, stellen Sie sicher, dass die Bereitstellung von AKS-HCI von der Richtlinie ausgenommen ist. Die Serverhärtung wird in einer späteren Vorschauversion verfügbar sein.
 
 ## <a name="compute-requirements"></a>Computeanforderungen
 
@@ -52,31 +52,26 @@ Für Azure Stack HCI-Cluster und für Windows Server 2019 Datacenter-Failoverclu
 
  - Vergewissern Sie sich, dass Sie IPv6 auf allen Netzwerkadaptern deaktiviert haben. 
 
- - Das Netzwerk muss über einen verfügbaren DHCP-Server verfügen, um den VMs und VM-Hosts entsprechende TCP/IP-Adressen bereitzustellen. Der DHCP-Server sollte außerdem NTP- und DNS-Hostinformationen enthalten. 
-
- - Außerdem wird empfohlen, einen DHCP-Server mit einem dedizierten Bereich von IPv4-Adressen einzurichten, auf den über den Azure Stack HCI-Cluster zugegriffen werden kann. Sie können z. B. 10.0.1.1 für das Standardgateway, 10.0.1.2 bis 10.0.1.102 für Kubernetes-Dienste reservieren (mit „-vipPoolStartIp“ und „-vipPoolEndIp“ in „Set-AksHciConfig“) und 10.0.1.103 bis 10.0.1.254 für virtuelle Kubernetes-Clustercomputer verwenden. 
-
- - Für eine erfolgreiche Bereitstellung müssen die Azure Stack HCI-Clusterknoten und die virtuellen Kubernetes-Clustercomputer über externe Internetkonnektivität verfügen.
-
- - Die vom DHCP-Server zur Verfügung gestellten IPv4-Adressen sollten routingfähig sein und einen Leaseablaufzeitraum von 30 Tagen aufweisen, um den Verlust der IP-Konnektivität im Falle einer VM-Aktualisierung oder einer erneuten Bereitstellung zu vermeiden.  
+ - Für eine erfolgreiche Bereitstellung müssen die Azure Stack HCI-Clusterknoten und die virtuellen Kubernetes-Clustercomputer über externe Internetkonnektivität verfügen. 
 
  - Die DNS-Namensauflösung ist erforderlich, damit alle Knoten miteinander kommunizieren können. Verwenden Sie für die externe Namensauflösung von Kubernetes die DNS-Server, die vom DHCP-Server bereitgestellt werden, wenn die IP-Adresse abgerufen wird. Verwenden Sie für die interne Namensauflösung von Kubernetes die standardmäßige Core DNS-basierte Lösung von Kubernetes. 
- 
- - In dieser Vorschauversion ist für die gesamte Bereitstellung nur ein einzelnes VLAN verfügbar.
 
- - Diese Vorschauversion verfügt über eingeschränkte Proxyunterstützung für Kubernetes-Cluster, die über PowerShell erstellt wurden.
+ - In dieser Vorschauversion ist für die gesamte Bereitstellung nur ein einzelnes VLAN verfügbar. 
 
+ - Diese Vorschauversion verfügt über eingeschränkte Proxyunterstützung für Kubernetes-Cluster, die über PowerShell erstellt wurden. 
+  
 ### <a name="network-port-and-url-requirements"></a>Anforderungen an Netzwerkport und URL 
 
 Beim Erstellen eines Azure Kubernetes-Clusters in Azure Stack HCI werden die folgenden Firewallports auf jedem Server im Cluster automatisch geöffnet. 
 
 
-| Firewallport               | BESCHREIBUNG         | 
+| Firewallport               | Beschreibung         | 
 | ---------------------------- | ------------ | 
 | 45000           | wssdagent GPRC – Serverport           |
 | 45001             | wssdagent GPRC – Authentifizierungsport  | 
 | 55000           | wssdcloudagent GPRC – Serverport           |
-| 55001             | wssdcloudagent GPRC – Authentifizierungsport  | 
+| 65000             | wssdcloudagent GPRC – Authentifizierungsport  | 
+
 
 
 Firewall-URL-Ausnahmen sind für den Windows Admin Center-Computer und alle Knoten im Azure Stack HCI-Cluster erforderlich. 

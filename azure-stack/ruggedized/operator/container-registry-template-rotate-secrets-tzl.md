@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/8/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: ed1809d44f54ec65c60c5a1e17ca472ee401b5ba
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 60caf869fef5537aa6adc35bd2233a81a4fe749d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941120"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909819"
 ---
 # <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>Rotieren von Containerregistrierungsgeheimnissen in Azure Stack Hub
 
@@ -253,19 +253,19 @@ Befolgen Sie die nachstehenden Anweisungen, um neue Geheimnisse in Key Vault fes
 
 2.  Navigieren Sie zu der Ressourcengruppe, in der die Containerregistrierungsvorlagen-VM bereitgestellt wird.
 
-    ![Containerregistrierungsvorlage](./media/container-registry-template-rotating-secrets-tzl/image1.png)
+    ![Screenshot der Ressourcengruppe, in der die Containerregistrierungsvorlagen-VM bereitgestellt wird](./media/container-registry-template-rotating-secrets-tzl/image1.png)
 
 3. Wählen Sie unter **Bereitstellungen** die Bereitstellungen aus.
 
-    ![Containerregistrierungsvorlage](./media/container-registry-template-rotating-secrets-tzl/image2.png)
+    ![Screenshot, in dem eine auf der Seite „Bereitstellungen“ ausgewählte Bereitstellung angezeigt wird](./media/container-registry-template-rotating-secrets-tzl/image2.png)
 
 4.  Wenn Sie zum ersten Mal Geheimnisse rotieren, wählen Sie die ursprüngliche Bereitstellung aus. Wenn dies nicht die erste Geheimnisrotation ist, wählen Sie die neueste Bereitstellung aus, und klicken Sie dann auf **Erneut bereitstellen**.
 
-    ![Containerregistrierungsvorlage](./media/container-registry-template-rotating-secrets-tzl/image3.png)
+    ![Screenshot der Vorlagenseite „Übersicht“ mit hervorgehobener Aktion „Erneut bereitstellen“](./media/container-registry-template-rotating-secrets-tzl/image3.png)
 
 5.  Wählen Sie unter **Lösungsvorlage bereitstellen** bei „Ressourcengruppe“ die Option **Vorhandene verwenden** aus, und wählen Sie die Ressourcengruppe aus, die bei der ursprünglichen Bereitstellung der Containerregistrierungsvorlage verwendet wurde. Damit eine erneute Bereitstellung erfolgreich ist, muss sie dieselbe Ressourcengruppe verwenden.
 
-    ![Containerregistrierungsvorlage](./media/container-registry-template-rotating-secrets-tzl/image4.png)
+    ![Screenshot mit den Seiten „Lösungsvorlage bereitstellen“ und „Parameter“](./media/container-registry-template-rotating-secrets-tzl/image4.png)
 
 6.  Überprüfen Sie unter **Parameter**, ob die Parameter denen bei der ursprünglichen Bereitstellung entsprechen. Die Client-ID des Dienstprinzipals und das Dienstprinzipalgeheimnis müssen hinzugefügt werden.
 

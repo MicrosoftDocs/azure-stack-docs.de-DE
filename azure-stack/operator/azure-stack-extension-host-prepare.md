@@ -1,18 +1,18 @@
 ---
 title: Vorbereiten auf den Erweiterungshost in Azure Stack Hub
 description: Es wird beschrieben, wie Sie die Vorbereitung auf den Erweiterungshost in Azure Stack Hub durchführen, der mit einem Azure Stack Hub-Updatepaket nach Version 1808 automatisch aktiviert wird.
-author: IngridAtMicrosoft
-ms.author: inhenkel
+author: PatAltimore
+ms.author: patricka
 ms.date: 1/22/2020
 ms.topic: article
 ms.reviewer: thoroet
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 69c7d14bef07e3664299c7e78ed1e8bf555f19dd
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 43cb091b3076f26880599e35a770383182e944d0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699897"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870612"
 ---
 # <a name="prepare-for-extension-host-in-azure-stack-hub"></a>Vorbereiten auf den Erweiterungshost in Azure Stack Hub
 
@@ -26,8 +26,8 @@ Die Tabelle zeigt die neuen Namespaces und die zugehörigen Zertifikate:
 
 | Bereitstellungsordner | Erforderlicher Zertifikatantragsteller und alternative Antragstellernamen | Bereich (pro Region) | Namespace der Unterdomäne |
 |-----------------------|------------------------------------------------------------------|-----------------------|------------------------------|
-| Administrator-Erweiterungshost | *.adminhosting.\<Region>.\<FQDN> (SSL-Platzhalterzertifikate) | Administrator-Erweiterungshost | adminhosting.\<Region>.\<FQDN> |
-| Öffentlicher Erweiterungshost | *.hosting.\<Region>.\<FQDN> (SSL-Platzhalterzertifikate) | Öffentlicher Erweiterungshost | hosting.\<region>.\<fqdn> |
+| Administrator-Erweiterungshost | *.adminhosting.\<region>.\<fqdn> (SSL-Platzhalterzertifikate) | Administrator-Erweiterungshost | adminhosting.\<region>.\<fqdn> |
+| Öffentlicher Erweiterungshost | *.hosting.\<region>.\<fqdn> (SSL-Platzhalterzertifikate) | Öffentlicher Erweiterungshost | hosting.\<region>.\<fqdn> |
 
 Ausführlichere Informationen zu den Zertifikatanforderungen finden Sie unter [Azure Stack Hub-PKI-Zertifikatanforderungen](azure-stack-pki-certs.md).
 

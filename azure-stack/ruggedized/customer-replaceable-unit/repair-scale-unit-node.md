@@ -1,18 +1,18 @@
 ---
 title: Einschalten und Reparieren eines Skalierungseinheitknotens
 description: Hier erfahren Sie, wie Sie einen Skalierungseinheitknoten einschalten und reparieren.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 255a40bc2439ae1a6995d4ddf89df192d5e57551
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: d05c696f62aad4d9305137edab777d69b6442814
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97393019"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909921"
 ---
 # <a name="powering-on-and-repairing-a-scale-unit-node"></a>Einschalten und Reparieren eines Skalierungseinheitknotens
 
@@ -25,15 +25,15 @@ Sie müssen den Azure Stack Hub-Reparaturvorgang ausführen, um einen Skalierung
 
 1.  Wählen Sie im **Verwaltungsportal** den Knoten aus, und klicken Sie auf **Reparieren**.
 
-    ![](media/image-52.png)
+    ![Screenshot der Seite „Verwaltung – Knoten“, auf der ein Knoten und die Aktion „Reparieren“ ausgewählt sind](media/image-52.png)
 
 1.  Geben Sie die **BMC-IP-Adresse** an, die dem zu reparierenden Knoten entspricht, und klicken Sie auf **Reparieren**.
 
-    ![](media/image-53.png)
+    ![Screenshot der Seite „Verwaltung – Knoten“, auf der ein Knoten ausgewählt ist, die IP-Adresse hervorgehoben ist und das Dialogfeld „Repair node“ (Knoten reparieren) angezeigt wird](media/image-53.png)
 
 1.  Überwachen Sie den Fortschritt im Benachrichtigungsbereich:
 
-    ![](media/image-54.png)
+    ![Screenshot des Bereichs „Benachrichtigungen“, in dem angezeigt wird, dass das Reparieren des Knotens derzeit ausgeführt wird](media/image-54.png)
     
     
     > [!NOTE]

@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: ec2eebc7aa8195c0560beb8c61f0f98ce1689b07
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 3472cf330efb250f20eb66a5df50239a66293307
+ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011347"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97950704"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Wartungsvorgänge von SQL-Ressourcenanbietern
 
@@ -186,6 +186,14 @@ $session | Remove-PSSession
 ```
 
 ## <a name="collect-diagnostic-logs"></a>Erfassen von Diagnoseprotokollen
+
+::: moniker range=">= azs-2008"
+
+Azure Stack Hub bietet mehrere Methoden zum Erfasse, Speichern und Senden von Diagnoseprotokollen an den Microsoft-Support. Der SQL-Ressourcenanbieter unterstützt ab Version 1.1.93 das Standardverfahren zum Erfassen von Protokollen aus der Azure Stack Hub-Umgebung. Weitere Informationen finden Sie unter [Sammlung von Diagnoseprotokollen](diagnostic-log-collection.md).
+
+::: moniker-end
+
+Der SQL-Ressourcenanbieter unterstützt ab Version 1.1.93 das Standardverfahren zum Erfassen von Protokollen aus der Azure Stack Hub-Umgebung. Wenn Sie eine ältere Version verwenden, empfiehlt es sich, den SQL-Ressourcenanbieter auf die neueste Version zu aktualisieren.
 
 Zur Erfassung von Protokollen der gesperrten virtuellen Computer können Sie den Endpunkt *DBAdapterDiagnostics* mit PowerShell Just Enough Administration (JEA) verwenden. Dieser Endpunkt bietet die folgenden Befehle:
 

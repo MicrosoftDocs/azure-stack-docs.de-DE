@@ -1,6 +1,6 @@
 ---
-title: Aktivieren der Sicherung für Azure Stack über das Administratorportal | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie den Infrastructure Backup-Dienst über das Administratorportal aktivieren, sodass Azure Stack bei einem Fehler wiederhergestellt werden kann.
+title: Aktivieren der Sicherung für Azure Stack über das Administratorportal – MDC
+description: Erfahren Sie, wie Sie den Infrastructure Backup-Dienst über das Administratorportal aktivieren, sodass Azure Stack bei einem Fehler wiederhergestellt werden kann. Für Modular Data Center.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 12/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 3864183ecda856500db1fcbfe38df84d70f3bae9
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: db0980511b2272a6c92c1644401ce1d577ddcf8d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330224"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910941"
 ---
-# <a name="configure-backup-for-azure-stack-hub-from-the-administrator-portal"></a>Konfigurieren der Sicherung für Azure Stack Hub über das Administratorportal
+# <a name="configure-backup-for-azure-stack-hub-from-the-administrator-portal---modular-data-center-mdc"></a>Konfigurieren der Sicherung für Azure Stack Hub über das Administratorportal – Modular Data Center (MDC)
 
 *Anwendungsbereich: Modular Data Center, Azure Stack Hub Ruggedized*
 

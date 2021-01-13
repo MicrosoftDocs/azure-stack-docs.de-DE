@@ -15,14 +15,14 @@ ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 734c84c1226a9e1ed4a9f3e34b787f1677ab6902
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: a3d8fcc1c3ffa65539b233a8b89f55d57f61a5ef
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941116"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910617"
 ---
-# <a name="download-marketplace-items-to-azure-stack-hub"></a>Herunterladen von Marketplace-Elementen in Azure Stack Hub 
+# <a name="download-marketplace-items-to-azure-stack-hub-ruggedized"></a>Herunterladen von Marketplace-Elementen in Azure Stack Hub (Ruggedized)
 
 Als Cloudbetreiber können Sie Elemente aus dem Marketplace in Azure Stack Hub herunterladen und mithilfe der Azure Stack Hub-Umgebung für alle Benutzer verfügbar machen. Die zur Auswahl stehenden Optionen stammen aus einer speziell zusammengestellten Liste mit Azure Marketplace-Elementen, die vorab getestet wurden und für Azure Stack geeignet sind. Dieser Liste werden regelmäßig weitere Elemente hinzugefügt. Prüfen Sie daher, ob neue Inhalte verfügbar sind.
 
@@ -60,7 +60,7 @@ Ihre Azure Stack Hub-Bereitstellung muss über eine Internetverbindung verfügen
 
 4. Jede Position zeigt auch die derzeit verfügbare Version. Wenn mehrere Versionen eines Marketplace-Elements verfügbar sind, ist in der Spalte **Version** **Mehrere** angegeben. Sie können auf die einzelnen Elemente klicken, um eine Beschreibung und zusätzliche Informationen anzuzeigen, u. a. die Downloadgröße:
 
-   ![Hinzufügen aus Azure](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure1.png)
+   ![Screenshot der Seite „Add from Azure“ (Aus Azure hinzufügen) mit hervorgehobenem Eintrag „Mehrere“ in der Spalte „Version“](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure1.png)
 
 5. Wenn die Version eines Elements als **Mehrere** angegeben ist, können Sie das Element auswählen und in der daraufhin angezeigten Dropdownliste eine bestimmte Version wählen:
 

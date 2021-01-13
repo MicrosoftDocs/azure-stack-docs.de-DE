@@ -1,18 +1,18 @@
 ---
 title: Überprüfen des Zugriffs und der Integrität des Hardwarelebenszyklus-Hosts
 description: Hier erfahren Sie, wie Sie Zugriff und Integrität für den Hardwarelebenszyklushost überprüfen.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: b14bff53b8c8d5545a00424a543656a190c06bf3
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: d4dd073e3ec9ec47110df916517ef0f5e3273a3a
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392806"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910668"
 ---
 # <a name="verifying-hardware-lifecycle-host-access-and-health"></a>Überprüfen von Zugriff und Integrität für den Hardwarelebenszyklushost
 
@@ -22,15 +22,15 @@ Melden Sie sich beim Betriebssystem für iDRAC und Hardwarelebenszyklushost (HLH
 
     1.  Navigieren Sie mithilfe eines Webbrowsers zur iDRAC-Webschnittstelle, und melden Sie sich mit den vom Kunden bereitgestellten Anmeldeinformationen an.
 
-        ![](media/image-3.png) 
+        ![Screenshot der iDRAC-Anmeldeseite](media/image-3.png) 
     
     1.  Klicken Sie im oberen Navigationsmenü auf **System**.
 
-        ![](media/image-4.png)
+        ![Screenshot, in dem das Dashboard mit hervorgehobenem Menü „System“ dargestellt wird](media/image-4.png)
         
     1.  Überprüfen Sie auf der Registerkarte **Overview** (Übersicht), ob das System vollständig fehlerfrei ist oder ein erwartetes Problem anzeigt, das während dem Hardwareaustausch gelöst werden soll.
     
-        ![](media/image-5.png)
+        ![Screenshot der Seite „System“ mit hervorgehobenen Kacheln der Übersicht](media/image-5.png)
     
 2.  Stellen Sie mithilfe der virtuellen iDRAC-Konsole eine Verbindung zum HLH-Betriebssystem her.
 
@@ -39,35 +39,35 @@ Melden Sie sich beim Betriebssystem für iDRAC und Hardwarelebenszyklushost (HLH
     
     1.  Klicken Sie in der iDRAC-Webschnittstelle auf **Dashboard**.
 
-        ![](media/image-6.png)
+        ![Screenshot mit ausgewählter Schaltfläche „Dashboard“](media/image-6.png)
     
     1.  Klicken Sie im Bereich **Virtual Console** (Virtuelle Konsole) auf **Settings** (Einstellungen).
     
-        ![](media/image-7.png)
+        ![Screenshot mit ausgewählter Schaltfläche „Settings“ (Einstellungen)](media/image-7.png)
         
     1.  Überprüfen Sie, ob **Plug-in Type** (Plug-In-Typ) auf **HTML 5** festgelegt ist. Ist dies nicht der Fall, ändern Sie dies, klicken Sie auf **Apply** (Anwenden) und dann bei Aufforderung auf **OK**.
     
-        ![](media/image-8.png)
+        ![Screenshot der Seite „Konfiguration“. „Plug-in Type“ (Plug-In-Typ) ist auf „HTML 5“ festgelegt, und die Schaltfläche „Anwenden“ ist ausgewählt.](media/image-8.png)
         
     1.  Klicken Sie auf **Launch Virtual Console** (Virtuelle Konsole starten).
 
-        ![](media/image-9.png)
+        ![Screenshot der Seite „Configuration“ (Konfiguration) mit hervorgehobener Option „Launch Virtual Console“ (Virtuelle Konsole starten)](media/image-9.png)
     
     1.  Wenn eine Popupwarnung angezeigt wird, ändern Sie die Browsereinstellungen in „Always allow“ (Immer zulassen). Klicken Sie im Internet Explorer beispielsweise auf **Optionen für diese Site** und dann auf **Immer zulassen**. Wenn es erforderlich ist, wiederholen Sie den vorherigen Schritt nach der Änderung der Browsereinstellung, um die virtuelle Konsole zu starten.
     
-        ![](media/image-10.png)
+        ![Screenshot des Popups „Warning“ (Warnung)](media/image-10.png)
         
     1.  Die virtuelle Konsole sollte nun angezeigt werden. Klicken Sie im oberen Menü auf **Console Controls** (Konsolensteuerelemente), um sich beim Betriebssystem anzumelden.
     
-        ![](media/image-11.png)
+        ![Screenshot der virtuellen Konsole, auf der die Schaltfläche „Console Controls“ (Konsolensteuerelemente) ausgewählt ist](media/image-11.png)
         
     1.  Klicken Sie auf **Keyboard Macro** (Tastaturmakro), drücken Sie dann **STRG+ALT+ENTF**, und klicken Sie dann auf **Apply** (Anwenden) und dann auf **Close** (Schließen).
     
-        ![](media/image-12.png)
+        ![Screenshot des Bildschirms „Console Controls“ (Konsolensteuerelemente), in dem „Keyboard Macros“ (Tastaturmakros) und die Schaltfläche „Close“ (Schließen) hervorgehoben sind](media/image-12.png)
         
     1.  Wählen Sie basierend auf den vom Kunden bereitgestellten Anmeldeinformationen den **Benutzer** aus, geben Sie das Kennwort ein, und klicken Sie dann auf den **Pfeil**, um sich anzumelden.
     
-        ![](media/image-13.png)
+        ![Screenshot mit den eingegebenen Benutzeranmeldeinformationen](media/image-13.png)
         
         Sie sind nun beim HLH angemeldet.
         
@@ -75,14 +75,14 @@ Melden Sie sich beim Betriebssystem für iDRAC und Hardwarelebenszyklushost (HLH
 
     1.  Starten Sie den **Server-Manager**.
 
-        ![](media/image-14.png)
+        ![Screenshot mit ausgewählter Option „Server-Manager“](media/image-14.png)
         
     1.  Klicken Sie an der Eingabeaufforderung der **Benutzerkontensteuerung** auf **Ja**.
     
-        ![](media/image-15.png)
+        ![Screenshot der Eingabeaufforderung „Benutzerkontensteuerung“ mit ausgewählter Schaltfläche „Ja“](media/image-15.png)
         
     1.  Wählen Sie im Menü **Tools** (Extras) die Option **Hyper-V Manager** (Hyper-V-Manager).
     
-        ![](media/image-16.png)
+        ![Screenshot, in dem das Menü „Extras“ geöffnet und „Hyper-V-Manager“ ausgewählt ist](media/image-16.png)
         
     1.  Wählen Sie im **Hyper-V-Manager** im linken Menü den obersten Knoten aus, und überprüfen Sie dann, ob die VMs wie **Privileged Access Workstation** wenn vorhanden den Status **Wird ausgeführt** aufweisen.

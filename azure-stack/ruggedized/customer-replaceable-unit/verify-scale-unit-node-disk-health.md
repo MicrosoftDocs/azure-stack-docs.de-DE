@@ -1,18 +1,18 @@
 ---
 title: Überprüfen der Datenträgerintegrität des Skalierungseinheitknotens
 description: Hier erhalten Sie Informationen zum Überprüfen der Datenträgerintegrität von Skalierungseinheitknoten.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: bebff3ff8970a43d0893f057a94ec3dfbf0a7fc9
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 35deff6c48c02c1deda13bb3cd8dec87e54f52ef
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392714"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909870"
 ---
 # <a name="verifying-scale-unit-node-disk-health"></a>Überprüfen der Datenträgerintegrität des Skalierungseinheitknotens
 
@@ -28,7 +28,7 @@ ms.locfileid: "97392714"
 
         Wenn das System nicht **OK** für den **OperationalStatus** und **Healthy** (Fehlerfrei) für **HealthStatus** zurückgibt, warten Sie ein paar Minuten, und führen Sie den Befehl noch mal aus.
         
-        ![](media/image-57.png)
+        ![Screenshot, in dem Windows PowerShell mit hervorgehobenen Spalten „OperationsStatus“ und „HealthStatus“ gezeigt wird](media/image-57.png)
         
     1.  Führen Sie `Get-VirtualDisk -cimsession "S-Cluster" | Get-StorageJob` aus, um sicherzustellen, dass alle laufenden Speicheraufträge abgeschlossen sind.
     

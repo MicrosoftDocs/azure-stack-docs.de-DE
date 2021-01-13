@@ -1,6 +1,6 @@
 ---
-title: Sichern von Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie eine bedarfsgesteuerte Sicherung in Azure Stack durchführen.
+title: Sichern von Azure Stack – MDC | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie eine bedarfsgesteuerte Sicherung in Azure Stack Hub für Modular Data Center (MDC) durchführen.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 0455c96449d0547d94d8d904fe59f268145da3a8
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: f64b656b6a0a0d5310b6d6e2fbb8ff26d5206ad1
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330227"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910890"
 ---
-# <a name="back-up-azure-stack"></a>Sichern von Azure Stack
+# <a name="back-up-azure-stack---modular-data-center-mdc"></a>Sichern von Azure Stack – Modular Data Center (MDC)
 
 *Anwendungsbereich: Modular Data Center, Azure Stack Hub Ruggedized*
 
@@ -30,7 +30,7 @@ In diesem Artikel wird gezeigt, wie Sie eine bedarfsbasierte Sicherung für Azur
 
 ## <a name="start-backup"></a>Sicherung starten
 
-Sicherungen werden automatisch gemäß einem Zeitplan erstellt. Das Starten einer bedarfsbasierten Sicherung ist nur erforderlich, wenn eine Benachrichtigung angezeigt wird, die Sie dazu auffordert, eine manuelle Sicherung auszulösen. Klicken Sie auf **Jetzt sichern** , um eine bedarfsbasierte Sicherung zu starten. Eine bedarfsgesteuerte Sicherung ändert die Zeit für die nächste geplante Sicherung nicht. Nach Abschluss des Tasks können Sie die Einstellungen auf dem Blatt **Zusammenfassung** überprüfen:
+Sicherungen werden automatisch gemäß einem Zeitplan erstellt. Das Starten einer bedarfsbasierten Sicherung ist nur erforderlich, wenn eine Benachrichtigung angezeigt wird, die Sie dazu auffordert, eine manuelle Sicherung auszulösen. Klicken Sie auf **Jetzt sichern**, um eine bedarfsbasierte Sicherung zu starten. Eine bedarfsgesteuerte Sicherung ändert die Zeit für die nächste geplante Sicherung nicht. Nach Abschluss des Tasks können Sie die Einstellungen auf dem Blatt **Zusammenfassung** überprüfen:
 
 ![Sicherungseinstellungen](media/azure-stack-backup-back-up-azure-stack-tzl/on-demand-backup.png)
 
@@ -40,7 +40,7 @@ Sie können auch das PowerShell-Cmdlet **Start-AzsBackup** auf Ihrem Azure Stack
 
 ### <a name="start-a-new-backup-without-job-progress-tracking"></a>Starten einer neuen Sicherung ohne Nachverfolgung des Auftragsstatus
 
-Verwenden Sie **Start-AzSBackup** , um eine neue Sicherung sofort und ohne Nachverfolgung des Auftragsfortschritts zu starten.
+Verwenden Sie **Start-AzSBackup**, um eine neue Sicherung sofort und ohne Nachverfolgung des Auftragsfortschritts zu starten.
 
 ```powershell
 Start-AzsBackup -Force
@@ -48,7 +48,7 @@ Start-AzsBackup -Force
 
 ## <a name="start-azure-stack-backup-with-job-progress-tracking"></a>Starten der Azure Stack-Sicherung mit Nachverfolgung des Auftragsstatus
 
-Verwenden Sie **Start-AzSBackup** , um eine neue Sicherung mit dem Parameter **-AsJob** zu starten und diesen als Variable zu speichern, um den Fortschritt des Sicherungsauftrags nachzuverfolgen.
+Verwenden Sie **Start-AzSBackup**, um eine neue Sicherung mit dem Parameter **-AsJob** zu starten und diesen als Variable zu speichern, um den Fortschritt des Sicherungsauftrags nachzuverfolgen.
 
 > [!NOTE]
 > Ihr Sicherungsauftrag wird im Portal etwa 10 bis 15 Minuten vor Abschluss des Auftrags als erfolgreich abgeschlossen angezeigt.

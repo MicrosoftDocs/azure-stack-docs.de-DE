@@ -1,21 +1,21 @@
 ---
-title: Grundlagen zur Verwaltung von Azure Stack Hub
+title: Grundlagen zur Verwaltung von Azure Stack Hub – Ruggedized
 titleSuffix: Azure Stack Hub
 description: Lernen Sie die Grundlagen zur Verwaltung von Azure Stack Hub kennen.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 06/16/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: afbfbf5c1fe7149b4d12f1cd96af79b1116e4a3a
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: f94a8ba25c595ac231beda9e235245d25541f334
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941144"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909683"
 ---
-# <a name="azure-stack-hub-administration-basics"></a>Grundlagen zur Verwaltung von Azure Stack Hub
+# <a name="azure-stack-hub-administration-basics---ruggedized"></a>Grundlagen zur Verwaltung von Azure Stack Hub – Ruggedized
 
 Es gibt verschiedene Punkte, mit denen Sie sich vertraut machen müssen, falls Sie noch keine Erfahrung mit der Azure Stack Hub-Verwaltung haben. Dieser Artikel enthält einen Überblick über Ihre Rolle als Azure Stack Hub-Operator und Informationen, die Sie für Ihre Benutzer bereitstellen müssen, um sie beim Steigern der Produktivität zu unterstützen.
 

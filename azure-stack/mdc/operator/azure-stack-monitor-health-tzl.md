@@ -1,6 +1,6 @@
 ---
-title: Überwachen von Integrität und Warnungen in Azure Stack | Microsoft-Dokumentation
-description: Erfahren Sie, wie die Integrität und Warnungen in Azure Stack überwacht werden.
+title: Überwachen von Integrität und Warnungen in Azure Stack – MDC | Microsoft-Dokumentation
+description: Erfahren Sie, wie die Integrität und Warnungen in Azure Stack für Modular Data Center (MDC) überwacht werden.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 4a14700a081e8c85f29a7edc69c471ba9bd3d249
-ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
+ms.openlocfilehash: bdc027e8c61053fddddd5ad365eff8069acb840d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94885783"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910821"
 ---
-# <a name="monitor-health-and-alerts-in-azure-stack"></a>Überwachen von Integrität und Warnungen in Azure Stack
+# <a name="monitor-health-and-alerts-in-azure-stack---modular-data-center-mdc"></a>Überwachen von Integrität und Warnungen in Azure Stack – Modular Data Center (MDC)
 
 Azure Stack umfasst Funktionen zur Infrastrukturüberwachung, mit denen Sie Informationen zu Integrität und Warnungen für eine Azure Stack-Region anzeigen können. Auf der Kachel **Regionsverwaltungs** werden alle bereitgestellten Regionen von Azure Stack aufgelistet. Sie wird standardmäßig an das Administratorportal für das Standardabonnement des Anbieters geheftet. Auf der Kachel wird die Anzahl der aktiven Benachrichtigungen mit dem Schweregrad „Kritisch“ und „Warnung“ für jede Region angezeigt. Die Kachel ist der Einstiegspunkt in die Integritäts- und Warnfunktion von Azure Stack.
 

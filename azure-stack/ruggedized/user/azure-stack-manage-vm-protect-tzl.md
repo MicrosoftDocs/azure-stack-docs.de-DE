@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: 31e574a24660367cd1189ad95890e2fffaaa15f2
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: c57e421140dfea9eac949b5dcf97cc90745ab861
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941188"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910958"
 ---
-# <a name="protect-vms-deployed-on-azure-stack-hub"></a>Schutz von in Azure Stack Hub bereitgestellten VMsProtect VMs deployed on Azure Stack Hub
+# <a name="protect-vms-deployed-on-azure-stack-hub---ruggedized"></a>Schutz von in Azure Stack Hub bereitgestellten VMs – Ruggedized
 
 Verwenden Sie diesen Artikel als Leitfaden für die Entwicklung eines Plans zum Schützen von VMs (virtuellen Computern), die Ihre Benutzer unter Azure Stack Hub bereitstellen.
 

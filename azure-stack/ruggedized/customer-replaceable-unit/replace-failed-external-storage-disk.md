@@ -1,18 +1,18 @@
 ---
 title: Austauschen fehlerhafter externer Speicherdatenträger
 description: Hier erhalten Sie Informationen zum Austauschen fehlerhafter externer Speicherdatenträger.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 46320af2b4eeb6eddbca92a6749550eed05f6627
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: e53d81e7606c6440ce535726199af31a1dbfd950
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392722"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910651"
 ---
 # <a name="replacing-a-failed-external-storage-disk"></a>Austauschen fehlerhafter externer Speicherdatenträger
 
@@ -69,11 +69,11 @@ Verwenden Sie die folgende Prozedur, um einen fehlerhaften externen Datenträger
 
     1.  Klicken Sie im oberen Menü auf **Storage** (Speicher):
 
-        ![](media/image-30.png)
+        ![Screenshot der iDRAC-Seite mit ausgewählter Option „Storage“ (Speicher)](media/image-30.png)
     
     1.  Suchen Sie nach dem ersetzten Datenträger, und erweitern Sie das Element. Vergleichen Sie die **Revision** des Datenträgers mit der Revision in der Unterstützungsmatrix. Wenn sich der Datenträger nicht in der Unterstützungsmatrix befindet, fordern Sie Unterstützung an, um das Problem zu lösen.
 
-        ![](media/image-31.png)
+        ![Screenshot der iDRAC-Seite „Advanced Properties“ (Erweiterte Eigenschaften) mit hervorgehobenen Optionen „Manufacturer“ (Hersteller), „Product ID“ (Produkt-ID) und „Revision“](media/image-31.png)
         
 ## <a name="next-steps"></a>Nächste Schritte
 

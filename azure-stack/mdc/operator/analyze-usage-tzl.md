@@ -1,6 +1,6 @@
 ---
-title: Analysieren der Azure Stack-Nutzung und der Ressourcennutzungs-API | Microsoft-Dokumentation
-description: Analysieren der Azure Stack-Nutzung und Referenz für die Ressourcennutzungs-API, die Azure Stack-Nutzungsinformationen abruft
+title: Analysieren der Azure Stack-Nutzung und der Ressourcennutzungs-API – MDC
+description: Analysieren der Azure Stack-Nutzung und Referenz für die Ressourcennutzungs-API, die Azure Stack-Nutzungsinformationen abruft Für Modular Data Center (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 9e7bb8b8174423a21c4f08e09cdb10d2a37bf556
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: efbbfbb76215cdd3322c57ca0c5def8575f5f023
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935065"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910907"
 ---
-# <a name="analyze-azure-stack-usage-with-local-usage-meters"></a>Analysieren der Azure Stack-Nutzung mit lokalen Verbrauchseinheiten
+# <a name="analyze-azure-stack-usage-with-local-usage-meters---modular-data-center-mdc"></a>Analysieren der Azure Stack-Nutzung mit lokalen Verbrauchseinheiten – Modular Data Center (MDC)
 
 Informationen darüber, welche Abonnements welche Ressourcen nutzen, sind in einer lokalen Verwendungsdatenbank gespeichert. Administratoren können diese Daten abrufen, um zu analysieren, welche Benutzer Ressourcen verwenden.
 
