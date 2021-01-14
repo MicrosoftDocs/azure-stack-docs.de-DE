@@ -7,12 +7,12 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: f222334bcc6535b82b105494d907c8a69a463073
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: b1aae77d4247c80ace7a94e2b034f29f10220b55
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573767"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974029"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>Bewährte SQL Server-Methoden zum Optimieren der Leistung in Azure Stack Hub
 
@@ -123,14 +123,14 @@ Es empfiehlt sich, TempDB auf einem Datenträger für Daten zu speichern, da jed
 
 ## <a name="io-guidance"></a>E/A-Leitfaden
 
-- Erwägen Sie die Aktivierung der sofortigen Dateiinitialisierung, um die für die anfängliche Dateizuordnung erforderliche Zeit zu verringern. Um die sofortige Dateiinitialisierung nutzen zu können, gewähren Sie dem SQL Server-Dienstkonto (MSSQLSERVER) die Berechtigung **SE_MANAGE_VOLUME_NAME**, und fügen Sie sie der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzu. Wenn Sie ein SQL Server-Plattformimage für Azure verwenden, wird das Standarddienstkonto (**NT Service\MSSQLSERVER**) nicht der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzugefügt. Anders ausgedrückt: Die sofortige Dateiinitialisierung wird in einem SQL Server-Azure-Plattformimage nicht aktiviert. Starten Sie den SQL Server-Dienst neu, nachdem Sie das SQL Server-Dienstkonto der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzugefügt haben. Möglicherweise sind bei Verwendung dieses Features bestimmte Sicherheitsaspekte zu berücksichtigen. Weitere Informationen finden Sie unter [Datenbankdatei-Initialisierung](/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver15).
+- Erwägen Sie die Aktivierung der sofortigen Dateiinitialisierung, um die für die anfängliche Dateizuordnung erforderliche Zeit zu verringern. Um die sofortige Dateiinitialisierung nutzen zu können, gewähren Sie dem SQL Server-Dienstkonto (MSSQLSERVER) die Berechtigung **SE_MANAGE_VOLUME_NAME**, und fügen Sie sie der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzu. Wenn Sie ein SQL Server-Plattformimage für Azure verwenden, wird das Standarddienstkonto (**NT Service\MSSQLSERVER**) nicht der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzugefügt. Anders ausgedrückt: Die sofortige Dateiinitialisierung wird in einem SQL Server-Azure-Plattformimage nicht aktiviert. Starten Sie den SQL Server-Dienst neu, nachdem Sie das SQL Server-Dienstkonto der Sicherheitsrichtlinie **Durchführen von Volumewartungsaufgaben** hinzugefügt haben. Möglicherweise sind bei Verwendung dieses Features bestimmte Sicherheitsaspekte zu berücksichtigen. Weitere Informationen finden Sie unter [Datenbankdatei-Initialisierung](/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver15&preserve-view=true).
 - **Automatische Vergrößerung** ist eine Behelfslösung für unerwartetes Wachstum. Führen Sie die tägliche Verwaltung Ihres Daten- und Protokolldateiwachstums nicht mit automatischer Vergrößerung durch. Wenn die automatische Vergrößerung verwendet wird, vergrößern Sie die Datei vorab mit dem Switch **Größe**.
 - Stellen Sie sicher, dass **Automatische Verkleinerung** deaktiviert ist, um unnötigen Mehraufwand zu vermeiden, der sich negativ auf die Leistung auswirken kann.
-- Richten Sie standardmäßige Dateispeicherorte für Sicherungen und Datenbanken ein. Verwenden Sie die Empfehlungen in diesem Artikel, und nehmen Sie die Änderungen im Fenster mit den Servereigenschaften vor. Eine Anleitung finden Sie unter [Anzeigen oder Ändern der Standardspeicherorte für Daten- und Protokolldateien (SQL Server Management Studio)](/sql/database-engine/configure-windows/view-or-change-the-default-locations-for-data-and-log-files?view=sql-server-ver15). Der folgende Screenshot zeigt, wo diese Änderungen vorgenommen werden:
+- Richten Sie standardmäßige Dateispeicherorte für Sicherungen und Datenbanken ein. Verwenden Sie die Empfehlungen in diesem Artikel, und nehmen Sie die Änderungen im Fenster mit den Servereigenschaften vor. Eine Anleitung finden Sie unter [Anzeigen oder Ändern der Standardspeicherorte für Daten- und Protokolldateien (SQL Server Management Studio)](/sql/database-engine/configure-windows/view-or-change-the-default-locations-for-data-and-log-files?view=sql-server-ver15&preserve-view=true). Der folgende Screenshot zeigt, wo diese Änderungen vorgenommen werden:
 
     > ![Anzeigen oder Ändern der Standardspeicherorte](./media/sql-server-vm-considerations/image1.png)
 
-- Aktivieren Sie gesperrte Seiten, um E/A- und Auslagerungsaktivitäten zu verringern. Weitere Informationen finden Sie unter [Aktivieren der Option zum Sperren von Seiten im Speicher (Windows)](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-ver15).
+- Aktivieren Sie gesperrte Seiten, um E/A- und Auslagerungsaktivitäten zu verringern. Weitere Informationen finden Sie unter [Aktivieren der Option zum Sperren von Seiten im Speicher (Windows)](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-ver15&preserve-view=true).
 
 - Es kann auch sinnvoll sein, alle Datendateien (einschließlich Sicherungen) beim Übertragen in bzw. aus Azure Stack Hub zu komprimieren.
 
@@ -140,7 +140,7 @@ Für manche Bereitstellungen können durch Verwendung erweiterter Konfigurations
 
 - **Sicherung im Azure Stack-Speicher** **.** Wenn Sie Sicherungen für eine auf Azure Stack Hub-VMs ausgeführte SQL Server-Instanz erstellen, können Sie die SQL Server-Sicherung über URLs verwenden. Dieses Feature steht ab SQL Server 2012 SP1 CU2 zur Verfügung und wird für Sicherungen auf die angefügten Datenträgern für Daten empfohlen.
 
-    Befolgen Sie beim Sichern oder Wiederherstellen mithilfe von Azure Storage die Empfehlungen unter [SQL Server-URL-Sicherung – bewährte Methoden und Problembehandlung](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting?view=sql-server-ver15) und [Wiederherstellen von in Microsoft Azure gespeicherten Sicherungen](/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). Darüber hinaus können Sie diese Sicherungen automatisieren, indem Sie die Informationen unter [Automatisierte Sicherung für SQL Server 2014-VMs (Resource Manager)](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup) verwenden.
+    Befolgen Sie beim Sichern oder Wiederherstellen mithilfe von Azure Storage die Empfehlungen unter [SQL Server-URL-Sicherung – bewährte Methoden und Problembehandlung](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting?view=sql-server-ver15&preserve-view=true) und [Wiederherstellen von in Microsoft Azure gespeicherten Sicherungen](/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017&preserve-view=true). Darüber hinaus können Sie diese Sicherungen automatisieren, indem Sie die Informationen unter [Automatisierte Sicherung für SQL Server 2014-VMs (Resource Manager)](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup) verwenden.
 
 -   **Sicherung im Azure Stack Hub-Speicher.** Sie können Sicherungen im Azure Stack Hub-Speicher auf ähnliche Weise durchführen wie Sicherungen in Azure Storage. Wenn Sie eine Sicherung in SQL Server Management Studio (SSMS) erstellen, müssen Sie die Konfigurationsinformationen manuell eingeben. SSMS kann nicht verwendet werden, um den Speichercontainer oder die Shared Access Signature zu erstellen. Mit SSMS kann nur eine Verbindung mit Azure-Abonnements, jedoch nicht mit Azure Stack Hub-Abonnements hergestellt werden. Stattdessen müssen Sie das Speicherkonto, den Container und die Shared Access Signature im Azure Stack Hub-Portal oder über PowerShell erstellen.
 

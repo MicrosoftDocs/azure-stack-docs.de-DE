@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: e9f6c41097085a0342b2c0a2fc5b5b995c2d9186
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 0d5b48c04e546d3b8776f436e5562786b8e77f33
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96524791"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974131"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Sichern Ihres virtuellen Computers in Azure Stack Hub mit Commvault
 
@@ -111,12 +111,12 @@ Sie müssen wissen, ob Azure AD oder ADFS als Identity Manager festgelegt ist. 
 
 | Element | BESCHREIBUNG | `Source` |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Resource Manager-URL | Der Resource Manager-Endpunkt von Azure Stack Hub. | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1908#the-azure-stack-hub-resource-manager-endpoint |
+| Azure Resource Manager-URL | Der Resource Manager-Endpunkt von Azure Stack Hub. | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-hub-resource-manager-endpoint |
 | Anwendungsname |  |  |
-| Anwendungs-ID | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
-| Abonnement-ID | Sie verwenden die Abonnement-ID, um in Azure Stack Hub auf Angebote zuzugreifen. | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview?view=azs-1908#subscriptions |
-| Mandanten-ID (Verzeichnis-ID) | Ihre Mandanten-ID für Azure Stack Hub. | https://docs.microsoft.com/azure-stack/operator/azure-stack-identity-overview?view=azs-1908 |
-| Anwendungskennwort | Das App-Geheimnis des Dienstprinzipals, das bei der Erstellung des Dienstprinzipals gespeichert wurde. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
+| Anwendungs-ID | Die Anwendungs-ID des Dienstprinzipals, die beim Erstellen des Dienstprinzipals im vorherigen Abschnitt dieses Artikels gespeichert wurde. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals |
+| Abonnement-ID | Sie verwenden die Abonnement-ID, um in Azure Stack Hub auf Angebote zuzugreifen. | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions |
+| Mandanten-ID (Verzeichnis-ID) | Ihre Mandanten-ID für Azure Stack Hub. | https://docs.microsoft.com/azure-stack/operator/azure-stack-identity-overview |
+| Anwendungskennwort | Das App-Geheimnis des Dienstprinzipals, das bei der Erstellung des Dienstprinzipals gespeichert wurde. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals |
 
 ## <a name="configure-backup-using-the-commvault-console"></a>Konfigurieren der Sicherung über die Commvault-Konsole
 

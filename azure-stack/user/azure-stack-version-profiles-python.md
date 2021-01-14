@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 676cd4fe93a464df0cd0a4cddeb3e12ddee1f229
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 1359ce67220040a326251802b35ad72ec526d09e
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96526032"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973978"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Verwenden von API-Versionsprofilen mit Python in Azure Stack Hub
 
@@ -38,7 +38,7 @@ Das Python SDK unterstützt die folgenden API-Profile:
 ## <a name="install-the-azure-python-sdk"></a>Installieren des Azure Python SDK
 
 1. [Git installieren](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-2. Eine Anleitung zum Installieren des Python SDK finden Sie unter [Azure für Python-Entwickler](/python/azure/python-sdk-azure-install?view=azure-python).
+2. Eine Anleitung zum Installieren des Python SDK finden Sie unter [Azure für Python-Entwickler](/python/azure/python-sdk-azure-install?view=azure-python&preserve-view=true).
 3. Erstellen Sie ein Abonnement, wenn keins verfügbar ist, und speichern Sie die Abonnement-ID zur späteren Verwendung. Anweisungen zum Erstellen eines Abonnements finden Sie unter [Erstellen von Abonnements für Angebote in Azure Stack Hub](../operator/azure-stack-subscribe-plan-provision-vm.md).
 4. Erstellen Sie einen Dienstprinzipal, und speichern Sie die ID und das Geheimnis. Eine Anleitung zum Erstellen eines Dienstprinzipals für Azure Stack Hub finden Sie unter [Bereitstellen des Anwendungszugriffs auf Azure Stack Hub](../operator/azure-stack-create-service-principals.md).
 5. Stellen Sie sicher, dass Ihr Dienstprinzipal über die Rolle „Mitwirkender“ bzw. „Besitzer“ für Ihr Abonnement verfügt. Eine Anleitung zum Zuweisen einer Rolle zum Dienstprinzipal finden Sie unter [Bereitstellen des Anwendungszugriffs auf Azure Stack Hub](../operator/azure-stack-create-service-principals.md).

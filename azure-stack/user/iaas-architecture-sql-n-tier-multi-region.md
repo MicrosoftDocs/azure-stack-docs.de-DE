@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: df65f32abdc7c643c953f176ae8a4fd0b47309f5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6978e6c86df577fc3d0446a8ecc8ce13a57781b7
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873740"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973576"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>Ausführen einer n-schichtigen Anwendung in mehreren Azure Stack Hub-Regionen für Hochverfügbarkeit
 
@@ -35,9 +35,9 @@ Diese Architektur basiert auf der Architektur aus [N-schichtige Anwendung mit SQ
 
 -   **Virtuelle Netzwerke**. Erstellen Sie für jede Region ein separates virtuelles Netzwerk. Stellen Sie sicher, dass sich die Adressräume nicht überschneiden.
 
--   **SQL Server Always On-Verfügbarkeitsgruppe**. Bei Verwendung von SQL Server werden [SQL Always On-Verfügbarkeitsgruppen](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15) empfohlen, um Hochverfügbarkeit zu erzielen. Erstellen Sie eine einzelne Verfügbarkeitsgruppe, die SQL Server-Instanzen in beiden Regionen enthält.
+-   **SQL Server Always On-Verfügbarkeitsgruppe**. Bei Verwendung von SQL Server werden [SQL Always On-Verfügbarkeitsgruppen](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true) empfohlen, um Hochverfügbarkeit zu erzielen. Erstellen Sie eine einzelne Verfügbarkeitsgruppe, die SQL Server-Instanzen in beiden Regionen enthält.
 
--   **VNET-zu-VNET-VPN-Verbindung**. Da VNET-Peering noch nicht für Azure Stack Hub verfügbar ist, verwenden Sie eine VNET-zu-VNET-VPN-Verbindung, um die beiden VNETs zu verbinden. Weitere Informationen finden Sie unter [Gewusst wie: Verbinden von zwei VNETs per Peering](./azure-stack-network-howto-vnet-to-vnet.md?view=azs-1908).
+-   **VNET-zu-VNET-VPN-Verbindung**. Da VNET-Peering noch nicht für Azure Stack Hub verfügbar ist, verwenden Sie eine VNET-zu-VNET-VPN-Verbindung, um die beiden VNETs zu verbinden. Weitere Informationen finden Sie unter [Gewusst wie: Verbinden von zwei VNETs per Peering](./azure-stack-network-howto-vnet-to-vnet.md).
 
 ## <a name="recommendations"></a>Empfehlungen
 
@@ -113,7 +113,7 @@ So konfigurieren Sie die Verfügbarkeitsgruppe:
     az network vnet update --resource-group <resource-group> --name <vnet-name> --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4,172.16.0.6"
     ```
 
--   Erstellen Sie einen [Windows Server-Failovercluster](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15) (WSFC), der die SQL Server-Instanzen in beiden Regionen enthält.
+-   Erstellen Sie einen [Windows Server-Failovercluster](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15&preserve-view=true) (WSFC), der die SQL Server-Instanzen in beiden Regionen enthält.
 
 -   Erstellen Sie eine SQL Server Always On-Verfügbarkeitsgruppe, die SQL Server-Instanzen sowohl in der primären als auch der sekundären Region enthält. Die Schritte finden Sie unter [Erweitern der Always On-Verfügbarkeitsgruppe auf ein Azure-Remoterechenzentrum (PowerShell)](https://techcommunity.microsoft.com/t5/DataCAT/Extending-AlwaysOn-Availability-Group-to-Remote-Azure-Datacenter/ba-p/305217).
 
@@ -134,10 +134,10 @@ Traffic Manager ist eine mögliche Schwachstelle im System. Wenn beim Traffic Ma
 
 Für den SQL Server-Cluster sind zwei Failoverszenarien zu berücksichtigen:
 
--   Bei allen SQL Server-Datenbankreplikaten in der primären Region treten Fehler auf. Dies kann z. B. während eines regionalen Ausfalls vorkommen. In diesem Fall müssen Sie für die Verfügbarkeitsgruppe ein manuelles Failover ausführen, obwohl Traffic Manager automatisch ein Failover auf dem Front-End ausführt. Führen Sie die Schritte unter [Ausführen eines erzwungenen manuellen Failovers einer SQL Server-Verfügbarkeitsgruppe](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15) aus, in denen beschrieben ist, wie ein erzwungenes Failover mithilfe von SQL Server Management Studio, Transact-SQL oder PowerShell in SQL Server 2016 ausgeführt wird.
+-   Bei allen SQL Server-Datenbankreplikaten in der primären Region treten Fehler auf. Dies kann z. B. während eines regionalen Ausfalls vorkommen. In diesem Fall müssen Sie für die Verfügbarkeitsgruppe ein manuelles Failover ausführen, obwohl Traffic Manager automatisch ein Failover auf dem Front-End ausführt. Führen Sie die Schritte unter [Ausführen eines erzwungenen manuellen Failovers einer SQL Server-Verfügbarkeitsgruppe](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15&preserve-view=true) aus, in denen beschrieben ist, wie ein erzwungenes Failover mithilfe von SQL Server Management Studio, Transact-SQL oder PowerShell in SQL Server 2016 ausgeführt wird.
 
     > [!Warning]  
-    > Bei einem erzwungenem Failover besteht das Risiko eines Datenverlusts. Sobald die primäre Region wieder online ist, erstellen Sie eine Momentaufnahme der Datenbank, und verwenden Sie [tablediff](/sql/tools/tablediff-utility?view=sql-server-ver15), um die Unterschiede zu ermitteln.
+    > Bei einem erzwungenem Failover besteht das Risiko eines Datenverlusts. Sobald die primäre Region wieder online ist, erstellen Sie eine Momentaufnahme der Datenbank, und verwenden Sie [tablediff](/sql/tools/tablediff-utility?view=sql-server-ver15&preserve-view=true), um die Unterschiede zu ermitteln.
 
 -   Traffic Manager führt ein Failover zur sekundären Region aus, doch ist das primäre SQL Server-Datenbankreplikat weiterhin verfügbar. So kann beispielsweise die Front-End-Ebene fehlgeschlagen, ohne dass dies Auswirkungen auf die virtuellen SQL Server-Computer hat. In diesem Fall wird der Internetdatenverkehr an die sekundäre Region weitergeleitet, und diese Region kann immer noch eine Verbindung mit dem primären Replikat herstellen. Es kommt jedoch zu erhöhter Latenz, da die SQL Server-Verbindungen regionsübergreifend verlaufen. In dieser Situation sollten Sie auf folgende Weise ein manuelles Failover ausführen:
 

@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: a1307ca10a2655e166b41d43da4ac83cbe601dc5
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: 2e3c25e282a84a0e41d6c69d0af6e2f352bbfba5
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620720"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974012"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Installieren der Azure CLI in Azure Stack Hub
 
@@ -99,7 +99,7 @@ In diesem Abschnitt wird die Einrichtung der CLI Schritt für Schritt beschriebe
 
    - Melden Sie sich als *Dienstprinzipal* an: 
     
-        [Erstellen Sie einen Dienstprinzipal über das Azure-Portal](../operator/azure-stack-create-service-principals.md?view=azs-2002) oder die CLI, und weisen Sie ihm eine Rolle zu, bevor Sie sich anmelden. Melden Sie sich anschließend mit dem folgenden Befehl an:
+        [Erstellen Sie einen Dienstprinzipal über das Azure-Portal](../operator/azure-stack-create-service-principals.md) oder die CLI, und weisen Sie ihm eine Rolle zu, bevor Sie sich anmelden. Melden Sie sich anschließend mit dem folgenden Befehl an:
     
         ```azurecli  
         az login `
@@ -282,7 +282,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung mit Azure Stack Hub h
    
    * Anmelden als *Dienstprinzipal*:
     
-     [Erstellen Sie einen Dienstprinzipal über das Azure-Portal](../operator/azure-stack-create-service-principals.md?view=azs-2002) oder die CLI, und weisen Sie ihm eine Rolle zu, bevor Sie sich anmelden. Melden Sie sich anschließend mit dem folgenden Befehl an:
+     [Erstellen Sie einen Dienstprinzipal über das Azure-Portal](../operator/azure-stack-create-service-principals.md) oder die CLI, und weisen Sie ihm eine Rolle zu, bevor Sie sich anmelden. Melden Sie sich anschließend mit dem folgenden Befehl an:
 
      ```azurecli  
      az login \

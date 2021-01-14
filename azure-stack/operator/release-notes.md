@@ -7,12 +7,12 @@ ms.date: 12/23/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: b2b72ce306d9a3801d7208a748e1bdb3720947ea
-ms.sourcegitcommit: 37e83d0b593d2d61156f4ffd4f8e1afd5f558465
+ms.openlocfilehash: 3c10ea13f3780a7c7e1e0f999d8203d4d03f4e49
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97766596"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974148"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -271,7 +271,7 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 - Neue Azure PowerShell-Mandantenmodule werden am 15. April 2020 für Azure Stack Hub veröffentlicht. Die derzeit verwendeten Azure RM-Module funktionieren weiterhin, werden aber nach Build 2002 nicht mehr aktualisiert.
 - Im Azure Stack Hub-Administratorportal wurde eine neue Warnung hinzugefügt, um Konnektivitätsprobleme mit dem konfigurierten Syslog-Server zu melden. Der Titel der Warnung lautet **The Syslog client encountered a networking issue while sending a Syslog message** (Der Syslog-Client hat beim Senden einer Syslog-Nachricht ein Netzwerkproblem erkannt).
 - Im Azure Stack Hub-Administratorportal wurde eine neue Warnung hinzugefügt, um Konnektivitätsprobleme mit dem NTP-Server (Network Time Protocol) zu melden. Der Titel der Warnung lautet **Invalid Time Source on [node name]** (Ungültige Zeitquelle auf [Knotenname]).
-- Für das [Java-SDK](https://azure.microsoft.com/develop/java/) wurden aufgrund einer grundlegenden Änderung in Update 2002 in Bezug auf TLS-Einschränkungen neue Pakete veröffentlicht. Sie müssen die neue Java-SDK-Abhängigkeit installieren. Sie finden die Anleitung unter [Java und API-Versionsprofile](../user/azure-stack-version-profiles-java.md?view=azs-2002#java-and-api-version-profiles).
+- Für das [Java-SDK](https://azure.microsoft.com/develop/java/) wurden aufgrund einer grundlegenden Änderung in Update 2002 in Bezug auf TLS-Einschränkungen neue Pakete veröffentlicht. Sie müssen die neue Java-SDK-Abhängigkeit installieren. Sie finden die Anleitung unter [Java und API-Versionsprofile](../user/azure-stack-version-profiles-java.md?view=azs-2002&preserve-view=true#java-and-api-version-profiles).
 - Eine neue Version (1.0.5.10) von System Center Operations Manager – Azure Stack Hub MP ist verfügbar und ist aufgrund von grundlegenden API-Änderungen für alle Systeme erforderlich, auf denen 2002 ausgeführt wird. Die API-Änderungen wirken sich auf die Dashboards zur Sicherungs- und Speicherleistung aus. Wir empfehlen Ihnen, zuerst alle Systeme auf 2002 zu aktualisieren, bevor Sie das MP-Update durchführen.
 
 ### <a name="improvements"></a>Verbesserungen
@@ -282,8 +282,8 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 - Mit dem Azure Stack Hub Readiness Checker-Tool wird jetzt die AD Graph-Integration überprüft, indem alle TCP/IP-Ports verwendet werden, die AD Graph zugeordnet sind.
 - Für das Offlinesyndikationstool wurden Verbesserungen in Bezug auf die Zuverlässigkeit durchgeführt. Das Tool ist nicht mehr auf GitHub verfügbar und wurde [in den PowerShell-Katalog verschoben](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/). Weitere Informationen finden Sie unter [Herunterladen von Marketplace-Elementen in Azure Stack Hub](azure-stack-download-azure-marketplace-item.md).
 - Eine neue Überwachungsfunktion wird eingeführt. Die Warnung bei wenig freiem Speicherplatz für physische Hosts und Infrastruktur-VMs wird von der Plattform automatisch bereinigt. Nur wenn bei dieser Aktion ein Fehler auftritt, wird die Warnung im Azure Stack Hub-Administratorportal angezeigt, damit der Operator entsprechende Maßnahmen ergreifen kann.
-- Verbesserungen in Bezug auf die [Erfassung von Diagnoseprotokollen](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002). Mit der neuen Umgebung wird die Erfassung von Diagnoseprotokollen optimiert und vereinfacht, indem die Anforderung zum Vorabkonfigurieren eines Blobspeicherkontos beseitigt wird. Die Speicherumgebung ist so vorkonfiguriert, dass Sie vor dem Erstellen einer Supportanfrage Protokolle senden können und so weniger Zeit für einen Anruf beim Support verloren geht.
-- Die Zeit für die [proaktive und bedarfsabhängige Sammlung von Protokollen](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002) konnte jeweils um 80 % reduziert werden. Die Protokollerfassung kann länger als erwartet dauern, aber von Azure Stack Hub-Operators muss keine Aktion durchgeführt werden, sofern die Protokollerfassung nicht fehlschlägt.
+- Verbesserungen in Bezug auf die [Erfassung von Diagnoseprotokollen](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002&preserve-view=true). Mit der neuen Umgebung wird die Erfassung von Diagnoseprotokollen optimiert und vereinfacht, indem die Anforderung zum Vorabkonfigurieren eines Blobspeicherkontos beseitigt wird. Die Speicherumgebung ist so vorkonfiguriert, dass Sie vor dem Erstellen einer Supportanfrage Protokolle senden können und so weniger Zeit für einen Anruf beim Support verloren geht.
+- Die Zeit für die [proaktive und bedarfsabhängige Sammlung von Protokollen](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002&preserve-view=true) konnte jeweils um 80 % reduziert werden. Die Protokollerfassung kann länger als erwartet dauern, aber von Azure Stack Hub-Operators muss keine Aktion durchgeführt werden, sofern die Protokollerfassung nicht fehlschlägt.
 - Der Downloadstatus eines Azure Stack Hub-Updatepakets wird jetzt auf dem Updateblatt angezeigt, nachdem ein Update initiiert wurde. Dies gilt nur für verbundene Azure Stack Hub-Systeme, bei denen [Updatepakete per automatischem Download vorbereitet werden](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages).
 - Verbesserungen in Bezug auf die Zuverlässigkeit für den Netzwerkcontroller-Host-Agent.
 - Es wurde ein neuer Microservice mit dem Namen DNS Orchestrator eingeführt, mit dem die Resilienzlogik für die internen DNS-Dienste bei Patch- und Updatevorgängen verbessert wird.

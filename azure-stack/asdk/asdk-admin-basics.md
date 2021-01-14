@@ -7,12 +7,12 @@ ms.date: 02/19/2019
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 1f2830fa931f1ec02986fe45715e2fafed1a2aa0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 205df69311e2543f245af7bdb8c8ddd98f2511be
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873638"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973349"
 ---
 # <a name="asdk-admin-basics"></a>Grundlagen der ASDK-Verwaltung
 Wenn Sie mit der Verwaltung des Azure Stack Development Kits (ASDK) noch nicht vertraut sind, gibt es verschiedene Aspekte, die Sie kennen müssen. Dieser Leitfaden bietet eine Übersicht über Ihre Rolle als Azure Stack-Operator in der Evaluierungsumgebung. Wenn Sie sich mit diesen Informationen vertraut machen, stellen Sie sicher, dass Ihre Testbenutzer schnell produktiv arbeiten können.
@@ -38,7 +38,7 @@ Für die Verwaltung von Azure Stack können Sie das Azure Stack-Administratorpor
 Azure Stack verwendet den Azure Resource Manager als zugrunde liegenden Mechanismus für die Bereitstellung, Verwaltung und Organisation. Wenn Sie Azure Stack verwalten und Support für Benutzer bereitstellen werden, sollten Sie sich mit dem Azure Resource Manager vertraut machen. Weitere Informationen finden Sie im Whitepaper [Erste Schritte mit dem Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
 
 ## <a name="your-typical-responsibilities"></a>Typische Aufgaben
-Ihre Benutzer möchten Dienste nutzen. Aus ihrer Sicht besteht Ihre Hauptrolle darin, ihnen diese Dienste zur Verfügung zu stellen. Mit dem ASDK finden Sie heraus, welche Dienste Sie anbieten sollten und wie Sie diese Dienste durch die [Erstellung von Plänen, Angeboten und Kontingenten](../operator/tutorial-offer-services.md?view=azs-2002) zur Verfügung stellen. Zudem müssen Sie dem Marketplace Elemente hinzufügen, z. B. Images für virtuelle Computer (VMs). Die einfachste Möglichkeit besteht darin, [Marketplace-Elemente](../operator/azure-stack-create-and-publish-marketplace-item.md) von Azure in Azure Stack herunterzuladen.
+Ihre Benutzer möchten Dienste nutzen. Aus ihrer Sicht besteht Ihre Hauptrolle darin, ihnen diese Dienste zur Verfügung zu stellen. Mit dem ASDK finden Sie heraus, welche Dienste Sie anbieten sollten und wie Sie diese Dienste durch die [Erstellung von Plänen, Angeboten und Kontingenten](../operator/tutorial-offer-services.md) zur Verfügung stellen. Zudem müssen Sie dem Marketplace Elemente hinzufügen, z. B. Images für virtuelle Computer (VMs). Die einfachste Möglichkeit besteht darin, [Marketplace-Elemente](../operator/azure-stack-create-and-publish-marketplace-item.md) von Azure in Azure Stack herunterzuladen.
 
 > [!NOTE]
 > Wenn Sie Ihre Pläne, Angebote und Dienste testen möchten, sollten Sie das Benutzerportal (`https://portal.local.azurestack.external`) verwenden, nicht das Administratorportal (`https://adminportal.local.azurestack.external`).

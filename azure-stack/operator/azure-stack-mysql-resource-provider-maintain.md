@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: e85d20755a92806177e7d5e7a9f1d425e4a18018
-ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
+ms.openlocfilehash: 7372cea4544a2cdb4b0d0e6ed54d07253d6d782c
+ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97950687"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98103086"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack Hub
 
@@ -182,6 +182,8 @@ Azure Stack Hub bietet mehrere Methoden zum Erfasse, Speichern und Senden von Di
 
 ::: moniker-end
 
+::: moniker range="< azs-2008"
+
 Der MySQL-Ressourcenanbieter unterstützt ab Version 1.1.93 das Standardverfahren zum Erfassen von Protokollen aus der Azure Stack Hub-Umgebung. Wenn Sie eine ältere Version verwenden, empfiehlt es sich, den MySQL-Ressourcenanbieter auf die neueste Version zu aktualisieren.
 
 Zum Erfassen von Protokollen von gesperrten VMs können Sie den PowerShell JEA-Endpunkt (Just Enough Administration) „DBAdapterDiagnostics“ verwenden. Dieser Endpunkt bietet die folgenden Befehle:
@@ -235,6 +237,8 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 $session | Remove-PSSession
 
 ```
+
+::: moniker-end
 
 ## <a name="configure-azure-diagnostics-extension-for-mysql-resource-provider"></a>Konfigurieren der Azure-Diagnoseerweiterung für den MySQL-Ressourcenanbieter
 

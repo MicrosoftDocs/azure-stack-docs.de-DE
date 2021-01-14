@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 35deff6c48c02c1deda13bb3cd8dec87e54f52ef
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 7928ab8ba09ed834f00c05e6c606e993fc2f3ebe
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909870"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974165"
 ---
 # <a name="verifying-scale-unit-node-disk-health"></a>Überprüfen der Datenträgerintegrität des Skalierungseinheitknotens
 
@@ -34,5 +34,5 @@ ms.locfileid: "97909870"
     
     1.  Vergewissern Sie sich, dass keine Ergebnisse zurückgegeben werden. Wenn Aufträge noch ausgeführt werden, wie von **JobState** angezeigt wird, oder alle Aufträge als abgeschlossen gekennzeichnet sind, warten Sie weitere zehn Minuten, und führen Sie denselben Befehl noch mal aus. Der endgültige Status sollte lauten, dass keine Aufträge aufgelistet sind.
     
-    1.  Bei Bedarf finden Sie weitere Schritte zur Überprüfung der Speicherintegrität unter [Überprüfen des Status der Reparatur von virtuellen Datenträgern mit Azure Stack Hub PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-replace-disk?view=azs-2002&check-the-status-of-virtual-disk-repair-using-azure-stack-hub-powershell).
+    1.  Bei Bedarf finden Sie weitere Schritte zur Überprüfung der Speicherintegrität unter [Überprüfen des Status der Reparatur von virtuellen Datenträgern mit Azure Stack Hub PowerShell](../../operator/azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-azure-stack-hub-powershell).
         

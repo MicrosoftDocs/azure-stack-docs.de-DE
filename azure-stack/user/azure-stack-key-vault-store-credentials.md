@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: c17ba69fedfd51681c5038efde591115ce54bddf
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: e1409105c0682552875a524aab9a222f6ab0c459
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567517"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974080"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>Speichern von Dienstprinzipal-Anmeldeinformationen in Azure Stack Hub Key Vault
 
@@ -92,6 +92,6 @@ Nach dem erfolgreichen Erstellen des Geheimnisses werden die Dienstprinzipalinfo
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Verwenden von Dienstprinzipalen](../operator/azure-stack-create-service-principals.md?view=azs-2002)
+- [Verwenden von Dienstprinzipalen](../operator/azure-stack-create-service-principals.md)
 - [Verwalten von Key Vault in Azure Stack Hub über das Portal](azure-stack-key-vault-manage-portal.md)  
 - [Verwalten von Key Vault in Azure Stack Hub mithilfe von PowerShell](azure-stack-key-vault-manage-powershell.md)

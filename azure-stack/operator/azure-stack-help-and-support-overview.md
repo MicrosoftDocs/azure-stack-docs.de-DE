@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 7c4bb5f75118552d7f8379edac7083f8830082a5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: cb2fb8ce9ad1b24430cf545eba3f31ac9e754c43
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870714"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974318"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack Hub: Hilfe und Support
 
@@ -105,6 +105,6 @@ Wählen Sie im Administratorportal oben rechts **Hilfe** (Fragezeichen) und dann
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Informieren Sie sich über die [Erfassung von Diagnoseprotokollen](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002).
+- Informieren Sie sich über die [Erfassung von Diagnoseprotokollen](./azure-stack-diagnostic-log-collection-overview.md).
 - Erfahren Sie, wie Sie [Ihre Cloud-ID ermitteln](azure-stack-find-cloud-id.md).
 - Informieren Sie sich über die [Problembehandlung für Azure Stack Hub](azure-stack-troubleshooting.md).

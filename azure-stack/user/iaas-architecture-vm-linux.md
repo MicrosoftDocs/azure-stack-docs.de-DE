@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 0803dc8332e296c0b92912967d34a6dfd885d4df
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 7ad8f412ca4dd984f2d16217efd1a84d632ef829
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873723"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973740"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Ausführen eines virtuellen Linux-Computers in Azure Stack Hub
 
@@ -82,7 +82,7 @@ Alle Netzwerksicherheitsgruppen enthalten eine Reihe von [Standardregeln](/azure
 
 **Diagnose**: Aktivieren Sie die Überwachung und Diagnose, einschließlich grundlegender Integritätsmetriken, Infrastrukturprotokolle zur Diagnose sowie der [Startdiagnose](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Startdiagnosen dienen dazu, einen Fehler beim Startvorgang zu untersuchen, wenn Ihre VM einen nicht startfähigen Zustand hat. Erstellen Sie ein Azure Storage-Konto zum Speichern der Protokolle. Ein standardmäßiger lokal redundanter Speicher (LRS) reicht für Diagnoseprotokolle aus. Weitere Informationen finden Sie unter [Aktivieren von Überwachung und Diagnose](./azure-stack-metrics-azure-data.md).
 
-**Verfügbarkeit**: Ihre VM kann aufgrund geplanter Wartungsarbeiten, die vom Azure Stack Hub-Bediener geplant sind, neu gestartet werden. Stellen Sie mehrere VMs in einer [Verfügbarkeitsgruppe](../operator/azure-stack-app-service-deploy.md?view=azs-2002) bereit, um eine höhere Verfügbarkeit zu erzielen.
+**Verfügbarkeit**: Ihre VM kann aufgrund geplanter Wartungsarbeiten, die vom Azure Stack Hub-Bediener geplant sind, neu gestartet werden. Stellen Sie mehrere VMs in einer [Verfügbarkeitsgruppe](../operator/azure-stack-app-service-deploy.md) bereit, um eine höhere Verfügbarkeit zu erzielen.
 
 **Sicherungen** In [diesem Artikel](./azure-stack-manage-vm-protect.md) finden Sie Empfehlungen zum Schutz Ihrer Azure Stack Hub-IaaS-VMs.
 

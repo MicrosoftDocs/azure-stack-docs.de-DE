@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 932686cb52e7aa2a1aa1c948e1ab5d5469d4bf30
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 689f5eaccb7dc30ce7888e9fffdbbd62ac9b5267
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489588"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974369"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 6
 
@@ -98,7 +98,7 @@ Wenn Sie sich für die Bereitstellung in einem bestehenden virtuellen Netzwerk u
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
 
-Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1908](./release-notes.md?view=azs-1908).
+Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1908](./release-notes.md?view=azs-1908&preserve-view=true).
 
 ## <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme für Mandanten, die Anwendungen in Azure App Service in Azure Stack Hub bereitstellen
 

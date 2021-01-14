@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 636d4834b391055911ffc37a005fe40d253ec1d6
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: da5fc9162eacb1c9d6d5e91d79871d8fb7be63c8
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489673"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974233"
 ---
 # <a name="app-service-on-azure-stack-hub-update-4-release-notes"></a>App Service in Azure Stack Hub: Versionshinweise zu Update 4
 
@@ -243,7 +243,7 @@ Wenn Sie sich für die Bereitstellung in einem vorhandenen virtuellen Netzwerk u
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Bekannte Probleme von Cloudadministratoren, die Azure App Service in Azure Stack Hub verwenden
 
-Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1809](./release-notes.md?view=azs-2002).
+Lesen Sie die Dokumentation in den [Versionshinweisen zu Azure Stack Hub 1809](./release-notes.md?view=azs-1809&preserve-view=true).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

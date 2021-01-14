@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 3472cf330efb250f20eb66a5df50239a66293307
-ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
+ms.openlocfilehash: 212d6c89bedc6f46eb6db2cbf735fa61ea0ad909
+ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97950704"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98103098"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Wartungsvorgänge von SQL-Ressourcenanbietern
 
@@ -193,6 +193,8 @@ Azure Stack Hub bietet mehrere Methoden zum Erfasse, Speichern und Senden von Di
 
 ::: moniker-end
 
+::: moniker range="< azs-2008"
+
 Der SQL-Ressourcenanbieter unterstützt ab Version 1.1.93 das Standardverfahren zum Erfassen von Protokollen aus der Azure Stack Hub-Umgebung. Wenn Sie eine ältere Version verwenden, empfiehlt es sich, den SQL-Ressourcenanbieter auf die neueste Version zu aktualisieren.
 
 Zur Erfassung von Protokollen der gesperrten virtuellen Computer können Sie den Endpunkt *DBAdapterDiagnostics* mit PowerShell Just Enough Administration (JEA) verwenden. Dieser Endpunkt bietet die folgenden Befehle:
@@ -245,6 +247,9 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 # Close the session.
 $session | Remove-PSSession
 ```
+
+::: moniker-end
+
 ## <a name="configure-azure-diagnostics-extension-for-sql-resource-provider"></a>Konfigurieren der Azure-Diagnoseerweiterung für den SQL-Ressourcenanbieter
 Die Azure-Diagnoseerweiterung wird standardmäßig auf dem virtuellen Computer des SQL-Ressourcenanbieteradapters installiert. In den folgenden Schritten wird gezeigt, wie Sie die Erweiterung zum Sammeln von Betriebsereignisprotokollen des SQL-Ressourcenanbieters und von IIS-Protokollen zur Problembehandlung und Überwachung anpassen.
 

@@ -7,16 +7,16 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 4b39ce2782f8b99740da5a2fea383892c2de5351
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 1e762ab25250a6414087c1b22e911bb7a8d151ed
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525981"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974109"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>Abrufen von Authentifizierungsinformationen für Azure Stack Hub
 
-Für die Authentifizierung bei Azure Stack Hub müssen Sie die Abonnement-ID, die Mandanten-ID, den Standort und den Resource Manager-Endpunkt von Azure Stack Hub angeben. Diese Werte können Sie über den [Azure Stack Hub-Resource Manager-Endpunkt](./azure-stack-version-profiles-ruby.md?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint) für Azure Stack Hub abrufen. Sie können sie auch mithilfe der in diesem Artikel beschriebenen Schritte abrufen.
+Für die Authentifizierung bei Azure Stack Hub müssen Sie die Abonnement-ID, die Mandanten-ID, den Standort und den Resource Manager-Endpunkt von Azure Stack Hub angeben. Diese Werte können Sie über den [Azure Stack Hub-Resource Manager-Endpunkt](./azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint) für Azure Stack Hub abrufen. Sie können sie auch mithilfe der in diesem Artikel beschriebenen Schritte abrufen.
 
 ## <a name="values-needed-to-authenticate"></a>Für die Authentifizierung erforderliche Werte
 
@@ -74,4 +74,4 @@ Zum Abrufen des Metadatenendpunkts, der auf die Eigenschaften (etwa Katalogendpu
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Informieren Sie sich ausführlicher über die Verwendung von [Azure Stack Hun Resource Manager](./azure-stack-version-profiles.md?view=azs-1910) mit Azure Stack Hub.
+Informieren Sie sich ausführlicher über die Verwendung von [Azure Stack Hun Resource Manager](./azure-stack-version-profiles.md) mit Azure Stack Hub.
