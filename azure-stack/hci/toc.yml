@@ -58,6 +58,8 @@
           href: manage/vm-powershell.md
         - name: Erstellen von VM-Affinitätsregeln
           href: manage/vm-affinity.md
+        - name: VM-Lastenausgleich
+          href: manage/vm-load-balancing.md
         - name: Anfügen einer GPU an eine Linux-VM
           href: manage/attach-gpu-to-linux-vm.md
     - name: Verwalten von Speicher
