@@ -298,6 +298,8 @@
               href: azure-stack-dev-start-howto-vm-python.md
             - name: Bereitstellen einer NodeJS-Web-App
               href: azure-stack-dev-start-howto-vm-nodejs.md
+        - name: 'Erstellen einer GitHub-Aktion: Anmeldung'
+          href: ci-cd-github-action-login-cli.md
         - name: Bereitstellen eines GPU-IoT-Moduls
           href: gpu-deploy-sample-module.md
     - name: Bereitstellen grundlegender Muster
