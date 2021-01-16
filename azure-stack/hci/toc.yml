@@ -181,9 +181,9 @@
 - name: Verweis
   items:
     - name: Azure CLI-Befehle für die Azure-Registrierung
-      href: 'https://docs.microsoft.com/cli/azure/ext/stack-hci/stack-hci'
+      href: /cli/azure/ext/stack-hci/stack-hci
     - name: PowerShell-Befehle für die Azure-Registrierung
-      href: 'https://docs.microsoft.com/powershell/module/az.stackhci'
+      href: /powershell/module/az.stackhci
     - name: Go-Paket für die ARM-Azure Stack HCI-Dienst-API
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/azurestackhci/mgmt/2020-10-01/azurestackhci'
     - name: Klassen und Schnittstellen für den Azure Stack HCI-Java-Dienst

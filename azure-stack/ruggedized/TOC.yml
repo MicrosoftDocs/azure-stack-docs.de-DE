@@ -125,9 +125,9 @@
                     - name: Bereitstellen von App Service
                       href: ../operator/azure-stack-app-service-deploy.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Bereitstellen von App Service für Hochverfügbarkeit
-                      href: ../operator/app-service-deploy-ha.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                     - name: Offlinebereitstellung von App Service
-                      href: ../operator/azure-stack-app-service-deploy-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fruggedized%2ftoc.json
                 - name: Event Hubs
                   items:
                     - name: Kapazitätsplanung
@@ -165,7 +165,7 @@
                     - name: Bereitstellen von hochverfügbaren SQL-Datenbanken
                       href: ../operator/azure-stack-tutorial-sql.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Referenz zum Cmdlet „Start-AzsReadiness“
-              href: ../operator/azure-stack-azsreadiness-cmdlet.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: ../operator/azure-stack-validate-identity.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
             - name: Anzeigen des Bereitschaftsberichts
               href: ../operator/azure-stack-validation-report.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Rechenzentrumsintegration
@@ -233,7 +233,7 @@
                 - name: Aktualisieren von App Service
                   href: ../operator/azure-stack-app-service-update.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Offlineaktualisierung von App Service
-                  href: ../operator/azure-stack-app-service-update-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-update.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fruggedized%2ftoc.json
                 - name: Aktualisieren von Event Hubs
                   href: ../operator/resource-provider-apply-updates.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Aktualisieren des MySQL-Servers
@@ -353,13 +353,13 @@
                 - name: Bereitstellen von App Service
                   href: ../operator/azure-stack-app-service-deploy.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Bereitstellen von App Service für Hochverfügbarkeit
-                  href: ../operator/app-service-deploy-ha.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                 - name: Offlinebereitstellung von App Service
-                  href: ../operator/azure-stack-app-service-deploy-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fruggedized%2ftoc.json
                 - name: Aktualisieren von App Service
                   href: ../operator/azure-stack-app-service-update.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Offlineaktualisierung von App Service
-                  href: ../operator/azure-stack-app-service-update-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-update.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fruggedized%2ftoc.json
                 - name: Hinzufügen von App Service-Infrastrukturrollen
                   href: ../operator/azure-stack-app-service-add-worker-roles.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Konfigurieren von Bereitstellungsquellen
@@ -391,7 +391,7 @@
                     - name: Sichern und Wiederherstellen
                       href: operator/azure-stack-backup-infrastructure-backup-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Erfassen von Protokollen
-                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                     - name: Integrität und Warnungen
                       href: operator/azure-stack-monitor-health-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Verwalten
@@ -417,7 +417,7 @@
                     - name: Sichern und Wiederherstellen
                       href: ../operator/azure-stack-backup-infrastructure-backup.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Erfassen von Protokollen
-                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                     - name: Integrität und Warnungen
                       href: ../operator/azure-stack-monitor-health.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Verwalten
@@ -499,11 +499,11 @@
                 - name: Erfassung von Diagnoseprotokollen
                   items:
                     - name: Übersicht
-                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                     - name: Proaktive Sammlung
-                      href: ../operator/azure-stack-configure-automatic-diagnostic-log-collection.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                     - name: Bedarfsgesteuerte Sammlung
-                      href: ../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
             - name: Abrufen des Azure Stack Hub-Status
               href: ../operator/azure-stack-diagnostic-test.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Problembehandlung
@@ -627,7 +627,7 @@
                     - name: Übersicht über Azure Stack PowerShell
                       href: ../user/azure-stack-powershell-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Installieren von Azure Stack-PowerShell
-                      href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/azure-stack-powershell-install.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fuser%2ftoc.json
                       maintainContext: true
                     - name: Verbinden mit PowerShell
                       href: ../user/azure-stack-powershell-configure-user.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -692,7 +692,7 @@
                 - name: Verwenden der rollenbasierten Zugriffssteuerung
                   href: ../user/azure-stack-manage-permissions.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Verwenden einer App-Identität für den Ressourcenzugriff
-                  href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-create-service-principals.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fuser%2ftoc.json
             - name: Verwenden von Diensten
               items:
                 - name: Compute

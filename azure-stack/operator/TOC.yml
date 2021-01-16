@@ -117,7 +117,7 @@
               href: azure-stack-integrate-security.md
             - name: Geräteüberwachung
               href: azure-stack-integrate-physical-device-auditing.md
-- name: Anleitungen
+- name: Exemplarische Vorgehensweisen
   items:
     - name: Verwalten von Azure Stack Hub
       items:
@@ -370,7 +370,7 @@
                 - name: Sichern und Wiederherstellen
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: Erfassen von Protokollen
-                  href: azure-stack-diagnostic-log-collection-overview.md
+                  href: ./diagnostic-log-collection.md
                 - name: Integrität und Warnungen
                   href: azure-stack-monitor-health.md
                 - name: Verwalten
