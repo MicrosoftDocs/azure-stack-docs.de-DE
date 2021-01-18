@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: patricka
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: de197a87478a666fe20bbd451bda76fc991b5a02
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 00357a7b16ee1ec6b158ea881d9f4a2c77d69e72
+ms.sourcegitcommit: a90b146769279ffbdb09c68ca0506875a867e177
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869932"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98123736"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Überwachen von Integrität und Warnungen in Azure Stack Hub
 
@@ -69,19 +69,27 @@ Sie können auf eine bestimmte Warnung klicken, um die Warnungsdetails anzuzeige
 
 ![Blatt „Warnungsdetails“ im Azure Stack Hub-Administratorportal](media/azure-stack-monitor-health/alert-detail.png)
 
-## <a name="repair-alerts"></a>„Reparieren“-Warnungen
+## <a name="alert-remediation"></a>Behandeln von Warnungen
 
-In manchen Warnungen können Sie **Reparieren** auswählen.
+### <a name="automated-remediation"></a>Automatische Beseitigung
 
-Wenn Sie die Aktion **Reparieren** auswählen, werden spezifische Schritte für die Warnung ausgeführt, um zu versuchen, das Problem zu beheben. Nach Auswahl der Aktion ist der Status der Aktion **Reparieren** als Portalbenachrichtigung verfügbar.
+Einige Warnungen unterstützen eine Option **Reparieren**, wie auf der vorstehenden Abbildung dargestellt. Wenn Sie die Aktion **Reparieren** auswählen, werden spezifische Schritte für die Warnung ausgeführt, um zu versuchen, das Problem zu beheben. Nach Auswahl der Aktion ist der Status der Aktion **Reparieren** als Portalbenachrichtigung verfügbar.
 
 ![Die Warnungsaktion „Reparieren“ in Bearbeitung](media/azure-stack-monitor-health/repair-in-progress.png)
 
-Die Aktion **Reparieren** meldet den erfolgreichen Abschluss oder einen Fehler beim Abschließen der Aktion auf demselben Portalbenachrichtigungsblatt.  Wenn eine Reparaturaktion für eine Warnung fehlschlägt, können Sie die Aktion **Reparieren** aus den Details der Warnung erneut ausführen. Wird die Reparaturaktion erfolgreich abgeschlossen, führen Sie die Aktion **Reparieren** **nicht** erneut aus.
+Die Aktion **Reparieren** meldet den erfolgreichen Abschluss oder einen Fehler beim Abschließen der Aktion auf demselben Portalbenachrichtigungsblatt.  Wenn eine Reparaturaktion für eine Warnung fehlschlägt, können Sie die Aktion **Reparieren** aus den Details der Warnung erneut ausführen. Wird die Reparaturaktion erfolgreich abgeschlossen, führen Sie die Aktion **Reparieren****nicht** erneut aus. Nachdem die Infrastrukturrolleninstanz wieder online geschaltet wurde, wird diese Warnung automatisch geschlossen.
 
 ![Die Aktion „Reparieren“ wird erfolgreich abgeschlossen](media/azure-stack-monitor-health/repair-completed.png)
 
-Nachdem die Infrastrukturrolleninstanz wieder online geschaltet wurde, wird diese Warnung automatisch geschlossen. Nicht alle, aber viele Warnungen werden automatisch geschlossen, wenn das zugrunde liegende Problem behoben wird. Warnungen, die eine Schaltfläche für die Aktion „Reparieren“ bereitstellen, werden automatisch geschlossen, wenn das Problem von Azure Stack Hub behoben wurde. Klicken Sie bei allen anderen Warnungen im Anschluss an die Durchführung der Schritte zur Behebung auf **Warnung schließen**. Wenn das Problem weiterhin auftritt, erstellt Azure Stack Hub eine neue Warnung. Wenn Sie das Problem behoben haben, bleibt die Warnung geschlossen und erfordert keine weiteren Schritte.
+### <a name="manual-remediation"></a>Manuelle Korrektur
+
+Wenn die Option **Reparieren** nicht unterstützt wird, achten Sie unbedingt darauf, die in der Warnung zur Verfügung gestellten Korrekturanweisungen vollständig auszuführen. Beispielsweise führen Sie die Schritte zur Korrektur des Ablaufs von internen Zertifikaten durch den Vorgang des Rotierens von Geheimnissen:
+
+![Korrektur des Zertifikatablaufs](media/azure-stack-monitor-health/certificate-expiration.png)
+
+### <a name="alert-closure"></a>Schließen der Warnung
+
+Viele Warnungen – jedoch nicht alle – werden automatisch geschlossen, wenn das zugrunde liegende Problem behoben wird. Warnungen, die eine Schaltfläche für die Aktion „Reparieren“ bereitstellen, werden automatisch geschlossen, wenn das Problem von Azure Stack Hub behoben wurde. Klicken Sie bei allen anderen Warnungen im Anschluss an die Durchführung der Schritte zur Behebung auf **Warnung schließen**. Wenn das Problem weiterhin auftritt, erstellt Azure Stack Hub eine neue Warnung. Wenn Sie das Problem behoben haben, bleibt die Warnung geschlossen und erfordert keine weiteren Schritte.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

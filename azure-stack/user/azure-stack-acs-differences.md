@@ -8,12 +8,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviwer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: 9cac2ee9798388f955bfd3376395d21438889fc9
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e49092e87f8e6801343ae0550aff4c71dd40408b
+ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867365"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98103068"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub-Speicher: Unterschiede und Überlegungen
 
@@ -43,7 +43,7 @@ In diesem Artikel sind die bekannten Unterschiede zwischen Azure Stack Hub-Speic
 |Größe für Tabellenpartitionsschlüssel und Zeilenschlüssel|1\.024 Zeichen (2.048 Bytes)|400 Zeichen (800 Bytes)
 |Momentaufnahme eines Blobs|Die maximale Anzahl von Momentaufnahmen eines Blobs ist nicht beschränkt.|Die maximale Anzahl von Momentaufnahmen eines Blobs beträgt 1.000.
 |Azure AD-Authentifizierung für Speicher|In der Vorschauversion. |Noch nicht unterstützt.
-|Unveränderliche Blobs|Allgemein verfügbar |Noch nicht unterstützt.
+|Unveränderliche Blobs|Allgemein verfügbar |Unterstützt bei Verwendung von Version 2008 oder höher.
 |Firewallregeln und VNET-Regeln für Speicher|Allgemein verfügbar |Noch nicht unterstützt.|
 
 Es gibt auch Unterschiede zu Speichermetriken:

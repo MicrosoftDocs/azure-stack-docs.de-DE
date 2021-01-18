@@ -7,12 +7,12 @@ ms.date: 10/16/2020
 ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 85f3aed4ebf5b57b1e77a5b58604eeb881204396
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: c6f58a2364378180641a7b3ea2e3a38e4bb4f183
+ms.sourcegitcommit: 330d04d39e0cf3e8965e2ccbc181c968cb71d9ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870034"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052305"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Verwalten der Speicherkapazität für Azure Stack Hub
 
@@ -69,7 +69,7 @@ In Azure Stack Hub können verwaltete und nicht verwaltete Datenträger auf VMs
 
 Es wird empfohlen, Managed Disks für virtuelle Computer zu verwenden, um die Verwaltung und den Kapazitätsausgleich zu erleichtern. Sie müssen vor der Verwendung von Managed Disks kein Speicherkonto und keine Container vorbereiten. Beim Erstellen mehrerer verwalteter Datenträger werden die Datenträger auf mehrere Volumes verteilt, wodurch die Kapazität der Volumes ausgeglichen werden kann.  
 
-**Nicht verwaltete Datenträger** sind VHD-Dateien, die als Seitenblobs in Azure-Speicherkonten gespeichert sind. Die von Mandanten erstellten Seitenblobs werden als VM-Datenträger bezeichnet und in Containern in den Speicherkonten gespeichert. Es wird empfohlen, nicht verwaltete Datenträger nur für virtuelle Computer zu verwenden, die mit Drittanbietertools kompatibel sein müssen, die nur nicht verwaltete Azure-Datenträger unterstützen.
+**Nicht verwaltete Datenträger** sind VHD-Dateien, die als Seitenblobs in Azure-Speicherkonten gespeichert sind. Die von Mandanten erstellten Seitenblobs werden als VM-Datenträger bezeichnet und in Containern in den Speicherkonten gespeichert. Es wird empfohlen, nicht verwaltete Datenträger nur für virtuelle Computer zu verwenden, die mit Drittanbietertools kompatibel sein müssen, von denen nur nicht verwaltete Azure-Datenträger unterstützt werden.
 
 Für Mandanten empfiehlt es sich, die einzelnen Datenträger in separaten Containern zu platzieren, um die Leistung des virtuellen Computers zu verbessern.
 
@@ -345,4 +345,4 @@ Die extremste Methode zum Verwalten von Speicherplatz ist das Verschieben von ni
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zum Anbieten von VMs für Benutzer finden Sie unter [Verwalten der Speicherkapazität für Azure Stack Hub](./tutorial-offer-services.md?view=azs-2002).
+Weitere Informationen zum Anbieten von VMs für Benutzer finden Sie unter [Verwalten der Speicherkapazität für Azure Stack Hub](./tutorial-offer-services.md).
