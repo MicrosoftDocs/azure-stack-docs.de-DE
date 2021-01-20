@@ -44,12 +44,12 @@
           href: deploy/create-cluster-powershell.md
     - name: Bereitstellen von Workloads
       items:
-        - name: Bereitstellen einer VDI
-          href: deploy/deploy-vdi.md
-        - name: Dialogfeld „Deploy SQL Server“ (SQL Server bereitstellen)
-          href: deploy/deploy-sql-server-workload.md
-        - name: Bereitstellen von Trusted Enterprise Virtualization
-          href: deploy/deploy-trusted-enterprise-virtualization.md
+        - name: Virtuelle Desktopinfrastruktur
+          href: deploy/virtual-desktop-infrastructure.md
+        - name: SQL Server
+          href: deploy/sql-server.md
+        - name: Trusted Enterprise Virtualization
+          href: deploy/trusted-enterprise-virtualization.md
 - name: Verwalten
   items:
     - name: Verwalten von VMs
