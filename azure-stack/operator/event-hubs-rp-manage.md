@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: aaadabe207146f200d6090c2e59bcc563831c6d4
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: 9cf3339398516688865f7aab3a696562f4974699
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343585"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571330"
 ---
 # <a name="how-to-manage-event-hubs-on-azure-stack-hub"></a>Verwalten von Event Hubs in Azure Stack Hub
 
@@ -50,8 +50,8 @@ Der Event Hubs-Ressourcenanbieter unterstützt die folgenden Benachrichtigungen 
 |----------|-------|------|-----------|
 | Leistung | | | |
 | | EventHub-CpuUsage | Warnung | Die durchschnittliche prozentuale CPU-Auslastung des Event-Hubs-Clusters war in den letzten 6 Stunden größer als 50 %. |
-| | EventHub-MemoryUsage | Warnung | Die durchschnittliche prozentuale Datenträgerauslastung (Auslastung von E:) des Event-Hubs-Clusters war in den letzten 6 Stunden größer als 50 %. |
-| | EventHub-DiskUsage | Warnung | Die durchschnittliche Prozentwert für freien Speicherplatz des Event-Hubs-Clusters war in den letzten 6 Stunden kleiner als 50 %. |
+| | EventHub-MemoryUsage | Warnung | Die durchschnittliche Prozentwert für freien Speicherplatz des Event-Hubs-Clusters war in den letzten 6 Stunden kleiner als 50 %. |
+| | EventHub-DiskUsage | Warnung | Die durchschnittliche prozentuale Datenträgerauslastung (Auslastung von E:) des Event-Hubs-Clusters war in den letzten 6 Stunden größer als 50 %. |
 | Auslastung/Kontingent | | | |
 | | EventHub-QuotaExceeded | Warnung | In den letzten sechs Stunden ist ein „Kontingent überschritten“-Fehler aufgetreten. |
 | | EventHub-NamespaceCreditUsage | Warnung | Die Summe der Namespace-Guthabennutzungen in den letzten sechs Stunden ist größer als 10000,0. |
@@ -72,7 +72,7 @@ Wenn Sie in der Liste eine Benachrichtigung auswählen, wird der Bereich **Warnu
 
 [![Event Hubs verwalten: Warnungsdetails](media/event-hubs-rp-manage/2-alerts-detail.png)](media/event-hubs-rp-manage/2-alerts-detail.png#lightbox)
 
-Weitere Informationen zur Azure Stack Hub-Überwachungsfunktionalität, einschließlich Warnungen, finden Sie unter [Überwachen von Integrität und Warnungen in Azure Stack Hub](azure-stack-monitor-health.md). Ausführliche Informationen zum Erfassen von Protokollen finden Sie unter [Übersicht über die Sammlung von Azure Stack Hub-Diagnoseprotokollen](azure-stack-diagnostic-log-collection-overview.md).
+Weitere Informationen zur Azure Stack Hub-Überwachungsfunktionalität, einschließlich Warnungen, finden Sie unter [Überwachen von Integrität und Warnungen in Azure Stack Hub](azure-stack-monitor-health.md). Ausführliche Informationen zum Erfassen von Protokollen finden Sie unter [Übersicht über die Sammlung von Azure Stack Hub-Diagnoseprotokollen](./diagnostic-log-collection.md).
 
 ## <a name="event-hubs-clusters"></a>Event Hubs-Cluster
 
@@ -101,17 +101,4 @@ Weitere Informationen:
 
 - Informationen zu den Kontingenttypen, die für Event Hubs definiert sind, finden Sie unter [Kontingenttypen](azure-stack-quota-types.md#event-hubs-quota-types).
 - Informationen zu den Azure Stack Hub-Überwachungsfunktionalitäten, einschließlich Warnungen, finden Sie unter [Überwachen von Integrität und Warnungen in Azure Stack Hub](azure-stack-monitor-health.md). 
-- Informationen zum Erfassen von Azure Stack Hub-Protokollen finden Sie unter [Übersicht über die Sammlung von Azure Stack Hub-Diagnoseprotokollen](azure-stack-diagnostic-log-collection-overview.md).
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Informationen zum Erfassen von Azure Stack Hub-Protokollen finden Sie unter [Übersicht über die Sammlung von Azure Stack Hub-Diagnoseprotokollen](./diagnostic-log-collection.md).
