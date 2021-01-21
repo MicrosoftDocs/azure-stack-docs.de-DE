@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/15/2020
-ms.openlocfilehash: 6eef8388367bb1bba3f419fba5b61c54fd729743
-ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
+ms.date: 01/13/2021
+ms.openlocfilehash: c4280a9b120530b84bbaac9f7f963a695c0eaf99
+ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97515021"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208028"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Übersicht über die Azure Stack HCI-Lösung
 
@@ -136,7 +136,7 @@ Azure Stack HCI ist Teil der Azure- und Azure Stack-Familie, und es wird die g
 In Windows Admin Center Version 2009 wurden Azure Stack HCI mehrere Funktionen hinzugefügt, u. a.:
 
 - **Azure Kubernetes Service-Hostfunktionen:** Sie können nun eine Vorschauversion von [Azure Kubernetes Service in Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) installieren.
-- **Einbindung von SDN (Software-Defined Networking, softwaredefinierte Netzwerke) in den Clustererstellungs-Assistenten:** Der Clustererstellungs-Assistent enthält jetzt die Option zum Bereitstellen des Netzwerkcontrollerfeatures [Software-Defined Networking (SDN)](concepts/software-defined-networking.md) während der [Clustererstellung](deploy/create-cluster.md#step-5-sdn-optional).
+
 - **RDMA-Erweiterungen (Remote Direct Memory Access) im Assistenten für die Clustererstellung**: Der Assistent für die Clustererstellung kann nun RDMA für iWarp- und RoCE-Netzwerkadapter konfigurieren, einschließlich DCB (Data Center Bridging).
 
 Weitere Informationen zu neuen Features finden Sie unter [Ankündigung der allgemeinen Verfügbarkeit der Erweiterung für die Clustererstellung in Windows Admin Center](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/announcing-general-availability-of-the-cluster-creation/ba-p/1978332).

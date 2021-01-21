@@ -7,12 +7,12 @@ ms.date: 02/24/2020
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 02/24/2020
-ms.openlocfilehash: fd383d25f34bcd8342b8e37468fb34f455cb790f
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 60301776ae496a33622005bed3011e773ea321f2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974199"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255978"
 ---
 # <a name="azure-stack-hub-log-and-customer-data-handling"></a>Verarbeiten von Azure Stack Hub-Protokoll- und -Kundendaten 
 
@@ -21,7 +21,7 @@ Im Rahmen der Funktion von Microsoft als Verarbeiter oder Vorverarbeiter von per
 - Zusagen zur „Verarbeitung personenbezogener Daten (DSGVO)“ im Abschnitt zu den „Datenschutzbestimmungen“ der [Lizenzbedingungen für Onlinedienste](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 - Allgemeine Regulierungsbestimmungen der Europäischen Union zum Datenschutz in Anhang 4 der [Lizenzbedingungen für Onlinedienste](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-Für Azure Stack Hub im Rechenzentrum des Kunden ist Microsoft ausschließlich Data Controller der Daten, die gemeinsam mit Microsoft über [Diagnose](./azure-stack-diagnostic-log-collection-overview.md), [Telemetrie](azure-stack-telemetry.md), und [Abrechnung](azure-stack-usage-reporting.md) genutzt werden.  
+Für Azure Stack Hub im Rechenzentrum des Kunden ist Microsoft ausschließlich Data Controller der Daten, die gemeinsam mit Microsoft über [Diagnose](./diagnostic-log-collection.md), [Telemetrie](azure-stack-telemetry.md), und [Abrechnung](azure-stack-usage-reporting.md) genutzt werden.  
 
 ## <a name="data-access-controls"></a>Datenzugriffssteuerung 
 Microsoft-Mitarbeiter, die mit der Untersuchung eines bestimmten Supportfalls beauftragt sind, erhalten Lesezugriff auf die verschlüsselten Daten. Microsoft-Mitarbeiter haben bei Bedarf ebenfalls Zugriff auf Tools zum Löschen der Daten. Jeder Zugriff auf Kundendaten wird überwacht und protokolliert.  
@@ -41,7 +41,7 @@ Für die automatisierte Datenlöschaktion (90 Tage nach dem Schließen des Fall
 Für die bedarfsgesteuerte Datenlöschaktion haben Microsoft-Supportmitarbeiter Zugriff auf das Tool, mit dem sie Daten auf Anforderung löschen können. Sie können dem Kunden telefonisch bestätigen, dass dieser Vorgang abgeschlossen wurde.
 
 ## <a name="diagnostic-data"></a>Diagnosedaten
-Im Rahmen des Supportprozesses können Azure Stack Hub-Bediener für den Azure Stack Hub-Support und Engineering-Teams [Diagnoseprotokolle freigeben](./azure-stack-diagnostic-log-collection-overview.md), um die Problembehandlung zu unterstützen.
+Im Rahmen des Supportprozesses können Azure Stack Hub-Bediener für den Azure Stack Hub-Support und Engineering-Teams [Diagnoseprotokolle freigeben](./diagnostic-log-collection.md), um die Problembehandlung zu unterstützen.
 
 Microsoft stellt ein Tool und Skript für Kunden bereit, um angeforderte Diagnoseprotokolldateien zu sammeln und hochzuladen. Nach der Erfassung werden die Protokolldateien über eine HTTPS-geschützte, verschlüsselte Verbindung an Microsoft übertragen. Da die Verschlüsselung über das Netzwerk per HTTPS bereitgestellt wird, ist während der Übertragung kein Kennwort für die Verschlüsselung erforderlich. Nach dem Empfang werden die Protokolle verschlüsselt und gespeichert, bis sie automatisch 90 Tage nach dem Schließen des Supportfalls gelöscht werden.
 
@@ -57,4 +57,4 @@ Azure Stack Hub-Bediener können Azure Stack Hub für die Weiterleitung abrechnu
 
 
 ## <a name="next-steps"></a>Nächste Schritte 
-[Weitere Informationen zur Sicherheit von Azure Stack Hub](azure-stack-security-foundations.md) 
+[Weitere Informationen zur Sicherheit von Azure Stack Hub](azure-stack-security-foundations.md)

@@ -15,18 +15,18 @@ ms.date: 10/01/2020
 ms.author: patricka
 ms.reviewer: karlt
 ms.lastreviewed: 10/01/2020
-ms.openlocfilehash: ebb39f3eab90b0f976e5fee2896cbe85d0d023f5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8dea13880e2703290e1528fca47b777f98fca7b2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872397"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255519"
 ---
 # <a name="extended-storage-health-checks"></a>Integritätsüberprüfungen im erweiterten Speicher
 
 Dieser Artikel enthält Anleitungen zum Überprüfen der Integrität der Hardware für den erweiterten Speicher von Rechenzentren und der Azure Stack Hub-Bereitstellung.
 
-Lesen Sie vor Beginn die unter [Aktualisieren der Firmware für den erweiterten Speicher](extended-storage-firmware-updates.md) beschriebenen Schritte, und führen Sie sie aus.
+Lesen Sie vor Beginn die unter [Aktualisieren der Firmware für den erweiterten Speicher]() beschriebenen Schritte, und führen Sie sie aus.
 
 Der letzte Schritt vor dem Versand des Systems ist das Herunterfahren. Führen Sie die Schritte im Schnellstarthandbuch aus.
 
@@ -110,4 +110,4 @@ Wenden Sie sich an den Microsoft-Support, um bei etwaigen Problemen Hilfe zu erh
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Aktualisieren der Firmware](extended-storage-firmware-updates.md)
+- [Aktualisieren der Firmware]()

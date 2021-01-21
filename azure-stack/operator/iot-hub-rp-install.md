@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/6/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 13bac36ffd7d771d1b5504067bfe1d679cdda5e6
-ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
+ms.openlocfilehash: 47d06bc7363a9ce8d4de8971bf26c38bfdb16bcc
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93050359"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256114"
 ---
 # <a name="how-to-install-iot-hub-on-azure-stack-hub"></a>Installation von IoT Hub in Azure Stack Hub
 
@@ -29,15 +29,15 @@ Wenn Ihre Azure Stack Hub-Instanz auf den Azure Marketplace zugreifen kann, füh
 Führen Sie die folgenden Schritte aus, um IoT Hub für eine verbundene Bereitstellung herunterzuladen:
 
 1. Melden Sie sich beim Azure Stack Hub-Administratorportal an. 
-2. Klicken Sie links auf **Marketplace-Verwaltung** , wählen Sie dann **Ressourcenanbieter** aus, und klicken Sie anschließend auf **+ Add from Azure** (Aus Azure hinzufügen).
+2. Klicken Sie links auf **Marketplace-Verwaltung**, wählen Sie dann **Ressourcenanbieter** aus, und klicken Sie anschließend auf **+ Add from Azure** (Aus Azure hinzufügen).
 
     [![Suche nach Ressourcenanbietern im Marketplace](media/iot-hub-rp-install/marketplace-rp-add-from-azure.png)](media/iot-hub-rp-install/marketplace-rp-add-from-azure.png#lightbox)
 
-3. Filtern Sie bei Bedarf nach „IoT Hub“, und wählen Sie dann das **IoT Hub** -Paket aus.
+3. Filtern Sie bei Bedarf nach „IoT Hub“, und wählen Sie dann das **IoT Hub**-Paket aus.
 
     [![IoT Hub-Ressourcenanbieter im Marketplace](../operator/media/iot-hub-rp-install/download1.png)](../operator/media/iot-hub-rp-install/download1.png#lightbox)
 
-4. Klicken Sie auf der Seite für das **IoT Hub** -Paket auf **Herunterladen**.
+4. Klicken Sie auf der Seite für das **IoT Hub**-Paket auf **Herunterladen**.
 
     [![IoT Hub-Paketdetails](../operator/media/iot-hub-rp-install/download2.png)](../operator/media/iot-hub-rp-install/download2.png#lightbox)
 
@@ -63,7 +63,7 @@ Laden Sie die Pakete zunächst auf Ihren lokalen Computer herunter, um IoT Hub f
 
 Führen Sie die folgenden Schritte auf der Seite **Marketplace-Verwaltung** aus, um das IoT Hub-Paket zu installieren:
 
-1. Klicken Sie auf die **IoT Hub** -Zeile und dann auf **Installation starten**.
+1. Klicken Sie auf die **IoT Hub**-Zeile und dann auf **Installation starten**.
 
     [![IoT Hub-Ressourcenanbieter wartet auf Installation](../operator/media/iot-hub-rp-install/install1.png)](../operator/media/iot-hub-rp-install/install1.png#lightbox)
 
@@ -105,7 +105,7 @@ Führen Sie die folgenden Schritte auf der Seite **Marketplace-Verwaltung** aus,
 
 Der IoT Hub-Ressourcenanbieter wurde erfolgreich installiert. Führen Sie nun die folgenden ersten Schritte aus:
 
-1. Führen Sie bei Bedarf die Anweisungen zum [Erstellen von Tarifen, Angeboten und Abonnements](azure-stack-plan-offer-quota-overview.md) aus.
+1. Führen Sie bei Bedarf die Anweisungen zum [Erstellen von Tarifen, Angeboten und Abonnements](./service-plan-offer-subscription-overview.md) aus.
 
 2. Wenn bereits ein Abonnement vorliegt, aktualisieren Sie das zugehörige Angebot bzw. den Tarif, sodass er den Dienst **Microsoft.Devices** enthält. Navigieren Sie zu **Plan** -> **Choose the plan to update** -> **Add Service and quota** (Tarif > Wählen Sie den zu ändernden Tarif aus > Dienst und Kontingent hinzufügen).
 

@@ -6,12 +6,12 @@ ms.author: yiygu
 ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/6/2020
-ms.openlocfilehash: ca410a3ec5b66a3ab3243ae06f82f4cb736af836
-ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
+ms.openlocfilehash: 3fe1459d28c399269ccdb1d4cffed024bd741000
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93050355"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255740"
 ---
 # <a name="how-to-manage-iot-hub-on-azure-stack-hub"></a>Verwalten von IoT Hub in Azure Stack Hub
 
@@ -53,11 +53,11 @@ Der IoT Hub-Ressourcenanbieter unterstützt die folgenden Warnungen:
 
 So überwachen Sie Warnungen und Kontingente:
 
-1. Klicken Sie auf **Warnungen** , um den Warnungsverlauf anzuzeigen: 
+1. Klicken Sie auf **Warnungen**, um den Warnungsverlauf anzuzeigen: 
  
    [![IoT Hub-Dashboard: Warnungen](media\iot-hub-rp-manage\dashboard-rp-iot-hub-alerts.png)](media\iot-hub-rp-manage-capacity\dashboard-rp-iot-hub-alerts.png#lightbox)  
 
-2. Klicken Sie auf **Kontingente** , um die Liste der aktiven Kontingente anzuzeigen:  
+2. Klicken Sie auf **Kontingente**, um die Liste der aktiven Kontingente anzuzeigen:  
 
    > [!NOTE]
    > Während der Vorschau ist das Feature **Erstellen** deaktiviert und unbegrenzter Standardkontingent wird bereitgestellt. Das Feature **Erstellen** wird in der allgemeinen Verfügbarkeit verfügbar sein.
@@ -104,5 +104,4 @@ Weitere Informationen:
 
 Informationen zu den Azure Stack Hub-Überwachungsfunktionalitäten, einschließlich Warnungen, finden Sie unter [Überwachen von Integrität und Warnungen in Azure Stack Hub](azure-stack-monitor-health.md).
 
-Informationen zum Erfassen von Azure Stack Hub-Protokollen finden Sie unter [Übersicht über die Sammlung von Azure Stack Hub-Diagnoseprotokollen](azure-stack-diagnostic-log-collection-overview.md).
-
+Informationen zum Erfassen von Azure Stack Hub-Protokollen finden Sie unter [Übersicht über die Sammlung von Azure Stack Hub-Diagnoseprotokollen](./diagnostic-log-collection.md).

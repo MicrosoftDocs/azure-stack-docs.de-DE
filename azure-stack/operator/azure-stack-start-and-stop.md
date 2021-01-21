@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: a79fcab4bb96eb7e32121095c521e4db0a3b02f9
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 4f9a6e7ddd52ece2b417221ded8afe9d92c16bca
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97973264"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255723"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>Starten und Beenden von Azure Stack Hub
 
@@ -84,4 +84,4 @@ Führen Sie die folgenden Schritte aus, wenn die Infrastruktur- und Mandantendie
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zu [Azure Stack Hub-Diagnosetools](./azure-stack-diagnostic-log-collection-overview.md)
+Weitere Informationen zu [Azure Stack Hub-Diagnosetools](./diagnostic-log-collection.md)

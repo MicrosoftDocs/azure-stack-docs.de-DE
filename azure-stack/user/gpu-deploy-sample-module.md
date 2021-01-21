@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2020
 ms.reviewer: gara
 ms.lastreviewed: 11/13/2020
-ms.openlocfilehash: b8aef224c5694cd6b8408538473dce3b86996c4d
-ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
+ms.openlocfilehash: 7a5a29c48533874cf2c859780ab0332b8410811f
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94632835"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243475"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-hub"></a>Bereitstellen eines GPU-fähigen IoT-Moduls in Azure Stack Hub
 
@@ -41,7 +41,7 @@ Sie müssen die folgenden Ressourcen in Ihrer Azure Stack Hub-Instanz, in Ihrer 
     Weitere Informationen zu GPUs in Azure Stack Hub finden Sie unter [Grafikprozessor (GPU)-VM in Azure Stack Hub](gpu-vms-about.md).
   - Ein globales Azure-Abonnement. Wenn Sie kein globales Azure-Abonnement haben, erstellen Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), bevor Sie beginnen.
 - Eine [Azure Container Registry-Instanz (ACR)](/). Notieren Sie sich den Server, den Benutzernamen und das Kennwort für die ACR-Anmeldung.
--   Ein [IoT-Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) in globalem Azure mit dem Tarif „Free“ oder „Standard“.
+-   Ein [IoT-Hub](/azure/iot-hub/iot-hub-create-through-portal) in globalem Azure mit dem Tarif „Free“ oder „Standard“.
 
 ### <a name="a-development-machine"></a>Ein Entwicklungscomputer
 
@@ -63,13 +63,13 @@ Verwenden Sie ein eigenständiges Gerät, um Ihr IoT Edge-Gerät zu hosten. Die 
 
 Erstellen Sie ein IoT Edge-Gerät in Azure mit einer Linux-VM:
 
-1.  [Erstellen Sie eine Linux-Server-VM der N-Serie](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal) in Azure Stack Hub. Wenn Sie Komponenten für Ihren Server installieren, kommunizieren Sie über SSH mit dem Server. Weitere Informationen finden Sie unter [Verwenden eines öffentlichen SSH-Schlüssels](/azure-stack/user/azure-stack-dev-start-howto-ssh-public-key).
+1.  [Erstellen Sie eine Linux-Server-VM der N-Serie](./azure-stack-quick-linux-portal.md) in Azure Stack Hub. Wenn Sie Komponenten für Ihren Server installieren, kommunizieren Sie über SSH mit dem Server. Weitere Informationen finden Sie unter [Verwenden eines öffentlichen SSH-Schlüssels](./azure-stack-dev-start-howto-ssh-public-key.md).
 
-2.  [Erstellen und registrieren Sie ein IoT Edge-Gerät](https://docs.microsoft.com/azure/iot-edge/how-to-register-device).
+2.  [Erstellen und registrieren Sie ein IoT Edge-Gerät](/azure/iot-edge/how-to-register-device).
 
 ## <a name="prepare-a-gpu-enabled-vm"></a>Vorbereiten einer GPU-fähigen VM
 
-1. Installieren Sie die NVIDA-GPU-Treiber auf Ihrem Linux-Server der N-Serie. Führen Sie dazu die Schritte aus, die im Artikel [Installieren von NVIDIA GPU-Treibern für virtuelle Computer der Serie N mit Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup) aufgeführt sind.
+1. Installieren Sie die NVIDA-GPU-Treiber auf Ihrem Linux-Server der N-Serie. Führen Sie dazu die Schritte aus, die im Artikel [Installieren von NVIDIA GPU-Treibern für virtuelle Computer der Serie N mit Linux](/azure/virtual-machines/linux/n-series-driver-setup) aufgeführt sind.
 
     > [!NOTE]  
     > Sie verwenden die bash-Befehlszeile, um Ihre Software zu installieren. Notieren Sie sich die Befehle, da Sie später dieselben Befehle verwenden, um die Treiber in dem Container zu installieren, der in Docker auf Ihrer GPU-fähigen VM ausgeführt wird.
@@ -84,7 +84,7 @@ Sie müssen Docker 19.02 oder höher installieren. Die Docker-Runtime unterstüt
 
 ### <a name="install-docker"></a>Installieren von Docker
 
-Docker-Container können überall ausgeführt werden, lokal im Rechenzentrum des Kunden, bei einem externen Dienstanbieter oder in der Cloud auf Azure. Docker-Imagecontainer können nativ unter Linux und Windows ausgeführt werden. Allerdings können Windows-Images nur auf Windows-Hosts ausgeführt werden, während Linux-Images sowohl auf Linux-Hosts als auch auf Windows-Hosts ausgeführt werden können (bis dato mithilfe einer Hyper-V-Linux-VM), wobei Host einen Server oder eine VM bedeutet. Weitere Informationen finden Sie unter [Was ist Docker?](https://docs.microsoft.com/dotnet/architecture/microservices/container-docker-introduction/docker-defined).
+Docker-Container können überall ausgeführt werden, lokal im Rechenzentrum des Kunden, bei einem externen Dienstanbieter oder in der Cloud auf Azure. Docker-Imagecontainer können nativ unter Linux und Windows ausgeführt werden. Allerdings können Windows-Images nur auf Windows-Hosts ausgeführt werden, während Linux-Images sowohl auf Linux-Hosts als auch auf Windows-Hosts ausgeführt werden können (bis dato mithilfe einer Hyper-V-Linux-VM), wobei Host einen Server oder eine VM bedeutet. Weitere Informationen finden Sie unter [Was ist Docker?](/dotnet/architecture/microservices/container-docker-introduction/docker-defined).
 
 1. Stellen Sie über Ihren SSH-Client eine Verbindung mit Ihrem Linux-Server der N-Serie her.
 
@@ -177,4 +177,4 @@ Anweisungen finden Sie unter [Auswählen des Geräts und Hinzufügen von Modulen
 
   - Weitere Informationen über Azure Stack Hub, Data Box Edge und die Intelligent Edge finden Sie unter [Die Zukunft des Computing: intelligente Cloud und Intelligent Edge](https://azure.microsoft.com/overview/future-of-cloud).
 
-  - Weitere Informationen über Hybrid Cloud-Anwendungen finden Sie unter [Hybrid Cloud-Lösungen](https://docs.microsoft.com/hybrid/app-solutions/).
+  - Weitere Informationen über Hybrid Cloud-Anwendungen finden Sie unter [Hybrid Cloud-Lösungen](/hybrid/app-solutions/).

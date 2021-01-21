@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: fe28503ec5072cb11996563efcb70662bb1025fa
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 0d5bd91af5c320d3e6dcbb73d87b704d4903e817
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97973961"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243441"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Verwalten von API-Versionsprofilen in Azure Stack Hub
 
@@ -73,7 +73,7 @@ Es gibt Codebeispiele, die Sie dabei unterstützen, mithilfe von Profilen Ihre L
 - **.NET** <br>
 Verwenden Sie das API-Profil, um die aktuelle stabilste Version der einzelnen Ressourcentypen in einem Ressourcenanbieterpaket abzurufen. Weitere Informationen finden Sie unter [Verwenden von API-Versionsprofilen mit .NET in Azure Stack Hub](azure-stack-version-profiles-net.md).
 - **PowerShell**  
-Rufen Sie mit dem über den PowerShell-Katalog verfügbaren Modul **Az.Bootstrapper** die PowerShell-Cmdlets ab, die für die Arbeit mit API-Versionsprofilen erforderlich sind. Informationen finden Sie unter [Use API version profiles for PowerShell in Azure Stack](azure-stack-version-profiles-powershell.md) (Verwenden von API-Versionsprofilen für PowerShell in Azure Stack).
+Rufen Sie mit dem über den PowerShell-Katalog verfügbaren Modul **Az.Bootstrapper** die PowerShell-Cmdlets ab, die für die Arbeit mit API-Versionsprofilen erforderlich sind. Informationen finden Sie unter [Use API version profiles for PowerShell in Azure Stack](../operator/azure-stack-powershell-install.md) (Verwenden von API-Versionsprofilen für PowerShell in Azure Stack).
 Rufen Sie mit dem über den PowerShell-Katalog verfügbaren Modul **AzureRM.Bootstrapper** die PowerShell-Cmdlets ab, die für die Arbeit mit API-Versionsprofilen erforderlich sind. Informationen finden Sie unter [Use API version profiles for PowerShell in Azure Stack](../operator/powershell-install-az-module.md) (Verwenden von API-Versionsprofilen für PowerShell in Azure Stack).
 - **Azure-Befehlszeilenschnittstelle**  
 Aktualisieren Sie Ihre Umgebungskonfiguration so, dass das spezifische API-Versionsprofil für Azure Stack Hub verwendet wird. Weitere Informationen finden Sie unter [Verwenden von API-Versionsprofilen für die Azure CLI](azure-stack-version-profiles-azurecli2.md).

@@ -15,12 +15,12 @@ ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: a3d8fcc1c3ffa65539b233a8b89f55d57f61a5ef
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 8b173f26fdd731de1d7eb21ee7a5c6947da78b55
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910617"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256148"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub-ruggedized"></a>Herunterladen von Marketplace-Elementen in Azure Stack Hub (Ruggedized)
 
@@ -74,7 +74,7 @@ Ihre Azure Stack Hub-Bereitstellung muss über eine Internetverbindung verfügen
 
 In einer getrennten Umgebung können Sie Marketplace-Elemente nicht aus Azure herunterladen. Sie müssen das Offlinesyndikationstool verwenden, um die Marketplace-Elemente auf ein lokales Laufwerk herunterzuladen und diese Elemente von dort aus dann in Azure Stack Hub hochladen.
 
-Sie können [die Offlinesyndikationstools hier herunterladen](https://aka.ms/azsSyndicationtool).
+Sie können [die Offlinesyndikationstools hier herunterladen](../../operator/azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected).
 
 ### <a name="download-marketplace-items-from-azure"></a>Herunterladen von Marketplace-Elementen aus Azure
 

@@ -16,12 +16,12 @@ ms.date: 10/14/2020
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 0fd077f405256ff0a112dd9730cdc3e8fefb10f8
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e6fccf96e44a481a0e1e0c5bb300ec238937f86b
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867535"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256182"
 ---
 # <a name="azure-stack-hub-ruggedized-deployment-overview"></a>Übersicht über die Bereitstellung von Azure Stack Hub Ruggedized
 
@@ -38,7 +38,7 @@ Diese Bereitstellungsanleitung richtet sich an das im Feld eingesetzte Team von 
 
 Voraussetzungen, um den Inhalt dieser Anleitung vollständig verstehen zu können, sind technische Erfahrungen mit Virtualisierung, Servern, Betriebssystemen, Netzwerken und Speicherlösungen. Der Bereitstellungstechniker muss über Kenntnisse von Microsoft Windows Server 2019 mit Hyper-V, Azure Stack Hub, Azure und Microsoft PowerShell verfügen.
 
-Der Schwerpunkt dieser Anleitung liegt auf der Bereitstellung der Kernkomponenten von Microsoft Azure Stack Hub sowie den Besonderheiten von Azure Stack Hub Ruggedized. In der Anleitung werden keine Betriebsabläufe von Azure Stack Hub erläutert und auch nicht alle in Azure Stack Hub verfügbaren Features behandelt. Weitere Informationen finden Sie in der [Dokumentation für Azure Stack Hub-Operatoren](https://docs.microsoft.com/azure-stack/operator/).
+Der Schwerpunkt dieser Anleitung liegt auf der Bereitstellung der Kernkomponenten von Microsoft Azure Stack Hub sowie den Besonderheiten von Azure Stack Hub Ruggedized. In der Anleitung werden keine Betriebsabläufe von Azure Stack Hub erläutert und auch nicht alle in Azure Stack Hub verfügbaren Features behandelt. Weitere Informationen finden Sie in der [Dokumentation für Azure Stack Hub-Operatoren](../operator/index.yml).
 
 ## <a name="introduction"></a>Einführung
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/25/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 2d31294b2b3a402efcfd4376988d1de6c3dbabd1
-ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
+ms.openlocfilehash: 3e31852e554c85ffab18aacaa336a007a97874f2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355598"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255298"
 ---
 # <a name="host-network-requirements-for-azure-stack-hci"></a>Anforderungen an das Hostnetzwerk für Azure Stack HCI
 
@@ -156,7 +156,7 @@ SET bietet gegenüber LBFO zusätzliche Features, einschließlich Qualitäts- un
 - Geschwindigkeit (Durchsatz)
 - Konfiguration
 
-Am einfachsten lässt sich feststellen, ob Adapter symmetrisch sind, wenn die Geschwindigkeiten und die Schnittstellenbeschreibungen übereinstimmen. Eine Abweichung ist nur bei der in der Beschreibung aufgeführten Ziffer zulässig. Verwenden Sie das Cmdlet [`Get-NetAdapterAdvancedProperty`](https://docs.microsoft.com/powershell/module/netadapter/get-netadapteradvancedproperty), um sicherzustellen, dass in der zurückgegebenen Konfiguration die gleichen Eigenschaftswerte aufgeführt sind.
+Am einfachsten lässt sich feststellen, ob Adapter symmetrisch sind, wenn die Geschwindigkeiten und die Schnittstellenbeschreibungen übereinstimmen. Eine Abweichung ist nur bei der in der Beschreibung aufgeführten Ziffer zulässig. Verwenden Sie das Cmdlet [`Get-NetAdapterAdvancedProperty`](/powershell/module/netadapter/get-netadapteradvancedproperty), um sicherzustellen, dass in der zurückgegebenen Konfiguration die gleichen Eigenschaftswerte aufgeführt sind.
 
 In der folgenden Tabelle finden Sie ein Beispiel für Schnittstellenbeschreibungen, die sich nur durch die Ziffer (#) unterscheiden:
 
@@ -298,6 +298,6 @@ Stretched Cluster weisen die folgenden Anforderungen und Merkmale auf:
 
 - Informieren Sie sich über die Anforderungen an Netzwerkswitches und physische Netzwerke. Siehe [Anforderungen für physische Netzwerke](physical-network-requirements.md).
 - Frischen Sie Ihre Grundlagenkenntnisse zu Failoverclustering auf. Siehe [Failover Clustering Networking Basics and Fundamentals](https://techcommunity.microsoft.com/t5/failover-clustering/failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09) (Failoverclustering-Netzwerkgrundlagen).
-- Frischen Sie Ihre Grundlagenkenntnisse zur Verwendung von SET auf. Siehe [Direkter Remotezugriff auf den Arbeitsspeicher (Remote Direct Memory Access, RDMA) und SET (Switch Embedded Teaming)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
-- Informationen zur Bereitstellung finden Sie unter [Erstellen eines Clusters mithilfe von Windows Admin Center](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster).
-- Informationen zur Bereitstellung finden Sie unter [Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell).
+- Frischen Sie Ihre Grundlagenkenntnisse zur Verwendung von SET auf. Siehe [Direkter Remotezugriff auf den Arbeitsspeicher (Remote Direct Memory Access, RDMA) und SET (Switch Embedded Teaming)](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
+- Informationen zur Bereitstellung finden Sie unter [Erstellen eines Clusters mithilfe von Windows Admin Center](../deploy/create-cluster.md).
+- Informationen zur Bereitstellung finden Sie unter [Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell](../deploy/create-cluster-powershell.md).

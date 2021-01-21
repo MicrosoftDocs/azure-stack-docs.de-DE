@@ -15,12 +15,12 @@ ms.date: 12/21/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 3d24ba3a714c8ea8f17189a7c63a134dab0f8d12
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 34dbff445ed06291712223b17f8443b384b8cac8
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909802"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243526"
 ---
 # <a name="register-azure-stack-hub-with-azure---azure-stack-hub-ruggedized"></a>Registrieren von Azure Stack Hub in Azure: Azure Stack Hub Ruggedized
 
@@ -310,7 +310,7 @@ Sie können die Kachel **Regionsverwaltung** verwenden, um zu überprüfen, ob d
 
 4. Sie können das Azure-Portal verwenden, um Azure Stack Hub-Registrierungsressourcen anzuzeigen, und dann überprüfen, ob die Registrierung erfolgreich war. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) mit einem Konto an, das dem Abonnement zugeordnet ist, mit dem Sie die Registrierung von Azure Stack Hub durchgeführt haben. Klicken Sie auf **Alle Ressourcen**, aktivieren Sie das Kontrollkästchen bei **Ausgeblendete Typen anzeigen**, und klicken Sie dann auf den Registrierungsnamen.
 
-5. Wenn die Registrierung nicht erfolgreich war, müssen Sie die Registrierung erneut durchführen, indem Sie [das verwendete Abonnement ändern](https://docs.microsoft.com/azure-stack/operator/azure-stack-registration#change-the-subscription-you-use), um das Problem zu beheben.
+5. Wenn die Registrierung nicht erfolgreich war, müssen Sie die Registrierung erneut durchführen, indem Sie [das verwendete Abonnement ändern](../../operator/azure-stack-registration.md#change-the-subscription-you-use), um das Problem zu beheben.
 
 Alternativ dazu können Sie mit dem Marketplace-Verwaltungsfeature überprüfen, ob Ihre Registrierung erfolgreich war. Wenn auf dem **Marketplace-Verwaltungsblatt** eine Liste mit Marketplace-Elementen angezeigt wird, war Ihre Registrierung erfolgreich. In getrennten Umgebungen werden bei der Marketplace-Verwaltung allerdings keine Marketplace-Elemente angezeigt.
 
@@ -319,4 +319,4 @@ Alternativ dazu können Sie mit dem Marketplace-Verwaltungsfeature überprüfen,
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Grundlagen zur Verwaltung von Azure Stack Hub](../../operator/azure-stack-manage-basics.md)  
+[Grundlagen zur Verwaltung von Azure Stack Hub](../../operator/azure-stack-manage-basics.md)

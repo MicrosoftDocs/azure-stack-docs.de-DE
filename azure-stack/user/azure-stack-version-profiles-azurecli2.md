@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: 2e3c25e282a84a0e41d6c69d0af6e2f352bbfba5
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: fe68722e2cabea2cc863bbd6fb6d8414eb91031c
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974012"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243577"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Installieren der Azure CLI in Azure Stack Hub
 
@@ -67,7 +67,7 @@ In diesem Abschnitt wird die Einrichtung der CLI Schritt für Schritt beschriebe
           --endpoint-active-directory-graph-resource-id "https://graph.windows.net/"
       ```
 
-    In der Azure CLI-Referenzdokumentation finden Sie einen Verweis auf den [register-Befehl](https://docs.microsoft.com/cli/azure/cloud?view=azure-cli-latest#az_cloud_register).
+    In der Azure CLI-Referenzdokumentation finden Sie einen Verweis auf den [register-Befehl](/cli/azure/cloud?view=azure-cli-latest#az_cloud_register).
 
 
 4. Legen Sie die aktive Umgebung mithilfe der folgenden Befehle fest.
@@ -402,4 +402,4 @@ Es gibt bekannte Probleme bei der Verwendung der CLI in Azure Stack Hub:
 
 - [Bereitstellen von Vorlagen mit der Azure CLI](azure-stack-deploy-template-command-line.md)
 - [Aktivieren der Azure CLI für Azure Stack Hub-Benutzer (Operator)](../operator/azure-stack-cli-admin.md)
-- [Verwalten von Benutzerberechtigungen](azure-stack-manage-permissions.md) 
+- [Verwalten von Benutzerberechtigungen](azure-stack-manage-permissions.md)

@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 9eef242f6e422cdba3b64927d6bfda93fab530b3
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 96a4e944b6b86c8b5db314141fd3473a8512d518
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874522"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256199"
 ---
 # <a name="privileged-access-workstation-and-privileged-endpoint-access"></a>Arbeitsstation mit privilegiertem Zugriff und privilegierter Endpunktzugriff
 
@@ -44,5 +44,5 @@ Führen Sie Folgendes aus, um die Sitzung für den privilegierten Endpunkt zu be
 
 ## <a name="further-reading"></a>Weitere nützliche Informationen
 
-Weitere Informationen zum Herstellen einer Verbindung mit dem privilegierten Endpunkt und zur Arbeit mit diesem finden Sie unter [Verwenden des privilegierten Endpunkts in Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)
-[Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+Weitere Informationen zum Herstellen einer Verbindung mit dem privilegierten Endpunkt und zur Arbeit mit diesem finden Sie unter [Verwenden des privilegierten Endpunkts in Azure Stack](../../operator/azure-stack-privileged-endpoint.md)
+[Hub](../../operator/azure-stack-privileged-endpoint.md).

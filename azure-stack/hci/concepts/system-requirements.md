@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/29/2020
-ms.openlocfilehash: 2d4aebd0609dff744f4c8f6ae9113fba1b7b0ba9
-ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
+ms.date: 01/14/2021
+ms.openlocfilehash: 3b29dfb35bad91ef02feebc22255b89116da1505
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354155"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243458"
 ---
 # <a name="system-requirements-for-azure-stack-hci"></a>Systemanforderungen für Azure Stack HCI
 
@@ -61,20 +61,6 @@ Ein Azure Stack HCI-Cluster erfordert eine Netzwerkverbindung mit hoher und zuve
 
 - Vergewissern Sie sich, dass mindestens ein Netzwerkadapter verfügbar und für die Clusterverwaltung dediziert ist.
 - Vergewissern Sie sich, dass physische Switches in Ihrem Netzwerk so konfiguriert sind, dass sie Datenverkehr für beliebige VLANs zulassen, die Sie verwenden möchten.
-
-Zwischen den Serverknoten finden unterschiedliche Arten von Kommunikation statt:
-
-- Clusterkommunikation (Knotenbeitritte, Clusterupdates, Registrierungsupdates)
-- Taktinformationen des Clusters
-- Über freigegebenes Clustervolume umgeleiteter Datenverkehr
-- Livemigrations-Datenverkehr für virtuelle Computer
-
-Beim Feature „Direkte Speicherplätze“ muss zusätzlicher Datenverkehr eingerechnet werden:
-
-- Speicherbusebene – Erweiterungen oder Daten zwischen den Knoten
-- Integrität – Überwachen und Verwalten von Objekten (Knoten, Laufwerke, Netzwerkkarten, Clusterdienst)
-
-Bei Stretchingclustern tritt zwischen den Standorten zusätzlicher Datenverkehr durch Speicherreplikate auf. Datenverkehr für die Speicherbusebene und das freigegebene Clustervolume tritt nicht zwischen Standorten, sondern nur zwischen Serverknoten innerhalb der einzelnen Standorte auf.
 
 Überlegungen und Anforderungen zum Hostnetzwerk finden Sie unter [Anforderungen für Hostnetzwerke](host-network-requirements.md).
 

@@ -8,12 +8,12 @@ ms.date: 10/26/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: ab28418b30c2e17cdd48471b30206397ed476ed8
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b5221162dd4a75fd9ffbd5fb382ab05560d622f6
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872125"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255315"
 ---
 # <a name="azure-stack-hub-administration-basics---modular-data-center-mdc"></a>Grundlagen der Azure Stack Hub-Verwaltung – Modular Data Center (MDC)
 
@@ -49,7 +49,7 @@ Wir unterstützen die folgenden zusätzlichen Platform as a Service-Dienste (Paa
 - IoT Hub
 - Event Hub
 
-Bevor Sie diese Dienste Ihren Benutzern zur Verfügung stellen können, sind zusätzliche Konfigurationsschritte erforderlich. Weitere Informationen hierzu finden Sie in den Abschnitten **Tutorials** und **Anleitungen** > **Angebotsdienste** unserer Dokumentation für [Azure Stack Hub-Operator](https://docs.microsoft.com/azure-stack/operator/).
+Bevor Sie diese Dienste Ihren Benutzern zur Verfügung stellen können, sind zusätzliche Konfigurationsschritte erforderlich. Weitere Informationen hierzu finden Sie in den Abschnitten **Tutorials** und **Anleitungen** > **Angebotsdienste** unserer Dokumentation für [Azure Stack Hub-Operator](../../operator/index.yml).
 
 ### <a name="service-roadmap"></a>Roadmap für Dienste
 
@@ -88,11 +88,11 @@ Neben der Bereitstellung von Diensten müssen Sie die regulären Aufgaben eines 
 - Verwalten von [Netzwerk](../../operator/azure-stack-viewing-public-ip-address-consumption.md)- und [Speicherressourcen](../../operator/azure-stack-manage-storage-accounts.md)
 - [Starten und Beenden von Azure Stack Hub](../../operator/azure-stack-start-and-stop.md)
 - [Betreiben des erweiterten Speichers](../../user/azure-stack-network-howto-extend-datacenter.md)
-- [Verwalten von IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub)
-- [Verwalten von Event Hub](https://docs.microsoft.com/azure-stack/operator/event-hubs-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)
-- [Verwalten von App Service](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)
+- [Verwalten von IoT Hub](/azure/iot-hub/about-iot-hub)
+- [Verwalten von Event Hub](../../operator/event-hubs-rp-overview.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&branch=release-tzl&toc=%2fazure-stack%2ftdc%2ftoc.json&view=azs-2002)
+- [Verwalten von App Service](../../operator/azure-stack-app-service-overview.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&branch=release-tzl&toc=%2fazure-stack%2ftdc%2ftoc.json&view=azs-2002)
 - Ersetzen von fehlerhafter Hardware, hier ist die Liste der [ersetzbaren Teile](../../operator/azure-stack-replace-component.md).
-- [Erhalten von Support](https://docs.microsoft.com/azure-stack/operator/azure-stack-help-and-support-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)
+- [Erhalten von Support](../../operator/azure-stack-help-and-support-overview.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&branch=release-tzl&toc=%2fazure-stack%2ftdc%2ftoc.json&view=azs-2002)
 
 ## <a name="operator-tasks"></a>Operator-Aufgaben
 
@@ -135,7 +135,7 @@ Hier finden Sie eine Liste täglicher, wöchentlicher und monatlicher Aufgaben f
 
 ## <a name="what-to-tell-your-users"></a>Wichtige Informationen für Ihre Benutzer
 
-Sie müssen Ihre Benutzer über verschiedene Punkte informieren, z. B. die Arbeit mit Diensten in Azure Stack Hub, das Herstellen einer Verbindung mit der Umgebung und das Abonnieren von Angeboten. Zusätzlich zu benutzerdefinierter Dokumentation, die Sie ggf. für Ihre Benutzer bereitstellen möchten, können Sie Benutzer auch an die [Benutzerdokumentation zu Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/) weiterleiten.
+Sie müssen Ihre Benutzer über verschiedene Punkte informieren, z. B. die Arbeit mit Diensten in Azure Stack Hub, das Herstellen einer Verbindung mit der Umgebung und das Abonnieren von Angeboten. Zusätzlich zu benutzerdefinierter Dokumentation, die Sie ggf. für Ihre Benutzer bereitstellen möchten, können Sie Benutzer auch an die [Benutzerdokumentation zu Azure Stack Hub](../../user/index.yml) weiterleiten.
 
 ### <a name="understand-how-to-work-with-services-in-azure-stack-hub"></a>Grundlegendes zum Arbeiten mit Diensten in Azure Stack Hub
 

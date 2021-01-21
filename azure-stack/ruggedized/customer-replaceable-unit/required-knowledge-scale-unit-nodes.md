@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: a46ae218cbf4b041b836ad2f204093daa449c785
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 4df7cfa84ff9b4a08d6751aa19ffdb1430a80605
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874556"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256131"
 ---
 # <a name="required-knowledge-for-working-with-scale-unit-nodes-in-a-tactical-cloud-appliance"></a>Sie müssen über die erforderlichen Kenntnisse zum Arbeiten mit Skalierungseinheitknoten in einer Tactical Cloud Appliance verfügen.
 
@@ -30,8 +30,8 @@ Weitere Informationen zur Arbeitsstation mit privilegiertem Zugriff sowie zum PE
 ## <a name="azure-stack-hub-administrator-portal"></a>Azure Stack Hub-Verwaltungsportal
 
 Rufen Sie die Anmeldeinformationen und die URL des Administratorportals vom Kunden ab.
-Weitere Informationen finden Sie unter [Verwenden des Administratorportals](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals)
-[in Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals).
+Weitere Informationen finden Sie unter [Verwenden des Administratorportals](../../operator/azure-stack-manage-portals.md)
+[in Azure Stack Hub](../../operator/azure-stack-manage-portals.md).
 
 ## <a name="dell-emc-poweredge-r640-installation-and-service-manual"></a>Installations- und Servicehandbuch für Dell EMC PowerEdge R640
 
@@ -46,4 +46,3 @@ Der Serviceleitfaden zu Tactical Cloud Appliances in Microsoft Azure Stack Hub e
 ## <a name="dell-emc-poweredge-idrac"></a>iDRAC-Webschnittstelle für Dell EMC PowerEdge
 
 Sie müssen über Navigation und Verwendung der iDRAC-Webschnittstelle für Dell EMC PowerEdge informiert sein. Weitere Informationen zur Verwendung von iDRAC finden Sie im [Integrierten Benutzerleitfaden zum Dell Remote Access Controller 9](https://www.dell.com/support/manuals/us/en/04/poweredge-r840/idrac9_4.00.00.00_ug_new/overview-of-idrac?guid=guid-a03c2558-4f39-40c8-88b8-38835d0e9003).
-

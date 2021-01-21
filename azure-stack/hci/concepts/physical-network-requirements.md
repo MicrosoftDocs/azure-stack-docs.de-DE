@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 1e42f830683a1faefd8e068da1e968f9332b7e0a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e26299a53583fa7d4e4b4b61fc46be7d2faa9eba
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872720"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255009"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>Anforderungen an das physische Netzwerk für Azure Stack HCI
 
@@ -26,7 +26,7 @@ In diesem Thema werden Überlegungen und Anforderungen zum physischen Netzwerk (
 
 Microsoft testet die Standards und Protokolle mit Azure Stack HCI, die im Abschnitt **Anforderungen an Netzwerkswitches** weiter unten genannt werden. Obwohl Microsoft keine Netzwerkswitches zertifiziert, arbeiten wir mit Anbietern zusammen, um Geräte zu identifizieren, die Anforderungen von Azure Stack HCI unterstützen.
 
-Diese Anforderungen werden auch unter [Spezifikationen und Richtlinien zum Windows-Hardware-Kompatibilitätsprogramm](https://docs.microsoft.com/windows-hardware/design/compatibility/whcp-specifications-policies) veröffentlicht.  Wählen Sie **Spezifikationen und Richtlinien herunterladen, Version 1809** aus, öffnen Sie die ZIP-Datei und dann die Datei **WHCP-Components-Peripherals-Specification-1809.pdf**. Gehen Sie zum Abschnitt **Device.Network.Switch.SDDC**.
+Diese Anforderungen werden auch unter [Spezifikationen und Richtlinien zum Windows-Hardware-Kompatibilitätsprogramm](/windows-hardware/design/compatibility/whcp-specifications-policies) veröffentlicht.  Wählen Sie **Spezifikationen und Richtlinien herunterladen, Version 1809** aus, öffnen Sie die ZIP-Datei und dann die Datei **WHCP-Components-Peripherals-Specification-1809.pdf**. Gehen Sie zum Abschnitt **Device.Network.Switch.SDDC**.
 
 > [!IMPORTANT]
 > Möglicherweise funktionieren auch andere Netzwerkswitches, die hier nicht aufgeführte Technologien und Protokolle verwenden, Microsoft kann allerdings nicht gewährleisten, dass diese mit Azure Stack HCI funktionieren, und kann ggf. nicht bei der Behandlung von Problemen behilflich sein.
@@ -145,6 +145,6 @@ Azure Stack HCI unterstützt Verbindungen ohne Switches (direkte Verbindungen) f
 
 - Informieren Sie sich über die Anforderungen an Netzwerkadapter und Hosts. Weitere Informationen finden Sie unter [Anforderungen für Hostnetzwerke](host-network-requirements.md).
 - Frischen Sie Ihre Grundlagenkenntnisse zu Failoverclustering auf. Siehe [Failover Clustering Networking Basics and Fundamentals](https://techcommunity.microsoft.com/t5/failover-clustering/.failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09) (Failoverclustering-Netzwerkgrundlagen).
-- Frischen Sie Ihre Grundlagenkenntnisse zur Verwendung von SET auf. Siehe [Direkter Remotezugriff auf den Arbeitsspeicher (Remote Direct Memory Access, RDMA) und SET (Switch Embedded Teaming)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
-- Informationen zur Bereitstellung finden Sie unter [Erstellen eines Clusters mithilfe von Windows Admin Center](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster).
-- Informationen zur Bereitstellung finden Sie unter [Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell).
+- Frischen Sie Ihre Grundlagenkenntnisse zur Verwendung von SET auf. Siehe [Direkter Remotezugriff auf den Arbeitsspeicher (Remote Direct Memory Access, RDMA) und SET (Switch Embedded Teaming)](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
+- Informationen zur Bereitstellung finden Sie unter [Erstellen eines Clusters mithilfe von Windows Admin Center](../deploy/create-cluster.md).
+- Informationen zur Bereitstellung finden Sie unter [Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell](../deploy/create-cluster-powershell.md).

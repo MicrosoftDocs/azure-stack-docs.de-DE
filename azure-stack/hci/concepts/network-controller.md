@@ -5,12 +5,12 @@ author: AnirbanPaul
 ms.author: anpaul
 ms.topic: conceptual
 ms.date: 10/7/2020
-ms.openlocfilehash: ec9ddb62dc876fbd4b99ebc2c8e2a3af4a54e8a7
-ms.sourcegitcommit: 9a91dbdaa556725f51bcf3d8e79a4ed2dd5a209f
+ms.openlocfilehash: 3ac17ca9cd54c2ec387ceb39cbda76f7cb539305
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91847671"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255077"
 ---
 # <a name="plan-to-deploy-network-controller"></a>Planen der Bereitstellung von Netzwerkcontroller
 
@@ -36,11 +36,11 @@ Zum Bereitstellen von Netzwerkcontroller ist Folgendes erforderlich:
 
     **Option 2**: Das Verwaltungsnetzwerk ist physisch von den Netzwerken der Workloads getrennt. Bei dieser Option wird ein einzelner virtueller Switch nur für Compute verwendet:
 
-    :::image type="content" source="./media/network-controller/topology-option-2.png" alt-text="Option 1 zum Erstellen eines physischen Netzwerks für den Netzwerkcontroller." lightbox="./media/network-controller/topology-option-2.png":::
+    :::image type="content" source="./media/network-controller/topology-option-2.png" alt-text="Option 2 zum Erstellen eines physischen Netzwerks für den Netzwerkcontroller." lightbox="./media/network-controller/topology-option-2.png":::
 
     **Option 3**: Das Verwaltungsnetzwerk ist physisch von den Netzwerken der Workloads getrennt. Bei dieser Option werden zwei virtuelle Switches verwendet, einer für Compute, der andere für Speicher:
 
-    :::image type="content" source="./media/network-controller/topology-option-3.png" alt-text="Option 1 zum Erstellen eines physischen Netzwerks für den Netzwerkcontroller." lightbox="./media/network-controller/topology-option-3.png":::
+    :::image type="content" source="./media/network-controller/topology-option-3.png" alt-text="Option 3 zum Erstellen eines physischen Netzwerks für Netzwerkcontroller." lightbox="./media/network-controller/topology-option-3.png":::
 
 - Sie können die physischen Verwaltungsadapter auch für die Verwendung desselben Verwaltungsswitches kombinieren. In diesem Fall sollten Sie dennoch eine der Optionen in diesem Abschnitt verwenden.
 - Verwaltungsnetzwerk-Informationen, die Netzwerkcontroller zur Kommunikation mit Windows Admin Center und den Hyper-V-Hosts verwendet.
@@ -60,7 +60,7 @@ Jetzt sind Sie bereit, Netzwerkcontroller auf VMs mit dem Betriebssystem bereitz
 
 Weitere Informationen finden Sie unter:
 - [Erstellen eines Azure Stack HCI-Clusters](../deploy/create-cluster.md)
-- [Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell](../deploy/network-controller-powershell.md)
+- [Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
 
 ## <a name="see-also"></a>Weitere Informationen
 - [Netzwerkcontroller](/windows-server/networking/sdn/technologies/network-controller/network-controller)

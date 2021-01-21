@@ -8,12 +8,12 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/16/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: f0aafd572aa50760a7b326d5ca699e3f1331b3e9
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: 9560e9e2fcf5d7b01ca44b409d14a7827cac4060
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620652"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571398"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Herunterladen von Marketplace-Elementen in Azure Stack Hub
 
@@ -128,7 +128,7 @@ Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Mel
    Sie werden aufgefordert, Ihre Anmeldeinformationen für das Azure-Konto einzugeben. Je nach Konfiguration Ihres Kontos müssen Sie ggf. die zweistufige Authentifizierung verwenden.
 
    > [!NOTE]
-   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit `Add-AzRmAccount` anmelden: `RemoveAzAccount -Scope Process`.
+   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit `Add-AzAccount` anmelden: `Remove-AzAccount -Scope Process`.
 
 3. Sollten Sie über mehrere Abonnements verfügen, führen Sie den folgenden Befehl aus, um das für die Registrierung verwendete Abonnement auszuwählen:
 
@@ -187,7 +187,7 @@ Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Mel
 
 1. Öffnen Sie auf einem Computer mit Internetverbindung eine PowerShell-Konsole als Administrator.
 
-2. Melden Sie sich mit dem Azure-Konto, das Sie zum Registrieren von Azure Stack Hub verwendet haben, bei der entsprechenden Azure-Cloud und dem entsprechenden Azure AD-Mandanten an. Führen Sie zum Hinzufügen des Kontos in PowerShell`Add-AzureRMureRmAccount` aus:
+2. Melden Sie sich mit dem Azure-Konto, das Sie zum Registrieren von Azure Stack Hub verwendet haben, bei der entsprechenden Azure-Cloud und dem entsprechenden Azure AD-Mandanten an. Führen Sie zum Hinzufügen des Kontos in PowerShell`Add-AzureRMAccount` aus:
 
    ```powershell  
    Login-AzureRMAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'
@@ -196,7 +196,7 @@ Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Mel
    Sie werden aufgefordert, Ihre Anmeldeinformationen für das Azure-Konto einzugeben. Je nach Konfiguration Ihres Kontos müssen Sie ggf. die zweistufige Authentifizierung verwenden.
 
    > [!NOTE]
-   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit `Add-AzureRMRmAccount` anmelden: `RemoveAzAccount -Scope Process`.
+   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit `Add-AzureRMAccount` anmelden: `Remove-AzureRMAccount -Scope Process`.
 
 3. Sollten Sie über mehrere Abonnements verfügen, führen Sie den folgenden Befehl aus, um das für die Registrierung verwendete Abonnement auszuwählen:
 
@@ -213,7 +213,7 @@ Nach Ihrer Registrierung Ihrer Azure Stack-Instanz können Sie die folgende Mel
 5. Führen Sie den folgenden Befehl aus, um die herunterzuladenden Marketplace-Elemente wie VM-Images, Erweiterungen oder Lösungsvorlagen auszuwählen:
 
    ```powershell
-   $products = Select-AzureRMsMarketplaceItem
+   $products = Select-AzsMarketplaceItem
    ```
 
    Dadurch wird eine Tabelle angezeigt, in der alle Azure Stack-Registrierungen aufgelistet sind, die im ausgewählten Abonnement verfügbar sind. Wählen Sie die Registrierung aus, die der Azure Stack-Umgebung entspricht, für die Sie die Marketplace-Elemente herunterladen, und wählen Sie **OK** aus.

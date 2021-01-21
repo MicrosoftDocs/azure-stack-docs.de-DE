@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ea19dbbdd85f29eb036a0220828bbbb7bca33ea7
-ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
+ms.openlocfilehash: d1e033ed2b8bbae2968be8125c7d0dccb3e9f3cf
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97069806"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254635"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>Migrieren zu Azure Stack HCI auf derselben Hardware
 
@@ -36,7 +36,7 @@ Es gibt verschiedene Anforderungen und Aspekte, die Sie berücksichtigen sollten
 
 - Sie müssen über Domänenanmeldeinformationen mit Administratorberechtigungen für Azure Stack HCI verfügen.
 
-- Sichern Sie alle VMs im Quellcluster. Führen Sie eine absturzkonsistente Sicherung aller Anwendungen und Daten sowie eine anwendungskonsistente Sicherung aller Datenbanken aus.  Informationen zum Sichern in Azure finden Sie unter [Verwenden von Azure Backup](https://docs.microsoft.com/azure-stack/hci/manage/use-azure-backup).
+- Sichern Sie alle VMs im Quellcluster. Führen Sie eine absturzkonsistente Sicherung aller Anwendungen und Daten sowie eine anwendungskonsistente Sicherung aller Datenbanken aus.  Informationen zum Sichern in Azure finden Sie unter [Verwenden von Azure Backup](../manage/use-azure-backup.md).
 
 - Sammeln Sie Inventur- und Konfigurationsinformationen für alle Clusterknoten und Clusternamen, die Netzwerkkonfiguration, Resilienz und Kapazität von CSV (Cluster Shared Volume, freigegebenes Clustervolume) sowie einen Quorumzeugen.
 
@@ -181,7 +181,7 @@ Ausführliche Informationen zum Erstellen des Clusters mit PowerShell finden Sie
     Get-StoragePool | ? IsPrimordial -eq $false | ft FriendlyName,Version
     ```
 
-1. Erstellen Sie den Quorumzeugen. Weitere Informationen zur Vorgehensweise finden Sie unter [Einrichten eines Clusterzeugen](https://docs.microsoft.com/azure-stack/hci/deploy/witness).
+1. Erstellen Sie den Quorumzeugen. Weitere Informationen zur Vorgehensweise finden Sie unter [Einrichten eines Clusterzeugen](./witness.md).
 
 1. Überprüfen Sie mithilfe des folgenden Befehls, ob Speicherreparaturaufträge abgeschlossen wurden:
 

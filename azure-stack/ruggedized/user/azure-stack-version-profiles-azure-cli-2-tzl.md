@@ -14,12 +14,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 1/9/2020
-ms.openlocfilehash: c0de30c44d2938d17bbd4c48abbd1372bb7f6f79
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 34dafb113d2e87dddd0d744878c8be5e406751d0
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874284"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243560"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Verwalten und Bereitstellen von Ressourcen in Azure Stack Hub mit der Azure CLI
 
@@ -47,7 +47,7 @@ Sie können einen öffentlich zugänglichen Endpunkt einrichten, der eine VM-Ali
 
 ### <a name="install-or-upgrade-cli"></a>Installieren oder Aktualisieren der CLI
 
-Melden Sie sich an Ihrer Entwicklungsarbeitsstation an und installieren die CLI. Für Azure Stack Hub wird Version 2.0 oder höher der Azure CLI benötigt. Für die neueste Version der API-Profile ist eine aktuelle Version der CLI erforderlich. Mit den im Artikel [Installieren der Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) beschriebenen Schritten installieren Sie die CLI. 
+Melden Sie sich an Ihrer Entwicklungsarbeitsstation an und installieren die CLI. Für Azure Stack Hub wird Version 2.0 oder höher der Azure CLI benötigt. Für die neueste Version der API-Profile ist eine aktuelle Version der CLI erforderlich. Mit den im Artikel [Installieren der Azure CLI](/cli/azure/install-azure-cli) beschriebenen Schritten installieren Sie die CLI. 
 
 Öffnen Sie ein Terminal oder ein Eingabeaufforderungsfenster, und führen Sie den folgenden Befehl aus, um zu überprüfen, ob die Installation erfolgreich war:
 
@@ -218,4 +218,4 @@ Es gibt bekannte Probleme bei der Verwendung der CLI in Azure Stack Hub:
 
 - [Bereitstellen von Vorlagen mit der Azure CLI](../../user/azure-stack-deploy-template-command-line.md)
 - [Aktivieren der Azure CLI für Azure Stack Hub-Benutzer (Operator)](../../operator/azure-stack-cli-admin.md)
-- [Verwalten von Benutzerberechtigungen](../../user/azure-stack-manage-permissions.md) 
+- [Verwalten von Benutzerberechtigungen](../../user/azure-stack-manage-permissions.md)

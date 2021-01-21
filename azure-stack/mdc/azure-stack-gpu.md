@@ -14,12 +14,12 @@ ms.date: 01/02/2020
 ms.author: patricka
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 2b941c47b9c9662998b8d55bc6878e935969d1a4
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 1fb2542680f0fa6d7c020db77ce5e59663d87f9c
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872533"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255604"
 ---
 # <a name="gpu-vms-on-azure-stack"></a>GPU-VMs in Azure Stack 
 
@@ -47,8 +47,8 @@ Vorgänge wie Patchen und Aktualisieren (Patch und Update, PnU) und der Austausc
 
 ## <a name="guest-driver-installation"></a>Installation des Gasttreibers 
 
-In [diesem Dokument](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup) werden das Einrichten des AMD-Gasttreibers auf einer VM mit aktivierter NVv4-GPU-P sowie die Schritte zum Überprüfen der Treiberinstallation beschrieben. 
+In [diesem Dokument](/azure/virtual-machines/windows/n-series-amd-driver-setup) werden das Einrichten des AMD-Gasttreibers auf einer VM mit aktivierter NVv4-GPU-P sowie die Schritte zum Überprüfen der Treiberinstallation beschrieben. 
 
 ## <a name="next-steps"></a>Nächste Schritte 
 
-[Features von Azure Stack-VMs](azure-stack-vm-considerations.md) 
+[Features von Azure Stack-VMs](azure-stack-vm-considerations.md)

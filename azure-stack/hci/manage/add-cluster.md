@@ -6,12 +6,12 @@ author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
 ms.date: 01/06/2021
-ms.openlocfilehash: 8b27859b7afab0a6e279774e43d0269f6d58065a
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: 77f1800323f57721d3f6f70050841e4adf0fd4c5
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103131"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254737"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>Hinzufügen oder Entfernen von Servern für einen Azure Stack HCI-Cluster
 
@@ -71,9 +71,9 @@ Nehmen Sie sich einige Minuten Zeit, um sich das Video zum Hinzufügen von Serve
 
 > [!VIDEO https://www.youtube.com/embed/AVHPkRmsZ5Y]
 
-Server werden mit Windows PowerShell zu einem Stretched Cluster hinzugefügt oder daraus entfernt. Mit den Cmdlets [Get-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) und [Set-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml) ändern Sie zunächst die Standortinformationen (Fehlerdomäneninformationen), bevor Sie die Server hinzufügen.
+Server werden mit Windows PowerShell zu einem Stretched Cluster hinzugefügt oder daraus entfernt. Mit den Cmdlets [Get-ClusterFaultDomainXML](/powershell/module/failoverclusters/get-clusterfaultdomainxml) und [Set-ClusterFaultDomainXML](/powershell/module/failoverclusters/set-clusterfaultdomainxml) ändern Sie zunächst die Standortinformationen (Fehlerdomäneninformationen), bevor Sie die Server hinzufügen.
 
-Anschließend können Sie das Serverpaar mit dem Cmdlet [Add-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusternode) jedem Standort gleichzeitig hinzufügen, wodurch es ermöglicht wird, auch die Laufwerke jedes neuen Servers gleichzeitig hinzuzufügen.
+Anschließend können Sie das Serverpaar mit dem Cmdlet [Add-ClusterNode](/powershell/module/failoverclusters/add-clusternode) jedem Standort gleichzeitig hinzufügen, wodurch es ermöglicht wird, auch die Laufwerke jedes neuen Servers gleichzeitig hinzuzufügen.
 
 Normalerweise verwalten Sie Cluster über einen Remotecomputer statt über einen Server in einem Cluster. Dieser Remotecomputer wird als Verwaltungscomputer bezeichnet.
 
@@ -167,7 +167,7 @@ Sobald die Server erfolgreich hinzugefügt wurden, werden die zugehörigen Laufw
 
 ## <a name="remove-server-pairs-from-a-stretched-cluster"></a>Entfernen von Serverpaaren aus einem Stretched Cluster
 
-Das Entfernen eines Serverpaars aus einem Stretched Cluster erfolgt ähnlich wie das Hinzufügen eines Serverpaars, jedoch wird hierfür das Cmdlet [Remove-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/remove-clusternode) verwendet.
+Das Entfernen eines Serverpaars aus einem Stretched Cluster erfolgt ähnlich wie das Hinzufügen eines Serverpaars, jedoch wird hierfür das Cmdlet [Remove-ClusterNode](/powershell/module/failoverclusters/remove-clusternode) verwendet.
 
 1. Verwenden Sie die folgenden PowerShell-Cmdlets, um den Zustand des Clusters zu ermitteln:
 

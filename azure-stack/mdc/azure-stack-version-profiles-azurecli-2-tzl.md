@@ -14,12 +14,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 2296d1228819d32f77ccc0dd35e4f2228908e969
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: eaf9431e3ca93f5f99c24154a96ad1e343bb2bf8
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910260"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255638"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli---modular-data-center-mdc"></a>Verwalten und Bereitstellen von Ressourcen in Azure Stack Hub mit der Azure CLI – Modular Data Center (MDC)
 
@@ -47,7 +47,7 @@ Sie können einen öffentlich zugänglichen Endpunkt einrichten, der eine VM-Ali
 
 ### <a name="install-or-upgrade-cli"></a>Installieren oder Aktualisieren der CLI
 
-Melden Sie sich an Ihrer Entwicklungsarbeitsstation an und installieren die CLI. Für Azure Stack Hub wird Version 2.0 oder höher der Azure CLI benötigt. Für die neueste Version der API-Profile ist eine aktuelle Version der CLI erforderlich. Mit den im Artikel [Installieren der Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) beschriebenen Schritten installieren Sie die CLI. 
+Melden Sie sich an Ihrer Entwicklungsarbeitsstation an und installieren die CLI. Für Azure Stack Hub wird Version 2.0 oder höher der Azure CLI benötigt. Für die neueste Version der API-Profile ist eine aktuelle Version der CLI erforderlich. Mit den im Artikel [Installieren der Azure CLI](/cli/azure/install-azure-cli) beschriebenen Schritten installieren Sie die CLI. 
 
 Öffnen Sie ein Terminal oder ein Eingabeaufforderungsfenster, und führen Sie den folgenden Befehl aus, um zu überprüfen, ob die Installation erfolgreich war:
 
@@ -218,4 +218,4 @@ Es gibt bekannte Probleme bei der Verwendung der CLI in Azure Stack Hub:
 
 - [Bereitstellen von Vorlagen mit der Azure CLI](../user/azure-stack-deploy-template-command-line.md)
 - [Aktivieren der Azure CLI für Azure Stack Hub-Benutzer (Operator)](../operator/azure-stack-cli-admin.md)
-- [Verwalten von Benutzerberechtigungen](../operator/azure-stack-manage-permissions.md) 
+- [Verwalten von Benutzerberechtigungen](../operator/azure-stack-manage-permissions.md)

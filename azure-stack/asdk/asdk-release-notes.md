@@ -7,18 +7,18 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2020
-ms.openlocfilehash: 6eb124193f477eb4418909f6b8e79781e948d135
-ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
+ms.openlocfilehash: 416b00b66b62788c49554e8dbc358a871a681dab
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94885749"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254720"
 ---
 # <a name="asdk-release-notes"></a>Versionshinweise zum ASDK
 
 Dieser Artikel bietet Informationen zu Änderungen, Fehlerbehebungen und bekannten Problemen im Azure Stack Development Kit (ASDK). Wenn Sie nicht sicher sind, welche Version Sie ausführen, [überprüfen Sie sie im Portal](../operator/azure-stack-updates.md).
 
-Abonnieren Sie den ![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS](https://aka.ms/asdkrss)-Feed, um in Bezug auf Neuerungen im ASDK auf dem Laufenden zu bleiben.
+Abonnieren Sie den ![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS](/api/search/rss?locale=en-us&search=ASDK+release+notes)-Feed, um in Bezug auf Neuerungen im ASDK auf dem Laufenden zu bleiben.
 
 ::: moniker range="azs-2008"
 ## <a name="build-12008059"></a>Build 1.2008.0.59

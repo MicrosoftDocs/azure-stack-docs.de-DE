@@ -7,12 +7,12 @@ ms.date: 10/08/2019
 ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 5483aa6859e839b978da7449d124811d3e2fb0bb
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6da70761e8a37967d3debdff28b67447596c632a
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870578"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255961"
 ---
 # <a name="find-your-cloud-id"></a>Ermitteln Ihrer Cloud-ID
 
@@ -51,5 +51,5 @@ In diesem Thema erfahren Sie, wie Sie Ihre Cloud-ID über das Administratorporta
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Proaktives Senden von Protokollen](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)
-* [Sofortiges Senden von Protokollen](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now)
+* [Proaktives Senden von Protokollen](./diagnostic-log-collection.md#send-logs-proactively)
+* [Sofortiges Senden von Protokollen](./diagnostic-log-collection.md#send-logs-now)

@@ -5,12 +5,12 @@ author: jasonnyi
 ms.author: jasonyi
 ms.topic: how-to
 ms.date: 11/17/2020
-ms.openlocfilehash: 03d5bf97e29009c67e9520ea59a802c55659db3b
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.openlocfilehash: 8d8a78d0a5faaa3c041e17c3c38f208132f19834
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94811313"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254788"
 ---
 # <a name="use-diskspd-to-test-workload-storage-performance"></a>Verwenden von DISKSPD zum Testen einer Workloadspeicherleistung
 
@@ -116,7 +116,7 @@ Sie generieren die Testdatei unter dem einheitlichen Namespace, den das freigege
 
 Wie Sie feststellen können, ist es durchaus möglich, unabhängig voneinander entweder die IOPS- oder die Bandbreitenobergrenze an der VM- oder Laufwerksgrenze zu erreichen. Daher ist es so wichtig, die VM-Größe und den Laufwerkstyp zu wissen, da beide eine maximale IOPS-Anzahl und Bandbreite haben. Dieses Wissen hilft Ihnen, Engpässe zu finden und Ihre Leistungsergebnisse zu verstehen. Weitere Informationen über die Größe, die für Ihre Workload geeignet sein kann, finden Sie in den folgenden Artikeln:
 
-- [VM-Größen](https://docs.microsoft.com/azure/virtual-machines/sizes-general?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)
+- [VM-Größen](/azure/virtual-machines/sizes-general?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Datenträgertypen](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 ## <a name="understand-the-output"></a>Verstehen der Ausgabe
@@ -174,7 +174,7 @@ Nachdem Sie nun begonnen haben, DISKSPD zu verwenden, gibt es einige Dinge zu be
 Der künstliche Test mit DISKSPD liefert Ihnen relativ vergleichbare Ergebnisse für Ihre echte Workload. Sie müssen jedoch genau auf die Parameter, die Sie festlegen, und darauf achten, ob diese Ihrem echten Szenario entsprechen. Es ist unerlässlich zu wissen, dass synthetische Workloads niemals perfekt die echte Workload Ihrer jeweils bereitgestellten Anwendung darstellen.
 
 ### <a name="preparation"></a>Vorbereitung
-Bevor Sie einen DISKSPD-Test ausführen, gibt es einige empfohlene Aktionen, die ausgeführt werden sollten. Dazu gehören das Verifizieren der Integrität des Speicherplatzes, das Überprüfen Ihrer Ressourcennutzung, damit der Test nicht durch ein anderes Programm gestört wird, und das Vorbereiten eines Leistungs-Managers, wenn Sie zusätzliche Daten sammeln möchten. Da in diesem Artikel das Ziel verfolgt wird, DISKSPD schnell zum Laufen zu bringen, wird aber nicht auf die Besonderheiten dieser Aktionen eingegangen. Weitere Informationen finden Sie unter [Testen der Leistung von Speicherplätzen mithilfe synthetischer Workloads in Windows Server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11)).
+Bevor Sie einen DISKSPD-Test ausführen, gibt es einige empfohlene Aktionen, die ausgeführt werden sollten. Dazu gehören das Verifizieren der Integrität des Speicherplatzes, das Überprüfen Ihrer Ressourcennutzung, damit der Test nicht durch ein anderes Programm gestört wird, und das Vorbereiten eines Leistungs-Managers, wenn Sie zusätzliche Daten sammeln möchten. Da in diesem Artikel das Ziel verfolgt wird, DISKSPD schnell zum Laufen zu bringen, wird aber nicht auf die Besonderheiten dieser Aktionen eingegangen. Weitere Informationen finden Sie unter [Testen der Leistung von Speicherplätzen mithilfe synthetischer Workloads in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11)).
 
 ### <a name="variables-that-affect-performance"></a>Variablen, die sich auf die Leistung auswirken
 Die Speicherleistung ist eine heikle Sache. Das heißt, es gibt viele Variablen, die sich auf die Leistung auswirken können. Daher ist es wahrscheinlich, dass Sie auf eine Zahl stoßen, die nicht mit Ihren Erwartungen übereinstimmt. Nachstehend sind einige der Variablen aufgeführt, die die Leistung beeinflussen, wobei dies keine vollständige Liste ist:
@@ -213,7 +213,7 @@ In der folgenden kurzen Zusammenfassung wird erläutert, warum die Verwendung ei
 - **Dateikopien sind möglicherweise nicht optimiert.** Es gibt zwei Parallelitätsebenen, die auftreten können, eine intern und die andere extern. Intern wendet die CopyFileEx-Engine, wenn die Dateikopie für ein entferntes Ziel bestimmt ist, eine gewisse Parallelisierung an. Extern gibt es verschiedene Methoden des Aufrufens der CopyFileEx-Engine. Beispielsweise führt Datei-Explorer Kopiervorgänge in einem einzelnen Thread aus, wogegen Robocopy Kopiervorgänge in mehreren Threads ausführt. Aus diesen Gründen ist es wichtig zu wissen, ob die Auswirkungen des Tests das sind, wonach Sie suchen.
 - **Jede Kopie hat zwei Seiten.** Wenn Sie eine Datei einfach kopieren und einfügen, verwenden Sie möglicherweise zwei Datenträger: den Quelldatenträger und den Zieldatenträger. Ist ein Datenträger langsamer als der andere, messen Sie im Wesentlichen die Leistung des langsameren Datenträgers. Es gibt andere Fälle, in denen die Kommunikation zwischen Quelle, Ziel und der Kopier-Engine die Leistung auf jeweils spezielle Weise beeinflussen kann.
     
-    Weitere Informationen hierzu finden Sie unter [Verwenden einer Dateikopie zum Messen der Speicherleistung](https://docs.microsoft.com/archive/blogs/josebda/using-file-copy-to-measure-storage-performance-why-its-not-a-good-idea-and-what-you-should-do-instead?ranMID=24542&ranEAID=je6NUbpObpQ&ranSiteID=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&epi=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&irgwc=1&OCID=AID2000142_aff_7593_1243925&tduid=%28ir__rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00%29%287593%29%281243925%29%28je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q%29%28%29&irclickid=_rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00).
+    Weitere Informationen hierzu finden Sie unter [Verwenden einer Dateikopie zum Messen der Speicherleistung](/archive/blogs/josebda/using-file-copy-to-measure-storage-performance-why-its-not-a-good-idea-and-what-you-should-do-instead?epi=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&irclickid=_rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00&irgwc=1&OCID=AID2000142_aff_7593_1243925&ranEAID=je6NUbpObpQ&ranMID=24542&ranSiteID=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&tduid=(ir__rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00)(7593)(1243925)(je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q)()).
 
 ## <a name="experiments-and-common-workloads"></a>Experimente und übliche Workloads
 Dieser Abschnitt enthält einige weitere Beispiele, Experimente und Workloadtypen.
@@ -259,5 +259,5 @@ Die grundlegende Entwurfskonzept für diesen Workloadtest sollte mindestens Folg
 
 ## <a name="next-steps"></a>Nächste Schritte
 Weitere Informationen und ausführliche Beispiele zum Optimieren Ihrer Resilienzeinstellungen finden Sie auch hier:
-- [OLTP und OLAP](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11))
+- [OLTP und OLAP](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11))
 - [Wahl des Resilienztyps](https://techcommunity.microsoft.com/t5/storage-at-microsoft/volume-resiliency-and-efficiency-in-storage-spaces-direct/ba-p/425831)

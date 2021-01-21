@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 271587baa3890a7dbb02d7ac935ceb51e2e405b7
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: bb5d62b4e5302762b4feddfd7afd7b7a39002187
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517147"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243322"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>Behandeln von Problemen mit virtuellen Netzwerkgeräten
 
@@ -187,4 +187,4 @@ Wenn Sie sehen, dass Pakete eingehen, aber keine Antwort enthalten, müssen Sie 
 
 ### <a name="create-a-support-ticket"></a>Erstellen ein Supporttickets
 
-Wenn das Problem mit den oben genannten Schritten nicht behoben werden kann, erstellen Sie ein [Supportticket](../operator/azure-stack-manage-basics.md#where-to-get-support), und verwenden Sie das [Tool für die bedarfsgesteuerte Protokollsammlung](../operator/azure-stack-diagnostic-log-collection-overview.md), um Protokolle bereitzustellen.
+Wenn das Problem mit den oben genannten Schritten nicht behoben werden kann, erstellen Sie ein [Supportticket](../operator/azure-stack-manage-basics.md#where-to-get-support), und verwenden Sie das [Tool für die bedarfsgesteuerte Protokollsammlung](../operator/diagnostic-log-collection.md), um Protokolle bereitzustellen.

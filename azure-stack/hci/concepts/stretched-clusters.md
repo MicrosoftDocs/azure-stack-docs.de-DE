@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 2a09d459a44171a864729fd4163197de35995f2e
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: 8e544ff72338149c4d7ffe7a49c9ea47490a5316
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737928"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254924"
 ---
 # <a name="stretched-clusters-overview"></a>Stretchingcluster: Übersicht
 
@@ -25,7 +25,7 @@ Speicherreplikation unterstützt sowohl synchrone als auch asynchrone Replikatio
 - Die asynchrone Replikation spiegelt Daten zwischen Standorten über regionale Bereiche über Netzwerklinks mit höherer Latenzen wider, jedoch ohne die Garantie, dass beide Standorte über identische Kopien der Daten zur Zeit eines Ausfalls verfügen.
 
 >[!NOTE]
-> Für die asynchrone Replikation müssen Sie Zielvolumes am anderen Standort nach dem Failover manuell in den Onlinezustand versetzen. Weitere Informationen finden Sie unter [Asynchrone Replikation](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview#asynchronous-replication).
+> Für die asynchrone Replikation müssen Sie Zielvolumes am anderen Standort nach dem Failover manuell in den Onlinezustand versetzen. Weitere Informationen finden Sie unter [Asynchrone Replikation](/windows-server/storage/storage-replica/storage-replica-overview#asynchronous-replication).
 
 Es gibt zwei Arten von Stretchingclustern, aktiv-passiv und aktiv-aktiv. Sie können eine aktiv-passive Standortreplikation einrichten, bei der es einen bevorzugten Standort und eine Replikationsrichtung gibt. Die aktiv-aktive Replikation kann bidirektional von beiden Standorten aus erfolgen. In diesem Artikel wird nur die aktiv/passive Konfiguration behandelt.
 
@@ -50,8 +50,8 @@ Im folgenden Diagramm sind sowohl Standort 1 als auch Standort 2 als aktive St
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Informieren Sie sich über die Speicherreplikation. Lesen Sie die [Übersicht über die Speicherreplikation](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview).
-- Machen Sie sich noch genauer mit der Verwendung der Speicherreplikation vertraut. Informationen hierzu finden Sie unter [Konfigurieren eines Hyper-V-Failoverclusters oder eines Dateiservers für einen zur allgemeinen Verwendung bestimmten Cluster](https://docs.microsoft.com/windows-server/storage/storage-replica/stretch-cluster-replication-using-shared-storage#configure-a-hyper-v-failover-cluster-or-a-file-server-for-a-general-use-cluster).
+- Informieren Sie sich über die Speicherreplikation. Lesen Sie die [Übersicht über die Speicherreplikation](/windows-server/storage/storage-replica/storage-replica-overview).
+- Machen Sie sich noch genauer mit der Verwendung der Speicherreplikation vertraut. Informationen hierzu finden Sie unter [Konfigurieren eines Hyper-V-Failoverclusters oder eines Dateiservers für einen zur allgemeinen Verwendung bestimmten Cluster](/windows-server/storage/storage-replica/stretch-cluster-replication-using-shared-storage#configure-a-hyper-v-failover-cluster-or-a-file-server-for-a-general-use-cluster).
 - Weitere Informationen zu Hardware- und sonstigen Anforderungen für Stretchingcluster. Weitere Informationen finden Sie unter [Systemanforderungen](system-requirements.md).
 - Erfahren Sie, wie ein Stretchingcluster mithilfe von Windows Admin Center bereitgestellt wird. Mehr dazu finden Sie unter [Erstellen eines Clusters mithilfe von Windows Admin Center](../deploy/create-cluster.md).
 - Erfahren Sie, wie Sie einen Stretchingcluster mithilfe von PowerShell bereitstellen. Mehr dazu finden Sie unter [Erstellen eines Clusters mithilfe von PowerShell](../deploy/create-cluster-powershell.md).

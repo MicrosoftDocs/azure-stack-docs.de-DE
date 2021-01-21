@@ -8,12 +8,12 @@ ms.date: 11/10/2020
 ms.author: bryanla
 ms.reviewer: unknown
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: d1d19d79a3a2242ada4e3f7972fa26f61ed600ce
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: f9a7a42fafe55e7b598e6fcb67e5353c2453222e
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343205"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255825"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Beheben allgemeiner Probleme mit Azure Stack Hub-PKI-Zertifikaten
 
@@ -23,13 +23,13 @@ In diesem Artikel werden allgemeine Probleme mit Azure Stack Hub-PKI-Zertifikat
 
 **Problem**: Zertifikat enthält keine HTTP-Zertifikatsperrliste in der CDP-Erweiterung.
 
-**Korrektur**: Dies ist kein Blockierproblem. Azure Stack erfordert eine HTTP-Zertifikatsperrliste für die Sperrungsüberprüfung gemäß [Zertifikatanforderungen für Azure Stack Hub-PKI (Public Key-Infrastruktur)](https://aka.ms/azspki).  Eine HTTP-Zertifikatsperrliste wurde im Zertifikat nicht erkannt.  Um sicherzustellen, dass die Zertifikatsperrungsüberprüfung funktioniert, sollte die Zertifizierungsstelle ein Zertifikat mit einer HTTP-Zertifikatsperrliste in der CDP-Erweiterung ausstellen.
+**Korrektur**: Dies ist kein Blockierproblem. Azure Stack erfordert eine HTTP-Zertifikatsperrliste für die Sperrungsüberprüfung gemäß [Zertifikatanforderungen für Azure Stack Hub-PKI (Public Key-Infrastruktur)](./azure-stack-pki-certs.md).  Eine HTTP-Zertifikatsperrliste wurde im Zertifikat nicht erkannt.  Um sicherzustellen, dass die Zertifikatsperrungsüberprüfung funktioniert, sollte die Zertifizierungsstelle ein Zertifikat mit einer HTTP-Zertifikatsperrliste in der CDP-Erweiterung ausstellen.
 
 ## <a name="http-crl---fail"></a>HTTP-Zertifikatsperrliste: Fehler
 
 **Problem**: Keine Verbindung mit der HTTP-Zertifikatsperrliste in der CDP-Erweiterung möglich.
 
-**Korrektur**: Dies ist ein Blockierproblem. Azure Stack erfordert eine Verbindung mit einer HTTP-Zertifikatsperrliste für die Sperrungsüberprüfung gemäß [Veröffentlichen von Azure Stack Hub-Ports und -URLs](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound).
+**Korrektur**: Dies ist ein Blockierproblem. Azure Stack erfordert eine Verbindung mit einer HTTP-Zertifikatsperrliste für die Sperrungsüberprüfung gemäß [Veröffentlichen von Azure Stack Hub-Ports und -URLs](./azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
 
 ## <a name="pfx-encryption"></a>PFX-Verschlüsselung
 

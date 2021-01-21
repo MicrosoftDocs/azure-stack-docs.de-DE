@@ -15,12 +15,12 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
 ms.reviewer: efemmano
-ms.openlocfilehash: bfc9c4aeb2e3dfb003d3cd1e1fc9dcc71b0caf82
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 5c8b446c642414727b6e7a1f1689c86e5f7acf70
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910924"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255366"
 ---
 # <a name="alerts-akams-link-reference-for-azure-stack-hub---modular-data-center-mdc"></a>Referenz für aka.ms-Links aus Benachrichtigungen für Azure Stack Hub – Modular Data Center (MDC)
 
@@ -37,7 +37,7 @@ In diesem Artikel sind Querverweise für Links aufgelistet, die in Benachrichtig
 | `https://aka.ms/azurestackaddcapacity` | [Hinzufügen zusätzlicher Knoten zu Skalierungseinheiten in Azure Stack](../../operator/azure-stack-add-scale-node.md) |
 | `https://aka.ms/azurestackaddnode` | [Hinzufügen zusätzlicher Knoten zu Skalierungseinheiten in Azure Stack](../../operator/azure-stack-add-scale-node.md) |
 | `https://aka.ms/azurestackhealthreport` | [https://github.com/Azure/AzureStack-Tools/blob/master/Identity/README.md#retrieve-azure-stack-identity-health-report](https://aka.ms/aa708dy) |
-| `https://aka.ms/azurestacklogfiles` | [Bedarfsgesteuertes Sammeln von Azure Stack-Diagnoseprotokollen](../../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md) |
+| `https://aka.ms/azurestacklogfiles` | [Bedarfsgesteuertes Sammeln von Azure Stack-Diagnoseprotokollen](../../operator/diagnostic-log-collection.md) |
 | `https://aka.ms/azurestackpep` | [Verwenden des privilegierten Endpunkts in Azure Stack](../../operator/azure-stack-privileged-endpoint.md) |
 | `https://aka.ms/azurestackreplacenode` | [Austauschen eines Skalierungseinheitknotens für ein in Azure Stack integriertes System](../../operator/azure-stack-replace-node.md) |
 | `https://aka.ms/azurestackupdatedirectory` | [https://github.com/Azure/AzureStack-Tools/tree/master/Identity#updating-the-azure-stack-aad-home-directory-after-installing-updates-or-new-resource-providers](https://aka.ms/aa700j2) |

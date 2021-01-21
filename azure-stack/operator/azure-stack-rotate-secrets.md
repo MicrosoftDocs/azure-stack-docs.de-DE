@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Erfahren Sie, wie Sie Ihre Geheimnisse in Azure Stack Hub rotieren.
 author: BryanLa
 ms.topic: how-to
-ms.date: 01/07/2021
+ms.date: 01/19/2021
 ms.reviewer: fiseraci
 ms.author: bryanla
-ms.lastreviewed: 01/07/2021
+ms.lastreviewed: 01/19/2021
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: ec65268a76a8616d5fea213d6c4f0551a5b5ba38
-ms.sourcegitcommit: a90b146769279ffbdb09c68ca0506875a867e177
+ms.openlocfilehash: d7c75bc9864e564736b03477a3c37140e752d850
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98123696"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571347"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Rotieren von Geheimnissen in Azure Stack Hub
 
@@ -67,6 +67,7 @@ Weitere Informationen zur Überwachung und Korrektur von Benachrichtigungen find
 > - **Geheimnisse ohne Zertifikat wie sichere Schlüssel und Zeichenfolgen** muss vom Administrator manuell durchgeführt werden. Dies schließt Kennwörter für Benutzer- und Administratorkonten sowie [Netzwerkswitchkennwörter](azure-stack-customer-defined.md) ein.
 > - **Geheimnisse von Ressourcenanbietern, die Mehrwert schaffen**, werden in einer separaten Anleitung behandelt:
 >    - [App Service in Azure Stack Hub](app-service-rotate-certificates.md)
+>    - [Event Hubs in Azure Stack Hub](event-hubs-rp-rotate-secrets.md)
 >    - [IoT Hub in Azure Stack Hub](iot-hub-rp-rotate-secrets.md)
 >    - [MySQL in Azure Stack Hub](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)
 >    - [SQL in Azure Stack Hub](azure-stack-sql-resource-provider-maintain.md#secrets-rotation)
@@ -238,9 +239,6 @@ Führen Sie die folgenden Schritte aus, um interne Geheimnisse zu rotieren:
     $PEPSession = New-PSSession -ComputerName <IP_address_of_ERCS_Machine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
     # Run Secret Rotation
-    $CertPassword = ConvertTo-SecureString "<Cert_Password>" -AsPlainText -Force
-    $CertShareCreds = Get-Credential
-    $CertSharePath = "<Network_Path_Of_CertShare>"
     Invoke-Command -Session $PEPSession -ScriptBlock {
         Start-SecretRotation -Internal
     }
@@ -325,7 +323,7 @@ Der Baseboard-Verwaltungscontroller überwacht den physischen Zustand Ihrer Serv
 
 Das Cmdlet [Start-SecretRotation](../reference/pep-2002/start-secretrotation.md) rotiert die Infrastrukturgeheimnisse eines Azure Stack Hub-Systems. Dieses Cmdlet kann nur für den privilegierten Azure Stack Hub-Endpunkt ausgeführt werden, indem ein `Invoke-Command`-Skriptblock verwendet wird, der die PEP-Sitzung im `-Session`-Parameter übergibt. Standardmäßig werden nur die Zertifikate aller externen Netzwerkinfrastruktur-Endpunkte rotiert.
 
-| Parameter | type | Erforderlich | Position | Standard | BESCHREIBUNG |
+| Parameter | Typ | Erforderlich | Position | Standard | BESCHREIBUNG |
 |--|--|--|--|--|--|
 | `PfxFilesPath` | String  | False  | benannt  | Keine  | Der Dateifreigabepfad des Verzeichnisses **\Certificates** mit allen externen Netzwerkendpunkt-Zertifikaten. Nur beim Rotieren externer Geheimnisse erforderlich. Das Endverzeichnis muss **\Certificates** sein. |
 | `CertificatePassword` | SecureString | False  | benannt  | Keine  | Das Kennwort für alle Zertifikate in „-PfXFilesPath“. Erforderlich, wenn „PfxFilesPath“ beim Rotieren externer Geheimnisse angegeben wird. |

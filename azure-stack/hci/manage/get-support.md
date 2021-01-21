@@ -5,18 +5,18 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 12/11/2020
-ms.openlocfilehash: 5b25fdcefd61cb8fa5a497a3477b1f33ab67ece5
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: f5dc475cde9baeb053fbaec1144d1ff65cc4e2ba
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343340"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254380"
 ---
 # <a name="get-support-for-azure-stack-hci"></a>Support für Azure Stack HCI
 
 >Gilt für: Azure Stack HCI, Version 20H2
 
-In diesem Thema erfahren Sie, wie Sie den Support für das Azure Stack HCI-Betriebssystem in Anspruch nehmen können. Azure Stack HCI folgt dem gleichen Supportprozess wie Azure. Unternehmenskunden können dem unter [Erstellen einer Azure-Supportanfrage](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) beschriebenen Prozess folgen. Wenden Sie sich an Ihren CSP-Support, wenn Sie Kunde eines Cloudlösungsanbieters (Cloud Solution Provider, CSP) sind.
+In diesem Thema erfahren Sie, wie Sie den Support für das Azure Stack HCI-Betriebssystem in Anspruch nehmen können. Azure Stack HCI folgt dem gleichen Supportprozess wie Azure. Unternehmenskunden können dem unter [Erstellen einer Azure-Supportanfrage](/azure/azure-portal/supportability/how-to-create-azure-support-request) beschriebenen Prozess folgen. Wenden Sie sich an Ihren CSP-Support, wenn Sie Kunde eines Cloudlösungsanbieters (Cloud Solution Provider, CSP) sind.
 
 Zum Erstellen einer Azure Stack HCI-Supportanfrage ist ein Azure-Supportplan Standard oder Professional Direct erforderlich. Basic- und Developer-Pläne bieten diese Möglichkeit nicht.
 

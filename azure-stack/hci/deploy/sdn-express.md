@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ba28d5904e58d84a913777fe80c5aa05a8ecdffe
-ms.sourcegitcommit: 6a99a188bbad491e7d2817de0b9500a27797107e
+ms.openlocfilehash: 968782c4fd5ac0f4e057815c526fbde8f90164af
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97658297"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254839"
 ---
 # <a name="deploy-an-sdn-infrastructure-using-sdn-express"></a>Bereitstellen einer SDN-Infrastruktur mit SDN Express
 
@@ -21,7 +21,7 @@ Unter diesem Thema wird beschrieben, wie Sie eine End-to-End-SDN-Infrastruktur (
 
 Die Skripts unterstützen eine Bereitstellung in Phasen. Sie können beispielsweise zunächst nur den Netzwerkcontroller bereitstellen, um einen Teil der Funktionen bei sehr niedrigen Netzwerkanforderungen zu erhalten. Sie können den Netzwerkcontroller auch mithilfe des Assistenten zum Erstellen von Clustern in Windows Admin Center bereitstellen. Zum Bereitstellen von anderen SDN-Komponenten, z. B. SLB und Gateway, müssen Sie dann aber die SDN Express-Skripts verwenden.
 
-Darüber hinaus können Sie mit System Center Virtual Machine Manager (VMM) auch eine SDN-Infrastruktur bereitstellen. Weitere Informationen finden Sie unter [Verwalten von SDN-Ressourcen im VMM-Fabric](https://docs.microsoft.com/system-center/vmm/network-sdn).
+Darüber hinaus können Sie mit System Center Virtual Machine Manager (VMM) auch eine SDN-Infrastruktur bereitstellen. Weitere Informationen finden Sie unter [Verwalten von SDN-Ressourcen im VMM-Fabric](/system-center/vmm/network-sdn).
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
@@ -62,7 +62,7 @@ Stellen Sie sicher, dass auf allen Hostservern das Azure Stack HCI-Betriebssyste
     SDNExpress\scripts\SDNExpress.ps1 -ConfigurationDataFile MultiNodeSampleConfig.psd1 -Verbose
     ```
 
-1. Konfigurieren Sie nach dem Erstellen der Netzwerkcontroller-VMs dynamische DNS-Updates für den Namen des Netzwerkcontrollerclusters auf dem DNS-Server. Weitere Informationen finden Sie unter [Schritt 3: Konfigurieren der dynamischen DNS-Registrierung für den Netzwerkcontroller](https://docs.microsoft.com/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
+1. Konfigurieren Sie nach dem Erstellen der Netzwerkcontroller-VMs dynamische DNS-Updates für den Namen des Netzwerkcontrollerclusters auf dem DNS-Server. Weitere Informationen finden Sie unter [Schritt 3: Konfigurieren der dynamischen DNS-Registrierung für den Netzwerkcontroller](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

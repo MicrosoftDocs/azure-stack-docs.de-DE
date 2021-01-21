@@ -7,12 +7,12 @@ ms.date: 12/23/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 3c10ea13f3780a7c7e1e0f999d8203d4d03f4e49
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 9276cff891cd4f69c35c0890a2bf02108407bbe0
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974148"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256063"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -282,8 +282,8 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 - Mit dem Azure Stack Hub Readiness Checker-Tool wird jetzt die AD Graph-Integration überprüft, indem alle TCP/IP-Ports verwendet werden, die AD Graph zugeordnet sind.
 - Für das Offlinesyndikationstool wurden Verbesserungen in Bezug auf die Zuverlässigkeit durchgeführt. Das Tool ist nicht mehr auf GitHub verfügbar und wurde [in den PowerShell-Katalog verschoben](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/). Weitere Informationen finden Sie unter [Herunterladen von Marketplace-Elementen in Azure Stack Hub](azure-stack-download-azure-marketplace-item.md).
 - Eine neue Überwachungsfunktion wird eingeführt. Die Warnung bei wenig freiem Speicherplatz für physische Hosts und Infrastruktur-VMs wird von der Plattform automatisch bereinigt. Nur wenn bei dieser Aktion ein Fehler auftritt, wird die Warnung im Azure Stack Hub-Administratorportal angezeigt, damit der Operator entsprechende Maßnahmen ergreifen kann.
-- Verbesserungen in Bezug auf die [Erfassung von Diagnoseprotokollen](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002&preserve-view=true). Mit der neuen Umgebung wird die Erfassung von Diagnoseprotokollen optimiert und vereinfacht, indem die Anforderung zum Vorabkonfigurieren eines Blobspeicherkontos beseitigt wird. Die Speicherumgebung ist so vorkonfiguriert, dass Sie vor dem Erstellen einer Supportanfrage Protokolle senden können und so weniger Zeit für einen Anruf beim Support verloren geht.
-- Die Zeit für die [proaktive und bedarfsabhängige Sammlung von Protokollen](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002&preserve-view=true) konnte jeweils um 80 % reduziert werden. Die Protokollerfassung kann länger als erwartet dauern, aber von Azure Stack Hub-Operators muss keine Aktion durchgeführt werden, sofern die Protokollerfassung nicht fehlschlägt.
+- Verbesserungen in Bezug auf die [Erfassung von Diagnoseprotokollen](./diagnostic-log-collection.md?preserve-view=true&view=azs-2002). Mit der neuen Umgebung wird die Erfassung von Diagnoseprotokollen optimiert und vereinfacht, indem die Anforderung zum Vorabkonfigurieren eines Blobspeicherkontos beseitigt wird. Die Speicherumgebung ist so vorkonfiguriert, dass Sie vor dem Erstellen einer Supportanfrage Protokolle senden können und so weniger Zeit für einen Anruf beim Support verloren geht.
+- Die Zeit für die [proaktive und bedarfsabhängige Sammlung von Protokollen](./diagnostic-log-collection.md?preserve-view=true&view=azs-2002) konnte jeweils um 80 % reduziert werden. Die Protokollerfassung kann länger als erwartet dauern, aber von Azure Stack Hub-Operators muss keine Aktion durchgeführt werden, sofern die Protokollerfassung nicht fehlschlägt.
 - Der Downloadstatus eines Azure Stack Hub-Updatepakets wird jetzt auf dem Updateblatt angezeigt, nachdem ein Update initiiert wurde. Dies gilt nur für verbundene Azure Stack Hub-Systeme, bei denen [Updatepakete per automatischem Download vorbereitet werden](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages).
 - Verbesserungen in Bezug auf die Zuverlässigkeit für den Netzwerkcontroller-Host-Agent.
 - Es wurde ein neuer Microservice mit dem Namen DNS Orchestrator eingeführt, mit dem die Resilienzlogik für die internen DNS-Dienste bei Patch- und Updatevorgängen verbessert wird.

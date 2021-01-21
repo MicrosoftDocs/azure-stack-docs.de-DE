@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 01/06/2020
-ms.openlocfilehash: 73e58c69295afc1a1bb106ea078e753647daa08d
-ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
+ms.openlocfilehash: a67881f2dd4be5e4dce5fb967c88484c27025624
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97965493"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255230"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Konfigurieren von Firewalls für Azure Stack HCI
 
@@ -29,7 +29,7 @@ Weitere Informationen finden Sie im Abschnitt „Azure Stack HCI-Konnektivität�
 In diesem Thema wird erläutert, wie Sie optional eine streng abgeriegelte Firewallkonfiguration verwenden, damit der gesamte Datenverkehr zu allen Zielen mit Ausnahmen derjenigen, die in der Liste „Zulassen“ aufgeführt sind, blockiert wird.
 
    >[!IMPORTANT]
-   > Sollte die ausgehende Konnektivität durch Ihre externe Unternehmensfirewall oder Ihren Proxyserver eingeschränkt sein, stellen Sie sicher, dass die in der Tabelle unten aufgeführten URLs nicht blockiert werden. Weitere Informationen finden Sie im Abschnitt „Netzwerkkonfiguration“ des Artikels [Übersicht über den Agent für Azure Arc-fähige Server](https://docs.microsoft.com/azure/azure-arc/servers/agent-overview#networking-configuration).
+   > Sollte die ausgehende Konnektivität durch Ihre externe Unternehmensfirewall oder Ihren Proxyserver eingeschränkt sein, stellen Sie sicher, dass die in der Tabelle unten aufgeführten URLs nicht blockiert werden. Weitere Informationen finden Sie im Abschnitt „Netzwerkkonfiguration“ des Artikels [Übersicht über den Agent für Azure Arc-fähige Server](/azure/azure-arc/servers/agent-overview#networking-configuration).
 
 
 Wie unten gezeigt kann Azure Stack HCI mit mehr als einer Firewall auf Azure zugreifen.
@@ -37,7 +37,7 @@ Wie unten gezeigt kann Azure Stack HCI mit mehr als einer Firewall auf Azure zug
 :::image type="content" source="./media/configure-firewalls/firewalls-diagram.png" alt-text="Abbildung des Zugriffs auf Diensttagendpunkte durch Azure Stack HCI über Port 443 (HTTPS) der Firewalls" lightbox="./media/configure-firewalls/firewalls-diagram.png":::
 
 ## <a name="working-with-service-tags"></a>Verwenden von Diensttags
-Ein *Diensttag* steht für eine Gruppe von IP-Adressen eines bestimmten Azure-Diensts. Microsoft verwaltet die im Diensttag eingeschlossenen IP-Adressen und aktualisiert das Diensttag automatisch, wenn sich IP-Adressen ändern, damit möglichst wenige Updates erforderlich sind. Weitere Informationen finden Sie unter [Diensttags in virtuellen Netzwerken](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+Ein *Diensttag* steht für eine Gruppe von IP-Adressen eines bestimmten Azure-Diensts. Microsoft verwaltet die im Diensttag eingeschlossenen IP-Adressen und aktualisiert das Diensttag automatisch, wenn sich IP-Adressen ändern, damit möglichst wenige Updates erforderlich sind. Weitere Informationen finden Sie unter [Diensttags in virtuellen Netzwerken](/azure/virtual-network/service-tags-overview).
 
 ## <a name="required-endpoint-daily-access-after-azure-registration"></a>Täglich erforderlicher Endpunktzugriff (nach der Azure-Registrierung)
 Azure verwaltet bekannte IP-Adressen für Azure-Dienste mithilfe von Diensttags. Azure veröffentlicht wöchentlich eine JSON-Datei aller IP-Adresse für die einzelnen Dienste. Die IP-Adressen ändern sich zwar nicht oft, jedoch mehrmals im Jahr. In der folgenden Tabelle sehen Sie die Diensttagendpunkte, auf die das Betriebssystem zugreifen muss.

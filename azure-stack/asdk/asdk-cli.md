@@ -7,18 +7,18 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 7b408e28ff70e66c0460473f54304cbf50fa2c92
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 32a09b833e2e5a76abf0c9a6c67540ca124bfe94
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96524680"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254584"
 ---
 # <a name="setting-up-certificates-for-azure-cli-on-azure-stack-development-kit"></a>Einrichten von Zertifikaten für die Azure CLI im Azure Stack Development Kit (ASDK)
 
 Mit den Schritten in diesem Artikel können Sie die Azure-Befehlszeilenschnittstelle (Azure CLI) zum Verwalten von ASDK-Ressourcen (Azure Stack Development Kit) über Linux-, Mac- und Windows-Clientplattformen einrichten.
 
-Dieser Artikel befasst sich mit dem Abrufen Ihrer Zertifikate und dem Einrichten der Vertrauensstellung auf Ihrem Remoteverwaltungscomputer. Informationen zum Installieren der Azure CLI und zum Herstellen einer Verbindung mit Ihrer Umgebung finden Sie unter [Installieren der Azure CLI in Azure Stack Hub](/azure-stack/user/azure-stack-version-profiles-azurecli2).
+Dieser Artikel befasst sich mit dem Abrufen Ihrer Zertifikate und dem Einrichten der Vertrauensstellung auf Ihrem Remoteverwaltungscomputer. Informationen zum Installieren der Azure CLI und zum Herstellen einer Verbindung mit Ihrer Umgebung finden Sie unter [Installieren der Azure CLI in Azure Stack Hub](../user/azure-stack-version-profiles-azurecli2.md).
 
 ## <a name="prepare-for-azure-cli"></a>Vorbereiten für Azure CLI
 
@@ -126,7 +126,7 @@ Sie müssen das Zertifizierungsstellen-Stammzertifikat auf Ihrem Remotecomputer 
     Write-Host "Python Cert store was updated to allow the Azure Stack Hub CA root certificate"
     ```
 
-Anweisungen zum Installieren und Herstellen einer Verbindung mit der Azure CLI finden Sie unter [Installieren der Azure CLI in Azure Stack Hub](/azure-stack/user/azure-stack-version-profiles-azurecli2).
+Anweisungen zum Installieren und Herstellen einer Verbindung mit der Azure CLI finden Sie unter [Installieren der Azure CLI in Azure Stack Hub](../user/azure-stack-version-profiles-azurecli2.md).
 
 ### <a name="linux"></a>[Linux](#tab/lin)
 
@@ -154,7 +154,7 @@ Stufen Sie das Zertifizierungsstellen-Stammzertifikat von Azure Stack Hub beim E
      sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
      ```
 
-Anweisungen zum Installieren und Herstellen einer Verbindung mit der Azure CLI finden Sie unter [Installieren der Azure CLI in Azure Stack Hub](/azure-stack/user/azure-stack-version-profiles-azurecli2).
+Anweisungen zum Installieren und Herstellen einer Verbindung mit der Azure CLI finden Sie unter [Installieren der Azure CLI in Azure Stack Hub](../user/azure-stack-version-profiles-azurecli2.md).
 
 ---
 
