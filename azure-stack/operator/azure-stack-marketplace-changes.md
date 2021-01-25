@@ -3,16 +3,16 @@ title: Neuerungen im Azure Stack Hub-Marketplace
 description: Hier finden Sie Informationen zu den Neuerungen im Azure Stack Hub-Marketplace, u. a. zu neuen, veralteten und aktualisierten Marketplace-Elementen.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/04/2021
+ms.date: 01/15/2021
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: bd738fab6a424c07bd33a41f80621121e93345c4
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6a1825577f216ad16b0150ef4adecb237e9e1f1c
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869915"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256012"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Änderungen im Azure Stack Hub-Marketplace
 
@@ -167,6 +167,29 @@ Der Artikel [Azure Stack Hub-Marketplace-Elemente](azure-stack-marketplace-azure
 
 ## <a name="updated-marketplace-items"></a>Aktualisierte Marketplace-Elemente
 
+- 06.01.2021: SQL Server 2017 Enterprise Windows Server 2016 (Bring Your Own License), Version 14.0.20201111
+- 06.01.2021: SQL Server 2017 Standard unter Windows Server 2016 (Vorausbezahlung), Version 14.0.20201111
+- 06.01.2021: SQL Server 2017 Standard unter Windows Server 2016 (Bring Your Own License), Version 14.0.20201111
+- 06.01.2021: SQL Server 2019 Enterprise unter Windows Server 2019 (Vorausbezahlung), Version 15.0.20201111
+- 06.01.2021: SQL Server 2019 Enterprise unter Windows Server 2019 (Bring Your Own License), Version 15.0.20201111
+- 06.01.2021: Kostenlose SQL Server-Lizenz: SQL 2019 Developer unter Windows Server 2019 (Vorausbezahlung), Version 15.0.20201111
+- 06.01.2021: Kostenlose SQL Server-Lizenz: SQL 2019 Developer unter Windows Server 2019 (Bring Your Own License), Version 15.0.20201111
+- 06.01.2021: SQL Server 2019 Standard unter Windows Server 2019 (Vorausbezahlung), Version 15.0.20201111
+- 06.01.2021: SQL Server 2019 Standard unter Windows Server 2019 (Bring Your Own License), Version 15.0.20201111
+- 06.01.2021: Kostenlose Lizenz: SQL Server 2016 SP2 Developer unter Windows Server 2016 (Vorausbezahlung), Version 13.2.20201111
+- 06.01.2021: Kostenlose Lizenz: SQL Server 2016 SP2 Developer unter Windows Server 2016 (Bring Your Own License), Version 13.2.20201111
+- 06.01.2021: Kostenlose Lizenz: SQL Server 2016 SP2 Express unter Windows Server 2016 (Vorausbezahlung), Version 13.2.20201111
+- 06.01.2021: Kostenlose Lizenz: SQL Server 2016 SP2 Express unter Windows Server 2016 (Bring Your Own License), Version 13.2.20201111
+- 06.01.2021: Kostenlose SQL Server-Lizenz: SQL Server 2017 Developer unter Windows Server 2016 (Vorausbezahlung), Version 14.0.20201111
+- 06.01.2021: Kostenlose SQL Server-Lizenz: SQL Server 2017 Developer unter Windows Server 2016 (Bring Your Own License), Version 14.0.20201111
+- 06.01.2021: Kostenlose SQL Server-Lizenz: SQL Server 2017 Express unter Windows Server 2016 (Vorausbezahlung), Version 14.0.20201111
+- 06.01.2021: Kostenlose SQL Server-Lizenz: SQL Server 2017 Express unter Windows Server 2016 (Bring Your Own License), Version 14.0.20201111
+- 06.01.2021: SQL Server 2016 SP2 Enterprise unter Windows Server 2016 (Vorausbezahlung), Version 13.2.20201111
+- 06.01.2021: SQL Server 2016 SP2 Enterprise unter Windows Server 2016 (Bring Your Own License), Version 13.2.20201111
+- 06.01.2021: SQL Server 2016 SP2 Standard unter Windows Server 2016 (Vorausbezahlung), Version 13.2.20201111
+- 06.01.2021: SQL Server 2016 SP2 Standard unter Windows Server 2016 (Bring Your Own License), Version 13.2.20201111
+- 06.01.2021: SQL Server 2017 Enterprise Windows Server 2016 (Vorausbezahlung), Version 14.0.20201111
+- 06.01.2021: SqlIaaSExtension   1.3.20560
 - 22.12.2020: Rogue Wave Software Centos 7.8, Version 7.8.2020062400
 - 07.12.2020: Bitnami Elasticsearch Cluster, Version 1.0.2
 - 07.12.2020: Bitnami Cassandra Cluster, Version 1.0.21

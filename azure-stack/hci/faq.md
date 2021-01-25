@@ -6,13 +6,13 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/24/2020
-ms.openlocfilehash: f4c6b9585f41388281c6618fabd21932f6d48c38
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.date: 1/15/2021
+ms.openlocfilehash: 97979a9fb96840337e89a4a3db3e3307cdb70eac
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051597"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243390"
 ---
 # <a name="azure-stack-hci-faq"></a>Häufig gestellte Fragen zur Azure Stack HCI
 Die häufig gestellten Fragen (FAQ) zur Azure Stack HCI enthalten einen Abschnitt zur Azure Stack HCI-Konnektivität und einen Abschnitt mit allgemeinen Fragen.
@@ -24,7 +24,9 @@ Die Azure Stack HCI ist ein lokaler hyperkonvergenter Infrastrukturstapel, der a
 
 **Werden meine in der Azure Stack HCI gespeicherten Daten an die Cloud gesendet?**
 
-Nein. Die Namen, Metadaten, Konfigurationen und Inhalte Ihrer lokalen virtuellen Computer (VMs) werden nie an die Cloud gesendet, es sei denn, Sie aktivieren zusätzliche Dienste ausdrücklich zu diesem Zweck, z. B. Azure Backup oder Azure Site Recovery, oder registrieren diese VMs einzeln in Cloudverwaltungsdiensten wie Azure Arc.
+Nein. Ihre Daten, einschließlich der Namen, Metadaten, Konfigurationen und Inhalte Ihrer lokalen virtuellen Computer (VMs) werden nie an die Cloud gesendet, es sei denn, Sie aktivieren zusätzliche Dienste ausdrücklich zu diesem Zweck, z. B. Azure Backup oder Azure Site Recovery, oder Sie registrieren diese VMs einzeln bei Cloudverwaltungsdiensten wie Azure Arc.
+
+Weitere Informationen zu den von uns gesammelten Diagnosedaten, um Azure Stack HCI sicher und auf dem neuesten Stand zu halten und wie erwartet zu und eine erwartungsgemäße Funktion sicherzustellen, finden Sie unter [Azure Stack HCI-Datensammlung](concepts/data-collection.md) und [Datenresidenz in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### <a name="edge-local-management-and-control"></a>Lokale Verwaltung und Steuerung am Edge
 
@@ -68,7 +70,7 @@ Dies hängt davon ab, welche Features Sie verwenden. Die Azure Stack HCI versuch
 
 **Wo werden die synchronisierten Informationen tatsächlich gespeichert?**
 
-Azure Stack HCI synchronisiert mit Azure und speichert Daten in einem sicheren, von Microsoft betriebenen Rechenzentrum. Weitere Informationen finden Sie unter [Azure Stack HCI-Datensammlung](concepts/data-collection.md) und [Data Residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
+Azure Stack HCI synchronisiert mit Azure und speichert Daten in einem sicheren, von Microsoft betriebenen Rechenzentrum. Weitere Informationen zu den von uns gesammelten Diagnosedaten, um Azure Stack HCI sicher und auf dem neuesten Stand zu halten und wie erwartet zu und eine erwartungsgemäße Funktion sicherzustellen, finden Sie unter [Azure Stack HCI-Datensammlung](concepts/data-collection.md) und [Datenresidenz in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### <a name="disconnected-or-air-gapped"></a>Getrennt oder mit Air Gap
 

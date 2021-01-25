@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/21/2020
-ms.openlocfilehash: 20d42c6685bb1a2a2c8de36d04434d23a97f81e1
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.date: 01/13/2021
+ms.openlocfilehash: 579ccb529ff2ac00a864a165fa5086244f0c0870
+ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737877"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208011"
 ---
 # <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Software-Defined Networking (SDN) in Azure Stack HCI
 
@@ -38,7 +38,7 @@ Die Bereitstellung des Netzwerkcontrollers ermöglicht Folgendes:
 - Anfügen virtueller Geräte an Ihre virtuellen Netzwerke
 - Konfigurieren von QoS-Richtlinien (Quality of Service) für virtuelle Computer, die an virtuelle Netzwerke oder herkömmliche VLAN-basierte Netzwerke angefügt wurden
 
-Es wird empfohlen, [den Netzwerkcontroller während der Clustererstellung bereitzustellen](../deploy/create-cluster.md#step-5-sdn-optional). Alternativ dazu können Sie [den Netzwerkcontroller über PowerShell bereitstellen](../deploy/network-controller-powershell.md), nachdem Sie einen Azure Stack HCI-Cluster erstellt haben.
+Wir empfehlen die [Bereitstellung des Netzwerkcontrollers mithilfe von SDN Express](../deploy/sdn-express.md), nachdem Sie einen Azure Stack HCI-Cluster erstellt haben.
 
 ## <a name="software-load-balancing"></a>Softwarelastenausgleich
 
@@ -60,4 +60,4 @@ Verwandte Informationen finden Sie außerdem unter:
 
 - [Planen einer softwaredefinierten Netzwerkinfrastruktur](plan-software-defined-networking-infrastructure.md)
 - [SDN in Windows Server: Übersicht](/windows-server/networking/sdn/software-defined-networking)
-- [Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts](/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)
+- [Bereitstellen einer SDN-Infrastruktur mit SDN Express](../deploy/sdn-express.md)

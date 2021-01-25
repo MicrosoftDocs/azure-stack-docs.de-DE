@@ -3,16 +3,16 @@ title: 'Azure Stack Hub: Hilfe und Support'
 description: Enthält Informationen zum Support für Microsoft Azure Stack Hub.
 author: PatAltimore
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 01/19/2021
 ms.author: patricka
 ms.reviewer: shisab
-ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: cb2fb8ce9ad1b24430cf545eba3f31ac9e754c43
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.lastreviewed: 01/19/2021
+ms.openlocfilehash: 88414f6e4198c7db04307eb4d508ee5acd9dfbe9
+ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974318"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98584330"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack Hub: Hilfe und Support
 
@@ -32,7 +32,7 @@ Oben im Bereich **Hilfe und Support** sind die Dinge angegeben, über die Sie si
 
 ![Self-Service-Unterstützung in Azure Stack Hub](media/azure-stack-help-and-support/get-support-tiles.png)
 
-- **Dokumentation**: Die [Dokumentation für Azure Stack Hub-Operator](index.yml) enthält Konzepte, Gewusst wie-Themen und Tutorials, in denen beschrieben wird, wie Sie Azure Stack Hub-Dienste anbieten. Zu diesen Diensten gehören virtuelle Computer, SQL-Datenbanken, Web-Apps und mehr.
+- **Dokumentation**: Die [Dokumentation für Azure Stack Hub-Operator](index.yml) enthält Konzepte, Gewusst wie-Anleitungen und Tutorials, in denen beschrieben wird, wie Sie Azure Stack Hub-Dienste anbieten. Zu diesen Diensten gehören virtuelle Computer, SQL-Datenbanken, Web-Apps und mehr.
 
 - **Informationen zur Abrechnung**: Sehen Sie sich die Tipps zu [Nutzung und Abrechnung](azure-stack-billing-and-chargeback.md) an.
 
@@ -56,6 +56,22 @@ Sie können auch in den MSDN-Foren ein Problem zur Diskussion stellen oder das O
 
 ![Hilfe zu Azure Stack Hub von Experten](media/azure-stack-help-and-support/get-support-cards.png)
 
+### <a name="information-for-a-support-request"></a>Informationen für eine Supportanfrage
+
+Halten Sie die folgenden Informationen bereit, um Ihre Supporterfahrung zu beschleunigen:
+
+ - Sind Sie Hardwarepartner für Azure Stack Hub?
+ - Wie viele Azure Stack Hub-Knoten betreiben Sie in Ihrem System?
+ - Welche Patchstufe weist Ihr System aktuell auf?
+ - Welche Buildnummer wird zurzeit von Ihrem System ausgeführt?
+ - Wie lautet der Name der Region Ihres Systems?
+ - Handelt es sich um ein verbundenes oder getrenntes System?
+ - Wann fing das Problem an?
+ - Können Sie die genaue Uhrzeit angeben, als bei der letzten Sicherung ein Fehler auftrat?
+ - Für welche Rollen treten Fehler bei der Sicherung auf?
+ - Haben Sie kürzlich Änderungen vorgenommen? Haben Sie beispielsweise ein Update durchgeführt, eine Hardwareänderung vorgenommen oder ein OEM-Update angewendet?
+ - Können Sie Protokolle bereitstellen, um das Problem zu untersuchen?
+
 ### <a name="get-up-to-speed-with-azure-stack-hub"></a>Einsteigen in Azure Stack Hub
 
 Diese Tutorialreihe wird in Abhängigkeit davon angepasst, ob Sie das ASDK oder integrierte Systeme ausführen, damit Sie sich ohne Zeitverlust über Ihre jeweilige Umgebung informieren können.
@@ -66,8 +82,8 @@ Diese Tutorialreihe wird in Abhängigkeit davon angepasst, ob Sie das ASDK oder 
 
 Sie können Diagnoseprotokolle auf zwei Arten an Microsoft senden:
 
-- [Proaktives Senden von Protokollen:](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively) Wenn diese Option aktiviert ist, wird die Protokollsammlung durch bestimmte Integritätswarnungen ausgelöst.
-- [Sofortiges Senden von Protokollen:](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now) Sie können manuell ein bestimmtes gleitendes Fenster als Zeitrahmen für die Protokollsammlung auswählen.
+- [Proaktives Senden von Protokollen:](./diagnostic-log-collection.md#send-logs-proactively) Wenn diese Option aktiviert ist, wird die Protokollsammlung durch bestimmte Integritätswarnungen ausgelöst.
+- [Sofortiges Senden von Protokollen:](./diagnostic-log-collection.md#send-logs-now) Sie können manuell ein bestimmtes gleitendes Fenster als Zeitrahmen für die Protokollsammlung auswählen.
 
 ![Der Screenshot zeigt, wie Sie mit dem Erfassen von Diagnoseprotokollen beginnen können.](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 
@@ -83,7 +99,7 @@ Ab Version 1907 gibt es zwei neue Möglichkeiten, Protokolle in **Hilfe und Supp
 
 ![Optionen für die Sammlung von Diagnoseprotokollen](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
-Integrierte Systeme können die Diagnoseprotokolle mit dem Microsoft-Support teilen. Da das ASDK (Azure Stack Development Kit) eine Evaluierungsumgebung ist, wird es vom Microsoft-Support nicht unterstützt. Weitere Informationen finden Sie unter [Sammlung von Azure Stack Hub-Diagnoseprotokollen – Übersicht ](azure-stack-diagnostic-log-collection-overview.md).
+Integrierte Systeme können die Diagnoseprotokolle mit dem Microsoft-Support teilen. Da das ASDK (Azure Stack Development Kit) eine Evaluierungsumgebung ist, wird es vom Microsoft-Support nicht unterstützt. Weitere Informationen finden Sie unter [Sammlung von Azure Stack Hub-Diagnoseprotokollen – Übersicht ](./diagnostic-log-collection.md).
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>Hilfe und Support für frühere Releases von Azure Stack Hub (vor 1905)
 
@@ -105,6 +121,6 @@ Wählen Sie im Administratorportal oben rechts **Hilfe** (Fragezeichen) und dann
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Informieren Sie sich über die [Erfassung von Diagnoseprotokollen](./azure-stack-diagnostic-log-collection-overview.md).
+- Informieren Sie sich über die [Erfassung von Diagnoseprotokollen](./diagnostic-log-collection.md).
 - Erfahren Sie, wie Sie [Ihre Cloud-ID ermitteln](azure-stack-find-cloud-id.md).
 - Informieren Sie sich über die [Problembehandlung für Azure Stack Hub](azure-stack-troubleshooting.md).

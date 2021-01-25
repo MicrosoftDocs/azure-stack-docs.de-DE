@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.author: caoyang
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: 80caef7369a3cf5ebe79338bc907fa9b31d1a759
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: 0f03d1209587bcf27dec2a309b7cec4abc67bf32
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737911"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571313"
 ---
 # <a name="sql-resource-provider-1193x-release-notes"></a>Versionshinweise zum SQL-Ressourcenanbieter 1.1.93.x
 
@@ -42,6 +42,8 @@ Wir empfehlen Ihnen, nach dem Upgrade von Azure Stack Hub auf das Release 2005 
 
 ## <a name="known-issue"></a>Bekanntes Problem
 Bei der Bereitstellung der Version 1.1.93.0 tritt ggf. ein Fehler auf, wenn das falsche AzureRmContext-Element verwendet wird. Wir empfehlen Ihnen, das direkte Upgrade auf Version 1.1.93.1 durchzuführen. Falls Sie das Upgrade auf Version 1.1.93.0 bereits erfolgreich durchgeführt haben, können Sie Version 1.1.93.1 problemlos überspringen.
+
+Bei der erneuten Bereitstellung des SQL-Ressourcenanbieters, der bereits in der gleichen Version bereitgestellt wurde (z. B. wenn der SQL-Ressourcenanbieter 1.1.93.1 bereits bereitgestellt wurde und dieselbe Version erneut bereitgestellt wird), wird der virtuelle Computer, auf dem der SQL-Ressourcenanbieter gehostet ist, beendet. Um dieses Problem zu beheben, wechseln Sie zum Verwaltungsportal, suchen Sie den virtuellen Computer mit dem Namen sqlvm\<version\> in der Ressourcengruppe mit dem Namen system.\<region\>.sqladapter.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

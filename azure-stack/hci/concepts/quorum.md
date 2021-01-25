@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: d60ec2edb4247c72d35e69e199bf3fc28259e2ce
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 0503e9a97a2ca2b15447dbd837eeac9162b84654
+ms.sourcegitcommit: 48a46142ea7bccd6c8a609e188dd7f3f6444f3c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572122"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98561994"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>Grundlegendes zum Cluster- und Poolquorum in Azure Stack HCI
 
@@ -59,11 +59,11 @@ Es gibt zwei Möglichkeiten, wie der Cluster für eine ungerade *Gesamtanzahl vo
 1. Die Anzahl von Stimmen kann durch Hinzufügen eines *Zeugen* mit einer zusätzlichen Stimme *erhöht* werden. Hierfür muss der Benutzer einige Einrichtungsschritte durchführen.
 2. Die Anzahl von Stimmen kann durch Löschen der Stimme eines Knotens *verringert* werden (dies erfolgt bei Bedarf automatisch).
 
-Wenn die verbleibenden Knoten erfolgreich nachweisen können, dass sie die *Mehrheit* bilden, wird die Definition des Begriffs *Mehrheit* aktualisiert und auf die restlichen Knoten begrenzt. So kann ein Knoten des Clusters ausfallen, dann ein weiterer, noch ein weiterer usw. Diese Anpassung der *Gesamtanzahl von Stimmen* nach aufeinander folgenden Ausfällen wird als ***dynamisches Quorum*** bezeichnet.
+Wenn die verbleibenden Knoten erfolgreich nachweisen können, dass sie die *Mehrheit* bilden, wird die Definition des Begriffs *Mehrheit* aktualisiert und auf die restlichen Knoten begrenzt. So kann ein Knoten des Clusters ausfallen, dann ein weiterer, noch ein weiterer usw. Diese Anpassung der *Gesamtzahl von Stimmen* nach aufeinander folgenden Ausfällen wird als ***dynamisches Quorum** _ bezeichnet.
 
 ### <a name="dynamic-witness"></a>Dynamischer Zeuge
 
-Der dynamische Zeuge schaltet die Stimme des Zeugen ein oder aus, um sicherzustellen, dass die *Gesamtanzahl von Stimmen* ungerade ist. Bei einer ungeraden Anzahl von Stimmen hat der Zeuge keine Stimme. Ist die Anzahl von Stimmen gerade, hat der Zeuge eine Stimme. Das Risiko, dass der Cluster aufgrund eines Ausfalls des Zeugen ausfällt, wird durch den dynamischen Zeugen erheblich verringert. Der Cluster entscheidet je nach Anzahl von Abstimmungsknoten, die im Cluster verfügbar sind, ob die Stimme des Zeugen verwendet wird.
+Der dynamische Zeuge schaltet die Stimme des Zeugen ein oder aus, um sicherzustellen, dass die _Gesamtzahl von Stimmen* ungerade ist. Bei einer ungeraden Anzahl von Stimmen hat der Zeuge keine Stimme. Ist die Anzahl von Stimmen gerade, hat der Zeuge eine Stimme. Das Risiko, dass der Cluster aufgrund eines Ausfalls des Zeugen ausfällt, wird durch den dynamischen Zeugen erheblich verringert. Der Cluster entscheidet je nach Anzahl von Abstimmungsknoten, die im Cluster verfügbar sind, ob die Stimme des Zeugen verwendet wird.
 
 Wie das dynamische Quorum mit dem dynamischen Zeugen funktioniert, wird im Folgenden beschrieben.
 
@@ -89,11 +89,11 @@ Das obige Szenario gilt für einen allgemeinen Cluster, für den „Direkte Spei
 ### <a name="examples"></a>Beispiele
 
 #### <a name="two-nodes-without-a-witness"></a>Zwei Knoten ohne einen Zeugen
-Die Stimme eines Knotens wird gelöscht, sodass die *Stimmenmehrheit* anhand einer Gesamtanzahl von **einer Stimme** bestimmt wird. Wenn der Knoten, der nicht abstimmt, unerwartet ausfällt, hat der verbleibende Knoten die 1/1-Mehrheit, und der Cluster bleibt online. Wenn der Knoten, der abstimmt, unerwartet ausfällt, hat der verbleibende Knoten die 0/1-Mehrheit, und der Cluster ist nicht mehr verfügbar. Wenn der Knoten, der abstimmt, korrekt heruntergefahren wird, wird die Stimme an den anderen Knoten übertragen, und der Cluster bleibt online. ***Aus diesem Grund ist es wichtig, einen Zeugen zu konfigurieren.***
+Die Stimme eines Knotens wird gelöscht, sodass die *Stimmenmehrheit* anhand einer Gesamtanzahl von **einer Stimme** bestimmt wird. Wenn der Knoten, der nicht abstimmt, unerwartet ausfällt, hat der verbleibende Knoten die 1/1-Mehrheit, und der Cluster bleibt online. Wenn der Knoten, der abstimmt, unerwartet ausfällt, hat der verbleibende Knoten die 0/1-Mehrheit, und der Cluster ist nicht mehr verfügbar. Wenn der Knoten, der abstimmt, korrekt heruntergefahren wird, wird die Stimme an den anderen Knoten übertragen, und der Cluster bleibt online. **_Aus diesem Grund ist es wichtig, einen Zeugen zu konfigurieren._* _
 
 ![Funktionsweise des Quorums im Fall von zwei Knoten ohne einen Zeugen](media/quorum/2-node-no-witness.png)
 
-- Übersteht einen Serverausfall: **Chance von 50 Prozent**.
+- Übersteht zwei nacheinander auftretende Serverausfälle: _*Wahrscheinlichkeit von fünfzig Prozent**.
 - Übersteht zwei nacheinander auftretende Serverausfälle: **Nein**.
 - Übersteht zwei gleichzeitige Serverausfälle: **Nein**.
 
@@ -159,7 +159,7 @@ Failoverclustering unterstützt drei Typen von Quorumzeugen:
 
 - **[Cloudzeuge](/windows-server/failover-clustering/deploy-cloud-witness)** : BLOB-Speicher in Azure, auf den alle Knoten des Clusters zugreifen können. Dieser Zeuge verwaltet Clusteringinformationen in einer Datei „witness.log“, speichert aber keine Kopie der Clusterdatenbank.
 - **SMB-Dateifreigabe**: Eine SMB-Dateifreigabe, die auf einem Dateiserver mit Windows Server konfiguriert ist. Dieser Zeuge verwaltet Clusteringinformationen in einer Datei „witness.log“, speichert aber keine Kopie der Clusterdatenbank.
-- **Datenträgerzeuge**: Ein kleiner Clusterdatenträger in der Gruppe „Verfügbarer Clusterspeicher“. Dieser Datenträger ist hochverfügbar und unterstützt ein Failover zwischen Knoten. Er enthält eine Kopie der Clusterdatenbank.  ***Ein Datenträgerzeuge wird von „Direkte Speicherplätze“ nicht unterstützt.***
+- **Datenträgerzeuge**: Ein kleiner Clusterdatenträger in der Gruppe „Verfügbarer Clusterspeicher“. Dieser Datenträger ist hochverfügbar und unterstützt ein Failover zwischen Knoten. Er enthält eine Kopie der Clusterdatenbank.  **_Ein Datenträgerzeuge wird von „Direkte Speicherplätze“ nicht unterstützt_* _.
 
 ## <a name="pool-quorum-overview"></a>Übersicht über das Poolquorum
 
@@ -179,7 +179,7 @@ In der folgenden Tabelle finden Sie eine Übersicht über die Ergebnisse des Poo
 
 ## <a name="how-pool-quorum-works"></a>Funktionsweise des Poolquorums
 
-Wenn Laufwerke ausfallen oder bei einer Teilmenge von Laufwerken die Verbindung mit einer anderen Teilmenge unterbrochen wird, müssen die verbleibenden Laufwerke nachweisen, dass sie die *Mehrheit* des Pools darstellen, damit sie online bleiben. Können sie dies nicht, werden sie offline geschaltet. Der Pool ist die Entität, die je nachdem, ob ausreichend Datenträger für das Quorum verfügbar sind, offline geschaltet wird oder online bleibt (50 % + 1). Der Besitzer der Poolressource (der aktive Clusterknoten) kann das „+ 1“ sein.
+Wenn Laufwerke ausfallen oder bei einer Teilmenge von Laufwerken die Verbindung mit einer anderen Teilmenge unterbrochen wird, müssen die verbleibenden Laufwerke nachweisen, dass sie die _Mehrheit* des Pools darstellen, damit sie online bleiben. Können sie dies nicht, werden sie offline geschaltet. Der Pool ist die Entität, die je nachdem, ob ausreichend Datenträger für das Quorum verfügbar sind, offline geschaltet wird oder online bleibt (50 % + 1). Der Besitzer der Poolressource (der aktive Clusterknoten) kann das „+ 1“ sein.
 
 Das Poolquorum funktioniert jedoch anders als das Clusterquorum:
 

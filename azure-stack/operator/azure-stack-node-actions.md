@@ -3,16 +3,16 @@ title: Aktionen für Knoten einer Skalierungseinheit in Azure Stack Hub
 description: Hier erhalten Sie Informationen zu Aktionen für Knoten einer Skalierungseinheit (einschließlich „Einschalten“, „Ausschalten“, „Deaktivieren“ und „Fortsetzen“), und Sie erfahren, wie Sie den Knotenstatus in integrierten Azure Stack Hub-Systemen anzeigen.
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 1/19/2021
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 11/19/2020
-ms.openlocfilehash: dc98263b16a72e6b9809e7ef3bc0c286b627749d
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.lastreviewed: 1/19/2021
+ms.openlocfilehash: 5bececf48222c9dc7401df7cb84d83f375c93d75
+ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869762"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98584296"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Aktionen für Knoten einer Skalierungseinheit in Azure Stack Hub
 
@@ -41,6 +41,8 @@ So zeigen Sie den Status einer Skalierungseinheit an
    - IP-Adresse des Baseboard-Verwaltungscontrollers (Baseboard Management Controller, BMC)
    - Gesamtanzahl von Kernen
    - Gesamtspeichermenge
+   
+    Knotenaktionen können auch zur Auslösung erwarteter Warnungen im Administratorportal führen. 
 
 ![Status einer Skalierungseinheit](media/azure-stack-node-actions/multinodeactions.png)
 
@@ -61,8 +63,6 @@ Azure Stack Hub zeigt möglicherweise den Betriebsstatus des Knotens als **Addin
 Dies kann der Fall sein, wenn der Cache der Fabric-Ressourcenanbieterrolle nach einem Vorgang nicht aktualisiert wurde. 
 
 Stellen Sie vor dem Anwenden der folgenden Schritte sicher, dass aktuell kein Vorgang ausgeführt wird. Aktualisieren Sie den Endpunkt entsprechend Ihrer Umgebung.
-
-
 
 ### <a name="az-modules"></a>[Az-Module](#tab/az1)
 

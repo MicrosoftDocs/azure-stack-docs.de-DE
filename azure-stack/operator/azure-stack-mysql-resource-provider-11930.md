@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.author: caoyang
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: 2312219d67741b9485a6070c00418762e50fac73
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: 225c765642dc48b299c899d71eb0d0ce13d4852d
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737833"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571364"
 ---
 # <a name="mysql-resource-provider-1193x-release-notes"></a>Versionshinweise zum MySQL-Ressourcenanbieter 1.1.93.x
 
@@ -42,6 +42,8 @@ Wir empfehlen Ihnen, nach dem Upgrade von Azure Stack Hub auf das Release 2005 
 
 ## <a name="known-issues"></a>Bekannte Probleme
 Bei der Bereitstellung der Version 1.1.93.0 tritt ggf. ein Fehler auf, wenn das falsche AzureRmContext-Element verwendet wird. Wir empfehlen Ihnen, das direkte Upgrade auf Version 1.1.93.1 durchzuführen. Falls Sie das Upgrade auf Version 1.1.93.0 bereits erfolgreich durchgeführt haben, können Sie Version 1.1.93.1 problemlos überspringen.
+
+Bei der erneuten Bereitstellung des MySQL-Ressourcenanbieters, der bereits in der gleichen Version bereitgestellt wurde (z. B. wenn der MySQL-Ressourcenanbieter 1.1.93.1 bereits bereitgestellt wurde und dieselbe Version erneut bereitgestellt wird), wird der virtuelle Computer, auf dem der MySQL-Ressourcenanbieter gehostet ist, beendet. Um dieses Problem zu beheben, wechseln Sie zum Verwaltungsportal, suchen Sie den virtuellen Computer mit dem Namen mysqlvm\<version\> in der Ressourcengruppe mit dem Namen system.\<region\>.mysqladapter.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
