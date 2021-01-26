@@ -28,10 +28,6 @@
       href: deploy/operating-system.md
     - name: Erstellen eines Clusters
       href: deploy/create-cluster.md
-    - name: Einrichten eines Clusterzeugen
-      href: deploy/witness.md
-    - name: Bereitstellen einer SDN-Infrastruktur
-      href: deploy/sdn-express.md
     - name: Migrieren zu neuer Hardware
       href: deploy/migrate-cluster-new-hardware.md
     - name: Migrieren auf derselben Hardware
@@ -96,6 +92,8 @@
           href: manage/update-cluster.md
         - name: Überwachen des Clusters
           href: manage/monitor-cluster.md
+        - name: Einrichten eines Clusterzeugen
+          href: manage/witness.md
         - name: Verwenden der Rechenzentrumsfirewall
           href: manage/use-datacenter-firewall.md
         - name: Verwenden von DISKSPD zum Testen von Workloads
@@ -114,6 +112,10 @@
           href: manage/validate-qos.md
         - name: Problembehandlung für CredSSP
           href: manage/troubleshoot-credssp.md
+    - name: Verwalten von SDN
+      items:
+        - name: Bereitstellen einer SDN-Infrastruktur
+          href: manage/sdn-express.md
     - name: Verwalten von Azure-Diensten
       items:
         - name: Registrieren von Windows Admin Center bei Azure
