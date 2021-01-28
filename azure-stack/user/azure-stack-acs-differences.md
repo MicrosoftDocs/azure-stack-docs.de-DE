@@ -8,12 +8,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviwer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: e49092e87f8e6801343ae0550aff4c71dd40408b
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: d242658388e97512f3130a381b2793e57832f397
+ms.sourcegitcommit: 0765de47f4a73e09192d34739e40c750b6e7abaf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103068"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915205"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub-Speicher: Unterschiede und Überlegungen
 
@@ -44,6 +44,7 @@ In diesem Artikel sind die bekannten Unterschiede zwischen Azure Stack Hub-Speic
 |Momentaufnahme eines Blobs|Die maximale Anzahl von Momentaufnahmen eines Blobs ist nicht beschränkt.|Die maximale Anzahl von Momentaufnahmen eines Blobs beträgt 1.000.
 |Azure AD-Authentifizierung für Speicher|In der Vorschauversion. |Noch nicht unterstützt.
 |Unveränderliche Blobs|Allgemein verfügbar |Unterstützt bei Verwendung von Version 2008 oder höher.
+|Batch-API für Blob Storage|In der Vorschauversion. |Noch nicht unterstützt.
 |Firewallregeln und VNET-Regeln für Speicher|Allgemein verfügbar |Noch nicht unterstützt.|
 
 Es gibt auch Unterschiede zu Speichermetriken:
