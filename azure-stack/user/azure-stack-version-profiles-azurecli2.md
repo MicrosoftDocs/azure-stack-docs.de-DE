@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: fe68722e2cabea2cc863bbd6fb6d8414eb91031c
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.openlocfilehash: 8ffab5fa1ffff5012edfbce3da69f35a753ff72e
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243577"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772285"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Installieren der Azure CLI in Azure Stack Hub
 
@@ -53,7 +53,7 @@ In diesem Abschnitt wird die Einrichtung der CLI Schritt für Schritt beschriebe
       | Wert | Beispiel | BESCHREIBUNG |
       | --- | --- | --- |
       | Umgebungsname | AzureStackUser | Verwenden Sie `AzureStackUser` für die Benutzerumgebung. Geben Sie `AzureStackAdmin` an, falls Sie der Betreiber der Umgebung sind. |
-      | Resource Manager-Endpunkt | `https://management.contoso.onmicrosoft.com` | Die **ResourceManagerUrl** im ASDK lautet: `https://management.contoso.onmicrosoft.com/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
+      | Resource Manager-Endpunkt | `https://management.contoso.onmicrosoft.com` | Die **ResourceManagerUrl** im ASDK lautet: `https://management.local.azurestack.external/` Der **ResourceManagerUrl**-Wert in integrierten Systemen lautet: `https://management.<region>.<fqdn>/` Wenn Sie eine Frage zum integrierten Systemendpunkt haben, können Sie sich an Ihren Cloudbetreiber wenden. |
       | Speicherendpunkt | local.contoso.onmicrosoft.com | `local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
       | Key Vault-Suffix | .vault.contoso.onmicrosoft.com | `.vault.local.azurestack.external` ist für das ASDK bestimmt. Bei einem integrierten System verwenden Sie einen Endpunkt für Ihr System.  |
       | Ressourcen-ID des Active Directory-Endpunktgraphen | https://graph.windows.net/ | Active Directory-Ressourcen-ID |

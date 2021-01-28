@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/13/2021
-ms.openlocfilehash: 579ccb529ff2ac00a864a165fa5086244f0c0870
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.date: 01/22/2021
+ms.openlocfilehash: ee4046837b012f5ea55a85db418e2af35f84a7ee
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208011"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772253"
 ---
 # <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Software-Defined Networking (SDN) in Azure Stack HCI
 
@@ -38,7 +38,7 @@ Die Bereitstellung des Netzwerkcontrollers ermöglicht Folgendes:
 - Anfügen virtueller Geräte an Ihre virtuellen Netzwerke
 - Konfigurieren von QoS-Richtlinien (Quality of Service) für virtuelle Computer, die an virtuelle Netzwerke oder herkömmliche VLAN-basierte Netzwerke angefügt wurden
 
-Wir empfehlen die [Bereitstellung des Netzwerkcontrollers mithilfe von SDN Express](../deploy/sdn-express.md), nachdem Sie einen Azure Stack HCI-Cluster erstellt haben.
+Wir empfehlen die [Bereitstellung des Netzwerkcontrollers mithilfe von SDN Express](../manage/sdn-express.md), nachdem Sie einen Azure Stack HCI-Cluster erstellt haben.
 
 ## <a name="software-load-balancing"></a>Softwarelastenausgleich
 
@@ -60,4 +60,4 @@ Verwandte Informationen finden Sie außerdem unter:
 
 - [Planen einer softwaredefinierten Netzwerkinfrastruktur](plan-software-defined-networking-infrastructure.md)
 - [SDN in Windows Server: Übersicht](/windows-server/networking/sdn/software-defined-networking)
-- [Bereitstellen einer SDN-Infrastruktur mit SDN Express](../deploy/sdn-express.md)
+- [Bereitstellen einer SDN-Infrastruktur mit SDN Express](../manage/sdn-express.md)

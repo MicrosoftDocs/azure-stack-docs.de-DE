@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/11/2020
-ms.openlocfilehash: 2d2c122a2fd8a9e0be5d3ffd942f85f310845f2d
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.date: 01/22/2021
+ms.openlocfilehash: 6527623ba5b42f40eb24cd6269f5d45bbccb0d25
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343175"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772241"
 ---
 # <a name="quickstart-create-an-azure-stack-hci-cluster-and-register-it-with-azure"></a>Schnellstart: Erstellen eines Azure Stack HCI-Clusters und Registrieren des Clusters bei Azure
 
@@ -58,7 +58,7 @@ Wenn Sie das CredSSP-Protokoll im Assistenten aktiviert haben, sollten Sie es au
 
 ## <a name="set-up-a-cluster-witness"></a>Einrichten eines Clusterzeugen
 
-Das Einrichten einer Zeugenressource ist erforderlich, damit beim Ausfall eines der Server im Cluster nicht auch der andere Knoten nicht mehr verfügbar ist. In dieser Schnellstartanleitung verwenden wir eine SMB-Dateifreigabe auf einem anderen Server als Zeugen. Sie können auch einen Azure-Cloudzeugen verwenden, vorausgesetzt, alle Serverknoten im Cluster verfügen über eine zuverlässige Internetverbindung. Weitere Informationen zu Zeugenoptionen finden Sie unter [Einrichten eines Clusterzeugen](witness.md).
+Das Einrichten einer Zeugenressource ist erforderlich, damit beim Ausfall eines der Server im Cluster nicht auch der andere Knoten nicht mehr verfügbar ist. In dieser Schnellstartanleitung verwenden wir eine SMB-Dateifreigabe auf einem anderen Server als Zeugen. Sie können auch einen Azure-Cloudzeugen verwenden, vorausgesetzt, alle Serverknoten im Cluster verfügen über eine zuverlässige Internetverbindung. Weitere Informationen zu Zeugenoptionen finden Sie unter [Einrichten eines Clusterzeugen](../manage/witness.md).
 
 1. Wählen Sie in der oberen Dropdownliste in Windows Admin Center die Option **Cluster-Manager** aus.
 1. Wählen Sie unter **Clusterverbindungen** den Cluster aus.

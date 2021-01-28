@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 01/12/2021
-ms.openlocfilehash: 7f77855945ecfb31e223db46be8b2e2e3a012c16
-ms.sourcegitcommit: 502df315764bbc4ff6d3de50b957dfd4a6c0043a
+ms.date: 01/22/2021
+ms.openlocfilehash: 4b6e7537a1111ed2e38d1783acf7197a4249b2ac
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98130287"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772103"
 ---
 # <a name="manage-azure-stack-hci-clusters-using-windows-admin-center"></a>Verwalten von Azure Stack HCI-Clustern mit Windows Admin Center
 
@@ -97,7 +97,7 @@ Es gibt verschiedene allgemeine Einstellungen, die auf Ihren Cluster angewendet 
    - **Datenträgerzeuge**: Verwenden einer Datenträgerressource als Zeuge (nicht für Stretchingcluster zu verwenden)
    - **Dateifreigabenzeuge**: Verwenden einer Dateifreigabe als Zeuge
 
-        Ausführliche Informationen zum Einrichten eines Zeugen finden Sie unter [Einrichten eines Clusterzeugen](../deploy/witness.md). Lesen Sie außerdem [Grundlegendes zum Cluster- und Poolquorum in Azure Stack HCI](../concepts/quorum.md).
+        Ausführliche Informationen zum Einrichten eines Zeugen finden Sie unter [Einrichten eines Clusterzeugen](witness.md). Lesen Sie außerdem [Grundlegendes zum Cluster- und Poolquorum in Azure Stack HCI](../concepts/quorum.md).
 
         :::image type="content" source="media/manage-cluster/cluster-settings-witness.png" alt-text="Bildschirm: Clusterzeuge" lightbox="media/manage-cluster/cluster-settings-witness.png":::
 
