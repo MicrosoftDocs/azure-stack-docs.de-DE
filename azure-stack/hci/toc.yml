@@ -102,8 +102,6 @@
           href: manage/add-cluster.md
         - name: Offlineschalten eines Servers zur Wartung
           href: manage/maintain-servers.md
-        - name: Verwalten der Azure-Registrierung
-          href: manage/manage-azure-registration.md
         - name: Ändern der Sprachen
           href: manage/languages.md
         - name: Ändern der Datenschutzeinstellungen
@@ -120,6 +118,8 @@
       items:
         - name: Registrieren von Windows Admin Center bei Azure
           href: manage/register-windows-admin-center.md
+        - name: Verwalten der Clusterregistrierung mit Azure
+          href: manage/manage-azure-registration.md
         - name: Verwenden des Azure-Portals
           href: manage/azure-portal.md
         - name: Überwachung mit Azure Monitor
