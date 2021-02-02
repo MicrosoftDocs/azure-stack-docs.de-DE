@@ -114,6 +114,8 @@
       items:
         - name: Bereitstellen einer SDN-Infrastruktur
           href: manage/sdn-express.md
+        - name: Verwalten von virtuellen Mandantennetzwerken
+          href: manage/tenant-virtual-networks.md
     - name: Verwalten von Azure-Diensten
       items:
         - name: Registrieren von Windows Admin Center bei Azure
