@@ -1,39 +1,53 @@
 ---
 title: Registrieren von Windows Admin Center bei Azure
-description: 'Gewusst wie: Registrieren von Windows Admin Center bei Azure.'
+description: So registrieren Sie Ihr Windows Admin Center-Gateway bei Azure.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: ee6794c0798bc388bc3d9313665eb0b7917cf8eb
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.date: 01/25/2021
+ms.openlocfilehash: c2067387d7b03252e7a2cc93aeddcb68dbd4bc83
+ms.sourcegitcommit: 2ac64ac431411b673e655465939d3c95cc94c55d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86868002"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98810941"
 ---
 # <a name="register-windows-admin-center-with-azure"></a>Registrieren von Windows Admin Center bei Azure
 
 > Gilt für Azure Stack HCI v20H2; Windows Server 2019
 
-Um Azure-Dienste mit Windows Admin Center zu verwenden, müssen Sie zunächst Windows Admin Center auf einem Verwaltungscomputer installieren und eine einmalige Registrierung durchführen.
+Für die Verwendung von Azure-Diensten mit Windows Admin Center müssen Sie Windows Admin Center zunächst auf einem Verwaltungscomputer installieren und eine einmalige Registrierung Ihres Windows Admin Center-Gateways durchführen. Dies ist eine Voraussetzung für die Registrierung Ihres Clusters bei Azure und sollte auf demselben Verwaltungscomputer erfolgen, auf dem Sie auch die [Clusterregistrierung](../deploy/register-with-azure.md) durchführen möchten.
 
-## <a name="complete-the-registration-process-in-windows-admin-center"></a>Abschließen des Registrierungsvorgangs in Windows Admin Center
+## <a name="complete-the-gateway-registration-process-using-windows-admin-center"></a>Ausführen der Gatewayregistrierung mit Windows Admin Center
 
 1. Starten Sie Windows Admin Center, und klicken Sie auf das Zahnradsymbol **Einstellungen** in der oberen rechten Ecke, über das Sie zur Seite „Konten“ gelangen. Wählen Sie dann im **Gateway**-Menü links **Azure** aus, und klicken Sie auf **Registrieren**.
-1. Sie erhalten einen eindeutigen Code. Klicken Sie auf die Schaltfläche **Kopieren** rechts neben dem Code.
-1. Klicken Sie auf **Code eingeben**, wodurch ein neues Browserfenster geöffnet wird, in das Sie den in Ihrer App oder auf Ihrem Gerät angezeigten Code einfügen können.
-1. Nach dem Einfügen des Codes werden Sie benachrichtigt, dass Ihre Anmeldung bei Windows Admin Center auf einem Remotegerät oder in einem Dienst bevorsteht. 
-1. Geben Sie Ihre E-Mail-Adresse oder Telefonnummer ein. Wenn es sich bei Ihrem Gerät um ein verwaltetes Gerät handelt, werden Sie zur Authentifizierung zur Anmeldeseite Ihrer Organisation weitergeleitet. Befolgen Sie die Anweisungen, und geben Sie die entsprechenden Anmeldeinformationen ein.
-1. Die folgende Meldung sollte angezeigt werden: „Sie haben sich bei der Windows Admin Center-Anwendung auf Ihrem Gerät angemeldet“. Schließen Sie das Browserfenster, um zur ursprünglichen Registrierungsseite zurückzukehren.
-1. Stellen Sie eine Verbindung mit Azure Active Directory her, indem Sie Ihre Azure Active Directory-ID (Mandanten-ID) eingeben. Wenn Sie die vorstehenden Schritte ausgeführt haben, ist das ID-Feld voraufgefüllt. Wenn Ihre Organisation Ihnen keine vorhandene ID angegeben hat, belassen Sie die **Azure Active Directory-Anwendung** auf der Einstellung **Neue erstellen**. Wenn Sie bereits über eine ID verfügen, klicken Sie auf **Vorhandene verwenden**, dann wird ein leeres Feld angezeigt, in dem Sie die ID eingeben können, die Ihnen von Ihrem Administrator zur Verfügung gestellt wurde. Nachdem Sie Ihre ID eingegeben haben, bestätigt Windows Admin Center, dass ein Konto mit dieser ID gefunden wurde. Wenn Sie über eine vorhandene ID verfügen, aber nicht wissen, wozu sie dient, führen Sie [diese Schritte](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) aus, um sie abzurufen.
-1. Klicken Sie auf die Schaltfläche **Verbinden**, um die Verbindung zu Azure herzustellen. Es sollte eine Bestätigung angezeigt werden, dass Sie jetzt mit Azure AD verbunden sind.
-1. Erteilen Sie Berechtigungen in Azure, indem Sie im Azure-Portal zu **App-Berechtigungen** navigieren. Wählen Sie unter **Einwilligung erteilen** die Option **Administratoreinwilligung erteilen** aus.
-1. Schließen Sie das Fenster, und melden Sie sich mit Ihrem Azure-Konto bei Windows Admin Center an.
+
+   :::image type="content" source="media/register-wac/register-wac.png" alt-text="Klicken auf „Einstellungen“ > „Gateway“ > „Azure“ und dann auf „Registrieren“" lightbox="media/register-wac/register-wac.png":::
+
+2. Sie erhalten einen eindeutigen Code. Klicken Sie auf die Schaltfläche **Kopieren** rechts neben dem Code. Klicken Sie auf **Code eingeben**, wodurch ein neues Browserfenster geöffnet wird, in das Sie den in Ihrer App oder auf Ihrem Gerät angezeigten Code einfügen können.
+
+   :::image type="content" source="media/register-wac/enter-code.png" alt-text="Kopieren des eindeutigen Codes, Klicken auf „Code eingeben“ und Einfügen des Codes in das Dialogfeld" lightbox="media/register-wac/enter-code.png":::
+
+3. Nach dem Einfügen des Codes werden Sie benachrichtigt, dass Ihre Anmeldung bei Windows Admin Center auf einem Remotegerät oder in einem Dienst bevorsteht. Geben Sie Ihre E-Mail-Adresse oder Telefonnummer ein. Wenn es sich bei Ihrem Gerät um ein verwaltetes Gerät handelt, werden Sie zur Authentifizierung zur Anmeldeseite Ihrer Organisation weitergeleitet. Befolgen Sie die Anweisungen, und geben Sie die entsprechenden Anmeldeinformationen ein.
+
+   :::image type="content" source="media/register-wac/sign-in.png" alt-text="Anmelden bei Windows Admin Center mit Ihrer E-Mail-Adresse oder Telefonnummer" lightbox="media/register-wac/sign-in.png":::
+
+   Die folgende Meldung sollte angezeigt werden: „Sie haben sich bei der Windows Admin Center-Anwendung auf Ihrem Gerät angemeldet“. Schließen Sie das Browserfenster, um zur ursprünglichen Registrierungsseite zurückzukehren.
+
+4. Stellen Sie eine Verbindung mit Azure Active Directory her, indem Sie Ihre Azure Active Directory-ID (Mandanten-ID) eingeben. Wenn Sie die vorstehenden Schritte ausgeführt haben, ist das ID-Feld voraufgefüllt. Wenn Ihre Organisation Ihnen keine vorhandene ID angegeben hat, belassen Sie die **Azure Active Directory-Anwendung** auf der Einstellung **Neue erstellen**. Wenn Sie bereits über eine ID verfügen, klicken Sie auf **Vorhandene verwenden**, dann wird ein leeres Feld angezeigt, in dem Sie die ID eingeben können, die Ihnen von Ihrem Administrator zur Verfügung gestellt wurde. Nachdem Sie Ihre ID eingegeben haben, bestätigt Windows Admin Center, dass ein Konto mit dieser ID gefunden wurde. Wenn Sie über eine vorhandene ID verfügen, aber nicht wissen, wozu sie dient, führen Sie [diese Schritte](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) aus, um sie abzurufen.
+
+   :::image type="content" source="media/register-wac/connect-to-aad.png" alt-text="Verbinden mit Azure Active Directory durch Bereitstellen Ihrer vorhandenen Azure Active Directory-(Mandanten-)ID oder Erstellen einer neuen ID" lightbox="media/register-wac/connect-to-aad.png":::
+
+5. Klicken Sie auf die Schaltfläche **Verbinden**, um die Verbindung zu Azure herzustellen. Es sollte eine Bestätigung angezeigt werden, dass Sie jetzt mit Azure AD verbunden sind.
+
+6. Erteilen Sie Berechtigungen in Azure, indem Sie im Azure-Portal zu **App-Berechtigungen** navigieren. Wählen Sie unter **Einwilligung erteilen** die Option **Administratoreinwilligung erteilen** aus.
+
+7. Schließen Sie das Fenster, und melden Sie sich mit Ihrem Azure-Konto bei Windows Admin Center an.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Sie sind nun zu diesen Schritten bereit:
 
+- [Herstellen einer Verbindung von Azure Stack HCI mit Azure](../deploy/register-with-azure.md)
 - [Verwenden von Azure Stack HCI mit Windows Admin Center](../get-started.md)
 - [Herstellen einer Verbindung mit Azure-Hybriddiensten](/windows-server/manage/windows-admin-center/azure/)

@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Erfahren Sie, wie Sie Probleme in Azure Stack Hub beheben, z. B. mit VMs, Speicher und App Service.
 author: PatAltimore
 ms.topic: article
-ms.date: 12/10/2020
+ms.date: 01/20/2021
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: ff3164e16262ecfd4cdf84bbdb5fbb24942fc6ab
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 1706f028aff293f85ea5a0c1fb882a5d332d7196
+ms.sourcegitcommit: dd34ae1c6207aafb5218c31658123e913f51bf7c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255706"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98672875"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Behandeln von Problemen in Azure Stack Hub
 
@@ -203,7 +203,7 @@ Der Azure Stack Hub-Patch und -Updatevorgang ermöglicht den Betreibern das kons
 
 1. Führen Sie die Behebungsschritte in der Fehlerwarnung aus, die beim Fehlschlagen des Updates erstellt wurde.
 
-2. Wenn Sie das Problem nicht beheben konnten, erstellen Sie ein [Azure Stack Hub-Supportticket](./azure-stack-help-and-support-overview.md). Stellen Sie sicher, dass für die Zeitspanne, in der das Problem aufgetreten ist, [Protokolle gesammelt](./diagnostic-log-collection.md#send-logs-now) wurden.
+2. Wenn Sie das Problem nicht beheben konnten, erstellen Sie ein [Azure Stack Hub-Supportticket](./azure-stack-help-and-support-overview.md). Stellen Sie sicher, dass für die Zeitspanne, in der das Problem aufgetreten ist, [Protokolle gesammelt](./diagnostic-log-collection.md#send-logs-now) wurden. Wenn ein Update entweder mit einer kritischen Warnung oder mit einer Warnung fehlschlägt, müssen Sie den Fehler unbedingt überprüfen und sich wie in der Warnung angegeben an den Microsoft-Kundensupport wenden, damit Ihre Skalierungseinheit nicht für längere Zeit in einem fehlerhaften Zustand bleibt. Wenn eine Skalierungseinheit länger in einem fehlerhaften Updatezustand belassen wird, kann dies zu weiteren Problemen führen, die später schwieriger zu lösen sind.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Häufige Probleme bei Azure Stack Hub-Patches und -Updates
 

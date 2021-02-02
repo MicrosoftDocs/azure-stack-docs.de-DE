@@ -4,13 +4,13 @@ description: In diesem Thema werden Hilfsprogrammanwendungen von Microsoft-Partn
 author: burcuerdemir
 ms.author: burcue
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.openlocfilehash: ec7623243c09ffc93036ada1927cbe62acad0b9d
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 01/22/2021
+ms.openlocfilehash: 79490100adaef813af6b8df05779620b315765b3
+ms.sourcegitcommit: ea4bb7bf0ba1bd642c769013a0280f24e71550bc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254958"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98717997"
 ---
 # <a name="utility-applications-for-azure-stack-hci"></a>Hilfsprogrammanwendungen für Azure Stack HCI
 
@@ -31,6 +31,7 @@ Altaro VM Backup ist eine preisgekrönte Lösung für die VM-Sicherung und -Repl
 
 - Anwendungseintrag: [Sicherung und Replikation virtueller Computer für Hyper-V und VMware](https://www.altaro.com/vm-backup/)
 - Anwendungsunterstützung: [Altaro-Unterstützung für Azure Stack HCI](https://www.altaro.com/news/single/News-Altaro-applies-its-expertise-in-Hyper-V-backup-to-support-Microsoft.php)
+- Replikationsunterstützung: [Altaro WAN-Optimized Replication](https://www.altaro.com/vm-backup/wan-optimized-replication.php)
 
 :::image type="content" source="./media/utility-applications/veeam-logo.png" alt-text="Veeam-Unternehmenslogo" border="false":::
 
@@ -38,6 +39,7 @@ Veeam Backup & Replication ist eine Komplettlösung für den einfachen, zuverlä
 
 - Anwendungseintrag: [Veeam Backup & Replication](https://www.veeam.com/vm-backup-recovery-replication-software.html)
 - Anwendungsunterstützung: [Veeam-Unterstützung für Azure Stack HCI](https://www.veeam.com/kb4047)
+- [Replikationsunterstützung für Hyper-V-VMs](https://www.veeam.com/vm-advanced-replication.html?ad=in-text-link)
 
 :::image type="content" source="./media/utility-applications/commvault-logo.png" alt-text="Commvault-Unternehmenslogo" border="false":::
 
@@ -45,6 +47,7 @@ Commvault ist eine umfassende Datenverwaltungsplattform zum Speichern, Schützen
 
 - Anwendungseintrag: [Microsoft Azure Stack](https://www.commvault.com/supported-technologies/microsoft/azurestack)
 - Anwendungsunterstützung: [Azure Stack HCI](https://documentation.commvault.com/11.21/essential/132799_microsoft_azure_stack_hci.html)
+- [Commvault Backup & Recovery unterstützt jetzt die Microsoft Azure Stack HCI](https://www.commvault.com/blogs/commvault-backup-and-recovery-now-supports-microsoft-azure-stack-hci)
 
 :::image type="content" source="./media/utility-applications/veritas-logo.png" alt-text="Veritas-Unternehmenslogo" border="false":::
 
@@ -52,6 +55,7 @@ Veritas Backup Exec ist eine benutzerfreundliche Sicherungs- und Wiederherstellu
 
 - Anwendungseintrag: [Backup Exec](https://www.veritas.com/protection/backup-exec)
 - Anwendungsunterstützung: [Schützen von Azure Stack HCI mit Backup Exec](https://www.veritas.com/support/en_US/article.100048860)
+- [Veritas Backup Exec-Unterstützung für Microsoft Azure](https://www.veritas.com/protection/backup-exec/azure)
 
 :::image type="content" source="./media/utility-applications/datadog-logo.png" alt-text="Datadag-Unternehmenslogo" border="false":::
 

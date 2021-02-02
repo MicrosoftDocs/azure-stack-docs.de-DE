@@ -3,15 +3,15 @@ title: Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell
 description: Erfahren Sie, wie Sie mithilfe von Windows PowerShell einen Cluster für Azure Stack HCI erstellen.
 author: v-dasis
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 01/22/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: fa020531067f74fba2609296672e347d6804cb6b
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 2099d7e9dcd2d01f949d54ad5bd59ce06ecaccbc
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010888"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772197"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell
 
@@ -24,7 +24,7 @@ Sie haben die Wahl zwischen zwei Clustertypen:
 - Standardcluster mit mindestens zwei Serverknoten, die alle an einem einzelnen Standort betrieben werden.
 - Stretchingcluster mit mindestens vier Serverknoten, die sich über zwei Standorte erstrecken und pro Standort zwei Knoten aufweisen.
 
-In diesem Artikel erstellen wir einen Beispielcluster mit dem Namen Cluster1, der sich aus vier Serverknoten mit den Namen Server1, Server2, Server3 und Server4 zusammensetzt.
+In diesem Artikel erstellen Sie einen Beispielcluster mit dem Namen Cluster1, der sich aus vier Serverknoten mit den Namen Server1, Server2, Server3 und Server4 zusammensetzt.
 
 Für das Stretchingcluster-Szenario verwenden wir ClusterS1 als Namen und ansonsten die gleichen vier Serverknoten, die sich über die Standorte Site1 und Site2 erstrecken.
 
@@ -37,9 +37,11 @@ Wenn Sie Azure Stack HCI testen möchten, aber nur wenig oder keine Ersatzhardw
 Stellen Sie Folgendes sicher, bevor Sie beginnen:
 
 - Lesen Sie die [Azure Stack HCI-Systemanforderungen](../concepts/system-requirements.md).
+- Sie haben die [Anforderungen an das physische Netzwerk](../concepts/physical-network-requirements.md) und [Host Netzwerk Anforderungen](../concepts/host-network-requirements.md) für Azure Stack HCI gelesen.
 - Sie haben das Azure Stack HCI-Betriebssystem auf jedem Server im Cluster installiert. Mehr dazu finden Sie unter [Bereitstellen des Azure Stack HCI-Betriebssystems](operating-system.md).
 - Auf jedem Server ist ein Konto vorhanden, das Mitglied der lokalen Administratorgruppe ist.
 - Sie verfügen über Berechtigungen zum Erstellen von Objekten in Active Directory.
+- Sie haben für Stretchingcluster vorab zwei Standorte in Active Directory eingerichtet.
 
 ## <a name="using-windows-powershell"></a>Verwenden von Windows PowerShell
 
@@ -57,7 +59,9 @@ Zunächst stellen wir eine Verbindung zu jedem der Server her, verknüpfen ihn m
 
 Zum Herstellen von Verbindungen mit den Servern müssen Sie zunächst über Netzwerkkonnektivität verfügen, Mitglied der gleichen Domäne oder einer Domäne mit voller Vertrauensstellung sein und über lokale Verwaltungsberechtigungen für die Server verfügen.
 
-Öffnen Sie PowerShell, und verwenden Sie entweder den vollqualifizierten Domänennamen oder die IP-Adresse des Servers, mit dem Sie eine Verbindung herstellen möchten. Nachdem Sie den folgenden Befehl auf jedem Server (Server1, Server2, Server3, Server4) ausgeführt haben, werden Sie zur Eingabe eines Kennworts aufgefordert:
+Öffnen Sie PowerShell, und verwenden Sie entweder den vollqualifizierten Domänennamen oder die IP-Adresse des Servers, mit dem Sie eine Verbindung herstellen möchten. Nachdem Sie den folgenden Befehl auf jedem Server ausgeführt haben, werden Sie zur Eingabe eines Kennworts aufgefordert. 
+
+Für dieses Beispiel liegt die Annahme zugrunde, die Server wurden mit Server1, Server2, Server3 und Server4 benannt:
 
    ```powershell
    Enter-PSSession -ComputerName "Server1" -Credential "Server1\Administrator"
@@ -134,44 +138,27 @@ Starten Sie anschließend alle Server neu:
 
 ```powershell
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-Restart-Computer -ComputerName $ServerList
+Restart-Computer -ComputerName $ServerList -WSManAuthentication Kerberos
 ```
 
 ## <a name="step-2-configure-networking"></a>Schritt 2: Konfigurieren der Netzwerkeinstellungen
 
-In diesem Schritt werden verschiedene Netzwerkelemente in Ihrer Umgebung konfiguriert.
+In diesem Schritt werden verschiedene Netzwerkelemente in Ihrer Umgebung konfiguriert, z. B. virtuelle Switches und Netzwerkadapter. RDMA-Netzwerkadapter (iWARP und RoCE) werden unterstützt.
+
+Weitere Informationen zu RDMA- und Hyper-V-Hostnetzwerken für Azure Stack HCI finden Sie unter [Anforderungen für Hostnetzwerke](../concepts/host-network-requirements.md).
 
 ### <a name="disable-unused-networks"></a>Deaktivieren nicht verwendeter Netzwerke
 
 Sie müssen alle getrennten oder nicht für die Verwaltung, die Speicherung oder den Workload-Datenverkehr (etwa mit VMs) verwendeten Netzwerke deaktivieren. So identifizieren Sie nicht verwendete Netzwerke:
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-Get-NetAdapter -CimSession $Servers | Where-Object Status -eq Disconnected
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+Get-NetAdapter -CimSession $ServerList | Where-Object Status -eq Disconnected
 ```
 Und auf diese Weise deaktivieren Sie sie:
 
 ```powershell
-Get-NetAdapter -CimSession $Servers | Where-Object Status -eq Disconnected | Disable-NetAdapter -Confirm:$False
-```
-
-### <a name="assign-virtual-network-adapters"></a>Zuweisen von virtuellen Netzwerkadaptern
-
-Als Nächstes weisen Sie zur Verwaltung und für Ihren restlichen Datenverkehr virtuelle Netzwerkadapter (vNICs) zu, wie im folgenden Beispiel zu sehen. Sie müssen mindestens einen Netzwerkadapter für die Clusterverwaltung konfigurieren.
-
-```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-$vSwitchName="vSwitch"
-Rename-VMNetworkAdapter -ManagementOS -Name $vSwitchName -NewName Management -ComputerName $Servers
-Add-VMNetworkAdapter -ManagementOS -Name SMB01 -SwitchName $vSwitchName -CimSession $Servers
-Add-VMNetworkAdapter -ManagementOS -Name SMB02 -SwitchName $vSwitchName -Cimsession $Servers
-```
-
-Dann überprüfen Sie, ob sie erfolgreich hinzugefügt und zugewiesen wurden:
-
-```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-Get-VMNetworkAdapter -CimSession $Servers -ManagementOS
+Get-NetAdapter -CimSession $ServerList | Where-Object Status -eq Disconnected | Disable-NetAdapter -Confirm:$False
 ```
 
 ### <a name="create-virtual-switches"></a>Erstellen virtueller Switches
@@ -181,29 +168,51 @@ Für jeden Serverknoten in Ihrem Cluster ist ein virtueller Switch erforderlich.
 Für das NIC-Teaming müssen alle Netzwerkadapter identisch sein.
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 $vSwitchName="vSwitch"
 ```
 
 Und so erstellen Sie den virtuellen Switch:
 
 ```powershell
-Invoke-Command -ComputerName $Servers -ScriptBlock {New-VMSwitch -Name $using:vSwitchName -EnableEmbeddedTeaming $TRUE -EnableIov $true -NetAdapterName (Get-NetAdapter | Where-Object Status -eq Up ).InterfaceAlias}
+Invoke-Command -ComputerName $ServerList -ScriptBlock {New-VMSwitch -Name $using:vSwitchName -EnableEmbeddedTeaming $TRUE -EnableIov $true -NetAdapterName (Get-NetAdapter | Where-Object Status -eq Up ).InterfaceAlias}
 ```
 
 Überprüfen Sie jetzt, ob der Switch erfolgreich erstellt wurde:
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-Get-VMSwitch -CimSession $Servers | Select-Object Name, IOVEnabled, IOVS*
-Get-VMSwitchTeam -CimSession $Servers
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+Get-VMSwitch -CimSession $ServerList | Select-Object Name, IOVEnabled, IOVS*
+Get-VMSwitchTeam -CimSession $ServerList
+```
+
+### <a name="assign-virtual-network-adapters"></a>Zuweisen von virtuellen Netzwerkadaptern
+
+Als Nächstes weisen Sie zur Verwaltung und für Ihren restlichen Datenverkehr virtuelle Netzwerkadapter (vNICs) zu, wie im folgenden Beispiel zu sehen. Sie müssen mindestens einen Netzwerkadapter für die Clusterverwaltung konfigurieren.
+
+```powershell
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+$vSwitchName="vSwitch"
+Rename-VMNetworkAdapter -ManagementOS -Name $vSwitchName -NewName Management -ComputerName $ServerList
+Add-VMNetworkAdapter -ManagementOS -Name SMB01 -SwitchName $vSwitchName -CimSession $ServerList
+Add-VMNetworkAdapter -ManagementOS -Name SMB02 -SwitchName $vSwitchName -Cimsession $ServerList
+```
+
+Dann überprüfen Sie, ob sie erfolgreich hinzugefügt und zugewiesen wurden:
+
+```powershell
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+Get-VMNetworkAdapter -CimSession $ServerList -ManagementOS
 ```
 
 ### <a name="configure-ip-addresses-and-vlans"></a>Konfigurieren von IP-Adressen und VLANs
 
 Sie können wahlweise ein oder zwei Subnetze konfigurieren. Zwei Subnetze sind vorzuziehen, wenn Sie eine Überlastung der Verbindung zwischen den Switches verhindern möchten. Beispielsweise bleibt der Datenverkehr für den SMB-Speicher in einem Subnetz, das dediziert einem physischen Switch zugewiesen ist.
 
-### <a name="obtain-network-interface-information"></a>Abrufen von Informationen zur Netzwerkschnittstelle
+> [!NOTE]
+> Während des Konfigurierens von IP-Adressen kann die Verbindung für einige Minuten unterbrochen werden, da Sie möglicherweise mit einem der virtuellen Adapter verbunden werden, wenn Sie eine neue IP-Adresse erhalten.
+
+#### <a name="obtain-network-interface-information"></a>Abrufen von Informationen zur Netzwerkschnittstelle
 
 Bevor Sie IP-Adressen für die Netzwerkschnittstellenkarten festlegen können, benötigen Sie zunächst einige Informationen, wie etwa den Schnittstellenindex (`ifIndex`), `Interface Alias` und `Address Family`. Notieren Sie diese für jeden Serverknoten, da Sie sie später benötigen.
 
@@ -211,19 +220,19 @@ Führen Sie Folgendes aus:
 
 ```powershell
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-Get-NetIPInterface -ComputerName $ServerList
+Get-NetIPInterface -CimSession $ServerList
 ```
 
 #### <a name="configure-one-subnet"></a>Konfigurieren eines Subnetzes
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 $StorNet="172.16.1."
 $StorVLAN=1
 $IP=1 #starting IP Address
 
 #Configure IP Addresses
-foreach ($Server in $Servers){
+foreach ($Server in $ServerList){
     New-NetIPAddress -IPAddress ($StorNet+$IP.ToString()) -InterfaceAlias "vEthernet (SMB01)" -CimSession $Server -PrefixLength 24
     $IP++
     New-NetIPAddress -IPAddress ($StorNet+$IP.ToString()) -InterfaceAlias "vEthernet (SMB02)" -CimSession $Server -PrefixLength 24
@@ -231,17 +240,16 @@ foreach ($Server in $Servers){
 }
 
 #Configure VLANs
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN -Access -ManagementOS -CimSession $Servers
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB02 -VlanId $StorVLAN -Access -ManagementOS -CimSession $Servers
+Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN -Access -ManagementOS -CimSession $ServerList
 #Restart each host vNIC adapter so that the Vlan is active.
-Restart-NetAdapter "vEthernet (SMB01)" -CimSession $Servers
-Restart-NetAdapter "vEthernet (SMB02)" -CimSession $Servers
+Restart-NetAdapter "vEthernet (SMB01)" -CimSession $ServerList
+Restart-NetAdapter "vEthernet (SMB02)" -CimSession $ServerList
 ```
 
 #### <a name="configure-two-subnets"></a>Konfigurieren von zwei Subnetzen
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 $StorNet1="172.16.1."
 $StorNet2="172.16.2."
 $StorVLAN1=1
@@ -249,15 +257,15 @@ $StorVLAN2=2
 $IP=1 #starting IP Address
 
 #Configure IP Addresses
-foreach ($Server in $Servers){
+foreach ($Server in $ServerList){
     New-NetIPAddress -IPAddress ($StorNet1+$IP.ToString()) -InterfaceAlias "vEthernet (SMB01)" -CimSession $Server -PrefixLength 24
     New-NetIPAddress -IPAddress ($StorNet2+$IP.ToString()) -InterfaceAlias "vEthernet (SMB02)" -CimSession $Server -PrefixLength 24
     $IP++
 }
 
 #Configure VLANs
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN1 -Access -ManagementOS -CimSession $Servers
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB02 -VlanId $StorVLAN2 -Access -ManagementOS -CimSession $Servers
+Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN1 -Access -ManagementOS -CimSession $ServerList
+Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB02 -VlanId $StorVLAN2 -Access -ManagementOS -CimSession $ServerList
 #Restart each host vNIC adapter so that the Vlan is active.
 Restart-NetAdapter "vEthernet (SMB01)" -CimSession $Servers
 Restart-NetAdapter "vEthernet (SMB02)" -CimSession $Servers
@@ -266,12 +274,12 @@ Restart-NetAdapter "vEthernet (SMB02)" -CimSession $Servers
 #### <a name="verify-vlan-ids-and-subnets"></a>Überprüfen von VLAN-IDs und-Subnetzen
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 #verify ip config
-Get-NetIPAddress -CimSession $servers -InterfaceAlias vEthernet* -AddressFamily IPv4 | Sort-Object -Property PSComputername | ft pscomputername,interfacealias,ipaddress -AutoSize -GroupBy PSComputerName
+Get-NetIPAddress -CimSession $ServerList -InterfaceAlias vEthernet* -AddressFamily IPv4 | Sort-Object -Property PSComputername | ft pscomputername,interfacealias,ipaddress -AutoSize -GroupBy PSComputerName
 
 #Verify that the VlanID is set
-Get-VMNetworkAdapterVlan -ManagementOS -CimSession $servers | Sort-Object -Property Computername | Format-Table ComputerName,AccessVlanID,ParentAdapter -AutoSize -GroupBy ComputerName
+Get-VMNetworkAdapterVlan -ManagementOS -CimSession $ServerList | Sort-Object -Property Computername | Format-Table ComputerName,AccessVlanID,ParentAdapter -AutoSize -GroupBy ComputerName
 ```
 
 ## <a name="step-3-prep-for-cluster-setup"></a>Schritt 3: Vorbereitung der Clustereinrichtung
@@ -300,9 +308,6 @@ Get-ClusterNetwork
 
 Vergewissern Sie sich vor dem Aktivieren von Direkte Speicherplätze, dass Ihre Laufwerke leer sind. Führen Sie das folgende Skript aus, um alle alten Partitionen oder sonstigen Daten zu entfernen.
 
-> [!WARNING]
-> Dieses Skript entfernt endgültig alle Daten auf allen Laufwerken mit Ausnahme des Azure Stack HCI-System-Startlaufwerks.
-
 ```powershell
 # Fill in these variables with your values
 $ServerList = "Server1", "Server2", "Server3", "Server4"
@@ -329,7 +334,7 @@ Invoke-Command ($ServerList) {
 In diesem Schritt stellen Sie sicher, dass die Serverknoten ordnungsgemäß für die Erstellung eines Clusters konfiguriert sind. Das Cmdlet `Test-Cluster` wird für Tests verwendet, mit denen überprüft wird, ob Ihre Konfiguration passend ist, um als hyperkonvergenter Cluster zu fungieren. Im Beispiel unten wird der Parameter `-Include` mit Angabe der spezifischen Testkategorien verwendet. Dadurch wird sichergestellt, dass die richtigen Tests in die Überprüfung eingeschlossen werden.
 
 ```powershell
-Test-Cluster -Cluster –Node "Server1", "Server2", "Server3", "Server4" –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+Test-Cluster –Node $ServerList –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
 ```
 
 ## <a name="step-4-create-the-cluster"></a>Schritt 4: Erstellen des Clusters
@@ -342,18 +347,27 @@ Beim Erstellen des Clusters wird eine Warnung dieses Inhalts angezeigt: `"There 
 > Wenn die Server statische IP-Adressen verwenden, ändern Sie den folgenden Befehl so, dass er die statischen IP-Adressen berücksichtigt, indem Sie den folgenden Parameter hinzufügen und die IP-Adresse angeben: `–StaticAddress <X.X.X.X>;`.
 
 ```powershell
- New-Cluster –Name "Cluster1" –Node "Server1", "Server2", "Server3", "Server4" –NoStorage
+$ClusterName="cluster1" New-Cluster -Name $ClusterName –Node $ServerList –nostorage
 ```
 
 Herzlichen Glückwunsch, Ihr Cluster wurde soeben erstellt.
 
-Nach der Erstellung des Clusters kann es etwas dauern, bis der Clustername in Ihrer Domäne repliziert wurde. Dies gilt insbesondere dann, wenn Active Directory neue Arbeitsgruppenserver hinzugefügt wurden. Auch wenn der Cluster in Windows Admin Center angezeigt wird, ist er möglicherweise noch nicht zum Herstellen einer Verbindung verfügbar.
+Nach der Erstellung des Clusters kann es etwas dauern, bis der Clustername über DNS in Ihrer Domäne repliziert wurde. Dies gilt insbesondere dann, wenn Active Directory neue Arbeitsgruppenserver hinzugefügt wurden. Auch wenn der Cluster in Windows Admin Center angezeigt wird, ist er möglicherweise noch nicht zum Herstellen einer Verbindung verfügbar.
+
+Im Folgenden finden Sie eine gut geeignete Überprüfung, ob alle Clusterressourcen online sind:
+
+```powershell
+Get-Cluster -Name $ClusterName | Get-ClusterResource
+```
 
 Falls der Cluster auch nach einiger Zeit nicht erfolgreich aufgelöst werden kann, können Sie in den meisten Fällen anstelle des Clusternamens den Namen eines der gruppierten Server verwenden, um eine Verbindung herzustellen.
 
 ## <a name="step-5-set-up-sites-stretched-cluster"></a>Schritt 5: Einrichten von Standorten (Stretchingcluster)
 
-Diese Aufgabe wird nur ausgeführt, wenn Sie einen Stretchingcluster zwischen zwei Standorten erstellen.
+Diese Aufgabe wird nur ausgeführt, wenn Sie einen Stretchingcluster zwischen zwei Standorten erstellen. 
+
+> [!NOTE]
+> Wenn Sie zuvor Active Directory-Standorte und -Dienste verwendet haben, müssen Sie die Standorte nicht wie oben beschrieben manuell erstellen.
 
 ### <a name="step-51-create-sites"></a>Schritt 5.1: Erstellen von Websites
 
@@ -436,7 +450,7 @@ Bei Stretchingclustern führt das Cmdlet `Enable-ClusterStorageSpacesDirect` au�
 Mit dem folgenden Befehl wird Direkte Speicherplätze aktiviert. Sie können außerdem einen Anzeigenamen für einen Speicherpool angeben, wie hier gezeigt:
 
 ```powershell
-$session = New-CimSession -Cluster "Cluster1" | Enable-ClusterStorageSpacesDirect -PoolFriendlyName "Cluster1 Storage Pool"
+Enable-ClusterStorageSpacesDirect -PoolFriendlyName "$ClusterName Storage Pool" -CimSession $ClusterName
 ```
 
 Verwenden Sie diesen Befehl, um die Speicherpools anzuzeigen:
@@ -445,13 +459,13 @@ Verwenden Sie diesen Befehl, um die Speicherpools anzuzeigen:
 Get-StoragePool -CimSession $session
 ```
 
-Herzlichen Glückwunsch, Sie haben nun einen Barebonescluster erstellt.
+Herzlichen Glückwunsch, Sie haben einen Cluster erstellt.
 
 ## <a name="after-you-create-the-cluster"></a>Nach dem Erstellen des Clusters
 
 Nach Abschluss dieses Vorgangs gibt es noch einige wichtige Aufgaben, die Sie ausführen müssen:
 
-- Einrichten eines Clusterzeugen. Mehr dazu finden Sie unter [Einrichten eines Clusterzeugen](witness.md).
+- Einrichten eines Clusterzeugen. Mehr dazu finden Sie unter [Einrichten eines Clusterzeugen](../manage/witness.md).
 - Erstellen Ihrer Volumes. Mehr dazu finden Sie unter [Erstellen von Volumes](../manage/create-volumes.md).
 - Erstellen Sie für Stretchingcluster Volumes und die Setupreplikation mithilfe von Speicherreplikation. Mehr dazu finden Sie unter [Erstellen von Volumes und Einrichten von Replikation für Stretchingcluster](../manage/create-stretched-volumes.md).
 
@@ -459,5 +473,3 @@ Nach Abschluss dieses Vorgangs gibt es noch einige wichtige Aufgaben, die Sie au
 
 - Registrieren Sie Ihren Cluster bei Azure. Mehr dazu finden Sie unter [Verwalten der Azure-Registrierung](../manage/manage-azure-registration.md).
 - Führen Sie eine abschließende Überprüfung des Clusters durch. Mehr dazu finden Sie unter [Überprüfen eines Azure Stack HCI-Clusters](validate.md).
-- Stellen Sie Ihre virtuellen Computer bereit. Lesen Sie dazu [Verwalten von VMs unter Azure Stack HCI mit PowerShell](../manage/vm-powershell.md).
-- Sie können einen Cluster auch mit Windows Admin Center erstellen. Mehr dazu finden Sie unter [Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows Admin Center](create-cluster.md).

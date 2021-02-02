@@ -4,13 +4,13 @@ description: Hier erfahren Sie, wie Sie Betriebssystem- und Firmwareupdates übe
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 10/27/2020
-ms.openlocfilehash: 001cf81721423aad770093c0fe5cf92ec6b66af8
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 01/25/2020
+ms.openlocfilehash: 751551b827ef5d3c871f0224bfa60d9f79fc5d45
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010820"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98771985"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Aktualisieren von Azure Stack HCI-Clustern
 
@@ -24,14 +24,32 @@ Dieses Thema konzentriert sich auf Betriebssystem- und Softwareupdates. Informat
 
 Windows Admin Center bietet eine einfache Benutzeroberfläche, über die Sie problemlos einen Cluster aktualisieren und Betriebssystem- und Lösungsupdates anwenden können. Wenn Sie ein integriertes System bei einem Microsoft-Hardwarepartner erworben haben, können Sie ganz einfach die neuesten Treiber-, Firmware- und anderweitigen Updates direkt vom Windows Admin Center abrufen, indem Sie die entsprechenden Updateerweiterung des Partners installieren. Wenn Ihre Hardware nicht als integriertes System erworben wurde, müssen Firmware- und Treiberupdates möglicherweise separat ausgeführt werden. Folgen Sie dazu den Empfehlungen des Hardwareherstellers.
 
-Windows Admin Center prüft, ob der Cluster richtig konfiguriert ist, um clusterfähiges Aktualisieren auszuführen, und fragt bei Bedarf, ob das Windows Admin Center die CAU für Sie konfigurieren soll, einschließlich der Installation der CAU-Clusterrolle und der Aktivierung der erforderlichen Firewallregeln.
+Führen Sie diese Schritte aus, um Updates zu installieren:
 
 1. Wenn Sie eine Verbindung mit einem Cluster herstellen, informiert das Windows Admin Center-Dashboard Sie, falls für einen Ihrer Server ein Update zu installieren ist, und stellt einen Link bereit, über den Sie das Update direkt ausführen können. Alternativ dazu können Sie im Menü **Tools** auf der linken Seite die Option **Updates** auswählen.
-1. Um die clusterfähige Aktualisierung in Windows Admin Center zu verwenden, müssen Sie den Credential Security Service Provider (CredSSP) aktivieren und explizite Anmeldeinformationen angeben. Wenn Sie gefragt werden, ob der CredSSP aktiviert werden soll, klicken Sie auf **Ja**.
-1. Geben Sie Ihren Benutzernamen und Ihr Kennwort ein, und klicken Sie auf **Weiter**.
-1. Alle verfügbaren Updates werden angezeigt. Klicken Sie auf **Verfügbare Updates überprüfen**, um die Liste zu aktualisieren.
-1. Wählen Sie die Updates aus, die Sie installieren möchten, und klicken Sie auf **Alle Updates anwenden**. Damit werden die Updates auf jedem Server im Cluster installiert. Wenn ein Neustart erforderlich ist, werden Clusterrollen wie z. B. virtuelle Computer zuerst auf einen anderen Server verschoben, um Unterbrechungen zu vermeiden.
-1. Um die Sicherheit zu verbessern, deaktivieren Sie CredSSP, sobald Sie mit dem Installieren der Updates fertig sind:
+
+2. Wenn Sie Ihren Cluster zum ersten Mal aktualisieren, prüft Windows Admin Center, ob der Cluster richtig konfiguriert ist und das Feature „clusterfähiges Aktualisieren“ ausführen kann. Bei Bedarf wird außerdem nachgefragt, ob Windows Admin Center die CAU für Sie konfigurieren soll, einschließlich der Installation der CAU-Clusterrolle und der Aktivierung der erforderlichen Firewallregeln. Klicken Sie auf **Los geht's**, um den Updatevorgang zu starten.
+
+   :::image type="content" source="media/update-cluster/add-cau-role.png" alt-text="Der Cluster wird von Windows Admin Center automatisch so konfiguriert, dass das Feature „clusterfähiges Aktualisieren“ ausgeführt wird." lightbox="media/update-cluster/add-cau-role.png":::
+
+   > [!NOTE]
+   > Um die clusterfähige Aktualisierung in Windows Admin Center zu verwenden, müssen Sie den Credential Security Service Provider (CredSSP) aktivieren und explizite Anmeldeinformationen angeben. Falls Sie gefragt werden, ob CredSSP aktiviert werden soll, klicken Sie auf **Ja**. Geben Sie Ihren Benutzernamen und Ihr Kennwort ein, und klicken Sie auf **Weiter**.
+
+3. Der Updatestatus des Clusters wird angezeigt. Klicken Sie auf **Auf Updates prüfen**, um eine Liste der Betriebssystemupdates abzurufen, die für die einzelnen Server im Cluster verfügbar sind. Unter Umständen müssen Sie Administratoranmeldeinformationen angeben. Wenn keine Betriebssystemupdates verfügbar sind, klicken Sie auf **Next: hardware updates** (Weiter: Hardwareupdates), und fahren Sie mit Schritt 7 fort.
+
+4. Klicken Sie auf **Weiter: Install** (Installieren), um mit der Installation der Betriebssystemupdates fortzufahren, oder klicken Sie auf **Überspringen**, um sie auszulassen. 
+
+   :::image type="content" source="media/update-cluster/operating-system-updates.png" alt-text="Klicken Sie auf „Weiter: Installieren“, um mit der Installation von Betriebssystemupdates fortzufahren, oder klicken Sie auf „Überspringen“, um die Updates auszulassen." lightbox="media/update-cluster/operating-system-updates.png":::
+
+5. Klicken Sie auf **Installieren**, um die Betriebssystemupdates auf jedem Server im Cluster zu installieren. Der Updatestatus wird in „installing updates“ (Updates werden installiert) geändert. Wenn für eines der Updates ein Neustart erforderlich ist, werden Server nacheinander neu gestartet. Dabei werden Clusterrollen wie virtuelle Computer zwischen Servern verschoben, um Downtime zu vermeiden.
+
+   :::image type="content" source="media/update-cluster/install-os-updates.png" alt-text="Klicken Sie auf „Installieren“, um Betriebssystemupdates auf jedem Server im Cluster zu installieren." lightbox="media/update-cluster/install-os-updates.png":::
+
+6. Wenn die Betriebssystemupdates abgeschlossen sind, ändert sich der Updatestatus in „erfolgreich“. Klicken Sie auf **Weiter: Hardwareupdates**, um zum Bildschirm mit den Hardwareupdates zu wechseln.
+
+7. Windows Admin Center überprüft den Cluster auf installierte Erweiterungen, die Ihre spezifische Serverhardware unterstützen. Klicken Sie auf **Weiter: Installieren**, um die Hardwareupdates auf jedem Server im Cluster zu installieren. Wenn keine Erweiterungen oder Updates gefunden werden, klicken Sie auf **Beenden**.
+
+8. Um die Sicherheit zu verbessern, deaktivieren Sie CredSSP, sobald Sie mit dem Installieren der Updates fertig sind:
     - Wählen Sie in Windows Admin Center unter **Alle Verbindungen** den ersten Server im Cluster aus, und klicken Sie auf **Verbinden**.
     - Wählen Sie auf der Seite **Übersicht** die Option **CredSSP deaktivieren** aus, und klicken Sie dann im Popupfenster **CredSSP deaktivieren** auf **Ja**.
 

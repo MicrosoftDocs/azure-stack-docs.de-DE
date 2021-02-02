@@ -3,15 +3,15 @@ title: Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows Admin Cente
 description: Hier erfahren Sie, wie Sie mithilfe von Windows Admin Center einen Servercluster für Azure Stack HCI erstellen.
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 01/27/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: a81b684e86f9d13105c39607f9be1c6a1d56eaf0
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.openlocfilehash: 12f2152099c935977fd42c4b63989854ca0faf88
+ms.sourcegitcommit: 27ffc5f41de3de17ff2395e44c6c5debef50bcc2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208051"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98925859"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows Admin Center
 
@@ -37,6 +37,7 @@ Stellen Sie vor dem Ausführen des Clustererstellungs-Assistenten sicher, dass d
 - Sie haben das Azure Stack HCI-Betriebssystem auf jedem Server im Cluster installiert. Mehr dazu finden Sie unter [Bereitstellen des Azure Stack HCI-Betriebssystems](operating-system.md).
 - Auf jedem Server ist ein Konto vorhanden, das Mitglied der lokalen Administratorgruppe ist.
 - Sie haben Windows Admin Center auf einem Verwaltungscomputer oder -server installiert. Weitere Informationen finden Sie unter [Installieren von Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install).
+- Wenn Sie ein integriertes System von einem Microsoft-Hardwarepartner verwenden, müssen Sie in Windows Admin Center sicherstellen, dass Sie die aktuelle Version der Erweiterungen des Anbieters installiert haben, um die integrierten Hardware- und Firmwareupdates nutzen zu können.
 - Sie haben für Stretchingcluster vorab zwei Standorte in Active Directory eingerichtet. Falls nicht, kann der Assistent sie für Sie einrichten.
 
 Wenn Sie Windows Admin Center nicht auf einem lokalen PC, sondern auf einem Server ausführen, verwenden Sie ein Konto, das Mitglied der Gatewayadministratorgruppe oder der lokalen Administratorgruppe auf dem Windows Admin Center-Server ist.
@@ -52,12 +53,13 @@ Dies sind die wichtigsten Schritte im Clustererstellungs-Assistenten:
 
 Nach dem Abschluss des Assistenten richten Sie den Clusterzeugen ein, registrieren sich bei Azure und erstellen Volumes (wodurch auch die Replikation zwischen Standorten eingerichtet wird, wenn Sie einen Stretchingcluster erstellen).
 
-Stellen Sie vor dem Starten des Assistenten sicher, dass die neuesten Windows Admin Center-Erweiterungen installiert sind, insbesondere die Erweiterung für die Clustererstellung. Gehen Sie folgendermaßen vor:
+Bevor Sie den Assistenten starten, sollten Sie sicherstellen, dass die aktuellen Erweiterungen installiert sind, insbesondere die Erweiterung zum Erstellen von Clustern für Windows Admin Center, sowie weitere Partnererweiterungen. Gehen Sie folgendermaßen vor:
 
 1. Öffnen Sie Windows Admin Center, und klicken Sie oben rechts auf „Einstellungen“ (Zahnradsymbol).
 1. Wählen Sie unter **Einstellungen** die Option **Erweiterungen** aus.
 1. Wählen Sie **Cluster Creation** (Clustererstellung) aus, und klicken Sie dann auf **Installieren**.
 1. Wählen Sie **Cluster Manager** (Cluster-Manager) aus, und klicken Sie dort dann auf **Installieren**.
+1. Wählen Sie die erforderlichen Hardwareerweiterungen des Anbieters aus, und installieren Sie sie ebenfalls.
 
 Jetzt können Sie loslegen:
 
@@ -152,9 +154,6 @@ Weitere Informationen zu RDMA- und Hyper-V-Hostnetzwerken für Azure Stack HCI f
 
         :::image type="content" source="media/cluster/create-cluster-virtual-switches.png" alt-text="Clustererstellungs-Assistent – virtuelle Switches" lightbox="media/cluster/create-cluster-virtual-switches.png":::
 
-    > [!NOTE]
-    > Wenn Sie den Netzwerkcontroller für das softwaredefinierte Netzwerk bereitstellen möchten (in **Schritt 5: SDN** des Assistenten), benötigen Sie einen virtuellen Switch. Wenn Sie sich hier also gegen die Erstellung eines virtuellen Switches entscheiden und keinen virtuellen Switch außerhalb des Assistenten erstellen, wird der Assistent den Netzwerkcontroller nicht bereitstellen.
-
     In der folgenden Tabelle sind die Konfigurationen für virtuelle Switches aufgeführt, die für verschiedene Netzwerkadapterkonfigurationen unterstützt werden und aktiviert sind:
 
     | Option | 1 –2 Adapter | 3 oder mehr Adapter | Kombinierte Adapter |
@@ -234,6 +233,5 @@ Wenn das Auflösen des Clusters nach einiger Zeit nicht erfolgreich ist, können
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Registrieren Sie Ihren Cluster bei Azure. Mehr dazu finden Sie unter [Verwalten der Azure-Registrierung](../manage/manage-azure-registration.md).
+- Richten Sie einen Zeugen ein. Mehr dazu finden Sie unter [Einrichten eines Clusterzeugen](../manage/witness.md).
 - Führen Sie eine abschließende Überprüfung des Clusters durch. Mehr dazu finden Sie unter [Überprüfen eines Azure Stack HCI-Clusters](validate.md).
-- Stellen Sie Ihre virtuellen Computer bereit. Mehr dazu finden Sie unter [Verwalten von VMs in Azure Stack HCI mithilfe von Windows Admin Center](../manage/vm.md).
-- Sie können einen Cluster auch mithilfe von PowerShell bereitstellen. Mehr dazu finden Sie unter [Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell](create-cluster-powershell.md).

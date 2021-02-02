@@ -1,18 +1,18 @@
 ---
 title: Set-SyslogServer
-description: 'Referenz zu privilegierten Azure Stack-Endpunkten für PowerShell: Close-PrivilegedEndpoint'
+description: 'Referenz zu privilegierten Azure Stack-Endpunkten für PowerShell: Set-SyslogServer'
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 328862a4d6d598781a88597ea1d03fbaf50a4885
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 3d6cb57660485d715a1136bdffa94682bc4dee2c
+ms.sourcegitcommit: 2ac64ac431411b673e655465939d3c95cc94c55d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742689"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98810937"
 ---
 # <a name="set-syslogserver"></a>Set-SyslogServer
 

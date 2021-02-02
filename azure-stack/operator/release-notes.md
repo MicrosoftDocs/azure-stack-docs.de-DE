@@ -3,16 +3,16 @@ title: 'Azure Stack Hub: Versionshinweise'
 description: Versionshinweise für integrierte Azure Stack Hub-Systeme, einschließlich Updates und Fehlerbehebungen.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/23/2020
+ms.date: 01/25/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 9276cff891cd4f69c35c0890a2bf02108407bbe0
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 196313ed569a701dae9cc558ff1438d9d9df1241
+ms.sourcegitcommit: 82f7d16bc5f4224678edbbda0ba3441c8e07ca0b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256063"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763153"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -127,19 +127,13 @@ Weitere Informationen finden Sie in unserer [Wartungsrichtlinie](azure-stack-ser
 
 Azure Stack Hub-Hotfixes gelten nur für integrierte Azure Stack Hub-Systeme. Versuchen Sie nicht, Hotfixes auf dem ASDK zu installieren.
 
-### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>Hotfixvoraussetzungen: vor dem Anwenden des Updates 2008
-
-Das Release 2008 von Azure Stack Hub muss auf das Release 2005 mit den folgenden Hotfixes angewendet werden:
-
-- [Azure Stack Hub-Hotfix 1.2005.25.92](https://support.microsoft.com/help/4595074)
-
 ### <a name="after-successfully-applying-the-2008-update"></a>Nach erfolgreicher Anwendung des Updates 2008
 
-Wenn auf eine neue Hauptversion (z. B. von 1.2008.x auf 1.2005.x) aktualisieren, werden die aktuellen Hotfixes (sofern verfügbar) in der neuen Hauptversion automatisch installiert. Wenn danach ein Hotfix für Ihren Build veröffentlicht wird, sollten Sie ihn installieren.
+Da Hotfixes für Azure Stack Hub kumulativ sind, sollten Sie als Best Practice alle Hotfixes installieren, die für Ihren Build veröffentlicht wurden, damit die Updates zwischen Hauptversionen so reibungslos wie möglich verlaufen. Wenn auf eine neue Hauptversion (z. B. von 1.2008.x auf 1.2005.x) aktualisieren, werden die aktuellen Hotfixes (sofern verfügbar) in der neuen Hauptversion automatisch installiert.
 
 Wenn nach der Installation des Updates 2008 Hotfixes für 2008 veröffentlicht werden, sollten Sie sie installieren:
 
-- [Azure Stack Hub-Hotfix 1.2008.20.102](https://support.microsoft.com/help/4595075)
+- [Azure Stack Hub-Hotfix 1.2008.23.108](https://support.microsoft.com/topic/c0d203fd-7585-4c8d-8ea5-ae13897e352e)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -231,7 +225,7 @@ Azure Stack Hub-Hotfixes gelten nur für integrierte Azure Stack Hub-Systeme. Ve
 
 Das Release 2005 von Azure Stack Hub muss auf das Release 2002 mit den folgenden Hotfixes angewendet werden:
 
-- [Azure Stack Hub-Hotfix 1.2002.63.167](https://support.microsoft.com/help/4595072)
+- [Azure Stack Hub-Hotfix 1.2002.65.171](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>Nach erfolgreicher Anwendung des Updates 2005
 
@@ -239,7 +233,7 @@ Ab Release 2005 werden bei der Aktualisierung auf eine neue Hauptversion (z. B
 
 Wenn nach der Installation des Updates 2005 Hotfixes für 2005 veröffentlicht werden, sollten Sie sie installieren:
 
-- [Azure Stack Hub-Hotfix 1.2005.25.92](https://support.microsoft.com/help/4595074)
+- [Azure Stack Hub-Hotfix 1.2005.28.98](https://support.microsoft.com/topic/ecf727b1-3dc1-4070-ace8-1291cc437389)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -368,7 +362,7 @@ Das Release 2002 von Azure Stack Hub muss auf das Release 1910 mit den folgend
 Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub-Hotfix 1.2002.63.167](https://support.microsoft.com/help/4595072)
+- [Azure Stack Hub-Hotfix 1.2002.65.171](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
 ::: moniker-end
 
 <!------------------------------------------------------------>
