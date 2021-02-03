@@ -739,7 +739,7 @@
                           href: ../user/azure-stack-vpn-gateway-about-vpn-gateways.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                         - name: Konfigurieren von IPsec-/IKE-Verbindungsrichtlinien
                           href: ../user/azure-stack-vpn-s2s.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                    - name: Peering virtueller Netzwerke
+                    - name: Peering in virtuellen Netzwerken
                       href: ../user/virtual-network-peering.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Herstellen einer Verbindung mit Azure mithilfe von ExpressRoute
                       href: ../operator/azure-stack-connect-expressroute.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -838,6 +838,8 @@
                   href: ../user/azure-stack-dev-start-howto-vm-nodejs.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Bereitstellen grundlegender Muster
           items:
+            - name: Bereitstellen grundlegender Muster
+              href: ../user/deploy-foundational-patterns.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Netzwerkmuster
               items:
                 - name: Verwenden von Drittanbieter-NVAs (Fortinet Fortigate NVA)
@@ -848,15 +850,15 @@
                       href: ../user/azure-stack-network-howto-vnet-to-onprem.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: VNET-zu-VNET-Konnektivität zwischen Azure Stack Hub-Instanzen
                       href: ../user/azure-stack-network-howto-vnet-to-vnet-stacks.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Verwenden von RRAS
-              items:
-                - name: VNET-zu-VNET-Konnektivität mit RRAS
-                  href: ../user/azure-stack-network-howto-vnet-peering.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Einrichten mehrerer Site-to-Site-VPN-Tunnel
-                  href: ../user/network-howto-vpn-tunnel.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Erstellen eines VPN-Tunnels (GRE)
-                  href: ../user/network-howto-vpn-tunnel-gre.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Erstellen eines VPN-Tunnels (IPSEC)
+                - name: Verwenden von RRAS
+                  items:
+                    - name: VNET-zu-VNET-Konnektivität mit RRAS
+                      href: ../user/azure-stack-network-howto-vnet-peering.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Einrichten mehrerer Site-to-Site-VPN-Tunnel
+                      href: ../user/network-howto-vpn-tunnel.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Erstellen eines VPN-Tunnels (GRE)
+                      href: ../user/network-howto-vpn-tunnel-gre.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Erstellen eines VPN-Tunnels (IPSEC)
                   href: ../user/network-howto-vpn-tunnel-ipsec.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: F5-Lastenausgleich
               href: ../user/network-howto-f5.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
