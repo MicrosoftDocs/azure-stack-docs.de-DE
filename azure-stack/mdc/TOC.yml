@@ -734,35 +734,39 @@
                   href: ../user/azure-stack-dev-start-howto-vm-nodejs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Bereitstellen grundlegender Muster
           items:
-            - name: VNET-Peering
+            - name: Netzwerkmuster
               items:
-                - name: VNET-Peering mit FortiGate
-                  href: ../user/azure-stack-network-howto-vnet-to-vnet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: VNET-Peering mit VMs
+                - name: Verwenden von Drittanbieter-NVAs (Fortinet Fortigate NVA)
+                  items:
+                    - name: VNET-zu-VNET-Konnektivität mit FortiGate
+                      href: ../user/azure-stack-network-howto-vnet-to-vnet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Einrichten einer VPN-Verbindung mit einer lokalen Ressource
+                      href: ../user/azure-stack-network-howto-vnet-to-onprem.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: VNET-zu-VNET-Konnektivität zwischen Azure Stack Hub-Instanzen
+                      href: ../user/azure-stack-network-howto-vnet-to-vnet-stacks.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Verwenden von RRAS
+              items:
+                - name: VNET-zu-VNET-Konnektivität mit RRAS
                   href: ../user/azure-stack-network-howto-vnet-peering.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Einrichten einer VPN-Verbindung mit einer lokalen Ressource
-              href: ../user/azure-stack-network-howto-vnet-to-onprem.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: VNet-zu-VNet-Verbindung
-              href: ../user/azure-stack-network-howto-vnet-to-vnet-stacks.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Erweitern des Rechenzentrums
-              href: ../user/azure-stack-network-howto-extend-datacenter.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: F5-Lastenausgleich
-              href: ../user/network-howto-f5.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Verbinden mit iSCSI-Speicher
-              href: ../user/azure-stack-network-howto-iscsi-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Einrichten von Tunneln
-              items:
-                - name: Einrichten eines VPN mit mehreren Site-to-Site-Verbindungen
+                - name: Einrichten mehrerer Site-to-Site-VPN-Tunnel
                   href: ../user/network-howto-vpn-tunnel.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Erstellen eines VPN-Tunnels (GRE)
                   href: ../user/network-howto-vpn-tunnel-gre.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Erstellen eines VPN-Tunnels (IPSEC)
                   href: ../user/network-howto-vpn-tunnel-ipsec.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: F5-Lastenausgleich
+              href: ../user/network-howto-f5.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Herstellen einer Verbindung mit externem Speicher
+              items:
+                - name: Verbinden mit iSCSI-Speicher
+                  href: ../user/azure-stack-network-howto-iscsi-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Erweitern des Rechenzentrums
+                  href: ../user/azure-stack-network-howto-extend-datacenter.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Sicherung und Wiederherstellung
               items:
-                - name: Sichern Ihres virtuellen Computers in MDC mit Commvault
+                - name: "Sichern Ihrer VM in Azure Stack\_Hub Ruggedized mit Commvault"
                   href: ../user/azure-stack-network-howto-backup-commvault.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Sichern Ihrer Speicherkonten in MDC
+                - name: Sichern Ihrer Speicherkonten in Azure Stack Hub Ruggedized
                   href: ../user/azure-stack-network-howto-backup-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Kopieren der Abonnementressourcen
                   href: ../user/azure-stack-network-howto-backup-replicator.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json

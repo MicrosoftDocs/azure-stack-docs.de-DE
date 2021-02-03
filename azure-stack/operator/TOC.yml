@@ -117,7 +117,7 @@
               href: azure-stack-integrate-security.md
             - name: Geräteüberwachung
               href: azure-stack-integrate-physical-device-auditing.md
-- name: Exemplarische Vorgehensweisen
+- name: Anleitungen
   items:
     - name: Verwalten von Azure Stack Hub
       items:
@@ -523,6 +523,54 @@
       href: /hybrid
 - name: Ressourcen
   items:
+    - name: Archiv der Versionshinweise
+      items:
+        - name: Versionshinweise zu 1910
+          href: ./relnotearchive/release-notes-1910.md
+        - name: 'Bekannte Probleme: 1910'
+          href: ./relnotearchive/known-issues-1910.md
+        - name: Versionshinweise zu 1908
+          href: ./relnotearchive/release-notes-1908.md
+        - name: 'Bekannte Probleme: 1908'
+          href: ./relnotearchive/known-issues-1908.md
+        - name: Versionshinweise zu 1907
+          href: ./relnotearchive/release-notes-1907.md
+        - name: 'Bekannte Probleme: 1907'
+          href: ./relnotearchive/known-issues-1907.md
+        - name: Versionshinweise zu 1906
+          href: ./relnotearchive/release-notes-1906.md
+        - name: 'Bekannte Probleme: 1906'
+          href: ./relnotearchive/known-issues-1906.md
+        - name: '1905: Versionshinweise'
+          href: ./relnotearchive/release-notes-1905.md
+        - name: 'Bekannte Probleme: 1905'
+          href: ./relnotearchive/known-issues-1905.md
+        - name: Versionshinweise zu 1904
+          href: ./relnotearchive/release-notes-1904.md
+        - name: 'Bekannte Probleme: 1904'
+          href: ./relnotearchive/known-issues-1904.md
+        - name: Versionshinweise zu 1903
+          href: ./relnotearchive/release-notes-known-issues-1903.md
+        - name: Versionshinweise zu 1902
+          href: ./relnotearchive/release-notes-known-issues-1902.md
+        - name: Versionshinweise zu 1901
+          href: ./relnotearchive/release-notes-known-issues-1901.md
+        - name: Versionshinweise zu 1811
+          href: ./relnotearchive/release-notes-known-issues-1811.md
+        - name: Versionshinweise zu 1809
+          href: ./relnotearchive/release-notes-known-issues-1809.md
+        - name: Versionshinweise zu 1808
+          href: ./relnotearchive/release-notes-known-issues-1808.md
+        - name: Versionshinweise zu 1807
+          href: ./relnotearchive/release-notes-known-issues-1807.md
+        - name: Versionshinweise zu 1805
+          href: ./relnotearchive/release-notes-known-issues-1805.md
+        - name: Versionshinweise zu 1804
+          href: ./relnotearchive/release-notes-known-issues-1804.md
+        - name: Versionshinweise zu 1803
+          href: ./relnotearchive/release-notes-known-issues-1803.md
+        - name: Versionshinweise zu 1802
+          href: ./relnotearchive/release-notes-known-issues-1802.md
     - name: Training und Zertifizierung
       href: azure-stack-train-and-cert.md
     - name: Azure Stack Hub-Roadmap
