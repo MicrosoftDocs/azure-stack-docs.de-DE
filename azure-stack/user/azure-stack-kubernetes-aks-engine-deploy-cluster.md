@@ -3,16 +3,16 @@ title: Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack 
 description: Erfahren Sie, wie Sie einen Kubernetes-Cluster in Azure Stack Hub von einer Client-VM bereitstellen, auf der die AKS-Engine ausgeführt wird.
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 6284e771a4b0e326ab5c6296b0a2c09dffe791d0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 9da037a08aaa7394306c518211fc045453530a71
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874199"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246961"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub
 
@@ -75,7 +75,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
 
     | Feld | BESCHREIBUNG |
     | --- | --- |
-    | count | Geben Sie die Anzahl der Agents ein, die für die Bereitstellung vorgesehen sind. Pro Abonnement können maximal 50 Knoten verwendet werden. Wenn Sie mehr als einen Cluster pro Abonnement bereitstellen, stellen Sie sicher, dass die Gesamtanzahl der Agents 50 nicht überschreitet. Stellen Sie sicher, dass Sie die Konfigurationselemente aus der [JSON-Datei für das API-Beispielmodell](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json) verwenden.  |
+    | count | Geben Sie die Anzahl der Agents ein, die für die Bereitstellung vorgesehen sind. Pro Abonnement können maximal 50 Knoten verwendet werden. Wenn Sie mehr als einen Cluster pro Abonnement bereitstellen, stellen Sie sicher, dass die Gesamtanzahl der Agents 50 nicht überschreitet. Stellen Sie sicher, dass Sie die Konfigurationselemente aus der [JSON-Datei für das API-Beispielmodell](https://aka.ms/aksengine-json-example) verwenden.  |
     | vmSize | Geben Sie [eine Größe ein, die von Azure Stack Hub unterstützt wird](./azure-stack-vm-sizes.md), z. B. `Standard_D2_v2`. |
     | distro | Geben Sie `aks-ubuntu-16.04` ein. |
 

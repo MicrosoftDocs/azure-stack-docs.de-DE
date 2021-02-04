@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: bb5d62b4e5302762b4feddfd7afd7b7a39002187
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.openlocfilehash: f247e8c604b9b1060f4cc011acdbd9786b487ab1
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243322"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495498"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>Behandeln von Problemen mit virtuellen Netzwerkgeräten
 
@@ -23,7 +23,7 @@ Dieser Artikel hilft bei der Überprüfung der grundlegenden Anforderungen an di
 Der Anbieter eines NVA bietet technischen Support für das virtuelle Netzwerkgerät und seine Integration in die Azure Stack Hub-Plattform.
 
 > [!NOTE]
-> Bei einem Konnektivitäts- oder Routingproblem, das ein NVA betrifft, sollten Sie sich direkt an den [NVA-Anbieter](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) wenden.
+> Bei einem Konnektivitäts- oder Routingproblem, das ein NVA betrifft, sollten Sie sich direkt an den [NVA-Anbieter](https://mskb.pkisolutions.com/kb/2984655) wenden.
 
 Wird Ihr NVA-Problem mit Azure Stack Hub in diesem Artikel nicht behandelt, erstellen Sie ein [Azure Stack Hub-Supportticket](../operator/azure-stack-manage-basics.md#where-to-get-support).
 
@@ -44,7 +44,7 @@ Wird Ihr NVA-Problem mit Azure Stack Hub in diesem Artikel nicht behandelt, erst
 
 ## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>Überprüfen der Mindestanforderungen für die Konfiguration von NVAs in Azure
 
-Für jedes NVA müssen grundlegende Konfigurationsanforderungen erfüllt werden, damit es ordnungsgemäß in Azure Stack Hub ausgeführt werden kann. Der folgende Abschnitt enthält die Schritte zum Überprüfen dieser grundlegenden Konfigurationen. Weitere Informationen [erhalten Sie vom NVA-Anbieter](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Für jedes NVA müssen grundlegende Konfigurationsanforderungen erfüllt werden, damit es ordnungsgemäß in Azure Stack Hub ausgeführt werden kann. Der folgende Abschnitt enthält die Schritte zum Überprüfen dieser grundlegenden Konfigurationen. Weitere Informationen [erhalten Sie vom NVA-Anbieter](https://mskb.pkisolutions.com/kb/2984655).
 
 > [!IMPORTANT]
 > Wenn Pakete einen S2S-Tunnel nutzen, werden sie mit zusätzlichen Headern weiter gekapselt. Durch diese Kapselung vergrößern sich die einzelnen Pakete insgesamt.
@@ -135,7 +135,7 @@ Einige Betriebssysteme auf Gastebene verfügen möglicherweise über Firewallric
    netstat -an | grep -i listen
    ```
 
-1. Suchen Sie nach den TCP-Ports, die von der in den Ergebnissen aufgeführten NVA-Software verwendet werden. Werden sie nicht angezeigt, konfigurieren Sie die Anwendung auf dem virtuellen Netzwerkgerät und dem virtuellen Computer, um auf Datenverkehr zu lauschen und zu reagieren, der diese Ports erreicht. [Wenden Sie sich an den NVA-Anbieter, wenn Sie Unterstützung benötigen.](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)
+1. Suchen Sie nach den TCP-Ports, die von der in den Ergebnissen aufgeführten NVA-Software verwendet werden. Werden sie nicht angezeigt, konfigurieren Sie die Anwendung auf dem virtuellen Netzwerkgerät und dem virtuellen Computer, um auf Datenverkehr zu lauschen und zu reagieren, der diese Ports erreicht. [Wenden Sie sich an den NVA-Anbieter, wenn Sie Unterstützung benötigen.](https://mskb.pkisolutions.com/kb/2984655)
 
 ## <a name="check-nva-performance"></a>Überprüfen der NVA-Leistung
 
@@ -147,7 +147,7 @@ Untersuchen Sie während einer CPU-Spitze, welcher Prozess auf der Gast-VM für 
 
 Eventuell müssen Sie auch die Größe der VM in eine größere SKU ändern oder bei einer VM-Skalierungsgruppe die Anzahl der Instanzen erhöhen.
 
-[Wenden Sie sich an den NVA-Anbieter](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), wenn Sie Unterstützung benötigen sollten.
+[Wenden Sie sich an den NVA-Anbieter](https://mskb.pkisolutions.com/kb/2984655), wenn Sie Unterstützung benötigen sollten.
 
 ### <a name="validate-vm-network-statistics"></a>Überprüfen der VM-Netzwerkstatistik
 
@@ -183,7 +183,7 @@ Falls die bei der Ablaufverfolgung der Back-End-VM eingehenden Pakete nicht zu s
 
 Wenn Sie sehen, dass Pakete eingehen, aber keine Antwort enthalten, müssen Sie möglicherweise ein Problem mit einer VM-Anwendung oder -Firewall beheben.
 
-[Wenden Sie sich an den NVA-Anbieter](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), wenn Sie Unterstützung benötigen sollten.
+[Wenden Sie sich an den NVA-Anbieter](https://mskb.pkisolutions.com/kb/2984655), wenn Sie Unterstützung benötigen sollten.
 
 ### <a name="create-a-support-ticket"></a>Erstellen ein Supporttickets
 

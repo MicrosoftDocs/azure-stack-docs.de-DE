@@ -3,16 +3,16 @@ title: Versionshinweise für die AKS-Engine (Azure Kubernetes Service) in Azure 
 description: Es werden die Schritte beschrieben, die Sie beim Anwenden des Updates auf die AKS-Engine in Azure Stack Hub ausführen müssen.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/28/2020
-ms.openlocfilehash: b4c5a2f6af605cc390a990df874bceae691006d3
-ms.sourcegitcommit: edb60c948b445537e9411d6261c6c78359b71d0b
+ms.openlocfilehash: 9bc1e73213743f1457a16bcce3a9ff4e69d370ef
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91810642"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247675"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Versionshinweise für die AKS-Engine in Azure Stack Hub
 ::: moniker range=">=azs-2002"

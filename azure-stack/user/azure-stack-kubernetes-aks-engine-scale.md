@@ -3,16 +3,16 @@ title: Skalieren eines Kubernetes-Cluster in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie einen Kubernetes-Cluster in Azure Stack Hub skalieren.
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 459ab20333f34f8aa8f067bc8b8c1f8dfd27920a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 0047275d682edeb560473263a488b6a8d899ca87
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874131"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246774"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Skalieren eines Kubernetes-Cluster in Azure Stack Hub
 

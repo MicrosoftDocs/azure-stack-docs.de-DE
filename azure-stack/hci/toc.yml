@@ -94,8 +94,6 @@
           href: manage/monitor-cluster.md
         - name: Einrichten eines Clusterzeugen
           href: manage/witness.md
-        - name: Verwenden der Rechenzentrumsfirewall
-          href: manage/use-datacenter-firewall.md
         - name: Verwenden von DISKSPD zum Testen von Workloads
           href: manage/diskspd-overview.md
         - name: Hinzufügen oder Entfernen von Servern
@@ -114,6 +112,10 @@
       items:
         - name: Bereitstellen einer SDN-Infrastruktur
           href: manage/sdn-express.md
+        - name: Verwenden der Rechenzentrumsfirewall
+          href: manage/use-datacenter-firewall.md
+        - name: Verwalten logischer Mandantennetzwerke
+          href: manage/tenant-logical-networks.md
         - name: Verwalten von virtuellen Mandantennetzwerken
           href: manage/tenant-virtual-networks.md
     - name: Verwalten von Azure-Diensten
@@ -132,10 +134,6 @@
           href: manage/use-azure-backup.md
         - name: Verwenden des Azure-Netzwerkadapters
           href: manage/use-azure-network-adapter.md
-    - name: Verwalten von SDN
-      items:
-        - name: Logische Mandantennetzwerke
-          href: manage/tenant-logical-networks.md
 - name: Konzepte
   items:
     - name: Speicher und Cluster

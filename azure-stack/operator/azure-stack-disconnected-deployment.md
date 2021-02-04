@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 98633108390ee24416c9383ed8171439a4ee1459
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 53f46732b799e7a638ce7fb61e236ba4a55f2437
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870850"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495454"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Planungsentscheidungen für die Bereitstellung von in Azure Stack Hub integrierte Systeme ohne Azure-Verbindung
 Nachdem Sie entschieden haben, [wie Sie Azure Stack Hub in Ihre Hybrid Cloud-Umgebung integrieren](azure-stack-connection-models.md), können Sie Ihre Entscheidungsfindung für die Azure Stack Hub-Bereitstellung abschließen.
@@ -50,7 +50,7 @@ Telemetrie|Nicht verfügbar: Telemetriedaten für Azure Stack Hub und alle Katal
 
 ## <a name="learn-more"></a>Weitere Informationen
 - Informationen zu Anwendungsfällen, zum Erwerb, zu Partnern und zu OEM-Hardwareanbietern finden Sie auf der Produktseite von [Azure Stack Hub](https://azure.microsoft.com/overview/azure-stack/).
-- Informationen zur Roadmap und geografischer Verfügbarkeit für in Azure Stack Hub integrierte Systeme finden Sie im Whitepaper: [Azure Stack Hub: Eine Erweiterung von Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Informationen zur Roadmap und geografischer Verfügbarkeit für in Azure Stack Hub integrierte Systeme finden Sie im Whitepaper: [Azure Stack Hub: Eine Erweiterung von Azure](https://azure.microsoft.com/resources/videos/azure-friday-azure-stack-an-extension-of-azure/). 
 - Um mehr über Microsoft Azure Stack Hub-Pakete und -Preise zu erfahren, [laden Sie die PDF-Datei herunter](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Nächste Schritte

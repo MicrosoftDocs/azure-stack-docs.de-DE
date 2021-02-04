@@ -3,15 +3,15 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: include
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: aaa08aa85701cda0dd6f85bb77726e227e849f71
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: a1659bb40e3917aa548a6df5b031562b6913802a
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867300"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99245747"
 ---
 Vor dem Hochladen der VHD müssen Sie prüfen, ob die VHD die Anforderungen erfüllt. VHDs, die die Anforderungen nicht erfüllen, können nicht in Azure Stack Hub geladen werden.
 

@@ -3,16 +3,16 @@ title: Ausführen einer n-schichtigen Anwendung in mehreren Azure Stack Hub-Regi
 description: Erfahren Sie, wie Sie eine n-schichtige Anwendung in mehreren Azure Stack Hub-Regionen für Hochverfügbarkeit ausführen.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 6978e6c86df577fc3d0446a8ecc8ce13a57781b7
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 74f0d38b7101bac23b8fcac300e9800c523a31f5
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97973576"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247056"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>Ausführen einer n-schichtigen Anwendung in mehreren Azure Stack Hub-Regionen für Hochverfügbarkeit
 

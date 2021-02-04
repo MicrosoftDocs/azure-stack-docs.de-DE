@@ -8,12 +8,12 @@ ms.date: 10/26/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: b5221162dd4a75fd9ffbd5fb382ab05560d622f6
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 2e88907094ea18e6fe3f8cbb49811fd1db307733
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255315"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495453"
 ---
 # <a name="azure-stack-hub-administration-basics---modular-data-center-mdc"></a>Grundlagen der Azure Stack Hub-Verwaltung – Modular Data Center (MDC)
 
@@ -53,7 +53,7 @@ Bevor Sie diese Dienste Ihren Benutzern zur Verfügung stellen können, sind zus
 
 ### <a name="service-roadmap"></a>Roadmap für Dienste
 
-In Azure Stack Hub wird die Unterstützung für Azure-Dienste laufend erweitert. Die geplante Roadmap finden Sie im Whitepaper [Azure Stack Hub: Eine Erweiterung von Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409). Zudem können Sie sich durch die [Blogbeiträge zu Azure Stack Hub](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) über neue Ankündigungen auf dem Laufenden halten.
+In Azure Stack Hub wird die Unterstützung für Azure-Dienste laufend erweitert. Die geplante Roadmap finden Sie im Whitepaper [Azure Stack Hub: Eine Erweiterung von Azure](https://azure.microsoft.com/resources/videos/azure-friday-azure-stack-an-extension-of-azure/). Zudem können Sie sich durch die [Blogbeiträge zu Azure Stack Hub](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) über neue Ankündigungen auf dem Laufenden halten.
 
 ## <a name="what-account-should-i-use"></a>Welches Konto sollte verwendet werden?
 

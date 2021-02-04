@@ -3,16 +3,16 @@ title: Bereitstellen der AKS-Engine unter Windows in Azure Stack Hub
 description: Erfahren Sie, wie Sie einen Windows-Computer in Ihrer Azure Stack Hub-Instanz zum Hosten der AKS-Engine verwenden, um einen Kubernetes-Cluster bereitzustellen und zu verwalten.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 29255d706edcb052711b2ed42e65fd3dc0b6412b
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.openlocfilehash: ed9f54ee2089baecc852b10a35df5719247d24b2
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93291233"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246910"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Installieren der AKS-Engine unter Windows in Azure Stack Hub
 

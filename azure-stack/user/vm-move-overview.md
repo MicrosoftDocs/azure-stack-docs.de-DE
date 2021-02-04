@@ -3,16 +3,16 @@ title: Verschieben einer VM in Azure Stack Hub
 description: Erfahren Sie mehr zu den Möglichkeiten, wie Sie eine VM in Azure Stack Hub verschieben können.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 2ee1ae6405bd7216c65d328e2edc7d1606b2bddc
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: cfcb5b494374fedaa5bdced131a8a42203aa5eb0
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867144"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246570"
 ---
 # <a name="move-a-vm-to-azure-stack-hub-overview"></a>Verschieben einer VM in Azure Stack Hub: Übersicht
 
