@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 18c1935c1e683fab1a2cda8886a45648ee69fbf4
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 4e1a00be9f4adadee5d1bf1e647c455773211b61
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974284"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495532"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Verwenden des privilegierten Endpunkts in Azure Stack Hub
 
@@ -43,7 +43,7 @@ Sie finden die IP-Adresse auch im Azure Stack Hub-Administratorportal. Öffnen S
 Sie müssen die aktuelle Kultureinstellung auf `en-US` festlegen, wenn Sie den privilegierten Endpunkt ausführen. Andernfalls werden Cmdlets wie „Test-AzureStack“ oder „Get-AzureStackLog“ nicht wie erwartet ausgeführt.
 
 > [!NOTE]
-> Aus Sicherheitsgründen darf mit dem PEP nur über eine gehärtete VM, die auf dem Hardwarelebenszyklus-Host basiert, oder über einen dedizierten, sicheren Computer (beispielsweise eine [Arbeitsstation mit privilegiertem Zugriff](/windows-server/identity/securing-privileged-access/privileged-access-workstations)) eine Verbindung hergestellt werden. Die ursprüngliche Konfiguration des Hardwarelebenszyklus-Hosts darf nicht geändert werden (einschließlich der Installation neuer Software), und er darf nicht zum Herstellen einer Verbindung mit dem PEP verwendet werden.
+> Aus Sicherheitsgründen darf mit dem PEP nur über eine gehärtete VM, die auf dem Hardwarelebenszyklus-Host basiert, oder über einen dedizierten, sicheren Computer (beispielsweise eine [Arbeitsstation mit privilegiertem Zugriff](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model)) eine Verbindung hergestellt werden. Die ursprüngliche Konfiguration des Hardwarelebenszyklus-Hosts darf nicht geändert werden (einschließlich der Installation neuer Software), und er darf nicht zum Herstellen einer Verbindung mit dem PEP verwendet werden.
 
 1. Richten Sie die Vertrauensstellung ein.
 
@@ -251,5 +251,5 @@ Das Antworttoken wird dann mit dem selbstsignierten Zertifikat verschlüsselt, d
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Azure Stack Hub-Diagnosetools](./azure-stack-diagnostic-log-collection-overview.md)
+- [Azure Stack Hub-Diagnosetools](./diagnostic-log-collection.md)
 - [Referenz zu privilegierten Azure Stack Hub-Endpunkten](../reference/pep-2002/index.md)

@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 307a24fdf42ce5e007f74a9cf0072b5124d247b2
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 22327cfb7761513eb18337e1e45e9c6d34482235
+ms.sourcegitcommit: 899c219b8fd433c852d816d6c50293e8195d9895
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871428"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99099266"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Azure Stack Hub-Rechenzentrumsintegration: Exemplarische Vorgehensweise
 
@@ -66,7 +66,7 @@ Microsoft oder ein Azure Stack Hub-Lösungspartner unterstützt Sie bei der Bew
 -   Welche Größenlösung benötigen Sie?
 -   Wie sind die Anforderungen an Stromversorgung und Kühlung?
 
-Verwenden Sie den [Azure Stack Hub Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822), um die beste Hardwarekapazität und -konfiguration für Ihre Anforderungen zu ermitteln und zu analysieren. 
+Verwenden Sie den [Azure Stack Hub Capacity Planner](https://download.microsoft.com/download/4/a/2/4a2bd10c-58a0-4ee7-8c3f-55b526ce7e75/AzureStackHubCapacityPlanner_v2005.01.xlsm), um die beste Hardwarekapazität und -konfiguration für Ihre Anforderungen zu ermitteln und zu analysieren. 
 
 ## <a name="ordering"></a>Bestellung
 Ihre Organisation entscheidet sich für den Erwerb von Azure Stack Hub, unterzeichnet Verträge und Aufträge und stellt die Daten der Integrationsanforderungen für den Lösungsanbieter bereit.

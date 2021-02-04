@@ -3,16 +3,16 @@ title: Ändern des Abrechnungsbesitzers für ein Azure Stack Hub-Benutzerabonnem
 description: Erfahren Sie, wie Sie den Abrechnungsbesitzer für ein Azure Stack Hub-Benutzerabonnement ändern.
 author: PatAltimore
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 1/29/2021
 ms.author: patricka
 ms.reviewer: shnatara
-ms.lastreviewed: 11/16/2020
-ms.openlocfilehash: c5438aaf928efeee0b71470e0965c6b18b5a7c0a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.lastreviewed: 1/29/2021
+ms.openlocfilehash: 40e4fbff8a04db2a6f2218d60d548df3c75236ba
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871289"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99533882"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>Ändern des Abrechnungsbesitzers für ein Azure Stack Hub-Benutzerabonnement
 
@@ -47,7 +47,7 @@ Ersetzen Sie vor der Skriptausführung die folgenden Werte im Skript:
 ```powershell
 # Set up Azure Stack Hub admin environment
 Add-AzEnvironment -ARMEndpoint $ArmEndpoint -Name AzureStack-admin
-Add-AzAccount -Environment AzureStack-admin -TenantId $TenantId
+Connect-AzAccount -Environment AzureStack-admin -TenantId $TenantId
 
 # Select admin subscription
 $providerSubscriptionId = (Get-AzSubscription -SubscriptionName "Default Provider Subscription").Id
@@ -62,12 +62,12 @@ Set-AzsUserSubscription -InputObject $subscription
 
 [!include[Remove Account](../includes/remove-account-az.md)]
 
-### <a name="az-modules"></a>[Az-Module](#tab/azurerm)
+### <a name="azurerm-modules"></a>[AzureRM-Module](#tab/azurerm)
 
 ```powershell
-# Set up AzureRMure Stack Hub admin environment
-Add-AzureRMEnvironment -ARMEndpoint $ArmEndpoint -Name AzureRMureStack-admin
-Add-AzureRMAccount -Environment AzureRMureStack-admin -TenantId $TenantId
+# Set up Azure Stack Hub admin environment
+Add-AzureRmEnvironment -ARMEndpoint $ArmEndpoint -Name AzureStack-admin
+Add-AzureRmAccount  -Environment AzureStack-admin -TenantId $TenantId
 
 # Select admin subscription
 $providerSubscriptionId = (Get-AzureRMSubscription -SubscriptionName "Default Provider Subscription").Id

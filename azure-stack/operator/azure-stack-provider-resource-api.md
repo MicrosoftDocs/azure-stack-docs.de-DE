@@ -3,16 +3,16 @@ title: Ressourcennutzungs-API für Azure Stack Hub-Anbieter
 description: Referenz für die Ressourcennutzungs-API, die Azure Stack Hub-Nutzungsinformationen abruft
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/01/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b327d7e194de672787c3a7e120857d6c2775a1a1
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 13eb197cee1da34f5e4e2b934ed05e26446b4970
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544937"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227398"
 ---
 # <a name="provider-resource-usage-api"></a>Ressourcennutzungs-API für Anbieter
 
@@ -26,7 +26,7 @@ Der Begriff *Anbieter* bezieht sich auf den Dienstadministrator und alle delegie
 
 Die Anforderung ruft detaillierte Nutzungsinformationen für das angeforderte Abonnement und den angeforderten Zeitraum ab. Es gibt keinen Anforderungstext.
 
-Die Nutzungs-API ist eine Anbieter-API. Aus diesem Grund muss dem Aufrufer im Abonnement des Anbieters die Rolle des **Besitzers** , **Mitwirkenden** oder **Lesers** zugewiesen sein.
+Die Nutzungs-API ist eine Anbieter-API. Aus diesem Grund muss dem Aufrufer im Abonnement des Anbieters die Rolle des **Besitzers**, **Mitwirkenden** oder **Lesers** zugewiesen sein.
 
 | Methode | Anforderungs-URI |
 | --- | --- |
@@ -108,19 +108,19 @@ Zum Generieren der Nutzungsdaten benötigen Sie Ressourcen, die ausgeführt werd
 
 ### <a name="rest-api"></a>REST-API
 
-Sie können Nutzungsinformationen für gelöschte Abonnements sammeln, indem Sie den **Microsoft.Commerce.Admin** -Dienst aufrufen.
+Sie können Nutzungsinformationen für gelöschte Abonnements sammeln, indem Sie den **Microsoft.Commerce.Admin**-Dienst aufrufen.
 
 #### <a name="return-all-tenant-usage-for-deleted-for-active-users"></a>Zurückgeben der gesamte Mandantennutzung für gelöschte Abonnements für aktive Benutzer
 
 | Methode | Anforderungs-URI |
 | --- | --- |
-| GET | `https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
+| GET | `https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
 
 #### <a name="return-usage-for-deleted-or-active-tenant"></a>Zurückgeben der Nutzung für gelöschte oder aktive Mandanten
 
 | Methode | Anforderungs-URI |
 | --- | --- |
-| GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
+| GET |`https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
 
 ## <a name="next-steps"></a>Nächste Schritte
 

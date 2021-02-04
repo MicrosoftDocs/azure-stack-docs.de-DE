@@ -7,12 +7,12 @@ ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 9ada0a0c7731b92bc67f85545b5d9cd81e87cd36
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: dcd2779bf1166b6418a0ecbec3b025e889ca048a
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871972"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495566"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>Hinzufügen neuer Azure Stack Hub-Benutzerkonten in Azure Active Directory (Azure AD)
 
@@ -54,7 +54,7 @@ Falls Sie kein Azure-Abonnement besitzen, können Sie ein Mandantenbenutzerkonto
 > [!NOTE]
 > Wenn Sie ein Microsoft-Konto zum Bereitstellen des ASDK verwenden, können Sie ein Mandantenkonto nicht mithilfe von Azure AD PowerShell erstellen.
 
-1. Installieren Sie die **64-Bit**-Version des [Microsoft Online Services-Anmelde-Assistenten für IT-Experten RTW](https://go.microsoft.com/fwlink/p/?LinkId=286152).
+1. Installieren Sie die **64-Bit**-Version des [Microsoft Online Services-Anmelde-Assistenten für IT-Experten RTW](https://www.microsoft.com/download/details.aspx?id=28177).
 
 2. Installieren Sie das Microsoft Azure AD-Modul für Windows PowerShell mit diesen Schritten:
 

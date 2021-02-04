@@ -7,12 +7,12 @@ ms.date: 04/02/2020
 ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: 89cb7fe7ee0f8e19c2774d5ebfef988ec0933e03
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 56b0025de1eee074eb0d6fbcdff8228cdbb9ac4e
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871020"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495549"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Überlegungen zur Planung der Rechenzentrumsintegration für in Azure Stack Hub integrierte Systeme
 
@@ -201,7 +201,7 @@ Sie können Azure Site Recovery oder unterstützte Produkte von Drittanbietern v
 ## <a name="learn-more"></a>Weitere Informationen
 
 - Informationen zu Anwendungsfällen, zum Erwerb, zu Partnern und zu OEM-Hardwareanbietern finden Sie auf der Produktseite von [Azure Stack Hub](https://azure.microsoft.com/overview/azure-stack/).
-- Informationen zur Roadmap und geografischer Verfügbarkeit für in Azure Stack Hub integrierte Systeme finden Sie im Whitepaper: [Azure Stack Hub: Eine Erweiterung von Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Informationen zur Roadmap und geografischer Verfügbarkeit für in Azure Stack Hub integrierte Systeme finden Sie im Whitepaper: [Azure Stack Hub: Eine Erweiterung von Azure](https://azure.microsoft.com/resources/videos/azure-friday-azure-stack-an-extension-of-azure/). 
 
 ## <a name="next-steps"></a>Nächste Schritte
 [Verbindungsmodelle für die Azure Stack Hub-Bereitstellung](azure-stack-connection-models.md)
