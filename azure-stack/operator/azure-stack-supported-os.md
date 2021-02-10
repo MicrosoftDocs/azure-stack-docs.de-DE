@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Erfahren Sie, welche Gastbetriebssysteme mit Azure Stack Hub verwendet werden können.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 3d535893b75cdaf49b4003fce2382ab092b328fe
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: 336a4d27adf5f0ab52fffc6b624ce84f7fd0b53c
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620584"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99245907"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Für Azure Stack Hub unterstützte Gastbetriebssysteme
 
@@ -50,9 +50,17 @@ Die im Azure Stack Hub-Marketplace verfügbaren Linux-Distributionen enthalten d
 
 | Distribution | BESCHREIBUNG | Herausgeber | Azure Stack Hub Marketplace |
 | --- | --- | --- | --- |
-| 6\.9 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
+| CentOS-basiert 8.0 | 64 Bit | Rogue Wave | Ja |
+| CentOS-basiert 7.8 | 64 Bit | Rogue Wave | Ja |
+| CentOS-basiert 7.7 LVM | 64 Bit | Rogue Wave | Ja |
+| CentOS-basiert 7.7 | 64 Bit | Rogue Wave | Ja |
+| CentOS-basiert 7.6 | 64 Bit | Rogue Wave | Ja |
 | 7\.5 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
+| CentOS-basiert 7.5 LVM | 64 Bit | Rogue Wave | Ja |
+| 7.4 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
 | 7\.3 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
+| 6\.9 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
+| 6\.10 (CentOS-basiert) | 64 Bit | Rogue Wave | Ja |
 | ClearLinux | 64 Bit | ClearLinux.org | Ja |
 | CoreOS Linux (stabil) |  64 Bit | CoreOS | Ja |
 | Debian 8 „Jessie“ | 64 Bit | credativ |  Ja |
@@ -64,6 +72,7 @@ Die im Azure Stack Hub-Marketplace verfügbaren Linux-Distributionen enthalten d
 | Ubuntu 14.04-LTS | 64 Bit | Canonical | Ja |
 | Ubuntu 16.04-LTS | 64 Bit | Canonical | Ja |
 | Ubuntu 18.04-LTS | 64 Bit | Canonical | Ja |
+| Ubuntu Server 20.04 LTS | 64 Bit | Canonical | Ja |
 
 Informationen zur Unterstützung von Red Hat Enterprise Linux finden Sie unter [Red Hat and Azure Stack Hub: Frequently Asked Questions](https://access.redhat.com/articles/3413531) (Red Hat und Azure Stack: häufig gestellte Fragen).
 

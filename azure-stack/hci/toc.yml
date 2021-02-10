@@ -112,8 +112,8 @@
       items:
         - name: Bereitstellen einer SDN-Infrastruktur
           href: manage/sdn-express.md
-        - name: Verwenden der Rechenzentrumsfirewall
-          href: manage/use-datacenter-firewall.md
+        - name: Verwenden der Rechenzentrumsfirewall mit PowerShell
+          href: manage/use-datacenter-firewall-powershell.md
         - name: Verwalten logischer Mandantennetzwerke
           href: manage/tenant-logical-networks.md
         - name: Verwalten von virtuellen Mandantennetzwerken

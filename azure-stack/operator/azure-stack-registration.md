@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 11/19/2020
 ms.custom: contperf-fy20q4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 7888d23390706a098f814f4cc674d030662c9915
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 97a730d61d5ba67124771185deb3fd51c269938a
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869558"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534146"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrieren von Azure Stack Hub in Azure
 
@@ -123,10 +123,10 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
 
 1. Zum Registrieren des Azure Stack Hub-Ressourcenanbieters bei Azure starten Sie PowerShell ISE als Administrator, und verwenden Sie die folgenden PowerShell-Cmdlets mit dem auf den entsprechenden Azure-Abonnementtyp festgelegten Parameter **EnvironmentName** (siehe die Parameter unten).
 
-2. Fügen Sie das Azure-Konto hinzu, das für die Registrierung von Azure Stack Hub verwendet wurde. Führen Sie zum Hinzufügen des Kontos das Cmdlet **Add-AzAccount** aus. Sie werden aufgefordert, Ihre Anmeldeinformationen für das Azure-Konto einzugeben. Je nach Konfiguration Ihres Kontos müssen Sie möglicherweise die zweistufige Authentifizierung verwenden.
+2. Fügen Sie das Azure-Konto hinzu, das für die Registrierung von Azure Stack Hub verwendet wurde. Führen Sie zum Hinzufügen des Kontos das Cmdlet **Connect-AzAccount** aus. Sie werden aufgefordert, Ihre Anmeldeinformationen für das Azure-Konto einzugeben. Je nach Konfiguration Ihres Kontos müssen Sie möglicherweise die zweistufige Authentifizierung verwenden.
 
    ```powershell
-   Add-AzAccount -EnvironmentName "<environment name>"
+   Connect-AzAccount -EnvironmentName "<environment name>"
    ```
 
    | Parameter | BESCHREIBUNG |  
@@ -134,7 +134,7 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
    | EnvironmentName | Der Umgebungsname des Azure-Cloudabonnements. Unterstützte Umgebungsnamen sind **AzureCloud**, **AzureUSGovernment** oder für ein Azure-Abonnement für China **AzureChinaCloud**.  |
 
    >[!Note]
-   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie lediglich Konten wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit „Add-AzAccount“ anmelden: `Remove-AzAccount-Scope Process`.
+   > Wenn Ihre Sitzung abgelaufen ist, Ihr Kennwort geändert wurde oder Sie lediglich das Konto wechseln möchten, führen Sie das folgende Cmdlet aus, bevor Sie sich mit Connect-AzAccount anmelden: `Remove-AzAccount-Scope Process`.
 
 3. Wenn Sie über mehrere Abonnements verfügen, führen Sie den folgenden Befehl aus, um das zu verwendende Abonnement auszuwählen:  
 
@@ -252,7 +252,7 @@ In mit Azure verbundenen Umgebungen kann auf das Internet und Azure zugegriffen 
 
 1. Zum Registrieren des Azure Stack Hub-Ressourcenanbieters bei Azure starten Sie PowerShell ISE als Administrator, und verwenden Sie die folgenden PowerShell-Cmdlets mit dem auf den entsprechenden Azure-Abonnementtyp festgelegten Parameter **EnvironmentName** (siehe die Parameter unten).
 
-2. Fügen Sie das Azure-Konto hinzu, das für die Registrierung von Azure Stack Hub verwendet wurde. Führen Sie zum Hinzufügen des Kontos das Cmdlet **Add-AzAccount** aus. Sie werden aufgefordert, Ihre Anmeldeinformationen für das Azure-Konto einzugeben. Je nach Konfiguration Ihres Kontos müssen Sie möglicherweise die zweistufige Authentifizierung verwenden.
+2. Fügen Sie das Azure-Konto hinzu, das für die Registrierung von Azure Stack Hub verwendet wurde. Führen Sie zum Hinzufügen des Kontos das Cmdlet **Connect-AzAccount** aus. Sie werden aufgefordert, Ihre Anmeldeinformationen für das Azure-Konto einzugeben. Je nach Konfiguration Ihres Kontos müssen Sie möglicherweise die zweistufige Authentifizierung verwenden.
 
    ```powershell  
    Connect-AzAccount -Environment "<environment name>"

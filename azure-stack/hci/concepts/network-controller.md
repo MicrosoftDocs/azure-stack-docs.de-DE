@@ -1,22 +1,22 @@
 ---
 title: Planen der Bereitstellung von Netzwerkcontroller
-description: In diesem Thema geht es um die Planung der Bereitstellung von Netzwerkcontroller über Windows Admin Center in einer Gruppe von virtuellen Computern (VMs) mit dem Betriebssystem Azure Stack HCI.
+description: In diesem Thema wird beschrieben, wie Sie die Bereitstellung eines Netzwerkcontrollers mit Windows Admin Center in einer Gruppe mit virtuellen Computern (VMs) planen.
 author: AnirbanPaul
 ms.author: anpaul
 ms.topic: conceptual
-ms.date: 10/7/2020
-ms.openlocfilehash: 3ac17ca9cd54c2ec387ceb39cbda76f7cb539305
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 02/02/2021
+ms.openlocfilehash: bfea9216cefdc64c7749f8b49d5ecc3a422e5130
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255077"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510787"
 ---
 # <a name="plan-to-deploy-network-controller"></a>Planen der Bereitstellung von Netzwerkcontroller
 
->Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019
+>Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019; Windows Server 2016
 
-Die Planung der Bereitstellung von Netzwerkcontroller über Windows Admin Center erfordert eine Gruppe virtueller Computer (VMs) mit dem Betriebssystem Azure Stack HCI. Netzwerkcontroller ist eine hochverfügbare und skalierbare Serverrolle, die mindestens drei VMs erfordert, um in Ihrem Netzwerk Hochverfügbarkeit zu gewährleisten.
+Für die Planung der Bereitstellung eines Netzwerkcontrollers über Windows Admin Center benötigen Sie eine Gruppe mit virtuellen Computern (VMs), auf denen das Betriebssystem Azure Stack HCI oder Windows Server ausgeführt wird. Netzwerkcontroller ist eine hochverfügbare und skalierbare Serverrolle, die mindestens drei VMs erfordert, um in Ihrem Netzwerk Hochverfügbarkeit zu gewährleisten.
 
    >[!NOTE]
    > Sie sollten Netzwerkcontroller auf eigenen dedizierten VMs bereitzustellen.
@@ -56,12 +56,10 @@ Sie können die Netzwerkcontroller-Clusterknoten entweder im selben Subnetz oder
 Weitere Informationen finden Sie unter [Konfigurieren der dynamischen DNS-Registrierung für den Netzwerkcontroller](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
 
 ## <a name="next-steps"></a>Nächste Schritte
-Jetzt sind Sie bereit, Netzwerkcontroller auf VMs mit dem Betriebssystem bereitzustellen.
+Sie können den Netzwerkcontroller jetzt auf den VMs bereitstellen.
 
-Weitere Informationen finden Sie unter:
+## <a name="see-also"></a>Siehe auch
 - [Erstellen eines Azure Stack HCI-Clusters](../deploy/create-cluster.md)
-- [Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
-
-## <a name="see-also"></a>Weitere Informationen
-- [Netzwerkcontroller](/windows-server/networking/sdn/technologies/network-controller/network-controller)
+- [Bereitstellen einer SDN-Infrastruktur mit SDN Express](../manage/sdn-express.md)
+- [Netzwerkcontroller – Übersicht](network-controller-overview.md)
 - [Hochverfügbarkeit des Netzwerkcontrollers](/windows-server/networking/sdn/technologies/network-controller/network-controller-high-availability)

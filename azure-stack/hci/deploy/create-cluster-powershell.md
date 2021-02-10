@@ -3,15 +3,15 @@ title: Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell
 description: Erfahren Sie, wie Sie mithilfe von Windows PowerShell einen Cluster für Azure Stack HCI erstellen.
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/01/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 2099d7e9dcd2d01f949d54ad5bd59ce06ecaccbc
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: ca2a9448b787a93e297d4bc666a37d81e4d02b28
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772197"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227360"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Erstellen eines Azure Stack HCI-Clusters mithilfe von Windows PowerShell
 
@@ -147,9 +147,11 @@ In diesem Schritt werden verschiedene Netzwerkelemente in Ihrer Umgebung konfigu
 
 Weitere Informationen zu RDMA- und Hyper-V-Hostnetzwerken für Azure Stack HCI finden Sie unter [Anforderungen für Hostnetzwerke](../concepts/host-network-requirements.md).
 
-### <a name="disable-unused-networks"></a>Deaktivieren nicht verwendeter Netzwerke
+### <a name="disable-unused-network-adapters"></a>Deaktivieren von nicht verwendeten Netzwerkadaptern
 
-Sie müssen alle getrennten oder nicht für die Verwaltung, die Speicherung oder den Workload-Datenverkehr (etwa mit VMs) verwendeten Netzwerke deaktivieren. So identifizieren Sie nicht verwendete Netzwerke:
+Sie müssen alle getrennten Netzwerke und Adapter deaktivieren, die nicht für die Verwaltung, die Speicherung oder den Workload-Datenverkehr (z. B. mit VMs) verwendet werden. Dies gilt auch für Netzwerkadapter, die für die monitorlose Verwaltung genutzt werden, z. B. Baseboard-Verwaltungscontroller (BMCs).
+
+So identifizieren Sie nicht verwendete Netzwerke:
 
 ```powershell
 $ServerList = "Server1", "Server2", "Server3", "Server4"

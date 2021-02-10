@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: cc3b37e6ac230133254cbb6e9f5e5487b31a26c4
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: fd7c1740d96ecea92bd4414ae1b4481e38594202
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870255"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99245975"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Überwachen von Änderungen in Azure Stack Hub mithilfe des privilegierten Endpunkts
 
@@ -27,7 +27,7 @@ Die folgenden neuen PowerShell-Cmdlets für die Updateverwaltung sind im Update 
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Überprüfen der Verfügbarkeit von Cmdlets
-Da die Cmdlets im Updatepaket 1710 für Azure Stack Hub neu sind, muss der Updatevorgang für 1710 einen bestimmten Punkt erreichen, bevor die Überwachungsfunktionen zur Verfügung steht. In der Regel sind die Cmdlets verfügbar, wenn der Status im Administratorportal angibt, dass sich das Update 1710 beim Schritt **Speicherhosts neu starten** befindet. Insbesondere kommt das Cmdletupdate vor in **Schritt: Ausführen von Schritt 2.6: Aktualisieren der PrivilegedEndpoint-Whitelist**.
+Da die Cmdlets im Updatepaket 1710 für Azure Stack Hub neu sind, muss der Updatevorgang für 1710 einen bestimmten Punkt erreichen, bevor die Überwachungsfunktionen zur Verfügung steht. In der Regel sind die Cmdlets verfügbar, wenn der Status im Administratorportal angibt, dass sich das Update 1710 beim Schritt **Speicherhosts neu starten** befindet. Insbesondere kommt das Cmdletupdate vor in **Schritt: Ausführen von Schritt 2.6: Aktualisieren der Positivliste „PrivilegedEndpoint“** .
 
 Sie können auch programmgesteuert ermitteln, ob die Cmdlets verfügbar sind, indem Sie die Befehlsliste über den privilegierten Endpunkt abfragen. Führen Sie dazu die folgenden Befehle über den Hardwarelebenszyklushost oder über eine Arbeitsstation mit privilegiertem Zugriff aus. Stellen Sie außerdem sicher, dass es sich bei dem privilegierten Endpunkt um einen vertrauenswürdigen Host handelt. Weitere Informationen finden Sie in Schritt 1 von [Zugreifen auf den privilegierten Endpunkt](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint).
 

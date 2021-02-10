@@ -3,16 +3,16 @@ title: 'Azure Stack Hub: Versionshinweise'
 description: Versionshinweise für integrierte Azure Stack Hub-Systeme, einschließlich Updates und Fehlerbehebungen.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 02/03/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 196313ed569a701dae9cc558ff1438d9d9df1241
-ms.sourcegitcommit: 82f7d16bc5f4224678edbbda0ba3441c8e07ca0b
+ms.openlocfilehash: ea286718f2f4c0fcd2bdf935d5e12d462d07856f
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763153"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99533925"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -118,7 +118,7 @@ Informationen zu Sicherheitsupdates in diesem Update von Azure Stack Hub finden 
 
 ## <a name="hotfixes"></a>Hotfixes
 
-Azure Stack Hub veröffentlicht regelmäßig Hotfixes. Ab Release 2005 werden bei der Aktualisierung auf eine neue Hauptversion (z. B. von 1.2005.x auf 1.2008.x) die aktuellen Hotfixes (sofern verfügbar) in der neuen Hauptversion automatisch installiert. Wenn danach ein Hotfix für Ihren Build veröffentlicht wird, sollten Sie ihn installieren.
+Azure Stack Hub veröffentlicht regelmäßig Hotfixes. Achten Sie darauf, dass Sie den neuesten 2005-Hotfix vor dem Update auf 2008 installieren. Ab Release 2005 werden bei der Aktualisierung auf eine neue Hauptversion (z. B. von 1.2005.x auf 1.2008.x) darüber hinaus die aktuellen Hotfixes in der neuen Hauptversion automatisch installiert (sofern sie beim Herunterladen des Pakets verfügbar sind). Ihre 2008-Installation ist dann auf dem aktuellen Stand und verfügt über alle Hotfixes. Wenn danach dann ein Hotfix für Version 2008 veröffentlicht wird, sollten Sie diesen installieren.
 
 > [!NOTE]
 > Hotfixreleases für Azure Stack Hub sind kumulativ. Sie müssen also nur den neuesten Hotfix installieren, um alle Korrekturen zu erhalten, die in den vorherigen Hotfixreleases für diese Version enthalten waren.
@@ -129,11 +129,11 @@ Azure Stack Hub-Hotfixes gelten nur für integrierte Azure Stack Hub-Systeme. Ve
 
 ### <a name="after-successfully-applying-the-2008-update"></a>Nach erfolgreicher Anwendung des Updates 2008
 
-Da Hotfixes für Azure Stack Hub kumulativ sind, sollten Sie als Best Practice alle Hotfixes installieren, die für Ihren Build veröffentlicht wurden, damit die Updates zwischen Hauptversionen so reibungslos wie möglich verlaufen. Wenn auf eine neue Hauptversion (z. B. von 1.2008.x auf 1.2005.x) aktualisieren, werden die aktuellen Hotfixes (sofern verfügbar) in der neuen Hauptversion automatisch installiert.
+Da Hotfixes für Azure Stack Hub kumulativ sind, sollten Sie als Best Practice alle Hotfixes installieren, die für Ihren Build veröffentlicht wurden, damit die Updates zwischen Hauptversionen so reibungslos wie möglich verlaufen. Wenn Sie die Aktualisierung auf eine neue Hauptversion (z. B. von 1.2005.x auf 1.2008.x) durchführen, werden die aktuellen Hotfixes in der neuen Hauptversion automatisch installiert (sofern sie beim Herunterladen des Pakets verfügbar sind).
 
 Wenn nach der Installation des Updates 2008 Hotfixes für 2008 veröffentlicht werden, sollten Sie sie installieren:
 
-- [Azure Stack Hub-Hotfix 1.2008.23.108](https://support.microsoft.com/topic/c0d203fd-7585-4c8d-8ea5-ae13897e352e)
+- [Azure Stack Hub-Hotfix 1.2008.25.114](https://support.microsoft.com/topic/87ee234e-7f33-4342-bc0a-5779dbb33263)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -233,7 +233,7 @@ Ab Release 2005 werden bei der Aktualisierung auf eine neue Hauptversion (z. B
 
 Wenn nach der Installation des Updates 2005 Hotfixes für 2005 veröffentlicht werden, sollten Sie sie installieren:
 
-- [Azure Stack Hub-Hotfix 1.2005.28.98](https://support.microsoft.com/topic/ecf727b1-3dc1-4070-ace8-1291cc437389)
+- [Azure Stack Hub-Hotfix 1.2005.29.100](https://support.microsoft.com/topic/10c1b6e2-7bf7-4f71-8204-f1b12e2f744a)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -421,5 +421,5 @@ Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfix
 ::: moniker-end
 
 ::: moniker range="<azs-2002"
-Sie können auf [ältere Versionen der Azure Stack Hub-Versionshinweise im TechNet-Katalog](https://aka.ms/azsarchivedrelnotes) zugreifen. Diese archivierten Dokumente werden nur zu Referenzzwecken bereitgestellt und bedeuten nicht, dass Support für diese Versionen geleistet wird. Informationen zum Azure Stack Hub-Support finden Sie unter [Azure Stack Hub-Wartungsrichtlinie](azure-stack-servicing-policy.md). Weitere Hilfe erhalten Sie beim Microsoft-Kundensupport (Microsoft Customer Support Services, CSS).
+Sie können links im Inhaltsverzeichnis unter [**Ressourcen > Archiv der Versionshinweise**](./relnotearchive/release-notes-1910.md) auf ältere Versionen der Versionshinweise für Azure Stack Hub zugreifen. Diese archivierten Artikel werden nur zu Referenzzwecken bereitgestellt und bedeuten nicht, dass Support für diese Versionen geleistet wird. Informationen zum Azure Stack Hub-Support finden Sie unter [Azure Stack Hub-Wartungsrichtlinie](azure-stack-servicing-policy.md). Weitere Hilfe erhalten Sie beim Microsoft-Kundensupport (Microsoft Customer Support Services, CSS).
 ::: moniker-end

@@ -1,28 +1,28 @@
 ---
-title: Software-Defined Networking (SDN) in Azure Stack HCI
+title: Software-Defined Networking (SDN) in Azure Stack HCI und Windows Server
 description: Software-Defined Networking (SDN) ermöglicht die zentrale Konfiguration und Verwaltung von Netzwerken und Netzwerkdiensten wie Switching, Routing und Lastenausgleich in Ihrem Rechenzentrum.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/22/2021
-ms.openlocfilehash: ee4046837b012f5ea55a85db418e2af35f84a7ee
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.date: 02/02/2021
+ms.openlocfilehash: d67f16b65e13c700360bd85096dd1454745772c0
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772253"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510719"
 ---
-# <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Software-Defined Networking (SDN) in Azure Stack HCI
+# <a name="software-defined-networking-sdn-in-azure-stack-hci-and-windows-server"></a>Software-Defined Networking (SDN) in Azure Stack HCI und Windows Server
 
-> Gilt für Azure Stack HCI, Version 20H2; Windows Server 2019
+> Gilt für Azure Stack HCI, Version 20H2, Windows Server 2019, Windows Server 2016
 
 Software-Defined Networking (SDN) ermöglicht die zentrale Konfiguration und Verwaltung von Netzwerken und Netzwerkdiensten wie Switching, Routing und Lastenausgleich in Ihrem Rechenzentrum. Mit SDN können Sie Ihr Netzwerk dynamisch erstellen, schützen und verbinden, um den Anforderungen Ihrer Apps gerecht zu werden. Der Betrieb globaler Rechenzentrumsnetzwerke für Dienste wie Microsoft Azure mit mehreren zehntausend Netzwerkänderungen pro Tag ist nur dank SDN möglich.
 
 VNET-Elemente wie der [virtuelle Hyper-V-Switch](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch), [Hyper-V-Netzwerkvirtualisierung](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyper-v-network-virtualization), [Softwarelastenausgleich](/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn) und [RAS-Gateway](/windows-server/networking/sdn/technologies/network-function-virtualization/ras-gateway-for-sdn) wurden als integrale Elemente Ihrer SDN-Infrastruktur konzipiert. Sie können auch Ihre vorhandenen SDN-kompatiblen Geräte verwenden, um eine tiefere Integration zwischen Ihren Workloads zu erreichen, die in virtuellen Netzwerken und im physischen Netzwerk ausgeführt werden.
 
-Azure Stack HCI bietet drei SDN-Hauptkomponenten, und Sie können wählen, welche Sie bereitstellen möchten: Netzwerkcontroller, Softwarelastenausgleich und Gateway.
+Es sind drei SDN-Hauptkomponenten vorhanden, und Sie können wählen, welche Sie bereitstellen möchten: Netzwerkcontroller, Softwarelastenausgleich und Gateway.
 
    > [!NOTE]
    > SDN wird für Stretched Cluster (an mehreren Standorten) nicht unterstützt.
@@ -38,7 +38,7 @@ Die Bereitstellung des Netzwerkcontrollers ermöglicht Folgendes:
 - Anfügen virtueller Geräte an Ihre virtuellen Netzwerke
 - Konfigurieren von QoS-Richtlinien (Quality of Service) für virtuelle Computer, die an virtuelle Netzwerke oder herkömmliche VLAN-basierte Netzwerke angefügt wurden
 
-Wir empfehlen die [Bereitstellung des Netzwerkcontrollers mithilfe von SDN Express](../manage/sdn-express.md), nachdem Sie einen Azure Stack HCI-Cluster erstellt haben.
+Wir empfehlen Ihnen die Bereitstellung eines [Netzwerkcontrollers per SDN Express](../manage/sdn-express.md).
 
 ## <a name="software-load-balancing"></a>Softwarelastenausgleich
 
@@ -59,5 +59,4 @@ Von Gateways wird das [Border Gateway Protocol](/windows-server/remote/remote-ac
 Verwandte Informationen finden Sie außerdem unter:
 
 - [Planen einer softwaredefinierten Netzwerkinfrastruktur](plan-software-defined-networking-infrastructure.md)
-- [SDN in Windows Server: Übersicht](/windows-server/networking/sdn/software-defined-networking)
 - [Bereitstellen einer SDN-Infrastruktur mit SDN Express](../manage/sdn-express.md)

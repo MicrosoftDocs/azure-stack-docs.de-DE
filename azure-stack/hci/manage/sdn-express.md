@@ -3,23 +3,21 @@ title: Bereitstellen einer SDN-Infrastruktur mit SDN Express
 description: Es wird beschrieben, wie Sie eine SDN-Infrastruktur mit SDN Express bereitstellen.
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/01/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ec4c348242910eaf78831b59659bd5943f9cb854
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: b8431b7e2cf2cad3d238386619839a760b722042
+ms.sourcegitcommit: d74f6d8630783de49667956f39cac67e1968a89d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98782014"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99473190"
 ---
 # <a name="deploy-an-sdn-infrastructure-using-sdn-express"></a>Bereitstellen einer SDN-Infrastruktur mit SDN Express
 
 > Gilt für Azure Stack HCI, Version 20H2
 
-Unter diesem Thema wird beschrieben, wie Sie eine End-to-End-SDN-Infrastruktur (Softwaredefiniertes Netzwerk) bereitstellen, indem Sie SDN Express-PowerShell-Skripts verwenden. Die Infrastruktur enthält als Komponenten einen Netzwerkcontroller, einen Software Load Balancer (SLB) und ein Gateway, die allesamt hoch verfügbar sind.  
-
-Die Skripts unterstützen eine Bereitstellung in Phasen. Sie können beispielsweise zunächst nur den Netzwerkcontroller bereitstellen, um einen Teil der Funktionen bei sehr niedrigen Netzwerkanforderungen zu erhalten. Sie können den Netzwerkcontroller auch mithilfe des Assistenten zum Erstellen von Clustern in Windows Admin Center bereitstellen. Zum Bereitstellen von anderen SDN-Komponenten, z. B. SLB und Gateway, müssen Sie dann aber die SDN Express-Skripts verwenden.
+Unter diesem Thema wird beschrieben, wie Sie eine End-to-End-SDN-Infrastruktur (Softwaredefiniertes Netzwerk) bereitstellen, indem Sie SDN Express-PowerShell-Skripts verwenden. Die Infrastruktur enthält als Komponenten einen Netzwerkcontroller (NC), einen Software Load Balancer (SLB) und ein Gateway, die allesamt hoch verfügbar sind.  Die Skripts unterstützen eine Bereitstellung in Phasen. Sie können beispielsweise zunächst nur den Netzwerkcontroller bereitstellen, um einen Teil der Funktionen bei sehr niedrigen Netzwerkanforderungen zu erhalten. 
 
 Darüber hinaus können Sie mit System Center Virtual Machine Manager (VMM) auch eine SDN-Infrastruktur bereitstellen. Weitere Informationen finden Sie unter [Verwalten von SDN-Ressourcen im VMM-Fabric](/system-center/vmm/network-sdn).
 
@@ -37,7 +35,37 @@ Sie müssen nicht alle SDN-Komponenten bereitstellen. Anhand der Informationen i
 
 Stellen Sie sicher, dass auf allen Hostservern das Azure Stack HCI-Betriebssystem installiert ist. Informationen hierzu finden Sie unter [Bereitstellen des Azure Stack HCI-Betriebssystems](../deploy/operating-system.md).
 
-## <a name="run-the-sdn-express-scripts"></a>Ausführen der SDN Express-Skripts
+## <a name="requirements"></a>Anforderungen
+
+Damit die SDN-Bereitstellung erfolgreich ist, müssen die folgenden Anforderungen erfüllt sein:
+
+- Für alle Hostserver muss Hyper-V aktiviert sein.
+- Alle Hostserver müssen in Active Directory eingebunden sein.
+- Ein virtueller Switch muss erstellt werden.
+- Das physische Netzwerk muss für die Subnetze und VLANs konfiguriert werden, die in der Konfigurationsdatei definiert sind.
+- Die in der Konfigurationsdatei angegebene VHDX-Datei muss von dem Bereitstellungscomputer aus erreichbar sein, auf dem das SDN Express-Skript ausgeführt wird
+
+## <a name="create-the-vdx-file"></a>Erstellen der VDX-Datei
+
+Für SDN wird eine VHDX-Datei mit dem Azure Stack HCI-Betriebssystem als Quelle für die Erstellung der virtuellen SDN-Computer (VMs) genutzt. Die Version des Betriebssystems auf Ihrer VHDX muss mit der Version übereinstimmen, die von den Hyper-V-Hosts verwendet wird.
+
+Wenn Sie das Azure Stack HCI-Betriebssystem über ein ISO-Image heruntergeladen und installiert haben, können Sie diese VHDX mit dem Hilfsprogramm `Convert-WindowsImage` erstellen. Eine Beschreibung finden Sie im [Script Center](https://gallery.technet.microsoft.com/scriptcenter/Convert-WindowsImageps1-0fe23a8f).
+
+Hier ist ein Beispiel für die Verwendung von `Convert-WindowsImage` angegeben:
+
+ ```powershell
+$wimpath = "d:\sources\install.wim"
+$vhdpath = "c:\temp\WindowsServerDatacenter.vhdx"
+$Edition = 4   # 4 = Full Desktop, 3 = Server Core
+
+import-module ".\convert-windowsimage.ps1"
+
+Convert-WindowsImage -SourcePath $wimpath -Edition $Edition -VHDPath $vhdpath -SizeBytes 500GB -DiskLayout UEFI
+```
+
+## <a name="download-the-github-repository"></a>Herunterladen des GitHub-Repositorys
+
+Die SDN Express-Skriptdateien befinden sich auf GitHub. Im ersten Schritt werden die benötigten Dateien und Ordner auf Ihren Bereitstellungscomputer heruntergeladen.
 
 1. Navigieren Sie zum GitHub-Repository für [SDN Express](https://github.com/microsoft/SDN).
 
@@ -48,15 +76,27 @@ Stellen Sie sicher, dass auf allen Hostservern das Azure Stack HCI-Betriebssyste
 
 1. Extrahieren Sie die ZIP-Datei, und kopieren Sie den Ordner `SDNExpress` in den Ordner `C:\` Ihres Bereitstellungscomputers.
 
+## <a name="edit-the-configuration-file"></a>Bearbeiten der Konfigurationsdatei
+
+Die PowerShell-Datei `MultiNodeSampleConfig.psd1` mit den Konfigurationsdaten enthält alle Parameter und Einstellungen, die für das SDN Express-Skript als Eingabe für die verschiedenen Parameter und Konfigurationseinstellungen benötigt werden. Diese Datei enthält spezifische Informationen dazu, was Sie angeben müssen. Dies hängt davon ab, ob Sie nur die Netzwerkcontroller-Komponente oder auch die Software Load Balancer- und die Gateway-Komponente bereitstellen.
+
+Ausführliche Informationen finden Sie im Thema [Planen einer softwaredefinierten Netzwerkinfrastruktur](../concepts/plan-software-defined-networking-infrastructure.md).
+
+Fangen wir an:
+
 1. Navigieren Sie zum Ordner `C:\SDNExpress\scripts`.
 
-1. Führen Sie die Skriptdatei `SDNExpress.ps1` aus. Bei diesem Skript wird eine PowerShell-Bereitstellungsdatei (PSD) als Eingabe für die verschiedenen Konfigurationseinstellungen genutzt. Die Datei `README.md` enthält eine Anleitung zum Ausführen des Skripts.  
+1. Öffnen Sie die Datei `MultiNodeSampleConfig.psd1` in einem Text-Editor Ihrer Wahl.
 
-1. Verwenden Sie eine VHDX mit dem Azure Stack HCI-Betriebssystem als Quelle für die Erstellung der SDN-VMs. Wenn Sie das Azure Stack HCI-Betriebssystem über ein ISO-Image heruntergeladen und installiert haben, können Sie diese VHDX mit dem Hilfsprogramm `convert-windowsimage` erstellen. Eine Beschreibung finden Sie in der Dokumentation.
+1. Ändern Sie die spezifischen Parameterwerte, um sie an Ihre Infrastruktur anzupassen.
 
-1. Passen Sie die Datei `SDNExpress\scripts\MultiNodeSampleConfig.psd1` an, indem Sie die spezifischen Werte für Ihre Infrastruktur entsprechend ändern, z. B. Hostnamen, Domänennamen, Benutzernamen/Kennwörter und Netzwerkinformationen für die aufgeführten Netzwerke. Dies ist unter dem Thema [Planen einer softwaredefinierten Netzwerkinfrastruktur](../concepts/plan-software-defined-networking-infrastructure.md) beschrieben. Diese Datei enthält spezifische Informationen dazu, was Sie angeben müssen. Dies hängt davon ab, ob Sie nur die Netzwerkcontroller-Komponente oder auch die Software Load Balancer- und die Gateway-Komponente bereitstellen.
+## <a name="run-the-deployment-script"></a>Ausführen des Bereitstellungsskripts
 
-1. Führen Sie das folgende Skript auf den Hyper-V-Hosts über ein Benutzerkonto mit Administratoranmeldeinformationen aus:
+Mit dem SDN Express-Skript wird Ihre SDN-Infrastruktur bereitgestellt. Nach Abschluss der Skriptausführung können Sie Ihre Infrastruktur für Workloadbereitstellungen nutzen.
+
+1. Die Datei `README.md` enthält die neuesten Informationen zur Ausführung des Bereitstellungsskripts.  
+
+1. Führen Sie den folgenden Befehl über ein Benutzerkonto mit Administratoranmeldeinformationen für die Clusterhostserver aus:
 
     ```powershell
     SDNExpress\scripts\SDNExpress.ps1 -ConfigurationDataFile MultiNodeSampleConfig.psd1 -Verbose

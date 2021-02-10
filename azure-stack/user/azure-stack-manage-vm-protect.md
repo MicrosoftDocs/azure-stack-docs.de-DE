@@ -3,22 +3,22 @@ title: Schutz von in Azure Stack Hub bereitgestellten VMsProtect VMs deployed on
 description: Erfahren Sie, wie Sie einen Wiederherstellungsplan erstellen, um in Azure Stack Hub bereitgestellte VMs vor Datenverlust und ungeplanten Ausfallzeiten zu schützen.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 8fe38a530477f080efafcf728e553a8194b74ec6
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: a783c4b0c30b5326220faf8655eb4f8c7a39bb29
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874063"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247641"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Schutz von in Azure Stack Hub bereitgestellten VMsProtect VMs deployed on Azure Stack Hub
 
 Dieser Artikel unterstützt Sie bei der Entwicklung einer Datenschutz- und Notfallwiederherstellungsstrategie für virtuelle IaaS-Computer (virtual machines, VMs), die benutzerseitig in Azure Stack Hub bereitgestellt werden.
 
-Zum Schutz vor Datenverlusten und längeren Ausfallzeiten empfiehlt es sich, einen Sicherungs- oder Notfallwiederherstellungsplan für Benutzeranwendungen und deren Daten zu implementieren. Dazu müssen die einzelnen Anwendungen im Rahmen einer umfassenden BCDR-Strategie (Business Continuity & Disaster Recovery) Ihrer Organisation evaluiert werden. Ein guter Ausgangspunkt ist [Azure Stack Hub: Considerations for business continuity and disaster recovery](https://aka.ms/azurestackbcdrconsiderationswp) (Azure Stack: Überlegungen zu Business Continuity & Disaster Recovery).
+Zum Schutz vor Datenverlusten und längeren Ausfallzeiten empfiehlt es sich, einen Sicherungs- oder Notfallwiederherstellungsplan für Benutzeranwendungen und deren Daten zu implementieren. Hierfür müssen die einzelnen Anwendungen im Rahmen einer umfassenden BCDR-Strategie (Business Continuity & Disaster Recovery) Ihrer Organisation evaluiert werden. Ein guter Ausgangspunkt ist [Azure Stack Hub: Considerations for business continuity and disaster recovery](https://aka.ms/azurestackbcdrconsiderationswp) (Azure Stack: Überlegungen zu Business Continuity & Disaster Recovery).
 
 ## <a name="considerations-for-protecting-iaas-vms"></a>Überlegungen zum Schutz virtueller IaaS-Computer
 

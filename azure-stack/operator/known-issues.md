@@ -3,16 +3,16 @@ title: Azure Stack Hub – Bekannte Probleme
 description: Enthält Informationen zu bekannten Problemen in Releases von Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 01/28/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 161869d04e036e5265ebceb5cab9e193091baa37
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: af4187ecf610543c693aff742b1e74b8d5bef84c
+ms.sourcegitcommit: 659114a3fb90c962316eb4cddab53d2d2da35b03
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935145"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99065521"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub – Bekannte Probleme
 
@@ -85,6 +85,18 @@ Informationen zu bekannten Problemen beim Aktualisieren von Azure Stack Hub find
 
 - Geltungsbereich: Dieses Problem gilt für alle unterstützten Versionen. 
 - Ursache: Beim Aktivieren der **Sitzungsaffinität** in einem Lastenausgleich verwendet der 2-Tupel-Hash die PA-IP-Adresse (physische IP-Adresse) anstelle der privaten IP-Adressen, die den VMs zugewiesen sind. In Szenarien, in denen Datenverkehr, der an den Lastenausgleich weitergeleitet wird, über ein VPN eingeht oder alle virtuellen Clientcomputer (Quell-IPs) sich im gleichen Knoten befinden und die Sitzungsaffinität aktiviert ist, wird der gesamte Datenverkehr an eine Back-End-VM geleitet.
+- Häufigkeit: Allgemein
+
+#### <a name="ipv6-button-visible-in-frontend-ip-configuration"></a>IPv6-Schaltfläche sichtbar in Front-End-IP-Konfiguration
+
+- Geltungsbereich: Dieses Problem gilt für Release 2008.
+- Ursache: Die IPv6-Schaltfläche ist sichtbar und aktiviert, wenn die Front-End-IP-Konfiguration eines öffentlichen Lastenausgleichsmoduls erstellt wird. Hierbei handelt es sich lediglich um ein kosmetisches Problem im Portal. IPv6 wird unter Azure Stack Hub nicht unterstützt.
+- Häufigkeit: Allgemein
+
+#### <a name="backend-port-and-frontend-port-need-to-be-the-same-when-floating-ip-is-enabled"></a>Der Back-End- und der Front-End-Port müssen identisch sein, wenn Floating IP aktiviert ist.
+
+- Geltungsbereich: Dieses Problem betrifft alle Releases. 
+- Ursache: Wenn Floating IP aktiviert ist, müssen der Front-End- und der Back-End-Port in der Lastenausgleichsregel identisch sein. Dies ist beabsichtigt.
 - Häufigkeit: Allgemein
 
 <!-- ## Compute -->

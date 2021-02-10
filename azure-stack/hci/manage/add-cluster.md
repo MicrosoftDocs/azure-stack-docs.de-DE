@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 01/06/2021
-ms.openlocfilehash: 77f1800323f57721d3f6f70050841e4adf0fd4c5
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 01/29/2021
+ms.openlocfilehash: 0d8aa3cc6418c8e64b7a8dc97290757c8be41856
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254737"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227425"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>Hinzufügen oder Entfernen von Servern für einen Azure Stack HCI-Cluster
 
@@ -21,7 +21,7 @@ Sie können in Azure Stack HCI problemlos Server zu einem Cluster hinzufügen od
 
 Wenn Sie einen Server hinzufügen oder entfernen, müssen Sie anschließend auch eine Clusterüberprüfung durchführen, um sicherzustellen, dass der Cluster ordnungsgemäß funktioniert. Dies gilt sowohl für Nicht-Stretched Cluster als auch für Stretched Cluster.
 
-## <a name="obtain-oem-hardware"></a>Beziehen von OEM-Hardware
+## <a name="before-you-begin"></a>Vorbereitung
 
 Der erste Schritt besteht darin, neue HCI-Hardware vom ursprünglichen OEM zu erwerben. Wenn Sie neue Serverhardware für die Verwendung in Ihrem Cluster hinzufügen, lesen Sie stets die vom OEM bereitgestellte Dokumentation.
 
@@ -29,11 +29,13 @@ Der erste Schritt besteht darin, neue HCI-Hardware vom ursprünglichen OEM zu er
 1. Aktivieren Sie gegebenenfalls physische Switchports, und passen Sie bei Bedarf Zugriffssteuerungslisten (ACLs) und VLAN-IDs an.
 1. Konfigurieren Sie die richtige IP-Adresse im Baseboard-Verwaltungscontroller, und wenden Sie alle BIOS-Einstellungen entsprechend den Anweisungen des OEM an.
 1. Übernehmen Sie die aktuelle Firmwarebaseline für alle Komponenten, indem Sie die Tools des OEM verwenden.
-1. Führen Sie OEM-Validierungstests aus, um die Homogenität mit den vorhandenen Clusterservern sicherzustellen.
+1. Führen Sie OEM-Validierungstests aus, um die Hardwarehomogenität mit den vorhandenen gruppierten Servern sicherzustellen.
+1. Installieren Sie das Azure Stack HCI-Betriebssystem auf dem neuen Server. Ausführliche Informationen finden Sie unter [Bereitstellen von Azure Stack HCI](../deploy/operating-system.md).
+1. Führen Sie für den Server den Beitritt zur Clusterdomäne durch.
 
 ## <a name="add-a-server-to-a-cluster"></a>Hinzufügen eines Servers zu einem Cluster
 
-Nachdem der Server ordnungsgemäß hochgefahren wurde, können Sie den Server mit dem Windows Admin Center dem Cluster hinzufügen.
+Verwenden Sie Windows Admin Center, um den Server in Ihren Cluster einzubinden.
 
 :::image type="content" source="media/manage-cluster/add-server.png" alt-text="Bildschirm „Server hinzufügen“" lightbox="media/manage-cluster/add-server.png":::
 
