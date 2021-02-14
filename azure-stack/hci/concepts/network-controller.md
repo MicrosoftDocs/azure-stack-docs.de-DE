@@ -58,7 +58,7 @@ Weitere Informationen finden Sie unter [Konfigurieren der dynamischen DNS-Regist
 ## <a name="next-steps"></a>Nächste Schritte
 Sie können den Netzwerkcontroller jetzt auf den VMs bereitstellen.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 - [Erstellen eines Azure Stack HCI-Clusters](../deploy/create-cluster.md)
 - [Bereitstellen einer SDN-Infrastruktur mit SDN Express](../manage/sdn-express.md)
 - [Netzwerkcontroller – Übersicht](network-controller-overview.md)
