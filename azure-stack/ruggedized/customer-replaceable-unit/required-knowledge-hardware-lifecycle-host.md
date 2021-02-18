@@ -3,16 +3,16 @@ title: Erforderliche Kenntnisse zur Verwendung des Hardwarelebenszyklushosts
 description: In diesem Artikel erhalten Sie Informationen zu den erforderlichen Kenntnissen zur Verwendung des Hardwarelebenszyklushosts.
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d6b13e26a1df94958f2b91d7a587e6d7f7a9f4bf
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 3d3e650e9b6b1b6c37e2f265aa5c049246600c2f
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867586"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487781"
 ---
 # <a name="required-knowledge-for-working-with-the-hardware-lifecycle-host"></a>Erforderliche Kenntnisse zur Verwendung des Hardwarelebenszyklushosts
 
@@ -47,17 +47,4 @@ Ein Windows-Konto mit vollständigen Administratorrechten
 
 Wenn Sie nicht mit einem Notfallwagen eine direkte Verbindung zum Server herstellen, benötigen Sie Anmeldeinformationen für das iDRAC-Konto, um virtuellen KVM-Zugriff zu erhalten.
 
-## <a name="dell-emc-poweredge-r640-installation-and-service-manual"></a>Installations- und Servicehandbuch für Dell EMC PowerEdge R640
-
-Weitere Informationen zu einer physischen Ersetzung der relevanten Hardware finden Sie in den FRU-Austauschprozeduren für PowerEdge R640 im [Dell](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4)
-[EMC PowerEdge R640 Installations- und Service-Handbuch](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4).
-Navigieren Sie zum Abschnitt [Installieren und Entfernen von Systemkomponenten](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/installing-and-removing-system-components?guid=guid-5a5943c4-fe26-4faa-a10c-2afa4c1993ff&lang=en-us).
-
-## <a name="microsoft-azure-stack-hub-tactical-cloud-appliance-service-manual"></a>Serviceleitfaden zu Tactical Cloud Appliances in Microsoft Azure Stack Hub
-
-Das Servicehandbuch zu Tactical Cloud Appliances in Microsoft Azure Stack Hub enthält Anleitungen für das Entfernen des Hardwarelebenszyklushosts aus Tracewell Tactical Pods.
-
-## <a name="dell-emc-poweredge-idrac"></a>iDRAC-Webschnittstelle für Dell EMC PowerEdge
-
-Sie müssen über Navigation und Verwendung der iDRAC-Webschnittstelle für Dell EMC PowerEdge informiert sein.
 

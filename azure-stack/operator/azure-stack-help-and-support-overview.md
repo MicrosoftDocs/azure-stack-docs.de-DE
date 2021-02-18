@@ -7,12 +7,12 @@ ms.date: 01/19/2021
 ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 01/19/2021
-ms.openlocfilehash: 88414f6e4198c7db04307eb4d508ee5acd9dfbe9
-ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
+ms.openlocfilehash: fbe9221e61de46c2af28bf50268d0e23b20d2844
+ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98584330"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100013250"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack Hub: Hilfe und Support
 
@@ -83,7 +83,7 @@ Diese Tutorialreihe wird in Abhängigkeit davon angepasst, ob Sie das ASDK oder 
 Sie können Diagnoseprotokolle auf zwei Arten an Microsoft senden:
 
 - [Proaktives Senden von Protokollen:](./diagnostic-log-collection.md#send-logs-proactively) Wenn diese Option aktiviert ist, wird die Protokollsammlung durch bestimmte Integritätswarnungen ausgelöst.
-- [Sofortiges Senden von Protokollen:](./diagnostic-log-collection.md#send-logs-now) Sie können manuell ein bestimmtes gleitendes Fenster als Zeitrahmen für die Protokollsammlung auswählen.
+- [Sofortiges Senden von Protokollen:](./diagnostic-log-collection.md#send-logs-now-with-the-administrator-portal) Sie können manuell ein bestimmtes gleitendes Fenster als Zeitrahmen für die Protokollsammlung auswählen.
 
 ![Der Screenshot zeigt, wie Sie mit dem Erfassen von Diagnoseprotokollen beginnen können.](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 

@@ -5,16 +5,16 @@ author: AnirbanPaul
 ms.author: anpaul
 ms.topic: how-to
 ms.date: 02/02/2021
-ms.openlocfilehash: e45ca61a09bd989645998a2e8993f29176d1b9cf
-ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
+ms.openlocfilehash: 5cf88e5befd551eb7789388807c9c1e4df671dc9
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99501068"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562945"
 ---
 # <a name="manage-tenant-logical-networks"></a>Verwalten logischer Mandantennetzwerke
 
->Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019; Windows Server 2016
+>Gilt für: Azure Stack HCI (Version 20H2), Windows Server 2019, Windows Server 2016
 
 Dieses Thema enthält eine Schritt-für-Schritt-Anleitung zur Verwendung von Windows Admin Center zum Erstellen, Aktualisieren und Löschen von logischen Netzwerken, nachdem Sie einen Netzwerkcontroller bereitgestellt haben. Bei einem logischen SDN-Netzwerk (softwaredefiniertes Netzwerk) handelt es sich um ein herkömmliches VLAN-basiertes Netzwerk.
 

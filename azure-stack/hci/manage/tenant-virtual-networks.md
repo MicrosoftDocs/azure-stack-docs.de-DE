@@ -5,16 +5,16 @@ author: AnirbanPaul
 ms.author: anpaul
 ms.topic: how-to
 ms.date: 02/01/2021
-ms.openlocfilehash: 6af08615a25ed93f62f526d92ead7511699c8439
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: fb90a8f9df28ed8fd67330c42ae1e3d2f3aa445c
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248685"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562927"
 ---
 # <a name="manage-tenant-virtual-networks"></a>Verwalten von virtuellen Mandantennetzwerken
 
->Gilt für: Azure Stack HCI, Version 20H2; Windows Server 2019; Windows Server 2016
+>Gilt für: Azure Stack HCI (Version 20H2), Windows Server 2019, Windows Server 2016
 
 Dieses Thema enthält eine Schritt-für-Schritt-Anleitung zur Verwendung von Windows Admin Center zum Erstellen, Aktualisieren und Löschen von virtuellen HNV-Netzwerken (Hyper-V-Netzwerkvirtualisierung), nachdem Sie ein softwaredefiniertes Netzwerk (SDN) bereitgestellt haben.
 

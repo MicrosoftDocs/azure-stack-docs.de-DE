@@ -3,16 +3,16 @@ title: Hinzufügen eines benutzerdefinierten VM-Images zu Azure Stack Hub
 description: Es wird beschrieben, wie Sie Azure Stack Hub ein benutzerdefiniertes VM-Image hinzufügen oder es entfernen.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 496d706b6ed930087207b24047d3409f29a53e53
-ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
+ms.openlocfilehash: 6b80ea5a25ab83eb5b62842fe1c21e7e698ab51a
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92060122"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850937"
 ---
 # <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>Hinzufügen eines benutzerdefinierten VM-Images zu Azure Stack Hub und dessen Entfernen
 
@@ -48,13 +48,13 @@ Fügen Sie das VM-Image als Azure Stack Hub-Bediener über das Portal hinzu.
 
    [![Hinzufügen eines VM-Images](./media/azure-stack-add-vm-image/tca4-small.png)](./media/azure-stack-add-vm-image/tca4.png#lightbox)
 
-4. Geben Sie unter **Image erstellen** den **Herausgeber**, das **Angebot**, die **SKU**, die **Version** und den URI des Betriebssystem-Datenträgerblobs ein. Klicken Sie anschließend auf **Erstellen**, um mit der Erstellung des VM-Images zu beginnen.
+2. Geben Sie unter **Image erstellen** den **Herausgeber**, das **Angebot**, die **SKU**, die **Version** und den URI des Betriebssystem-Datenträgerblobs ein. Klicken Sie anschließend auf **Erstellen**, um mit der Erstellung des VM-Images zu beginnen.
 
    [![Benutzeroberfläche für das Querladen des benutzerdefinierten Images](./media/azure-stack-add-vm-image/tca5-small.png)](./media/azure-stack-add-vm-image/tca5.png#lightbox)
 
    Nach Erstellung des Images ändert sich der VM-Imagestatus in **Erfolgreich**.
 
-5. Wenn Sie ein Image hinzufügen, ist es nur für Azure Resource Manger-basierte Vorlagen und PowerShell-Bereitstellungen verfügbar. Wenn Sie ein Image für Ihre Benutzer als Marketplace-Element bereitstellen möchten, können Sie es mit den Schritten im Artikel [Erstellen und Veröffentlichen eines Marketplace-Elements](azure-stack-create-and-publish-marketplace-item.md) veröffentlichen. Notieren Sie sich unbedingt die Werte für **Herausgeber**, **Angebot**, **SKU** und **Version**. Sie benötigen diese, wenn Sie die Resource Manager-Vorlage und „Manifest.json“ in Ihrer benutzerdefinierten AZPKG-Datei bearbeiten.
+3. Wenn Sie ein Image hinzufügen, ist es nur für Azure Resource Manger-basierte Vorlagen und PowerShell-Bereitstellungen verfügbar. Wenn Sie ein Image für Ihre Benutzer als Marketplace-Element bereitstellen möchten, können Sie es mit den Schritten im Artikel [Erstellen und Veröffentlichen eines Marketplace-Elements](azure-stack-create-and-publish-marketplace-item.md) veröffentlichen. Notieren Sie sich unbedingt die Werte für **Herausgeber**, **Angebot**, **SKU** und **Version**. Sie benötigen diese, wenn Sie die Resource Manager-Vorlage und „Manifest.json“ in Ihrer benutzerdefinierten AZPKG-Datei bearbeiten.
 
 ### <a name="powershell"></a>[PowerShell](#tab/image-add-ps)
 

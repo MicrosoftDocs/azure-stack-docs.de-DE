@@ -16,12 +16,12 @@ ms.date: 10/02/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d7ba1e7e3b6686002d24df2e286af81ddda5ce7
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 3574c55568db86c96d22d43fdf1bb08ac79c061e
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248644"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009195"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack-Update 1808
 
@@ -244,7 +244,7 @@ Im Folgenden werden bekannte Probleme nach der Installation zu dieser Buildversi
       2. Navigieren Sie unter dem gleichen Abonnement zu **Zugriffssteuerung (IAM)** , und überprüfen Sie, ob **Azure Stack: Verwalteter Datenträger** aufgeführt ist.
    2. Wenn Sie eine Umgebung mit mehreren Mandanten konfiguriert haben, kann die Bereitstellung von virtuellen Computern in einem Abonnement, dem ein Gastverzeichnis zugeordnet ist, mit einer internen Fehlermeldung fehlschlagen. Gehen Sie folgendermaßen vor, um den Fehler zu beheben:
       1. Wenden Sie den [Azure Stack-Hotfix 1808](https://support.microsoft.com/help/4465859) an.
-      2. Führen Sie die in [diesem Artikel](../azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory) beschriebenen Schritte aus, um alle Gastverzeichnisse neu zu konfigurieren.
+      2. Führen Sie die in [diesem Artikel](../azure-stack-enable-multitenancy.md#register-a-guest-directory) beschriebenen Schritte aus, um alle Gastverzeichnisse neu zu konfigurieren.
 
 <!-- 2869209 IS, ASDK --> 
 -  Bei Verwendung des [**Add-AzsPlatformImage**-Cmdlets](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0&preserve-view=true) müssen Sie den **-OsUri**-Parameter als Speicherkonto-URI beim Hochladen des Datenträgers verwenden. Wenn Sie den lokalen Pfad des Datenträgers verwenden, schlägt das Cmdlet mit der folgenden Fehlermeldung fehl: *Fehler beim Vorgang mit langer Ausführungszeit mit dem Status „Fehler“* . 

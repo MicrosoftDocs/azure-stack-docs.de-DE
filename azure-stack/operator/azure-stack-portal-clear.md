@@ -3,16 +3,16 @@ title: Bedarfsgesteuertes Löschen von Portalbenutzerdaten aus Azure Stack Hub
 description: Hier erfahren Sie, wie Sie Portalbenutzerdaten löschen, wenn dies von Azure Stack Hub-Benutzern angefordert wird.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 3821eced3f37902b20f13ee4d918b2ff2ea8aca9
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: f85f5a06699b11d5316a889c045a33376304a0f0
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545090"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975893"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>Löschen von Portalbenutzerdaten aus Azure Stack Hub
 
@@ -25,7 +25,7 @@ Portalbenutzereinstellungen sollten erst nach dem Löschen des Benutzerabonnemen
 > [!NOTE]
 > Nach dem Befolgen der Anweisungen in diesem Artikel können im Systemabschnitt der Ereignisprotokolle noch einige Benutzerdaten vorhanden sein. Diese Daten werden möglicherweise für einige Tage beibehalten, bis für die Protokolle automatisch ein Rollover ausgeführt wird.
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="prerequisites"></a>Voraussetzungen
 
 - [Installieren von PowerShell für Azure Stack Hub](powershell-install-az-module.md)
 - [Laden Sie die aktuellen Azure Stack Hub-Tools aus GitHub herunter](azure-stack-powershell-download.md).

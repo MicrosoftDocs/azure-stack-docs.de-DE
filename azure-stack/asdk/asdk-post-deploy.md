@@ -7,12 +7,12 @@ ms.date: 12/03/2020
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 12/03/2020
-ms.openlocfilehash: f2e039e2b0934e17a4335753e787c6cdf3808644
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 11e79a4d998f012a58c7f3b0ab8ecb928c861851
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873315"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975859"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>Konfigurationen nach der Bereitstellung für das ASDK
 
@@ -197,7 +197,7 @@ Wenn ein Fehler aufgetreten ist, führen Sie die Schritte zur Problembehandlung 
 
 ## <a name="enable-multi-tenancy"></a>Aktivieren der Mehrinstanzenfähigkeit
 
-Für Bereitstellungen mithilfe von Azure AD müssen Sie [Mehrinstanzenfähigkeit](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy) für die ASDK-Installation aktivieren.
+Für Bereitstellungen mithilfe von Azure AD müssen Sie [Mehrinstanzenfähigkeit](../operator/azure-stack-enable-multitenancy.md) für die ASDK-Installation aktivieren.
 
 > [!NOTE]
 > Wenn Administrator- oder Benutzerkonten aus anderen Domänen als die bei der Registrierung von Azure Stack verwendeten für die Anmeldung bei einem Azure Stack-Portal verwendet werden, muss der Domänenname, mit dem Azure Stack registriert wird, an die Portal-URL angefügt werden. Wenn also beispielsweise Azure Stack mit fabrikam.onmicrosoft.com registriert wurde und für die Anmeldung das Benutzerkonto admin@contoso.com verwendet wird, lautet die URL für die Anmeldung beim Benutzerportal wie folgt: https\://portal.local.azurestack.external/fabrikam.onmicrosoft.com.

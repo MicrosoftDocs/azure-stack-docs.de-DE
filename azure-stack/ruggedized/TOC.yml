@@ -267,7 +267,7 @@
             - name: Austauschen von Hardware
               items:
                 - name: Knotenaktionen
-                  href: ../operator/azure-stack-node-actions.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: operator/azure-stack-node-actions-tzl.md
         - name: Sicherheit und Compliance
           items:
             - name: Konfigurieren der Sicherheit
