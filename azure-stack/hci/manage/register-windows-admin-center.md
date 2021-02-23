@@ -4,21 +4,24 @@ description: So registrieren Sie Ihr Windows Admin Center-Gateway bei Azure.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: d98cb4f0531903d27d97d9fb055c7ae2db35a65e
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/10/2021
+ms.openlocfilehash: 0b80a1e607823385d06a5255244373ca3be1af98
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050058"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487883"
 ---
 # <a name="register-windows-admin-center-with-azure"></a>Registrieren von Windows Admin Center bei Azure
 
 > Gilt für Azure Stack HCI v20H2; Windows Server 2019
 
-Für die Verwendung von Azure-Diensten mit Windows Admin Center müssen Sie Windows Admin Center zunächst auf einem Verwaltungscomputer installieren und eine einmalige Registrierung Ihres Windows Admin Center-Gateways durchführen. Dies ist eine Voraussetzung für die Registrierung Ihres Clusters bei Azure und sollte auf demselben Verwaltungscomputer erfolgen, auf dem Sie auch die [Clusterregistrierung](../deploy/register-with-azure.md) durchführen möchten. Verwenden Sie hierbei die gleiche Azure-Abonnement-ID und -Mandanten-ID.
+Für die Verwendung von Azure-Diensten mit Windows Admin Center müssen Sie [Windows Admin Center zunächst auf einem Verwaltungscomputer installieren](/windows-server/manage/windows-admin-center/deploy/install) und eine einmalige Registrierung Ihres Windows Admin Center-Gateways durchführen. Das ist eine Voraussetzung für die [Registrierung Ihres Clusters](../deploy/register-with-azure.md) bei Azure.
 
-## <a name="complete-the-gateway-registration-process-using-windows-admin-center"></a>Ausführen der Gatewayregistrierung mit Windows Admin Center
+   > [!IMPORTANT]
+   > Registrieren Sie Windows Admin Center auf demselben Verwaltungs-PC, den Sie auch für die Registrierung Ihres Clusters verwenden möchten, und verwenden Sie dieselbe Mandanten-ID von Azure Active Directory.
+
+## <a name="complete-the-registration-process"></a>Abschluss des Registrierungsvorgangs
 
 1. Starten Sie Windows Admin Center, und klicken Sie auf das Zahnradsymbol **Einstellungen** in der oberen rechten Ecke, über das Sie zur Seite „Konten“ gelangen. Wählen Sie dann im **Gateway**-Menü links **Azure** aus, und klicken Sie auf **Registrieren**.
 

@@ -3,16 +3,16 @@ title: Versionshinweise für die AKS-Engine (Azure Kubernetes Service) in Azure 
 description: Es werden die Schritte beschrieben, die Sie beim Anwenden des Updates auf die AKS-Engine in Azure Stack Hub ausführen müssen.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 2/11/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/28/2020
-ms.openlocfilehash: 9bc1e73213743f1457a16bcce3a9ff4e69d370ef
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 2/11/2021
+ms.openlocfilehash: fd8453c55be6222badd577666293653a45f67273
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247675"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488036"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Versionshinweise für die AKS-Engine in Azure Stack Hub
 ::: moniker range=">=azs-2002"
@@ -76,6 +76,7 @@ Neue Versionen hierfür sind unter diesem Update verfügbar:
 
 -   Der Administrator des Kubernetes-Clusters muss die neue Version 0.51.0 der AKS-Engine herunterladen. Anweisungen finden Sie im Artikel [Installieren der AKS-Engine unter Linux in Azure Stack Hub](./azure-stack-kubernetes-aks-engine-deploy-linux.md). Sie können den gleichen Prozess wie bei der ersten Installation des Clusters verwenden. Beim Update wird die vorherige Binärdatei überschrieben. Wenn Sie das Skript „get-akse.sh“ verwendet haben, führen Sie beispielsweise die Schritte aus, die im Abschnitt [Installieren in einer verbundenen Umgebung](./azure-stack-kubernetes-aks-engine-deploy-linux.md#install-in-a-connected-environment) beschrieben sind. Für die Installation auf einem Windows-System gilt der gleiche Prozess ([Installieren der AKS-Engine unter Windows in Azure Stack Hub](./azure-stack-kubernetes-aks-engine-deploy-windows.md)).
 
+
 ## <a name="aks-engine-and-azure-stack-version-mapping"></a>Versionszuordnung für AKS-Engine und Azure Stack
 
 | Azure Stack Hub-Version | AKS-Engine-Version |
@@ -94,12 +95,22 @@ Sie finden die aktuelle Version und die Upgradeversion jeweils in der folgenden 
 | 1.15.12, 1.16.8, 1.16.9 | 1.16.14 |
 | 1.16.8, 1.16.9, 1.16.14 | 1.17.11 |
 
-Geben Sie in der JSON-Datei des API-Modells die Release- und Versionswerte im Abschnitt `orchestratorProfile` an. Wenn Sie Kubernetes 1.16.14 bereitstellen möchten, müssen beispielsweise die folgenden beiden Werte festgelegt werden (siehe Beispiel [kubernetes-azurestack.json](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json)):
+Geben Sie in der JSON-Datei des API-Modells die Release- und Versionswerte im Abschnitt `orchestratorProfile` an. Wenn Sie Kubernetes 1.16.14 bereitstellen möchten, müssen beispielsweise die folgenden beiden Werte festgelegt werden (siehe Beispiel [kubernetes-azurestack.json](https://aka.ms/aksengine-json-example-raw)):
 
 ```json  
     -   "orchestratorRelease": "1.16",
     -   "orchestratorVersion": "1.16.14"
 ```
+
+## <a name="aks-engine-and-corresponding-image-mapping"></a>AKS-Engine und entsprechende Imagezuordnungen
+
+| AKS Engine | AKS-Basisimage | Kubernetes-Versionen | Hinweise |
+|---|---|---|---|
+| v0.43.1 | AKS Base Ubuntu 16.04-LTS, Imagedistribution, Oktober 2019 (2019.10.24) | 1.15.5, 1.15.4, 1.14.8, 1.14.7 |  |
+| v0.48.0 | AKS Base Ubuntu 16.04-LTS, Imagedistribution, März 2020 (2020.03.19) | 1.15.10, 1.14.7 |  |
+| v0.51.0 | AKS Base Ubuntu 16.04-LTS, Imagedistribution, Mai 2020 (2020.05.13), AKS Base Windows Image (17763.1217.200513) | 1.15.12, 1.16.8, 1.16.9 | API-Modellbeispiele ([Linux](https://github.com/Azure/aks-engine/blob/v0.51.0/examples/azure-stack/kubernetes-azurestack.json), [Windows](https://github.com/Azure/aks-engine/blob/v0.51.0/examples/azure-stack/kubernetes-windows.json)) |
+| v0.55.0 | AKS Base Ubuntu 16.04-LTS, Imagedistribution, August 2020 (2020.08.24), AKS Base Windows Image (17763.1397.200820) | 1.15.12, 1.16.14, 1.17.11 | API-Modellbeispiele ([Linux](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-azurestack.json), [Windows](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-windows.json)) |
+| v0.55.4 | AKS Base Ubuntu 16.04-LTS, Imagedistribution, September 2020 (2020.09.14), AKS Base Windows Image (17763.1397.200820) | 1.15.12, 1.16.14, 1.17.11 | API-Modellbeispiele ([Linux](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-azurestack.json), [Windows](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-windows.json)) |
 
 ## <a name="whats-new"></a>Neues
 
@@ -205,7 +216,7 @@ Sie finden die aktuelle Version und die Upgradeversion jeweils in der folgenden 
 
 ## <a name="whats-new"></a>Neues 
 
--   Unterstützung für Kubernetes-Version 1.15.10 ([\#2834](https://github.com/Azure/aks-engine/issues/2834)). Achten Sie beim Bereitstellen eines neuen Clusters darauf, dass Sie in der JSON-Datei Ihres API-Modells (AKS-Clusterdefinitionsdatei) die Versionsnummer und die Nummer der Nebenversion für das Release angeben. Ein Beispiel finden Sie unter [kubernetes-azurestack.json](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json):
+-   Unterstützung für Kubernetes-Version 1.15.10 ([\#2834](https://github.com/Azure/aks-engine/issues/2834)). Achten Sie beim Bereitstellen eines neuen Clusters darauf, dass Sie in der JSON-Datei Ihres API-Modells (AKS-Clusterdefinitionsdatei) die Versionsnummer und die Nummer der Nebenversion für das Release angeben. Ein Beispiel finden Sie unter [kubernetes-azurestack.json](https://aka.ms/aksengine-json-example-raw):
 
     - `"orchestratorRelease": "1.15`,
 

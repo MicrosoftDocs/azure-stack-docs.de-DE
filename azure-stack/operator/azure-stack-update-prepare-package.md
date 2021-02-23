@@ -3,16 +3,16 @@ title: Vorbereiten eines Updatepakets in Azure Stack Hub
 description: Hier erfahren Sie, wie Sie ein Updatepaket in Azure Stack Hub vorbereiten.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: sranthar
-ms.openlocfilehash: e0ad221764e116bb2b5f73601da3ac6917681ff0
-ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
+ms.openlocfilehash: b3d1f3d76d988be3647a1d26fec0a763a681d4cf
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88564784"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850920"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Vorbereiten eines Azure Stack Hub-Updatepakets
 
@@ -56,7 +56,7 @@ Azure Stack Hub-Updates für [vollständige und Express-Updates](./azure-stack-u
 
 ### <a name="where-to-download-azure-stack-hub-hotfix-packages"></a>Downloadorte von Azure Stack Hub-Hotfixpaketen
 
-Pakete für [Azure Stack Hub-Hotfixes](./azure-stack-updates.md#update-package-types) werden auf demselben sicheren Azure-Endpunkt gehostet wie Azure Stack Hub-Updates. Bei Verfügbarkeit von Azure Stack Hub-Updates werden diese für Azure Stack Hub-Operatoren mit verbundenen Instanzen [automatisch im Administratorportal angezeigt](#automatic-download-and-preparation-for-update-packages). Sie können sie mithilfe der eingebetteten Links in jedem der jeweiligen Hotfix-KB-Artikel herunterladen, z. B. [Azure Stack Hub-Hotfix 1.1906.11.52](https://support.microsoft.com/help/4515650). Außerdem finden Sie Links zu Hotfixes in den Versionshinweisen zu Ihrer Azure Stack Hub-Version.
+Pakete für [Azure Stack Hub-Hotfixes](./azure-stack-updates.md#update-package-types) werden auf demselben sicheren Azure-Endpunkt gehostet wie Azure Stack Hub-Updates. Bei Verfügbarkeit von Azure Stack Hub-Updates werden diese für Azure Stack Hub-Operatoren mit verbundenen Instanzen [automatisch im Administratorportal angezeigt](#automatic-download-and-preparation-for-update-packages). Sie können sie über die eingebetteten Links in jedem der entsprechenden Hotfix-KB-Artikel herunterladen. In den Versionshinweisen zu Ihrer Azure Stack Hub-Version finden Sie ebenfalls Links zu KB-Artikeln für Hotfixes.
 
 ### <a name="where-to-download-oem-update-packages"></a>Downloadorte von OEM-Updatepaketen
 

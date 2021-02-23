@@ -7,16 +7,16 @@ ms.date: 05/05/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: 8cf8f5c42eea1ce1884760c974881712954f1af7
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: f30a8b82a07aafed80fc75329516bd3b3d91df04
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847825"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009042"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>Übersicht über Azure App Service und Azure Functions in Azure Stack Hub
 
-Azure App Service in Azure Stack Hub ist ein PaaS-Angebot (Platform-as-a-Service) von Microsoft Azure, das in Azure Stack Hub verfügbar ist. Mit diesem Dienst können Ihre internen oder externen Kunden Web-, API- und Azure Functions-Apps für beliebige Plattformen oder Geräte erstellen. Sie können Ihre Apps in lokale Apps integrieren und ihre Geschäftsprozesse automatisieren. Azure Stack Hub-Cloudoperatoren können Kunden-Apps auf vollständig verwalteten virtuellen Computern (VMs) mit beliebigen freigegebenen VM-Ressourcen oder dedizierten VMs ausführen.
+Azure App Service in Azure Stack Hub ist ein PaaS-Angebot (Platform-as-a-Service) von Microsoft Azure, das in Azure Stack Hub verfügbar ist. Mit diesem Dienst können Ihre internen oder externen Kunden Web- und Azure Functions-Apps für beliebige Plattformen oder Geräte erstellen. Sie können Ihre Apps in lokale Apps integrieren und ihre Geschäftsprozesse automatisieren. Azure Stack Hub-Cloudoperatoren können Kunden-Apps auf vollständig verwalteten virtuellen Computern (VMs) mit beliebigen freigegebenen VM-Ressourcen oder dedizierten VMs ausführen.
 
 Mit Azure App Service können Sie Geschäftsprozesse automatisieren und Cloud-APIs hosten. Azure App Service ist ein einzelner integrierter Dienst, mit dem Sie verschiedene Komponenten (wie Websites, REST-APIs und Geschäftsprozesse) in einer zentralen Lösung kombinieren können.
 
@@ -32,8 +32,7 @@ Hier sind einige wichtige Features und Funktionen von Azure App Service aufgefü
 
 App Service verfügt über mehrere App-Typen, die jeweils zum Hosten einer bestimmten Workload bestimmt sind:
 
-- [Web-Apps:](/azure/app-service/overview) Hosten von Websites und Web-Apps.
-- [API-Apps](/azure/app-service/overview) zum Hosten von REST-APIs.
+- [Web-Apps:](/azure/app-service/overview) Hosten von Websites, Web-Apps und REST-APIs
 - [Azure Functions v1](/azure/azure-functions) zum Hosten ereignisgesteuerter, serverloser Workloads.
 
 Der Begriff *App* bezieht sich auf die Hostingressourcen, die für die Ausführung einer Workload dediziert sind. Wenn wir *Web-App* als Beispiel nehmen, verstehen Sie darunter wahrscheinlich sowohl die Computeressourcen als auch die App-Codeelemente, die zusammen für einen Browser die Funktionalität bereitstellen. In Azure App Service handelt es sich bei einer Web-App um die Computeressourcen, die von Azure Stack Hub zum Hosten Ihres App-Codes bereitgestellt werden.

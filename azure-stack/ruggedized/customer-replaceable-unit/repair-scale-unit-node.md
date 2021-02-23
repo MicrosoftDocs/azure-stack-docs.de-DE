@@ -3,16 +3,16 @@ title: Einschalten und Reparieren eines Skalierungseinheitknotens
 description: Hier erfahren Sie, wie Sie einen Skalierungseinheitknoten einschalten und reparieren.
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d05c696f62aad4d9305137edab777d69b6442814
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 0a2aa54234b5dccc8f1ce3425906425064463910
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909921"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488121"
 ---
 # <a name="powering-on-and-repairing-a-scale-unit-node"></a>Einschalten und Reparieren eines Skalierungseinheitknotens
 
@@ -37,7 +37,7 @@ Sie müssen den Azure Stack Hub-Reparaturvorgang ausführen, um einen Skalierung
     
     
     > [!NOTE]
-    > Wenn der Reparaturvorgang nicht innerhalb von drei Stunden abgeschlossen wird, öffnen Sie einen Fall beim Dell Technologies-Support, der für die weitere Problembehandlung den Microsoft-Support einbindet.
+    > Wenn der Reparaturvorgang nicht innerhalb von drei Stunden abgeschlossen wird, öffnen Sie einen Fall beim Microsoft-Support für die weitere Problembehandlung.
     
     Wenn der Reparaturvorgang abgeschlossen ist, weist der Knoten wieder den **Status „Wird ausgeführt“** auf.
     

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2020
+ms.date: 02/17/2021
 ms.author: patricka
 ms.reviewer: asganesh
-ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: 5d59532308239f9eda95ba9f81599235a8c8f61c
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.lastreviewed: 02/17/2021
+ms.openlocfilehash: ad0a80f28b26e3c7da71860670feefd7efc15a0f
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255553"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100647792"
 ---
 # <a name="mdc-requirements-overview"></a>Übersicht über die MDC-Anforderungen
 
@@ -66,7 +66,8 @@ Der MDC-Bereitstellungsprozess umfasst die folgenden grundlegenden Phasen:
 1. Planen der Leistung des Rechenzentrums
 1. Planen der Konfiguration des logischen Netzwerks von Azure Stack Hub
 1. Planen der [Netzwerkintegration des Rechenzentrums](../operator/azure-stack-network.md)
-1. Planen der [Integration von Identitäts- und Sicherheitsfunktionen](/azure/security/fundamentals/identity-management-best-practices)
+1. Planen der [Identitätsintegration](../operator/azure-stack-identity-overview.md)
+1. Planen der [Sicherheitsintegration](../operator/azure-stack-security-foundations.md)
 1. Planen der [PKI-Zertifikate](../operator/azure-stack-pki-certs.md)
 
 ### <a name="preparation-phase"></a>Vorbereitungsphase

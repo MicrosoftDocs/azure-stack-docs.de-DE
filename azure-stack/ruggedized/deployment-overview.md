@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 02/17/2021
 ms.author: patricka
 ms.reviewer: asganesh
-ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: e6fccf96e44a481a0e1e0c5bb300ec238937f86b
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.lastreviewed: 02/17/2021
+ms.openlocfilehash: 4d61fc75cd7db67f113369981fe0fa4742178dd5
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256182"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648064"
 ---
 # <a name="azure-stack-hub-ruggedized-deployment-overview"></a>Übersicht über die Bereitstellung von Azure Stack Hub Ruggedized
 
@@ -63,31 +63,36 @@ In der folgenden Tabelle sind einige der in dieser Anleitung verwendeten Begriff
 |Pod    |Ein Pod im Kontext von Azure Stack Hub Ruggedized ist ein robuster physischer Behälter, der von zwei Personen getragen wird. Er enthält Rackkonsolen und Stoßdämpfer, um die Azure Stack Hub Ruggedized-Hardware vor physischer Belastung zu schützen. Für den Transport der Hardware können an der Transportkiste eine vordere und hintere Abdeckung befestigt werden, die plombiert werden kann. Eine Komplettlösung mit Mindestkonfiguration umfasst drei Pods.|
 
 
-## <a name="deployment-overflow"></a>Bereitstellungsverlauf
+## <a name="deployment-workflow"></a>Bereitstellungsworkflow
 
-Der Azure Stack Hub Ruggedized-Bereitstellungsprozess umfasst im Allgemeinen die folgenden Schritte.
+Im Allgemeinen besteht der MDC-Bereitstellungsprozess aus den in den folgenden Abschnitten beschriebenen Phasen.
 
-1. Planungsphase:
-   1. Planen der Stromversorgung und Kühlung des Rechenzentrums
-   1. Planen der Konfiguration des logischen Netzwerks von Azure Stack Hub
-   1. Planen der Netzwerkintegration des Rechenzentrums
-   1. Planen der Integration von Identitäts- und Sicherheitsfunktionen
-   1. Planen der PKI-Zertifikate
-1. Vorbereitungsphase:
-   1. Entpacken und Erfassen des Bestands
-   1. Anschließen der Stromversorgung und Einschalten der Lösung
-   1. Überprüfen der Integrität der physischen Hardware
-1. Ausführungsphase:
-   1. Konfigurieren des Hardwarelebenszyklus-Hosts
-   1. Konfigurieren der Netzwerkswitches
-   1. Integrieren in das Netzwerk des Rechenzentrums
-   1. Konfigurieren der Einstellungen für die physische Hardware
-   1. Bereitstellen der Infrastruktur für das Azure Stack Hub-Fabric
-   1. Integrieren der Rechenzentrumsidentität
-   1. Installieren von Add-Ons für erweiterte Funktionen
-1. Überprüfungsphase:
-   1. Überprüfen der Integrität nach der Bereitstellung
-   1. Registrieren von Azure Stack Hub bei Microsoft
-   1. Übergabe an den Azure Stack Hub-Operator
-   
-Jedes der obigen Themen wird in dieser Anleitung ausführlich erläutert.
+### <a name="planning-phase"></a>Planungsphase
+1. Planen der Leistung des Rechenzentrums
+1. Planen der Konfiguration des logischen Netzwerks von Azure Stack Hub
+1. Planen der [Netzwerkintegration des Rechenzentrums](../operator/azure-stack-network.md)
+1. Planen der [Identitätsintegration](../operator/azure-stack-identity-overview.md)
+1. Planen der [Sicherheitsintegration](../operator/azure-stack-security-foundations.md)
+1. Planen der [PKI-Zertifikate](../operator/azure-stack-pki-certs.md)
+
+### <a name="preparation-phase"></a>Vorbereitungsphase
+1. Erfassen des Bestands
+1. Anschließen der Stromversorgung und Einschalten der Lösung
+1. Überprüfen der Integrität des HVAC-Systems
+1. Überprüfen der Integrität des Systems zur Überwachung und Warnung bei Feuer
+1. Überprüfen der Integrität der physischen Hardware
+
+### <a name="execution-phase--separately-for-each-of-the-three-pods"></a>Ausführungsphase – einzeln für jeden der drei Pods
+1. Konfigurieren des Hardwarelebenszyklus-Hosts
+1. Konfigurieren der Netzwerkswitches
+1. Integrieren in das Netzwerk des Rechenzentrums
+1. Konfigurieren der Einstellungen für die physische Hardware
+1. Konfigurieren des Isilon-Speichers
+1. Bereitstellen der Infrastruktur für das Azure Stack Hub-Fabric
+1. Integrieren der Rechenzentrumsidentität
+1. Installieren von Add-Ons für erweiterte Funktionen
+
+### <a name="validation-phase--separately-for-each-of-the-three-pods"></a>Validierungsphase – einzeln für jeden der drei Pods
+1. Überprüfen der Integrität nach der Bereitstellung
+1. Registrieren von Azure Stack Hub bei Microsoft
+1. Übergabe an den Azure Stack Hub-Kunden

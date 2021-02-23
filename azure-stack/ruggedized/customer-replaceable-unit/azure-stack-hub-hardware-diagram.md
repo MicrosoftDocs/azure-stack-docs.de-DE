@@ -1,22 +1,22 @@
 ---
 title: Azure Stack Hub-Hardwarediagramm
-description: Hier erfahren Sie mehr über die Hardware in der Azure Stack Hub-TCA.
+description: Hier erfahren Sie mehr über die Hardware für Azure Stack Hub Ruggedized.
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: b91e5825200f7a05a403bb90db3825377e042cf9
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 420bbda624df433fffd9f4a5082a3620bf6aca29
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910413"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487951"
 ---
 # <a name="azure-stack-hub-hardware-diagram"></a>Azure Stack Hub-Hardwarediagramm
 
-In den folgenden Abbildungen wird der gesamte Stapel mit dem Hardwarelebenszyklushost, den Switches und den Skalierungseinheitsservern für die Dell EMC Integrated System for Microsoft Azure Stack Hub-Tactical Cloud Appliance erläutert.
+Die folgenden Abbildungen zeigen den gesamten Stapel mit dem Hardwarelebenszyklushost, den Switches und den Skalierungseinheitservern für Microsoft Azure Stack Hub Ruggedized.
 
 Abbildung 1. Front
 

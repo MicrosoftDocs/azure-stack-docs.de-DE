@@ -3,16 +3,16 @@ title: Ersetzen eines DIMM
 description: Hier erfahren Sie, wie Sie ein DIMM ersetzen.
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 3665ac12c42cac7a87ae9c69f4fc450b4f76cf3d
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: f20cdf77cb5ed3b63bcbd9b57770039efb6d29e5
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867824"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487934"
 ---
 # <a name="replacing-a-dimm"></a>Ersetzen eines DIMM
 
@@ -26,19 +26,19 @@ Verwenden Sie das folgende Verfahren zum Ersetzen eines doppelreihigen Speicherm
 
 3.  Überprüfung
 
-    -   Sie müssen über die erforderlichen Kenntnisse für das Arbeiten mit Skalierungseinheitknoten in einer Tactical Cloud Appliance bei Verwendung eines Skalierungseinheitknotens verfügen.
+    -   Sie müssen über die erforderlichen Kenntnisse für das Arbeiten mit Skalierungseinheitknoten in einer Ruggedized-Cloudappliance verfügen, wenn Sie einen Skalierungseinheitknoten verwenden.
 
     -   Sie müssen über die erforderlichen Kenntnisse zum Arbeiten mit dem Hardwarelebenszyklushost bei Verwendung des Hardwarelebenszyklushosts verfügen.
 
 4.  Abgeschlossen
 
-    -   Sie müssen die Überprüfung des Zugriffs und der Integrität des Skalierungseinheitknotens bei Verwendung eines Skalierungseinheitknotens abgeschlossen haben.
+    -   Sie müssen den Schritt „Überprüfen des Zugriffs und der Integrität von Skalierungseinheitknoten“ abgeschlossen haben, wenn Sie einen Skalierungseinheitknoten verwenden.
 
     -   Sie müssen die Überprüfung des Zugriffs und der Integrität für den Hardwarelebenszyklushost bei Verwendung des Hardwarelebenszyklushosts abgeschlossen haben.
 
 5.  Abgeschlossen
 
-    -   Ausschalten der Skalierungseinheitknoten bei Verwendung eines Skalierungseinheitknotens
+    -   Sie müssen den Schritt „Ausschalten von Skalierungseinheitknoten“ abgeschlossen haben, wenn Sie einen Skalierungseinheitknoten verwenden.
 
     -   Sie müssen den Schritt zum Abschalten des Hardwarelebenszyklushosts bei Verwendung des Hardwarelebenszyklushosts abgeschlossen haben.
 
@@ -53,7 +53,7 @@ Verwenden Sie das folgende Verfahren zum Ersetzen eines doppelreihigen Speicherm
     
 3.  Ersetzen Sie das DIMM oder die DIMMs.
 
-    Befolgen Sie die Schritte zum Austauschen des Speichermoduls im [Dell EMC PowerEdge R640 Installations- und Service-Handbuch](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) für Skalierungseinheitknoten oder Hardwarelebenszyklushosts.
+    Befolgen Sie die Anleitung zum [Austauschen des Speichermoduls](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) für Skalierungseinheitknoten oder Hardwarelebenszyklushosts.
     
 4.  Schalten Sie den Knoten ein.
 
@@ -63,7 +63,7 @@ Verwenden Sie das folgende Verfahren zum Ersetzen eines doppelreihigen Speicherm
 
 Gehen Sie bei der Arbeit mit einem Skalierungseinheitknoten wie folgt vor:
 
-1.  Schließen Sie den Schritt „Einschalten eines Skalierungseinheitknotens“ ab.
+1.  Schließen Sie den Schritt zum Einschalten eines Skalierungseinheitknotens ab.
 
-2.  Schließen Sie den Schritt „Überprüfen der Integrität des Skalierungseinheitknotens“ ab. Schließen Sie den Schritt „Überprüfen der Integrität des Hardwarelebenszyklushosts“ ab, wenn Sie mit dem Hardwarelebenszyklushost arbeiten.
+2.  Schließen Sie die Überprüfung der Integrität des Skalierungseinheitknotens ab. Schließen Sie den Schritt „Überprüfen der Integrität des Hardwarelebenszyklushosts“ ab, wenn Sie mit dem Hardwarelebenszyklushost arbeiten.
     

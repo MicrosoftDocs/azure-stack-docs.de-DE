@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/28/2020
-ms.openlocfilehash: 17e8758dfea300f6bc3e02609877dfed8f780383
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/10/2020
+ms.openlocfilehash: 3711a0e11bac59f00ce51027ea9544f6858dd297
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050024"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487322"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Herstellen einer Verbindung von Azure Stack HCI mit Azure
 
@@ -34,11 +34,11 @@ Sie können sich erst dann bei Azure registrieren, wenn Sie einen Azure Stack HC
 Am einfachsten ist die Registrierung möglich, indem ein Azure AD-Administrator diese per Windows Admin Center oder mit PowerShell durchführt.
 
    > [!IMPORTANT]
-   > Falls Sie für die Registrierung des Clusters Windows Admin Center nutzen möchten, müssen Sie zunächst [Ihr Windows Admin Center-Gateway für Azure registrieren](../manage/register-windows-admin-center.md). Verwenden Sie hierfür die gleiche Azure-Abonnement-ID und -Mandanten-ID, die Sie auch für die Clusterregistrierung nutzen möchten.
+   > Falls Sie einen Azure Stack HCI-Cluster über Windows Admin Center registrieren möchten, müssen Sie zunächst [Windows Admin Center-Gateway bei Azure registrieren](../manage/register-windows-admin-center.md). Verwenden Sie hierfür die Mandanten-ID von Azure Active Directory, die Sie für die Clusterregistrierung verwenden möchten.
 
 ### <a name="internet-access"></a>Zugriff auf das Internet
 
-Azure Stack HCI muss regelmäßig eine Verbindung mit der öffentlichen Azure-Cloud herstellen. Wenn die ausgehende Konnektivität durch die externe Unternehmensfirewall oder einen Proxyserver eingeschränkt ist, müssen diese so konfiguriert werden, dass sie ausgehenden Zugriff auf Port 443 (HTTPS) zu einer begrenzten Anzahl von bekannten Azure-IPs zulassen. Weitere Informationen zum Vorbereiten der Firewalls finden Sie unter [Konfigurieren von Firewalls für Azure Stack HCI](../concepts/configure-firewalls.md).
+Azure Stack HCI muss regelmäßig eine Verbindung mit der öffentlichen Azure-Cloud herstellen. Wenn die ausgehende Konnektivität durch die externe Unternehmensfirewall oder einen Proxyserver eingeschränkt ist, müssen diese so konfiguriert werden, dass sie ausgehenden Zugriff auf Port 443 (HTTPS) zu einer begrenzten Anzahl von bekannten Azure-IPs zulassen. Weitere Informationen zum Vorbereiten der Firewalls und zur Einrichtung eines Proxyservers finden Sie unter [Konfigurieren von Firewalls für Azure Stack HCI](../concepts/configure-firewalls.md).
 
    > [!NOTE]
    > Beim Registrierungsprozess wird versucht, den PowerShell-Katalog zu kontaktieren, um sicherzustellen, dass Sie über die neueste Version der erforderlichen PowerShell-Module wie Az und AzureAD verfügen. Obwohl der PowerShell-Katalog in Azure gehostet wird, verfügt er derzeit nicht über ein Diensttag. Wenn Sie das Cmdlet oben nicht auf einem Verwaltungscomputer mit ausgehendem Internetzugriff ausführen können, sollten Sie die Module herunterladen und manuell auf einen Clusterknoten übertragen, auf dem Sie dann den Befehl `Register-AzStackHCI` ausführen. Sie haben auch die Möglichkeit, die [Module in einem Szenario ohne Verbindung zu installieren](/powershell/scripting/gallery/how-to/working-with-local-psrepositories?view=powershell-7.1#installing-powershellget-on-a-disconnected-system).
@@ -106,10 +106,10 @@ Sie benötigen außerdem entsprechende Azure Active Directory-Berechtigungen, um
 
 Die einfachste Möglichkeit zum Registrieren Ihres Azure Stack HCI-Clusters ist die Verwendung von Windows Admin Center. Beachten Sie hierbei Folgendes: Der Benutzer muss über [Azure Active Directory-Berechtigungen](../manage/manage-azure-registration.md#azure-active-directory-app-permissions) verfügen, da der Registrierungsvorgang sonst nicht abgeschlossen werden kann. Stattdessen wird der Vorgang beendet, und die Genehmigung der Registrierung durch den Administrator ist ausstehend.
 
-1. Vor Beginn des Registrierungsvorgangs müssen Sie zunächst [Ihr Windows Admin Center-Gateway für Azure registrieren](../manage/register-windows-admin-center.md), falls Sie dies nicht bereits getan haben.
+1. Vor Beginn des Registrierungsvorgangs müssen Sie zunächst [Windows Admin Center bei Azure registrieren](../manage/register-windows-admin-center.md), falls Sie das nicht bereits getan haben.
 
    > [!IMPORTANT]
-   > Beim Registrieren von Windows Admin Center für Azure ist es wichtig, dass Sie die gleiche Azure-Abonnement-ID und -Mandanten-ID verwenden, die Sie auch für die Registrierung des eigentlichen Clusters nutzen möchten. Eine Azure AD-Mandanten-ID steht für eine bestimmte Instanz von Azure AD mit Konten und Gruppen, während eine Azure-Abonnement-ID für eine Vereinbarung zur Nutzung von Azure-Ressourcen steht, für die Gebühren berechnet werden. Sie können Ihre Mandanten-ID ermitteln, indem Sie unter [portal.azure.com](https://portal.azure.com) die Option **Azure Active Directory** auswählen. Ihre Mandanten-ID wird unter **Mandanteninformationen** angezeigt. Navigieren Sie zum Ermitteln Ihrer Azure-Abonnement-ID zu **Abonnements**, und kopieren Sie sie aus der Liste.
+   > Beim Registrieren von Windows Admin Center bei Azure ist es wichtig, dass Sie die Mandanten-ID von Azure Active Directory verwenden, die Sie auch für die Registrierung des eigentlichen Clusters nutzen möchten. Eine Azure AD-Mandanten-ID steht für eine bestimmte Instanz von Azure AD mit Konten und Gruppen, während eine Azure-Abonnement-ID für eine Vereinbarung zur Nutzung von Azure-Ressourcen steht, für die Gebühren berechnet werden. Sie können Ihre Mandanten-ID ermitteln, indem Sie unter [portal.azure.com](https://portal.azure.com) die Option **Azure Active Directory** auswählen. Ihre Mandanten-ID wird unter **Mandanteninformationen** angezeigt. Navigieren Sie zum Ermitteln Ihrer Azure-Abonnement-ID zu **Abonnements**, und kopieren Sie sie aus der Liste.
 
 2. Öffnen Sie Windows Admin Center, und wählen Sie ganz unten im Menü **Tools** auf der linken Seite die Option **Einstellungen** aus. Wählen Sie anschließend unten im Menü **Einstellungen** die Option **Azure Stack HCI-Registrierung** aus. Falls Ihr Cluster noch nicht für Azure registriert wurde, wird unter **Registrierungsstatus** der Status **Nicht registriert** angezeigt. Klicken Sie auf die Schaltfläche **Registrieren**, um fortzufahren.
 

@@ -3,22 +3,22 @@ title: Ausführen von API-Anforderungen an Azure Stack Hub
 description: Erfahren Sie, wie Sie Authentifizierungsinformationen aus Azure abrufen, um API-Anforderungen an Azure Stack Hub zu richten.
 author: sethmanheim
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 70a1a6e1d2fb4eb6766948a4e02d5072f4e04281
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: c48eb869ded6be5f2c05171edf4d0cc6a88945ca
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623318"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975842"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
 # <a name="make-api-requests-to-azure-stack-hub"></a>Ausführen von API-Anforderungen an Azure Stack Hub
 
-Mit den Azure Stack Hub-REST-APIs können Sie Vorgänge wie das Hinzufügen eines virtuellen Computers (VM) zu Ihrer Azure Stack Hub-Cloud automatisieren.
+Mit den Azure Stack Hub-REST-APIs können Sie Vorgänge wie das Hinzufügen eines virtuellen Computers (Virtual Machine, VM) zu Ihrer Azure Stack Hub-Cloud automatisieren.
 
 Für die APIs ist die Authentifizierung Ihres Clients beim Microsoft Azure-Anmeldungsendpunkt erforderlich. Der Endpunkt gibt ein Token zurück, das im Header jeder Anforderung verwendet wird, die an die Azure Stack Hub-APIs gesendet wird. Microsoft Azure basiert auf OAuth 2.0.
 
@@ -212,4 +212,4 @@ https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-40
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zur Verwendung der Azure-REST-Endpunkte finden Sie in der [Azure REST-API-Referenz](/rest/api/).
+Weitere Informationen zur Verwendung der Azure-REST-Endpunkte finden Sie in der [Referenz zur Azure-REST-API](/rest/api/).

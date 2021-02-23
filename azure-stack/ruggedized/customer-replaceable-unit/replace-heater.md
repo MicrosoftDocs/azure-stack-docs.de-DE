@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 028ad9442961708820f905b73037eb55a11af72a
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 7c9fb834367d5baf1d467db590ab2b0ca7b39efe
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910532"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488138"
 ---
 # <a name="replacing-the-heater"></a>Austauschen des Heizgeräts
 
@@ -20,7 +20,7 @@ Lesen Sie die folgenden Abschnitte, bevor Sie das alte Heizgerät entfernen und 
 
 ## <a name="unpacking-and-taking-inventory-of-the-heater"></a>Entpacken und Inventarisieren des Heizgeräts 
 
-Der Tactical 1U Heater – V2 (das Heizgerät) wird in der Regel als vorinstallierte Teilkomponente des Tactical Cloud Appliance-Systems geliefert. Bei separater Lieferung wird das Heizgerät in einem kommerziellen Standardversandkarton mit Schutzverpackung geliefert. 
+Der Ruggedized 1U Heater – V2 (das Heizgerät) wird in der Regel als vorinstallierte Teilkomponente des Ruggedized-Cloudappliancesystems geliefert. Bei separater Lieferung wird das Heizgerät in einem kommerziellen Standardversandkarton mit Schutzverpackung geliefert. 
 
 Entnehmen Sie das Heizgerät vorsichtig aus dem Versandkarton. Bei einer Lieferung in einem Versandkarton sind alle Schlüsselkomponenten bereits im Gehäuse vorinstalliert. Das Heizgerät wird in der Regel in einem Transportkoffer geliefert und ist in dem Transportkoffer mit einer Reihe von Geräten verschraubt. Bewahren Sie den Versandkarton und das Verpackungsmaterial für den Fall auf, dass Sie das Heizgerät wieder zurücksenden müssen. Obwohl das Heizgerät robust ist, sollten Sie beim Versand auf eine ordnungsgemäße Verpackung achten. 
 

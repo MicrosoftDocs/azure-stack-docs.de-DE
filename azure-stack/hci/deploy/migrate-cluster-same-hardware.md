@@ -3,15 +3,15 @@ title: Migrieren zu Azure Stack HCI auf derselben Hardware
 description: Hier erfahren Sie, wie Sie einen Cluster auf derselben Hardware zu Azure Stack HCI migrieren.
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/12/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 35c1de7da10fbecbf6b861a23cdebb752502ca44
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: 593be52321230f3fc1ae4329f8f2284cf964298a
+ms.sourcegitcommit: 5a8b6dfdf75df1aa9474e062ec3a91ca1b8e58bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772277"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100524941"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>Migrieren zu Azure Stack HCI auf derselben Hardware
 
@@ -215,15 +215,9 @@ Ausführliche Informationen zum Erstellen des Clusters mit PowerShell finden Sie
 
 ## <a name="refs-volumes"></a>ReFS-Volumes
 
-Wenn Sie von Windows Server 2016 migrieren, werden ReFS-Volumes (Resilient File System, robustes Dateisystem) unterstützt, bei solchen Volumes profitieren Sie jedoch nicht von den folgenden Leistungsverbesserungen in Azure Stack HCI:
+Wenn Sie von Windows Server 2016 migrieren, werden ReFS-Volumes (Resilient File System, robustes Dateisystem) unterstützt, bei solchen Volumes profitieren Sie jedoch nicht von den Leistungsverbesserungen in Azure Stack HCI, wenn Sie MAP-Volumen (Mirror-Accelerated Parity, Parität mit Beschleunigung per Spiegelung) verwenden. Diese Erweiterung erfordert, dass ein neues ReFS-Volume mit dem PowerShell-Cmdlet `New-Volume` erstellt wird.
 
-- Parität mit Beschleunigung per Spiegelung
-- MAP-Protokollumgehung
-
-Diese Verbesserungen erfordern, dass ein neues ReFS-Volume mit dem Cmdlet `New-Volume` erstellt wird.
-
-> [!NOTE]
-> Bei Windows Server 2016-Volumes mit Parität mit Beschleunigung per Spiegelung war die ReFS-Komprimierung nicht verfügbar. Daher können diese Volumes problemlos wieder angefügt werden, sie sind jedoch weniger leistungsfähig als bei Erstellung eines neuen MAP-Volumes auf einem Azure Stack HCI-Cluster.
+Bei MAP-Volumes in Windows Server 2016 war die ReFS-Komprimierung nicht verfügbar. Daher können diese Volumes problemlos wieder angefügt werden, sie sind jedoch weniger leistungsfähig als bei Erstellung eines neuen MAP-Volumes auf einem Azure Stack HCI-Cluster.
 
 ## <a name="import-the-vms"></a>Importieren der VMs
 

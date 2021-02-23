@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Hier erhalten Sie Informationen zur Azure Stack Hub-Wartungsrichtlinie und erfahren, wie Sie den unterstützten Zustand eines integrierten Systems aufrechterhalten.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 02/17/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: baa622bf9d80d0896dfb3431e1363e4a8a780567
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 95686f1fc9ae56cefe2063c03e8e80d0e156af83
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255753"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648030"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub-Wartungsrichtlinie
 
@@ -27,7 +27,7 @@ Vollständige Updatepakete werden an einem sicheren Azure-Endpunkt gehostet. Sie
 
 Hotfixupdatepakete werden in demselben sicheren Azure-Endpunkt gehostet. Sie können sie mithilfe der eingebetteten Links in jedem der jeweiligen Hotfix-KB-Artikel herunterladen, z. B. [Azure Stack Hub-Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Ähnlich wie bei den vollständigen, monatlichen Updatepaketen können Azure Stack Hub-Betreiber die XML- und ZIP-Dateien herunterladen und mithilfe des Verfahrens unter [Anwenden von Updates in Azure Stack Hub](azure-stack-apply-updates.md) importieren. Azure Stack Hub-Operators mit verbundenen Skalierungseinheiten werden die Hotfixes automatisch im Administratorportal mit der Meldung **Update verfügbar** angezeigt.
 
-Wenn Ihre Skalierungseinheit nicht verbunden ist und Sie bei jedem Hotfixrelease benachrichtigt werden möchten, abonnieren Sie den [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)- oder [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)-Feed, der in jedem Release vermerkt ist.
+Wenn Ihre Skalierungseinheit nicht verbunden ist und Sie bei jedem Hotfixrelease benachrichtigt werden möchten, abonnieren Sie den [RSS-Feed](https://azurestackhubdocs.azurewebsites.net/xml/hotfixes.rss).
 
 ## <a name="update-package-types"></a>Updatepakettypen
 

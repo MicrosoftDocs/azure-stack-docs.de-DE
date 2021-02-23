@@ -11,22 +11,22 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: c57e421140dfea9eac949b5dcf97cc90745ab861
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: a31b5b4498911b008ec471beca24905466efee4b
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910958"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562966"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub---ruggedized"></a>Schutz von in Azure Stack Hub bereitgestellten VMs – Ruggedized
 
 Verwenden Sie diesen Artikel als Leitfaden für die Entwicklung eines Plans zum Schützen von VMs (virtuellen Computern), die Ihre Benutzer unter Azure Stack Hub bereitstellen.
 
-Implementieren Sie einen Datenschutz- und Notfallwiederherstellungsplan für auf VMs basierende Anwendungen in Azure Stack Hub, um Datenverlusten und ungeplanter Downtime vorzubeugen. Der implementierte Schutzplan hängt von den Geschäftsanforderungen und dem Entwurf der Anwendung ab. Dieser Plan sollte das Framework befolgen, das von der umfassenden BCDR-Strategie (Business Continuity & Disaster Recovery) Ihrer Organisation etabliert wurde. Eine allgemeine Übersicht über BCDR-Aspekte für Azure Stack Hub finden Sie im Artikel „Azure Stack: Überlegungen zu Business Continuity & Disaster Recovery“.
+Implementieren Sie einen Datenschutz- und Notfallwiederherstellungsplan für auf VMs basierende Anwendungen in Azure Stack Hub, um Datenverlusten und ungeplanter Downtime vorzubeugen. Der implementierte Schutzplan hängt von den Geschäftsanforderungen und dem Entwurf der Anwendung ab. Dieser Plan sollte das Framework befolgen, das von der umfassenden BCDR-Strategie (Business Continuity & Disaster Recovery) Ihrer Organisation etabliert wurde. Eine allgemeine Übersicht über die BCDR-Überlegungen für Azure Stack Hub finden Sie unter [Azure Stack: Considerations for business continuity and disaster recovery](https://azure.microsoft.com/resources/azure-stack-considerations-for-business-continuity-and-disaster-recovery/) (Azure Stack: Überlegungen zu Business Continuity & Disaster Recovery).
 
 ## <a name="application-recovery-objectives"></a>Ziele für die Anwendungswiederherstellung
 
@@ -84,9 +84,9 @@ Important considerations for your Azure Stack deployment: -->
 
 In diesem Artikel wurden allgemeine Richtlinien zum Schützen der virtuellen Computer von Benutzern beschrieben, die unter Azure Stack bereitgestellt werden. Informationen zur Verwendung von Azure-Diensten zum Schützen der virtuellen Computer von Benutzern finden Sie unter:
 
-- [Azure Stack: Überlegungen zu Business Continuity & Disaster Recovery](https://aka.ms/azurestackbcdrconsiderationswp)
+- [Azure Stack: Überlegungen zu Business Continuity & Disaster Recovery](https://azure.microsoft.com/resources/azure-stack-considerations-for-business-continuity-and-disaster-recovery/)
 
 ### <a name="partner-products"></a>Partnerprodukte
 
-- [Datenblatt mit Partnerunternehmen für die Azure Stack-Rechenzentrumsintegration](https://aka.ms/azurestackbcdrpartners)
+- [Datenblatt mit Partnerunternehmen für die Azure Stack-Rechenzentrumsintegration](https://azure.microsoft.com/resources/azure-stack-datacenter-integration-partners/)
 - Weitere Informationen zu den Partnerprodukten, die VM-Schutz in Azure Stack bieten, finden Sie unter [Schutz von Apps und Daten in Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/).

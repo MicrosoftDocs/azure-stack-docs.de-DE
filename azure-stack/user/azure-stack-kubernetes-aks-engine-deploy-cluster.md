@@ -3,16 +3,16 @@ title: Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack 
 description: Erfahren Sie, wie Sie einen Kubernetes-Cluster in Azure Stack Hub von einer Client-VM bereitstellen, auf der die AKS-Engine ausgeführt wird.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 2/5/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 9da037a08aaa7394306c518211fc045453530a71
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 2/5/2021
+ms.openlocfilehash: 3343dc1a4fddbac0e01d0b63fcc8f434084237f0
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246961"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850847"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Bereitstellen eines Kubernetes-Cluster mit der AKS-Engine in Azure Stack Hub
 
@@ -26,10 +26,10 @@ Sie können eine Clusterspezifikation in einer Dokumentdatei mithilfe des JSON-F
 
 Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
 
-1.  Beginnen Sie mit der Verwendung des [Beispiels](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack) einer API-Modelldatei für Azure Stack Hub, und erstellen Sie eine lokale Kopie für Ihre Bereitstellung. Führen Sie auf dem Computer, auf dem Sie die AKS-Engine installiert haben, Folgendes aus:
+1.  Beginnen Sie mit der Verwendung einer API-Modelldatei für Azure Stack Hub für [Linux](https://aka.ms/aksengine-json-example-raw) oder für [Windows](https://aka.ms/aksengine-json-example-raw-win), und erstellen Sie eine lokale Kopie für Ihre Bereitstellung. Führen Sie auf dem Computer, auf dem Sie die AKS-Engine installiert haben, Folgendes aus:
 
     ```bash
-    curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json
+    curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/v0.55.4/examples/azure-stack/kubernetes-azurestack.json
     ```
 
     > [!NOTE]  
@@ -75,7 +75,7 @@ Dieser Abschnitt zeigt das Erstellen eines API-Modells für Ihren Cluster.
 
     | Feld | BESCHREIBUNG |
     | --- | --- |
-    | count | Geben Sie die Anzahl der Agents ein, die für die Bereitstellung vorgesehen sind. Pro Abonnement können maximal 50 Knoten verwendet werden. Wenn Sie mehr als einen Cluster pro Abonnement bereitstellen, stellen Sie sicher, dass die Gesamtanzahl der Agents 50 nicht überschreitet. Stellen Sie sicher, dass Sie die Konfigurationselemente aus der [JSON-Datei für das API-Beispielmodell](https://aka.ms/aksengine-json-example) verwenden.  |
+    | count | Geben Sie die Anzahl der Agents ein, die für die Bereitstellung vorgesehen sind. Pro Abonnement können maximal 50 Knoten verwendet werden. Wenn Sie mehr als einen Cluster pro Abonnement bereitstellen, stellen Sie sicher, dass die Gesamtanzahl der Agents 50 nicht überschreitet. Stellen Sie sicher, dass Sie die Konfigurationselemente aus der [JSON-Datei für das API-Beispielmodell](https://aka.ms/aksengine-json-example-raw) verwenden.  |
     | vmSize | Geben Sie [eine Größe ein, die von Azure Stack Hub unterstützt wird](./azure-stack-vm-sizes.md), z. B. `Standard_D2_v2`. |
     | distro | Geben Sie `aks-ubuntu-16.04` ein. |
 

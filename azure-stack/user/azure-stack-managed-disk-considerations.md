@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: b1cadf68de1c072b7dcc8b2f0f5f7c02736eebd7
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: fd1f827ec9108d1412df544c94044aabf600224a
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518227"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975876"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Verwaltete Azure Stack Hub-Datenträger: Unterschiede und Überlegungen
 
@@ -358,7 +358,7 @@ Nach Anwendung des Updates 1808 oder höher müssen Sie folgende Änderung an de
 - Wenn ein Abonnement vor dem Update 1808 erstellt wurde, führen Sie die folgenden Schritte aus, um das Abonnement zu aktualisieren. Andernfalls kann die Bereitstellung von VMs in diesem Abonnement mit einer Fehlermeldung „Interner Fehler im Datenträger-Manager“ fehlschlagen.
    1. Navigieren Sie im Azure Stack Hub-Benutzerportal zu **Abonnements**, und suchen Sie nach dem Abonnement. Klicken Sie auf **Ressourcenanbieter**, klicken Sie dann auf **Microsoft.Compute**, und klicken Sie anschließend auf **Erneut registrieren**.
    2. Navigieren Sie unter dem gleichen Abonnement zu **Zugriffssteuerung (IAM)** , und überprüfen Sie, ob **Azure Stack Hub – Verwalteter Datenträger** aufgeführt wird.
-- Wenn Sie eine Umgebung mit mehreren Mandanten verwenden, bitten Sie Ihren Cloudoperator (der sich in Ihrem Unternehmen oder beim Dienstanbieter befinden kann), jedes Ihrer Gastverzeichnisse gemäß den folgenden Schritten in [diesem Artikel](../operator/azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory) neu zu konfigurieren. Andernfalls kann die Bereitstellung von VMs in einem Abonnement, das diesem Gastverzeichnis zugeordnet ist, mit der Fehlermeldung „Interner Fehler im Datenträger-Manager“ fehlschlagen.
+- Wenn Sie eine Umgebung mit mehreren Mandanten verwenden, bitten Sie Ihren Cloudoperator (in Ihrer eigenen Organisation oder beim Dienstanbieter), all Ihre Gastverzeichnisse gemäß den Schritten unter [Konfigurieren der Mehrinstanzenfähigkeit in Azure Stack Hub](../operator/azure-stack-enable-multitenancy.md#configure-guest-directory) neu zu konfigurieren. Andernfalls kann die Bereitstellung von VMs in einem Abonnement, das diesem Gastverzeichnis zugeordnet ist, mit der Fehlermeldung „Interner Fehler im Datenträger-Manager“ fehlschlagen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

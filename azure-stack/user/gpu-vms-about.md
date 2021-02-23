@@ -5,15 +5,15 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: reference
-ms.date: 2/1/2021
+ms.date: 2/8/2021
 ms.reviewer: kivenkat
-ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 84c218c36b370c5b0be2cbe415ae3f3f10a6397f
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: /8/2021
+ms.openlocfilehash: 7091ebff9fae07b1e5eb97f54a33889bc73eda7b
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247097"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009229"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Grafikprozessor (GPU)-VM in Azure Stack Hub
 
@@ -26,11 +26,17 @@ Während des Public Preview-Zeitraums stehen drei GPU-Modelle zur Auswahl: NVIDI
 - [NVv4 (AMD MI25)](/azure/virtual-machines/nvv4-series)
 - [NCasT4_v3](/azure/virtual-machines/nct4-v3-series)
 
+::: moniker range=">=azs-2005"
 > [!IMPORTANT]  
-> Die GPU-Unterstützung in Azure Stack Hub ist zurzeit als öffentliche Vorschauversion verfügbar. Wenn Sie am Vorschauprogramm teilnehmen möchten, füllen Sie das Formular unter [aka.ms/azurestackhubgpupreview](https://aka.ms/azurestackhubgpupreview) aus.
+> Die GPU-Unterstützung in Azure Stack Hub befindet sich für die Azure Stack Hub-Releases 2005 und 2008 in der Public Preview.  
 > Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar.
 > Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+::: moniker-end
 
+::: moniker range="<=azs-2002"
+> [!WARNING]  
+> GPU-VMs werden in diesem Release nicht unterstützt. Sie müssen ein Upgrade auf Azure Stack Hub 2005 oder höher durchführen. Außerdem muss Ihre Azure Stack Hub-Hardware über physische GPUs verfügen.
+::: moniker-end
 ## <a name="ncv3"></a>NCv3
 
 NCv3-Serien-VMs werden mit NVIDIA Tesla V100-GPUs betrieben. Kunden können diese neuen GPUs für herkömmliche HPC-Workloads wie Modellierung von Lagerstätten, DNA-Sequenzierung, Proteinanalysen, Monte Carlo-Simulationen und Ähnliches nutzen. 
@@ -51,7 +57,12 @@ Die VMs der NVv4-Serie verfügen über [AMD Radeon Instinct MI25](https://www.a
 
 ## <a name="ncast4_v3"></a>NCasT4_v3
 
-| Size | vCPU | Memory: GiB | GPU | GPU-Arbeitsspeicher: GiB | Max. Anzahl Datenträger | Maximale Anzahl NICs | 
+::: moniker range=">=azs-2005"
+> [!IMPORTANT]
+> Diese VM-Größen können nicht über die Portalbenutzeroberfläche bereitgestellt werden. Sie können PowerShell, die Azure CLI oder Azure Resource Manager-Vorlagen verwenden.
+::: moniker-end
+
+| Größe | vCPU | Memory: GiB | GPU | GPU-Arbeitsspeicher: GiB | Max. Anzahl Datenträger | Maximale Anzahl NICs | 
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC4as_T4_v3 |4 |28 | 1 | 16 | 8 | 4 | 
 | Standard_NC8as_T4_v3 |8 |56 | 1 | 16 | 16 | 8 | 

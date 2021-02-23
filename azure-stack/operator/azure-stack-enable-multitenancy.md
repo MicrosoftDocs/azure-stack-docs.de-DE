@@ -1,59 +1,58 @@
 ---
 title: Konfigurieren der Mehrinstanzenfähigkeit in Azure Stack Hub
-description: Erfahren Sie, wie Sie mehrere Azure Active Directory-Mandanten in Azure Stack Hub aktivieren und deaktivieren.
+description: Hier erfahren Sie, wie Sie die Mehrinstanzfähigkeit für Azure Active Directory-Gastmandanten in Azure Stack Hub konfigurieren.
 author: BryanLa
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 01/26/2021
 ms.author: bryanla
 ms.reviewer: bryanr
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 923c430291c742069a29806449b45d4fc9cdef07
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 01/26/2021
+ms.openlocfilehash: 3de6c5db42285f90e1d4ce6c1ebf6736d7ce4863
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544223"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975944"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Konfigurieren der Mehrinstanzenfähigkeit in Azure Stack Hub
 
-Sie können Azure Stack Hub so konfigurieren, dass Benutzer mehrerer Azure AD-Mandanten (Azure Active Directory) Dienste in Azure Stack Hub verwenden können. Betrachten Sie beispielsweise das folgende Szenario:
+Sie können Azure Stack Hub so konfigurieren, dass Anmeldungen von Benutzern aus anderen Azure AD-Verzeichnissen (Azure Active Directory) zugelassen werden. Dadurch können diese die Dienste in Azure Stack Hub nutzen. Diese Verzeichnisse stehen in einer Gastbeziehung zu Ihrer Azure Stack Hub-Instanz und gelten daher als Azure AD-Gastmandanten. Betrachten Sie beispielsweise das folgende Szenario:
 
-- Sie sind Dienstadministrator von „contoso.onmicrosoft.com“, dort ist Azure Stack Hub installiert.
-- Mary ist Verzeichnisadministratorin von „fabrikam.onmicrosoft.com“, wo sich Gastbenutzer befinden.
-- Marys Unternehmen bezieht IaaS- und PaaS-Dienste von Ihrem Unternehmen und muss es Benutzern aus dem Gastverzeichnis (fabrikam.onmicrosoft.com) ermöglichen, sich bei Azure Stack Hub-Ressourcen in „contoso.onmicrosoft.com“ anzumelden und diese zu verwenden.
+- Sie sind der Dienstadministrator von contoso.onmicrosoft.com, dem Azure AD-Stammmandanten für Identitäts- und Zugriffsverwaltungsdienste für Ihre Azure Stack Hub-Instanz.
+- Mary ist Verzeichnisadministratorin von fabrikam.onmicrosoft.com, dem Azure AD-Gastmandanten, auf dem sich die Gastbenutzer befinden.
+- Marys Arbeitgeber (Fabrikam) setzt IaaS- und PaaS-Dienste Ihres Unternehmens ein. Fabrikam möchte, dass Benutzer aus dem Gastverzeichnis (fabrikam.onmicrosoft.com) sich anmelden und von contoso.onmicrosoft.com geschützte Azure Stack Hub-Ressourcen verwenden können.
 
-Der vorliegende Leitfaden beschreibt die erforderlichen Schritte – im Kontext dieses Szenarios –, um die Mehrinstanzenfähigkeit in Azure Stack Hub zu konfigurieren. In diesem Szenario müssen sowohl Sie als auch Mary einige Schritte ausführen, um es Benutzern von Fabrikam zu ermöglichen, sich bei der Azure Stack Hub-Bereitstellung in Contoso anzumelden und dort Dienste zu nutzen.
+In dieser Anleitung finden Sie die für dieses Szenario erforderlichen Schritte, um die Mehrinstanzenfähigkeit für Gastverzeichnismandanten in Azure Stack Hub zu aktivieren oder zu deaktivieren. Sie und Mary erreichen dieses Ziel, indem Sie das Gastverzeichnis registrieren oder die Registrierung aufheben. Dadurch werden Anmeldungen bei Azure Stack Hub und die Nutzung von Azure Stack Hub-Diensten durch Fabrikam-Benutzer aktiviert bzw. deaktiviert. 
 
 Als Cloud Solution Provider (CSP) haben Sie zusätzliche Möglichkeiten, einen [Azure Stack Hub für mehrere Mandanten zu konfigurieren und zu verwalten](azure-stack-add-manage-billing-as-a-csp.md). 
 
-## <a name="enable-multi-tenancy"></a>Aktivieren der Mehrinstanzenfähigkeit
+## <a name="prerequisites"></a>Voraussetzungen
 
-Damit Sie die Mehrinstanzenfähigkeit in Azure Stack Hub konfigurieren können, müssen einige Voraussetzungen erfüllt sein:
-  
- - Mary und Sie müssen Verwaltungsschritte sowohl in dem Verzeichnis, in dem Azure Stack Hub installiert ist (Contoso), als auch im Gastverzeichnis (Fabrikam) koordinieren.
- - Stellen Sie sicher, dass Sie PowerShell für Azure Stack Hub [installiert](powershell-install-az-module.md) und [konfiguriert](azure-stack-powershell-configure-admin.md) haben.
+Bevor ein Gastverzeichnis registriert bzw. dessen Registrierung aufgehoben wird, müssen Sie und Mary einige Verwaltungsschritte für die jeweiligen Azure AD-Mandanten vornehmen: das Azure Stack Hub-Stammverzeichnis (Contoso) und das Gastverzeichnis (Fabrikam):
+
+ - [Installieren](powershell-install-az-module.md) und [Konfigurieren](azure-stack-powershell-configure-admin.md) von PowerShell für die Verwendung mit Azure Stack Hub
  - [Laden Sie die Azure Stack Hub-Tools herunter](azure-stack-powershell-download.md), und importieren Sie die Module „Connect“ und „Identity“:
 
     ```powershell
     Import-Module .\Identity\AzureStack.Identity.psm1
     ```
 
-### <a name="configure-azure-stack-hub-directory"></a>Konfigurieren des Azure Stack Hub-Verzeichnisses
+## <a name="register-a-guest-directory"></a>Registrieren eines Gastverzeichnisses
 
-In diesem Abschnitt konfigurieren Sie Azure Stack Hub so, dass Anmeldungen aus Fabrikam-Azure AD-Verzeichnismandanten zugelassen werden.
+Damit Sie ein Gastverzeichnis für die Mehrinstanzfähigkeit registrieren können, müssen das Azure Stack Hub-Stammverzeichnis und das Gastverzeichnis konfiguriert werden.
 
-Integrieren Sie den Gastverzeichnismandanten (Fabrikam) in Azure Stack Hub, indem Sie Azure Resource Manager so konfigurieren, dass Benutzer und Dienstprinzipale aus dem Gastverzeichnismandanten akzeptiert werden.
+#### <a name="configure-azure-stack-hub-directory"></a>Konfigurieren des Azure Stack Hub-Verzeichnisses
 
-Der Dienstadministrator von „contoso.onmicrosoft.com“ führt die folgenden Befehle aus:
+Als Dienstadministrator von contoso.onmicrosoft.com müssen Sie zunächst ein Onboarding für den Fabrikam-Gastverzeichnismandanten in Azure Stack Hub durchführen. Das folgende Skript konfiguriert den Azure Resource Manager so, dass Anmeldungen von Benutzern und Dienstprinzipalen des Mandanten fabrikam.onmicrosoft.com akzeptiert werden:
 
 ```powershell  
-## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
+## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint, formatted as adminmanagement.<region>.<FQDN>.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
 ## Replace the value below with the Azure Stack Hub directory
 $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
 
-## Replace the value below with the guest tenant directory. 
+## Replace the value below with the guest directory tenant. 
 $guestDirectoryTenantToBeOnboarded = "fabrikam.onmicrosoft.com"
 
 ## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
@@ -73,19 +72,15 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
  -SubscriptionName $SubscriptionName
 ```
 
-### <a name="configure-guest-directory"></a>Konfigurieren des Gastverzeichnisses
+#### <a name="configure-guest-directory"></a>Konfigurieren des Gastverzeichnisses
 
-Nachdem der Azure Stack Hub-Operator die Verwendung des Fabrikam-Verzeichnisses mit Azure Stack Hub aktiviert hat, muss Mary Azure Stack Hub beim Verzeichnismandanten von Fabrikam registrieren.
-
-#### <a name="register-azure-stack-hub-with-the-guest-directory"></a>Registrieren von Azure Stack Hub beim Gastverzeichnis
-
-Mary (Verzeichnisadministratorin von Fabrikam) führt im Gastverzeichnis „fabrikam.onmicrosoft.com“ die folgenden Befehle aus:
+Als Nächstes muss Mary, die Verzeichnisadministratorin von Fabrikam, Azure Stack Hub beim Gastverzeichnis fabrikam.onmicrosoft.com registrieren, indem sie das folgende Skript ausführt:
 
 ```powershell
-## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
+## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint, formatted as management.<region>.<FQDN>.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     
-## Replace the value below with the guest tenant directory.
+## Replace the value below with the guest directory tenant.
 $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
 
 Register-AzSWithMyDirectoryTenant `
@@ -103,21 +98,21 @@ Register-AzSWithMyDirectoryTenant `
 
 ### <a name="direct-users-to-sign-in"></a>Weiterleiten von Benutzern zur Anmeldung
 
-Nachdem Mary und Sie die Schritte zum Integrieren von Marys Verzeichnis abgeschlossen haben, kann Mary Fabrikam-Benutzer zur Anmeldung weiterleiten. Fabrikam-Benutzer (mit dem Suffix „fabrikam.onmicrosoft.com“) melden sich hier an: „https\://portal.local.azurestack.external“.
+Schließlich kann Mary Fabrikam-Benutzer mit @fabrikam.onmicrosoft.com-Konten zur Anmeldung weiterleiten, indem diese das [Azure Stack Hub-Benutzerportal](../user/azure-stack-use-portal.md) aufrufen. Für Systeme mit mehreren Knoten wird das URL-Format `https://management.<region>.<FQDN>` für das Benutzerportal benötigt. Für ASDK-Bereitstellungen lautet die URL `https://portal.local.azurestack.external`.
 
-Mary leitet alle [fremden Prinzipale](/azure/role-based-access-control/rbac-and-directory-admin-roles) im Fabrikam-Verzeichnis (Benutzer im Fabrikam-Verzeichnis ohne das Suffix „fabrikam.onmicrosoft.com“) zur Anmeldung an diese Adresse weiter: „https\://portal.local.azurestack.external/fabrikam.onmicrosoft.com“. Wenn diese Benutzer diese URL nicht verwenden, werden sie an ihr Standardverzeichnis (Fabrikam) weitergeleitet und erhalten eine Fehlermeldung mit dem Hinweis, dass ihr Administrator nicht zugestimmt hat.
+Mary muss außerdem alle fremden Prinzipale (Benutzer im Fabrikam-Verzeichnis ohne das Suffix fabrikam.onmicrosoft.com) weiterleiten, damit diese sich über `https://<user-portal-url>/fabrikam.onmicrosoft.com` anmelden. Wenn diese Benutzer den Verzeichnismandanten `/fabrikam.onmicrosoft.com` nicht in der URL angeben, werden sie an ihr Standardverzeichnis weitergeleitet und erhalten eine Fehlermeldung mit dem Hinweis, dass ihr Administrator nicht zugestimmt hat.
 
-## <a name="disable-multi-tenancy"></a>Deaktivieren der Mehrinstanzenfähigkeit
+## <a name="unregister-a-guest-directory"></a>Aufheben der Registrierung eines Gastverzeichnisses
 
-Wenn Sie in Azure Stack Hub nicht länger mehrere Mandanten benötigen, können Sie die Mehrinstanzenfähigkeit deaktivieren, indem Sie die folgenden Schritte in der angegebenen Reihenfolge ausführen:
+Wenn Sie Anmeldungen bei Azure Stack Hub-Diensten nicht mehr über Gastverzeichnismandanten zulassen möchten, können Sie die Registrierung des Verzeichnisses aufheben. Auch in diesem Fall müssen das Azure Stack Hub-Stammverzeichnis und das Gastverzeichnis konfiguriert werden:
 
-1. Als Administrator für das Gastverzeichnis (Mary in diesem Szenario) führen Sie *Unregister-AzsWithMyDirectoryTenant* aus. Das Cmdlet deinstalliert alle Azure Stack Hub-Apps aus dem neuen Verzeichnis.
+1. Als Administrator für das Gastverzeichnis (Mary in diesem Szenario) führen Sie `Unregister-AzsWithMyDirectoryTenant` aus. Das Cmdlet deinstalliert alle Azure Stack Hub-Apps aus dem neuen Verzeichnis.
 
     ``` PowerShell
-    ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint, formatted as management.<region>.<FQDN>.
     $tenantARMEndpoint = "https://management.local.azurestack.external"
         
-    ## Replace the value below with the guest tenant directory.
+    ## Replace the value below with the guest directory tenant.
     $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
     
     Unregister-AzsWithMyDirectoryTenant `
@@ -126,19 +121,19 @@ Wenn Sie in Azure Stack Hub nicht länger mehrere Mandanten benötigen, können 
      -Verbose 
     ```
 
-2. Als Dienstadministrator von Azure Stack Hub (Sie in diesem Szenario) führen Sie *Unregister-AzSGuestDirectoryTenant* aus.
+2. Der Dienstadministrator von Azure Stack Hub (Sie in diesem Szenario) muss das Cmdlet `Unregister-AzSGuestDirectoryTenant` ausführen:
 
     ``` PowerShell
-    ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint, formatted as adminmanagement.<region>.<FQDN>.
     $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
     
     ## Replace the value below with the Azure Stack Hub directory
     $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
     
-    ## Replace the value below with the guest tenant directory. 
+    ## Replace the value below with the guest directory tenant. 
     $guestDirectoryTenantToBeDecommissioned = "fabrikam.onmicrosoft.com"
     
-    ## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
+    ## Replace the value below with the name of the resource group in which the directory tenant resource was created (resource group must already exist).
     $ResourceGroupName = "system.local"
     
     Unregister-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
@@ -167,16 +162,16 @@ Write-Host "Unhealthy directories: "
 $healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property tenantName,tenantId,status | ft
 ```
 
-### <a name="update-azure-ad-tenant-permissions"></a>Aktualisieren von Azure AD-Mandantenberechtigungen
+## <a name="update-azure-ad-tenant-permissions"></a>Aktualisieren von Azure AD-Mandantenberechtigungen
 
-Durch diese Aktion wird die Warnung in Azure Stack Hub gelöscht, was darauf hinweist, dass für ein Verzeichnis ein Update erforderlich ist. Führen Sie im Ordner **Azurestack-tools-master/identity** den folgenden Befehl aus:
+Durch die folgende Aktion wird eine Warnung in Azure Stack Hub gelöscht, die darauf hinweist, dass ein Verzeichnis aktualisiert werden muss. Führen Sie im Ordner **Azurestack-tools-master/identity** den folgenden Befehl aus:
 
 ```powershell
 Import-Module ..\Identity\AzureStack.Identity.psm1
 
 $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
 
-# This is the primary tenant Azure Stack is registered to:
+# This is the primary tenant Azure Stack Hub is registered to:
 $homeDirectoryTenantName = "<homeDirectoryTenant>.onmicrosoft.com"
 
 Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `

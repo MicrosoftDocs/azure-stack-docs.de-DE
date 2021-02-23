@@ -3,16 +3,16 @@ title: Kundenabrechnung und verbrauchsbasierte Kostenzuteilung in Azure Stack Hu
 description: Erfahren Sie, wie die Abrechnung des Ressourcenverbrauchs für Azure Stack Hub-Benutzer erfolgt, und wie Sie zur Analyse und verbrauchsbasierten Kostenzuteilung auf die Abrechnungsinformationen zugreifen können.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 066538eb3bccb6e9e296a394400f2d1de0583f93
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: 478014ac48ccc060281f8feab2271f1c5af1ed79
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414094"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562555"
 ---
 # <a name="usage-and-billing-in-azure-stack-hub"></a>Verbrauch und Abrechnung in Azure Stack Hub
 
@@ -34,7 +34,7 @@ Die folgende Abbildung zeigt die wichtigsten Komponenten in der Nutzungspipeline
 
 ## <a name="what-usage-information-can-i-find-and-how"></a>Welche Nutzungsinformationen kann ich suchen, und wo finde ich sie?
 
-Azure Stack Hub-Ressourcenanbieter wie Compute-, Speicher- und Netzwerkressourcen generieren stündlich Nutzungsdaten für jedes Abonnement. Die Nutzungsdaten enthalten Informationen zur verwendeten Ressource, z.B. den Ressourcennamen, das verwendete Abonnement und die genutzte Menge. Weitere Informationen zu den ID-Ressourcen der Verbrauchseinheiten finden Sie unter [Häufig gestellte Fragen zu Nutzungs-APIs](azure-stack-usage-related-faq.md).
+Azure Stack Hub-Ressourcenanbieter wie Compute-, Speicher- und Netzwerkressourcen generieren stündlich Nutzungsdaten für jedes Abonnement. Die Nutzungsdaten enthalten Informationen zur verwendeten Ressource, z. B. den Ressourcennamen, das verwendete Abonnement und die verbrauchte Menge. Weitere Informationen zu den ID-Ressourcen der Verbrauchseinheiten finden Sie unter [Häufig gestellte Fragen zu Nutzungs-APIs](azure-stack-usage-related-faq.md).
 
 Die gesammelten Nutzungsdaten werden [an Azure gemeldet](azure-stack-usage-reporting.md), um eine Rechnung zu generieren, die im Azure-Abrechnungsportal angezeigt werden kann.
 

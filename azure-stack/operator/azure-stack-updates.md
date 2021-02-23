@@ -3,16 +3,16 @@ title: Verwalten von Updates
 description: Hier erfahren Sie, wie Sie Updates in Azure Stack Hub verwalten.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.lastreviewed: 07/16/2020
 ms.reviewer: niy
-ms.openlocfilehash: e769999ce24e1571b93c94a707c62df757460705
-ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
+ms.openlocfilehash: 163485eddb18f0fdc1400aa61fee6b944c397cbf
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367222"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850864"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Verwalten von Updates in Azure Stack Hub
 
@@ -33,7 +33,7 @@ Es gibt drei Arten von Updatepaketen für integrierte Systeme:
 
     **Express**-Updatepakete sind bereichsbezogen und führen keine Aktualisierung der zugrunde liegenden Betriebssysteme des physischen Hosts durch.
 
-- **Azure Stack Hub-Hotfixes**. Microsoft stellt [Hotfixes für Azure Stack Hub](azure-stack-servicing-policy.md#hotfixes) zur Verfügung, um ein bestimmtes Problem zu beheben, das häufig hinderlich oder zeitkritisch ist. Jeder Hotfix wird mit einem entsprechenden Microsoft Knowledge Base-Artikel veröffentlicht, der das Problem, die Ursache und die Lösung beschreibt. Hotfixes werden wie die regulären Pakete mit vollständigen Updatepaketen für Azure Stack Hub heruntergeladen und installiert. Hotfixes sind kumulativ und können innerhalb von Minuten installiert werden.
+- **Azure Stack Hub-Hotfixes**. Microsoft stellt [Hotfixes für Azure Stack Hub](azure-stack-servicing-policy.md#hotfixes) zur Verfügung, um ein bestimmtes Problem zu beheben, das häufig hinderlich oder zeitkritisch ist. Jeder Hotfix wird mit einem entsprechenden Artikel in der Wissensdatenbank von Microsoft veröffentlicht, der die Fehlerbehebung im Detail beschreibt. Hotfixes werden wie die regulären Pakete mit vollständigen Updatepaketen für Azure Stack Hub heruntergeladen und installiert. Hotfixes sind kumulativ und können innerhalb von Minuten installiert werden.
 
    Ab dem Build 2005 werden bei der Aktualisierung auf eine neue Hauptversion (z. B. von 1.2002.x auf 1.2005.x) die aktuellen Hotfixes (sofern verfügbar) in der neuen Hauptversion automatisch installiert. Wenn danach ein Hotfix für Ihren Build veröffentlicht wird, sollten Sie ihn installieren.
 
@@ -59,7 +59,7 @@ Die Benachrichtigungen über Updates hängen von einigen Faktoren ab, z. B. der
 
     Eine Updatewarnung für Microsoft-Softwareupdates und -Hotfixes wird auf dem Blatt **Update** für Azure Stack Hub-Instanzen angezeigt, die mit dem Internet verbunden sind. Wird das Blatt **Update** nicht angezeigt, starten Sie die Controller-VM für die Infrastrukturverwaltung neu.
 
-    Wenn Ihre Instanz nicht verbunden ist und Sie bei jedem Hotfixrelease benachrichtigt werden möchten, abonnieren Sie den [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)- oder [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)-Feed.
+    Wenn Ihre Instanz nicht verbunden ist und Sie bei jedem Hotfixrelease benachrichtigt werden möchten, abonnieren Sie den [RSS-Feed](https://azurestackhubdocs.azurewebsites.net/xml/hotfixes.rss).
 
 - **Updates des OEM-Hardwareanbieters**
 

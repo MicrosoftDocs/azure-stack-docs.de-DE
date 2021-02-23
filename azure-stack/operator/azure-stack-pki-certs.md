@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 8304ef3fe981545ac05de64b335c1edabdf32651
-ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
+ms.openlocfilehash: 2368c38e5fc06b36e11eb19069092b4e8a999406
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97965527"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487815"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Zertifikatanforderungen für Azure Stack Hub-PKI (Public Key-Infrastruktur)
 
@@ -28,7 +28,7 @@ Azure Stack Hub verfügt über ein öffentliches Infrastrukturnetz mit extern zu
 ## <a name="certificate-requirements"></a>Zertifikatanforderungen
 In der folgenden Liste werden die allgemeinen Anforderungen an Zertifikatausstellung, Sicherheit und Formatierung beschrieben:
 
-- Zertifikate müssen von einer internen oder öffentlichen Zertifizierungsstelle ausgestellt werden. Wenn eine öffentliche Zertifizierungsstelle verwendet wird, muss diese im Rahmen des Microsoft Trusted Root Authority Program in das Basisbetriebssystem-Image aufgenommen werden. Sie finden die vollständige Liste unter [Microsoft Trusted Root Certificate Program: Participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+- Zertifikate müssen von einer internen oder öffentlichen Zertifizierungsstelle ausgestellt werden. Wenn eine öffentliche Zertifizierungsstelle verwendet wird, muss diese im Rahmen des Microsoft Trusted Root Authority Program in das Basisbetriebssystem-Image aufgenommen werden. Eine vollständige Liste finden Sie unter [Teilnehmerliste des Microsoft Trusted Root Program](/security/trusted-root/participants-list).
 - Ihre Azure Stack Hub-Infrastruktur muss über Netzwerkzugriff auf den im Zertifikat veröffentlichten Speicherort der Zertifikatsperrliste (Certificate Revocation List, CRL) der Zertifizierungsstelle verfügen. Bei dieser CRL muss es sich um einen HTTP-Endpunkt handeln.
 ::: moniker range="< azs-1903"
 - Beim Rotieren von Zertifikaten in Builds vor 1903 müssen diese entweder von der gleichen internen Zertifizierungsstelle stammen, die auch zum Signieren der bei der Bereitstellung angegebenen Zertifikate verwendet wurde, oder von einer der oben angegebenen öffentlichen Zertifizierungsstellen.

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/22/2020
 ms.author: sethm
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 27653bcb9cfee29abd4a4587ceee67eb698a93bb
-ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
+ms.openlocfilehash: fe0ff0d81ebf863ff2096675ba113a5416136e8f
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697640"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009076"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurieren einer IPsec/IKE-Richtlinie für Standort-zu-Standort-VPN-Verbindungen
 
@@ -75,7 +75,7 @@ Die folgende Tabelle gibt Aufschluss über die unterstützten Kryptografiealgori
 | IKEv2-Integrität                                      | SHA384, SHA256, SHA1, MD5                                                |
 | DH-Gruppe                                             | ECP384, DHGroup14, DHGroup2, DHGroup1, ECP256 *, DHGroup24*             |
 | IPsec-Verschlüsselung                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, keine |
-| IPsec-Integrität                                      | GCMAES256, GCMAES192, GCMAES128                                          |
+| IPsec-Integrität                                      | GCMAES256, GCMAES192, GCMAES128, SHA256                                         |
 | PFS-Gruppe                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, PFSMM, Keine                  |
 | QM-SA-Gültigkeitsdauer                                       | (Optional: Wenn kein Wert angegeben wird, werden die Standardwerte verwendet.)<br />                         Sekunden (ganze Zahl; min. 300/Standard: 27.000 Sekunden)<br />                         KB (ganze Zahl; min. 1.024/Standard: 102.400.000 KB) |
 | Datenverkehrsselektor                                     | Richtlinienbasierte Datenverkehrsselektoren werden in Azure Stack Hub nicht unterstützt.         |

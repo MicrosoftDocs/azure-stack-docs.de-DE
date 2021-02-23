@@ -4,13 +4,13 @@ description: In diesem Thema erfahren Sie, wie Sie Firewalls für das Azure Stac
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
-ms.date: 01/06/2020
-ms.openlocfilehash: a67881f2dd4be5e4dce5fb967c88484c27025624
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 02/12/2021
+ms.openlocfilehash: 0bfd97b71774662ec11074951dcc956391d0fc65
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255230"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487390"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Konfigurieren von Firewalls für Azure Stack HCI
 
@@ -75,7 +75,50 @@ In diesem Abschnitt erfahren Sie, wie Sie Microsoft Defender Firewall konfigurie
     ```
 
 ## <a name="additional-endpoint-for-one-time-azure-registration"></a>Weitere Endpunkte für einmalige Azure-Registrierungen
-Während des Azure-Registrierungsprozesses versucht das Cmdlet, wenn Sie entweder `Register-AzStackHCI` oder Windows Admin Center ausführen, den PowerShell-Katalog zu kontaktieren, um zu überprüfen, ob Sie über die aktuelle Version der erforderlichen PowerShell-Module verfügen, z. B. Az und AzureAD. Obwohl der PowerShell-Katalog in Azure gehostet wird, verfügt er derzeit über kein entsprechendes Diensttag. Wenn Sie das `Register-AzStackHCI`-Cmdlet nicht auf einem Serverknoten ausführen können, da Sie keinen Zugriff auf das Internet haben, wird empfohlen, die Module auf Ihren Verwaltungscomputer herunterzuladen, und sie dann manuell auf den Serverknoten zu übertragen, auf dem Sie das Cmdlet ausführen möchten.
+Während des Azure-Registrierungsprozesses versucht das Cmdlet, wenn Sie entweder `Register-AzStackHCI` oder Windows Admin Center ausführen, den PowerShell-Katalog zu kontaktieren, um zu überprüfen, ob Sie über die aktuelle Version der erforderlichen PowerShell-Module verfügen, z. B. Az und AzureAD.
+
+Obwohl der PowerShell-Katalog in Azure gehostet wird, verfügt er derzeit über kein entsprechendes Diensttag. Wenn Sie das `Register-AzStackHCI`-Cmdlet nicht auf einem Serverknoten ausführen können, da Sie keinen Zugriff auf das Internet haben, wird empfohlen, die Module auf Ihren Verwaltungscomputer herunterzuladen, und sie dann manuell auf den Serverknoten zu übertragen, auf dem Sie das Cmdlet ausführen möchten.
+
+## <a name="set-up-a-proxy-server"></a>Einrichten eines Proxyservers
+Führen Sie den folgenden PowerShell-Befehl als Administrator aus, um einen Proxyserver für Azure Stack HCI einzurichten:
+
+```powershell
+Set-WinInetProxy -ProxySettingsPerUser 0 -ProxyServer webproxy1.com:9090
+```
+
+Verwenden Sie das Flag `ProxySettingsPerUser 0`, damit die Proxykonfiguration serverweit statt benutzerbezogen (Standardeinstellung) angewendet wird. 
+
+Laden Sie das Skript „WinInetProxy.psm1“ herunter: [PowerShell-Katalog | WinInetProxy.psm1 0.1.0](https://www.powershellgallery.com/packages/WinInetProxy/0.1.0/Content/WinInetProxy.psm1)
+
+## <a name="network-port-requirements"></a>Anforderungen an Netzwerkports
+Stellen Sie sicher, dass zwischen allen Serverknoten innerhalb eines Standorts und zwischen Standorten (bei Stretchingclustern) die richtigen Netzwerkports geöffnet sind. Sie benötigen geeignete Firewall- und Routerregeln zum Zulassen von ICMP- und SMB-Datenverkehr (Port 445 plus Port 5445 für SMB Direct) sowie von bidirektionalem WS-MAN-Datenverkehr (Port 5985) zwischen allen Servern im Cluster.
+
+Wenn Sie zum Erstellen des Clusters den Assistenten für die Clustererstellung in Windows Admin Center verwenden, öffnet dieser automatisch auf jedem Server im Cluster die entsprechenden Firewallports für Failoverclustering, Hyper-V und Speicherreplikate. Wenn Sie auf den einzelnen Servern unterschiedliche Firewalls verwenden, öffnen Sie die folgenden Ports:
+
+### <a name="failover-clustering-ports"></a>Ports für Failoverclustering
+- ICMPv4 und ICMPv6
+- TCP-Port 445
+- Dynamische RPC-Ports
+- TCP-Port 135
+- TCP-Port 137
+- TCP-Port 3343
+- UDP-Port 3343
+
+### <a name="hyper-v-ports"></a>Hyper-V-Ports
+- TCP-Port 135
+- TCP-Port 80 (HTTP-Konnektivität)
+- TCP-Port 443 (HTTPS-Konnektivität)
+- TCP-Port 6600
+- TCP-Port 2179
+- Dynamische RPC-Ports
+- RPC-Endpunktzuordnung
+- TCP-Port 445
+
+### <a name="storage-replica-ports-stretched-cluster"></a>Ports für Speicherreplikate (Stretchingcluster)
+- TCP-Port 445
+- TCP 5445 (bei Verwendung von RDMA über iWARP)
+- TCP-Port 5985
+- ICMPv4 und ICMPv6 (bei Verwendung des `Test-SRTopology`-PowerShell-Cmdlets)
 
 ## <a name="next-steps"></a>Nächste Schritte
 Weitere Informationen finden Sie auch unter:

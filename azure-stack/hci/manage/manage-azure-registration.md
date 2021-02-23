@@ -1,22 +1,22 @@
 ---
-title: Verwalten der Azure-Registrierung für Azure Stack HCI
-description: Es wird beschrieben, wie Sie Ihre Azure-Registrierung für Azure Stack HCI verwalten, sich mit dem Registrierungsstatus vertraut machen und die Registrierung für Ihren Cluster aufheben, wenn Sie bereit für die Außerbetriebnahme sind.
+title: Verwalten der Azure Stack HCI-Clusterregistrierung mit Azure
+description: Hier wird beschrieben, wie Sie Ihre Azure-Registrierung für Azure Stack HCI-Cluster verwalten, sich mit dem Registrierungsstatus vertraut machen und die Registrierung für einen Cluster aufheben, wenn Sie bereit für dessen Außerbetriebnahme sind.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: a187730ed43c6c4a57bbe2d1f81d39085d8b94a1
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/10/2021
+ms.openlocfilehash: 7128ddae1a1b67e0085806ecd988f475c9bf8708
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050092"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487458"
 ---
-# <a name="manage-azure-registration"></a>Verwalten der Azure-Registrierung
+# <a name="manage-cluster-registration-with-azure"></a>Verwalten der Clusterregistrierung mit Azure
 
 > Gilt für Azure Stack HCI v20H2
 
-Nachdem Sie einen Azure Stack HCI-Cluster erstellt haben, müssen Sie [den Cluster bei Azure Arc registrieren](../deploy/register-with-azure.md). Nach der Registrierung synchronisiert der Cluster regelmäßig Informationen zwischen dem lokalen Cluster und der Cloud. In diesem Thema wird erläutert, wie Ihr Registrierungsstatus zu verstehen ist, wie Sie Azure Active Directory-Berechtigungen gewähren und wie Sie die Registrierung Ihres Clusters aufheben, wenn Sie bereit sind, ihn außer Betrieb zu nehmen.
+Nachdem Sie einen Azure Stack HCI-Cluster erstellt haben, müssen Sie [Windows Admin Center](register-windows-admin-center.md) und anschließend den [Cluster bei Azure registrieren](../deploy/register-with-azure.md). Nach der Registrierung synchronisiert der Cluster regelmäßig Informationen zwischen dem lokalen Cluster und der Cloud. In diesem Thema wird erläutert, wie Ihr Registrierungsstatus zu verstehen ist, wie Sie Azure Active Directory-Berechtigungen gewähren und wie Sie die Registrierung Ihres Clusters aufheben, wenn Sie bereit sind, ihn außer Betrieb zu nehmen.
 
 ## <a name="understanding-registration-status-using-windows-admin-center"></a>Anzeigen der Informationen zum Registrierungsstatus per Windows Admin Center
 
@@ -162,7 +162,7 @@ Die restriktivste Option besteht im Erstellen einer benutzerdefinierten AD-Rolle
 Wenn Sie bereit für die Außerbetriebnahme Ihres Azure Stack HCI-Clusters sind, sollten Sie einfach mit Windows Admin Center eine Verbindung mit dem Cluster herstellen und auf der linken Seite ganz unten im Menü **Tools** die Option **Einstellungen** auswählen. Wählen Sie anschließend die Option **Azure Stack HCI-Registrierung** aus, und klicken Sie auf die Schaltfläche **Registrierung aufheben**. Beim Aufheben der Registrierung werden die Azure-Ressource, die den Cluster repräsentiert, die Azure-Ressourcengruppe (sofern die Gruppe während der Registrierung erstellt wurde und keine anderen Ressourcen enthält) und die Azure AD-App-Identität automatisch bereinigt. Dadurch werden alle über Azure Arc bereitgestellten Überwachungs-, Support-und Abrechnungsfunktionen beendet.
 
    > [!NOTE]
-   > Das Aufheben der Registrierung eines Azure Stack HCI-Clusters muss von einem Azure Active Directory-Administrator oder einem anderen Benutzer, an den ausreichende Berechtigungen delegiert wurden, durchgeführt werden. Weitere Informationen finden Sie unter [Azure Active Directory-Benutzerberechtigungen](#azure-active-directory-user-permissions).
+   > Das Aufheben der Registrierung eines Azure Stack HCI-Clusters muss von einem Azure Active Directory-Administrator oder einem anderen Benutzer, an den ausreichende Berechtigungen delegiert wurden, durchgeführt werden. Weitere Informationen finden Sie unter [Azure Active Directory-Benutzerberechtigungen](#azure-active-directory-user-permissions). Wenn Ihr Windows Admin Center-Gateway für eine andere Mandanten-ID von Azure Active Directory als diejenige registriert ist, die ursprünglich für die Registrierung des Clusters verwendet wurde, können Probleme auftreten, wenn Sie die Registrierung des Clusters über Windows Admin Center aufheben möchten. Befolgen Sie die untenstehenden PowerShell-Anweisungen, wenn dieser Fall eintritt.
 
 ## <a name="unregister-azure-stack-hci-using-powershell"></a>Aufheben der Registrierung für Azure Stack HCI mit PowerShell
 
@@ -200,8 +200,27 @@ Wenn ein Azure Stack HCI-Cluster von einem Benutzer zerstört wird, ohne die Reg
 
 Navigieren Sie im Azure-Portal zur Seite der Ressource, und wählen Sie oben in der Aktionsleiste die Option **Löschen** aus, um die Azure Stack HCI-Ressource zu löschen. Geben Sie den Namen der Ressource ein, um den Löschvorgang zu bestätigen, und wählen Sie dann **Löschen** aus. Navigieren Sie zum Löschen der Azure AD-App-Identität zu **Azure AD** > **App-Registrierungen**. Sie ist unter **Alle Anwendungen** angegeben. Wählen Sie **Löschen** aus, und bestätigen Sie den Vorgang.
 
+Sie können die Azure Stack HCI-Ressource auch mithilfe von PowerShell löschen:
+
+```PowerShell
+Remove-AzResource -ResourceId "HCI001"
+```
+
+Möglicherweise müssen Sie das Modul `Az.Resources` installieren:
+
+```PowerShell
+Install-Module -Name Az.Resources
+```
+
+Wenn die Ressourcengruppe während der Registrierung erstellt wurde und keine weiteren Ressourcen enthält, können Sie sie auch löschen:
+
+```PowerShell
+Remove-AzResourceGroup -Name "HCI001-rg"
+```
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 Verwandte Informationen finden Sie außerdem unter:
 
+- [Registrieren von Windows Admin Center bei Azure](register-windows-admin-center.md)
 - [Herstellen einer Verbindung von Azure Stack HCI mit Azure](../deploy/register-with-azure.md)

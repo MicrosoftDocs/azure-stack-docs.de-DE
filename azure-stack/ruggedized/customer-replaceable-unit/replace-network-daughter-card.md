@@ -3,16 +3,16 @@ title: Ersetzen einer Netzwerktochterkarte
 description: Hier erfahren Sie, wie Sie eine Netzwerktochterkarte ersetzen.
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: dcf7240b3f62758fc1468890fcd4ce19ccb89bd8
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 2d63631cf1c5300c617f3a7164d1681d2edd7bc4
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874607"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487900"
 ---
 # <a name="replacing-a-network-daughter-card"></a>Ersetzen einer Netzwerktochterkarte
 
@@ -26,19 +26,19 @@ Verwenden Sie die folgenden Schritte, um eine Netzwerktochterkarte oder mehrere 
 
 3.  Überprüfung
 
-    -   Sie müssen über die erforderlichen Kenntnisse zum Arbeiten mit Skalierungseinheitknoten in einer Tactical Cloud Appliance verfügen.
+    -   Sie müssen über die erforderlichen Kenntnisse zum Arbeiten mit Skalierungseinheitknoten in Azure Stack Hub Ruggedized verfügen.
 
     -   Sie müssen über die erforderlichen Kenntnisse auf Seite 5 zum Arbeiten mit dem Hardwarelebenszyklushost bei Verwendung des Hardwarelebenszyklushosts verfügen.
 
 4.  Abgeschlossen
 
-    -   Sie müssen die Überprüfung des Zugriffs und der Integrität des Skalierungseinheitknotens bei Verwendung eines Skalierungseinheitknotens abgeschlossen haben.
+    -   Sie müssen den Schritt „Überprüfen des Zugriffs und der Integrität von Skalierungseinheitknoten“ abgeschlossen haben, wenn Sie einen Skalierungseinheitknoten verwenden.
 
     -   Sie müssen die Überprüfung des Zugriffs und der Integrität für den Hardwarelebenszyklushost bei Verwendung des Hardwarelebenszyklushosts abgeschlossen haben.
 
 5.  Abgeschlossen
 
-    -   Ausschalten der Skalierungseinheitknoten bei Verwendung eines Skalierungseinheitknotens
+    -   Sie müssen den Schritt „Ausschalten von Skalierungseinheitknoten“ abgeschlossen haben, wenn Sie einen Skalierungseinheitknoten verwenden.
 
     -   Sie müssen den Schritt zum Abschalten des Hardwarelebenszyklushosts bei Verwendung des Hardwarelebenszyklushosts abgeschlossen haben.
 
@@ -54,7 +54,7 @@ Verwenden Sie die folgenden Schritte, um eine Netzwerktochterkarte oder mehrere 
     
 3.  Ersetzen Sie die Netzwerktochterkarte oder die Karten.
 
-    Befolgen Sie die Schritte zum Austauschen der Netzwerktochterkarte im [Dell EMC PowerEdge R640 Installations- und Service-Handbuch](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) für Skalierungseinheitknoten oder Hardwarelebenszyklushosts.
+    Befolgen Sie die Anleitung zum [Austauschen einer Netzwerktochterkarte](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) für Skalierungseinheitknoten oder Hardwarelebenszyklushosts.
     
 4.  Schalten Sie den Knoten ein.
 
@@ -62,7 +62,7 @@ Verwenden Sie die folgenden Schritte, um eine Netzwerktochterkarte oder mehrere 
     
 ## <a name="next-steps"></a>Nächste Schritte
 
-Gehen Sie bei der Arbeit mit einem Skalierungseinheitknoten wie folgt vor:
+Wenn Sie mit einem Skalierungseinheitknoten arbeiten:
 
 1.  Schließen Sie den Schritt „Einschalten und Reparieren eines Skalierungseinheitknotens“ ab.
 

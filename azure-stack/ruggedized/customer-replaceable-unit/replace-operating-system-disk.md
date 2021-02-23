@@ -3,20 +3,20 @@ title: Ersetzen eines Betriebssystemdatenträgers
 description: Hier erfahren Sie mehr über das Ersetzen eines Betriebssystemdatenträgers.
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 36050d42a012ffc40db98ab506b1ef81086e609a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 24447611a4b3c775b92f4d163bb250060e29417e
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867637"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487832"
 ---
 # <a name="replacing-an-operating-system-disk"></a>Ersetzen eines Betriebssystemdatenträgers
 
-Mithilfe der folgenden Aktionen können Sie einen fehlerhaften Betriebssystemdatenträger in einem Skalierungseinheitknoten ersetzen.
+Mithilfe der folgenden Vorgehensweise können Sie einen fehlerhaften Betriebssystemdatenträger in einem Skalierungseinheitknoten austauschen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -24,13 +24,13 @@ Mithilfe der folgenden Aktionen können Sie einen fehlerhaften Betriebssystemdat
 
 2.  Sehen Sie sich die Vorsichtsmaßnahmen bei der Handhabung an.
 
-3.  Sie müssen über die erforderlichen Kenntnisse für das Arbeiten mit Skalierungseinheitknoten in einer Tactical Cloud Appliance bei Verwendung eines Skalierungseinheitknotens verfügen.
+3.  Sie müssen über die erforderlichen Kenntnisse für das Arbeiten mit Skalierungseinheitknoten in Azure Stack Hub Ruggedized verfügen, wenn Sie einen Skalierungseinheitknoten verwenden.
 
 4.  Schließen Sie den Schritt „Überprüfen des Zugriffs und der Integrität des Skalierungseinheitknotens“ ab.
 
 5.  Schließen Sie den Schritt „Ausschalten von Skalierungseinheitknoten“ ab.
 
-    Bei den Azure Stack Hub-Skalierungseinheitknoten wird das Betriebssystem von einem gespiegelten Paar von M.2-SSD-Modulen auf der Dell PowerEdge-BOSS-Karte (Boot Optimized Storage Solution) ausgeführt. Das System muss ausgeschaltet werden, um einen Betriebssystemdatenträger ersetzen zu können.
+    Bei Azure Stack Hub-Skalierungseinheitknoten wird das Betriebssystem von einem gespiegelten M.2-SSD-Modulpaar auf der BOSS-Karte (Boot Optimized Storage Solution) ausgeführt. Das System muss ausgeschaltet werden, um einen Betriebssystemdatenträger ersetzen zu können.
     
 ## <a name="steps"></a>Schritte
 
@@ -43,7 +43,7 @@ Mithilfe der folgenden Aktionen können Sie einen fehlerhaften Betriebssystemdat
     
 3.  Ersetzen Sie die M.2-SSD-Module, bei denen ein Fehler aufgetreten ist.
 
-    Befolgen Sie die Schritte zum Austauschen des M.2-SSD-Moduls im [Dell EMC PowerEdge R640 Installations- und Service-Handbuch](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) für Skalierungseinheitknoten.
+    Befolgen Sie für Skalierungseinheitknoten die [Anleitung zum Austauschen von M.2-SSD-Modulen](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4).
     
 4.  Schalten Sie den Knoten ein.
 

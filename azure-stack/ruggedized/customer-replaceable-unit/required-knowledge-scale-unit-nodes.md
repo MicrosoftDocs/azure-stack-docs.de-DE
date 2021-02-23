@@ -1,20 +1,20 @@
 ---
-title: Sie müssen über die erforderlichen Kenntnisse zum Arbeiten mit Skalierungseinheitknoten in einer Tactical Cloud Appliance verfügen.
-description: Lesen Sie mehr über die erforderlichen Kenntnisse zum Arbeiten mit Skalierungseinheitknoten in einer Tactical Cloud Appliance (TCA).
+title: Erforderliche Kenntnisse zum Arbeiten mit Skalierungseinheitknoten in Azure Stack Hub Ruggedized
+description: Hier erfahren Sie mehr über die erforderlichen Kenntnisse zum Arbeiten mit Skalierungseinheitknoten in Azure Stack Hub Ruggedized.
 author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 4df7cfa84ff9b4a08d6751aa19ffdb1430a80605
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: b96bf9ecd1f46495da2aa4c2d49d66cc0aff1b53
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256131"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487798"
 ---
-# <a name="required-knowledge-for-working-with-scale-unit-nodes-in-a-tactical-cloud-appliance"></a>Sie müssen über die erforderlichen Kenntnisse zum Arbeiten mit Skalierungseinheitknoten in einer Tactical Cloud Appliance verfügen.
+# <a name="required-knowledge-for-working-with-scale-unit-nodes-in-azure-stack-hub-ruggedized"></a>Erforderliche Kenntnisse zum Arbeiten mit Skalierungseinheitknoten in Azure Stack Hub Ruggedized
 
 Zum Abschließen von FRU-Prozeduren müssen Ihnen die folgenden Konzepte, Anleitungen und Websites vertraut sein, und Sie müssen darauf zugreifen können.
 
@@ -25,7 +25,6 @@ Bei der Arbeitsstation mit privilegiertem Zugriff (Privileged Access Workstation
 Sie müssen sich über den Remotedesktop anmelden, um auf die PAW zugreifen zu können. Rufen Sie die Anmeldeinformationen und die IP-Adresse des Kunden ab.
 
 Auf diesem Computer können Sie auch auf den privilegierten Endpunkt (PEP) zugreifen.
-Weitere Informationen zur Arbeitsstation mit privilegiertem Zugriff sowie zum PEP finden Sie unter „Arbeitsstation mit privilegiertem Zugriff und privilegierter Endpunktzugriff“.
 
 ## <a name="azure-stack-hub-administrator-portal"></a>Azure Stack Hub-Verwaltungsportal
 
@@ -33,16 +32,4 @@ Rufen Sie die Anmeldeinformationen und die URL des Administratorportals vom Kund
 Weitere Informationen finden Sie unter [Verwenden des Administratorportals](../../operator/azure-stack-manage-portals.md)
 [in Azure Stack Hub](../../operator/azure-stack-manage-portals.md).
 
-## <a name="dell-emc-poweredge-r640-installation-and-service-manual"></a>Installations- und Servicehandbuch für Dell EMC PowerEdge R640
 
-Ausführliche Informationen zu einer physischen Ersetzung der relevanten Hardware finden Sie in den Prozeduren zum Installieren und Entfernen von PowerEdge R640-Systemkomponenten im [Dell EMC PowerEdge R640 Installations- und Service-Handbuch](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4).
-Navigieren Sie zum Abschnitt [Installieren und Entfernen](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/installing-and-removing-system-components?guid=guid-5a5943c4-fe26-4faa-a10c-2afa4c1993ff&lang=en-us)
-[von Systemkomponenten](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/installing-and-removing-system-components?guid=guid-5a5943c4-fe26-4faa-a10c-2afa4c1993ff&lang=en-us).
-
-## <a name="microsoft-azure-stack-hub-tactical-cloud-appliance-service-manual"></a>Serviceleitfaden zu Tactical Cloud Appliances in Microsoft Azure Stack Hub
-
-Der Serviceleitfaden zu Tactical Cloud Appliances in Microsoft Azure Stack Hub enthält Anleitungen für das Entfernen von Servern von Skalierungseinheitknoten aus Tracewell Tactical Pods.
-
-## <a name="dell-emc-poweredge-idrac"></a>iDRAC-Webschnittstelle für Dell EMC PowerEdge
-
-Sie müssen über Navigation und Verwendung der iDRAC-Webschnittstelle für Dell EMC PowerEdge informiert sein. Weitere Informationen zur Verwendung von iDRAC finden Sie im [Integrierten Benutzerleitfaden zum Dell Remote Access Controller 9](https://www.dell.com/support/manuals/us/en/04/poweredge-r840/idrac9_4.00.00.00_ug_new/overview-of-idrac?guid=guid-a03c2558-4f39-40c8-88b8-38835d0e9003).
