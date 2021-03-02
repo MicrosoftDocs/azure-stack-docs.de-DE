@@ -4,13 +4,13 @@ description: Hier erfahren Sie, wie Sie Betriebssystem- und Firmwareupdates übe
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/25/2020
-ms.openlocfilehash: 751551b827ef5d3c871f0224bfa60d9f79fc5d45
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.date: 02/05/2021
+ms.openlocfilehash: 2ed1a6c2443f7222a873c412e991b4a39b253309
+ms.sourcegitcommit: ec19e8455b5cb90a071afb03ec1446b0a9aafb99
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98771985"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99588647"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Aktualisieren von Azure Stack HCI-Clustern
 
@@ -24,6 +24,9 @@ Dieses Thema konzentriert sich auf Betriebssystem- und Softwareupdates. Informat
 
 Windows Admin Center bietet eine einfache Benutzeroberfläche, über die Sie problemlos einen Cluster aktualisieren und Betriebssystem- und Lösungsupdates anwenden können. Wenn Sie ein integriertes System bei einem Microsoft-Hardwarepartner erworben haben, können Sie ganz einfach die neuesten Treiber-, Firmware- und anderweitigen Updates direkt vom Windows Admin Center abrufen, indem Sie die entsprechenden Updateerweiterung des Partners installieren. Wenn Ihre Hardware nicht als integriertes System erworben wurde, müssen Firmware- und Treiberupdates möglicherweise separat ausgeführt werden. Folgen Sie dazu den Empfehlungen des Hardwareherstellers.
 
+   > [!WARNING]
+   > Wenn Sie den Updateprozess mit Windows Admin Center starten, sollten Sie den Assistenten so lange verwenden, bis die Updates abgeschlossen sind. Versuchen Sie nicht, das Tool für clusterfähiges Aktualisieren zu verwenden oder einen Cluster mit PowerShell zu aktualisieren, nachdem der Updateprozess in Windows Admin Center nur teilweise durchgeführt wurde. Falls Sie anstelle von Windows Admin Center lieber PowerShell zum Durchführen des Updatevorgangs nutzen möchten, können Sie mit dem Abschnitt [Aktualisieren eines Clusters mithilfe von PowerShell](#update-a-cluster-using-powershell) fortfahren.
+
 Führen Sie diese Schritte aus, um Updates zu installieren:
 
 1. Wenn Sie eine Verbindung mit einem Cluster herstellen, informiert das Windows Admin Center-Dashboard Sie, falls für einen Ihrer Server ein Update zu installieren ist, und stellt einen Link bereit, über den Sie das Update direkt ausführen können. Alternativ dazu können Sie im Menü **Tools** auf der linken Seite die Option **Updates** auswählen.
@@ -36,6 +39,9 @@ Führen Sie diese Schritte aus, um Updates zu installieren:
    > Um die clusterfähige Aktualisierung in Windows Admin Center zu verwenden, müssen Sie den Credential Security Service Provider (CredSSP) aktivieren und explizite Anmeldeinformationen angeben. Falls Sie gefragt werden, ob CredSSP aktiviert werden soll, klicken Sie auf **Ja**. Geben Sie Ihren Benutzernamen und Ihr Kennwort ein, und klicken Sie auf **Weiter**.
 
 3. Der Updatestatus des Clusters wird angezeigt. Klicken Sie auf **Auf Updates prüfen**, um eine Liste der Betriebssystemupdates abzurufen, die für die einzelnen Server im Cluster verfügbar sind. Unter Umständen müssen Sie Administratoranmeldeinformationen angeben. Wenn keine Betriebssystemupdates verfügbar sind, klicken Sie auf **Next: hardware updates** (Weiter: Hardwareupdates), und fahren Sie mit Schritt 7 fort.
+
+   > [!IMPORTANT]
+   > Wenn Sie den Updatebildschirm während der Durchführung von Updates verlassen, kann es bis zum Abschluss des Updatevorgangs zu unerwartetem Verhalten kommen, z. B. einer fehlerhaften Anzeige im Verlaufsabschnitt auf der Seite mit den Updates. Wir empfehlen Ihnen, Windows Admin Center in einer neuen Browserregisterkarte oder einem neuen Fenster zu öffnen, falls Sie die Anwendung während der Durchführung der Updatevorgänge weiter nutzen möchten.
 
 4. Klicken Sie auf **Weiter: Install** (Installieren), um mit der Installation der Betriebssystemupdates fortzufahren, oder klicken Sie auf **Überspringen**, um sie auszulassen. 
 

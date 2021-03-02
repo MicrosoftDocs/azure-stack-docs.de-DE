@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/21/2021
-ms.openlocfilehash: 2ceace372e3b15851c1fa659532bb2fd4d8f8ee8
-ms.sourcegitcommit: 925351b77490364b3d52746f788c4c1b93343631
+ms.date: 02/04/2021
+ms.openlocfilehash: 7c501650d5c9a4d2d6df66269f689d80ffd3f8e0
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98707017"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570683"
 ---
 # <a name="compare-azure-stack-hci-to-azure-stack-hub"></a>Vergleichen der Azure Stack HCI mit Azure Stack Hub
 
@@ -42,7 +42,7 @@ In der folgenden Tabelle werden Anwendungsfälle verglichen, in denen Azure Stac
 | Azure Stack HCI                                                                 | Azure Stack Hub                                                                          |
 | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | In Azure Stack HCI wird Mehrinstanzenfähigkeit nicht nativ erzwungen oder bereitgestellt. | Verwenden Sie Azure Stack Hub für Self-Service-IaaS-Zwecke (Infrastructure-as-a-Service) mit starker Isolation und präziser Nutzungsnachverfolgung und verbrauchsbasierter Kostenzuteilung für mehrere zusammengestellte Mandanten. Ideal für Dienstanbieter und private Clouds von Unternehmen geeignet. Vorlagen aus dem Azure Marketplace. | 
-| In der Azure Stack HCI werden PaaS-Dienste (Platform-as-a-Service) nicht lokal ausgeführt. | Verwenden Sie Azure Stack Hub, um Apps zu entwickeln und auszuführen, die auf lokalen PaaS-Diensten (Platform-as-a-Service) wie Web-Apps, Azure Functions oder Azure Event Hubs basieren. Diese Dienste werden unter Azure Stack Hub genauso wie in Azure ausgeführt und stellen eine einheitliche Hybridentwicklungs- und Laufzeitumgebung dar. |
+| Für Azure Stack HCI ist die lokale Ausführung von PaaS-Diensten (Platform-as-a-Service) nicht vorgesehen, aber das Hosten von [Azure Kubernetes Service](../../aks-hci/overview.md) ist möglich. | Verwenden Sie Azure Stack Hub, um Apps zu entwickeln und auszuführen, die auf lokalen PaaS-Diensten (Platform-as-a-Service) wie Web-Apps, Azure Functions oder Azure Event Hubs basieren. Diese Dienste werden unter Azure Stack Hub genauso wie in Azure ausgeführt und stellen eine einheitliche Hybridentwicklungs- und Laufzeitumgebung dar. |
 | Azure Stack HCI enthält keine nativen DevOps-Tools. | Nutzen Sie Azure Stack Hub, um Bereitstellung und Betrieb von Apps mit DevOps-Methoden (etwa „Infrastructure-as-Code“ oder Continuous Integration und Continuous Deployment (CI/CD)) und benutzerfreundlichen Features (etwa einheitlichen Azure-VM-Erweiterungen) zu modernisieren. Ideal geeignet für Entwicklungs- und DevOps-Teams. |
 
 ## <a name="next-steps"></a>Nächste Schritte
