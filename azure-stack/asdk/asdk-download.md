@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2019
-ms.openlocfilehash: 3f8a0615f18ddf9ba4a98c2af2b947c49cfdd550
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: de9085ee201fd472a0ffd71cb97f519f66fe3621
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873264"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839673"
 ---
 # <a name="download-and-extract-the-asdk"></a>Herunterladen und Extrahieren des ASDK
 Nachdem Sie sich vergewissert haben, dass Ihr Development Kit-Hostcomputer die Mindestanforderungen für die Installation des ASDK (Azure Stack Development Kit) erfüllt, besteht der nächste Schritt darin, das ASDK-Bereitstellungspaket herunterzuladen und zu extrahieren, um die Datei „CloudBuilder.vhdx“ zu erhalten.
@@ -24,7 +24,7 @@ Nachdem Sie sich vergewissert haben, dass Ihr Development Kit-Hostcomputer die M
    - [.NET Framework 4.6 (oder eine höhere Version)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) muss installiert sein.
 
 2. [Navigieren Sie zur Seite mit den ersten Schritten](https://azure.microsoft.com/overview/azure-stack/try/?v=try), auf der Sie das ASDK herunterladen und Ihre Details angeben können. Klicken Sie anschließend auf **Übermitteln**.
-3. Laden Sie die [Deployment Checker for ASDK](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) (Bereitstellungsüberprüfung für ASDK) herunter, und führen Sie dieses Skript zur Überprüfung der Voraussetzungen aus. Mit diesem eigenständigen Skript werden die Voraussetzungsüberprüfungen des Setups für das ASDK durchlaufen. Hiermit können Sie sicherstellen, dass die Hardware- und Softwareanforderungen erfüllt sind, bevor Sie das größere Paket für das ASDK herunterladen.
+3. Laden Sie die [Deployment Checker for ASDK](https://github.com/Azure/AzureStack-Tools/blob/master/Deployment/asdk-prechecker.ps1) (Bereitstellungsüberprüfung für ASDK) herunter, und führen Sie dieses Skript zur Überprüfung der Voraussetzungen aus. Mit diesem eigenständigen Skript werden die Voraussetzungsüberprüfungen des Setups für das ASDK durchlaufen. Hiermit können Sie sicherstellen, dass die Hardware- und Softwareanforderungen erfüllt sind, bevor Sie das größere Paket für das ASDK herunterladen.
 4. Klicken Sie unter **Software herunterladen** auf **Azure Stack Development Kit**.
 
    > [!NOTE]

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 7372cea4544a2cdb4b0d0e6ed54d07253d6d782c
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: 593ea0ca882b5aa7d57ff5a3267d35519be3b6f2
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103086"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840064"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Wartungsvorgänge für MySQL-Ressourcenanbieter in Azure Stack Hub
 
@@ -51,7 +51,7 @@ Zum Aktualisieren der Defender-Definitionen können Sie das folgende Skript bear
 
 ```powershell
 # Set credentials for the local admin on the resource provider VM.
-$vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
+$vmLocalAdminPass = ConvertTo-SecureString '<local admin user password>' -AsPlainText -Force
 $vmLocalAdminUser = "<local admin user name>"
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
     ($vmLocalAdminUser, $vmLocalAdminPass)
@@ -252,11 +252,11 @@ Die Azure-Diagnoseerweiterung wird standardmäßig auf dem virtuellen Computer d
    
    ![Navigieren zu den Diagnoseeinstellungen](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. Fügen Sie **Microsoft-AzureStack-DatabaseAdapter/Operational!\** _ hinzu, um Betriebsereignisprotokolle des MySQL-Ressourcenanbieters zu sammeln.
+4. Fügen Sie **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** hinzu, um Betriebsereignisprotokolle des MySQL-Ressourcenanbieters zu sammeln.
 
    ![Hinzufügen von Ereignisprotokollen](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 
-5. Wenn Sie die Sammlung von IIS-Protokollen aktivieren möchten, aktivieren Sie die Optionen _ *IIS-Protokolle** und **Protokolle zu fehlerhaften Anforderungen**.
+5. Wenn Sie die Sammlung von IIS-Protokollen aktivieren möchten, aktivieren Sie die Optionen **IIS-Protokolle** und **Protokolle zu fehlerhaften Anforderungen**.
 
    ![Hinzufügen von IIS-Protokollen](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
 

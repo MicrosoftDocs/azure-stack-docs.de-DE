@@ -8,12 +8,12 @@ ms.date: 11/16/2020
 ms.lastreviewed: 11/16/2020
 ms.custom: contperf-fy20q4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: bd66c181aaafafeb34a2da1e56c4ab01ce27b9f1
-ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
+ms.openlocfilehash: 57ab28cbc548c8b5b8329fb7c9c8c73aee3b7d93
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697697"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840727"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Verwenden einer App-Identität für den Zugriff auf Azure Stack Hub-Ressourcen
 
@@ -83,7 +83,7 @@ Die Skripts müssen in einer PowerShell-Konsole mit erhöhten Rechten („Als Ad
 
 Wenn Sie ein Zertifikat für Anmeldeinformationen erstellen, müssen die folgenden Anforderungen erfüllt sein:
 
- - Zertifikate müssen für die Produktion von einer internen oder einer öffentlichen Zertifizierungsstelle ausgestellt werden. Wenn Sie eine öffentliche Zertifizierungsstelle verwenden, muss die Zertifizierungsstelle im Rahmen des Microsoft Trusted Root Authority Program in das Basisbetriebssystem-Image aufgenommen werden. Sie finden die vollständige Liste unter [Microsoft Trusted Root Certificate Program: Participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca). Ein Beispiel für das Erstellen eines „selbstsignierten“ Testzertifikats finden Sie auch weiter unten in diesem Artikel unter [Aktualisieren der Zertifikatanmeldeinformationen](#update-a-certificate-credential). 
+ - Zertifikate müssen für die Produktion von einer internen oder einer öffentlichen Zertifizierungsstelle ausgestellt werden. Wenn Sie eine öffentliche Zertifizierungsstelle verwenden, muss die Zertifizierungsstelle im Rahmen des Microsoft Trusted Root Authority Program in das Basisbetriebssystem-Image aufgenommen werden. Eine vollständige Liste finden Sie unter [Teilnehmerliste des Microsoft Trusted Root Program](/security/trusted-root/participants-list). Ein Beispiel für das Erstellen eines „selbstsignierten“ Testzertifikats finden Sie auch weiter unten in diesem Artikel unter [Aktualisieren der Zertifikatanmeldeinformationen](#update-a-certificate-credential). 
  - Der Kryptografieanbieter muss als Microsoft Legacy-CSP-Schlüsselanbieter (Microsoft Legacy Cryptographic Service Provider) angegeben werden.
  - Das Zertifikatformat muss eine PFX-Datei sein, da sowohl der öffentliche als auch der private Schlüssel benötigt wird. Windows-Server verwenden PFX-Dateien, die die Datei für den öffentlichen Schlüssel (TLS-/SSL-Zertifikatdatei) und die zugehörige Datei für den privaten Schlüssel enthalten.
  - Ihre Azure Stack Hub-Infrastruktur muss über Netzwerkzugriff auf den im Zertifikat veröffentlichten Speicherort der Zertifikatsperrliste (Certificate Revocation List, CRL) der Zertifizierungsstelle verfügen. Bei dieser CRL muss es sich um einen HTTP-Endpunkt handeln.

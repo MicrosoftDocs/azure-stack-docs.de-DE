@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 212d6c89bedc6f46eb6db2cbf735fa61ea0ad909
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: 05ff121ccba8076276c8dd7106d56992500b57d8
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103098"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840285"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Wartungsvorgänge von SQL-Ressourcenanbietern
 
@@ -157,7 +157,7 @@ Zum Aktualisieren der Defender-Definitionen können Sie das folgende Skript bear
 
 ```powershell
 # Set credentials for local admin on the resource provider VM.
-$vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
+$vmLocalAdminPass = ConvertTo-SecureString '<local admin user password>' -AsPlainText -Force
 $vmLocalAdminUser = "<local admin user name>"
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
     ($vmLocalAdminUser, $vmLocalAdminPass)
@@ -260,10 +260,10 @@ Die Azure-Diagnoseerweiterung wird standardmäßig auf dem virtuellen Computer d
 3. Navigieren Sie in den **Diagnoseeinstellungen** des virtuellen Computers zur Registerkarte **Protokolle**, und wählen Sie **Benutzerdefiniert** aus, um die zu erfassenden Ereignisprotokolle anzupassen.
 ![Navigieren zu den Diagnoseeinstellungen](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
 
-4. Fügen Sie **Microsoft-AzureStack-DatabaseAdapter/Operational!\** _ hinzu, um Betriebsereignisprotokolle des SQL-Ressourcenanbieters zu sammeln.
+4. Fügen Sie **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** hinzu, um Betriebsereignisprotokolle des SQL-Ressourcenanbieters zu sammeln.
 ![Hinzufügen von Ereignisprotokollen](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
 
-5. Wenn Sie die Sammlung von IIS-Protokollen aktivieren möchten, aktivieren Sie die Optionen _ *IIS-Protokolle** und **Protokolle zu fehlerhaften Anforderungen**.
+5. Wenn Sie die Sammlung von IIS-Protokollen aktivieren möchten, aktivieren Sie die Optionen **IIS-Protokolle** und **Protokolle zu fehlerhaften Anforderungen**.
 ![Hinzufügen von IIS-Protokollen](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
 
 6. Wählen Sie abschließend **Speichern** aus, um alle Diagnoseeinstellungen zu speichern.
