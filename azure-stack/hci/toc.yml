@@ -112,6 +112,8 @@
       items:
         - name: Bereitstellen einer SDN-Infrastruktur
           href: manage/sdn-express.md
+        - name: Verwenden der Rechenzentrumsfirewall
+          href: manage/use-datacenter-firewall-windows-admin-center.md
         - name: Verwenden der Rechenzentrumsfirewall mit PowerShell
           href: manage/use-datacenter-firewall-powershell.md
         - name: Verwalten logischer Mandantennetzwerke
@@ -160,7 +162,9 @@
           href: concepts/physical-network-requirements.md
         - name: Anforderungen für Hostnetzwerke
           href: concepts/host-network-requirements.md
-        - name: Software-Defined Networking (SDN)
+    - name: Software-Defined Networking (SDN)
+      items:
+        - name: Übersicht über SDN
           href: concepts/software-defined-networking.md
         - name: Planen einer SDN-Infrastruktur
           href: concepts/plan-software-defined-networking-infrastructure.md
