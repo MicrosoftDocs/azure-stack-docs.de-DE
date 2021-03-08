@@ -21,24 +21,44 @@
           href: create-kubernetes-cluster-powershell.md
 - name: Tutorials
   items:
+    - name: Bereitstellen von .NET-Anwendungen
+      href: deploy-windows-application.md
     - name: Verwenden von Linux-Containern
       href: deploy-linux-application.md
 - name: Konzepte
   items:
-    - name: 'Azure Kubernetes in Azure Stack HCI: Konzepte'
+    - name: Cluster und Workloads
       href: kubernetes-concepts.md
     - name: Systemanforderungen
       href: system-requirements.md
+    - name: Netzwerk
+      href: concepts-networking.md
 - name: Anleitungen
   items:
+    - name: Auswerten auf einem virtuellen Azure-Computer
+      href: 'https://github.com/Azure/aks-hci/blob/main/eval/readme.md'
     - name: Herstellen einer Verbindung mit Azure Arc für Kubernetes
       href: connect-to-arc.md
     - name: Anpassen von Apps für Kubernetes-Cluster mit gemischten Betriebssystemen
       href: adapt-apps-mixed-os-clusters.md
+    - name: Konfigurieren der Netzwerkeinstellungen
+      items:
+        - name: Konfigurieren von Proxyeinstellungen
+          href: proxy.md
+    - name: Sicherheit und Authentifizierung
+      items:
+        - name: Verwenden des einmaligen Anmeldens von Active Directory
+          href: ad-sso.md
+        - name: Verschlüsseln von etcd-Geheimnissen
+          href: encrypt-secrets.md
+    - name: Überwachung und Protokollierung
+      items:
+        - name: Verwenden von Azure Monitor für Container
+          href: 'https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview'
+        - name: Lokale Überwachung
+          href: monitor-logging.md
     - name: Verwenden von Windows Server-Containern
       items:
-        - name: Bereitstellen von .NET-Anwendungen
-          href: deploy-windows-application.md
         - name: Vorbereiten von Windows-Knoten für die Unterstützung von gruppenverwalteten Dienstkonten
           href: prepare-windows-nodes-gmsa.md
         - name: Verwenden des persistenten Volumes
@@ -59,6 +79,8 @@
   items:
     - name: Versionshinweise
       href: 'https://aka.ms/aks-hci-relnotes/'
+    - name: PowerShell
+      href: AksHci.md
     - name: Bekannte Probleme
       href: known-issues.md
     - name: Azure-Roadmap
