@@ -260,6 +260,10 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: Aktivieren der Volumenprojektion für Dienstkontotoken
                       href: kubernetes-aks-engine-service-account.md
+                    - name: Hinzufügen von Containerspeicher
+                      href: kubernetes-aks-engine-container-storage-interface.md
+                    - name: Rotieren von Zertifikaten
+                      href: kubernetes-aks-engine-rotate-certs.md
                     - name: Problembehandlung für die AKS-Engine
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Verwenden von Azure Monitor für Container
