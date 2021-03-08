@@ -3,16 +3,16 @@ title: Versionshinweise für die AKS-Engine (Azure Kubernetes Service) in Azure 
 description: Es werden die Schritte beschrieben, die Sie beim Anwenden des Updates auf die AKS-Engine in Azure Stack Hub ausführen müssen.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/11/2021
+ms.date: 02/23/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 2/11/2021
-ms.openlocfilehash: fd8453c55be6222badd577666293653a45f67273
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.lastreviewed: 02/23/2021
+ms.openlocfilehash: a9f1217777fbdf5a6efd752388a15b4573d2d851
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100488036"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840812"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Versionshinweise für die AKS-Engine in Azure Stack Hub
 ::: moniker range=">=azs-2002"
@@ -132,7 +132,7 @@ Geben Sie in der JSON-Datei des API-Modells die Release- und Versionswerte im Ab
 -   Das AKS-Engine-Tool ist ein gemeinsames Quellcoderepository für Azure und Azure Stack Hub. Das Lesen der vielen Versionshinweise und Pull Requests kann bei Ihnen ggf. den Eindruck erwecken, dass das Tool auch noch andere Versionen von Kubernetes und Betriebssystemplattformen als oben angegeben unterstützt. Ignorieren Sie diese Informationen, und verwenden Sie die obige Versionstabelle als offiziellen Leitfaden für dieses Update.
 
 > [!NOTE]  
-> Unterstützung von Windows-Containern und Azure CNI ist in der privaten Vorschau verfügbar. Wenn Sie die Vorschau nutzen möchten, können Sie hier Zugriff anfordern: [https://aka.ms/ash-k8s-win-azurecni](https://aka.ms/ash-k8s-win-azurecni)
+> Unterstützung von Windows-Containern und Azure CNI ist in der öffentlichen Vorschau verfügbar. Wenn Sie die Vorschau nutzen möchten, können Sie hier Zugriff anfordern: [https://aka.ms/ash-k8s-win-azurecni](https://aka.ms/ash-k8s-win-azurecni)
 
 ## <a name="reference"></a>Verweis
 

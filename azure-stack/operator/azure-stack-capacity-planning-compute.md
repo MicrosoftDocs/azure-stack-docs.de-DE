@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 8d1d6c6da0e11278b2b7ce796ca3dffd77385e81
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: bfe8dfae9cd0190b998167a27a95254ee7bc8cbb
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871500"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840353"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub-Computekapazität
 
@@ -43,7 +43,7 @@ Falls das VM-Skalierungslimit erreicht wird, werden die folgenden Fehlercodes al
 
 ## <a name="consideration-for-batch-deployment-of-vms"></a>Überlegungen zur Batchbereitstellung virtueller Computer
 
-In Releases bis einschließlich 2002 konnten mit zwei bis fünf virtuellen Computern pro Batch und einer fünfminütigen Pause zwischen Batches bis zu 700 virtuelle Computer zuverlässig bereitgestellt werden. Mit der Azure Stack Hub-Version 2005 können virtuelle Computer zuverlässig in Batches mit bis zu 40 virtuellen Computern und einer fünfminütigen Pause zwischen Batchbereitstellungen bereitgestellt werden.
+In Releases bis einschließlich 2002 konnten mit zwei bis fünf virtuellen Computern pro Batch und einer fünfminütigen Pause zwischen Batches bis zu 700 virtuelle Computer zuverlässig bereitgestellt werden. Mit der Azure Stack Hub-Version 2005 können virtuelle Computer zuverlässig in Batches mit bis zu 40 virtuellen Computern und einer fünfminütigen Pause zwischen Batchbereitstellungen bereitgestellt werden. Vorgänge zum Starten, Beenden der Aufhebung der Zuordnung und Aktualisieren sollten mit einer Batchgröße von 30 durchgeführt werden, wobei zwischen den einzelnen Batches 5 Minuten liegen sollten.
 
 ## <a name="azure-stack-hub-memory"></a>Azure Stack Hub-Arbeitsspeicher
 

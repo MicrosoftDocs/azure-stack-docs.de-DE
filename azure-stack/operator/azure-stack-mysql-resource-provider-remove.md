@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2
-ms.openlocfilehash: 7c3c33371e50df0dabb7db9fc8c0204fc3caaa83
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 03a4f928c5759f72d78ca09816593d70b1dcc76f
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011143"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840013"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>Entfernen des MySQL-Ressourcenanbieters in Azure Stack Hub
 
@@ -32,6 +32,10 @@ Wenn Sie den MySQL-Ressourcenanbieter entfernen, werden die vom Operator verwalt
   
 2. Rufen Sie eine Kopie des Installationspakets für den MySQL-Ressourcenanbieter ab, und führen Sie dann den Self-Extractor aus, um den Inhalt in ein temporäres Verzeichnis zu extrahieren.
 3. Öffnen Sie ein neues PowerShell-Konsolenfenster mit erhöhten Rechten, und wechseln Sie zu dem Verzeichnis, in dem Sie die Installationsdateien des MySQL-Ressourcenanbieters extrahiert haben.
+
+> [!IMPORTANT]
+> Es wird dringend empfohlen, **Clear-AzureRmContext -Scope CurrentUser** und **Clear-AzureRmContext -Scope Process** zu verwenden, um den Cache vor dem Ausführen des Skripts zu löschen.
+
 4. Führen Sie das Skript „DeployMySqlProvider.ps1“ mit den folgenden Parametern aus:
     - **Uninstall**: Entfernt den Ressourcenanbieter und alle zugeordneten Ressourcen.
     - **PrivilegedEndpoint**: Die IP-Adresse oder der DNS-Name des privilegierten Endpunkts.
