@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: bryanla
 ms.reviewer: jerskine
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 0b032929496646de763336a630f22782bd03091c
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: cdbd069fee0584f78a4a62b7910428f47e8966d1
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545680"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840251"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Überprüfen der AD FS-Integration für Azure Stack Hub
 
@@ -24,7 +24,7 @@ Verwenden Sie das Tool „Azure Stack Hub Readiness Checker“ (AzsReadinessChec
 Bei der Überprüfung der Bereitschaft wird Folgendes geprüft:
 
 * Die *Verbundmetadaten* enthalten die gültigen XML-Elemente für den Verbund.
-* Das *AD FS-SSL-Zertifikat* kann abgerufen werden, und es kann eine Zertifikatvertrauenskette erstellt werden. Beim Stempel muss AD FS der SSL-Zertifikatkette vertrauen. Das Zertifikat muss von derselben *Zertifizierungsstelle* wie die Azure Stack Hub-Bereitstellungszertifikate oder von einem vertrauenswürdigen Stammzertifizierungsstellen-Partner signiert werden. Die vollständige Liste der vertrauenswürdigen Stammzertifizierungsstellenpartner finden Sie bei [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+* Das *AD FS-SSL-Zertifikat* kann abgerufen werden, und es kann eine Zertifikatvertrauenskette erstellt werden. Beim Stempel muss AD FS der SSL-Zertifikatkette vertrauen. Das Zertifikat muss von derselben *Zertifizierungsstelle* wie die Azure Stack Hub-Bereitstellungszertifikate oder von einem vertrauenswürdigen Stammzertifizierungsstellen-Partner signiert werden. Eine vollständige Liste der vertrauenswürdigen Stammzertifizierungspartner finden Sie unter [Teilnehmerliste des Microsoft Trusted Root Program](/security/trusted-root/participants-list).
 * Das *AD FS-Signaturzertifikat* ist vertrauenswürdig und läuft nicht in Kürze ab.
 
 Weitere Informationen zur Rechenzentrumsintegration mit Azure Stack Hub finden Sie unter [Azure Stack Hub-Rechenzentrumsintegration – Identität](azure-stack-integrate-identity.md).
@@ -37,10 +37,10 @@ Laden Sie die neueste Version des Azure Stack Hub Readiness Checker (AzsReadines
 
 Die folgenden Voraussetzungen müssen erfüllt werden:
 
-**Auf dem Computer, auf dem das Tool ausgeführt wird, muss Folgendes installiert sein** :
+**Auf dem Computer, auf dem das Tool ausgeführt wird, muss Folgendes installiert sein**:
 
 * Windows 10 oder Windows Server 2016 mit Domänenkonnektivität
-* PowerShell 5.1 oder höher Um Ihre Version zu überprüfen, führen Sie den folgenden PowerShell-Befehl aus, und überprüfen Sie dann die *Hauptversion* und die *Nebenversionen* :  
+* PowerShell 5.1 oder höher Um Ihre Version zu überprüfen, führen Sie den folgenden PowerShell-Befehl aus, und überprüfen Sie dann die *Hauptversion* und die *Nebenversionen*:  
     ```powershell
     $PSVersionTable.PSVersion
     ```
@@ -51,7 +51,7 @@ Die folgenden Voraussetzungen müssen erfüllt werden:
 Sie benötigen mindestens eine der folgenden Formen von Metadaten:
 
 - Die URL für AD FS-Verbundmetadaten. Beispiel: `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
-* Die Verbundmetadaten-XML-Datei. Beispiel: FederationMetadata.xml
+* Die Verbundmetadaten-XML-Datei. Beispiel: „FederationMetadata.xml“.
 
 ## <a name="validate-ad-fs-integration"></a>Überprüfen der AD FS-Integration
 
@@ -102,7 +102,7 @@ Standardmäßig werden beide Dateien in `C:\Users\<username>\AppData\Local\Temp\
 
 Verwendung:
 
-* `-OutputPath`: Der *path* -Parameter am Ende der Befehlsausführung zum Angeben eines anderen Berichtsspeicherorts.
+* `-OutputPath`: Der *path*-Parameter am Ende der Befehlsausführung zum Angeben eines anderen Berichtsspeicherorts.
 * `-CleanReport`: Der Parameter am Ende der Befehlszeilenausführung zum Löschen der Datei „AzsReadinessCheckerReport.json“ mit früheren Berichtsinformationen. Weitere Informationen finden Sie unter [Azure Stack Hub-Überprüfungsbericht](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Fehler bei der Überprüfung

@@ -3,16 +3,16 @@ title: Installieren des PowerShell Az-Moduls für Azure Stack Hub
 description: Erfahren Sie, wie Sie PowerShell für Azure Stack Hub installieren.
 author: mattbriggs
 ms.topic: article
-ms.date: 12/10/2020
+ms.date: 02/18/2021
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: 9a5e00c873e348046c10e5a8e7dd5ccc9ea915f2
-ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
+ms.lastreviewed: 02/18/2021
+ms.openlocfilehash: 031a1695f8ba11db5a8787ef1b38c40763614b88
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97069834"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840863"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>Installieren des PowerShell Az-Moduls für Azure Stack Hub
 
@@ -35,7 +35,7 @@ Sie können mit Azure Stack Hub kompatible PowerShell Az-Module in einem Szenar
 
 AZ-Module werden in Azure Stack Hub mit Update 2002 oder höher unterstützt, wenn die aktuellen Hotfixes installiert sind. Weitere Informationen finden Sie in den [Versionshinweisen zu Azure Stack Hub](release-notes.md).
 
-Die Azure PowerShell-Az-Module können mit PowerShell 5.1 oder höher unter Windows oder mit PowerShell Core 6.x und höher auf allen Plattformen verwendet werden. Sie sollten die [letzte Version von PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core) installieren, die für Ihr Betriebssystem verfügbar ist. Bei der Ausführung in PowerShell Core gibt es keine zusätzlichen Anforderungen an Azure PowerShell.
+Die Azure PowerShell-Az-Module können mit PowerShell 5.1 oder höher unter Windows oder mit PowerShell Core 6.x und höher auf allen Plattformen verwendet werden. Sie sollten die [letzte Version von PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core) installieren, die für Ihr Betriebssystem verfügbar ist. Bei der Ausführung in PowerShell Core gibt es keine anderen Anforderungen an Azure PowerShell.
 
 Führen Sie den Befehl aus, um Ihre PowerShell-Version zu überprüfen:
 
@@ -72,15 +72,23 @@ Deinstallieren Sie vor der Installation der erforderlichen Version unbedingt all
 
 Das Azure Stack Az-Modul kann mit Azure Stack Hub 2002 oder höher verwendet werden. Darüber hinaus kann das Azure Stack Az-Modul auf einem Windows-Computer mit PowerShell 5.1 oder höher oder auf einer Linux- bzw. macOS-Plattform mit PowerShell 6.x oder höher verwendet werden. Die Verwendung der PowerShellGet-Cmdlets ist die bevorzugte Installationsmethode. Die Funktionsweise dieser Methode ist auf den unterstützten Plattformen gleich.
 
-Führen Sie den folgenden Befehl in einer PowerShell-Sitzung aus:
+1. Führen Sie den folgenden Befehl in einer PowerShell-Sitzung aus, um PowerShellGet mindestens auf Version 2.2.3 zu aktualisieren
 
-```powershell  
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    ```powershell  
+    Install-Module PowerShellGet -MinimumVersion 2.2.3 -Force
+    ```
 
-Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
-Install-AzProfile -Profile 2019-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
-```
+2. Schließen Sie die PowerShell-Sitzung, und öffnen Sie eine neue PowerShell-Sitzung, damit das Update wirksam werden kann.
+
+3. Führen Sie den folgenden Befehl in einer PowerShell-Sitzung aus:
+
+    ```powershell  
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    
+    Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
+    Install-AzProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
+    ```
 
 > [!Note]  
 > Azure Stack Hub-Modulversion 2.0.0 ist ein Breaking Change. Ausführliche Informationen finden Sie unter [Migrieren von AzureRM zum Az-Modul von Azure PowerShell in Azure Stack Hub](migrate-azurerm-az.md).

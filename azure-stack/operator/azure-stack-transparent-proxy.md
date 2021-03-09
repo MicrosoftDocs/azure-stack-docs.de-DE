@@ -3,16 +3,16 @@ title: Transparenter Proxy für integrierte Azure Stack Hub-Systeme
 description: Enthält eine Übersicht über die Eigenschaft „Transparent“ in integrierten Azure Stack Hub-Systemen.
 author: PatAltimore
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 02/24/2021
 ms.author: patricka
 ms.reviewer: sranthar
 ms.lastreviewed: 01/25/2021
-ms.openlocfilehash: 974f40364b4eed13bd7440b35596597312c98624
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: a7fc47edf63a83e1ee05c46b03d8533787b1983c
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577361"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840693"
 ---
 # <a name="transparent-proxy-for-azure-stack-hub"></a>Transparenter Proxy für Azure Stack Hub
 
@@ -42,10 +42,11 @@ Microsoft hat mit branchenführenden Proxyanbietern als Partnern zusammengearbei
 
 Ein Beispiel für eine Border-Konfiguration finden Sie in diesem Artikel unter [Beispiel für Border-Konfiguration](#example-border-configuration).
 
-Sehen Sie sich in den folgenden Dokumenten die überprüften Konfigurationen mit transparentem Proxy für Azure Stack Hub an: 
+Sehen Sie sich in den folgenden Dokumenten die überprüften Konfigurationen mit transparentem Proxy für Azure Stack Hub an:
 
 - [Konfigurieren eines transparenten Proxys für ein Check Point-Sicherheitsgateway](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk171559)
 - [Konfigurieren eines transparenten Proxys für eine Sophos XG-Firewall](https://community.sophos.com/xg-firewall/f/recommended-reads/124106/xg-firewall-integration-with-azure-stack-hub)
+- [Integrieren von Citrix ADC und Citrix Secure Web Gateway in Azure Stack Hub](https://www.citrix.com/blogs/2021/02/19/integrating-citrix-adc-citrix-secure-web-gateway-with-azure-stack-hub/)
 
 Für Szenarien, in denen ausgehender Datenverkehr aus Azure Stack Hub über einen expliziten Proxy fließen muss, verfügen Sophos- und Check Point-Geräte über einen Dualmodus. Hierbei kann konfiguriert werden, dass für bestimmte Bereiche des Datenverkehrs der transparente Modus und für andere Bereiche der explizite Modus gilt. Mit diesem Feature können die Proxygeräte so konfiguriert werden, dass nur Infrastrukturdatenverkehr über den transparenten Proxy gesendet wird, während für den gesamten Mandantendatenverkehr der explizite Modus verwendet wird.
 
@@ -56,7 +57,7 @@ Für Szenarien, in denen ausgehender Datenverkehr aus Azure Stack Hub über eine
 
 Die Lösung basiert auf dem richtlinienbasierten Routing (Policy-Based Routing, PBR), bei dem von einem Administrator definierte Kriterien, die über eine Zugriffssteuerungsliste (Access Control List, ACL) implementiert werden, verwendet werden. Mit der Zugriffssteuerungsliste wird der Datenverkehr kategorisiert, der für die IP-Adresse des nächsten Hops der Proxygeräte bestimmt ist, die in einer Routenzuordnung implementiert sind. Dies ist anders als beim üblichen Routing, das ausschließlich auf IP-Zieladressen basiert. Spezifischer Infrastruktur-Netzwerkdatenverkehr für die Ports 80 und 443 wird von den Border-Geräten an die Bereitstellung des transparenten Proxys weitergeleitet. Der transparente Proxy führt eine URL-Filterung durch, und *unzulässiger* Datenverkehr wird verworfen.
 
-Das folgende Konfigurationsbeispiel gilt für ein Cisco Nexus 9508-Gehäuse. 
+Das folgende Konfigurationsbeispiel gilt für ein Cisco Nexus 9508-Gehäuse.
 
 In diesem Szenario lauten die Infrastruktur-Quellnetzwerke, für die Internetzugriff erforderlich ist, wie folgt:
 
@@ -64,7 +65,7 @@ In diesem Szenario lauten die Infrastruktur-Quellnetzwerke, für die Internetzug
 - Infrastrukturnetzwerk: Letzter „/27“-Bereich
 - BMC-Netzwerk: Letzter „/27“-Bereich
 
-Für die folgenden Subnetze wird in diesem Szenario das richtlinienbasierte Routing (Policy-Based Routing, PBR) verwendet:
+Für die folgenden Subnetze wird in diesem Szenario richtlinienbasiertes Routing (Policy-Based Routing, PBR) verwendet:
 
 | Netzwerk | IP-Bereich | Subnetz mit PBR
 |---------|----------|-------------------------------

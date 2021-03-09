@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/14/2021
+ms.date: 02/18/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: dc49218a5abce85c1ca1bcfd7ea5ef2077e8265a
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.openlocfilehash: a874e4ee0c3183f7f99da70375d5fc8b0e0818ab
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98207994"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840659"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Häufig gestellte Fragen zur Nutzung von Azure Stack Hub
 
@@ -212,15 +212,10 @@ Der Verbrauch wird für die folgenden Ressourcenanbieter gemeldet:
 
 ### <a name="event-hubs"></a>Event Hubs
 
-**ID der Verbrauchseinheit**: d3a257e7-cf59-43bd-82c0-cf29ca8f7da0 (bezahlte Verbrauchseinheit)  
-**Name der Verbrauchseinheit**: 1 Kern    
+**ID der Verbrauchseinheit**: CB6A35C5-FADE-406C-B14D-6DDB7C4CA3D5  
+**Name der Verbrauchseinheit**: 1 Kern  
 **Einheit:** Kern\*Stunden  
-**Hinweise**: Anzahl der Kerne, die von den bereitgestellten Event Hub-Clustern verwendet werden. Die Anzahl der Kerne wird in Vielfachen von 10 angegeben.
-
-**ID der Verbrauchseinheit**: 29ea0bfc-6780-4711-98fc-2c7db191e1a4 (Administratorverbrauchseinheit)  
-**Name der Verbrauchseinheit**: 1 Kern-Administrator   
-**Einheit:** Kern\*Stunden  
-**Hinweise**: Anzahl der Kerne, die von den bereitgestellten Event Hub-Clustern verwendet werden. Die Anzahl der Kerne wird in Vielfachen von 10 angegeben.
+**Hinweise**: „Einheit“ stellt die Anzahl der Kerne pro Stunde dar, die von bereitgestellten Event Hubs-Clustern verwendet werden. Die Anzahl der Kerne wird in Vielfachen von 10 angegeben, da jede konfigurierte CU 10 Kerne verwendet.
 
 ### <a name="key-vault"></a>Key Vault
   

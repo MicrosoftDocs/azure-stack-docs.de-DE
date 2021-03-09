@@ -3,16 +3,16 @@ title: Features von Azure Stack Hub-VMs
 description: Enthält Informationen zu den unterschiedlichen Features und Aspekten bei der Verwendung von VMs in Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/22/2020
+ms.date: 03/02/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 0eb0c763b8ebd144576ac9ac773d17f191e30dc9
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.openlocfilehash: be51e93a54ed39ca53edd6d776100f5ca512e060
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778137"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840846"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Features von Azure Stack Hub-VMs
 
@@ -36,7 +36,7 @@ ms.locfileid: "96778137"
 | VM-Skalierungsgruppen|Die automatische Skalierung wird unterstützt.|Die automatische Skalierung wird nicht unterstützt.<br><br>Fügen Sie einer Skalierungsgruppe mit dem Portal, Resource Manager-Vorlagen oder PowerShell weitere Instanzen hinzu. |
 | Cloudzeuge | Wählen Sie die Endpunkte aus den in Azure Stack Hub verfügbaren Speicherkontoeigenschaften aus. | [Cloudzeuge](/windows-server/failover-clustering/deploy-cloud-witness) ist ein Quorumzeugentyp für Failovercluster, der Microsoft Azure zum Bereitstellen einer Stimme für das Clusterquorum verwendet.<br>Die Endpunkte in Global Azure sehen im Vergleich zu Azure Stack Hub möglicherweise wie folgt aus:<br>Für Global Azure:<br>`https://mywitness.blob.core.windows.net/`<br>Für Azure Stack Hub:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | Diagnose des virtuellen Computers | Die Linux-VM-Diagnose wird unterstützt. | Die Linux-VM-Diagnose wird in Azure Stack Hub nicht unterstützt. Wenn Sie eine Linux-VM mit aktivierter VM-Diagnose bereitstellen, schlägt die Bereitstellung fehl. Die Bereitstellung schlägt auch fehl, wenn Sie die grundlegenden Linux-VM-Metriken über die Diagnoseeinstellungen aktivieren. |
-| Geschachtelte Virtualisierung: VM-Größen | Unterstützt | Nicht unterstützt |
+| Geschachtelte Virtualisierung: VM-Größen | Unterstützt | Wird ab Version 2102 und höher unterstützt. |
 
 ## <a name="vm-sizes"></a>VM-Größen
 
@@ -148,6 +148,10 @@ Die Infrastruktur von Azure Stack Hub verfügt zwar bereits über Resilienz ge
 |-------------------|-------------|
 | **Fehlerdomänen** | In einer Verfügbarkeitsgruppe angeordnete VMs werden physisch voneinander isoliert, indem sie so gleichmäßig wie möglich auf mehrere Fehlerdomänen (Azure Stack Hub-Knoten) verteilt werden. Bei einem Hardwarefehler werden VMs aus der fehlerhaften Fehlerdomäne in anderen Fehlerdomänen neu gestartet. Sie werden getrennt von den anderen VMs in separaten Fehlerdomänen, aber nach Möglichkeit in derselben Verfügbarkeitsgruppe gespeichert. Nachdem die Hardware wieder in den Onlinezustand versetzt wurde, wird für die VMs ein neuer Ausgleichsvorgang durchgeführt, um die Hochverfügbarkeit sicherzustellen. |
 | **Updatedomänen**| Updatedomänen sind eine andere Option von Azure, mit der für Hochverfügbarkeit in Verfügbarkeitsgruppen gesorgt wird. Eine Updatedomäne ist eine logische Gruppe von zugrunde liegender Hardware, die zur gleichen Zeit gewartet werden kann. VMs in derselben Updatedomäne werden während einer geplanten Wartung gemeinsam neu gestartet. Wenn Mandanten VMs in einer Verfügbarkeitsgruppe erstellen, werden die VMs von der Azure-Plattform automatisch auf diese Updatedomänen verteilt. <br>In Azure Stack Hub wird für VMs eine Livemigration über die anderen Onlinehosts im Cluster durchgeführt, bevor der zugrunde liegende Host aktualisiert wird. Da es während eines Hostupdates nicht zu Mandantenausfallzeiten kommt, ist das Updatedomänenfeature in Azure Stack Hub nur für die Vorlagenkompatibilität mit Azure vorhanden. Virtuelle Computer in einer Verfügbarkeitsgruppe zeigen im Portal „0“ als Nummer der Updatedomäne an. |
+
+## <a name="arc-on-azure-stack-hub-vms"></a>Arc auf Azure Stack Hub-VMs
+
+Arc-fähige Server unterstützen nicht die Installation des Agents für verbundene Computer auf virtuellen Computern, die in Azure ausgeführt werden, oder auf virtuellen Computern, die auf Azure Stack Hub oder Azure Stack Edge ausgeführt werden, da sie bereits als Azure-VMs modelliert sind.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

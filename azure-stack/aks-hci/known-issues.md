@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 36c2d735f3652f4f195b4b9e1dda30fe8bce858c
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 5865c7cfea0231c811199ff4abbc05011e4d0a66
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557003"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840047"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Bekannte Probleme für Azure Kubernetes Service in Azure Stack HCI Public Preview
 In diesem Artikel werden bekannte Probleme mit der öffentlichen Vorschauversion von Azure Kubernetes Service in Azure Stack HCI beschrieben.
@@ -85,3 +85,6 @@ az connectedk8s delete
 
 ## <a name="when-setting-up-an-azure-kubernetes-service-host-using-windows-admin-center-setup-may-fail-if-file-explorer-is-open"></a>Beim Einrichten eines Azure Kubernetes Service-Hosts mithilfe von Windows Admin Centers schlägt das Setup möglicherweise fehl, wenn der Datei-Explorer geöffnet ist.
 Wenn der Datei-Explorer geöffnet ist und sich beim Schritt „Überprüfen + erstellen“ im Verzeichnis **C:\Programme\AksHci** befindet, schlägt die Erstellung möglicherweise mit dem Fehler „Der Prozess konnte nicht auf die Datei ‚C:\Programme\AksHci\wssdcloudagent.exe‘ zugreifen“ fehl. Dies liegt daran, dass sie von einem anderen Prozess verwendet wird. Um diesen Fehler zu vermeiden, schließen Sie den Datei-Explorer, oder navigieren Sie zu einem anderen Verzeichnis, bevor Sie diesen Schritt ausführen. 
+
+## <a name="cannot-connect-windows-admin-center-to-azure-as-create-new-azure-app-id-fails"></a>Es kann keine Verbindung zwischen Windows Admin Center und Azure hergestellt werden, da das Erstellen einer neuen Azure-App-ID fehlschlägt
+Wenn Sie Windows Admin Center nicht mit Azure verbinden können, weil Sie nicht automatisch eine Azure-App-ID auf dem Gateway erstellen und verwenden können, erstellen Sie eine Azure-App-ID, und weisen Sie ihr die richtigen Berechtigungen im Portal zu. Wählen Sie dann **Vorhandene im Gateway verwenden** aus. Weitere Informationen finden Sie unter [Herstellen einer Verbindung zwischen Ihrem Gateway und Azure.](/windows-server/manage/windows-admin-center/azure/azure-integration)

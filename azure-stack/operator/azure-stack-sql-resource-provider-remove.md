@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2019
-ms.openlocfilehash: b232bf2efb690ddc0a351d762e6866a75ced4a81
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 67c6331111e18ec04f3084b4c34a971120733569
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011364"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839979"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Entfernen des SQL-Ressourcenanbieters
 
@@ -34,6 +34,10 @@ Wenn Sie den SQL-Ressourcenanbieter entfernen, werden die vom Operator verwaltet
 2. Rufen Sie eine Kopie des Installationspakets für den SQL-Ressourcenanbieter ab, und führen Sie dann den Self-Extractor aus, um den Inhalt in ein temporäres Verzeichnis zu extrahieren.
 
 3. Öffnen Sie ein neues PowerShell-Konsolenfenster mit erhöhten Rechten, und wechseln Sie zu dem Verzeichnis, in dem Sie die Installationsdateien des SQL-Ressourcenanbieters extrahiert haben.
+
+> [!IMPORTANT]
+> Es wird dringend empfohlen, **Clear-AzureRmContext -Scope CurrentUser** und **Clear-AzureRmContext -Scope Process** zu verwenden, um den Cache vor dem Ausführen des Skripts zu löschen.
+
 
 4. Führen Sie das „DeploySqlProvider.ps1“-Skript mit den folgenden Parametern aus:
 

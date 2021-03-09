@@ -3,16 +3,16 @@ title: 'Azure Stack Hub: Versionshinweise'
 description: Versionshinweise für integrierte Azure Stack Hub-Systeme, einschließlich Updates und Fehlerbehebungen.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 02/18/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 441e764231e9ce85de69d7cd4020325883fde7ec
-ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
+ms.openlocfilehash: 0d1b3f65f36e3aae5095fc3535f5df6290cb51f7
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100648081"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840829"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub: Versionshinweise
 
@@ -87,7 +87,7 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 - Es wurde eine interne Überwachung für den Netzwerkcontroller und SLB-Host-Agents implementiert, sodass Dienste automatisch wiederhergestellt werden, sofern sie in den Zustand „Angehalten“ gewechselt haben.
-- Active Directory-Verbunddienste (AD FS) ruft nun das neue Tokensignaturzertifikat ab, nachdem der Kunde es auf seinem eigenen AD FS-Server geändert hat. Um diese neue Funktionalität für bereits konfigurierte Systeme nutzen zu können, muss die AD FS-Integration erneut konfiguriert werden. Weitere Informationen finden Sie unter [Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum](azure-stack-integrate-identity.md).
+- Die Active Directory-Verbunddienste (AD FS) rufen nun das neue Tokensignaturzertifikat ab, nachdem der Kunde es auf seinem eigenen AD FS-Server rotiert hat. Um diese neue Funktionalität für bereits konfigurierte Systeme nutzen zu können, muss die AD FS-Integration erneut konfiguriert werden. Weitere Informationen finden Sie unter [Integrieren der AD FS-Identität in Ihr Azure Stack Hub-Rechenzentrum](azure-stack-integrate-identity.md).
 - Änderungen am Start- und Herunterfahren-Prozess von Infrastrukturrolleninstanzen und deren Abhängigkeiten auf Skalierungseinheitknoten. Dies erhöht die Zuverlässigkeit für Starten und Beenden von Azure Stack Hub.
 - Die **AzSScenarios**-Suite des **Test-AzureStack**-Validierungstools wurde aktualisiert, damit Cloud-Dienstanbieter diese Suite erfolgreich ausführen können, wenn mehrstufige Authentifizierung für alle Kundenkonten erzwungen wird.
 - Verbesserte Warnungszuverlässigkeit durch Hinzufügen von Unterdrückungslogik für 29 kundenbezogene Warnungen während Lebenszyklusvorgängen.
@@ -103,7 +103,7 @@ Weitere Informationen zu Update-Buildtypen finden Sie unter [Verwalten von Updat
 
   Beachten Sie, dass diese Änderungen auf der Hostebene eines Azure Stack Hub-Systems hinzugefügt werden. Wenden Sie sich an ihren OEM, um die erforderlichen Änderungen an den ToR-Netzwerkswitches (Top-of-Rack) vornehmen zu lassen. Diese ToR-Änderung kann entweder vor der Aktualisierung auf Release 2008 oder nach dem Aktualisieren auf 2008 ausgeführt werden. Weitere Informationen finden Sie unter [Planen der Netzwerkintegration für Azure Stack](azure-stack-network.md).
 
-- Die GPU-fähigen VM-Größen **NCas_v4 (NVIDIA T4)** wurden in diesem Build durch die VM-Größen **NCasT4_v3** ersetzt, damit sie mit Azure konsistent sind. Beachten Sie, dass diese im Portal noch nicht sichtbar sind und nur über Azure Resouce Manager-Vorlagen verwendet werden können.
+- Die GPU-fähigen VM-Größen **NCas_v4 (NVIDIA T4)** wurden in diesem Build durch die VM-Größen **NCasT4_v3** ersetzt, damit sie mit Azure konsistent sind. Beachten Sie, dass diese im Portal noch nicht sichtbar sind und nur über Azure Resource Manager-Vorlagen verwendet werden können.
 
 ### <a name="fixes"></a>Fehlerbehebungen
 
@@ -136,7 +136,7 @@ Da Hotfixes für Azure Stack Hub kumulativ sind, sollten Sie als Best Practice a
 
 Wenn nach der Installation des Updates 2008 Hotfixes für 2008 veröffentlicht werden, sollten Sie sie installieren:
 
-- [Azure Stack Hub-Hotfix 1.2008.25.114](hotfix-1-2008-25-114.md)
+- [Azure Stack Hub-Hotfix 1.2008.26.116](hotfix-1-2008-26-116.md)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -228,7 +228,7 @@ Azure Stack Hub-Hotfixes gelten nur für integrierte Azure Stack Hub-Systeme. Ve
 
 Das Release 2005 von Azure Stack Hub muss auf das Release 2002 mit den folgenden Hotfixes angewendet werden:
 
-- [Azure Stack Hub-Hotfix 1.2002.65.171](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
+- [Azure Stack Hub-Hotfix 1.2002.66.173](hotfix-1-2002-66-173.md)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>Nach erfolgreicher Anwendung des Updates 2005
 
@@ -236,7 +236,7 @@ Ab Release 2005 werden bei der Aktualisierung auf eine neue Hauptversion (z. B
 
 Wenn nach der Installation des Updates 2005 Hotfixes für 2005 veröffentlicht werden, sollten Sie sie installieren:
 
-- [Azure Stack Hub-Hotfix 1.2005.29.100](hotfix-1-2005-29-100.md)
+- [Azure Stack Hub-Hotfix 1.2005.30.102](hotfix-1-2005-30-102.md)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -365,7 +365,7 @@ Das Release 2002 von Azure Stack Hub muss auf das Release 1910 mit den folgend
 Installieren Sie nach der Installation dieses Updates alle entsprechenden Hotfixes.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub-Hotfix 1.2002.65.171](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
+- [Azure Stack Hub-Hotfix 1.2002.66.173](hotfix-1-2002-66-173.md)
 ::: moniker-end
 
 <!------------------------------------------------------------>

@@ -1,38 +1,41 @@
 ---
-title: Erstellen von Volumes in Azure Stack HCI
-description: Hier wird beschrieben, wie Sie Volumes in Azure Stack HCI mithilfe von Windows Admin Center und PowerShell erstellen.
+title: Erstellen von Volumes in Azure Stack HCI- und Windows Server-Clustern
+description: Erstellen von Volumes in Azure Stack HCI- und Windows Server-Clustern mithilfe von Windows Admin Center und PowerShell.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/04/2021
-ms.openlocfilehash: 9bb0ff34863f8262d5919e5eae6f735709097bf5
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.date: 02/17/2021
+ms.openlocfilehash: f5c585bd612cb25b32df22c342988bbad17d08ee
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99570734"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839781"
 ---
-# <a name="create-volumes-in-azure-stack-hci"></a>Erstellen von Volumes in Azure Stack HCI
+# <a name="create-volumes-in-azure-stack-hci-and-windows-server-clusters"></a>Erstellen von Volumes in Azure Stack HCI- und Windows Server-Clustern
 
-> Gilt für: Azure Stack HCI, Version 20H2
+> Gilt für: Azure Stack HCI (Version 20H2), Windows Server 2019, Windows Server 2016
 
-In diesem Thema wird beschrieben, wie Sie mit Windows Admin Center und Windows PowerShell Volumes in einem Azure Stack HCI-Cluster erstellen, auf den Volumes mit Dateien arbeiten und dafür die Datendeduplizierung und -komprimierung aktivieren. Informationen zum Erstellen von Volumes und zum Einrichten der Replikation für Stretchingcluster finden Sie unter [Erstellen von Stretchingvolumes](create-stretched-volumes.md).
+In diesem Thema wird beschrieben, wie Sie Volumes auf einem Cluster mithilfe von Windows Admin Center und Windows PowerShell erstellen, wie Sie mit Dateien auf den Volumes arbeiten und wie Sie Deduplizierung und Komprimierung, Integritätsprüfsummen oder BitLocker-Verschlüsselung für Volumes aktivieren. Informationen zum Erstellen von Volumes und zum Einrichten der Replikation für Stretchingcluster finden Sie unter [Erstellen von Stretchingvolumes](create-stretched-volumes.md).
 
-## <a name="create-a-three-way-mirror-volume"></a>Erstellen eines Volumes für Drei-Wege-Spiegelung
+> [!TIP]
+> Wenn dies noch nicht geschehen ist, lesen Sie zunächst [Planen von Volumes](../concepts/plan-volumes.md).
 
-Erstellen Sie wie folgt mit Windows Admin Center ein Volume für Drei-Wege-Spiegelung:
+## <a name="create-a-two-way-or-three-way-mirror-volume"></a>Erstellen eines Volumes für Zwei- oder Drei-Wege-Spiegelung
+
+Erstellen Sie wie folgt mit Windows Admin Center ein Volume für Zwei- oder Drei-Wege-Spiegelung:
 
 1. Stellen Sie in Windows Admin Center eine Verbindung mit einem Cluster her, und wählen Sie im Bereich **Tools** die Option **Volumes** aus.
-2. Wählen Sie auf der Seite **Volumes** die Registerkarte **Bestand** und dann **Volume erstellen** aus.
-3. Geben Sie im Bereich **Volume erstellen** einen Namen für das Volume ein, und behalten Sie für **Resilienz** die Option **Drei-Wege-Spiegelung** bei.
-4. Geben Sie unter **Size on HDD** (Größe auf HDD) die Größe des Volumes an. Beispiel: 5 TB (Terabyte).
-5. Klicken Sie auf **Erstellen**.
+1. Wählen Sie auf der Seite **Volumes** die Registerkarte **Bestand** und dann **Erstellen** aus.
+1. Geben Sie im Bereich **Volume erstellen** einen Namen für das Volume ein.
+1. Wählen Sie unter **Resilienz** abhängig von der Anzahl der Server in Ihrem Cluster die Option **Zwei-Wege-Spiegelung** oder **Drei-Wege-Spiegelung** aus.
+1. Geben Sie unter **Size on HDD** (Größe auf HDD) die Größe des Volumes an. Beispiel: 5 TB (Terabyte).
+1. Unter **Weitere Optionen** können Sie mit den Kontrollkästchen Deduplizierung und Komprimierung, Integritätsprüfsummen oder BitLocker-Verschlüsselung aktivieren.
+1. Klicken Sie auf **Erstellen**.
 
-Je nach Größe kann die Erstellung des Volumes einige Minuten dauern. Nachdem das Volume erstellt wurde, wird oben rechts eine entsprechende Benachrichtigung angezeigt. Das neue Volume wird in der Liste „Bestand“ angezeigt.
+   :::image type="content" source="media/create-volumes/create-mirror-volume.png" alt-text="Sie können Windows Admin Center verwenden, um ein Volume für Zwei- oder Drei-Wege-Spiegelung zu erstellen" lightbox="media/create-volumes/create-mirror-volume.png":::
 
-Sehen Sie sich ein kurzes Video zur Erstellung eines Volumes für Drei-Wege-Spiegelung an.
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/o66etKq70N8]
+Je nach Größe kann die Erstellung des Volumes einige Minuten dauern. Nachdem das Volume erstellt wurde, wird oben rechts eine entsprechende Benachrichtigung angezeigt. Das neue Volume wird dann in der Bestandsliste angezeigt.
 
 ## <a name="create-a-mirror-accelerated-parity-volume"></a>Erstellen eines Volumes für Parität mit Beschleunigung per Spiegelung
 
@@ -44,15 +47,12 @@ Bei der Parität mit Beschleunigung per Spiegelung (Mirror-Accelerated Parity, M
 Erstellen Sie in Windows Admin Center wie folgt ein Volume für Parität mit Beschleunigung per Spiegelung:
 
 1. Stellen Sie in Windows Admin Center eine Verbindung mit einem Cluster her, und wählen Sie im Bereich **Tools** die Option **Volumes** aus.
-2. Wählen Sie auf der Seite „Volumes“ die Registerkarte **Bestand** und dann **Volume erstellen** aus.
-3. Geben Sie im Bereich **Volume erstellen** einen Namen für das Volume ein.
-4. Wählen Sie unter **Resilienz** die Option **Mirror-accelerated parity** (Parität mit Beschleunigung per Spiegelung) aus.
-5. Wählen Sie unter **Parity percentage** (Paritätsprozentsatz) den Prozentsatz für die Parität aus.
-6. Klicken Sie auf **Erstellen**.
-
-Sehen Sie sich ein kurzes Video zur Erstellung eines Volumes für Parität mit Beschleunigung per Spiegelung an.
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/R72QHudqWpE]
+1. Wählen Sie auf der Seite „Volumes“ die Registerkarte **Bestand** und dann **Erstellen** aus.
+1. Geben Sie im Bereich **Volume erstellen** einen Namen für das Volume ein.
+1. Wählen Sie unter **Resilienz** die Option **Mirror-accelerated parity** (Parität mit Beschleunigung per Spiegelung) aus.
+1. Wählen Sie unter **Parity percentage** (Paritätsprozentsatz) den Prozentsatz für die Parität aus.
+1. Unter **Weitere Optionen** können Sie mit den Kontrollkästchen Deduplizierung und Komprimierung, Integritätsprüfsummen oder BitLocker-Verschlüsselung aktivieren.
+1. Klicken Sie auf **Erstellen**.
 
 ## <a name="open-volume-and-add-files"></a>Öffnen eines Volumes und Hinzufügen von Dateien
 
@@ -68,10 +68,6 @@ Gehen Sie wie folgt vor, um in Windows Admin Center ein Volume zu öffnen und Da
 5. Navigieren Sie zum Pfad des Volumes. Hier können Sie die Dateien des Volumes durchsuchen.
 6. Wählen Sie  **Hochladen** und dann eine Datei für den Upload aus.
 7. Verwenden Sie die Browserschaltfläche **Zurück**, um zurück zum Bereich **Tools** in Windows Admin Center zu wechseln.
-
-Sehen Sie sich ein kurzes Video zum Öffnen eines Volumes und Hinzufügen von Dateien an.
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/j59z7ulohs4]
 
 ## <a name="turn-on-deduplication-and-compression"></a>Aktivieren der Deduplizierung und Komprimierung
 
@@ -118,9 +114,12 @@ New-Volume -FriendlyName "Volume3" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 
 Bei Bereitstellungen mit drei Arten von Laufwerken kann ein Volume für die SSD- und HDD-Ebene übergreifend verwendet werden und jeweils teilweise auf diesen Laufwerken angeordnet werden. Bei Bereitstellungen mit vier oder mehr Servern können für ein Volume Spiegelung und duale Parität so gemischt werden, dass sie darauf jeweils teilweise angeordnet sind.
 
-Als Hilfe für die Erstellung von Volumes dieser Art verfügt Azure Stack HCI über die Standardebenenvorlagen **MirrorOn*MediaType*** und **NestedMirrorOn*MediaType*** (für Leistung) sowie **ParityOn*MediaType*** und **NestedParityOn*MediaType*** (für Kapazität). Hierbei wird als *MediaType* entweder HDD oder SSD verwendet. Die Vorlagen repräsentieren Speicherebenen, die auf Medientypen basieren, und enthalten Definitionen für die Drei-Wege-Spiegelung auf den schnelleren Kapazitätslaufwerken (falls zutreffend) und für die duale Parität auf den langsameren Kapazitätslaufwerken (falls zutreffend).
+Als Hilfe für die Erstellung von Volumes dieser Art verfügen Azure Stack HCI und Windows Server 2019 über die Standardebenenvorlagen **MirrorOn*MediaType*** und **NestedMirrorOn*MediaType*** (für Leistung) sowie **ParityOn*MediaType*** und **NestedParityOn*MediaType*** (für Kapazität). Hierbei wird als *MediaType* entweder HDD oder SSD verwendet. Die Vorlagen repräsentieren Speicherebenen, die auf Medientypen basieren, und enthalten Definitionen für die Drei-Wege-Spiegelung auf den schnelleren Kapazitätslaufwerken (falls zutreffend) und für die duale Parität auf den langsameren Kapazitätslaufwerken (falls zutreffend).
 
-Sie können sie anzeigen, indem Sie auf einem Server im Cluster das Cmdlet **Get-StorageTier** ausführen.
+   > [!NOTE]
+   > In Windows Server 2016-Clustern, in denen direkte Speicherplätze ausgeführt werden, wurden die Standardebenenvorlagen einfach als **Leistung** und **Kapazität** bezeichnet.
+
+Sie können die Speicherebenen anzeigen, indem Sie auf einem Server im Cluster das Cmdlet **Get-StorageTier** ausführen.
 
 ```PowerShell
 Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedundancy
@@ -147,7 +146,7 @@ Wiederholen Sie diese Schritte bei Bedarf, um mehr als ein Volume zu erstellen.
 
 ### <a name="nested-resiliency-volumes"></a>Volumes mit geschachtelter Resilienz
 
-Die geschachtelte Resilienz gilt nur für Cluster mit zwei Servern. Sie können diese Funktion also nicht nutzen, wenn Ihr Cluster drei oder mehr Server enthält. Bei der geschachtelten Resilienz kann ein Cluster mit zwei Servern mehrere gleichzeitige Hardwarefehler überstehen, ohne dass es zu einem Verlust der Speicherverfügbarkeit kommt. Dies bedeutet, dass es für Benutzer, Apps und virtuelle Computer nicht zu einer Störung kommt. Weitere Informationen finden Sie unter [Planen von Volumes in Azure Stack HCI: Auswählen des Resilienztyps](../concepts/plan-volumes.md#choosing-the-resiliency-type).
+Geschachtelte Resilienz gilt nur für Cluster mit zwei Servern, auf denen Azure Stack HCI oder Windows Server 2019 ausgeführt wird. Sie können geschachtelte Resilienz nicht verwenden, wenn Ihr Cluster drei oder mehr Server umfasst oder wenn Ihr Cluster Windows Server 2016 ausführt. Bei der geschachtelten Resilienz kann ein Cluster mit zwei Servern mehrere gleichzeitige Hardwarefehler überstehen, ohne dass es zu einem Verlust der Speicherverfügbarkeit kommt. Dies bedeutet, dass es für Benutzer, Apps und virtuelle Computer nicht zu einer Störung kommt. Weitere Informationen finden Sie unter [Planen von Volumes in Azure Stack HCI: Auswählen des Resilienztyps](../concepts/plan-volumes.md#choosing-the-resiliency-type).
 
 #### <a name="create-nested-storage-tiers"></a>Erstellen von geschachtelten Speicherebenen
 
@@ -179,7 +178,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName MyParityNestedVolume -Sto
 
 ### <a name="storage-tier-summary-table"></a>Tabelle mit Speicherebenen-Zusammenfassung
 
-Die folgenden Tabellen enthalten eine Zusammenfassung der Speicherebenen, die in Azure Stack HCI erstellt werden bzw. erstellt werden können.
+Die folgenden Tabellen enthalten eine Zusammenfassung der Speicherebenen, die in Azure Stack HCI und Windows Server 2019 erstellt werden bzw. erstellt werden können.
 
 **NumberOfNodes: 2**
 
@@ -219,6 +218,5 @@ Die folgenden Tabellen enthalten eine Zusammenfassung der Speicherebenen, die in
 Verwandte Themen und andere Speicherverwaltungsaufgaben finden Sie unter:
 
 - [Direkte Speicherplätze – Übersicht](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Planen von Volumes](../concepts/plan-volumes.md)
 - [Erweitern von Volumes](extend-volumes.md)
 - [Löschen von Volumes](delete-volumes.md)
