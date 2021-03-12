@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6716b31431106e0af43785177376e4980b864f81
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 0137ec7491d84394b049095b1830c22ddcc7d922
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248712"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187196"
 ---
 # <a name="azure-stack-updates-1908-release-notes"></a>Azure Stack-Updates: Versionshinweise zu 1908
 
@@ -46,7 +46,7 @@ Stellen Sie vor dem Anwenden des Updates sicher, dass Sie die folgenden Informat
 - [Sicherheitsupdates](../release-notes-security-updates.md)
 - [Azure Stack-Checkliste für Updateaktivitäten](../release-notes-checklist.md)
 
-Unterstützung bei der Problembehandlung von Updates und dem Updateprozess finden Sie unter [Problembehandlung bei Patch- und Updateproblemen für Azure Stack](../azure-stack-updates-troubleshoot.md).
+Unterstützung bei der Problembehandlung von Updates und dem Updateprozess finden Sie unter [Problembehandlung bei Patch- und Updateproblemen für Azure Stack](../azure-stack-troubleshooting.md).
 
 ## <a name="1908-build-reference"></a>1908 – Buildreferenz
 

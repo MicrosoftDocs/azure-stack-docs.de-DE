@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 0bfd97b71774662ec11074951dcc956391d0fc65
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.openlocfilehash: 28fd04d9fb84f612dca6b241b8935b8f9cbfe049
+ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100487390"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102250319"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Konfigurieren von Firewalls für Azure Stack HCI
 
@@ -24,7 +24,7 @@ Azure Stack HCI muss regelmäßig eine Verbindung mit Azure herstellen. Der Zugr
 - Ausgehender Datenverkehr
 - Port 443 (HTTPS)
 
-Weitere Informationen finden Sie im Abschnitt „Azure Stack HCI-Konnektivität“ des Artikels [Häufig gestellte Fragen zur Azure Stack HCI](../faq.md).
+Weitere Informationen finden Sie im Abschnitt „Azure Stack HCI-Konnektivität“ des Artikels [Häufig gestellte Fragen zur Azure Stack HCI](../faq.yml).
 
 In diesem Thema wird erläutert, wie Sie optional eine streng abgeriegelte Firewallkonfiguration verwenden, damit der gesamte Datenverkehr zu allen Zielen mit Ausnahmen derjenigen, die in der Liste „Zulassen“ aufgeführt sind, blockiert wird.
 
@@ -122,4 +122,4 @@ Wenn Sie zum Erstellen des Clusters den Assistenten für die Clustererstellung i
 
 ## <a name="next-steps"></a>Nächste Schritte
 Weitere Informationen finden Sie auch unter:
-- Abschnitt zur Konnektivität im Artikel [Häufig gestellte Fragen zur Azure Stack HCI](../faq.md)
+- Abschnitt zur Konnektivität im Artikel [Häufig gestellte Fragen zur Azure Stack HCI](../faq.yml)

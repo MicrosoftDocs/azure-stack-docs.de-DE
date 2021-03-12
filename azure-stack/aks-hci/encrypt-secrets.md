@@ -4,14 +4,14 @@ description: Erfahren Sie, wie etcd-Geheimnisse in AKS auf Azure Stack HCI versc
 author: aabhathipsay
 ms.topic: how-to
 ms.date: 02/02/2021
-ms.author: aaabhathipsay
+ms.author: aabha
 ms.reviewer: ''
-ms.openlocfilehash: d79d6657197237b5806e419d94fbfb75a31a986c
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 82d40c2f97171196b90171e3dda850990bf2fbab
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101874441"
+ms.locfileid: "102116715"
 ---
 # <a name="encrypt-etcd-secrets-on-aks-on-azure-stack-hci-clusters"></a>Verschlüsseln von etcd-Geheimnissen in AKS auf Azure Stack HCI-Clustern
 
@@ -22,7 +22,7 @@ Ein Geheimnis in Kubernetes ist ein Objekt, das eine kleine Menge an sensiblen D
 
 ## <a name="enable-encryption-of-etcd-secrets"></a>Aktivieren der Verschlüsselung von etcd-Geheimnissen
 
-Verwenden Sie den `-enableSecretsEncryption`-Parameter des Befehls [New-AksHciCluster](./new-akshcicluster), um die Verschlüsselung von etcd-Geheimnissen zu aktivieren und die Rotation des Verschlüsselungsschlüssels zu automatisieren, wie unten gezeigt: 
+Verwenden Sie den `-enableSecretsEncryption`-Parameter des Befehls [New-AksHciCluster](./new-akshcicluster.md), um die Verschlüsselung von etcd-Geheimnissen zu aktivieren und die Rotation des Verschlüsselungsschlüssels zu automatisieren, wie unten gezeigt: 
 
 ```powershell
 New-AksHciCluster -name mynewcluster -enableSecretsEncryption

@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: reference
 ms.date: 2/12/2021
 ms.author: jeguan
-ms.openlocfilehash: 8d6b3410fb6fe6a00d602eeda97e172f1bac4062
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 511b3ad0dcf791550f40136a73f47114e9784bbe
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101874444"
+ms.locfileid: "102116749"
 ---
 # <a name="akshci"></a>AksHci 
 
@@ -39,7 +39,7 @@ Befehle für die Interaktion mit Azure Kubernetes Service auf Azure Stack HCI.
 | [remove-akshcicluster](remove-akshcicluster.md) | Löschen eines Managed Kubernetes-Clusters. |
 | [restart-akshci](restart-akshci.md) | Neustarten von Azure Kubernetes Service auf Azure Stack HCI und Entfernen aller bereitgestellten Kubernetes-Cluster. |
 | [set-akshciclusternodecount](set-akshciclusternodecount.md) | Skalieren der Anzahl von Knoten der Steuerungsebene oder von Workerknoten in einem Cluster. |
-| [set-akshciconfig](Sset-akshciconfig.md) | Festlegen oder Aktualisieren der Konfigurationseinstellungen für den Azure Kubernetes Service-Host. |
+| [set-akshciconfig](set-akshciconfig.md) | Festlegen oder Aktualisieren der Konfigurationseinstellungen für den Azure Kubernetes Service-Host. |
 | [uninstall-akshci](uninstall-akshci.md) | Entfernen von Azure Kubernetes Service auf Azure Stack HCI. |
 | [uninstall-akshciadauth](uninstall-akshciadauth.md) | Entfernen von Active Directory-Authentifizierung. |
 | [update-akshci](update-akshci.md) | Aktualisieren des Azure Kubernetes Service-Hosts auf die neueste Kubernetes-Version. |

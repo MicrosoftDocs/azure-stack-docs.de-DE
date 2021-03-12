@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 02/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1548ee295eddd2b386f637301abef208918c21ad
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: f98f0f28037cfc1de648f36cce20dd1c5334f93b
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009212"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186941"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack-Update 1809
 
@@ -51,7 +51,7 @@ Dieses Update enthält die folgenden Verbesserungen für Azure Stack:
 
 - Sie können die [Registrierungsressource in Azure zwischen Ressourcengruppen verschieben](../azure-stack-registration.md#move-a-registration-resource), ohne sich erneut registrieren zu müssen. Cloudlösungsanbieter (Cloud Solution Providers, CSPs) können ebenfalls die Registrierungsressource zwischen Abonnements verschieben, sofern sowohl das alte als auch das neue Abonnement der gleichen CSP-Partner-ID zugeordnet sind. Dies wirkt sich nicht auf die vorhandenen Mandantenzuordnungen des Kunden aus. 
 
-- Unterstützung für das Zuweisen mehrerer IP-Adressen pro Netzwerkschnittstelle wurde hinzugefügt.  Ausführlichere Informationen finden Sie unter [Zuweisen von mehreren IP-Adressen zu virtuellen Computern mithilfe von PowerShell](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
+- Unterstützung für das Zuweisen mehrerer IP-Adressen pro Netzwerkschnittstelle wurde hinzugefügt.  Ausführlichere Informationen finden Sie unter [Zuweisen von mehreren IP-Adressen zu virtuellen Computern mithilfe von PowerShell](/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
 
 ### <a name="fixed-issues"></a>Behobene Probleme
 
@@ -78,7 +78,7 @@ Dieses Update enthält die folgenden Verbesserungen für Azure Stack:
 ### <a name="changes"></a>Änderungen
 
 <!-- 2635202 - IS, ASDK -->
-- Der Infrastruktursicherungsdienst wird aus dem [öffentlichen Infrastrukturnetzwerk](https://docs.microsoft.com/azure/azure-stack/azure-stack-network) in das [öffentliche VIP-Netzwerk](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network) verschoben. Kunden müssen sicherstellen, dass der Dienst aus dem öffentlichen VIP-Netzwerk auf den Sicherungsspeicherort zugreifen kann.  
+- Der Infrastruktursicherungsdienst wird aus dem [öffentlichen Infrastrukturnetzwerk](/azure/azure-stack/azure-stack-network) in das [öffentliche VIP-Netzwerk](/azure/azure-stack/azure-stack-network#public-vip-network) verschoben. Kunden müssen sicherstellen, dass der Dienst aus dem öffentlichen VIP-Netzwerk auf den Sicherungsspeicherort zugreifen kann.  
 
 > [!IMPORTANT]  
 > Sollten Sie über eine Firewall verfügen, die aus dem öffentlichen VIP-Netzwerk keine Verbindungen mit dem Dateiserver zulässt, führt diese Änderung dazu, dass bei Infrastruktursicherungen der Fehler 53 („Der Netzwerkpfad wurde nicht gefunden.“) auftritt. Hierbei handelt es sich um einen Breaking Change ohne sinnvolle Problemumgehung. Aufgrund von Kundenfeedback wird die Änderung von Microsoft per Hotfix zurückgesetzt. Weitere Informationen zu verfügbaren Hotfixes für 1809 finden Sie im [Abschnitt mit den Schritten nach dem Updatevorgang](#post-update-steps). Wenden Sie den bereitgestellten Hotfix nach dem Update auf 1809 nur an, wenn das öffentliche VIP-Netzwerk aufgrund Ihrer Netzwerkrichtlinien nicht auf Infrastrukturressourcen zugreifen kann. In 1811 wird diese Änderung auf alle Systeme angewendet. Wenn Sie den Hotfix in 1809 angewendet haben, ist keine weitere Aktion erforderlich.  
@@ -265,7 +265,7 @@ Im Folgenden werden bekannte Probleme nach der Installation zu dieser Buildversi
 -  Wenn Sie im Azure Stack-Portal eine neue VM erstellen und die VM-Größe auswählen, wird die Spalte „USD/Monat“ mit der Meldung **Nicht verfügbar** angezeigt. Diese Spalte sollte nicht angezeigt werden. Die Anzeige der VM-Preisspalte wird in Azure Stack nicht unterstützt.
 
 <!-- 2869209 - IS, ASDK --> 
--  Bei Verwendung des [**Add-AzsPlatformImage**-Cmdlets](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0&preserve-view=true) müssen Sie den **-OsUri**-Parameter als Speicherkonto-URI beim Hochladen des Datenträgers verwenden. Wenn Sie den lokalen Pfad des Datenträgers verwenden, schlägt das Cmdlet mit der folgenden Fehlermeldung fehl: *Fehler beim Vorgang mit langer Ausführungszeit mit dem Status „Fehler“* . 
+-  Bei Verwendung des [**Add-AzsPlatformImage**-Cmdlets](/powershell/module/azs.compute.admin/add-azsplatformimage?preserve-view=true&view=azurestackps-1.4.0) müssen Sie den **-OsUri**-Parameter als Speicherkonto-URI beim Hochladen des Datenträgers verwenden. Wenn Sie den lokalen Pfad des Datenträgers verwenden, schlägt das Cmdlet mit der folgenden Fehlermeldung fehl: *Fehler beim Vorgang mit langer Ausführungszeit mit dem Status „Fehler“* . 
 
 <!--  2795678 - IS, ASDK --> 
 - Wenn Sie das Portal zum Erstellen virtueller Computer in einer Premium-VM-Größe (DS, Ds_v2, FS, FSv2) verwenden, wird der virtuelle Computer in einem Standardspeicherkonto erstellt. Die Erstellung in einem Standardspeicherkonto wirkt sich nicht auf die Funktionalität, IOPs oder die Abrechnung aus. 
@@ -352,4 +352,4 @@ Sie können das Paket für das Azure Stack-Update 1809 [hier](https://aka.ms/azu
 - Informationen zur Wartungsrichtlinie für integrierte Azure Stack-Systeme und dazu, wie Sie vorgehen müssen, um den unterstützten Zustand des Systems aufrechtzuerhalten, finden Sie unter [Azure Stack-Wartungsrichtlinie](../azure-stack-servicing-policy.md).  
 - Informationen zum Überwachen und Fortsetzen von Updates mithilfe des privilegierten Endpunkts (PEP) finden Sie unter [Überwachen von Änderungen in Azure Stack mithilfe des privilegierten Endpunkts](../azure-stack-monitor-update.md).  
 - Eine Übersicht über die Updateverwaltung in Azure Stack finden Sie unter [Übersicht zum Verwalten von Updates in Azure Stack](../azure-stack-updates.md).  
-- Informationen zur Anwendung von Updates mit Azure Stack finden Sie unter [Anwenden von Updates in Azure Stack](../azure-stack-apply-updates.md).  
+- Informationen zur Anwendung von Updates mit Azure Stack finden Sie unter [Anwenden von Updates in Azure Stack](../azure-stack-apply-updates.md).

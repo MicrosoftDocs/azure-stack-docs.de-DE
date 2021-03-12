@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 5111857dbf154c3669e3971b16af686eb0facc44
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: ba038ecf7bbadd5f92d4a4ad97583082905861a2
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869405"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515599"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>Ersetzen einer Hardwarekomponente auf einem Azure Stack Hub-Knoten einer Skalierungseinheit
 
@@ -31,7 +31,7 @@ In diesem Artikel wird das allgemeine Verfahren zum Ersetzen von Hardwarekompone
 |  | EU | [Fujitsu MySupport (Konto und Anmeldung erforderlich)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
 | HPE | All | [HPE ProLiant für Microsoft Azure Stack Hub](http://www.hpe.com/info/MASupdates) |
 | Lenovo | All | [ThinkAgile SXM – bewährte Vorgehensweisen](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
-| Wortmann |  | [OEM-/Firmwarepaket](https://aka.ms/AA6z600)<br>[Terra Azure Stack Hub-Dokumentation (einschließlich FRU)](https://aka.ms/aa6zktc)
+| Wortmann |  | [OEM-/Firmwarepaket](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/)<br>[Terra Azure Stack Hub-Dokumentation (einschließlich FRU)](https://aka.ms/aa6zktc)
 
 Nicht im laufenden Betrieb austauschbare Komponenten umfassen folgende Elemente:
 

@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: b9334a3079a767f723240946af8091508204b8ae
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 63a42e4b3cab1273c84c52367178c00442bf2cf2
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248709"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187230"
 ---
 # <a name="azure-stack-1802-update"></a>Azure Stack-Update 1802
 
@@ -129,7 +129,7 @@ Im Folgenden werden bekannte Probleme nach der Installation zum Build **20180302
     Diese Warnung kann ignoriert werden. 
 
 <!-- 2253274 --> 
-- In den Administrator- und Benutzerportalen kann das Blatt „Einstellungen“ für VNET-Subnetze nicht geladen werden. Verwenden Sie zur Problemumgehung PowerShell und das Cmdlet [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0&preserve-view=true), um diese Informationen anzuzeigen und zu verwalten.
+- In den Administrator- und Benutzerportalen kann das Blatt „Einstellungen“ für VNET-Subnetze nicht geladen werden. Verwenden Sie zur Problemumgehung PowerShell und das Cmdlet [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?preserve-view=true&view=azurermps-5.5.0), um diese Informationen anzuzeigen und zu verwalten.
 
 - Sowohl im Administrator- als auch im Benutzerportal wird das Blatt „Übersicht“ nicht geladen, wenn Sie auf das Übersichtsblatt für Speicherkonten klicken, die mit einer älteren API-Version (beispielsweise 2015-06-15) erstellt wurden. Das gilt auch für Systemspeicherkonten wie **updateadminaccount**, das im Rahmen von Patch- und Updatevorgängen verwendet wird. 
 
@@ -161,7 +161,7 @@ Im Folgenden werden bekannte Probleme nach der Installation zum Build **20180302
 - Benutzer können den gesamten Marketplace ohne Abonnement durchsuchen, und es werden administrative Elemente wie Pläne und Angebote angezeigt. Diese Elemente sind für Benutzer nicht funktional.
 
 #### <a name="compute"></a>Compute
-- Die Skalierungseinstellungen für Skalierungsgruppen für virtuelle Computer sind im Portal nicht verfügbar. Dieses Problem können Sie umgehen, indem Sie [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) verwenden. Aufgrund der Versionsunterschiede bei PowerShell müssen Sie den `-Name`-Parameter statt des `-VMScaleSetName`-Parameters verwenden.
+- Die Skalierungseinstellungen für Skalierungsgruppen für virtuelle Computer sind im Portal nicht verfügbar. Dieses Problem können Sie umgehen, indem Sie [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) verwenden. Aufgrund der Versionsunterschiede bei PowerShell müssen Sie den `-Name`-Parameter statt des `-VMScaleSetName`-Parameters verwenden.
 
 <!-- 2290877  --> 
 - Es ist für Sie nicht möglich, eine VM-Skalierungsgruppe (VMSS) hochzuskalieren, die mit einer älteren Version als Azure Stack 1802 erstellt wurde. Der Grund ist eine Änderung bei der Unterstützung der Nutzung von Verfügbarkeitsgruppen mit VM-Skalierungsgruppen. Diese Unterstützung wurde mit Version 1802 hinzugefügt.  Wenn Sie zusätzliche Instanzen zur Skalierung einer VM-Skalierungsgruppe hinzufügen möchten, die vor dem Vorhandensein dieser Unterstützung erstellt wurde, tritt für den Vorgang ein Fehler mit der Meldung *Bereitstellungsstatus „Fehler“* auf. 
@@ -314,7 +314,7 @@ Sie können das Paket für das Azure Stack-Update 1802 [hier](https://aka.ms/azu
 ## <a name="more-information"></a>Weitere Informationen
 Microsoft stellt mithilfe des privilegierten Endpunkts (Privileged End Point, PEP), der mit Update 1710 installiert wird, eine Möglichkeit zum Überwachen und Fortsetzen von Updates bereit.
 
-- Weitere Informationen finden Sie in der Dokumentation unter [Überwachen von Änderungen in Azure Stack mithilfe des privilegierten Endpunkts](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update).
+- Weitere Informationen finden Sie in der Dokumentation unter [Überwachen von Änderungen in Azure Stack mithilfe des privilegierten Endpunkts](/azure/azure-stack/azure-stack-monitor-update).
 
 ## <a name="see-also"></a>Siehe auch
 

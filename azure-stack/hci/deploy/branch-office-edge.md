@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 01/21/2021
-ms.openlocfilehash: 672a97a9804de324edde7c3802849a32ea44c0c4
-ms.sourcegitcommit: dd34ae1c6207aafb5218c31658123e913f51bf7c
+ms.openlocfilehash: ee9fef4a7da2312876eff168573b1a26bea0290b
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98691064"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186839"
 ---
 # <a name="deploy-branch-office-and-edge-on-azure-stack-hci"></a>Filialen- und Edgebereitstellungsszenarios in der Azure Stack HCI
 
@@ -18,11 +18,11 @@ ms.locfileid: "98691064"
 
 In diesem Artikel erhalten Sie eine Anleitung, wie Sie Filialen- und Edgebereitstellungsszenarios im Azure Stack HCI-Betriebssystem planen, konfigurieren und durchführen. In diesem Leitfaden erfährt Ihre Organisation, wie komplexe und hochverfügbare Workloads auf VMs und in Containern in Remotebereitstellungsszenarios in Filialen und am Edge ausführt werden können. Beim Computing am Edge wird der Großteil der Datenverarbeitung aus einem zentralisierten System an den Edge des Netzwerks verlagert, also in die Nähe eines Geräts oder Systems, für das die Daten schnell verfügbar sein müssen.
 
-Mithilfe der Azure Stack HCI können Sie virtualisierte Anwendungen und Workloads mit Hochverfügbarkeit auf empfohlener Hardware ausführen. Die Hardware unterstützt Cluster, die aus zwei Servern bestehen, die mit geschachtelter Resilienz für Speicher, einem einfachen und kostengünstigen Clusterzeugen für einen USB-Stick und Verwaltung über eine browserbasierte Windows Admin Center-Instanz konfiguriert sind. Details zum Erstellen eines Clusterzeugen für ein USB-Gerät finden Sie unter [Bereitstellen eines Dateifreigabenzeugen](https://docs.microsoft.com/windows-server/failover-clustering/file-share-witness).
+Mithilfe der Azure Stack HCI können Sie virtualisierte Anwendungen und Workloads mit Hochverfügbarkeit auf empfohlener Hardware ausführen. Die Hardware unterstützt Cluster, die aus zwei Servern bestehen, die mit geschachtelter Resilienz für Speicher, einem einfachen und kostengünstigen Clusterzeugen für einen USB-Stick und Verwaltung über eine browserbasierte Windows Admin Center-Instanz konfiguriert sind. Details zum Erstellen eines Clusterzeugen für ein USB-Gerät finden Sie unter [Bereitstellen eines Dateifreigabenzeugen](/windows-server/failover-clustering/file-share-witness).
 
 Azure IoT Edge verschiebt Cloudanalysen und benutzerdefinierte Geschäftslogik auf Geräte, damit Sie sich auf geschäftliche Erkenntnisse konzentrieren können und sich nicht mit der Datenverwaltung befassen müssen. Azure IoT Edge kombiniert KI, Cloud- und Edgecomputing in containerisierten Cloudworkloads, z. B. Azure Cognitive Services, Machine Learning, Stream Analytics und Azure Functions. Workloads können auf Geräten wie einem Raspberry Pi oder auf einem konvergierten Edgeserver ausgeführt werden. Sie verwenden [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub), um Ihre Edgeanwendungen und -geräte zu verwalten.
 
-Wenn Sie Azure IoT Edge zu Ihren Azure Stack HCI-Filialen- und Edgebereitstellungen hinzufügen, wird Ihre Umgebung so modernisiert, dass [CI-/CD-Pipelines](https://docs.microsoft.com/azure/iot-edge/how-to-continuous-integration-continuous-deployment) als Anwendungsbereitstellungsframework unterstützt werden. DevOps-Personal in Ihrer Organisation kann containerisierte Anwendungen bereitstellen und durchlaufen, die vom IT-Team erstellt und unterstützt werden. Dafür werden herkömmliche VM-Verwaltungsprozesse und entsprechende Tools verwendet.
+Wenn Sie Azure IoT Edge zu Ihren Azure Stack HCI-Filialen- und Edgebereitstellungen hinzufügen, wird Ihre Umgebung so modernisiert, dass [CI-/CD-Pipelines](/azure/iot-edge/how-to-continuous-integration-continuous-deployment) als Anwendungsbereitstellungsframework unterstützt werden. DevOps-Personal in Ihrer Organisation kann containerisierte Anwendungen bereitstellen und durchlaufen, die vom IT-Team erstellt und unterstützt werden. Dafür werden herkömmliche VM-Verwaltungsprozesse und entsprechende Tools verwendet.
 
 Hauptfeatures von Azure IoT Edge:
 - Open-Source-Software von Microsoft
@@ -34,7 +34,7 @@ Hauptfeatures von Azure IoT Edge:
 - Unterstützung für Offlinekonnektivität und zeitweilige Konnektivität
 - Native Verwaltung in Azure IoT Hub
 
-Weitere Informationen finden Sie unter [Was ist Azure IoT Edge?](https://docs.microsoft.com/azure/iot-edge/about-iot-edge)
+Weitere Informationen finden Sie unter [Was ist Azure IoT Edge?](/azure/iot-edge/about-iot-edge)
 
 ## <a name="deploy-branch-office-and-edge"></a>Filialen- und Edgebereitstellungen
 In diesem Abschnitt wird allgemein erläutert, wie Sie Hardware für Filialen- und Edgebereitstellungen in der Azure Stack HCI erwerben und Windows Admin Center zum Verwalten verwenden. Außerdem erfahren Sie, wie Azure IoT Edge bereitgestellt wird, um Container in der Cloud zu verwalten.
@@ -56,30 +56,30 @@ Sie können Windows Admin Center auch verwenden, um zusätzliche Azure-Hybriddie
 ### <a name="step-3-use-container-based-apps-and-iot-data-processing"></a>Schritt 3: Verwenden von containerbasierten Apps und IoT-Datenverarbeitung
 Sie sind jetzt bereit dazu, moderne containerbasierte Anwendungsentwicklung und IoT-Datenverarbeitung zu nutzen. Verwenden Sie Windows Admin Center für die Schritte in diesem Abschnitt, um eine VM bereitzustellen, die Azure IoT Edge ausführt.
 
-Weitere Informationen finden Sie unter [Was ist Azure IoT Edge?](https://docs.microsoft.com/azure/iot-edge/about-iot-edge)
+Weitere Informationen finden Sie unter [Was ist Azure IoT Edge?](/azure/iot-edge/about-iot-edge)
 
 So stellen Sie Azure IoT Edge in der Azure Stack HCI bereit:
-1. Verwenden Sie Windows Admin Center, um [eine neue VM in der Azure Stack HCI zu erstellen](https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/manage-virtual-machines#create-a-new-virtual-machine).
+1. Verwenden Sie Windows Admin Center, um [eine neue VM in der Azure Stack HCI zu erstellen](/windows-server/manage/windows-admin-center/use/manage-virtual-machines#create-a-new-virtual-machine).
 
-    Weitere Informationen zu unterstützten Betriebssystemversionen, VM-Typen, Prozessorarchitekturen und Systemanforderungen finden Sie unter [Von Azure IoT Edge unterstützte Systeme](https://docs.microsoft.com/azure/iot-edge/support).
+    Weitere Informationen zu unterstützten Betriebssystemversionen, VM-Typen, Prozessorarchitekturen und Systemanforderungen finden Sie unter [Von Azure IoT Edge unterstützte Systeme](/azure/iot-edge/support).
 
 1. Falls Sie noch nicht über ein Azure-Konto verfügen, können Sie sich für ein [kostenloses Konto](https://azure.microsoft.com/free) registrieren.
-1. Erstellen Sie im Azure-Portal eine [Azure IoT Hub-Instanz](https://docs.microsoft.com/azure/iot-edge/quickstart#create-an-iot-hub).
-1. Registrieren Sie ein [IoT Edge-Gerät über das Azure-Portal](https://docs.microsoft.com/azure/iot-edge/quickstart#register-an-iot-edge-device).
+1. Erstellen Sie im Azure-Portal eine [Azure IoT Hub-Instanz](/azure/iot-edge/quickstart#create-an-iot-hub).
+1. Registrieren Sie ein [IoT Edge-Gerät über das Azure-Portal](/azure/iot-edge/quickstart#register-an-iot-edge-device).
 
     >[!NOTE]
     > Das IoT Edge-Gerät befindet sich auf einer VM, die entweder Windows oder Linux in der Azure Stack HCI ausführt.
 
-1. [Installieren und starten Sie auf der in Schritt 1 erstellten VM die IoT Edge-Runtime.](https://docs.microsoft.com/azure/iot-edge/quickstart#install-and-start-the-iot-edge-runtime)
+1. [Installieren und starten Sie auf der in Schritt 1 erstellten VM die IoT Edge-Runtime.](/azure/iot-edge/quickstart#install-and-start-the-iot-edge-runtime)
 
    >[!IMPORTANT]
    > Sie benötigen die Gerätezeichenfolge, die Sie in Schritt 4 erstellt haben, um die Runtime mit Azure IoT Hub zu verbinden.
 
-1. [Stellen Sie ein Modul in Azure IoT Edge bereit.](https://docs.microsoft.com/azure/iot-edge/quickstart#deploy-a-module)
+1. [Stellen Sie ein Modul in Azure IoT Edge bereit.](/azure/iot-edge/quickstart#deploy-a-module)
 
     Im Abschnitt [IoT Edge-Module](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) im Azure Marketplace finden Sie vorgefertigte Module, die Sie bereitstellen können.
 
 ## <a name="next-steps"></a>Nächste Schritte
 Weitere Informationen zu Filialen und Edge sowie zu Azure IoT Edge finden Sie in den folgenden Artikeln:
-- [Schnellstart: Bereitstellen Ihres ersten IoT Edge-Moduls auf einem virtuellen Linux-Gerät](https://docs.microsoft.com/azure/iot-edge/quickstart-linux?view=iotedge-2018-06&preserve-view=true)
-- [Schnellstart: Deploy your first IoT Edge module to a Windows device (Bereitstellen Ihres ersten IoT Edge-Moduls auf einem Windows-Gerät)](https://docs.microsoft.com/azure/iot-edge/quickstart?view=iotedge-2018-06&preserve-view=true)
+- [Schnellstart: Bereitstellen Ihres ersten IoT Edge-Moduls auf einem virtuellen Linux-Gerät](/azure/iot-edge/quickstart-linux?preserve-view=true&view=iotedge-2018-06)
+- [Schnellstart: Deploy your first IoT Edge module to a Windows device (Bereitstellen Ihres ersten IoT Edge-Moduls auf einem Windows-Gerät)](/azure/iot-edge/quickstart?preserve-view=true&view=iotedge-2018-06)

@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: f30a8b82a07aafed80fc75329516bd3b3d91df04
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: 78573a16d9fc376d7903badfd28bda9366ca1ddb
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009042"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102116987"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>Übersicht über Azure App Service und Azure Functions in Azure Stack Hub
 
@@ -33,7 +33,7 @@ Hier sind einige wichtige Features und Funktionen von Azure App Service aufgefü
 App Service verfügt über mehrere App-Typen, die jeweils zum Hosten einer bestimmten Workload bestimmt sind:
 
 - [Web-Apps:](/azure/app-service/overview) Hosten von Websites, Web-Apps und REST-APIs
-- [Azure Functions v1](/azure/azure-functions) zum Hosten ereignisgesteuerter, serverloser Workloads.
+- [Azure Functions v1](/azure/azure-functions/functions-versions) zum Hosten ereignisgesteuerter, serverloser Workloads.
 
 Der Begriff *App* bezieht sich auf die Hostingressourcen, die für die Ausführung einer Workload dediziert sind. Wenn wir *Web-App* als Beispiel nehmen, verstehen Sie darunter wahrscheinlich sowohl die Computeressourcen als auch die App-Codeelemente, die zusammen für einen Browser die Funktionalität bereitstellen. In Azure App Service handelt es sich bei einer Web-App um die Computeressourcen, die von Azure Stack Hub zum Hosten Ihres App-Codes bereitgestellt werden.
 

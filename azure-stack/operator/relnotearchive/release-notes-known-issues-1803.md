@@ -16,12 +16,12 @@ ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f15453ce20988929728a9d326ab5f7bf901beca
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 69af9b142f4fb198075dd751274caa3a10a96744
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248702"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187128"
 ---
 # <a name="azure-stack-1803-update"></a>Azure Stack-Update 1803
 
@@ -69,14 +69,14 @@ Dieses Update enthält die folgenden Verbesserungen und Fehlerbehebungen für Az
 - **Zugriff auf den Marketplace**: Sie können nun den Azure Stack Marketplace öffnen, indem Sie die Option [+ Neu](https://ms.portal.azure.com/#create/hub) in den Administrator- und Benutzerportalen genauso wie in den Azure-Portalen verwenden.
  
 <!-- 2202621 --> 
-- **Azure Monitor** – Azure Stack fügt [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) zu den Administrator- und Benutzerportalen hinzu. Dazu gehören neue Explorer für Metriken und Aktivitätsprotokolle. Um von externen Netzwerken auf Azure Monitor zugreifen zu können, muss der Port **13012** in Firewallkonfigurationen geöffnet sein. Weitere Informationen zu Ports, die von Azure Stack benötigt werden, finden Sie unter [Azure Stack-Rechenzentrumsintegration – Veröffentlichen von Endpunkten](../azure-stack-integrate-endpoints.md).
+- **Azure Monitor** – Azure Stack fügt [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) zu den Administrator- und Benutzerportalen hinzu. Dazu gehören neue Explorer für Metriken und Aktivitätsprotokolle. Um von externen Netzwerken auf Azure Monitor zugreifen zu können, muss der Port **13012** in Firewallkonfigurationen geöffnet sein. Weitere Informationen zu Ports, die von Azure Stack benötigt werden, finden Sie unter [Azure Stack-Rechenzentrumsintegration – Veröffentlichen von Endpunkten](../azure-stack-integrate-endpoints.md).
 
    Im Rahmen dieser Änderung wird die Option *Überwachungsprotokolle* unter **Weitere Dienste** zudem jetzt als *Aktivitätsprotokolle* angezeigt. Die Funktionalität entspricht jetzt dem Azure-Portal. 
 
 <!-- 1664791 --> 
 - **Sparsedateien** – Wenn Sie ein neues Image zu Azure Stack hinzufügen oder ein Image über die Marketplace-Syndikation hinzufügen, wird das Image in eine Sparsedatei konvertiert. Images, die vor der Verwendung von Azure Stack Version 1803 hinzugefügt wurden, können nicht konvertiert werden. Stattdessen müssen Sie diese Images über die Marketplace-Syndikation erneut übermitteln, um dieses Feature nutzen zu können. 
  
-   Sparsedateien stellen ein effizientes Dateiformat dar, das zur Verringerung der Speicherplatznutzung und Verbesserung von E/A-Vorgängen verwendet wird. Weitere Informationen zu Windows Server finden Sie unter [Fsutil-Sparsedatei](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-sparse). 
+   Sparsedateien stellen ein effizientes Dateiformat dar, das zur Verringerung der Speicherplatznutzung und Verbesserung von E/A-Vorgängen verwendet wird. Weitere Informationen zu Windows Server finden Sie unter [Fsutil-Sparsedatei](/windows-server/administration/windows-commands/fsutil-sparse). 
 
 ### <a name="fixed-issues"></a>Behobene Probleme
 
@@ -99,7 +99,7 @@ Dieses Update enthält die folgenden Verbesserungen und Fehlerbehebungen für Az
 -  Verwendungsdaten für virtuelle Computer werden jetzt stündlich getrennt. Dies steht im Einklang mit Azure. 
 
 <!--  2253274 --> 
--  Das Problem, bei dem in den Administrator- und Benutzerportalen das Blatt „Einstellungen“ für VNET-Subnetze nicht geladen werden konnte, wurde behoben. Verwenden Sie zur Problemumgehung PowerShell und das Cmdlet [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0&preserve-view=true), um diese Informationen anzuzeigen und zu verwalten.
+-  Das Problem, bei dem in den Administrator- und Benutzerportalen das Blatt „Einstellungen“ für VNET-Subnetze nicht geladen werden konnte, wurde behoben. Verwenden Sie zur Problemumgehung PowerShell und das Cmdlet [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?preserve-view=true&view=azurermps-5.5.0), um diese Informationen anzuzeigen und zu verwalten.
 
 - Bei der Erstellung eines virtuellen Computers wird die Meldung *Preise können nicht angezeigt werden* nicht mehr angezeigt, wenn Sie eine VM-Größe auswählen.
 
@@ -178,7 +178,7 @@ Im Folgenden werden bekannte Probleme nach der Installation zum Build **20180323
 
 
 #### <a name="compute"></a>Compute
-- Die Skalierungseinstellungen für Skalierungsgruppen für virtuelle Computer sind im Portal nicht verfügbar. Dieses Problem können Sie umgehen, indem Sie [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) verwenden. Aufgrund der Versionsunterschiede bei PowerShell müssen Sie den `-Name`-Parameter statt des `-VMScaleSetName`-Parameters verwenden.
+- Die Skalierungseinstellungen für Skalierungsgruppen für virtuelle Computer sind im Portal nicht verfügbar. Dieses Problem können Sie umgehen, indem Sie [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) verwenden. Aufgrund der Versionsunterschiede bei PowerShell müssen Sie den `-Name`-Parameter statt des `-VMScaleSetName`-Parameters verwenden.
 
 - Wenn Sie im Portal unter **Neu** > **Berechnen** > **Verfügbarkeitsgruppe** eine Verfügbarkeitsgruppe erstellen, können Sie nur eine Verfügbarkeitsgruppe mit einer Fehlerdomäne und einer Updatedomäne erstellen. Erstellen Sie bei der Erstellung eines neuen virtuellen Computers zur Problemumgehung die Verfügbarkeitsgruppe mithilfe von PowerShell, der CLI oder im Portal.
 

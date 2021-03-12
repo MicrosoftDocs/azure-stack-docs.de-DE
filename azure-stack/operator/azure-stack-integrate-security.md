@@ -1,18 +1,18 @@
 ---
 title: Integrieren von Azure Stack Hub in Überwachungslösungen mithilfe der Syslog-Weiterleitung
 description: Erfahren Sie, wie Azure Stack Hub mithilfe der Syslog-Weiterleitung in Überwachungslösungen integriert werden kann.
-author: PatAltimore
+author: BryanLa
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/15/2020
-ms.openlocfilehash: 9a6da457b32bf9a224a906bc24ec65c7adcf1fab
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6b1b4a206813178686b924b1de71ad957b4feb18
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870408"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231284"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Integrieren von Azure Stack Hub in Überwachungslösungen mithilfe der Syslog-Weiterleitung
 
@@ -57,7 +57,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 Parameter für das Cmdlet *Set-SyslogServer*:
 
-| Parameter | BESCHREIBUNG | type | Erforderlich |
+| Parameter | BESCHREIBUNG | Typ | Erforderlich |
 |---------|---------|---------|---------|
 |*ServerName* | FQDN oder IP-Adresse des Syslog-Servers | String | ja|
 |*ServerPort* | Portnummer, an der der Syslog-Server lauscht | UInt16 | ja|

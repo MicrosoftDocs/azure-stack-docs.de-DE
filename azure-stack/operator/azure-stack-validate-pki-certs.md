@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: Hier erfahren Sie, wie Sie mit dem Azure Stack Hub Readiness Checker-Tool PKI-Zertifikate für integrierte Azure Stack Hub-Systeme überprüfen.
 services: azure-stack
 documentationcenter: ''
-author: PatAltimore
+author: BryanLa
 ms.topic: how-to
 ms.date: 10/19/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 30a0c94f52a46ae92b1d76e111fae64d5599aba7
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b03bd67f774c8034ad68490393a29fc99c118b54
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868828"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231148"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Überprüfen von Azure Stack Hub-PKI-Zertifikaten
 

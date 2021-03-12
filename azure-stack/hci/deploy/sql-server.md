@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 01/11/2021
-ms.openlocfilehash: 8f93a56840d4e4410a42aafe117f6cb1eebe84b4
-ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
+ms.openlocfilehash: 433a9b8b7bf6f57cac936b24d7654b94b8e8c050
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98571597"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186805"
 ---
 # <a name="deploy-sql-server-on-azure-stack-hci"></a>Bereitstellen von SQL Server auf Azure Stack HCI
 
@@ -37,35 +37,35 @@ Verwenden Sie als nächstes das Windows Admin Center, um [einen Azure Stack HCI-
 Je nach Ihren Anforderungen können Sie SQL Server auf VMs installieren, die entweder Windows Server oder Linux ausführen.
 
 Anweisungen zum Installieren von SQL Server finden Sie unter:
-- [SQL Server-Installationshandbuch für Windows](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server?view=sql-server-ver15&preserve-view=true).
-- [Leitfaden für die Installation von SQL Server für Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-setup?view=sql-server-ver15&preserve-view=true).
+- [SQL Server-Installationshandbuch für Windows](/sql/database-engine/install-windows/install-sql-server?preserve-view=true&view=sql-server-ver15).
+- [Leitfaden für die Installation von SQL Server für Linux](/sql/linux/sql-server-linux-setup?preserve-view=true&view=sql-server-ver15).
 
 ### <a name="step-3-monitor-and-performance-tune-sql-server"></a>Schritt 3: Überwachen und Optimieren der Leistung von SQL Server
 Microsoft bietet eine umfassende Reihe von Tools für die Überwachung von Ereignissen in SQL Server und für die Optimierung des physischen Datenbankentwurfs. Die Wahl des Tools hängt von der Art der Überwachung oder Optimierung ab, die Sie ausführen möchten.
 
-Informationen zum Sicherstellen von Leistung und Integrität Ihrer SQL Server-Instanzen unter Azure Stack HCI finden Sie unter [Tools für die Leistungsüberwachung und -optimierung](https://docs.microsoft.com/sql/relational-databases/performance/performance-monitoring-and-tuning-tools?view=sql-server-ver15&preserve-view=true).
+Informationen zum Sicherstellen von Leistung und Integrität Ihrer SQL Server-Instanzen unter Azure Stack HCI finden Sie unter [Tools für die Leistungsüberwachung und -optimierung](/sql/relational-databases/performance/performance-monitoring-and-tuning-tools?preserve-view=true&view=sql-server-ver15).
 
 Informationen zur Optimierung von SQL Server 2017 und SQL Server 2016 finden Sie unter [Empfohlene Updates und Konfigurationsoptionen für SQL Server 2017 und SQL Server 2016 mit Arbeitsauslastungen mit hoher Leistung](https://support.microsoft.com/help/4465518/recommended-updates-and-configurations-for-sql-server).
 
 ### <a name="step-4-use-sql-server-high-availability-features"></a>Schritt 4: Verwenden der Hochverfügbarkeitsfunktionen von SQL Server
-Azure Stack HCI nutzt [Windows Server-Failoverclustering mit SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) (WSFC), um SQL Server bei einem Hardwarefehler auf virtuellen Computern zu unterstützen. SQL Server bietet außerdem [Always On-Verfügbarkeitsgruppen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) (AG), um Hochverfügbarkeit auf Datenbankebene bereitzustellen, die zur Unterstützung bei Anwendungs- und Softwarefehlern konzipiert ist. Zusätzlich zu WSFC und AG kann Azure Stack HCI eine [Always On-Failoverclusterinstanz](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server) (FCI) verwenden, die auf der Technologie [Direkte Speicherplätze](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) für freigegebenen Speicher basiert.
+Azure Stack HCI nutzt [Windows Server-Failoverclustering mit SQL Server](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) (WSFC), um SQL Server bei einem Hardwarefehler auf virtuellen Computern zu unterstützen. SQL Server bietet außerdem [Always On-Verfügbarkeitsgruppen](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) (AG), um Hochverfügbarkeit auf Datenbankebene bereitzustellen, die zur Unterstützung bei Anwendungs- und Softwarefehlern konzipiert ist. Zusätzlich zu WSFC und AG kann Azure Stack HCI eine [Always On-Failoverclusterinstanz](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server) (FCI) verwenden, die auf der Technologie [Direkte Speicherplätze](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) für freigegebenen Speicher basiert.
 
-Diese Optionen funktionieren alle mit dem Microsoft Azure-[Cloudzeugen](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) für die Quorum-Steuerung. Wir empfehlen die Verwendung von [AntiAffinity](https://docs.microsoft.com/windows-server/failover-clustering/cluster-affinity)-Clusterregeln in WSFC für VMs, die auf unterschiedlichen physischen Knoten platziert sind, um die Betriebszeit für SQL Server im Fall von Hostfehlern aufrecht zu erhalten, wenn Always On-Verfügbarkeitsgruppen konfiguriert sind.
+Diese Optionen funktionieren alle mit dem Microsoft Azure-[Cloudzeugen](/windows-server/failover-clustering/deploy-cloud-witness) für die Quorum-Steuerung. Wir empfehlen die Verwendung von [AntiAffinity](/windows-server/failover-clustering/cluster-affinity)-Clusterregeln in WSFC für VMs, die auf unterschiedlichen physischen Knoten platziert sind, um die Betriebszeit für SQL Server im Fall von Hostfehlern aufrecht zu erhalten, wenn Always On-Verfügbarkeitsgruppen konfiguriert sind.
 
 ### <a name="step-5-set-up-azure-hybrid-services"></a>Schritt 5: Einrichten von Azure-Hybriddiensten
-Es gibt mehrere Azure-Hybriddienste, die Sie verwenden können, um Ihre SQL Server Daten und Anwendungen zusätzlich zu schützen. [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) ist eine Lösung für die Notfallwiederherstellung in Form eines Diensts (Disaster-Recovery-as-a-Service, DRaaS). Weitere Informationen zur Verwendung dieses Diensts zum Schützen des SQL Server Back-Ends einer Anwendung, um Workloads online zu halten, finden Sie unter [Einrichten der Notfallwiederherstellung für SQL Server](https://docs.microsoft.com/azure/site-recovery/site-recovery-sql).
+Es gibt mehrere Azure-Hybriddienste, die Sie verwenden können, um Ihre SQL Server Daten und Anwendungen zusätzlich zu schützen. [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) ist eine Lösung für die Notfallwiederherstellung in Form eines Diensts (Disaster-Recovery-as-a-Service, DRaaS). Weitere Informationen zur Verwendung dieses Diensts zum Schützen des SQL Server Back-Ends einer Anwendung, um Workloads online zu halten, finden Sie unter [Einrichten der Notfallwiederherstellung für SQL Server](/azure/site-recovery/site-recovery-sql).
 
-Mit [Azure Backup](https://azure.microsoft.com/services/backup/) können Sie Sicherungsrichtlinien zum Schutz von Unternehmensworkloads definieren und die Sicherung und Wiederherstellung der SQL Server-Konsistenz unterstützen. Weitere Informationen zum Sichern Ihrer lokalen SQL-Daten finden Sie unter [installieren von Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup).
+Mit [Azure Backup](https://azure.microsoft.com/services/backup/) können Sie Sicherungsrichtlinien zum Schutz von Unternehmensworkloads definieren und die Sicherung und Wiederherstellung der SQL Server-Konsistenz unterstützen. Weitere Informationen zum Sichern Ihrer lokalen SQL-Daten finden Sie unter [installieren von Azure Backup Server](/azure/backup/backup-azure-microsoft-azure-backup).
 
-Alternativ können Sie die Funktion [SQL Server Managed Backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-ver15&preserve-view=true) in SQL Server verwenden, um Azure Blob Storage-Sicherungen zu verwalten.
+Alternativ können Sie die Funktion [SQL Server Managed Backup](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?preserve-view=true&view=sql-server-ver15) in SQL Server verwenden, um Azure Blob Storage-Sicherungen zu verwalten.
 
 Weitere Informationen zur Verwendung dieser Option, die sich für die externe Archivierung eignet, finden Sie unter: 
 
-- [Tutorial: Verwenden des Microsoft Azure Blob Storage-Diensts mit SQL Server 2016](https://docs.microsoft.com/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016?view=sql-server-ver15&preserve-view=true)
-- [Schnellstart: Sicherung und Wiederherstellung von SQL Server mit dem Azure Blob Storage-Dienst](https://docs.microsoft.com/sql/relational-databases/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service?view=sql-server-ver15&tabs=SSMS&preserve-view=true)
+- [Tutorial: Verwenden des Microsoft Azure Blob Storage-Diensts mit SQL Server 2016](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016?preserve-view=true&view=sql-server-ver15)
+- [Schnellstart: Sicherung und Wiederherstellung von SQL Server mit dem Azure Blob Storage-Dienst](/sql/relational-databases/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service?preserve-view=true&tabs=SSMS&view=sql-server-ver15)
 
-Zusätzlich zu diesen Sicherungsszenarien können Sie auch weitere Datenbankdienste einrichten, die SQL Server bietet, einschließlich [Azure Data Factory](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-sql-azure-adf) und [Azure Feature Pack für Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15&preserve-view=true).
+Zusätzlich zu diesen Sicherungsszenarien können Sie auch weitere Datenbankdienste einrichten, die SQL Server bietet, einschließlich [Azure Data Factory](/azure/machine-learning/team-data-science-process/move-sql-azure-adf) und [Azure Feature Pack für Integration Services (SSIS)](/sql/integration-services/azure-feature-pack-for-integration-services-ssis?preserve-view=true&view=sql-server-ver15).
 
 ## <a name="next-steps"></a>Nächste Schritte
 Weitere Informationen zum Arbeiten mit SQL Server finden Sie unter:
-- [Tutorial: Erste Schritte mit der Datenbank-Engine](https://docs.microsoft.com/sql/relational-databases/tutorial-getting-started-with-the-database-engine?view=sql-server-ver15&preserve-view=true)
+- [Tutorial: Erste Schritte mit der Datenbank-Engine](/sql/relational-databases/tutorial-getting-started-with-the-database-engine?preserve-view=true&view=sql-server-ver15)

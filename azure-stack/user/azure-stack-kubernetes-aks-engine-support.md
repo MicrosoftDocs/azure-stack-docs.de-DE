@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/0102020
-ms.openlocfilehash: 0322d72f3cd28a8e499b2a900d57e4e9d2e9bce4
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9969447ab737c6913576c73b2e53453a6cb8e1f6
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246723"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231760"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Supportrichtlinien für die AKS-Engine in Azure Stack Hub
 
@@ -85,7 +85,6 @@ Microsoft bietet für Folgendes keinen technischen Support:
 -  Kubernetes-Konfigurationsänderungen, die außerhalb des Kubernetes-Konfigurationsspeichers etcd beibehalten werden. Beispielsweise statische Pods, die auf Knoten des Clusters ausgeführt werden.
 -  Fragen zur Verwendung von Kubernetes. Der Microsoft-Support bietet z. B. keine Empfehlungen zur Erstellung benutzerdefinierter Eingangscontroller, zur Verwendung von Anwendungsworkloads oder zur Anwendung von Open-Source-Softwarepaketen oder -Tools bzw. zu Softwarepaketen oder Tools von Drittanbietern.
 -  Open-Source-Projekte von Drittanbietern, die nicht als Teil des Kubernetes-Clusters von der AKS-Engine bereitgestellt werden. Diese Projekte könnten Kubeadm, Kubespray, Native, Istio, Helm, Envoy oder andere einbeziehen.
--  Verwenden der AKS-Engine in Anwendungsfallszenarien, die nicht in [Mit der AKS-Engine unterstützte Szenarien](azure-stack-kubernetes-aks-engine-overview.md#supported-scenarios-with-the-aks-engine) angegeben werden.
 -  Drittanbietersoftware. Diese Software kann z. B. Tools für Sicherheitsscans und Netzwerkgeräte oder -software umfassen.
 -  Probleme mit Multi-Cloud- oder Multi-Vendor-Erweiterungen. Microsoft unterstützt z. B. keine Probleme bei der Ausführung einer vereinten Multipublic-Cloudanbieterlösung.
 -  Netzwerkanpassungen, die nicht im Abschnitt [Von der AKS-Engine unterstützte Bereiche](#aks-engine-supported-areas) aufgeführt werden.

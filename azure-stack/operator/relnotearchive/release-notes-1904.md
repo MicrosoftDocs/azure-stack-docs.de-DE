@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9222315f9a055ddc2b49ed470b0f22b653197473
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9ca014878021d0fbe02a8997e1436910557e93f5
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248714"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515922"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack-Update 1904
 
@@ -71,7 +71,7 @@ Der Buildtyp des Azure Stack 1904-Updates lautet **Express**. Weitere Informati
 - Das Volume für syslog-Nachrichten wurde verbessert. Nicht erforderliche Ereignisse werden herausgefiltert, und es wird ein Konfigurationsparameter angegeben, um den gewünschten Schweregrad für weitergeleitete Nachrichten auszuwählen. Weitere Informationen zum Konfigurieren des Schweregrads finden Sie unter [Integration des Azure Stack-Datencenters: syslog-Weiterleitung](../azure-stack-integrate-security.md).
 
 <!--this applied to Bug 1473487 -->
-- Dem Cmdlet **Get-AzureStackLog** wurde eine neue Funktion hinzugefügt, indem der zusätzliche Parameter `-OutputSASUri` bereitgestellt wurde. Sie können jetzt Azure Stack-Protokolle aus Ihrer Umgebung erfassen und im angegebenen Azure Storage-Blobcontainer speichern. Weitere Informationen finden Sie unter [Azure Stack-Diagnose](../azure-stack-configure-on-demand-diagnostic-log-collection.md#examples).
+- Dem Cmdlet **Get-AzureStackLog** wurde eine neue Funktion hinzugefügt, indem der zusätzliche Parameter `-OutputSASUri` bereitgestellt wurde. Sie können jetzt Azure Stack-Protokolle aus Ihrer Umgebung erfassen und im angegebenen Azure Storage-Blobcontainer speichern. Weitere Informationen finden Sie unter [Azure Stack-Diagnose](/azure-stack/operator/diagnostic-log-collection).
 
 - In der Gruppe „**Test-AzureStack** `UpdateReadiness`“ wurde eine neue Speicherüberprüfung hinzugefügt, mit der ermittelt wird, ob für die erfolgreiche Durchführung des Updates im Stapel genügend Speicher verfügbar ist.
 
@@ -88,7 +88,7 @@ Der Buildtyp des Azure Stack 1904-Updates lautet **Express**. Weitere Informati
 - Verbesserungen der Idempotenz des Sicherungsaktionsplans der Infrastruktur.
 
 <!--Bug/Task 3139609 -->
-- Verbesserungen der Azure Stack-Protokollsammlung. Diese Verbesserungen führen zu einem verringerten Zeitaufwand für das Abrufen der Protokolle. Darüber hinaus generiert das Cmdlet [Get-AzureStackLog](../azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) keine Standardprotokolle für die OEM-Rolle mehr. Sie müssen das Cmdlet [Invoke-AzureStackOnDemandLog](../azure-stack-configure-on-demand-diagnostic-log-collection.md#invoke-azurestackondemandlog) ausführen und die Rolle zum Abrufen der OEM-Protokolle angeben. Weitere Informationen finden Sie unter [Azure Stack-Diagnose](../azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+- Verbesserungen der Azure Stack-Protokollsammlung. Diese Verbesserungen führen zu einem verringerten Zeitaufwand für das Abrufen der Protokolle. Darüber hinaus generiert das Cmdlet [Get-AzureStackLog](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) keine Standardprotokolle für die OEM-Rolle mehr. Sie müssen das Cmdlet [Invoke-AzureStackOnDemandLog](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#invoke-azurestackondemandlog) ausführen und die Rolle zum Abrufen der OEM-Protokolle angeben. Weitere Informationen finden Sie unter [Azure Stack-Diagnose](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
 - In Azure Stack wird jetzt die Verbunddaten-URL für die Datencenterintegration mit ADFS überwacht. Auf diese Weise wird die Zuverlässigkeit während der Geheimnisrotation der ADFS-Instanz bzw. -Farm des Kunden verbessert.
 
@@ -205,5 +205,4 @@ Für Kunden mit Systemen, die über das Infrastrukturnetzwerk auf das Internet z
 - Eine Übersicht über die Updateverwaltung in Azure Stack finden Sie unter [Übersicht zum Verwalten von Updates in Azure Stack](../azure-stack-updates.md).  
 - Informationen zur Anwendung von Updates mit Azure Stack finden Sie unter [Anwenden von Updates in Azure Stack](../azure-stack-apply-updates.md).
 - Informationen zur Wartungsrichtlinie für integrierte Azure Stack-Systeme und dazu, wie Sie vorgehen müssen, um den unterstützten Zustand des Systems aufrechtzuerhalten, finden Sie unter [Azure Stack-Wartungsrichtlinie](../azure-stack-servicing-policy.md).  
-- Informationen zum Überwachen und Fortsetzen von Updates mithilfe des privilegierten Endpunkts (PEP) finden Sie unter [Überwachen von Änderungen in Azure Stack mithilfe des privilegierten Endpunkts](../azure-stack-monitor-update.md).  
-
+- Informationen zum Überwachen und Fortsetzen von Updates mithilfe des privilegierten Endpunkts (PEP) finden Sie unter [Überwachen von Änderungen in Azure Stack mithilfe des privilegierten Endpunkts](../azure-stack-monitor-update.md).

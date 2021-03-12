@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 1f29698d1bae0b38a41f19f3c9eb75f76bffc59e
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 42ccc5c8858bf113b7308e4375ee3261a0a96a1f
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246859"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231488"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack-hub"></a>Was ist die AKS-Engine in Azure Stack Hub?
 
@@ -27,14 +27,6 @@ Die [AKS-Engine](https://github.com/Azure/aks-engine) stellt ein Befehlszeilento
 Machen Sie sich vor der Verwendung der AKS-Engine in Azure Stack Hub mit den Unterschieden zwischen Azure Stack Hub und Azure vertraut. In diesem Abschnitt werden verschiedene Features und wichtige Aspekte der Verwaltung Ihres Kubernetes-Clusters mit der AKS-Engine in Azure Stack Hub beschrieben.
 
 Weitere Informationen zu den Besonderheiten der AKS-Engine in Azure Stack Hub und den Unterschieden in Bezug auf Azure finden Sie unter [AKS Engine on Azure Stack Hub](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md) (AKS-Engine in Azure Stack Hub).
-
-## <a name="supported-scenarios-with-the-aks-engine"></a>Mit der AKS-Engine unterstützte Szenarien
-
-Das Azure Stack Hub-Supportteam unterstützt folgende Szenarien:
-
-1.  Die AKS-Engine stellt alle Clusterartefakte gemäß den Richtlinien in dieser Dokumentation und unter Verwendung der [folgenden Vorlage](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack) bereit.
-2.  Die AKS-Engine stellt den Cluster in einem vorhandenen VNET bereit. Weitere Informationen finden Sie unter [Using a custom virtual network with AKS Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/custom-vnet.md) (Verwenden eines benutzerdefinierten virtuellen Netzwerks mit der AKS-Engine).
-3.  [Upgrade-](azure-stack-kubernetes-aks-engine-upgrade.md) und [Skalierungsvorgänge](azure-stack-kubernetes-aks-engine-scale.md).
 
 Weitere Informationen zur AKS-Engine und Azure Stack Hub finden Sie unter [Supportrichtlinien für AKS-Engine in Azure Stack Hub](azure-stack-kubernetes-aks-engine-support.md).
 

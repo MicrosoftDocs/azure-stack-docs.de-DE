@@ -16,12 +16,12 @@ ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5d871458a7af4e9233e750b07404bc151274033a
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: eb55f42161095f9034b6c5cf726240d86366604b
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248698"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187077"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack-Update 1804
 
@@ -79,9 +79,9 @@ Die folgenden Updates sind jetzt verfügbar, benötigen jedoch nicht Azure Stack
 
 - **Neue Azure Stack Admin PowerShell Version 1.3.0**.  Azure Stack PowerShell 1.3.0 ist jetzt für die Installation verfügbar. Diese Version stellt Befehle für alle Administratorressourcenanbieter zum Verwalten von Azure Stack zur Verfügung.  Bei diesem Release werden manche Inhalte aus dem GitHub-[Repository](https://github.com/Azure/AzureStack-Tools) für Azure Stack-Tools eingestellt. 
 
-   Um ausführliche Informationen zur Installation zu erhalten, beachten Sie die [Anweisungen](../azure-stack-powershell-install.md) oder den [Hilfeinhalt](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0&preserve-view=true) für das Azure Stack-Modul 1.3.0. 
+   Um ausführliche Informationen zur Installation zu erhalten, beachten Sie die [Anweisungen](../azure-stack-powershell-install.md) oder den [Hilfeinhalt](/powershell/azure/azure-stack/overview?preserve-view=true&view=azurestackps-1.3.0) für das Azure Stack-Modul 1.3.0. 
 
-- **Erstes Release der Azure Stack-REST-API-Referenz**. Die [API-Referenz für alle Azure Stack-Administratorressourcenanbieter](https://docs.microsoft.com/rest/api/azure-stack/) ist jetzt veröffentlicht. 
+- **Erstes Release der Azure Stack-REST-API-Referenz**. Die [API-Referenz für alle Azure Stack-Administratorressourcenanbieter](/rest/api/azure-stack/) ist jetzt veröffentlicht. 
 
 
 ## <a name="before-you-begin"></a>Voraussetzungen    
@@ -118,7 +118,7 @@ Im Folgenden werden bekannte Probleme nach der Installation zum Build **20180513
 
 <!-- 1272111 - IS --> 
 -  Nach der Installation dieser Azure Stack-Version oder dem Update auf diese können möglicherweise keine Azure Stack-Skalierungseinheiten im Administratorportal angezeigt werden.  
-  Problemumgehung: Verwenden Sie PowerShell zum Anzeigen von Informationen zu Skalierungseinheiten. Weitere Informationen finden Sie in der [Hilfe](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0&preserve-view=true) zum Azure Stack-Modul 1.3.0. 
+  Problemumgehung: Verwenden Sie PowerShell zum Anzeigen von Informationen zu Skalierungseinheiten. Weitere Informationen finden Sie in der [Hilfe](/powershell/azure/azure-stack/overview?preserve-view=true&view=azurestackps-1.3.0) zum Azure Stack-Modul 1.3.0. 
 
 <!-- 2332636 - IS -->  
 -   Wenn Sie AD FS für Ihr Azure Stack-Identitätssystem verwenden und auf diese Version von Azure Stack aktualisieren, wird der Standardbesitzer des Abonnements für Standardanbieter auf den integrierten **CloudAdmin**-Benutzer zurückgesetzt.  
@@ -186,13 +186,13 @@ Im Folgenden werden bekannte Probleme nach der Installation zum Build **20180513
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI**: Sie können den Befehl [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create&preserve-view=true) verwenden und die VM-Größe als Parameter angeben, ähnlich wie `--size "Standard_F32s_v2"`.
+  - **Azure CLI**: Sie können den Befehl [az vm create](/cli/azure/vm?preserve-view=true&view=azure-cli-latest#az-vm-create) verwenden und die VM-Größe als Parameter angeben, ähnlich wie `--size "Standard_F32s_v2"`.
 
-  - **PowerShell**: Mit PowerShell können Sie [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0&preserve-view=true) mit dem Parameter verwenden, der die VM-Größe angibt, ähnlich wie `-VMSize "Standard_F32s_v2"`.
+  - **PowerShell**: Mit PowerShell können Sie [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig?preserve-view=true&view=azurermps-6.0.0) mit dem Parameter verwenden, der die VM-Größe angibt, ähnlich wie `-VMSize "Standard_F32s_v2"`.
 
 
 <!-- TBD - IS ASDK --> 
-- Die Skalierungseinstellungen für Skalierungsgruppen für virtuelle Computer sind im Portal nicht verfügbar. Dieses Problem können Sie umgehen, indem Sie [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) verwenden. Aufgrund der Versionsunterschiede bei PowerShell müssen Sie den `-Name`-Parameter statt des `-VMScaleSetName`-Parameters verwenden.
+- Die Skalierungseinstellungen für Skalierungsgruppen für virtuelle Computer sind im Portal nicht verfügbar. Dieses Problem können Sie umgehen, indem Sie [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) verwenden. Aufgrund der Versionsunterschiede bei PowerShell müssen Sie den `-Name`-Parameter statt des `-VMScaleSetName`-Parameters verwenden.
 
 <!-- TBD - IS --> 
 - Wenn Sie im Portal unter **Neu** > **Berechnen** > **Verfügbarkeitsgruppe** eine Verfügbarkeitsgruppe erstellen, können Sie nur eine Verfügbarkeitsgruppe mit einer Fehlerdomäne und einer Updatedomäne erstellen. Erstellen Sie bei der Erstellung eines neuen virtuellen Computers zur Problemumgehung die Verfügbarkeitsgruppe mithilfe von PowerShell, der CLI oder im Portal.
